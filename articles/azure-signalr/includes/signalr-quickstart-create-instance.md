@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588150"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199261"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
@@ -39,6 +39,4 @@ ms.locfileid: "57588150"
 
 1. **만들기**를 선택하여 SignalR Service 인스턴스 배포를 시작하세요.
 
-1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. 서비스 모드 설정을 *서버리스*로 변경합니다.
-
-    ![SignalR Service 모드](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. Azure Functions 바인딩이나 REST API를 통해 Azure SignalR Service를 사용하는 경우에만 서비스 모드 설정을 *서버리스*로 변경합니다. 그렇지 않으면 *클래식*이나 *기본값*으로 유지합니다.

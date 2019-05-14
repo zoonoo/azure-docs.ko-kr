@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310896"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413947"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric의 주문형 백업
 
@@ -28,6 +28,22 @@ Reliable Stateful 서비스 및 Reliable Actors의 데이터를 백업하여 재
 Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 및 필요 시 데이터를 백업하는 기능을 포함합니다. 주문형 백업은 기본 서비스 또는 환경의 계획된 변경 작업으로 인한 _데이터 손실_/_데이터 손상_으로부터 보호하므로 유용합니다.
 
 주문형 백업 기능은 서비스 또는 서비스 환경 작업을 수동으로 트리거하기 전에 서비스 상태를 캡처하는 데 유용합니다. 예를 들어 서비스를 업그레이드하거나 다운그레이드할 때 서비스 바이너리를 변경하는 경우가 있습니다. 이러한 경우 주문형 백업은 애플리케이션 코드 버그로 인한 손상에 대해 데이터를 보호하는 데 도움이 될 수 있습니다.
+## <a name="prerequisites"></a>필수 조건
+
+- 구성을 호출 하는 것에 대 한 Microsoft.ServiceFabric.Powershell.Http 모듈 [미리 보기]를 설치 합니다.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- 클러스터를 사용 하 여 연결 되어 있는지 확인 합니다 `Connect-SFCluster` Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 모든 구성 요청을 수행 하기 전에 명령입니다.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>주문형 백업 트리거
 
@@ -38,6 +54,16 @@ Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestor
 스토리지로 추가 주문형 백업을 위해 Reliable Stateful 서비스 또는 Reliable Actor의 파티션을 사용하도록 정기적인 백업 정책을 구성할 수 있습니다.
 
 다음 사례는 [Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors) 시나리오를 계속 설명한 것입니다. 이 경우 파티션을 사용하도록 백업 정책을 설정하고 백업은 Azure Storage에 설정된 빈도로 발생합니다.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
 
 파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`에 대한 주문형 백업 트리거를 설정하려면 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API를 사용합니다.
 
@@ -52,6 +78,17 @@ Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -Certif
 ### <a name="on-demand-backup-to-specified-storage"></a>지정된 스토리지에 주문형 백업
 
 Reliable Stateful 서비스 또는 Reliable Actor의 파티션에 대한 주문형 백업을 요청할 수 있습니다. 주문형 백업 요청의 일부로 스토리지 정보를 제공합니다.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
 
 파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`에 대한 주문형 백업 트리거를 설정하려면 [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API를 사용합니다. 다음 Azure Storage 정보를 포함합니다.
 
@@ -79,6 +116,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 Reliable Stateful 서비스 또는 Reliable Actor의 파티션은 한 번에 하나의 주문형 백업 요청만 수락합니다. 현재 주문형 백업 요청이 완료된 후에만 또 다른 요청을 수락할 수 있습니다.
 
 여러 파티션에서 주문형 백업 요청을 동시에 트리거할 수 있습니다.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"

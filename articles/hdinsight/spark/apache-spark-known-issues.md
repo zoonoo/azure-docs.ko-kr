@@ -67,7 +67,7 @@ HDInsight Spark 클러스터는 Spark-Phoenix 커넥터를 지원하지 않습�
 
 **해결 방법:**
 
-대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
+대신 Spark-HBase 커넥터를 사용해야 합니다. 자세한 내용은 [Spark-HBase 커넥터 사용 방법](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)을 참조하세요.
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 관련 문제
 다음은 Jupyter Notebook과 관련된 몇 가지 알려진 문제입니다.

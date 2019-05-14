@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143177"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511195"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -26,15 +26,23 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>함수 앱 설정 탭
+특히 개요 페이지에서 함수 앱을 관리 하는 데 필요한 모든 이동할 수 있습니다 합니다 **[응용 프로그램 설정](#settings)** 하 고 **[플랫폼기능](#platform-features)**.
 
-![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>애플리케이션 설정
 
-**설정** 탭에서는 함수 앱에서 사용되는 Functions 런타임 버전을 업데이트할 수 있습니다. 이 탭에서는 또한 함수 앱에서 호스트하는 모든 함수에 대한 HTTP 액세스를 제한하는 데 사용되는 호스트 키를 관리합니다.
+합니다 **응용 프로그램 설정** 탭에는 함수 앱에서 사용 되는 설정을 유지 합니다.
 
-Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원합니다. 자세한 내용은 [Azure Functions에 대한 올바른 서비스 계획 선택](functions-scale.md)을 참조하세요. 소비 계획에서 더 나은 예측 가능성을 얻기 위해 Functions는 일일 사용 할당량(기가바이트 초)을 설정하여 플랫폼 사용을 제한할 수 있도록 합니다. 일일 사용 할당량에 도달하면 함수 앱이 중지됩니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 대금 청구에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.   
+![Azure portal에서 함수 앱 설정입니다.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>플랫폼 기능 탭
+이러한 설정은 암호화 저장 됩니다 하 고 선택 해야 합니다 **값을 표시** 포털에서 값을 확인할 수 있습니다.
+
+설정을 추가 하려면 **새 응용 프로그램 설정을** 새 키-값 쌍을 추가 합니다.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+로컬 함수 앱을 개발할 때 이러한 값 local.settings.json 프로젝트 파일에 유지 됩니다.
+
+## <a name="platform-features"></a>플랫폼 기능
 
 ![함수 응용 프로그램 플랫폼 기능 탭](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 이 항목의 나머지 부분에서는 Functions에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
 
 + [App Service 편집기](#editor)
-+ [애플리케이션 설정](#settings) 
 + [Console](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
@@ -63,14 +70,6 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 | ![함수 앱 App Service 편집기](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정하는 데 사용할 수 있는 포털 내 고급 편집기입니다. 이 옵션을 선택하면 기본 편집기와 함께 별도의 브라우저 탭이 실행됩니다. 이를 통해 Git 리포지토리와 통합하고 코드를 실행 및 디버깅하며 함수 앱 설정을 수정할 수 있습니다. 이 편집기는 기본 함수 앱 블레이드와 비교할 때 함수에 대해 고급 개발 환경을 제공합니다.    |
 
 ![App Service 편집기](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>애플리케이션 설정
-
-| | |
-|-|-|
-| ![함수 앱 애플리케이션 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **애플리케이션 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. 설정을 삭제하려면 오른쪽으로 스크롤하고 줄 오른쪽 끝에서 **X** 아이콘을 선택합니다(다음 이미지에 표시되지 않음).
-
-![애플리케이션 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>콘솔
 

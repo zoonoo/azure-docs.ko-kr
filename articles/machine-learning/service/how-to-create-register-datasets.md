@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205032"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510503"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>만들기 및 Azure Machine Learning 데이터 집합 (미리 보기)를 등록 합니다.
 
@@ -102,7 +102,6 @@ dataset.head(5)
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
-
                            description = 'Training data',
                            exist_ok = False
                            )
@@ -116,6 +115,9 @@ dataset = dataset.register(workspace = workspace,
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
+                           description = 'Training data',
+                           exist_ok = True
+                           )
 ```
 
 사용 하 여 `list()` 모든 작업 영역에서 등록 된 데이터 집합을 볼 수 있습니다.

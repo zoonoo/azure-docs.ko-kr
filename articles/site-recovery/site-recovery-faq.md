@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278918"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413917"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
-이 문서에서는 Azure Site Recovery에 대 한 질문과 대답을 요약 합니다. 
+이 문서에서는 Azure Site Recovery에 대 한 질문과 대답을 요약 합니다.</br>
+다른 ASR에 대 한 특정 쿼리 시나리오를 참조 하십시오 시나리오 관련 Faq입니다.<br>
 
+- [Azure에 azure VM 재해 복구](azure-to-azure-common-questions.md)
+- [Azure에 VMware VM 재해 복구](vmware-azure-common-questions.md)
+- [Azure로 Hyper-v VM 재해 복구](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>일반
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery의 기능은 무엇입니까?

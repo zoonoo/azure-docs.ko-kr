@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145189"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415450"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
@@ -507,7 +507,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**범주**|**세부 정보**|  
 |-|-|  
-|**산술**|연산자에서 입력은 숫자여야 합니다. 출력도 숫자입니다. 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.|  
+|**arithmetic**|연산자에서 입력은 숫자여야 합니다. 출력도 숫자입니다. 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.|  
 |**비트**|연산자에서 입력은 부호 있는 32비트 정수여야 합니다. 출력도 부호 있는 32비트 정수입니다.<br /><br /> 정수가 아닌 값은 끝수를 자릅니다. 양수 값은 끝수 내림되고, 음수 값은 끝수 올림됩니다.<br /><br /> 32비트 정수 범위를 벗어나는 값은 2의 보수 표기 중 마지막 32비트를 취하여 변환됩니다.<br /><br /> 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.<br /><br /> **참고:** 위의 동작은 JavaScript 비트 연산자 동작과 호환됩니다.|  
 |**논리**|연산자에서 입력은 부울이어야 합니다. 출력도 부울입니다.<br />입력 중 하나가 **undefined**이거나 부울 이외의 형식이면 결과는 **undefined**입니다.|  
 |**비교**|연산자에서 입력은 동일한 형식이어야 하며 undefined가 아니어야 합니다. 출력은 부울입니다.<br /><br /> 입력 중 하나가 **undefined**이거나 다른 형식의 입력이면 결과는 **undefined**입니다.<br /><br /> 값 순서 지정에 대한 자세한 내용은 **비교 연산자의 값 순서 지정** 표를 참조하세요.|  
@@ -525,7 +525,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**Name**|**연산자**|**세부 정보**|  
 |-|-|-|  
-|**산술**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|더하기<br /><br /> 빼기<br /><br /> 곱하기<br /><br /> 나누기<br /><br /> Modulo 연산|  
+|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|더하기<br /><br /> 빼기<br /><br /> 곱하기<br /><br /> 나누기<br /><br /> Modulo 연산|  
 |**비트**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|비트 OR<br /><br /> 비트 AND<br /><br /> 비트 XOR<br /><br /> 왼쪽 시프트<br /><br /> 오른쪽 시프트<br /><br /> 0 채우기 오른쪽 시프트|  
 |**논리**|**및**<br /><br /> **또는**|논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 논리적 분리. 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.|  
 |**비교**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|같음 - 두 인수가 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 같지 않음 - 인수가 같지 않으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 큼 - 첫 번째 인수가 두 번째 인수보다 크면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 크거나 같음 - 첫 번째 인수가 두 번째 인수보다 크거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작음 - 첫 번째 인수가 두 번째 인수보다 작으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작거나 같음 - 첫 번째 인수가 두 번째 인수보다 작거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 병합 - 첫 번째 인수가 **undefined** 값이면 두 번째 인수를 반환합니다.|  
@@ -547,7 +547,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**Number**|자연수입니다.<br /><br /> Negative Infinity(음의 무한대) 값은 다른 Number 값보다 작습니다.<br /><br /> Positive Infinity(양의 무한대) 값은 다른 Number 값보다 큽니다. **NaN** 값은 비교할 수 없습니다. **NaN**과 비교하면 **undefined** 값이 됩니다.|  
 |**String**|사전순 정렬|  
 |**Array**|순서를 지정하지 않지만 동등하게 지정합니다.|  
-|**Object**|순서를 지정하지 않지만 동등하게 지정합니다.|  
+|**개체**|순서를 지정하지 않지만 동등하게 지정합니다.|  
   
  **주의**  
   
@@ -576,7 +576,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**Number**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
 |**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
 |**Array**|0개 이상의 요소 시퀀스입니다. 각 요소는 Undefined를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
-|**Object**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
+|**개체**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
   
  **구문**  
   
@@ -692,7 +692,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
      다음 표에서는 아래 SQL 참조의 구문을 설명하는 데 사용되는 규칙을 설명합니다.  
   
-    |**규칙**|**용도**|  
+    |**규칙**|**사용 대상**|  
     |-|-|    
     |대문자|대/소문자를 구분하지 않는 키워드|  
     |소문자|대/소문자를 구분하는 키워드|  
@@ -702,7 +702,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
     |identifier|식별자입니다. 허용되는 문자: a-z, A-Z, 0-9. 첫 번째 문자는 숫자가 아니어야 합니다.|  
     |"문자열"|따옴표가 붙은 문자열이며, 유효한 문자열이 모두 허용됩니다. string_literal에 대한 설명을 참조합니다.|  
     |'기호'|구문의 일부인 문자 기호|  
-    |&#124; (세로줄)|구문 항목에 대한 대안이며, 지정된 항목 중 하나만 사용할 수 있습니다.|  
+    |&#124;(세로 막대)|구문 항목에 대한 대안이며, 지정된 항목 중 하나만 사용할 수 있습니다.|  
     |[ ] /(대괄호)|대괄호는 하나 이상의 선택 항목을 묶습니다.|  
     |[ ,...n ]|앞의 항목이 n번 반복될 수 있음을 나타냅니다. 각 항목은 쉼표로 구분됩니다.|  
     |[ ...n ]|앞의 항목이 n번 반복될 수 있음을 나타냅니다. 각 항목은 공백으로 구분 됩니다.|  
@@ -998,7 +998,7 @@ SELECT COT(124.1332) AS cot
 ```  
   
 ####  <a name="bk_degrees"></a> DEGREES  
- 라디안에서 지정된 각도로 해당하는 각도를 반환합니다.  
+ 라디안에서으로 지정 된 각도 (도) 해당 각도 반환 합니다.  
   
  **구문**  
   
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- 결과 집합은 다음과 같습니다.  
+  결과 집합은 다음과 같습니다.  
   
 ```  
 [{  
@@ -1338,6 +1338,17 @@ ROUND(<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
+  **주의**
+  
+  반올림 작업을 수행할 0에서 멀어지는 쪽으로 반올림 중간점을 따릅니다. 입력이 두 정수 사이 정확 하 게 하는 숫자 식 결과 0에서 멀어지는 쪽은 가장 가까운 정수 값 수 됩니다.  
+  
+  |<numeric_expression>|반올림|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
+  
   **예**  
   
   다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- 결과 집합은 다음과 같습니다.  
+  결과 집합은 다음과 같습니다.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -1879,11 +1890,11 @@ SELECT
 |-|-|-|  
 |[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
 |[INDEX_OF](#bk_index_of)|[왼쪽](#bk_left)|[LENGTH](#bk_length)|  
-|[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[바꾸기](#bk_replace)|  
-|[복제](#bk_replicate)|[역방향](#bk_reverse)|[오른쪽](#bk_right)|  
+|[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[복제](#bk_replicate)|[역방향](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
-|[StringToObject](#bk_stringtoobject)|[하위 문자열](#bk_substring)|[ToString](#bk_tostring)|
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
 |[TRIM](#bk_trim)|[위](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
@@ -2189,7 +2200,7 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```  
   
 ####  <a name="bk_replicate"></a> REPLICATE  
- 문자열 값을 지정한 횟수 만큼 반복합니다.  
+ 문자열 값을 지정한 횟수 만큼을 반복합니다.  
   
  **구문**  
   

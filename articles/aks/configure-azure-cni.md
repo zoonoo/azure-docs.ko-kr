@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 39e0547421c446c1ee48b93b30487ccb9358de02
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192084"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508011"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -68,7 +68,16 @@ AKS 클러스터에서 노드당 최대 Pod 수는 110개입니다. 노드당 *�
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 
-*클러스터 배포 시간에만* 노드당 최대 Pod 수를 구성할 수 있습니다. Azure CLI 또는 Resource Manager 템플릿을 사용 하 여 배포 하는 경우에 250으로 노드 값 당 최대 pod를 설정할 수 있습니다.
+*클러스터 배포 시간에만* 노드당 최대 Pod 수를 구성할 수 있습니다. 다음 내에서 필요에 따라 노드 값 당 최대 pod는 Azure cli 또는 Resource Manager 템플릿을 사용 하 여 배포 하는 경우 설정할 수 있습니다 `maxPods` 지침:
+
+| 네트워킹 | 최소 | 최대 |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+> [!NOTE]
+> 위의 표에 최소값 AKS 서비스에서 엄격 하 게 적용 됩니다.
+이렇게 하면 되므로 방지할 수 클러스터부터 표시 최소값 보다 낮은 maxPods 값을 하지 설정할 수 있습니다.
 
 * **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다. 최대값은 250입니다.
 * **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다. 최대값은 250입니다.

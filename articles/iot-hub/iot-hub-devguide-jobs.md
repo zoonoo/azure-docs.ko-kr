@@ -7,13 +7,13 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.openlocfilehash: 397fb1d3934aad19b82f957b6994bd3c5ce4054c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/06/2019
+ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65189958"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409046"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
 
@@ -43,8 +43,6 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
@@ -70,6 +68,38 @@ User-Agent: <sdk-name>/<sdk-version>
 
 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에 IoT Hub 쿼리 언어의 더 자세한 설명이 나와 있습니다.
 
+다음 코드 조각은 요청 및 contoso-허브-1의 모든 장치에서 testMethod 라는 직접 메서드를 호출 하는 예약 된 작업에 대 한 응답을 보여 줍니다.
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68iv------------------------------------v8Hxalg%3D&se=1556849884&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 317
+
+{
+    "jobId": "job01",
+    "type": "scheduleDeviceMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "testMethod",
+        "payload": {},
+        "responseTimeoutInSeconds": 30
+    },
+    "queryCondition": "*", 
+    "startTime": "2019-05-04T15:53:00.077Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 65
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 01:46:18 GMT
+
+{"jobId":"job01","type":"scheduleDeviceMethod","status":"queued"}
+```
+
 ## <a name="jobs-to-update-device-twin-properties"></a>디바이스 쌍 속성을 업데이트하는 작업
 
 다음 코드 조각은 작업을 사용하여 디바이스 쌍 속성을 업데이트하는 HTTPS 1.1 요청 세부 정보를 나타냅니다.
@@ -79,17 +109,53 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleTwinUpdate",
+    "type": "scheduleUpdateTwin",
     "updateTwin": <patch>                 // Valid JSON object
     "queryCondition": "<queryOrDevices>", // query condition
     "startTime": <jobStartTime>,          // as an ISO-8601 date string
     "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
 }
+```
+
+> [!NOTE]
+> 합니다 *updateTwin* 속성을 사용 하려면 유효한 etag 일치 하는 예를 들어, `etag="*"`합니다.
+
+다음 코드 조각은 요청 및 contoso-허브-1에서 테스트 장치에 대 한 장치 쌍 속성을 업데이트 하는 예약 된 작업에 대 한 응답을 보여 줍니다.
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0U-------------------------------------RuA%3D&se=1556925787&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 339
+
+{
+    "jobId": "job02",
+    "type": "scheduleUpdateTwin",
+    "updateTwin": {
+      "properties": {
+        "desired": {
+          "test1": "value1"
+        }
+      },
+     "etag": "*"
+     },
+    "queryCondition": "deviceId = 'test-device'",
+    "startTime": "2019-05-08T12:19:56.868Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 63
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 22:45:13 GMT
+
+{"jobId":"job02","type":"scheduleUpdateTwin","status":"queued"}
 ```
 
 ## <a name="querying-for-progress-on-jobs"></a>작업 진행 상태 쿼리
@@ -101,8 +167,6 @@ GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobSta
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 ```
 
 응답에서 continuationToken이 제공됩니다.
@@ -119,9 +183,9 @@ User-Agent: <sdk-name>/<sdk-version>
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
 | **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
 | **type** |작업 형식: |
-| | **scheduledUpdateTwin**: Desired 속성 또는 태그 집합을 업데이트 하는 데 작업. |
-| | **scheduledDeviceMethod**: 장치 쌍의 집합에서 장치 메서드를 호출 하는 데 작업. |
-| **status** |작업의 현재 상태입니다. 가능한 상태 값: |
+| | **scheduleUpdateTwin**: Desired 속성 또는 태그 집합을 업데이트 하는 데 작업. |
+| | **scheduleDeviceMethod**: 장치 쌍의 집합에서 장치 메서드를 호출 하는 데 작업. |
+| **상태** |작업의 현재 상태입니다. 가능한 상태 값: |
 | | **pending**: 예약 되어 작업 서비스에서 선택 되기를 기다립니다. |
 | | **scheduled**: 나중에 시간에 예약 합니다. |
 | | **실행**: 현재 활성 상태의 작업입니다. |

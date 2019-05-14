@@ -61,7 +61,7 @@
             - name: Raspberry Pi의 Node.js
               href: iot-accelerators-connecting-pi-node.md
             - name: MXChip IoT DevKit
-              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md
         - name: 디바이스 시뮬레이션
           items:
             - name: 시뮬레이션된 디바이스 만들기

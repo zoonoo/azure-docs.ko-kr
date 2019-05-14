@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997311"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231431"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>텍스트 분석의 명명 된 엔터티 인식 사용 방법
 
@@ -46,7 +46,7 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 | 조직  | 해당 없음\*         | "Microsoft"   |
 | 수량      | Number        | "6", "six"     | 
 | 수량      | 백분율    | "50%", "fifty percent"| 
-| 수량      | Ordinal       | "2nd", "second"     | 
+| 수량      | 서수       | "2nd", "second"     | 
 | 수량      | NumberRange   | "4 to 8"     | 
 | 수량      | Age           | "90 day old", "30 years old"    | 
 | 수량      | 통화      | "$10.99"     | 
@@ -58,18 +58,18 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 | DateTime      | DateRange     | "May 2nd to May 5th"    | 
 | DateTime      | TimeRange     | "6pm to 7pm"     | 
 | DateTime      | 기간      | "1 minute and 45 seconds"   | 
-| DateTime      | 설정           | "every Tuesday"     | 
+| DateTime      | 집합           | "every Tuesday"     | 
 | DateTime      | TimeZone      |    | 
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
 
-\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.
+\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열 된 모든 지원 되는 엔터티 형식의 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어 에서만 사용할 수 있습니다.
 
 
 
 ## <a name="preparation"></a>준비
 
-이 형식으로 JSON 문서 있어야 합니다. ID, 텍스트, 언어
+다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트, 언어
 
 현재 지원되는 언어는 [이 목록](../text-analytics-supported-languages.md)을 참조하세요.
 
@@ -276,10 +276,10 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Cognitive Services의 텍스트 분석을 사용하여 엔터티 링크 설정에 대한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
+이 문서에서는 Cognitive Services의 텍스트 분석을 사용하여 엔터티 링크 설정에 대한 개념과 워크플로를 배웠습니다. 요약하자면 다음과 같습니다.
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)를 선택한 언어로 사용할 수 있습니다.
-+ 요청 본문에 JSON 문서는 ID, 텍스트 및 언어 코드를 포함합니다.
++ 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/entities` 엔드포인트에 대해 수행됩니다.
 + 연결된 엔터티(각 문서 ID에 대한 신뢰도 점수, 오프셋 및 웹 링크 포함)로 구성된 응답 출력은 모든 애플리케이션에서 사용할 수 있습니다.
 

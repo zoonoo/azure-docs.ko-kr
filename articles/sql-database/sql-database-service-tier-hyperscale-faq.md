@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067800"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236022"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -73,11 +73,7 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 
 ### <a name="what-regions-currently-support-hyperscale"></a>현재 하이퍼스케일이 지원되는 지역
 
-Azure SQL Database 대규모 계층은 다음 지역에서 현재 사용할 수 있습니다.
-
-오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 미국 중부, 동남 아시아, 미국 동부, East Us 2, 프랑스 중부, 일본 동부, 일본 서 부, 북 중앙 미국, 유럽 북부, 남아프리카 공화국 북부, 미국 중남부, 동남 아시아, 영국 남부, 영국 서 부, 유럽 서 부 미국 서 부, 미국 서 부 2
-
-참조 [Azure SQL Database 대규모 개요](sql-database-service-tier-hyperscale-faq.md) 다른 지역에 액세스 해야 하는 경우 프로시저에 대 한 합니다.
+아래에 나열 된 지역에서 Azure SQL Database 대규모 계층은 현재 제공 [Azure SQL Database 대규모 개요](sql-database-service-tier-hyperscale.md#regions)합니다.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>논리 서버에 대해 여러 개의 하이퍼스케일 데이터베이스를 만들 수 있나요?
 

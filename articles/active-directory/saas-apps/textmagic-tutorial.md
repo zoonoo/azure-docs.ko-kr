@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261805"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>자습서: TextMagic과 Azure Active Directory 통합
 
@@ -116,10 +116,10 @@ TextMagic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     | Name |   원본 특성| 네임스페이스  |
     | --------------- | --------------- | --------------- |
-    | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstname               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Lastname            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Lastname            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.

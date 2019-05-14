@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149842"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501655"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -36,6 +36,10 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
+## <a name="full-reference-docs"></a>전체 참조 문서
+
+찾을 합니다 [Azure CLI의 azure cli-기계 학습 확장에 대 한 참조 문서를 전체](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)합니다.
+
 ## <a name="install-the-extension"></a>확장 설치
 
 Machine Learning CLI 확장을 설치하려면 다음 명령을 사용합니다.
@@ -45,7 +49,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> 아래 명령을 사용할 수 있는 예제 파일을 찾을 수 있습니다 [여기](http://aka.ms/azml-deploy-cloud)합니다.
+> 아래 명령을 사용할 수 있는 예제 파일을 찾을 수 있습니다 [여기](https://aka.ms/azml-deploy-cloud)합니다.
 
 메시지가 표시되면 `y`를 선택하여 확장을 설치합니다.
 
@@ -82,9 +86,12 @@ az extension remove -n azure-cli-ml
     자세한 내용은 [az ml 작업 영역 만들기](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create)합니다.
 
 + 작업 영역 구성 컨텍스트 인식 CLI를 사용 하도록 설정 하려면 폴더에 연결 합니다.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    이 명령은 만듭니다는 `.azureml` 예제 runconfig 및 conda 환경 파일을 포함 하는 하위 디렉터리입니다. 또한 포함을 `config.json` Azure Machine Learning 작업 영역을 사용 하 여 통신 하는 데 사용 되는 파일입니다.
 
     자세한 내용은 [az ml 폴더 연결](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)합니다.
 
@@ -121,6 +128,13 @@ az extension remove -n azure-cli-ml
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
+    > [!TIP]
+    > `az ml folder attach` 명령은 만듭니다는 `.azureml` 두 예제 runconfig 파일을 포함 하는 하위 디렉터리입니다. 
+    >
+    > Python 스크립트 실행된 구성 개체를 프로그래밍 방식으로 만드는 경우 사용할 수 [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) runconfig 파일으로 저장 합니다.
+    >
+    > 자세한 예제 runconfig 파일을 참조 하세요 [ https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml ](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)합니다.
+
     자세한 내용은 [제출 스크립트를 실행 하는 az ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)합니다.
 
 * 실험 목록 보기:
@@ -156,9 +170,26 @@ az extension remove -n azure-cli-ml
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
     ```
 
+    다음은 예제 `inferenceconfig.json` 문서:
+
+    ```json
+    {
+    "entryScript": "score.py",
+    "runtime": "python",
+    "condaFile": "myenv.yml",
+    "extraDockerfileSteps": null,
+    "sourceDirectory": null,
+    "enableGpu": false,
+    "baseImage": null,
+    "baseImageRegistry": null
+    }
+    ```
+
     자세한 내용은 [az ml 모델 배포](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Machine Learning CLI 확장에 대 한 참조를 명령](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)입니다.
+
+* [학습 및 Azure 파이프라인을 사용 하 여 기계 학습 모델 배포](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925120"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233503"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Azure 데이터 탐색기의 기능을 학습 하는 컴퓨터
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>사용 하 여 `autocluster()` 클러스터링을 설정 하는 단일 레코드에 대 한
+### <a name="use-autocluster-for-single-record-set-clustering"></a>클러스터링을 설정 하는 단일 레코드에 대 한 autocluster() 사용
 
 천 미만 예외 인 경우에 여전히 하기 어렵습니다 일반적인 세그먼트를 찾거나 각 열에 여러 값이 있습니다. 사용할 수 있습니다 [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) 다음 쿼리에서와에서 같이 플러그 인을 즉시 몇몇 일반적인 세그먼트를 추출 하 고는 흥미로운 찾을 상용구의 2 분 내 클러스터:
 
@@ -120,7 +120,7 @@ demo_clustering1
 
 Autocluster는 여러 차원이 마이닝 및 흥미로운 세그먼트를 추출 소유 알고리즘을 사용 합니다. "흥미로운" 크게 확장 기능 집합 및 레코드 집합의 각 세그먼트에 하는 것을 의미 합니다. 세그먼트도 달라졌는지를 각각 다른 크게 다르다는 것을 의미 합니다. 이러한 세그먼트 중 하나 이상이 RCA 프로세스에 대 한 관련 수 있습니다. 세그먼트 검토 및 평가 최소화 하려면 autocluster 작은 세그먼트 목록만 추출 합니다.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>사용 하 여 `basket()` 클러스터링을 설정 하는 단일 레코드에 대 한
+### <a name="use-basket-for-single-record-set-clustering"></a>클러스터링을 설정 하는 단일 레코드에 대 한 basket() 사용
 
 사용할 수도 있습니다는 [ `basket()` ](/azure/kusto/query/basketplugin) 다음 쿼리에서와에서 같이 플러그 인:
 

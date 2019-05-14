@@ -25,7 +25,7 @@ ms.locfileid: "60749447"
 
 Advanced Message Queueing Protocol 1.0은 비동기적으로 안전하고 안정적으로 두 대상 간에 메시지를 전송하기 위한 표준화된 프레이밍 및 전송 프로토콜입니다. 또한 Azure Service Bus 메시징 및 Azure Event Hubs의 기본 프로토콜입니다. 두 서비스 모두 HTTPS를 지원합니다. 지원되는 소유 SBMP 프로토콜은 AMQP를 기준으로 단계적으로 중단되고 있습니다.
 
-AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨어 사용자(예: JP Morgan Chase)와 미들웨어 공급업체(예: Microsoft 및 Red Hat)를 연결한 광범위한 업계 공동 작업의 결과입니다. AMQP 프로토콜 및 확장 사양에 대한 기술 표준화 포럼은 OASIS이며 국제 표준 ISO/IEC 19494와 같은 공식 승인을 받았습니다.
+AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨어 사용자(예: JP Morgan Chase)와 미들웨어 공급업체(예: Microsoft 및 Red Hat)를 연결한 광범위한 업계 협업의 결과입니다. AMQP 프로토콜 및 확장 사양에 대한 기술 표준화 포럼은 OASIS이며 국제 표준 ISO/IEC 19494와 같은 공식 승인을 받았습니다.
 
 ## <a name="goals"></a>목표
 

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d201c0ae04e677a140e575910ff84c9d5a4dca9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b884eab6d2d5a2c768991aa82f5a33d2792abd97
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148532"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508127"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -50,15 +50,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [Python 설치](https://www.python.org/downloads/)
 * [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * 명령줄에서 작동할 수 있게 [Maven](https://maven.apache.org/download.cgi) 설치 및 구성
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
 
-# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
-* 명령줄에서 작동할 수 있게 [Maven](http://maven.apache.org/download.cgi) 설치 및 구성
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
+* [Node.js](https://nodejs.org)를 설치합니다.
 
 ---
 
@@ -108,14 +107,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 애플리케이션이 포함되어 있습니다.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 애플리케이션이 포함되어 있습니다.
@@ -124,60 +115,54 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+[샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)하고 파일 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Node.js 애플리케이션이 포함되어 있습니다.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
+
+## <a name="configure-the-sample"></a>샘플 구성
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 애플리케이션을 실행하는 로컬 머신의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
+애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 이 연결 문자열을 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
+Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 ### <a name="windows"></a> Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 애플리케이션을 실행하는 로컬 머신의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
+애플리케이션에서 스토리지 계정 자격 증명을 반드시 제공해야 합니다. 애플리케이션을 실행하는 로컬 머신의 환경 변수에 이 정보를 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 참고하여 환경 변수를 만듭니다.
 
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
-
-### <a name="linux"></a>Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\>
-```
-
-### <a name="windows"></a> Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 연결 문자열은 애플리케이션을 실행하는 로컬 머신의 환경 변수 내에 저장하는 것이 좋습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
-
-Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. 기본 또는 보조 키에서 **연결 문자열**을 복사합니다. 운영 체제에 따라 다음 명령 중 하나를 실행하여 \<yourconnectionstring\>을 실제 연결 문자열로 바꿉니다. 이 명령은 로컬 컴퓨터에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다. 다음 샘플에서 **\<storageConnectionString\>** 을 바꿉니다.
+Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 **설정** 아래에서 **액세스 키**를 선택합니다. **스토리지 계정 이름**과 **키** 값을 다음 명령에 붙여넣어, \<youraccountname\>과 \<youraccountkey\> 자리 표시자를 바꿉니다. 이 명령은 로컬 머신에 환경 변수를 저장합니다. Windows에서 사용 중인 **명령 프롬프트** 또는 셸을 다시 로드할 때까지 환경 변수를 사용할 수 없습니다.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 
 ### <a name="windows"></a> Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
@@ -193,10 +178,23 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 
 ### <a name="windows-example"></a>Windows 예제
 
-```
+```powershell
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+이 샘플을 실행하려면 `.env.example` 파일에 스토리지 계정 자격 증명을 추가한 다음, `.env`로 이름을 변경해야 합니다.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+스토리지 계정으로 이동하여 **설정** 섹션에서 **액세스 키**를 선택하면 Azure Portal에서 이 정보를 찾을 수 있습니다.
+
+필요한 종속성도 설치해야 합니다. 이렇게 하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `npm install`을 입력합니다.
 
 ---
 
@@ -210,7 +208,7 @@ Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
+샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -223,12 +221,6 @@ Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플
 Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 요청을 다시 시도할 때까지 전에 대기할 시간(초)을 지정합니다. 1차 시도에 대한 초기 요청이 실패했을 때 2차 시도에 대해 다시 요청해야 하는 경우 **retry\_to\_secondary** 값을 true로 설정합니다. 샘플 애플리케이션에서 사용자 지정 다시 시도 정책은 저장소 개체의 `retry_callback` 함수에 정의되어 있습니다.
 
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-다운로드한 애플리케이션 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 애플리케이션을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 애플리케이션을 실행합니다. 그런 다음, 애플리케이션은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 엔드포인트에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 엔드포인트를 다시 보고하는 동안 애플리케이션은 이미지를 반복해서 다운로드하기 시작합니다.
-
-Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -274,6 +266,33 @@ Cleaning up the sample and exiting!
 
 샘플을 제어할 수 있으므로 코드를 실행하는 명령을 입력합니다. 입력은 대/소문자를 구분합니다.
 
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+샘플을 실행하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `node index.js`을 입력합니다.
+
+샘플은 Blob 스토리지 계정에 컨테이너를 생성하고 **HelloWorld.png**를 컨테이너에 업로드한 다음, 컨테이너와 이미지가 보조 지역에 복제되었는지 여부를 반복해서 확인합니다. 복제가 완료되면 **D** 또는 **Q**를 입력하여(ENTER 키 누르기 필요) 다운로드 또는 종료하라는 메시지가 표시됩니다. 출력은 다음 예제와 비슷하게 표시됩니다.
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
+
 ---
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
@@ -282,7 +301,7 @@ Cleaning up the sample and exiting!
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -310,7 +329,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
@@ -371,22 +390,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-**BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 애플리케이션이 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Java V10 SDK를 사용하면 콜백 핸들러를 정의하는 것이 여전히 불필요하며 SDK는 V7 SDK와 다른 몇 가지 근본적인 차이점이 있습니다. LocationMode 대신 보조 **파이프라인**이 제공됩니다. **RequestRetryOptions**를 통해 보조 파이프라인을 정의할 수 있으며, 정의한 경우 기본 파이프라인을 통해 데이터에 도달하지 못하면 애플리케이션이 보조 파이프라인으로 자동 전환할 수 있습니다.
+Java V10 SDK를 사용하면 콜백 핸들러를 정의하는 것이 불필요하며 SDK는 V7 SDK와 다른 몇 가지 근본적인 차이점이 있습니다. LocationMode 대신 보조 **파이프라인**이 제공됩니다. **RequestRetryOptions**를 통해 보조 파이프라인을 정의할 수 있으며, 정의한 경우 기본 파이프라인을 통해 데이터에 도달하지 못하면 애플리케이션이 보조 파이프라인으로 자동 전환할 수 있습니다.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -394,6 +400,29 @@ PipelineOptions myOptions = new PipelineOptions();
 myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+Node.js V10 SDK를 사용하면 콜백 처리기가 필요하지 않습니다. 대신, 샘플이 다시 시도 옵션과 보조 엔드포인트로 구성된 파이프라인을 작성합니다. 그러면 애플리케이션이 기본 파이프라인을 통해 데이터에 도달하지 못하면 보조 파이프라인으로 자동 전환될 수 있습니다.
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3,
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500,
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
 ```
 
 ---

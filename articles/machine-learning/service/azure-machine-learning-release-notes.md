@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154297"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464801"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -42,6 +42,15 @@ Azure portal에서 수행할 수 있습니다.
 + 추가 Azure Machine Learning 서비스 작업 영역의 개요 페이지에서 config.json 파일을 다운로드할 수 있습니다.
 + Azure Databricks 작업 영역에서 Machine Learning 서비스 작업 영역 만들기를 지원 합니다. 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning Python v1.0.33 for SDK
++ **새로운 기능**
+  + 합니다 _Workspace.create_ 메서드는 이제 CPU 및 GPU 클러스터에 대 한 기본 클러스터 구성을 허용 합니다.
+  + 작업 영역 만들기에 실패 하면 이러한 종속된 리소스 정리 됩니다.
+  + 기본 Azure Container Registry SKU basic로 전환 되었습니다.
+  + 실행 또는 이미지 생성에 필요한 경우 azure Container Registry 느리게 만들어집니다.
+  + 교육 실행에 대 한 환경에 대 한 지원입니다.
 
 ### <a name="notebook-virtual-machine"></a>Notebook 가상 머신 
 
@@ -298,7 +307,7 @@ Python v1.0.30 출시에 대 한 azure Machine Learning SDK입니다.
     - 꺾은선형 차트
     - 히스토그램
     - 누적 가로 막대형 차트
-    - 상자 플롯
+    - 상자 그림
     - 산점도
     - 거품형 플롯
 + 이제 포털에서는 실험 보고서를 동적으로 생성합니다. 사용자가 실행을 실험에 제출하면 서로 다른 실행 간에 비교할 수 있도록 기록된 메트릭과 그래프가 있는 보고서가 자동으로 생성됩니다. 
@@ -369,7 +378,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   + 이 릴리스에서는 Azure Machine Learning에서 VM을 만들기 위한 지원을 제거합니다. 기존 클라우드 VM 또는 원격 온-프레미스 서버를 계속 연결할 수 있습니다. 
   + 또한 Batch AI에 대한 지원을 제거하며, 모든 기능은 이제 Azure Machine Learning 컴퓨팅을 통해 지원됩니다.
 
-+ **New**
++ **새로 만들기**
   + 기계 학습 파이프라인:
     + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
     + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)

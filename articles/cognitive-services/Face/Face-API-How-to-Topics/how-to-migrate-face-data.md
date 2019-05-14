@@ -21,7 +21,7 @@ ms.locfileid: "64682528"
 
 이 가이드에서는 스냅숏 기능을 사용하여 얼굴 데이터(예: 저장된 얼굴의 **PersonGroup**)를 다른 Face API 구독으로 이동하는 방법을 보여 줍니다. 이렇게 하면 작업을 이동하거나 확장할 때 **PersonGroup** 또는 **FaceList**를 반복해서 구축하고 학습할 필요가 없습니다. 예를 들어, 평가판 구독을 사용하여 **PersonGroup**을 만들었으며, 현재 유료 구독으로 마이그레이션하려고 하거나 대규모 엔터프라이즈 작업을 위해 지역 간에 얼굴 데이터를 동기화해야 할 수 있습니다.
 
-이러한 동일한 마이그레이션 전략이 **LargePersonGroup** 및 **LargeFaceList** 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 해당 정의 참조 합니다 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드입니다. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
+이러한 동일한 마이그레이션 전략이 **LargePersonGroup** 및 **LargeFaceList** 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조합니다. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,7 +65,7 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
 
 ## <a name="take-snapshot-of-persongroup"></a>PersonGroup 스냅숏 만들기
 
-스냅숏은 특정 얼굴 데이터 형식에 대한 임시 원격 스토리지입니다. 스냅숏은 다른 구독 간에 데이터를 복사하려면 클립보드의 일종으로 작동합니다. 먼저 사용자는 원본 구독에서 데이터의 스냅숏을 “촬영”한 다음, 대상 구독에서 새 데이터 개체에 “적용”합니다.
+스냅숏은 특정 얼굴 데이터 형식에 대한 임시 원격 스토리지입니다. 스냅숏은 다른 구독 간에 데이터를 복사하기 위해 클립보드의 일종으로 작동합니다. 먼저 사용자는 원본 구독에서 데이터의 스냅숏을 “촬영”한 다음, 대상 구독에서 새 데이터 개체에 “적용”합니다.
 
 원본 구독의 **FaceClient** 인스턴스를 사용하고 **[TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet)** 와 **PersonGroup** ID 및 대상 구독 ID를 지정하여 **PersonGroup**의 스냅숏을 만듭니다. 대상 구독이 여러 개 있는 경우 세 번째 매개 변수에 배열 항목으로 추가할 수 있습니다.
 
@@ -77,11 +77,11 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나 권장 하지는 않습니다 원본 개체를 변경 하는 동시 호출 ([FaceList 관리 호출](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) 또는 [PersonGroup 학습](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) 호출 예를 들어) 이므로 스냅숏 작업이 될 수 있습니다. 이러한 작업 전후 실행 하거나 오류가 발생할 수 있습니다.
+> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나, 원본 개체를 변경하는 동시 호출(예를 들어 [FaceList management](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) 또는 [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) 호출)을 권장하지는 않습니다, 왜냐하면 스냅숏 작업은 이러한 작업 전후 실행되거나 오류가 발생할 수 있기 때문입니다.
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID 검색
 
-메서드를 수행 하는 스냅숏 비동기 이므로 해당 완료 (snapshot 작업을 취소할 수 없습니다) 대기 해야 합니다. 이 코드에서 `WaitForOperation` 메서드는 비동기 호출을 모니터링하고 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다. 
+스냅숏을 찍는 메서드는 비동기식이므로 완료될 때까지 기다려야 합니다(스냅숏 작업은 취소할 수 없음). 이 코드에서 WaitForOperation 메서드는 비동기 호출을 모니터링하여 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다.
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -226,7 +226,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로, 관련 API 참조 설명서를 참조 스냅숏 기능을 사용 하는 샘플 앱을 탐색 하거나 여기 언급 된 다른 API 작업을 사용 하 여 시작 하는 방법 지침을 따릅니다.
+다음으로, 관련 API 참조 설명서를 참조하여 스냅숏 기능을 사용하는 샘플 앱을 탐색하거나 여기 언급된 다른 API 작업을 사용하여 시작하는 방법에 대한 지침을 따릅니다.
 
 - [스냅숏 참조 설명서(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face API 스냅숏 예제](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

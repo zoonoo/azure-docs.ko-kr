@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543111"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467738"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
+
+> [!NOTE]
+> Azure 서비스를 Azure 이미지 작성기 (미리 보기)를 정의 하 고 사용자 고유의 사용자 지정 이미지를 만들기 위한 되었습니다. Azure 이미지 작성기는 기존 Packer 셸 프로 비 저 너 스크립트와도 사용할 수 있도록 Packer에 작성 됩니다. Azure 이미지 작성기를 사용 하 여 시작을 참조 하세요 [Azure 이미지 작성기를 사용 하 여 Linux VM 만들기](image-builder.md)합니다.
 
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
@@ -232,6 +235,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 예제에서는 이미 설치된 NGINX를 사용하여 VM 이미지를 만드는 데 Packer를 사용했습니다. Ansible, Chef 또는 Puppet를 사용하여 이미지에서 만든 VM에 앱을 배포하는 것과 같은 기존 배포 워크플로와 함께 이 VM 이미지를 사용할 수 있습니다.
-
-다른 Linux 배포판에 대한 추가 예제 Packer 템플릿은 [이 GitHub 리포지토리](https://github.com/hashicorp/packer/tree/master/examples/azure)를 참조하세요.
+사용 하 여 기존 Packer 프로 비 저 너 스크립트를 사용할 수도 있습니다 [Azure 이미지 작성기](image-builder.md)합니다.

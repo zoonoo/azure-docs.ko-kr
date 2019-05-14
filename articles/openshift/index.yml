@@ -38,4 +38,4 @@ sections:
           - title: REST (영문)
             html: <p><a href="/rest/api/openshift">REST API</a></p>
           - title: Red Hat 설명서
-            html: '<p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Red Hat OpenShift 문서</a></p>'
+            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Red Hat OpenShift 문서</a></p>'

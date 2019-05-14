@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147920"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231401"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Security Center의 사용 중지 기능 (2019 년 7 월)
 
@@ -81,6 +81,7 @@ Security Center에서 "클래식" id 및 액세스 환경을 고객이 자신의
 ![Id 페이지-대시보드][8]
 
 위의 모든 세 화면 앞 사용 되지 것입니다. 데이터 로그 분석 보안 솔루션에서 사용할 수 있는 남아 및 없습니다 수정 또는 제거할 수 있습니다.
+Security Center에서 Id 및 액세스 대시보드를 채우는 데 사용 된 원래 Log Analytics 쿼리를 사용할 수 있는 [GitHub 리포지토리](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)합니다.
 
 ### <a name="classic-identity--access-preview---new-experience"></a>클래식 Id 및 액세스 (미리 보기)-새로운 환경
 로그 분석 대시보드는 지정 된 작업 영역에서 insights 제공한, 네이티브 Security Center 기능 모든 구독 및 동료를 쉽게 연결 하는 모든 작업 영역에 대 한 가시성 제공-수 있는 뷰를 사용 하도록의 중요 사용자 Id 및 액세스 권장 사항 제공에의 보안 점수에 따라 합니다.
@@ -103,6 +104,7 @@ Security Center를 제공 하는 [맵](https://docs.microsoft.com/azure/security
 ![Log Analytics에서 보안 경고 맵][12]
 
 기존 데이터는 log analytics 보안 솔루션에서 사용할 수 있는 남아 및는 수정 하지 제거 합니다.
+Security Center에서 위협 인텔리전스 대시보드를 채우는 데 사용 된 원래 Log Analytics 쿼리를 사용할 수 있는 [GitHub 리포지토리](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)합니다.
 
 ### <a name="security-events-map---new-experience"></a>보안 이벤트 맵-새로운 환경
 Security Center에 기본 제공 경고 맵 기능을 사용 하려면 고객 것이 좋습니다-"보안 경고 (미리 보기)를 매핑" 합니다. 이 최적화 된 환경을 제공 및 매크로 허용, 모든 구독 및 연결 된 작업 영역에서 사용할 사용자 환경 전반의 보기 및 단일 작업 영역에 중점을 두 합니다.
@@ -165,6 +167,8 @@ Log analytics의 보안 대시보드에 주목할 만한 보안 이벤트 및 �
 
 ### <a name="security--audit-dashboard---new-experience"></a>보안 및 감사 대시보드-새로운 환경
 여러 구독 및 그와 관련 된 다양 한 기능 집합을 함께 작업 영역에서 동일한 보안 개요를 제공 하는 Azure Security Center를 사용 하는 고객에 게 사용 하는 것이 좋습니다.
+
+Security Center에서 보안 채우기 및 대시보드를 감사 하는 데 원래 Log Analytics 쿼리는 사용 가능한 [GitHub 리포지토리](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/)에 대한 자세한 정보

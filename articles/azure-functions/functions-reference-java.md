@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922938"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507188"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -66,7 +66,7 @@ FunctionsProject
 
  Azure 함수는 HTTP 요청, 타이머 또는 데이터 업데이트와 같은 트리거에 의해 호출됩니다. 함수는 해당 트리거 및 모든 다른 입력을 처리하고 하나 이상의 출력을 생성해야 합니다.
 
-[com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)를 참조하세요.
+[com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)합니다.
 
 > [!IMPORTANT] 
 > Azure Storage Blob, 큐 또는 테이블 트리거를 로컬로 실행하려면 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
@@ -112,6 +112,37 @@ public class Function {
 Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK를 다운로드하여 사용합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java 8 JDK 런타임을 사용합니다.
 
 JDK 및 함수 앱에 문제가 있는 경우 [정격 지원 플랜](https://azure.microsoft.com/support/plans/)을 통해 [Azure 지원](https://azure.microsoft.com/support/)을 사용할 수 있습니다.
+
+## <a name="customize-jvm"></a>JVM을 사용자 지정
+
+함수를 사용 하면 Java 함수를 실행 하는 데 Java 가상 머신 (JVM)를 사용자 지정할 수 있습니다. 합니다 [다음과 같은 JVM 옵션](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) 기본적으로 사용 됩니다.
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+라는 앱 설정에 추가 인수를 제공할 수 있습니다 `JAVA_OPTS`합니다. 다음이 방법 중 하나에서 Azure에 배포 된 함수 앱에 앱 설정을 추가할 수 있습니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+에 [Azure portal](https://portal.azure.com)를 사용 하 여는 [응용 프로그램 설정 탭](functions-how-to-use-azure-function-app-settings.md#settings) 추가할를 `JAVA_OPTS` 설정.
+
+### <a name="azure-cli"></a>Azure CLI
+
+합니다 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령은 설정에 사용할 수 있습니다 `JAVA_OPTS`다음 예제와 같이:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+이 예제는 헤드리스 모드를 사용 합니다. 바꿉니다 `<APP_NAME>` 함수 앱의 이름 및 `<RESOURCE_GROUP> ` 리소스 그룹을 사용 하 여 합니다.
+
+> [!WARNING]  
+> 실행 하는 경우는 [소비 계획](functions-scale.md#consumption-plan)를 추가 해야 합니다는 `WEBSITE_USE_PLACEHOLDER` 값을 사용 하 여 설정 `0`.  
+이 설정은 Java 함수에 대 한 콜드 시작 시간이 늘어나지 합니다.
 
 ## <a name="third-party-libraries"></a>타사 라이브러리 
 
@@ -189,7 +220,7 @@ public class Function {
 - HTTP 요청 페이로드는 `String`으로 `inputReq` 인수에 전달됩니다.
 - 하나의 항목이 Azure Table Storage에서 검색되고, `TestInputData`로 `inputData` 인수에 전달됩니다.
 
-입력 일괄 처리를 받으려면 `String[]`, `POJO[]`, `List<String>` 또는 `List<POJO>`에 바인딩할 수 있습니다.
+입력 일괄 처리를 받으려면에 바인딩할 수 있습니다 `String[]`, `POJO[]`하십시오 `List<String>`, 또는 `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ public class Function {
     }
 ```
 
-위 함수는 HttpRequest에서 호출되고, 여러 값을 Azure Queue에 씁니다.
+이 함수는 HttpRequest에서 호출 되 고 Azure 큐에 여러 값을 씁니다.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 및 HttpResponseMessage
 
@@ -363,7 +394,7 @@ Azure CLI를 사용하여 로그 파일을 단일 ZIP 파일로 다운로드하�
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-이 명령을 실행하기 전에 Azure Portal 또는 Azure CLI에 로그인하는 파일 시스템이 사용하도록 설정되어 있어야 합니다.
+이 명령을 실행 하기 전에 Azure portal 또는 Azure CLI에 로그인 하는 파일 시스템을 설정 있어야 합니다.
 
 ## <a name="environment-variables"></a>환경 변수
 

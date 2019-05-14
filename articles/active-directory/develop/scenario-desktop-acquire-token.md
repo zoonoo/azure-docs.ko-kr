@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075342"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407001"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>토큰을 획득 하는 웹 Api를 호출 하는 데스크톱 앱
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ static async Task GetATokenForGraph()
 
 Azure AD 사용 하 여 대화형 인증은 웹 브라우저 필요 (자세한 내용은 참조 하십시오 [웹 브라우저 사용](https://aka.ms/msal-net-uses-web-browser)). 그러나 장치 또는 웹 브라우저를 제공 하지 않는 운영 체제에서 사용자를 인증 하려면 장치 코드 흐름 수가 있습니다 (예를 들어 다른 컴퓨터 또는 휴대폰)에 서명 하는 다른 장치를 사용 하 여 대화형으로. 장치 코드 흐름을 사용 하면 응용 프로그램이 특히 이러한 장치/OS를 위한 2 단계 프로세스를 통해 토큰을 가져옵니다. 이러한 응용 프로그램의 예로 iOT, 또는 명령줄 도구 (CLI)에서 실행 중인 응용 프로그램입니다. 있다는 아이디어가입니다.
 
-1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 `http://microsoft.com/devicelogin`) 있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
+1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 `https://microsoft.com/devicelogin`) 있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
 
 2. 인증이 성공 하면 필요한 웹 API 호출을 수행 하는 데 사용할 및 명령줄 앱 인 백 채널을 통해 필요한 토큰을 받게 됩니다.
 

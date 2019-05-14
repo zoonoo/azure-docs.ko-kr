@@ -41,7 +41,7 @@ LargePersonGroup은 각각 최대 248개의 얼굴이 있는 최대 1,000,000명
 
 - LargePersonGroup: 최대 1,000,000 용량의 사용자 컬렉션.
 - LargeFaceList: 최대 1,000,000 용량의 얼굴 컬렉션.
-- 학습: Identification/FindSimilar 성능을 보장하기 위한 전처리.
+- Train: Identification/FindSimilar 성능을 보장하기 위한 전처리.
 - Identification: PersonGroup 또는 LargePersonGroup에서 하나 이상의 얼굴을 식별합니다.
 - FindSimilar: FaceList 또는 LargeFaceList에서 비슷한 얼굴을 검색합니다.
 
@@ -62,7 +62,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 ## <a name="step-2-code-migration-in-action"></a>2단계: 작업에서 코드 마이그레이션
 
 이 섹션은 LargePersonGroup/LargeFaceList로 PersonGroup/FaceList 구현 마이그레이션에 중점을 둡니다.
-LargePersonGroup/LargeFaceList는 디자인 및 내부 구현에서 PersonGroup/FaceList와 다르지만 API 인터페이스는 백 호환성과 유사합니다.
+LargePersonGroup/LargeFaceList는 디자인 및 내부 구현에서 PersonGroup/FaceList와 다르지만 API 인터페이스는 이전버전과의 호환성을 위해 유사합니다.
 
 데이터 마이그레이션은 지원되지 않으므로 LargePersonGroup/LargeFaceList를 대신 다시 만들어야 합니다.
 

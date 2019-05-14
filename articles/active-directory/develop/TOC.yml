@@ -237,6 +237,8 @@
               href: msal-js-prompt-behavior.md
             - name: 사용자의 HttpClient 제공(.NET)
               href: msal-net-provide-httpclient.md
+            - name: Azure AD B2C와 통합
+              href: msal-b2c-overview.md
             - name: 플랫폼별 고려 사항(.NET)
               items:
                 - name: 웹 브라우저
@@ -340,6 +342,8 @@
               items:
                 - name: 캐시에서 토큰 획득
                   href: msal-net-acquire-token-silently.md
+                - name: 토큰 캐시 지우기
+                  href: msal-net-clear-token-cache.md
                 - name: 옵션으로 공용 클라이언트 인스턴스화
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: 옵션으로 기밀 클라이언트 인스턴스화

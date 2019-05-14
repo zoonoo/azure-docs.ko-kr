@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331890"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506859"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 
@@ -99,7 +99,7 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 확장된 데이터 층�
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Azure Cloud Services용 .NET 설치
 
-Azure에서는 .NET 애플리케이션을 호스트하는 여러 제품을 제공합니다. [Azure App Service, Cloud Services 및 Virtual Machines 비교](../app-service/overview-compare.md)에서 다양한 제품을 비교할 수 있습니다. 제품의 게스트 OS가 탄력적인 트랜잭션에 필요한 .NET 4.6.1보다 작은 경우 게스트 OS를 4.6.1로 업그레이드해야 합니다. 
+Azure에서는 .NET 애플리케이션을 호스트하는 여러 제품을 제공합니다. [Azure App Service, Cloud Services 및 Virtual Machines 비교](/azure/architecture/guide/technology-choices/compute-decision-tree)에서 다양한 제품을 비교할 수 있습니다. 제품의 게스트 OS가 탄력적인 트랜잭션에 필요한 .NET 4.6.1보다 작은 경우 게스트 OS를 4.6.1로 업그레이드해야 합니다. 
 
 Azure App Services의 경우에는 현재 게스트 OS 업그레이드가 지원되지 않습니다. Azure Virtual Machines의 경우 VM에 로그인하여 최신 .NET Framework용 설치 관리자를 실행하기만 하면 됩니다. Azure Cloud Services의 경우 최신 .NET 버전의 설치를 배포의 시작 작업에 포함해야 합니다. 개념 및 단계는 [클라우드 서비스 역할에 .NET 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md)에 문서화되어 있습니다.  
 
@@ -128,7 +128,7 @@ Azure App Services의 경우에는 현재 게스트 OS 업그레이드가 지원
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 Elastic Database 트랜잭션은 Azure SQL Database의 여러 SQL Database 서버에 걸쳐 지원됩니다. 트랜잭션이 여러 SQL Database 서버에 걸쳐 진행될 때는 먼저 해당 트랜잭션에 참여하는 서버 간의 상호 통신 관계가 설정되어야 합니다. 통신 관계가 설정된 후에는 두 서버 중 하나의 모든 데이터베이스가 다른 서버 데이터베이스와의 탄력적인 트랜잭션에 참여할 수 있습니다. SQL Database 서버 3개 이상에 걸쳐 트랜잭션이 진행될 때는 SQL Database 쌍에 대해 통신 관계가 설정되어야 합니다.
 

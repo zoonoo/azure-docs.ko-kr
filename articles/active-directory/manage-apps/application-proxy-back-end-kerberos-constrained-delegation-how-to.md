@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441243"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441456"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -177,7 +177,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 ## <a name="other-scenarios"></a>기타 시나리오
 
-- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. Tableau Server와 같은 일부 타사 애플리케이션은 이 인증 방법을 선호하지 않습니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다.
+- Azure 애플리케이션 프록시는 애플리케이션에 요청을 보내기 전에 Kerberos 티켓을 요청합니다. 일부 타사 응용 프로그램은이 인증 방법을 마음에 들지 않는 합니다. 이러한 애플리케이션은 보다 일반적인 협상이 수행될 것으로 예상합니다. 첫 번째 요청은 익명으로 처리되므로 애플리케이션이 401을 통해 지원하는 인증 유형으로 응답할 수 있습니다.
 
 - 다중 홉 인증은 일반적으로 SQL Server Reporting Services와 같이 둘 다 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 애플리케이션이 계층화된 시나리오에서 사용됩니다. 다중 홉 시나리오를 구성하려면 지원 문서 [다중 홉 시나리오에서 Kerberos 제한된 위임에 프로토콜 전환이 필요할 수 있음](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)을 참조하세요.
 

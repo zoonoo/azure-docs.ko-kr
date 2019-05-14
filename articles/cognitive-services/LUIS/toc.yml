@@ -105,7 +105,7 @@
       items:
         - name: 제작 주기
           href: luis-concept-app-iteration.md
-        - name: 공동 작업
+        - name: 협업
           displayName: 'shared, transfer, ownership, author, access, import'
           href: luis-concept-collaborator.md
         - name: 버전 관리
@@ -318,15 +318,15 @@
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Azure CLI
-      href: 'https://aka.ms/az-cli-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: REST API
       items:
         - name: V2 REST API 작성
-          href: 'https://aka.ms/luis-authoring-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
         - name: 엔드포인트 V2 REST API
-          href: 'https://aka.ms/luis-endpoint-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP 코드
           displayName: '400, 401, 403, 409, 410, 414, 429'
           href: luis-reference-response-codes.md
@@ -399,12 +399,12 @@
 - name: 리소스
   items:
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 언어 및 지역 지원
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure 로드맵
-      href: 'https://aka.ms/luis-roadmap'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: 용어
       href: luis-glossary.md
     - name: 문제 해결
@@ -415,7 +415,7 @@
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
-      href: 'https://aka.ms/luis-uservoice-forum'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: 검색
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 블로그

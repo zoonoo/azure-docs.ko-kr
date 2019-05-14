@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919981"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441518"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -29,7 +29,7 @@ Azure Automation 상태 구성을 사용하는 이점에 대해 자세히 알려
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
-- Azure 가상 머신
+- Azure 가상 컴퓨터
 - Azure 가상 머신(기본)
 - Amazon Web Services(AWS) EC2 인스턴스
 - 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
@@ -43,7 +43,7 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 
 다음 섹션에서는 Azure Automation 상태 구성에 대해 각 머신 형식을 온보드하는 방법을 간략히 설명합니다.
 
-## <a name="azure-virtual-machines"></a>Azure 가상 머신
+## <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
 
 Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
 Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
@@ -75,95 +75,13 @@ PowerShell을 통해 Azure 포털의 가상 머신을 온보드하는 데 [Regis
 예제에 나와 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)합니다.
 등록 URL 템플릿에 매개 변수로 사용 하 고 등록 키를 찾으려면 다음을 참조 하세요 [ **등록 보호** ](#secure-registration) 섹션입니다.
 
-## <a name="azure-virtual-machines-classic"></a>Azure 가상 머신(기본)
-
-Azure Automation 상태 구성을 사용하면 Azure Portal이나 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신(기본)을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
-진행률을 추적 하거나 문제를 해결 하는 단계는 다음에 제공 됩니다 [ **문제를 해결 하는 Azure 가상 머신을 온 보 딩** ](#troubleshooting-azure-virtual-machine-onboarding) 섹션입니다.
-
-### <a name="azure-portal-classic-virtual-machines"></a>Azure portal (클래식 가상 머신)
-
-[Azure Portal](https://portal.azure.com/)에서 **찾아보기** -> **가상 머신(클래식)** 를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 머신의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure Automation DSC** -> **만들기**를 클릭합니다.
-입력 된 [PowerShell DSC 로컬 구성 관리자 값](/powershell/dsc/metaconfig4) Automation 계정의 등록 키와 등록 URL 및 필요에 따라 노드 구성 VM에 할당할에 대 한 합니다.
-
-![DSC에 대한 Azure VM 확장](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
-
-머신을 등록할 Automation 계정에 대한 등록 URL과 키를 찾으려면 뒤에 나오는 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
-
-### <a name="powershell-classic-virtual-machines"></a>PowerShell (클래식 가상 머신)
-
-```powershell
-# log in to both Azure Service Management and Azure Resource Manager
-Add-AzureAccount
-Connect-AzureRmAccount
-
-# fill in correct values for your VM/Automation account here
-$VMName = ''
-$ServiceName = ''
-$AutomationAccountName = ''
-$AutomationAccountResourceGroup = ''
-
-# fill in the name of a Node Configuration in Azure Automation State Configuration, for this VM to conform to
-# NOTE: DSC Node Configuration names are case sensitive in the portal.
-$NodeConfigName = ''
-
-# get Azure Automation State Configuration registration info
-$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
-
-# use the DSC extension to onboard the VM for management with Azure Automation State Configuration
-$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-$PublicConfiguration = ConvertTo-Json -Depth 8 @{
-    SasToken = ''
-    ModulesUrl = 'https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip'
-    ConfigurationFunction = 'RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2'
-
-# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-# See https://docs.microsoft.com/powershell/dsc/metaConfig for more details
-    Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = 'ApplyAndMonitor'
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = 'ContinueConfiguration'
-        AllowModuleOverwrite = $False
-    }
-}
-
-$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-    Items = @{
-        RegistrationKey = $RegistrationInfo.PrimaryKey
-    }
-}
-
-$VM = Set-AzureVMExtension `
-    -VM $vm `
-    -Publisher Microsoft.Powershell `
-    -ExtensionName DSC `
-    -Version 2.76 `
-    -PublicConfiguration $PublicConfiguration `
-    -PrivateConfiguration $PrivateConfiguration `
-    -ForceUpdate
-
-$VM | Update-AzureVM
-```
-
-> [!NOTE]
-> 상태 구성 노드 구성 이름은 포털에서 대/소문자를 구분합니다. 대/소문자가 일치하지 않는 경우 노드는 **노드** 탭에 표시되지 않습니다.
-
 ## <a name="amazon-web-services-aws-virtual-machines"></a>AWS(Amazon Web Services) 가상 머신
 
 AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 구성 관리를 위해 Amazon Web Services 가상 머신을 쉽게 온보드할 수 있습니다. 이러한 도구 키트에 대한 자세한 내용은 [여기](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/)에서 확인할 수 있습니다.
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 
-실행 하는 Windows 서버 온-프레미스 또는 다른 클라우드 환경에서도 수 Azure Automation 상태 구성에 등록으로 Azure에 대 한 아웃 바운드 액세스를 갖습니다.
+실행 하는 Windows 서버 온-프레미스 또는 다른 클라우드 환경에서 일 수도 있습니다 Azure Automation 상태 구성으로 온 보 딩을 있는 그대로 [Azure에 대 한 아웃 바운드 액세스](automation-dsc-overview.md#network-planning):
 
 1. 최신 버전의 [WMF 5](https://aka.ms/wmf5latest)가 Azure Automation 상태 구성에 온보드하려는 머신에 설치되었는지 확인합니다.
 1. 뒤에 나오는 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성이 포함된 폴더를 생성합니다.
@@ -178,7 +96,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>실제/가상 Linux 컴퓨터 온-프레미스 또는 Azure 이외의 클라우드에
 
-실행 하는 Linux 서버 온-프레미스 또는 다른 클라우드 환경에서도 수 Azure Automation 상태 구성에 등록으로 Azure에 대 한 아웃 바운드 액세스를 갖습니다.
+실행 하는 Linux 서버 온-프레미스 또는 다른 클라우드 환경에서 일 수도 있습니다 Azure Automation 상태 구성으로 온 보 딩을 있는 그대로 [Azure에 대 한 아웃 바운드 액세스](automation-dsc-overview.md#network-planning):
 
 1. 최신 버전의 [Linux용 PowerShell 필요한 상태 구성](https://github.com/Microsoft/PowerShell-DSC-for-Linux)이 Azure Automation 상태 구성에 온보드하려는 머신에 설치되어 있는지 확인합니다.
 1. [PowerShell DSC 로컬 구성 관리자 기본값](/powershell/dsc/metaconfig4)이 사용자 사용 사례와 일치하는 경우 Azure Automation 상태 구성에서 끌어오고 보고하는 **모든** 머신을 온보드하려 합니다.

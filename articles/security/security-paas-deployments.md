@@ -1,6 +1,6 @@
 ---
-title: PaaS 배포 보안 | Microsoft Docs
-description: " PaaS와 다른 클라우드 서비스 모델의 보안 이점을 이해하고 Azure PaaS 배포를 보호하기 위한 권장 사례에 대해 알아봅니다. "
+title: PaaS 배포 보안-Microsoft Azure에 대 한 모범 사례
+description: 설계, 구축에 대 한 모범 사례 및 클라우드 응용 프로그램 Azure에서 보안 관리 및 다른 클라우드 서비스 모델 및 PaaS의 보안 이점을 이해 합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107449"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231126"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -29,6 +29,8 @@ ms.locfileid: "62107449"
 - 다른 클라우드 서비스 모델과 비교하여 서비스로서의 플랫폼 (PaaS)에 대한 보안 이점 평가
 - 네트워크 중심에서 ID 중심 경계 보안 방식으로 보안 목표 변경
 - 일반적인 PaaS 보안 모범 사례 권장 구현
+
+[Azure에서 보안 응용 프로그램 개발](abstract-develop-secure-apps.md) 가 보안 질문 및 클라우드 용 응용 프로그램을 개발 하는 경우 소프트웨어 개발 수명 주기의 각 단계에서 고려해 야 하는 컨트롤에 대 한 일반 지침입니다.
 
 ## <a name="cloud-security-advantages"></a>클라우드 보안 이점
 클라우드에 해당하는 보안 이점이 있습니다. 온-프레미스 환경에서 조직은 충족되지 않은 책임과 제한된 리소스를 보안에 투자할 가능성이 높으며, 이로 인해 공격자가 모든 계층의 취약점을 악용할 수 있는 환경이 만들어집니다.
@@ -111,9 +113,9 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 
 | 위협 | 보안 속성 | Azure 플랫폼 완화 가능성 |
 | --- | --- | --- |
-| 스푸핑 | Authentication | HTTPS 연결을 사용해야 하도록 지정합니다. |
+| 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |
-| 거부 | 거부 없음 | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
+| 거부 | 부인 방지 | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](https://docs.microsoft.com/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |
 | 서비스 거부 | 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
 | 권한 상승 | 권한 부여 | [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md)를 사용합니다. |
@@ -155,6 +157,10 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 
 Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. 경고, 대시보드 및 Kusto 쿼리 언어를 사용 하 여 심층 분석과 같은 공유 기능을 활용을 걸릴 수 있습니다.
 
+## <a name="perform-security-penetration-testing"></a>보안 침투 테스트 수행
+보안 방어의 유효성을 검사 하는 것은 다른 기능을 테스트 하는 만큼 중요 합니다. 확인 [침투 테스트](azure-security-pen-testing.md) 빌드 및 배포 프로세스의 표준 부분입니다. 기본 보안 테스트 및 배포 된 응용 프로그램에 대 한 취약성 검사를 예약 하 고 열린 포트, 끝점 및 공격에 대 한 모니터링 합니다.
+
+퍼지 테스트는 잘못 된 형식의 입력된 데이터 구문 분석 하 고이 데이터를 사용 하는 프로그래밍 인터페이스 (진입점)를 제공 하 여 프로그램 실패 (오류 코드)를 찾기 위한 메서드입니다. [Microsoft 보안 위험 감지](https://www.microsoft.com/en-us/security-risk-detection/) 는 Azure에 배포 하기 전에 소프트웨어에서 기타 보안상 취약성 관련 버그를 찾는 데 사용할 수 있는 클라우드 기반 도구입니다. 이 도구는 버그를 패치, 충돌 처리 또는 소프트웨어 출시 되 면 공격에 응답할 필요가 소프트웨어를 배포 하기 전에 취약성을 catch 하도록 설계 되었습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -166,6 +172,8 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 - Azure Cache for Redis
 - Azure Service Bus
 - 웹 애플리케이션 방화벽
+
+참조 [Azure에서 보안 응용 프로그램 개발](abstract-develop-secure-apps.md) 보안 질문 및 클라우드 용 응용 프로그램을 개발 하는 경우 소프트웨어 개발 수명 주기의 각 단계에서 고려해 야 하는 컨트롤입니다.
 
 [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 

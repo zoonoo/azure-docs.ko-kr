@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154707"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510959"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -35,7 +35,7 @@ ms.locfileid: "65154707"
 - [Mac 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Linux 용 azure Storage 탐색기 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
 * Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -82,7 +82,7 @@ ms.locfileid: "65154707"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
 
 ## <a name="previous-releases"></a>이전 릴리스
 
@@ -130,7 +130,7 @@ ms.locfileid: "65154707"
 - [Mac 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Linux 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 소유자 및 그룹을 소유 하는 ADLS Gen2 컨테이너, 파일 또는 폴더에 대 한 액세스를 관리 하는 경우 변경할 수 있습니다.
 * Windows, 제품 내에서 Storage 탐색기 업데이트는 이제는 증분 설치입니다. 빠른 업데이트 환경에서 이렇게 해야 합니다. 을 새로 설치 하려는 경우 다운로드할 수 있습니다는 [installer](https://azure.microsoft.com/features/storage-explorer/) 직접 다음 수동으로 설치 하십시오. #1089
@@ -212,7 +212,7 @@ ms.locfileid: "65154707"
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
@@ -281,7 +281,7 @@ ms.locfileid: "65154707"
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
@@ -336,7 +336,7 @@ ms.locfileid: "65154707"
 ## <a name="version-160"></a>버전 1.6.0
 12/5/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
@@ -391,7 +391,7 @@ ms.locfileid: "65154707"
 ## <a name="version-150"></a>버전 1.5.0
 2018/10/29
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 이제 [AzCopy v10(미리 보기)](https://github.com/Azure/azure-storage-azcopy)를 사용하여 Blob을 업로드하고 다운로드할 수 있습니다. 이 기능을 사용하도록 설정하려면 "실험적" 메뉴로 이동한 다음, "향상된 Blob 업로드 및 다운로드를 위해 AzCopy 사용"을 클릭합니다. 사용하도록 설정하면 AzCopy는 다음 시나리오에서 사용됩니다.
    * 도구 모음 또는 끌어서 놓기를 통해 폴더 및 파일을 Blob 컨테이너에 업로드합니다.
@@ -408,7 +408,7 @@ ms.locfileid: "65154707"
 * 임대를 해제하는 작업은 이제 한 번에 하나의 Blob에서만 수행될 수 있습니다. 또한 중단한 임대의 Blob 이름을 입력해야 합니다. 특히 VM의 경우 실수로 임대를 중단할 가능성을 줄이려고 이렇게 변경했습니다. #394
 * 로그인 문제가 발생하면 이제 인증을 다시 설정하도록 시도할 수 있습니다. "도움말" 메뉴로 이동하고 "다시 설정"을 클릭하여 이 기능에 액세스합니다. #419
 
-### <a name="fix"></a>해결
+### <a name="fix"></a>수정
 
 * 사용자 피드백을 통해 기본 에뮬레이터 노드가 다시 사용하도록 설정되었습니다. 연결 대화 상자를 통해 추가 에뮬레이터 연결을 계속 추가할 수 있습니다. 하지만 에뮬레이터가 기본 포트를 사용하도록 구성된 경우 "로컬 및 연결된/저장소 계정"에서 "에뮬레이터 * 기본 포트" 노드를 사용할 수도 있습니다. #669
 * Storage 탐색기를 통해 더 이상 선행 또는 후행 공백이 있는 Blob 메타데이터 값을 설정할 수 없습니다. #760
@@ -460,7 +460,7 @@ ms.locfileid: "65154707"
 * Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -516,7 +516,7 @@ ms.locfileid: "65154707"
 * Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -571,7 +571,7 @@ ms.locfileid: "65154707"
 ### <a name="hotfixes"></a>핫픽스
 * 새 Azure Storage 계정 종류에 대한 지원을 추가하기 위해 Azure Resource Management API 버전이 2018-07-01로 업데이트되었습니다. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -631,7 +631,7 @@ ms.locfileid: "65154707"
 * 느린 Windows 머신에서 경우에 따라 시작 화면이 표시되는 데 상당한 시간이 걸릴 수 있습니다. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
 * 연결된 계정 또는 서비스가 있는 경우에도 연결 대화 상자가 표시됩니다. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
    * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
@@ -683,7 +683,7 @@ ms.locfileid: "65154707"
 ## <a name="version-130"></a>버전 1.3.0
 07/09/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
@@ -740,7 +740,7 @@ ms.locfileid: "65154707"
 ## <a name="version-120"></a>버전 1.2.0
 2018/06/12
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Storage 탐색기가 테넌트의 하위 집합에서만 하위 구독을 로드하지 못하는 경우 성공적으로 로드된 모든 구독은 실패한 테넌트에 대한 오류 메시지와 함께 표시됩니다. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
 * Windows에서 업데이트를 사용할 수 있는 경우 이제 "종료 시 업데이트"하도록 선택할 수 있습니다. 이 옵션을 선택하면 Storage 탐색기를 닫은 후 업데이트에 대한 설치 관리자가 실행됩니다. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
 * 파일 공유 스냅숏을 볼 때 파일 공유 편집기의 바로 가기 메뉴에 복원 스냅숏이 추가되었습니다.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
@@ -797,7 +797,7 @@ ms.locfileid: "65154707"
 ## <a name="version-110"></a>버전 1.1.0
 05/09/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Storage 탐색기에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
 * Storage 탐색기에서 Blob 전용 및 GPV2 스토리지 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
 * SAS를 생성할 때 시작 시간이 더 이상 필요하지 않습니다.
@@ -852,7 +852,7 @@ ms.locfileid: "65154707"
 ## <a name="version-100"></a>Version 1.0.0
 2018/04/16
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Storage 탐색기에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
 * AAD에서 지원하는 Azure Stack 계정의 경우 이제 '대상 Azure Stack'을 사용하도록 설정하면 Storage 탐색기가 Azure Stack 등록을 검색합니다. 더 이상 사용자 지정 로그인 환경을 만들 필요가 없습니다.
 * 보다 빠른 탐색이 가능하도록 여러 바로 가기가 추가되었습니다. 그 중에는 다양한 패널을 전환하고 편집기 간에 이동하는 바로 가기도 포함됩니다. 자세한 내용은 보기 메뉴를 참조하세요.
@@ -953,7 +953,7 @@ ms.locfileid: "65154707"
 ## <a name="version-095"></a>버전 0.9.5
 02/06/2018
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 파일 공유 스냅숏에 대한 지원:
     * 파일 공유의 스냅숏을 만들고 관리합니다.
@@ -1002,7 +1002,7 @@ ms.locfileid: "65154707"
 ## <a name="version-094-and-093"></a>버전 0.9.4 및 0.9.3
 2018년 1월 21일
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
     * Storage 탐색기에 생성된 직접 링크를 여는 경우
     * 포털에서 Storage 탐색기를 여는 경우
@@ -1056,7 +1056,7 @@ ms.locfileid: "65154707"
 * Azure US Government에 대 한 엔드포인트 도메인이 잘못 되었습니다. 이 문제가 해결되었습니다.
 * Manage Accounts 패널에서 [적용] 단추는 때로 클릭하기 힘듭니다. 이 문제가 더 이상 일어나지 않을 것입니다.
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Azure Cosmos DB에 대한 미리 보기 지원:
     * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
@@ -1112,7 +1112,7 @@ ms.locfileid: "65154707"
 
 ## <a name="version-091-and-090"></a>버전 0.9.1 및 0.9.0
 10/20/2017
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Azure Cosmos DB에 대한 미리 보기 지원:
     * [온라인 설명서](./cosmos-db/storage-explorer.md)
     * 데이터베이스 및 컬렉션 만들기
@@ -1169,7 +1169,7 @@ ms.locfileid: "65154707"
 ## <a name="version-0816"></a>0.8.16 버전
 8/21/2017
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 * Blob을 열 때 저장소 탐색기는 변경 내용이 감지될 경우 다운로드한 파일을 업로드할지 묻는 메시지를 표시합니다.
 * 향상된 Azure Stack 로그인 환경
 * 여러 개의 작은 파일을 동시에 업로드/다운로드하는 성능 개선
@@ -1209,7 +1209,7 @@ ms.locfileid: "65154707"
 ### <a name="version-0814"></a>버전 0.8.14
 06/22/2017
 
-### <a name="new"></a>새로 만들기
+### <a name="new"></a>새 문자
 
 * 여러 중요 보안 업데이트를 활용하기 위해 Electron 버전이 1.7.2로 업데이트되었습니다.
 * 이제 도움말 메뉴에서 온라인 문제 해결 가이드에 빠르게 액세스할 수 있습니다.
@@ -1236,7 +1236,7 @@ ms.locfileid: "65154707"
 ### <a name="version-0813"></a>버전 0.8.13
 05/12/2017
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Storage 탐색기 문제 해결 [가이드][2]
 * Azure Stack 구독 연결 관련 [지침][3]
@@ -1271,7 +1271,7 @@ ms.locfileid: "65154707"
 ### <a name="version-0812-and-0811-and-0810"></a>버전 0.8.12 및 0.8.11 및 0.8.10
 04/07/2017
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 이제 업데이트 알림에서 업데이트를 설치할 때 Storage 탐색기가 자동으로 닫힙니다.
 * 현재 위치 빠른 액세스 기능이 자주 액세스하는 리소스 사용을 위한 향상된 환경을 제공합니다.
@@ -1319,7 +1319,7 @@ ms.locfileid: "65154707"
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Storage 탐색기 0.8.9는 업데이트를 위해 최신 버전을 자동으로 다운로드합니다.
 * 핫픽스: 포털에서 생성한 SAS URI를 사용하여 Storage 계정을 연결하면 오류가 발생합니다.
@@ -1349,7 +1349,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 이제 활동 창에서 업데이트, 다운로드 또는 복사 세션을 시작할 때 발생하는 충돌을 해결하는 방법을 선택할 수 있습니다.
 * Storage 리소스의 전체 경로를 보려면 탭 위로 마우스를 가져갑니다.
@@ -1376,7 +1376,7 @@ ms.locfileid: "65154707"
 11/18/2016
 ### <a name="version-086"></a>버전 0.8.6
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 쉬운 탐색을 위해 가장 자주 사용되는 서비스를 빠른 액세스 기능에 고정할 수 있습니다.
 * 이제 다른 탭에 있는 여러 편집기를 열 수 있습니다. 한 번 클릭하면 임시 탭이 열리고, 두 번 클릭하면 영구 탭이 열립니다. 임시 탭을 클릭하여 영구 탭으로 만들 수도 있습니다.
@@ -1414,7 +1414,7 @@ ms.locfileid: "65154707"
 10/03/2016
 ### <a name="version-085"></a>버전 0.8.5
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 이제 Portal에서 생성된 SAS 키를 사용하여 Storage 계정 및 리소스에 연결할 수 있습니다.
 
@@ -1437,7 +1437,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 리소스를 공유하고 쉽게 액세스하기 위해 Storage 계정, 컨테이너, 큐, 테이블 또는 파일 공유에 대한 직접 링크를 생성할 수 있습니다(Windows 및 Mac OS 지원).
 * 검색 상자에서 Blob 컨테이너, 테이블, 큐, 파일 공유 또는 저장소 계정 검색
@@ -1484,7 +1484,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Storage 계정이 구독별로 그룹화됩니다. 키 또는 SAS를 통해 연결된 개발 Storage 및 리소스는 (로컬 및 연결됨) 노드 아래에 표시됩니다.
 * "Azure 계정 설정" 패널에서 계정을 로그오프할 수 있습니다.
@@ -1511,7 +1511,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 파일 공유 지원: 파일 및 디렉터리 보기/업로드/다운로드/복사, SAS URI 만들기 및 연결이 지원됩니다.
 * SAS URI 또는 계정 키를 사용하여 Storage에 연결하기 위한 사용자 환경이 개선되었습니다.
@@ -1534,7 +1534,7 @@ ms.locfileid: "65154707"
 05/17/2016
 ### <a name="version-07201605090"></a>버전 0.7.20160509.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 앱 작동 중단 시의 오류가 보다 효율적으로 처리됩니다.
 
@@ -1554,7 +1554,7 @@ ms.locfileid: "65154707"
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * 테이블 지원: 엔터티 보기/쿼리/내보내기/가져오기 및 CRUD 작업이 지원됩니다.
 * 큐 지원: 메시지 보기, 추가, 큐에서 제거가 지원됩니다.
@@ -1586,7 +1586,7 @@ ms.locfileid: "65154707"
 
 ### <a name="version-07201601050"></a>버전 0.7.20160105.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * Linux 지원이 추가되었습니다(OSX에 대한 패리티 기능).
 * SAS(공유 액세스 서명) 키를 사용하여 Blob 컨테이너를 추가할 수 있습니다.
@@ -1616,7 +1616,7 @@ ms.locfileid: "65154707"
 11/18/2015
 ### <a name="version-07201511160"></a>버전 0.7.20151116.0
 
-#### <a name="new"></a>새로 만들기
+#### <a name="new"></a>새 문자
 
 * macOS 및 Windows 버전이 지원됩니다.
 * 조직 계정, Microsoft 계정, 2FA 등을 사용하여 로그인해 Storage 계정을 확인할 수 있습니다.

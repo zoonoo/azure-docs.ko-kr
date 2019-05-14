@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653814"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231855"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -61,7 +61,7 @@ ms.locfileid: "60653814"
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 적응 샘플링 구성
 
-[에 대해 알아봅니다](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) 적응 샘플링에 대 한 ASP.NET Core 응용 프로그램을 구성 하는 방법에 대 한 합니다. 
+[에 대해 알아봅니다](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 방법에 대 한 합니다. 
 
 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)의 `AdaptiveSamplingTelemetryProcessor` 노드에서 여러 매개 변수를 조정할 수 있습니다. 표시된 수치는 기본값입니다.
 

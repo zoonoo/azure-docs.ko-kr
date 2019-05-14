@@ -6,9 +6,6 @@
     - name: Azure Machine Learning 서비스란?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Workbench의 변경된 내용
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: 설정
   items:
     - name: 작업 영역 만들기
@@ -117,6 +114,7 @@
         - name: 작업 영역에 대해 포털 사용
           href: how-to-manage-workspace.md
         - name: Resource Manager 템플릿 사용
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "개발 환경 설정\_"
       items:
@@ -197,6 +195,8 @@
         - name: 배포 위치 및 방법
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
+        - name: GPU
+          href: how-to-deploy-inferencing-gpus.md
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
@@ -224,6 +224,10 @@
       items:
         - name: ML 파이프라인 만들기
           href: how-to-create-your-first-pipeline.md
+        - name: Azure Pipelines를 사용한 ML 워크플로의 CI/CD
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md
@@ -235,9 +239,6 @@
     - name: Machine Learning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: 데이터 준비 SDK
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: 모니터링 SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
@@ -352,3 +353,6 @@
     - name: ML 제품 비교
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Workbench의 변경된 내용
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

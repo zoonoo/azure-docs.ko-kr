@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023731"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510581"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>자동화 된 기계 학습 실험에서 Python 구성
 
-이 가이드에서는 자동화 된 machine learning 사용 하 여 실험의 다양 한 구성 설정을 정의 하는 방법에 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
+이 가이드에서는 자동화 된 machine learning 사용 하 여 실험의 다양 한 구성 설정을 정의 하는 방법에 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
 
 자동화된 Machine Learning 실험 예제를 보려면 [자습서: 자동화된 Machine Learning을 사용하여 분류 모델 학습](tutorial-auto-train-models.md) 또는 [클라우드의 자동화된 Machine Learning을 사용하여 모델 학습](how-to-auto-train-remote.md)을 참조하세요.
 
@@ -137,7 +137,7 @@ cv_splits_indices   | 정수 배열 ||  _선택 사항_ 교차 유효성 검사�
 >* 식을 사용하여 열 추가
 >* 누락 값 입력
 >* 예제별 열 파생
->* Filtering
+>* 필터링
 >* 사용자 지정 Python 변환
 
 data prep sdk에 대해 알아보려면 [모델링을 위한 데이터 준비 방법 문서](how-to-load-data.md)를 참조하세요.
@@ -368,7 +368,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 1: `get_engineered_feature_names()` 엔지니어링 된 기능 이름 목록을 반환 합니다.
 
-  Usage: 
+  사용 현황: 
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -384,7 +384,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 2: `get_featurization_summary()` 기능화 (featurization) 모든 입력된 기능에 대 한 요약을 반환 합니다.
 
-  Usage: 
+  사용 현황: 
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -416,7 +416,7 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
   
-   위치:
+   각 항목이 나타내는 의미는 다음과 같습니다.
    
    |출력|정의|
    |----|--------|

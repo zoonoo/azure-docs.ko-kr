@@ -56,8 +56,8 @@ Dynamics AX 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **형식** 속성은 **DynamicsAX**로 설정해야 합니다. |예 |
-| URL | Dynamics AX(또는 Dynamics 365 Finance and Operations) 인스턴스 OData 엔드포인트입니다. |예 |
+| type | **형식** 속성은 **DynamicsAX**로 설정해야 합니다. |예 |
+| url | Dynamics AX(또는 Dynamics 365 Finance and Operations) 인스턴스 OData 엔드포인트입니다. |예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
@@ -100,8 +100,8 @@ Dynamics AX에서 데이터를 복사하려면 데이터 세트의 **type** 속�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type** 속성을 **DynamicsAXResource**로 설정해야 합니다. | 예 |
-| 경로 | Dynamics AX OData 엔터티의 경로입니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **DynamicsAXResource**로 설정해야 합니다. | 예 |
+| path | Dynamics AX OData 엔터티의 경로입니다. | 예 |
 
 **예제**
 
@@ -133,8 +133,8 @@ Dynamics AX에서 데이터를 복사하려면 복사 작업의 **source** 형�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **DynamicsAXSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
+| type | 복사 작업 원본의 **type** 속성을 **DynamicsAXSource**로 설정해야 합니다. | 예 |
+| query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"?$select=Name,Description&$top=5"`.<br/><br/>**참고**: 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
 
 **예제**
 

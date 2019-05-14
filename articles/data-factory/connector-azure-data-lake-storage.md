@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ccaa0362f6eebb5911b739e63474fcdab3bd74bf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154725"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228621"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -313,7 +313,7 @@ ADLS Gen2에서 데이터를 복사 **Parquet 또는 구분 기호로 분리 된
 | maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.                                            |
 
 > [!NOTE]
-> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 
@@ -414,7 +414,7 @@ ADLS Gen2로 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된
 | maxConcurrentConnections | 데이터 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.       |
 
 > [!NOTE]
-> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSink** 으로 다음 섹션에 언급 된 형식 복사 활동 sink는 계속 지원-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSink** 으로 다음 섹션에 언급 된 형식 복사 활동 sink는 계속 지원-이전 버전과 호환성입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148973"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235890"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>VCore 서비스 계층 간에 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
@@ -44,7 +44,7 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 |컴퓨팅|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80<br/>**서버 리스 계산**<br/>Gen5: 0.5 - 4 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80|
 |메모리|**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB<br/>**서버 리스 계산**<br/>Gen5: vCore당 3GB|**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB |**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB|
 |Storage|원격 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**단일 데이터베이스 서버 리스 계산**:<br/>5GB-1TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
-|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen5: 코어당 5.1GB|
+|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
 |Storage|원격 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
 |IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|1 읽기/쓰기 복제본 plus 0-4 [읽기-배율 복제본](sql-database-read-scale-out.md)|

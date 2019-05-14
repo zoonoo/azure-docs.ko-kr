@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad285d71c2bb90f4b5a59eba25c6cc6a6d8588d6
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204903"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501840"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.
@@ -35,7 +35,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 | 1세대: 디스크에서 압축된 240TB. 이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. <br/><br/> 2세대: rowstore용 240TB/columnstore 테이블용 무제한 스토리지 |
 | 테이블 |최대 크기 |디스크에서 압축된 60TB |
-| 테이블 |데이터베이스 당 테이블 | 100,000 |
+| 테이블 |데이터베이스당 테이블 수 | 100,000 |
 | 테이블 |테이블 당 열 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식](sql-data-warehouse-tables-data-types.md)에 따라 다릅니다. char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
 | 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열**을 행 외부로 밀수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 [8KB를 초과하는 행 오버플로 데이터](https://msdn.microsoft.com/library/ms186981.aspx)를 참조하세요. |
@@ -54,7 +54,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 ## <a name="loads"></a>로드
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB 보다 작은 행을 로드 합니다.<br/><br/> |
+| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB 보다 작은 행을 로드 합니다. LOB 데이터 형식으로는 클러스터형 Columnstore 인덱스 (CCI) 테이블로 로드 하는 것은 지원 되지 않습니다.<br/><br/> |
 
 ## <a name="queries"></a>쿼리
 | Category | 설명 | 최대 |
@@ -63,7 +63,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 | 쿼리 |시스템 뷰에서 동시 쿼리입니다. |100 |
 | 쿼리 |시스템 뷰에서 쿼리된 쿼리입니다. |1000 |
 | 쿼리 |최대 매개 변수 |2098 |
-| Batch |최대 크기 |65,536*4096 |
+| 일괄 처리 |최대 크기 |65,536*4096 |
 | 결과 선택 |행 당 열 |4096<br/><br/>결과에는 행마다 4096개 이상의 열이 있어서는 안 됩니다. 항상 4096이 있다고 보장할 수 없습니다. 쿼리 계획에 임시 테이블이 필요한 경우 테이블 당 최대 1024 열이 적용될 수 있습니다. |
 | SELECT |중첩된 하위 쿼리 |32<br/><br/>SELECT 문에는 32개 보다 많은 중첩된 하위 쿼리가 있어서는 안 됩니다. 항상 32가 있다고 보장할 수 없습니다. 예를 들어 조인은 쿼리 계획에 하위 쿼리를 제공할 수 있습니다. 또한 사용 가능한 메모리에서 하위 쿼리의 수를 제한할 수 있습니다. |
 | SELECT |조인 당 열 |1024열<br/><br/>조인에는 1024개 이상의 열이 있어서는 안 됩니다. 항상 1024가 있다고 보장할 수 없습니다. 조인 계획에 조인 결과보다 많은 열을 가진 임시 테이블이 필요한 경우 1024 제한은 임시 테이블에 적용됩니다. |

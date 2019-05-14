@@ -91,4 +91,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  테스트 사용자를 선택한 후 **사용자 삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Portal에서 게스트 사용자를 만들고 앱 공유를 위한 초대를 보냈습니다. 그런 다음, 게스트 사용자의 관점에서 사용 프로세스를 살펴보고 앱이 게스트 사용자의 액세스 패널에 표시되는지 확인했습니다. 공동 작업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)를 참조하세요.
+이 자습서에서는 Azure Portal에서 게스트 사용자를 만들고 앱 공유를 위한 초대를 보냈습니다. 그런 다음, 게스트 사용자의 관점에서 사용 프로세스를 살펴보고 앱이 게스트 사용자의 액세스 패널에 표시되는지 확인했습니다. 협업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](add-users-administrator.md)를 참조하세요.

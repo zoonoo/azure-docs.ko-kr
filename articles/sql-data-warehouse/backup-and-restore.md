@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679310"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236581"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 
@@ -83,7 +83,7 @@ Azure 청구서에는 Storage 및 재해 복구 스토리지에 대한 항목이
 
 지역 중복 저장소를 사용하는 경우 별도의 저장소 비용이 청구됩니다. 지역 중복 스토리지는 표준 RA-GRS(Read-Access Geo Redundant Storage) 요금이 청구됩니다.
 
-SQL Data Warehouse 가격 책정에 대한 자세한 내용은 [SQL Data Warehouse 가격](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) 및 지역 간 복원시의 [송신 요금](https://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.
+SQL Data Warehouse 가격 책정에 대 한 자세한 내용은 [SQL Data Warehouse 가격 책정]을 참조 하세요. 지역에서 복원 하는 경우 데이터 송신에 대 한 청구 되지 됩니다.
 
 ## <a name="restoring-from-restore-points"></a>복원 지점에서 복원
 

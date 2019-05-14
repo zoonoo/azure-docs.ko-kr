@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: c3f5c3ae8501f3114920f3b06f7f8cafa05e83bb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026783"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406571"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: 잉크 인식기 REST API 및 Java를 사용 하 여 디지털 잉크를 인식 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "65026783"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 합니다 [Java&trade; 개발 Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
+- 합니다 [Java&trade; 개발 Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
 
 - Maven 리포지토리에서 이러한 라이브러리 가져오기
     - [Java에서 JSON](https://mvnrepository.com/artifact/org.json/json) 패키지
@@ -142,9 +142,9 @@ static void recognizeInk(String requestData) {
 > [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-잉크 인식 API를 디지털 잉크 입력 기능 앱에서 작동 하는 방법을 보려면 하려면 GitHub에서 다음 샘플 응용 프로그램에서 확인을 수행 합니다.
-* [C#및 유니버설 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#및 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
+* [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 및 WPF(Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Javascript 웹 브라우저 앱](https://go.microsoft.com/fwlink/?linkid=2089908)       
 * [Java 및 Android 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089906)
 * [Swift 및 iOS 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089805)

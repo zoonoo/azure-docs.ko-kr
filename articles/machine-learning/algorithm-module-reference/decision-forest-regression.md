@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028802"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442370"
 ---
 # <a name="decision-forest-regression-module"></a>의사 결정 포리스트 회귀 모듈
 
@@ -39,7 +39,7 @@ ms.locfileid: "65028802"
 
 이 회귀 모델의 의사 결정 트리 앙상블으로 구성 됩니다. 각 의사 결정 포리스트 회귀 트리에 예측으로 가우스 분포를 출력합니다. 집계 모델의 모든 트리에 대해 결합 된 배포에 가장 가까운 가우스 분포를 찾으려면 트리 앙상블을 통해 수행 됩니다.
 
-이 알고리즘 및 해당 구현에 대 한 이론적 프레임 워크에 대 한 자세한 내용은이 문서를 참조 하세요. [의사 결정 포리스트: 분류, 회귀, 밀도 추정, 매니폴드 학습 및 반 감독된 학습에 대 한 통합된 프레임 워크 ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+이 알고리즘 및 해당 구현에 대 한 이론적 프레임 워크에 대 한 자세한 내용은이 문서를 참조 하세요. [의사 결정 포리스트: 분류, 회귀, 밀도 추정, 매니폴드 학습 및 반 감독된 학습에 대 한 통합된 프레임 워크](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>의사 결정 포리스트 회귀 모델을 구성 하는 방법
 
@@ -53,7 +53,7 @@ ms.locfileid: "65028802"
 
     - **복제**: 복제에서는 각 트리는 정확히 동일한 입력된 데이터에 대해 학습 됩니다. 분할의 각 트리 노드에 대 한 조건자는 결정 임의 유지 하 고 트리는 다양 한 됩니다.
 
-         사용 하 여 학습 프로세스에 대 한 자세한 내용은 합니다 **복제** 옵션 [Computer Vision 및 의료 이미지 분석에 대 한 의사 결정 포리스트. Criminisi and J. Shotton. Springer 2013입니다. ](http://research.microsoft.com/projects/decisionforests/).
+         사용 하 여 학습 프로세스에 대 한 자세한 내용은 합니다 **복제** 옵션 [Computer Vision 및 의료 이미지 분석에 대 한 의사 결정 포리스트. Criminisi and J. Shotton. Springer 2013입니다. ](https://research.microsoft.com/projects/decisionforests/).
 
 3. 설정 하 여 학습 모델을 지정 합니다 **트레이너 모드 만들기** 옵션입니다.
 

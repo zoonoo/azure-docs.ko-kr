@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149291"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
 이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 가는 이사의 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.  
 
-이전에는 이 자습서가 계층 구조 엔터티를 사용하여 작성되었습니다. 엔터티 역할을 사용하면 계층 구조 엔터티 유형이 필요 없습니다. 역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다. 
+역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다. 
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -93,12 +93,8 @@ ms.locfileid: "59528815"
     ![미리 작성된 엔터티에 역할 추가](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. 왼쪽 탐색 영역에서 **의도**를 선택한 다음, **MoveEmployeeToCity** 의도를 선택합니다. 도시 이름 레이블이 미리 작성된 엔터티 **geogrpahyV2**로 지정되었습니다.
 1. 목록의 첫 번째 벌화에서 원래 위치를 선택합니다. 드롭다운 메뉴가 나타납니다. 목록에서 **geographyV2**를 선택한 다음, 메뉴를 따라 **원래 위치**를 선택합니다.
-
-    [![도시를 원래 위치로 표시하는 스크린샷](media/tutorial-entity-roles/tag-origin-city-with-role.png "도시를 원래 위치로 표시하는 스크린샷")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. 이전 단계의 방법을 사용하여 모든 발화에 있는 위치의 모든 역할을 표시합니다. 
 
-    [![발화에서 레이블이 지정된 위치 엔터티의 스크린샷](media/tutorial-entity-roles/all-locations-marked-with-roles.png "발화에서 레이블이 지정된 위치 엔터티의 스크린샷")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가 
 
@@ -117,7 +113,7 @@ ms.locfileid: "59528815"
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. 주소 표시줄의 URL 끝으로 이동하여 `Please move Carl Chamerlin from Tampa to Portland`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 있는 발화와 같지 않으므로 좋은 테스트이므로 추출된 계층적 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
+1. 주소 표시줄의 URL 끝으로 이동하여 `Please move Carl Chamerlin from Tampa to Portland`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며, 추출된 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
 
     ```json
     {

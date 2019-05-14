@@ -12,7 +12,7 @@ ms.date: 02/22/2019
 ms.author: sbowles
 ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
 ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2019
 ms.locfileid: "57588774"
@@ -35,7 +35,9 @@ ms.locfileid: "57588774"
 
 ## <a name="get-basic-face-data"></a>기본 얼굴 데이터 가져오기
 
+
 이 가이드는 감지 호출의 세부 정보에 중점을 둡니다-전달할 수 있는 인수 및 반환된 데이터를 사용하여 수행할 수 있는 것. 각 작업을 완료하는데 추가 시간이 소요 되므로 필요한 기능만 쿼리하는 것이 좋습니다.
+
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);

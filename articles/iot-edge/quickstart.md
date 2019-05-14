@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226949"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148077"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포 - 미리 보기
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포
 
 이 빠른 시작에서는 Azure IoT Edge 클라우드 인터페이스를 사용하여 사전 빌드된 코드를 IoT Edge 디바이스에 원격으로 배포합니다. 이 작업을 수행하려면 먼저 IoT Edge 디바이스로 작동할 Windows 가상 머신을 만들고 구성한 다음, 이 머신에 모듈을 배포할 수 있습니다.
 
@@ -30,9 +30,6 @@ ms.locfileid: "58226949"
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart/install-edge-full.png)
 
 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
-
-> [!NOTE]
-> Windows의 IoT Edge 런타임은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
@@ -71,6 +68,10 @@ IoT Edge 디바이스:
   1. **RDP** 탭에서 **RDP 파일 다운로드**를 선택합니다.
 
   원격 데스크톱 연결을 통해 이 파일을 열어 `az vm create` 명령으로 지정한 관리자 이름과 암호를 사용하여 Windows 가상 머신에 연결합니다.
+
+
+> [!NOTE]
+> 이 빠른 시작에서는 간단하게 하기 위해 Windows 데스크톱 가상 머신을 사용합니다. 일반적으로 프로덕션 시나리오에 사용할 수 있는 Windows 운영 체제에 대한 정보는 [Azure IoT Edge 지원 시스템](support.md)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -130,30 +131,33 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 이 섹션의 모든 단계는 IoT Edge 디바이스에서 수행되므로 이제 원격 데스크톱을 통해 해당 가상 머신에 연결하려고 합니다.
 
-### <a name="prepare-your-device-for-containers"></a>컨테이너용 디바이스 준비
-
-설치 스크립트는 IoT Edge를 설치하기 전에 자동으로 디바이스에 Moby 엔진을 설치합니다. 컨테이너 기능을 켜서 디바이스를 준비합니다.
-
-1. 시작 표시줄에서 **Windows 기능 켜기/끄기**를 검색하고 제어판 프로그램을 엽니다.
-1. **컨테이너**를 찾아 선택합니다.
-1. **확인**을 선택합니다.
-
-완료되면 변경 내용을 적용하기 위해 Windows를 다시 시작해야 하지만, Azure Portal에서 가상 머신을 다시 시작하는 대신 원격 데스크톱 세션에서 변경할 수 있습니다.
-
-### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge 서비스 다운로드 및 설치
+### <a name="install-and-configure-the-iot-edge-service"></a>IoT Edge 서비스 설치 및 구성
 
 PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니다. IoT Hub에서 검색한 디바이스 연결 문자열을 사용하여 디바이스를 구성합니다.
 
-1. IoT Edge 디바이스에서 관리자 권한으로 PowerShell을 실행합니다.
+1. 아직 없는 경우 [새 Azure IoT Edge 디바이스 등록](how-to-register-device-portal.md)의 단계를 따라 디바이스를 등록하고 디바이스 연결 문자열을 검색합니다. 
 
-2. IoT Edge 서비스를 디바이스에 다운로드하여 설치합니다.
+2. PowerShell을 관리자 권한으로 실행합니다.
+
+3. **Deploy-IoTEdge** 명령은 사용자의 Windows 머신이 지원되는 버전인지 확인하고, 컨테이너 기능을 작동하도록 켜고, moby 런타임을 다운로드한 다음, IoT Edge 런타임을 다운로드합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
+4. 사용자의 머신은 자동으로 다시 시작될 수도 있습니다. Deploy-IoTEdge 명령에서 다시 부팅한다는 메시지가 표시되면 바로 수행합니다. 
+
+5. PowerShell을 관리자 권한으로 다시 실행합니다.
+
+6. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 
@@ -168,14 +172,7 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
 2. 서비스 문제를 해결해야 할 경우 서비스 로그를 검색합니다.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 디바이스에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다.
@@ -226,34 +223,21 @@ iotedge logs SimulatedTemperatureSensor -f
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 장치를 사용할 수 있습니다. 그렇지 않으면 만든 Azure 리소스를 삭제하고 장치에서 IoT Edge 런타임을 제거할 수 있습니다.
-
-### <a name="delete-azure-resources"></a>Azure 리소스 삭제
+IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 디바이스를 사용할 수 있습니다. 그렇지 않으면 요금이 발생하지 않도록 Azure 리소스를 삭제할 수 있습니다.
 
 새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 리소스 그룹의 콘텐츠를 한 번 더 확인하여 유지할 내용이 없는지 검토합니다. 전체 그룹을 삭제하지는 않으려는 경우 대신, 개별 리소스를 삭제할 수 있습니다.
 
 **IoTEdgeResources** 그룹을 제거합니다.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>IoT Edge 런타임 제거
-
-장치에서 설치를 제거하려면 다음 명령을 사용합니다.  
-
-IoT Edge 런타임을 제거합니다. IoT Edge를 다시 설치할 계획이 있으면, 방금 설정한 것과 동일한 구성으로 다시 설치할 수 있도록 `-DeleteConfig`와 `-DeleteMobyDataRoot` 매개 변수를 남겨둡니다.
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.
 
-Azure IoT Edge가 이러한 데이터를 통해 비즈니스 통찰력을 얻는 데 어떻게 도움을 주는지 알아보려면 다른 자습서를 계속 진행할 수 있습니다.
+다음 단계는 비즈니스 논리를 실행하는 IoT Edge를 만들기 시작할 수 있도록 로컬 개발 환경을 설정하는 것입니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Function을 사용하여 센서 데이터 필터링](tutorial-deploy-function.md)
+> [Windows 디바이스를 위한 IoT Edge 모듈 개발 시작](tutorial-develop-for-windows.md)

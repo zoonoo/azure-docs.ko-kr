@@ -114,7 +114,7 @@ Spark 셸은 테스트/탐색 용도로 사용됩니다.
 
 ## <a name="access-azure-cosmos-db-cassandra-api-from-jupyter-notebooks"></a>Jupyter Notebooks에서 Azure Cosmos DB Cassandra API에 액세스
 
-HDInsight-Spark는 Zeppelin 및 Jupyter Notebook 서비스와 함께 제공됩니다. 모두 Scala 및 Python을 지원하는 웹 기반 Notebook 환경입니다. Notebook은 대화형 예비 분석 및 공동 작업에 적합하지만 운영/프로덕션 프로세스용은 아닙니다.
+HDInsight-Spark는 Zeppelin 및 Jupyter Notebook 서비스와 함께 제공됩니다. 모두 Scala 및 Python을 지원하는 웹 기반 Notebook 환경입니다. Notebook은 대화형 예비 분석 및 협업에 적합하지만 운영/프로덕션 프로세스용은 아닙니다.
 
 다음 Jupyter Notebooks는 HDInsight Spark 클러스터에 업로드할 수 있으며, Azure Cosmos DB Cassandra API를 사용하기 위한 준비 샘플을 제공합니다. 첫 번째 Notebook `1.0-ReadMe.ipynb`를 검토하여 Azure Cosmos DB Cassandra API에 연결하기 위한 Spark 서비스 구성을 검토해 보세요.
 

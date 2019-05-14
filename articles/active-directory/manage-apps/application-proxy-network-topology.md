@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443415"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231508"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -39,7 +39,7 @@ Azure AD 애플리케이션 프록시를 통해 애플리케이션을 게시할 
 
 ## <a name="tenant-location-and-application-proxy-service"></a>테넌트 위치 및 애플리케이션 프록시 서비스
 
-Azure AD 테넌트에 등록할 때 테넌트의 지역은 지정한 국가에 따라 결정됩니다. 애플리케이션 프록시를 사용하도록 설정하면 테넌트에 대한 애플리케이션 프록시 서비스 인스턴스가 Azure AD 테넌트와 동일한 지역이나 가장 가까운 지역에서 선택되거나 만들어집니다.
+Azure AD 테 넌 트에 등록 하는 경우 테 넌 트의 지역 지정할 국가/지역에 따라 결정 됩니다. 애플리케이션 프록시를 사용하도록 설정하면 테넌트에 대한 애플리케이션 프록시 서비스 인스턴스가 Azure AD 테넌트와 동일한 지역이나 가장 가까운 지역에서 선택되거나 만들어집니다.
 
 예를 들어 Azure AD 테넌트의 국가 또는 지역이 영국인 경우 모든 애플리케이션 프록시 커넥터는 EU 데이터 센터의 서비스 인스턴스를 사용합니다. 사용자가 게시된 애플리케이션에 액세스할 때 해당 트래픽은 이러한 위치의 애플리케이션 프록시 서비스 인스턴스를 통과합니다.
 
@@ -78,7 +78,7 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 ## <a name="focus-your-optimization-strategy"></a>최적화 전략에 집중
 
-사용자와 애플리케이션 프록시 서비스 간의 연결을 제어할 수 있는 방법은 거의 없습니다. 사용자는 홈 네트워크, 인터넷 카페 또는 다른 국가에서 앱에 액세스할 수 있습니다. 대신 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터로, 그런 다음 앱으로 연결을 최적화할 수 있습니다. 사용자 환경에서 다음과 같은 패턴을 통합하는 것이 좋습니다.
+사용자와 애플리케이션 프록시 서비스 간의 연결을 제어할 수 있는 방법은 거의 없습니다. 사용자는 홈 네트워크, 커피숍 또는 다른 국가/지역에서 앱을 액세스할 수 있습니다. 대신 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터로, 그런 다음 앱으로 연결을 최적화할 수 있습니다. 사용자 환경에서 다음과 같은 패턴을 통합하는 것이 좋습니다.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>패턴 1: 커넥터를 애플리케이션 가까이 배치
 

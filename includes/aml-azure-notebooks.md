@@ -9,14 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: d90034e3de77f67ec3a74123c9655fda95b113fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ba2c8b01861c0ecbc9adeebfcb184cff1b81e816
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302224"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025101"
 ---
-1. [Azure Machine Learning 포털 빠른 시작](../articles/machine-learning/service/quickstart-get-started.md)을 완료하여 작업 영역을 만들고 Azure Notebooks를 시작합니다. 원한다면 **Notebook 사용** 섹션을 건너뛰어도 됩니다.
-1. [빠른 시작](../articles/machine-learning/service/quickstart-get-started.md)을 이미 완료한 경우 [Azure Notebooks](https://notebooks.azure.com/)에 다시 로그인하여 **시작** 프로젝트를 엽니다.  
-1. 프로젝트 상태가 중지됨이면 프로젝트를 시작합니다.
-    ![프로젝트 시작](./media/aml-azure-notebooks/start-project.png)
+* [빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](../articles/machine-learning/service/quickstart-run-cloud-notebook.md)을 완료하여 작업 영역을 만들고 Notebook 웹 페이지를 시작합니다. 
+

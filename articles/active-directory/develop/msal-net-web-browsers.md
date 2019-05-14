@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190979"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406779"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>웹 브라우저를 사용 하 여 MSAL.NET에서
 웹 브라우저는 대화형 인증을 위해 필요 합니다. MSAL.NET 기본적으로 지원 합니다 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-and-xamarinandroid) Xamarin.iOS에서 및 [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)합니다. 하지만 [포함 된 웹 브라우저를 사용할 수도 있습니다](#enable-embedded-webviews) (UX에서 single sign-on (SSO)를 보안에 대 한 필요)의 요구 사항에 따라 [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 하 고 [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) 앱입니다. 및 수도 있습니다 [동적으로 선택](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) Chrome 또는 Android에서 Chrome 사용자 지정 탭을 지 원하는 브라우저의 존재를 기반으로 웹 브라우저를 사용 합니다.
@@ -93,7 +93,7 @@ MSAL.NET을 사용 하 여 개발자는 몇 가지 옵션이 있습니다 STS에
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>포함 된 웹 브라우저 또는 Xamarin.iOS에서 시스템 브라우저 간의 선택
 
-IOS 앱에서의 `AppDelegate.cs` 초기화할 수 있습니다 합니다 `ParentWindow` 에 `null`입니다. IOS에서 사용 되지 않습니다.
+IOS 앱에서의 `AppDelegate.cs` 초기화할 수 있습니다 합니다 `ParentWindow` 를 `null`입니다. IOS에서 사용 되지 않습니다.
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS

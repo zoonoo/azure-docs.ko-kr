@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업과 B2C 비교 - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차이는 무엇인가요?
+title: B2B 협업과 B2C 비교 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 협업과 Azure AD B2C 간의 차이는 무엇인가요?
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -18,9 +18,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56670592"
 ---
-# <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
+# <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 협업과 B2C 비교
 
-Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 사용하여 Azure AD에서 외부 사용자와 함께 작업할 수 있습니다. 하지만 어떻게 비교할 수 있나요?
+Azure Active Directory(Azure AD) B2B 협업 및 Azure AD B2C 모두를 사용하여 Azure AD에서 외부 사용자와 함께 작업할 수 있습니다. 하지만 어떻게 비교할 수 있나요?
 
 **Azure AD B2B**는 공동 작업할 수 있도록 외부 사용자와 파일 및 리소스를 안전하게 공유하려는 비즈니스에 유용합니다. Azure 관리자는 Azure Portal에서 B2B를 설정하고 Azure AD가 비즈니스와 외부 파트너 간에 페더레이션을 관리합니다. 사용자는 자신의 회사 또는 학교 계정이나 메일 계정으로 간단한 초대 및 사용 프로세스를 통해 공유 리소스에 로그인합니다.
  
@@ -29,7 +29,7 @@ Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 �
 아래 표에서는 자세한 비교를 제공합니다.
 
 
-B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품
+B2B 협업 기능 |     Azure AD B2C 독립 실행형 제품
 -------- | --------
 대상: ID 공급자에 관계 없이 파트너 조직의 사용자를 인증할 수 있기를 원하는 조직 | 대상: 개인이든, 기관이든, 조직이든 상관 없이 모바일 및 웹앱 고객을 Azure AD에 초대하려는 사용자
 지원되는 ID: 회사 또는 학교 계정이 있는 직원, 회사 또는 학교 계정이 있는 파트너 또는 모든 이메일 주소입니다. 직접 페더레이션 기능을 곧 지원합니다.  | 지원되는 ID: 로컬 애플리케이션 계정(모든 이메일 주소 또는 사용자 이름)이 있는 소비자 사용자 또는 직접 페더레이션이 포함된 지원되는 소셜 ID입니다.

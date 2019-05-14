@@ -1,6 +1,6 @@
 ---
 title: 로컬 Jupyter Notebook을 Azure Notebooks로 마이그레이션
-description: 로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 신속하게 전송한 다음, 공동 작업용으로 공유할 수 있습니다.
+description: 로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 신속하게 전송한 다음, 협업용으로 공유할 수 있습니다.
 services: app-service
 documentationcenter: ''
 author: kraigb

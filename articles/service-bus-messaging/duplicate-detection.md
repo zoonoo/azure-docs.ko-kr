@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120860"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413651"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -35,6 +35,9 @@ ms.locfileid: "62120860"
 애플리케이션 컨텍스트를 처리하는 과정에서 여러 메시지가 전송되는 비즈니스 프로세스의 경우 *MessageId*는 구매 주문 번호와 같은 애플리케이션 수준 컨텍스트 식별자와 메시지 제목을 결합한 것(예: **12345.2017/payment**)이 될 수 있습니다.
 
 *MessageId*는 항상 GUID일 수 있지만 식별자를 비즈니스 프로세스에 고정하면 예측 가능한 반복성을 얻을 수 있으며 이것은 중복 검색 기능을 효과적으로 활용하는 데 바람직합니다.
+
+> [!NOTE]
+> 중복 검색 기능을 사용 하 고 세션 ID 또는 파티션 키 설정 되어 있지 않은 경우 메시지 ID는 파티션 키로 사용 됩니다. 메시지 ID도 설정 하지 않으면,.NET 및 AMQP 라이브러리는 자동으로 메시지에 대 한 메시지 ID를 생성 합니다. 자세한 내용은 [파티션 키 사용 하 여](service-bus-partitioning.md#use-of-partition-keys)입니다.
 
 ## <a name="enable-duplicate-detection"></a>중복 검색 사용
 
