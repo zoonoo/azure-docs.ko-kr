@@ -1,12 +1,17 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 대화형 쿼리
+- name: 개요
   items:
     - name: HDInsight의 Apache Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
       maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+      maintainContext: true
+- name: 빠른 시작
+  items:
+    - name: Apache Hive 쿼리 실행 - Apache Zeppelin
+      href: ../hdinsight-connect-hive-zeppelin.md
       maintainContext: true
 - name: 시작하기
   items:
@@ -37,9 +42,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: Apache Zeppelin 사용
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: Visual Studio용 도구
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -180,7 +182,7 @@
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: 주문형 클러스터 만들기

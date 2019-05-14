@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: 마스터 VHD 이미지 준비 및 사용자 지정
       href: set-up-customize-master-image.md
+    - name: 마스터 VHD 이미지에 Office 설치
+      href: install-office-on-wvd-master-image.md
     - name: Windows Virtual Desktop용 GPU 구성
       href: configure-vm-gpu.md
     - name: 세션 호스트 자동 크기 조정

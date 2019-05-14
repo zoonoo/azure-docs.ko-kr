@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: 활동 및 진단 로그
           href: stream-analytics-job-diagnostic-logs.md
+        - name: 데이터 오류
+          href: data-errors.md
     - name: 기계 학습과 통합
       items:
         - name: ML 모델을 사용하여 감정 분석

@@ -29,7 +29,7 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 
 이 솔루션은 [연속 데이터 내보내기](howto-export-data.md)에서 Azure Blob Storage 계정의 데이터를 가져오는 파이프라인을 설정합니다. 이 데이터는 Azure Functions, Azure Data Factory 및 Azure SQL Database를 거치며 처리 및 변환됩니다. PBIX 파일로 다운로드할 수 있는 Power BI 보고서에서 출력을 시각화하고 분석할 수 있습니다. 이러한 모든 리소스는 필요에 따라 각 구성 요소를 사용자 지정할 수 있도록 Azure 구독에서 생성됩니다.
 
-## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
+## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate) 다운로드
 
 ## <a name="prerequisites"></a>필수 조건
 솔루션을 설정하려면 다음이 필요합니다.
@@ -91,7 +91,7 @@ Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩
 
 ## <a name="resources"></a>리소스
 
-AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
+AppSource를 방문하여 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 다운로드하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
