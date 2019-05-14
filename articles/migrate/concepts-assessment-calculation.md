@@ -81,7 +81,7 @@ VM 크기 조정의 성능 기록을 고려하지 않고 현재 상태대로 VM�
 - **저장소**: Azure Migrate는 머신에 연결된 모든 디스크를 Azure의 디스크에 매핑하려고 합니다.
 
     > [!NOTE]
-    > Azure Migrate는 평가를 위해 관리 디스크만 지원합니다.
+    > Azure Migrate는 관리 디스크 평가만 지원합니다.
 
     - 유효 디스크 IOPS(초당 I/O) 및 처리량(MBps)을 얻기 위해 Azure Migrate는 디스크 IOPS와 처리량에 쾌적 인자를 곱합니다. Azure Migrate는 유효 IOPS 및 처리량 값에 따라 디스크를 Azure의 표준 또는 프리미엄 디스크에 매핑할지를 식별합니다.
     - Azure Migrate가 필요한 IOPS 및 처리량을 가진 디스크를 찾지 못하면 컴퓨터가 Azure에 적합하지 않은 것으로 표시됩니다. 디스크 및 VM당 Azure 제한에 대해 [자세히 알아보세요](../azure-subscription-service-limits.md#storage-limits).
