@@ -29,19 +29,21 @@ ms.locfileid: "57588774"
 
 ## <a name="setup"></a>설정
 
-이 가이드에서는 이미 생성 된 가정를 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 라는 개체 `faceClient`, 얼굴 구독 키 및 끝점 url입니다. 여기에서 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)** (이 가이드에 사용) 또는 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**. 참조를 [얼굴 감지 빠른 시작에 대 한 C# ](../quickstarts/csharp-detect-sdk.md) 이를 설정 하는 방법에 대 한 합니다.
+이 가이드에서는 이미 구성된 얼굴 구독 키 및 끝점 url을 가진 `faceClient`라는 이름의 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 개체를 가지고 있다고 가정합니다. 여기에서 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)**(이 가이드에서 사용) 또는 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**를 호출하여 얼굴 감지 기능을 사용할 수 있습니다. 이를 설정하는 방법에 대한 내용은 [C#을 위한 얼굴 감지 빠른 시작](../quickstarts/csharp-detect-sdk.md)을 참조합니다.
 
-이 가이드는 검색 호출의 세부 정보에 중점&mdash;전달할 수 있는 인수 및 반환된 된 데이터를 사용 하 여 수행할 수 있습니다. 각 작업에는 데 추가 시간이 소요 되는 대로 필요한 기능에 대 한 쿼리 하는 것이 좋습니다.
+이 가이드는 감지 호출의 세부 정보에 중점을 둡니다-전달할 수 있는 인수 및 반환된 데이터를 사용하여 수행할 수 있는 것. 각 작업을 완료하는데 추가 시간이 소요 되므로 필요한 기능만 쿼리하는 것이 좋습니다.
 
 ## <a name="get-basic-face-data"></a>기본 얼굴 데이터 가져오기
 
-이미지에서 얼굴을 찾고 해당 위치를 가져오려면,  _returnFaceId_ 매개 변수를 **true**(기본값)로 설정하여 메서드를 호출합니다.
+
+이 가이드는 감지 호출의 세부 정보에 중점을 둡니다-전달할 수 있는 인수 및 반환된 데이터를 사용하여 수행할 수 있는 것. 각 작업을 완료하는데 추가 시간이 소요 되므로 필요한 기능만 쿼리하는 것이 좋습니다.
+
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
 ```
 
-반환 된 **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** 해당 고유 Id 및 글꼴의 픽셀 좌표를 제공 하는 사각형에 대 한 개체를 쿼리할 수 있습니다.
+반환된 **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** 개체는 해당 고유 ID 및 얼굴의 픽셀 좌표를 제공하는 사각형을 쿼리할 수 있습니다.
 
 ```csharp
 foreach (var face in faces)
@@ -51,11 +53,11 @@ foreach (var face in faces)
 }
 ```
 
-참조 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)** 글꼴의 크기와 위치를 구문 분석 하는 방법에 대 한 정보에 대 한 합니다. 이 사각형 눈, 눈 썹, 코, 및 입;를 포함 하는 일반적으로 헤드, 귀, 및 chin 맨 반드시 포함 되지 않습니다. 전체 헤드 또는 중간 샷 세로 (사진 ID 형식 이미지)을 자르려면 얼굴 사각형을 사용 하려는 경우에 각 방향에는 특정 여백으로 사각형을 확장 하는 것이 좋습니다.
+얼굴의 크기와 위치를 분석하는 방법에 대한 정보는 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)**을 참조합니다. 보통 이 사각형은 눈, 눈썹, 코 및 입을 포함하며 머리 윗 부분, 귀 및 턱은 반드시 포함하지는 않습니다. 머리 전체 또는 세로 중간 샷(사진 ID 형식 이미지)을 자르기 위해 얼굴 사각형을 사용하려는 경우, 각 방향의 특정 여백으로 사각형을 확장하는 것이 좋습니다.
 
 ## <a name="get-face-landmarks"></a>얼굴 랜드마크 가져오기
 
-얼굴 랜드마크는는 삼아 같은 얼굴 찾기 쉽게 점의 집합 또는 코의 팁입니다. 설정 하 여 얼굴 랜드마크 데이터를 가져올 수 있습니다 합니다 _returnFaceLandmarks_ 매개 변수를 **true**합니다.
+**[얼굴 랜드마크](https://docs.microsoft.com/en-us/azure/cognitive-services/face/concepts/face-detection#face-landmarks)** 는 동공이나 코 끝 같은 얼굴에서 찾기 쉬운 포인트의 집합입니다.  _returnFaceLandmarks_ 매개 변수를 **true**로 설정하여 얼굴 랜드마크 데이터를 가져올 수 있습니다.
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
@@ -120,10 +122,10 @@ Vector faceDirection = new Vector(
 - 감정
 
 > [!IMPORTANT]
-> 이러한 특성을 예측 하는 통계 알고리즘을 사용 하 여 항상 정확 하지 않을 하며 특성 데이터를 기반으로 결정을 내릴 경우에 주의 해야 합니다.
+> 이러한 특성은 통계 알고리즘을 사용하여 예측하며 항상 정확하지는 않을수 있습니다. 특성 데이터를 기반으로 결정을 내릴 경우 주의해야 합니다.
 >
 
-얼굴 특성을 분석 하려면 설정 합니다 _returnFaceAttributes_ 매개 변수 목록을 **[FaceAttributeType 열거형](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 값입니다.
+얼굴 특성을 분석하려면 _returnFaceAttributes_ 매개 변수를 **[FaceAttributeType 열거형](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 값의 목록으로 설정합니다.
 
 ```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {
