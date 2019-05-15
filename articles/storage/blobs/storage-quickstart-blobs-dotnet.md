@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2728ac93abd18f929dc6e82cfb471ce33fe8866f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191047"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508043"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>빠른 시작: .NET을 사용하여 개체 스토리지에 Blob 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "65191047"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
+다음으로 해당 운영 체제용 .NET Core 2.1을 다운로드하고 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -288,8 +288,8 @@ Blob Storage를 사용하는 .NET 개발에 대한 이러한 추가 리소스를
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
-- 최신 버전의 Azure Storage용 [.NET 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 NuGet 패키지를 다운로드하세요.
-- GitHub에서 [.NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 찾아보세요.
+- Azure Blob Storage에 대한 [.NET 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)의 최신 버전에 해당하는 NuGet 패키지를 다운로드합니다.
+- GitHub에서 [.NET용 Microsoft Azure Storage Blob SDK 소스 코드](https://github.com/Azure/azure-storage-net/tree/master/Blob)를 확인합니다.
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
@@ -300,10 +300,10 @@ Blob Storage를 사용하는 .NET 개발에 대한 이러한 추가 리소스를
 
 이 빠른 시작에서는 .NET을 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법을 배웠습니다.
 
-Blob 스토리지로 이미지를 업로드하는 웹앱을 만드는 방법에 대해 자세히 알아보려면 [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](storage-upload-process-images.md)를 참조하세요.
+Blob Storage에 이미지를 업로드하는 웹앱을 만드는 방법을 알아보려면 다음을 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)
+> [이미지 업로드 및 처리](storage-upload-process-images.md)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
 - Windows용 Visual Studio에서 배포할 수 있는 샘플 애플리케이션을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 애플리케이션 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
