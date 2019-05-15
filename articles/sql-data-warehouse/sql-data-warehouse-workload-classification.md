@@ -81,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크로드 분류 및 중요도에 대한 자세한 내용은[워크로드 분류자 생성](quickstart-create-a-workload-classifier-tsql.md) 과 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

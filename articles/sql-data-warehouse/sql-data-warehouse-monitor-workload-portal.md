@@ -24,7 +24,7 @@ ms.locfileid: "60748910"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Azure SQL Data Warehouse: SQL data warehouse에 대한 로그가 수집됩니다. 프로비전된 SQL data warehouse가 없는 경우, [SQL Data Warehouse 만들기](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial) 지침을 참조하세요.
+- Azure SQL Data Warehouse: SQL data warehouse에 대한 로그가 수집됩니다. 프로비전된 SQL data warehouse가 없는 경우,[SQL Data Warehouse 만들기](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)지침을 참조하세요.
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
