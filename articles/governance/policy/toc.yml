@@ -280,6 +280,9 @@
     - name: 규정 비준수 리소스 수정
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: VM용 Azure Monitor 사용(미리 보기)
+      displayName: 'insights, log analytics, builtin'
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: 참고 자료
   items:
     - name: Azure CLI

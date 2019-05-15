@@ -12,6 +12,8 @@
       maintainContext: true
 - name: 빠른 시작
   items:
+    - name: Apache HBase 쿼리 - Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Apache HBase 쿼리 - HBase Shell
       href: ./query-hbase-with-hbase-shell.md
 - name: 시작하기
@@ -52,8 +54,6 @@
         - name: HDInsight의 Apache Phoenix
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Apache Phoenix 및 SQLLine 사용
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: Apache Phoenix Query Server REST SDK 사용
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: 빅 데이터 분석
@@ -115,7 +115,7 @@
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: 주문형 클러스터 만들기
