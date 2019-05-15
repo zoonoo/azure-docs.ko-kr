@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/14/2018
+ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337949"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620247"
 ---
-**마지막 문서 업데이트**: 14 년 8 월 2018 오전 10시 PST입니다.
+**마지막 문서 업데이트**: 14 년 5 월 2019 오전 10시 PST입니다.
 
 투기적 실행 사이드 채널 공격으로 알려진 공개된 [새로운 종류의 CPU 취약점](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
@@ -28,17 +28,23 @@ Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정�
 > [!NOTE] 
 > 이 문서를 처음 게시한 이후 이 취약점 종류의 여러 변형이 공개되었습니다. Microsoft에서는 고객을 보호하고 지침을 제공하는 데 계속 투자하고 있습니다. 계속 추가 수정을 릴리스하므로 이 페이지가 업데이트됩니다. 
 > 
-> 2018년 8월 14일에 업계에서는 여러 CVE([CVE-2018-3615, CVE-2018-3620 및 CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html))를 할당한 L1TF([L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018))로 알려진 새로운 투기적 실행 쪽 채널 취약점을 공개했습니다. 이 취약점은 Intel® Core® 프로세서 및 Intel® Xeon® 프로세서에 영향을 줍니다. Microsoft는 고객 간 격리를 강화하는 클라우드 서비스에서 완화를 배포했습니다. L1TF 및 이전 취약점([스펙터 변형 2 CVE-2017-5715 및 멜트다운 변형 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution))으로부터 보호하기 위한 추가 지침은 아래를 참조하세요.
->  
-
-
-
+> 2019 년 5 월 14 일에 [공개 Intel](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) 마이크로아키텍처 데이터 샘플링 이라고 투기적 실행 쪽 채널 취약성의 새 집합 (Microsoft 보안 지침을 참조 하는 MDS [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013))는 할당 된 여러 CVEs: 
+> - CVE-2018-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
+> - CVE-2018-12126-마이크로아키텍처 저장소 버퍼 데이터 샘플링 (MSBDS) 
+> - CVE-2018-12127-마이크로아키텍처 부하 포트 데이터 샘플링 (MLPDS)
+> - CVE-2018-12130-마이크로아키텍처 채우기 버퍼 데이터 샘플링 (MFBDS)
+>
+> 이 취약점은 Intel® Core® 프로세서 및 Intel® Xeon® 프로세서에 영향을 줍니다.  Microsoft Azure에 운영 체제 업데이트를 사용할 수 있는 새로운 취약점 으로부터 고객을 보호 하는 fleet 전체 인텔로 수 새 마이크로코드를 배포 하는.   Azure 테스트 플랫폼에서 공식 출시 전에 새 마이크로코드의 유효성을 검사 하는 intel 밀접 하 게 작동 합니다. 
+>
+> **해당 VM 내에서 신뢰할 수 없는 실행 하는 고객과 코드** 아래 모든 투기적 실행 사이드 채널 취약성 (Microsoft 권고 ADV에 대 한 추가 지침에 대 한 읽기 하 여 이러한 취약성 으로부터 보호 하는 작업을 수행 해야 합니다. [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)하십시오 [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), 및 [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> 다른 고객에 게는 심층 방어 깊이 관점에서에서 이러한 취약점을 평가 하 고 선택한 구성의 보안 및 성능 결과 고려해 야 해야 합니다.
 
 
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>운영 체제를 최신 상태로 유지
 
-OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애플리케이션을 격리하지 않아도 되지만 항상 소프트웨어를 최신 상태로 유지하는 것이 좋습니다. Windows용 최신 보안 롤업에는 여러 투기적 실행 쪽 채널 취약점에 대한 완화가 포함됩니다. 마찬가지로 Linux 배포판은 이러한 취약점을 해결하기 위해 여러 업데이트를 릴리스했습니다. 운영 체제를 업데이트하기 위해 권장된 조치는 다음과 같습니다.
+OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애플리케이션을 격리하지 않아도 되지만 항상 소프트웨어를 최신 상태로 유지하는 것이 좋습니다. Windows용 최신 보안 롤업에는 여러 투기적 실행 쪽 채널 취약점에 대한 완화가 포함됩니다. 마찬가지로 Linux 배포판은 이러한 취약점을 해결하기 위해 여러 업데이트를 릴리스했습니다. 운영 체제 업데이트를 위해 권장된 된 조치는 다음과 같습니다.
 
 | 제품 | 권장 작업  |
 |----------|---------------------|
@@ -64,56 +70,115 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 
 ## <a name="enabling-additional-security"></a>추가 보안 사용 
 
-VM 또는 Cloud Service 내에서 추가 보안 기능을 사용할 수 있습니다.
+신뢰할 수 없는 코드를 실행 하는 경우 VM 또는 클라우드 서비스에 추가 보안 기능을 사용할 수 있습니다. 동시에 운영 체제 내에서 VM 또는 클라우드 서비스에 보안 기능을 사용 하도록 설정 하려면 최신 상태 인지를 확인합니다
 
 ### <a name="windows"></a>Windows 
 
 대상 운영 체제를 최신 상태로 유지하여 이러한 추가 보안 기능을 사용하도록 설정해야 합니다. 다양한 투기적 실행 쪽 채널 완화를 기본적으로 사용하는 반면 여기에 설명된 추가 기능은 수동으로 활성화해야 하며 성능에 영향이 발생할 수 있습니다. 
 
-**1단계**: [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가상 컴퓨터에 업데이트 노출 펌웨어 (마이크로). 
 
-**2단계**: 커널 가상 주소 숨기기 (KVAS) 및 분기 대상 주입 (BTI) OS 지원을 사용 하도록 설정 합니다. [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 `Session Manager` 레지스트리 키를 통해 보호를 사용하도록 설정합니다. 다시 부팅해야 합니다. 
+**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM 크기를 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다. VM에 하이퍼 스레딩을 사용 하는 경우를 확인 하려면을 참조 하십시오는 아래 스크립트는 VM 내에서 Windows 명령줄을 사용 합니다.
 
-**3단계**: 사용 중인 배포용 [중첩 된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 및 E3만): 이러한 지침은 Hyper-v 호스트를 사용 하는 VM 내에서 적용 됩니다. 
+형식 `wmic` 대화형 인터페이스를 입력 합니다. 그런 다음 실제의 크기를 보려면 아래 및 논리적 VM의 프로세서입니다.
 
-1. [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 지침에 따라 `MinVmVersionForCpuBasedMitigations` 레지스트리 키를 통해 보호를 사용하도록 설정합니다.  
- 
-1. [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에서 지침에 따라 하이퍼바이저 스케줄러 형식을 **Core**로 설정합니다. 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**4단계**: 지침을 따릅니다 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 보호를 사용 하 여 활성화 되었는지 확인 하는 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈. 
+논리 프로세서 수가 실제 프로세서 (코어) 보다 큰 경우 하이퍼 스레딩을 사용 됩니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다. 
+
+
+**2단계**: 1 단계를 병렬로 지침을 따릅니다 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 보호를 사용 하 여 활성화 되었는지 확인 하는 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈.
 
 > [!NOTE]
 > 이전에 이 모듈을 다운로드한 경우 최신 버전을 설치해야 합니다.
 >
 
-모든 VM은 다음을 표시합니다.
+
+PowerShell 스크립트의 출력에 포함 해야는 아래 값의 유효성을 검사 하려면 이러한 취약성에 대 한 보호를 사용 하도록 설정 합니다.
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
+
+출력에 표시 되 면 `MDS mitigation is enabled: False`하세요 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 사용할 수 있는 완화 하는 방법에 대 한 합니다.
+
+
+
+**3단계**: 분기 대상 주입 (BTI) OS 지원과 커널 가상 주소 숨기기 (KVAS)을 사용 하려면의 지침을 따릅니다 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 를 사용 하 여 보호를 사용 하도록 설정 하는 `Session Manager` 레지스트리 키입니다. 다시 부팅해야 합니다.
+
+
+**4단계**: 사용 중인 배포용 [중첩 된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 및 E3만): 이러한 지침은 Hyper-v 호스트를 사용 하는 VM 내에서 적용 됩니다.
+
+1.  지침을 따릅니다 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 를 사용 하 여 보호를 사용 하도록 설정 하는 `MinVmVersionForCpuBasedMitigations` 레지스트리 키입니다.
+2.  하이퍼바이저 스케줄러 유형을 설정 `Core` 지침에 따라 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)합니다.
 
 
 ### <a name="linux"></a>Linux
 
 <a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
- 
-**1단계**: [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가상 컴퓨터에 업데이트 노출 펌웨어 (마이크로).
- 
-**2단계**: CVE-2017-5715 (변형 2 스펙터) 운영 체제 공급자의 설명서를 수행 하 여 완화 하기 위해 분기 대상 주입 (BTI) OS 지원을 사용 하도록 설정 합니다. 
- 
-**3단계**: 운영 체제 공급자의 설명서를 수행 하 여 커널 페이지 테이블 격리 (KPTI) CVE-2017-5754 (변형 3 멜트다운)을 완화 하기 위해 사용 합니다. 
- 
-자세한 내용은 운영 체제의 공급자에서 사용할 수 있습니다.  
- 
-- [Redhat 및 CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
+
+**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM으로 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우를 확인 하려면 실행을 `lspcu` Linux VM에서 명령을 합니다. 
+
+경우 `Thread(s) per core = 2`, 하이퍼 스레딩을 사용 되었습니다. 
+
+경우 `Thread(s) per core = 1`, 하이퍼 스레딩을 사용 하지 않도록 설정 된 후입니다. 
+
+ 
+샘플을 사용 하도록 설정 하는 하이퍼 스레딩을 사용 하 여 VM에 대 한 출력: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  참고: 하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다.
+
+
+**2단계**: 에 대해 완화 하는 투기적 실행 사이드 채널 취약성 아래 운영 시스템 공급자의 설명서를 참조 합니다.   
+ 
+- [Redhat 및 CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## <a name="next-steps"></a>다음 단계
 
-자세히 알아보려면 [CPU 취약성으로부터 Azure 고객 보호](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)를 참조하세요.
+이 문서는 지침을 제공 된 최신 프로세서 수에 영향을 주는 투기적 실행 사이드 채널 공격 아래:
+
+[스펙터 멜트다운](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+- CVE-2017-5715-분기 대상 주입 (BTI)  
+- CVE-2017-5754-커널 페이지 테이블 격리 (KPTI)
+- CVE-2018-3639 – 잘못 된 저장소 사용 안 함 (KPTI) 
+ 
+[L1 터미널 오류 (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+- CVE-2018-3615-Intel Software Guard Extensions (Intel SGX)
+- CVE-2018-3620-운영 체제 (OS) 및 시스템 관리 모드 (SMM)
+- CVE-2018-3646 – Virtual Machine Manager (VMM)에 영향을 줍니다.
+
+[마이크로아키텍처 데이터 샘플링](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+- CVE-2018-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
+- CVE-2018-12126-마이크로아키텍처 저장소 버퍼 데이터 샘플링 (MSBDS)
+- CVE-2018-12127-마이크로아키텍처 부하 포트 데이터 샘플링 (MLPDS)
+- CVE-2018-12130-마이크로아키텍처 채우기 버퍼 데이터 샘플링 (MFBDS)
+
+
+
+
+
+
+
+
