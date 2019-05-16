@@ -1,7 +1,7 @@
 ---
 title: Web App for Containers에서 다중 컨테이너 앱 만들기 - Azure App Service
-description: Azure에서 WordPress 및 MySQL 앱을 통해 Docker Compose 및 Kubernetes 구성 파일이 포함된 다중 컨테이너를 사용하는 방법을 알아봅니다.
-keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, Kubernetes, WordPress, Azure DB for MySQL, 컨테이너를 포함한 프로덕션 데이터베이스
+description: Azure에서 Docker Compose, WordPress 및 MySQL을 사용하여 다중 컨테이너를 사용하는 방법을 알아봅니다.
+keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, wordpress, azure db for mysql, 컨테이너를 포함한 프로덕션 데이터베이스
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: cd7edb576264ac8bb8a076bbb4b2970579056f13
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: d4a93bbd823db59d688f77a626b1225519fb7b44
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547634"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407626"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -30,7 +29,6 @@ ms.locfileid: "59547634"
 
 > [!div class="checklist"]
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
-> * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
 > * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용
@@ -41,7 +39,7 @@ ms.locfileid: "59547634"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 [Docker Compose](https://docs.docker.com/compose/) 또는 [Kubernetes](https://kubernetes.io/)를 사용해야 합니다.
+이 자습서를 완료하려면 [Docker Compose](https://docs.docker.com/compose/)에 대한 경험이 필요합니다.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -255,7 +253,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 ### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>MySQL SSL 및 기타 구성에 사용자 지정 이미지 사용
 
-SSL은 기본적으로 Azure Database for MySQL에서 사용됩니다. WordPress에는 MySQL에서 SSL을 사용하기 위한 추가 구성이 필요합니다. WordPress '공식 이미지'에서 추가 구성을 제공하지는 않지만, 사용자의 편의를 위해 [사용자 지정 이미지](https://hub.docker.com/r/microsoft/multicontainerwordpress/builds/)가 준비되어 있습니다. 실제로 원하는 변경 내용을 자신의 이미지에 추가합니다.
+SSL은 기본적으로 Azure Database for MySQL에서 사용됩니다. WordPress에는 MySQL에서 SSL을 사용하기 위한 추가 구성이 필요합니다. WordPress '공식 이미지'는 추가 구성을 제공하지 않지만, 사용자의 편의를 위해 [사용자 지정 이미지](https://github.com/Azure-Samples/multicontainerwordpress)가 준비되어 있습니다. 실제로 원하는 변경 내용을 자신의 이미지에 추가합니다.
 
 사용자 지정 이미지는 [Docker 허브의 WordPress](https://hub.docker.com/_/wordpress/) '공식 이미지'를 기반으로 합니다. Azure Database for MySQL에 대한 이 사용자 지정 이미지는 다음과 같이 변경되었습니다.
 
@@ -404,7 +402,20 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 다음 예제와 같이 구성 파일의 맨 아래에 redis 컨테이너를 추가합니다.
 
-[!code-yml[Main](../../../azure-app-service-multi-container/compose-wordpress.yml)]
+```yaml
+version: '3.3'
+
+services:
+   wordpress:
+     image: microsoft/multicontainerwordpress
+     ports:
+       - "8000:80"
+     restart: always
+
+   redis:
+     image: redis:3-alpine
+     restart: always
+```
 
 ### <a name="configure-environment-variables"></a>환경 변수 구성
 
@@ -459,7 +470,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ### <a name="connect-wordpress-to-redis"></a>Redis에 WordPress 연결
 
-WordPress 관리자에 로그인합니다. 왼쪽 탐색 영역에서 **플러그 인**을 선택한 다음, **설치된 플러그 인**을 선택합니다.
+WordPress 관리자로 로그인합니다. 왼쪽 탐색 영역에서 **플러그 인**을 선택한 다음, **설치된 플러그 인**을 선택합니다.
 
 ![WordPress 플러그 인 선택][2]
 
@@ -482,172 +493,6 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 ![WordPress가 Redis 서버에 연결됩니다. 연결 ** 상태 **가 동일한 페이지에 표시됩니다.][6]
 
 **축하합니다!** WordPress가 Redis에 연결되었습니다. 이제 프로덕션 준비가 완료된 앱에서 **Azure Database for MySQL, 영구 저장소 및 Redis**를 사용합니다. 그리고 App Service 계획을 여러 인스턴스로 확장할 수 있습니다.
-
-## <a name="use-a-kubernetes-configuration-optional"></a>Kubernetes 구성 사용(선택 사항)
-
-이 섹션에서는 Kubernetes 구성을 사용하여 여러 컨테이너를 배포하는 방법에 대해 알아봅니다. 이전 단계를 수행하여 [리소스 그룹](#create-a-resource-group) 및 [App Service 계획](#create-an-azure-app-service-plan)을 만듭니다. 대부분의 단계가 작성 섹션 단계와 비슷하므로 구성 파일이 결합되었습니다.
-
-### <a name="kubernetes-configuration-file"></a>Kubernetes 구성 파일
-
-자습서의 이 부분에서 *kubernetes wordpress.yml*을 사용합니다. 여기에 참조용으로 표시됩니다.
-
-[!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
-
-지원되는 구성 옵션은 [Kubernetes 구성 옵션](configure-custom-container.md#kubernetes-configuration-options)을 참조하세요.
-
-### <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-
-[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL의 서버를 만듭니다.
-
-다음 명령에서 _&lt;mysql-server-name>_ 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다(유효한 문자: `a-z`, `0-9` 및 `-`). 이 이름은 MySQL 서버의 호스트 이름(`<mysql-server-name>.database.windows.net`)의 일부이며, 전역적으로 고유해야 합니다.
-
-```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
-```
-
-MySQL 서버를 만들면 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
-
-```json
-{
-  "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
-  "location": "southcentralus",
-  "name": "<mysql-server-name>",
-  "resourceGroup": "myResourceGroup",
-  ...
-}
-```
-
-### <a name="configure-server-firewall"></a>서버 방화벽 구성
-
-[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) 명령을 사용하여 클라이언트 연결을 허용하도록 MySQL 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다.
-
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
-
-> [!TIP]
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
->
-
-### <a name="create-the-wordpress-database"></a>WordPress 데이터베이스 만들기
-
-아직 [Azure Database for MySQL 서버](#create-an-azure-database-for-mysql-server)를 만들지 않은 경우 이 서버를 만듭니다.
-
-```azurecli-interactive
-az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name wordpress
-```
-
-데이터베이스를 만들면 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
-
-```json
-{
-  "additionalProperties": {},
-  "charset": "latin1",
-  "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
-  "name": "wordpress",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.DBforMySQL/servers/databases"
-}
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>다중 컨테이너 앱 만들기(Kubernetes)
-
-Cloud Shell에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myResourceGroup` 리소스 그룹 및 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app-name>_ 을 고유한 앱 이름으로 바꿔야 합니다.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-웹앱이 만들어지면 Cloud Shell에서는 다음 예제와 비슷한 출력을 표시합니다.
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-### <a name="configure-database-variables-in-wordpress"></a>WordPress의 데이터베이스 변수 구성
-
-WordPress 앱을 이 새 MySQL 서버에 연결하려면 몇 가지 WordPress 관련 환경 변수를 구성합니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
-```
-
-앱 설정을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
-
-```json
-[
-  {
-    "name": "WORDPRESS_DB_HOST",
-    "slotSetting": false,
-    "value": "<mysql-server-name>.mysql.database.azure.com"
-  },
-  {
-    "name": "WORDPRESS_DB_USER",
-    "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
-  },
-  {
-    "name": "WORDPRESS_DB_NAME",
-    "slotSetting": false,
-    "value": "wordpress"
-  },
-  {
-    "name": "WORDPRESS_DB_PASSWORD",
-    "slotSetting": false,
-    "value": "My5up3rStr0ngPaSw0rd!"
-  }
-]
-```
-
-### <a name="add-persistent-storage"></a>영구 저장소 추가
-
-이제 다중 컨테이너가 Web App for Containers에서 실행됩니다. 파일이 유지되지 않으므로 다시 시작하면 데이터가 지워집니다. 이 섹션에서는 WordPress 컨테이너에 [영구 스토리지를 추가](configure-custom-container.md#use-persistent-shared-storage)합니다.
-
-### <a name="configure-environment-variables"></a>환경 변수 구성
-
-영구 저장소를 사용하려면 App Service 내에서 이 설정을 사용하도록 설정합니다. 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
-```
-
-앱 설정을 만든 경우 Cloud Shell은 다음 예제와 비슷한 정보를 표시합니다.
-
-```json
-[
-  {
-    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-    "slotSetting": false,
-    "value": "TRUE"
-  }
-]
-```
-
-### <a name="browse-to-the-app"></a>앱으로 이동
-
-(`http://<app-name>.azurewebsites.net`)에 배포된 앱으로 이동합니다.
-
-이제 앱에서 Web App for Containers에 있는 여러 컨테이너를 실행합니다.
-
-![Web App for Containers의 샘플 다중 컨테이너 앱][1]
-
-**축하합니다!** Web App for Containers에 다중 컨테이너 앱을 만들었습니다.
-
-Redis를 사용하려면 [Redis에 WordPress 연결](#connect-wordpress-to-redis)의 단계를 따릅니다.
 
 ## <a name="find-docker-container-logs"></a>Docker 컨테이너 로그 찾기
 
@@ -676,7 +521,6 @@ Redis를 사용하려면 [Redis에 WordPress 연결](#connect-wordpress-to-redis
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
-> * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
 > * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용

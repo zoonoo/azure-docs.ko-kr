@@ -1,37 +1,47 @@
 ---
-title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
-description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 애플리케이션을 배포하는 방법 알아보기
-ms.service: azure
+title: 자습서 - Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포 | Microsoft Docs
+description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 확장 집합에 애플리케이션을 배포하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/11/2018
-ms.openlocfilehash: 2214dd9505dff86ac26f01967a360140dee0069f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791735"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231031"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 애플리케이션을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.
+# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Azure VM 그룹의 호스트 정보 검색
+> * 샘플 앱 복제 및 빌드
+> * 확장 집합에 JRE(Java Runtime Environment) 설치
+> * 확장 집합에 Java 애플리케이션 배포
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **가상 머신 확장 집합** - 가상 머신 확장 집합이 아직 없는 경우 [Ansible을 사용하여 가상 머신 확장 집합을 만들](ansible-create-configure-vmss.md) 수 있습니다.
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
+[!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - **git** - [git](https://git-scm.com)는 이 자습서에 사용되는 Java 샘플을 다운로드하는 데 사용됩니다.
 - **JDK(Java SE Development Kit)** - [JDK](https://aka.ms/azure-jdks)는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
-- **Apache Maven 빌드 도구** - [Apache Maven 빌드 도구](https://maven.apache.org/download.cgi)는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
-
-> [!Note]
-> Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다.
+- **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi)은 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
 
 ## <a name="get-host-information"></a>호스트 정보 가져오기
 
-이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 그룹에 대한 호스트 정보를 검색하는 방법을 보여줍니다. 다음은 샘플 Ansible 플레이북입니다. 코드는 지정된 리소스 그룹 내에서 공용 IP 주소 및 부하 분산 장치를 가져오고, 인벤토리에 **scalesethosts**라는 호스트 그룹을 만듭니다.
+이 섹션의 플레이북 코드는 가상 머신 그룹의 호스트 정보를 검색합니다. 코드는 지정된 리소스 그룹 내에서 공용 IP 주소 및 부하 분산 장치를 가져오고, 인벤토리에 `scalesethosts`라는 호스트 그룹을 만듭니다.
 
 다음 샘플 플레이북을 `get-hosts-tasks.yml`로 저장합니다.
 
@@ -61,7 +71,9 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 ## <a name="prepare-an-application-for-deployment"></a>배포를 위한 애플리케이션 준비
 
-이 섹션에서는 git을 사용하여 GitHub에서 Java 샘플 프로젝트를 복제하고 프로젝트를 빌드합니다. 다음 플레이북을 `app.yml`로 저장합니다.
+이 섹션의 플레이북 코드는 `git`을 사용하여 GitHub에서 Java 샘플 프로젝트를 복제하고 프로젝트를 빌드합니다. 
+
+다음 플레이북을 `app.yml`로 저장합니다.
 
   ```yml
   - hosts: localhost
@@ -85,79 +97,97 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
   ansible-playbook app.yml
   ```
 
-Ansible 플레이북 명령의 출력은 GitHub에서 복제된 샘플 앱을 빌드한 다음과 비슷하게 표시됩니다.
+플레이북을 실행하면 다음 결과와 유사한 출력이 표시됩니다.
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost] 
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts] 
   ok: [localhost]
 
-  TASK [Git Clone sample app] ***************************************************************************
+  TASK [Git Clone sample app] 
   changed: [localhost]
 
-  TASK [Build sample app] ***************************************************
+  TASK [Build sample app] 
   changed: [localhost]
 
-  PLAY RECAP ***************************************************************************
+  PLAY RECAP 
   localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>VMSS에 애플리케이션 배포
+## <a name="deploy-the-application-to-a-scale-set"></a>확장 집합에 애플리케이션 배포
 
-Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트 그룹에 JRE(Java Runtime Environment)를 설치하고, **saclesethosts**라는 호스트 그룹에 Java 애플리케이션을 배포합니다.
+이 섹션의 플레이북 코드는 다음 용도에 사용됩니다.
 
-(`admin_password`를 고유한 암호로 변경합니다.)
+* `saclesethosts` 호스트 그룹에 JRE 설치
+* `saclesethosts` 호스트 그룹에 Java 애플리케이션 배포
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      scaleset_name: myVMSS
-      loadbalancer_name: myVMSSlb
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-    - include: get-hosts-tasks.yml
+다음과 같은 두 가지 방법으로 샘플 플레이북을 가져올 수 있습니다.
 
-  - name: Install JRE on VMSS
-    hosts: scalesethosts
-    become: yes
-    vars:
-      workspace: ~/src/helloworld
-      admin_username: azureuser
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml)하여 `vmss-setup-deploy.yml`에 저장합니다.
+* `vmss-setup-deploy.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
-    tasks:
-    - name: Install JRE
-      apt:
-        name: default-jre
-        update_cache: yes
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    scaleset_name: myScaleSet
+    loadbalancer_name: myScaleSetLb
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+  - include: get-hosts-tasks.yml
 
-    - name: Copy app to Azure VM
-      copy:
-        src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
-        dest: "/home/{{ admin_username }}/helloworld.jar"
-        force: yes
-        mode: 0755
+- name: Install JRE on a scale set
+  hosts: scalesethosts
+  become: yes
+  vars:
+    workspace: ~/src/helloworld
+    admin_username: azureuser
 
-    - name: Start the application
-      shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
-      async: 5000
-      poll: 0
-  ```
+  tasks:
+  - name: Install JRE
+    apt:
+      name: default-jre
+      update_cache: yes
 
-위의 샘플 Ansible 플레이북을 `vmss-setup-deploy.yml`로 저장하거나 [전체 샘플 플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss)할 수 있습니다.
+  - name: Copy app to Azure VM
+    copy:
+      src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
+      dest: "/home/{{ admin_username }}/helloworld.jar"
+      force: yes
+      mode: 0755
 
-암호로 ssh 연결 형식을 사용하려면 sshpass 프로그램을 설치해야 합니다.
-  - Ubuntu 16.04의 경우 `apt-get install sshpass` 명령을 실행합니다.
-  - CentOS 7.4의 경우 `yum install sshpass` 명령을 실행합니다.
+  - name: Start the application
+    shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
+    async: 5000
+    poll: 0
+```
 
-**호스트 키 확인이 활성화되었고 sshpass는 이를 지원하지 않으므로 키 대신 SSH 암호를 사용할 수 없습니다. 이 호스트를 관리하려면 known_hosts 파일에 이 호스트의 지문을 추가합니다.** 와 같은 오류가 표시될 수 있습니다. 이 오류가 표시되는 경우 `/etc/ansible/ansible.cfg` 파일 또는 `~/.ansible.cfg` 파일에 다음 줄을 추가하여 호스트 키 확인을 비활성화할 수 있습니다.
-  ```bash
-  [defaults]
-  host_key_checking = False
-  ```
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
+
+* `vars` 섹션에서 `{{ admin_password }}` 자리 표시자를 해당 암호로 바꿉니다.
+* 암호에 ssh 연결 형식을 사용하려면 다음과 같이 sshpass 프로그램을 설치합니다.
+
+    Ubuntu:
+
+    ```bash
+    apt-get install sshpass
+    ```
+
+    CentOS:
+
+    ```bash
+    yum install sshpass
+    ```
+
+* 일부 환경에서는 키 대신 SSH 암호를 사용하면 오류가 발생할 수 있습니다. 이 오류가 수신되면 `/etc/ansible/ansible.cfg` 또는 `~/.ansible.cfg`에 다음 줄을 추가하여 호스트 키 확인을 해제할 수 있습니다.
+
+    ```bash
+    [defaults]
+    host_key_checking = False
+    ```
 
 다음 명령을 사용하여 플레이북을 실행합니다.
 
@@ -165,47 +195,50 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Ansible 플레이북 명령 실행에서 출력은 샘플 Java 애플리케이션이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
+Ansible 플레이북 명령 실행의 출력은 샘플 Java 애플리케이션이 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost]
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts]
   ok: [localhost]
 
-  TASK [Get facts for all Public IPs within a resource groups] **********************************************
+  TASK [Get facts for all Public IPs within a resource groups]
   ok: [localhost]
 
-  TASK [Get loadbalancer info] ****************************************************************************
+  TASK [Get loadbalancer info]
   ok: [localhost]
 
-  TASK [Add all hosts] *****************************************************************************
+  TASK [Add all hosts]
   changed: [localhost] ...
 
-  PLAY [Install JRE on VMSS] *****************************************************************************
+  PLAY [Install JRE on scale set]
 
-  TASK [Gathering Facts] *****************************************************************************
+  TASK [Gathering Facts]
   ok: [40.114.30.145_50000]
   ok: [40.114.30.145_50003]
 
-  TASK [Copy app to Azure VM] *****************************************************************************
+  TASK [Copy app to Azure VM]
   changed: [40.114.30.145_50003]
   changed: [40.114.30.145_50000]
 
-  TASK [Start the application] ********************************************************************
+  TASK [Start the application]
   changed: [40.114.30.145_50000]
   changed: [40.114.30.145_50003]
 
-  PLAY RECAP ************************************************************************************************
+  PLAY RECAP
   40.114.30.145_50000        : ok=4    changed=3    unreachable=0    failed=0
   40.114.30.145_50003        : ok=4    changed=3    unreachable=0    failed=0
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-축하합니다. 이제 애플리케이션이 Azure에서 실행되고 있습니다. 이제 가상 머신 확장 집합에 대해 부하 분산 장치의 URL을 탐색할 수 있습니다.
+## <a name="verify-the-results"></a>결과 확인
 
-![Azure의 가상 머신 확장 집합에서 실행되는 Java 앱](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+확장 집합에 대한 부하 분산 장치의 URL로 이동하여 작업 결과를 확인합니다.
+
+![Azure의 확장 집합에서 실행되는 Java 앱](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
-> [Ansible을 사용하여 가상 머신 확장 세트의 크기를 자동으로 조정](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합 자동 크기 조정](./ansible-auto-scale-vmss.md)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: e7b07472623cc459c31906aeaa6ccfb4388b4b50
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c521be03f884227116a21c8c5396d47cdd1ae253
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146097"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466547"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
@@ -136,17 +136,11 @@ API 기술 문서는 [API 정의](https://westus.dev.cognitive.microsoft.com/doc
 ## <a name="sentiment-analysis"></a>정서 분석
 
 1. 이전에 만든 클라이언트를 사용하는 `SentimentAnalysisExample()`이라는 새 함수를 만듭니다.
-2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 분석하려는 문서가 포함된 `MultiLanguageInput` 개체 목록을 생성합니다.
+2. 분석하려는 문서가 포함된 `MultiLanguageInput` 개체 목록을 생성합니다.
 
     ```csharp
-    public static async Task SentimentAnalysisExample(string endpoint, string key)
+    public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         // The documents to be analyzed. Add the language of the document. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
@@ -184,16 +178,11 @@ Document ID: 4 , Sentiment Score: 1.00
 ## <a name="language-detection"></a>언어 검색
 
 1. 이전에 만든 클라이언트를 사용하는 `DetectLanguageExample()`이라는 새 함수를 만듭니다.
-2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `LanguageInput` 개체 목록을 생성합니다.
+2. 문서가 포함된 `LanguageInput` 개체 목록을 생성합니다.
 
     ```csharp
-    public static async Task DetectLanguageExample(string endpoint, string key)
+    public static async Task DetectLanguageExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for language detection. The ID can be any value.
         var inputDocuments = new LanguageBatchInput(
@@ -231,16 +220,11 @@ Document ID: 3 , Language: Chinese_Simplified
 ## <a name="entity-recognition"></a>엔터티 인식
 
 1. 이전에 만든 클라이언트를 사용하는 `RecognizeEntitiesExample()`이라는 새 함수를 만듭니다.
-2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
+2. 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
 
     ```csharp
-    public static async Task RecognizeEntitiesExample(string endpoint, string key)
+    public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
@@ -309,17 +293,11 @@ Document ID: 2
 ## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
 1. 이전에 만든 클라이언트를 사용하는 `KeyPhraseExtractionExample()`이라는 새 함수를 만듭니다.
-2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
+2. 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
 
     ```csharp
-    public static async Task KeyPhraseExtractionExample(string endpoint, string key)
+    public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {

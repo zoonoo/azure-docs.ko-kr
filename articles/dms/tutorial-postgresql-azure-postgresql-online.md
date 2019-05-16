@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137424"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415694"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
@@ -24,7 +24,6 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-
 > * pg_dump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
 > * Azure Database Migration Service의 인스턴스를 만듭니다.
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
@@ -46,10 +45,10 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     또한 온-프레미스 PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
     > [!NOTE]
-    > PostgreSQL 버전 10의 경우 현재 DMS는 Azure Database for PostgreSQL로의 10.3 버전의 마이그레이션을 지원합니다. 최신 버전의 PostgreSQL은 곧 지원될 예정입니다.
+    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다.
 
 * [Azure Database for PostgreSQL에서 인스턴스를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
     > [!NOTE]
     > VNet을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
@@ -65,6 +64,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
 * Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 제공합니다.
 * CLI를 호출하는 방법은 두 가지가 있습니다.
+
     * Azure Portal 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
 
        ![Azure Portal의 Cloud Shell 단추](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
    ```
 
    예를 들어 다음 명령은 서비스를 만듭니다.
+
    * 위치: 미국 동부2
    * 구독: 97181df2-909d-420b-ab93-1bff15acb6b7
    * 리소스 그룹 이름: PostgresDemo

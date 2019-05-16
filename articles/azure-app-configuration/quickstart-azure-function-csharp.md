@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003244"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408647"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>빠른 시작: App Configuration으로 Azure 함수 만들기
 
@@ -39,7 +39,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -59,7 +59,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. *Function1.cs*를 열고, App Configuration .NET Core 구성 공급자에 대한 참조를 추가합니다.
+2. *Function1.cs*를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

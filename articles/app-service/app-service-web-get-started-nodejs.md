@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855183"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408936"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 App Service가 process.env.PORT를 애플리케이션에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
 
-터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
+터미널 창에서 샘플 Node.js 프로젝트의 **루트 디렉터리**(_index.js_가 포함된 디렉터리)로 이동합니다.
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
@@ -75,7 +75,19 @@ npm start
 > [!NOTE]
 > Azure App Service에서 앱은 [iisnode](https://github.com/Azure/iisnode)를 사용하여 IIS에서 실행됩니다. iisnode를 통해 앱을 실행하도록 설정하려면 루트 앱 디렉터리 web.config 파일이 있어야 합니다. 이 파일은 IIS에서 읽을 수 있으며, iisnode 관련 설정은 [iisnode GitHub 리포지토리](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)에 설명되어 있습니다.
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>프로젝트 ZIP 파일 만들기
+
+여전히 샘플 프로젝트의 **루트 디렉터리**(_index.js_가 포함된 디렉터리)에 있는지 확인합니다. 프로젝트의 모든 것에 대한 ZIP 아카이브를 만듭니다. 다음 명령은 터미널의 기본 도구를 사용합니다.
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+나중에 이 ZIP 파일을 Azure에 업로드하고 이를 App Service에 배포합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 response.end("Hello Azure!");
 ```
 
-로컬 터미널 창에서 애플리케이션의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
+로컬 터미널 창에서 애플리케이션의 **루트 디렉터리**(_index.js_가 포함된 디렉터리)로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
 
 ```azurecli-interactive
 # Bash
@@ -181,7 +193,7 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

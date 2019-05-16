@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893132"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416011"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -159,7 +159,7 @@ Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보
 
 Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외의 모든 클라이언트 연결을 차단합니다. 기본적으로 방화벽 보호는 새 서버에 사용할 수 없습니다. 방화벽 보호를 사용하도록 설정하고 규칙이 서버 프로비전 스크립트의 일부로 구성되거나 서버를 만드는 즉시 포털에 구성되는 것이 좋습니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 포털에서 또는 PowerShell을 사용하여 방화벽 및 규칙을 구성합니다. 자세한 내용은 [서버 방화벅 구성](analysis-services-qs-firewall.md)을 참조하세요.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 사용자 인증은 [AAD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)에 의해 처리됩니다. 로그인하면 사용자는 데이터베이스에 대한 역할 기반 액세스에서 조직 계정 ID를 사용합니다. 사용자 ID는 서버가 위치한 구독에 대한 기본 Azure Active Directory의 멤버여야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
@@ -200,7 +200,7 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 
 [Visual Studio용 SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
 
-Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects는 무료 설치 가능한 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Visual Studio 2017 이상을 사용하는 경우 Microsoft Analysis Services Projects는 무료로 설치할 수 있는 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
