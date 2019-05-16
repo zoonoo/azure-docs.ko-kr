@@ -11,8 +11,7 @@
 - name: 빠른 시작
   items:
     - name: Apache Hive 쿼리 실행 - Apache Zeppelin
-      href: ../hdinsight-connect-hive-zeppelin.md
-      maintainContext: true
+      href: ./hdinsight-connect-hive-zeppelin.md
 - name: 시작하기
   items:
     - name: 대화형 쿼리 시작

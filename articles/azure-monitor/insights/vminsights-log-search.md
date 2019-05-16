@@ -15,7 +15,7 @@ ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64702512"
@@ -50,19 +50,19 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
-|방향 |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
-|컴퓨터 |컴퓨터 FQDN |
+|Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
+|Machine |컴퓨터 FQDN |
 |Process |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
 |SourceIp |원본의 IP 주소 |
 |DestinationIp |대상의 IP 주소 |
 |DestinationPort |대상의 포트 번호 |
-|프로토콜 |연결에 사용되는 프로토콜입니다.  값은 *tcp*입니다. |
+|Protocol |연결에 사용되는 프로토콜입니다.  값은 *tcp*입니다. |
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 |LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 |LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -73,11 +73,11 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 |BytesSent |보고 기간 동안 전송된 총 바이트 수 |
 |BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
-|응답 |보고 기간 동안 관찰된 응답의 수 
+|Responses |보고 기간 동안 관찰된 응답의 수 
 |ResponseTimeMax |보고 기간 동안 관찰된 최대 응답 시간(밀리초). 값이 없는 경우 속성은 비어 있습니다.|
 |ResponseTimeMin |보고 기간 동안 관찰된 최소 응답 시간(밀리초). 값이 없는 경우 속성은 비어 있습니다.|
 |ResponseTimeSum |보고 기간 동안 관찰된 모든 응답 시간의 합계(밀리초). 값이 없는 경우 속성은 비어 있습니다.|
@@ -99,7 +99,7 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 #### <a name="geolocation"></a>지리적 위치
 또한 *VMConnection*은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 |RemoteCountry |RemoteIp를 호스팅하는 국가 이름입니다.  예: *United States* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
@@ -108,14 +108,14 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 #### <a name="malicious-ip"></a>악성 IP
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp 주소 |
 |IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|설명 |관찰된 위협에 대한 설명입니다. |
+|Description |관찰된 위협에 대한 설명입니다. |
 |TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
-|신뢰도 |값은 *0 - 100*입니다. |
-|심각도 |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
+|Confidence |값은 *0 - 100*입니다. |
+|Severity |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
 |FirstReportedDateTime |공급자가 표시기를 처음 보고한 시간입니다. |
 |LastReportedDateTime |표시기가 Interflow에 의해 마지막으로 확인된 시간입니다. |
 |IsActive |표시기가 *True* 또는 *False* 값으로 비활성화되었음을 나타냅니다. |
@@ -134,12 +134,12 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 VMBoundPort의 모든 레코드는 다음 필드에 의해 식별 됩니다. 
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 |Process | 포트와 연결 된 프로세스 (또는 프로세스의 그룹)의 id입니다.|
-|IP | Ip 포트 (와일드 카드 IP 수 *0.0.0.0*) |
-|포트 |포트 번호 |
-|프로토콜 | 프로토콜입니다.  예에서 *tcp* 하거나 *udp* (만 *tcp* 는 현재 지원).|
+|Ip | Ip 포트 (와일드 카드 IP 수 *0.0.0.0*) |
+|Port |포트 번호 |
+|Protocol | 프로토콜입니다.  예에서 *tcp* 하거나 *udp* (만 *tcp* 는 현재 지원).|
  
 Id는 포트는 위의 다섯 개의 필드에서 파생 되며 PortId 속성에 저장 됩니다. 이 속성은 특정 포트에 대 한 전체 시간 레코드를 신속 하 게 찾는 데 사용할 수 있습니다. 
 
@@ -160,7 +160,7 @@ Id는 포트는 위의 다섯 개의 필드에서 파생 되며 PortId 속성에
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 레코드
 *ServiceMapComputer_CL* 형식의 레코드는 종속성 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -185,7 +185,7 @@ Id는 포트는 위의 다섯 개의 필드에서 파생 되며 PortId 속성에
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 형식 레코드
 *ServiceMapProcess_CL* 형식의 레코드는 종속성 에이전트가 있는 서버에서 TCP 연결 프로세스에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
@@ -204,7 +204,7 @@ Id는 포트는 위의 다섯 개의 필드에서 파생 되며 PortId 속성에
 | CommandLine_s | 명령줄 |
 | ExecutablePath_s | 실행 파일 경로 |
 | WorkingDirectory_s | 작업 디렉터리 |
-| 사용자 이름 | 프로세스를 실행 중인 계정 |
+| UserName | 프로세스를 실행 중인 계정 |
 | UserDomain | 프로세스를 실행 중인 도메인 |
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색

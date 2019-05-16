@@ -182,7 +182,6 @@
             - name: Postman으로 연결
               href: media-rest-apis-with-postman.md
         - name: SDK를 사용하여 개발
-          href: developers-guide.md
           items:
             - name: Java로 연결
               href: configure-connect-java-howto.md
@@ -222,10 +221,13 @@
         - name: 사용자 지정 변환으로 인코딩
           items:
             - name: .NET 사용
+              displayName: 'encode, encoding, custom, transform'
               href: customize-encoder-presets-how-to.md
             - name: CLI 사용
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: REST 사용
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
     - name: Event Grid 사용
       items:
