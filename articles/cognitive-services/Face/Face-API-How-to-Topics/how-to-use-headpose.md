@@ -118,4 +118,4 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 
 ## <a name="next-steps"></a>다음 단계
 
-참조 된 [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 회전된 얼굴 사각형의 작업 예제는 GitHub의 앱입니다. 참조를 [Face API HeadPose 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) HeadPose 특성 다양 한 헤드 이동 (nodding, 흔들기) 검색에 실시간으로 추적 하는 앱입니다.
+회전된 얼굴 사각형의 작업 예제는 GitHub의 [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)앱을 참조합니다. [Face API HeadPose 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) 앱은 다양한 머리 이동(고개를 끄떡이는, 머리를 흔드는)을 감지하기 위해 실시간으로 HeadPose 특성을 추적 하는 앱입니다.
