@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9bc4167134bb70fa938ecd37d81482dc4e1508dd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021805"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523253"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -36,9 +36,9 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 + .TIFF
 
 > [!NOTE]
-> 확장 하면 범위 처리의 빈도 늘려 더 많은 문서를 추가 하거나 자세한 AI 알고리즘에 추가 해야 합니다 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술 실행은 기존 부과 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 에 설명 된 대로 이미지 추출 가격을 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
@@ -50,10 +50,11 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 | detectOrientation | 이미지 방향의 자동 검색을 사용합니다. <br/> 유효한 값: true / false.|
 |defaultLanguageCode | <p>  입력 텍스트의 언어 코드입니다. 지원되는 언어는 다음과 같습니다. <br/> zh-Hans(중국어 간체) <br/> zh-Hant(중국어 번체) <br/>cs(체코어) <br/>da(덴마크어) <br/>nl(네덜란드어) <br/>en(영어) <br/>fi(핀란드어)  <br/>fr(프랑스어) <br/>  de(독일어) <br/>el(그리스어) <br/> hu(헝가리어) <br/> it(이탈리아어) <br/>  ja(일본어) <br/> ko(한국어) <br/> nb(노르웨이어) <br/>   pl(폴란드어) <br/> pt(포르투갈어) <br/>  ru(러시아어) <br/>  es(스페인어) <br/>  sv(스웨덴어) <br/>  tr(터키어) <br/> ar(아랍어) <br/> ro(루마니아어) <br/> sr-Cyrl(세르비아 키릴어) <br/> sr-Latn(세르비아 라틴어) <br/>  sk(슬로바키아어) <br/>  unk(알 수 없음) <br/><br/> 언어 코드가 지정되지 않았거나 null인 경우 언어는 영어로 설정됩니다. 언어가 명시적으로 “unk”로 설정된 경우 언어는 자동으로 검색됩니다. </p> |
 | textExtractionAlgorithm | "인쇄" 또는 "필기"입니다. "필기" 텍스트 인식 OCR 알고리즘은 현재 미리 보기 및 영어가 지원됩니다. |
+|lineEnding | 값을 각 between 줄을 검색 합니다. 가능한 값: 'Space','CarriageReturn','LineFeed'.  기본값은 '공백' |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                                          |
+| 이름 입력      | 설명                                          |
 |---------------|------------------------------------------------------|
 | Image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
@@ -61,7 +62,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 ## <a name="skill-outputs"></a>기술 출력
 | 출력 이름     | 설명                   |
 |---------------|-------------------------------|
-| text          | 이미지에서 추출된 일반 텍스트입니다.   |
+| 텍스트          | 이미지에서 추출된 일반 텍스트입니다.   |
 | layoutText    | 추출된 텍스트와 텍스트를 찾을 수 있는 위치를 설명하는 복합 유형입니다.|
 
 

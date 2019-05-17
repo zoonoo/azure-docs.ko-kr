@@ -1,44 +1,28 @@
 ---
-title: B2B 공동 작업-Azure Active Directory에 대 한 초대 위임 | Microsoft Docs
-description: Azure Active Directory B2B 협업 사용자 속성은 구성 가능합니다.
+title: B2B 외부 공동 작업 설정-Azure Active Directory를 사용 하도록 설정 | Microsoft Docs
+description: Active Directory B2B 외부 공동 작업 게스트 사용자를 초대할 수 있는 사용자를 관리 하는 방법에 알아봅니다. 초대 위임 게스트 초대자 역할을 사용 합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d40397f30b471699f42878a38c88efebcc6305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413607"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812681"
 ---
-# <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업에 대한 초대 위임
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 공동 작업을 사용 하도록 설정 하 고 게스트를 초대할 수 있는 사용자 관리
 
-Azure AD(Azure Active Directory) B2B 협업을 사용하면 전역 관리자가 아니더라도 초대할 보낼 수 있습니다. 그 대신 정책을 사용하여 초대를 보낼 수 있는 역할을 가진 사용자에게 초대를 위임할 수 있습니다. 게스트 사용자 초대를 위임하는 중요한 새 방식은 게스트 초대자 역할을 사용하는 것입니다.
+이 문서에서는 Azure Active Directory (Azure AD) B2B 공동 작업 게스트를 초대할 수 있는 사용자를 결정 하는 방법을 설명 합니다. 기본적으로 모든 사용자 및 게스트가 디렉터리에 게스트를 초대할 수 관리자 역할을 할당할 수 없습니다 하는 경우에 합니다. 외부 공동 작업 설정을 통해 조직에서 다양 한 유형의 사용자에 대 한 게스트 초대 또는 해제를 설정할 수 있습니다. 또한 게스트를 초대할 수 있도록 하는 역할을 할당 하 여 개별 사용자에 게 초대를 위임할 수 있습니다.
 
-## <a name="guest-inviter-role"></a>게스트 초대자 역할
-사용자에게 초대를 전송할 수 있는 게스트 초대자 역할에 할당할 수 있습니다. 전역 관리자 역할의 구성원이 아니더라도 초대를 보낼 수 있습니다. 기본적으로 전역 관리자가 일반 사용자에게 초대를 사용하지 않도록 설정한 경우가 아니면 일반 사용자도 초대 API를 호출할 수 있습니다. Azure Portal 또는 PowerShell을 사용하여 API를 호출할 수도 있습니다.
-
-다음은 PowerShell을 사용하여 게스트 초대자 역할에 사용자를 추가하는 방법을 보여주는 예입니다.
-
-```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
-```
-
-## <a name="control-who-can-invite"></a>초대할 수 있는 사용자 제어
-
-Azure Active Directory에서 **사용자 설정**을 선택합니다. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
-
-> [!NOTE]
-> **외부 공동 작업 설정**은 **조직 관계** 페이지에서도 사용할 수 있습니다. Azure Active Directory의 **관리** 아래에 있는 **조직 관계** > **설정**으로 이동합니다.
-
-![외부 협업 설정](./media/delegate-invitations/control-who-to-invite.png)
+## <a name="configure-b2b-external-collaboration-settings"></a>B2B 외부 공동 작업 설정 구성
 
 Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책을 설정할 수 있습니다.
 
@@ -47,7 +31,35 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
 - 관리자, 게스트 초대자 역할 및 구성원은 초대 가능
 - 게스트를 포함한 모든 사용자가 초대를 수행할 수 있습니다.
 
-기본적으로 테넌트는 #4로 설정됩니다. (게스트를 포함한 모든 사용자가 B2B 사용자를 초대할 수 있습니다.)
+기본적으로 모든 사용자가 게스트를 포함 한 게스트 사용자를 초대할 수 있습니다.
+
+### <a name="to-configure-external-collaboration-settings"></a>외부 공동 작업 설정을 구성 하려면:
+
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 테 넌 트 관리자입니다.
+2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
+3. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택합니다.
+   > [!NOTE]
+   > **외부 공동 작업 설정**은 **조직 관계** 페이지에서도 사용할 수 있습니다. Azure Active Directory의 **관리** 아래에 있는 **조직 관계** > **설정**으로 이동합니다.
+4. 에 **외부 공동 작업 설정** 페이지를 사용 하도록 설정 하려는 정책을 선택 합니다.
+
+   ![외부 협업 설정](./media/delegate-invitations/control-who-to-invite.png)
+
+  - **게스트 사용자 권한이 제한 됨**: 이 정책은 디렉터리에 게스트에 대 한 사용 권한을 결정합니다. 선택 **예** 사용자, 그룹 또는 기타 디렉터리 리소스 열거와 같은 특정 디렉터리 태스크에서 블록 게스트를 합니다. 선택 **No** 액세스 권한을 부여 하려면 게스트는 동일한 디렉터리 데이터 디렉터리의 일반 사용자로 합니다.
+   - **관리자 및 게스트 초대자 역할의 사용자를 초대할 수**: 관리자 및 사용자가 게스트를 초대할 "게스트 초대자" 역할에서에 허용 하려면이 정책을로 설정 합니다 **예**합니다.
+   - **구성원이 초대할 수 있음**: 게스트를 초대할 내 디렉터리의 관리자가 아닌 멤버를 허용 하려면이 정책을로 설정 합니다 **예**합니다.
+   - **게스트가 초대할 수 있음**: 게스트가 다른 게스트를 초대 하려면를 허용 하려면이 정책을로 설정 합니다 **예**합니다.
+   - **일회용 암호 전자 메일을 사용 하도록 설정 (미리 보기)을 게스트에 대 한**: (일회성 암호) 기능에 대 한 자세한 내용은 참조 하세요. [전자 메일 (일회성 암호) 인증 (미리 보기)](one-time-passcode.md)합니다.
+   - **공동 작업 제한**: 허용 하거나 특정 도메인에 초대를 차단 하는 방법에 대 한 자세한 내용은 참조 하세요. [특정 조직의 B2B 사용자에 게 허용 또는 차단 초대](allow-deny-list.md)합니다.
+
+## <a name="assign-the-guest-inviter-role-to-a-user"></a>사용자에 게 게스트 초대자 역할 할당
+
+게스트 초대자 역할을 사용 하 여 전역 관리자 또는 다른 관리자 역할 할당 하지 않고 게스트를 초대할 수 개별 사용자에 게 제공할 수 있습니다. 개인에 게 게스트 초대자 역할에 할당 합니다. 다음에 설정 해야 **관리자 및 게스트 초대자 역할의 사용자를 초대할 수 있습니다** 하 **예**합니다.
+
+다음은 PowerShell을 사용하여 게스트 초대자 역할에 사용자를 추가하는 방법을 보여주는 예입니다.
+
+```
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
+```
 
 ## <a name="next-steps"></a>다음 단계
 

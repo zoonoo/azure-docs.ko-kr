@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471774"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522370"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
 > 
 > [!IMPORTANT]
 > 응용 프로그램 버전 1.2. * 30 년 4 월 2019에 지원 되지 않는 것입니다. 최신 버전으로 업그레이드 하십시오.
-
-> 
-> [!IMPORTANT]
-> Linux에서 패치 오케스트레이션 응용 프로그램에 더 이상 사용 되지 않습니다. 참조 하세요 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) linux에서 업데이트를 오케스트레이션 하는 것에 대 한 합니다.
 
 
 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)는 Azure에서 패치된 운영 체제를 유지하는 모범 사례이며, POA(패치 오케스트레이션 애플리케이션)는 비 Azure 호스트 클러스터에 대한 OS 패치 일정을 기반으로 구성을 사용하는 Service Fabrics RepairManager Systems 서비스에 대한 래퍼입니다. 비 Azure 호스트 클러스터의 경우 POA가 필요하지 않지만, 가동 중지 시간 없이 Service Fabric 클러스터 호스트를 패치하려면 업그레이드 도메인에 의한 패치 설치를 예약해야 합니다.
@@ -241,7 +237,7 @@ RebootRequired | true - 다시 부팅 필요<br> false - 다시 부팅 필요 �
 
 업데이트가 아직 예약되어 있지 않으면 결과 JSON은 비어 있습니다.
 
-Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니다. 그런 다음 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults).
+결과 쿼리하려면 클러스터에 Windows 업데이트에 로그인 합니다. 그런 다음 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults).
 
 코디네이터 서비스의 REST 엔드포인트에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`에 결과가 제공됩니다.
 
@@ -263,7 +259,7 @@ Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니�
 
 Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 로그가 수집됩니다.
 
-선택한 진단 도구/파이프라인을 통해 로그를 캡처하려고 합니다. 패치 오케스트레이션 애플리케이션은 아래의 고정된 공급자 ID를 사용하여 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)를 통해 이벤트를 기록합니다.
+선택한 진단 도구/파이프라인을 통해 로그를 캡처하려고 합니다. 패치 오케스트레이션 응용 프로그램 사용 하 여 아래의 고정 된 공급자 Id 통해 이벤트를 기록 [이벤트 원본](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ Q. **클러스터가 비정상 상태이나 긴급한 운영 체제 업데이트
 
 a. 클러스터 상태가 정상이 아닌 경우 패치 오케스트레이션 앱은 업데이트를 설치하지 않습니다. 패치 오케스트레이션 앱 워크플로의 차단을 해제하기 위해 클러스터를 정상 상태로 전환하려고 합니다.
 
-Q. **내 클러스터에 대해 TaskApprovalPolicy를 'NodeWise' 또는 'UpgradeDomainWise'로 설정해야 하나요?**
+Q. **설정 해야 하나요 TaskApprovalPolicy 'NodeWise' 또는 'UpgradeDomainWise' 내 클러스터에 대 한?**
 
 a. 'UpgradeDomainWise'를 통해 병렬로 업그레이드 도메인에 속하는 모든 노드를 패치하여 전체 클러스터를 더 빠르게 패치할 수 있습니다. 즉, 전체 업그레이드 도메인에 속하는 노드가 패치 프로세스 중에 사용할 수 없게 됩니다([사용 안 함](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) 상태임).
 
@@ -346,6 +342,10 @@ a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서�
 Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
 
 a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
+
+Q. **Linux에서 클러스터 노드를 패치 마십시오는 방법**
+
+a. 참조 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) linux에서 업데이트를 오케스트레이션 하는 것에 대 한 합니다.
 
 ## <a name="disclaimers"></a>고지 사항
 
@@ -413,7 +413,7 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 
 - 이제 InstallWindowsOSOnlyUpdates를 False로 설정하면 사용 가능한 모든 업데이트가 설치됩니다.
 - 자동 업데이트를 사용하지 않도록 설정하는 논리가 변경되었습니다. 이로 인해 Server 2016 이상에서 자동 업데이트가 사용하지 않도록 설정되지 않는 버그가 수정됩니다.
-- 고급 사용 사례에서 POA의 두 마이크로 서비스에 대한 배치 제약 조건이 매개 변수화되었습니다.
+- 두 마이크로 서비스의 고급 사용 사례에 대 한 POA에 대 한 매개 변수가 있는 배치 제약 조건입니다.
 
 ### <a name="version-131"></a>버전 1.3.1
 - 자동 업데이트 비활성화의 오류로 인해 Windows Server 2012 R2 이하에서 POA 1.3.0이 작동하지 않는 회귀 수정 
@@ -421,4 +421,4 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 - InstallWindowsOSOnlyUpdates의 기본값을 False로 변경
 
 ### <a name="version-132"></a>버전 1.3.2
-- 노드에서 패치 수명 주기에서 현재 노드 이름의 하위 집합 이름 사용 하는 노드가 있을 경우 영향을 받는 하는 문제를 해결 합니다. 그러한 노드의 경우 패치가 누락되거나 다시 부팅이 보류 중일 수 있습니다. 
+- 노드에서 패치 수명 주기에 영향을 현재 노드 이름의 하위 집합 이름 사용 하는 노드가 없는 경우에 문제를 수정 합니다. 그러한 노드의 경우 패치가 누락되거나 다시 부팅이 보류 중일 수 있습니다. 

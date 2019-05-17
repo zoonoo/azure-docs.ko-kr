@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744371"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538370"
 ---
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
-**트랜잭션**: 표준 관리형 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다. 표준 Ssd에 256 3:n2}kib/의 I/O 단위 크기를 트랜잭션 수가 계정에 사용 됩니다. 더 큰 I/O 크기는 256KiB 크기의 여러 I/O로 계산됩니다. 표준 Hdd 각 IO 작업의 I/O 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다.
+**트랜잭션**: 표준 관리형 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다. 표준 Ssd에 대 한 각 I/O 작업이 적은 보다 작거나 256 3:n2}kib/ 처리량으로 간주 됩니다 단일 I/O 작업. 입출력 256 3:n2}kib/ 보다 큰 처리량의 크기 256의 여러 I/o 것으로 간주 됩니다 3:n2}kib/ 합니다. 표준 Hdd 각 IO 작업의 I/O 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다.
 
 트랜잭션 비용을 포함 하 여 Managed Disks에 대 한 가격 책정에 대 한 자세한 내용은 참조 하세요 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)합니다.
 

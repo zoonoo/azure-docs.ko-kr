@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 32d0fb2ba17d322c0a273ebaf0a21d2b3ca0668f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830689"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787417"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache for Redis를 모니터링하는 방법
 Azure Cache for Redis에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다.
@@ -105,7 +105,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 | 캐시 쓰기 |지정한 보고 간격 동안 캐시에 쓰는 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 머신을 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. 이 값은 클라이언트에서 캐시로 전송되는 데이터의 네트워크 대역폭에 해당됩니다. |
 | 연결된 클라이언트 |지정한 보고 간격 동안 캐시에 설정된 클라이언트 연결 수입니다. 이 값은 Redis INFO 명령에서 `connected_clients` 에 매핑됩니다. [연결 제한](cache-configure.md#default-redis-server-configuration) 에 도달하면 캐시에 대한 후속 연결 시도가 실패합니다. 활성 클라이언트 애플리케이션이 없는 경우에도 내부 프로세스 및 연결 때문에 연결된 클라이언트 인스턴스가 여전히 몇 개 있을 수 있습니다. |
 | CPU |지정한 보고 간격 동안의 Azure Cache for Redis 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
-| 오류 | 지정된 보고 간격 동안 캐시에서 특정 오류 및 성능 문제가 발생할 수 있습니다. 이 메트릭에는 여러 오류 형식을 나타내는 8차원이 있지만 나중에 더 추가될 수 있습니다. 이제 표시된 오류 형식은 다음과 같습니다. <br/><ul><li>**장애 조치** – 캐시가 장애 조치하는 경우(슬레이브가 마스터로 승격)</li><li>**충돌** – 캐시가 노드 중 하나에서 예기치 않게 충돌하는 경우</li><li>**데이터 손실** - 캐시에 데이터 손실이 발생하는 경우</li><li>**UnresponsiveClients** – 클라이언트가 서버에서 데이터를 충분히 빠르게 읽고 있지 않은 경우</li><li>**AOF** – AOF 지속성과 관련된 문제가 발생하는 경우</li><li>**RDB** – RDB 지속성과 관련된 문제가 발생하는 경우</li><li>**가져오기** – 가져오기 RDB와 관련된 문제가 발생하는 경우</li><li>**내보내기** – 내보내기 RDB와 관련된 문제가 발생하는 경우</li></ul> |
+| 오류 | 지정된 보고 간격 동안 캐시에서 특정 오류 및 성능 문제가 발생할 수 있습니다. 이 메트릭에는 여러 오류 형식을 나타내는 8차원이 있지만 나중에 더 추가될 수 있습니다. 이제 표시된 오류 형식은 다음과 같습니다. <br/><ul><li>**장애 조치** – 캐시 장애 조치 하는 경우 (하위를 마스터로 승격)</li><li>**충돌** – 캐시가 노드 중 하나에서 예기치 않게 충돌하는 경우</li><li>**데이터 손실** - 캐시에 데이터 손실이 발생하는 경우</li><li>**UnresponsiveClients** – 클라이언트가 서버에서 데이터를 충분히 빠르게 읽고 있지 않은 경우</li><li>**AOF** – AOF 지속성과 관련된 문제가 발생하는 경우</li><li>**RDB** – RDB 지속성과 관련된 문제가 발생하는 경우</li><li>**가져오기** – 가져오기 RDB와 관련된 문제가 발생하는 경우</li><li>**내보내기** – 내보내기 RDB와 관련된 문제가 발생하는 경우</li></ul> |
 | 제거된 키 |지정한 보고 간격 동안 `maxmemory` 제한 때문에 캐시에서 제거된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `evicted_keys` 에 매핑됩니다. |
 | 만료된 키 |지정한 보고 간격 동안 캐시에서 만료된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `expired_keys` 에 매핑됩니다.|
 | 가져오기 |지정한 보고 간격 동안 캐시에서 수행된 가져오기 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` 및 `cmdstat_getrange` 값의 합계이며 보고 간격 동안의 캐시 적중 및 누락 합계에 해당합니다. |

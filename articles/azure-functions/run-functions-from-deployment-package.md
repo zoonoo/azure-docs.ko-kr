@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325631"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787537"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -42,7 +42,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 패키지에서 함수 앱을 실행하도록 설정하려면 함수 앱 설정에 `WEBSITE_RUN_FROM_PACKAGE` 설정을 추가하면 됩니다. `WEBSITE_RUN_FROM_PACKAGE` 설정에는 다음 값 중 하나가 있어야 합니다.
 
-| Value  | 설명  |
+| 값  | 설명  |
 |---------|---------|
 | **`1`**  | Windows에서 실행 되는 함수 앱에 대 한 것이 좋습니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 그렇지 않은 경우 [zip를 사용 하 여 배포 배포](#integration-with-zip-deployment)에서이 옵션을 사용 하려면 라는 파일을 폴더 `packagename.txt`합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
 |**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 개인 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다.         |
@@ -64,6 +64,13 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 ## <a name="adding-the-websiterunfrompackage-setting"></a>WEBSITE_RUN_FROM_PACKAGE 설정 추가
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>문제 해결
+
+- 패키지에서 실행 하면 `wwwroot` 읽기 전용, 이므로이 디렉터리에 파일을 쓸 때 오류가 발생 합니다.
+- Gzip 및 tar 형식은 지원 되지 않습니다.
+- 이 기능은 로컬 캐시를 사용 하 여 작성 되지 않습니다.
+- 콜드 시작 성능 향상된을 위해 로컬 Zip 옵션을 사용 하 여 (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,16 +4,16 @@ description: 업데이트 관리 문제 해결 방법 살펴보기
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597613"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787701"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -160,6 +160,38 @@ Hybrid Runbook Worker가 자체 서명 인증서를 만들지 못함
 
 시스템 계정에 **C:\ProgramData\Microsoft\Crypto\RSA** 폴더에 대한 읽기 액세스 권한이 있는지 확인하고 다시 시도합니다.
 
+### <a name="failed-to-start"></a>시나리오: 컴퓨터에서 업데이트 배포를 시작 하려면 실패를 보여 줍니다.
+
+#### <a name="issue"></a>문제
+
+컴퓨터 상태가 **시작 하지 못했습니다** 컴퓨터용입니다. 컴퓨터에 대 한 특정 세부 정보를 볼 때 다음 오류가 표시:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 다음 이유 중 하나로 인해 발생할 수 있습니다.
+
+* 컴퓨터는 더 이상 존재 하지 않습니다.
+* 해제 하 고 연결할 수 없는 컴퓨터 설정 되어 있습니다.
+* 컴퓨터에 네트워크 연결 문제 이며 hybrid worker 컴퓨터에 연결할 수 없습니다.
+* SourceComputerId 변경 된 Microsoft Monitoring Agent로 업데이트가 했습니다.
+* Automation 계정에서 2,000 동시 작업 제한에 도달한 경우 업데이트 실행에 제한 된 수 있습니다. 각 배포는 작업 및 각 컴퓨터에 업데이트 배포 수 작업으로 간주 됩니다. 다른 자동화 작업 또는 업데이트 배포 하면 Automation 계정 수가 동시 작업 제한에 대해 현재 실행 중인 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+때 사용 하 여 해당 [동적 그룹](../automation-update-management.md#using-dynamic-groups) 업데이트 배포에 대 한 합니다.
+
+* 컴퓨터를 계속 유지 되 고 연결할 수를 확인 합니다. 존재 하지 않는 경우에 배포를 편집 하 고 컴퓨터를 제거 합니다.
+* 섹션을 참조 하세요 [네트워크 계획](../automation-update-management.md#ports) 목록은 한 포트 및 주소는 업데이트 관리를 위해 필요 하 고 컴퓨터에 이러한 요구 사항을 충족 하는지 확인 합니다.
+* Log Analytics에서 다음 쿼리를 실행 합니다. 찾으려는 컴퓨터 환경의 갖는 `SourceComputerId` 변경 합니다. 동일한 컴퓨터를 검색할 `Computer` 값을 다른 `SourceComputerId` 값입니다. 이러한 컴퓨터를 대상으로 하거나 제거 하 고 컴퓨터를 다시 추가 하는 업데이트 배포를 편집 해야 영향을 받는 컴퓨터를 찾으면 되므로 `SourceComputerId` 올바른 값을 반영 합니다.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>시나리오: 컴퓨터가 평가되지 않음으로 표시되고 HResult 예외를 나타냅니다.
 
 #### <a name="issue"></a>문제
@@ -177,7 +209,9 @@ Windows 업데이트 또는 WSUS가 컴퓨터에서 올바르게 구성되지 �
 |예외  |해결 방법 또는 작업  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | [Windows 업데이트 오류 코드 목록](https://support.microsoft.com/help/938205/windows-update-error-code-list)에서 관련 오류 코드를 검색하여 예외의 원인에 대한 추가 세부 정보를 찾을 수 있습니다.        |
-|`0x8024402C` 또는 `0x8024401C`     | 이러한 오류는 네트워크 연결 문제입니다. 컴퓨터가 네트워크를 통해 업데이트 관리에 적절히 연결되어 있는지 확인합니다. 필요한 주소 및 포트 목록을 보려면 [네트워크 계획](../automation-update-management.md#ports) 관련 섹션을 참조하세요.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 이러한 오류는 네트워크 연결 문제입니다. 컴퓨터가 네트워크를 통해 업데이트 관리에 적절히 연결되어 있는지 확인합니다. 필요한 주소 및 포트 목록을 보려면 [네트워크 계획](../automation-update-management.md#ports) 관련 섹션을 참조하세요.        |
+|`0x8024001E`| 서비스 또는 시스템이 종료 때문에 업데이트 작업이 완료 되지 않았습니다.|
+|`0x8024002E`| Windows Update 서비스가 비활성화 됩니다.|
 |`0x8024402C`     | WSUS 서버를 사용하는 경우 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 아래에 있는 `WUServer` 및 `WUStatusServer`의 레지스트리 값에 올바른 WSUS 서버가 포함되어 있는지 확인합니다.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows 업데이트 서비스(wuauserv)가 실행되고 있으며 사용 안 함으로 설정되어 있지 않은지 확인합니다.        |
 |다른 제네릭 예외     | 인터넷에서 가능한 해결 방법을 검색하고 현지 IT 지원 팀과 함께 해결합니다.         |
@@ -221,7 +255,7 @@ Linux Hybrid Worker가 비정상 상태입니다.
 
 * 패키지 관리자가 비정상 상태임
 * 특정 패키지가 클라우드 기반 패치를 방해할 수 있음
-* 기타 원인
+* 기타 이유
 
 #### <a name="resolution"></a>해결 방법
 

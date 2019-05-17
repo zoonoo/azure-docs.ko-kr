@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: b1c7d1fe561ebc11f88644a5bf2fd8bda1c9a6c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924989"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523974"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 호스트 풀 만들기
 
@@ -58,12 +58,6 @@ GitHub의 Azure Resource Manager 템플릿을 완료 된 후 가상 머신에서
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-다음으로이 cmdlet 사용 하 여 Azure Resource Manager 템플릿에 지정 된 테 넌 트 그룹에 컨텍스트를 설정:
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
 ```
 
 그런 다음이 cmdlet 사용 하 여 데스크톱 응용 프로그램 그룹에 사용자를 추가 합니다.

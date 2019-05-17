@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467504"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787519"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -86,11 +86,11 @@ Time Series Insights 탐색기에 해당 하는 값을 수락 **빠른 시간** 
 | `multiChartStack=false` | `true` 기본적으로 활성화 되어 있으므로 전달 `false` 에 있는 stack. |
 | `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  있기 `false` 기본적으로이 기능을 활성화 하므로 'true'를 전달 합니다. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = 일, 시간, 분, 초, 밀리초.  단위는 항상 대문자로 시작합니다. </br> timeBucketSize에 원하는 정수를 전달하여 단위의 수를 정의합니다.  최대 7일까지 설정할 수 있습니다.  |
-| `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. </br> 이 기능은 로컬(브라우저 시간) 또는 UTC를 선택할 수 있는 TSI 탐색기에서 사용할 수 있는 기능과 약간 다릅니다. |
+| `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. </br> 이 기능은 약간 다를 수 있는 로컬 (브라우저 시간) 또는 UTC를 선택 하 여 Time Series Insights 탐색기에서 사용할 수 있는 것입니다. |
 
 ### <a name="examples"></a>예
 
-시계열 정의 URL 매개 변수로 TSI 환경에 추가 하려면 다음을 추가 합니다.
+시계열 정의 URL 매개 변수로 Time Series Insights 환경에 추가 하려면 다음을 추가 합니다.
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > 라이브 탐색기 표시 [URL을 사용 하 여](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}])입니다.
 
-위의 URL에 설명 하 고 빌드 TSI 탐색기 뷰:
+위의 URL에 설명 하 고 Time Series Insights 탐색기 뷰 작성:
 
 [![Time Series Insights 탐색기 조건](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

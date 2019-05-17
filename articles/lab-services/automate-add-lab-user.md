@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502041"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522954"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 랩 사용자 추가 자동화
 Azure DevTest Labs를 사용 하면 Azure portal을 사용 하 여 셀프 서비스 개발-테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀 및 여러 DevTest Labs 인스턴스를 설정한 경우 생성 프로세스를 자동화 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿은](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) labs에서 랩 Vm, 사용자 지정 이미지, 수식을 만들 수 있습니다 하 고 자동화 된 방식으로 사용자를 추가 합니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가 하는 방법에 중점을 둡니다.
@@ -85,7 +85,7 @@ Azure DevTest Labs를 사용 하면 Azure portal을 사용 하 여 셀프 서비
 
 ```
 
-랩을 만드는 동일한 템플릿에서 역할을 할당 하는 경우 역할 할당 리소스와 랩 간의 종속성을 추가 해야 합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 종속성 정의](/azure-resource-manager/resource-group-define-dependencies.md) 문서.
+랩을 만드는 동일한 템플릿에서 역할을 할당 하는 경우 역할 할당 리소스와 랩 간의 종속성을 추가 해야 합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 종속성 정의](../azure-resource-manager/resource-group-define-dependencies.md) 문서.
 
 ### <a name="role-assignment-resource-information"></a>역할 할당 리소스 정보
 역할 할당 리소스를 이름과 유형을 지정 해야 합니다.

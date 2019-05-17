@@ -28,7 +28,7 @@ ms.locfileid: "64875670"
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로 비전 하는 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse를 만들고 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]합니다.
+이 자습서를 실행 하려면 SQL Data Warehouse에 이미 있는 Azure 계정이 필요 합니다. 프로비전한 데이터 웨어하우스가 없는 경우 [SQL Data Warehouse를 만들고 서버 수준 방화벽 규칙 설정][Create a SQL Data Warehouse]을 확인합니다.
 
 ## <a name="1-configure-the-data-source"></a>1. 데이터 원본 구성
 PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체의 정의는 SQL Data Warehouse에 저장됩니다. 데이터는 외부적으로 저장 됩니다.
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. 데이터 형식 구성
-데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음을 실행 [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] 텍스트 파일에서 데이터의 형식을 지정 하는 명령입니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
+데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음 [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 명령을 실행하여 텍스트 파일에서 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 

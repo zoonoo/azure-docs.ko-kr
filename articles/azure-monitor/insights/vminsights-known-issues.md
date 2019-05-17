@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875981"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522136"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 
@@ -35,4 +35,4 @@ ms.locfileid: "64875981"
 - 작업 영역에서 솔루션 구성 요소를 제거한 후에는 Azure VM의 성능 상태, 특히 포털에서 보기로 이동할 경우 성능 및 맵 데이터를 계속 확인할 수 있습니다. 결국 데이터는 잠시 후 성능 및 맵 보기에서 표시되지 않지만 상태 보기는 VM에 대한 성능 상태를 계속 표시합니다. **지금 사용해 보기** 옵션을 사용하여 성능 및 맵 보기에서만 다시 온보딩할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-가상 머신의 모니터링을 사용하기 위한 요구 사항과 메서드를 이해하려면 [VM용 Azure Monitor 배포](vminsights-onboard.md)를 검토하세요.
+검토 요구 사항 및 가상 컴퓨터의 모니터링을 사용 하는 것에 대 한 메서드를 알아야 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md)합니다.

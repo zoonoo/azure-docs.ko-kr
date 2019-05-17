@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d86b3fe9aeddd603d0c40b1c760cabdee42e396
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199926"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522101"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
@@ -64,4 +64,4 @@ VM용 Azure Monitor를 배포하면 VM에서 수집한 데이터가 Azure Monito
 성능 카운터의 문자열 길이 따라 로그 크기 및 개수 논리 디스크 및 VM에 할당 된 네트워크 어댑터를 사용 하 여 늘릴 수 있습니다. 이미 작업 영역이 있고 이러한 카운터를 수집 중인 경우 요금이 중복 적용되지 않습니다. 이미 서비스 맵을 사용 중인 경우 Azure Monitor로 전송되는 추가 연결 데이터만 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-가상 머신을 모니터링하는 데 도움이 되는 요구 사항과 메서드를 이해하려면 [VM용 Azure Monitor 배포](vminsights-onboard.md)를 검토하세요.
+가상 머신을 모니터링하는 데 도움이 되는 요구 사항과 메서드를 이해하려면 [VM용 Azure Monitor 배포](vminsights-enable-overview.md)를 검토하세요.

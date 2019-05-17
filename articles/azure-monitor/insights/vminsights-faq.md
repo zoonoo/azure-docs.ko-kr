@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596596"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522200"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>VM용 Azure Monitor(미리 보기) 질문과 대답
 Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
-가상 머신이 Log Analytics 작업 영역에 이미 연결된 경우 VM용 Azure Monitor에 온보딩되면 해당 작업 영역을 계속 사용하도록 [여기](vminsights-onboard.md#prerequisites)에서 나열된 지원되는 지역 중 하나에서 제공될 수 있습니다.
+가상 머신이 Log Analytics 작업 영역에 이미 연결된 경우 VM용 Azure Monitor에 온보딩되면 해당 작업 영역을 계속 사용하도록 [여기](vminsights-enable-overview.md#prerequisites)에서 나열된 지원되는 지역 중 하나에서 제공될 수 있습니다.
 
 온보딩하면 VM용 Azure Monitor에서 표시하고 분석할 이 정보의 수집을 시작하기 위해 모든 VM이 작업 영역에 데이터를 보고하게 되는 작업 영역에 대한 성능 카운터를 구성합니다.  결과적으로, 선택된 작업 영역에 연결된 VM의 모든 성능 데이터가 표시됩니다.  상태 및 맵 기능은 온보딩하도록 지정된 VM에 대해서만 활성화됩니다.
 
-성능 카운터를 사용할 수 있는 경우에 대한 자세한 내용은 [온보딩](vminsights-onboard.md) 문서를 참조하세요.
+카운터를 사용할 수 있는 성능에 자세한 내용은 참조 하세요 [개요를 사용 하도록 설정](vminsights-enable-overview.md#performance-counters-enabled) 문서.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>새 작업 영역에 온보딩할 수 있나요? 
-현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다.  Azure Portal을 통해 VM용 Azure Monitor에 대해 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
+현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal을 통해 VM용 Azure Monitor에 대해 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
 
-스크립트 기반 메서드를 사용하려는 경우 [온보딩](vminsights-onboard.md) 문서에서 이러한 단계를 다룹니다. 
+스크립트 기반 메서드를 사용 하려는 경우 다음이 단계에 나와 합니다 [사용 Azure Monitor (미리 보기) Vm에 대 한 Azure PowerShell 또는 Resource Manager 템플릿을 사용 하 여](vminsights-enable-at-scale-powershell.md) 문서. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>내 VM에서 이미 기존 작업 영역에 보고하는 경우 어떻게 해야 하나요?
 이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원되는 지역 중 하나라면 기존 작업 영역에 VM용 Azure Monitor를 사용하도록 설정할 수 있습니다.  이미 사용 중인 작업 영역이 지원되는 지역 중 하나가 아닌 경우 이번에는 VM용 Azure Monitor에 온보딩할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
 
 >[!NOTE]
->VM용 Azure Monitor에 온보딩하도록 선택했는지 여부와 상관 없이 작업 영역에 보고는 모든 VM에 영향을 주는 작업 영역에 대한 성능 카운터를 구성합니다. 작업 영역에 대해 성능 카운터를 구성하는 방법에 대한 자세한 내용은 [설명서](../../azure-monitor/platform/data-sources-performance-counters.md)를 참조하세요. VM용 Azure Monitor에 구성된 카운터에 대한 자세한 내용은 [온보딩 설명서](vminsights-onboard.md#performance-counters-enabled)를 참조하세요.  
+>VM용 Azure Monitor에 온보딩하도록 선택했는지 여부와 상관 없이 작업 영역에 보고는 모든 VM에 영향을 주는 작업 영역에 대한 성능 카운터를 구성합니다. 작업 영역에 대해 성능 카운터를 구성하는 방법에 대한 자세한 내용은 [설명서](../../azure-monitor/platform/data-sources-performance-counters.md)를 참조하세요. Vm에 대 한 Azure Monitor에 대해 구성 된 카운터에 대 한 자세한 내용은 참조 하십시오 우리의 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md#performance-counters-enabled) 문서.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>내 VM이 온보딩하지 못한 이유는?
 Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니다.
 
 * 해당 옵션을 선택한 경우 기본 Log Analytics 작업 영역이 만들어집니다.
-* 선택한 작업 영역에 대한 성능 카운터가 구성됩니다. 이 단계가 실패하면 일부 성능 차트 및 표에서는 온보딩한 VM에 대한 데이터를 표시하지 않습니다. [여기](vminsights-onboard.md#enable-with-powershell)에 문서화된 PowerShell 스크립트를 실행하여 이 문제를 해결할 수 있습니다.
+* 선택한 작업 영역에 대한 성능 카운터가 구성됩니다. 이 단계가 실패하면 일부 성능 차트 및 표에서는 온보딩한 VM에 대한 데이터를 표시하지 않습니다. [여기](vminsights-enable-at-scale-powershell.md#enable-performance-counters)에 문서화된 PowerShell 스크립트를 실행하여 이 문제를 해결할 수 있습니다.
 * 필요한 경우 Log Analytics 에이전트는 VM 확장을 사용하여 설치됩니다.  
 * 필요한 경우 VM용 Azure Monitor 맵 종속성 에이전트는 VM 확장을 사용하여 Azure VM에 설치됩니다.  
 * 필요한 경우 Azure Monitor 구성 요소가 상태 기능을 지원하도록 구성하고, VM이 상태 데이터를 보고하도록 구성합니다.
@@ -89,7 +89,7 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 각 상태 조건에 대해 정의된 경고 규칙은 Azure Portal에 표시되지 않습니다. [워크로드 모니터 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)에서만 상태 경고 규칙을 사용하거나 사용하지 않도록 설정할 수 있습니다. 또한 Azure Portal에서는 상태 경고에 대해 [Azure Monitor 작업 그룹](../../azure-monitor/platform/action-groups.md)을 할당할 수 없습니다. 오직 알림 설정 API를 사용하여 상태 경고가 발생할 때마다 트리거되도록 작업 그룹을 구성할 수 있습니다. 현재, VM에 대해 발생한 모든 *상태 경고*가 동일한 작업 그룹을 트리거하도록 VM에 대해 작업 그룹을 할당할 수 있습니다. 기존의 Azure 경고와 달리, 각 상태 경고 규칙에 대한 별도의 작업 그룹이라는 개념이 없습니다. 또한 상태 경고가 트리거될 때 메일 또는 SMS 알림을 제공하도록 구성된 작업 그룹만 지원됩니다. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>내 VM의 성능 차트에 일부 또는 모든 데이터가 표시되지 않습니다
-디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터를 구성할 수 없습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](vminsights-onboard.md#enable-with-powershell)를 실행합니다.
+디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터를 구성할 수 없습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](vminsights-enable-at-scale-powershell.md#enable-with-powershell)를 실행합니다.
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>VM용 Azure Monitor 맵 기능과 서비스 맵이 어떻게 다른가요?
 VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같은 차이점이 있습니다.
@@ -138,4 +138,4 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 따라서 **Insights(미리 보기)** 가 VM에 이미 설치된 후라도 해당 VM을 열고 왼쪽 창에서 Insights(미리 보기)를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM용 Azure Monitor에 등록되지 않은 경우에는 일반적인 경우처럼 옵션이 포함된 메시지가 표시되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[VM용 Azure Monitor 등록](vminsights-onboard.md)을 검토하여 가상 머신의 모니터링을 사용하기 위한 요구 사항과 방법을 알아보세요.
+검토 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md) 가상 머신의 모니터링을 사용 하도록 요구 사항 및 메서드를 알아야 합니다.

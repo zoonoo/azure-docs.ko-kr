@@ -4,18 +4,18 @@ description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원�
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 04/15/2019
+ms.date: 05/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289789"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518696"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -221,3 +221,12 @@ Azure Resource Manager로 액세스를 구성 하려면 다음 목록을 참조 
 | Azure Government | `https://storage.azure.com/` | 사용 가능 |
 | Azure Germany | `https://storage.azure.com/` | 사용 가능 |
 | Azure China 21Vianet | `https://storage.azure.com/` | 사용 가능 |
+
+### <a name="azure-analysis-services"></a>Azure Analysis Services
+
+| 클라우드 | 리소스 ID | 상태 |
+|--------|------------|--------|
+| Azure 글로벌 | `https://*.asazure.windows.net` | 사용 가능 |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | 사용 가능 |
+| Azure Germany | `https://*.asazure.cloudapi.de` | 사용 가능 |
+| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | 사용 가능 |

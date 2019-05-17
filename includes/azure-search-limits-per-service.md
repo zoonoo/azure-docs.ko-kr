@@ -5,21 +5,21 @@ services: search
 author: HeidiSteen
 ms.service: search
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464745"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212006"
 ---
 저장소는 디스크 공간이나 인덱스, 문서 또는 기타 고급 리소스의 *최대 수*의 하드 제한 중에서 먼저 충족되는 조건에 따라 제한됩니다. 다음 표에서는 저장소 제한에 대해 설명합니다. 인덱스, 문서 및 기타 개체의 최대 제한에 대해서 [리소스별 제한](../articles/search/search-limits-quotas-capacity.md#index-limits)합니다.
 
-| 리소스 | 무료 | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| Resource | 무료 | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 서비스 수준 계약 (SLA)<sup>3</sup>  |아닙니다. |예 |예 |예 |예 |예 |예 |예 |
+| 서비스 수준 계약 (SLA)<sup>3</sup>  |아닙니다. |예 |예 |예 |예 |예 |예 |예. |
 | 파티션당 저장소 |50MB |2 GB |25GB |100GB |200GB |200GB |1TB |2TB |
 | 서비스당 파티션 |N/A |1 |12 |12 |12 |3 |12 |12 |
 | 파티션 크기 |N/A |2GB |25GB |100GB |200GB |200GB |1TB |2TB |

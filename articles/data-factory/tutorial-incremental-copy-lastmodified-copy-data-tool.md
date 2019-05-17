@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61099041"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519125"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>증분 방식으로 데이터 복사 도구를 사용 하 여 LastModifiedDate에 기반 하는 새로운 기능과 변경 된 파일을 복사
 
 이 자습서에서는 Azure portal 데이터 팩터리를 만듭니다. 증분 방식으로 기반으로 새로운 기능과 변경 된 파일에만 복사 하는 파이프라인을 만드는 데 데이터 복사 도구를 사용 하는 한 해당 **LastModifiedDate** Azure Blob storage로 Azure Blob storage에서.
+
+이 작업을 수행 하면 ADF 원본 저장소의 모든 파일을 검사, 해당 LastModifiedDate에서 파일 필터를 적용를 대상 저장소에만 마지막 시간 이후 새롭고 업데이트 된 파일을 복사 합니다.  ADF 검색 대용량 파일을 사용 해도 대상으로 몇 개의 파일을 복사 하는 경우는 여전히 예상 되는 파일 검사로 인해 긴 기간도 시간이 오래 걸리는 note 하십시오.   
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -49,7 +51,7 @@ ms.locfileid: "61099041"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 

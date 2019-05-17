@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dedef2d22df9c8c81410296bdb0c4814bd98b80
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507125"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785065"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 API 호출 웹 Api 코드 구성 되는
 
 Web API를 등록 한 후에 응용 프로그램에 대 한 코드를 구성할 수 있습니다.
 
-Web API 프로젝트에 사용 되는 코드를 기반으로 다운스트림 웹 Api 호출에 web API를 구성 하는 코드입니다. 자세한 내용은 참조 하세요. [보호 된 웹 API-앱 구성](scenario-protected-web-api-app-configuration.md)합니다.
+웹 API를 보호 하는 데 사용 된 코드를 기반으로 다운스트림 웹 Api 호출에 web API를 구성 하는 코드입니다. 자세한 내용은 참조 하세요. [보호 된 웹 API-앱 구성](scenario-protected-web-api-app-configuration.md)합니다.
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>OnTokenValidated 구독할 코드
 
@@ -74,7 +74,7 @@ AddAccountToCacheFromJwt() 메서드 해야합니다.
 
 ### <a name="instantiate-a-confidential-client-application"></a>기밀 클라이언트 응용 프로그램 인스턴스화
 
-보호 된 web API를 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)를 제공 하므로이 흐름은 기밀 클라이언트 흐름에서 사용할 수 있습니다만 합니다 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) 를 통해를 `WithClientSecret` 또는 `WithCertificate`메서드를 각각.
+보호 된 web API를 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)를 제공 하므로이 흐름은 기밀 클라이언트 흐름에서 사용할 수 있습니다만 합니다 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 를 통해를 `WithClientSecret` 또는 `WithCertificate`메서드를 각각.
 
 ![Image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>대신-의 호출 하는 방법
 
-대신-의 (OBO) 호출을 호출 하 여 수행할 합니다 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) 메서드를 `IConfidentialClientApplication` 인터페이스입니다.
+대신-의 (OBO) 호출을 호출 하 여 수행할 합니다 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 메서드를 `IConfidentialClientApplication` 인터페이스입니다.
 
 `ClientAssertion` 자체 클라이언트에서 web API에서 받은 전달자 토큰에서 빌드됩니다. 가지 [두 명의 생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), 및 모든 종류의 사용자 어설션 사용 하는 JWT 전달자 토큰을 사용 하는 (다른 유형의 보안 토큰 형식을 다음 라는 추가 매개 변수에서 지정 `assertionType`).
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545334"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518899"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 
@@ -45,23 +45,21 @@ HDInsight 클러스터를 만드는 경우 Azure 구독에 대한 [기여자] �
 스크립트 작업은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트입니다. 스크립트 동작의 특징과 기능은 다음과 같습니다.
 
 * HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 저장소 위치는 다음과 같습니다.
+    
+    * 일반 클러스터:
+    
+      * ADLS Gen1: HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
+      
+      * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 저장소 계정 모두에 대해 액세스 권한을 부여받습니다.
 
-    * HDInsight 클러스터에서 액세스할 수 있는 Azure Data Lake Storage 계정. HDInsight에서 Azure Data Lake Storage를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
-
-        Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
-
-        > [!NOTE]  
-        > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
-
-    * HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 저장소 계정 모두에 대해 액세스 권한을 부여받습니다.
-
-    * 공용 파일 공유 서비스. 예를 들어 Azure Blob, GitHub, OneDrive 및 Dropbox가 있습니다.
+      * 공용 파일 공유 서비스 http:// 경로 통해 액세스할 수 있습니다. 예제는 Azure Blob, GitHub, OneDrive입니다.
 
         URI 예제는 [예제 스크립트 동작 스크립트](#example-script-action-scripts)를 참조하세요.
 
-        > [!WARNING]  
-        > HDInsight는 표준 성능 계층에서 Azure Storage 계정의 Blob만 지원합니다. 
-
+     * ESP 사용 하 여 클러스터:
+         
+         * Wasb [s]:// http [s] 또는 Uri:// 지원 됩니다.
+            
 * 특정 노드 유형에서만 실행되도록 제한할 수 있습니다. 예를 들어 헤드 노드 또는 작업자 노드가 있습니다.
 
 * 지속형 또는 임시 스크립트일 수 있습니다.

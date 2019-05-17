@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765860"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523993"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 
@@ -52,9 +52,9 @@ ms.locfileid: "63765860"
 Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코어 수 및 고유한 컴퓨팅 리소스 수의 기본 할당량 한도가 있습니다. 이 할당량은 위의 VM 코어 할당량과 별개이며 코어 한도는 현재 두 리소스 유형 간에 공유되지 않습니다.
 
 사용 가능한 리소스:
-+ 영역별 전용 코어 수의 기본 제한은 10-24입니다.  구독당 전용 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
++ 지역 계정당 전용된 코어 수 구독 제공 형식에 따라 24-300의 기본 한도가 있습니다.  구독당 전용 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
 
-+ 영역당 낮은 우선 순위 코어 수의 기본 제한은 10-24입니다.  구독당 우선 순위가 낮은 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
++ 지역당 우선 순위가 낮은 코어 24-300 구독 제품 유형에 따라 기본 한도가 있습니다.  구독당 우선 순위가 낮은 코어 수를 늘릴 수 있습니다. 증가 옵션은 고객 지원에 문의하세요.
 
 + 영역당 클러스터 수의 기본 한도는 100이고 최대 한도는 200입니다. 이 제한을 초과하여 늘리려면 Azure 고객 지원에 문의하세요.
 
@@ -66,10 +66,12 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 | 단일 Azure Machine Learning 컴퓨팅(AmlCompute) 리소스의 최대 노드 수 | 100개 노드 |
 | 노드당 최대 GPU MPI 프로세스 | 1-4 |
 | 노드당 최대 GPU 작업자 수 | 1-4 |
-| 최대 작업 수명 | 7일<sup>1</sup> |
+| 최대 작업 수명 | 90 일 동안<sup>1</sup> |
+| 낮은 우선 순위 노드에서 최대 작업 수명 | 1 day<sup>2</sup> |
 | 노드당 최대 매개 변수 서버 수 | 1 |
 
 <sup>1</sup> 최대 수명은 실행이 시작되는 시간과 완료되는 시간을 나타냅니다. 완료된 실행은 무기한 저장됩니다. 최대 수명 이내에 완료되지 않은 실행에 대한 데이터는 액세스할 수 없습니다.
+<sup>2</sup> 우선 순위가 낮은 노드에서 작업에 용량 제약 조건이 있는 언제 든 지 선점 될 수 있습니다. 작업에서 검사점을 구현 하는 것이 좋습니다.
 
 ### <a name="container-instances"></a>Container instances
 
@@ -80,20 +82,20 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
 ### <a name="storage"></a>Storage
-영역당 및 특정 구독당 저장소 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 200개를 초과하는 스토리지 계정이 필요한 경우  [Azure 고객 지원팀](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
+영역당 및 특정 구독당 저장소 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
 
 
 ## <a name="find-your-quotas"></a>할당량 찾기
 
 Virtual Machines, Storage, Network 등의 다양한 리소스에 대한 할당량을 쉽게 확인하는 방법은 Azure Portal입니다.
 
-1. 왼쪽 창에서  **모든 서비스**를 선택한 다음, 일반 범주에서 **구독**을 선택합니다.
+1. 왼쪽 창에서 **모든 서비스**를 선택한 다음, 일반 범주에서 **구독**을 선택합니다.
 
 1. 구독 목록에서 할당량을 보려는 구독을 선택합니다.
 
    특히 Azure Machine Learning 컴퓨팅 할당량 보기와 관련하여 **주의할 점**이 있습니다. 앞서 언급했듯이, 이 할당량은 구독의 계산 할당량과는 별개입니다.
 
-1. 왼쪽 창에서  **Machine Learning Service**를 선택한 다음, 표시된 목록에서 모든 작업 영역 선택
+1. 왼쪽된 창에서 선택 **Machine Learning 서비스** 표시 된 목록에서 모든 작업 영역을 선택 합니다
 
 1. 다음 블레이드의 **지원 + 문제 해결 섹션**에서 **사용량 + 할당량**을 선택하여 현재 할당량 한도 및 사용량을 확인합니다.
 
@@ -102,9 +104,9 @@ Virtual Machines, Storage, Network 등의 다양한 리소스에 대한 할당�
 
 ## <a name="request-quota-increases"></a>할당량 증가 요청
 
-기본 한도 이상으로 한도 또는 할당량을 높이려는 경우 비용 없이  [온라인 고객 지원 요청을 개설](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)합니다.
+기본 제한 이상으로 제한 또는 할당량을 높이려는 경우 비용 없이 [온라인 고객 지원 요청을 개설](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)합니다.
 
-다음 표에 나오는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 한도가 없으면 리소스에는 조정 가능한 한도가 없습니다. [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) 문서에서는 할당량 증가 프로세스를 자세히 다룹니다.
+다음 표에 나오는 최대 한도 값 이상으로 한도를 높일 수 없습니다. 최대 제한이 없는 경우 리소스에 조정 가능한 제한이 없는 것입니다. [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) 문서에서는 할당량 증가 프로세스를 자세히 다룹니다.
 
 할당량 증가를 요청할 때 할당량을 늘리려는 서비스를 선택해야 하며 이러한 서비스로는 Machine Learning Service 할당량, 컨테이너 인스턴스 또는 Storage 할당량이 있습니다. 또한 Azure Machine Learning 컴퓨팅의 경우 할당량을 보는 동안 위의 단계에 따라 단순히 **할당량 요청** 단추를 누르기만 하면 됩니다.
 

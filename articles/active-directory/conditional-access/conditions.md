@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355732"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785388"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
 
@@ -57,29 +57,23 @@ ms.locfileid: "60355732"
 
 * **사용자 및 그룹**은 특정 사용자 집합을 대상으로 합니다. 예를 들어 클라우드 앱으로 선택된 HR 앱의 경우 HR 부서의 모든 구성원을 포함하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다.
 
-정책에서 특정 사용자 또는 그룹을 제외할 수도 있습니다. 정책에서 다단계 인증(MFA)을 적용하는 경우의 일반적인 사용 사례 중 하나는 서비스 계정입니다. 
+정책에서 특정 사용자 또는 그룹을 제외할 수도 있습니다. 정책에서 다단계 인증(MFA)을 적용하는 경우의 일반적인 사용 사례 중 하나는 서비스 계정입니다.
 
-새 정책을 배포할 때에는 특정 사용자 집합을 대상으로 지정하는 것이 유리합니다. 새 정책에서 정책 동작의 유효성을 검사하기 위해 초기 사용자 집합만 대상으로 지정해야 합니다. 
+새 정책을 배포할 때에는 특정 사용자 집합을 대상으로 지정하는 것이 유리합니다. 새 정책에서 정책 동작의 유효성을 검사하기 위해 초기 사용자 집합만 대상으로 지정해야 합니다.
 
+## <a name="cloud-apps-and-actions"></a>클라우드 앱 및 작업
 
+클라우드 앱에는 웹 사이트, 서비스 또는 Azure AD 응용 프로그램 프록시에 의해 보호 되는 끝점은입니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](technical-reference.md#cloud-apps-assignments)을 참조하세요. 합니다 **클라우드 앱 또는 작업** 조건은 조건부 액세스 정책에서 필수입니다. 정책에서 선택할 수도 있습니다 **모든 클라우드 앱** 사용 하 여 앱을 지정 하거나 **앱 선택**합니다.
 
-## <a name="cloud-apps"></a>클라우드 앱 
+조직은 다음 중에서 선택할 수 있습니다.
 
-클라우드 앱은 웹 사이트 또는 서비스입니다. Azure AD 애플리케이션 프록시로 보호되는 웹 사이트는 클라우드 앱이기도 합니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)을 참조하세요. 
+* **모든 클라우드 앱** 조직 전체에 적용 하는 기준 정책을 적용 하는 경우. 모든 클라우드 앱에 대 한 로그인 위험이 감지 되 면 multi-factor authentication을 요구 하는 정책에 대 한이 선택을 사용 합니다. 모든 클라우드 앱에 적용 되는 정책이 액세스를 적용할 모든 웹 사이트 및 서비스에 있습니다. 이 설정을 선택 하는 앱 목록에 표시 되는 클라우드 앱 제한 되지 않습니다.
+* 정책에 의해 특정 서비스를 대상으로 지정하려면 **앱 선택**을 선택합니다. 예를 들어 사용자가 SharePoint Online에 액세스 하려면 준수 장치가 요구할 수 있습니다. 이 정책은 사용자가 SharePoint 콘텐츠 팀에 액세스할 때 다른 서비스에도 적용됩니다. Microsoft Teams를 예로 들 수 있습니다.
 
-**클라우드 앱** 조건은 조건부 액세스 정책에서 필수입니다. 정책에서 **모든 클라우드 앱**을 선택할 수도 있고 특정 앱을 선택할 수도 있습니다.
+> [!NOTE]
+> 특정 앱을 정책에서 제외할 수 있습니다. 그러나 사용자가 액세스하는 서비스에 적용되는 정책이 계속 적용됩니다.
 
-![클라우드 앱 포함](./media/conditions/03.png)
-
-선택:
-
-- 조직 전체에 기준 정책을 적용하려면 **모든 클라우드 앱**을 선택합니다. 클라우드 앱에 대한 로그인 위험이 감지되면 다단계 인증을 요구하는 정책에 이 선택을 사용합니다. **모든 클라우드 앱**에 적용된 정책은 모든 웹 사이트 및 서비스에 대한 액세스에 적용됩니다. 이 설정은 **앱 선택** 목록에 표시되는 클라우드 앱으로 제한되지 않습니다. 
-
-- 정책에 의해 특정 서비스를 대상으로 지정하려면 **앱 선택**을 선택합니다. 예를 들어 사용자가 SharePoint Online에 액세스하려면 [규격 디바이스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 사용하도록 요구할 수 있습니다. 이 정책은 사용자가 SharePoint 콘텐츠 팀에 액세스할 때 다른 서비스에도 적용됩니다. Microsoft Teams를 예로 들 수 있습니다. 
-
-특정 앱을 정책에서 제외할 수 있습니다. 그러나 사용자가 액세스하는 서비스에 적용되는 정책이 계속 적용됩니다. 
-
-
+**사용자 작업** 은 사용자가 수행할 수 있는 작업입니다. 현재 지원 되는 작업만 **보안 정보 (미리 보기)를 등록**, 조건부 액세스 정책이 사용자에 게 보안 정보 등록 하는 경우 적용할 수 있습니다.
 
 ## <a name="sign-in-risk"></a>로그인 위험
 

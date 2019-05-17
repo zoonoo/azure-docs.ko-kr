@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415891"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519010"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리는 **extend**를 사용하여 *localtime* 열을 추가합니다. 이는 지역화된 TimeGenerated 값을 포함합니다.
+**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서 **확장할** 추가 하는 *EventCode* 열입니다. 보려는 레코드의 세부 정보를 확장 하는이 열이 표시 되지 테이블 결과의 끝에 있는 경우 있습니다 참고 해야 합니다.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize: 행 그룹 집계

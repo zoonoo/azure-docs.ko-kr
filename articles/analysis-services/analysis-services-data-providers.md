@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ded03f636155e4b1a738f388e696a09736cd3b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: HT
+ms.openlocfilehash: b3f4e1ddc041691ba68e14660ec5fa4cc39ddec1
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470761"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518187"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
@@ -34,8 +34,8 @@ AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.1.0     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.1.0      |
 
 NuGet 패키지 어셈블리 AssemblyVersion은 유의적 버전 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 

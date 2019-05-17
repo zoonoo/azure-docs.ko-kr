@@ -3,18 +3,18 @@ title: Azure Cosmos DB Java 비동기 SDK 진단 및 문제 해결
 description: 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Cosmos DB 문제를 파악, 진단 및 해결합니다.
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshooting
 ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
+ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146203"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519974"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
 이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 SDK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.

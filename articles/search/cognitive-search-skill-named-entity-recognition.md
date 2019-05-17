@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7c462971f7ac02e35ab8df5b651da7d0a3f39e1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e6a7d4bb7452ff8f6b3c2536a5aa100a15a6ec78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022252"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539283"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
 **명명된 엔터티 인식** 기술은 텍스트에서 명명된 엔터티를 추출합니다. 사용 가능한 엔터티는 `person`, `location` 및 `organization` 형식을 포함합니다.
 
 > [!IMPORTANT]
-> 명명 된 엔터티 인식 기술은 이제 사용 되지 않습니다. 바뀝니다 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)합니다. 2019 년 2 월 15 일에 지원이 중지 하 고 API는 2019 년 5 월 2 일에 제품에서 제거 되었습니다. [사용되지 않는 Cognitive Search 기술](cognitive-search-skill-deprecated.md) 페이지의 권장 사항에 따라 지원되는 기술로 마이그레이션하세요.
+> 명명 된 엔터티 인식 기술은 이제 사용 되지 않습니다. 바뀝니다 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)합니다. 2019 년 2 월 15 일에 지원이 중지 하 고 API는 2019 년 5 월 2 일에 제품에서 제거 되었습니다. 권장 사항을 따르십시오 [cognitive search 기술 사용 되지 않는](cognitive-search-skill-deprecated.md) 지원 되는 기술으로 마이그레이션하려 합니다.
 
 > [!NOTE]
-> 확장 하면 범위 처리의 빈도 늘려 더 많은 문서를 추가 하거나 자세한 AI 알고리즘에 추가 해야 합니다 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술 실행은 기존 부과 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 에 설명 된 대로 이미지 추출 가격을 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -49,10 +49,10 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                   |
+| 이름 입력      | 설명                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
-| text          | 분석할 텍스트입니다.          |
+| 텍스트          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
