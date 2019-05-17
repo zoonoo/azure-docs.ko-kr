@@ -2,28 +2,28 @@
 title: 앱을 Azure Active Directory로 마이그레이션하기 위한 리소스 | Microsoft Docs
 description: 애플리케이션 액세스 및 인증을 Azure AD(Azure Active Directory)로 마이그레이션하는 데 도움이 되는 리소스입니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ce62d745bfb0299dc8f3eb401f5a66e38580f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12370d54500dbc1fcd6f812206fdfea3e5298112
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440665"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826087"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>애플리케이션을 Azure Active Directory로 마이그레이션하기 위한 리소스
 
 애플리케이션 액세스 및 인증을 Azure AD(Azure Active Directory)로 마이그레이션하는 데 도움이 되는 리소스입니다. 이 짧은 설문 조사(https://aka.ms/AppsMigrationFeedback))를 통해 Azure AD로 앱을 마이그레이션하는 경험에 대한 피드백을 제공해 주세요(마이그레이션 차단, 도구/지침의 필요성 또는 온-프레미스 IDP를 유지하는 이유 포함). 
 
-| 리소스  | 설명  |
+| Resource  | 설명  |
 |:-----------|:-------------|
 |[앱을 Azure AD로 마이그레이션](https://aka.ms/migrateapps/whitepaper) | 이 백서에서는 마이그레이션의 이점을 제시하고 4가지 명확한 단계(탐색, 분류, 마이그레이션 및 지속적인 관리)로 마이그레이션을 계획하는 방법을 설명합니다. 프로세스에 대해 생각하고 프로젝트를 소비하기 쉬운 부분으로 나누는 방법이 안내됩니다. 문서 전체에는 과정에 도움이 되는 중요한 리소스에 대한 링크가 있습니다. |
 |[솔루션 가이드: AD FS(Active Directory Federation Services)에서 Azure AD로 앱 마이그레이션](https://aka.ms/migrateapps/adfssolutionguide) | 이 솔루션 가이드에서는 애플리케이션 마이그레이션 프로젝트를 계획하고 실행하는 4단계(마이그레이션 백서의 상위 수준에서 설명한 것과 같음)를 안내합니다. 이 가이드에서는 이러한 단계를 AD FS(Active Directory Federation Services)에서 Azure AD로 애플리케이션을 이동하는 구체적인 목표에 적용하는 방법을 알아봅니다.|

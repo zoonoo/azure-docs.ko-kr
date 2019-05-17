@@ -4,7 +4,7 @@ description: Azure Search에서 사용되는 전체 Lucene 구문에 대한 참�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024238"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596557"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
 특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
@@ -121,16 +121,19 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> 와일드카드 및 정규식 쿼리 점수 매기기
  Azure Search는 텍스트 쿼리에 빈도 기반 점수 매기기([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
 
-##  <a name="bkmk_fields"></a> 필드 범위 쿼리  
- `fieldname:searchterm` 구조를 지정하여 필드 지정 쿼리 작업을 정의할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.   
+##  <a name="bkmk_fields"></a> 검색 필드 지정된  
+사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다는 `fieldName:searchExpression` 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다.   
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  두 문자열이 단일 엔터티로 평가되길 원하는 경우(이 경우에 `artists` 필드에서 두 개의 다른 예술가 검색) 여러 문자열을 인용 부호로 묶어야 합니다.  
+두 문자열이 단일 엔터티로 평가되길 원하는 경우(이 경우에 `artists` 필드에서 두 개의 다른 예술가 검색) 여러 문자열을 인용 부호로 묶어야 합니다.  
 
-  `fieldname:searchterm`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
+`fieldName:searchExpression`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
+
+> [!NOTE]
+> 사용 하 여 한 검색 식 때 필요가 없습니다 사용 하는 `searchFields` 매개 변수 검색 식 한 각 때문에 필드 이름을 명시적으로 지정 합니다. 그러나 여전히 사용할 수는 `searchFields` 일부 특정 필드에 범위가 지정 됩니다 하 고 나머지는 여러 필드에 적용할 수 있는 쿼리를 실행 하려는 경우 매개 변수입니다. 예를 들어, 쿼리 `search=genre:jazz NOT history&searchFields=description` 일치 `jazz` 에 합니다 `genre` 필드에 일치 하는 동안 `NOT history` 사용 하 여는 `description` 필드. 에 제공 된 필드 이름 `fieldName:searchExpression` 항상 우선 합니다 `searchFields` 상태인 이유이 예제에서는 매개 변수에서는 포함 않아도 `genre` 에 `searchFields` 매개 변수.
 
 ##  <a name="bkmk_fuzzy"></a> 유사 항목 검색  
  유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)에 기반합니다. 유사 항목 검색은 거리 조건을 충족하는 최대 50개 용어로 확장할 수 있습니다. 

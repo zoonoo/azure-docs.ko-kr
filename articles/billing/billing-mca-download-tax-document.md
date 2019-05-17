@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371549"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604153"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 세금 문서를 보고 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "60371549"
 3. **청구서**를 선택합니다.
 4. 송장 그리드에서 다운로드 하려는 세금 문서에 해당 하는 청구서의 행을 찾습니다.
 5. 줄임표를 클릭 (`...`) 행의 끝입니다.
-6. 선택 **세금 문서**합니다. 청구 프로필의 국가 따라 청구서 당 둘 이상의 세금 문서를 볼 수 있습니다.
+6. 선택 **세금 문서**합니다. 국가/지역의 청구 프로필에 따라 청구서 당 둘 이상의 세금 문서를 볼 수 있습니다.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

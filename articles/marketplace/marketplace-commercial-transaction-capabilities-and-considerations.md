@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937967"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826564"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
 
@@ -137,11 +137,14 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 |*Microsoft에서 고객에게 청구하는 요금*    |  *월간 $100.00(참고: 게시자는 발생하거나 통과된 인프라 비용을 라이선스 요금으로 계산해야 함)*  |
 
 * 이 시나리오에서 Microsoft는 소프트웨어 라이선스에 대해 $100.00를 청구하고, 게시자에게 $80.00를 지급합니다.
+* 감소 Marketplace 서비스 요금에 대 한 자격을 갖춘 파트너 월 2019 년 6 월 2020까지에서 SaaS에 감소 거래 수수료 제공 표시 됩니다. 이 시나리오에서는 Microsoft $100.00 소프트웨어 라이선스에 대 한 청구 및 게시자에 매출 $90.00 초과 비용을 지불 합니다.
 
 |Microsoft 청구  | 매월 $100.00  |
 |---------|---------|
-|Microsoft는 라이선스 비용의 80%를 지불합니다.    |   매월 $80.00     |
-|Microsoft는 라이선스 비용의 20%를 유지합니다.   |  매월 $20.00       |
+|Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft %를 지불 90 라이선스 비용의 정규화 된 SaaS 앱에 대 한   |   매월 $80.00 <br> \* 매출 매월 $ 90.00    |
+|Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 10%를 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
+
+* **축소 된 Marketplace 서비스 요금:** 특정 상용 Marketplace에 게시 하는 SaaS 제품 Microsoft 줄어듭니다 해당 Marketplace 서비스 요금 20%에서 (Microsoft 판매자 계약에 설명)으로 10%입니다.  되려면 제품에 대 한 순서 대로 귀하의 제품 하나 이상 지정 해야 Microsoft에서 IP로 공동 판매 준비 또는 IP 공동 판매 우선 순위를 지정 합니다. 해당 월에 대 한이 감소 하는 Marketplace 서비스 요금을 받으려면 자격 최소 5 개 비즈니스 일 해당 월의 종료 되기 전에 충족 되어야 합니다. Marketplace 서비스 요금 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 사용할 수 있는 다른 제품에 적용 되지 것입니다 줄어듭니다.  이 감소 Marketplace 서비스 요금은 2019 년 5 월 31 일 사이의 2020 년 6 월 30 년 Microsoft에서 수집 하는 라이선스 비용을 사용 하 여 정규화 된 제품으로 제공 됩니다.  해당 시간이 지난 후 Marketplace 서비스 요금 고 일반 크기 돌아갑니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 

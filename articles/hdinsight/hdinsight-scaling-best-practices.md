@@ -1,26 +1,26 @@
 ---
 title: 클러스터 크기 조정 - Azure HDInsight
-description: 워크로드에 맞게 HDInsight 클러스터의 크기를 조정합니다.
+description: 워크 로드에 맞게 탄력적으로 Azure HDInsight 클러스터를 확장 합니다.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698254"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595858"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 따라서 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다.
 
-예를 들어, 하루에 1번 또는 한 달에 1번 수행되는 일부 일괄 처리가 있을 때, 적절한 메모리 및 CPU 계산 능력을 확보하기 위해 예약된 이벤트보다 몇 분 전에 HDInsight 클러스터를 확장할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
+예를 들어, 일부 일괄 처리가 있는 경우 하루에 한 번 또는 한 달에 한 번 발생 하는, 있습니다 충분 한 메모리 및 CPU 계산 능력 하므로 예약된 된 이벤트 전에 잠시 후 HDInsight 클러스터를 확장할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
 
+수동으로 아래에 설명 된 방법 중 하나를 사용 하 여 클러스터 크기를 조정 하거나 사용할 수 있습니다 [자동 크기 조정](hdinsight-autoscale-clusters.md) 에 CPU, 메모리 및 기타 메트릭에 대 한 응답에서 보내는 옵션 시스템을 자동으로 확장 및 축소 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,8 +32,8 @@ Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
-|[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스의 수가 >|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
+|[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스의 수가 > |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창의 열을 선택 합니다 **클러스터 크기** 왼쪽 메뉴에서 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
 ![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -326,6 +326,6 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
     
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure HDInsight 클러스터를 자동으로 크기 조정](hdinsight-autoscale-clusters.md)
 * [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)
 * [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920492"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823574"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -163,10 +163,15 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
   * 중요한 개인 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자
 
+
+  > [!NOTE]
+  > 사용 하 여 사용자의 하위 집합에 대해 관리 권한을 위임 하 고 사용자의 하위 집합에 정책을 적용 가능성이 [관리 단위 (미리 보기)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)합니다.
+
+
   > [!NOTE]
   > 이 역할에서 "암호 관리자"를 이전에 호출 되었습니다 [Azure portal](https://portal.azure.com/)합니다. Azure AD PowerShell, Azure AD Graph API 및 Microsoft Graph API에서 해당 이름과 일치 하도록 "기술 지원팀 관리자"에 해당 이름을 변경 하 고 합니다. 짧은 시간에 대 한 "기술 지원팀 관리자" 변경 하기 전에 Azure portal에는 이름이 "(암호) 기술 지원팀 관리자"로 변경 됩니다 했습니다.
-  >
-  
+
+
 * **[Power BI 관리자](#power-bi-service-administrator)**: 이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Power BI 내에서 글로벌 사용 권한을 가질 뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [Power BI 관리자 역할 이해](https://docs.microsoft.com/power-bi/service-admin-role)를 참조하세요.
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Power BI 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Power BI 관리자"입니다.

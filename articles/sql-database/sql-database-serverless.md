@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620160"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823309"
 ---
 # <a name="sql-database-serverless-preview"></a>Azure SQL Database 서버리스(미리 보기)
 
@@ -277,19 +277,21 @@ vCore 단가(초당 vCore당 비용)입니다. 지정된 지역의 특정 단가
 
 이 수량은 초 단위로 계산되어 1분 동안 집계됩니다.
 
-**예제**: GP_S_Gen5_4를 사용하는 데이터베이스에서 1시간 동안 다음과 같은 사용량을 소비한다고 간주합니다.
+1 분 vcore 및 최대 vcore 4 개를 사용 하 여 구성 서버 리스 데이터베이스가 있다고 가정 합니다.  약 3 GB min memory 및 max memory 12GB에 해당 합니다.  자동 일시 중지 지연 6 시간으로 설정 되어 있고 데이터베이스 워크 로드를 24 시간 기간의 첫 번째 2 시간 동안 활성 상태이 고 그렇지 않은 경우 비활성 가정 합니다.    
 
-|시간(시간:분)|app_cpu_billed(vCore 시간(초))|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||합계: 1631|
+이 경우 데이터베이스는 계산 및 저장소에 대 한 첫 번째 8 시간 동안 청구 됩니다.  데이터베이스를 후 2 시간이 지나면 비활성 시작 하는 경우에 데이터베이스가 온라인 상태일 때 프로 비전 하는 최소 계산에 따라 이후 6 시간에서 계산을 위해 계속 청구 됩니다.  데이터베이스 일시 중지 된 동안 남은 24 시간 기간 동안 저장소만 요금이 청구 됩니다.
 
-컴퓨팅 단가가 $0.000073/vCore/초라고 가정합니다. 그러면 이 1시간 동안에 대해 청구되는 컴퓨팅 요금이 **$0.000073/vCore/초 * 1631 vCore 시간(초) = $0.1191** 공식을 사용하여 결정됩니다.
+보다 정확 하 게이 예에서 계산 청구서는 다음과 같이 계산 됩니다.
+
+|시간 간격|vcore 수 초당 사용|초당 사용 된 GB|차원 청구 계산|vCore 시간 간격 동안 청구 하는 시간 (초)|
+|---|---|---|---|---|
+|0:00-1:00|4|9|vcore 수 사용|vcore 4 개 * 3600 초 = 14400 vCore 시간 (초)|
+|1:00-2:00|1|12|사용 된 메모리|12Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
+|2:00-8:00|0|0|프로 비전 하는 최소 메모리|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|8:00-24:00|0|0|계산이 일시 중지 된 동안 청구 없습니다|0 vCore 시간 (초)|
+|총 vCore 24 시간을 청구 하는 시간 (초)||||50400 vCore 시간 (초)|
+
+컴퓨팅 단가가 $0.000073/vCore/초라고 가정합니다.  이 24 시간 기간에 청구 계산 요금이 청구 계산 단위 가격 및 vcore 초를 곱한 값을: $0.000073/vCore/second * 50400 vCore 초 = $3.68
 
 ## <a name="available-regions"></a>사용 가능한 지역
 

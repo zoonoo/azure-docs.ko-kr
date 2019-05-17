@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540146"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823340"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft identity 플랫폼 통합 검사 목록
 
@@ -31,13 +31,13 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 
 ## <a name="testing-your-integration"></a>통합 테스트
 
-다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/legal/mdsa)합니다.
+다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)합니다.
 
 ### <a name="basics"></a>기본 사항
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://docs.microsoft.com/legal/mdsa)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
 
 ### <a name="ownership"></a>소유권
 

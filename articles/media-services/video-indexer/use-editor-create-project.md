@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560935"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518148"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer 편집기를 사용 하 여 프로젝트를 만들려면
 
@@ -54,7 +55,7 @@ ms.locfileid: "60560935"
 
     선택 하 여 결과 필터링 할 수 있습니다 **결과 필터링**합니다. 에 특정 사용자를 포함 하는 비디오를 표시 하거나 있는지만 확인 하려는 비디오 결과 지정 하려면 필터링 할 수 있습니다를 특정 언어로 특정 소유자 또는 합니다. <br/> 또한 쿼리의 범위를 지정할 수 있습니다. 에 OCR "GitHub"를 검색 하려는 경우 선택 하는 예를 들어 **시각적 텍스트**합니다.
 
-    ![Filter](./media/video-indexer-view-edit/visual-text.png)
+    ![필터](./media/video-indexer-view-edit/visual-text.png)
 
     쿼리에 여러 필터를 넣을 수 있습니다. 사용 된 **+** / **-** 필터를 추가/제거 하는 단추입니다. 사용 하 여 **필터를 지우려면** 모든 필터를 제거 합니다.
 1. 비디오를 추가 하려면 모두 선택 하 고 선택한 **추가**합니다.

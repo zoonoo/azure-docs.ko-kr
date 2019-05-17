@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ca3c69178dde830e226812da34917246781c1ee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762147"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826506"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Azure Notification Hubs의 보안 모델
 
@@ -51,4 +51,5 @@ Windows 스토어 클라이언트 앱에 키 값을 포함하지 않는 것이 �
 
 Notification Hubs는 Microsoft Azure Access Control 토큰 및 Notification Hubs에서 직접 구성하는 공유 키로 생성된 서명 토큰에서 부여한 클레임을 허용합니다.
 
-둘 이상의 네임 스페이스에 알림을 보내도록 하는 것이 불가능 합니다. 네임 스페이스에 notification hubs에 대 한 논리적 컨테이너 이며 알림을 보내와 관련 되지 않은 합니다. 네임 스페이스 수준 작업에 대 한 예를 들어 네임 스페이스 수준 액세스 정책 (자격 증명)를 사용할 수 있습니다: 등 notification hubs를 나열, 만들기, notification hubs를 삭제 합니다. 허브 수준 액세스 정책에만 알림을 보낼 수 할 수 있습니다.
+둘 이상의 네임 스페이스에 알림을 보내도록 하는 것이 불가능 합니다. 네임 스페이스에 notification hubs에 대 한 논리적 컨테이너 이며 알림을 보내와 관련 되지 않은 합니다.
+네임 스페이스 수준 작업에 대 한 예를 들어 네임 스페이스 수준 액세스 정책 (자격 증명)를 사용할 수 있습니다: 등 notification hubs를 나열, 만들기, notification hubs를 삭제 합니다. 허브 수준 액세스 정책에만 알림을 보낼 수 할 수 있습니다.

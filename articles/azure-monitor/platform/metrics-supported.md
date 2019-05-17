@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8bacc77cc5814dc15473375a891096dba9d567be
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867647"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595438"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -682,6 +682,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |d2c.endpoints.latency.storage|라우팅: 저장소에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 저장소 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c.endpoints.egress.storage.bytes|라우팅: 저장소에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
 |d2c.endpoints.egress.storage.blobs|라우팅: 저장소에 배달된 Blob|카운트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
+|EventGridDeliveries|Event Grid 배달 (미리 보기)|카운트|합계|Event Grid에 이벤트를 내보내는 IoT Hub에 대 한 요청의 수입니다. 이 숫자는 성공한 요청과 실패 한 요청이 포함 됩니다. 결과 차원을 사용 하 여 다른 종류의 응답 수입니다. Where를 확인 하려면 요청에서 제공, EventType 차원을 사용 합니다.|결과 이벤트 유형|
+|EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|평균 대기 시간 (밀리초) IoT Hub로 이벤트 수신 및 이벤트 수신을 간에 Event Grid. 이 수에는 모든 이벤트 형식 간의 평균입니다. EventType 차원을 사용 하 여 특정 유형의 이벤트의 대기 시간을 참조 하세요.|이벤트 유형|
 |d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|카운트|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|카운트|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c.twin.read.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
@@ -715,8 +717,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |jobs.failed|실패한 작업|카운트|합계|실패한 모든 작업의 수입니다.|차원 없음|
 |d2c.telemetry.ingress.sendThrottle|제한 오류 수|카운트|합계|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
 |dailyMessageQuotaUsed|사용된 전체 메시지 수|카운트|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
-|deviceDataUsage|총 디바이스 데이터 사용량(사용되지 않음)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
-|deviceDataUsageV2|총 디바이스 데이터 사용(미리 보기)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
+|deviceDataUsage|총 장치 데이터 사용|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
 |totalDeviceCount|총 디바이스(미리 보기)|카운트|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
 |connectedDeviceCount|연결된 디바이스(미리 보기)|카운트|평균|IoT 허브에 연결된 디바이스 수|차원 없음|
 |구성|구성 메트릭|카운트|합계|구성 작업에 대한 메트릭|차원 없음|
@@ -1573,8 +1574,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |StorageSyncSyncSessionAppliedFilesCount|동기화된 파일 수|카운트|합계|수의 파일 동기화|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|동기화 상태가 아닌 파일|카운트|합계|파일 수를 동기화 하지 못함|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|동기화되는 바이트 수|바이트|합계|동기화 세션에 대 한 전송 된 총 파일 크기|SyncGroupName, ServerEndpointName, SyncDirection|
-|StorageSyncServerHeartbeat|서버 온라인 상태|카운트|최대|로그 값 1의 등록된 된 서버를 성공적으로 시간 메트릭 클라우드 끝점을 사용 하 여 하트 비트 레코드|ServerName|
-|StorageSyncRecallIOTotalSizeBytes|클라우드 계층화 회수|바이트|합계|서버에 의해 회수 하는 데이터의 총 크기|ServerName|
+|StorageSyncServerHeartbeat|서버 온라인 상태|카운트|최대|로그 값 1의 등록된 된 서버를 성공적으로 시간 메트릭 클라우드 끝점을 사용 하 여 하트 비트 레코드|데이터 열이 추적에서 캡처되고 서버를 사용할 수 있으면|
+|StorageSyncRecallIOTotalSizeBytes|클라우드 계층화 회수|바이트|합계|서버에 의해 회수 하는 데이터의 총 크기|데이터 열이 추적에서 캡처되고 서버를 사용할 수 있으면|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 

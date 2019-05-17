@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f81aa1e493014f192dc11ca698e9793075ac26ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725605"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556343"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -66,7 +66,7 @@ Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM
 1. Azure AD PowerShell 모듈을 설치합니다.
 
    ```
-   Install-Module AzureAD
+   Install-Module AzureADPreview
    ```
 
 2. 글로벌 관리자(테넌트 관리자) 자격 증명을 사용하여 `Connect-AzureAD`를 입력합니다.

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: f93abac563d47f6505f42d29e882698ef31174bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444820"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597424"
 ---
 # <a name="get-started-with-device-twins-node"></a>디바이스 쌍 시작(Node)
 
@@ -31,7 +31,7 @@ ms.locfileid: "61444820"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Node.js 버전 4.0.x 이상
+* Node.js 버전 10.0.x 이상.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 

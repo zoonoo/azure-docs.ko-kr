@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524237"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826477"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -42,7 +42,7 @@ NetApp 파일 Azure 네트워크에 대 한 계획 하는 경우에 몇 가지 �
 
 Azure NetApp 파일에 다음과 같은 네트워크 제한 사항이 적용 됩니다.
 
-* 수 (피어 링 된 Vnet 포함)는 VNet에서 Ip의 VNet에서 볼륨을 연결할 초과할 수 없습니다 1000입니다.
+* (Vnet 또는 피어 링 된 Vnet 간) 볼륨에 연결할 수 있는 Vm 수는 1000을 초과할 수 없습니다.
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 
 

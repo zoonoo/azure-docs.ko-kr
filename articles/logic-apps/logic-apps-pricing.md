@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598483"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544527"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598483"
 
 ## <a name="consumption-pricing-model"></a>소비 가격 책정 모델
 
-공용 또는 "전역" Azure Logic Apps 서비스에서 실행 되는 새 논리 앱에 대해 사용한 만큼에 대해서만 지불 합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱 정의에서 각 단계는 작업입니다. 예를 들어 동작은 같습니다. 
+공용 또는 "전역" Azure Logic Apps 서비스에서 실행 되는 새 논리 앱에 대해 사용한 만큼에 대해서만 지불 합니다. 이러한 논리 앱은 사용량 기반 계획 및 가격 책정 모델을 사용합니다. 논리 앱 정의에서 각 단계는 작업입니다. 예를 들어 동작은 같습니다.
 
 * 트리거는 특별 한 동작입니다. 모든 논리 앱에는 첫 번째 단계로 트리거가 필요합니다.
 * "기본 제공" 또는 네이티브 작업 HTTP와 같은 Azure Functions 및 API Management를 호출
@@ -38,12 +38,16 @@ Azure Logic Apps는 논리 앱에서 실행 되는 모든 작업을 측정 합�
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 기본 제공 작업 및 표준 커넥터에 대 한 고정된 월별 가격을 지불 합니다. ISE에 원하는 만큼 많은 연결을 포함 하는 하나의 무료 엔터프라이즈 커넥터를도 포함 되어 있습니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다. 
+[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 기본 제공 작업 및 트리거 및 표준 커넥터에 대 한 고정된 월별 가격을 지불 합니다.
 
-ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다.
+ISE에 원하는 만큼 많은 연결을 포함 하는 하나의 무료 엔터프라이즈 커넥터를도 포함 되어 있습니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다.
 
 > [!NOTE]
-> ISE에는 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
+> ISE를, 기본 제공 트리거 및 작업 내에서 표시 합니다 **Core** 레이블을 지정 하 고 논리 앱으로 동일한 ISE에서 실행 합니다. 표준 및 표시 하는 엔터프라이즈 커넥터는 **ISE** 레이블 logic apps와 동일한 ISE에서 실행 합니다. ISE 레이블을 표시 하지는 커넥터 전역 Logic Apps 서비스에서 실행 합니다.
+
+ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. 
+
+특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 <a name="connectors"></a>
 

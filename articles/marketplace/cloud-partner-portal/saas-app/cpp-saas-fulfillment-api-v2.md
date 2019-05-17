@@ -1,23 +1,22 @@
 ---
 title: SaaS Fulfillment API V2 | Azure Marketplace
-description: 연결된 처리 V2 Api를 사용 하 여 Azure Marketplace에 SaaS 제품을 만드는 방법에 설명 합니다.
+description: 연결된 fulfillment V2 Api를 사용 하 여 Azure Marketplace 및 AppSource에 SaaS 제품을 만드는 방법에 설명 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762276"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823530"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
-이 문서에서는 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 통합할 수 있도록 Azure Marketplace를 사용 하 여 API를 자세히 설명 합니다. 이 API를 사용 하면 모든 사용 하도록 설정 하는 전자 상거래 채널에 참여 하려면 ISV 응용 프로그램: 직접 파트너 주도 (대리점) 필드 주도하 고 있습니다.  이 API는 Azure Marketplace에서 transactable SaaS 제공 목록에 대 한 요구 사항입니다.
-
+Azure Marketplace 및 AppSource에서 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 판매할 수 있도록 API 자세히 설명 하는 문서 합니다. 이 API는 Azure Marketplace 및 AppSource에 SaaS 나열 하기 위한 요구 사항을 제공 합니다.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>SaaS 구독 수명 주기 관리
 

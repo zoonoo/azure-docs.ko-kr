@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024447"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595905"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"전체" Lucene 검색 구문 (Azure Search에서 고급 쿼리)를 사용 하 여 쿼리 예제
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 이 문서의 모든 예제는 전체 구문을 나타내는 **queryType=full** 검색 매개 변수가 Lucene 쿼리 파서에서 처리되도록 지정합니다. 
 
-## <a name="example-1-field-scoped-query"></a>예제 1: 필드 범위 쿼리
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>예제 1: 필드 목록에 범위 쿼리
 
-이 첫 번째 예제에서는 Lucene 별 하지만 첫 번째 기본 쿼리 개념을 소개 된 발생 했습니다: 포함 합니다. 이 예제에서는 쿼리 실행 및 몇 가지 특정 필드에 대한 응답의 범위를 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
+이 첫 번째 예제에서는 Lucene 별 하지만 첫 번째 기본 쿼리 개념을 소개 된 발생 했습니다: 범위 필드입니다. 이 예제에서는 범위 전체 쿼리 및 몇 가지 특정 필드에 대 한 응답을 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
+간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 합니다 **searchFields** business_title 필드만 쿼리 실행을 제한 하는 매개 변수 및 **선택** 응답에 포함 되는 필드를 지정 합니다.
 
 ### <a name="partial-query-string"></a>일부 쿼리 문자열
 
@@ -99,6 +99,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+쉼표 뒤 공백은 선택적입니다.
+
+> [!Tip]
+> 응용 프로그램 코드에서 REST API를 사용 하는 경우와 같은 URL 인코딩 매개 변수를 잊지 `$select` 고 `searchFields`입니다.
+
 ### <a name="full-url"></a>전체 URL
 
 ```http
@@ -109,41 +114,44 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
 
-응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
+응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 검색 조건에 포함 하는 경우 검색 점수 발전 의미 있는 값으로 표시 됩니다.
 
-## <a name="example-2-intra-field-filtering"></a>예 2: 필드 내 필터링
+## <a name="example-2-fielded-search"></a>예 2: 검색 필드 지정된
 
-전체 Lucene 구문은 필드 내의 식을 지원합니다. 이 예제에서는, 하지만 하지 junior senior 라는 용어가 포함 된 비즈니스 제목을 검색합니다.
+전체 Lucene 구문에는 특정 필드에 범위 지정 개별 검색 식을 지원 합니다. 이 예제에서는, 하지만 하지 junior senior 라는 용어가 포함 된 비즈니스 제목을 검색합니다.
 
 ### <a name="partial-query-string"></a>일부 쿼리 문자열
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 여러 필드를 사용 하 여 동일한 쿼리는 다음과 같습니다.
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>전체 URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/intrafieldfilter.png)
 
-**fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다. 
+사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다 합니다 **fieldName:searchExpression** 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다. 
 
-* business_title:(senior NOT junior)
-* state:("New York" AND "New Jersey")
-* business_title:(senior NOT junior) AND posting_type:external
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-이 경우에 위치 필드에서 두 개의 다른 도시를 검색하고 있으므로 두 문자열이 단일 엔터티로 평가되길 원하는 경우 여러 문자열을 인용 부호로 묶어야 합니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
+이 경우에 2 개의 고유 위치에 대 한 검색으로 단일 엔터티로 평가할 두 문자열을 원하는 경우 따옴표로 묶인 여러 문자열을 배치 해야 합니다 `state` 필드입니다. 또한, NOT과 AND와 같이 연산자는 대문자로 표시해야 합니다.
 
-**fieldname:searchterm** 에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search 서비스 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+지정한 필드가 **fieldName:searchExpression** 검색 가능한 필드 여야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search 서비스 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+
+> [!NOTE]
+> 위의 예에서에서는 필요 하지 않은 데는 `searchFields` 매개 변수는 쿼리의 각 부분에 필드 이름이 명시적으로 지정 하므로 합니다. 그러나 여전히 사용할 수는 `searchFields` 일부 특정 필드에 범위가 지정 됩니다 하 고 나머지는 여러 필드에 적용할 수 있는 쿼리를 실행 하려는 경우 매개 변수입니다. 예를 들어, 쿼리 `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` 일치 `senior NOT junior` 에 합니다 `business_title` 필드에 "external"와 일치 하는 동안는 `posting_type` 필드. 에 제공 된 필드 이름 **fieldName:searchExpression** 항상 우선 합니다 `searchFields` 상태인 이유이 예제에서는 매개 변수에서는 포함 않아도 `business_title` 에 `searchFields` 매개 변수.
 
 ## <a name="example-3-fuzzy-search"></a>예 3: 유사 항목 검색
 

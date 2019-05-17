@@ -2,21 +2,21 @@
 title: 비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법 | Microsoft Docs
 description: Azure AD 애플리케이션 갤러리에 없는 경우 보안 암호 기반 Single Sign-On에 대한 사용자 지정 비 갤러리 애플리케이션을 구성하는 방법
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c77ac32bd6079a8583cc6ea91cb8e214e5b31ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1df52e0c25ecaff451f133e3a9207fb04b11f4a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442729"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824923"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 

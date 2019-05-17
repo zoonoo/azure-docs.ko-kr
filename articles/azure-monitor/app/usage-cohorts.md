@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785109"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604111"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -123,13 +123,13 @@ ms.locfileid: "60785109"
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. **쿼리 실행**을 선택합니다. 테이블에 사용자 ID가 표시되지 않는 경우 애플리케이션에 사용자가 있는 국가로 변경합니다.
+3. **쿼리 실행**을 선택합니다. 국가/지역의 응용 프로그램에 사용자를 찾을 수 없으면 테이블에 표시 되는 사용자 Id를 변경 합니다.
 
 4. 코호트를 저장하고 이름을 지정합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-_특정 국가의 사용자 코호트를 정의했습니다. 사용자 도구의 이 코호트를 사용할 때와 해당 국가에 대해 필터링을 설정할 때 다른 결과를 얻었습니다. 그 이유는 무엇일까요?_
+_특정 국가/지역에서 사용자의 코 호트를 정의 했습니다. 해당 국가/지역에서 필터링을 설정할 사용자 도구에서이 코 호트를 비교 하는 경우 다른 결과가 표시 됩니다. 이유_
 
 코호트와 필터는 다릅니다. 영국의 사용자로 이루어진 코호트가 있고(이전 예제와 같이 정의됨) 해당 결과를 필터 “Country or region = United Kingdom”을 설정할 때의 결과와 비교한다고 가정해보겠습니다.
 

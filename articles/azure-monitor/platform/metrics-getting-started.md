@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254117"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595441"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure 메트릭 탐색기를 사용 하 여 시작
 
@@ -24,7 +24,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 1. 시도 [차원 필터를 적용 하 고 분할](#apply-dimension-filters-and-splitting)합니다. 필터 및 분할 어떤 부문이 메트릭의 전체 메트릭 값에 영향을 분석할 수 있습니다 및 가능한 이상 값을 식별 합니다.
 
-1. 사용 하 여 [고급 설정](#advanced-chart-settings-and-next-steps) 차트를 대시보드에 고정 하기 전에 사용자 지정할 수 있습니다. [경고 구성](alerts-metric-overview.md) 메트릭 값을 초과 하거나 임계값 아래로 떨어질 때 알림을 받을 수 있습니다.
+1. 사용 하 여 [고급 설정](#advanced-chart-settings) 차트를 대시보드에 고정 하기 전에 사용자 지정할 수 있습니다. [경고 구성](alerts-metric-overview.md) 메트릭 값을 초과 하거나 임계값 아래로 떨어질 때 알림을 받을 수 있습니다.
 
 ## <a name="create-your-first-metric-chart"></a>첫 번째 메트릭 차트 만들기
 
@@ -61,12 +61,13 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 참조 [차트의 예](metric-chart-samples.md) 를 필터링 하 고 분할 적용 합니다. 문서의 단계는 차트를 구성 하는 데 사용 된 보여 줍니다.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>고급 차트 설정 및 다음 단계
+## <a name="advanced-chart-settings"></a>고급 차트 설정
 
 제목을 차트 스타일을 사용자 지정할 수 있으며 고급 차트 설정을 수정할 수 있습니다. 사용자 지정을 완료 하는 경우 작업을 저장 하려면 대시보드에 고정 합니다. 또한 메트릭 경고를 구성할 수 있습니다. 따릅니다 [제품 설명서](metrics-charts.md) 이러한 및 기타에 대 한 자세한 고급 Azure Monitor 메트릭 탐색기의 기능입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 서비스에 대 한 사용 가능한 메트릭 목록을 보려면](metrics-supported.md)
 * [메트릭 탐색기의 고급 기능에 대해 알아보기](metrics-charts.md)
+* [메트릭 탐색기 문제 해결](metrics-troubleshoot.md)
+* [Azure 서비스에 대 한 사용 가능한 메트릭 목록을 보려면](metrics-supported.md)
 * [구성 된 차트의 예를 참조 하세요.](metric-chart-samples.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794783"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827340"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>Azure 구독 청구서로 지불
 
@@ -65,14 +65,14 @@ ms.locfileid: "65794783"
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-- 합니다 **회사 이름** 하 고 **주소를 회사** 사용자가 제공한 Azure 계정에 대 한 정보를 사용 하 여 일치 해야 합니다.  참조를 확인 하거나 정보를 업데이트 하려면 [Azure 계정 프로필 정보 변경](billing-how-to-change-azure-account-profile.md)합니다.
-- 크레딧 한도 승인 하기 전에 Azure portal에서 청구 연락처를 추가 해야 합니다. 연락처 세부 정보를 회사의 Accounts Payable 또는 재무 부서 관련 되어야 합니다. 대금 청구 연락처를 업데이트 하려면로 이동 [Azure 계정 센터](https://account.azure.com/Profile)합니다.
+    - 합니다 **회사 이름** 하 고 **주소를 회사** 사용자가 제공한 Azure 계정에 대 한 정보를 사용 하 여 일치 해야 합니다.  참조를 확인 하거나 정보를 업데이트 하려면 [Azure 계정 프로필 정보 변경](billing-how-to-change-azure-account-profile.md)합니다.
+    - 크레딧 한도 승인 하기 전에 Azure portal에서 청구 연락처를 추가 해야 합니다. 연락처 세부 정보를 회사의 Accounts Payable 또는 재무 부서 관련 되어야 합니다. 대금 청구 연락처를 업데이트 하려면로 이동 [Azure 계정 센터](https://account.azure.com/Profile)합니다.
 
 5. 연락처 정보와 기본 연락 방법을 확인한 다음 **만들기**를 클릭합니다.
 
 를 해야 하는 크레딧의 금액을 인해 신용 검사를 실행 해야 하는 경우 신용 응용 프로그램을 확인 하는 것이 보내드립니다.
 
-## <a name="switch-your-azure-subscription-to-invoice-payment"></a>결제를 청구서로 Azure 구독 전환
+## <a name="switch-to-invoice-pay"></a>청구서 지불으로 전환
 
 청구서로 지불 하도록 승인 되 면에서 청구서 지불 방식으로 Azure 구독을 전환할 수 있습니다 합니다 [Azure portal](https://portal.azure.com)합니다.
 

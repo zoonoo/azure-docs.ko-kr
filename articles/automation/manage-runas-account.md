@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301142"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595689"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -37,6 +37,9 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
   
   > [!NOTE]
   > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독 사용 시에는 Azure 클래식 실행 계정이 생성되지 않습니다. Azure 실행 계정은 계속 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요.
+
+  > [!NOTE]
+  > 실행 계정에 대 한 서비스 주체에는 기본적으로 Azure Active Directory를 읽을 수 있는 권한이 없습니다. 서비스에서 사용자에 해당 권한을 부여 해야 읽기 또는 Azure Active directory 관리에 사용 권한을 추가 하려는 경우 **API 사용 권한**합니다. 자세한 내용은 참조 하세요 [웹 Api에 액세스 권한을 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)합니다.
 
 ## <a name="permissions"></a>실행 계정 구성 권한
 

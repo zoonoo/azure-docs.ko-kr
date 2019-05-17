@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523060"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826366"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -36,6 +36,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  용량 풀 당 볼륨의 수     |    500   |    예.     |
 |  볼륨당 스냅숏 수       |    255     |    아닙니다.        |
 |  Azure Virtual Network 당 Azure NetApp 파일 (Microsoft.NetApp/volumes)에 위임 하는 서브넷의 수    |   1   |    아닙니다.    |
+|  최대 Vm 수 (피어 링 된 Vnet 포함) 볼륨에 연결할 수 있는     |    1000   |    아닙니다.   |
 |  단일 용량 풀의 최소 크기   |  4TiB     |    아닙니다.  |
 |  단일 용량 풀의 최대 크기    |  500TiB   |   아닙니다.   |
 |  단일 볼륨의 최소 크기    |    100GiB    |    아닙니다.    |

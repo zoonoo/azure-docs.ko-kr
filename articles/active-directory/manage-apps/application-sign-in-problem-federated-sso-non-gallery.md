@@ -3,8 +3,8 @@ title: 페더레이션된 Single Sign-On에 대해 구성된 비갤러리 애플
 description: Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대해 구성된 애플리케이션에 로그인할 때 직면할 수 있는 특정 문제에 대한 지침
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440201"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825432"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 애플리케이션에 로그인하는 문제
 
@@ -58,7 +58,7 @@ SAML 요청의 애플리케이션에서 Azure AD로 보내진 발급자 특성�
 
 7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8. 응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
+8. 애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다. 
 
@@ -88,7 +88,7 @@ SAML 요청에서 AssertionConsumerServiceURL 값은 회신 URL 값 또는 Azure
 
 7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8. 응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 확인 하거나 일치 하도록 회신 URL 텍스트 상자에 값을 업데이트 합니다 `AssertionConsumerServiceURL` SAML 요청에는 값입니다.    
+8. 애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 확인 하거나 일치 하도록 회신 URL 텍스트 상자에 값을 업데이트 합니다 `AssertionConsumerServiceURL` SAML 요청에는 값입니다.    
     
 Azure AD에서 회신 URL 값을 업데이트 한 후 SAML 요청에서 응용 프로그램에서 보낸 값과 일치 하면 응용 프로그램에 로그인 할 수 있어야 합니다.
 
@@ -188,7 +188,7 @@ Azure AD에서는 Single Sign-On의 애플리케이션에서 보낸 SAML 요청�
 
 1.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-1.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
+1.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
 
 ## <a name="certificate-or-key-not-configured"></a>인증서 또는 키가 구성되지 않음
 
@@ -264,7 +264,7 @@ Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회�
 
 6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
+7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 
