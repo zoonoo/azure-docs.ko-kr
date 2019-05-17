@@ -31,7 +31,7 @@ ms.locfileid: "64416047"
 |**PersistedFace**| **DetectedFace** 개체가 그룹(**FaceList** 또는 **Person** 같은)에 추가되는 경우, **PersistedFace** 개체가 되며 언제든지 [검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)할 수 있으며 만료되지 않습니다.|
 |**[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)**/**[LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)**| **PersistedFace** 개체의 여러 가지 목록입니다. **FaceList** 는 고유 ID, 이름 문자열과 필요에 따라 사용자 데이터 문자열을 포함합니다.|
 |**[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)**| 동일한 사용자에 속하는 **PersistedFace** 개체 목록입니다. 고유 ID, 이름 문자열과 필요에 따라 사용자 데이터 문자열을 포함합니다.|
-|**[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)**/**[LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)**| **Person** 개체의 여러 가지 목록입니다. 고유 ID, 이름 문자열과 필요에 따라 사용자 데이터 문자열을 포함합니다. **PersonGroup**은 인식 작업에 사용되기 전에 [학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)되어야 합니다.|
+|**[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)**/**[LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)**| **Person** 개체의 여러 가지 목록입니다.  고유 ID, 이름 문자열과 필요에 따라 사용자 데이터 문자열을 포함합니다. **PersonGroup**은 인식 작업에 사용되기 전에 [학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)되어야 합니다.|
 
 ## <a name="recognition-operations"></a>인식 작업
 
@@ -39,11 +39,11 @@ ms.locfileid: "64416047"
 
 ### <a name="verification"></a>확인
 
-[확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 작업은 face ID(**DetectedFace**또는 **PersistedFace**)와 다른 face ID 또는 **Person** 개체를 가져와서 동일한 사람에게 속하는지 여부를 결정합니다. **Person**을 전달하는 경우, 성능을 개선하기 위해 **Person**이 속하는 **PersonGroup**을 선택적으로 전달할 수 있습니다.
+[확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 작업은 face ID(**DetectedFace**또는 **PersistedFace**)와 다른 face ID 또는 **Person** 개체를 가져와서 동일한 사람에게 속하는지 여부를 결정합니다.  **Person**을 전달하는 경우, 성능을 개선하기 위해 **Person**이 속하는 **PersonGroup**을 선택적으로 전달할 수 있습니다.
 
 ### <a name="find-similar"></a>유사성 찾기
 
-[유사성 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 작업은 face ID(**DetectedFace** 또는 **PersistedFace**)와 **FaceList** 또는 다른 face ID 배열을 가져옵니다. **FaceList**를 사용하여, 주어진 얼굴과 유사한 더 작은 **FaceList**를 반환합니다. face ID의 배열을 사용하여 더 작은 배열을 마찬가지로 반환합니다.
+[유사성 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 작업은 face ID(**DetectedFace** 또는 **PersistedFace**)와 **FaceList** 또는 다른 face ID 배열을 가져옵니다.  **FaceList**를 사용하여, 주어진 얼굴과 유사한 더 작은 **FaceList**를 반환합니다. face ID의 배열을 사용하여 더 작은 배열을 마찬가지로 반환합니다. 얼굴 Id의 배열을 사용 하 여 더 작은 배열 마찬가지로 반환합니다.
 
 ### <a name="grouping"></a>그룹화
 
@@ -51,7 +51,7 @@ ms.locfileid: "64416047"
 
 ### <a name="identification"></a>식별
 
-[식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 작업은 하나 또는 여러 개의 face ID(**DetectedFace** 또는 **PersistedFace**)와 **PersonGroup** 목록을 가져와서 각 얼굴에 속하는 **Person** 개체의 목록을 반환합니다. 반환된 **Person** 개체는 예측 신뢰도 값을 가지는 **Candidate** 개체로 래핑됩니다.
+합니다 [식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 작업은 하나 또는 여러 개의 얼굴 Id (**DetectedFace** 또는 **PersistedFace**) 및 **PersonGroup** 목록을 반환 합니다. **Person** 각 얼굴에 속할 수 있는 개체입니다. 반환 **Person** 개체 래핑되고 **후보** 예측 신뢰도 값이 있는 개체입니다.
 
 ## <a name="input-data"></a>데이터 입력
 

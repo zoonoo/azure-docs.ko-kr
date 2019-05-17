@@ -16,13 +16,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65160577"
 ---
-# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Windows에서 IoT Edge를 사용 하 여 Linux 컨테이너를 실행 합니다.
+# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Windows IoT Edge에서 Linux 컨테이너 실행
 
-Windows 컴퓨터를 사용 하 여 Linux 장치에 대 한 IoT Edge 모듈을 테스트 합니다. 
+Windows에서 Linux 장치용 IoT Edge 모듈을 테스트합니다. 
 
-프로덕션 시나리오에서 Windows 장치에 Windows 컨테이너 실행만 해야 합니다. 그러나 IoT Edge 모듈 Linux 장치에 대 한 빌드에 Windows 컴퓨터를 사용 하는 일반적인 개발 시나리오가입니다. Windows에 대 한 IoT Edge runtime을 사용 하면에 대 한 Linux 컨테이너를 실행할 수 있습니다 **테스트 및 개발** 목적으로 합니다. 
+프로덕션 시나리오에서 Windows 장치는 Windows 컨테이너만 실행해야 합니다. 하지만, Windows에서 Linux 장치용 IoT Edge 모듈을 개발하는 것이 일반적입니다. IoT Edge Runtime for Windows를 통해 **테스트 및 개발** 을 위한 Linux Container를 사용할 수 있습니다. 
 
-이 문서에 Windows x64 (Intel/AMD)에 Linux 컨테이너를 사용 하 여 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. 시스템입니다. IoT Edge 런타임 설치 관리자는 설치 매개 변수를 하는 방법에 대 한 세부 정보를 포함 하는 방법에 대 한 자세한 내용은 [Windows에 Azure IoT Edge 런타임을 설치](how-to-install-iot-edge-windows.md)합니다.
+이 문서에서는 Windows x64 (Intel/AMD) 시스템에 Linux 컨테이너를 사용하여 Azure IoT Edge 런타임을 설치하는 단계를 나열합니다. 설치 매개 변수에 대한 세부 정보를 포함하는 IoT Edge 런타임 설치 관리자에 대한 자세한 내용은 [Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,13 +36,13 @@ Linux 컨테이너를 사용 하 여 azure IoT Edge는 Windows의 다음 버전�
 
 최신 버전의 IoT Edge에 포함된 기능에 대한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조하세요.
 
-가상 컴퓨터에서 IoT Edge를 설치 하려는 경우 중첩 된 가상화를 사용 하도록 설정 하 고 최소 2GB 메모리를 할당 합니다. 중첩 된 가상화를 사용 하는 방법에 사용 하 여 하이퍼바이저에 따라 달라 집니다. Hyper-v에 대 한 2 세대 가상 컴퓨터는 중첩 된 가상화 기본적으로 사용 하도록 설정 합니다. VMWare 가상 컴퓨터에 기능을 사용 하도록 설정/해제가 됩니다. 
+가상 컴퓨터에 IoT Edge를 설치하려면 중첩 가상화를 활성화하고 2GB 이상의 메모리를 할당합니다. 중첩 된 가상화를 사용 하는 방법에 사용 하 여 하이퍼바이저에 따라 달라 집니다. Hyper-V의 경우 2 세대 가상 컴퓨터는 기본적으로 중첩된 가상화를 사용할 수 있습니다. VMWare의 경우 가상 컴퓨터에 이 기능을 사용하도록 설정/해제할 수 있습니다. 
 
 ### <a name="prepare-the-container-engine"></a>컨테이너 엔진 준비 
 
-Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔진을 사용합니다. 컴퓨터는 Windows 컨테이너 런타임을 포함 하는 IoT Edge 설치 해야 하는 IoT Edge를 설치 하기 전에 Linux 컨테이너에 대 한 사용자 고유의 런타임을 제공 되는 Windows에서 실행 중인 Windows 및 Linux 컨테이너 간의 가장 큰 구성 차이입니다. 
+Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔진을 사용합니다. Windows 시스템에서 Windows 컨테이너와 Linux 컨테이너를 실행하는 가장 큰 차이점은 IoT Edge 설치에는 Windows 컨테이너 런타임이 포함되지만 IoT Edge를 설치하기 전에 Linux 컨테이너에 대한 자체 런타임을 제공해야 한다는 것입니다. 
 
-개발 및 Linux 장치에 대 한 컨테이너를 테스트 하는 Windows 컴퓨터를 설정 하려면 사용할 수 있습니다 [Docker 데스크톱](https://www.docker.com/docker-windows) 컨테이너 엔진으로 합니다. Docker 설치 및 구성 해야 [Linux 컨테이너를 사용 하 여](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) IoT Edge를 설치 하기 전에 합니다.  
+Linux 장치용 컨테이너를 개발하고 테스트하기 위해 Windows 시스템을 설정하려면 [Docker 데스크톱](https://www.docker.com/docker-windows) 을 컨테이너 엔진으로 사용할 수 있습니다. IoT Edge를 설치하기 전에 Docker를 설치하고 [Linux 컨테이너](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) 를 사용하도록 구성해야 합니다.  
 
 IoT Edge 디바이스가 Windows 컴퓨터인 경우 Hyper-V에 대한 [시스템 요구 사항](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)을 충족하는지 확인합니다.
 
@@ -81,13 +81,13 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
    Initialize-IoTEdge -ContainerOs Linux
    ```
 
-6. 메시지가 표시 되 면 1 단계에서 검색 된 장치 연결 문자열을 제공 합니다. IoT Hub에서 장치 ID를 사용 하 여 물리적 장치를 연결 하는 장치 연결 문자열입니다. 
+6. 메시지가 표시되면 1단계에서 검색된 장치 연결 문자열을 제공합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결합니다. 
 
    장치 연결 문자열을 다음 형식으로 및 따옴표를 포함 하지 않아야 합니다. `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시 됩니다.  
+IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시되어야 합니다.  
 
 ```powershell
 Get-Service iotedge
