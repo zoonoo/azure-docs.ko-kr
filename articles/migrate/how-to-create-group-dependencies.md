@@ -106,7 +106,6 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 
    > [!NOTE]
    >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-a-group)하려면 Azure Monitor 로그를 사용합니다.
-   
 
 4. 종속 컴퓨터와 각 컴퓨터 내에서 실행 중인 프로세스를 확인하고 그룹에서 추가하거나 제거할 컴퓨터를 식별합니다.
 5. <Ctrl> 키를 누른 채로 클릭하여 맵에서 그룹에 추가하거나 제거할 컴퓨터를 선택합니다.
@@ -135,11 +134,11 @@ Kusto 쿼리를 실행 합니다.
 
 ## <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
 
-다음 샘플 쿼리는 종속성 데이터를 추출하는데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
+다음 샘플 쿼리는 종속성 데이터를 추출하는 데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기 위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 
-연결 메트릭에 대한 테이블의 레코드 인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections)알아보십시오.
+연결 메트릭에 대한 테이블의 레코드인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히 알아보십시오](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections).
 
 ```
 let ips=materialize(ServiceMapComputer_CL
