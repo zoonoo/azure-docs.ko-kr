@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412871"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593842"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -81,9 +81,9 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 | 자산 | 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> 공백 |
 | 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 점 문자를 포함할 수 없습니다 "." 바로 앞에 "\@ \" 기호"입니다.</li></ul> |
-| 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
+| 암호 제한 |<ul><li>최소 8 자 및 최대 256 자입니다.</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일.</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전).</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄)</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |

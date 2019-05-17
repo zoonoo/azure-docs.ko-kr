@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061540"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606375"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
 
@@ -29,7 +29,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 * 대역폭
 * 전송되는 데이터
-* 적중 횟수
+* 적중
 * 캐시 상태
 * 캐시 적중률
 * 전송되는 IPv4/IPv6 데이터
@@ -119,7 +119,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 보고서에 포함되지 않는 정보는 다음과 같습니다.
 
-* 국가 필터링 옵션으로 인해 거부된 요청
+* 국가/지역 필터링 옵션으로 인해 거부 된 요청입니다.
 * 헤더에 캐시하지 않도록 표시된 자산에 대한 요청 예를 들어 `Cache-Control: private`, `Cache-Control: no-cache` 또는 `Pragma: no-cache` 헤더는 자산이 캐시되지 않도록 합니다.
 * 부분적으로 캐시된 콘텐츠에 대한 바이트 범위 요청.
 

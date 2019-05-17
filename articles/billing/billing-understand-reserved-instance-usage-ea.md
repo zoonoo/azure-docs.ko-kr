@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415770"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789383"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업 계약 예약 비용 및 사용량 가져오기
 
@@ -67,7 +67,7 @@ Azure portal에서 다운로드 또는 API를 사용 하 여 데이터를 얻을
 API에 대 한 예제에서는 호출은 다음과 같습니다.
 
 ```
-https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
 자세한 {enrollmentId}에 대 한 정보 및 {billingPeriodId}를 참조 합니다 [사용량 세부 정보 – 목록](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 문서.

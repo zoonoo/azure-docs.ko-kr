@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702512"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602084"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기)
 Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor에서 Log Analytics 작업 영역으로 전달 합니다.  이 데이터를 사용할 수 [쿼리](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor에서. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
@@ -101,7 +101,7 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 | 자산 | Description |
 |:--|:--|
-|RemoteCountry |RemoteIp를 호스팅하는 국가 이름입니다.  예: *United States* |
+|RemoteCountry |RemoteIp 호스팅 국가/지역의 이름입니다.  예: *United States* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
 |RemoteLongitude |지리적 위치 경도입니다. 예: *-122.12* |
 
@@ -130,7 +130,7 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 >- 미국 동부  
 >- 서유럽
 >
-> 다른 사용은이 데이터를 수집 [지원 되는 지역](vminsights-onboard.md#log-analytics) Vm에 대 한 Azure Monitor에 대 한 합니다. 
+> 다른 사용은이 데이터를 수집 [지원 되는 지역](vminsights-enable-overview.md#log-analytics) Vm에 대 한 Azure Monitor에 대 한 합니다. 
 
 VMBoundPort의 모든 레코드는 다음 필드에 의해 식별 됩니다. 
 

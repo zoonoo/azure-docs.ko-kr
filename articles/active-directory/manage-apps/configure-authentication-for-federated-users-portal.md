@@ -3,8 +3,8 @@ title: 홈 영역 검색 정책을 사용한 애플리케이션에 대한 로그
 description: 자동 가속 및 도메인 힌트를 포함 한 페더레이션된 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443099"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781038"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 

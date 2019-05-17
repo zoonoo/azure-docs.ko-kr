@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466819"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550158"
 ---
 # <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
 
@@ -51,6 +51,17 @@ Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 �
 |[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
+
+## <a name="storage-account-errors"></a>저장소 계정 오류
+
+Media Services 계정에 대 한 "연결 끊김" 상태 계정 저장소 액세스 키에 하나 이상의 변경으로 인해 연결 된 저장소 계정에 대 한 액세스를 더 이상에 있는지를 나타냅니다. 최신 저장소 액세스 키 Media Services 계정에서 많은 작업을 수행 하기 위해 필요한 합니다.
+
+연결 된 저장소 계정에 액세스할 수 없는 경우 Media Services 계정에 될 수 있는 기본 시나리오는 다음과 같습니다. 
+
+|문제|해결 방법|
+|---|---|
+|구독을 구분 하는 Media Services 계정 또는 연결 된 저장소 계정 마이그레이션 되었습니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오. |
+|Media Services 계정 처럼 초기 Media Services 계정을이 지원 다른 구독에 연결 된 저장소 계정을 사용 됩니다. 모든 초기 Media Services 계정 최신 Azure 리소스 관리자 (ARM) 기반 계정으로 변환 된 및 연결이 끊긴 상태가 됩니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오.|
 
 ## <a name="next-steps"></a>다음 단계
 

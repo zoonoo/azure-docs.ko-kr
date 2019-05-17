@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711514"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601588"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. 유효한 이메일 주소를 입력하고 **확인 코드 보내기**를 클릭한 후 받은 확인 코드를 입력합니다.
 5. 새 암호를 입력하고 암호를 확인합니다.
 6. 표시하려는 이름을 입력하고, 국가 및 지역을 선택한 후, 우편 번호를 입력하고 **만들기**를 클릭합니다. 토큰이 `https://jwt.ms`로 반환되며 사용자에게 표시됩니다.
-7. 이제 사용자 흐름을 다시 실행할 수 있으며 만든 계정으로 로그인할 수 있습니다. 반환된 토큰에는 이름, 국가 및 우편 번호를 선택한 클레임이 포함됩니다.
+7. 이제 사용자 흐름을 다시 실행할 수 있으며 만든 계정으로 로그인할 수 있습니다. 반환된 된 토큰 이름, 국가/지역 및 우편 번호 선택 하는 클레임을 포함 합니다.
 
 ## <a name="create-a-profile-editing-user-flow"></a>프로필 편집 사용자 흐름 만들기
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868351"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603435"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2: 방화벽 및 Nsg로 응용 프로그램을 보호 하는 경계 네트워크 빌드
 [Microsoft cloud services 및 네트워크 보안 페이지를 반환 합니다.][HOME]
@@ -550,7 +550,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장 합니다. 네�
 업데이트 된 위치를 사용 하 여이 XML 파일을 저장 하 고 $NetworkConfigFile 변수 앞의 스크립트에서이 파일에 대 한 링크를 추가 합니다.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

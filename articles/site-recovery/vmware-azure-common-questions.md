@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925512"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540617"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -251,13 +251,13 @@ Recovery Services 자격 증명 모음에서 클릭 **구성 서버** 에 **Site
 
 ## <a name="process-server"></a>프로세스 서버
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>복제 활성화 하는 동안 프로세스 서버를 선택할 수 없습니다.
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>복제를 사용 하려면 여기는 이유 중에 프로세스 서버를 선택할 수 없습니다 하나요?
 
-9.24 버전에서 향상 된 기능 제공에 내용이 [server 경고 처리](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 스케일 아웃 프로세스 서버를 설정 하는 경우에 합니다. 프로세스 서버 제한을 방지 하 고 비정상 프로세스 서버의 사용을 방지 하기 위해입니다.
+9.24 버전에서 기능이 향상 되었습니다 표시할 [복제 사용 하는 동안 프로세스 서버의 상태](vmware-azure-enable-replication.md#enable-replication)합니다. 이 프로세스 서버 제한을 방지 하 고 비정상 프로세스 서버의 사용을 최소화 하는 것입니다.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>프로세스 서버의 정확한 상태를 가져오려면 어떻게 해야 합니까?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>프로세스 서버 정확한 상태에 대 한 9.24 이상 버전으로 업그레이드 하 여 용도 무엇 인가요?
 
-Site Recovery 구성 요소를 업그레이드 합니다 [최신 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups) (적어도 9.24 이상).
+[9.24 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups), 프로세스 서버 상태 경고를 강화 하기 위해 도입 된 추가 경고 합니다. 모든 경고 생성에 대 한 9.24 버전 이상 Site Recovery 구성 요소를 업그레이드 합니다.
 
 ## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>사용할 수 있습니까 프로세스 서버가 온-프레미스에 장애 복구에 대 한?

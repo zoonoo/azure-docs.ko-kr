@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234999"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596749"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -37,38 +37,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ## <a name="compute-tier"></a>컴퓨팅 계층
 
-프로젝트 대시보드의 **실행** 드롭다운 목록에서 프로젝트가 실행되는 컴퓨팅 계층을 선택할 수 있습니다. 기본적으로 프로젝트는 남용을 방지하기 위해 4GB 메모리와 1GB 데이터로 제한되는 **무료 컴퓨팅** 계층에서 실행됩니다.
-
-![프로젝트 대시보드의 컴퓨팅 계층 드롭다운 목록](media/project-compute-tier-list.png)
-
-Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러한 제한 사항을 무시할 수 있습니다. 해당 가상 머신에 JupyterHub를 설치하고 실행해야 합니다. JupyterHub를 기본적으로 포함하고 있으므로 Data Science Virtual Machine 이미지(모든 운영 체제)를 선택하는 것이 좋습니다.
-
-적절하게 구성된 Azure 가상 머신이 있으면 드롭다운 목록에서 **직접 컴퓨팅** 옵션을 선택합니다. 그러면 이름(목록에 표시할 이름), VM의 IP 주소 및 포트(일반적으로 JupyterHub에서 수신 대기하는 기본 포트인 8000) 및 VM 자격 증명을 묻는 메시지가 표시됩니다.
-
-![직접 컴퓨팅 옵션에 대한 서버 정보 수집 프롬프트](media/project-compute-tier-direct.png)
-
-다음 조건이 true이면 드롭다운 목록에 [DSVM(Data Science Virtual Machine)](/azure/machine-learning/data-science-virtual-machine) 인스턴스도 표시됩니다. 이러한 조건이 충족되지 않더라도 직접 컴퓨팅 옵션을 사용하고 Azure Portal에서 얻은 값을 입력하여 DSVM에 연결할 수 있습니다.
-
-- 회사 계정 등의 AAD(Azure Active Directory)를 사용하는 계정으로 Azure Notebooks에 로그인했습니다.
-- 계정이 Azure 구독에 연결되어 있습니다.
-- 해당 구독에 Linux용 Data Science Virtual Machine(Ubuntu) 이미지를 사용할 수 있는 읽기 권한자 이상의 액세스 권한이 있는 가상 머신이 하나 이상 있습니다.
-
-![프로젝트 대시보드의 드롭다운 목록에 있는 Data Science Virtual Machine 인스턴스](media/project-compute-tier-dsvm.png)
-
-DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 사용한 특정 머신 자격 증명을 묻는 메시지가 표시될 수도 있습니다.
-
-새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. DSVM을 Azure Notebooks의 드롭다운 목록에 표시하려면 **Linux(Ubuntu)용 Data Science Virtual Machine** 이미지를 사용합니다.  다른 이유로 Windows 또는 CentOS 이미지를 사용해야 하는 경우 **직접 컴퓨팅** 옵션을 사용하여 DSVM에 수동으로 연결할 수 있습니다.
-
-> [!IMPORTANT]
-> 직접 계산 또는 데이터 과학 가상 머신을 사용 하는 경우에 실행 하 여 notebook 완전히 독립적인 이어야 합니다. 현재 Azure Notebooks만 복사 합니다 *.ipynb* VM에 파일 프로젝트에서 다른 파일을 복사 하지 않습니다 하지만 합니다. 따라서 notebook을 다른 Vm에서 실행 중인 다른 프로젝트 파일을 찾는 데 실패 합니다.
->
-> 두 가지 방법으로이 문제를 해결할 수 있습니다.
->
-> 1. 프로젝트 파일을 VM에 수동으로 복사 합니다.
->
-> 2. 설치 notebook 내 파일 포함 기본 노트북을 먼저 실행 합니다. 설치 notebook 셀 파일 내용에 포함 된 각 파일에 대 한 코드 셀을 만듭니다. 그런 다음 각 셀의 맨 위에 있는 명령을 삽입 하 여 `%%writefile <filename>`여기서 `<filename>` 내용을 받도록 파일의 이름입니다. Notebook을 실행 하면 VM에서 이러한 모든 파일을 만듭니다. 예를 들어 참조를 [Microsoft 애완 동물 탐지기 데모에서 setup.ipynb 파일](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![사용 하는 % % 코드 셀을 맨 앞에 writefile 명령](media/setup-notebook-writefile-command.png)
+기본적으로 프로젝트에서 실행 합니다 **무료 계산** 4GB의 메모리 및 1GB의 데이터 남용을 방지 하기 위해 제한 되는 계층입니다. 이러한 제한 사항을 무시 하 고 Azure 구독에서 프로 비전 하면 다른 가상 컴퓨터를 사용 하 여 계산 능력을 높일 수 있습니다. 자세한 내용은 [데이터 과학 Virtual Machines를 사용 하는 방법을](use-data-science-virtual-machine.md)합니다.
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 

@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646749"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551376"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
 
-## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
+## <a name="recovery-services-vault"></a>복구 서비스 자격 증명 모음
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요?
 예. 구독당 Azure Backup의 지원되는 지역당 최대 500개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
@@ -174,8 +174,8 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>각 복구 지점이 전체 지점과 같은 경우 총 청구 가능 백업 저장소에 영향을 주나요?
 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다.
 
-    - 전체 지점은 저장소를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
-    - 증분 복사본은 저장소를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다.
+- 전체 지점은 저장소를 *비효율적* 으로 사용하지만 복원은 쉽고 빠릅니다.
+- 증분 복사본은 저장소를 *효율적* 으로 사용하지만 데이터 체인을 복원해야 하며 이는 복구 시간에 영향을 줍니다.
 
 Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 저장소 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 수신 및 발신 대역폭이 효율적으로 사용됩니다. 데이터를 복구하는 데 필요한 데이터 저장소와 시간의 양이 최소로 유지됩니다. [증분 백업](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)에 대해 자세히 알아보세요.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926290"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761915"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -59,15 +59,10 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 | CentOS | 7.4 | OS 및 데이터 디스크 |
 | CentOS | 7.3 | OS 및 데이터 디스크 |
 | CentOS | 7.2n | OS 및 데이터 디스크 |
-| CentOS | 6.8 | OS 및 데이터 디스크 |
-| CentOS | 7.1 | 데이터 디스크  |
-| CentOS | 7.0 | 데이터 디스크  |
-| CentOS | 6.7 | 데이터 디스크  |
-| CentOS | 6.6 | 데이터 디스크  |
-| CentOS | 6.5 | 데이터 디스크  |
-| openSUSE | 42.3 | 데이터 디스크  |
-| SLES | 12-SP4 | 데이터 디스크  |
-| SLES | 12-SP3 | 데이터 디스크  |
+| CentOS | 6.8 | 데이터 디스크 |
+| openSUSE | 42.3 | 데이터 디스크 |
+| SLES | 12-SP4 | 데이터 디스크 |
+| SLES | 12-SP3 | 데이터 디스크 |
 
 > [!NOTE]
 > 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 하세요 합니다 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 문서. _ _
@@ -158,7 +153,7 @@ Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 �
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.        
 
 ## <a name="is-xfs-filesystem-supported"></a>XFS 파일 시스템 지원 되나요?
-XFS 볼륨 데이터 디스크 암호화는 EncryptFormalAll 에서만 지원 됩니다. 이전에 있는 모든 데이터를 지우지 볼륨을 다시 포맷 됩니다이 합니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
+XFS 볼륨 데이터 디스크 암호화는 EncryptFormatAll 에서만 지원 됩니다. 이전에 있는 모든 데이터를 지우지 볼륨을 다시 포맷 됩니다이 합니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>백업 및 암호화 된 VM을 복원할 수 있나요? 
 

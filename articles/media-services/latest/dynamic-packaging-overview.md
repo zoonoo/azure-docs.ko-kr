@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148223"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761959"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -43,7 +43,7 @@ Media Services 동적 패키징 라이브 또는 주문형으로 스트리밍하
 
 다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
 
-![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 mp4로 인코드
 
@@ -73,7 +73,7 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 다음 다이어그램은 라이브 스트리밍 동적 패키징 워크플로 사용 하 여 보여줍니다.
 
-![통과](./media/live-streaming/pass-through.svg)
+![pass-through(통과)](./media/live-streaming/pass-through.svg)
 
 ## <a name="delivery-protocols"></a>배달 프로토콜
 
@@ -196,9 +196,9 @@ DASH 매니페스트 예는 다음과 같습니다.
 동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)합니다.
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

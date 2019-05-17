@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 329ea6ac52e972c42e0e2aab247a7ad8e04c76e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927359"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594008"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box"></a>Azure Data Box와 관련 된 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "64927359"
     - 이름은 문자, 숫자 및 하이픈 하나만 사용할 수 있습니다.
     - 이름을 시작 하거나 하이픈으로 끝날 수 없습니다.
     - 이름에는 하이픈을 연속으로 사용할 수 없습니다.
-    - 유효한 이름의 예: `my-folder-1`, `my-really-extra-long-folder-111`</li><li>
+    - 유효한 이름의 예: `my-folder-1`, `my-really-extra-long-folder-111`합니다.
     - 유효 하지 않은 이름의 예: `my-folder_1`, `my`하십시오 `--myfolder`, `myfolder--`, `myfolder!`
 
     자세한 내용은 참조에 대 한 Azure 명명 규칙 [컨테이너 이름은](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)합니다.

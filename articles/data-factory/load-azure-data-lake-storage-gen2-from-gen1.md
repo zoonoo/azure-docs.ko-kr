@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546273"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560650"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
@@ -38,7 +38,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다.
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -132,12 +132,47 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="best-practices"></a>모범 사례
 
-파일 기반 데이터 저장소에서 대규모 데이터 볼륨을 복사할 때 다음이 제안됩니다.
+일반적 Gen2로 업그레이드 Azure Data Lake 저장소 (ADLS) Gen1에서 평가, 참조 [빅 데이터 분석 솔루션을 Azure 데이터 레이크 저장소 Gen1에서 Azure 데이터 레이크 저장소 Gen2로 업그레이드](../storage/blobs/data-lake-storage-upgrade.md)합니다. 다음 섹션에서는 ADF를 사용 하 여 Gen2로 Gen1에서 데이터 업그레이드에 대 한 모범 사례를 소개 합니다.
 
-- 파일을 각각 10TB~30TB 파일 집합으로 분할합니다.
-- 원본 또는 싱크 데이터 저장소에서 제한을 방지하기 위해 동시 복사 실행을 너무 많이 트리거하지 않습니다. 하나의 복사 실행을 시작하고 처리량을 모니터링한 다음, 점차적으로 필요한만큼 추가할 수 있습니다.
+### <a name="data-partition-for-historical-data-copy"></a>기록 데이터 복사본에 대 한 데이터 파티션
+
+- ADLS Gen1에서 총 데이터 크기의 경우 보다 작은 **30TB** 파일의 수 이며 보다 작거나 **1 백만**, 단일 복사 작업 실행의 모든 데이터를 복사할 수 있습니다.
+- 더 큰 크기의 데이터를 복사 하려면 있거나 하는 데이터를 분할 하 제안 된 일괄 처리에서 데이터 마이그레이션을 관리 하 고 각각의 특정 시간 기간 내에 완료 하는 유연성을 원하는 경우 경우에서 줄일 수도 있습니다 모든 예기치 않은 iss의 위험 사용자 교육 합니다.
+
+종단 간 솔루션을 확인 하 고 사용자 환경에서 복사 처리량을 테스트 하기 위해는 PoC (개념 증명)를 사용 하는 것이 좋습니다. PoC를 수행 하는 주요 단계: 
+
+1. ADLS Gen1에서 ADLS Gen2부터 복사 성능 기준선을 가져오려면 몇 Tb의 데이터를 복사 하는 단일 복사 작업을 사용 하 여 하나의 ADF 파이프라인 만들기 [데이터 통합 단위 (DIUs)](copy-activity-performance.md#data-integration-units) 128로 합니다. 
+2. 1 단계에서 얻게 복사 처리량을 기준, 전체 데이터 마이그레이션에 필요한 예상된 시간으로 계산 합니다. 
+3. (선택 사항) 제어 테이블을 만들고 마이그레이션할 파일을 분할 하는 파일 필터를 정의 합니다. 다음 파일을 분할 하는 방법. 
+
+    - 와일드 카드 필터 (제안)를 사용 하 여 폴더 이름 또는 폴더 이름으로 분했습니다 
+    - 파일의 마지막 수정된 시간을 기준으로 분했습니다 
+
+### <a name="network-bandwidth-and-storage-io"></a>네트워크 대역폭 및 저장소 I/O 
+
+마이그레이션 중 ADLS Gen1에서 정상적인 비즈니스 작업에 영향을 주지 하기 위해 저장소 I/O 사용량을 관리할 수 있도록 ADLS Gen1에서 데이터를 읽고 ADLS Gen2로 데이터를 쓰는 ADF 복사 작업의 동시성을 제어할 수 있습니다.
+
+### <a name="permissions"></a>권한 
+
+데이터 팩터리의 [ADLS Gen1 커넥터](connector-azure-data-lake-store.md) Azure 리소스 인증;에 대 한 서비스 주체 및 Id 관리를 지원 합니다. [ADLS Gen2 커넥터](connector-azure-data-lake-storage.md) 지원 계정 키, 서비스 주체 및 Azure 리소스 인증에 대 한 Id 관리 합니다. Data Factory를 이동할 수 및 모든 파일/Acl, 필요에 따라 부여 해야 높은 계정에 대 한 충분 한 권한을 복사 하도록 모든 파일을 액세스/읽기/쓰기를 제공 하 고 하기로 선택한 경우 Acl을 설정 합니다. 마이그레이션 기간 중 super 사용자/소유자 역할을 부여 하는 것이 좋습니다. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 Acl을 유지 합니다.
+
+데이터 파일과 함께 Acl 데이터 레이크 저장소 Gen1에서 Gen2로 업그레이드 하는 경우 복제 하려는 경우 가리킵니다 [유지 Acl 데이터 레이크 저장소 Gen1에서](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1)합니다. 
+
+### <a name="incremental-copy"></a>증분 복사 
+
+여러 가지 방법으로 ADLS Gen1에서 새롭거나 업데이트 된 파일만 로드를 사용할 수 있습니다.
+
+- 분할 된 폴더 또는 파일 이름, 예: / 2019/05/13/여 새롭거나 업데이트 된 파일을 로드 *;
+- LastModifiedDate;에서 새롭거나 업데이트 된 파일 로드
+- 모든 타사 도구/솔루션에 따라 새롭거나 업데이트 된 파일을 식별 한 다음 매개 변수 또는 테이블/파일을 통해 파일 또는 폴더 이름을 ADF 파이프라인에 전달 합니다.  
+
+증분 로드를 위해 적절 한 빈도 ADLS Gen1 파일의 총 수 및 로드할 때마다 새롭거나 업데이트 된 파일의 볼륨에 따라 달라 집니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-* [복사 작업 개요](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [복사 작업 개요](copy-activity-overview.md)
+> [Azure Data Lake 저장소 Gen1 커넥터](connector-azure-data-lake-store.md)
+> [Azure Data Lake 저장소 Gen2 커넥터](connector-azure-data-lake-storage.md)

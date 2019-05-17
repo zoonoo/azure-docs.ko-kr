@@ -1,25 +1,19 @@
 ---
 title: 리소스 모니터링을 위해 Azure 활동 로그 보기 | Microsoft Docs
-description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure Portal, PowerShell, Azure CLI 및 REST를 보여 줍니다.
-services: azure-resource-manager
-documentationcenter: ''
+description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure portal, PowerShell, Azure CLI 및 REST를 보여 줍니다.
 author: tfitzmac
-ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786102"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606586"
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>리소스에 대한 작업을 감사하기 위해 활동 로그 보기
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>리소스에 대 한 작업을 모니터링 하려면 활동 로그 보기
 
 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
 
@@ -29,13 +23,13 @@ ms.locfileid: "59786102"
 * 작업의 상태
 * 작업을 조사하는 데 도움이 될 수 있는 기타 속성 값
 
-활동 로그에는 리소스에서 수행된 모든 쓰기 작업(PUT, POST, DELETE)이 포함됩니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 감사 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
+활동 로그는 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)를 포함합니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
 활동 로그는 90일 동안 유지됩니다. 시작 날짜가 90일을 초과하지 않는 범위에서 활동 로그를 쿼리할 수 있습니다.
 
 포털, PowerShell, Azure CLI, Insights REST API 또는 [Insights .NET 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 통해 활동 로그에서 정보를 검색할 수 있습니다.
 
-## <a name="the-azure-portal"></a>Azure 포털
+## <a name="azure-portal"></a>Azure portal
 
 1. 포털을 통해 활동 로그를 보려면 **모니터**를 선택합니다.
 
@@ -45,13 +39,21 @@ ms.locfileid: "59786102"
 
     ![활동 로그 선택](./media/resource-group-audit/select-activity-log.png)
 
-1. 최근 작업의 요약 정보가 표시됩니다. 기본 필터 세트가 작업에 적용됩니다.
+1. 최근 작업의 요약 정보가 표시됩니다. 기본 필터 세트가 작업에 적용됩니다. 공지 요약의 정보는 작업을 시작한 사람 및 발생 한 시기를 포함 합니다.
 
     ![최근 작업의 요약 보기](./media/resource-group-audit/audit-summary.png)
 
-1. 미리 정의된 필터 세트를 신속하게 실행하려면 **빠른 인사이트**를 선택하고 옵션 중 하나를 고릅니다.
+1. 미리 정의 된 필터 집합을 신속 하 게 실행 하려면 선택한 **신속한 정보 활용**합니다.
 
-    ![쿼리 선택](./media/resource-group-audit/quick-insights.png)
+    ![신속한 정보 활용을 선택 합니다.](./media/resource-group-audit/select-quick-insights.png)
+
+1. 옵션 중 하나를 선택합니다. 예를 들어 선택 **실패 한 배포** 배포에서 오류를 확인 합니다.
+
+    ![실패 한 배포를 선택 합니다.](./media/resource-group-audit/select-failed-deployments.png)
+
+1. 지난 24 시간 동안에서 배포 오류에 초점을 맞춰 바뀐 것 필터를 확인 합니다. 필터와 일치 하는 작업만 표시 됩니다.
+
+    ![필터 보기](./media/resource-group-audit/view-filters.png)
 
 1. 특정 작업에 집중하려면 필터를 변경하거나 새 필터를 적용합니다. 예를 들어 다음 이미지는 **Timespan**의 새 값을 보여주며, **리소스 종류**는 스토리지 계정으로 설정됩니다. 
 
@@ -69,101 +71,119 @@ ms.locfileid: "59786102"
 
     ![대시보드에 필터링 표시](./media/resource-group-audit/show-dashboard.png)
 
+1. 포털에서 리소스에 대 한 변경 내용을 볼 수 있습니다. 관련 리소스를 변경 하는 작업을 선택한 모니터에서 볼 기본값으로 다시 이동 합니다.
+
+    ![작업 선택](./media/resource-group-audit/select-operation.png)
+
+1. 선택 **변경 내용 (미리 보기)** 및 사용 가능한 작업 중 하나를 선택 합니다.
+
+    ![변경 내용 선택](./media/resource-group-audit/select-change-history.png)
+
+1. 리소스의 변경 내용 표시 됩니다.
+
+    ![변경 내용 표시](./media/resource-group-audit/show-changes.png)
+
+변경 내용에 대 한 자세한 내용은 참조 하세요 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
+
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* 로그 항목을 검색하려면 **Get-AzLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 시간과 종료 시간을 지정하지 않으면 최근 7일의 항목이 반환됩니다.
+로그 항목을 검색하려면 **Get-AzLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다. 시작 시간과 종료 시간을 지정하지 않으면 최근 7일의 항목이 반환됩니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup
+```
 
-    다음 예제에서는 지정된 시간 동안 수행된 작업을 조사하는 활동 로그를 사용하는 방법을 보여 줍니다. 시작 및 종료 날짜는 날짜 형식으로 지정됩니다.
+다음 예제에서는 지정된 시간 동안 수행된 작업을 조사하는 활동 로그를 사용하는 방법을 보여 줍니다. 시작 및 종료 날짜는 날짜 형식으로 지정됩니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-05-05T06:00 -EndTime 2019-05-09T06:00
+```
 
-    또는 날짜 기능을 사용하여 지난 14일 같은 날짜 범위를 지정할 수 있습니다.
+또는 날짜 기능을 사용하여 지난 14일 같은 날짜 범위를 지정할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+```
 
-* 더 이상 존재하지 않는 리소스 그룹에 대해서도 특정 사용자가 수행한 작업을 조회할 수 있습니다.
+특정 사용자가 수행한 작업을 조회할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+```
 
-* 실패한 작업을 필터링할 수 있습니다.
+실패한 작업을 필터링할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -Status Failed
+```
 
-* 해당 항목에 대한 상태 메시지를 보고 한 가지 오류에 집중할 수 있습니다.
+해당 항목에 대한 상태 메시지를 보고 한 가지 오류에 집중할 수 있습니다.
 
-  ```azurepowershell-interactive
-  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
-  ```
+```azurepowershell-interactive
+(Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties.Content.statusMessage | ConvertFrom-Json
+```
 
-* 특정 값을 선택하여 반환되는 데이터를 제한할 수 있습니다.
+특정 값을 선택하여 반환되는 데이터를 제한할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+```
 
-* 지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 작업 유형별로 필터링할 수 있습니다.
+지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 작업 유형별로 필터링할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+```
+
+리소스에 대 한 변경 기록을 보려면 리소스 그래프를 사용할 수 있습니다. 자세한 내용은 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-* 로그 항목을 검색하려면 시간 범위를 나타내는 오프셋을 사용하여 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 명령을 실행합니다.
+로그 항목을 검색하려면 시간 범위를 나타내는 오프셋을 사용하여 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 명령을 실행합니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list --resource-group ExampleGroup --offset 7d
-  ```
+```azurecli-interactive
+az monitor activity-log list --resource-group ExampleGroup --offset 7d
+```
 
-  다음 예제에서는 지정된 시간 동안 수행된 작업을 조사하는 활동 로그를 사용하는 방법을 보여 줍니다. 시작 및 종료 날짜는 날짜 형식으로 지정됩니다.
+다음 예제에서는 지정된 시간 동안 수행된 작업을 조사하는 활동 로그를 사용하는 방법을 보여 줍니다. 시작 및 종료 날짜는 날짜 형식으로 지정됩니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --start-time 2019-05-01 --end-time 2019-05-15
+```
 
-* 더 이상 존재하지 않는 리소스 그룹에 대해서도 특정 사용자가 수행한 작업을 조회할 수 있습니다.
+더 이상 존재하지 않는 리소스 그룹에 대해서도 특정 사용자가 수행한 작업을 조회할 수 있습니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+```
 
-* 실패한 작업을 필터링할 수 있습니다.
+실패한 작업을 필터링할 수 있습니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g demoRG --status Failed --offset 1d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d
+```
 
-* 해당 항목에 대한 상태 메시지를 보고 한 가지 오류에 집중할 수 있습니다.
+해당 항목에 대한 상태 메시지를 보고 한 가지 오류에 집중할 수 있습니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+```
 
-* 특정 값을 선택하여 반환되는 데이터를 제한할 수 있습니다.
+특정 값을 선택하여 반환되는 데이터를 제한할 수 있습니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+```
 
-* 지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 작업 유형별로 필터링할 수 있습니다.
+지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 작업 유형별로 필터링할 수 있습니다.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
+```
+
+리소스에 대 한 변경 기록을 보려면 리소스 그래프를 사용할 수 있습니다. 자세한 내용은 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
 
 ## <a name="rest-api"></a>REST API
 

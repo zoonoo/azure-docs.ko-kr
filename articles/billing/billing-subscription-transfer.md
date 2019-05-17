@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371158"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605574"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -119,7 +119,7 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-아쉽게도 셀프 서비스 구독 양도는 해당 제안 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+아쉽게도 셀프 서비스 구독 양도 해당 제품 또는 국가/지역을 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?
 
@@ -156,9 +156,9 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 제품을 동일하게 유지해야 합니다. 제안을 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>다른 국가에서 사용자 계정에 대 한 구독을 양도할 수 있습니까?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>다른 국가/지역에서 사용자 계정에 구독을 양도할 수 있습니까?
 
-아니요. 다른 국가의 사용자 계정으로 구독을 양도할 수는 없습니다. 받는 사람의 사용자 계정은 동일한 국가에 있어야 합니다.
+아니요, 다른 국가/지역에서 사용자 계정에 구독을 양도 지원 되지 않습니다. 받는 사람의 사용자 계정은 동일한 국가/지역에 있어야 합니다.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>받는 사람이 다른 지불 방법을 사용할 수 있나요?
 

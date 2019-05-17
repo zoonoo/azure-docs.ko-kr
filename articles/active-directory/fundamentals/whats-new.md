@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50dadb7ae401a5655745a799e6e9fcebb8bb886
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 455be9ba95975ba5c3bd870cbe01ca916d85ef41
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935937"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544415"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -44,8 +44,8 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>이제 azure Active Directory (Azure AD) 권한 관리를 사용할 수 있습니다 (공개 미리 보기)
 
 **유형:** 새 기능  
-**서비스 범주:** Id 관리  
-**제품 기능:** Id 관리
+**서비스 범주:** ID 거버넌스  
+**제품 기능:** ID 거버넌스
 
 Azure AD 권한 관리, 이제 공개 미리 보기로 제공에서 하는 데 도움이 직원 및 비즈니스 파트너 액세스를 요청 하는 방법, 승인 해야 하는 및 액세스할 수 있는 기간을 정의 하는 액세스 패키지 관리를 위임 합니다. 패키지 액세스 자격이 Azure AD 및 Office 365 그룹, 엔터프라이즈 응용 프로그램에서 역할 할당 및 SharePoint Online 사이트에 대 한 역할 할당을 관리할 수 있습니다. 권한 관리에 대 한 자세한 내용은 합니다 [Azure AD 권한 관리의 개요](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)합니다. Privileged Identity Management, 액세스 검토 및 사용 약관을 포함 하 여 Azure AD Id 거 버 넌 스 기능을 다양 한 방법에 대 한 자세한 내용은 [Azure AD Id 거 버 넌 스를 란?](../governance/identity-governance-overview.md)합니다.
 
@@ -97,7 +97,7 @@ Azure AD 권한 관리, 이제 공개 미리 보기로 제공에서 하는 데 �
 
 2019 년 4 월에 앱 갤러리에 페더레이션이 포함 된 이러한 21 새 앱 지원 추가 했습니다.
 
-[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial)를 [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial)를 [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol--tutorial)를 [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial)합니다 [MileIQ](https://mileiq.onelink.me/991934284/7e980085)를 [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial)를 [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial)를 [Mitel 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial)를 [Alibaba 클라우드 (역할 기반 SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent 지분 Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo 인증서 관리자](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial)합니다 [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial)를 [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
+[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial)를 [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial)를 [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol-tutorial)를 [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial)합니다 [MileIQ](https://mileiq.onelink.me/991934284/7e980085)를 [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial)를 [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial)를 [Mitel 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial)를 [Alibaba 클라우드 (역할 기반 SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent 지분 Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo 인증서 관리자](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial)합니다 [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial)를 [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -107,7 +107,7 @@ Azure AD 권한 관리, 이제 공개 미리 보기로 제공에서 하는 데 �
 
 **유형:** 새 기능  
 **서비스 범주:** 액세스 검토  
-**제품 기능:** Id 관리
+**제품 기능:** ID 거버넌스
 
 새 업데이트를 Azure AD에서 액세스 검토를 사용 하면:
 

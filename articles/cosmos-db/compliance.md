@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128824"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606276"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
 
@@ -28,7 +28,7 @@ Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosm
 
 * **American Department of Defense(미국방부)**: 미국 2개 지역에서 미국방부가 사용할 수 있습니다.
 
-고객이 전 세계의 규제 산업 및 시장에서 규정 준수 의무를 준수하도록 하기 위해 Azure는 너비(총 제품 수) 및 깊이(평가 범위의 고객 서비스 수) 측면에서 업계의 가장 큰 규정 준수 포트폴리오를 유지 관리합니다.  Azure 규정 준수 제안은 4개 세그먼트, 즉 전역적으로 적용, 미국 정부, 산업별 및 지역 또는 국가별로 그룹화됩니다.  규정 준수 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다.
+고객이 전 세계의 규제 산업 및 시장에서 규정 준수 의무를 준수하도록 하기 위해 Azure는 너비(총 제품 수) 및 깊이(평가 범위의 고객 서비스 수) 측면에서 업계의 가장 큰 규정 준수 포트폴리오를 유지 관리합니다.  Azure 규정 준수 제안 4 개 세그먼트가-전체적으로 적용, 미국 정부 기관, 특정 산업 및 지역 또는 국가/지역 특정으로 그룹화 됩니다.  규정 준수 제안은 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하는 다양한 확인 유형을 기준으로 합니다.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB 인증  
 

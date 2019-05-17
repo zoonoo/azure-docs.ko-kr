@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508011"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780376"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -58,7 +58,7 @@ AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 �
 
 ## <a name="maximum-pods-per-node"></a>노드당 최대 포드
 
-AKS 클러스터에서 노드당 최대 Pod 수는 110개입니다. 노드당 *기본* 최대 pod 수는 *Kubenet* 및 *Azure CNI* 네트워킹과 클러스터 배포 방법에 따라 다릅니다.
+AKS 클러스터에 노드당 pod의 최대 수는 250. 노드당 *기본* 최대 pod 수는 *Kubenet* 및 *Azure CNI* 네트워킹과 클러스터 배포 방법에 따라 다릅니다.
 
 | 배포 방법 | Kubenet 기본 | Azure CNI 기본 | 배포 시 구성 가능 |
 | -- | :--: | :--: | -- |

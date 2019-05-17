@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762276"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
@@ -54,7 +54,7 @@ SaaS 서비스에서
 
 ![SaaS 서비스에서 업데이트를 시작 하는 경우 API를 호출 합니다.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>일시 중단
+#### <a name="suspended"></a>일시 중단됨
 
 이 상태는 고객의 지불 수신 되지 않았습니다 나타냅니다. 정책에 의해 우리 고객 구독 unfulfilling 전에 유예 기간이 제공 합니다. 구독 중인 경우이 상태: 
 
@@ -134,7 +134,7 @@ Response body:
 잘못된 요청입니다. x-ms-marketplace-토큰 누락, 잘못 되었거나 만료 된 경우
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -176,7 +176,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 
 *응답 코드:*
 
-코드: 200<br>
+코드: 200 <br/>
 인증 토큰을 기준, 게시자 및 게시자의 모든 제품에 대 한 해당 구독을 얻게 됩니다.<br> 응답 페이로드:<br>
 
 ```json
@@ -208,9 +208,8 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 
 연속 토큰 추가 "페이지"를 검색 하는 계획의 경우에 있게 됩니다. 
 
-
 코드: 403 <br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. 
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. 
 
 코드: 500 내부 서버 오류
 
@@ -275,7 +274,7 @@ Response Body:
 찾을 수 없음<br> 
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류<br>
@@ -330,7 +329,7 @@ Response Body:
 찾을 수 없음<br> 
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
 
 코드: 500<br>
 내부 서버 오류<br>
@@ -374,7 +373,7 @@ Response Body:
 
 *응답 코드:*
 
-코드: 202<br>
+코드: 200<br>
 구독을 활성화합니다.<br>
 
 코드: 404<br>
@@ -384,7 +383,7 @@ Response Body:
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -450,7 +449,7 @@ Request Body:
 >한 번에 패치가 적용 된, 둘 다가 아닌 계획 또는 수량만 될 수 있습니다. 사용 하 여 구독에서 편집 **업데이트** 에 없는 `allowedCustomerOperations`합니다.
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -516,7 +515,7 @@ Request Body:
 >한 번에 패치가 적용 된, 둘 다가 아닌 계획 또는 수량만 될 수 있습니다. 사용 하 여 구독에서 편집 **업데이트** 에 없는 `allowedCustomerOperations`합니다.
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -554,7 +553,7 @@ Request Body:
 
 *응답 코드:*
 
-코드: 200<br>
+코드: 202<br>
 나타내기 위해 시작 하는 ISV 호출 SaaS 구독에서 구독을 취소 합니다.<br>
 
 코드: 404<br>
@@ -564,7 +563,7 @@ Request Body:
 구독을 삭제 **삭제할** 나타나지 `allowedCustomerOperations`합니다.
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -632,7 +631,7 @@ Request Body:
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -695,7 +694,7 @@ Response body:
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
  
 코드: 500<br> 내부 서버 오류
 
@@ -753,7 +752,7 @@ Response body:
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없음 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 409<br>
 충돌 합니다. 예를 들어 최신 트랜잭션이 이미 충족
@@ -786,25 +785,29 @@ Response body:
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
-
-Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
 ```
+
+여기서 작업 중 하나일 수 있습니다. 
+- `Subscribe`  (경우 리소스 활성화 된)
+- `Unsubscribe` (경우 리소스가 삭제 되었습니다)
+- `ChangePlan` (변경 계획 작업이 완료 되 면)
+- `ChangeQuantity` (변경 수량 작업이 완료 되 면)
+- `Suspend` (경우 리소스를 일시 중단 됨)
+- `Reinstate` (경우 리소스에 복원 되었습니다 일시 중단 후)
 
 
 ## <a name="mock-api"></a>Mock API
 
 프로젝트 테스트 및 개발, 특히 프로토타입 생성을 사용 하 여 시작 하는 데 모의 Api를 사용할 수 있습니다. 
 
-호스트 끝점: `https://marketplaceapi.microsoft.com/api` API 버전: `2018-09-15` 인증 안 함 샘플 Uri 필요합니다. `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+호스트 끝점: `https://marketplaceapi.microsoft.com/api` <br/>
+API 버전: `2018-09-15` <br/>
+인증 필요 없음 <br/>
+예제 Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-이 문서에서는 API 호출의 모의 호스트 끝점을 만들 수 있습니다. 응답으로 다시 모의 데이터를 가져오는 예상할 수 있습니다.
+API 끝점 경로 Mock와 실제 Api를 모두에서 동일 하지만 API 버전 다릅니다. 버전에는 Mock의 경우 2018-09-15 및 프로덕션 버전의 경우 2018-08-31입니다. 
 
+이 문서에서는 API 호출의 모의 호스트 끝점을 만들 수 있습니다. 응답으로 다시 모의 데이터를 가져오는 예상할 수 있습니다. 일반적으로 대 한 응답으로 다시 모의 데이터를 가져오는 예상할 수 있습니다. 모의 API에서 업데이트 구독 메서드를 호출 하는 항상 500을 반환합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

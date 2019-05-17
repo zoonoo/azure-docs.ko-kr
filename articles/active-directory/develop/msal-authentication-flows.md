@@ -4,7 +4,7 @@ description: 인증 흐름/권한 부여를 사용 하 여 인증 라이브러�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406682"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546041"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -36,7 +36,7 @@ ms.locfileid: "65406682"
 | [-대신-의](#on-behalf-of) | 응용 프로그램 호출 서비스/웹 API를 차례로 다른 서비스/웹 API를 호출 해야 합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. | [Web API](scenario-web-api-call-api-overview.md) |
 | [클라이언트 자격 증명](#client-credentials) | 이 기능을 사용 하면 응용 프로그램의 id를 사용 하 여 웹 호스팅 리소스에 액세스할 수 있습니다. 직접적인 사용자 상호 작용 없이 백그라운드에서 실행 해야 하는 서버-투-서버 상호 작용에 일반적으로 사용 합니다. | [디먼 앱](scenario-daemon-overview.md) |
 | [장치 코드](#device-code) | 스마트 TV와 같은 입력 제한 된 장치, IoT 장치 또는 프린터에 로그인 할 수 있습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [통합된 Windows 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 도메인 또는 Azure AD 응용 프로그램을 자동으로 (UI 상호 작용 없이 사용자 로부터) 토큰을 획득 하는 컴퓨터를 가입을 허용 합니다.| [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication) | 도메인 또는 Azure AD 응용 프로그램을 자동으로 (UI 상호 작용 없이 사용자 로부터) 토큰을 획득 하는 컴퓨터를 가입을 허용 합니다.| [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [사용자 이름/암호](scenario-desktop-acquire-token.md#username--password) | 응용 프로그램을 사용자가 암호를 직접 처리 하 여 로그인 할 수 있습니다. 이 흐름은 권장 되지 않습니다. | [데스크톱/모바일 앱](scenario-desktop-acquire-token.md#username--password) | 
 
 ## <a name="interactive"></a>대화형

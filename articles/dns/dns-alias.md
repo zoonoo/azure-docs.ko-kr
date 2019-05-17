@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790541"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596706"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -25,7 +25,7 @@ Azure DNS 별칭 레코드는 DNS 레코드 집합에서 한정됩니다. DNS �
 - CNAME
 
 > [!NOTE]
-> A 또는 AAAA 레코드 유형에 대해 별칭 레코드를 사용하여 [Azure Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 가리키려면 Traffic Manager 프로필에 [외부 엔드포인트](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)만 있는지 확인해야 합니다. Traffic Manager의 외부 엔드포인트에 IPv4 또는 IPv6 주소를 제공해야 합니다. 이상적으로는 고정 IP 주소를 사용합니다.
+> A 또는 AAAA 레코드 유형에 대해 별칭 레코드를 사용하여 [Azure Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 가리키려면 Traffic Manager 프로필에 [외부 엔드포인트](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)만 있는지 확인해야 합니다. Traffic Manager의 외부 엔드포인트에 IPv4 또는 IPv6 주소를 제공해야 합니다. 끝점의 정규화 된 도메인 이름 (Fqdn)을 사용할 수 없습니다. 이상적으로는 고정 IP 주소를 사용합니다.
 
 ## <a name="capabilities"></a>기능
 

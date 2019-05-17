@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 05/01/2019
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: 1144115ad349879d097062e44226dd2ffcf9b48e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5bab83c2cb3874ad662ad54a9646cc3fc406046e
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154181"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561369"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 문
 Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
@@ -28,7 +28,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 * [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
-* [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
+* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 * [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 * [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
@@ -52,6 +52,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [DROP 작업 분류자](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [집합 RESULT_SET_CACHING](/sql/t-sql/statements/set-statements-transact-sql) (미리 보기)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

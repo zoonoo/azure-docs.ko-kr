@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620247"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815535"
 ---
 **마지막 문서 업데이트**: 14 년 5 월 2019 오전 10시 PST입니다.
 
@@ -29,7 +29,7 @@ Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정�
 > 이 문서를 처음 게시한 이후 이 취약점 종류의 여러 변형이 공개되었습니다. Microsoft에서는 고객을 보호하고 지침을 제공하는 데 계속 투자하고 있습니다. 계속 추가 수정을 릴리스하므로 이 페이지가 업데이트됩니다. 
 > 
 > 2019 년 5 월 14 일에 [공개 Intel](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) 마이크로아키텍처 데이터 샘플링 이라고 투기적 실행 쪽 채널 취약성의 새 집합 (Microsoft 보안 지침을 참조 하는 MDS [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013))는 할당 된 여러 CVEs: 
-> - CVE-2018-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
+> - CVE-2019-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
 > - CVE-2018-12126-마이크로아키텍처 저장소 버퍼 데이터 샘플링 (MSBDS) 
 > - CVE-2018-12127-마이크로아키텍처 부하 포트 데이터 샘플링 (MLPDS)
 > - CVE-2018-12130-마이크로아키텍처 채우기 버퍼 데이터 샘플링 (MFBDS)
@@ -123,7 +123,7 @@ Windows OS support for MDS mitigation is enabled: True
 <a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
 
 
-**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM으로 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우를 확인 하려면 실행을 `lspcu` Linux VM에서 명령을 합니다. 
+**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM으로 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우를 확인 하려면 실행을 `lscpu` Linux VM에서 명령을 합니다. 
 
 경우 `Thread(s) per core = 2`, 하이퍼 스레딩을 사용 되었습니다. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  참고: 하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다.
+VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다.
 
 
 **2단계**: 에 대해 완화 하는 투기적 실행 사이드 채널 취약성 아래 운영 시스템 공급자의 설명서를 참조 합니다.   
@@ -159,18 +159,18 @@ VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에
 
 이 문서는 지침을 제공 된 최신 프로세서 수에 영향을 주는 투기적 실행 사이드 채널 공격 아래:
 
-[스펙터 멜트다운](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[스펙터 멜트다운](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715-분기 대상 주입 (BTI)  
 - CVE-2017-5754-커널 페이지 테이블 격리 (KPTI)
 - CVE-2018-3639 – 잘못 된 저장소 사용 안 함 (KPTI) 
  
-[L1 터미널 오류 (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 터미널 오류 (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615-Intel Software Guard Extensions (Intel SGX)
 - CVE-2018-3620-운영 체제 (OS) 및 시스템 관리 모드 (SMM)
 - CVE-2018-3646 – Virtual Machine Manager (VMM)에 영향을 줍니다.
 
-[마이크로아키텍처 데이터 샘플링](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
+[마이크로아키텍처 데이터 샘플링](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091-마이크로아키텍처 데이터 샘플링 uncacheable 인 메모리 (MDSUM)
 - CVE-2018-12126-마이크로아키텍처 저장소 버퍼 데이터 샘플링 (MSBDS)
 - CVE-2018-12127-마이크로아키텍처 부하 포트 데이터 샘플링 (MLPDS)
 - CVE-2018-12130-마이크로아키텍처 채우기 버퍼 데이터 샘플링 (MFBDS)

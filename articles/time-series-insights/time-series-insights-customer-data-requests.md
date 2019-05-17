@@ -4,17 +4,17 @@ description: Azure Time Series Insights의 고객 데이터 요청 기능에 대
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880711"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546383"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -65,3 +65,11 @@ Time Series Insights 내에 저장된 데이터를 보고 내보내려면 해당
 현재 Time Series Insights는 세분화된 데이터 삭제를 지원하지 않습니다. 그러나 보존 정책을 구성하여 Time Series Insights 내에 저장된 고객 데이터를 제거하는 기능을 제공합니다. 삭제 요구 사항에 적합한 날짜 수로 전체 Time Series Insights 환경의 보존 기간을 조정할 수 있습니다.
 
 자세한 내용은 [Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 에 대해 자세히 알아보세요 [TSI 환경에 대 한 데이터 액세스를 부여](./time-series-insights-data-access.md)합니다.
+
+* 보기는 [Azure Time Series Insights 탐색기](time-series-insights-explorer.md)합니다.
+
+* 에 대 한 자세한 [Time Series Insights의 보존 기간 구성](time-series-insights-how-to-configure-retention.md)합니다.

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285173"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594026"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -41,10 +41,10 @@ ms.locfileid: "60285173"
 > **대기 시간(95번째 백분위수)** 은 로그의 95%가 보고되는 시간을 가리키고, **대기 시간(99번째 백분위수)** 은 로그의 99%각 보고되는 시간을 가리킵니다. 
 >
 
-| 보고 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|로그가 보고되는 시간 범위|
-| :-- | --- | --- | --- |
-| 감사 로그 | 2분  | 5분  | 2~60분 |
-| 로그인 | 2분  | 5분 | 2~120분 |
+| 보고 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|
+| :-- | --- | --- |
+| 감사 로그 | 2분  | 5분  |
+| 로그인 | 2분  | 5분 |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Premium 라이선스를 받은 후 활동 데이터를 확인할 수 있을 때까지는 얼마나 걸리나요?
 

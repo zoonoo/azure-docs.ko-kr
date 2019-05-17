@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409964"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595414"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -204,7 +204,7 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 
 일반적으로 필요에 따라 추가 보안 vnet에서 구성할 수 있지만 몇 가지 제한 사항이 클러스터의 작동을 방해할 수 있습니다.
 
-예를 들어, vnet의 아웃 바운드 인터넷 액세스를 제한도 명시적으로 AzureCloud AzureConnectors에 대 한 액세스를 허용 하는 규칙을 추가 하지 않는 경우 클러스터에 대 한 문제가 발생 합니다. 이 상황에서 설명한 [GitHub에 대 한 보충 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)합니다.
+예를 들어, vnet의 아웃 바운드 인터넷 액세스를 제한도 명시적으로 AzureCloud에 대 한 액세스를 허용 하는 규칙을 추가 하지 않는 경우 클러스터에 대 한 문제가 발생 합니다. 이 상황에서 설명한 [GitHub에 대 한 보충 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)합니다.
 
 에 설명 된 대로 사용자 지정된 보안을 사용 하 여 도움말에 대 한 지원에 문의 [시스템을 사용 하 여 도움말을 보려면](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)합니다.
 

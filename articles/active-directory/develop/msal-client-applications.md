@@ -4,7 +4,7 @@ description: 응용 프로그램에서 인증 라이브러리 (MSAL (Microsoft) 
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21aa62bae7599cf586ccf6f885ad9f58c148d1f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077142"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544282"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
 Microsoft 인증 라이브러리 (MSAL) 두 가지 유형의 클라이언트를 정의 합니다: 공용 클라이언트 및 기밀 클라이언트입니다. 두 클라이언트 유형은 권한 부여 서버를 사용 하 여 안전 하 게 인증 하 고 클라이언트 자격 증명의 기밀을 유지 하는 기능으로 구분 됩니다.  반면, Azure AD 인증 라이브러리 (ADAL)에 인증 컨텍스트 (즉, Azure AD에 대 한 연결) 개념이 있습니다.

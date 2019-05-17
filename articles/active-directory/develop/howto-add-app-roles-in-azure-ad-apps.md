@@ -4,7 +4,7 @@ description: Azure Active Directory에 등록된 애플리케이션에서 앱 �
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138350"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593918"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -62,7 +62,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 다음 예제는 `users`에게 할당할 수 있는 `appRoles`를 보여줍니다.
 
 > [!NOTE]
->  `id`는 고유 GUID여야 합니다.
+>`id`는 고유 GUID여야 합니다.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>`displayName` 공백을 포함할 수 없습니다.
 
 앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. `applications`에서 사용할 수 있는 경우 앱 역할은 **필수 권한** 블레이드에 애플리케이션 권한으로 나타납니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
 
@@ -99,6 +102,8 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
   ],
 "availableToOtherTenants": false,
 ```
+
+정의 된 역할의 수는 응용 프로그램 매니페스트에 있는 한계를 영향을 줍니다. 자세히 설명 했습니다 있어야 합니다 [제한 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) 페이지.
 
 ### <a name="assign-users-and-groups-to-roles"></a>역할에 사용자 및 그룹 할당
 

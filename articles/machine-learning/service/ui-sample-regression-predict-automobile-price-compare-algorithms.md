@@ -1,7 +1,7 @@
 ---
 title: '회귀 분석: 가격을 예측 하 고 알고리즘 비교'
 titleSuffix: Azure Machine Learning service
-description: 이 시각적 인터페이스 샘플 실험 자동차의 가격을 예측 하는 두 가지 회귀 모델의 성능을 비교 하는 방법에 설명 합니다. 학습, 테스트 및 자동차 가격 데이터 (원시) 데이터 집합에서 모델을 평가 하는 프로세스에 포함 됩니다.
+description: 이 문서에서는 시각적 인터페이스를 사용 하 여 코드를 전혀 작성 하지 않고 복잡 한 machine learning 실험을 작성 하는 방법을 보여 줍니다. 학습 및 기술 기능에 따라 자동차의 가격을 예측 하기 위해 여러 회귀 모델을 비교 하는 방법을 알아봅니다
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442145"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787805"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>2-회귀 샘플: 가격을 예측 하 고 알고리즘 비교
 
-이 시각적 인터페이스 샘플 실험에는 자동차의 가격을 예측 하는 두 가지 회귀 모델의 성능을 비교 하는 방법을 보여 줍니다. 학습, 테스트 및 모델을 사용 하 여 평가 포함 하는 프로세스를 **자동차 가격 데이터 (원시)** 데이터 집합입니다.
+시각적 인터페이스를 사용 하 여 코드를 전혀 작성 하지 않고 복잡 한 machine learning 실험을 빌드하는 방법에 알아봅니다. 이 샘플 학습 하 고 해당 기술 기능에 따라 자동차의 가격을 예측 하려면 여러 회귀 모델을 비교 합니다. 사용자 고유의 기계 학습 문제를 처리할 수 있도록이 실험에 대 한 선택 항목에 대 한 근거를 제공 됩니다.
+
+machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 수행할 수 있습니다 합니다 [기본 버전](ui-sample-regression-predict-automobile-price-basic.md) 기본 회귀 실험을 보려면이 실험의 합니다.
+
+이 실험에 대 한 완성된 된 그래프는 다음과 같습니다.
+
+[![실험 그래프](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,10 +35,6 @@ ms.locfileid: "65442145"
 
     ![실험을 열으십시오](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>관련된 샘플
-
-[1-회귀 샘플: 자동차 가격 예측 (기본)](ui-sample-regression-predict-automobile-price-basic.md) 이 실험으로 동일한 문제를 해결 하는 하지만 하나만 회귀 모델을 사용 하는 간단한 실험을 제공 합니다. 회귀의 기본 샘플을 찾고 있는 경우를 참조 하세요.
-
 ## <a name="experiment-summary"></a>실험 요약
 
 실험을 작성 하이 단계 사용 합니다.
@@ -41,11 +43,6 @@ ms.locfileid: "65442145"
 1. 데이터를 전처리 합니다.
 1. 모델을 학습 합니다.
 1. 테스트, 평가 및 모델을 비교 합니다.
-
-실험의 전체 그래프는 다음과 같습니다.
-
-[![실험 그래프](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>데이터 가져오기
 
