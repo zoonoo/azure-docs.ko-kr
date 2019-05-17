@@ -29,15 +29,13 @@ ms.locfileid: "57588774"
 
 ## <a name="setup"></a>설정
 
-이 가이드에서는 이미 구성된 얼굴 구독 키 및 끝점 url을 가진 `faceClient`라는 이름의 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 개체를 가지고 있다고 가정합니다. 여기에서 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)**(이 가이드에서 사용) 또는 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**를 호출하여 얼굴 감지 기능을 사용할 수 있습니다. 이를 설정하는 방법에 대한 내용은 [C#을 위한 얼굴 감지 빠른 시작](../quickstarts/csharp-detect-sdk.md)을 참조합니다.
+이 가이드에서는 이미 구성된 얼굴 구독 키 및 끝점 url을 가진 `faceClient`라는 이름의 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 개체를 가지고 있다고 가정합니다.  여기에서 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)**(이 가이드에서 사용) 또는 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)를 호출하여 얼굴 감지 기능을 사용할 수 있습니다.  이를 설정하는 방법에 대한 내용은 [C#을 위한 얼굴 감지 빠른 시작](../quickstarts/csharp-detect-sdk.md)을 참조합니다.
 
 이 가이드는 감지 호출의 세부 정보에 중점을 둡니다-전달할 수 있는 인수 및 반환된 데이터를 사용하여 수행할 수 있는 것. 각 작업을 완료하는데 추가 시간이 소요 되므로 필요한 기능만 쿼리하는 것이 좋습니다.
 
 ## <a name="get-basic-face-data"></a>기본 얼굴 데이터 가져오기
 
-
-이 가이드는 감지 호출의 세부 정보에 중점을 둡니다-전달할 수 있는 인수 및 반환된 데이터를 사용하여 수행할 수 있는 것. 각 작업을 완료하는데 추가 시간이 소요 되므로 필요한 기능만 쿼리하는 것이 좋습니다.
-
+이미지에서 얼굴을 찾고 해당 위치를 가져오려면,  _returnFaceId_ 매개 변수를 **true**(기본값)로 설정하여 메서드를 호출합니다.
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
@@ -53,11 +51,11 @@ foreach (var face in faces)
 }
 ```
 
-얼굴의 크기와 위치를 분석하는 방법에 대한 정보는 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)**을 참조합니다. 보통 이 사각형은 눈, 눈썹, 코 및 입을 포함하며 머리 윗 부분, 귀 및 턱은 반드시 포함하지는 않습니다. 머리 전체 또는 세로 중간 샷(사진 ID 형식 이미지)을 자르기 위해 얼굴 사각형을 사용하려는 경우, 각 방향의 특정 여백으로 사각형을 확장하는 것이 좋습니다.
+얼굴의 크기와 위치를 분석하는 방법에 대한 정보는 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)** 을 참조합니다.  보통 이 사각형은 눈, 눈썹, 코 및 입을 포함하며 머리 윗 부분, 귀 및 턱은 반드시 포함하지는 않습니다. 머리 전체 또는 세로 중간 샷(사진 ID 형식 이미지)을 자르기 위해 얼굴 사각형을 사용하려는 경우, 각 방향의 특정 여백으로 사각형을 확장하는 것이 좋습니다.
 
 ## <a name="get-face-landmarks"></a>얼굴 랜드마크 가져오기
 
-**[얼굴 랜드마크](https://docs.microsoft.com/en-us/azure/cognitive-services/face/concepts/face-detection#face-landmarks)** 는 동공이나 코 끝 같은 얼굴에서 찾기 쉬운 포인트의 집합입니다.  _returnFaceLandmarks_ 매개 변수를 **true**로 설정하여 얼굴 랜드마크 데이터를 가져올 수 있습니다.
+얼굴 랜드마크는는 삼아 같은 얼굴 찾기 쉽게 점의 집합 또는 코의 팁입니다. 설정 하 여 얼굴 랜드마크 데이터를 가져올 수 있습니다 합니다 _returnFaceLandmarks_ 매개 변수를 **true**합니다.
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);

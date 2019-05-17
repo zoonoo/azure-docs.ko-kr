@@ -10,95 +10,111 @@ ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 12/03/2018
-ms.openlocfilehash: de5e853db6c6a0e98dea9251cc07b526288574e1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 04/22/2019
+ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276835"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205814"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 
-이 빠른 시작에서는 무료 데모 환경에서 Azure Time Series Insights Preview 탐색기를 사용하는 방법을 보여 줍니다. 웹 브라우저를 사용하여 대용량 산업 IoT 데이터 기록을 시각화하는 방법을 알아보고, Time Series Insights Preview 탐색기의 주요 기능을 둘러봅니다.
+이 빠른 시작에서는 Azure Time Series Insights 미리 보기를 사용합니다. 무료 데모를 통해 Time Series Insights 미리 보기에 추가된 주요 기능을 살펴봅니다.
 
-Time Series Insights는 엔드투엔드 PaaS(Platform as a Service) 제품을 제공합니다. 향상된 데이터 탐색을 위해 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장 및 쿼리할 수 있습니다. 운영 분석도 제공합니다. Time Series Insights는 산업 IoT 배포의 고유한 요구 사항에 맞는 차별화된 제품입니다.
+미리 보기 데모 환경에는 시나리오 회사인 Contoso가 포함되어 있습니다. 이 회사는 각각 10개의 터빈이 있는 2개의 풍력 터빈 팜을 운영하고 있습니다. 각 터빈에는 1분마다 Azure IoT Hub에 데이터를 보고하는 20개의 센서가 있습니다. 센서는 기상 조건, 블레이드 피치 및 요 위치에 대한 정보를 수집합니다. 또한 발전기 성능, 기어 상자 동작 및 보안 모니터도 수집합니다.
 
-데모 환경에서는 발전 회사인 Contoso를 보여 줍니다. Time Series Insights를 사용하여 Contoso 데이터에서 활용 가능한 인사이트를 찾고 간단하게 근본 원인을 분석합니다. Contoso는 각각 10개의 터빈이 있는 두 개의 풍력 터빈 팜을 운영합니다. 각 터빈에는 1분마다 Azure IoT Hub에 데이터를 보고하는 20개의 센서가 있습니다. 센서는 기상 조건, 블레이드 피치 및 요 위치, 발전기 성능, 기어 박스 동작 및 안전 모니터 관련 정보를 수집합니다.
-
-Time Series Insights Preview를 사용하여 지난 2년간 지속적으로 증가하여 현재 40GB에 달하는 Contoso의 데이터 세트를 분석합니다. 치명적 오류와 이동 속도가 느린 유지 관리 문제를 둘 다 파악하고 예측하는 데 도움이 될 수 있습니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에  [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+ Time Series Insights를 사용하여 Contoso 데이터에서 실행 가능한 인사이트를 찾는 방법을 알아봅니다. 그뿐 아니라 간단한 근본 원인 분석을 수행하여 중요한 오류를 보다 잘 예측하고 유지 관리를 수행합니다.
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>데모 환경에서 Time Series Insights 탐색기 살펴보기
 
-1. 브라우저에서  [ Contoso 풍력 팜 환경](https://insights.timeseries.azure.com/preview/samples)으로 이동합니다.  
+Time Series Insights 미리 보기 탐색기는 기록 데이터 및 근본 원인 분석 과정을 보여 줍니다. 시작하기:
 
-1. 메시지가 표시되면 Azure 계정 자격 증명을 사용하여 Time Series Insights 탐색기에 로그인합니다.
+1.  [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 아직 만들지 않은 경우 만듭니다.
 
-### <a name="demo-step-1"></a>데모 단계 1
+1.  [Contoso 풍력 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동합니다.  
+
+1. 로그인하도록 요구되면 Azure 계정 자격 증명을 사용하여 Time Series Insights 탐색기에 로그인합니다.
+
+## <a name="work-with-historical-data"></a>기록 데이터 사용
 
 1. **Contoso Plant 1**의 풍력 터빈 **W7**을 살펴보겠습니다.  
 
-    * **작업**: 보기 범위를 **1/1/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트하고 **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed** 센서를 추가한 다음, 결과 값을 표시합니다.
+    * 보기 범위를 **1/1/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트합니다.
+    * **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed** 센서를 선택합니다. 그런 다음, 결과 값을 검토합니다.
 
-       ![빠른 시작 1][1]
+      [![Contoso Plant 1의 W7](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 여기서 살펴보겠습니다. 화재가 발생하는 동안 화재 경고 센서가 작동된 것을 확인할 수 있습니다.
+1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 화재의 가장 가까운 원인에 대한 의견이 분분합니다. 면밀히 확인해본 결과, 화재가 발생하는 동안 화재 경고 센서가 작동된 것을 알게 되었습니다.
 
-    * **작업**: 보기 범위를 **3/9/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트하고, **안전 시스템** > **FireAlert** 센서를 추가합니다.
+    * 보기 범위를 **3/9/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트합니다.
+    * **안전 시스템** > **FireAlert** 센서를 선택합니다.
 
-      ![빠른 시작 2][2]
+      [![Contoso는 풍력 터빈 W7에서 화재를 발견함](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-1. 화재 당시에 일어난 다른 일을 확인해 보겠습니다. 화재가 발생하기 직전에 오일 압력과 활성 경고가 둘 다 증가했지만, 그때는 문제를 방지하기에 너무 늦었습니다.
+1. 문제 발생 시에 나타난 다른 이벤트를 검토하여 상황을 이해하세요. 화재 직전에 유압 및 활성 경고가 최대로 높아졌습니다.
 
-    * **작업**: **피치 시스템** > **HydraulicOilPressure** 센서와 **피치 시스템** > **ActiveWarning** 센서를 추가합니다.
+    * **피치 시스템** > **HydraulicOilPressure** 센서를 선택합니다.
+    * **피치 시스템** > **ActiveWarning** 센서를 선택합니다.
 
-      ![빠른 시작 3][3]
+      [![같은 시간에 발생한 다른 이벤트 검토](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. 뒤로 물러서서 보면 화재로 이어지는 징후가 있었음을 알 수 있습니다. 두 센서가 모두 변동되었습니다. 그렇다면 이전에도 이 문제가 발생했을까요?
+1. 화재가 발생하기 직전에 오일 압력과 활성 경고가 증가했습니다. 표시된 시계열을 확장하여 화재로 이어진 기타 징후가 있었는지 확인합니다. 시간이 지나면서 두 센서 모두 일관되게 변동되면서 지속적인 잘못된 패턴을 나타냅니다.
 
-    * **작업**: 보기 범위를 **2/24/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트합니다.
+    * 보기 범위를 **2/24/17 20:00 - 3/10/17 20:00(UTC)** 으로 업데이트합니다.
 
-      ![빠른 시작 4][4]
+      [![석유 압력 및 활성 경고 센서도 최대로 높아짐](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. 2년 동안의 모든 데이터를 살펴보면 동일한 징후가 있는 이전 화재 사건을 알 수 있습니다. 이 데이터를 통해 이러한 문제를 조기에 파악할 수 있는 시스템을 빌드할 수 있습니다.
+1. 2년 동안의 기록 데이터를 검토한 결과, 동일한 센서 변동을 보인 다른 화재 이벤트가 확인되었습니다.
 
-    * **작업**: 보기 범위를 **1/1/16 - 12/31/17**(모든 데이터)로 업데이트합니다.
+    * 보기 범위를 **1/1/16 - 12/31/17**(모든 데이터)로 업데이트합니다.
 
-       ![빠른 시작 5][5]
+      [![기록 패턴 찾기](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-### <a name="demo-step-2"></a>데모 단계 2
+Azure Time Series Insights 및 센서 원격 분석을 사용하여 기록 데이터에 숨겨진 문제가 되는 장기적인 추세를 발견했습니다. 이러한 새 인사이트를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
-1. 다른 문제는 보다 미묘하고 진단하기 어렵습니다. Time Series Insights는 어려운 문제를 추적하는 데 도움이 되는 다양한 방법을 제공합니다. 여기서는 **6/25**에 **W6**의 경고 센서가 중단된 것을 확인할 수 있습니다. 하지만 실제로 무슨 일이 일어나고 있을까요?
+> [!div class="checklist"]
+> * 실제로 발생한 문제를 설명합니다.
+> * 문제를 해결합니다.
+> * 상위 경고 알림 시스템을 가동합니다.
 
-    * **작업**: 현재 센서를 제거하고 보기 범위를 **6/1/17 20:00 - 7/1/17 20:00(UTC)** 으로 업데이트한 다음, **Contoso Plant 1** > **W6** > **안전 시스템** > **VoltageActuatorSwitchWarning** 센서를 추가합니다.
+## <a name="root-cause-analysis"></a>근본 원인 분석
 
-       ![빠른 시작 6][6]
+1. 일부 시나리오에는 데이터에서 미묘한 단서를 파악하기 위해 복잡한 분석이 필요합니다. 날짜 **6/25** 풍차 **W6** 선택
 
-1. 경고는 발전기에서 출력되는 전압에 문제가 있음을 나타냅니다. 그렇다면 원인은 무엇인가요? 세분화된 간격으로 발전기의 전체적인 전력 출력을 살펴보면 괜찮아 보입니다. 그러나 데이터를 집계해 보면 명확한 하락을 확인할 수 있습니다.
+    * 보기 범위를 **6/1/17 20:00 - 7/1/17 20:00(UTC)** 으로 업데이트합니다.
+    * 그런 후 **Contoso Plant 1** > **W6** > **안전 시스템** > **VoltageActuatorSwitchWarning**  센서를 선택합니다.
 
-    * **작업**: **VoltageActuatorSwitchWarning** 센서를 제거하고 **발전기 시스템** > **ActivePower** 센서를 추가한 다음, 간격을 **3d**로 업데이트합니다.
+      [![보기 범위 업데이트 및 W6 선택](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-       ![빠른 시작 7][7]
+1. 경고는 발전기에서 출력되는 전압에 문제가 있음을 나타냅니다. 발전기의 전체 전력 출력은 현재 간격일 때 정상 매개 변수 내에서 작동합니다. 이 간격을 늘리면 다른 패턴이 나타납니다. 한정된 기간 동안 감소가 발생합니다.
 
-1. 데이터 세트를 앞으로 탐색하면 이 문제가 일시적인 것이 아님을 확인할 수 있습니다. 문제가 계속 발생하고 있습니다.
+    * **VoltageActuatorSwitchWarning** 센서를 분리합니다.
+    * **발전기 시스템** > **ActivePower** 센서를 선택합니다.
+    * 간격을 **3d**로 업데이트합니다.
 
-    * **작업**: 시간 범위를 오른쪽으로 확장합니다.
+      [![간격을 3d로 업데이트](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
-       ![빠른 시작 8][8]
+1. 시간 범위를 확장하여 문제가 중지되었는지 또는 계속되는지를 확인할 수 있습니다.
 
-1. 자세히 살펴보겠습니다. 다른 센서 데이터 요소를 추가하여 단계별 전압을 확인할 수 있습니다. 그러나 데이터 요소는 모두 비슷해 보입니다. 실제 값을 보기 위해 표식을 놓겠습니다. 3단계 출력에 문제가 있는 것 같습니다.
+    * 시간 범위를 60일로 확장합니다.
 
-    * **작업**: **발전기 시스템** > **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 추가합니다. 표시 영역의 마지막 데이터 요소에 마커를 놓습니다.
+      [![시간 범위를 60일로 확장](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
-       ![빠른 시작 8][8]
+1. 유용한 상황을 제공하기 위해 다른 센서 데이터 요소를 추가할 수 있습니다. 더 많은 센서를 확인할수록 문제에 대한 이해의 폭이 넓어집니다. 실제 값을 보기 위해 표식을 놓겠습니다. 
 
-1. 세 개의 데이터 요소를 모두 같은 비율로 보면 3단계 하락이 훨씬 명확하게 표시됩니다. 이제 경고의 원인을 미리 파악하여 유지 관리 팀에 문제를 알릴 준비가 되었습니다.  
+    * **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 선택합니다.
+    * 표시 영역의 마지막 데이터 요소에 마커를 놓습니다.
 
-    * **작업**: 동일한 차트 배율로 모든 센서를 오버레이하도록 화면 표시를 업데이트합니다.
+      [![마커 삭제](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
-       ![빠른 시작 9][9]
+    세 가지 전압 센서가 정상 매개 변수 내에서 동등하게 작동하고 있습니다. **GridVoltagePhase3** 센서가 문제인 것으로 보입니다.
+
+1. 상황에 좀 더 적합한 데이터를 추가하면 3단계 감소가 더 문제인 것처럼 보입니다. 이제 경고의 원인을 미리 파악하여 유지 관리 팀에 문제를 알릴 준비가 되었습니다.  
+
+    * 동일한 차트 배율로 모든 **발전기 시스템** 센서를 오버레이하도록 화면 표시를 업데이트합니다.
+
+       [![모든 항목을 포함하도록 화면 표시 업데이트](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -107,13 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에  [Azure 체험 계정
 > [!div class="nextstepaction"]
 > [Time Series Insights Preview 환경 계획](time-series-insights-update-plan.md)
 
-<!-- Images -->
-[1]: media/v2-update-quickstart/quickstart-one.png
-[2]: media/v2-update-quickstart/quickstart-two.png
-[3]: media/v2-update-quickstart/quickstart-three.png
-[4]: media/v2-update-quickstart/quickstart-four.png
-[5]: media/v2-update-quickstart/quickstart-five.png
-[6]: media/v2-update-quickstart/quickstart-six.png
-[7]: media/v2-update-quickstart/quickstart-seven.png
-[8]: media/v2-update-quickstart/quickstart-eight.png
-[9]: media/v2-update-quickstart/quickstart-nine.png
+데모 및 해당 기능을 살펴보는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [Time Series Insights 미리 보기 탐색기](time-series-insights-update-explorer.md)

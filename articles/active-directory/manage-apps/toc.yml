@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: 사용자 프로비전 갤러리 앱을 구성하는 동안 관리자 자격 증명을 저장하는 문제
           href: application-provisioning-config-problem-storage-limit.md
+        - name: 매핑을 위한 특성 동기화 - 갤러리 앱
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: 프로비전되지 않은 사용자 - 갤러리 앱
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: 잘못 프로비전된 사용자 - 갤러리 앱

@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. 앱 액세스 관리
       href: manage-app-groups.md
+    - name: 5. 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
+      href: create-validation-host-pool.md
 - name: 방법
   items:
     - name: Windows Virtual Desktop 리소스에 연결

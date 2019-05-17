@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871031"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233824"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -28,11 +28,14 @@ ms.locfileid: "57871031"
 > * Content Moderator 및 Facebook에서 HTTP 이벤트에 대해 수신 대기하는 Azure Functions를 만듭니다.
 > * Facebook 애플리케이션을 사용하여 Facebook 페이지를 Content Moderator에 연결합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 이 다이어그램은 이 시나리오의 각 구성 요소를 보여 줍니다.
 
 !["FBListener"를 통해 Facebook에서 정보를 수신하고 "CMListener"를 통해 정보를 전송하는 Content Moderator 다이어그램](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사를 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -62,65 +65,68 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 [Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 따릅니다.
 
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure Function App을 만듭니다.
-2. 새로 만든 Function App으로 이동합니다.
-3. App 내에서 **플랫폼 기능** 탭으로 이동한 후 **애플리케이션 설정**을 선택합니다. 다음 페이지의 **애플리케이션 설정** 섹션에서 목록 아래쪽으로 스크롤한 후 **새 설정 추가**를 클릭합니다. 다음 키/값 쌍 추가
+1. 새로 만든 Function App으로 이동합니다.
+1. App 내에서 **플랫폼 기능** 탭으로 이동한 후 **구성**을 선택합니다. 다음 페이지의 **애플리케이션 설정** 섹션에서 **새 애플리케이션 설정**을 선택하여 다음 키/값 쌍을 추가합니다.
     
     | 앱 설정 이름 | 값   | 
     | -------------------- |-------------|
     | cm:TeamId   | Content Moderator 팀 ID  | 
-    | cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 | 
-    | cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
+    | cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 |
+    | cm:Region | Content Moderator 지역 이름(공백 없이) |
     | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
     | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
     | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener Function App에 대한 Url |
-    | fb:VerificationToken | Facebook 피드 이벤트에 구독하는 데도 사용되는 비밀 토큰 |
-    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. |
+    | fb:VerificationToken | Facebook 피드 이벤트 구독에 사용되는 사용자가 만든 비밀 토큰 |
+    | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. 이후 단계에서 가져옵니다. |
 
     페이지 위쪽에 있는 **저장** 단추를 클릭합니다.
 
-1. 왼쪽 창에 있는 **+** 단추를 사용하여 새 함수 창을 표시합니다.
+1. **플랫폼 기능** 탭으로 돌아갑니다. 왼쪽 창에 있는 **+** 단추를 사용하여 **새 함수** 창을 표시합니다. 만들려는 함수가 Facebook에서 이벤트를 받게 됩니다.
 
     ![함수 추가 단추가 강조 표시된 Azure Functions 창](images/new-function.png)
-
-    그런 후 페이지 위쪽의 **+ 새 함수**를 클릭합니다. 이 함수는 Facebook의 이벤트를 수신합니다. 다음 단계를 수행하여 이 함수를 만듭니다.
 
     1. **Http trigger**라는 타일을 클릭합니다.
     1. 이름 **FBListener**를 입력합니다. **권한 수준** 필드를 **함수**로 설정해야 합니다.
     1. **만들기**를 클릭합니다.
     1. **run.csx**의 콘텐츠를 **FbListener/run.csx**의 콘텐츠로 바꿉니다.
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. **CMListener**라는 새 **Http trigger** 함수를 만듭니다. 이 함수는 Content Moderator에서 이벤트를 수신합니다. **run.csx**의 콘텐츠를 **CMListener/run.csx**의 콘텐츠로 바꿉니다.
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Facebook 페이지 및 앱 구성
+
 1. Facebook 앱을 만듭니다.
 
     ![facebook 개발자 페이지](images/facebook-developer-app.png)
 
     1. [Facebook 개발자 사이트](https://developers.facebook.com/)로 이동합니다.
-    2. **내 앱**을 클릭합니다.
-    3. 새 앱을 추가합니다.
+    1. **내 앱**을 클릭합니다.
+    1. 새 앱을 추가합니다.
     1. 이름을 지정합니다.
     1. **Webhook -> 설정**을 선택합니다.
     1. 드롭다운 메뉴에서 **페이지**를 선택하고 **이 개체에 가입**을 선택합니다.
     1. 콜백 URL로 **FBListener Url** 및 **Function App 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
     1. 구독한 후 피드 아래로 스크롤하고 **구독**을 선택합니다.
+    1. **피드** 행의 **테스트** 단추를 클릭하여 FBListener Azure 함수로 테스트 메시지를 전송한 후 **내 서버로 보내기** 단추를 누릅니다. FBListener에서 요청이 수신되는 것을 볼 수 있습니다.
 
-2. Facebook 페이지를 만듭니다.
+1. Facebook 페이지를 만듭니다.
+
+    > [!IMPORTANT]
+    > 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사를 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 섹션 2, 3 및 4를 실행할 수 없습니다.
 
     1. [Facebook](https://www.facebook.com/bookmarks/pages)으로 이동하고 **새 Facebook 페이지**를 만듭니다.
-    2. Facebook 앱에서 이러한 단계를 따라 이 페이지에 액세스하도록 허용합니다.
+    1. Facebook 앱에서 이러한 단계를 따라 이 페이지에 액세스하도록 허용합니다.
         1. [Graph API 탐색기](https://developers.facebook.com/tools/explorer/)로 이동합니다.
-        2. **애플리케이션**을 선택합니다.
-        3. **페이지 액세스 토큰**을 선택하고, **Get** 요청을 보냅니다.
-        4. 응답에서 **페이지 ID**를 클릭합니다.
-        5. 이제 URL에 **/subscribed_apps**를 추가하고 **Get**(빈 응답) 요청을 보냅니다.
-        6. **Post** 요청을 제출합니다. **success: true**로 응답을 받습니다.
+        1. **애플리케이션**을 선택합니다.
+        1. **페이지 액세스 토큰**을 선택하고, **Get** 요청을 보냅니다.
+        1. 응답에서 **페이지 ID**를 클릭합니다.
+        1. 이제 URL에 **/subscribed_apps**를 추가하고 **Get**(빈 응답) 요청을 보냅니다.
+        1. **Post** 요청을 제출합니다. **success: true**로 응답을 받습니다.
 
 3. 만료되지 않는 Graph API 액세스 토큰을 만듭니다.
 

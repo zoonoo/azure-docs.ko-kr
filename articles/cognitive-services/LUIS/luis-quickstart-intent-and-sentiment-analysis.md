@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099038"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236202"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>자습서:  발언의 감정 가져오기
 
@@ -89,6 +89,8 @@ ms.locfileid: "58099038"
     |Denise Dillard는 6월 검토 회의에 불참했습니다.|
     |Mark Mathews는 하버드에서 판매 권유에 박차를 가했습니다.|
     |Walter Williams는 스탠포드에서 훌륭한 프레젠테이션을 했습니다.|
+
+    **옵션 보기**를 선택하고, **엔터티 값 표시**를 선택하여 이름을 확인합니다.
 
     [![EmployeeFeedback 의도에서 예제 발화가 포함된 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 

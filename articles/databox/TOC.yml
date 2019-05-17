@@ -36,6 +36,8 @@
           items:
             - name: 보안 지침 읽기
               href: data-box-safety.md
+            - name: 추적 및 로깅
+              href: data-box-logs.md
             - name: 요구 사항 검토
               items:
                 - name: Data Box

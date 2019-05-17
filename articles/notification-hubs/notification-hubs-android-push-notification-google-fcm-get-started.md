@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a344e4a068ac6791403f686fa728530b3c4f17e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857949"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65209362"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
 
@@ -111,7 +111,8 @@ ms.locfileid: "57857949"
 1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가(없는 경우)합니다. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. 파일 끝에 다음 플러그 인을 추가(없는 경우)합니다. 
@@ -119,22 +120,11 @@ ms.locfileid: "57857949"
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
+3. 도구 모음에서 **지금 동기화**를 선택합니다.
 
 ### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml 업데이트
 
-1. FCM을 지원하려면 코드에서 [Google의 FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId)를 사용하여 [등록 토큰을 가져오는](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) 데 사용되는 인스턴스 ID 수신기 서비스를 구현해야 합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다.
-
-    AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다.
-
-    ```xml
-    <service android:name=".MyInstanceIDService">
-        <intent-filter>
-            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-    </service>
-    ```
-
-2. FirebaseInstanceId API에서 FCM 등록 토큰을 받으면 해당 토큰을 사용하여 [Azure Notification Hubs에 등록합니다](notification-hubs-push-notification-registration-management.md). `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 이 등록을 지원합니다. 또한 이 서비스는 FCM 등록 토큰을 새로 고쳐야 합니다.
+1. FCM 등록 토큰을 받으면 해당 토큰을 사용하여 [Azure Notification Hubs에 등록](notification-hubs-push-notification-registration-management.md)합니다. `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 이 등록을 지원합니다. 또한 이 서비스는 FCM 등록 토큰을 새로 고쳐야 합니다.
 
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다.
 
@@ -145,7 +135,7 @@ ms.locfileid: "57857949"
     </service>
     ```
 
-3. 알림을 받을 수신기도 정의해야 합니다. 다음 수신기 정의를 `<application>` 태그 안의 AndroidManifest.xml 파일에 추가합니다. 
+2. 알림을 받을 수신기도 정의해야 합니다. 다음 수신기 정의를 `<application>` 태그 안의 AndroidManifest.xml 파일에 추가합니다. 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -159,8 +149,7 @@ ms.locfileid: "57857949"
 
     > [!IMPORTANT]
     > `<your package NAME>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
-4. 도구 모음에서 **지금 동기화**를 선택합니다.
-5. `</application>` 태그 **아래**에 다음과 같은 FCM 관련 필수 권한을 추가합니다.
+3. `</application>` 태그 **아래**에 다음과 같은 FCM 관련 필수 권한을 추가합니다.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -188,29 +177,6 @@ ms.locfileid: "57857949"
 
      > [!IMPORTANT]
      > 알림 허브의 **이름**과 **DefaultListenSharedAccessSignature**를 입력하고 계속 진행합니다. 
-2. `MyInstanceIDService`(이)라는 다른 클래스를 추가합니다. 이 클래스는 인스턴스 ID 수신기 서비스 구현입니다.
-
-    이 클래스에 대한 코드는 `IntentService`를 호출하여 백그라운드에서 [FCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
-
-    ```java
-    import android.content.Intent;
-    import android.util.Log;
-    import com.google.firebase.iid.FirebaseInstanceIdService;
-
-    public class MyInstanceIDService extends FirebaseInstanceIdService {
-
-        private static final String TAG = "MyInstanceIDService";
-
-        @Override
-        public void onTokenRefresh() {
-
-            Log.d(TAG, "Refreshing FCM Registration Token");
-
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    };
-    ```
 
 3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 `IntentService` 인터페이스를 구현하고, [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리합니다.
 
@@ -222,12 +188,16 @@ ms.locfileid: "57857949"
     import android.content.SharedPreferences;
     import android.preference.PreferenceManager;
     import android.util.Log;
+    import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
+    import java.util.concurrent.TimeUnit;
 
     public class RegistrationIntentService extends IntentService {
 
         private static final String TAG = "RegIntentService";
+        String FCM_token = null;
 
         private NotificationHub hub;
 
@@ -244,8 +214,14 @@ ms.locfileid: "57857949"
             String storedToken = null;
 
             try {
-                String FCM_token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                    @Override 
+                    public void onSuccess(InstanceIdResult instanceIdResult) { 
+                        FCM_token = instanceIdResult.getToken(); 
+                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                    } 
+                }); 
+                TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
@@ -541,13 +517,13 @@ ms.locfileid: "57857949"
 ### <a name="run-the-mobile-app-on-emulator"></a>에뮬레이터에서 모바일 앱 실행
 에뮬레이터 내부에서 푸시 알림을 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생할 수 있습니다.
 
-또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
+또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 FCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Firebase Cloud Messaging을 사용하여 Android 디바이스로 알림을 푸시했습니다. Google Cloud Messaging을 사용하여 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+이 자습서에서는 Firebase Cloud Messaging을 사용하여 서비스에 등록된 모든 Android 디바이스로 알림을 브로드캐스트했습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)
+>[자습서: 특정 Android 디바이스에 푸시 알림](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 
@@ -556,6 +532,4 @@ ms.locfileid: "57857949"
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

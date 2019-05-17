@@ -31,6 +31,8 @@
       href: concept-audit-logs.md
     - name: 로그인 로그
       href: concept-sign-ins.md
+    - name: 사용량 및 인사이트 보고서
+      href: concept-usage-insights-report.md
     - name: 위험한 로그인
       href: concept-risky-sign-ins.md
     - name: 위험 이벤트

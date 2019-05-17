@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: 지원 받기
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: 파트너 센터의 상용 Marketplace 포털
+  items:
+    - name: 개요
+      items:
+        - name: 상용 Marketplace란?
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: 계정 관리
+      items:
+        - name: 새 파트너 센터 계정 만들기
+          href: ./partner-center-portal/create-account.md
+        - name: 새 파트너 센터 계정 관리
+          href: ./partner-center-portal/manage-account.md
+        - name: 회사 작업 계정 찾기 또는 만들기
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: 새 제안 만들기
+      items:
+        - name: SaaS 제품 만들기
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: 게시 상태
+      href: ./partner-center-portal/publishing-status.md
+    - name: 기존 제품 업데이트
+      href: ./partner-center-portal/update-existing-offer.md

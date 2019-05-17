@@ -1,25 +1,23 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 Apache Storm
+- name: 개요
   items:
-    - name: 개요
+    - name: HDInsight의 Apache Storm이란?
       href: apache-storm-overview.md
-    - name: HDInsight의 Apache Hadoop 구성 요소
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
-      maintainContext: true
 - name: 시작하기
   items:
     - name: Apache Storm 클러스터 만들기
       href: apache-storm-tutorial-get-started-linux.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
     - name: 용량 계획
       href: ../hdinsight-capacity-planning.md
-      maintainContext: true
+- name: 개념
+  items:
+    - name: HDInsight의 Apache Hadoop 구성 요소
+      href: ../hdinsight-component-versioning.md
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
 - name: 방법
   items:
     - name: Apache Storm 토폴로지 개발
@@ -40,7 +38,6 @@
       items:
         - name: Apache Kafka 및 Apache Storm(Java)
           href: ../hdinsight-apache-storm-with-kafka.md
-          maintainContext: true
         - name: 'Event Hub, Storage 및 Data Lake Storage(Java)'
           href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
         - name: 'Event Hub 및 Apache Storm(C# 및 Java)'
@@ -53,47 +50,36 @@
       items:
         - name: 부트스트랩을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-          maintainContext: true
         - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
         - name: 스크립트 작업 개발
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
         - name: HDInsight 애플리케이션 빌드
           items:
             - name: 사용자 지정 앱 설치
               href: ../hdinsight-apps-install-custom-applications.md
-              maintainContext: true
             - name: REST를 사용하여 앱 설치
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Azure Marketplace에 HDInsight 앱 게시
               href: ../hdinsight-apps-publish-applications.md
-              maintainContext: true
     - name: 보안
       items:
         - name: HDInsight와 함께 SSH 사용
           href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-          maintainContext: true
         - name: SSH 터널링 사용
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
-          maintainContext: true
         - name: 데이터에 액세스 제한
           href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-          maintainContext: true
     - name: 관리
       items:
         - name: HDInsight 클러스터 만들기
           href: ../hdinsight-hadoop-provision-linux-clusters.md
-          maintainContext: true
           items:
             - name: Azure Portal 사용
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-              maintainContext: true
             - name: Azure 리소스 관리자 템플릿 사용
               displayName: 'resource manager template, arm template, resource manager group'
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-              maintainContext: true
             - name: .NET용 SDK 사용
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
             - name: Python용 SDK 사용
@@ -102,19 +88,14 @@
               href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
             - name: Azure PowerShell 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-              maintainContext: true
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-              maintainContext: true
             - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-              maintainContext: true
             - name: 주문형 클러스터 만들기
               href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-              maintainContext: true
         - name: HDInsight 클러스터 관리
           href: ../hdinsight-administer-use-portal-linux.md
-          maintainContext: true
           items:
             - name: .NET용 SDK 사용
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
@@ -126,119 +107,67 @@
               href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
             - name: Azure PowerShell 사용
               href: ../hdinsight-administer-use-powershell.md
-              maintainContext: true
             - name: Azure 클래식 CLI 사용
               href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
         - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
           href: ../hdinsight-hadoop-manage-ambari.md
-          maintainContext: true
           items:
             - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
               href: ../hdinsight-changing-configs-via-ambari.md
-              maintainContext: true
             - name: Apache Ambari REST API 사용
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-              maintainContext: true
         - name: HDInsight 클러스터에 대한 로그 관리
           href: ../hdinsight-log-management.md
-          maintainContext: true
         - name: 저장소 계정 추가
           href: ../hdinsight-hadoop-add-storage.md
-          maintainContext: true
         - name: Apache Hadoop 작업용 데이터 업로드
           href: ../hdinsight-upload-data.md
-          maintainContext: true
         - name: Data Lake Storage가 있는 다중 HDInsight 클러스터
           href: ../hdinsight-multiple-clusters-data-lake-store.md
-          maintainContext: true
         - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
           href: ../hdinsight-use-sqoop.md
-          maintainContext: true
           items:
             - name: SSH를 사용하여 연결
               href: ../hdinsight-use-sqoop-mac-linux.md
-              maintainContext: true
             - name: cURL을 사용하여 실행
               href: ../hdinsight-hadoop-use-sqoop-curl.md
-              maintainContext: true
             - name: .NET 용 SDK를 사용하여 실행
               href: ../hdinsight-hadoop-use-sqoop-dotnet-sdk.md
-              maintainContext: true
             - name: Azure PowerShell을 사용하여 실행
               href: ../hdinsight-hadoop-use-sqoop-powershell.md
-              maintainContext: true
         - name: 워크플로에 대해 Apache Oozie 사용
           href: ../hdinsight-use-oozie-linux-mac.md
-          maintainContext: true
         - name: 클러스터 및 서비스 포트와 URI
           href: ../hdinsight-hadoop-port-settings-for-services.md
-          maintainContext: true
         - name: 리소스 관리자 개발 도구로 마이그레이션
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
         - name: 가용성 및 안정성
           href: ../hdinsight-high-availability-linux.md
-          maintainContext: true
         - name: HDInsight 클러스터를 최신 버전으로 업그레이드
           href: ../hdinsight-upgrade-cluster.md
-          maintainContext: true
         - name: HDInsight 클러스터의 OS 패치
           href: ../hdinsight-os-patching.md
-          maintainContext: true
     - name: 문제 해결
       href: ../hdinsight-troubleshoot-guide.md
-      maintainContext: true
       items:
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
           href: ../hdinsight-troubleshoot-failed-cluster.md
-          maintainContext: true
         - name: Apache Hadoop HDFS 문제 해결
           href: ../hdinsight-troubleshoot-hdfs.md
-          maintainContext: true
         - name: Apache STORM 문제 해결
           href: apache-troubleshoot-storm.md
         - name: Apache Hadoop YARN 문제 해결
           href: ../hdinsight-troubleshoot-yarn.md
-          maintainContext: true
         - name: 리소스
           items:
             - name: Linux에서 HDInsight 사용에 관한 정보
               href: ../hdinsight-hadoop-linux-information.md
-              maintainContext: true
             - name: Apache Hadoop 메모리 및 성능
               href: ../hdinsight-hadoop-stack-trace-error-messages.md
-              maintainContext: true
             - name: Linux에서 Hadoop YARN 애플리케이션 로그에 액세스
               href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-              maintainContext: true
             - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-              maintainContext: true
-- name: 엔터프라이즈 준비
-  items:
-    - name: 데이터 보안
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-      maintainContext: true
-    - name: 네트워크 액세스
-      items:
-        - name: Azure VNet의 HDInsight
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
-        - name: 온-프레미스 네트워크와 HDInsight 연결
-          href: ../connect-on-premises-network.md
-          maintainContext: true
-    - name: Azure Monitor 로그를 사용한 모니터링
-      items:
-        - name: Azure Monitor 로그 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Azure Monitor 로그에서 쿼리 사용
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: 클러스터 성능 모니터링
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
 - name: 참고 자료
   items:
     - name: 코드 샘플
@@ -262,16 +191,6 @@
     - name: Resource Manager 템플릿
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: 관련 항목
-  items:
-    - name: Windows 클러스터
-      items:
-        - name: Linux 클러스터로 Windows 클러스터 마이그레이션
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
-        - name: Linux 클러스터로 .NET 솔루션 마이그레이션
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -286,6 +205,31 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: HDInsight에 대한 Windows 도구
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true
     - name: 클러스터 구성 액세스 변경 사항
       href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+- name: 엔터프라이즈 준비
+  items:
+    - name: 데이터 보안
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: 네트워크 액세스
+      items:
+        - name: Azure VNet의 HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: 온-프레미스 네트워크와 HDInsight 연결
+          href: ../connect-on-premises-network.md
+    - name: Azure Monitor 로그를 사용한 모니터링
+      items:
+        - name: Azure Monitor 로그 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Azure Monitor 로그에서 쿼리 사용
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: 클러스터 성능 모니터링
+          href: ../hdinsight-key-scenarios-to-monitor.md
+- name: 관련 항목
+  items:
+    - name: Windows 클러스터
+      items:
+        - name: Linux 클러스터로 Windows 클러스터 마이그레이션
+          href: ../hdinsight-migrate-from-windows-to-linux.md
+        - name: Linux 클러스터로 .NET 솔루션 마이그레이션
+          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

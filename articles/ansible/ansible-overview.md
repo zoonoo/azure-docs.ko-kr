@@ -1,21 +1,21 @@
 ---
-title: Azure에서 Ansible 사용
+title: Azure에서 Ansible 사용 | Microsoft Docs
 description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 소개합니다.
-ms.service: azure
 keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 애플리케이션 배포, Ansible 모듈, Ansible 플레이북
+ms.topic: overview
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 09/02/2018
-ms.topic: overview
-ms.openlocfilehash: d7fc86f9968ede37623ea9c89a666a35cba7eee8
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 4d7e9f8a0527587106985d8a6f0a95e19e640245
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791599"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230127"
 ---
-# <a name="ansible-with-azure"></a>Azure에서 Ansible 사용
+# <a name="using-ansible-with-azure"></a>Azure에서 Ansible 사용
 
 [Ansible](https://www.ansible.com)은 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 오픈 소스 제품입니다. Ansible을 사용하면 가상 머신, 컨테이너 및 네트워크를 프로비전하고 클라우드 인프라를 완성할 수 있습니다. 또한 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다.
 
@@ -23,13 +23,13 @@ ms.locfileid: "57791599"
 
 ## <a name="ansible-playbooks"></a>Ansible 플레이북
 
-[Ansible 플레이북](https://docs.ansible.com/ansible/latest/playbooks.html)은 Ansible의 구성, 배포 및 오케스트레이션 언어입니다. 원격 시스템에서 적용할 정책 또는 일단의 일반 IT 프로세스 단계를 설명할 수 있습니다. 이 경우 플레이북을 만들 때 구성 또는 프로세스의 모델을 정의하는 YAML을 사용하면 됩니다.
+[Ansible 플레이북](https://docs.ansible.com/ansible/latest/playbooks.html)을 사용하여 환경을 구성하도록 Ansible에 지시할 수 있습니다. 플레이북은 사람이 읽을 수 있도록 하기 위해 YAML을 사용하여 코딩합니다. 자습서 섹션에는 플레이북을 사용한 Azure 리소스 설치 및 구성에 대한 많은 예제가 나와 있습니다. 
 
 ## <a name="ansible-modules"></a>Ansible 모듈
 
-Ansible에는 원격 호스트에서 직접 실행하거나 [플레이북](https://docs.ansible.com/ansible/latest/playbooks.html)을 통해 실행할 수 있는 [Ansible 모듈](https://docs.ansible.com/ansible/latest/modules_by_category.html) 제품군이 포함되어 있습니다. 또한 사용자는 자신의 모듈을 만들 수도 있습니다. 모듈은 서비스, 패키지 또는 파일과 같은 시스템 리소스를 제어하거나 시스템 명령을 실행하는 데 사용할 수 있습니다.
+Ansible에는 원격 호스트에서 직접 실행하거나 [플레이북](https://docs.ansible.com/ansible/latest/playbooks.html)을 통해 실행하는 [Ansible 모듈](https://docs.ansible.com/ansible/latest/modules_by_category.html) 모음이 포함되어 있습니다. 사용자는 자신의 모듈을 만들 수 있습니다. 모듈은 서비스, 패키지 또는 파일과 같은 시스템 리소스를 제어하거나 시스템 명령을 실행하는 데 사용합니다.
 
-Azure 서비스와 상호 작용하기 위해 Ansible에는 Azure에서 인프라를 쉽게 만들고 오케스트레이션할 수 있는 도구를 제공하는 [Ansible 클라우드 모듈](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) 제품군이 포함되어 있습니다. 
+Azure 서비스와 상호 작용하기 위해 Ansible에는 [Ansible 클라우드 모듈](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) 모음이 포함되어 있습니다. 이러한 모듈을 사용하여 Azure에서 인프라를 만들고 오케스트레이션할 수 있습니다. 
 
 ## <a name="migrate-existing-workload-to-azure"></a>기존 작업을 Azure로 마이그레이션
 
@@ -40,15 +40,25 @@ Azure 서비스와 상호 작용하기 위해 Ansible에는 Azure에서 인프�
 Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 애플리케이션을 자동화할 수 있습니다.  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>동적 인벤토리를 사용하여 배포 관리
+
 Ansible은 [동적 인벤토리](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) 기능을 통해 Azure 리소스에서 인벤토리를 끌어오는 기능을 제공합니다. 그런 다음, 기존 Azure 배포에 태그를 지정하고, Ansible을 통해 이러한 태그가 지정된 배포를 관리할 수 있습니다.
 
 ## <a name="additional-azure-marketplace-options"></a>추가 Azure Marketplace 옵션
-Red Hat의 [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace 이미지는 조직에서 IT 자동화의 크기를 조정하고 실제, 가상 및 클라우드 인프라에서 복잡한 배포를 관리하는 데 도움이 됩니다. Ansible Tower에는 오늘날의 기업에 필요한 가시성, 제어, 보안 및 효율성의 추가 수준을 제공하는 기능이 포함되어 있습니다. Ansible Tower는 Azure 및 SSH 키와 같은 자격 증명을 암호화하므로 자격 증명이 노출될 위험 없이 경험이 부족한 직원에게 작업을 위임할 수 있습니다.
+
+[Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower)는 Red Hat의 Azure Marketplace 이미지입니다. 
+
+Ansible Tower는 다음 기능을 포함하는 Ansible용 웹 기반 UI 및 대시보드입니다.
+
+* 역할 기반 액세스 제어, 작업, 예약 및 그래픽 인벤토리 관리를 정의할 수 있습니다. 
+* Tower를 기존 도구 및 프로세스에 삽입할 수 있도록 하기 위해 REST API 및 CLI를 포함합니다. 
+* 플레이북 실행의 실시간 출력을 지원합니다. 
+* 자격 증명을 노출하지 않고 작업을 위임할 수 있도록 Azure 및 SSH 키와 같은 자격 증명을 암호화합니다.
 
 ## <a name="ansible-module-and-version-matrix-for-azure"></a>Azure용 Ansible 모듈 및 버전 매트릭스
-Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할 수 있는 여러 모듈과 함께 제공됩니다.
-[Ansible 모듈 및 버전 매트릭스](./ansible-matrix.md)에서는 가상 머신, 네트워킹 및 컨테이너 서비스와 같은 Azure 클라우드 리소스를 프로비전할 수 있는 Azure용 Ansible 모듈을 나열합니다. 
+
+Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모음이 포함되어 있습니다. 이러한 리소스에는 가상 머신포함, 확장 집합, 네트워킹 서비스 및 컨테이너 서비스가 포함됩니다. [Ansible 매트릭스](./ansible-matrix.md)에는 Azure용 Ansible 모듈과 해당 모듈이 제공하는 Ansible 버전이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-- [Linux VM 만들기](/azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+
+- [빠른 시작: CentOS에 Azure용 Ansible 솔루션 템플릿 배포](./ansible-deploy-solution-template.md)
+- [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
