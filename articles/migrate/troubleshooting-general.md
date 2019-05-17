@@ -51,7 +51,7 @@ Azure Migrate 프로젝트를 삭제하면 마이그레이션 프로젝트와 �
 
 포털에서 평가 보고서를 내보낼 수 없는 경우에는 아래 REST API를 사용하여 평가 보고서의 다운로드 URL을 구합니다.
 
-1. 컴퓨터에 *armclient* 설치(아직 설치하지 않은 경우)하는 방법은 다음과 같습니다 
+1. 컴퓨터에 *armclient*를 설치(아직 설치하지 않은 경우)하는 방법은 다음과 같습니다.
 
    a. 관리자 명령 프롬프트 창에서 다음 명령을 실행합니다. ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
@@ -102,9 +102,9 @@ Azure Migrate는 온-프레미스 환경을 지속적으로 프로파일링하�
    - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>"Azure 클라우드 선택 실패" 오류와 함께 어플라이언스에서 클라우드 Azure를 선택할 수 없습니다
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>"Azure 클라우드 선택 실패" 오류와 함께 어플라이언스에서 Azure 클라우드를 선택할 수 없습니다
 
-이것은 알려진 문제이며 이 문제에 대한 수정사항이 있습니다. 어플라이언스에 대한 [최신 업그레이드](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions)를 다운로드하고 수정 사항을 적용하기 위해 어플라이언스 업데이트 합니다.
+이것은 알려진 문제이며 이 문제에 대한 수정사항이 있습니다. 어플라이언스에 대한 [최신 업그레이드](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions)를 다운로드하고 수정 사항을 적용하기 위해 어플라이언스를 업데이트합니다.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Collector가 인터넷에 연결할 수 없음
 
@@ -149,7 +149,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 2. C:\ProgramFiles\ProfilerService\VMWare\Scripts\ 디렉터리로 이동합니다.
 3. InstallPowerCLI.ps1 스크립트를 실행합니다.
 
-### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>UnhandledException Internal 오류 : System.IO.FileNotFoundException 
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>UnhandledException Internal 오류: System.IO.FileNotFoundException 
 
 이 문제는 VMware PowerCLI 설치 문제로 인해 발생할 수 있습니다. 문제를 해결하려면 아래 단계를 수행합니다.
 
@@ -169,7 +169,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
 3. 위의 문제를 해결 되지 않으면 다음과 같이 위의 c 후 다음 단계를 사용 하 여 어플라이언스에서 PowerCLI를 수동으로 설치 합니다.
 
-   a. 위의 2 단계에서 a부터 c까지 단계를 수행하여 불완전한 PowerCLI 설치 파일을 모두 정리하십시오.
+   a. 위의 2 단계에서 a부터 c까지 단계를 수행하여 불완전한 PowerCLI 설치 파일을 모두 정리합니다.
 
    b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
 
@@ -177,21 +177,21 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
    d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
 
-   e. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램을 다운로드하고 필요한 버전의 PowerCLI 설치해야 합니다.
+   e. 바탕 화면 '수집기 실행' 바로 가기를 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램이 다운로드되고 필요한 버전의 PowerCLI 설치됩니다.
 
-4. 방화벽 문제로 인해 어플라이언스에서 모듈을 다운로드할 수 없는 경우, 다음 단계를 사용하여 인터넷 액세스 권한이 있는 컴퓨터에서 모듈을 다운로드하여 설치 합니다.
+4. 방화벽 문제로 인해 어플라이언스에서 모듈을 다운로드할 수 없는 경우, 다음 단계를 사용하여 인터넷 액세스 권한이 있는 컴퓨터에서 모듈을 다운로드하여 설치합니다.
 
-    a. 위의 2 단계에서 a부터 c까지 단계를 수행하여 불완전한 PowerCLI 설치 파일을 모두 정리하십시오.
+    a. 위의 2 단계에서 a부터 c까지 단계를 수행하여 불완전한 PowerCLI 설치 파일을 모두 정리합니다.
 
     b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
 
     c. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (확인 요청이 있는 경우 'A'를 입력)
 
-    d. 수집기 VM에서 동일한 위치에 "C:\Program Files (x86) \WindowsPowerShell\Modules"에서 "VMware"로 시작하는 모든 모듈을 복사합니다.
+    d. "C:\Program Files (x86) \WindowsPowerShell\Modules"에서 수집기 VM의 동일한 위치로 "VMware"로 시작하는 모든 모듈을 복사합니다.
 
     e. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
 
-    f. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 자동으로 수집기 응용 프로그램을 다운로드하고 필요한 버전의 PowerCLI 설치해야 합니다.
+    f. 바탕 화면 '수집기 실행' 바로 가기를 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 수집기 응용 프로그램은 자동으로 필요한 버전의 PowerCLI를 다운로드하고 설치합니다.
 
 ### <a name="error-unabletoconnecttoserver"></a>UnableToConnectToServer 오류
 
@@ -247,7 +247,7 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해서는 Azure Migrate의 종속성을 시각화할 수 없나요?
-Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor 로그를 사용하면 더 긴 기간 동안의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)할 수 있습니다.
+Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있으며 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor 로그를 사용하면 더 긴 기간 동안의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)할 수 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
 [그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
