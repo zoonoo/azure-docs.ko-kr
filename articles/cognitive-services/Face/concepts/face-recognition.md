@@ -51,7 +51,7 @@ ms.locfileid: "64416047"
 
 ### <a name="identification"></a>식별
 
-합니다 [식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 작업은 하나 또는 여러 개의 얼굴 Id (**DetectedFace** 또는 **PersistedFace**) 및 **PersonGroup** 목록을 반환 합니다. **Person** 각 얼굴에 속할 수 있는 개체입니다. 반환 **Person** 개체 래핑되고 **후보** 예측 신뢰도 값이 있는 개체입니다.
+[식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 작업은 하나 또는 여러 개의 face ID(**DetectedFace** 또는 **PersistedFace**)와 **PersonGroup** 목록을 가져와서 각 얼굴에 속하는 **Person** 개체의 목록을 반환합니다. 반환된 **Person** 개체는 예측 신뢰도 값을 가지는 **Candidate** 개체로 래핑됩니다.
 
 ## <a name="input-data"></a>데이터 입력
 

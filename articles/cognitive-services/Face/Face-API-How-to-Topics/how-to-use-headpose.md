@@ -102,9 +102,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>업데이트 된 사각형을 표시 합니다.
+## <a name="display-the-updated-rectangle"></a>업데이트된 사각형 표시
 
-여기에서 반환 된 따르면 **얼굴** 디스플레이 있는 개체입니다. 다음 줄 [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) 새 사각형을이 데이터에서 렌더링 되는 방법을 보여 줍니다.
+여기에서 반환된 **Face** 개체를 사용하여 표시할 수 있습니다. [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) 의 다음 줄은 이 데이터로부터 새 사각형이 렌더링되는 방법을 보여줍니다.
 
 ```xaml
  <DataTemplate>
