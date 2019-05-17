@@ -25,7 +25,7 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | .NET | [GitHub의 MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 | |
 | MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다. |
 | Nodejs |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하 | |
-| GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 버전 1.3에 대한 연결 문자열에서는 `allowNativePasswords=true` 를 사용합니다. 버전 1.4는 수정 사항을 포함하고 `allowNativePasswords=true` 가 필요 하지 않습니다. |
+| GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 버전 1.3에 대한 연결 문자열에서는 `allowNativePasswords=true`를 사용합니다. 버전 1.4는 수정 사항을 포함하고 `allowNativePasswords=true`가 필요하지 않습니다. |
 | Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 | |
 | Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 | |
 
