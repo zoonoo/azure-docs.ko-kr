@@ -18,7 +18,7 @@ ms.locfileid: "58522516"
 |요청|목적|
 |--|--|
 |`http://localhost:5000/`|컨테이너는 홈 페이지를 제공합니다.|
-|`http://localhost:5000/status`|끝점 쿼리를 발생시키지 않고 컨테이너가 실행 중인지 확인하기 위해 GET을 사용하여 요청합니다. Kubernetes liveness 와 [준비 상태 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)에 대해 사용됩니다.|
-|`http://localhost:5000/swagger`|컨테이너는 `Try it now` 기능뿐만 아니라 엔드포인트에 대한 모든 설명서를 제공합니다. 이 기능을 사용하면 웹 기반 HTML 형식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 예제 CURL 명령은 필요한 HTTP 헤더 및 본문 포맷을 데모하는 데 제공됩니다. |
+|`http://localhost:5000/status`|끝점 쿼리를 발생시키지 않고 컨테이너가 실행 중인지 확인하기 위해 GET을 사용하여 요청합니다. Kubernetes [활동성 및 준비 상태 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)에 대해 사용됩니다.|
+|`http://localhost:5000/swagger`|컨테이너는 `Try it now` 기능뿐만 아니라 엔드포인트에 대한 모든 설명서를 제공합니다. 이 기능을 사용하면 웹 기반 HTML 형식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 예로 CURL 명령은 필요한 HTTP 헤더 및 본문 포맷을 데모하는 데 제공됩니다. |
 
 ![컨테이너의 홈페이지](./media/cognitive-services-containers-api-documentation/container-webpage.png)
