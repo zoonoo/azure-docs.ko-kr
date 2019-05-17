@@ -42,7 +42,7 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware에서 Azure로의 마이그레이션**: 온-프레미스 워크로드를 Azure로 마이그레이션하려는 경우 마이그레이션 계획에 Azure Migrate를 사용합니다. Azure Migrate는 온-프레미스 워크로드를 평가하고 Azure로 마이그레이션하는 데 유용한 지침, 통찰력 및 메커니즘을 제공합니다. 마이그레이션 계획이 준비되면 Azure Site Recovery 및 Azure Database Migration Service 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 
-**Hyper-V에서 Azure로의 마이그레이션**: 현재 일반적으로 제공되는 Azure Migrate 버전에서는 Azure로 마이그레이션하기 위한 VMware 가상 머신의 평가를 지원합니다. Hyper-v의 지원은 현재 상용에서도 지원되며 프리뷰 단계입니다. 프리뷰를 사용해 보려면 [여기](https://aka.ms/migratefuture)에서 등록합니다.
+**Hyper-V에서 Azure로의 마이그레이션**: 현재 일반적으로 제공되는 Azure Migrate 버전에서는 Azure로 마이그레이션하기 위한 VMware 가상 머신의 평가를 지원합니다. Hyper-V의 지원은 현재 상용에서도 지원되며 프리뷰 단계입니다. 프리뷰를 사용해 보려면 [여기](https://aka.ms/migratefuture)에서 등록합니다.
 
 **VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
@@ -112,7 +112,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>분석되는 ESXi 호스트 환경의 성능에 대한 영향
 
-연속의 프로 파일링 성능 데이터를 사용하여 vCenter Server 통계 수준을 성능 기반 평가 실행 하기를 변경할 필요가 없습니다 있습니다. 수집기 어플라이언스 온-프레미스 컴퓨터를 가상 컴퓨터의 성능 데이터를 측정 프로 파일링 됩니다. 합니다. 그러므로 ESXi 호스트와 vCenter Server의 성능에 대한 영향은 거의 없습니다.
+성능 데이터를 지속적으로 프로파일링하면 성능 기반 평가를 실행하기 위해 vCenter Server 통계 수준을 변경할 필요가 없습니다. 수집기 어플라이언스는 온-프레미스 컴퓨터를 프로파일링하여 가상 시스템의 성능 데이터를 측정합니다. 이는 vCenter Server뿐 아니라 ESXi 호스트의 성능에도 거의 영향을 미치지 않습니다.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>수집된 데이터는 어디에 저장되며 저장 기간은 얼마나 되나요?
 
