@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 55fb08be6570271d5a4ad76d47bedf3e2917fc2e
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552033"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827329"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -153,7 +153,7 @@ OneDrive 컴퓨터별 모드로 설치 하는 방법을 다음과 같습니다.
 6. 모든 사용자에 대 한 로그인을 시작 하는 OneDrive를 구성 하려면이 명령을 실행 합니다.
 
     ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
+    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. 사용 하도록 설정 **사용자 계정을 자동으로 구성** 다음 명령을 실행 하 여 합니다.
