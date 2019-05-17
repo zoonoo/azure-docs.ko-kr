@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236382"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791014"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
 이 문서에서는 두 가지 유형의 Azure Time Series Insights 미리 보기 액세스 정책에 대해 설명합니다.
 
-## <a name="sign-in-to-tsi"></a>TSI에 로그인
+## <a name="sign-in-to-time-series-insights"></a>Time Series Insights에 로그인
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Time Series Insights 환경을 찾습니다. **검색** 상자에 `Time Series`를 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.

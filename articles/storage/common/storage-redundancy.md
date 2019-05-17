@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150066"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789989"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -35,10 +35,10 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 
 | 시나리오                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | 예                             | 예                              | 예                                  | 예                                  |
-| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아닙니다.                              | 예                              | 예                                  | 예                                  |
-| 전체 지역 가동 중단                                                                                     | 아닙니다.                              | 아니요                               | 예                                  | 예                                  |
-| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아닙니다.                              | 아니요                               | 아니요                                   | 예                                  |
+| 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | 예.                             | 예                              | 예                                  | 예.                                  |
+| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아닙니다.                              | 예                              | 예                                  | 예.                                  |
+| 전체 지역 가동 중단                                                                                     | 아닙니다.                              | 아니요                               | 예                                  | 예.                                  |
+| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아닙니다.                              | 아니요                               | 아니요                                   | 예.                                  |
 | 지정된 한 해 동안 개체의 \_\_ 내구성을 제공하도록 설계                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 저장소 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
@@ -52,7 +52,7 @@ Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Stora
 > Premium Storage는 LRS(로컬 중복 스토리지)만 지원합니다.
 
 ## <a name="changing-replication-strategy"></a>복제 전략 변경
-사용 하 여 저장소 계정의 복제 전략을 변경할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 또는 중 하나는 [Azure 클라이언트 라이브러리](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools)합니다. 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
+사용 하 여 저장소 계정의 복제 전략을 변경할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 또는 중 하나는 [Azure 클라이언트 라이브러리](https://docs.microsoft.com/azure/index#pivot=sdkstools)합니다. 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
 
    > [!NOTE]
    > 현재는 포털 또는 API를 사용하여 계정을 ZRS로 변환할 수 없습니다. 계정의 복제를 ZRS로 변환하려면 자세한 내용은 [ZRS(영역 중복 저장소)](storage-redundancy-zrs.md)를 참조하세요.

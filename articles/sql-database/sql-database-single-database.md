@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572661"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794398"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -30,7 +30,7 @@ ms.locfileid: "64572661"
 
 ## <a name="dynamic-scalability"></a>동적 확장성
 
-가격/성능이 낮은 서비스 계층에서 저렴한 월간 비용으로 소규모 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 [서비스 계층을 가격/성능이 높은 서비스 계층으로 변경](sql-database-single-database-scale.md)할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
+(미리 보기) 서버 리스 컴퓨팅 계층에서 저렴 한 비용 또는 프로 비전 된 계산 계층에서 더 작은 계산 크기가 작은, 단일 데이터베이스에서 첫 번째 앱을 빌드할 수 있습니다. 변경한 합니다 [계산 또는 서비스 계층](sql-database-single-database-scale.md) 수동으로 또는 프로그래밍 방식으로 언제 든 지 솔루션의 요구를 충족 하도록 합니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
 ## <a name="single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀
 

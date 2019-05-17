@@ -1,24 +1,18 @@
 ---
 title: 요청 한도 및 제한 - Azure Resource Manager
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389732"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791368"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -32,7 +26,7 @@ ms.locfileid: "60389732"
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure 리소스 그래프는 해당 작업에 대 한 요청 수를 제한합니다. 나머지 요청 및 제한에 도달 하면 응답 하는 방법을 확인 하려면이 문서의 단계는 리소스 그래프에도 적용 됩니다. 그러나 리소스 그래프는 자신의 제한 및 다시 설정 속도 설정합니다. 자세한 내용은 [Azure 리소스 그래프에서 제한](../governance/resource-graph/overview.md#throttling)합니다.
 
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 읽기 요청 나머지 읽기 요청 수에 대 한 헤더에서 값을 반환합니다. 나머지 쓰기 요청 수에 대 한 값을 포함 하는 요청을 작성 합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.

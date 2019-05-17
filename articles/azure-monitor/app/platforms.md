@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/01/2016
+ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a0dbe736b9727491f77b392c199400003abf8be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254504"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779882"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 의 구현입니다.
@@ -45,7 +45,7 @@ ms.locfileid: "60254504"
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * 웹 및 작업자 역할을 모두 포함하는 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
-* [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Azure 기능](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
@@ -62,6 +62,7 @@ ms.locfileid: "60254504"
 * [다른 항목](#projects)
 
 ## <a name="logging-frameworks"></a>로깅 프레임워크
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog 또는 System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J 또는 Logback](../../azure-monitor/app/java-trace-logs.md)
 * [의미 체계 로깅(SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 애플리케이션 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합

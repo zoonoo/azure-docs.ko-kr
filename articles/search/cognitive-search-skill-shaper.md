@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023707"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540823"
 ---
 #   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
@@ -29,7 +29,7 @@ API 버전에 따라 결정 있습니다 셰이핑의 깊이 달성할 수 있�
 | 2019-05-06-미리 보기 버전의 REST API (.NET SDK 지원 되지 않습니다.) | 복잡 한 개체에 여러 수준이 심층적인 하나 **쉐이 퍼** 기술 정의 합니다. |
 | 2019-05-06 * * (일반 공급), 2017-11-11-미리 보기| 한 수준 더 깊을 복잡 한 개체입니다. 다중 수준 셰이프 쉐이 퍼의 몇 가지 단계를 함께 연결 해야 합니다.|
 
-미리 보기 **쉐이 퍼** 기술에서 나타나는 [시나리오 3](#nested-complex-types)를 새로 추가 선택적 *sourceContext* 속성을 입력 합니다. 합니다 *소스* 하 고 *sourceContext* 속성은 함께 사용할 수 없습니다. 기술의 컨텍스트에서 입력 인 경우 사용 하면 됩니다 *원본*합니다. 입력에 있는 경우는 *서로 다른* 기술 컨텍스트를 사용 하 여 컨텍스트를 *sourceContext*합니다. 합니다 *sourceContext* 원본으로 처리 하는 특정 요소를 사용 하 여 중첩 된 입력을 정의 해야 합니다. 
+제공한 `api-version=2019-05-06-Preview`의 **쉐이 퍼** 에 설명 된 기술 [시나리오 3](#nested-complex-types) 새 선택적 *sourceContext* 속성을 입력 합니다. 합니다 *소스* 하 고 *sourceContext* 속성은 함께 사용할 수 없습니다. 기술의 컨텍스트에서 입력 인 경우 사용 하면 됩니다 *원본*합니다. 입력에 있는 경우는 *서로 다른* 기술 컨텍스트를 사용 하 여 컨텍스트를 *sourceContext*합니다. 합니다 *sourceContext* 원본으로 처리 하는 특정 요소를 사용 하 여 중첩 된 입력을 정의 해야 합니다. 
 
 모든 API 버전에 대 한 응답으로 출력은 항상 "output"입니다. 내부적으로 통해 파이프라인 아래 예제 에서처럼 "analyzedText" 등의 다른 이름을 매핑할 수 있지만 **쉐이 퍼** 자체 기술 "출력" 응답을 반환 합니다. 이는 보강된 문서를 디버그하고 이름 불일치를 확인하거나 사용자 지정 기술을 작성하고 응답을 직접 구조화하는 경우에 중요합니다.
 
@@ -196,7 +196,7 @@ Microsoft.Skills.Util.ShaperSkill
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>시나리오 3: 중첩 된 컨텍스트에서 입력된 통합
 
 > [!NOTE]
-> 중첩 된 api 버전에서 지원 되는 구조 = 2019-05-06-미리 보기에서 사용할 수는 [기술 저장소](knowledge-store-concept-intro.md) 또는 Azure Search 인덱스.
+> 중첩 된 구조에서 지원 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 에서 사용할 수 있습니다를 [기술 저장소](knowledge-store-concept-intro.md) 또는 Azure Search 인덱스입니다.
 
 제목, 장 및 책의 콘텐츠 및 실행 엔터티 인식 및 키 구 내용에 있고 이제 해야 결과 집계 하려면 다른 기술에서 장 이름, 엔터티 및 핵심 문구를 사용 하 여 단일 셰이프로 한다고 가정 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service | Microsoft Docs
-description: Windows VM의 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 가져오는 RESTful 인터페이스입니다.
+description: Windows VM의 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져오는 rESTful 인터페이스입니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993077"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792106"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -359,10 +359,10 @@ azEnvironment | VM에서 실행 하는 azure 환경 | 2018-10-01
 customData | 참조 [사용자 지정 데이터](#custom-data) | 2019-02-01
 location | VM을 실행하는 Azure 지역 | 2017-04-02
 이름 | VM의 이름 | 2017-04-02
-제품 | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다. | 2017-04-02
+제품 | VM 이미지에 대 한 정보를 제공 하 고 Azure 이미지 갤러리에서 이미지의 경우에만 배포 됩니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-계획 | [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) 에서 VM에 대 한 해당 Azure Marketplace 이미지를 이름, 제품 및 게시자를 포함 합니다. | 2018-04-02
+계획 | [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) 경우 이름, 제품 및 VM에 대 한 게시자를 포함 하는 Azure Marketplace 이미지 | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
 provider | VM의 공급자 | 2018-10-01
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>사용자 지정 데이터
-Instance Metadata Service는 사용자 지정 데이터에 액세스할 수 있도록 VM에 대 한 기능을 제공 합니다. 이진 데이터 64KB 보다 작은 해야 하 고 base64 인코딩 양식에서 VM에 제공 됩니다. 사용자 지정 데이터를 사용 하 여 VM을 만드는 방법에 대 한 세부 정보를 참조 하세요 [CustomData 사용 하 여 가상 머신을 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)합니다.
+Instance Metadata Service는 사용자 지정 데이터에 액세스할 수 있도록 VM에 대 한 기능을 제공 합니다. 이진 데이터 64KB 보다 작은 해야 하 고 base64 인코딩 양식에서 VM에 제공 됩니다.
+
+REST Api, PowerShell Cmdlet, Azure 명령줄 인터페이스 (CLI) 또는 ARM 템플릿을 통해 VM에 azure 사용자 지정 데이터를 삽입할 수 있습니다.
+
+Azure 명령줄 인터페이스 예제를 보려면 [사용자 지정 데이터 및 Microsoft Azure에서 Cloud-init](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/)합니다.
+
+ARM 템플릿 예제를 참조 하세요 [CustomData 사용 하 여 가상 머신을 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)합니다.
 
 사용자 지정 데이터를 VM에서 실행 중인 모든 프로세스에 사용할 수 있습니다. 고객은 사용자 지정 데이터를 비밀 정보를 삽입 하지 않습니다 하는 것이 좋습니다.
+
+현재 사용자 지정 데이터는 VM의 부트스트랩 중 사용 가능 하도록 보장 됩니다. 디스크를 추가 하거나 VM 크기를 조정 하는 등 VM 업데이트 되 면 Instance Metadata Service는 사용자 지정 데이터를 제공 하지 않습니다. Instance Metadata Service를 통해 영구적으로 사용자 지정 데이터를 제공 합니다. 현재 진행 중입니다.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>가상 컴퓨터에서 사용자 지정 데이터를 검색합니다.
 Instance Metadata Service는 base64로 인코딩된 양식에서 VM에 사용자 지정 데이터를 제공합니다. 다음 예에서는 base64로 인코딩된 문자열을 디코딩합니다.

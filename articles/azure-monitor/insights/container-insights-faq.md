@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494675"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779998"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>컨테이너용 Azure Monitor 질문과 대답
 
@@ -76,6 +76,12 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 한 후 클러스터를 업그레이드할 수 없습니다는 이유
 
 클러스터에서 데이터를 전송 된 Log Analytics 작업 영역을 삭제 하면 AKS 클러스터에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후에 클러스터를 업그레이드 하려고 할 때 실패 합니다. 이 해결 하기 위해 모니터링을 비활성화 및 재 구독의 다른 올바른 작업 영역을 참조 하 고 활성화 해야 합니다. 클러스터 업그레이드를 다시 수행 하려는 경우를 처리 하 고 성공적으로 완료 합니다.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>포트 및 도메인 하나요 오픈/허용 목록에 에이전트에 대 한?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>다음 단계
 

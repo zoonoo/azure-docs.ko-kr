@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035360"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797373"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
 
@@ -58,7 +58,7 @@ Azure Search는 관리하는 개체 이외의 데이터를 저장하지 않으�
 
 다음 표에서는 로그를 저장하고 Application Insights를 통해 서비스 작업 및 쿼리 워크로드에 대한 심층적인 모니터링을 추가하는 옵션을 비교합니다.
 
-| 리소스 | 용도 |
+| Resource | 용도 |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 상관 관계가 지정 된 앱에서 사용자 이벤트와 함께 합니다. 이는 애플리케이션 코드를 통해 제출된 필터 요청과는 달리 사용자 작업 또는 신호를 고려하여 사용자 시작 검색의 이벤트를 매핑하는 유일한 솔루션입니다. 이 방법을 사용하려면 요청 정보를 Application Insights로 라우팅하는 계측 코드를 원본 파일에 복사하여 붙여넣습니다. 자세한 내용은 [트래픽 분석 검색](search-traffic-analytics.md)을 참조하세요. |
 | [Azure Monitor 로그](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 합니다. Log Analytics 작업 영역에 이벤트가 기록 됩니다. 작업 영역에 대해 쿼리를 실행하여 로그에서 자세한 정보를 반환할 수 있습니다. 자세한 내용은 참조 하세요. [Azure Monitor 로그로 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -77,13 +77,15 @@ Azure Monitor 로그와 Blob storage는 Azure 구독의의 수명 동안 무료�
 
 1. 스토리지 계정이 아직 없는 경우 [스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 이 연습에 사용된 모든 리소스를 삭제하려면 나중에 정리를 간소화하기 위해 Azure Search와 동일한 리소스 그룹에 배치할 수 있습니다.
 
+   저장소 계정의 Azure Search와 동일한 지역에 있어야 합니다.
+
 2. 검색 서비스의 [개요] 페이지를 엽니다. 왼쪽 탐색 창에서 **모니터링**까지 아래로 스크롤하고 **모니터 사용**을 클릭합니다.
 
    ![모니터링 사용](./media/search-monitor-usage/enable-monitoring.png "모니터링 사용")
 
 3. 내보낼 데이터를 선택합니다(로그, 메트릭 또는 둘 다). 저장소 계정에 복사 하, 이벤트 허브로 전송 하거나 Azure Monitor 로그로 내보낼 수 있습니다.
 
-   Blob 스토리지에 보관하려면 스토리지 계정만 있어야 합니다. 로그 데이터를 내보낼 때 컨테이너와 Blob이 만들어집니다.
+   Blob 스토리지에 보관하려면 스토리지 계정만 있어야 합니다. 컨테이너 및 blob 만들어집니다 필요에 따라 로그 데이터를 내보낼 때.
 
    ![Blob 스토리지 보관 구성](./media/search-monitor-usage/configure-blob-storage-archive.png "Blob 스토리지 보관 구성")
 
@@ -116,10 +118,10 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | operationName |문자열 |"Query.Search" |작업 이름 |
 | operationVersion |문자열 |"2019-05-06" |사용된 api-version |
 | category |문자열 |"OperationLogs" |constant |
-| resultType |문자열 |"Success" |가능한 값은 다음과 같습니다. Success 또는 Failure |
+| resultType |문자열 |"Success" |가능한 값: Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
-| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
+| properties |개체 |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
 
@@ -139,11 +141,11 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |
 | 실시간 |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
-| average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
+| 평균 |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
 | minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
 | maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
-| total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
-| count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
+| 합계 |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
+| 개수 |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 | timegrain |문자열 |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
 모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.

@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406368"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790420"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Time Series Insights의 데이터 보존 기간 이해
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights 데이터 보존 기간 이해
 
-이 아티클에서는 TSI(Time Series Insights) 환경의 데이터 보존 기간에 영향을 주는 두 가지 설정을 설명합니다.
+이 문서에서는 Azure Time Series Insights 환경의 데이터 보존 기간에 영향을 주는 두 가지 설정을 설명 합니다.
 
 ## <a name="video"></a>비디오
 
@@ -36,16 +36,16 @@ ms.locfileid: "65406368"
 - **수신 일시 중지**
 
 > [!NOTE]
-> 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. 이러한 설정은 생성 후 TSI 환경의 **구성** 페이지에서 Azure Portal을 사용하여 필요에 따라 전환할 수 있습니다.
+> 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. 이 설정은 Azure portal에서 사용 하 여 생성 후 필요에 따라 전환할 수는 **구성** Time Series Insights 환경 페이지입니다.
 
 보존 동작을 전환하는 방법에 대한 자세한 내용은 [Time Series Insights의 보존 기간 구성](time-series-insights-how-to-configure-retention.md)을 참조하세요.
 
 데이터 보존 동작 비교:
 
-## <a name="purge-old-data"></a>이전 데이터 삭제
+## <a name="purge-old-data"></a>이전 데이터 제거
 
-- 이 동작은 TSI 환경의 기본 동작이며, 공개 미리 보기로 출시된 이후 TSI 환경에서 보여준 동일한 동작을 보여줍니다.  
-- 이 동작은 사용자가 TSI 환경에서 항상 *가장 최근의 데이터*를 보려는 경우에 권장됩니다. 
+- 이 동작은 Time Series Insights 환경에 대 한 기본 동작에 설명 합니다.  
+- 이 동작은 기본 사용자가 항상 표시 하려는 경우 해당 *가장 최근의 데이터* Time Series Insights 환경에서.
 - 이 동작은 환경의 한도(보존 시간, 크기 또는 개수 중 가장 처음으로 도달한 한도)에 도달한 경우 데이터를 *삭제*합니다. 기본적으로 보존 기간은 30일로 설정됩니다.
 - 가장 오래 전에 수집된 데이터부터 먼저 삭제됩니다(FIFO 방식).
 
@@ -75,7 +75,7 @@ ms.locfileid: "65406368"
 
 ### <a name="example-three"></a>예제 3
 
-보존 동작이 **수신 일시 중지**로 구성된 환경을 생각해 보세요. 이 예제에서는 **데이터 보존 기간** 60일로 구성됩니다. **용량**은 S1의 3개 단위로 설정됩니다. 이 환경에 매일 2GB 데이터가 수신된다고 가정하겠습니다. 이 환경에서 최대 용량에 도달하면 수신이 일시 중지됩니다.
+보존 동작이 **수신 일시 중지**로 구성된 환경을 생각해 보세요. 이 예제에서는 **데이터 보존 기간** 60일로 구성됩니다. **용량** S1의 3 명의 단위로 설정 됩니다. 이 환경에 매일 2GB 데이터가 수신된다고 가정하겠습니다. 이 환경에서 최대 용량에 도달하면 수신이 일시 중지됩니다.
 
 이때 환경 같은 데이터 집합이 표시 될 때까지 또는 수신이 다시 시작 될 때까지 **수신을 계속** 사용 됨 (새 데이터에 대 한 공간을 만들기 위해 오래 된 데이터는 제거 됩니다).
 
@@ -91,7 +91,7 @@ Time Series Insights에서 수신 일시 중지가 발생할 경우 데이터 �
 
 [![이벤트 허브 메시지 보존입니다.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-이벤트 원본에 구성 된 속성이 없는 경우 (`timeStampPropertyName`), TSI 기본값은 x 축을 기준으로 이벤트 허브에 도착 한 타임 스탬프입니다. 하는 경우 `timeStampPropertyName` 구성 된 다른 항목에 구성 된 환경 찾습니다 `timeStampPropertyName` 데이터 패킷에서 이벤트가 구문 분석 하는 경우.
+이벤트 원본에 구성 된 속성이 없는 경우 (`timeStampPropertyName`), Time Series Insights가 x 축을 기준으로 이벤트 허브에 도착 한 타임 스탬프를 기본값으로 합니다. 하는 경우 `timeStampPropertyName` 구성 된 다른 항목에 구성 된 환경 찾습니다 `timeStampPropertyName` 데이터 패킷에서 이벤트가 구문 분석 하는 경우.
 
 추가 용량을 확보하거나 보존 기간을 늘리기 위해 환경의 규모를 확장해야 하는 경우 [Time Series Insights 환경의 규모를 조정하는 방법](time-series-insights-how-to-scale-your-environment.md)에서 자세한 내용을 참조하세요.  
 

@@ -2,9 +2,9 @@
 title: Azure Active Directory에서 SAML 기반 Single Sign-On 디버그 | Microsoft Docs
 description: Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그합니다.
 services: active-directory
-author: CelesteDG
+author: rwike77
 documentationcenter: na
-manager: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abbc0965973d58f7716abac0e9e9834f17c99203
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299670"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540515"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
