@@ -3,8 +3,8 @@ title: Azure Active Directory에서 구성 가능한 토큰 수명 | Microsoft D
 description: Azure AD에서 발급한 토큰의 수명을 설정하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.date: 04/13/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411371"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545382"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> 미리 보기 동안 고객으로부터 들은 후 이 기능을 Azure Active Directory 조건부 액세스의 새 기능으로 대체하려고 계획 중입니다.  새로운 기능이 완료되면 이 기능은 알림 기간 후 결국 중단될 예정입니다.  구성 가능한 토큰 수명 정책을 사용하는 경우 사용할 수 있게 되면 새 조건부 액세스 기능으로 전환할 준비를 합니다. 
+> 미리 보기 중 고객 으로부터 청력 후 사용 하는 구성 가능한 토큰 수명 기능 바꾼 것 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106) 에서 Azure AD 조건부 액세스. 이 기능 2019 년 11 월 1 일에 중단 될 예정입니다. 구성 가능한 토큰 수명 정책은 사용 하는 경우 새 조건부 액세스 기능으로 전환 합니다. 
 
 Azure AD에서 정책 개체는 개별 애플리케이션 또는 조직의 모든 애플리케이션에 적용되는 규칙 집합을 나타냅니다. 각 정책 유형에는 할당된 개체에 적용되는 속성 집합이 포함된 고유의 구조가 있습니다.
 

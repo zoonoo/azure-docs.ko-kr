@@ -3,23 +3,23 @@ title: Azure AD 애플리케이션 프록시를 사용하여 앱에 SSO(Single s
 description: Azure Portal에서 Azure AD 애플리케이션을 사용하여 게시된 온-프레미스 애플리케이션에 대한 SSO(Single sign-on)를 켭니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2339ce23379ab51090d536ba071a42017f6941b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c19550adf500ba91462af12b4c5f7f5e38240e67
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293089"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783507"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 05/03/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3880a62d58b15ef07e524d69c38ba723ea56178f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781088"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
@@ -53,7 +53,9 @@ SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페�
 ## <a name="direct-sign-on-links"></a>직접 로그온 링크
 Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 애플리케이션에 대한 직접 Single Sign-On 링크도 지원합니다.
 
-이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 **사용자 액세스 Url** Azure portal에서 Azure Active Directory에서 사용할 수 있는 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다.
+이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 **사용자 액세스 Url** 사용할 수 있는 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다. Azure portal에서 선택 **Azure Active Directory** > **엔터프라이즈 응용 프로그램**합니다. 응용 프로그램을 선택한 후 **속성**합니다.
+
+![Twitter 속성에서 사용자 액세스 URL의 예](media/end-user-experiences/direct-sign-on-link.png)
 
 이러한 링크는 복사하여 선택한 애플리케이션에 대한 로그인 링크를 제공할 위치에 붙여 넣을 수 있습니다. 이 링크는 전자 메일 또는 사용자 애플리케이션 액세스에 대해 설정한 사용자 지정 웹 기반 포털에 있을 수 있습니다. 다음은 Twitter에 대한 Azure AD Single Sign-On URL의 예제입니다.
 

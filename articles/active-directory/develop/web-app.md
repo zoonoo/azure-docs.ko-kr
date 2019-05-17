@@ -3,8 +3,8 @@ title: Azure Active Directory의 웹앱
 description: 웹앱을 소개하고 이 앱 유형에 대한 프로토콜 흐름, 등록 및 토큰 만료 기본 사항을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918523"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544716"
 ---
-# <a name="web-apps"></a>웹 앱
+# <a name="web-apps"></a>웹앱
 
 웹앱은 웹 브라우저의 사용자를 웹 애플리케이션에 인증하는 애플리케이션입니다. 이 시나리오에서는 웹 애플리케이션이 사용자의 브라우저를 Azure AD에 로그인하도록 지시합니다. Azure AD는 보안 토큰에 사용자에 대한 클레임이 포함된 로그인 응답을 사용자의 브라우저를 통해 반환합니다. 이 시나리오에서는 OpenID Connect, SAML 2.0 및 WS-Federation 프로토콜을 사용한 로그온이 지원됩니다.
 

@@ -2,8 +2,8 @@
 title: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정하는 방법 | Microsoft Docs
 description: ADAL SDK의 기능을 사용하여 애플리케이션에서 Single Sign On을 활성화하는 방법입니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d543df842464f1b69fa287c89e777a7e1512ae09
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190197"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540258"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO 사용
 
@@ -240,7 +240,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 애플리케이션에서 키 집합을 공유하는 경우 모든 애플리케이션은 사용자를 삭제하거나 더 심한 경우 애플리케이션에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 애플리케이션이 있는 경우에 특히 미치는 영향이 커집니다. 키 집합을 공유하면 ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
 
-이것으로 끝입니다. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
+정말 간단하죠. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>브로커 지원 SSO에 대한 SSO 설정
 

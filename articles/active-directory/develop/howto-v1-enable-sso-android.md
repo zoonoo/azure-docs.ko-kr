@@ -3,8 +3,8 @@ title: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정�
 description: ADAL SDK의 기능을 사용하여 애플리케이션 전체에서 Single Sign-On을 사용하도록 설정하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c11bf943adcacc39518ba0f290156761be0b78aa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917267"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540383"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO 사용
 

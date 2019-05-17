@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190214"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766864"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리를 구성 합니다.
 
@@ -80,7 +80,7 @@ Azure AD에 등록 된 Windows 장치에 로그인 하는 장치는 프롬프트
 1. 모든 필수 조건을 선택 합니다.
 
    > [!NOTE]
-   > 이 컨트롤에 필요한 "모든 클라우드 앱"을 선택 하는 조건으로를 note 하십시오.
+   > 이 컨트롤에 필요한 "모든 클라우드 앱"을 선택 하는 조건으로 note 하십시오. 브라우저 세션 지 속성은 인증 세션 토큰에 의해 제어 됩니다. 브라우저 세션에서 모든 탭에는 단일 세션 토큰을 공유 및 따라서 모든 지 속성 상태를 공유 해야 합니다.
 
 1. 로 이동 **액세스 제어** > **세션** 를 클릭 하 고 **영구 브라우저 세션**
 1. 드롭다운 목록에서 값을 선택 합니다.

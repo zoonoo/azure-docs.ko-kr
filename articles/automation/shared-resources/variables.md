@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880267"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786202"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -42,7 +42,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 다음은 Automation에서 사용할 수 있는 변수 형식의 목록입니다.
 
 * String
-* 정수 
+* Integer
 * DateTime
 * Boolean
 * Null
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>변수에서 복잡한 개체 설정 및 검색
-
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값으로 변수를 업데이트하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다.  [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject로 저장됩니다.
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-다음 코드에서는 변수에서 값을 검색하고 이를 사용하여 가상 머신을 시작합니다.
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>변수에서 컬렉션 설정 및 검색
-
-다음 샘플 코드에서는 텍스트 Runbook에서 복잡한 값 컬렉션과 함께 변수를 사용하는 방법을 보여 줍니다. 이 샘플에서는 **Get-AzureVM** 을 사용하여 여러 Azure 가상 머신을 검색하고 기존 Automation 변수에 저장합니다. [변수 형식](#variable-types)에 설명된 대로 이 변수는 PSCustomObject 컬렉션으로 저장됩니다.
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-다음 코드에서는 변수에서 컬렉션을 검색하고 이를 사용하여 각 가상 머신을 시작합니다.
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>Python2에서 변수 설정 및 검색

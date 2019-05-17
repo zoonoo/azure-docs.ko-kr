@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829823"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786073"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 프리미엄 계층 소개
 Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시는 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 애플리케이션을 빌드하는 데 도움을 줍니다. 
@@ -59,13 +59,13 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 
 자세한 내용은 [Azure Cache for Redis에서 데이터를 가져오고 내보내는 방법](cache-how-to-import-export-data.md)을 참조하세요.
 
-## <a name="reboot"></a>Reboot
+## <a name="reboot"></a>다시 부팅
 이 프리미엄 계층에서는 요청이 있을 때 하나 이상의 캐시 노드를 다시 부팅할 수 있습니다. 따라서 오류 발생 시 애플리케이션의 복원력을 테스트할 수 있습니다. 다음 노드를 다시 부팅할 수 있습니다.
 
 * 캐시의 마스터 노드
-* 캐시의 슬레이브 노드
-* 캐시의 마스터 및 슬레이브 노드 둘 다
-* 프리미엄 캐시에 클러스터링을 사용하는 경우 캐시의 개별 분할 영역에 대한 마스터, 슬레이브 또는 두 노드를 모두 다시 부팅할 수 있습니다.
+* 캐시의 보조 노드
+* 캐시의 기본 및 보조 노드
+* 주, 보조 서버 또는 두 노드 캐시의 개별 분할 된 데이터베이스에 대 한 클러스터링이 포함 된 프리미엄 캐시를 사용 하는 경우 재부팅할 수 있습니다.
 
 자세한 내용은 [다시 부팅](cache-administration.md#reboot) 및 [다시 부팅 FAQ](cache-administration.md#reboot-faq)를 참조하세요.
 

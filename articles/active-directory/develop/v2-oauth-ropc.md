@@ -3,8 +3,8 @@ title: 리소스 소유자 암호 자격 증명 (ROPC) 권한 부여를 사용 �
 description: 리소스 소유자 암호 자격 증명 권한 부여를 사용하여 브라우저 없는 인증 흐름을 지원합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112292"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545120"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 오류 | 설명 | 클라이언트 작업 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위를 부여 하지 하는 경우는 `consent_required` 오류가 반환 됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
-| `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 유형이 지원 되지 않습니다 합니다 `/common` 또는 `/consumers` 인증 컨텍스트.  대신 `/organizations`를 사용하세요. |
+| `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 유형이 지원 되지 않습니다 합니다 `/common` 또는 `/consumers` 인증 컨텍스트.  대신 `/organizations` 를 사용해야 합니다. |
 | `invalid_client` | 앱이 잘못 설정되었습니다. | 이 경우에 발생할 수 있습니다는 `allowPublicClient` 속성으로 설정 되지 true 합니다 [응용 프로그램 매니페스트](reference-app-manifest.md)합니다. ROPC 권한 부여에 리디렉션 URI가 없으므로 `allowPublicClient` 속성이 필요합니다. 속성이 설정되지 않으면 Azure AD는 앱이 공용 클라이언트 애플리케이션 또는 기밀 클라이언트 애플리케이션인지 확인할 수 없습니다. ROPC 공용 클라이언트 앱 에서만 지원 됩니다. |
 
 ## <a name="learn-more"></a>자세한 정보

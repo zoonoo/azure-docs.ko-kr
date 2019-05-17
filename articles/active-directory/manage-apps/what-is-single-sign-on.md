@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441503"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770902"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 
@@ -40,12 +40,12 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 
 다음 표에는 Single Sign-On 방법이 요약되어 있으며 더 자세한 정보로 이어집니다.
 
-| Single Sign-On 방법 | 애플리케이션 형식 | 사용하는 경우 |
+| Single Sign-On 방법 | 애플리케이션 형식 | 사용 시기 |
 | :------ | :------- | :----- |
 | [OpenID Connect 및 OAuth](#openid-connect-and-oauth) | 클라우드 전용 | 새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth를 사용합니다. 이 프로토콜은 애플리케이션 구성을 간소화하고, 사용하기 쉬운 SDK를 보유하며, 애플리케이션에서 MS Graph를 사용하도록 설정합니다.
 | [SAML](#saml-sso) | 클라우드 및 온-프레미스 | OpenID Connect 또는 OAuth를 사용하지 않는 기존 애플리케이션에 대해 언제나 사용 가능한 SAML을 선택합니다. SAML은 SAML 프로토콜 중 하나를 사용하여 인증하는 애플리케이션에 대해 작동합니다.|
 | [암호 기반](#password-based-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 사용자 이름 및 암호를 사용하여 인증하는 경우 암호 기반을 선택합니다. 암호 기반 Single Sign-On을 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 저장하고 재생할 수 있습니다. 이 방법은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있습니다. |
-| [연결됨](#linked-sso) | 클라우드 및 온-프레미스 | 애플리케이션이 다른 ID 공급 기업 서비스에서 Single Sign-On에 대해 구성된 경우 연결된 Single Sign-On을 선택합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
+| [연결됨](#linked-sign-on) | 클라우드 및 온-프레미스 | 응용 프로그램에서 다른 id 공급자 서비스에서 single sign-on에 대해 구성 된 경우 연결 된 로그온 선택 합니다. 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 하지만 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수도 있습니다.|
 | [사용 안 함](#disabled-sso) | 클라우드 및 온-프레미스 | 앱을 Single Sign-On에 대해 구성할 준비가 되지 않은 경우 사용 안 함 Single Sign-On을 선택합니다. 사용자는 이 애플리케이션을 시작할 때마다 사용자 이름 및 암호를 입력해야 합니다.|
 | [IWA(Windows 통합 인증)](#integrated-windows-authentication-iwa-sso) | 온-프레미스만 | IWA Single Sign-On 방법은 [IWA(Windows 통합 인증)](/aspnet/web-api/overview/security/integrated-windows-authentication)를 사용하는 애플리케이션 또는 클레임 인식 애플리케이션에 선택합니다. IWA의 경우 애플리케이션 프록시 커넥터는 애플리케이션에 사용자를 인증하는 데 KCD(Kerberos 제한된 위임)를 사용합니다. | 
 | [헤더 기반](#header-based-sso) | 온-프레미스만 | 애플리케이션이 인증에 헤더를 사용하는 경우 헤더 기반 Single Sign-On을 사용합니다. 헤더 기반 Single Sign-On에는 Azure AD용 PingAccess가 필요합니다. 애플리케이션 프록시는 Azure AD를 사용하여 사용자를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달합니다.  | 
@@ -122,12 +122,12 @@ Azure AD 관리자가 자격 증명을 관리하는 경우:
 - 관리자는 계속 애플리케이션에 대한 새 자격 증명을 설정할 수 있습니다.
 
 
-## <a name="linked-sso"></a>연결된 SSO
+## <a name="linked-sign-on"></a>연결된 로그온
 연결된 로그온을 통해 Azure AD는 이미 다른 서비스에서 Single Sign-On에 대해 구성된 애플리케이션에 Single Sign-On을 제공할 수 있습니다. 연결된 애플리케이션은 Office 365 포털 또는 Azure AD MyApps 포털에서 최종 사용자에게 표시될 수 있습니다. 예를 들어, 사용자는 AD FS(Active Directory Federation Services) 2.0의 Single Sign-On에 대해 구성된 애플리케이션을 Office 365 포털에서 시작할 수 있습니다. 추가적인 보고도 Office 365 포털 또는 Azure AD MyApps 포털에서 실행되는 연결된 애플리케이션에 제공됩니다. 
 
-### <a name="linked-sso-for-application-migration"></a>애플리케이션 마이그레이션에 대한 연결된 SSO
+### <a name="linked-sign-on-for-application-migration"></a>연결에 대 한 sign-on 응용 프로그램 마이그레이션
 
-연결된 SSO는 일정 기간 동안 애플리케이션을 마이그레이션하면서 일관된 사용자 경험을 제공할 수 있습니다. 애플리케이션을 Azure Active Directory로 마이그레이션하는 경우 연결된 Single Sign-On을 사용하여 마이그레이션하려는 모든 애플리케이션에 대한 링크를 신속하게 게시할 수 있습니다.  사용자는 [MyApps 포털](../user-help/active-directory-saas-access-panel-introduction.md) 또는 [Office 365 애플리케이션 시작 관리자](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에서 모든 링크를 찾을 수 있습니다. 사용자는 연결된 애플리케이션 또는 마이그레이션된 애플리케이션에 액세스하는 것을 알지 못합니다.  
+연결 된 로그온 환경을 제공할 수는 일관 된 사용자 시간 동안의 응용 프로그램을 마이그레이션하는 동안. Azure Active Directory에 응용 프로그램으로 마이그레이션하는 경우 신속 하 게 마이그레이션 하려는 모든 응용 프로그램에 대 한 링크를 게시 하려면 연결 된 로그인에 사용할 수 있습니다.  사용자는 [MyApps 포털](../user-help/active-directory-saas-access-panel-introduction.md) 또는 [Office 365 애플리케이션 시작 관리자](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에서 모든 링크를 찾을 수 있습니다. 사용자는 연결된 애플리케이션 또는 마이그레이션된 애플리케이션에 액세스하는 것을 알지 못합니다.  
 
 사용자가 연결된 애플리케이션을 사용하여 인증하고 나면, 최종 사용자에게 Single Sign-On 액세스를 제공하기 전에 먼저 계정 레코드를 만들어야 합니다. 이 계정 레코드의 프로비저닝은 자동으로 발생하거나 관리자에 의해 수동으로 발생할 수 있습니다.
 
@@ -175,7 +175,7 @@ IWA에 대해 온-프레미스 앱을 구성하려면 [애플리케이션 프록
 
 헤더 기반 인증을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 헤더 기반 인증](application-proxy-configure-single-sign-on-with-ping-access.md)을 참조하세요. 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess는 무엇입니까?
+### <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess란?
 
 Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용하는 애플리케이션에 액세스 및 Single Sign-On을 사용할 수 있습니다. 애플리케이션 프록시는 이러한 애플리케이션을 Azure AD를 사용하여 액세스를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달하는 방식으로 다른 앱과 유사하게 처리합니다. 인증이 발생한 후 PingAccess 서비스는 Azure AD 액세스 토큰을 애플리케이션에 전송되는 헤더 형식으로 변환합니다.
 
