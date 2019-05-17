@@ -61,11 +61,11 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapBw** | 예. |
-| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
+| server | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예. |
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예. |
-| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
 
 **예제:**
@@ -126,7 +126,7 @@ SAP BW에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예. |
-| 쿼리 | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예. |
+| query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예. |
 
 **예제:**
 
@@ -184,7 +184,7 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| 단위 | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
