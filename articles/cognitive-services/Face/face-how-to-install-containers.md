@@ -32,7 +32,7 @@ Face API 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족�
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 `face/v1.0` 라우팅을 끝점 URI로 추가 해야 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `face/v1.0` 라우팅을 끝점 URI에 추가해야 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
 
@@ -86,11 +86,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 | Placeholder | 값 |
 |-------------|-------|
 |{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. 예제입니다. `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `face/v1.0` 라우팅을 끝점 URI로 추가 해야 합니다. 
+앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `face/v1.0` 라우팅을 끝점 URI로 추가해야 합니다. 
 
-다음 예제 `docker run` 명령에서 매개 변수를 사용자 고유값으로 바꿉니다.
+다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -154,7 +154,7 @@ Face API 컨테이너는 Azure 계정의 _Face API_ 리소스를 사용하여 �
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 컨테이너는 계량을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+> Cognitive Services 컨테이너는 계량을 위한 청구 끝점에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너를 항상 청구 끝점과 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
