@@ -2,18 +2,17 @@
 title: P2S 게이트웨이에 대해 공용 CA 인증서로 전환 | Azure VPN Gateway | Microsoft Docs
 description: 이 문서는 P2S 게이트웨이에 대해 새 공용 CA 인증서로 전환하는 데 도움이 됩니다.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/15/2019
+ms.author: cherylmc
+ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859650"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786736"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S용 공용 CA 게이트웨이 인증서로 전환
 
@@ -30,6 +29,8 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 이전 게이트웨이만 이 변경의 영향을 받습니다. 게이트웨이 인증서를 전환해야 하는 경우 Azure Portal에서 통신 또는 알림을 받게 됩니다. 이 문서의 단계를 사용하여 게이트웨이가 영향을 받는지 여부를 확인할 수 있습니다.
 
 > [!IMPORTANT]
+> **이 전환 2019 년 5 월 12 일에 완료 되었습니다.**
+>
 > 전환은 2019년 3월 12일 18:00 UTC에 시작되도록 예약되었습니다. 다른 기간을 원하는 경우 지원 사례를 만들 수 있습니다. 적어도 24시간 전에 요청을 하고 완료합니다.  다음 기간 중 하나를 요청할 수 있습니다.
 >
 > * 2월 25일 06:00 UTC
@@ -37,7 +38,7 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 > * 3월 1일 06:00 UTC
 > * 3월 1일 18:00 UTC
 >
-> **나머지 게이트웨이는 모두 2019년 3월 12일 18:00 UTC부터 전환됩니다**.
+> 나머지 모든 게이트웨이 년 3 월 12 2019 년 18시 UTC부터에 전환 됩니다.
 >
 > 게이트웨이 전환 프로세스가 완료되면 고객이 메일을 받게 됩니다.
 > 

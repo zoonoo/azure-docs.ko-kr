@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 882a071731837b0f7d03ac374a7c831a20a3927e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d7d6bf45a8cdf22fbff0d3fda8175e8007a612d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714481"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789290"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -70,4 +70,4 @@ ms.locfileid: "64714481"
 * [Jupyter 노트북에서 외부 패키지 사용](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Apache Zeppelin을 사용 하 여 Azure HDInsight에서 Apache Hive 쿼리를 실행 하려면](hdinsight-connect-hive-zeppelin.md)
+* [Apache Zeppelin을 사용 하 여 Azure HDInsight에서 Apache Hive 쿼리를 실행 하려면](./interactive-query/hdinsight-connect-hive-zeppelin.md)

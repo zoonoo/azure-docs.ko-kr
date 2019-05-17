@@ -3,8 +3,8 @@ title: 비갤러리 애플리케이션을 추가할 때 발생하는 문제 | Mi
 description: 사용자 지정 비갤러리 애플리케이션을 추가할 때 일반적으로 발생하는 문제 이해
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442508"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784486"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>비갤러리 애플리케이션을 추가할 때 발생하는 문제
 

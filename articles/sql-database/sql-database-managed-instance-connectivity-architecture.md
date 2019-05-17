@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686283"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522328"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처
 
@@ -86,7 +86,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 가상 네트워크 내에서 전용된 서브넷에 관리 되는 인스턴스를 배포 합니다. 서브넷에는 이러한 특징이 있어야 합니다.
 
-- **전용된 서브넷:** 관리 되는 인스턴스의 서브넷, 연결 된 다른 클라우드 서비스를 포함할 수 없습니다 및 게이트웨이 서브넷을 될 수 없습니다. 서브넷 리소스 하지만 관리 되는 인스턴스를 포함할 수 없습니다 및 서브넷의 리소스를 나중에 추가할 수 없습니다.
+- **전용된 서브넷:** 관리 되는 인스턴스의 서브넷, 연결 된 다른 클라우드 서비스를 포함할 수 없습니다 및 게이트웨이 서브넷을 될 수 없습니다. 서브넷 리소스 하지만 관리 되는 인스턴스를 포함할 수 없습니다 하 고 서브넷에서 다른 유형의 리소스를 나중에 추가할 수 없습니다.
 - **NSG(네트워크 보안 그룹):** 가상 네트워크와 연결 된 NSG를 정의 해야 합니다 [인바운드 보안 규칙](#mandatory-inbound-security-rules) 하 고 [아웃 바운드 보안 규칙](#mandatory-outbound-security-rules) 다른 규칙 보다 먼저 합니다. 포트 1433에서 트래픽을 필터링 하 여 관리 되는 인스턴스 데이터 끝점에 대 한 액세스를 제어 하는 NSG를 사용할 수 있습니다 및 11000-11999 위해 관리 되는 인스턴스를 구성할 때 포트 연결을 리디렉션합니다.
 - **사용자 정의 경로 (UDR) 테이블:** 가상 네트워크와 연결 된 UDR 테이블 특정 있어야 [항목이](#user-defined-routes)합니다.
 - **서비스 끝점이 없습니다.** 서비스 끝점이 관리 되는 인스턴스의 서브넷과 연결 해야 합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션은 사용 되지 않음을 확인 합니다.
@@ -97,7 +97,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |포트                        |Protocol|원본           |대상|액션(Action)|
+| 이름       |Port                        |Protocol|원본           |대상|액션(Action)|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -105,7 +105,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| 이름       |포트          |Protocol|원본           |대상|액션(Action)|
+| 이름       |Port          |Protocol|원본           |대상|액션(Action)|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |허용 |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |

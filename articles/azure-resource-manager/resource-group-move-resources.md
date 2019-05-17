@@ -1,23 +1,17 @@
 ---
 title: 새 구독 또는 리소스 그룹으로 Azure 리소스 이동 | Microsoft Docs
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698482"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792689"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -68,15 +62,15 @@ ms.locfileid: "64698482"
 * Azure Monitor 로그
 * Azure Relay
 * Azure Stack - 등록
-* Batch
+* 일괄 처리
 * BizTalk Services
-* Bot 서비스
+* Bot Service
 * CDN
 * Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* 컨테이너 레지스트리
 * Content Moderator
-* Cost Management
+* 비용 관리
 * Customer Insights
 * Data Catalog
 * Data Factory
@@ -105,7 +99,7 @@ ms.locfileid: "64698482"
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
 * Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure의 SAP HANA
-* Scheduler
+* 스케줄러
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
 * Service Bus
 * Service Fabric
@@ -113,6 +107,7 @@ ms.locfileid: "64698482"
 * SignalR Service
 * Storage - 서로 다른 지역의 여러 Storage 계정을 같은 작업에서 이동할 수는 없습니다. 대신 각 지역에 대해 별도의 작업을 사용해야 합니다.
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
+* 저장소 동기화 서비스
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
 * SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
 * Time Series Insights
@@ -135,17 +130,17 @@ ms.locfileid: "64698482"
 * Azure Firewall
 * AKS(Azure Kubernetes Service)
 * Azure Migrate
-* Azure NetApp Files
+* Azure NetApp 파일
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 클래식 애플리케이션
-* Container Instances
+* 컨테이너 인스턴스
 * 컨테이너 서비스
 * Data Box
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
-* Managed Applications
+* 관리 애플리케이션
 * Microsoft Genomics
 * 보안
 * Site Recovery

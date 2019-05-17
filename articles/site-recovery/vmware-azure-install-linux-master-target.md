@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60600045"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602061"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -51,7 +51,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 |커널 시리즈  |최대 지원  |
 |---------|---------|
-|4.4.      |4.4.0-81-제네릭         |
+|4.4      |4.4.0-81-제네릭         |
 |4.8      |4.8.0-56-제네릭         |
 |4.10     |4.10.0-24-제네릭        |
 
@@ -83,7 +83,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
-1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
+1. 선택 **영어 (미국)** 국가/지역 키보드 및 선택에 대 한 원본으로 **Enter**합니다.
 
 1. 키보드 레이아웃으로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
 
@@ -262,7 +262,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     
     **Insert** 키를 눌러 파일을 편집하기 시작합니다. 새 줄을 만들고 다음 텍스트를 삽입합니다. 이전 명령에서 강조 표시된 다중 경로 ID에 따라 디스크 다중 경로 ID를 편집합니다.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **사용 하기 위해 /dev매퍼/\<보존 디스크 다중 경로 id >/mnt 보존 ext4 rw 0 0**
 
     **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 

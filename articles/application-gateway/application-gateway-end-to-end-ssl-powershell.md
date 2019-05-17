@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198572"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786275"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
 
@@ -231,6 +231,69 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>백 엔드 인증서 만료 되 면 새 인증서를 적용
+
+백 엔드 인증서 만료 되 면 새 인증서를 적용 하려면이 절차를 따르십시오.
+
+1. 업데이트할 Application Gateway를 검색합니다.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. 인증서의 공개 키를 포함 하는.cer 파일에서 새 인증서 리소스를 추가 하 고 application gateway에서 SSL 종료를 위한 수신기에 추가 된 동일한 인증서 일 수도 있습니다.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. 변수에 새 인증 인증서 개체를 가져옵니다 (형식 이름: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. 새 인증서를 할당 합니다 **BackendHttp** 설정을 $AuthCert 변수를 사용 하 여 참조 합니다. (변경 하려면 HTTP 설정 이름을 지정 합니다.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Application gateway에 변경 내용을 커밋하고 $out 변수에 포함 된 새 구성을 전달 합니다.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>HTTP 설정에서 사용 되지 않은 만료 된 인증서를 제거 합니다.
+
+HTTP 설정에서 사용 되지 않은 만료 된 인증서를 제거 하려면이 절차를 따르십시오.
+
+1. 업데이트할 Application Gateway를 검색합니다.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. 제거 하려는 인증 인증서의 이름을 나열 합니다.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Application gateway에서 인증 인증서를 제거 합니다.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. 변경을 내용을 커밋하십시오.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>기존 Application Gateway의 SSL 프로토콜 버전 제한
 
 이전 단계에서는 엔드투엔드 SSL을 사용하여 애플리케이션을 만들고 특정 SSL 프로토콜 버전을 비활성화했습니다. 다음 예제에서는 기존 Application Gateway의 특정 SSL 정책을 비활성화합니다.

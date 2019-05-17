@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461325"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212009"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>키 트랜잭션 (지역당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>키 트랜잭션 (지역당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup>):
 
 |키 유형|HSM 키<br>키 만들기|HSM 키<br>모든 다른 트랜잭션|소프트웨어 키<br>키 만들기|소프트웨어 키<br>모든 다른 트랜잭션|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461325"
 > - 125 RSA 4096 비트 HSM 키 GET 트랜잭션
 > - 124 RSA 4096 비트 HSM-키 GET 트랜잭션 및 8 RSA 2,048 비트 HSM 키 가져오기
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>암호, 관리 되는 저장소 계정 키 및 자격 증명 모음 트랜잭션:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>암호, 관리 되는 저장소 계정 키 및 자격 증명 모음 트랜잭션:
 | 트랜잭션 유형 | 지역당 자격 증명 모음 당 10 초 내에 허용 되는 최대 트랜잭션<sup>1</sup> |
 | --- | --- |
 | 모든 트랜잭션 |2,000 |

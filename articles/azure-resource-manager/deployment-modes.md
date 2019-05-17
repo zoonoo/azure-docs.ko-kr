@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550583"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789263"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -46,7 +46,9 @@ ms.locfileid: "60550583"
 
 ## <a name="incremental-mode"></a>증분 모드
 
-증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다. 증분 모드에서 리소스를 다시 배포할 때는 업데이트 중인 속성 값뿐만 아니라 리소스의 모든 속성 값을 지정합니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
+증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다.
+
+그러나 증분 모드에서 기존 리소스를 재배포 하는 경우 결과는 다릅니다. 뿐 아니라 업데이트 하는 리소스에 대 한 모든 속성을 지정 합니다. 지정 되지 않은 속성은 생각에 대 한 일반적인 오해가 변경 되지 않습니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
 
 ## <a name="example-result"></a>결과 예제
 

@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494756"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65754110"
 ---
-| 리소스 | 기본 제한 | 참고 |
+| Resource | 기본/최대 제한 | 참고 |
 | --- | --- | --- |
 | Azure Application Gateway |구독 당 1,000 개 | |
 | 프런트 엔드 IP 구성 |2 |공용 1 및 개인 1 |

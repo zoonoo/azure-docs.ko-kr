@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924662"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794771"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -79,7 +79,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있는 참조 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) Power BI 테 넌 트의 영역을 확인 하는 방법에 대 한 합니다. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
@@ -152,7 +152,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>같은 메트로에 여러 ExpressRoute 회로를 포함할 수 있나요? 동일한 가상 네트워크에 연결할 수 있나요?
 
-예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 생성 되 면 연결할 수 있습니다 여전히 이러한 동일한 가상 네트워크에 있지만 각 피어 링 위치에서 ExpressRoute 회로 최대 4. 예를 들어 “Singapore” 및 “Singapore2” 피어링 위치를 선택하고 각 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 
+예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 생성 되 면 회로 최대 4 개의 동일한 가상 네트워크에 연결할 수 있습니다.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
 
@@ -190,7 +190,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
-예. 단일 가상 네트워크를 최대 4개의 ExpressRoute 회로와 연결할 수 있습니다. 4개의 다른 [ExpressRoute 위치](expressroute-locations.md)를 통해 순서를 지정해야 합니다.
+예. 중 하나는 동일 하거나 다른 피어 링 위치에 최대 4 개의 ExpressRoute 회로 사용 하 여 단일 가상 네트워크를 연결할 수 있습니다. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에서 인터넷에 액세스할 수 있나요?
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684140"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812954"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,11 +40,11 @@ ms.locfileid: "64684140"
 
 | 특성 | 필수 | 설명 |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
+| PolicySchemaVersion | 예. | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
 | TenantObjectId | 아닙니다. | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
-| TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
-| PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
-| PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
+| TenantId | 예. | 이 정책이 속한 테넌트의 고유 식별자입니다. |
+| PolicyId | 예. | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
+| PublicPolicyUri | 예. | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
 | DeploymentMode | 아닙니다. | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 | UserJourneyRecorderEndpoint | 아닙니다. | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 
@@ -88,7 +88,7 @@ ms.locfileid: "64684140"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 | 설명 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |
@@ -116,7 +116,7 @@ ms.locfileid: "64684140"
 
 ## <a name="policy-execution"></a>정책 실행
 
-웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 애플리케이션이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 애플리케이션이 동일한 정책을 사용할 수 있습니다. 모든 애플리케이션은 클레임이 포함된 동일한 토큰을 수신하며 사용자가 동일한 사용자 경험을 진행합니다. 단일 애플리케이션이 여러 개의 정책을 사용할 수 있습니다.
+웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 애플리케이션이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 애플리케이션이 동일한 정책을 사용할 수 있습니다. 모든 응용 프로그램 클레임을 사용 하 여 동일한 토큰을 받고 거친 사용자가 동일한 사용자 경험 합니다. 단일 애플리케이션이 여러 개의 정책을 사용할 수 있습니다.
 
 RP 정책 파일 내에서 [UserJourney](userjourneys.md)를 가리키는 **DefaultUserJourney** 요소를 지정합니다. 일반적으로 사용자 경험은 기본 또는 확장 정책에서 정의됩니다.
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 
 사용자 경험은 사용자가 진행하는 과정의 비즈니스 논리를 정의합니다. 각 사용자 경험은 인증 및 정보 수집의 측면에서 순서대로 일련의 작업을 수행하는 오케스트레이션 단계 집합입니다. 
 
-[스타터 팩](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 메일 주소 변경, 소셜 계정 연결 및 연결 해제 또는 암호 재설정과 같은 다른 시나리오에 대한 사용자 경험을 더 추가할 수 있습니다. 
+[스타터 팩](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 연결 및 소셜 계정 연결 해제와 같은 다른 시나리오에 대 한 자세한 사용자 경험을 추가할 수 있습니다. 
 
 오케스트레이션 단계는 [기술 프로필](technicalprofiles.md)을 호출할 수 있습니다. 기술 프로필은 다른 유형의 당사자와 통신하기 위한 기본 제공 메커니즘이 있는 프레임워크를 제공합니다. 예를 들어 기술 프로필은 다음 작업을 수행할 수 있습니다.
 
@@ -157,4 +157,3 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

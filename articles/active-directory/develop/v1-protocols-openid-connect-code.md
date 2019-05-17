@@ -3,8 +3,8 @@ title: Azure AD의 OpenID Connect 인증 코드 흐름 이해 | Microsoft Docs
 description: 이 문서에서는 Azure Active Directory 및 OpenID Connect를 사용하여 테넌트에서 웹 애플리케이션 및 Web API에 대한 액세스 권한을 부여하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251651"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784973"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -107,7 +107,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="sample-response"></a>샘플 응답
 
-사용자를 인증한 후 샘플 응답은 다음과 같습니다.
+샘플 응답에 전송 된 `redirect_uri` 같을 수 있습니다 사용자가 인증 한 후 로그인 요청에 지정 된:
 
 ```
 POST / HTTP/1.1
@@ -216,7 +216,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 ### <a name="successful-response"></a>성공적인 응답
 
-`response_mode=form_post` 를 사용한 성공적인 응답은 다음과 같습니다.
+성공적인 응답을 전송 합니다 `redirect_uri` 를 사용 하 여 `response_mode=form_post`, 같습니다:
 
 ```
 POST /myapp/ HTTP/1.1

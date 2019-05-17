@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024707"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522845"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search 인덱서를 사용 하 여 Cosmos DB를 인덱싱하는 방법
+
+
+> [!Note]
+> MongoDB API 지원은 미리 보기로 제공 되며 프로덕션 사용에 대 한 의도 하지 않습니다. 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. 포털 또는 지금은.NET SDK를 지원 하지 있습니다.
+>
+> SQL API 일반 공급 됩니다.
 
 이 문서에서는 Azure Cosmos DB를 구성 하는 방법을 보여 줍니다 [인덱서](search-indexer-overview.md) 콘텐츠를 추출 하 여 Azure Search에서 가능 합니다. 이 워크플로 Azure Search 인덱스를 만들고 Azure Cosmos DB에서 추출 하는 기존 텍스트를 사용 하 여 로드 합니다. 
 
@@ -26,7 +32,7 @@ ms.locfileid: "65024707"
 사용할 수는 [포털](#cosmos-indexer-portal), REST Api 또는.NET SDK Cosmos 콘텐츠를 인덱싱합니다. Cosmos DB 인덱서 Azure Search에서 크롤링할 수 있는 [Azure Cosmos 항목](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) 이러한 프로토콜을 통해 액세스 합니다.
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search이이 API에 대 한 지원은 공개 미리 보기)  
+* [MongoDB API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > 사용자 의견에 기존 항목 추가 API 지원이 있습니다. 원하는 보려는 Azure Search에서 지원 되는 Cosmos Api에 대 한 투표를 캐스팅할 수 있습니다. [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)하십시오 [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)합니다.
@@ -118,7 +124,7 @@ Cosmos DB 데이터베이스에 데이터가 있는지 확인 합니다. 합니�
 
 Azure Search에 있는 모든 인덱서에 공통를 세 부분으로 이루어진 워크플로 따르는 데이터를 인덱싱하도록 Azure Cosmos DB, REST API를 사용할 수 있습니다: 데이터 원본 만들기, 인덱스 만들기, 인덱서를 만듭니다. Cosmos 저장소에서 데이터 추출 인덱서 만들기 요청을 제출할 때 발생 합니다. 이 요청이 완료 되 면 인덱스를 쿼리 가능 해야 합니다. 
 
-MongoDB를 평가 하는 경우에 데이터 원본을 만들려면 REST API를 사용 해야 합니다.
+MongoDB를 평가 하는 경우 나머지에 사용 해야 `api-version=2019-05-06-Preview` 데이터 소스를 만듭니다.
 
 Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 여부를 선택할 수 있습니다. 기본적으로 모든 문서는 자동으로 인덱싱되지만 자동 인덱싱을 해제할 수도 있습니다. 인덱싱을 해제하면 자체 링크를 통해서나 문서 ID를 사용한 쿼리로만 문서에 액세스할 수 있습니다. Azure Search를 사용하려면 Azure Search로 인덱싱할 컬렉션에서 Cosmos DB 자동 인덱싱이 설정되어 있어야 합니다. 
 
@@ -171,7 +177,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 | 필드   | 설명 |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타내는 데 모든 이름을 선택 합니다. |
-|**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
+|**type**| 필수 사항입니다. `cosmosdb`여야 합니다. |
 |**credentials** | 필수 사항입니다. Cosmos DB 연결 문자열 이어야 합니다.<br/>SQL 컬렉션에 대 한 연결 문자열이이 형식에 있습니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB 컬렉션에 대 한 추가 **ApiKind = MongoDb** 연결 문자열:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.|
 | **container** | 다음 요소가 포함 됩니다. <br/>**name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정 합니다.<br/>**query**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.|
@@ -249,10 +255,10 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure Search 데이터 형식 사이의 매핑
 | JSON 데이터 형식 | 호환되는 대상 인덱스 필드 형식 |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| 부울 |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| 문자열 |Edm.String |
+| String |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체(예: { “type”: “Point”, “coordinates”: [long, lat] } |Edm.GeographyPoint |
@@ -279,7 +285,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 ## <a name="use-net"></a>.NET 사용
 
-.NET SDK는 REST API와 완전히 동일한 기능을 제공합니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
+일반적으로 사용할 수 있는.NET SDK에는 일반적으로 사용할 수 있는 REST API를 사용 하 여 완벽 한 패리티를 있습니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>이 동영상 시청
-
-약간 오래 된이 7 분짜리 비디오에서는 Azure Cosmos DB 프로그램 관리자 Andrew liu가 Azure Cosmos DB 컨테이너에 Azure Search 인덱스를 추가 하는 방법에 설명 합니다. 비디오에 표시 된 포털 페이지에는 오래 이지만 정보를 여전히 관련이 있습니다.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>다음 단계
 

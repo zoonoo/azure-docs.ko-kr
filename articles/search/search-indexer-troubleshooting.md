@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024685"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539249"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 
@@ -42,7 +42,7 @@ Azure Storage는 구성 가능한 방화벽을 제공합니다. 기본적으로 
 
 `nslookup <service name>.search.windows.net`
 
-예외는 [Cognitive Search](cognitive-search-concept-intro.md)에서 작동하지 않습니다. 유일한 해결 방법은 방화벽을 사용하지 않는 것입니다.
+예외에 대 한 작동 하지 않습니다 [cognitive search](cognitive-search-concept-intro.md)합니다. 유일한 해결 방법은 방화벽을 사용하지 않는 것입니다.
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 Blob 인덱서는 [컨테이너의 blob에서 텍스트를 찾아서 추출합니다](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). 텍스트 추출에 대한 몇 가지 문제는 다음과 같습니다.
 
-* 문서에는 스캔된 이미지만 포함됩니다. 스캔된 이미지(JPG)와 같은 텍스트가 아닌 콘텐츠를 포함한 PDF Blob은 표준 Blob 인덱싱 파이프라인에서 결과를 생성하지 않습니다. 텍스트 요소를 포함한 이미지 콘텐츠를 만든 경우 [Cognitive Search](cognitive-search-concept-image-scenarios.md)를 사용하여 텍스트를 찾고 추출할 수 있습니다.
+* 문서에는 스캔된 이미지만 포함됩니다. 스캔된 이미지(JPG)와 같은 텍스트가 아닌 콘텐츠를 포함한 PDF Blob은 표준 Blob 인덱싱 파이프라인에서 결과를 생성하지 않습니다. 텍스트 요소를 사용 하 여 이미지 콘텐츠를 만든 경우 사용할 수 있습니다 [cognitive search](cognitive-search-concept-image-scenarios.md) 를 찾고 텍스트를 추출 합니다.
 * Blob 인덱서는 메타데이터를 인덱스하도록 구성됩니다. 콘텐츠를 추출하려면 [콘텐츠 및 메타데이터를 모두 추출](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)하도록 Blob 인덱서를 구성해야 합니다.
 
 ```
@@ -94,5 +94,5 @@ api-key: [admin key]
 * 문서는 인덱스되지 않았습니다. 성공적인 인덱서 실행을 위해 포털을 확인합니다.
 * 문서는 인덱서 실행 후에 업데이트되었습니다. 인덱서가 [일정](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)대로 진행되는 경우 결국 문서를 다시 실행하고 선택합니다.
 * 데이터 원본에 지정된 [쿼리](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax)는 문서를 제외합니다. 인덱서는 데이터 원본에 포함되지 않는 문서를 인덱싱할 수 없습니다.
-* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)는 문서를 변경하여 예상과 다르게 표시합니다.
+* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 문서 변경 및 예상과 다르게 보입니다.
 * [문서 조회 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)를 사용하여 문서를 찾습니다.
