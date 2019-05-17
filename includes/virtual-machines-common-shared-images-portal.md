@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148060"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827067"
 ---
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
@@ -51,7 +51,7 @@ ms.locfileid: "65148060"
 1. 에 대 한 **Publisher**, 형식 *myPublisher*합니다. 
 1. 에 대 한 **제공**, 형식 *myOffer*합니다.
 1. 에 대 한 **SKU**, 형식 *mySKU*합니다.
-1. 했는지 **예** 선택한 주세요 **사용 하도록 설정** 선택한 후 **검토 + 만들기**합니다.
+1. 완료 되 면 선택 **검토 + 만들기**합니다.
 1. 이미지 정의 유효성 검사를 통과 한 후 선택 **만들기**합니다.
 1. 배포가 완료 되 면 선택 **리소스로 이동**합니다.
 
