@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093967"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605607"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-컴퓨터가 있는 국가(해당 IP 국가를 기준으로 함)별 컴퓨터 수집 시간을 표시하려면 다음 쿼리를 사용합니다. 
+에 있는 해당 IP 주소를 기반으로 하는 국가/지역에 따라 컴퓨터 수집 시간을 표시 하려면 다음 쿼리를 사용 합니다. 
 
 ``` Kusto
 Heartbeat 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551633"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620160"
 ---
 # <a name="sql-database-serverless-preview"></a>Azure SQL Database 서버리스(미리 보기)
 
@@ -65,15 +65,15 @@ SQL Database 서버리스(미리 보기)는 단일 데이터베이스에서 사�
 |:---|:---|:---|
 |**일반적인 사용량 시나리오**| 비활성 기간과 섞여 간헐적이고 예측 불가능한 사용량이 있는 데이터베이스가 있습니다. | 더 규칙적인 사용량이 있는 데이터베이스 또는 탄력적 풀이 있습니다.|
 | **성능 관리 작업** |더 적음|더 많음|
-|**컴퓨팅 크기 조정**|자동|설명서|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
+|**컴퓨팅 크기 조정**|자동|수동|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 확장
+## <a name="autoscaling"></a>자동 크기 조정
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -204,11 +204,11 @@ Set-AzSqlDatabase
 
 ### <a name="minimum-vcores"></a>최소 vCore 수
 
-최대 vCore 수를 수정하려면 PowerShell에서 `MinVcore` 인수를 사용하는 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 수행합니다.
+사용 하 여 수행 됩니다 최소 vcore 수를 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `MinVcore` 인수입니다.
 
 ### <a name="autopause-delay"></a>자동 일시 중지 지연
 
-최대 vCore 수를 수정하려면 PowerShell에서 `AutoPauseDelay` 인수를 사용하는 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 수행합니다.
+사용 하 여 수행 됩니다 autopause 지연 시간을 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `AutoPauseDelay` 인수입니다.
 
 ## <a name="monitor-serverless-database"></a>서버리스 데이터베이스 모니터링
 

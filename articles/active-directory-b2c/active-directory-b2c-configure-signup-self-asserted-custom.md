@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685282"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768001"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  항목을 드롭다운으로 구성하고 필수 여부를 정의합니다.
+이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  드롭다운으로 항목을 구성 하 고가 필요한 지 여부를 정의 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,12 +29,12 @@ ms.locfileid: "64685282"
 
 ## <a name="add-claims"></a>클레임 추가
 
-사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C가 사용자로부터 직접, 정보를 대화형으로 수집할 때마다 Identity Experience Framework는 자체 어설션 공급자를 사용합니다.
+사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C를 대화형으로 사용자에서 직접 정보 수집, 언제 든 지 Identity Experience Framework를 해당 자체 어설션된 공급자를 사용 합니다.
 
 
 ### <a name="define-the-claim"></a>클레임 정의
 
-사용자에게 도시를 요청해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
+해당 도시에 대 한 사용자에 게 요청 해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
 
 ```xml
 <ClaimType Id="city">
@@ -51,7 +51,7 @@ ms.locfileid: "64685282"
 - **UserHelpText** - 사용자가 필요한 내용을 파악할 수 있도록 도와줍니다.
 - **UserInputType** - 텍스트 상자, 라디오 선택, 드롭다운 목록 또는 다중 선택일 수 있습니다.
 
-#### <a name="textbox"></a>TextBox
+#### <a name="textbox"></a>텍스트 상자
 
 ```xml
 <ClaimType Id="city">

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61273093"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619727"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
-App Service 도메인(미리 보기)은 Azure에서 직접 관리되는 최상위 도메인입니다. 이 도메인을 통해 [Azure App Service](overview.md)의 사용자 지정 도메인을 쉽게 관리할 수 있습니다. 이 자습서에서는 App Service 도메인을 구입하고 DNS 이름을 Azure App Service에 할당하는 방법을 보여 줍니다.
+App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입니다. 이 도메인을 통해 [Azure App Service](overview.md)의 사용자 지정 도메인을 쉽게 관리할 수 있습니다. 이 자습서에서는 App Service 도메인을 구입하고 DNS 이름을 Azure App Service에 할당하는 방법을 보여 줍니다.
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
@@ -80,7 +80,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 ## <a name="buy-the-domain"></a>도메인 구입
 
 ### <a name="pricing-information"></a>가격 정보
-Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/)를 방문하여 App Service 도메인까지 아래로 스크롤하세요.
+Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) App Service 도메인까지 아래로 스크롤합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 [Azure 포털](https://portal.azure.com/)에서 Azure 계정으로 로그인합니다.
@@ -150,7 +150,7 @@ Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가�
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
-구매 과정에서 앱에 기본 호스트 이름을 하나 이상 할당하지 않도록 선택한 경우 또는 나열되지 않은 호스트 이름을 할당해야 하는 경우 언제든지 호스트 이름을 할당할 수 있습니다.
+구매 과정에서 앱에 하나 이상의 기본 호스트 이름을 할당 하지 않으려는 경우 또는 나열 되지 않은 호스트 이름을 할당 해야 하는 경우 언제 든 지 호스트 이름을 할당할 수 있습니다.
 
 App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수도 있습니다. 이 단계는 App Service 도메인 및 앱이 동일한 구독에 속하는지 여부에 따라 달라집니다.
 
@@ -278,7 +278,3 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메�
 ## <a name="direct-default-url-to-a-custom-directory"></a>사용자 지정 디렉터리로 기본 URL 전달
 
 App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.
-
-## <a name="more-resources"></a>추가 리소스
-
-[FAQ: App Service 도메인(미리 보기) 및 사용자 지정 도메인](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771814"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789417"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -26,7 +26,7 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다.
+입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키에는 nvarchar (max) 여야 합니다.
 
 ### <a name="example"></a>예
 
@@ -58,11 +58,11 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. 파티션 키는 대/소문자를 구분하지 않으므로 "John"과 "john"은 동일한 파티션 키입니다. 또한 식을 파티션 키로 사용할 수 없습니다. 예를 들어 **{columnA + columnB}** 는 작동하지 않습니다.  
 
-3. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.  
+3. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 
@@ -72,7 +72,7 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 다음 서식 지정자 토큰은 사용자 지정 날짜/시간 형식을 설정하기 위해 단독 또는 함께 사용할 수 있습니다.
 
-|서식 지정자   |설명   |예제 시간 2018-01-02T10:06:08에 대한 결과|
+|형식 지정자   |설명   |예제 시간 2018-01-02T10:06:08에 대한 결과|
 |----------|-----------|------------|
 |{datetime:yyyy}|연도(4자리 숫자)|2018|
 |{datetime:MM}|월(01-12)|01|

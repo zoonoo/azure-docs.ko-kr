@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151041"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779662"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
@@ -45,14 +45,15 @@ Azure Media Services API에 연결 하려면 Azure AD 서비스 주체 인증을
 ## <a name="see-also"></a>참고 항목
 
 - [미디어 예약 단위 크기 조정 - CLI](media-reserved-units-cli-how-to.md)
-- [Media Services 계정 만들기 - CLI](./scripts/cli-create-account.md) 
-- [계정 자격 증명 다시 설정 - CLI](./scripts/cli-reset-account-credentials.md)
-- [자산 만들기 - CLI](./scripts/cli-create-asset.md)
-- [파일 업로드 - CLI](./scripts/cli-upload-file-asset.md)
-- [변환 만들기 - CLI](./scripts/cli-create-transform.md)
-- [작업 만들기 - CLI](./scripts/cli-create-jobs.md)
-- [EventGrid 만들기 - CLI](./scripts/cli-create-event-grid.md)
-- [자산 게시 - CLI](./scripts/cli-publish-asset.md)
+- [Media Services 계정 만들기 - CLI](create-account-cli-how-to.md) 
+- [계정 자격 증명 다시 설정 - CLI](cli-reset-account-credentials.md)
+- [자산 만들기 - CLI](cli-create-asset.md)
+- [파일 업로드 - CLI](cli-upload-file-asset.md)
+- [변환 만들기 - CLI](cli-create-transform.md)
+- [사용자 지정 변환-CLI 사용 하 여 인코딩](custom-preset-cli-howto.md)
+- [작업 만들기 - CLI](cli-create-jobs.md)
+- [EventGrid 만들기 - CLI](job-state-events-cli-how-to.md)
+- [자산 게시 - CLI](cli-publish-asset.md)
 - [필터링 - CLI](filters-dynamic-manifest-cli-howto.md)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
@@ -60,5 +61,5 @@ Azure Media Services API에 연결 하려면 Azure AD 서비스 주체 인증을
 
 콘텐츠를 스트림할 하려는 스트리밍 끝점은 실행 상태에서 여야 합니다. 다음 CLI 명령을 기본 스트리밍 끝점을 시작합니다.
 
-
 `az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
+

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202936"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786335"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -166,4 +166,4 @@ ms.locfileid: "65202936"
 * [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](app-service-web-ssl-cert-load.md)
-* [FAQ : App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FAQ : App Service Certificate](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

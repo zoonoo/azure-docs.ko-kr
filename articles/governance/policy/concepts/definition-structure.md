@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506701"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779283"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -238,7 +238,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`를, 문자 하나를 일치시키려면 `?`를, 모든 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다.
+사용 하는 경우는 **일치** 하 고 **notMatch** 조건을 제공 `#` 숫자와 일치 하도록 `?` 문자에 대해 `.` 모든 문자와 일치 하도록 다른 모든 문자를 일치 하도록 해당 실제 문자입니다.
 **match** 및 **notMatch**는 대/소문자를 구분합니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드

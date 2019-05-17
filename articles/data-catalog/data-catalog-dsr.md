@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: f97f84ebf1dc4406bd924817bfd4aa3267559751
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694351"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65775676"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -230,6 +230,14 @@ ms.locfileid: "64694351"
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>영어로 작동합니다. 측정값은 지원 되지 않습니다.</td>
     </tr>
     <tr>
       <td>SAP HANA 뷰</td>
@@ -450,7 +458,7 @@ ms.locfileid: "64694351"
     <tr>
       <td>Azure Data Lake Store</td>
       <td>컨테이너</td>
-      <td>데이터 레이크</td>
+      <td>Data Lake</td>
       <td>
         
             Protocol: webhdfs
