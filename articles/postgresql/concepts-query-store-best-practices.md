@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소 모범 사례
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 저장소에 대 한 모범 사례를 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 저장소에 대한 모범 사례를 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -24,14 +24,14 @@ ms.locfileid: "65067245"
 
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
-|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 임시 쿼리는 사용자나 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되어 검색 합니다. _모두_는 리소스 사용 비용이 증가합니다. |
-|_상위_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
-|_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_은 환경 테스트 및 벤치마킹에 적합합니다. _없음_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
+|_All_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 임시 쿼리는 사용자나 자동 매개 변수화에 대한 기회를 식별 하는데 사용 되어 감지 합니다. _All_ 는 리소스 사용 비용이 증가합니다. |
+|_Top_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
+|_None_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _None_ 은 환경 테스트 및 벤치마킹에 적합합니다. _None_ 을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
 
-쿼리 저장소 역시 대기 통계에 대한 저장소를 포함할 수 있습니다. 대기 통계를 제어하는 추가 캡처 모드 쿼리 **pgms_wait_sampling.query_capture_mode**가 있으며 _없음_ 또는 _모두_로 설정할 수 있습니다. 
+쿼리 저장소 역시 대기 통계에 대한 저장소를 포함할 수 있습니다. 대기 통계를 제어하는 추가 캡처 모드 쿼리 **pgms_wait_sampling.query_capture_mode**가 있으며 _None_ 또는 _All_ 로 설정할 수 있습니다. 
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode**는 **pgms_wait_sampling.query_capture_mode**를 대체합니다. pg_qs.query_capture_mode가 _없음_인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다. 
+> **pg_qs.query_capture_mode**는 **pgms_wait_sampling.query_capture_mode**를 대체합니다. pg_qs.query_capture_mode가 _None_ 인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다. 
 
 
 ## <a name="keep-the-data-you-need"></a>필요한 데이터 유지
@@ -39,7 +39,7 @@ ms.locfileid: "65067245"
 
 
 ## <a name="set-the-frequency-of-wait-stats-sampling"></a>대기 통계 샘플링 빈도 설정 
-**pgms_wait_sampling.history_period** 매개 변수는 대기 이벤트 샘플링 빈도를 밀리초 단위로 지정합니다. 기간이 짧을수록 샘플링 횟수가 많아집니다. 더 많은 정보를 검색하지만, 리소스 사용 비용이 증가합니다. 서버의 부하에 여유가 있거나 세분성이 필요 없는 경우이 기간을 늘리세요.
+**pgms_wait_sampling.history_period** 매개 변수는 대기 이벤트 샘플링 빈도를 밀리초 단위로 지정합니다. 기간이 짧을수록 샘플링 횟수가 많아집니다. 더 많은 정보를 검색하지만, 리소스 사용 비용이 증가합니다. 서버의 부하에 여유가 있거나 세분성이 필요 없는 경우 이 기간을 늘리세요.
 
 
 ## <a name="get-quick-insights-into-query-store"></a>신속하게 쿼리 저장소에 대한 인사이트 얻기
