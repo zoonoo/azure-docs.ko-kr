@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database에서 서버 로그
-description: 이 문서에서는 PostgreSQL 용 Azure 데이터베이스를 설명 합니다.-단일 서버 쿼리 및 오류 로그 및 로그 보존을 구성 하는 방법을 생성 합니다.
+title: PostgreSQL-단일 서버에 대한 Azure Database에서 서버 로그
+description: 이 문서에서는 PostgreSQL용 Azure 데이터베이스를 설명 합니다.-단일 서버 쿼리 및 오류 로그 및 로그 보존을 구성 하는 방법을 생성 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -28,10 +28,10 @@ Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니�
 
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에 로그를 설정한 후에 내보낸 것 하도록 선택할 수 있습니다 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure Storage. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요. 
+Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에 로그를 설정한 후에 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure 저장소에 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요. 
 
 > [!IMPORTANT]
-> 이 진단 서버 로그에 대 한 기능은 사용할 수 있습니다 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)합니다.
+> 이 진단 서버 로그에 대한 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에서 사용할 수 있습니다.
 
 아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
 
@@ -46,13 +46,13 @@ Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다.
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | 리소스 URI |
-| 리소스 | 서버의 이름 |
+| Resource | 서버의 이름 |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
 | Message | 기본 로그 메시지 | 
-| 도메인 | 서버 버전(예: postgres-10) |
-| 세부 정보 | 보조 로그 메시지(해당하는 경우) |
+| Domain | 서버 버전(예: postgres-10) |
+| Detail | 보조 로그 메시지(해당하는 경우) |
 | ColumnName | 열 이름(해당하는 경우) |
 | SchemaName | 스키마 이름(해당하는 경우) |
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
