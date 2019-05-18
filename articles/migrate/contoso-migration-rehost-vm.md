@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure VM으로 마이그레이션함으로써 Contoso 앱 다시 호스트 | Microsoft Docs
-description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 머신의 리프트 앤 시프트 마이그레이션을 사용하여 온-프레미스 앱을 다시 호스트하는 방법에 대해 알아봅니다.
+description: Azure Site Recovery 서비스를 사용하여 Azure에 온-프레미스 머신의 리프트 앤 시프트 마이그레이션을 사용하여 온-프레미스 앱을 다시 호스트하는 방법 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
