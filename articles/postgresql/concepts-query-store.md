@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 저장소 기능을 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database에서 쿼리 저장소 기능을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을 설정 합니다 `TOP` 하 고 **저장**합니다.
+4. 값을  `TOP` 으로 설정 하고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계 수 있도록 합니다. 
+쿼리 저장소에서 대기 통계를 활성화하려면: 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을 설정 합니다 `ALL` 하 고 **저장**합니다.
+1. 값을  `ALL`로 설정하고 **저장**합니다.
 
 
-또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -82,9 +82,9 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ## <a name="configuration-options"></a>구성 옵션
 쿼리 저장소를 사용하도록 설정하면 데이터가 15분 집계 창에 저장되고 각 창에는 최대 500개의 고유 쿼리가 포함됩니다. 
 
-다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
+다음 옵션은 쿼리 저장소 매개 변수를 구성하는데 사용할 수 있습니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **기본값** | **범위**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
 | pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
@@ -93,7 +93,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **기본값** | **범위**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | 없음 | none, all|
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
@@ -112,7 +112,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystoreqsview"></a>query_store.qs_view
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
 
-|**Name**   |**형식** | **참조**  | **설명**|
+|**이름**   |**형식** | **참조**  | **설명**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
@@ -145,7 +145,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**Name**|  **형식**|   **설명**|
+|**이름**|  **형식**|   **설명**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 테이블의 ID|
 |query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
@@ -153,7 +153,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**Name**|  **형식**|   **참조**| **설명**|
+|**이름**|  **형식**|   **참조**| **설명**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
