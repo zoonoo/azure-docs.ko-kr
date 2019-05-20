@@ -5,40 +5,54 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 30df480eb314594cbc4d949302aff11e6d764b6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65212003"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815556"
 ---
 ## <a name="premium-ssd"></a>프리미엄 SSD
 
-Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가상 머신)에 대기 시간이 짧은 고성능 디스크를 지원합니다. 프리미엄 스토리지 디스크의 속도와 성능을 활용하기 위해 기존 VM 디스크를 프리미엄 SSD로 마이그레이션할 수 있습니다. 프리미엄 SSD는 중요 업무용 프로덕션 애플리케이션에 적합합니다.
+Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가상 머신)에 대기 시간이 짧은 고성능 디스크를 지원합니다. 프리미엄 스토리지 디스크의 속도와 성능을 활용하기 위해 기존 VM 디스크를 프리미엄 SSD로 마이그레이션할 수 있습니다. 프리미엄 SSD는 중요 업무용 프로덕션 애플리케이션에 적합합니다. Premium Ssd는 premium storage와 호환 되는 VM 시리즈만 사용할 수 있습니다.
+
+개별 VM 유형 및 크기의 Azure에 대 한 Windows, premium storage와 호환 크기를 포함 하는 방법에 대 한 자세한 내용은 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md)합니다. 참조에 대해 자세히 알아보려면 개별 VM 유형 및 Azure에서 linux의 경우 premium storage와 호환 되는 크기 포함 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md)합니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 대상 성능 99.9%의 시간을 제공하도록 설계되었습니다.
 
+### <a name="transactions"></a>트랜잭션
+
+Premium Ssd에 대 한 각 I/O 작업이 적은 보다 작거나 256 3:n2}kib/ 처리량의 비율은 단일 I/O 작업. 입출력 256 3:n2}kib/ 보다 큰 처리량의 크기 256의 여러 I/o 것으로 간주 됩니다 3:n2}kib/ 합니다.
+
 ## <a name="standard-ssd"></a>표준 SSD
 
-Azure 표준 SSD는 더 낮은 IOPS 수준에서 일관된 성능이 필요한 워크로드에 최적화된 비용 효율적 스토리지 옵션입니다. 특히 표준 SSD는 온-프레미스 HDD 솔루션에서 실행 중인 다양한 워크로드에 문제가 발생해서 클라우드로 전환하고자 하는 경우에 적합한 입문용 환경을 제공합니다. 표준 SSD는 HDD 디스크에 비해 더 나은 가용성, 일관성, 안정성 및 대기 시간을 제공합니다. 표준 SSD는 웹 서버, 낮은 IOPS 애플리케이션 서버, 가끔 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트 워크로드에 적합합니다.
+Azure 표준 SSD는 더 낮은 IOPS 수준에서 일관된 성능이 필요한 워크로드에 최적화된 비용 효율적 스토리지 옵션입니다. 특히 표준 SSD는 온-프레미스 HDD 솔루션에서 실행 중인 다양한 워크로드에 문제가 발생해서 클라우드로 전환하고자 하는 경우에 적합한 입문용 환경을 제공합니다. 표준 Ssd 표준 Hdd에 비해 더 나은 가용성, 일관성, 안정성 및 대기 시간 제공 합니다. 표준 SSD는 웹 서버, 낮은 IOPS 애플리케이션 서버, 가끔 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트 워크로드에 적합합니다. 표준 Hdd와 같은 표준 SSDs는 모든 Azure Vm에서 사용할 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
 표준 Ssd는 대부분의 IO 작업에 대 한 자리 밀리초 대기 시간을 제공 하 고 IOPS 및 처리량 이전 표 99%의 시간에 설명 된 한도까지 전달할 설계 되었습니다. 실제 IOPS 및 처리량 트래픽 패턴에 따라 경우에 따라 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
 
+### <a name="transactions"></a>트랜잭션
+
+표준 Ssd에 대 한 각 I/O 작업이 적은 보다 작거나 256 3:n2}kib/ 처리량으로 간주 됩니다 단일 I/O 작업. 입출력 256 3:n2}kib/ 보다 큰 처리량의 크기 256의 여러 I/o 것으로 간주 됩니다 3:n2}kib/ 합니다. 이러한 트랜잭션은 청구 영향을 미칩니다.
+
 ## <a name="standard-hdd"></a>표준 HDD
 
-Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행하는 VM에 안정적이고 저렴한 디스크를 지원합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. 표준 스토리지를 사용하는 경우 데이터는 HDD(하드 디스크 드라이브)에 저장됩니다. VM을 사용할 때 표준 SSD 및 HDD 디스크는 개발/테스트 시나리오 및 비교적 중요하지 않은 워크로드에 사용할 수 있습니다. 표준 스토리지는 모든 Azure 지역에서 사용할 수 있습니다.
+Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행하는 VM에 안정적이고 저렴한 디스크를 지원합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. 표준 스토리지를 사용하는 경우 데이터는 HDD(하드 디스크 드라이브)에 저장됩니다. VM을 사용할 때 표준 SSD 및 HDD 디스크는 개발/테스트 시나리오 및 비교적 중요하지 않은 워크로드에 사용할 수 있습니다. 표준 Hdd 모든 Azure 지역에서 사용할 수 있으며 모든 Azure Vm에 사용 될 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+
+### <a name="transactions"></a>트랜잭션
+
+표준 Hdd 각 IO 작업의 I/O 크기에 관계 없이 단일 트랜잭션으로 간주 됩니다. 이러한 트랜잭션은 청구 영향을 미칩니다.
 
 ## <a name="billing"></a>결제
 

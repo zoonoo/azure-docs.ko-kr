@@ -4,7 +4,7 @@ description: .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406779"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65543952"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>웹 브라우저를 사용 하 여 MSAL.NET에서
 웹 브라우저는 대화형 인증을 위해 필요 합니다. MSAL.NET 기본적으로 지원 합니다 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-and-xamarinandroid) Xamarin.iOS에서 및 [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)합니다. 하지만 [포함 된 웹 브라우저를 사용할 수도 있습니다](#enable-embedded-webviews) (UX에서 single sign-on (SSO)를 보안에 대 한 필요)의 요구 사항에 따라 [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 하 고 [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) 앱입니다. 및 수도 있습니다 [동적으로 선택](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) Chrome 또는 Android에서 Chrome 사용자 지정 탭을 지 원하는 브라우저의 존재를 기반으로 웹 브라우저를 사용 합니다.

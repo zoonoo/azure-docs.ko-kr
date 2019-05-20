@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021944"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541727"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>사용되지 않는 인식 검색 기술
+# <a name="deprecated-cognitive-search-skills"></a>사용 되지 않는 cognitive search 기술
 
 이 문서에서는 사용되지 않는 것으로 간주되는 기술을 설명합니다. 내용에 대해서는 다음 가이드를 사용합니다.
 

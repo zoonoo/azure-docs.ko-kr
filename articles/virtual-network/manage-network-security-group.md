@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: 9fc73c40d4d3241afefd67b1c4f084765b0be934
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f1353165954021cd949d6e46357d10514ee26b3c
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710196"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560937"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -48,7 +48,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 2. **네트워킹**을 선택한 다음, **네트워크 보안 그룹**을 선택합니다.
 3. 네트워크 보안 그룹의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 다음, **만들기**를 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
 - PowerShell: [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)
@@ -57,7 +57,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 포털 맨 위에 있는 검색 상자에 *네트워크 보안 그룹*를 입력합니다. 검색 결과에 표시된 **네트워크 보안 그룹**을 선택합니다. 구독에 있는 네트워크 보안 그룹이 나열됩니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
 - PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
@@ -73,7 +73,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
     *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automation 스크립트](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)
 - PowerShell: [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)
@@ -83,7 +83,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 1. 포털 맨 위에 있는 검색 상자에 *네트워크 보안 그룹*를 입력합니다. 검색 결과에 표시된 **네트워크 보안 그룹**을 선택합니다.
 2. 변경하려는 네트워크 보안 그룹을 선택합니다. 가장 일반적인 변경은 보안 규칙을 [추가](#create-a-security-rule) 또는 [제거](#delete-a-security-rule)하고 [서브넷 또는 네트워크 인터페이스에서 네트워크 보안 그룹 연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)하는 것입니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update)
 - PowerShell: [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)
@@ -100,7 +100,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 2. 목록에서 삭제하려는 네트워크 보안 그룹을 선택합니다.
 3. **삭제**를 선택한 후 **예**를 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
 - PowerShell: [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup)
@@ -122,7 +122,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     |---------|---------|---------|
     |원본     | 인바운드 보안 규칙에 대해 **임의**, **애플리케이션 보안 그룹**, **IP 주소** 또는 **서비스 태그**를 선택합니다. 아웃바운드 보안 규칙을 만드는 경우, 옵션은 **대상**에 나열된 옵션과 같습니다.       | **애플리케이션 보안 그룹**을 선택하는 경우, 네트워크 인터페이스와 동일한 지역에 있는 기존 애플리케이션 보안 그룹을 하나 이상 선택합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. **원본** 및 **대상** 둘 다에 대해 **응용 프로그램 보안 그룹**을 선택하는 경우, 두 응용 프로그램 보안 그룹의 네트워크 인터페이스가 동일한 가상 네트워크에 있어야 합니다. **IP 주소**를 선택하는 경우, **원본 IP 주소/CIDR 범위**를 지정합니다. 단일 값 또는 쉼표로 구분된 다중 값 목록을 지정할 수 있습니다. 다중 값의 예는 10.0.0.0/16, 192.188.1.1입니다. 지정할 수 있는 값의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. **서비스 태그**를 선택하는 경우, 서비스 태그를 한 개 선택합니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용할 수 있는 서비스 태그 및 각 태그의 의미에 대해 자세히 알려면 [서비스 태그](security-overview.md#service-tags)를 참조합니다. 지정하는 IP 주소가 Azure 가상 머신에 할당된 경우, 가상 머신에 할당된 공용 IP 주소가 아닌 개인 IP를 지정합니다. 인바운드 보안 규칙을 위해 Azure가 공용 IP 주소를 개인 IP 주소로 변환한 후 및 아웃 바운드 규칙을 위해 Azure가 개인 IP 주소를 공용 IP 주소를 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](virtual-network-ip-addresses-overview-arm.md)을 참조합니다.        |
     |원본 포트 범위     | 80 같은 단일 포트, 1024-65535 같은 포트 범위 또는 80 및 1024-65535 같이 쉼표로 구분된 단일 포트 및/또는 포트 범위를 지정합니다. 모든 포트에 트래픽을 허용하려면 별표를 입력합니다. | 포트 및 범위는 규칙이 허용 또는 거부하는 포트 트래픽을 지정합니다. 지정할 수 있는 포트의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.  |
-    |대상     | 인바운드 보안 규칙에 대해 **임의**, **애플리케이션 보안 그룹**, **IP 주소** 또는 **가상 네트워크**를 선택합니다. 아웃바운드 보안 규칙을 만드는 경우, 옵션은 **원본**에 나열된 옵션과 같습니다.        | **애플리케이션 보안 그룹**을 선택하는 경우, 네트워크 인터페이스와 동일한 지역에 있는 기존 애플리케이션 보안 그룹을 하나 이상 선택해야 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. **애플리케이션 보안 그룹**을 선택하는 경우, 네트워크 인터페이스와 동일한 지역에 있는 기존 애플리케이션 보안 그룹을 한 개 선택합니다. **IP 주소**를 선택하는 경우, **대상 IP 주소/CIDR 범위**를 지정합니다. **원본** 및 **원본 IP 주소/CIDR 범위**와 비슷한 경우 단일 또는 여러 주소나 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. 서비스 태그인 **가상 네트워크**를 선택하면 가상 네트워크의 주소 공간 내의 모든 IP 주소에 트래픽이 허용됩니다. 지정하는 IP 주소가 Azure 가상 머신에 할당된 경우, 가상 머신에 할당된 공용 IP 주소가 아닌 개인 IP를 지정합니다. 인바운드 보안 규칙을 위해 Azure가 공용 IP 주소를 개인 IP 주소로 변환한 후 및 아웃 바운드 규칙을 위해 Azure가 개인 IP 주소를 공용 IP 주소를 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](virtual-network-ip-addresses-overview-arm.md)을 참조합니다.        |
+    |대상     | 선택 **모든**를 **응용 프로그램 보안 그룹**에 **IP 주소**, 또는 **Virtual Network** 아웃 바운드 보안 규칙에 대 한 합니다. 옵션에 대해 나열 된 옵션으로 동일는 인바운드 보안 규칙을 만들 경우 **원본**합니다.        | **애플리케이션 보안 그룹**을 선택하는 경우, 네트워크 인터페이스와 동일한 지역에 있는 기존 애플리케이션 보안 그룹을 하나 이상 선택해야 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. **애플리케이션 보안 그룹**을 선택하는 경우, 네트워크 인터페이스와 동일한 지역에 있는 기존 애플리케이션 보안 그룹을 한 개 선택합니다. **IP 주소**를 선택하는 경우, **대상 IP 주소/CIDR 범위**를 지정합니다. **원본** 및 **원본 IP 주소/CIDR 범위**와 비슷한 경우 단일 또는 여러 주소나 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. 서비스 태그인 **가상 네트워크**를 선택하면 가상 네트워크의 주소 공간 내의 모든 IP 주소에 트래픽이 허용됩니다. 지정하는 IP 주소가 Azure 가상 머신에 할당된 경우, 가상 머신에 할당된 공용 IP 주소가 아닌 개인 IP를 지정합니다. 인바운드 보안 규칙을 위해 Azure가 공용 IP 주소를 개인 IP 주소로 변환한 후 및 아웃 바운드 규칙을 위해 Azure가 개인 IP 주소를 공용 IP 주소를 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](virtual-network-ip-addresses-overview-arm.md)을 참조합니다.        |
     |대상 포트 범위     | 단일 값 또는 쉼표로 구분된 값의 목록을 지정합니다. | **원본 포트 범위**와 비슷한 경우 단일 또는 여러 포트 및 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. |
     |Protocol     | **모든**, **TCP** 또는 **UDP**를 선택합니다.        |         |
     |액션(Action)     | **허용** 또는 **거부**를 선택합니다.        |         |
@@ -130,7 +130,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     |이름     | 네트워크 보안 그룹 내에서 규칙에 대한 고유한 이름입니다.        |  이름은 최대 80자까지 가능합니다. 이름은 영문, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. 단 영문 또는 숫자로 시작하고 영문, 숫자 또는 밑줄로 끝나야 합니다.       |
     |설명     | 선택적 설명입니다.        |         |
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
 - PowerShell: [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)
@@ -145,7 +145,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 목록은 만든 모든 규칙 및 네트워크 보안 그룹 [기본 보안 규칙](security-overview.md#default-security-rules)을 포함합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
 - PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
@@ -157,7 +157,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 3. **설정**에서 **인바운드 보안 규칙** 또는 **아웃바운드 보안 규칙**을 선택합니다.
 4. 세부 정보를 보려는 규칙을 선택합니다. 모든 설정에 대한 자세한 내용은 [보안 규칙 설정](#security-rule-settings)을 참조합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show)
 - PowerShell: [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig)
@@ -167,7 +167,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 1. [보안 규칙 세부 정보 보기](#view-details-of-a-security-rule)에서 단계를 완료합니다.
 2. 필요에 따라 설정을 변경한 다음, **저장**을 선택합니다. 모든 설정에 대한 자세한 내용은 [보안 규칙 설정](#security-rule-settings)을 참조합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
 - PowerShell: [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig)
@@ -177,7 +177,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 1. [보안 규칙 세부 정보 보기](#view-details-of-a-security-rule)에서 단계를 완료합니다.
 2. **삭제**를 선택한 후 **예**를 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
 - PowerShell: [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig)
@@ -197,9 +197,9 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     | 이름           | 이름은 각 리소스 그룹 내에서 고유해야 합니다.        |
     | 구독   | 구독을 선택합니다.                               |
     | 리소스 그룹 | 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. |
-    | Location       | 위치 선택                                       |
+    | Location       | (위치 선택)                                       |
 
-**명령**
+**도구**
 
 - Azure CLI: [az network asg create](/cli/azure/network/asg#az-network-asg-create)
 - PowerShell: [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup)
@@ -209,7 +209,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 2. **모든 서비스 필터** 상자에 *애플리케이션 보안 그룹*을 입력하고, 검색 결과에 표시되면 **애플리케이션 보안 그룹**을 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network asg list](/cli/azure/network/asg#az-network-asg-list)
 - PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
@@ -220,7 +220,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 2. **모든 서비스 필터** 상자에 *애플리케이션 보안 그룹*을 입력하고, 검색 결과에 표시되면 **애플리케이션 보안 그룹**을 선택합니다.
 3. 세부 정보를 보려는 애플리케이션 보안 그룹을 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network asg show](/cli/azure/network/asg#az-network-asg-show)
 - PowerShell: [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup)
@@ -243,7 +243,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 3. 삭제할 애플리케이션 보안 그룹을 선택합니다.
 4. **삭제**를 선택하고 **예**를 선택하여 애플리케이션 보안 그룹을 삭제합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network asg delete](/cli/azure/network/asg#az-network-asg-delete)
 - PowerShell: [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup)

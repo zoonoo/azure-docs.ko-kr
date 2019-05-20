@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863966"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761937"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows 보안을 사용하여 독립 실행형 클러스터 보호
 Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러스터를 보호해야 합니다. 클러스터에서 프로덕션 작업을 실행하는 경우 특히 보안이 중요합니다. 이 문서에서는 *ClusterConfig.JSON* 파일에서 Windows 보안을 사용하여 노드 간 및 클라이언트-노드 간 보안을 구성하는 방법을 설명합니다.  이 프로세스는 보안[Windows에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)의 보안 단계 구성에 해당합니다. Service Fabric에서 Windows 보안을 사용하는 방법에 대한 자세한 내용은 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 참조하세요.
@@ -61,7 +61,7 @@ Service Fabric 클러스터에 대한 무단 액세스를 방지하려면 클러
 | IsAdmin |도메인 사용자가 관리자 클라이언트 액세스 권한을 갖는 경우 true로 설정하고, 사용자 클라이언트 액세스 권한을 갖는 경우 false를 설정합니다. |
 
 > [!NOTE]
-> ClustergMSAIdentity 값 도메인 이름이 포함 될 수 없습니다 및 그룹 관리 서비스 계정 이름 이어야 합니다. I.E. "mysfgmsa" 올바른지와 "mydomain / / mysfgmsa" 또는 "mysfgmsa@mydomain" 도메인 호스트 컴퓨터에서 암시적; 올바르지 않습니다.
+> ClustergMSAIdentity 값 형식 이어야 합니다 "mysfgmsa@mydomain"입니다.
 
 [노드 간 보안](service-fabric-cluster-security.md#node-to-node-security)은 서비스 패브릭이 gMSA에서 실행되어야 하는 경우 **ClustergMSAIdentity**를 설정하여 구성됩니다. 노드 간의 신뢰 관계를 구축하기 위해 서로를 인식하도록 만들어야 합니다. 이 두 가지 방법으로 수행할 수 있습니다. 그룹 관리 서비스 계정을 지정 클러스터의 모든 노드를 포함 하거나 클러스터의 모든 노드를 포함 하는 도메인 컴퓨터 그룹을 지정 합니다. 특히 노드가 10개보다 많은 대형 클러스터 또는 확장되거나 축소될 수 있는 클러스터의 경우에는 [gMSA(그룹 관리 서비스 계정)](https://technet.microsoft.com/library/hh831782.aspx) 방식을 사용하는 것이 좋습니다.  
 이 접근 방법에서는 클러스터 관리자에게 멤버를 추가하고 제거하는 액세스 권한을 부여하기 위해 도메인 그룹을 만들 필요가 없습니다. 이러한 계정은 자동 암호 관리에도 유용합니다. 자세한 내용은 [그룹 관리 서비스 계정 시작](https://technet.microsoft.com/library/jj128431.aspx)을 참조하세요.  

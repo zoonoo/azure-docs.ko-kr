@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717910"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544601"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm에서 SQL Database 복원
 
@@ -110,7 +110,7 @@ Recovery Services 자격 증명 모음은 Resource Manager 리소스이므로 �
 3. 자격 증명 모음 저장소에 사용할 중복 유형을 지정 합니다.
 
     * [로컬 중복 스토리지](../storage/common/storage-redundancy-lrs.md) 또는 [지역 중복 스토리지](../storage/common/storage-redundancy-grs.md)를 사용할 수 있습니다.
-    * 다음 예제에서는 합니다 **-BackupStorageRedundancy** 에 대 한 옵션을[집합 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd에 대 한 **testvault** 로  **GeoRedundant**합니다.
+    * 다음 예제에서는 합니다 **-BackupStorageRedundancy** 에 대 한 옵션을[집합 AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd에 대 한 **testvault** 로  **GeoRedundant**합니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Azure Backup만 추적 하는 SQL 백업에 트리거되는 사용자 작업을 확인 하는 것이 반드시 합니다. 예약 된 백업 (로그 백업 포함) portal/powershell에서 표시 되지 않습니다. 그러나 경우 예약 된 작업이 실패 합니다는 [백업 경고](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) 생성 되 고 포털에 표시 합니다. [Azure Monitor를 사용 하 여](backup-azure-monitoring-use-azuremonitor.md) 모든 예약 된 작업 및 기타 관련 정보를 추적 합니다.
 
-사용자에 반환 된 JobID 사용 하 여 임시/사용자 트리거 작업을 추적할 수는 [출력](#on-demand-backup) 백업과 같은 비동기 작업입니다. 사용 하 여 [Get AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) PS cmdlet 작업 및 세부 정보를 추적 합니다.
+사용자에 반환 된 JobID 사용 하 여 임시/사용자 트리거 작업을 추적할 수는 [출력](#on-demand-backup) 백업과 같은 비동기 작업입니다. 사용 하 여 [Get AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS cmdlet 작업 및 세부 정보를 추적 합니다.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

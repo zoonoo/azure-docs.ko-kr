@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560354"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799103"
 ---
 # <a name="find-exact-moments-within-videos"></a>비디오 내 정확한 시점 찾기
 
@@ -49,7 +50,7 @@ ms.locfileid: "60560354"
 
 사용하려는 비디오를 찾으면 다음 항목 중 하나에서 설명한 대로 비디오를 계속 처리할 수 있습니다. 
 
-- [기존 비디오에 기반하여 새 비디오 인사이트 만들기](video-indexer-create-new.md)
+- [비디오의 세부 정보를 사용 합니다.](use-editor-create-project.md)
 - [Video Indexer REST API를 사용하여 콘텐츠 처리](video-indexer-use-apis.md)
 - [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)
 

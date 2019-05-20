@@ -1,6 +1,6 @@
 ---
 title: Power BI 앱에 대 한 상점 세부 정보 제공 | Azure Marketplace
-description: Microsoft AppSource Marketplace의 Power BI 앱 제안에 대한 상점 세부 정보 필드를 구성합니다.
+description: Microsoft AppSource Marketplace의 Power BI 앱 제품에 대한 상점 세부 정보 필드를 구성합니다.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
@@ -16,14 +16,14 @@ ms.locfileid: "64942635"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Power BI 앱 Storefront 세부 정보 탭
 
-에 **새 제품** 페이지를 사용 합니다 **Storefront 세부 정보** 잠재 고객에 대 한 마케팅, 판매 및 법적 정보를 제공 하는 탭 합니다. 이 탭에서 Azure Marketplace를 생성 하는 잠재 고객에 대 한 관리를 설정할 수 있습니다. 이 긴 양식은 **제안 세부 정보**, **목록 세부 정보**, **마케팅 아티팩트**, **법적 정보**, **고객 지원**, **잠재 고객 관리**의 6가지 섹션으로 구분됩니다.  필드 레이블에 끝에 별표 (*)는 필수 필드를 의미 합니다.
+에 **새 제품** 페이지를 사용 합니다 **Storefront 세부 정보** 잠재 고객에 대 한 마케팅, 판매 및 법적 정보를 제공 하는 탭 합니다. 이 탭에서 Azure Marketplace를 생성 하는 잠재 고객에 대 한 관리를 설정할 수 있습니다. 이 긴 양식은 **제품 세부 정보**, **목록 세부 정보**, **마케팅 아티팩트**, **법적 정보**, **고객 지원**, **잠재 고객 관리**의 6가지 섹션으로 구분됩니다.  필드 레이블에 끝에 별표 (*)는 필수 필드를 의미 합니다.
 
 
-## <a name="offer-details-section"></a>제안 세부 정보 섹션
+## <a name="offer-details-section"></a>제품 세부 정보 섹션
 
 에 **제안 세부 정보** 섹션, AppSource 제품에 대 한 일반 정보를 입력 합니다.
 
-![상점 세부 정보 탭의 제안 세부 정보 섹션](./media/offer-details-section.png)
+![상점 세부 정보 탭의 제품 세부 정보 섹션](./media/offer-details-section.png)
 
 다음 표에서 이러한 필드에 대 한 자세한 정보를 제공합니다. 필수 필드는 별표(*)로 표시됩니다.  
 
@@ -118,7 +118,7 @@ ms.locfileid: "64942635"
 | **Salesforce**         | 지정할 [Salesforce](https://www.salesforce.com/) 개체 식별자를 사용 하 여 합니다. |
 |  |  |
 
-제안이 게시되면 잠재 고객 연결의 유효성을 검사하고 테스트 잠재 고객을 지정된 대상으로 자동으로 보냅니다. 지속적으로 잠재 고객 정보를 관리 하 고 현재 고객 관리 아키텍처에 맞게 설정을 신속 하 게 업데이트 합니다.
+제품이 게시되면 잠재 고객 연결의 유효성을 검사하고 테스트 잠재 고객을 지정된 대상으로 자동으로 보냅니다. 지속적으로 잠재 고객 정보를 관리 하 고 현재 고객 관리 아키텍처에 맞게 설정을 신속 하 게 업데이트 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

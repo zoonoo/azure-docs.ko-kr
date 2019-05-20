@@ -2,41 +2,36 @@
 title: Azure 구독 소유권을 다른 계정에 양도 | Microsoft Docs
 description: 다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)을 제공합니다.
 keywords: azure 구독 양도,azure 구독 양도,azure 구독을 다른 계정으로 양도,azure 구독 소유자 변경,azure 구독을 다른 계정으로 양도
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371158"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826753"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
 구독을 계정 센터의 다른 사용자로 변환하여 계정 관리자를 변경하고 구독 청구 소유권을 전달합니다. 구독을 다른 제안으로 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 
+>
 > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다. Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 해야 할 수도 있습니다. 자세한 내용은 [Faq 및 알려진된 문제 관리 identities](../active-directory/managed-identities-azure-resources/known-issues.md)합니다.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Azure 구독의 소유권 양도
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그인합니다. 구독의 계정 관리자가 누구인지 알아보려면 [질문과 대답](#faq)을 참조하세요.
 
@@ -51,7 +46,7 @@ ms.locfileid: "60371158"
 1. 받는 사람을 지정합니다.
 
    > [!IMPORTANT]
-   > 
+   >
    > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다. Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 해야 할 수도 있습니다. 자세한 내용은 [Faq 및 알려진된 문제 관리 identities](../active-directory/managed-identities-azure-resources/known-issues.md)합니다.
 
    ![구독 양도 대화 상자](./media/billing-subscription-transfer/image2.PNG)
@@ -68,22 +63,22 @@ ms.locfileid: "60371158"
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>EA(기업 계약) 고객의 구독 소유권 양도
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>EA 고객의 구독 소유권 이전
 
 엔터프라이즈 관리자는 등록 내 구독 소유권을 양도할 수 있습니다. 양도를 시작하려면 EA 포털에서 [계정 소유권 양도](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription)를 참조하세요.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>구독 소유권을 수락한 후 다음 단계
+## <a name="next-steps-after-accepting-ownership"></a>소유권을 수락한 후 다음 단계
 
 1. 이제 계정 관리자가 되었습니다. 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](billing-add-change-azure-subscription-administrator.md) 및 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 1. 다음을 비롯한 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다.
    1. 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../cloud-services/cloud-services-certs-create.md)
    1. 저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요.
-   1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명. 
+   1. Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 1. 파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. [Azure Portal](https://portal.azure.com)에서 파트너 ID를 업데이트할 수 있습니다.
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>지원되는 내용:
+## <a name="supported-offers"></a>지원 되는 제품
 
 셀프 서비스 구독 양도는 다음 표에 나열된 제안 또는 구독 유형에 사용할 수 있습니다. 현재 평가판 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독을 전송할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 전송하려면 [고객 지원팀에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -119,7 +114,12 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-아쉽게도 셀프 서비스 구독 양도는 해당 제안 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+아쉽게도 셀프 서비스 구독 양도 제품에 사용할 수 없습니다. 지원 되는 제품의 목록을 보려면 합니다 [제품 지원](#supported-offers) 이 문서의 섹션입니다.
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>다른 국가에서 계정에 소유권을 양도할 수 있습니까?
+
+아쉽게도 Azure에는 국가 간 전송을 허용 하지 않습니다. 구독을 전송할 국가 간 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?
 
@@ -156,9 +156,9 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 제품을 동일하게 유지해야 합니다. 제안을 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>다른 국가에서 사용자 계정에 대 한 구독을 양도할 수 있습니까?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>다른 국가/지역에서 사용자 계정에 구독을 양도할 수 있습니까?
 
-아니요. 다른 국가의 사용자 계정으로 구독을 양도할 수는 없습니다. 받는 사람의 사용자 계정은 동일한 국가에 있어야 합니다.
+아니요, 다른 국가/지역에서 사용자 계정에 구독을 양도 지원 되지 않습니다. 받는 사람의 사용자 계정은 동일한 국가/지역에 있어야 합니다.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>받는 사람이 다른 지불 방법을 사용할 수 있나요?
 
@@ -175,3 +175,7 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- 서비스 관리자, 공동 관리자 및 다른 RBAC 역할을 검토하고 업데이트합니다. 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](billing-add-change-azure-subscription-administrator.md) 및 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.

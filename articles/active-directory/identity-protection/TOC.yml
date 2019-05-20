@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: 위험한 사용자 및 로그인 조사
           href: howto-investigate-risky-users-signins.md
+        - name: 위험 이벤트에 대한 사용자 의견 제공
+          href: howto-provide-risk-event-feedback.md
         - name: 위험 정책 구성
           href: howto-configure-risk-policies.md
         - name: 검색 정확도 향상

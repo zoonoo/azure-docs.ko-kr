@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b1a79f2798fc98fd7361c47788c79e329e2cb827
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721815"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556181"
 ---
 # <a name="scaling-media-processing"></a>미디어 처리 크기 조정
 
@@ -47,7 +47,7 @@ Azure Media Services를 사용하면 MRU(미디어 예약 단위)를 관리하�
 > [!NOTE]
 > Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10개의 S3 MRU를 사용하여 계정을 프로비전하는 것이 좋습니다. 10개가 넘는 S3 MRU가 필요한 경우 [Azure Portal](https://portal.azure.com/)을 사용하여 지원 티켓을 엽니다.
 >
-> 현재 다른 v3 리소스를 관리 하는 Azure portal을 사용할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+> 현재 다른 v3 리소스를 관리 하는 Azure portal을 사용할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건 
 

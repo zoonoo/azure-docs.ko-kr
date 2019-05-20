@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548644"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791957"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -64,7 +64,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 | 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :------------------- | ----- | ----- |
-| [모든 메트릭](#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아닙니다. |
+| [기본 메트릭](#basic-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아닙니다. |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): (새로운 쿼리 대기) 쿼리 대기 통계에 대 한 정보가 등은 CPU, 로그 및 잠금. | 예 | 예 |
 | [Errors](#errors-dataset): 데이터베이스에서 SQL 오류에 대 한 정보를 포함합니다. | 예 | 예 |
@@ -93,7 +93,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 | 리소스 | 모니터링 원격 분석 |
 | :------------------- | ------------------- |
-| **탄력적 풀** | [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics)은 eDTU/CPU 백분율, eDTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 제한 및 XTP 저장소 백분율을 포함합니다. |
+| **탄력적 풀** | [기본 메트릭](sql-database-metrics-diag-logging.md#basic-metrics) 포함 eDTU/CPU 제한 eDTU/CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 한도 및 XTP 저장소 백분율입니다. |
 
 탄력적 풀 및 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 하려면 개별적으로 구성 해야 **둘 다** 중:
 
@@ -113,7 +113,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 1. 고유한 참조의 설정 이름을 입력합니다.
 1. 스트리밍 진단 데이터의 대상 리소스를 선택합니다. **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 또는 **Log Analytics에 보내기**.
 1. Log analytics에 대 한 선택 **구성** 선택 하 여 새 작업 영역을 만들어 **+ 새 작업 영역 만들기**, 또는 기존 작업 영역을 선택 합니다.
-1. 탄력적 풀 진단 원격 분석에 대해 다음 확인란을 선택합니다. **AllMetrics**.
+1. 탄력적 풀 진단 원격 분석에 대해 다음 확인란을 선택합니다. **기본** 메트릭.
    ![탄력적 풀에 대 한 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. **저장**을 선택합니다.
 1. 또한 다음 섹션에 설명 된 단계에 따라 여 모니터링 하려는 탄력적 풀 내의 각 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
@@ -137,7 +137,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 1. 고유한 참조의 설정 이름을 입력합니다.
 1. 스트리밍 진단 데이터의 대상 리소스를 선택합니다. **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 또는 **Log Analytics에 보내기**.
 1. 표준 이벤트 기반 모니터링 환경의 경우 데이터베이스 진단 로그 원격 분석에 대해 다음 확인란을 선택합니다. **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** 및 **Deadlocks**.
-1. 고급 1분 기간 모니터링 환경의 경우 **AllMetrics** 확인란을 선택합니다.
+1. 고급, 1 분부터 모니터링 환경을 대 한 확인란을 선택 **기본** 메트릭.
    ![단일에 대 한 진단 구성, 풀링, 또는 데이터베이스 인스턴스](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. **저장**을 선택합니다.
 1. 모니터링 하려는 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
@@ -211,7 +211,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정할 수 있습니다.
 
@@ -385,7 +385,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-예를 들어 모든 메트릭에 대한 Blob 이름은 다음과 같을 수 있습니다.
+예를 들어, 기본 메트릭에 대 한 blob 이름은 다음과 같습니다.
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Azure SQL 분석을 사용하는 경우 Azure SQL 분석의 탐색 메뉴에서 
 
 Azure SQL Database에 대 한 사용 가능한 원격 분석을 모니터링, 탄력적 풀 및 관리 되는 인스턴스 아래 설명 되어 있습니다. SQL Analytics 내에서 수집 된 모니터링 원격 분석 사용자 고유의 사용자 지정 분석 및 사용 하 여 응용 프로그램 개발에 사용할 수 있습니다 [Azure Monitor 로그 쿼리](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 언어입니다.
 
-## <a name="all-metrics"></a>모든 메트릭
+## <a name="basic-metrics"></a>기본 메트릭
 
-리소스별 모든 메트릭에 대한 자세한 내용은 다음 표를 참조하세요.
+리소스에서 기본 메트릭에 대 한 자세한 내용은 다음 표를 참조 하십시오.
 
-### <a name="all-metrics-for-elastic-pools"></a>탄력적 풀에 대한 모든 메트릭
+> [!NOTE]
+> 기본 메트릭 옵션 이전의 모든 메트릭을 라고 했습니다. 변경 내용을 명명 된 이며 모니터링 된 메트릭 변경 되지 않았습니다. 앞으로 소개 추가 메트릭 범주의 수 있도록이 변경 시작 되었습니다.
+
+### <a name="basic-metrics-for-elastic-pools"></a>탄력적 풀에 대 한 기본 메트릭
 
 |**리소스**|**Metrics**(메트릭)|
 |---|---|
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 용량 한도, XTP 저장소 백분율을 포함합니다. |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Azure SQL Database의 모든 메트릭
+### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL Database에 대 한 기본 메트릭
 
 |**리소스**|**Metrics**(메트릭)|
 |---|---|
 |Azure SQL 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율, 교착 상태를 포함합니다. |
 
-## <a name="all-logs"></a>모든 로그
+## <a name="basic-logs"></a>기본 로그
 
 모든 로그에 대 한 사용 가능한 원격 분석의 세부 정보는 아래 표에 설명 되어 있습니다. 참조 하세요 [진단 로깅 지원](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) 풀링된으로 로그는 특정 데이터베이스 버전-단일 Azure SQL에 대 한 지 이해 하거나 데이터베이스 인스턴스.
 

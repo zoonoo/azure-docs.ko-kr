@@ -32,7 +32,7 @@ Templafy를 Azure AD와 연결하면 다음과 같은 이점을 누릴 수 있�
 * 사용자가 해당 Azure AD 계정으로 Templafy에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -120,20 +120,20 @@ Templafy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     | Name | 원본 특성| 네임스페이스  |
     | ---------------| --------------- | --------- |
-    | givenname | user.givenname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | surname | user.surname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | emailaddress | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`
-    | streetaddress | user.streetaddress | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | city | user.city | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | postalcode | user.postalcode | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | stateorprovince | user.state | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | country | user.country | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | jobtitle | user.jobtitle | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | department | user.department | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | phonenumber | user.telephonenumber | `https://schemas.templafy.com/2016/06/identity/claims` |
-    | facsimilenumber | user.facsimiletelephonenumber | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | upn | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | nameidentifier | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | emailaddress | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+    | streetaddress | user.streetaddress | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | city | user.city | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | postalcode | user.postalcode | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | stateorprovince | user.state | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | country | user.country | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | jobtitle | user.jobtitle | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | department | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | phonenumber | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
+    | facsimilenumber | user.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | upn | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.

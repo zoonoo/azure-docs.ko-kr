@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507833"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790392"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>VCore 기반 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
 이 아티클에서는 vCore 기반 구매 모델을 사용하여 Azure SQL Database 단일 데이터베이스에 대한 리소스 제한을 자세히 설명합니다.
 
@@ -129,7 +129,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
-합니다 [서버 리스 계산 계층](sql-database-serverless.md) 공개 미리 보기로 제공 되며은 단일 데이터베이스 vCore 구매를 사용 하 여 모델에 대해서만 합니다.
+합니다 [서버 리스 계산 계층](sql-database-serverless.md) 미리 보기로 제공 되며은 단일 데이터베이스 vCore 구매를 사용 하 여 모델에 대해서만 합니다.
 
 #### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
 

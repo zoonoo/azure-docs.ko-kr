@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 41f62d095c1a0cbdd0a888326b263a3294066637
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118733"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794756"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
@@ -33,12 +33,18 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 * 워싱턴 DC
 * 댈러스 
 * 홍콩 특별 행정구
-* 로스앤젤레스
+* 런던
+* Los Angeles
 * New York City
 * 파리
+* 퍼스
+* 토론토
 * 샌안토니오
-* 실리콘밸리
+* 시애틀
+* 서울
+* 실리콘 밸리
 * 싱가포르 
+* 시드니
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct에 대한 SLA란 무엇인가요?
 

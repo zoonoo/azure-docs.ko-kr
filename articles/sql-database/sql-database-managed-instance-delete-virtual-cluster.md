@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411988"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791385"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>관리 되는 인스턴스를 Azure SQL Database를 삭제 한 후 서브넷을 삭제 합니다.
 
 이 문서에서는 관리 되는 것에 있는 인스턴스를 마지막으로 Azure SQL Database를 삭제 한 후 서브넷을 수동으로 삭제 하는 방법에 지침을 제공 합니다.
 
-합니다 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) 는 포함 된 삭제 된 인스턴스 삭제에서 관리 되는 인스턴스를 12 시간 동안 유지 됩니다. 가상 클러스터 동일한 서브넷에서 관리 되는 인스턴스를 빠르게 만들 수 있도록 디자인 하 여 활성 상태로 유지 됩니다. 이 기간 동안 가상 클러스터와 연결 된 서브넷을 삭제할 수 없습니다.
+합니다 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) 는 포함 된 삭제 된 인스턴스 삭제에서 관리 되는 인스턴스를 12 시간 동안 유지 됩니다. 가상 클러스터 동일한 서브넷에서 관리 되는 인스턴스를 빠르게 만들 수 있도록 디자인 하 여 활성 상태로 유지 됩니다. 빈 가상 클러스터를 유지 하는 것은 무료입니다. 이 기간 동안 가상 클러스터와 연결 된 서브넷을 삭제할 수 없습니다.
 
 빈 가상 클러스터에서 사용 하는 서브넷의 즉시 릴리스는 가상 클러스터의 수동 삭제를 통해 수행할 수 있습니다. Azure portal 또는 가상 클러스터 API 통해 가상 클러스터의 삭제를 수행할 수 있습니다.
 

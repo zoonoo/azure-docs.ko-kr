@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe51f4589075cb275e867c943c5d7df3e8d5d4a0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819659"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794981"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Azure 가상 네트워크 내에서 안전하게 실험 및 유추 실행
 
@@ -34,9 +34,40 @@ Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리
 
 ## <a name="storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정
 
-Azure Machine Learning 서비스 작업 영역을 만들 때는 Azure Storage 계정이 필요합니다. 이 스토리지 계정에 대해서는 방화벽 규칙을 켜지 마세요. Azure Machine Learning 서비스는 스토리지 계정에 대해 무제한 액세스 권한이 필요합니다.
+> [!IMPORTANT]
+> 실험을 수행 하는 동안에 가상 네트워크 뒤 Azure Machine Learning 서비스 작업 영역에 연결 된 저장소 계정에 넣을 수 있습니다. 저장소 계정에 대 한 무제한 액세스를 해야 하는 추론 합니다. 관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 추론을 수행 하는 동안 모든 네트워크에서 액세스할 수 있도록 단계를 따르세요.
 
-관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 제시된 단계에 따라 모든 네트워크의 액세스를 허용합니다.
+Azure Machine Learning 실험을 사용 하려면 Azure Storage를 사용 하 여 가상 네트워크 뒤 기능 아래 단계를 따르세요.
+
+1. 예를 실험 계산을 만듭니다. 가상 네트워크 뒤 Learning Compute를 컴퓨터 또는 ex 작업 영역에는 실험 계산을 연결 합니다. HDInsight 클러스터 또는 가상 컴퓨터입니다. 자세한 내용은 [사용 하 여 Machine Learning Compute](#use-machine-learning-compute) 하 고 [가상 머신 또는 HDInsight 클러스터를 사용 하 여](#use-a-virtual-machine-or-hdinsight-cluster) 이 문서의 섹션
+2. 작업 영역에 연결 된 저장소로 이동 합니다. ![Azure Machine Learning 서비스 작업 영역에 연결 된 Azure Storage를 보여 주는 Azure portal의 이미지](./media/how-to-enable-virtual-network/workspace-storage.png)
+3. Azure Storage 페이지 선택 __방화벽 및 virtual network__합니다. ![이미지의 Azure 방화벽을 보여 주는 포털 및 가상 네트워크 섹션에서는 Azure Storage 페이지](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+4. 에 __방화벽 및 virtual network__ 페이지에서 다음 선택 합니다.
+    - __선택한 네트워크__를 선택합니다.
+    - 아래 __가상 네트워크__ 선택 __기존 가상 네트워크 추가__ 실험 계산 있는 가상 네트워크를 추가 해야 합니다. (1 단계 참조).
+    - 선택 __허용이 저장소 계정에 액세스 하도록 Microsoft 서비스를 신뢰할 수 있는__합니다.
+![이미지 azure 방화벽을 보여 주는 포털 및 가상 네트워크를 Azure Storage에서 페이지](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
+
+5. 실험 코드에서 실험을 실행 하는 동안 blob 저장소를 사용 하도록 실행된 구성 변경:
+    ```python
+    run_config.source_directory_data_store = "workspaceblobstore"
+    ```
+    
+## <a name="key-vault-for-your-workspace"></a>작업 영역에 대 한 키 자격 증명 모음
+작업 영역과 연결 된 Key Vault 인스턴스는 다양 한 종류의 자격 증명을 저장 하려면 Azure Machine Learning 서비스에서 사용 됩니다.
+* 연결 된 저장소 계정 연결 문자열
+* Azure Container Repository 인스턴스로 암호
+* 저장소 데이터에 연결 문자열입니다. 
+
+Azure Machine Learning 실험을 사용 하려면 가상 네트워크 뒤 Key Vault를 사용 하 여 기능은 아래 단계를 따르세요.
+1. 작업 영역과 연결 된 키 자격 증명 모음으로 이동 합니다. ![Azure Machine Learning 서비스 작업 영역에 연결 된 Key Vault를 보여 주는 Azure portal의 이미지](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+2. 키 자격 증명 모음 페이지 선택 __방화벽 및 virtual network__ 섹션입니다. ![이미지 azure 방화벽을 보여 주는 포털 및 가상 네트워크 섹션 키 자격 증명 모음 페이지](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+3. 에 __방화벽 및 virtual network__ 페이지에서 다음 선택 합니다.
+    - __선택한 네트워크__를 선택합니다.
+    - 아래는 __가상 네트워크__ 선택 __기존 가상 네트워크 추가__ 실험 계산 있는 가상 네트워크를 추가 해야 합니다.
+    - 선택 __허용이이 방화벽을 바이패스 하기 위해 Microsoft 서비스를 신뢰할 수 있는__합니다.
+![이미지의 Azure 방화벽을 보여 주는 포털 및 가상 네트워크 키 자격 증명 페이지](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
+
 
 ## <a name="use-machine-learning-compute"></a>Machine Learning 컴퓨팅 사용
 
@@ -74,15 +105,32 @@ Machine Learning 컴퓨팅은 현재 Azure Batch 서비스를 사용하여 지�
  
 - 가상 네트워크에 대한 모든 포트의 아웃바운드 트래픽
 
-- 인터넷에 대한 모든 포트의 아웃바운드 트래픽
+- 인터넷에 대한 모든 포트의 아웃바운드 트래픽 
 
 Batch 구성 NSG에서 인바운드/아웃바운드 규칙을 수정하거나 추가할 경우 주의가 필요합니다. NSG가 컴퓨팅 노드에 대한 통신을 차단하는 경우 Machine Learning Compute 서비스는 컴퓨팅 노드의 상태를 사용 불가로 설정합니다.
 
-Batch가 자체 NSG를 구성하므로 서브넷 수준에서 NSG를 지정할 필요는 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 앞서 언급한 것처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. 다음 스크린샷은 Azure Portal에서 규칙 구성이 표시되는 방식을 보여 줍니다.
+Batch가 자체 NSG를 구성하므로 서브넷 수준에서 NSG를 지정할 필요는 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 앞서 언급한 것처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. 
+
+다음 스크린샷은 Azure portal에서 NSG 규칙 구성을 표시 되는 모양을 보여 줍니다.
 
 ![Machine Learning 컴퓨팅에 대한 인바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
 
 ![Machine Learning 컴퓨팅에 대한 아웃바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+
+### <a id="limiting-outbound-from-vnet"></a> 가상 네트워크에서 아웃 바운드 연결을 제한
+
+기본 아웃 바운드 규칙을 사용 하 여 가상 네트워크의 아웃 바운드 액세스를 제한 하려고 하지 않으려면 다음 단계를 수행 합니다.
+
+- NSG 규칙을 사용 하 여 아웃 바운드 인터넷 연결을 거부 
+
+- Azure Storage에 아웃 바운드 트래픽을 제한 (사용 하 여 __서비스 태그__ 의 __Storage.Region_Name__ 예입니다. Storage.EastUS), Azure Container Registry (사용 하 여 __서비스 태그__ 의 __AzureContainerRegistry.Region_Name__ 예입니다. AzureContainerRegistry.EastUS) 및 Azure Machine Learning 서비스 (사용 하 여 __서비스 태그__ 의 __AzureMachineLearning__)
+
+다음 스크린샷은 Azure portal에서 NSG 규칙 구성을 표시 되는 모양을 보여 줍니다.
+
+![Machine Learning 컴퓨팅에 대한 아웃바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+
+
+
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>가상 네트워크에서 Machine Learning 컴퓨팅 만들기
 
@@ -175,6 +223,8 @@ except ComputeTargetException:
    ![가상 네트워크 내의 VM 또는 HDInsight 클러스터에 대해 실험을 수행하기 위한 인바운드 규칙 스크린샷](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
     NSG에 대한 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
+
+    기본 아웃 바운드 규칙을 사용 하 여 가상 네트워크의 아웃 바운드 액세스를 제한 하 여 참조를 원하지 않는 경우 [가상 네트워크에서 아웃 바운드 연결을 제한](#limiting-outbound-from-vnet)
     
 1. VM 또는 HDInsight 클러스터를 Azure Machine Learning 서비스 작업 영역에 연결합니다. 자세한 내용은 [모델 학습의 컴퓨팅 대상 설정](how-to-set-up-training-targets.md)을 참조하세요.
 
@@ -183,12 +233,17 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > 단계를 진행하기 전에 필수 조건을 확인하고 클러스터의 IP 주소 지정을 계획합니다. 자세한 내용은 [Azure Kubernetes Service에서 고급 네트워킹 구성](https://docs.microsoft.com/azure/aks/configure-advanced-networking)을 참조하세요.
 > 
+
 > NSG에 대한 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
 >
 > Azure Kubernetes Service 및 Azure 가상 네트워크는 동일한 지역에 있어야 합니다.
 
 가상 네트워크의 Azure Kubernetes Service를 작업 영역에 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
+1. 가상 네트워크에 있는 컨트롤 인바운드 규칙을 사용 하 여 Azure Machine Learning 서비스에 대해 사용 하도록 설정 하는 확인 해야 하는 NSG 그룹 __서비스 태그__ 의 __AzureMachineLearning__
+
+    ![Azure Machine Learning 서비스에서 컴퓨팅을 추가하는 방법](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)     
+ 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning Service 작업 영역을 선택합니다.
 
 1. __애플리케이션__ 섹션에서 __컴퓨팅__을 선택합니다. 그런 후 __컴퓨팅 추가__를 선택합니다. 
@@ -212,6 +267,10 @@ except ComputeTargetException:
     - __Docker 브리지 주소__: Docker 브리지 주소를 선택합니다. 이 IP 주소는 Docker 브리지에 할당됩니다. 서브넷 IP 범위 또는 Kubernetes 서비스 주소 범위에 속하지 않아야 합니다. 예를 들면 다음과 같습니다. 172.17.0.1/16.
 
    ![Azure Machine Learning 서비스: Machine Learning 컴퓨팅 가상 네트워크 설정](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+
+1. 가상 네트워크에 있는 컨트롤 인바운드 가상 네트워크 외부에서 호출 될 수 있도록 점수 매기기 끝점에 대해 사용 하도록 설정 하는 규칙을 확인 해야 하는 NSG 그룹
+
+    ![Azure Machine Learning 서비스에서 컴퓨팅을 추가하는 방법](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
     > [!TIP]
     > 가상 네트워크에 AKS 클러스터가 이미 있는 경우 작업 영역에 연결할 수 있습니다. 자세한 내용은 [AKS에 배포하는 방법](how-to-deploy-to-aks.md)을 참조하세요.

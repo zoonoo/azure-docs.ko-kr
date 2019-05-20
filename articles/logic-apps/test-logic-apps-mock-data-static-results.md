@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511931"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597200"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과 설정 하 여 모의 데이터를 사용 하 여 논리 앱 테스트
 
@@ -137,11 +137,9 @@ ms.locfileid: "60511931"
 
    ![정적 결과 사용 하지 않도록 설정](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>지원 받기
+## <a name="reference"></a>참조
 
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+기본 워크플로 정의에서이 설정에 대 한 자세한 내용은 참조 하세요. [정적 결과-워크플로 정의 언어에 대 한 스키마 참조](../logic-apps/logic-apps-workflow-definition-language.md#static-results) 고 [runtimeConfiguration.staticResult-런타임 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>다음 단계
 

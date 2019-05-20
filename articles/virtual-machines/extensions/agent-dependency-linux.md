@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800240"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521696"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux 용 azure 모니터링 종속성 가상 머신 확장
 
@@ -30,7 +30,7 @@ VM용 Azure Monitor 맵 기능은 Microsoft Dependency Agent에서 해당 데이
 
 ### <a name="operating-system"></a>운영 체제
 
-Linux 용 Azure VM 종속성 에이전트 확장에 나열 된 지원 되는 운영 체제에 대해 실행할 수 있습니다 합니다 [지원 되는 운영 체제](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) Vm 배포 문서에 대 한 Azure Monitor의 섹션입니다.
+Linux 용 Azure VM 종속성 에이전트 확장에 나열 된 지원 되는 운영 체제에 대해 실행할 수 있습니다 합니다 [지원 되는 운영 체제](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) Vm 배포 문서에 대 한 Azure Monitor의 섹션입니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 

@@ -53,6 +53,8 @@
       href: functions-create-serverless-api.md
     - name: OpenAPI 정의 만들기
       href: functions-openapi-definition.md
+    - name: 가상 네트워크에 연결
+      href: functions-create-vnet.md
     - name: Event Grid를 사용하여 이미지 크기 조정
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: 서버를 사용하지 않는 웹앱 만들기
@@ -118,8 +120,8 @@
       href: functions-networking-options.md
     - name: IP 주소
       href: ip-addresses.md
-    - name: 온-프레미스 함수
-      href: functions-runtime-overview.md
+    - name: Kubernetes의 Functions
+      href: functions-kubernetes-keda.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -142,6 +144,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: 로컬 PowerShell 함수 디버그
           href: functions-debug-powershell-local.md
+        - name: 종속성 주입
+          href: functions-dotnet-dependency-injection.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리
@@ -173,6 +177,7 @@
       items:
         - name: 함수 앱 관리
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: 런타임 버전 설정
           href: set-runtime-version.md
         - name: 확장 수동 등록
@@ -210,7 +215,7 @@
         - name: SQL Database에 연결
           href: functions-scenario-database-table-cleanup.md
         - name: 가상 네트워크에 연결
-          href: functions-create-vnet.md
+          href: functions-create-vnet-old.md
         - name: Open API 2.0 정의 만들기
           href: functions-api-definition-getting-started.md
         - name: PowerApps 및 Microsoft Flow로 내보내기
@@ -294,6 +299,8 @@
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 할당량 정보
+      href: 'functions-scale.md#service-limits'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 동영상

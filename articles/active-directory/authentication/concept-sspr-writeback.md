@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190722"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823292"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -42,9 +42,8 @@ ms.locfileid: "65190722"
 * **Azure Portal에서 관리자가 암호를 재설정할 때 비밀번호 쓰기 저장 지원**: 사용자가 페더레이션 또는 암호 해시 동기화된 경우 관리자가 [Azure Portal](https://portal.azure.com)에서 해당 사용자의 암호를 재설정할 때마다 암호가 온-프레미스에 다시 기록됩니다. 이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
 * **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
-> [!Note]
+> [!NOTE]
 > 온-프레미스 Active Directory의 보호 그룹 내에 있는 사용자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx)을 참조하세요.
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -63,7 +62,6 @@ ms.locfileid: "65190722"
 
 > [!WARNING]
 > 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 위의 요금제 중 하나가 필요합니다.
->
 
 ## <a name="how-password-writeback-works"></a>암호 쓰기 저장의 작동 원리
 
@@ -90,7 +88,6 @@ ms.locfileid: "65190722"
 1. 암호 설정 작업이 성공하면 사용자에게 암호가 변경되었음을 알려줍니다.
    > [!NOTE]
    > 사용자의 암호 해시가 암호 해시 동기화를 통해 Azure AD에 동기화되는 경우 온-프레미스 암호 정책이 클라우드 암호 정책보다 약할 수 있습니다. 이 경우 온-프레미스 정책이 적용됩니다. 이 정책을 사용하면 Single Sign-On을 제공하기 위해 암호 해시 동기화를 사용하든 아니면 페더레이션을 사용하든, 온-프레미스 정책이 클라우드에서 적용됩니다.
-   >
 
 1. 암호 설정 작업이 실패하면 다시 시도하라는 오류 메시지가 표시됩니다. 다음 이유로 작업이 실패할 수 있습니다.
     * 서비스가 종료되었습니다.
@@ -155,6 +152,7 @@ ms.locfileid: "65190722"
    * 모든 관리자 셀프 서비스 적용 변경 암호 작업(예: 암호 만료)
    * [암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 시작되는 모든 관리자 셀프 서비스 암호 재설정
    * [Azure Portal](https://portal.azure.com)에서 관리자 시작 최종 사용자 암호 재설정
+   * 모든 관리자 시작 최종 사용자 암호를 재설정 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>지원되지 않는 쓰기 저장 작업
 
@@ -163,11 +161,10 @@ ms.locfileid: "65190722"
 * **지원되지 않는 최종 사용자 작업**
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
-   * [Office 관리 포털](https://portal.office.com)에서 관리자 시작 최종 사용자 암호 재설정
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
 
 > [!WARNING]
-> 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오. 
+> 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

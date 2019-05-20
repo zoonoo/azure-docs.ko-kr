@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560102"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799394"
 ---
 # <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 
@@ -29,7 +30,7 @@ Video Indexer 장면 비디오 시각 신호에 따라 변경 될 때를 결정 
 > [!NOTE]
 > 3 개 이상의 장면을 포함 하는 비디오에 적용 됩니다.
 
-## <a name="shot-detection"></a>샷 검색
+## <a name="shot-detection"></a>샷 감지
 
 Video Indexer는 인접 한 프레임의 색 구성표의 갑작스러운 및 점진적으로 전환을 추적 하 여 시각 신호에 따라 비디오의 스크린샷된 변경 될 때를 결정 합니다. 샷의 메타 데이터에는 포함 하는 키 프레임 목록 뿐만 아니라 시작 및 종료 시간을 포함 합니다. 샷을 번에 연속 프레임을 동시에 동일한 카메라에서 가져온 경우
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730710"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787296"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -417,11 +417,9 @@ DELETE /runtime/webhooks/durabletask/instances
 
 | 필드                 | 매개 변수 형식  | 설명 |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | 쿼리 문자열    | 선택적 매개 변수. 를 지정 하는 경우 또는 지정된 된 ISO8601 타임 스탬프 후에 생성 된 제거 된 인스턴스 목록을 필터링 합니다.|
+| **`createdTimeFrom`** | 쿼리 문자열    | 제거 인스턴스 또는 지정된 된 ISO8601 타임 스탬프 후에 생성 된 목록을 필터링 합니다.|
 | **`createdTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수. 지정 하면 지정된 된 ISO8601 타임 스탬프 전후에 생성 된 제거 된 인스턴스 목록을 필터링 합니다.|
 | **`runtimeStatus`**   | 쿼리 문자열    | 선택적 매개 변수. 를 지정 하는 경우 제거 된 인스턴스 목록을 필터 런타임 상태에 기반 합니다. 가능한 런타임 상태 값의 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 항목을 참조하세요. |
-
-매개 변수 없이 지정 된 경우 작업 허브의 모든 인스턴스가 제거 됩니다.
 
 > [!NOTE]
 > 많이 있는 경우이 작업을 Azure 저장소 I/O 사용량이 상당히 늘어날 수 인스턴스 및/또는 기록에 있는 행의 테이블입니다. 이러한 테이블에 대 한 자세한 내용은에서 찾을 수 있습니다 합니다 [성능 및 규모 감축 Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서.

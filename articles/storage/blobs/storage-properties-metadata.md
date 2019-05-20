@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392401"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787875"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 
-Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터와 포함된 데이터를 지원합니다. 이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하여 관리 시스템 속성 및 사용자 정의 메타데이터를 관리하는 방법을 설명합니다.
+Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터와 포함된 데이터를 지원합니다. 이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용하여 관리 시스템 속성 및 사용자 정의 메타데이터를 관리하는 방법을 설명합니다.
 
 * **시스템 속성**:  각 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. Azure Storage 클라이언트 라이브러리에서 이러한 속성을 유지 관리합니다.
 
@@ -99,5 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [.NET용 Azure Storage 클라이언트 라이브러리 참조](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [.NET용 Azure Storage 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [.NET 용 azure Storage 클라이언트 라이브러리](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [.NET 패키지에 대 한 azure Blob storage 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [.NET 패키지에 대 한 azure 큐 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [.NET 패키지에 대 한 azure 파일 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

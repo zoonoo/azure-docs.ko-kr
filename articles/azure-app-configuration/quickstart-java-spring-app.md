@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000028"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408572"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -37,7 +37,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|

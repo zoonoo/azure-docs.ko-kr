@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159752"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541758"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Azure Search.NET SDK 버전 9로 업그레이드
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Azure Search.NET SDK 버전 9로 업그레이드
 
 7.0-preview 또는 이전 버전의 버전을 사용 하는 경우는 [Azure Search.NET SDK](https://aka.ms/search-sdk),이 문서에서는 버전 9를 사용 하도록 응용 프로그램을 업그레이드 합니다.
 
@@ -38,7 +38,7 @@ Azure Search.NET SDK의 버전 9에는 이전 버전에서 많은 변경이 포�
 ## <a name="whats-new-in-version-9"></a>버전 9의에서 새로운 기능
 Azure Search.NET SDK의 버전 9 최신 대상으로 Azure Search REST API, 특히: 2019-05-06의 일반 공급 버전입니다. 이 버전이 있으면 다음을 비롯한 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
-* [Cognitive Search](cognitive-search-concept-intro.md) AI 기능은 Azure search에서 이미지, blob 및 Azure Search 인덱스에 더 검색할 수 있도록 콘텐츠 보강-기타 구조화 되지 않은 데이터 원본에서 텍스트를 추출 하는 데 사용 합니다.
+* [Cognitive search](cognitive-search-concept-intro.md) AI 기능은 Azure search에서 이미지, blob 및 Azure Search 인덱스에 더 검색할 수 있도록 콘텐츠 보강-기타 구조화 되지 않은 데이터 원본에서 텍스트를 추출 하는 데 사용 합니다.
 * 에 대 한 지원 [복합 형식](search-howto-complex-data-types.md) Azure Search 인덱스에 거의 모든 중첩 된 JSON 구조를 모델링할 수 있습니다.
 * [자동 완성](search-autocomplete-tutorial.md) 대안을 제공 합니다 **제안** 검색---입력할 때 동작을 구현 하기 위한 API입니다. 자동 완성 "완료" 단어 또는 문구를 사용자가 현재 입력 합니다.
 * [구문 분석 모드 JsonLines](search-howto-index-json-blobs.md)일부인 인덱싱, Azure Blob의 줄 바꿈으로 구분 된 JSON 엔터티 당 검색 문서를 하나 만듭니다.
@@ -70,7 +70,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 > [!NOTE]
 > 아래 변경 내용 목록은 철저 없습니다. 일부 변경 내용은 빌드 오류에서 가능성이 발생 하지는 있지만 이전 버전의 Azure Search.NET SDK 어셈블리에 종속 된 어셈블리와 이진 호환성 중단은 이후의 주요 기술적으로. 이러한 변경 내용은 아래 나열 되지 않습니다. 이진 호환성 문제를 방지 하려면 9 버전으로 업그레이드 하는 경우 응용을 프로그램을 빌드하십시오.
 
-### <a name="making-properties-immutable"></a>속성을 변경
+### <a name="immutable-properties"></a>변경할 수 없는 속성
 
 이제 여러 모델 클래스의 공용 속성은 변경할 수 없습니다. 테스트를 위해 이러한 클래스의 사용자 지정 인스턴스를 만들어야 하는 경우에 새 매개 변수가 있는 생성자를 사용할 수 있습니다.
 
@@ -103,7 +103,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 매개 변수가 없는 생성자 `Field` 이루어졌습니다 `internal`합니다. 이제 모든 `Field` 명시적 이름과 데이터 형식을 생성 시 필요 합니다.
 
-### <a name="simplification-of-batch-and-results-types"></a>일괄 처리 및 결과 형식의 단순화
+### <a name="simplified-batch-and-results-types"></a>간소화 된 일괄 처리 및 결과 형식입니다.
 
 7.0-preview와 이전 버전에서는 문서 그룹을 캡슐화 하는 다양 한 클래스는 병렬 클래스 계층 구조에 구성 되었습니다.
 
@@ -118,7 +118,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 8.0-preview 버전부터, 기본 클래스 및 제네릭이 아닌 파생된 클래스를 모두 제거 되었습니다. 동적으로 형식화 된 시나리오를 사용할 수 있습니다 `IndexBatch<Document>`, `DocumentSearchResult<Document>`등입니다.
  
-### <a name="removal-of-extensibleenum"></a>ExtensibleEnum 제거
+### <a name="removed-extensibleenum"></a>제거 ExtensibleEnum
 
 `ExtensibleEnum` 기본 클래스가 제거 되었습니다. 파생 된 모든 클래스는 같은 구조체를 이제 `AnalyzerName`, `DataType`, 및 `DataSourceType` 예를 들어 있습니다. 해당 `Create` 메서드 또한 제거 되었습니다. 에 대 한 호출을 제거할 수 `Create` 되므로 이러한 형식 문자열에서 암시적으로 변환할 수 있습니다. 컴파일러 오류를 발생 하는 경우 형식을 명확 하 게 캐스팅을 통해 변환 연산자를 명시적으로 호출할 수 있습니다. 예를 들어, 다음과 같은 코드를 변경할 수 있습니다.
 
@@ -150,7 +150,7 @@ var index = new Index()
 
 이러한 형식의 선택적 값을 보유 하는 속성은 이제 명시적으로 형식화 null 허용으로 계속 선택적 수 있도록 합니다.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>FacetResults HitHighlights 제거
+### <a name="removed-facetresults-and-hithighlights"></a>제거 FacetResults 및 HitHighlights
 
 합니다 `FacetResults` 고 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과 이제 형식으로 지정 `IDictionary<string, IList<FacetResult>>` 적중으로 강조 표시 및 `IDictionary<string, IList<string>>`합니다. 추가 하는 것이 변경으로 인해 빌드 오류를 해결 하는 빠른 방법은 `using` 제거 형식을 사용 하는 각 파일의 맨 위에 있는 별칭입니다. 예를 들면 다음과 같습니다.
 

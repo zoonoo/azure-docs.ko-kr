@@ -3,8 +3,8 @@ title: 액세스 패널의 애플리케이션에 로그인하는 문제 | Micros
 description: myapps.microsoft.com의 Microsoft Azure AD 액세스 패널에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51e486e8eb2fef04c1b876dff3de644dda4aaf2e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441532"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781127"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 애플리케이션에 로그인하는 문제
 

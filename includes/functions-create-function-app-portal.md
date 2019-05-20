@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2bfca370e8e89d98f700c8c5adfd29129e810d9b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199292"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416325"
 ---
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
 
@@ -41,4 +41,4 @@ ms.locfileid: "65199292"
 
     ![새 함수 앱 설정 정의](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-5. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
+5. **리소스로 이동**을 선택하여 함수 앱을 봅니다. **대시보드에 고정**을 선택할 수도 있습니다. 고정하면 대시보드에서 이 함수 앱 리소스로 쉽게 돌아올 수 있습니다.

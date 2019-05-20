@@ -1,7 +1,7 @@
 ---
 title: '분류: (중요 한 비용) 신용 위험 예측'
 titleSuffix: Azure Machine Learning service
-description: 이 시각적 인터페이스 샘플 실험을 사용자 지정된 Python 스크립트를 사용 하 여 비용에 따른 이진 분류를 수행 하는 방법을 보여 줍니다. 신용 응용 프로그램에서 제공 하는 정보를 기반으로 한 신용 위험 예측 합니다.
+description: 이 문서에서는 복잡 한 machine learning 실험 시각적 인터페이스를 사용 하 여 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 가장 적합 한 옵션을 선택 하는 여러 모델을 비교 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440966"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787811"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>4-분류 샘플: (중요 한 비용) 신용 위험 예측
 
-이 시각적 인터페이스 샘플 실험을 사용자 지정된 Python 스크립트를 사용 하 여 비용에 따른 이진 분류를 수행 하는 방법을 보여 줍니다. 양의 샘플 비용은 비용은 5 배를 잘못 분류 한 비용은 음수 샘플입니다.
+이 문서에서는 복잡 한 machine learning 실험 시각적 인터페이스를 사용 하 여 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 가장 적합 한 옵션을 선택 하는 여러 모델을 비교 하는 방법을 알아봅니다.
 
-이 샘플은 오 분류 비용을 고려 하는 신용 응용 프로그램에 제공 된 정보를 기반으로 하는 신용 위험을 예측 합니다.
+이 샘플에는 신용 기록, 수명 및 신용 카드 번호와 같은 신용 응용 프로그램 정보를 사용 하 여 신용 위험 예측 분류자를 학습 합니다. 그러나 사용자 고유의 기계 학습 문제를 해결 하려면이 문서의 개념을 적용할 수 있습니다.
 
-이 실험에서이 문제를 해결 하는 모델 생성에 대 한 두 가지 방법을 비교 합니다.
+machine learning을 사용한 시작 메시지가 바로, 살펴보겠습니다 수행할 수 있습니다 합니다 [기본 분류자 샘플](ui-sample-classification-predict-credit-risk-basic.md) 첫 번째입니다.
 
-- 원래 데이터 집합을 사용 하 여 학습 합니다.
-- 복제 된 데이터 집합을 사용 하 여 학습 합니다.
+이 실험에 대 한 완성된 된 그래프는 다음과 같습니다.
 
-두 방법 모두를 사용 하 여 비용 함수를 사용 하 여 결과 정렬 되어 있는지 확인 하려면 복제를 사용 하 여 테스트 데이터 집합을 사용 하 여 모델 평가 합니다. 두 방법 모두를 사용 하 여 두 분류자 테스트: **2 클래스 Support Vector Machine** 하 고 **2 클래스 승격 된 의사 결정 트리**합니다.
+[![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,15 +37,18 @@ ms.locfileid: "65440966"
 
     ![실험을 열으십시오](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>관련된 샘플
-
-참조 [3-분류 샘플: 신용 위험 예측 (기본)](ui-sample-classification-predict-churn.md) 이 실험으로 동일한 문제를 해결 하는 기본 실험을 오 분류 비용 없이 조정 합니다.
-
 ## <a name="data"></a>Data
 
 독일 신용 카드 데이터 집합에서는 UC Irvine 리포지토리에서 사용합니다. 이 데이터 집합에는 20 기능 및 1 개 레이블 1,000 샘플이 들어 있습니다. 각 샘플 사람을 나타냅니다. 20 개의 기능이 숫자와 범주 기능을 포함 합니다. 참조 된 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) 데이터 집합에 대 한 자세한 내용은 합니다. 마지막 열은 레이블 신용 위험을 나타내는 고 두 개의 가능한 값: 높은 신용 위험 2 및 신용 위험이 낮은 = = 1입니다.
 
 ## <a name="experiment-summary"></a>실험 요약
+
+이 실험에서이 문제를 해결 하는 모델 생성에 대 한 두 가지 방법을 비교 합니다.
+
+- 원래 데이터 집합을 사용 하 여 학습 합니다.
+- 복제 된 데이터 집합을 사용 하 여 학습 합니다.
+
+두 방법 모두를 사용 하 여 비용 함수를 사용 하 여 결과 정렬 되어 있는지 확인 하려면 복제를 사용 하 여 테스트 데이터 집합을 사용 하 여 모델 평가 합니다. 두 방법 모두를 사용 하 여 두 분류자 테스트: **2 클래스 Support Vector Machine** 하 고 **2 클래스 승격 된 의사 결정 트리**합니다.
 
 높음 위험 예제를 비용은 1 이며 위험 수준이 높은 예제를 낮은 비용은 5입니다. 사용 하 여는 **Python 스크립트 실행** 이 오 분류 비용에 대 한 계정에 모듈입니다.
 
@@ -71,7 +73,7 @@ ms.locfileid: "65440966"
 
 이 Python 코드를 설명 하겠습니다에 위험 수준이 높은 데이터를 복제 하는 **Python 스크립트 실행** 모듈:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. 학습 알고리즘을 사용 하 여 초기화 **2 클래스 Support Vector Machine** 하 고 **2 클래스 승격 된 의사 결정 트리**합니다.
 1. 사용 하 여 **모델 학습** 실제 모델을 만들고 데이터에 알고리즘을 적용 합니다.
-3. 사용 하 여 **모델 점수 매기기** 테스트 예제를 사용 하 여 점수를 생성 합니다.
+1. 사용 하 여 **모델 점수 매기기** 테스트 예제를 사용 하 여 점수를 생성 합니다.
 
 다음 다이어그램은이 실험에서 두 가지 SVM 모델을 학습에 사용 되는 원본 및 복제 된 학습 집합의 일부를 보여 줍니다. **모델 학습** 학습 집합에 연결 되어 및 **모델 점수 매기기** 테스트 집합에 연결 되어 있습니다.
 
 ![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 실험의 평가 단계에서는 각 네 가지 모델의 정확도 계산 했습니다. 이 실험에서는 사용 하 여 **모델 평가** 비용을 동일한 오 분류에 있는 예제를 비교 합니다.
 
@@ -121,7 +122,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 합니다 **모델 평가** 모듈에서 다양 한 메트릭을 포함 하는 단일 행이 있는 테이블을 생성 합니다. 단일 정확도 결과 집합을 만들려면 먼저 사용 **행 추가** 을 단일 테이블로 결과 결합 합니다. 그런 다음 다음 Python 스크립트를 사용 합니다 **Python 스크립트 실행** 결과의 테이블에 있는 모델 이름 및 각 행에 대 한 학습 방법을 추가 모듈:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>결과
 

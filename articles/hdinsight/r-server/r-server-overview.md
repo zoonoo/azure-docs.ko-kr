@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683744"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779226"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 ML Services 및 오픈 소스 기능 소개
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight의 ML Services 란
 
 > [!NOTE]  
 > 2017년 9월 Microsoft R Server가 **Microsoft Machine Learning Server** 또는 ML Server라는 새로운 이름으로 릴리스되었습니다. 이 때문에 HDInsight의 R Server 클러스터를 이제 HDInsight의 **Machine Learning Services** 또는 **ML Services**라고 합니다. R Server 이름 변경에 대한 자세한 내용은 [Microsoft R Server가 이제 Microsoft Machine Learning Server임](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server)을 참조하세요.

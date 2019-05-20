@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399899"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606701"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
 
@@ -36,7 +36,7 @@ Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문�
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>옵션 2: 다른 파티션 또는 배포 키 선택
 
-앞의 예제에서 해당 국가 전역의 세금 감사 워크로드만 확인하려면 ID 번호를 키로 선택하여 데이터 배포를 개선할 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
+위의 예에서 국가/지역, 모든 세금 감사 워크 로드를 확인 하려는 경우 개선할 수 있습니다 데이터 분포가 ID 번호를 키로 선택 하 여. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>옵션 3: 더 많은 파티션 또는 배포 키 추가
 

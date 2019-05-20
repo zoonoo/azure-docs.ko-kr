@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466192"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551731"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -66,3 +66,7 @@ ms.locfileid: "65466192"
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>추상화 된 경우 마스터와 인프라 노드 Azure Kubernetes Service (AKS)를 사용 하 여 그대로?
 
 아니요. 모든 리소스를 클러스터 마스터를 포함 하 여 고객 구독에서 실행 합니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>Open Service Broker에 대 한 Azure (OSBA) 지원 인지 확인 합니다.
+
+예. Azure Red Hat OpenShift를 사용 하 여 OSBA를 사용할 수 있습니다. 참조 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 자세한 내용은 합니다.

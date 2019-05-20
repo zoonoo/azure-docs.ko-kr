@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
-ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707004"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800943"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -29,8 +29,8 @@ ms.locfileid: "64707004"
 
 Hive의 장점 중 하나는 외부 데이터베이스 (Hive Metastore 라고도 함)에 메타 데이터를 내보내는 기능입니다. 합니다 **Hive Metastore** 테이블 통계를 테이블 저장소 위치, 열 이름 및 테이블 인덱스 정보를 포함 하 여 저장을 담당 합니다. Metastore 데이터베이스 스키마를 Hive 버전 간에 다릅니다. HDInsight 3.6 Hive Metastore를 HDInsight 4.0과 호환 되도록 업그레이드 하려면 다음을 수행 합니다.
 
-1. 외부 metastore의 새 복사본을 만듭니다. HDInsight 3.6 및 HDInsight 4.0 다른 metastore 스키마가 필요 하 고 단일 metastore를 공유할 수 없습니다.
-1. Metastore의 새 복사본을)를 기존 HDInsight 4.0 클러스터 또는 사용자가 처음으로 만드는 b) 클러스터에 연결 합니다. 참조 [Azure HDInsight에서 외부 메타 데이터 저장소를 사용 하 여](../hdinsight-use-external-metadata-stores.md) 외부 metastore를 HDInsight 클러스터에 연결 하는 방법에 대 한 자세한 내용을 보려면. Metastore 연결 되 면 자동으로 4.0 호환 metastore로 변환 됩니다.
+1. 외부 metastore의 새 복사본을 만듭니다. HDInsight 3.6 및 HDInsight 4.0 다른 metastore 스키마가 필요 하 고 단일 metastore를 공유할 수 없습니다. 참조 [Azure HDInsight에서 외부 메타 데이터 저장소를 사용 하 여](../hdinsight-use-external-metadata-stores.md) 외부 metastore를 HDInsight 클러스터에 연결 하는 방법에 대 한 자세한 내용을 보려면. 
+2. 실행에 대 한 노드 형식으로 "헤드 노드"를 사용 하 여 HDI 3.6 클러스터에 대 한 스크립트 작업을 시작 합니다. 텍스트 상자에 다음 URI 붙여넣기 "Bash 스크립트 URI" 표시: https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh합니다. "인수"를 표시 하는 텍스트 상자에 서버 이름, 데이터베이스, 사용자 이름 및 암호를 입력 합니다 **복사** Hive metastore를 공백으로 구분 합니다. 포함 되지 않습니다 ". database.windows.net" servername을 지정 하는 경우.
 
 > [!Warning]
 > HDInsight 3.6 메타 데이터 스키마는 HDInsight 4.0 스키마로 변환 하는 업그레이드를 취소할 수 없습니다.

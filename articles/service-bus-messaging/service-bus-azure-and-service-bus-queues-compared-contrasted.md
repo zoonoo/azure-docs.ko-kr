@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714577"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799344"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서에서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -65,7 +65,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 ## <a name="foundational-capabilities"></a>기본 기능
 이 섹션에서는 Storage 큐와 Service Bus 큐가 제공하는 일부 기본 큐 기능을 비교합니다.
 
-| 비교 기준 | Storage 큐 | Service Bus 큐 |
+| 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 순서 보장 |**아니요** <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br> |**예 - 선입선출(FIFO)**<br/><br>(메시징 세션의 사용을 통해) |
 | 전달 보장 |**최소 1회(At-Least-Once)** |**최소 1회(At-Least-Once)**<br/><br/>**최대 1회(At-Most-Once)** |
@@ -74,8 +74,8 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 푸시 스타일 API |**아니요** |**예**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 및 **OnMessage** 세션 .NET API |
 | 수신 모드 |**보기 및 임대** |**보기 및 잠금**<br/><br/>**수신 및 삭제** |
 | 단독 액세스 모드 |**임대 기반** |**잠금 기반** |
-| 임대/잠금 기간 |**30초(기본값)**<br/><br/>**7일(최대값)**([UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있음) |**60초(기본값)**<br/><br/>[RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 메시지 잠금을 갱신할 수 있습니다. |
-| 임대/잠금 정밀도 |**메시지 수준**<br/><br/>(각 메시지에 서로 다른 시간 제한 값을 지정할 수 있으며, 그 다음 [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지를 처리하는 동안 필요에 따라 이를 업데이트할 수 있음) |**큐 수준**<br/><br/>(각 큐에 모든 메시지에 적용되는 잠금 정밀도가 있지만 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 잠금을 갱신할 수 있음) |
+| 임대/잠금 기간 |**30초(기본값)**<br/><br/>**7일(최대값)**([UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지 임대를 갱신하거나 해제할 수 있음) |**60초(기본값)**<br/><br/>[RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 메시지 잠금을 갱신할 수 있습니다. |
+| 임대/잠금 정밀도 |**메시지 수준**<br/><br/>(각 메시지에 서로 다른 시간 제한 값을 지정할 수 있으며, 그 다음 [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API를 사용하여 메시지를 처리하는 동안 필요에 따라 이를 업데이트할 수 있음) |**큐 수준**<br/><br/>(각 큐에 모든 메시지에 적용되는 잠금 정밀도가 있지만 [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API를 사용하여 잠금을 갱신할 수 있음) |
 | 일괄 수신 |**예**<br/><br/>(메시지를 수신할 때 메시지 개수를 명시적으로 지정, 메시지 수 최대 32개) |**예**<br/><br/>(암시적으로 또는 트랜잭션 사용을 통해 명시적으로 프리페치 속성 사용) |
 | 일괄 송신 |**아니요** |**예**<br/><br/>(트랜잭션 또는 클라이언트 측 일괄 처리의 사용을 통해) |
 
@@ -98,7 +98,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 ## <a name="advanced-capabilities"></a>고급 기능
 이 섹션에서는 Storage 큐와 Service Bus 큐에서 제공하는 고급 기능을 비교합니다.
 
-| 비교 기준 | Storage 큐 | Service Bus 큐 |
+| 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 예약 배달 |**예** |**예** |
 | 배달 못한 메시지 자동 처리 |**아니요** |**예** |
@@ -121,7 +121,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 * 큐 자동 전달 기능을 통해 수천 개의 큐에서 메시지를 단일 큐로 전달하고, 수신 애플리케이션이 단일 큐에서 메시지를 소비할 수 있습니다. 이 메커니즘을 사용하여 보안, 흐름 제어를 달성하고 각 메시지 게시자 사이에 저장소를 격리할 수 있습니다.
 * Storage 큐는 메시지 콘텐츠의 업데이트를 지원합니다. 이 기능을 사용하여 메시지에 상태 정보와 증분 진행률 업데이트를 유지함으로써 작업을 처음부터 시작하는 대신 최종적으로 알려진 검사점부터 처리할 수 있습니다. Service Bus 큐의 경우 메시지 세션을 사용하여 동일한 시나리오를 활용할 수 있습니다. 세션을 통해 애플리케이션 처리 상태를 저장하고 가져올 수 있습니다([SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 및 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState) 사용).
 * Service Bus 큐에서만 지원하는 [배달 못 한 편지 처리](service-bus-dead-letter-queues.md)는 수신 애플리케이션에서 정상적으로 처리할 수 없는 메시지를 격리하거나, 만료된 TTL(Time-to-Live) 속성으로 인해 메시지가 대상에 도달할 수 없는 경우에 유용할 수 있습니다. TTL 값은 메시지가 큐에 남아 있는 기간을 지정합니다. Service Bus의 경우 TTL 기간이 만료되면 메시지가 $DeadLetterQueue라는 특별한 큐로 이동됩니다.
-* 메시지를 큐에서 제거할 때 Storage 큐에 포함된 "포이즌" 메시지를 찾기 위해 애플리케이션에서 메시지의 [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) 속성을 검사합니다. **DequeueCount**가 지정된 임계값을 초과하는 경우, 애플리케이션은 해당 메시지를 애플리케이션에서 정의한 “배달 못 한 편지” 큐로 이동시킵니다.
+* 메시지를 큐에서 제거할 때 Storage 큐에 포함된 "포이즌" 메시지를 찾기 위해 애플리케이션에서 메시지의 [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) 속성을 검사합니다. **DequeueCount**가 지정된 임계값을 초과하는 경우, 애플리케이션은 해당 메시지를 애플리케이션에서 정의한 “배달 못 한 편지” 큐로 이동시킵니다.
 * Storage 큐의 경우 큐에 대해 실행되는 모든 트랜잭션의 상세 로그와 더불어 집계된 메트릭을 입수할 수 있습니다. 이 옵션은 모두 디버깅과 애플리케이션이 Storage 큐를 어떻게 사용하는지 이해하는 데 유용합니다. 이는 또한 애플리케이션의 성능을 튜닝하고 큐 사용 비용을 절감하는 데에도 유용합니다.
 * Service Bus에서 지원하는 “메시지 세션” 개념을 활용하면 특정 논리 그룹에 속한 메시지를 지정된 수신자와 연결하고, 해당 수신자가 메시지와 각각의 수신자 사이에 세션과 유사한 선호도를 만들 수 있습니다. 메시지에서 [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 속성을 설정하면 Service Bus의 이 고급 기능을 사용할 수 있습니다. 수신자가 특정 세션 ID를 수신 대기하고 지정된 세션 식별자를 공유하는 메시지를 수신할 수 있습니다.
 * Service Bus 큐에서 지원하는 중복 검색 기능은 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 속성의 값을 기준으로 큐 또는 토픽으로 발송된 중복 메시지를 자동으로 제거합니다.
@@ -129,7 +129,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 ## <a name="capacity-and-quotas"></a>용량 및 할당량
 이 섹션에서는 적용할 수 있는 [용량과 할당량](service-bus-quotas.md)의 관점에서 Storage 큐와 Service Bus 큐를 비교합니다.
 
-| 비교 기준 | Storage 큐 | Service Bus 큐 |
+| 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 최대 큐 크기 |**500TB**<br/><br/>([단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
 | 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB).<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
@@ -148,7 +148,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 ## <a name="management-and-operations"></a>관리 및 운영
 이 섹션에서는 Storage 큐와 Service Bus 큐에서 제공하는 관리 기능을 비교합니다.
 
-| 비교 기준 | Storage 큐 | Service Bus 큐 |
+| 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 관리 프로토콜 |**HTTP/HTTPS를 통한 REST** |**HTTPS를 통한 REST** |
 | 런타임 프로토콜 |**HTTP/HTTPS를 통한 REST** |**HTTPS를 통한 REST**<br/><br/>**AMQP 1.0 표준(TCP 및 TLS)** |
@@ -172,7 +172,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 ## <a name="authentication-and-authorization"></a>인증 및 권한 부여
 이 섹션에서는 Storage 큐와 Service Bus 큐에서 지원하는 인증 및 권한 부여 기능에 대해 설명합니다.
 
-| 비교 기준 | Storage 큐 | Service Bus 큐 |
+| 비교 기준 | 저장소 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | Authentication |**대칭 키** |**대칭 키** |
 | 보안 모델 |SAS 토큰을 통해 위임된 액세스. |SAS |

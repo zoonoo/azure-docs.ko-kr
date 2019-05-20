@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589617"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602736"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
 
@@ -29,9 +29,9 @@ ms.locfileid: "60589617"
 
 이 문서에서는 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다. 이러한 함수는 입력 테이블의 집계된 결과로 테이블을 생성하는 `summarize` 연산자를 모두 사용합니다.
 
-## <a name="counts"></a>Counts
+## <a name="counts"></a>개수
 
-### <a name="count"></a>count
+### <a name="count"></a>개수
 필터가 적용된 후, 결과 집합의 행 수를 계산합니다. 다음 예제에서는 지난 30분 동안 _Perf_ 테이블의 총 행 수를 반환합니다. 이 결과는 특정 이름을 지정하지 않는 한, *count_* 열에 반환됩니다.
 
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>하위 그룹 평가
-데이터의 하위 그룹에 대해 개수 또는 다른 집계를 수행하려면 `by` 키워드를 사용합니다. 예를 들어, 각 국가에 하트비트를 전송한 고유한 Linux 컴퓨터의 수를 계산하려면 다음을 입력합니다.
+데이터의 하위 그룹에 대해 개수 또는 다른 집계를 수행하려면 `by` 키워드를 사용합니다. 예를 들어, 각 국가/지역에서 하트 비트를 전송 하는 고유한 Linux 컴퓨터의 수를 계산 합니다.
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |네덜란드      | 2                   |
 
 
-데이터의 좀 더 작은 하위 그룹을 분석하려면 `by` 섹션에 추가 열 이름을 추가합니다. 예를 들어, OSType별로 각 국가의 고유 컴퓨터 수를 계산하려면 다음을 입력합니다.
+데이터의 좀 더 작은 하위 그룹을 분석하려면 `by` 섹션에 추가 열 이름을 추가합니다. 예를 들어, 다음 OSType 당 각 국가/지역에서 고유한 컴퓨터 수에 것이 좋습니다.
 
 ```Kusto
 Heartbeat 

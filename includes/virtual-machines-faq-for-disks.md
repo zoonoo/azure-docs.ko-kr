@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199258"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607064"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -237,7 +237,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-예
+예.
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
@@ -274,7 +274,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-예
+예.
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 
@@ -365,7 +365,7 @@ Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스�
 
 **지역 이란 TiB 8, 16 TiB 및에서 지원 되는 32 TiB의 관리 되는 디스크 크기**
 
-8 TiB, 16 TiB 및 32 TiB 디스크 Sku는 글로벌 Azure에서 모든 지역에서 지원 됩니다. Microsoft Azure Government 및 Azure 중국 21Vianet에 대 한 지원은 아직 사용할 수 없습니다.
+8 TiB, 16 TiB 및 32 TiB 디스크 Sku는 전역 Azure, Microsoft Azure Government 및 Azure 중국 21Vianet에서 모든 지역에서 지원 됩니다.
 
 **호스트 캐싱을 사용 하도록 설정 모든 디스크 크기를 지원 하나요?**
 

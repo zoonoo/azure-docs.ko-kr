@@ -5,42 +5,42 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 04/10/2019
+ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733746"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787634"
 ---
-<a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
+<a name="virtual-networking-limits-classic"></a>네트워킹을 통해 관리 되는 리소스에 대해서만 다음과 같은 제한이 적용 된 **클래식** 구독 당 배포 모델입니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
-| 리소스 | 기본 제한 | 최대 제한 |
+| Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 가상 네트워크 |50 |100 |
 | 로컬 네트워크 사이트 수 |20 |지원에 문의 |
 | 가상 네트워크 당 DNS 서버 |20 |20 |
 | 가상 네트워크 당 개인 IP 주소 |4,096 |4,096 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |두 개 이상의 Nic에 대 한 1,000,000 최대 500,000입니다. |두 개 이상의 Nic에 대 한 1,000,000 최대 500,000입니다. |
-| NSG(네트워크 보안 그룹) |100 |200 |
-| NSG당 NSG 규칙 |200 |1,000 |
-| 사용자 정의 경로 테이블 |100 |200 |
-| 경로 테이블당 사용자 정의 경로 |100 |400 |
-| 공용 IP 주소(동적) |5 |지원에 문의 |
-| 예약된 공용 IP 주소 |20 |지원에 문의 |
-| 배포당 공용 VIP |5 |지원에 문의 |
+| NSG(네트워크 보안 그룹) |200 |200 |
+| NSG당 NSG 규칙 |1,000 |1,000 |
+| 사용자 정의 경로 테이블 |200 |200 |
+| 경로 테이블당 사용자 정의 경로 |400 |400 |
+| 공용 IP 주소(동적) |5 |지원 문의 |
+| 예약된 공용 IP 주소 |20 |지원 문의 |
+| 배포당 공용 VIP |5 |지원 문의 |
 | 배포당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager
-다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
+다음과 같은 제한이 적용 네트워킹 리소스를 통해 관리 되는 동안만 **Azure Resource Manager** 지역당 구독 당 합니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 > [!NOTE]
 > 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 제한이 없습니다. 한도 이전에 지원 하 여 증가 하 고 다음 테이블에서 업데이트 된 한도 표시 되지 않는 경우 [무료로 온라인 고객 지원 요청을 개설](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| 리소스 | 기본 제한/최대 제한 | 
+| Resource | 기본/최대 제한 | 
 | --- | --- |
 | 가상 네트워크 |1,000 |
 | 가상 네트워크당 서브넷 |3,000 |
@@ -65,17 +65,17 @@ ms.locfileid: "64733746"
 | 가상 네트워크 탭당 네트워크 인터페이스 탭 구성 |100 |
 
 #### <a name="publicip-address"></a>공용 IP 주소 구분
-| 리소스 | 기본 제한 | 최대 제한 |
+| Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 공용 IP 주소 - 동적 | basic의 경우 1,000입니다. |지원에 문의 |
 | 공용 IP 주소 - 고정 | basic의 경우 1,000입니다. |지원에 문의 |
 | 공용 IP 주소 - 고정 | 표준 200입니다.|지원에 문의 |
-| 공용 IP 접두사 크기 (미리 보기) | /28 | /28 |
+| 공용 IP 접두사 크기 (미리 보기) | /28 | 지원에 문의 |
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
-| 리소스 | 기본 제한 |
+| Resource | 기본/최대 제한 |
 | --- | --- |
 | 부하 분산 장치 | 1,000 | 
 | 리소스당 규칙 수, 기본 | 250 |

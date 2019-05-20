@@ -1,10 +1,10 @@
 ---
-title: Microsoft ID 플랫폼을 사용하여 앱 등록 | Azure
+title: Microsoft ID 플랫폼에 앱 등록 | Microsoft ID 플랫폼
 description: Microsoft ID 플랫폼을 사용하여 애플리케이션을 추가 및 등록하는 방법을 살펴봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090715"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413599"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 애플리케이션 등록(미리 보기)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Microsoft ID 플랫폼에 통합되어 해당 서비스에 대한 보안 로그인 및 권한 부여를 제공하는 상용 클라우드 서비스 또는 업무용 애플리케이션 제품군을 개발할 수 있습니다.
 
-이 빠른 시작에서는 Microsoft ID 플랫폼에 통합할 수 있도록 Azure Portal에서 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 추가 및 등록하는 방법을 살펴봅니다. 새 애플리케이션 등록 환경의 새로운 기능 및 향상된 기능에 대한 자세한 내용은 [이 블로그 게시물](https://developer.microsoft.com/graph/blogs/new-app-registration/)을 참조하세요. 
-
-## <a name="prerequisite"></a>필수 요소
-
-시작하려면 Azure Portal에서 앱 등록 미리 보기 환경을 옵트인해야 합니다. 이 빠른 시작의 단계는 새 UI에 해당하며 미리 보기 환경을 옵트인한 경우에만 작동합니다.
+이 빠른 시작에서는 앱을 Microsoft ID 플랫폼에 통합할 수 있도록 Azure Portal에서 **앱 등록** 환경을 사용하여 애플리케이션을 추가하고 등록하는 방법을 보여줍니다. 새 애플리케이션 등록 환경의 새로운 기능 및 향상된 기능에 대한 자세한 내용은 [이 블로그 게시물](https://developer.microsoft.com/graph/blogs/new-app-registration/)을 참조하세요.
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 애플리케이션 등록
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기) > 새 등록**을 차례로 선택합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택한 다음, **앱 등록 > 새 등록**을 선택합니다.
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 
    - **이름** -앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다.

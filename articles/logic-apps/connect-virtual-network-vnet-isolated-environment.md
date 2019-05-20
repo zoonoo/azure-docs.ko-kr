@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150661"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544519"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -39,7 +39,7 @@ ms.locfileid: "65150661"
 * Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
   > [!IMPORTANT]
-  > ISE에서 실행되는 논리 앱, 기본 제공 작업 및 커넥터의 경우 사용량 기반 가격 책정 플랜이 아닌 다른 가격 책정 플랜을 사용합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
+  > Logic apps, 기본 제공 트리거, 기본 제공 작업 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 자세한 내용은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다. 
 
@@ -116,7 +116,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 |
    | **위치**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **추가 용량** | 예 | 0 ~ 10 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [ISE 추가 용량](#add-capacity)합니다. |
+   | **추가 용량** | 예. | 0 ~ 10 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [ISE 추가 용량](#add-capacity)합니다. |
    | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크에 없는 경우 [Azure virtual network를 먼저 만들어야](../virtual-network/quick-create-portal.md)합니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet).  |
    |||||
@@ -199,33 +199,19 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
 ## <a name="create-logic-app---ise"></a>논리 앱 만들기 - ISE
 
-ISE(통합 서비스 환경)를 사용하는 논리 앱을 만들려면 이러한 차이점이 있는 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)의 단계를 따릅니다. 
-
-* 예를 들어 논리 앱을 만들 때 **Location** 속성에서 **통합 서비스 환경** 섹션에서 ISE를 선택합니다.
+통합 서비스 환경 (ISE)에서 실행 되는 논리 앱을 만드는 [일반적인 방법으로 논리 앱을 만들](../logic-apps/quickstart-create-first-logic-app-workflow.md) 설정 하는 경우를 제외 하 고는 **위치** 속성에 ISE에서 선택 합니다  **통합 서비스 환경** 섹션 예를 들어:
 
   ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* 동일한 기본 제공 트리거 및 HTTP와 같은 논리 앱으로 동일한 ISE에서 실행 하는 작업을 사용할 수 있습니다. **ISE** 레이블이 있는 커넥터는 논리 앱과 동일한 ISE에서 실행됩니다. **ISE** 레이블이 없는 커넥터는 전역 Logic Apps 서비스에서 실행됩니다.
-
-  ![ISE 커넥터 선택](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Azure 가상 네트워크에 ISE를 삽입하면 ISE의 논리 앱은 해당 가상 네트워크의 리소스에서 직접 액세스할 수 있습니다. 가상 네트워크에 연결된 온-프레미스 시스템의 경우 논리 앱이 이러한 항목 중 하나를 사용하여 해당 시스템에 직접 액세스할 수 있도록 해당 네트워크에 ISE를 삽입합니다. 
-
-  * SQL Server 등의 해당 시스템용 ISE 커넥터
-  
-  * HTTP 동작 
-  
-  * 사용자 지정 커넥터
-
-  가상 네트워크에 있지 않거나 ISE 커넥터가 없는 온-프레미스 시스템의 경우 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md)합니다.
+트리거 및 동작 작업 하는 방법을 해당 하는 레이블이 지정 된 전역 Logic Apps 서비스에 비해 ISE를 사용 하는 경우 참조 하는 방법의 차이 [와 격리 된 ISE 개요에서 전역](connect-virtual-network-vnet-isolated-environment-overview.md#difference)합니다.
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>통합 계정 만들기 - ISE
 
-ISE(통합 서비스 환경)에서 논리 앱으로 통합 계정을 사용하려면 해당 통합 계정은 논리 앱으로 *동일한 환경*을 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 
+통합 서비스 환경 (ISE)에 logic apps와 통합 계정을 사용 하려는 경우 해당 통합 계정을 사용 해야 합니다 *동일한 환경* logic apps로 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다.
 
-ISE를 사용하는 통합 계정을 만들려면 현재 **통합 서비스 환경** 섹션이 표시되는 **Location** 속성을 제외하고 [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)의 단계를 따릅니다. 예를 들어 지역 대신 ISE를 선택합니다.
+ISE를 사용 하는 통합 계정을 만드는 [일반적인 방법으로 통합 계정 만들기](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 설정 하는 경우를 제외 하 고는 **위치** 속성에 ISE에서 선택 합니다 **통합 환경 서비스** 섹션 예를 들어:
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

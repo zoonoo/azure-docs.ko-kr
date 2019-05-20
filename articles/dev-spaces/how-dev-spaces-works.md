@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687193"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605420"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -29,7 +29,7 @@ Azure 개발 공간 만들고, 배포, 실행 및 AKS에서 Kubernetes 응용 �
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java](quickstart-java.md)
 * [.NET core CLI 및 Visual Studio Code를 사용 하 여](quickstart-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Azure 개발 공간의 작동 원리
@@ -66,7 +66,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 클라이언트 쪽의 일환으로 명령줄에서 도구를 사용할 수는 `azds` 명령입니다. 또한 클라이언트 쪽 도구를 사용할 수 있습니다.
 
 * Visual Studio Code를 사용 하는 [Azure 개발 공간 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)합니다.
-* Visual Studio 2017 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)합니다.
+* Visual Studio [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)합니다.
 
 기본 흐름을 설정 하 고 Azure 개발 공간을 사용 하는 다음과 같습니다.
 1. Azure 개발 공간에 대 한 AKS 클러스터를 준비 합니다.
@@ -337,7 +337,7 @@ Helm 차트를 설치할 때 Azure 개발 공간은 Helm 차트에서 값을 재
 
 위의 예에서 합니다 *install.set.replicaCount* 속성은 컨트롤러 개발 공간에서 실행 되도록 응용 프로그램의 인스턴스 수입니다. 시나리오에 따라이 값을 늘릴 수 있습니다 하지만 응용 프로그램 pod에 디버거를 연결에 영향을 줄 것입니다. 자세한 내용은 참조는 [문제 해결 문서](troubleshooting.md)합니다.
 
-컨테이너 이미지를로 생성 된 Helm 차트에서 *{{합니다. Values.image.repository}}:{{합니다. Values.image.tag}}* 합니다. 합니다 `azds.yaml` 파일은 정의 *install.set.image.tag* 속성을 *$(tag)* 기본적으로 값으로 사용 되는 *{{합니다. Values.image.tag}}* 합니다. 설정 하 여 합니다 *install.set.image.tag* Azure 개발 공간을 실행 하는 경우 고유한 방식으로 태그가 지정 되어야 하는 응용 프로그램에 대 한 컨테이너 이미지 수 있도록이 방식으로 속성입니다. 이 특정 예제의 이미지로 태그가 지정 됩니다  *<value from image.repository>: $(tag)* 합니다. 사용 해야 합니다 *$(tag)* 값으로 변수 *install.set.image.tag* 개발 공간에서 인식 하 고 AKS 클러스터에서 컨테이너를 찾습니다.
+컨테이너 이미지를로 생성 된 Helm 차트에서 *{{합니다. Values.image.repository}}:{{합니다. Values.image.tag}}* 합니다. 합니다 `azds.yaml` 파일은 정의 *install.set.image.tag* 속성을 *$(tag)* 기본적으로 값으로 사용 되는 *{{합니다. Values.image.tag}}* 합니다. 설정 하 여 합니다 *install.set.image.tag* Azure 개발 공간을 실행 하는 경우 고유한 방식으로 태그가 지정 되어야 하는 응용 프로그램에 대 한 컨테이너 이미지 수 있도록이 방식으로 속성입니다. 이 특정 예제의 이미지로 태그가 지정 됩니다  *\<image.repository 값 >: $(tag)* 합니다. 사용 해야 합니다 *$(tag)* 값으로 변수 *install.set.image.tag* 개발 공간에서 인식 하 고 AKS 클러스터에서 컨테이너를 찾습니다.
 
 위의 예에서 `azds.yaml` 정의 *install.set.ingress.hosts*합니다. 합니다 *install.set.ingress.hosts* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성을 사용 하도 *$(spacePrefix)*, *$(rootSpacePrefix)*, 및 *$(hostSuffix)* 는 컨트롤러에서 제공 되는 값입니다. 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>코드 디버그
 
-Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Visual Studio 2017을 사용 하 여 개발 공간에서 직접 실행 중인 응용 프로그램을 디버깅할 수 있습니다. Visual Studio Code 및 Visual Studio 2017 개발자 공간에 연결, 응용 프로그램을 시작 하 고 디버거를 연결 하는 도구를 제공 합니다. 실행 한 후 `azds prep`, Visual Studio Code 또는 Visual Studio 2017에서 프로젝트를 열 수 있습니다. Visual Studio Code 또는 Visual Studio 2017에서는 실행 되지 않도록 별도 연결에 대 한 고유한 구성 파일을 생성 하는 `azds prep`합니다. Visual Studio Code 또는 Visual Studio 2017 내에서 중단점을 설정 하 고 수 개발 공간에 응용 프로그램을 시작 합니다.
+Java,.NET 및 Node.js 응용 프로그램의 경우 Visual Studio Code 또는 Visual Studio를 사용 하 여 개발 공간에서 직접 실행 중인 응용 프로그램을 디버깅할 수 있습니다. Visual Studio Code 및 Visual Studio 개발 공간에 연결, 응용 프로그램을 시작 하 고 디버거를 연결 하는 도구를 제공 합니다. 실행 한 후 `azds prep`, Visual Studio Code 또는 Visual Studio에서 프로젝트를 열 수 있습니다. Visual Studio Code 또는 Visual Studio에서 연결 하는 별도의 실행에 대 한 고유한 구성 파일을 생성 하는 `azds prep`합니다. Visual Studio Code 또는 Visual Studio 내에서 중단점을 설정 하 고 수 개발 공간에 응용 프로그램을 시작 합니다.
 
 ![코드 디버그](media/get-started-node/debug-configuration-nodejs2.png)
 
-시작 하 고 실행 하는 것 같은 방식으로 개발 공간에 연결 처리 디버깅에 대 한 Visual Studio Code 또는 Visual Studio 2017을 사용 하 여 응용 프로그램을 시작 하면 `azds up`합니다. Visual Studio Code 및 Visual Studio 2017의 클라이언트 쪽 도구는 또한 디버깅에 대 한 특정 정보를 사용 하 여 추가 매개 변수를 제공 합니다. 매개 변수는 디버거의 그림과 안에서 디버거의의 위치와 대상 위치 디버거 폴더를 탑재 하는 응용 프로그램의 컨테이너 내에서 디버거 이미지의 이름을 포함 합니다. 
+시작 하 고 실행 하는 것 같은 방식으로 개발 공간에 연결 처리 디버깅에 대 한 Visual Studio Code 또는 Visual Studio를 사용 하 여 응용 프로그램을 시작 하면 `azds up`합니다. Visual Studio Code 및 Visual Studio의 클라이언트 쪽 도구는 또한 디버깅에 대 한 특정 정보를 사용 하 여 추가 매개 변수를 제공 합니다. 매개 변수는 디버거의 그림과 안에서 디버거의의 위치와 대상 위치 디버거 폴더를 탑재 하는 응용 프로그램의 컨테이너 내에서 디버거 이미지의 이름을 포함 합니다. 
 
 디버거 이미지는 클라이언트 쪽 도구에서 자동으로 결정 됩니다. Dockerfile 중 사용 된 것 처럼 메서드를 사용 하 고 실행 하는 경우 Helm 차트 생성 `azds prep`합니다. 사용 하 여 실행할 디버거 응용 프로그램의 이미지에 탑재 되 면 `azds exec`합니다.
 
@@ -433,12 +433,12 @@ Azure 개발 공간을 사용 하 여 시작 하려면 다음 빠른 시작을 �
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java](quickstart-java.md)
 * [.NET core CLI 및 Visual Studio Code를 사용 하 여](quickstart-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET core](quickstart-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js](quickstart-nodejs.md)
 
 팀의 개발을 시작 하려면 다음 방법 문서를 참조 합니다.
 
 * [CLI 및 Visual Studio Code를 사용 하 여 Java-팀 개발](team-development-java.md)
 * [팀 개발-.NET Core CLI 및 Visual Studio Code를 사용 하 여](team-development-netcore.md)
-* [Visual Studio 2017을 사용 하 여.NET Core 개발 팀](team-development-netcore-visualstudio.md)
+* [Visual Studio 사용 하 여.NET Core 개발 팀](team-development-netcore-visualstudio.md)
 * [CLI 및 Visual Studio Code를 사용 하 여 Node.js 개발 팀](team-development-nodejs.md)

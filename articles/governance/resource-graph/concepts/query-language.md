@@ -3,17 +3,17 @@ title: 쿼리 언어 이해
 description: 사용 가능한 Kusto 연산자 및 Azure 리소스 그래프를 사용 하 여 사용 가능한 함수를 설명 합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276680"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800502"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -52,6 +52,38 @@ Resource Graph에서 사용하는 쿼리 언어를 알아보는 가장 좋은 �
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>이스케이프 문자
+
+몇 개의 속성 이름을 포함 하는 것과 같은 `.` 또는 `$`, 래핑된 이거나 이스케이프 된 쿼리 또는 속성 이름을 올바르게 해석 되 고 예상된 결과 제공 하지 않습니다.
+
+- `.` -속성 이름으로를 래핑하십시오. `['propertyname.withaperiod']`
+  
+  속성을 래핑하는 예제 쿼리입니다 _odata.type_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` -속성 이름에 문자를 이스케이프 합니다. 사용 된 이스케이프 문자 리소스 그래프에서 실행 되는 셸에 따라 달라 집니다.
+
+  - **bash** - `\`
+
+    속성을 이스케이프 하는 예제 쿼리입니다  _\$형식_ bash에서:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** -이스케이프 하지는 `$` 문자입니다.
+
+  - **PowerShell** - ``` ` ```
+
+    속성을 이스케이프 하는 예제 쿼리입니다  _\$형식_ PowerShell에서:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

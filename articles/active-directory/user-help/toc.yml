@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: 앱 다운로드 및 설치
       href: user-help-auth-app-download-install.md
-    - name: 계정 추가 개요
-      href: user-help-auth-app-add-account-overview.md
+    - name: 계정 추가
       items:
+        - name: 개요
+          href: user-help-auth-app-add-account-overview.md
         - name: 회사 또는 학교 계정 추가
           href: user-help-auth-app-add-work-school-account.md
         - name: 개인 Microsoft 계정 추가
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: 로그인하는 동안 보안 정보 추가
       href: security-info-setup-signin.md
-    - name: 보안 정보 메서드 개요 추가 또는 업데이트
-      href: security-info-add-update-methods-overview.md
+    - name: 보안 정보 메서드 추가 또는 업데이트
       items:
+        - name: 개요
+          href: security-info-add-update-methods-overview.md
         - name: 인증자 앱 설정
           href: security-info-setup-auth-app.md
         - name: 문자 메시지 설정

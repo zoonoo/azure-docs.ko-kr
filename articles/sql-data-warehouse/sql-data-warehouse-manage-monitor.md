@@ -71,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 **일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
 
-[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면, [LABEL]을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
+[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면,[LABEL][LABEL] 을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
 
 ```sql
 -- Query with Label

@@ -7,7 +7,7 @@ metadata:
   description: Bing Visual Search API를 사용하여 이미지에 대한 인사이트를 얻는 방법을 알아봅니다.
   services: cognitive-services
   author: swhite-msft
-  manager: rosh
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-visual-search
   ms.tgt_pltfrm: na

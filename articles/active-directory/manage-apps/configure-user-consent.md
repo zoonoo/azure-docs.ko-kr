@@ -2,22 +2,22 @@
 title: 애플리케이션에 대한 사용자 동의 구성 - Azure Active Directory | Microsoft Docs
 description: 사용자가 애플리케이션 권한에 동의하는 방법을 관리하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291588"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824838"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>최종 사용자가 Azure Active Directory에서 애플리케이션에 동의하는 방법을 구성합니다.
 사용자가 애플리케이션 권한에 동의하는 방법을 구성하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이 문서에서는 사용자 동의를 구성하는 다양한 방법을 제공합니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다. 

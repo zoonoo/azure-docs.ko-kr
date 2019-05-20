@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614495"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604365"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
 IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-platform.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
@@ -51,7 +51,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | csUriStem |웹 페이지와 같은 요청의 대상입니다. |
 | csUriQuery |클라이언트가 수행하려고 한 쿼리입니다(있는 경우). |
 | ManagementGroupName |Operations Manager 에이전트의 관리 그룹 이름.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
-| RemoteIPCountry |클라이언트의 IP 주소 국가입니다. |
+| RemoteIPCountry |클라이언트 IP 주소의 국가/지역입니다. |
 | RemoteIPLatitude |클라이언트 IP 주소의 위도입니다. |
 | RemoteIPLongitude |클라이언트 IP 주소의 경도입니다. |
 | scStatus |HTTP 상태 코드입니다. |

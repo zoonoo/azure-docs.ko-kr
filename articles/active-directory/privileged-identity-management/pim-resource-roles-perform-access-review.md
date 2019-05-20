@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141197"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602217"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대 한 액세스를 검토 합니다.
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서는 Azure의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 
@@ -45,12 +45,12 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업
 1. Azure AD PIM 애플리케이션을 찾습니다.
 2. **액세스 검토** 블레이드를 선택합니다.
 
-   ![액세스 검토 블레이드를 선택한 PIM 애플리케이션의 스크린샷](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![액세스 검토 블레이드를 선택한 PIM 애플리케이션의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. 완료할 검토를 선택합니다. 
 4. **승인** 또는 **거부**를 선택합니다. **이유 설명** 상자에 결정 이유를 입력해야 할 수도 있습니다.
 
-   ![세부 정보 검토 페이지의 스크린샷](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![세부 정보 검토 페이지의 스크린샷](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>다음 단계
 

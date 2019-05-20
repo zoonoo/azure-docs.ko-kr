@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/12/2019
+ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731773"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550603"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 PolyBase 데이터 로드 전략 설계
 
@@ -49,8 +49,32 @@ SQL Data Warehouse용 PolyBase ELT을 구현하는 기본적인 단계는 다음
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 
-PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다.
+PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다. SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. SQL DW 데이터 형식 매핑 Parquet 다음과 같습니다.
 
+| **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        부울        |                             bit                              |
+|        double         |                            float                             |
+|         float         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        문자열         |                            nchar                             |
+|        문자열         |                           nvarchar                           |
+|        문자열         |                             char                             |
+|        문자열         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           Datetime                           |
+|       timestamp       |                             time                             |
+|       date        | 1) int로 로드 하 고 날짜를 캐스팅 합니다. </br> 2) [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
+|        Decimal        | [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Azure Blob Storage 또는 Azure Data Lake Store에 데이터 저장
 

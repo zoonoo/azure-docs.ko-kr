@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712425"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596510"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -105,6 +105,8 @@ DSVM 인스턴스를 만들려면
 ## <a name="how-to-access-the-dsvm"></a>DSVM에 액세스하는 방법
 
 VM이 만들어지고 프로비전되면 앞의 **기본 사항** 섹션에서 구성한 관리자 계정 자격 증명을 사용하여 원격 데스크톱에 연결할 수 있습니다. VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대부분의 도구에는 시작 메뉴 타일과 바탕 화면 아이콘을 통해 액세스할 수 있습니다.
+
+또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)입니다.
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine에 설치된 도구
 

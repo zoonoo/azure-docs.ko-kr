@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922947"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604258"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Azure 계정 프로필 정보 변경
 
@@ -51,9 +51,9 @@ Azure 계정에 대 한 연락을 프로필 정보 사용 됩니다. Microsoft �
 
 청구 정보를 업데이트하는 방법을 알아보려면 [Azure 구독 지불에 사용하는 신용 카드 변경](billing-how-to-change-credit-card.md)을 참조하세요.
 
-### <a name="you-cant-update-your-country"></a>국가 업데이트할 수 없습니다.
+### <a name="you-cant-update-your-countryregion"></a>국가/지역을 업데이트할 수 없습니다.
 
-기술 제약 조건으로 인해 기존 계정의 국가 변경할 수 없습니다. 그러나 원하는 국가에서 계정을 만든 다음 Azure 지원에 문의하여 해당 계정으로 서비스를 마이그레이션할 수 있습니다.
+기술 제약 조건으로 인해 기존 계정의 국가/지역 변경할 수 없습니다. 그러나 원하는 국가/지역에 계정을 만들 수 있으며 해당 계정으로 서비스를 마이그레이션하려면 Azure 지원부에 문의 하십시오.
 
 ## <a name="service-and-marketing-emails"></a>서비스 및 전자 메일 마케팅
 

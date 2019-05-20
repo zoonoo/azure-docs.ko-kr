@@ -60,7 +60,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     * 총 기간: 제출 시간과 종료 시간 간 벽시계 시간(기간)입니다.
     * 총 컴퓨팅 시간: 전체 꼭짓점 실행 시간의 합계로서 작업이 한 가지 꼭짓점에서만 실행되는 시간과 같습니다. 꼭짓점에 대한 자세한 내용은 전체 꼭짓점 수를 참조하세요.
     * 제출/시작/종료 시간: Data Lake Analytics 서비스가 작업 제출을 수신하는 시간/작업 실행을 시작하는 시간/작업 종료에 성공하거나 실패하는 시간입니다.
-    * 컴파일/대기 중/실행 중: 준비 중/대기 중/실행 중 단계에서 사용한 벽시계 시간입니다.
+    * 컴파일/대기 중/실행 중: 준비 중/대기 중/실행 중 단계에 소요된 실제 시간입니다.
     * 계정: 작업을 실행하는 데 사용된 Data Lake Analytics 계정입니다.
     * 작성자: 작업을 제출한 사용자이며, 실제 사람의 계정 또는 시스템 계정일 수 있습니다.
     * 우선 순위: 작업 우선 순위. 번호가 낮을수록 우선 순위가 높습니다. 큐에 있는 작업의 순서에만 영향을 미칩니다. 높은 우선 순위를 설정할 경우 실행 중인 작업을 선취하는 것은 아닙니다.
@@ -168,7 +168,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     꼭짓점 실행에 대한 세부 정보가 표시됩니다. 작업 프로필은 읽은/쓴 총 데이터, 런타임, 상태 등 모든 꼭짓점 실행 로그를 보존합니다. 이 보기를 통해 작업이 실행되는 방식에 대한 세부 정보를 확인할 수 있습니다. 자세한 내용은 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)를 참조하세요.
+* 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
 * 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 * 꼭짓점 실행 보기를 사용하려면 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
 

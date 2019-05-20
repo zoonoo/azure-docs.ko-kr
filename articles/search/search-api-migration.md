@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025193"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540687"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>최신 Azure Search Service REST API 버전으로 업그레이드
 이전 버전의를 사용 하는 경우는 [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/),이 문서를 2019-05-06 일반적으로 사용 가능한 최신 API 버전을 사용 하도록 응용 프로그램을 업그레이드할 수 있습니다.
@@ -35,11 +35,11 @@ ms.locfileid: "65025193"
 
 * [구문 분석 모드 JsonLines](search-howto-index-json-blobs.md)일부인 인덱싱, Azure Blob의 줄 바꿈으로 구분 된 JSON 엔터티 당 검색 문서를 하나 만듭니다.
 
-* [Cognitive Search](cognitive-search-concept-intro.md) 에서는 Cognitive Services의 인공 지능 보강 엔진을 활용 하는 인덱싱을 제공 합니다.
+* [Cognitive search](cognitive-search-concept-intro.md) 에서는 Cognitive Services의 인공 지능 보강 엔진을 활용 하는 인덱싱을 제공 합니다.
 
 몇 가지 미리 보기 기능 릴리스에이 일반적으로 사용 가능한 업데이트와 일치합니다. 새 미리 보기 기능 목록을 참조 하세요 [검색 REST api-버전 2019-05-06-미리 보기](search-api-preview.md)합니다.
 
-## <a name="breaking-changes"></a>주요 변경 내용
+## <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 Api 버전에는 다음과 같은 기능을 포함 하는 기존 코드의 연결이 끊어집니다 2019-05-06 =.
 
@@ -72,7 +72,9 @@ API에서 데이터 원본 API 2019-05-06 및 2019-05-06-미리 보기부터 버
 
 미리 보기 API 버전에서 업그레이드 하는 경우 위의 적용 되지만 몇 가지 미리 보기 기능 2019-05-06 버전에서 사용할 수 없는 알고 있어야 합니다.
 
-* [쿼리 "처럼 이"](search-more-like-this.md) 미리 보기 전용 기능을 계속 합니다.
+* ["이와 같은 더 많은" 쿼리](search-more-like-this.md)
+* [CSV blob 인덱싱](search-howto-index-csv-blobs.md)
+* [Cosmos DB 인덱서 용 MongoDB API 지원](search-howto-index-cosmosdb.md)
 
 이러한 기능을 사용 하는 코드를 해당 사용을 제거 하지 않고 API 버전 2019-05-06로 업그레이드할 수 됩니다.
 

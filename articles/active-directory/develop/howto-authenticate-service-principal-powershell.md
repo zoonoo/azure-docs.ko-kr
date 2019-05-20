@@ -3,8 +3,8 @@ title: PowerShell을 사용하여 Azure 앱에 대한 ID 만들기 | Microsoft D
 description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12bfcea70c80929ade656bc5e23f8b95fce44a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d6de5186b1906d56b5a43317d9c36ad1cc6aad
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410402"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540406"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "60410402"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 
 이 문서를 완료하려면 Azure AD와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Azure AD에서 앱을 만들고 역할에 서비스 주체를 할당할 수 있어야 합니다.
 

@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373219"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604186"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -63,7 +63,7 @@ Impact는 표준 및 사용자 지정 속성/측정을 모두 지원합니다. �
 2. **분석 대상** 드롭다운에서 "국가 또는 지역"을 선택합니다.
 3. **이 다음의 사용량에 미치는 영향을 분석합니다.** 드롭다운에서는 1단계에서 선택한 페이지 보기의 UI 요소와 일치하는 사용자 지정 이벤트를 선택합니다.
 
-이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 국가별 고객 전환율 변화를 보려면 **사용량**을 기준으로 정렬합니다.
+이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 정렬할 **사용량** 변형 변환이 국가/지역에 따라 사용자 지정 이벤트를 볼 수 있습니다.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Impact 도구는 어떤 방식으로 전환율을 계산하나요?

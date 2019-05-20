@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596663"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601653"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
@@ -78,7 +78,7 @@ Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할
 
 Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 통해 열에 대한 암호화를 제공합니다. 이를 통해 승인된 애플리케이션만 중요한 열에 액세스할 수 있습니다. 이러한 종류의 암호화를 사용하면 암호화된 열에 대한 SQL 쿼리가 동등 기반 값으로 제한됩니다.
 
-선택적 데이터에는 애플리케이션 수준 암호화도 사용해야 합니다. 경우에 따라 데이터 독립성 문제는 올바른 국가에서 유지되는 키로 데이터를 암호화함으로써 완화될 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
+선택적 데이터에는 애플리케이션 수준 암호화도 사용해야 합니다. 데이터 독립성 문제는 경우에 따라 올바른 국가/지역에서 유지 되는 키를 사용 하 여 데이터를 암호화 하 여 완화할 수 있습니다. 이렇게 하면 강한 알고리즘(예: AES 256)을 사용한다고 가정하여 키를 사용하지 않고는 데이터를 해독할 수 없으므로 실수로 인한 데이터 전송에 문제가 발생하지 않도록 방지할 수 있습니다.
 
 보안 시스템 설계, 중요한 자산 암호화 및 데이터베이스 서버 방화벽 구축과 같은 데이터베이스 보호에 도움이 되는 몇 가지 예방 조치를 추가적으로 취할 수 있습니다.
 

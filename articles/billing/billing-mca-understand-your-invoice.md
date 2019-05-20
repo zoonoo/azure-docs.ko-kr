@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371430"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604044"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서에서 용어 이해
 
@@ -63,7 +63,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 | 크레딧 |반환에서 받은 크레딧 |
 | Azure 크레딧은 적용 | Azure 크레딧은 적용 되는 자동으로 Azure 비용 각 청구 기간 |
 | 소계 |세 전 금액 |
-| 세금 |형식 및 청구 프로필의 국가 따라 지불 하는 세금입니다. 세금을 납부 하지 않아도 세금 청구서에 표시 되지 않습니다. |
+| 세금 |형식 및 청구 프로필의 국가/지역에 따라 지불 하는 세금입니다. 세금을 납부 하지 않아도 세금 청구서에 표시 되지 않습니다. |
 | 총 절감 비용 예상 |유효 할인에서 저장 하는 예상된 총 공간입니다. 해당 하는 경우 유효 할인 요금이 청구서 섹션으로 구매 품목 세부 정보에서 아래에 나열 됩니다. |
 
 ### <a name="invoice-sections"></a>청구서 섹션
@@ -88,7 +88,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 | Qty | 구입 하거나 청구 기간 동안 사용 수량 |
 | 요금/크레딧 | Net 금액 크레딧/환불이 적용 된 후에 요금 |
 | Azure 크레딧 | 요금/크레딧을 적용할 Azure 크레딧의 금액|
-| 세율 | 국가 따라 rate(s) 세금 |
+| 세율 | 국가/지역에 따라 rate(s) 세금 |
 | 세 액 | 세율을 기준으로 하는 양 구매에 적용 되는 세금 |
 | 합계 | 구매에 대 한 금액 합계 |
 

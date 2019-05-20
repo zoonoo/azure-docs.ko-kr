@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472034"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595566"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -28,7 +28,7 @@ Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. �
 ## <a name="prerequisites"></a>필수 조건
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
 
-- 다음 워크로드와 함께 [Windows용 Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 설치할 [Windows에 대 한 Visual Studio 2019](https://www.visualstudio.com/downloads/) 다음 워크 로드를 사용 하 여:
     - ASP.NET 및 웹 개발 (선택 취소 하지 선택적 구성 요소)
     - Azure 개발
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="ide"></a> 1단계: Application Insights SDK 추가
 
 > [!IMPORTANT]
-> 이 예제의 스크린샷은 Visual Studio 2017 버전 15.9.9 기반으로 합니다. Application Insights를 추가할 환경을 ASP.NET 템플릿 유형에 뿐만 아니라 Visual Studio 2017의 버전 마다 다릅니다. 이전 버전에는 "Application Insights 구성"와 같은 대체 텍스트가 있을 수 있습니다.
+> 이 예의 스크린샷에서 Visual Studio 2017 버전 15.9.9에 따라 이상. Application Insights를 추가할 환경을 ASP.NET 템플릿 유형에 뿐만 아니라 Visual Studio의 버전 마다 다릅니다. 이전 버전에는 "Application Insights 구성"와 같은 대체 텍스트가 있을 수 있습니다.
 
 솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고 선택 **추가** > **Application Insights 원격 분석**
 

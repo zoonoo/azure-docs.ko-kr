@@ -1,19 +1,19 @@
 ---
-title: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사 | Microsoft Docs
+title: REST API를 통해 Azure Data Box Blob Storage로 데이터를 복사하기 위한 자습서 | Microsoft Docs
 description: REST API를 통해 Azure Data Box Blob 스토리지에 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995747"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508299"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -46,7 +46,7 @@ ms.locfileid: "59995747"
 - *Https*는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
 - *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
 
-*http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 때 연결 단계가 서로 다릅니다.
+연결하는 단계는 Data Box Blob Storage에 연결할 때 *http* 또는 *https*를 사용했는지에 따라 다릅니다.
 
 ## <a name="connect-via-http"></a>http를 통해 연결
 

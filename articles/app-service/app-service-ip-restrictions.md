@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728709"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541681"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 #
 
@@ -32,7 +32,7 @@ ms.locfileid: "64728709"
 
 액세스 제한 기능이 업스트림 작업자 호스트 프로그램 코드가 실행 되는 App Service 프런트 엔드 역할에서 구현 됩니다. 따라서 액세스 제한을 효과적으로 네트워크 Acl 됩니다.
 
-Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능 이라고 [서비스 끝점][serviceendpoints]합니다. 서비스 끝점을 사용 하 여 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 네트워킹 측면 뿐만 아니라 사용 되는 서비스에서 사용할 수 있어야 합니다. 
+Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능 이라고 [서비스 끝점][serviceendpoints]합니다. 서비스 끝점을 사용 하 여 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 네트워킹 측면 뿐만 아니라 사용 되는 서비스에서 사용할 수 있어야 합니다. App Service Environment에서 호스트 되는 앱에 트래픽을 제한 하는 작동 하지 않습니다.  App Service Environment에 있는 경우에 IP 주소 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다.
 
 ![액세스 제한 흐름](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는
 ![VNet 대 한 액세스 제한 규칙 추가](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 선택한 서브넷에 대 한 액세스를 제한 하는 유형의 가상 네트워크를 선택 합니다. 아래에 구독, VNet 및 서브넷을 사용 하 여 액세스 허용 하거나 거부 하려면 선택 하는 일을 할 수 있습니다. 서비스 끝점은 아직 사용 되지 Microsoft.Web를 사용 하 여 선택한 서브넷에 대 한 확인란을 하면 보내지 않도록 요청 하지 않는 한를 활성화 자동으로 됩니다. 앱 되지만 하지 서브넷에서 사용 하려는 경우는 거의 관련이 여부 서브넷에서 서비스 끝점을 사용 하도록 설정 하려면 권한이 있는 경우 있습니다. 서브넷에서 서비스 끝점을 사용 하도록 설정 하려면 다른 사용자를 가져오려는 경우에 확인란을 선택 하 고 나중에 서브넷에서 사용 하도록 설정 되 고이에 대비 하 여 서비스 끝점에 대해 구성 된 앱 수 있습니다. 
+
+App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한 하려면 서비스 끝점을 사용할 수 없습니다. App Service Environment에서 앱이 있는 경우 IP 액세스 규칙을 사용 하 여 앱에 대 한 액세스를 제어할 수 있습니다. 
 
 기존 액세스 제한 규칙을 편집 하려면 모든 행을 클릭할 수 있습니다. 우선 순위 변경을 비롯한 편집 내용은 즉시 적용됩니다.
 

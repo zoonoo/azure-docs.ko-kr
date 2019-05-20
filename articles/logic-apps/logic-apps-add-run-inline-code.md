@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160547"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602126"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>추가 하 고 Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각을 실행합니다
 
@@ -23,7 +23,10 @@ ms.locfileid: "65160547"
 * JavaScript에서 실행 됩니다. 더 많은 언어를 곧 제공 될 예정입니다.
 * 5 초 또는 더 적은 수의 실행이 완료 합니다.
 * 데이터 처리에 최대 50MB 크기에서입니다.
-* Node.js 버전 8.11.1 사용합니다. 자세한 내용은 [표준 기본 제공 개체](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)합니다.
+* Node.js 버전 8.11.1 사용합니다. 자세한 내용은 [표준 기본 제공 개체](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)합니다. 
+
+  > [!NOTE]
+  > Require () 함수에서 지원 되지 않는 합니다 **인라인 코드** JavaScript를 실행 하기 위한 작업입니다.
 
 이 작업 코드 조각을 실행 하 고 해당 코드 조각에서 명명 된 토큰으로 출력을 반환 합니다 **결과**, 논리 앱에서 후속 작업에서 사용할 수 있습니다. 다른 시나리오의 코드에 대 한 함수를 만들려는 경우 시도 [를 만들고 Azure function을 호출](../logic-apps/logic-apps-azure-functions.md) 논리 앱에서.
 

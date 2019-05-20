@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564820"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620424"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -37,11 +37,11 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 성능 모니터, ExpressRoute 모니터 및 서비스 연결 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
 
-## <a name="performance-monitor"></a>성능 모니터링
+## <a name="performance-monitor"></a>성능 모니터
 
 성능 모니터는 NPM의 일부이며 클라우드, 하이브리드 및 온-프레미스 환경에 대한 네트워크 모니터링입니다. 원격 분기와 지사, 상점 위치, 데이터 센터 및 클라우드 전반의 네트워크 연결을 모니터링할 수 있습니다. 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다. 주요 이점은 다음과 같습니다.
 
-* 다양한 서브넷에서 손실 및 대기 시간 모니터링, 경고 설정
+* 여러 서브넷에서 손실 및 대기 시간 모니터링 및 경고 설정
 * 네트워크의 모든 경로(중복 경로 포함) 모니터링
 * 복제하기 어려운 일시적 및 특정 시점의 네트워크 문제 해결
 * 성능 저하를 야기한 네트워크의 특정 세그먼트 확인
@@ -53,7 +53,9 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 * [Azure Monitor 로그에는 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  제품 업데이트: [2017 년 2 월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [2017 년 8 월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* 제품 업데이트:
+  * [2017 년 2 월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [2017 년 8 월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 

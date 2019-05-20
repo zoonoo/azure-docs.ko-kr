@@ -44,5 +44,7 @@
       href: work-with-project-data-files.md
     - name: 데이터 리소스에 액세스
       href: access-data-resources-jupyter-notebooks.md
+    - name: Data Science Virtual Machines 사용
+      href: use-data-science-virtual-machine.md
     - name: Azure Machine Learning Services 사용
       href: use-machine-learning-services-jupyter-notebooks.md

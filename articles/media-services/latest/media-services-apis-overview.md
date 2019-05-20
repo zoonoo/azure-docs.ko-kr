@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406541"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556238"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
+
+개발자인 경우 Media Services [REST API](https://aka.ms/ams-v3-rest-ref) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API는 OpenAPI 사양(이전 명칭 Swagger)에 기반을 두고 있습니다.
 
 이 문서에서는 Media Services v3을 사용 하 여 개발 하는 경우 엔터티 및 Api에 적용 되는 규칙을 설명 합니다.
 
@@ -98,6 +100,32 @@ Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
 * StreamingEndpoint 중지
 * StreamingEndpoint 크기 조정
 
+
+## <a name="sdks"></a>SDK
+
+> [!NOTE]
+> Azure Media Services v3 SDK는 스레드로부터 안전을 보장하지 않습니다. 다중 스레드 애플리케이션을 개발하는 경우 클라이언트를 보호하는 고유한 스레드 동기화 논리를 추가하거나 스레드별로 새 AzureMediaServicesClient 개체를 사용해야 합니다. 코드에서 클라이언트에 제공하는 선택적 개체(예: .NET의 HttpClient 인스턴스) 때문에 다중 스레드 문제가 도입될 수 있다는 점에도 주의해야 합니다.
+
+|SDK)|참조|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 참조](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 참조](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python 예제](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 예제](https://aka.ms/ams-v3-nodejs-ref)| 
+|[SDK로 이동](https://aka.ms/ams-v3-go-sdk) |[참조로 이동](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>참고 항목
+
+- [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure Media Services 탐색기
+
+[Azure Media Services 탐색기](https://github.com/Azure/Azure-Media-Services-Explorer)(AMSE)는 Media Services에 대해 알아보고자 하는 Windows 고객이 사용할 수 있는 도구입니다. AMSE는 Media Services에서 VOD 및 실시간 콘텐츠의 업로드, 다운로드, 인코딩, 스트리밍을 수행하는 Winforms/C# 애플리케이션입니다. AMSE 도구는 코드를 작성하지 않고 Media Services를 테스트하려는 고객을 위한 도구입니다. AMSE 코드는 Media Services를 사용하여 개발하려는 고객을 위한 리소스로 제공됩니다.
+
+AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합니다(문제는 https://github.com/Azure/Azure-Media-Services-Explorer/issues)에 보고할 수 있음). 이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다. 자세한 내용은 [Code of Conduct FAQ(준수 사항 FAQ)](https://opensource.microsoft.com/codeofconduct/faq/)를 참조하거나 opencode@microsoft.com에 추가 질문 또는 의견을 알려주세요.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
 참조 [필터링, 정렬, 페이징 Azure Media Services 엔터티](entities-overview.md)
@@ -108,4 +136,7 @@ Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Sdk/도구를 사용 하 여 Media Services v3 API를 사용 하 여 개발 시작](developers-guide.md)
+* [Java 사용 하 여 Media Services에 연결](configure-connect-java-howto.md)
+* [.NET으로 Media Services에 연결](configure-connect-dotnet-howto.md)
+* [Node.js 사용 하 여 Media Services에 연결](configure-connect-nodejs-howto.md)
+* [Python 사용 하 여 Media Services에 연결](configure-connect-python-howto.md)

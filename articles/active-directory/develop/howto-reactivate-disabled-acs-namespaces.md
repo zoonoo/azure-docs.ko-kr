@@ -3,8 +3,8 @@ title: 사용할 수 없는 Azure Access Control Service 네임스페이스를 �
 description: ACS(Access Control Service)를 검색하여 사용하도록 설정하고 2019년 2월 4일까지 사용 상태를 유지하는 연장 요청 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299721"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540273"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -93,7 +93,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 1. Azure Portal에 로그인하고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
 1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
 
-    | 지원 요청 필드 | Value |
+    | 지원 요청 필드 | 값 |
     |-----------------------|--------------------|
     | **문제 유형** | `Technical` |
     | **구독** | 구독에 대한 설정 |

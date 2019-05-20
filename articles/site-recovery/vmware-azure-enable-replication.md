@@ -3,15 +3,15 @@ title: Azure Site Recovery를 사용 하 여 Azure로 재해 복구에 대 한 V
 description: 이 문서에서는 Azure Site Recovery를 사용 하 여 재해 복구를 위해 Azure로 복제에 대 한 VMware Vm을 사용 하도록 설정 하는 방법을 설명 합니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922817"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540782"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -43,16 +43,17 @@ VMware 가상 머신을 복제 하는 경우이 정보 사항에 유의 해야 �
 * 새 가상 컴퓨터에 대 한 저장소 계정에 대 한 복제만 REST Representational State Transfer () API 및 Powershell을 통해 제공 됩니다. 저장소 계정에 복제 하기 위한 Azure REST API 버전 2016-08-10 또는 2018-01-10을 사용 합니다.
 
 1. 로 **2 단계: 애플리케이션 복제** > **원본**을 클릭합니다. 처음에 대 한 복제를 활성화 하면 선택 **+ 복제** 추가 가상 컴퓨터에 대해 복제를 사용 하도록 자격 증명 모음에 있습니다.
-1. **원본** 페이지 > **원본**에서 구성 서버를 선택합니다.
-1. 에 대 한 **컴퓨터 종류**를 선택 **가상 머신** 또는 **물리적 컴퓨터**합니다.
-1. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다. 이 설정은 물리적 컴퓨터를 복제 하는 경우 관련이 없습니다.
-1. 추가 프로세스 서버를 만들지 않은 경우 구성 서버로 사용할 프로세스 서버를 선택 합니다. 그런 다음 **확인**을 선택합니다.
+2. **원본** 페이지 > **원본**에서 구성 서버를 선택합니다.
+3. 에 대 한 **컴퓨터 종류**를 선택 **가상 머신** 또는 **물리적 컴퓨터**합니다.
+4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다. 이 설정은 물리적 컴퓨터를 복제 하는 경우 관련이 없습니다.
+5. 프로세스 서버를 선택합니다. 만든 추가 프로세스 서버가 없는 경우에 기본 제공된 프로세스 서버가 구성 서버 드롭다운 목록에서 제공 됩니다. 각 프로세스 서버의 상태는 권장 되는 제한 및 기타 매개 변수를 기준으로 표시 됩니다. 정상 프로세스 서버를 선택 합니다. A [중요 한](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 프로세스 서버를 선택할 수 없습니다. 수 있습니다 [문제를 해결 하 고 해결](vmware-physical-azure-troubleshoot-process-server.md) 오류 **또는** 설정 된 [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.
+    ![복제 소스 창 사용](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![복제 소스 창 사용](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> [9.24 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups), 프로세스 서버 상태 경고를 강화 하기 위해 도입 된 추가 경고 합니다. 모든 경고 생성에 대 한 9.24 버전 이상 Site Recovery 구성 요소를 업그레이드 합니다.
 
-1. 에 대 한 **대상**, 장애 조치 가상 머신을 만들려는 구독 및 리소스 그룹을 선택 합니다. 장애 조치 Vm에 대 한 Azure에서 사용 하려는 배포 모델을 선택 합니다.
-
-1. Azure 네트워크 및 장애 조치 후 Azure Vm에서 연결할 서브넷을 선택 합니다. 네트워크는 사이트 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
+6. 에 대 한 **대상**, 장애 조치 가상 머신을 만들려는 구독 및 리소스 그룹을 선택 합니다. 장애 조치 Vm에 대 한 Azure에서 사용 하려는 배포 모델을 선택 합니다.
+2. Azure 네트워크 및 장애 조치 후 Azure Vm에서 연결할 서브넷을 선택 합니다. 네트워크는 사이트 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
    선택 **선택한 컴퓨터에 대해 지금 구성** 보호에 대해 선택한 모든 가상 컴퓨터에 네트워크 설정을 적용 합니다. 선택 **나중에 구성할** 가상 머신 당 Azure 네트워크를 선택 합니다. 네트워크가 없는 경우 만들어야 합니다. Azure Resource Manager를 사용 하 여 네트워크를 만들려는 선택 **새로 만들기**합니다. 해당 하는 경우 서브넷을 선택 하 고 선택한 **확인**합니다.
    

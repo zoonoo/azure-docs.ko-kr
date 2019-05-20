@@ -1,23 +1,17 @@
 ---
 title: Azure 리소스 잠금으로 변경 방지 | Microsoft Docs
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360434"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813394"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 
@@ -36,7 +30,13 @@ ms.locfileid: "59360434"
 
 리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어, SQL Database에 대해 ReadOnly 잠금이 지정되면 데이터베이스를 삭제하거나 수정하지 못합니다. 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제하지 못하게 됩니다. 이러한 작업에 전송 되지 때문에 데이터 전송이 허용 됩니다 `https://management.azure.com`합니다.
 
-**ReadOnly** 를 적용하면 읽기 작업처럼 보이는 일부 작업에 실제로 추가 작업이 필요하기 때문에 예기치 않은 결과가 발생할 수 있습니다. 예를 들어 저장소 계정에 **ReadOnly** 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다. 또 다른 예로 App Service 리소스에 **ReadOnly** 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
+적용 **ReadOnly** 것 같지 않습니다. 리소스를 수정 하는 일부 작업 잠금에 의해 차단 되는 작업을 실제로 필요 하기 때문에 예기치 않은 결과가 발생할 수 있습니다. 합니다 **ReadOnly** 잠금 리소스를 포함 하는 리소스 그룹 또는 리소스에 적용할 수 있습니다. 의해 차단 되는 작업의 몇 가지 일반적인 예는 **ReadOnly** 잠금 됩니다.
+
+* A **ReadOnly** 저장소 계정에 대 한 잠금을 키 목록에서 모든 사용자의 것을 금지 합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다.
+
+* App Service 리소스에 **ReadOnly** 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
+
+* A **ReadOnly** 가상 컴퓨터를 포함 하는 리소스 그룹에 대 한 잠금을 모든 사용자가 시작 또는 가상 컴퓨터를 다시 시작 하지 못하도록 합니다. 이러한 작업에 POST 요청을 해야합니다.
 
 ## <a name="who-can-create-or-delete-locks"></a>만들거나 수 있는 사람 잠금 삭제
 관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.

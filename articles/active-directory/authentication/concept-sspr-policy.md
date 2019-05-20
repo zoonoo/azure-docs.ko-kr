@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412871"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823400"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -81,9 +81,9 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 | 자산 | 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
-| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 점 문자를 포함할 수 없습니다 "." 바로 앞에 "\@ \" 기호"입니다.</li></ul> |
-| 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
+| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>공백</li></ul> |
+| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li> 점 문자를 포함할 수 없습니다 "." 바로 앞에 "\@ \" 기호"입니다.</li></ul> |
+| 암호 제한 |<ul><li>최소 8 자 및 최대 256 자입니다.</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일.</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전).</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄)</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
@@ -99,7 +99,6 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 > [!NOTE]
 > 디렉터리 동기화를 통해 동기화되지 않는 사용자 계정의 암호만 만료되지 않도록 구성할 수 있습니다. 디렉터리 동기화에 대한 자세한 내용은 [Azure AD와 AD 연결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)을 참조하세요.
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>PowerShell을 사용하여 암호 정책 설정 또는 확인
 
@@ -157,7 +156,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
    ```
 
    > [!WARNING]
-   > `-PasswordPolicies DisablePasswordExpiration`로 설정된 암호는 계속해서 `pwdLastSet` 특성에 따라 사용 기간이 계산됩니다. 사용자 암호가 만료되지 않도록 설정하고 90일이 넘어가면 암호가 만료됩니다. `pwdLastSet` 특성에 따라, 만료를 `-PasswordPolicies None`로 변경한 경우 `pwdLastSet`이 90일보다 오래된 모든 암호는 다음 번에 로그인할 때 변경해야 합니다. 이 변경으로 많은 사용자가 영향을 받을 수 있습니다. 
+   > `-PasswordPolicies DisablePasswordExpiration`로 설정된 암호는 계속해서 `pwdLastSet` 특성에 따라 사용 기간이 계산됩니다. 사용자 암호가 만료되지 않도록 설정하고 90일이 넘어가면 암호가 만료됩니다. `pwdLastSet` 특성에 따라, 만료를 `-PasswordPolicies None`로 변경한 경우 `pwdLastSet`이 90일보다 오래된 모든 암호는 다음 번에 로그인할 때 변경해야 합니다. 이 변경으로 많은 사용자가 영향을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553608"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799528"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
 
@@ -61,7 +62,7 @@ Video Indexer 계정이 Azure에 연결되면 다음 항목이 표시됩니다.
 
 계정에서 일부를 조정할 필요가 있으면 **설정** 페이지에서 계정 구성과 관련된 오류 및 경고를 볼 수 있습니다. 메시지에는 변경해야 하는 Azure Portal의 정확한 위치에 대한 링크가 포함되어 있습니다. 이 섹션에서는 오류 및 경고 메시지에 대한 자세한 정보를 제공합니다.
 
-* Event Grid
+* 이벤트 표
 
     Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록해야 합니다. [Azure Portal](https://portal.azure.com/)에서 **구독** > [구독] > **ResourceProviders** > **Microsoft.EventGrid**로 차례로 이동합니다. **등록됨** 상태가 아닌 경우 **등록**을 클릭합니다. 등록하는 데 몇 분 정도 걸립니다. 
 

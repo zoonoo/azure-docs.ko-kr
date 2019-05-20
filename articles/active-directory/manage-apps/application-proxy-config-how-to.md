@@ -1,10 +1,10 @@
 ---
 title: 애플리케이션 프록시 애플리케이션을 구성하는 방법 | Microsoft Docs
-description: 몇 가지 간단한 단계로 애플리케이션 프록시 애플리케이션을 구성하는 방법에 대해 알아봅니다.
+description: 만들기 및 몇 가지 간단한 단계에서 응용 프로그램 프록시 응용 프로그램을 구성 하는 방법을 알아봅니다
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443189"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825928"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 구성하는 방법
 
-이 문서에서는 온-프레미스 애플리케이션을 클라우드에 노출하도록 Azure AD 내의 애플리케이션 프록시 애플리케이션을 구성하는 방법에 대해 설명합니다.
+이 문서를 사용 하면 클라우드로 온-프레미스 응용 프로그램을 노출 하도록 Azure AD 내에서 응용 프로그램 프록시 응용 프로그램을 구성 하는 방법을 이해 하도록 도와줍니다.
 
 ## <a name="recommended-documents"></a>권장 문서 
 
@@ -49,7 +49,7 @@ ms.locfileid: "60443189"
 
 -   URL은 IP 주소가 아닌 도메인 이름이어야 합니다.
 
-애플리케이션을 만들 때 오류 메시지가 오른쪽 상단 모서리에 표시됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
+오류 메시지는 응용 프로그램을 만들 때 오른쪽 위 모서리에 표시 됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
 
    ![알림 프롬프트](./media/application-proxy-config-how-to/error-message.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "60443189"
 
 -   개인 키가 없는 인증서
 
-인증서를 업로드하려고 할 때 오류 메시지가 오른쪽 상단 모서리에 표시됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
+인증서를 업로드 하려고 하면 오류 메시지가 오른쪽 위 모서리에 표시 됩니다. 알림 아이콘을 선택하여 오류 메시지를 볼 수도 있습니다.
 
    ![알림 프롬프트](./media/application-proxy-config-how-to/error-message2.png)
 

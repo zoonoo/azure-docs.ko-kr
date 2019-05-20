@@ -3,8 +3,8 @@ title: Azure AD 앱 개발자를 위한 지원 및 도움말 옵션 | Microsoft 
 description: Microsoft ID(Azure Active Directory 및 Microsoft 계정)와 통합되는 애플리케이션을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299739"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540376"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -63,7 +63,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 검색을 통해 질문에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | 태그들 |
+|구성 요소/영역  | Tags |
 |---------|---------|
 | ADAL 라이브러리 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

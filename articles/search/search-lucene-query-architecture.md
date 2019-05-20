@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024615"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797473"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -270,7 +270,7 @@ Spacious,||air-condition*+"Ocean view"
 | 용어 | 문서 목록 |
 |------|---------------|
 | air | 3
-| and | 4
+| 및 | 4
 | beach | 1
 | conditioned | 3
 | comfortable | 3
@@ -281,7 +281,7 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| on |2
+| 날짜 |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
@@ -291,7 +291,7 @@ Spacious,||air-condition*+"Ocean view"
 | to | 1
 | view | 1, 2, 3
 | walking | 1
-| 다음으로 바꿀 수 있습니다. | 3
+| 포함 문자열 | 3
 
 
 **쿼리 용어를 인덱싱된 용어와 연결**
@@ -392,8 +392,6 @@ Azure Search의 모든 인덱스는 여러 분할 영역으로 자동 분할되�
 + [언어별 어휘 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)를 적용하는 방법을 알아보세요.
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
-
-+ 데모 웹 사이트에서 [표준 및 영어 분석기를 나란히 비교](https://alice.unearth.ai/)하세요. 
 
 ## <a name="see-also"></a>참고 항목
 

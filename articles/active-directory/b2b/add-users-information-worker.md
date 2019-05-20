@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357667"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812545"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 

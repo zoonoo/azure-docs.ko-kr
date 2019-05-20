@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230900"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785949"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
@@ -83,8 +83,8 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 미국                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 우루과이                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 베네수엘라                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| 영국령 버진아일랜드                            |                 |                |              |      ✓     |          ✓         |
-| 미국령 버진아일랜드                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 영국령 버진 아일랜드                              |                 |                |              |      ✓     |          ✓         |
+| 미국 미국령 버진 아일랜드                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>아시아 태평양
 
@@ -293,7 +293,6 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 튀니지                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 우간다                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | 아랍에미리트                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| 요르단 강 서안 지구                                           |                 |                |              |      ✓     |          ✓         |
 | 예멘                                               |                 |                |              |      ✓     |          ✓         |
 | 잠비아                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | 짐바브웨                                            |                 |                |       ✓      |      ✓     |          ✓         |

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222165"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815646"
 ---
 Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
 
@@ -33,7 +33,7 @@ Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 �
    |배포 모델     |리소스 관리자         |
    |성능     |Standard         |
    |계정 종류     |StorageV2(범용 v2)         |
-   |복제     |LRS(로컬 중복 저장소)         |
+   |복제     |RA-GRS(읽기 액세스 지역 중복 저장소)         |
    |액세스 계층     |핫         |
 
 1. **검토 + 만들기**를 선택하여 저장소 계정 설정을 검토하고 계정을 만듭니다.

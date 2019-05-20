@@ -54,10 +54,10 @@ SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **SapEcc** | 예 |
-| URL | SAP ECC OData 서비스의 URL입니다. | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **SapEcc** | 예 |
+| url | SAP ECC OData 서비스의 URL입니다. | 예 |
 | username | SAP ECC에 연결하는 데 사용되는 사용자 이름입니다. | 아닙니다. |
-| 암호 | SAP ECC에 연결하는 데 사용되는 일반 텍스트 암호입니다. | 아닙니다. |
+| password | SAP ECC에 연결하는 데 사용되는 일반 텍스트 암호입니다. | 아닙니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 **예제:**
@@ -91,7 +91,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 경로 | SAP ECC OData 엔터티의 경로입니다. | 예 |
+| path | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
 **예제**
 
@@ -122,7 +122,7 @@ SAP ECC에서 데이터를 복사하려면 복사 활동의 원본 형식을 **S
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SapEccSource** | 예 |
-| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
+| query | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
 
 **예제:**
 

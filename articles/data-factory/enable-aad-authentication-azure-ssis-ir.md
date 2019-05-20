@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848731"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593806"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -60,7 +60,7 @@ Azure SQL Database 서버는 Azure AD 사용자로 데이터베이스 만들기�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  ADF의 관리 ID를 그룹에 추가합니다. 문서를 따르면 [Data Factory에 대 한 관리 되는 식별](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 주 서비스 ID를 가져오려면 (예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc,이 목적을 위해 서비스 ID 응용 프로그램 ID를 사용 하지 마세요).
+3.  ADF의 관리 ID를 그룹에 추가합니다. 문서를 따를 수 있습니다 [Data Factory에 대 한 관리 되는 식별](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 주 관리 되는 Identity 개체 ID를 가져옵니다 (예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc,이 목적을 위해 응용 프로그램 ID 관리를 사용 하지 마세요).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 
 4.  **마스터** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-5.  ADF에 대한 관리 ID를 가져옵니다. 문서를 따르면 [Data Factory에 대 한 관리 되는 식별](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 를 주 서비스 ID 응용 프로그램 ID 가져오기 (하지만이 목적을 위해 서비스 ID를 사용 하지 않습니다).
+5.  ADF에 대한 관리 ID를 가져옵니다. 문서를 따를 수 있습니다 [Data Factory에 대 한 관리 되는 식별](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 하는 보안 주체 관리 되는 응용 프로그램 ID 가져오기 (하지만이 목적을 위해 개체 ID 관리를 사용 하지 않습니다).
 
 6.  쿼리 창에서 다음 T-SQL 스크립트를 실행하여 ADF에 대한 관리 ID를 이진 형식으로 변환합니다.
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 7.  쿼리 창을 지우고 다음 T-SQL 스크립트를 실행하여 ADF에 대한 관리 ID를 사용자로 추가합니다.
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

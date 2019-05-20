@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61086126"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522823"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-NetApp 리소스 공급자 및 공개 미리 보기 기능을 사용하려면 구독을 등록해야 합니다.
+부여 된 서비스에 대 한 액세스를 확인 하는 Azure NetApp 파일 팀에서 전자 메일이 수신 되어야 합니다. 참조 [서비스에 액세스 하기 위한 대기 요청을 제출](azure-netapp-files-register.md#waitlist)합니다.
 
-[Azure NetApp Files에 등록](azure-netapp-files-register.md)
+NetApp 리소스 공급자를 사용 하 여 구독을 등록도 있어야 합니다. 참조 [NetApp 리소스 공급자 등록](azure-netapp-files-register.md#resource-provider)합니다.
 
 ## <a name="steps"></a>단계 
 
@@ -56,6 +56,11 @@ NetApp 리소스 공급자 및 공개 미리 보기 기능을 사용하려면 �
 
 5. **만들기**를 클릭합니다.     
    이제 사용자가 만든 NetApp 계정이 Azure NetApp Files 블레이드에 나타납니다. 
+
+> [!NOTE] 
+> Azure NetApp 파일 서비스에 대 한 액세스 부여 없습니다, 경우 첫 번째 NetApp 계정을 만들 하려고 할 때 다음 오류가 됩니다.  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 ## <a name="next-steps"></a>다음 단계  
 

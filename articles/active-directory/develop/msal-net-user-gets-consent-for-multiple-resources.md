@@ -4,7 +4,7 @@ description: 사용자.NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bad9a03e8eff6f22ebb99fd2ef4bcd5fecf9b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158822"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544042"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>사용자가 MSAL.NET을 사용 하 여 여러 리소스에 대 한 동의
 Microsoft id 플랫폼 끝점 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없도록 합니다. Microsoft 인증 라이브러리.NET (MSAL.NET)를 사용 하는 경우 토큰 획득 메서드 범위 매개 변수는 단일 리소스에 대 한 범위만 포함 해야 합니다. 그러나 수 사전에 동의 하는 몇 가지 리소스 사전 사용 하 여 추가 범위를 지정 하 여는 `.WithExtraScopeToConsent` 작성기 메서드.

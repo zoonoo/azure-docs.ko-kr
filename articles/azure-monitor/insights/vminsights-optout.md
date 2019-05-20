@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61386447"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522129"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링을 사용하지 않도록 설정하는 방법
 
@@ -56,7 +56,7 @@ VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링
 5. 솔루션 목록에서 **InfrastructureInsights(작업 영역 이름)** 를 선택한 다음, 솔루션에 대한 **개요** 페이지에서 **삭제**를 클릭합니다.  확인하라는 메시지가 나타나면 **예**를 클릭합니다.  
 6. 솔루션 목록에서 **ServiceMap(작업 영역 이름)** 을 선택한 다음, 솔루션에 대한 **개요** 페이지에서 **삭제**를 클릭합니다.  확인하라는 메시지가 나타나면 **예**를 클릭합니다.  
 
-VM용 Azure Monitor를 온보딩하기 전에 작업 영역에서 Windows 또는 Linux 기반 VM에 [사용하도록 설정된 성능 카운터를 수집](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled)하지 않는 경우 [여기](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters)에 설명된 단계를 따라 Linux 및 Windows에 대한 해당 규칙을 사용하지 않도록 설정해야 합니다.
+VM용 Azure Monitor를 온보딩하기 전에 작업 영역에서 Windows 또는 Linux 기반 VM에 [사용하도록 설정된 성능 카운터를 수집](vminsights-enable-overview.md#performance-counters-enabled)하지 않는 경우 [여기](../platform/data-sources-performance-counters.md#configuring-performance-counters)에 설명된 단계를 따라 Linux 및 Windows에 대한 해당 규칙을 사용하지 않도록 설정해야 합니다.
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Azure VM에 대한 모니터링을 사용하지 않도록 설정하고 작업 영역 보존  
 

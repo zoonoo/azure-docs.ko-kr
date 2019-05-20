@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507952"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785724"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "65507952"
 
 다음 설명서에서는 Azure AD Connect에서 디바이스 쓰기 저장 기능을 사용하는 방법에 대한 정보를 제공합니다. 쓰기 저장 디바이스를 다음과 같은 시나리오에서 사용합니다.
 
-* 사용 하도록 설정 [Windows Hello 인증서 신뢰 하이브리드 배포를 사용 하 여 비즈니스에 대 한](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* 사용 하도록 설정 [Windows Hello 인증서 신뢰 하이브리드 배포를 사용 하 여 비즈니스에 대 한](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * 디바이스에 따라 ADFS(2012 R2 이상) 보호된 애플리케이션에 조건부 액세스를 사용하도록 설정합니다(신뢰 당사자 트러스트).
 
 애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조하세요.

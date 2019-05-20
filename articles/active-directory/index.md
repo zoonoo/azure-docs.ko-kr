@@ -8,15 +8,15 @@ author: barbkess
 manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 04/18/2019
+ms.date: 05/17/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f067d2d83c97d22dee26050d31e08e47252310ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3047ec790440b94f90416f205c51e283b446e37c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682981"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849834"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -156,7 +156,7 @@ ms.locfileid: "64682981"
                                                         <h3><a href="manage-apps/index.yml">애플리케이션 관리</a></h3>
                                                         <p>
                                                             <a href="manage-apps/what-is-single-sign-on.md">SSO(Single Sign-On)란?</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Single Sign-on 구성</a><br>
+                                                            <a href="manage-apps/user-provisioning.md">자동 사용자 프로비저닝</a><br>
                                                             <a href="manage-apps/application-proxy.md">온-프레미스 앱에 대한 애플리케이션 프록시</a><br>
                                                             <a href="manage-apps/index.yml"><i>자세히 보기 &gt;</i></a>
                                                         </p>

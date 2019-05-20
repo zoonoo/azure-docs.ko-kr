@@ -313,7 +313,7 @@ VM을 배포하기 전에 Contoso는 OVA 파일이 안전한지 확인합니다.
     ![vSphere Client 콘솔 - 수집기 바로 가기](./media/contoso-migration-assessment/collector-shortcut.png)
 
 3. Contoso는 Azure Migrate 수집기에서 **필수 구성 요소 설정**을 선택합니다. Contoso는 사용 조건을 수락하고 타사 정보를 읽습니다.
-4. 수집기는 VM이 인터넷에 액세스했는지, 시간이 동기화되었는지 및 수집기 서비스가 실행되고 있는지 확인합니다. (수집기 서비스는 기본적으로 VM에 설치됩니다.) 또한 Contoso는 VMware PowerCLI도 설치합니다.
+4. 수집기는 VM이 인터넷에 액세스했는지, 시간이 동기화되었는지 및 수집기 서비스가 실행되고 있는지 확인합니다(수집기 서비스는 기본적으로 VM에 설치됩니다). 또한 Contoso는 VMware PowerCLI도 설치합니다.
 
     > [!NOTE]
     > VM에서 프록시를 사용하지 않고 인터넷에 직접 액세스할 수 있다고 가정합니다.

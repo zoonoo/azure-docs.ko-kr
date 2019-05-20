@@ -3,8 +3,8 @@ title: 애플리케이션에 사용자를 할당하는 방법 | Microsoft Docs
 description: 테넌트의 애플리케이션에 사용자가 할당되는 방법 이해
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be36bfeb0991dc4a4b7fce723cadb6b508c0d6a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291027"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825985"
 ---
 # <a name="how-to-assign-users-to-applications"></a>애플리케이션에 사용자를 할당하는 방법
 

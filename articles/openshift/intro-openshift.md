@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079951"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466159"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Azure Red Hat OpenShift 노드는 Azure 가상 머신에서 실행됩니다. 저
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 
-Azure Red Hat OpenShift 클러스터를 기존 가상 네트워크에 배포할 수 있습니다. 이 구성에서 클러스터의 모든 Pod에는 가상 네트워크의 IP 주소가 할당되며 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크의 다른 서비스와 연결할 수 있으며, [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크와 연결할 수 있습니다.
+피어링을 통해 Azure Red Hat OpenShift 클러스터를 기존 가상 네트워크에 연결할 수 있습니다. 이 구성에서 Pod는 피어링된 가상 네트워크의 다른 서비스에 연결하고, [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결할 수 있습니다.
 
-자세한 내용은 [Azure에서 Microsoft Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md)를 참조하세요.
+자세한 내용은 [클러스터의 가상 네트워크를 기존 가상 네트워크에 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)을 참조하세요.
 
 ## <a name="kubernetes-certification"></a>Kubernetes 인증
 

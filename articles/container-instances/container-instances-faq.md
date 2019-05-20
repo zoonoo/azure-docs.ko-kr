@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 5657ac9f10c42c2201641c9af447b7ad2e6a3507
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079017"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791389"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
 
@@ -77,7 +77,7 @@ Azure Container Instances 하므로 원하는 컨테이너를 개발에 집중 �
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>ACI 되는 특정 지역의?
 
-현재 지역 가용성은 게시 [여기](container-instances-region-availability.md#availability---general)에서 최신 정보를 통해 사용할 수는 [목록 기능](/rest/api/container-instances/listcapabilities) API. 특정 지역에 대 한 요구 사항이 있는 경우 Azure 지원에 문의 합니다.
+게시 된 현재 지역 가용성 [여기](container-instances-region-availability.md#availability---general)합니다. 특정 지역에 대 한 요구 사항이 있는 경우 Azure 지원에 문의 합니다.
 
 ## <a name="features-and-scenarios"></a>기능 및 시나리오
 

@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508215"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603402"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
 Azure Functions 핵심 도구를 사용하여 명령 프롬프트 또는 터미널의 로컬 머신에서 함수를 개발하고 테스트할 수 있습니다. 로컬 함수는 라이브 Azure 서비스에 연결할 수 있고 사용자는 전체 Functions 런타임을 사용하여 로컬 머신에서 함수를 디버깅할 수 있습니다. Azure 구독에 함수 앱을 배포할 수도 있습니다.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+로컬 컴퓨터에 함수를 개발 하 고 핵심 도구를 사용 하 여 Azure에 게시 하는 이러한 기본 단계를 따릅니다.
+
+> [!div class="checklist"]
+> * [핵심 도구 및 종속성을 설치 합니다.](#v2)
+> * [언어별 서식 파일에서 함수 앱 프로젝트를 만듭니다.](#create-a-local-functions-project)
+> * [트리거 및 바인딩 확장을 등록 합니다.](#register-extensions)
+> * [저장소 및 기타 연결을 정의 합니다.](#local-settings-file)
+> * [트리거 및 언어 관련 템플릿 함수를 만듭니다.](#create-func)
+> * [함수를 로컬로 실행](#start)
+> * [Azure에 프로젝트 게시](#publish)
 
 ## <a name="core-tools-versions"></a>핵심 도구 버전
 
@@ -41,9 +53,6 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 ### <a name="v2"></a>버전 2.x
 
 버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 먼저 .NET Core 2.x SDK를 설치해야 합니다.
-
-> [!IMPORTANT]
-> 프로젝트의 host.json 파일에 확장 번들을 사용 하도록 설정 하면 필요가 없습니다.NET Core를 설치 하려면 SDK 2.x입니다. 자세한 내용은 [Azure Functions 핵심 도구 및 확장 번들을 사용 하 여 로컬 개발 ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)합니다. 확장 번들 Core 도구의 2.6.1071 버전 이상이 필요 합니다.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 로 설정 하면 `true`, 모든 값은 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `true`입니다. 때 `true`를 사용 하 여 추가 하는 모든 설정을 `func settings add` 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. 이 함수 앱 설정을 Azure에 응용 프로그램 설정에 어떻게 저장 되는지 미러링합니다. 로컬 설정 값을 암호화를 제공 중요 한 데이터에 대 한 추가 보호 local.settings.json 공개적으로 노출 해야 합니다.  |
+| **`IsEncrypted`** | 로 설정 하면 `true`, 모든 값은 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`입니다. |
 | **`Values`** | 로컬에서 실행될 때 사용되는 연결 문자열 및 애플리케이션 설정의 컬렉션입니다. 이러한 값과 같은 Azure에서 함수 앱의 앱 설정에 해당 [ `AzureWebJobsStorage` ]합니다. 많은 트리거와 바인딩에 같은 연결 문자열 앱 설정 참조 속성이 `Connection` 에 대 한 합니다 [Blob storage 트리거](functions-bindings-storage-blob.md#trigger---configuration)합니다. 이러한 속성에 정의 된 응용 프로그램 설정 해야 합니다 `Values` 배열입니다. <br/>[`AzureWebJobsStorage`] HTTP 이외의 트리거에 대 한 필수 앱 설정입니다. <br/>버전의 Functions 런타임 2.x 필요 합니다 [ `FUNCTIONS_WORKER_RUNTIME` ] 핵심 도구 프로젝트에 대해 생성 되는 설정입니다. <br/> 경우는 [Azure storage 에뮬레이터](../storage/common/storage-use-emulator.md) 로컬로 설치를 설정할 수 있습니다 [ `AzureWebJobsStorage` ] 를 `UseDevelopmentStorage=true` 핵심 도구 에뮬레이터를 사용 합니다. 개발 중에 유용하지만 배포 전에 실제 저장소 연결을 테스트해야 합니다. |
 | **`Host`** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **`CORS`** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
 | **`ConnectionStrings`** | 함수 바인딩에서 사용하는 연결 문자열에 대해 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 일반적으로 연결 문자열에서 가져오기 프레임 워크만 사용 합니다 `ConnectionStrings` 섹션의 구성 파일을 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 명시적으로 추가 해야 합니다 `Connection strings` 함수 앱 설정의 컬렉션입니다. 만들려는 경우는 [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) 함수 코드에서 연결 문자열 값을 저장 해야 **응용 프로그램 설정** 다른 연결을 사용 하 여 포털에 있습니다. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
+
+* [미리 컴파일된 C#](functions-dotnet-class-library.md#environment-variables)
+* [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
+* [F# 스크립트(.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 올바른 저장소 연결 문자열 설정 된 경우 [ `AzureWebJobsStorage` ] 에뮬레이터를 사용 하지 않을, 다음 오류 메시지가 표시 됩니다.
 
@@ -307,7 +322,6 @@ func host start
 | **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
 | **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. Default: 20초.|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
-| **`--enableAuth`** | 전체 인증 처리 파이프라인을 사용 하도록 설정 합니다.|
 
 C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
 
@@ -474,7 +488,6 @@ func deploy
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](https://github.com/azure/azure-functions-cli)됩니다.  

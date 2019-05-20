@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/06/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -36,6 +36,7 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
           - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
+          - html: 시각적 개체 인터페이스에서 <a href="ui-quickstart-run-experiment">코드를 작성하지 않고 데이터를 준비하고 시각화합니다</a>.
   - title: 단계별 자습서
     items:
       - type: paragraph
@@ -45,6 +46,7 @@ sections:
         items:
           - html: 이미지 분류 모델을 <a href="tutorial-train-models-with-aml">학습</a> 및 <a href="tutorial-deploy-models-with-aml">배포</a>합니다(<b>2부 시리즈</b>).
           - html: <a href="tutorial-data-prep">데이터를 준비</a>하고 <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용</a>하여 회귀 모델을 학습 및 조정합니다(<b>2부 시리즈</b>).
+          - html: 시각적 개체 인터페이스를 사용하여 <a href="ui-tutorial-automobile-price-train-score">자동차 가격을 예측</a>하고 회귀 모델을 <a href="ui-tutorial-automobile-price-deploy">배포합니다</a>.
   - title: 샘플
     items:
       - type: paragraph

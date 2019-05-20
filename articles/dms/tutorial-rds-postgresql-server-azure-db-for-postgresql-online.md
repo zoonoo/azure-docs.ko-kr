@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 3f1ab5c2cb30dd4067c07833529e6a6a0c71e286
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: 1ee4d546ce823f48a597331276813b42d91e01e4
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136652"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415973"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 RDS PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
@@ -50,10 +50,10 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     또한 RDS PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 RDS PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
     > [!NOTE]
-    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다. 최신 버전의 PostgreSQL이 곧 지원될 예정입니다.
+    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다.
 
 * [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)의 인스턴스를 만듭니다. pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)을 참조하세요.
-* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 * VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service가 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
@@ -74,13 +74,13 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 1. 테이블 스키마, 인덱스, 저장 프로시저 같은 모든 데이터베이스 개체의 마이그레이션을 완료하려면 원본 데이터베이스에서 스키마를 추출하여 대상 데이터베이스에 적용해야 합니다.
 
     스키마만 마이그레이션하는 가장 쉬운 방법은 -s 옵션에 pg_dump를 사용하는 것입니다. 자세한 내용은 Postgres pg_dump 자습서의 [예제](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES)를 참조하세요.
-    
+
     ```
     pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
-    
+
     예를 들어 **dvdrental** 데이터베이스의 스키마 파일을 덤프하려면 다음 명령을 사용합니다.
-    
+
     ```
     pg_dump -o -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
     ```
@@ -108,8 +108,8 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     SET group_concat_max_len = 8192;
         SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
         FROM
-        (SELECT 
-        KCU.REFERENCED_TABLE_SCHEMA as SchemaName,    
+        (SELECT
+        KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
         KCU.TABLE_NAME,
         KCU.COLUMN_NAME,
         CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery,
@@ -121,7 +121,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
       AND KCU.REFERENCED_TABLE_SCHEMA = 'sakila') Queries
       GROUP BY SchemaName;
     ```
-        
+
 5. 외래 키를 삭제하려면 쿼리 결과에서 drop foreign key(두 번째 열)를 실행합니다.
 
 6. 데이터에 트리거(트리거 삽입 또는 업데이트)가 있으면 원본의 데이터를 복제하기 전에 대상에 데이터 무결성이 적용됩니다. 마이그레이션 중에 *대상의* 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
@@ -252,7 +252,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
 
     ![중단 시작](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-inventory-start-cutover.png)
- 
+
 2. 원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0**으로 표시될 때까지 기다립니다.
 3. **확인**, **적용**을 차례로 선택합니다.
 4. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 새로운 대상 Azure Database for PostgreSQL 데이터베이스에 연결합니다.
@@ -261,6 +261,6 @@ PostgreSQL 온-프레미스 인스턴스를 Azure Database for PostgreSQL로 온
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](https://docs.microsoft.com/azure/dms/dms-overview) 문서를 참조하세요.
-- Azure Database for PostgreSQL에 대한 자세한 내용은 [Azure Database for PostgreSQL이란?](https://docs.microsoft.com/azure/postgresql/overview) 문서를 참조하세요.
-- 기타 질문은 [Azure 데이터베이스 마이그레이션 관련 질문](mailto:AskAzureDatabaseMigrations@service.microsoft.com)이라는 별칭으로 이메일을 보내주세요.
+* Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](https://docs.microsoft.com/azure/dms/dms-overview) 문서를 참조하세요.
+* Azure Database for PostgreSQL에 대한 자세한 내용은 [Azure Database for PostgreSQL이란?](https://docs.microsoft.com/azure/postgresql/overview) 문서를 참조하세요.
+* 기타 질문은 [Azure 데이터베이스 마이그레이션 관련 질문](mailto:AskAzureDatabaseMigrations@service.microsoft.com)이라는 별칭으로 이메일을 보내주세요.

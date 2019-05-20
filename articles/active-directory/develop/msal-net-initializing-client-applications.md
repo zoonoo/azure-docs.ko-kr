@@ -4,7 +4,7 @@ description: 공용 클라이언트 및.NET (MSAL.NET)에 대 한 Microsoft 인�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6197d472bdfaf03c9f99baa7691354e735cc91e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075807"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544326"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET을 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 공용 클라이언트 및.NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사용 하 여 기밀 클라이언트 응용 프로그램 초기화를 설명 합니다.  클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 참조는 [개요](msal-client-applications.md)합니다.

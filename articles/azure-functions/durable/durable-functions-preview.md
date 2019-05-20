@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077742"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596070"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>영 속 Functions 2.0 미리 보기 (Azure Functions)
 
@@ -26,7 +26,7 @@ Durable Functions는 Azure Functions의 GA (일반 공급) 기능 하지만 현�
 > [!NOTE]
 > 현재는 지 속성 함수 2.0 릴리스의 일부인이 미리 보기 기능을 **알파 품질 릴리스** 몇 가지 주요 변경 내용으로 합니다. Azure Functions 지 속성 확장 패키지 빌드 형식의 버전을 사용 하 여 nuget.org에서 찾을 수 **2.0.0-alpha**합니다. 이러한 빌드 모든 프로덕션 워크 로드에 적합 하지 않으며 후속 릴리스에서 추가 주요 변경 내용에 포함 될 수 있습니다.
 
-## <a name="breaking-changes"></a>주요 변경 내용
+## <a name="breaking-changes"></a>호환성이 손상되는 변경
 
 몇 가지 주요 변경 사항이 지 속성 함수 2.0에 도입 됩니다. 기존 응용 프로그램은 코드 변경 없이 지 속성 함수 2.0과 호환 되도록 사용할 수 없습니다. 이 섹션에서는 일부 변경 내용을 나열합니다.
 
@@ -36,7 +36,7 @@ Durable Functions는 Azure Functions의 GA (일반 공급) 기능 하지만 현�
 
 ### <a name="hostjson-schema"></a>Host.json 스키마
 
-다음 코드 조각은 host.json에 대 한 새 스키마를 보여 줍니다. 알아야 할 주요 변경 새 `"storageProvider"` 섹션인 및 `"azureStorage"` 아래의 섹션입니다. 이 변경을 지원 하기 위해 수행한 [저장소 공급자를 대체](durable-functions-preview.md#alternate-storage-providers)합니다.
+다음 코드 조각은 host.json에 대 한 새 스키마를 보여 줍니다. 알아야 할 주요 변경 내용이 새 `"storageProvider"` 섹션인 및 `"azureStorage"` 아래의 섹션입니다. 이 변경을 지원 하기 위해 수행한 [저장소 공급자를 대체](durable-functions-preview.md#alternate-storage-providers)합니다.
 
 ```json
 {
@@ -93,11 +93,12 @@ Durable Functions에서 지 원하는 다양 한 "컨텍스트" 개체는 단위
 
 엔터티 함수 읽고 소량의 이라는 상태를 업데이트 하기 위한 작업을 정의할 *영구 엔터티*합니다. 오 케 스트레이 터 함수와 마찬가지로 엔터티 함수는 특별 한 트리거 형식과 함수 *엔터티 트리거*합니다. 오 케 스트레이 터 함수와 달리 엔터티 함수는 특정 코드 제약 조건을 갖지 않습니다. 엔터티 함수 상태를 관리할 수도 암시적으로 제어 흐름을 통해 상태를 나타내는 대신 명시적으로 합니다.
 
-다음 코드는 간단한 엔터티 함수를 정의 하는 예제는 *카운터* 엔터티. 세 가지 작업을 정의 하는 함수 `add`, `remove`, 및 `reset`각각의 정수 값을 업데이트 하는 `currentValue`합니다.
+다음 코드는 간단한 엔터티 함수를 정의 하는 예제는 *카운터* 엔터티. 세 가지 작업을 정의 하는 함수 `add`, `subtract`, 및 `reset`각각의 정수 값을 업데이트 하는 `currentValue`합니다.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ public static async Task Counter(
 예를 들어 두 플레이어는 사용할 수 있는지 여부를 테스트 해야 하는 오케스트레이션을 고려 하 고 게임에 모두 할당 합니다. 이 작업은 다음과 같이 중요 한 섹션을 사용 하 여 구현할 수 있습니다.
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

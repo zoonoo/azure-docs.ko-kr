@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572419"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784323"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -42,6 +42,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >서비스의 작업이 제대로 작동 하도록 하려면 몇 가지 품질 컨트롤 단계를 필요로 하는 프로세스 및 릴리스 상태 뿐만 아니라 새 릴리스 버전 번호를 업데이트할 수는이 프로세스를 통해 이동 하는 동안 Azure AD Connect의 새 버전을 릴리스 에 최신 상태를 반영 합니다.
 이 프로세스를 진행 하면서 하는 동안 릴리스의 버전 번호로 표시 됩니다 "1.3.X.0"-같이 부 릴리스 번호 위치에 "X"를 사용 하 여이 문서에서 릴리스 "1.3."로 시작 하는 모든 버전에 대 한 유효한 지 나타냅니다. 릴리스 프로세스를 완성 한 것으로 가장 최근에 릴리스된 버전을 릴리스 버전 번호를은 업데이트 되 고 릴리스 상태 "를 다운로드 하 고 자동 업그레이드에 대 한 릴리스"으로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
+
+## <a name="13210"></a>1.3.21.0
+
+### <a name="release-status"></a>릴리스 상태 
+
+05/14/2019: TBD
+
+
+### <a name="fixed-issues"></a>해결된 문제 
+
+- 권한 상승을 취약점 Microsoft Azure Active Directory Connect 빌드 1.3.20.0에에서 존재 하는 수정 되었습니다.  특정 조건에서이 취약성 공격자는 권한 있는 계정의 컨텍스트에서 두 powershell cmdlet을 실행 하 고 권한 있는 작업을 수행할 수 있습니다.  이러한 cmdlet을 사용 하지 않도록 설정 하 여 문제를 해결 하는이 보안 업데이트 합니다. 자세한 내용은 참조 [보안 업데이트](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)합니다.
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -406,7 +417,7 @@ AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](h
 
 PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azure AD Connect 설치에서 만든 기존 AD DS 계정에 이러한 설정을 적용하려면 위에 제공된 링크에서 스크립트를 다운로드합니다.
 
-##### <a name="usage"></a>Usage:
+##### <a name="usage"></a>사용 현황:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
@@ -550,7 +561,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * AAD Connect를 사용하여 새 ADFS 팜을 설정할 때, ADFS 자격 증명을 묻는 페이지가 이동되어 이제 ADFS 및 WAP 서버를 제공하라는 메시지가 사용자에게 표시되기 전에 발생합니다.  따라서 AAD Connect에서 지정된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
 * AAD Connect를 업그레이드하는 동안 ADFS AAD 트러스트가 업데이트에 실패하는 경우 더 이상 업그레이드할 수 없습니다.  이렇게 되면 사용자에게 적절한 경고 메시지가 표시되며, AAD Connect 추가 작업을 통해 트러스트를 다시 설정하도록 진행해야 합니다.
 
-### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
+### <a name="seamless-single-sign-on"></a>원활한 Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
 * [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
@@ -730,14 +741,14 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|여기서|
+    |CertVersion|CertSignatureAlgorithmOid|선택|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
   * 다음 특성이 MV 스키마에 추가되었습니다.
-    * 그룹: AccountName
+    * 그룹: 계정 이름
     * 그룹: domainNetBios
     * 그룹: domainFQDN
     * 사용자: distinguishedName

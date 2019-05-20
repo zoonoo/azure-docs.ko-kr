@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146137"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236933"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
@@ -38,7 +38,7 @@ ms.locfileid: "65146137"
     Install-Module AzureAD
     ```
 
-2. 세션에 관련된 값으로 대체된 따옴표 안의 값으로 다음 cmdlet을 실행합니다.
+2. 세션에 관련된 값으로 대체된 따옴표 안의 값으로 다음 cmdlet을 실행합니다. [Windows Virtual Desktop에서 테넌트 만들기 자습서](./tenant-setup-azure-active-directory.md)에서 Windows Virtual Desktop 테넌트를 만든 경우 "기본 테넌트 그룹"을 테넌트 그룹 이름으로 사용합니다.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ PowerShell 세션을 종료하기 전에 자격 증명을 확인하고 나중에
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 서비스 주체를 만들고 이를 사용하여 Windows Virtual Desktop에 로그인하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop 방법에 대한 연결을 계속 진행하세요.
+서비스 주체를 생성하고 Windows Virtual Desktop 테넌트에서 역할을 할당한 경우 호스트 풀을 만드는 데 사용할 수 있습니다. 호스트 풀에 대해 자세히 알아보려면 Windows Virtual Desktop에서 호스트 풀을 만드는 방법에 대한 자습서를 진행하세요.
 
-- [Windows 10 또는 Windows 7에서 연결](connect-windows-7-and-10.md)
-- [웹 브라우저에서 연결](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Windows Virtual Desktop 호스트 풀 자습서](./create-host-pools-azure-marketplace.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687903"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785196"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정 
 
@@ -54,8 +54,8 @@ ms.locfileid: "64687903"
 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-3. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
+2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 4. **정책 키**, **추가**를 차례로 선택합니다.
 5. **옵션**으로는 `Manual`을 선택합니다.
 6. 정책 키의 **이름**을 입력합니다. 예: `ContosoAppSecret`.  `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.

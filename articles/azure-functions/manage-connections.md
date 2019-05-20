@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020488"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785953"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "61020488"
 
 ## <a name="connection-limit"></a>연결 제한
 
-함수 앱에서 실행 되기 때문에 부분적으로 사용 가능한 연결 수는 제한 된 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)합니다. 샌드박스 코드에 적용 되는 제한 사항 중 하나를 [(현재에서 600 활성 연결 및 총 연결 수 1, 200) 연결 수에 대 한 제한은](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) 인스턴스당 합니다. 이 제한에 도달하면 함수 런타임에서 `Host thresholds exceeded: Connections` 메시지가 있는 로그를 만듭니다.
+함수 앱에서 실행 되기 때문에 부분적으로 사용 가능한 연결 수는 제한 된 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)합니다. 샌드박스 코드에 적용 되는 제한 사항 중 하나는 연결 (현재 600 활성 연결 및 총 연결 수 1, 200)의 수에 인스턴스당 합니다. 이 제한에 도달하면 함수 런타임에서 `Host thresholds exceeded: Connections` 메시지가 있는 로그를 만듭니다.
 
 이 제한은 인스턴스당입니다.  경우는 [함수 앱 인스턴스를 추가 하는 크기 조정 컨트롤러](functions-scale.md#how-the-consumption-and-premium-plans-work) 더 많은 요청을 처리 하려면 각 인스턴스에 독립 연결 제한이 있습니다. 즉, 글로벌 연결 제한은 모든 활성 인스턴스에 걸쳐 600 개 이상 훨씬 활성 연결을 할 수 있습니다.
 

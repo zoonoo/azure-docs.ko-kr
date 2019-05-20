@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021888"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521879"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search의 미리 입력에 대 한 인덱스를 확인 기 추가
 
@@ -119,7 +119,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 Suggester 작업에서는 요청에 대해 참조 됩니다. 예를 들어 위한 GET REST 호출에서 하나를 지정 `suggest` 또는 `autocomplete` 문서 컬렉션에 있습니다. Rest의 경우 suggester를 만든 후 사용 합니다 [제안 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 쿼리 논리에서입니다.
 
-For.NET을 사용 하 여 [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) 하거나 [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet)합니다.
+For.NET을 사용 하 여 [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) 하거나 [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)합니다.
 
 두 요청을 보여 주는 예제를 참조 하세요 [Azure Search에서 자동 완성 기능 및 제안을 추가 하는 것에 대 한 예제](search-autocomplete-tutorial.md)합니다.
 

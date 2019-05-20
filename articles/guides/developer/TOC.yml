@@ -67,7 +67,7 @@
     - name: 청구 및 구독
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: 호스팅 비교
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: App Service란?
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: 가상 머신

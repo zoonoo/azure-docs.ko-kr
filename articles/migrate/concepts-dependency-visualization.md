@@ -26,7 +26,7 @@ Azure Migrate의 종속성 시각화를 사용하면 마이그레이션 평가�
 
 ## <a name="how-does-it-work"></a>어떻게 작동합니까?
 
-Azure Migrate 사용 합니다 [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 에서 솔루션 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 종속성 시각화에 대 한 합니다.
+Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../operations-management-suite/operations-management-suite-service-map.md)의 [서비스 맵](../log-analytics/log-analytics-overview.md) 솔루션을 사용합니다.
 - 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다.
 - 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
 - 프로젝트에 Log Analytics 작업 영역을 연결하려면 프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하고 **구성 필요**를 클릭합니다.

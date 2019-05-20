@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402245"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522184"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태를 이해 합니다.
 
@@ -28,7 +28,7 @@ Azure VM 및 기본 운영 체제의 전반적인 상태를 보려면 VM용 Azur
 
 이 문서는 감지된 상태 문제를 신속하게 평가하고, 조사하고, 해결하는 방법을 이해하는 데 도움이 됩니다.
 
-VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-onboard.md)을 참조하세요.
+VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-enable-overview.md)을 참조하세요.
 
 ## <a name="monitoring-configuration-details"></a>모니터링 구성 세부 정보
 
@@ -255,7 +255,7 @@ VM용 Azure Monitor 상태 기능은 [Azure 경고](../../azure-monitor/platform
 |리소스 그룹 |단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. | 
 |리소스 종류 |리소스 종류를 하나 이상 선택합니다. 기본적으로 대상 **가상 머신**의 경고만 선택되고 이 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. | 
 |리소스 |리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. | 
-|심각도 |경고 심각도를 선택하거나, 심각도에 상관없이 모든 경고를 포함하려면 *모두*를 선택합니다. | 
+|Severity |경고 심각도를 선택하거나, 심각도에 상관없이 모든 경고를 포함하려면 *모두*를 선택합니다. | 
 |모니터 조건 |조건이 더 이상 활성 상태가 아니고, 시스템에서 *실행*되었거나 *해결*된 경우 경고를 필터링할 모니터 조건을 선택합니다. 또는 *모두*를 선택하여 모든 조건의 경고를 포함합니다. | 
 |경고 상태 |경고 상태(*신규*, *승인*, *닫힘*)를 선택하거나, 상태에 상관없이 모든 경고를 포함하려면 *모두*를 선택합니다. | 
 |서비스 모니터링 |서비스를 선택하거나, 모든 서비스를 포함하려면 *모두*를 선택합니다. 이 기능에는 *VM Insights*의 경고만 지원됩니다.| 

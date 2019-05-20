@@ -11,19 +11,19 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115777"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522167"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 애플리케이션 구성 요소 이해
-Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 애플리케이션 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
+검색 된 응용 프로그램 구성 환경을 확인할 수 있습니다 Azure Monitor를 사용 하 여 두 가지 방법으로 Vm에 대 한 가상 머신에서 직접 또는 Azure Monitor에서 Vm의 그룹에 걸쳐 Azure에서 실행 되는 Windows 및 Linux virtual machines에서 볼 수 있습니다. 
 
-이 문서는 이러한 두 관점에서 환경 및 맵 기능을 사용하는 방법을 이해하는 데 도움이 됩니다. VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-onboard.md)을 참조하세요.
+이 문서는 이러한 두 관점에서 환경 및 맵 기능을 사용하는 방법을 이해하는 데 도움이 됩니다. VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-enable-overview.md)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
@@ -97,6 +97,21 @@ Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Mo
 
 ![직접 VM 맵 개요](./media/vminsights-maps/map-direct-vm-01.png)
 
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>지도 보기 직접 가상 머신 확장 집합
+
+Azure Monitor Vm에 대 한 가상 머신 확장 집합에서 직접에 액세스 하려면 다음 단계를 수행 합니다.
+
+1. Azure portal에서 선택 **가상 머신 확장 집합**합니다.
+2. 목록에서 VM을 선택하고 **모니터링** 섹션에서 **인사이트(미리 보기)** 를 선택합니다.  
+3. **맵** 탭을 선택합니다.
+
+지도 시각화 확장 그룹의 종속성과 함께 그룹 노드 집합의 인스턴스를 모두 합니다. 확장 된 노드는 한 번에 10을 통해 스크롤할 수 있는 확장 집합의 인스턴스를 나열 합니다. 특정 인스턴스에 대 한 지도 로드 하려면 맵에서 인스턴스 및 줄임표를 클릭 하는 적합 한 선택한 선택할 **서버 맵 로드**합니다. 예를 들어 지정 된 시간 범위 동안 프로세스 그룹 및 활성 네트워크 연결을 사용 하 여 프로세스를 볼 수 있도록 지도 로드 됩니다. 기본적으로 맵은 최근 30분을 보여줍니다. 사용 하 여 **TimeRange** 선택기 (예: 인시던트 중 또는 변경 되기 전) 종속성 이전에 확인 하는 방법을 표시 하려면 최대 1 시간의 기록 시간 범위에 대해 쿼리할 수 있습니다.  
+
+![직접 VM 맵 개요](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>가상 머신 확장 집합에 대 한 인스턴스 보기에서 특정 인스턴스에 대 한 지도 액세스할 수 있습니다. 이동할 **인스턴스** 아래 합니다 **설정** 섹션을 선택한 후 **Insights (미리 보기)** 합니다.
+
 ## <a name="view-map-from-azure-monitor"></a>Azure Monitor에서 맵 보기
 Azure Monitor에서 맵 기능은 가상 머신 및 해당 종속성의 글로벌 보기를 제공합니다.  Azure Monitor에서 맵 기능에 액세스하려면 다음을 수행합니다. 
 
@@ -106,7 +121,7 @@ Azure Monitor에서 맵 기능은 가상 머신 및 해당 종속성의 글로�
 
 ![Azure Monitor 다중 VM 맵 개요](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. **그룹** 선택기에서 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
+페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. 합니다 **그룹** 선택기는 구독, 리소스 그룹을 반환 [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md), 및 선택한 작업 영역과 관련 된 컴퓨터의 가상 머신 확장 집합입니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
 
 기본적으로 맵은 최근 30분을 보여줍니다. **TimeRange** 선택기를 사용하여 최대 1시간이라는 기록 시간 범위에 대해 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줄 수 있습니다.   
 

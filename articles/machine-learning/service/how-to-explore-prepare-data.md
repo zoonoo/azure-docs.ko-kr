@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409833"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603148"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
 탐색 하 고 사용 하 여 데이터를 준비 하는 방법을 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 합니다 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스 (미리 보기)을 사용 하면 탐색 하 고 같은 함수를 제공 하 여 데이터를 준비할 수 있습니다: 샘플링, 요약 통계 및 지능형 변환 합니다. 변환 단계에 저장 됩니다 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 확장성이 뛰어난 방식으로 스키마가 서로 다른 여러 큰 파일을 처리 하는 기능을 사용 하 여 합니다.
 
 > [!Important]
-> 일부 데이터 집합 클래스 (미리 보기)는 데이터 준비 SDK (GA) 종속성이 있습니다. 변환 함수는 GA'ed를 사용 하 여 직접 수행할 수 있습니다 하는 동안 [데이터 준비 SDK 함수](how-to-transform-data.md), 새 솔루션을 빌드하는 경우이 문서에 설명 된 데이터 집합 패키지 래퍼 것이 좋습니다. Azure Machine Learning 데이터 집합 (미리 보기) 수 뿐만 아니라 데이터를 변환 하는 데 뿐만 [스냅숏 데이터](how-to-create-dataset-snapshots.md) 저장 하 고 [버전이 지정 된 데이터 집합 정의](how-to-manage-dataset-definitions.md)합니다. 데이터 집합에는 AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 하는 데이터 준비 SDK의 다음 버전입니다.
+> 일부 데이터 집합 클래스 (미리 보기)에 종속 되어는 [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA). 변환 함수는 GA'ed를 사용 하 여 직접 수행할 수 있습니다 하는 동안 [데이터 준비 함수](how-to-transform-data.md), 새 솔루션을 빌드하는 경우이 문서에 설명 된 데이터 집합 패키지 래퍼 것이 좋습니다. Azure Machine Learning 데이터 집합 (미리 보기) 수 뿐만 아니라 데이터를 변환 하는 데 뿐만 [스냅숏 데이터](how-to-create-dataset-snapshots.md) 저장 하 고 [버전이 지정 된 데이터 집합 정의](how-to-manage-dataset-definitions.md)합니다. 데이터 집합에는 AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 하는 데이터 준비 SDK의 다음 버전입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -7,115 +7,147 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: DB 만들기 - 포털
-      href: quickstart-create-server-database-portal.md
-    - name: DB 만들기 - Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: DB 만들기 - Azure CLI up 명령
-      href: quickstart-create-server-up-azure-cli.md
-    - name: 연결 및 쿼리
+    - name: 단일 서버
       items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: 자바
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Go
-          href: connect-go.md
+        - name: DB 만들기 - 포털
+          href: quickstart-create-server-database-portal.md
+        - name: DB 만들기 - Azure CLI
+          href: quickstart-create-server-database-azure-cli.md
+        - name: DB 만들기 - Azure CLI up 명령
+          href: quickstart-create-server-up-azure-cli.md
+        - name: 연결 및 쿼리
+          items:
+            - name: Python
+              href: connect-python.md
+            - name: Node.js
+              href: connect-nodejs.md
+            - name: 자바
+              href: connect-java.md
+            - name: Ruby
+              href: connect-ruby.md
+            - name: PHP
+              href: connect-php.md
+            - name: .NET
+              href: connect-csharp.md
+            - name: Go
+              href: connect-go.md
+    - name: 하이퍼스케일(Citus)
+      items:
+        - name: DB 만들기 - 포털
+          href: quickstart-create-hyperscale-portal.md
 - name: 자습서
   items:
-    - name: 1 - 데이터베이스 설계
+    - name: 단일 서버
       items:
-        - name: Azure portal
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Web App 설계 - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
-      maintainContext: true
-    - name: 3 - 모니터링 및 튜닝
-      href: tutorial-monitor-and-tune.md
+        - name: 1 - 데이터베이스 설계
+          items:
+            - name: Azure portal
+              href: tutorial-design-database-using-azure-portal.md
+            - name: Azure CLI
+              href: tutorial-design-database-using-azure-cli.md
+        - name: 2 - Web App 설계 - Python
+          href: ../app-service/containers/tutorial-python-postgresql-app.md
+          maintainContext: true
+        - name: 3 - 모니터링 및 튜닝
+          href: tutorial-monitor-and-tune.md
+    - name: 하이퍼스케일(Citus)
+      items:
+        - name: 다중 테넌트 데이터베이스 설계
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+        - name: 실시간 대시보드 설계
+          href: tutorial-design-database-hyperscale-realtime.md
 - name: 샘플
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: 개념
   items:
-    - name: DB 및 서버
+    - name: 단일 서버
       items:
-        - name: 서버
-          href: concepts-servers.md
-        - name: 지원되는 버전
-          href: concepts-supported-versions.md
-        - name: PostgreSQL 확장
-          href: concepts-extensions.md
-        - name: 고가용성
-          href: concepts-high-availability.md
-    - name: 리소스
-      items:
-        - name: 가격 책정 계층
-          href: concepts-pricing-tiers.md
-        - name: 제한
-          href: concepts-limits.md
-    - name: 데이터 액세스 및 보안
-      items:
-        - name: 방화벽 규칙
-          href: concepts-firewall-rules.md
-        - name: SSL 구성
-          href: concepts-ssl-connection-security.md
-        - name: 고급 위협 보호
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: VNet
-          href: concepts-data-access-and-security-vnet.md
-    - name: 비즈니스 연속성
-      items:
-        - name: 개요
-          href: concepts-business-continuity.md
-        - name: Backup 및 복원
-          href: concepts-backup.md
-    - name: 모니터링 및 튜닝
-      items:
+        - name: 데이터베이스 및 서버
+          items:
+            - name: 서버
+              href: concepts-servers.md
+            - name: 지원되는 버전
+              href: concepts-supported-versions.md
+            - name: PostgreSQL 확장
+              href: concepts-extensions.md
+            - name: 고가용성
+              href: concepts-high-availability.md
+        - name: 리소스
+          items:
+            - name: 가격 책정 계층
+              href: concepts-pricing-tiers.md
+            - name: 제한
+              href: concepts-limits.md
+        - name: 데이터 액세스 및 보안
+          items:
+            - name: 방화벽 규칙
+              href: concepts-firewall-rules.md
+            - name: SSL 구성
+              href: concepts-ssl-connection-security.md
+            - name: 고급 위협 보호
+              href: concepts-data-access-and-security-threat-protection.md
+            - name: 가상 네트워크
+              href: concepts-data-access-and-security-vnet.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 개요
+              href: concepts-business-continuity.md
+            - name: Backup 및 복원
+              href: concepts-backup.md
         - name: 모니터링 및 튜닝
-          href: concepts-monitoring.md
-        - name: 서버 로그
-          href: concepts-server-logs.md
-        - name: 쿼리 저장소
           items:
+            - name: 모니터링 및 튜닝
+              href: concepts-monitoring.md
+            - name: 서버 로그
+              href: concepts-server-logs.md
             - name: 쿼리 저장소
-              href: concepts-query-store.md
-            - name: 쿼리 저장소 사용 시나리오
-              href: concepts-query-store-scenarios.md
-            - name: 쿼리 저장소 모범 사례
-              href: concepts-query-store-best-practices.md
-        - name: 쿼리
-          href: concepts-query-performance-insight.md
-        - name: 성능 권장 사항
-          href: concepts-performance-recommendations.md
-    - name: 개발
-      items:
-        - name: 연결 라이브러리
-          href: concepts-connection-libraries.md
-        - name: 연결 복원력
-          href: concepts-connectivity.md
-        - name: AKS(Azure Kubernetes Service)로 개발
-          href: concepts-aks.md
-        - name: 자바
+              items:
+                - name: 쿼리 저장소
+                  href: concepts-query-store.md
+                - name: 쿼리 저장소 사용 시나리오
+                  href: concepts-query-store-scenarios.md
+                - name: 쿼리 저장소 모범 사례
+                  href: concepts-query-store-best-practices.md
+            - name: 쿼리
+              href: concepts-query-performance-insight.md
+            - name: 성능 권장 사항
+              href: concepts-performance-recommendations.md
+        - name: 개발
           items:
-            - name: Spring Data JDBC 구성
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-            - name: Spring Data JPA 구성
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    - name: 복제
+            - name: 연결 라이브러리
+              href: concepts-connection-libraries.md
+            - name: 연결 복원력
+              href: concepts-connectivity.md
+            - name: AKS(Azure Kubernetes Service)로 개발
+              href: concepts-aks.md
+            - name: 자바
+              items:
+                - name: Spring Data JDBC 구성
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+                - name: Spring Data JPA 구성
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+        - name: 복제
+          items:
+            - name: 읽기 복제본
+              href: concepts-read-replicas.md
+    - name: 하이퍼스케일(Citus)
       items:
-        - name: 읽기 복제본
-          href: concepts-read-replicas.md
+        - name: 노드
+          href: concepts-hyperscale-nodes.md
+        - name: 분선 데이터
+          href: concepts-hyperscale-distributed-data.md
+        - name: 배포 열 선택
+          href: concepts-hyperscale-choose-distribution-column.md
+        - name: 테이블 공동 배치
+          href: concepts-hyperscale-colocation.md
+        - name: PostgreSQL 확장
+          href: concepts-hyperscale-extensions.md
+        - name: 리소스
+          items:
+            - name: 구성 옵션
+              href: concepts-hyperscale-configuration-options.md
 - name: 방법 가이드
   items:
     - name: 사용자 만들기

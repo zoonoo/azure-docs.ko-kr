@@ -1,6 +1,6 @@
 ---
-title: 컨테이너용 Azure Monitor 등록 방법 | Microsoft Docs
-description: 이 문서에서는 컨테이너의 성능과 어떤 성능 관련 문제가 확인되었는지 이해할 수 있도록 컨테이너용 Azure Monitor를 등록하고 구성하는 방법을 설명합니다.
+title: 컨테이너에 대 한 Azure Monitor를 사용 하는 방법 | Microsoft Docs
+description: 이 문서에서는 사용 하는 방법을 설명 하 고 컨테이너를 수행 하는 방법 및 성능 관련 문제는 확인 된 이해할 수 있도록 컨테이너에 대 한 Azure Monitor를 구성 합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073303"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521907"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 등록 방법  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하는 방법  
 
 이 문서에서는 Kubernetes 환경에 배포 되 고에서 호스트 되는 워크 로드의 성능을 모니터링 하려면 컨테이너에 대 한 Azure Monitor를 설치 하는 옵션에 간략하게 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)합니다.
 

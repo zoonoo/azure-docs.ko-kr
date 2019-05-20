@@ -3,8 +3,8 @@ title: Azure Active Directory에서 SCIM을 사용하여 앱 프로비전 자동
 description: Azure Active Directory는 SCIM 프로토콜 사양에 정의된 인터페이스를 가진 웹 서비스가 향하는 애플리케이션 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/06/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 143919cb804be771d547e2913818d486c7f8adda
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191552"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824495"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -460,7 +460,6 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
     "displayName": "displayName",
     "members": [],
     "meta": {
@@ -624,7 +623,7 @@ Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어
 * ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>시작하기
+### <a name="getting-started"></a>시작
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
 #### <a name="to-create-a-sample-scim-endpoint"></a>샘플 SCIM 엔드포인트를 만들려면
@@ -1234,9 +1233,9 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| 관리자 |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
@@ -1252,11 +1251,11 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
-| members |members |
+| 구성원 |구성원 |
 | objectId |ID |
-| proxyAddresses |emails[type eq "other"].Value |
+| ProxyAddresses |emails[type eq "other"].Value |
 
 
 ## <a name="related-articles"></a>관련 문서

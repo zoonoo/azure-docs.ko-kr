@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d9e3aa3dae81166ef91f57ea6a95087a952001ed
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233148"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550976"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -36,7 +36,7 @@ OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes�
 
 ## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
-Microsoft Azure의 Red Hat OpenShift는 Azure에서 실행 되는 OpenShift의 완전히 관리 되는 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 전체 설명서 수 [여기](https://docs.microsoft.com/azure/openshift/)합니다. 
+Microsoft Azure의 Red Hat OpenShift는 Azure에서 실행 되는 OpenShift의 완전히 관리 되는 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 자세한 내용은 참조는 [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) 설명서.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 

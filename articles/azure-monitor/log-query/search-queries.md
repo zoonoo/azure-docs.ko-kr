@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425914"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560835"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 로그에서 쿼리 검색
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. ':'을 사용하면 *Source*에 "오류 코드 404" 또는 "Error"와 같은 값이 있는 레코드를 포함하지 않습니다.
+> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. 사용 하 여 ':' 레코드를 포함 하는 위치 *소스* 값이 "오류 코드 404" 또는 "Error"입니다.
 
 ## <a name="case-sensitivity"></a>대/소문자 구분
 기본적으로 용어 검색은 대/소문자를 구분하지 않으므로 "dns"를 검색하면 "DNS", "dns" 또는 "Dns"와 같은 결과가 발생할 수 있습니다. 대/소문자를 구분하여 검색하려면 `kind` 옵션을 사용합니다.

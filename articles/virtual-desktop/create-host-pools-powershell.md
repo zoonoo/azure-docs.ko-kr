@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236667"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523966"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -26,12 +26,6 @@ Windows 가상 데스크톱 환경에 로그인 하려면 다음 cmdlet을 실�
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-그런 다음 테 넌 트 그룹에 컨텍스트를 설정 하려면 다음 cmdlet을 실행 합니다. 테 넌 트 그룹의 이름에 없는 경우 테 넌 트 이므로 "기본 테 넌 트 그룹의" 가장 가능성이 높은이 cmdlet을 건너뛸 수 있습니다.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 다음으로 Windows Virtual Desktop 테 넌 트에 새 호스트 풀을 만들려면이 cmdlet을 실행 합니다.

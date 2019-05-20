@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510503"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800822"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>만들기 및 Azure Machine Learning 데이터 집합 (미리 보기)를 등록 합니다.
 
@@ -33,6 +33,9 @@ Azure Machine Learning 데이터 집합 (미리 보기) 쉽게 액세스 하 여
 * Azure Machine Learning 서비스 작업 영역. 참조 [Azure Machine Learning 서비스 작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)합니다.
 
 * Python 용 SDK를 학습 하는 Azure 시스템입니다. 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+
+> [!Note]
+> 일부 데이터 집합 클래스 (미리 보기)에 종속 되어는 [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA). Linux 사용자에 대 한 이러한 클래스는 다음 배포판에 대해서만 지원 됩니다.  Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS
 
 ## <a name="create-datasets-from-local-files"></a>로컬 파일에서 데이터 집합 만들기
 

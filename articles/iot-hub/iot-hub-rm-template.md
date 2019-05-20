@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 84446090da2feaee3005b4ef90ace77b468a3f1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792593"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827791"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
 
@@ -29,7 +29,7 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Visual Studio 2015 또는 Visual Studio 2017.
+* 있습니다.
 * 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 * Azure Resource Manager 템플릿 파일을 저장할 수 있는 [Azure Storage 계정][lnk-storage-account]입니다.
 * [Azure PowerShell 1.0][lnk-powershell-install] 이상.

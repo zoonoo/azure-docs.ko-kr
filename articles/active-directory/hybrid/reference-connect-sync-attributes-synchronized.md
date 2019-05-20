@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508104"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784288"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -256,7 +256,7 @@ ms.locfileid: "65508104"
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online(이후에 비즈니스용 Skype라고 함)
+## <a name="teams-and-skype-for-business-online"></a>팀과 비즈니스용 Skype Online
 | 특성 이름 | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
@@ -373,7 +373,7 @@ ms.locfileid: "65508104"
 이 그룹은 일반 워크로드 또는 애플리케이션에 필요한 최소한의 특성으로 사용되는 특성 모음입니다. 다른 섹션에 나열되지 않은 워크로드 또는 타사 앱에 사용할 수 있습니다. 다음에 명시적으로 사용됩니다.
 
 * Yammer(User만 사용됨)
-* [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 공동 작업 시나리오](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [SharePoint와 같은 리소스에서 제공하는 하이브리드 B2B 조직 간 협업 시나리오](https://go.microsoft.com/fwlink/?LinkId=747036)
 
 이 그룹은 Azure AD Directory가 Office 365, Dynamics, 또는 Intune을 지원하지 않을 때 사용되는 특성의 집합입니다. 코어 특성의 작은 집합이 있습니다.
 

@@ -8,26 +8,33 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/08/2019
+ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722980"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551859"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼을 통해 이벤트, 데이터 및 작업을 Azure Logic Apps에서 빠른 액세스를 제공 하는 커넥터. 커넥터를 논리 앱에서 사용 하 여 만들고 이미 보유 하는 데이터를 사용 하 여 작업을 수행 하 여 클라우드 및 온-프레미스 앱에 대 한 기능을 확장 합니다.
 
-Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors)를 제공하지만, 이 문서에서는 수천 개의 앱 및 수백만 개의 실행에서 데이터와 정보를 처리하는 데 성공적으로 사용되는 매우 일반적이며 인기 있는 커넥터에 대해 설명합니다. 커넥터 및 트리거, 동작 및 제한 등 각 커넥터의 참조 정보는 전체 목록을 찾으려면 아래의 커넥터 참조 페이지를 검토 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 또한에 대 한 자세한 [트리거 및 작업](#triggers-actions)합니다.
+Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors)를 제공하지만, 이 문서에서는 수천 개의 앱 및 수백만 개의 실행에서 데이터와 정보를 처리하는 데 성공적으로 사용되는 매우 일반적이며 인기 있는 커넥터에 대해 설명합니다. 커넥터 및 트리거, 동작 및 제한 등 각 커넥터의 참조 정보는 전체 목록을 찾으려면 아래의 커넥터 참조 페이지를 검토 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 또한에 대 한 자세한 [트리거 및 동작](#triggers-actions)를 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md), 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)합니다. 
 
 > [!NOTE]
 > 서비스 또는 커넥터가 없는 API를 사용 하 여 통합을 직접 HTTP와 같은 프로토콜을 통해 서비스를 호출 하거나 만드는 [사용자 지정 커넥터](#custom)합니다.
 
 기본 제공 트리거 및 작업으로 또는 관리 커넥터로 커넥터를 사용할 수 있습니다.
 
-* [**Built-ins**](#built-ins): 이러한 기본 제공 작업 및 트리거 "기본" Azure Logic Apps 및 사용자 지정 일정에 따라 실행, 다른 끝점과 통신, 수신 및 요청에 응답 및 Azure functions, Azure API 앱 (웹 앱), 사용자 고유의 Api를 호출 하는 논리 앱을 만드는 데 도움이 됩니다. 관리 되 고 사용 하 여 게시 된 Azure API Management 및 요청을 받을 수 있는 중첩 된 논리 앱. 또한 논리 앱의 워크플로를 구성 및 제어하고, 데이터를 사용하는 데 도움이 되는 기본 제공 작업을 사용할 수도 있습니다.
+* [**Built-ins**](#built-ins): 이러한 기본 제공 트리거 및 동작 "기본" Azure Logic Apps 및 사용자 지정 일정에 따라 실행, 다른 끝점과 통신, 수신 및 요청에 응답 및 Azure functions, Azure API 앱 (웹 앱), 사용자 고유의 Api를 호출 하는 논리 앱을 만드는 데 도움이 됩니다. 관리 되 고 사용 하 여 게시 된 Azure API Management 및 요청을 받을 수 있는 중첩 된 논리 앱. 또한 논리 앱의 워크플로를 구성 및 제어하고, 데이터를 사용하는 데 도움이 되는 기본 제공 작업을 사용할 수도 있습니다.
+
+  > [!NOTE]
+  > 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다.
+  > ISE를 사용 하면 기본 제공 트리거 및 작업 표시 하는 합니다 **Core** 레이블 logic apps와 동일한 ISE에서 실행 합니다. Logic apps, 기본 제공 트리거 및 가격 책정 ISE 사용에서 실행 되는 기본 제공 작업에는 사용량 기반 가격 책정 계획에서 다른 계획 합니다.
+  >
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다. 
+  > 가격 책정에 대 한 자세한 내용은 참조 하세요. [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)합니다.
 
 * **관리형 커넥터**: 배포 된 Microsoft에서 관리 하 고 이러한 커넥터 트리거 및 cloud services, 온-프레미스 시스템 또는 Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint 등을 포함 하 여 둘 다에 액세스 하기 위한 작업을 제공 합니다. 일부 커넥터는 특히 기업 간 B2B 통신 시나리오를 지원 하며 필요는 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 논리 앱에 연결 되어 있는 합니다. 특정 커넥터를 사용 하기 전에 먼저 Azure Logic Apps에서 관리 되는 연결을 만들어야 할 수도 있습니다. 
 
@@ -36,7 +43,7 @@ Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors
 
   커넥터는 Standard 또는 Enterprise로 분류 됩니다. 
   [엔터프라이즈 커넥터](#enterprise-connectors) 추가 비용을 3270 IBM, SAP 및 IBM MQ 등 엔터프라이즈 시스템에 대 한 액세스를 제공 합니다. 커넥터를 Standard 또는 Enterprise 인지를 확인 하려면 각 커넥터의 참조 페이지에서 기술 세부 정보를 보려면 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 
-  
+
   일부 커넥터는 여러 범주를 넘을 수 있지만 이러한 범주를 사용 하 여 커넥터를 식별할 수도 있습니다. 
   예를 들어, SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터는:
 
@@ -47,8 +54,15 @@ Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors
   | [**통합 계정 커넥터**](#integration-account-connectors) | 통합 계정을 만들고 지불할 때 사용할 수 있는 이러한 커넥터는 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행합니다. |
   |||
 
-> [!NOTE]
-> OpenAPI로 정의 됨 커넥터 및 트리거, 작업 등의 각 커넥터의 참조 정보를의 전체 목록은 (이전의 Swagger) 설명과 어떠한 제한도에서 전체 목록을 찾을 수 있습니다는 [커넥터 개요 ](/connectors/). 가격 책정 정보는 [Logic Apps 가격 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조하세요. 
+  > [!NOTE]
+  > 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다. ISE를 사용 하면 표준 및 엔터프라이즈 커넥터 표시 하는 합니다 **ISE** 레이블 logic apps와 동일한 ISE에서 실행 합니다. ISE 레이블을 표시 하지는 커넥터 전역 Logic Apps 서비스에서 실행 합니다.
+  >
+  > Logic apps가 하는 커넥터 중 하나를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 해당 네트워크를 ISE에는 Azure 가상 네트워크에 연결 된 온-프레미스 시스템 삽입에 대 한는 **ISE** 레이블이나는 HTTP 작업을 [사용자 지정 커넥터](#custom)합니다. Logic apps 및 커넥터 가격 책정 ISE 사용에서 실행 되는 사용량 기반 가격 책정 계획에서 다른 계획 합니다. 
+  >
+  > ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다.
+  > 가격 책정에 대 한 자세한 내용은 참조 하세요. [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)합니다.
+
+  OpenAPI로 정의 됨 커넥터 및 트리거, 작업 등의 각 커넥터의 참조 정보를의 전체 목록은 (이전의 Swagger) 설명과 어떠한 제한도에서 전체 목록을 찾을 수 있습니다는 [커넥터 개요 ](/connectors/). 가격 정보를 참조 하세요 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md), 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)합니다. 
 
 <a name="built-ins"></a>
 
@@ -66,7 +80,7 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 
 ### <a name="control-workflow"></a>워크플로 제어
 
-논리 앱의 워크플로에서 작업을 구성하고 제어하기 위한 기본 작업은 다음과 같습니다.
+Logic Apps는 구성 및 논리 앱 워크플로에서 작업을 제어 하기 위한 기본 제공 작업을 제공 합니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -77,7 +91,7 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 
 ### <a name="manage-or-manipulate-data"></a>데이터 관리 또는 조작
 
-데이터 출력 및 해당 형식을 사용하기 위한 기본 제공 작업은 다음과 같습니다.  
+Logic Apps는 데이터 출력 및 해당 형식을 사용 하 여 작업에 대 한 기본 제공 작업을 제공 합니다.  
 
 |   |   | 
 |---|---| 
@@ -90,7 +104,7 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 
 ## <a name="managed-api-connectors"></a>관리되는 API 커넥터
 
-이러한 서비스 또는 시스템을 사용하여 작업, 프로세스 및 워크플로를 자동화하는 데 인기 있는 커넥터는 다음과 같습니다.
+Logic Apps 작업, 프로세스 및 이러한 서비스 또는 시스템을 사용 하 여 워크플로 자동화 하는 데 이러한 인기 있는 표준 커넥터를 제공 합니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -100,25 +114,25 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 | [![API 아이콘][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Dynamics 365 계정에 연결하여 레코드, 항목 등을 만들고 관리할 수 있습니다. | [![API 아이콘][ftp-icon]<br/>**FTP**][ftp-doc] | 인터넷에서 액세스할 수 있는 FTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다. | 
 | [![API 아이콘][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Salesforce 계정에 연결하여 레코드, 작업, 개체 등의 항목을 만들고 관리할 수 있습니다. | [![API 아이콘][twitter-icon]<br/>**Twitter**][twitter-doc] | Twitter 계정에 연결하여 트윗, 팔로워, 타임라인 등을 관리할 수 있습니다. 트윗을 SQL, Excel 또는 SharePoint에 저장합니다. | 
 | [![API 아이콘][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Event Hub를 통해 이벤트를 사용하고 게시합니다. 예를 들어 Event Hubs를 사용하여 논리 앱에서 출력을 가져온 다음, 해당 출력을 실시간 분석 공급자에게 보냅니다. | [![API 아이콘][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트를 모니터링합니다. | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>온-프레미스 커넥터 
 
-온-프레미스 시스템의 데이터 및 리소스에 대한 액세스를 제공하는 데 일반적으로 사용되는 몇 가지 커넥터는 다음과 같습니다. 온-프레미스 시스템에 대한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다. 
+Logic Apps 온-프레미스 시스템에서 데이터 및 리소스 액세스를 제공 하는 몇 가지 자주 사용 되는 표준 커넥터는 다음과 같습니다. 온-프레미스 시스템에 대한 연결을 만들려면 먼저 [온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정][gateway-doc]해야 합니다. 이 게이트웨이는 필요한 네트워크 인프라를 설정하지 않고도 보안 통신 채널을 제공합니다. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![API 아이콘][biztalk-server-icon]<br/>**BizTalk**</br> **서버** | [![API 아이콘][file-system-icon]<br/>**파일</br> 시스템**][file-system-doc] | [![API 아이콘][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API 아이콘][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![API 아이콘][mysql-icon]<br/>**MySQL** | 
 | [![API 아이콘][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API 아이콘][postgre-sql-icon]<br/>**PostgreSQL** | [![API 아이콘][sharepoint-server-icon]<br/>**SharePoint</br> 서버**][sharepoint-server-doc] | [![API 아이콘][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API 아이콘][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## <a name="integration-account-connectors"></a>통합 계정 커넥터 
+## <a name="integration-account-connectors"></a>통합 계정 커넥터
 
-Azure에서 EIP(엔터프라이즈 통합 팩)를 통해 사용할 수 있는 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 만들고 지불하는 경우 논리 앱과 B2B(Business-to-Business) 솔루션을 구축하기 위한 커넥터는 다음과 같습니다. 이 계정을 사용하여 거래 파트너, 계약, 맵, 스키마, 인증서 등과 같은 B2B 아티팩트를 만들고 저장할 수 있습니다. 이러한 아티팩트를 사용하려면 논리 앱을 통합 계정과 연결합니다. 현재 BizTalk Server를 사용하는 경우 이러한 커넥터는 이미 익숙한 것처럼 보일 수 있습니다.
+Logic Apps는 만들고 요금을 지불 하는 경우 logic apps 사용 하 여 기업 간 B2B 솔루션을 구축 하기 위한 표준 커넥터를 제공 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 엔터프라이즈 통합 팩 (EIP)를 통해 사용할 수 있는 azure. 이 계정을 사용하여 거래 파트너, 계약, 맵, 스키마, 인증서 등과 같은 B2B 아티팩트를 만들고 저장할 수 있습니다. 이러한 아티팩트를 사용하려면 논리 앱을 통합 계정과 연결합니다. 현재 BizTalk Server를 사용하는 경우 이러한 커넥터는 이미 익숙한 것처럼 보일 수 있습니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -131,7 +145,7 @@ Azure에서 EIP(엔터프라이즈 통합 팩)를 통해 사용할 수 있는 [�
 
 ## <a name="enterprise-connectors"></a>엔터프라이즈 커넥터
 
-논리 앱은 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스할 수 있습니다.
+Logic Apps는 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스 하기 위한 이러한 엔터프라이즈 커넥터를 제공 합니다.
 
 |   |   |   | 
 |---|---|---| 
@@ -172,11 +186,13 @@ OAuth를 사용 하는 커넥터에 대 한 연결을 만드는 의미, Office 3
 사용자 지정 코드를 실행하거나 커넥터로 사용할 수 없는 API를 호출하려면 [사용자 지정 API Apps를 만들어](../logic-apps/logic-apps-create-api-app.md) Logic Apps 플랫폼을 확장할 수 있습니다. 또한 *모든* REST 또는 SOAP 기반 API에 대한 [사용자 지정 커넥터를 만들면](../logic-apps/custom-connector-overview.md) Azure 구독의 모든 논리 앱에서 해당 API를 사용할 수 있습니다.
 Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱 또는 커넥터를 공개하려면 [Microsoft 인증을 위해 커넥터를 제출](../logic-apps/custom-connector-submit-certification.md)할 수 있습니다.
 
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-
-* Azure Logic Apps 및 커넥터에 대한 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
+> [!NOTE]
+> 내에서 논리 앱을 [통합 서비스 환경 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 리소스는 Azure 가상 네트워크에 직접 액세스할 수 있습니다.
+> 온-프레미스 데이터 게이트웨이 필요로 하는 사용자 지정 커넥터 있고 ISE 외부 해당 커넥터를 만든 경우는 ISE에서 logic apps는 해당 커넥터를 사용할 수도 있습니다.
+>
+> ISE를 내에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 함께 작동 하지 않습니다. 그러나 이러한 커넥터 ISE 호스팅 Azure 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서는 ISE에서 logic apps 가능성이 필요 하지 않습니다 데이터 게이트웨이 통해 이러한 리소스와 통신할 때.
+>
+> ISEs를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Logic Apps에서 Azure 가상 네트워크에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

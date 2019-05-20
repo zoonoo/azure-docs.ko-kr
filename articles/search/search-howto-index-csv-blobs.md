@@ -10,14 +10,19 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7d959e77d27fb04b18f402e4056d4dea1607039
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024698"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522911"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱
+
+> [!Note]
+> delimitedText 구문 분석 모드는 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 합니다. 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. 이 이번에는.NET SDK 지원은 없습니다.
+>
+
 기본적으로 [Azure Search Blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어, 다음 구분 기호로 분리된 텍스트를 각각 "id", "datePublished" 및 "tags" 필드가 포함된 두 개의 문서로 구문 분석할 수 있습니다. 
 
     id, datePublished, tags
@@ -26,21 +31,17 @@ ms.locfileid: "65024698"
 
 이 문서에서는 Azure Search blob indexerby 설정이 포함 된 CSV blob을 구문 분석 하는 방법을 배우게 됩니다는 `delimitedText` 구문 분석 모드입니다. 
 
-`delimitedText` 구문 분석 모드 현재 공개 미리 보기로 제공 되며 프로덕션 워크 로드에 적합 하지 않습니다.
-
 > [!NOTE]
 > 인덱서 구성 권장 사항을 따르십시오 [-일대다 인덱싱](search-howto-index-one-to-many-blobs.md) 하나의 Azure blob에서 여러 검색 문서를 출력 합니다.
 
 ## <a name="setting-up-csv-indexing"></a>CSV 인덱싱 설정
-CSV Blob을 인덱싱하려면 `delimitedText` 구문 분석 모드를 사용하여 인덱서 정의를 만들거나 업데이트합니다.  
+CSV blob 인덱스를 만들거나 사용 하 여 인덱서 정의 업데이트 하는 `delimitedText` 구문 분석 모드에는 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 요청:
 
     {
       "name" : "my-csv-indexer",
       ... other indexer properties
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
-
-인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
 `firstLineContainsHeaders` 은(는) 각 Blob의 첫 번째(비어 있지 않은) 줄이 헤더를 포함하는 것을 나타냅니다.
 Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구성에서 지정되어야 합니다. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696510"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597086"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -87,7 +87,7 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
-#### <a name="usage"></a>사용 현황  
+#### <a name="usage"></a>사용  
 평가 도구는 몇 가지 다른 방법으로 호출할 수 있습니다. 즉 시스템 검사, 데이터 세트 검사 또는 둘 다를 수행할 수 있습니다. 시스템 검사 및 데이터 세트 검사를 모두 수행하려면 다음을 수행합니다. 
 
 ```powershell
@@ -235,31 +235,39 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 
 | 지역 | 데이터 센터 위치 |
 |--------|---------------------|
-| 오스트레일리아 동부 | 뉴사우스웨일스 |
-| 오스트레일리아 남동부 | 빅토리아 |
+| 오스트레일리아 동부 | New South Wales |
+| 오스트레일리아 남동부 | Victoria |
 | 브라질 남부 | 상파울루 Paolo 상태 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
 | 중앙 인도 | 푸네 |
-| 미국 중부 | 아이오와 |
+| 미국 중부 | Iowa |
 | 동아시아 | 홍콩 특별 행정구 |
-| 미국 동부 | 버지니아 |
-| 미국 동부2 | 버지니아 |
+| 미국 동부 | Virginia |
+| 미국 동부2 | Virginia |
 | 한국 중부| 서울 |
 | 한국 남부| 부산 |
 | 일본 동부 | 도쿄, 사이타마 |
 | 일본 서부 | 오사카 |
-| 미국 중북부 | 일리노이 |
+| 미국 중북부 | Illinois |
 | 유럽 북부 | 아일랜드 |
-| 미국 중남부 | 텍사스 |
+| 미국 중남부 | Texas |
 | 인도 남부 | 첸나이 |
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
 | 영국 서부 | 카디프 |
+| 미국 정부 애리조나 (미리 보기) | Arizona |
+| 미국 정부 텍사스 (미리 보기) | Texas |
+| 미국 버지니아 주 정부 (미리 보기) | Virginia |
 | 서유럽 | 네덜란드 |
-| 미국 서부 | 캘리포니아 |
+| 미국 중서부 | Wyoming |
+| 미국 서부 | California |
+| 미국 서부 2 | Washington |
 
 Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
+
+> [!Note]  
+> Azure File Sync는 현재 government 지역에 대 한 비공개 미리 보기에서 사용할 수만 있습니다. 참조 우리의 [릴리스](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) 미리 보기 프로그램 등록에 대 한 지침은 합니다.
 
 ### <a name="azure-disaster-recovery"></a>Azure 재해 복구
 Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 하위 지역에 스토리지를 장애 조치(Failover)합니다. 
@@ -269,10 +277,11 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 
 지역 중복 저장소 및 Azure 파일 동기화 간의 장애 조치 통합을 지원하려면 모든 Azure 파일 동기화 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
 
-| 주 지역      | 쌍을 이루는 지역      |
+| 기본 지역      | 쌍을 이루는 지역      |
 |---------------------|--------------------|
-| 오스트레일리아 동부      | 오스트레일리아 남동부 |
+| 오스트레일리아 동부      | 오스트레일리아 남동부|
 | 오스트레일리아 남동부 | 오스트레일리아 동부     |
+| 브라질 남부        | 미국 중남부   |
 | 캐나다 중부      | 캐나다 동부        |
 | 캐나다 동부         | 캐나다 중부     |
 | 중앙 인도       | 인도 남부        |
@@ -280,16 +289,24 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 동아시아           | 동남아시아     |
 | 미국 동부             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
+| 일본 동부          | 일본 서부         |
+| 일본 서부          | 일본 동부         |
 | 한국 중부       | 한국 남부        |
 | 한국 남부         | 한국 중부      |
 | 유럽 북부        | 서유럽        |
 | 미국 중북부    | 미국 중남부   |
+| 미국 중남부    | 미국 중북부   |
 | 인도 남부         | 중앙 인도      |
 | 동남아시아      | 동아시아          |
 | 영국 남부            | 영국 서부            |
 | 영국 서부             | 영국 남부           |
+| 미국 정부 애리조나      | 미국 정부 텍사스       |
+| US Gov 아이오와         | US Gov 버지니아    |
+| 미국 정부 Virgini      | 미국 정부 텍사스       |
 | 서유럽         | 유럽 북부       |
+| 미국 중서부     | 미국 서부 2          |
 | 미국 서부             | 미국 동부            |
+| 미국 서부 2           | 미국 중서부    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

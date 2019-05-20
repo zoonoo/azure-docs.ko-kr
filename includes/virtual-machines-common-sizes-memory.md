@@ -5,19 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 05/13/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744368"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561271"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
-* M 시리즈는 클라우드의 VM 중에서 가장 높은 vCPU 수(최대 128개의 vCPU) 및 가장 큰 메모리(최대 3.8TiB)를 제공합니다.  높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
+* Mv2 시리즈는 가장 높은 vCPU 수 (최대 208 개의 Vcpu) 및 클라우드에서 모든 VM의 가장 큰 메모리 (최대 5.7 TiB)를 제공합니다. 높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
+ 
+* M 시리즈는 높은 vCPU 수 (최대 128 개의 Vcpu) 및 많은 양의 메모리 (최대 3.8tib))를 제공합니다. 도 매우 큰 데이터베이스 또는 높은 vCPU 개수 및 많은 양의 메모리를 활용 하는 다른 응용 프로그램에 이상적입니다.
 
 * Dv2 시리즈, G 시리즈 및 DSv2/gs는 더 빠른 Vcpu와 더 나은 임시 저장소 성능을 요구 하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 적합 합니다. 이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
 
@@ -86,6 +88,24 @@ Ev3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로�
 <sup>2</sup> 사용 가능한 코어 크기 제한
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+
+
+## <a name="mv2-series"></a>Mv2 시리즈
+
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원됨
+
+Write Accelerator [지원됨](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+|크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
+
+Mv2 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술  
+
+<sup>1</sup> 이러한 큰 vCPU의 지원 되는 게스트 Os 중 하나가 필요 합니다. Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 및 RHEL 7.6
 
 
 ## <a name="m-series"></a>M 시리즈 

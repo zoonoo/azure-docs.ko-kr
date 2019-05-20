@@ -10,12 +10,12 @@ ms.date: 06/13/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 8ae34f830f0d1373d97063e93a561cd38c7093ab
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 81bf178a97944d4110cf99a442163229a283bd25
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152230"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797747"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -30,7 +30,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 **예상 완료 시간:** 45분
 
-**필수 조건:**
+**사전 요구 사항:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -48,8 +48,8 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 ```
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사

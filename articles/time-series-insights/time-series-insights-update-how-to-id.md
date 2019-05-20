@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695059"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519430"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -29,6 +29,7 @@ ms.locfileid: "64695059"
 > 시계열 ID는 대/소문자를 구분하며 변경 불가(설정된 후에는 변경할 수 없음)입니다.
 
 이 점에 유의해서, 적절한 시계열 ID를 선택하는 것이 중요합니다. 시계열 ID를 선택할 때는 다음과 같은 모범 사례를 따르는 것이 좋습니다.
+
 * 다양한 범위의 값과 균일한 액세스 패턴을 가진 속성 이름을 선택합니다. 고유한 값이 많은(수백 개 또는 수천 개) 파티션 키를 사용하는 것이 좋습니다. 많은 고객의 경우 JSON의 DeviceID 또는 SensorID와 같습니다.
 * 시계열 ID는 [시계열 모델](./time-series-insights-update-tsm.md)의 리프 노드 수준에서 고유해야 합니다.
 * 시계열 ID 속성 이름 문자열은 최대 128자까지 가능하며, 시계열 ID 속성 값은 최대 1024자까지 가능합니다.
@@ -41,13 +42,13 @@ ms.locfileid: "64695059"
 
 다음 시나리오에서는 둘 이상의 키 속성을 시계열 ID로 선택하는 방법을 설명합니다.  
 
-### <a name="scenario-1"></a>시나리오 1
+### <a name="scenario-one"></a>시나리오 1
 
-* 각각 고유 키를 가진 많은 레거시 집합이 있습니다. 
-* 예를 들어 한 집합은 *deviceId* 속성으로 고유하게 식별되고, 다른 집합의 고유 속성은 *objectId*입니다. 두 집합 모두, 다른 집합의 고유 속성은 없습니다. 이 예제에서는 두 개의 키인 deviceId 및 objectId를 고유 키로 선택합니다. 
+* 각각 고유 키를 가진 많은 레거시 집합이 있습니다.
+* 예를 들어 한 집합은 *deviceId* 속성으로 고유하게 식별되고, 다른 집합의 고유 속성은 *objectId*입니다. 두 집합 모두, 다른 집합의 고유 속성은 없습니다. 이 예제에서는 두 개의 키인 deviceId 및 objectId를 고유 키로 선택합니다.
 * Null 값이 허용되며, 이벤트 페이로드에 속성이 없을 경우 `null` 값으로 계산됩니다. 각 이벤트 원본의 데이터에 고유한 시계열 ID가 있는 두 가지 이벤트 원본으로 데이터를 전송하는 데 적합한 방법이기도 합니다.
 
-### <a name="scenario-2"></a>시나리오 2
+### <a name="scenario-two"></a>시나리오 2
 
 * 동일한 자산 집합 내에서 여러 속성이 고유해야 합니다. 
 * 예를 들어 스마트 빌딩 제조업체이며 모든 방에 센서를 배포한다고 가정합니다. 일반적으로 각 방의 *sensorId* 값은 *sensor1*, *sensor2*, *sensor3* 등으로 동일합니다.

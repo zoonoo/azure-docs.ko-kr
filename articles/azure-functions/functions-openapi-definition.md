@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141498"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510464"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Azure API Management를 사용하여 함수에 대한 OpenAPI 정의 만들기
 
@@ -31,6 +30,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 > * Azure에서 함수 만들기
 > * Azure API Management를 사용하여 OpenAPI 정의 생성
 > * 함수를 호출하여 정의 테스트
+> * OpenAPI 정의 다운로드
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -133,13 +133,9 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 이제 OpenAPI 정의를 생성할 준비가 되었습니다.
 
-1. 함수 앱을 선택한 다음, **플랫폼 기능**, **모든 설정**을 선택합니다.
+1. 함수 앱을 선택한 다음, **플랫폼 기능**에서 **API Management**를 선택하고, **API Management**에서 **새로 만들기**를 선택합니다.
 
-    ![Azure Portal에서 함수 테스트](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. 아래로 스크롤한 다음, **API Management** > **새로 만들기**를 선택하여 새 API Management 인스턴스를 만듭니다.
-
-    ![링크 기능](media/functions-openapi-definition/link-apim-openapi.png)
+    ![플랫폼 기능에서 API Management 선택](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. 이미지 아래의 표에 지정된 API Management 설정을 사용합니다.
 
@@ -150,11 +146,10 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
     | **Name** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
     | **구독** | 사용자의 구독 | 이 새 리소스가 만들어지는 구독입니다. |  
     | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱과 동일한 리소스로, 사용자에 맞게 설정해야 합니다. |
-    | **위치**: | 미국 서부 | 미국 서부 위치 선택 |
+    | **위치**: | 미국 서부 | 미국 서부 위치를 선택합니다. |
     | **조직 이름** | Contoso | 개발자 포털 및 이메일 알림에 사용되는 조직의 이름입니다. |
     | **관리자 전자 메일** | 사용자 이메일 | API Management로부터 시스템 알림을 수신하는 이메일입니다. |
-    | **가격 책정 계층** | 소비(미리 보기) | 전체 가격 책정 세부 정보는 [API Management 가격 책정 페이지](https://azure.microsoft.com/pricing/details/api-management/)를 참조하세요. |
-    | **Application Insights** | 사용자 인스턴스 | 함수 앱에서 사용되는 동일한 Application Insights를 사용합니다. |
+    | **가격 책정 계층** | 소비(미리 보기) | 소비 계층은 미리 보기로 제공되며 모든 지역에 제공되는 것은 아닙니다. 전체 가격 책정 세부 정보는 [API Management 가격 책정 페이지](https://azure.microsoft.com/pricing/details/api-management/)를 참조하세요. |
 
 1. **만들기**를 선택하여 API Management 인스턴스를 만듭니다. 몇 분 정도 소요될 수 있습니다.
 
@@ -170,35 +165,40 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 API가 함수에 대해 만들어집니다.
 
-## <a name="test-the-openapi-definition"></a>OpenAPI 정의 테스트
+## <a name="test-the-api"></a>API 테스트
 
-API 정의를 사용하기 전에 작동하는지 확인해야 합니다.
+OpenAPI 정의를 사용하기 전에 API가 작동하는지 확인해야 합니다.
 
 1. 함수의 **테스트** 탭에서 **게시** 작업을 선택합니다.
 
 1. **시간** 및 **용량**에 대한 값을 입력합니다.
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. **보내기**를 클릭한 다음, HTTP 응답을 봅니다.
 
     ![테스트 함수 API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>OpenAPI 정의 다운로드
+
+API가 예상대로 작동하는 경우 OpenAPI 정의를 다운로드할 수 있습니다.
+
+1. 페이지 위쪽에서 **OpenAPI 정의 다운로드**를 선택합니다.
+   
+   ![OpenAPI 정의 다운로드](media/functions-openapi-definition/download-definition.png)
+
+2. 다운로드한 JSON 파일을 열고 정의를 검토합니다.
+
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * Azure에서 함수 만들기
-> * Azure API Management를 사용하여 OpenAPI 정의 생성
-> * 함수를 호출하여 정의 테스트
-
-API Management에 대해 자세히 알아보려면 다음 항목으로 이동합니다.
+API Management 통합을 사용하여 함수의 OpenAPI 정의를 생성했습니다. 이제 포털에서 API Management의 정의를 편집할 수 있습니다. 또한 [API Management에 대해 자세히 알아볼 수 있습니다](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [API Management에서 OpenAPI 정의 편집](../api-management/edit-api.md)

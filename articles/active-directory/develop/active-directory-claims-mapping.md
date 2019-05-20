@@ -2,23 +2,23 @@
 title: Azure AD 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(공개 미리 보기)
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300481"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546193"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -97,7 +97,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| 이메일 |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -177,7 +177,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| 사용자 이름 |
+| username |
 | uti |
 | ver |
 | verified_primary_email |

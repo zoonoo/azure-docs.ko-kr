@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776387"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595320"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -34,8 +34,6 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 > [!NOTE]
 > 할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
-> 
-> 
 
 ## <a name="resource-quotas"></a>리소스 할당량
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -54,7 +52,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | Batch 구독 풀 할당 모드 | 80 |
 | **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)<sup>1</sup>의 계산 노드 수** ||
 | 전용 노드 | 2000 |
-| 우선 순위가 낮은 노드 | 1000 |
+| 낮은 우선 순위 노드 | 1000 |
 
 <sup>1</sup> 노드 간 통신을 사용하도록 설정되지 않은 풀입니다.
 
@@ -68,7 +66,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | 풀 당 응용 프로그램 패키지 | 10 |
 | 최대 작업 수명 | 180일<sup>1</sup> |
 
-<sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 완료된 태스크는 7일 동안 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
+<sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 7 일에 대 한 완료 된 작업을 유지합니다. 최대 수명 이내에 완료 되지 않은 태스크에 대 한 데이터에 액세스할 수 없는 경우
 
 ## <a name="view-batch-quotas"></a>Batch 할당량 보기
 
@@ -84,45 +82,57 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 [Azure Portal][portal]을 사용하여 Batch 계정 또는 구독에 대해 할당량 증가를 요청하려면 다음 단계를 수행합니다. 할당량 증가 유형은 Batch 계정의 풀 할당 모드에 따라 다릅니다. 할당량 증가 요청에 대 한 할당량을 늘리려면 원하는 VM 시리즈를 포함 해야 합니다. 할당량 증가 적용 하면 Vm의 모든 계열에 적용 됩니다.
 
-### <a name="increase-a-batch-cores-quota"></a>Batch 코어 할당량 증가 
+### <a name="increase-cores-quota-in-batch"></a>일괄 처리에서 코어 할당량 증가 
 
 1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표(**?**)를 선택합니다.
 1. **새 기본 지원 요청** > **기본**을 클릭합니다.
 1. **기본 사항**에서
    
-    a. **문제 형식** > **할당량**
+    a. **문제 유형** > **서비스 및 구독 제한 (할당량)**
    
     b. 구독을 선택합니다.
    
     다. **할당량 유형** > **배치**
-   
-    d. **지원 계획** > **할당량 지원 - 포함됨**
-   
-    **다음**을 클릭합니다.
-1. **문제**에서
-   
-    a. [비즈니스 영향][support_sev]에 따라 **심각도**를 선택합니다.
-   
-    b. **세부 정보**에서 변경하려는 각 할당량과 Batch 계정 이름, 새로운 제한을 지정합니다.
-   
-    **다음**을 클릭합니다.
+      
+    **다음**을 선택합니다.
+    
+1. **세부 정보**에서 다음을 수행합니다.
+      
+    a. **세부 정보를 제공**위치, 할당량 유형을 지정 하 고 Batch 계정.
+    
+    ![Batch 할당량 증가][quota_increase]
+
+    할당량 유형은 다음과 같습니다.
+
+    * **Batch 계정당**  
+        단일 일괄 처리에 대 한 값만 전용 및 우선 순위가 낮은 코어 등 다양 한 작업 및 풀 계정입니다.
+        
+    * **지역당**  
+        구독 당 지역별 Batch 계정에 포함 및 지역의 모든 Batch 계정에 적용 되는 값입니다.
+
+    우선 순위가 낮은 할당량은 모든 VM 시리즈에서 단일 값. 제한 된 Sku를 해야 하는 경우 선택 해야 **낮은 우선 순위 코어** 요청 하는 VM 제품군을 포함 합니다.
+
+    b. [비즈니스 영향][support_sev]에 따라 **심각도**를 선택합니다.
+
+    **다음**을 선택합니다.
+
 1. **연락처 정보**에서
    
     a. **기본 연락 방법**을 선택합니다.
    
     b. 필수 연락처 세부 정보를 확인하고 입력합니다.
    
-    **만들기** 를 클릭하여 지원 요청을 제출합니다.
+    선택 **만들기** 지원 요청을 제출 합니다.
 
-지원 요청을 제출하면 Azure 지원 팀에서 연락을 드릴 것입니다. 참고로 요청 완료까지 업무일 기준 최대 2일이 걸릴 수 있습니다.
+지원 요청을 제출하면 Azure 지원 팀에서 연락을 드릴 것입니다. 몇 분 내 또는 두 영업일 기준 최대 할당량 요청을 완료할 수 있습니다.
 
 ## <a name="related-quotas-for-vm-pools"></a>VM 풀에 대한 관련 할당량
 
 Azure 가상 네트워크에 배포된 Virtual Machine 구성의 Batch 풀은 추가 Azure 네트워킹 리소스를 자동으로 할당합니다. 가상 네트워크의 50개 풀 노드 각각에 대해 다음 리소스가 필요합니다.
 
-* 1개 [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)
-* 1개 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* 1개 [부하 분산 장치](../load-balancer/load-balancer-overview.md)
+* 하나의 [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)
+* 하나의 [공용 IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 하나의 [부하 분산 장치](../load-balancer/load-balancer-overview.md)
 
 이러한 리소스는 Batch 풀을 만들 때 제공되는 가상 네트워크가 포함된 구독에 할당됩니다. 이러한 리소스는 구독의 [리소스 할당량](../azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대형 풀 배포를 계획하는 경우 이러한 리소스에 대한 구독의 할당량을 확인합니다. 필요한 경우 **도움말 + 지원**을 선택하여 Azure Portal의 증가를 요청합니다.
 
@@ -137,3 +147,4 @@ Azure 가상 네트워크에 배포된 Virtual Machine 구성의 Batch 풀은 �
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
+[quota_increase]: ./media/batch-quota-limit/quota-increase.png

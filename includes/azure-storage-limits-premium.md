@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528495"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65751558"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium 성능 블록 blob storage
 
@@ -25,9 +25,9 @@ ms.locfileid: "59528495"
 
 |영역  |대상  |
 |---------|---------|
-|최대 크기를 프로 비전     |5tib (공개 미리 보기), 100 TiB (제한 된 공개 미리 보기)     |
+|최대 크기를 프로 비전     |100tib     |
 |공유   |Unlimited  |
-|IOPS     |100,000 (제한 된 공개 미리 보기)    |
+|IOPS     |100,000    |
 |수신|4,136 초     |
 |송신|6,204 초 |
 

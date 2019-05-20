@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1c82dbd0af8509910b13d17ff5a2e8512cef6fdd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510949"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794181"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -158,7 +158,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage 데이터 이동 API 및 라이브러리 참조
 * [저장소 Import/Export 서비스 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
+* [.NET용 저장소 데이터 이동 클라이언트 라이브러리](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
 * [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)

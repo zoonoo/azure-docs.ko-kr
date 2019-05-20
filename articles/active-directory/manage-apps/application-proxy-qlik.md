@@ -3,23 +3,23 @@ title: Azure AD 앱 프록시 및 Qlik Sense | Microsoft Docs
 description: Azure Portal에서 애플리케이션 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441332"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782667"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -56,7 +56,7 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 **10단계:** SSO를 설정하지 않고 **Single Sign-On을 사용하도록 설정하지 않고** 내버려 둡니다.
  
  
-## <a name="testing"></a>테스트 
+## <a name="testing"></a>테스트하는 중 
 애플리케이션을 테스트할 준비가 되었습니다. 애플리케이션 #1에 QlikSense를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.  
 
 ## <a name="additional-references"></a>추가 참조

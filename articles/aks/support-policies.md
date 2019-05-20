@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506677"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786468"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 지원 정책
 
@@ -146,7 +146,7 @@ AKS는 업스트림 Kubernetes 프로젝트 내에서 안정적인 기능만 지
 
 공개 미리 보기에서 기능은 '최상의' 지원 포함이 기능이 미리 보기로 제공 됩니다 하지 프로덕션에 사용 하려는 및 업무 시간 동안 AKS 기술 지원 팀에서 지원 됩니다. 자세한 내용은 다음을 참조 하세요.
 
-* [Azure 지원 FAQ](https://azure.microsoft.com/en-us/support/faq/)
+* [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > 미리 보기 기능을 Azure에 적용 *구독* 수준입니다. 프로덕션 구독에 미리 보기 기능을 설치 하지 마세요. 프로덕션 구독에서 미리 보기 기능 기본 API 동작을 변경 하 고 일반 작업에 영향을 줄 수 있습니다.

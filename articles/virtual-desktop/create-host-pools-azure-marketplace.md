@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924968"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236803"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -70,7 +70,7 @@ Windows Virtual Desktop 테넌트 정보 블레이드의 경우:
 
 1. 사용자의 테넌트를 포함하는 테넌트 그룹에 사용할 **Windows Virtual Desktop 테넌트 그룹 이름**을 입력합니다. 계획된 특정 테넌트 그룹 이름이 없다면 기본값을 그대로 유지합니다.
 2. 이 호스트 풀을 만들 테넌트에 사용할 **Windows Virtual Desktop 테넌트 이름**을 입력합니다.
-3. Windows Virtual Desktop 테넌트 RDS 소유자로 인증하는 데 사용할 자격 증명 유형을 지정합니다. **서비스 주체**를 선택하는 경우 서비스 주체와 연결된 **Azure AD 테넌트 ID**를 제공해야 합니다.
+3. Windows Virtual Desktop 테넌트 RDS 소유자로 인증하는 데 사용할 자격 증명 유형을 지정합니다. [PowerShell 자습서를 사용하여 서비스 주체 및 역할 할당 만들기](./create-service-principal-role-powershell.md)를 완료했으면 **서비스 주체**를 선택합니다. 이제 서비스 주체를 포함하는 Azure Active Directory의 **Azure AD 테넌트 ID**를 입력해야 합니다.
 4. 테넌트 관리자 계정에 사용할 자격 증명을 입력합니다. 암호 자격 증명을 사용하는 서비스 주체만 지원됩니다.
 5. **확인**을 선택합니다.
 

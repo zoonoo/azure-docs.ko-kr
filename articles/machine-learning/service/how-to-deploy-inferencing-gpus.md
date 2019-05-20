@@ -1,5 +1,5 @@
 ---
-title: GPU 사용 하 여 추론에 대 한 딥 러닝 모델을 배포 하는 방법
+title: GPU 사용 하 여 추론을 위해 모델 배포
 titleSuffix: Azure Machine Learning service
 description: 추론에 대 한 GPU를 사용 하는 웹 서비스로 심화 학습 모델을 배포 하는 방법에 알아봅니다. Tensorflow 모델은이 문서에서는 Azure Kubernetes Service 클러스터에 배포 됩니다. 클러스터는 호스트 웹 서비스 및 점수 매기기 추론 요청에 GPU 가능 VM을 사용합니다.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515176"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595650"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>GPU 추론을 수행 하는 방법
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>GPU 사용 하 여 추론에 대 한 딥 러닝 모델 배포
 
 Machine learning 웹 서비스로 배포 하는 모델에 대 한 GPU 추론을 사용 하는 방법에 알아봅니다. 이 문서에서는 예로 Tensorflow 딥 러닝 모델을 배포 하려면 Azure Machine Learning 서비스를 사용 하는 방법을 알아봅니다. 모델은 GPU 가능 VM을 사용 하 여 서비스를 호스트 하는 Azure Kubernetes Service (AKS) 클러스터에 배포 됩니다. 요청 서비스에 전송 될 때 모델 추론을 수행 하는 GPU를 사용 합니다.
 
 Gpu에는 항상 병렬 계산에 Cpu에 성능 이점을 제공합니다. 학습 및 추론 딥 러닝 모델 (특히 큰 일괄 처리 요청)은 Gpu에 대 한 좋은 사용 사례입니다.  
 
-이 예제는 Azure Machine learning 저장 TensorFlow 모델을 배포 하는 방법을 보여 줍니다. 
-
-## <a name="goals-and-prerequisites"></a>목표 및 필수 구성 요소
-
-지침에 따라 다음을 수행합니다.
-* GPU 사용을 만들 AKS 클러스터
+이 예제는 저장 TensorFlow 모델에서 Azure Machine Learning을 배포 하는 방법을 보여 줍니다.
+* GPU 가능 AKS 클러스터 만들기
 * Tensorflow GPU를 사용 하 여 모델 배포
 
-필수 조건:
+## <a name="prerequisites"></a>필수 조건
+
 * Azure Machine Learning 서비스 작업 영역
 * Python
 * Tensorflow SavedModel 등록 합니다. 모델을 등록 하는 방법을 알아보려면 참조 [모델 배포](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-이 문서는 기준 [AKS에 Tensorflow 모델 배포](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), 저장 TensorFlow를 사용 하는 모델 및 AKS 클러스터를 배포 합니다. 그러나 약간 변경 하 고 점수 매기기 파일 환경 파일을 사용 하 여 것를 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 적용 합니다.  
+이 문서는 Jupyter notebook을 기준 [AKS에 배포 Tensorflow 모델](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), 저장 TensorFlow를 사용 하는 모델 및 AKS 클러스터를 배포 합니다. 그러나 약간 변경 하 고 점수 매기기 파일 환경 파일을 사용 하 여 것를 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 적용 합니다.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Gpu 사용 하 여 AKS 클러스터를 프로 비전
 Azure는 추론을 위해 사용할 수 있는 모든 다른 많은 GPU 옵션을 합니다. 참조 [N 시리즈 목록을](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) 전체 분석 기능 및 비용에 대 한 합니다. 

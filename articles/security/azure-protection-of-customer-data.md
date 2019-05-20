@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589071"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603138"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 고객 데이터 보호   
 Microsoft 운영 및 지원 담당자의 고객 데이터 액세스는 기본적으로 거부됩니다. 고객 데이터에 대한 액세스 권한이 부여되면 권한 승인이 필요하며 액세스가 신중하게 관리되고 기록됩니다. 액세스 제어 요구 사항은 다음 Azure 보안 정책으로 설정됩니다.
@@ -48,8 +48,8 @@ Azure는 고객에게 강력한 데이터 보안을 기본적으로 그리고 �
 
 **데이터 중복성**: Microsoft는 데이터 센터에 사이버 공격이나 물리적 손상이 있는 경우 데이터를 보호합니다. 고객이 선택할 수 있는 항목은 다음과 감습니다.
 
-- 규정 준수 또는 대기 시간 고려 사항을 위한 국내 저장소
-- 보안 또는 재해 복구를 위한 국외 저장소
+- 규정 준수 또는 대기 시간 고려 사항에 대 한 저장소에서-국가/지역입니다.
+- 보안 또는 재해 복구를 위해 아웃-의-out-의-국가 저장소입니다.
 
 데이터는 중복성을 위해 선택한 지리적 영역 내에 복제하는 것은 가능하지만 외부로 전송할 수는 없습니다. 고객에게는 복사본 수, 복제 데이터 센터의 수와 위치를 포함하여 데이터를 복제하기 위한 여러 옵션이 제공됩니다.
 

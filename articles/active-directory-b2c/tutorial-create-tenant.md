@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12ce37579a6f93ba600c39416c7566ac673e9560
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723335"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601692"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 4. **Active Directory B2C**를 검색하여 선택하고 **만들기**를 클릭합니다.
-5. **새 Azure AD B2C 테넌트 만들기**를 선택하고 테넌트 이름에 사용되는 조직 이름과 초기 도메인 이름을 입력한 다음 국가를 선택하고(나중에 변경할 수 없음) **만들기**를 클릭합니다.
+5. 선택할 **새 Azure AD B2C 테 넌 트를 만들**, 조직 이름 및 테 넌 트 이름에서 사용 되는 초기 도메인 이름에를 입력, 국가/지역 (변경할 수 없습니다 나중)를 선택 하 고 클릭 **만들기** .
 
     ![테넌트 만들기](./media/tutorial-create-tenant/create-tenant.png)
 

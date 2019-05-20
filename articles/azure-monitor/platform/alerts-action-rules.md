@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227982"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620004"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
-이 문서에는 작업 규칙은 항목 및 구성 및 관리 하는 방법을 설명 합니다.
-
-## <a name="what-are-action-rules"></a>작업 규칙 이란?
-
 작업 규칙을 사용 하 여 모든 리소스 관리자 범위 (구독, 리소스 그룹 또는 리소스)에서 작업 (또는 작업의 표시 안 함)를 정의할 수 있습니다. 기업은 다양 한 필터에 역할을 경고 인스턴스 특정 하위 집합 범위를 좁힐 수 있습니다. 
 
-작업 규칙을 사용 하 여 다음을 수행할 수 있습니다.
+## <a name="why-and-when-should-you-use-action-rules"></a>이유와 시기 작업 규칙을 사용 하나요?
 
-* 주말/공휴일에 대 한 각를 사용 하지 않도록 설정 하는 대신 경고 규칙 개별적으로 유지 관리 기간을 계획 하는 경우 작업 및 알림을 표시 하지 않습니다.
-* 작업 및 크기 조정에서 알림을 정의 합니다. 각 경고 규칙에 대해 개별적으로 작업 그룹을 정의 하는 대신 이제는 작업 그룹의 모든 범위에서 생성 된 경고에 대 한 트리거를 정의할 수 있습니다. 예를 들어, 내 구독 내에서 생성 된 모든 경고에 대 한 작업 그룹 'ContosoActionGroup' 트리거 할는 보시 다시 피이 있습니다.
+### <a name="suppression-of-alerts"></a>경고 표시 안 함
+
+다양 한 시나리오는 유용 경고 표시 안 함 업무 외 시간에 계획 된 유지 관리 기간 중에 비 표시 범위의 수에 의해 생성 된 알림을 표시 하지 않으려면 많습니다. 예를 들어, 'ContosoVM' 팀 'ContosoVM' 하는 계획 된 유지 관리 중 이므로 향후 주말에 대 한 알림을 표시 하지 않으려면 하려고 합니다. 가능 하지만 각 경고 'ContosoVM'에서 수동으로 구성 하는 규칙 (및 해당 게시를 유지 관리를 다시 사용 하도록 설정)를 사용 하지 않도록 설정, 간단한 환경을 아닙니다. 작업 규칙을 사용 하 여 경고 표시 안 함 대규모로 유연 하 게 제거 기간을 구성 하는 기능을 사용 하 여 정의할 수 있습니다. 이전 예로 돌아가서, 팀에서 주말에 대 한 모든 알림을 표시 하지 'ContosoVM'에서 작업 규칙을 하나를 정의 이제 수 있습니다.
+
+
+### <a name="actions-at-scale"></a>대규모 작업
+
+경고 규칙을 사용 하면 경고가 생성 되 면 트리거되는 작업 그룹을 정의할 수 있습니다, 있지만 고객은 종종 작업의 범위에서 일반 작업 그룹을 경향이 있습니다. 예를 들어, 'ContosoRG' 리소스 그룹에 대 한 팀 아마도 'ContosoRG' 내에 정의 된 모든 경고 규칙에 대해 동일한 작업 그룹을 정의 됩니다. 작업 규칙을 사용 하면 대규모 작업을 정의할 수 있습니다 작업 그룹은 구성된 범위에 생성 된 모든 경고에 대 한 트리거될 수 있도록 허용 하 여이 프로세스를 간소화 하기 위해 수행할 수 있습니다. 이전 예로 돌아가서, 팀 이제 하나의 작업 규칙 정의에서 동일한 작업 그룹에 생성 된 모든 경고를 트리거하는 'ContosoRG'.
+
 
 ## <a name="configuring-an-action-rule"></a>작업 규칙 구성
 

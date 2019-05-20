@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385958"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522081"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
 VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해 야 할 다양 한 요소 있기는 Vm 모니터 핵심 운영 체제 성능 표시기에 대 한 Azure Monitor 프로세서, 메모리, 네트워크 어댑터 및 디스크 사용률과 관련이 있습니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
@@ -105,6 +105,21 @@ Azure Monitor에서 성능 기능 작업 그룹 환경에서 또는 구독에 �
 본 마지막 Azure 대시보드에 차트를 선택한 차트 pin 중 하나의 오른쪽 위 모서리에서 고정 아이콘을 클릭 합니다. 대시보드에서 크기를 조정할 수 있으며 차트의 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택한 Vm에 대 한 Azure Monitor로 이동 하 고 VM에 대 한 성능 자세히 보기를 로드 합니다.  
 
 ![VM 보기에서 직접 VM 인사이트 성능 보기](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 직접 성능 보기
+에 Azure 가상 머신 확장 집합에서 직접 액세스 하려면 다음 단계를 수행 합니다.
+
+1. Azure portal에서 선택 **가상 머신 확장 집합**합니다.
+2. 목록에서 VM을 선택 및 합니다 **모니터링** 섹션을 선택 **Insights (미리 보기)** 보려는 합니다 **성능** 탭.
+
+이 페이지에는 선택한 확장 집합으로 범위가 지정 된 Azure Monitor 성능 보기를 로드 합니다. 이렇게 하면 모니터링 된 메트릭 집합 전체의 확장 집합의 상위 n 개 인스턴스를 확인 하 고 확장 집합에서 집계 성능을 보고 개별 인스턴스 n에서 선택한 메트릭에 대 한 추세를 볼 수 있습니다 확장을 설정 합니다. 목록 보기에서 인스턴스를 선택 하면의 지도 로드 하거나 해당 인스턴스에 대 한 자세한 성능 보기를 탐색할 수 있습니다.
+
+본 마지막 Azure 대시보드에 차트를 선택한 차트 pin 중 하나의 오른쪽 위 모서리에서 고정 아이콘을 클릭 합니다. 대시보드에서 크기를 조정할 수 있으며 차트의 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택한 Vm에 대 한 Azure Monitor로 이동 하 고 VM에 대 한 성능 자세히 보기를 로드 합니다.  
+
+![가상 머신 확장에서 직접 VM insights 성능 보기를 설정합니다.](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>확장 집합에 대 한 인스턴스 보기에서 특정 인스턴스에 대 한 자세한 성능 보기를 액세스할 수 있습니다. 이동할 **인스턴스** 아래 합니다 **설정** 섹션을 선택한 후 **Insights (미리 보기)** 합니다.
 
 ## <a name="alerts"></a>경고  
 VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. 가지 [상태 경고](vminsights-health.md#alerts) 등 높은 CPU 사용률, 메모리 부족, 사용 가능한 디스크 공간을 등 Azure VM에서 검색 된 성능 문제에 해당 합니다.  그러나 이러한 상태 경고 Azure Monitor에 대 한 Vm에 대 한 사용 하도록 설정 하는 모든 Vm에만 적용 됩니다. 

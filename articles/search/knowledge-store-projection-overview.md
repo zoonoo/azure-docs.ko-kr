@@ -1,5 +1,5 @@
 ---
-title: 정보 저장소-Azure Search에에서는 프로젝션과 함께 작업
+title: 정보 저장소 (미리 보기)-Azure Search에에서는 프로젝션과 함께 작업
 description: 저장 및 검색 이외의 시나리오에서 사용 하기 위해 AI 인덱싱 파이프라인에서 풍부한 데이터를 구체화
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028367"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540816"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search 기술 저장소에는 프로젝션과 함께 작업
 
+> [!Note]
+> 저장소 기술 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 경우 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. 이 이번에는.NET SDK 지원은 없습니다.
+>
+
 Azure Search에 AI cognitive 기술과 인덱싱의 일부로 사용자 지정 기술 콘텐츠 보강할 수 있습니다. 강화를 문서 구조를 추가 및 검색 하는 것 보다 효율적입니다. 많은 경우 풍부한 문서 검색, 예: 기술 마이닝 이외의 시나리오에 유용합니다.
 
-프로젝션의 구성 요소 [기술 store (미리 보기)](knowledge-store-concept-intro.md), 기술 마이닝 목적에 대 한 물리적 저장소에 저장할 수 있는 풍부한 문서의 뷰입니다. 프로젝션을 사용 하면 데이터를 Power BI와 같은 도구에서 추가 작업 없이 데이터를 읽을 수 있도록 관계를 유지 하는 요구에 맞추는 셰이프로 "프로젝트" 수 있습니다. 
+프로젝션의 구성 요소 [기술 저장소](knowledge-store-concept-intro.md), 기술 마이닝 목적에 대 한 물리적 저장소에 저장할 수 있는 풍부한 문서의 뷰입니다. 프로젝션을 사용 하면 데이터를 Power BI와 같은 도구에서 추가 작업 없이 데이터를 읽을 수 있도록 관계를 유지 하는 요구에 맞추는 셰이프로 "프로젝트" 수 있습니다. 
 
 프로젝션은 Azure Table storage의 행과 열에 저장 된 데이터 또는 Azure Blob storage에 저장 된 JSON 개체를 사용 하 여 테이블 형식 수 있습니다. 보강 되는 대로 데이터의 여러 예측을 정의할 수 있습니다. 개별 사용 사례에 대 한 다른 방식으로 셰이핑 동일한 데이터를 원하는 경우에 유용 합니다. 
 

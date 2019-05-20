@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757979"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785804"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Azure Data Box Edge에서 컴퓨팅 관리
 
 이 문서에서는 Azure Data Box Edge에서 컴퓨팅을 관리하는 방법을 설명합니다. 로컬 웹 UI 또는 Azure Portal을 통해 컴퓨팅을 관리할 수 있습니다. Azure Portal에서 모듈, 트리거 및 컴퓨팅 구성을 관리하고 로컬 웹 UI를 사용하여 컴퓨팅 설정을 관리합니다.
-
-> [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 
 이 문서에서는 다음 방법을 설명합니다.
 

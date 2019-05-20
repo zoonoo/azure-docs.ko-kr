@@ -2,8 +2,8 @@
 title: AD FS에서 Azure AD로 앱 이동 | Microsoft Docs
 description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291846"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824615"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 애플리케이션 이동 
 

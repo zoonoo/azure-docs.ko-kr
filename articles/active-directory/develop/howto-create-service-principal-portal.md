@@ -3,25 +3,25 @@ title: 포털에서 Azure 앱에 대한 ID 만들기 | Microsoft Docs
 description: Azure Resource Manager에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory 애플리케이션 및 서비스 주체를 만드는 방법을 설명합니다.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300995"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764841"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -106,20 +106,20 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
    ![클라이언트 ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. **설정**을 선택합니다.
+1. 선택 **인증서 및 비밀**합니다.
 
-   ![설정 선택](./media/howto-create-service-principal-portal/select-settings.png)
+   ![설정 선택](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. **키**를 선택합니다.
-1. 키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
+1. 선택 **클라이언트 암호에는 새 클라이언트 암호->** 합니다.
+1. 암호 및 기간에 대 한 설명을 제공 합니다. 을 완료 한 후 선택 **추가**합니다.
 
-   ![키 저장](./media/howto-create-service-principal-portal/save-key.png)
+   ![암호를 저장 합니다.](./media/howto-create-service-principal-portal/save-secret.png)
 
-   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   클라이언트 비밀을 저장 한 후 클라이언트 비밀의 값이 표시 됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
-   ![공유 키](./media/howto-create-service-principal-portal/copy-key.png)
+   ![암호를 복사 합니다.](./media/howto-create-service-principal-portal/copy-secret.png)
 
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 
 Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할에 애플리케이션을 할당하기 위한 충분한 권한이 있어야 합니다.
 
@@ -146,7 +146,7 @@ Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 
 
 Azure 구독 권한을 확인하려면
 
-1. 오른쪽 위 모서리에서 계정을 선택하고 **사용 권한**을 선택합니다.
+1. 오른쪽 위 모서리에서 계정을 선택 하 고 선택 **... 내 사용 권한->** 합니다.
 
    ![사용자 권한 선택](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Azure 구독 권한을 확인하려면
 
    ![사용자 찾기](./media/howto-create-service-principal-portal/view-details.png)
 
-1. 할당된 사용자 역할을 확인하고 AD 앱을 역할에 할당하기 위한 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에게는 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다.
+1. 선택 **역할 할당** 를 보고 할당 된 사용자 역할에 AD 앱 역할을 할당할 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에게는 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다.
 
    ![권한 표시](./media/howto-create-service-principal-portal/view-user-role.png)
 

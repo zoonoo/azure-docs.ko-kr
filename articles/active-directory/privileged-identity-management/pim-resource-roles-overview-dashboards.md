@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287577"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602492"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>리소스 대시보드를 사용 하 여 PIM의 액세스 검토를 수행 하려면
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 액세
 - 할당 유형에 따른 역할 할당의 분포를 표시하는 차트 2개.
 - 새 역할 할당에 관련된 데이터 영역.
 
-![그래프 및 차트를 보여주는 [관리자 보기] 대시보드의 스크린샷](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![그래프 및 차트를 보여주는 [관리자 보기] 대시보드의 스크린샷](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![데이터 목록을 보여주는 [관리자 보기] 대시보드의 스크린샷](media/azure-pim-resource-rbac/role-settings.png)
+![데이터 목록을 보여주는 [관리자 보기] 대시보드의 스크린샷](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 리소스 역할 활성화에 대한 그래픽 표현은 지난 7일 동안의 데이터를 다룹니다. 이 데이터에는 선택한 리소스에 대한 범위가 지정되어 있으며 가장 일반적인 역할(소유자, 기여자, 사용자 액세스 관리자) 및 결합된 모든 역할에 대한 활성화가 표시되어 있습니다.
 

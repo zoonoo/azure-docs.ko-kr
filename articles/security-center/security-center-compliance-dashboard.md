@@ -3,7 +3,7 @@ title: Azure Security Center를 사용하여 규정 준수 개선 | Microsoft Do
 description: '자습서: Azure Security Center를 사용하여 규정 준수를 개선하는 방법을 알아봅니다.'
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2e73cbd1de4336a08e26a609dfe704da0a068860
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 4/30/2019
+ms.author: monhaber
+ms.openlocfilehash: 111a32983472d18c1435feaf2456e5b9416b5112
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106007"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442257"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
@@ -47,8 +47,7 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
 >[!NOTE]
 > 현재 지원되는 규정 표준은 다음과 같습니다. Azure CIS, PCI DSS 3.2, ISO 27001 및 SOC TSP 개발하는 대로 추가 표준이 대시보드에 반영됩니다.
-
-1.  Security Center 기본 메뉴의 **정책 및 준수** 아래에서 **규정 준수 대시보드**를 선택합니다. <br>
+1.  Security Center 기본 메뉴의 **정책 및 규정 준수** 아래에서 **규정 준수**를 선택합니다. <br>
 화면 맨 위에 지원되는 규정 준수 세트로 준수 상태의 개요가 있는 대시보드가 표시됩니다. 전반적인 준수 점수 및 각 표준과 관련된 통과와 실패 평가의 수를 볼 수 있습니다.
 
     ![컴퓨터 설명 높은 신뢰도](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -58,12 +57,17 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
     ![준수 탭](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3.  **모두** 탭을 선택하여 관련된 모든 Security Center 권장 사항의 보기 및 관련된 해당 표준을 봅니다. 이 보기는 특정 권장 사항에 의해 영향을 받는 모든 다른 표준을 식별하는 데 유용할 수 있습니다. <br> 잠재적으로 이 보기를 사용하여 해결해야 하는 권장 사항의 우선 순위를 지정할 수 있습니다. 예를 들어 권장 사항 **구독에 대한 소유자 권한이 있는 계정에 대해 MFA 사용**이 여러 리소스에서 실패하고 여러 표준과 연결된 경우 이 권장 사항을 해결하는 것은 전반적인 준수 점수에 높은 영향을 미치게 됩니다.
+3. **모두** 탭을 선택하여 관련된 모든 Security Center 권장 사항의 보기 및 관련된 해당 표준을 봅니다. 이 보기는 특정 권장 사항에 의해 영향을 받는 모든 다른 표준을 식별하는 데 유용할 수 있습니다. <br> 잠재적으로 이 보기를 사용하여 해결해야 하는 권장 사항의 우선 순위를 지정할 수 있습니다. 예를 들어 권장 사항 **구독에 대한 소유자 권한이 있는 계정에 대해 MFA 사용**이 여러 리소스에서 실패하고 여러 표준과 연결된 경우 이 권장 사항을 해결하는 것은 전반적인 준수 점수에 높은 영향을 미치게 됩니다.
 
     ![준수 점수 영향](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-## <a name="improve-your-compliance-posture"></a>준수 상태 개선
+1. 특정 표준에 대한 현재 규정 준수 상태를 요약하는 PDF 보고서를 생성하고 다운로드하려면 **보고서 다운로드**를 클릭합니다.
 
+    이 보고서는 Security Center 평가 데이터를 기반으로 선택한 표준의 규정 준수 상태에 대한 요약 정보를 제공하며, 해당 표준의 컨트롤에 따라 구성됩니다. 이 보고서는 관련자와 공유할 수 있으며, 내부 및 외부 감사자에게 증거 자료를 제공할 수 있습니다.
+
+    ![다운로드](./media/security-center-compliance-dashboard/download-report.png)
+
+## <a name="improve-your-compliance-posture"></a>준수 상태 개선
 
 규정 준수 대시보드에서 정보를 지정하여 대시보드 내에서 직접 권장 사항을 해결하여 준수 상태를 개선할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192384"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546733"
 ---
 공유 이미지 갤러리는 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데 사용할 수 있는 서비스입니다. 공유 이미지 갤러리를 제공합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192384"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| 리소스 | 설명|
+| Resource | 설명|
 |----------|------------|
 | **관리되는 이미지** | 단독으로 사용 하거나를 만드는 데 사용 될 수 있는 기본 이미지를 **이미지 버전** 이미지 갤러리에서. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
@@ -51,9 +51,9 @@ ms.locfileid: "65192384"
 
 |이미지 정의|게시자|제안|SKU|
 |---|---|---|---|
-|myImage1|Contoso|재무|백 엔드|
-|myImage2|Contoso|재무|프런트 엔드|
-|myImage3|테스트|재무|프런트 엔드|
+|myImage1|Contoso|금융|백 엔드|
+|myImage2|Contoso|금융|프런트 엔드|
+|myImage3|테스트하는 중|금융|프런트 엔드|
 
 이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 형식을 지정 하는 방법을 현재 게시자, 제안 및 SKU에 대 한 비슷합니다 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md) Marketplace 이미지의 최신 버전을 가져오려면 Azure PowerShell에서. 이러한 값에는 고유한 각 이미지 정의 해야 합니다.
 
@@ -119,9 +119,9 @@ ms.locfileid: "65192384"
 
 | 공유한 항목     | 공유 이미지 갤러리 | 공유 이미지 | 공유 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
-| 공유 이미지 갤러리 | 예                  | 예          | 예                  |
-| 공유 이미지         | 아닙니다.                   | 예          | 예                  |
-| 공유 이미지 버전 | 아닙니다.                   | 아니요           | 예                  |
+| 공유 이미지 갤러리 | 예.                  | 예          | 예.                  |
+| 공유 이미지         | 아닙니다.                   | 예          | 예.                  |
+| 공유 이미지 버전 | 아닙니다.                   | 아니요           | 예.                  |
 
 최상의 환경을 위해 갤러리 수준에서 공유 하는 것이 좋습니다. RBAC에 대 한 자세한 내용은 참조 하세요. [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../articles/role-based-access-control/role-assignments-portal.md)합니다.
 
@@ -266,4 +266,4 @@ CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version cr
 
 **Q.** 이미지 버전에서 공유 이미지 갤러리, 이미지 정의, 이미지 버전, VM/VMSS를 만들려면 어떤 API 버전을 사용해야 하나요?
 
- a. 이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다. 공유 이미지 갤러리, 이미지 정의 및 이미지 버전으로 작업하려면 API 버전 2018-06-01을 사용하는 것이 좋습니다. 
+ a. 이미지 버전을 사용한 VM 및 Virtual Machine Scale Set 배포의 경우 API 버전 2018-04-01 이상을 사용하는 것이 좋습니다. 공유 이미지 갤러리, 이미지 정의 및 이미지 버전으로 작업하려면 API 버전 2018-06-01을 사용하는 것이 좋습니다. 영역 중복 저장소 (ZRS) 필요 2019-03-01 버전 이상.

@@ -310,7 +310,7 @@ Contoso에서 지역 설계를 통해 네트워킹 전략을 고려할 준비가
 
 Contoso는 Azure와 온-프레미스 데이터 센터 간의 하이브리드 네트워킹에 대한 [아키텍처의 수](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)를 고려했습니다. 비교 옵션에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations).
 
-참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 분기는 다음 IPSec VPN 터널을 통해 데이터 센터에 인터넷을 통해 연결 됩니다.
+참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 지점은 다음 IPSec VPN 터널을 통해 데이터 센터에 인터넷을 통해 연결됩니다.
 
 ![Contoso 네트워크](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -597,7 +597,7 @@ CUS | CONTOSODC6 | VNET-PROD-CUS | PROD-DC-CUS | 10.255.42.4
      ![Active Directory 디스크](./media/contoso-migration-infrastructure/ad-disk.png)
 
 5. 디스크가 추가되면 [원격 데스크톱]을 통해 VM에 연결하고 [서버 관리자]를 엽니다.
-6. 그런 다음, **파일 및 저장소 서비스**에서 [새 볼륨 마법사]를 실행하여 드라이브에 로컬 VM에서 F: 이상의 문자가 지정되도록 합니다.
+6. 그런 다음, **파일 및 저장소 서비스**에서 [새 볼륨 마법사]를 실행하여 로컬 VM 드라이브에 F: 이상의 문자가 지정되도록 합니다.
 
      ![새 볼륨 마법사](./media/contoso-migration-infrastructure/volume-wizard.png)
 

@@ -14,18 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510959"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620483"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
-이 문서에는 Azure Storage 탐색기 1.4.3 릴리스의 릴리스 정보 및 이전 버전의 릴리스 정보가 포함되어 있습니다.
+이 문서에서는 Azure Storage 탐색기 1.8.1 릴리스에 대 한 릴리스 정보 및 이전 버전에 대 한 릴리스 정보를 포함합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
+
+## <a name="version-181"></a>버전 1.8.1
+5/13/2019
+
+### <a name="download-azure-storage-explorer-181"></a>Azure Storage 탐색기 1.8.1 다운로드
+- [Windows 용 azure Storage 탐색기 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 용 azure Storage 탐색기 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.8.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>핫픽스
+* 일부 경우에 "로드" 자세한 리소스 수준에서를 클릭 하는 리소스의 다음 페이지를 반환 하지 것입니다. 이 문제가 해결되었습니다. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* Windows에서 AzCopy 다운로드 경우 단일 파일 또는 폴더 다운로드 된 파일 또는 폴더의 이름을 문자 Windows 경로 대해 올바르지 않습니다 못합니다. 이 문제가 해결되었습니다. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* 매우 드문 경우에는 이름 바꾸기에 대 한 복사본을 실패 한 경우 또는 저장소를 탐색할 수 없는 경우 Azure 사용 하 여 복사본의 성공 여부를 확인 하려면 파일 공유에서 파일 공유의 이름 바꾸기 또는 이름 바꾸기를 수행 하는 동안 했습니다 o를 삭제 하려면 Storage 탐색기에 대 한 가능성 병합할 파일 복사를 완료 했습니다. 이 문제가 해결되었습니다.
+
+### <a name="new"></a>새 문자
+
+* 통합된 된 AzCopy 버전이 10.1.0 버전으로 업데이트 되었습니다.
+* Ctrl / Cmd + R을 사용 하 여 현재 포커스가 있는 편집기를 새로 고치려면 이제 수 있습니다. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 저장소 API 버전 2017-04-17로 바뀌었습니다.
+* Gen2 ADLS에 대 한 관리 액세스 대화는 이제 동기화 마스크 방식으로 다른 POSIX 권한 도구와 비슷합니다. UI는 마스크의 범위를 초과 하는 사용자 또는 그룹의 권한을 사용 하면 변경 내용이 있는 경우에 표시 됩니다. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* AzCopy 업로드에 대 한 계산 된 MD5 해시를 설정 하는 플래그를 지금 활성화 됩니다. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>미리 보기 기능
+
+* 장치 코드 흐름 로그인 미리 보기를 출시 되었습니다. 기능을 사용 하려면 "사용 하 여 장치 코드 흐름 로그인" → "Preview"로 이동 합니다. 모든 사용자를 로그인의 보다 신뢰할 수 있는 형태를 증명할 수 있습니다 하는 대로이 기능을 사용해 볼 빈 로그인 windows 문제 했던가 사용 하는 것이 좋습니다.
+* AzCopy를 사용 하 여 통합 하는 storage 탐색기는 현재 미리 보기를 사용할 수 있습니다. 기능을 사용 하려면 "Preview" → "사용 하 여 AzCopy에 대 한 향상 된 Blob 업로드 및 다운로드"로 이동 합니다. AzCopy를 사용 하 여 완료 하는 blob 전송 속도 더 빨라집니다 및 성능이 향상 됩니다.
+
+### <a name="fixes"></a>수정 프로그램
+
+* 액세스 정책 대화 상자는 만료 되지 않은 저장소 액세스 정책에서 만료 날짜를 설정 더 이상 않습니다. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 일부 변경 내용이 적용 된 SAS 생성 대화 상자에 SAS를 생성할 때 저장 된 액세스 정책을 올바르게 사용 되도록 합니다. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 비-512 바이트를 업로드 하는 동안 정렬 페이지 Blob 파일 저장소 탐색기는 이제 더 관련 오류를 노출 합니다. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 표시 이름을 사용 하는 Blob 컨테이너 복사 실패 합니다. 이제 Blob 컨테이너의 실제 이름을 사용 됩니다. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 이름에 유니코드 문자를 있던는 ADLS Gen2 폴더에서 특정 작업을 수행 하는 실패 합니다. 모든 작업 작동 합니다. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>알려진 문제
+
+* 비 AzCopy Blob 다운로드를 수행 하는 경우 큰 파일에 대 한 MD5 하지 확인 되 고 됩니다. Storage SDK의 버그 때문입니다. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+   * ADLS Gen2
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [1.8.0 버전 이상](#version-180)
+* [1.7.0 버전](#version-170)
+* [1.6.2 버전](#version-162)
+* [버전 1.6.1](#version-161)
+* [버전 1.6.0](#version-160)
+* [버전 1.5.0](#version-150)
+* [버전 1.4.4](#version-144)
+* [버전 1.4.3](#version-143)
+* [버전 1.4.2](#version-142)
+* [버전 1.4.1](#version-141)
+* [버전 1.3.0](#version-130)
+* [버전 1.2.0](#version-120)
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-180"></a>1.8.0 버전 이상
 5/1/2019
@@ -83,44 +184,6 @@ ms.locfileid: "65510959"
     ```
 
 * Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [1.7.0 버전](#version-170)
-* [1.6.2 버전](#version-162)
-* [버전 1.6.1](#version-161)
-* [버전 1.6.0](#version-160)
-* [버전 1.5.0](#version-150)
-* [버전 1.4.4](#version-144)
-* [버전 1.4.3](#version-143)
-* [버전 1.4.2](#version-142)
-* [버전 1.4.1](#version-141)
-* [버전 1.3.0](#version-130)
-* [버전 1.2.0](#version-120)
-* [버전 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-170"></a>1.7.0 버전
 3/5/2019

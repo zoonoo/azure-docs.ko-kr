@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316832"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795790"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -92,10 +92,6 @@ Azure Search는 추가적인 **indexAnalyzer** 및 **searchAnalyzer** 필드 매
 ### <a name="inspect-tokenized-terms"></a>토큰화된 용어 검사
 
 검색에서 예상되는 결과가 반환되지 않은 경우, 쿼리에 입력된 용어와 인덱스의 토큰화된 용어의 토큰이 같지 않기 때문일 가능성이 큽니다. 토큰이 같지 않으면 일치하는 결과가 반환되지 않습니다. 토크나이저 출력을 검사할 때는 조사 도구로 [분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)를 사용하는 것이 좋습니다. 응답은 해당 분석기에 의해 생성되는 토큰으로 구성됩니다.
-
-### <a name="compare-english-analyzers"></a>영어 분석기 비교
-
-[검색 분석기 데모](https://alice.unearth.ai/)는 표준 Lucene 분석기, Lucene의 영어 분석기 및 Microsoft의 영어 자연어 프로세서를 나란히 비교하여 보여 주는 타사 데모 앱입니다. 인덱스가 수정되었습니다. 잘 알려진 이야기의 텍스트가 포함되어 있습니다. 사용자가 입력한 각 검색 입력에 대해 각 분석기의 결과가 인접한 창에 표시되어 분석기별로 동일한 문자열을 어떤 식으로 처리하는지 살펴볼 수 있습니다. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 + [언어별 어휘 분석기](index-add-language-analyzers.md)를 적용하는 방법을 알아보세요.
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](index-add-custom-analyzers.md)하세요.
-
-+ 이 데모 웹 사이트의 인접한 창에서 [표준 및 영어 분석기를 나란히 비교](https://alice.unearth.ai/)하세요. 
 
 ## <a name="see-also"></a>참고 항목
 

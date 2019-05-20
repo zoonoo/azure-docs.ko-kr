@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527878"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780349"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management에서 외부 Azure Cache for Redis 사용
 
@@ -40,11 +40,6 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 
 > [!div class="checklist"]
 > * API Management에서 외부 캐시 추가
-
-## <a name="availability"></a>가용성
-
-> [!NOTE]
-> 이 기능은 현재 Azure API Management의 **소비**계층에서만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -94,6 +89,7 @@ Azure API Management는 기본 제공 캐시를 활용하는 것 외에도 외�
 Azure API Management에서 외부 캐시가 구성되면 캐싱 정책을 통해 사용할 수 있습니다. 자세한 단계는 [Azure API Management에서 캐싱을 추가하여 성능 향상](api-management-howto-cache.md)을 참조하세요.
 
 ## <a name="next-steps"> </a>다음 단계
+
 * 캐싱 정책에 대한 자세한 내용은 [API Management 정책 참조][API Management policy reference]의 [캐싱 정책][Caching policies]을 참조하세요.
 * 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API Management에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
 

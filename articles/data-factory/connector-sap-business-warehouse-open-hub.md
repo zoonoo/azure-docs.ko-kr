@@ -100,12 +100,12 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapOpenHub** | 예 |
-| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
+| server | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
 | language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예. |
-| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
 
 **예제:**
@@ -141,7 +141,7 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
+| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
 | openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | 예 |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
 | baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |

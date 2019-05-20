@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041278"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550502"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
@@ -82,6 +82,9 @@ ms.locfileid: "61041278"
 
 ### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
+
+### <a name="storage-size"></a>저장소 크기
+- 참조 하십시오 [가격 책정 계층](concepts-pricing-tiers.md) 당 가격 책정 계층 저장소 크기 제한에 대 한 합니다.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
 - 연결이 설정된 후에 MariaDB 서버 인스턴스가 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.

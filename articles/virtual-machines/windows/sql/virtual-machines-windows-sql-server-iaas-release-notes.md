@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477181"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787507"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure Virtual Machines의 SQL Server 릴리스 정보
 
 Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 배포할 수 있습니다. 이 문서에서는 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 최신 릴리스에 제공되는 새 기능과 향상된 기능을 요약합니다. 이 문서에는 릴리스와 직접적인 관련은 없지만 동일한 시간대에 게시된 주목할 만한 콘텐츠 업데이트도 나열되어 있습니다. 다른 Azure 서비스의 개선 사항은 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="march-2019"></a>2019 년 3 월
+## <a name="april-2019"></a>2019 년 4 월
 
 ### <a name="service-improvements"></a>서비스 개선 사항
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| **사용자 지정 이미지 지원 가능성** | 이제 설치할 수 있습니다는 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 사용자 지정 운영 체제 및 SQL 이미지를 제공 하는 제한 된 기능의 [융통성 있는 라이선스](virtual-machines-windows-sql-ahb.md)합니다. 로 라이선스 유형을 'AHUB'으로 지정할 SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록 하는 경우 그렇지 않은 경우 등록이 실패 합니다.  | 
-| **명명 된 인스턴스 지원 가능성** | 사용할 수 있습니다 합니다 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 기본 인스턴스에 제대로 제거 된 경우 명명된 된 인스턴스를 사용 하 여 합니다. | 
-| **포털의 향상 된 기능** | SQL Server VM을 배포 하기 위한 Azure portal 환경은 유용성을 향상 시키기 개선 되었습니다 했습니다. 자세한 내용은 참조는 brief [빠른 시작](quickstart-sql-vm-create-portal.md) 보다 정확 하 게 하 고 [방법](virtual-machines-windows-portal-sql-server-provision.md) SQL Server VM을 배포 하는 가이드입니다. |
+| **SQL Server 2008/2008R2에 대해서는 지원 확장** | [지원을 확장할](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server 2008 및 SQL Server 2008 R2 마이그레이션 *으로-는* Azure VM에 있습니다. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>설명서 개선
 
 없음
 
+## <a name="march-2019"></a>2019 년 3 월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+| **사용자 지정 이미지 지원 가능성** | 이제 설치할 수 있습니다는 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 사용자 지정 운영 체제 및 SQL 이미지를 제공 하는 제한 된 기능의 [융통성 있는 라이선스](virtual-machines-windows-sql-ahb.md)합니다. 로 라이선스 유형을 'AHUB'으로 지정할 SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록 하는 경우 그렇지 않은 경우 등록이 실패 합니다.  | 
+| **명명 된 인스턴스 지원 가능성** | 사용할 수 있습니다 합니다 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 기본 인스턴스에 제대로 제거 된 경우 명명된 된 인스턴스를 사용 하 여 합니다. | 
+| **포털의 향상 된 기능** | SQL Server VM을 배포 하기 위한 Azure portal 환경은 유용성을 향상 시키기 개선 되었습니다 했습니다. 자세한 내용은 참조는 brief [빠른 시작](quickstart-sql-vm-create-portal.md) 보다 정확 하 게 하 고 [방법](virtual-machines-windows-portal-sql-server-provision.md) SQL Server VM을 배포 하는 가이드입니다.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>2019년 2월
-
-### <a name="service-improvements"></a>서비스 개선 사항
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |

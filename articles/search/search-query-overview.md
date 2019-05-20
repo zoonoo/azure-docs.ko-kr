@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024462"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595968"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
@@ -116,13 +116,13 @@ queryType=full&search=mountain beach garden ranch^3&searchFields=description&$co
 
 Azure Search는 광범위한 쿼리 유형을 지원합니다. 
 
-| 쿼리 유형 | 사용 현황 | 예제 및 자세한 정보 |
+| 쿼리 형식 | 사용 | 예제 및 자세한 정보 |
 |------------|--------|-------------------------------|
 | 자유 형식 텍스트 검색 | 매개 변수와 파서 중 하나를 검색| 전체 텍스트 검색은 인덱스의 *검색 가능한* 모든 필드에서 하나 이상의 단어를 검색하고 Google 또는 Bing과 같은 검색 엔진이 작동할 것으로 예상되는 방식으로 작동합니다. 소개의 예는 전체 텍스트 검색입니다.<br/><br/>전체 텍스트 검색은 표준 Lucene 분석기(기본값)를 사용하여 모든 용어를 소문자 텍스트로 분석하여 "the"와 같은 중지 단어를 제거합니다. 텍스트 분석을 수정하는 [영어가 아닌 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 언어 중립적 분석기](index-add-custom-analyzers.md#AnalyzerTable)로 기본값을 재정의할 수 있습니다. 필드의 전체 내용을 단일 토큰으로 취급하는 [키워드](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)가 예입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. | 
 | 필터링된 검색 | [OData 필터 식](query-odata-filter-orderby-syntax.md)과 파서 중 하나 | 필터 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다. 검색과 달리 필터 쿼리는 문자열 필드에서 대/소문자 구분을 포함하여 필드의 정확한 내용을 검색합니다. 또 다른 차이점은 필터 쿼리는 OData 구문으로 표현된다는 점입니다. <br/>[필터 식 예제](search-query-simple-examples.md#example-3-filter-queries) |
 | 지리적 검색 | 필드, 필터 식 및 파서 중 하나에 [Edm.GeographyPoint 유형](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) | Edm.GeographyPoint가 있는 필드에 저장된 좌표는 "내 주변 찾기"또는 지도 기반 검색 컨트롤에 사용됩니다. <br/>[지리적 검색 예제](search-query-simple-examples.md#example-5-geo-search)|
 | 범위 검색 | 필터 식 및 단순 파서 | Azure Search에서 범위 쿼리는 필터 매개 변수를 사용하여 작성됩니다. <br/>[범위 필터 예제](search-query-simple-examples.md#example-4-range-filters) | 
-| [필드 내 필터링](query-lucene-syntax.md#bkmk_fields) | 매개 변수와 전체 파서 검색 | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 내 필터링 예제](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [검색 필드 지정된](query-lucene-syntax.md#bkmk_fields) | 매개 변수와 전체 파서 검색 | 단일 필드를 대상으로 복합 쿼리 식을 작성합니다. <br/>[필드 지정된 검색 예제](search-query-lucene-examples.md#example-2-fielded-search) |
 | [유사 항목 검색](query-lucene-syntax.md#bkmk_fuzzy) | 매개 변수와 전체 파서 검색 | 유사한 구조 또는 철자가 포함된 용어를 검색합니다. <br/>[유사 항목 검색 예제](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [근접 검색](query-lucene-syntax.md#bkmk_proximity) | 매개 변수와 전체 파서 검색 | 문서에서 서로 가까이 있는 용어를 찾습니다. <br/>[근접 검색 예제](search-query-lucene-examples.md#example-4-proximity-search) |
 | [용어 상승](query-lucene-syntax.md#bkmk_termboost) | 매개 변수와 전체 파서 검색 | 승격된 용어가 포함된 문서는 그렇지 않은 다른 문서보다 상대적으로 높은 순위를 매깁니다. <br/>[용어 상승 예제](search-query-lucene-examples.md#example-5-term-boosting) |

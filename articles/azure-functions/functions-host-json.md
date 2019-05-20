@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737219"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521388"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -35,7 +35,6 @@ ms.locfileid: "60737219"
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
 다음 샘플 *host.json* 파일에는 가능한 모든 옵션이 지정되어 있습니다.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ ms.locfileid: "60737219"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -274,6 +279,18 @@ v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"versi
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+관리 되는 종속성은 현재 미리 보기 기능 PowerShell 기반 함수 에서만 지원 됩니다. 종속성을 서비스에 의해 자동으로 관리할 수 있습니다. 활성화 속성이 설정 된 경우 true로 합니다 [requirements.psd1](functions-reference-powershell.md#dependency-management) 파일 처리 됩니다. 종속성 모든 부 버전이 새로 릴리스될 때 업데이트 됩니다.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 758eeedb89b3cef6766cf195a2cada50fbe63042
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148424"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788004"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -48,7 +48,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 계속하려면 자습서 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)에 요약된 다음 단계를 수행해야 합니다.
+이 자습서를 계속 하려면 자습서에 설명 된 다음 단계를 수행 해야 [빠른 시작: 설정 및.NET 웹 앱을 사용 하 여 Azure Key Vault에서 비밀을 검색할](../../key-vault/quick-create-net.md):
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -66,7 +66,9 @@ Visual Studio에서 새 콘솔 애플리케이션을 만듭니다.
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
 
 ```powershell
-Install-Package WindowsAzure.Storage
+Install-Package Microsoft.Azure.ConfigurationManager
+Install-Package Microsoft.Azure.Storage.Common
+Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
@@ -90,11 +92,12 @@ AppSettings를 App.Config에 추가합니다.
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Configuration;
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 using Microsoft.Azure.KeyVault;
-using System.Threading;        
+using System.Threading;
 using System.IO;
 ```
 
@@ -107,8 +110,8 @@ private async static Task<string> GetToken(string authority, string resource, st
 {
     var authContext = new AuthenticationContext(authority);
     ClientCredential clientCred = new ClientCredential(
-        ConfigurationManager.AppSettings["clientId"],
-        ConfigurationManager.AppSettings["clientSecret"]);
+        CloudConfigurationManager.GetSetting("clientId"),
+        CloudConfigurationManager.GetSetting("clientSecret"));
     AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
     if (result == null)
@@ -120,16 +123,16 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
 
-Main 함수에 다음 코드를 추가합니다.
+Main () 메서드에서 다음 코드를 추가 합니다.
 
 ```csharp
 // This is standard code to interact with Blob storage.
 StorageCredentials creds = new StorageCredentials(
-    ConfigurationManager.AppSettings["accountName"],
-       ConfigurationManager.AppSettings["accountKey"]);
+    CloudConfigurationManager.GetSetting("accountName"),
+    CloudConfigurationManager.GetSetting("accountKey");
 CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
 CloudBlobClient client = account.CreateCloudBlobClient();
-CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
 contain.CreateIfNotExists();
 
 // The Resolver object is used to interact with Key Vault for Azure Storage.
@@ -155,8 +158,9 @@ Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같�
 ```csharp
 // Retrieve the key that you created previously.
 // The IKey that is returned here is an RsaKey.
-// Remember that we used the names contosokeyvault and testrsakey1.
-var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+var rsa = cloudResolver.ResolveKeyAsync(
+            "https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", 
+            CancellationToken.None).GetAwaiter().GetResult();
 
 // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
@@ -166,14 +170,12 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
 // Upload using the UploadFromStream method.
-using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 > [!NOTE]
 > BlobEncryptionPolicy 생성자를 살펴보면 키 및/또는 해결 프로그램을 사용할 수 있다는 것을 알 수 있습니다. 현재 해결 프로그램은 기본 키를 지원하지 않기 때문에 암호화에 사용할 수 없다는 데 유의해야 합니다.
-> 
-> 
 
 ## <a name="decrypt-blob-and-download"></a>Blob 암호 해독 및 다운로드
 
@@ -195,8 +197,6 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 > [!NOTE]
 > 키 관리를 더 쉽게 해 주는 다른 종류의 두 확인 프로그램 AggregateKeyResolver 및 CachingKeyResolver가 있습니다.
-> 
-> 
 
 ## <a name="use-key-vault-secrets"></a>키 자격 증명 모음 암호 사용
 

@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076107"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788706"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure의 Red Hat OpenShift 리소스
 
@@ -21,19 +21,9 @@ ms.locfileid: "65076107"
 
 ## <a name="azure-regions"></a>Azure 지역
 
-전 세계 Azure 지역에 Azure Red Hat OpenShift 클러스터를 배포할 수 있습니다.
+참조 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) Azure Red Hat OpenShift를 배포할 수 있는 지역 목록은 현재 클러스터.
 
-|지역|CLI 코드|
-|-|-|
-|🇦🇺 오스트레일리아 동부|`australiaeast`|
-|🇨🇦 캐나다 중부|`canadacentral`|
-|🇨🇦 캐나다 동부|`canadaeast`|
-|🇺🇸 미국 동부|`eastus`|
-|🇺🇸 미국 서 부|`westus`|
-|🇪🇺 유럽 서 부|`westeurope`|
-|🇪🇺 북유럽|`northeurope`|
-
-## <a name="virtual-machine-sizes"></a>가상 머신 크기
+## <a name="virtual-machine-sizes"></a>가상 컴퓨터 크기
 
 Azure Red Hat OpenShift 클러스터의 계산 노드에 대해 지정할 수 있습니다 하는 지원 되는 가상 컴퓨터 크기는 다음과 같습니다.
 

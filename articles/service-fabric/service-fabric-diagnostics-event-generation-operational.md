@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393042"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788607"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 이벤트 목록 
 
@@ -103,6 +103,40 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | EventId | name | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | 파티션 재구성이 완료되었습니다. | RA | 정보 제공 | 
+
+## <a name="replica-events"></a>복제본 이벤트
+
+**복제본 수명 주기 이벤트**
+
+| EventId | name | Category | 설명 |원본(태스크) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | 신뢰할 수 있는 사전을 열었습니다. | DistributedDictionary | 정보 제공 |
+| 61702 | ReliableDictionaryClosed | LifeCycle | 신뢰할 수 있는 사전을 닫았습니다. | DistributedDictionary | 정보 제공 |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | 신뢰할 수 있는 사전에 해당 검사점을 복구 | DistributedDictionary | 정보 제공 |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | 복제본에 신뢰할 수 있는 사전 검사점 파일을 전송 | DistributedDictionary | 정보 제공 |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | 복제본에 신뢰할 수 있는 사전 검사점 파일을 받은 | DistributedDictionary | 정보 제공 |
+| 61963 | ReliableQueueOpened | LifeCycle | 신뢰할 수 있는 큐를 열었습니다. | DistributedQueue | 정보 제공 |
+| 61964 | ReliableQueueClosed | LifeCycle | 신뢰할 수 있는 큐를 닫았습니다. | DistributedQueue | 정보 제공 |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | 신뢰할 수 있는 큐가 해당 검사점 복원 | DistributedQueue | 정보 제공 |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | 복제본에 신뢰할 수 있는 큐의 검사점 파일을 전송 | DistributedQueue | 정보 제공 |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | 복제본에 신뢰할 수 있는 큐의 검사점 파일을 받은 | DistributedQueue | 정보 제공 |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | 신뢰할 수 있는 동시 큐를 열었습니다. | ReliableConcurrentQueue | 정보 제공 |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | 신뢰할 수 있는 동시 큐를 닫았습니다. | ReliableConcurrentQueue | 정보 제공 |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | 신뢰할 수 있는 동시 큐는 해당 검사점을 복구 했습니다. | ReliableConcurrentQueue | 정보 제공 |
+| 61687 | TStoreError | 실패 | 신뢰할 수 있는 컬렉션 예기치 않은 오류를 받았습니다. | TStore | 오류 |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | 주 복제본에서 전체 복사를 시작 했습니다. | TReplicator | 정보 제공 |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | 주 복제본 부분 복사본을 시작 했습니다. | TReplicator | 정보 제공 |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | 주 복제본 유휴 복제본 작성을 시작 했습니다. | 복제 | 정보 제공 |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | 주 복제본을 유휴 복제본 빌드 완료 | 복제 | 정보 제공 |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | 주 복제본이 유휴 복제본 빌드 실패 | 복제 | Warning |
+| 16834 | PrimaryReplicationQueueFull | 상태 | 주 복제본의 복제 큐가 꽉 참 | 복제 | Warning |
+| 16835 | PrimaryReplicationQueueWarning | 상태 | 주 복제본의 복제 큐 전체 근처가 | 복제 | Warning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | 상태 | 주 복제본의 복제 큐 임을 | 복제 | 정보 제공 |
+| 16837 | SecondaryReplicationQueueFull | 상태 | 보조 복제본의 복제 큐가 꽉 참 | 복제 | Warning |
+| 16838 | SecondaryReplicationQueueWarning | 상태 | 보조 복제본의 복제 큐 전체 근처가 | 복제 | Warning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | 상태 | 보조 복제본의 복제 큐 임을 | 복제 | 정보 제공 |
+| 16840 | PrimaryFaultedSlowSecondary | 상태 | 주 복제본에 느린 보조 복제본으로 오류가 발생 했습니다. | 복제 | Warning |
+| 16841 | ReplicatorFaulted | 상태 | 복제본에 오류가 발생 했습니다. | 복제 | Warning |
 
 ## <a name="container-events"></a>컨테이너 이벤트
 

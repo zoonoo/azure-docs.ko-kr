@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346807"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606750"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -181,7 +181,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -192,9 +192,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 클라이언트 디바이스 |
 | ScreenResolution |   |
 | Continent | 요청이 시작된 대륙 |
-| 국가 | 요청이 시작된 국가 |
-| Province | 요청이 시작된 시/도 또는 로캘 |
-| 도시 | 요청이 시작된 구/군/시 또는 동/면 |
+| 국가 | 요청이 시작 된 국가/지역 |
+| 시/도 | 요청이 시작된 시/도 또는 로캘 |
+| City | 요청이 시작된 구/군/시 또는 동/면 |
 | isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. 사용자가 생성한 경우 True, 자동화된 방법인 경우 False입니다. |
 | SamplingRate | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | SampledCount | 100/(SamplingRate)입니다. 예를 들어 4 =&gt; 25%입니다. |
@@ -249,7 +249,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Type | ApplicationInsights |
 | TelemetryType | 요청 |

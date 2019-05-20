@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925910"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519664"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -46,7 +46,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 1. Azure Portal 맨 위에 있는 검색 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 **가상 네트워크**가 표시되면 이를 선택합니다. 클래식 배포 모델을 통해 배포된 가상 네트워크에서는 피어링을 만들 수 없으므로 **가상 네트워크(클래식)** 가 목록에 나타나더라도 선택하지 않습니다.
 2. 목록에서 피어링을 만들 가상 네트워크를 선택합니다.
 3. **설정**에서 **피어링**을 선택합니다.
-4. **+추가**를 선택합니다. 
+4. 선택 **+ 추가**합니다. 
 5. <a name="add-peering"></a>다음 설정에 대한 값을 입력하거나 선택합니다.
     - **이름:** 피어링의 이름은 가상 네트워크 내에서 고유해야 합니다.
     - **가상 네트워크 배포 모델:** 피어링하려는 가상 네트워크를 배포한 배포 모델을 선택합니다.
@@ -84,7 +84,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 5. 해당 설정을 변경합니다. 각 설정에 대 한 옵션에 대해 읽어보세요 [5 단계](#add-peering) 피어 링 만들기.
 6. **저장**을 선택합니다.
 
-**명령**
+**도구**
 
 - **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering): 가상 네트워크에 대한 피어링을 나열함, [az network vnet peering show](/cli/azure/network/vnet/peering): 특정 피어링에 대한 설정을 표시함, [az network vnet peering update](/cli/azure/network/vnet/peering): 피어링 설정을 변경함
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) 피어 링 설정을 검색 하 고 [집합 AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) 설정을 변경 하려면.
@@ -103,7 +103,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 4. 삭제할 피어링의 오른쪽에서 **...**, **삭제**, **예**를 차례로 선택하여 첫 번째 가상 네트워크에서 피어링을 삭제합니다.
 5. 이전 단계를 완료하여 피어링의 다른 가상 네트워크에서 피어링을 삭제합니다.
 
-**명령**
+**도구**
 
 - **Azure CLI**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)
@@ -146,7 +146,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | 가상 네트워크 B(클래식)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | 가상 네트워크 B(클래식)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | 가상 네트워크 피어링 읽기   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | 가상 네트워크 피어링 삭제 |
 
