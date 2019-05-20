@@ -51,7 +51,7 @@ Drupal 및 Django와 같은 데이터베이스 서비스용 PostgreSQL을 사용
 PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하는 데 필요한 인증서는 [여기](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에 있습니다. 인증서 파일을 로컬로 다운로드합니다.
 
 ### <a name="install-a-cert-decoder-on-your-machine"></a>인증서 디코더를 컴퓨터에 설치 
-데이터베이스 서버로 안전하게 연결할 응용 프로그램에 필요한 인증서 파일을 디코딩하기 위해 [OpenSSL](https://github.com/openssl/openssl) 사용할 수 있습니다. OpenSSL을 설치 하는 방법에 알아보려면 참조를 [OpenSSL 설치 지침](https://github.com/openssl/openssl/blob/master/INSTALL)을 확인합니다. 
+데이터베이스 서버로 안전하게 연결할 응용 프로그램에 필요한 인증서 파일을 디코딩하기 위해 [OpenSSL](https://github.com/openssl/openssl)을 사용할 수 있습니다. OpenSSL을 설치하는 방법에 대해 알아보려면 [OpenSSL 설치 지침](https://github.com/openssl/openssl/blob/master/INSTALL)을 확인합니다. 
 
 
 ### <a name="decode-your-certificate-file"></a>인증서 파일 디코딩
