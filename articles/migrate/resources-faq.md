@@ -112,7 +112,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>분석되는 ESXi 호스트 환경의 성능에 대한 영향
 
-프로 파일링 성능 데이터를 지속적으로 사용하기 위해서 vCenter Server 통계 수준을 성능 기반 평가 실행 하도록 변경할 필요가 없습니다. 수집기 어플라이언스에서는 가상 컴퓨터의 성능 데이터를 측정하기 위해 온-프레미스 컴퓨터를 프로 파일링 합니다. 그러므로 ESXi 호스트와 vCenter Server의 성능에 대한 영향은 거의 없습니다.
+성능 데이터를 지속적으로 프로파일링하면 성능 기반 평가를 실행하기 위해 vCenter Server 통계 수준을 변경할 필요가 없습니다. 수집기 어플라이언스는 온-프레미스 컴퓨터를 프로파일링하여 가상 시스템의 성능 데이터를 측정합니다. 이는 vCenter Server뿐 아니라 ESXi 호스트에도 거의 영향을 미치지 않습니다.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>수집된 데이터는 어디에 저장되며 저장 기간은 얼마나 되나요?
 
@@ -126,13 +126,13 @@ Azure Migrate로 전송되는 데이터 볼륨은 여러 매개 변수에 따라
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
-예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 나머지는 암호화됩니다.
+예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 시 암호화됩니다.
 
-종속성 에이전트에서 수집된 데이터도 전송 중에 암호화(보안 https 채널)되며, 사용자의 구독에서 Log Analytics 작업 영역에 저장됩니다. 또한 나머지는 암호화됩니다.
+종속성 에이전트에서 수집된 데이터도 전송 중에 암호화(보안 https 채널)되며, 사용자의 구독에서 Log Analytics 작업 영역에 저장됩니다. 또한 미사용 시 암호화됩니다.
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>수집기가 vCenter Server 및 Azure Migrate 서비스와 통신하는 방법은 어떻게 되나요?
 
-수집기 어플라이언스는 어플라이언스의 사용자가 제공한 자격 증명을 사용하여 vCenter Server(포트 443)에 연결합니다. vCenter Server에서 관리되는 VM에 대한 메타데이터를 수집하도록 VMware PowerCLI를 사용하여 vCenter Server를 쿼리합니다. vCenter Server에서 지난 한 달 동안의 각 VM에 대한 성능 기록뿐 아니라 VM에 대한 두가지 구성 데이터(코어, 메모리, 디스크, NIC 등)를 수집합니다. 그런 다음, 평가를 위해 수집된 메타데이터가 Azure Migrate 서비스로 전송됩니다(https를 통해 인터넷으로). [자세히 알아보기](concepts-collector.md)
+수집기 어플라이언스는 어플라이언스의 사용자가 제공한 자격 증명을 사용하여 vCenter Server(포트 443)에 연결합니다. vCenter Server에서 관리되는 VM에 대한 메타데이터를 수집하도록 VMware PowerCLI를 사용하여 vCenter Server를 쿼리합니다. vCenter Server에서 지난 한 달 동안의 각 VM에 대한 성능 기록 뿐만 아니라 VM에 대한 두 가지 구성 데이터(코어, 메모리, 디스크, NIC 등)를 수집합니다. 그런 다음, 평가를 위해 수집된 메타데이터는 Azure Migrate 서비스로 전송됩니다(https를 통해 인터넷으로). [자세히 알아보기](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>여러 vCenter 서버에 동일한 수집기 어플라이언스를 연결할 수 있나요?
 
