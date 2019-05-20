@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399439"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596007"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -57,7 +57,7 @@ ms.locfileid: "60399439"
 
 * Maven 3.  <br/> [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)에서는 Windows 또는 Linux에 이 자습서를 위해 [Maven](https://maven.apache.org/what-is-maven.html)을 설치하는 방법을 설명합니다.
 
-* [Node.js 버전 0.10.0 이상](https://nodejs.org)
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

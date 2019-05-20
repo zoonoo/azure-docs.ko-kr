@@ -3,8 +3,8 @@ title: Microsoft id 플랫폼과 통합 | Azure
 description: Microsoft id 플랫폼 (v2.0)를 사용 하 여 통합 하는 경우 모범 사례 및 프로젝트의 일반적인 문제점에 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076407"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823340"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft identity 플랫폼 통합 검사 목록
 
@@ -31,13 +31,13 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 
 ## <a name="testing-your-integration"></a>통합 테스트
 
-다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/legal/mdsa)합니다.
+다음 검사 목록을 사용 하 여 응용 프로그램 효과적으로 통합 되어 있는지 확인 합니다 [Microsoft id 플랫폼](https://docs.microsoft.com/azure/active-directory/develop/)합니다.
 
 ### <a name="basics"></a>기본 사항
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://docs.microsoft.com/legal/mdsa)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 읽고 이해 해야 합니다 [Microsoft 플랫폼 정책을](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)합니다. 응용 프로그램 사용자 및 플랫폼을 보호 하기 위해 설계 되는 조건에 부합 하는지 확인 합니다. |
 
 ### <a name="ownership"></a>소유권
 
@@ -52,7 +52,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 준수 하는 [응용 프로그램에 대 한 지침을 브랜딩](howto-add-branding-in-azure-ad-apps.md)합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 응용 프로그램의 동의 확인 프롬프트에서이 정보가 표시 됩니다. 사용자 이름 및 로고는 회사/제품의 담당자는 사용자가 합리적인된 의사 결정을 내릴 수 있도록 해야 합니다. 모든 상표를 위반 하지 하는 것을 확인 합니다. |
 
-### <a name="privacy"></a>개인 정보 보호
+### <a name="privacy"></a>개인정보취급방침
 
 |   |   |
 |---|---|
@@ -89,7 +89,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 전체 관리자 권한을 부여할 수 있습니다 동의 쉽게 테 넌 트에 있도록 앱에 필요한 사용 권한 집합을 등록 합니다. 사용 하 여 [증분 동의](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) 이유를 이해 하는 데 도움이 되는 런타임 시 앱을 처리할 수도 있고 사용자의 첫 번째 요청 시 혼동 하는 사용 권한을 요청 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 구현 된 [single sign-out 환경을 정리](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)합니다. 개인정보 취급 방침 및 보안 요구 되며 효율적인 사용자 환경을 만듭니다. |
 
-### <a name="testing"></a>테스트
+### <a name="testing"></a>테스트하는 중
 
 |   |   |
 |---|---|

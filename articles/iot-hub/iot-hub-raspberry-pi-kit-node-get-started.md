@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61453603"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597264"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -199,10 +199,10 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    node -v
    ```
 
-   버전이 4.x보다 낮거나 Pi에 Node.js가없는 경우 최신 버전을 설치합니다.
+   버전이 10.x 보다 낮은, Node.js가 없는 Pi에서 최신 버전을 설치 합니다.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -230,7 +230,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    nano config.json
    ```
 
-   ![Config 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![구성 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    이 파일에는 사용자가 구성할 수 있는 두 개 항목이 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `interval`입니다. 두 번째는 시뮬레이트된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 

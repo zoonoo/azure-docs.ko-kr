@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262347"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788665"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -172,7 +172,7 @@ JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
 시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
 retry | 최대 다시 시도 횟수 | 정수  | 아니요. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  | 아니요. 기본값은 20초
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  | 아니요. 기본값은 30초입니다.
 secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | BOOLEAN | 아니요. 기본값은 false입니다.
 
 ### <a name="control-activity"></a>제어 작업

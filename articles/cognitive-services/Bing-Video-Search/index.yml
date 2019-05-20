@@ -5,15 +5,15 @@ metadata:
   title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
   description: Bing Video Search API 검색을 사용하고 웹에서 비디오를 찾는 방법을 알아봅니다.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: Bing Video Search API를 사용하면 애플리케이션에서 Bing의 비디오 검색 기능을 통합할 수 있습니다. API에 검색 쿼리를 보내면 bing.com/videos와 비슷한 관련 고품질 비디오를 가져오고 표시할 수 있습니다.
 sections:

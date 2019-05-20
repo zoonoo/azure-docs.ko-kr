@@ -27,9 +27,14 @@
         - name: '기능: 작업 및 컨텍스트'
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 보상
+          href: concept-rewards.md
+          displayName: 'reward, wait time, default reward'
         - name: 보충 학습
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
+        - name: 탐색
+          href: concepts-exploration.md
     - name: 분석
       items:
         - name: 오프라인 평가
@@ -44,14 +49,6 @@
       items:
         - name: 오프라인 평가
           href: how-to-offline-evaluation.md
-    - name: 컨테이너 사용
-      items:
-        - name: 컨테이너 설치 및 실행
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
-          href: personalizer-container-howto.md
-        - name: 컨테이너 구성
-          href: personalizer-container-configuration.md
-          displayName: 'docker, run, apikey'
 - name: 참고 자료
   items:
     - name: 샘플

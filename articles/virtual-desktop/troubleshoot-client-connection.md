@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928049"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522936"
 ---
 # <a name="remote-desktop-client-connections"></a>원격 데스크톱 클라이언트 연결
 
@@ -108,22 +108,21 @@ Windows 7 및 Windows 10에 대 한 원격 데스크톱 클라이언트를 제�
 1. 사용자 이름 및 문제가 발생 하는 시간을 확인 합니다.
 2. 오픈 **PowerShell** 문제가 보고 된 위치는 Windows 가상 데스크톱 테 넌 트에 연결 하 고 있습니다.
 3. 사용 하 여 올바른 테 넌 트 연결 확인 **Get RdsTenant 합니다.**
-4. 필요한 경우 테 넌 트와 그룹 컨텍스트를 설정 **집합 RdsContext – TenantGroupt\<TenantGroup\>** 합니다.
-5. 사용 하 여 **Get RdsHostPool** 하 고 **Get RdsSessionHost** cmdlet는 문제 해결에서 수행 되는 올바른 호스트 풀을 확인 합니다.
-6. 지정 된 기간에 대 한 형식 연결의 모든 실패 한 작업 목록을 가져오려면 다음 명령을 실행 합니다.
+4. 사용 하 여 **Get RdsHostPool** 하 고 **Get RdsSessionHost** cmdlet는 문제 해결에서 수행 되는 올바른 호스트 풀을 확인 합니다.
+5. 지정 된 기간에 대 한 형식 연결의 모든 실패 한 작업 목록을 가져오려면 다음 명령을 실행 합니다.
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. 사용 하는 **ActivityId** 이전 cmdlet 출력에서 아래 명령을 실행 합니다.
+6. 사용 하는 **ActivityId** 이전 cmdlet 출력에서 아래 명령을 실행 합니다.
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. 명령은 아래에 표시 된 출력과 비슷한 출력을 생성 합니다. 사용 하 여 **ErrorCodeSymbolic** 하 고 **ErrorMessage** 근본 원인을 해결 합니다.
+7. 명령은 아래에 표시 된 출력과 비슷한 출력을 생성 합니다. 사용 하 여 **ErrorCodeSymbolic** 하 고 **ErrorMessage** 근본 원인을 해결 합니다.
 
     ```
     ErrorSource       : <Source>

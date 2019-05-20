@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 9f52d1b949310792ffedc6e4723fbfb423fb5dfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928499"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523322"
 ---
-# <a name="tenant-and-host-pool-creation"></a>테 넌 트 및 호스트 풀 만들기
+# <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트와 관련 된 세션 호스트 풀 인프라의 초기 설치 중 문제를 다룹니다.
 
@@ -300,7 +300,6 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-Set-RdsContext -Name <Windows Virtual Desktop tenant group name>
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 
@@ -320,7 +319,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 Azure Marketplace 제품을 실행 하는 경우 다음 매개 변수를 Windows 가상 데스크톱에 올바르게 인증에 대 한 값을 제공 합니다.
 
-- Windows 가상 데스크톱 RDS 소유자에 테 넌 트: 서비스 주체
+- Windows 가상 데스크톱 RDS 소유자에 테 넌 트: 서비스 사용자
 - 애플리케이션 ID: 만든 새 서비스 주체의 응용 프로그램 id
 - 암호/암호 확인: 서비스 주체에 대 한 생성 된 암호
 - Azure AD 테 넌 트 ID: 사용자가 만든 서비스 사용자의 Azure AD 테 넌 트 ID

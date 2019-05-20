@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472447"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761903"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
-Azure Media Services를 사용 하면 다양 한 브라우저 및 장치에서 콘텐츠를 재생할 수 있도록 고품질 디지털 미디어 파일을 적응 비트 전송률 MP4 파일로 인코딩할 수 있습니다. Media Services 인코딩 작업을 성공적으로 만들고 출력 자산을 적응 비트 전송률 mp4 및 스트리밍 구성 파일의 집합입니다. 구성 파일에는.ism,.ismc,.mpi, 및 기타 파일을 수정 하면 안을 포함 됩니다. 인코딩 작업이 완료 되 면 있습니다 활용할 수 있습니다 [동적 패키징](dynamic-packaging-overview.md) 스트리밍을 시작 하 고 있습니다.
+디지털 비디오 및/또는 다른 파일의 크기를 줄이면 하는 (a) 및/또는 (b)와 호환 되는 형식을 생성 하기 위한 목적으로 하나의 표준 형식에서 오디오를 포함 하는 파일을 변환 하는 프로세스를 적용할 Media Services의 encoding 용어는 다양 한 장치 및 응용 프로그램입니다. 이 프로세스는 비디오 압축 또는 트랜스 코딩 라고도 합니다. 참조를 [데이터 압축](https://en.wikipedia.org/wiki/Data_compression) 하며 [인코딩 및 트랜스 코딩 란?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) 개념에 대 한 자세한 내용은 합니다.
 
-출력에 비디오를 확인 하려면 재생에 대 한 클라이언트에서 사용할 자산을 생성 해야는 **스트리밍 로케이터** 스트리밍 Url 작성 및 합니다. 그런 다음 매니페스트에 지정된 된 형식에 따라 클라이언트 스트림을 받을 선택 된 프로토콜입니다.
+비디오 장치 및 응용 프로그램에 일반적으로 전달할지 [점진적 다운로드](https://en.wikipedia.org/wiki/Progressive_download) 를 통해 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)합니다. 
 
-다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
+* 점진적 다운로드를 통해 전달할 변환할 Azure Media Services를 사용할 수는 디지털 미디어 파일 (mezzanine)에 [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) 사용 하 여 인코딩된 비디오를 포함 하는 파일을 [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) 코덱, 및 사용 하 여 인코딩된 오디오 합니다 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) 코덱 합니다. 이 MP4 파일 자산 저장소 계정에 기록 됩니다. Azure Storage Api 또는 Sdk를 사용할 수 있습니다 (예를 들어 [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 파일을 직접 다운로드. 출력을 만들 경우 해당 위치를 사용 하는 저장소에서 관련 컨테이너 이름의 자산입니다. 그렇지 않은 경우 Media Services를 사용할 수 있습니다 [자산 컨테이너 Url을 나열할](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)합니다. 
+* 콘텐츠 배달에 대 한 적응 비트 전송률 스트리밍을 통해를 준비 하려면 mezzanine 파일 (높음-낮음) 여러 전송률로 인코딩할 수 해야 합니다. 비트 전송률을 줄일 수으로 품질의 정상적인 전환 되도록 따라서 비디오의 해상도가입니다. 소위 인코딩 사다리 – 해상도 및 비트 전송률의 테이블에에서이 인해 (참조 [자동으로 생성 된 적응 비트 전송률 사다리](autogen-bitrate-ladder.md)). Media Services를 사용 하 여이 과정에서 – 여러 전송률로 mezzanine 파일을, 저장소 계정에 자산을 쓸 스트리밍 관련된 구성 파일, 및 MP4 파일 집합을 얻게 됩니다. 사용할 수 있습니다는 [동적 패키징](dynamic-packaging-overview.md) 같은 스트리밍 프로토콜을 통해 비디오를 배달 하는 Media Services의 기능 [MPEG DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) 하 고 [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)합니다. 작성 해야이 [스트리밍 로케이터](streaming-locators-concept.md) 빌드하고 스트리밍 Url을 다음 전달 될 수 있습니다 해제 장치/응용 프로그램의 기능을 기반으로 하는 지원 되는 프로토콜에 해당 합니다.
 
-![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+다음 다이어그램에서는 주문형으로 동적 패키징과 인코딩 워크플로 보여 줍니다.
+
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 이 항목에서는 Media Services v3을 사용하여 콘텐츠를 인코딩하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="transforms-and-jobs"></a>변환 및 작업
 
-Media Services v3을 사용하여 인코딩하려면 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 만들어야 합니다. 변환은 인코딩 설정 및 출력에 대한 방법을 정의하며 작업은 방법의 인스턴스입니다. 자세한 내용은 [Transform 및 Job](transforms-jobs-concept.md)을 참조하세요.
+Media Services v3을 사용하여 인코딩하려면 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 만들어야 합니다. 인코딩 설정 및 출력;에 대 한는 레시피를 정의 하는 변환 작업에는 레시피의 인스턴스입니다. 자세한 내용은 [Transform 및 Job](transforms-jobs-concept.md)을 참조하세요.
 
 Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하여 입력 미디어 파일을 처리하는 방법을 인코더에 알려줍니다. 예를 들어 인코딩된 콘텐츠에서 원하는 비디오 해상도 및/또는 오디오 채널 수를 지정할 수 있습니다. 
 

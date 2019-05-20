@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205593"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595563"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅숏
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅숏을 수집할 수 있습니다. 스냅숏은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 스냅숏 디버거(미리 보기)는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅숏을 수집합니다. [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 애플리케이션에 포함하고 필요에 따라, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅숏은 Application Insights 포털의 [예외](../../azure-monitor/app/asp-net-exceptions.md)에 표시됩니다.
 
-포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드가 있는 좀 더 강력한 디버깅 환경을 구현하려면 Visual Studio 2017 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅숏을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
+포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드를 사용 하 여 더 강력한 디버깅 환경을 구현 하려면, Visual Studio 2019 Enterprise 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅숏을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
 
 디버그 스냅숏은 7일 동안 저장됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
@@ -81,9 +81,9 @@ ms.locfileid: "65205593"
 중요한 정보가 스냅숏에 포함될 수 있으며 기본적으로 표시되지 않습니다. 스냅숏을 보려면 `Application Insights Snapshot Debugger` 역할이 할당되어 있어야 합니다.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visual Studio 2017 Enterprise 이상을 스냅숏 보기
-1. **스냅숏 다운로드** 단추를 클릭하여 Visual Studio 2017 Enterprise에서 열 수 있는 `.diagsession` 파일을 다운로드합니다.
+1. 클릭 합니다 **스냅숏 다운로드** 다운로드 하려면 단추를 `.diagsession` 파일을 Visual Studio Enterprise에서 열 수 있습니다.
 
-2. `.diagsession` 파일을 열려면 스냅숏 디버거 VS 구성 요소를 설치해야 합니다. 스냅숏 디버거 구성 요소는 VS에서 ASP.net 워크로드의 필수 구성 요소이며 VS 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. 15.5 이전 버전 Visual Studio 2017을 사용 하는 경우에서 확장을 설치 해야 합니다는 [VS marketplace](https://aka.ms/snapshotdebugger)합니다.
+2. 여는 `.diagsession` 스냅숏 디버거 Visual Studio 구성 요소가 설치 해야 하는 파일입니다. 스냅숏 디버거 구성 요소에는 Visual Studio에서 ASP.net 워크 로드의 필수 구성 요소 이며 Visual Studio 설치 관리자에서 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전의 Visual Studio의 버전을 사용 하는 경우에서 확장을 설치 해야 합니다는 [Visual Studio Marketplace](https://aka.ms/snapshotdebugger)합니다.
 
 3. 스냅숏 파일을 연 후에 Visual Studio에서 미니덤프 디버깅 페이지가 표시됩니다. **관리 코드 디버그**를 클릭하여 스냅숏을 디버깅하기 시작합니다. 예외가 throw되는 코드 줄에 스냅숏이 열리고 프로세스의 현재 상태를 디버그할 수 있습니다.
 

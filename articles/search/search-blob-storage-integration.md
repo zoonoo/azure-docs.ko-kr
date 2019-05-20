@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127590"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540880"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search로 Blob Storage 검색
 
@@ -38,7 +38,7 @@ Azure Blob Storage에서 [문서 추출 ](https://aka.ms/azsblobindexer)을 지�
 ## <a name="image-search"></a>이미지 검색
 Azure Search의 전체 텍스트 검색, 패싯 탐색 및 정렬 기능을 이제 Blob에 저장된 이미지의 메타데이터에 적용할 수 있습니다.
 
-Cognitive Search와 같은 이미지 처리 기술에 포함 [광학 문자 인식 (OCR)](cognitive-search-skill-ocr.md) 식별 [시각적 기능](cognitive-search-skill-image-analysis.md) 시각적 콘텐츠에 인덱스를 각각에서 찾을 수 있게 하는 이미지입니다.
+Cognitive search와 같은 이미지 처리 기술에 포함 [광학 문자 인식 (OCR)](cognitive-search-skill-ocr.md) 식별 [시각적 기능](cognitive-search-skill-image-analysis.md) 시각적 콘텐츠에 인덱스를 각각에서 찾을 수 있게 하는 이미지입니다.
 
 ## <a name="index-and-search-through-json-blobs"></a>JSON Blob을 통해 인덱스 만들기 및 검색
 JSON이 포함된 Blob에 있는 구조화된 콘텐츠를 추출하도록 Azure Search를 구성할 수 있습니다. Azure Search는 JSON Blob을 읽고, 구조화된 콘텐츠를 Azure Search 문서의 적절한 필드로 구문 분석합니다. Azure Search는 또한 JSON 개체의 배열을 포함하는 Blob을 처리하고 각 요소를 개별 Azure Search 문서에 매핑할 수 있습니다.

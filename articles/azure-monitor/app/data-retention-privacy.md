@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204881"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518836"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -86,6 +86,9 @@ Visual Studio를 사용하여 앱을 개발하는 경우 디버그(F5) 모드에
 원시 데이터 요소(즉, Analytics에서 쿼리하고 Search에서 검사할 수 있는 항목)는 최대 90일 동안 보관됩니다. 이보다 더 오래 데이터를 보존해야 하는 경우 [연속 내보내기](../../azure-monitor/app/export-telemetry.md) 를 사용하여 해당 데이터를 저장소 계정에 복사할 수 있습니다.
 
 집계 데이터(즉, 메트릭 탐색기에 표시되는 개수, 평균 및 기타 통계 데이터)는 90일 동안 1분 단위로 보존됩니다.
+
+> [!NOTE]
+> Application Insights에 대 한 변수 보존 이제 미리 보기입니다. [여기](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031)를 참조하세요. 
 
 [디버그 스냅숏](../../azure-monitor/app/snapshot-debugger.md) 15 일 동안 저장 됩니다. 이 보존 정책은 응용 프로그램 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 

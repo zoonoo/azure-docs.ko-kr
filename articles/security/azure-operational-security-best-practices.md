@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409839"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795900"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 데이터, 응용 프로그램 및 Azure에서 다른 자산을 보호 하기 위한 작업 모범 사례 집합을 제공 합니다.
@@ -144,7 +144,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **모범 사례**: 서비스 빌드 및 배포를 자동화합니다.  
 **세부 정보**: [IaaC(Infrastructure as code)](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)는 IT 전문가가 일상적으로 수행하는 모듈식 인프라 빌드 및 관리 작업 부담을 없애 주는 기술 및 구성 요소 세트입니다. IT 전문가는 IaaC를 통해 소프트웨어 개발자가 애플리케이션 코드를 작성하고 유지 관리하는 것과 유사한 방식으로 최신 서버 환경을 빌드하고 유지 관리할 수 있습니다.
 
-[Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계에서 애플리케이션을 반복 배포합니다.
+[Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속 항목과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계에서 애플리케이션을 반복 배포합니다.
 
 **모범 사례**: 자동으로 Azure 웹앱 또는 클라우드 서비스에 빌드 및 배포합니다.  
 **세부 정보**: Azure DevOps 프로젝트를 구성할 수 있습니다 [자동으로 빌드 및 배포](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) Azure 웹 앱 또는 클라우드 서비스입니다. Azure DevOps 모든 코드 체크 인 후에 Azure에 빌드한 뒤 이진 파일을 자동으로 배포 합니다. 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.
@@ -153,7 +153,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops)는 다단계 배포 자동화 및 릴리스 프로세스 관리를 위한 솔루션입니다. 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 릴리스합니다. Azure Pipelines를 통해 릴리스 프로세스를 자동화하고, 미리 정의된 승인 워크플로를 적용할 수 있습니다. 필요에 맞게 온-프레미스 및 클라우드에 배포하고 확장하며 사용자 지정합니다.
 
 **모범 사례**: 시작하거나 프로덕션 환경에 업데이트를 배포하기 전에 앱의 성능을 확인합니다.  
-**세부 정보**: 클라우드 기반 실행 [부하 테스트](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) 에:
+**세부 정보**: 클라우드 기반 실행 [부하 테스트](/azure/devops/test/load-test/overview#alternatives) 에:
 
 - 앱의 성능 문제를 찾습니다.
 - 배포 품질을 개선합니다.

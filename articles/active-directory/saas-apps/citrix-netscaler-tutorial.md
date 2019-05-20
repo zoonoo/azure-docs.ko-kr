@@ -1,5 +1,5 @@
 ---
-title: '자습서: Citrix Netscaler와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Citrix Netscaler와 Azure Active Directory 연결 | Microsoft Docs'
 description: Azure Active Directory 및 Citrix Netscaler 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -22,21 +22,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281678"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>자습서: Citrix Netscaler와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>자습서: Citrix Netscaler와 Azure Active Directory 연결
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Citrix Netscaler를 통합하는 방법에 대해 알아봅니다.
-Citrix Netscaler를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Citrix Netscaler를 연결하는 방법에 대해 알아봅니다.
+Citrix Netscaler를 Azure AD와 연결하면 다음과 같은 이점을 누릴 수 있습니다.
 
 * Azure AD에서 Citrix Netscaler에 액세스할 수 있는 사용자를 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Citrix Netscaler에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
+* 사용자가 Azure AD 계정으로 Citrix Netscaler에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Citrix Netscaler와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
+Citrix Netscaler와 Azure AD의 연결을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * Citrix Netscaler Single Sign-On을 사용하도록 설정된 구독
@@ -51,7 +51,7 @@ Citrix Netscaler와 Azure AD의 통합을 구성하려면 다음 항목이 필�
 
 ## <a name="adding-citrix-netscaler-from-the-gallery"></a>갤러리에서 Citrix Netscaler 추가
 
-Citrix Netscaler가 Azure AD에 통합되도록 구성하려면 갤러리의 Citrix Netscaler를 관리형 SaaS 앱 목록에 추가해야 합니다.
+Citrix Netscaler가 Azure AD에 연결되도록 구성하려면 갤러리의 Citrix Netscaler를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Citrix Netscaler를 추가하려면 다음 단계를 수행합니다.**
 

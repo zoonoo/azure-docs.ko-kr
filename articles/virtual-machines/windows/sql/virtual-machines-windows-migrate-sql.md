@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325701"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795787"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
 
 Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL Server로 마이그레이션하는 메서드가 많이 있습니다. 이 문서는 다양한 방법을 간략하게 설명하고 다양한 시나리오에 대해 가장 좋은 방법을 권장합니다.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 및 SQL Server 2008 R2에 근접 합니다 [지원 수명 주기 끝](https://www.microsoft.com/sql-server/sql-server-2008) 온-프레미스 인스턴스에 대 한 합니다. 지원을 확장 하려면 Azure VM에 SQL Server 인스턴스를 마이그레이션하 또는 온-프레미스를 유지 하는 확장 보안 업데이트를 구입 합니다. 자세한 내용은 참조 하세요. [SQL Server 2008 및 2008 R2에서 azure에 대 한 지원 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>기본 마이그레이션 메서드란?
 기본 마이그레이션 메서드는 다음과 같습니다.

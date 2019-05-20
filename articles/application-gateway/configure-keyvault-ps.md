@@ -1,34 +1,34 @@
 ---
-title: Azure PowerShell을 사용 하 여 Key Vault 인증서를 사용 하 여 SSL 종료를 구성 합니다.
-description: 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서에 대 한 Key Vault를 사용 하 여 Azure 응용 프로그램 게이트웨이 통합 하는 방법도 알아봅니다.
+title: Azure PowerShell을 사용 하 여 Key Vault 인증서를 사용 하 여 SSL 종료를 구성
+description: HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault를 사용 하 여 Azure Application Gateway를 통합 하는 방법도 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e011caa8c7a0c7383d16c81f4bff29d3c1c99f99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827623"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 Key Vault 인증서를 사용 하 여 SSL 종료를 구성 합니다.
+# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 Key Vault 인증서를 사용 하 여 SSL 종료를 구성
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) 플랫폼에서 관리 되는 암호 저장소가 비밀, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있습니다. Application Gateway는 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) 는 비밀, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼에서 관리 되는 암호를 저장 합니다. Azure Application Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
 
 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
 
-이 문서에서는 ssl 종료에 대 한 Application Gateway를 사용 하 여 Key Vault를 통합 하도록 Azure PowerShell 스크립트를 보여 줍니다.
+이 문서는 Azure PowerShell 스크립트를 사용 하 여 ssl 종료에 대 한 application gateway를 사용 하 여 key vault를 통합 하는 방법을 보여 줍니다.
+
+이 문서에서는 Azure PowerShell 모듈 버전 1.0.0 이상. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서의 명령을 실행 하려면 해야 실행 하 여 Azure를 사용 하 여 연결을 만들려는 `Connect-AzAccount`합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 문서에서는 명령 실행에 실행 해야 `Connect-AzAccount` Azure를 사용 하 여 연결을 만들려고 합니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
-시작 하기 전에 설치 ManagedServiceIdentity 모듈이 있어야 합니다.
+시작 하기 전에 ManagedServiceIdentity 모듈이 설치 되어 있어야 합니다.
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -47,7 +47,7 @@ $kv = "TestKeyVaultAppGw"
 $appgwName = "AppGwKVIntegration"
 ```
 
-### <a name="create-a-resource-group-and-a-user-managed-identity"></a>리소스 그룹을 만들고 관리 하는 사용자 id를
+### <a name="create-a-resource-group-and-a-user-managed-identity"></a>리소스 그룹 및 사용자 관리 id 만들기
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -55,7 +55,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-key-vault-policy-and-certificate-to-be-used-by-application-gateway"></a>Application Gateway에서 사용할 Key Vault, 정책 및 인증서 만들기
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>키 자격 증명 모음, 정책 및 응용 프로그램 게이트웨이에서 사용할 인증서를 만들려면
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -69,7 +69,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 
-### <a name="create-a-vnet"></a>VNet 만들기
+### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
 ```azurepowershell
 $sub1 = New-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -AddressPrefix "10.0.0.0/24"
@@ -78,14 +78,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-static-public-vip"></a>정적 공용 VIP 만들기
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>정적 공용 가상 IP (VIP) 주소 만들기
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-frontend-ports"></a>풀 및 프런트 엔드 포트 만들기
+### <a name="create-pool-and-front-end-ports"></a>풀 및 프런트 엔드 포트 만들기
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -98,7 +98,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-ssl-certificate-to-key-vault"></a>키 자격 증명 모음에 대 한 지점 ssl 인증서
+### <a name="point-the-ssl-certificate-to-your-key-vault"></a>키 자격 증명 모음에 SSL 인증서를 가리키도록
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -121,7 +121,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-user-managed-identity-to-the-application-gateway"></a>Application gateway를 관리 하는 사용자 id를 할당 합니다.
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Application gateway에 사용자 관리 id를 할당 합니다.
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -140,4 +140,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>다음 단계
 
-[SSL 종료에 자세히 알아보려면](ssl-overview.md)합니다.
+[SSL 종료에 대 한 자세한 정보](ssl-overview.md)

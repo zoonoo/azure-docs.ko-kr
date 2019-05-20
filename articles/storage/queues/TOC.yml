@@ -195,7 +195,7 @@
         - name: 'Blob, 큐, 테이블 및 파일'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: 데이터 이동
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+          href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: 리소스 관리자
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: 자바
@@ -257,21 +257,21 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: NuGet 패키지
       items:
-        - name: .NET용 Azure Storage 클라이언트 라이브러리
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
-        - name: Azure Storage 데이터 이동 라이브러리
+        - name: Azure Storage 공용 클라이언트 라이브러리
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Azure Queue 스토리지 클라이언트 라이브러리
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+        - name: Azure Storage 데이터 이동 클라이언트 라이브러리
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Azure 구성 관리자
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: 소스 코드
       items:
         - name: .NET
           items:
-            - name: 'Blob, 큐, 테이블 및 파일'
+            - name: 'Blob, 큐 및 파일'
               href: 'https://github.com/Azure/azure-storage-net'
-            - name: 데이터 이동
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: 리소스 공급자
+            - name: 스토리지 리소스 공급자
               href: 'https://github.com/Azure/azure-sdk-for-net'
         - name: Node.js
           href: 'https://azure.github.io/azure-storage-node/'

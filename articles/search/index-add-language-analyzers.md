@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121795"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790909"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 언어 분석기 추가
 
@@ -45,9 +45,6 @@ Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing
 + Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, Porter 형태소 분석 알고리즘에 따라 형태소 분석을 적용하며, 영어의 중지 단어를 제거합니다.  
 
 + Microsoft 영어 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 따라서 어형이 변화되고 불규칙한 단어 형태를 훨씬 잘 처리하여 보다 관련된 검색 결과를 제공할 수 있습니다. 
-
-  > [!Tip]
-  > [검색 분석기 데모](https://alice.unearth.ai/)에서는 표준 Lucene 분석기, Lucene 영어 분석기 및 Microsoft 영어 자연어 프로세서를 통해 생성된 결과를 나란히 비교합니다. 제공한 각 검색 입력의 경우 각 분석기의 결과가 인접한 창에 표시됩니다.
 
 ## <a name="configuring-analyzers"></a>분석기 구성
 
@@ -92,7 +89,7 @@ Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing
 |아일랜드어||ga.lucene|  
 |이탈리아어|it.microsoft|it.lucene|  
 |일본어|ja.microsoft|ja.lucene|  
-|칸나다어|kn.microsoft||  
+|카나다어|kn.microsoft||  
 |한국어|ko.microsoft|ko.lucene|  
 |라트비아어|lv.microsoft|lv.lucene|  
 |리투아니아어|lt.microsoft||  

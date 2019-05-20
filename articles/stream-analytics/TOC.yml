@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: 개념
   items:
+    - name: 스트리밍 분석 기술 선택
+      href: streaming-technologies.md
     - name: 작업에 대한 입력 형식
       items:
         - name: 입력 개요
@@ -147,7 +149,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: IoT Edge 작업용 API 사용
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio 및 VS Code
+    - name: Visual Studio
       items:
         - name: 도구 설치
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -163,8 +165,14 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: 에지용 .NET UDF 작성
           href: stream-analytics-edge-csharp-udf-methods.md
-        - name: VS Code로 Stream Analytics 탐색
-          href: vs-code-how-to.md
+    - name: Visual Studio Code
+      items:
+        - name: 샘플 데이터를 사용한 테스트
+          href: vscode-local-run.md
+        - name: CI/CD 파이프라인 설정
+          href: setup-cicd-vs-code.md
+        - name: 작업 탐색
+          href: vscode-explore-jobs.md
     - name: 문제 해결
       items:
         - name: 입력
@@ -175,6 +183,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: 활동 및 진단 로그
           href: stream-analytics-job-diagnostic-logs.md
+        - name: 데이터 오류
+          href: data-errors.md
     - name: 기계 학습과 통합
       items:
         - name: ML 모델을 사용하여 감정 분석

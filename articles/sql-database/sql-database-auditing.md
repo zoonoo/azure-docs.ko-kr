@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924753"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827763"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -110,10 +110,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 10. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 11. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
-
 > [!IMPORTANT]
->Azure SQL Data Warehouse 또는 Azure SQL Data Warehouse가 있는 서버에서 감사를 사용하도록 설정하면 이전에 일시 중지된 경우에도 **Data Warehouse가 다시 시작됩니다**. **감사를 사용하도록 설정한 후에 Data Warehouse를 일시 중지해야 합니다**.
+> 일시 중지 된 Azure SQL Data Warehouse에서 감사를 활성화 수는 없습니다. 사용 하도록 설정 하려면, 데이터 웨어하우스 취소-일시 중지 합니다.
 
+> [!WARNING]
+> 된 서버에 Azure SQL Data Warehouse에서 감사를 활성화 **다시 다시 일시 중지 및 다시 시작 되는 데이터 웨어하우스 하면** 는 요금이 청구에서 발생할 수 있습니다.
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 

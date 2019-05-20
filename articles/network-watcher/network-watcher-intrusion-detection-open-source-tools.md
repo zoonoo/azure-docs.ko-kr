@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730152"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605708"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -255,7 +255,7 @@ Logstash 설치에 대한 추가 정보는 [공식적인 설명서](https://www.
 
 샘플 대시보드는 Suricata 경고 로그에 대한 다양한 시각화를 제공합니다.
 
-1. GeoIP별 경고 – 지리적 위치에 따라 출처 국가별로 경고의 분포를 보여 주는 맵(IP로 확인)입니다.
+1. 지리적 위치 (IP에 따른)에 따라 원본 해당 국가/지역에 따라 경고의 분포를 보여 주는 맵 – GeoIP 별 경고
 
     ![지역 ip][3]
 

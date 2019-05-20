@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462388"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604450"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
 
@@ -56,7 +56,7 @@ ms.locfileid: "60462388"
 4. **새 지원 요청**에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보**에서 다음 단계를 수행합니다.
 
    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-   2. **연락처 정보**에서 이름, 이메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장**을 선택합니다.
+   2. 에 **연락처 정보**, 이름, 전자 메일, 선택적 연락처, 국가/지역을 제공 합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장**을 선택합니다.
    3. **만들기**를 클릭합니다.
    
        ![연락처 정보](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   

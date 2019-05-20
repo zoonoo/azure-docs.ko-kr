@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. 앱 액세스 관리
       href: manage-app-groups.md
+    - name: 5. 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
+      href: create-validation-host-pool.md
 - name: 방법
   items:
     - name: Windows Virtual Desktop 리소스에 연결
@@ -30,10 +32,10 @@
       href: create-host-pools-user-profile.md
     - name: Windows Virtual Desktop 부하 분산 방법 구성
       href: configure-host-pool-load-balancing.md
-    - name: 진단 기능을 사용하여 문제 식별
-      href: diagnostics-role-service.md
     - name: 마스터 VHD 이미지 준비 및 사용자 지정
       href: set-up-customize-master-image.md
+    - name: 마스터 VHD 이미지에 Office 설치
+      href: install-office-on-wvd-master-image.md
     - name: Windows Virtual Desktop용 GPU 구성
       href: configure-vm-gpu.md
     - name: 세션 호스트 자동 크기 조정
@@ -50,6 +52,8 @@
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
       href: troubleshoot-set-up-overview.md
+    - name: 진단 기능을 사용하여 문제 식별
+      href: diagnostics-role-service.md
     - name: 테넌트 및 호스트 풀 만들기
       href: troubleshoot-set-up-issues.md
     - name: 세션 호스트 가상 머신 구성

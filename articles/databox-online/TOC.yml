@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4 - 추가, 공유에 연결'
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - 계산 구성
+        - name: 5A - 컴퓨팅 구성(단순)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B - 컴퓨팅 구성(고급)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: 개념
       items:
         - name: 요구 사항 검토

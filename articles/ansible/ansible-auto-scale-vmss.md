@@ -1,47 +1,63 @@
 ---
-title: Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
-description: Azure에서 Ansible을 사용하여 자동 크기 조정으로 가상 머신 확장 집합의 크기를 조정하는 방법 알아보기
-ms.service: azure
+title: 자습서 - Azure에서 Ansible을 사용하여 가상 머신 확장 집합 자동 크기 조정 | Microsoft Docs
+description: Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 저장하는 방법 알아보기
 keywords: Ansible, Azure, DevOps, bash, 플레이북, 크기 조정, 자동 크기 조정, 가상 머신, 가상 머신 확장 집합, VMSS
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/10/2018
-ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 4f2cd66b7460fc6fe48cb55f45bf4bc309ae054c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792432"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231271"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Azure에서 Ansible을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합 자동 크기 조정
 
-확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 만들고 기존 가상 머신 확장 집합에 연결합니다. 자동 크기 조정 설정에서 원하는 대로 규모를 확장하고 감축하도록 규칙을 구성할 수 있습니다.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+VM 인스턴스 수를 자동으로 조정하는 기능을 [자동 크기 조정](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)이라고 합니다. 자동 크기 조정을 사용하면 애플리케이션의 성능을 모니터링하고 최적화하는 관리 오버헤드가 감소한다는 이점이 있습니다. 수요 또는 정의된 일정에 대응하는 자동 크기 조정을 구성할 수 있습니다. Ansible을 사용하면 납득할 수 있는 수준의 성능을 정의하는 규칙을 만들어서 긍정적인 고객 경험을 제공할 수 있습니다.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 자동 크기 조정 프로필 정의
+> * 되풀이 일정에 따라 자동 크기 조정
+> * 앱 성능에 따라 자동 크기 조정
+> * 자동 크기 조정 설정 정보 검색 
+> * 자동 크기 조정 설정 해제
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- 기존 Azure 가상 머신 확장 집합입니다. - 설치되지 않은 경우 [Ansible을 사용하여 Azure에서 가상 머신 확장 집합을 만듭니다](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
 
-> [!Note]
-> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
+[!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 
-## <a name="auto-scale-based-on-a-schedule"></a>일정에 따라 자동 크기 조정   
+## <a name="autoscale-based-on-a-schedule"></a>일정에 따라 자동 크기 조정
+
 확장 집합에서 자동 크기 조정을 활성화하려면 먼저 자동 크기 조정 프로필을 정의합니다. 이 프로필은 기본, 최소, 최대 확장 집합 용량을 정의합니다. 이러한 제한을 통해 연속적으로 VM 인스턴스를 만들지 않고 비용을 제어하고, 축소 이벤트에 유지되는 최소 인스턴스 수로 허용 가능한 성능의 균형을 유지할 수 있습니다. 
 
-되풀이 일정 또는 특정 날짜별로 Virtual Machine Scale Sets의 규모를 확장하고 감축할 수 있습니다. 이 섹션에서는 태평양 표준 시간대로 매주 월요일 오전 10시에 확장 집합에 있는 VM 인스턴스 수를 3으로 증가시키는 자동 크기 조정 설정을 만드는 샘플 Ansible 플레이북을 제공합니다. 
+Ansible을 사용하면 특정 날짜에 또는 되풀이 일정에 따라 확장 집합의 크기를 조정할 수 있습니다.
+
+이 섹션의 플레이북 코드는 월요일 10:00마다 VM 인스턴스 수를 3으로 늘립니다.
+
+다음 플레이북을 `vmss-auto-scale.yml`로 저장합니다.
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks: 
-    - name: Create auto scaling
+    - name: Create autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
@@ -65,23 +81,31 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
               - '10'
 ```
 
-이 플레이북을 *vmss-auto-scale.yml*로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
 ```
 
-## <a name="auto-scale-based-on-performance-data"></a>성능 데이터에 따라 자동 크기 조정
-애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
+## <a name="autoscale-based-on-performance-data"></a>성능 데이터에 따라 자동 크기 조정
 
-되풀이 일정 또는 특정 날짜별로 성능 메트릭 임계값에 따라 Virtual Machine Scale Sets의 규모를 확장하고 감축할 수 있습니다. 이 섹션에서는 태평양 표준 시간대로 매주 월요일 18시 10분에 워크로드를 검사하고, CPU 비율 메트릭에 따라 확장 집합에 있는 VM 인스턴스 수를 4개로 확장하거나 1개로 감축하는 샘플 Ansible 플레이북을 나타냅니다. 
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. Ansible을 사용하면 CPU 사용량, 디스크 사용량, 앱 로드 시간 등 모니터링할 메트릭을 제어할 수 있습니다. 성능 메트릭 임계값에 따라, 되풀이 일정에 따라 또는 특정 날짜에 확장 집합을 확장하고 감축할 수 있습니다. 
+
+이 섹션의 플레이북 코드는 월요일 18:00마다 이전 10분의 CPU 워크로드를 확인합니다. 
+
+CPU 백분율 메트릭에 따라 플레이북이 다음 작업 중 하나를 수행합니다.
+
+- VM 인스턴스 수를 4개로 확장
+- VM 인스턴스 수를 1개로 감축
+
+다음 플레이북을 `vmss-auto-scale-metrics.yml`로 저장합니다.
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks:
   - name: Get facts of the resource group
@@ -89,11 +113,11 @@ ansible-playbook vmss-auto-scale.yml
       name: "{{ resource_group }}"
     register: rg
 
-  - name: Get VMSS resource uri
+  - name: Get scale set resource uri
     set_fact:
       vmss_id: "{{ rg.ansible_facts.azure_resourcegroups[0].id }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
     
-  - name: Create auto scaling
+  - name: Create autoscaling
     azure_rm_autoscale:
       resource_group: "{{ resource_group }}"
       name: "{{ name }}"
@@ -151,14 +175,17 @@ ansible-playbook vmss-auto-scale.yml
             value: '1'
 ```
 
-이 플레이북을 *vmss-auto-scale-metrics.yml*로 저장합니다. Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
-## <a name="get-information-for-existing-autoscale-settings"></a>기존 자동 크기 조정 설정에 대한 정보 가져오기
-다음과 같이 플레이북을 사용하여*azure_rm_autoscale_facts* 모듈을 통해 자동 크기 조정 설정의 세부 정보를 가져올 수 있습니다.
+## <a name="get-autoscale-settings-information"></a>자동 크기 조정 설정 정보 얻기 
+
+이 섹션의 플레이북 코드는 `azure_rm_autoscale_facts` 모듈을 사용하여 자동 크기 조정 설정의 세부 정보를 검색합니다.
+
+다음 플레이북을 `vmss-auto-scale-get-settings.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -166,7 +193,7 @@ ansible-playbook vmss-auto-scale-metrics.yml
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Retrieve auto scale settings information
+    - name: Retrieve autoscale settings information
       azure_rm_autoscale_facts:
         resource_group: "{{ resource_group }}"
         name: "{{ name }}"
@@ -176,8 +203,19 @@ ansible-playbook vmss-auto-scale-metrics.yml
         var: autoscale_query.autoscales[0]
 ```
 
-## <a name="disable-the-autoscale-settings"></a>자동 크기 조정 설정 사용 안 함
-`enabled: true`를 `enabled: false`로 변경하거나 다음과 같이 플레이북에서 자동 크기 조정 설정을 삭제하여 자동 크기 조정 설정을 비활성화할 수 있습니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+
+```bash
+ansible-playbook vmss-auto-scale-get-settings.yml
+```
+
+## <a name="disable-autoscale-settings"></a>자동 크기 조정 설정 해제
+
+자동 크기 조정 설정을 해제하는 두 가지 방법이 있습니다. 하나는 `enabled`키를 `true`에서 `false`로 변경하는 것입니다. 두 번째 방법은 설정을 삭제하는 것입니다.
+
+이 섹션의 플레이북 코드는 자동 크기 조정 설정을 삭제합니다. 
+
+다음 플레이북을 `vmss-auto-scale-delete-setting.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -185,13 +223,20 @@ ansible-playbook vmss-auto-scale-metrics.yml
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Delete auto scaling
+    - name: Delete autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
          state: absent
 ```
 
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+
+```bash
+vmss-auto-scale-delete-setting.yml
+```
+
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"] 
-> [가상 머신 확장 집합에 대한 Ansible 샘플 플레이북](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [자습서: Ansible을 사용하여 Azure 가상 머신 확장 집합의 사용자 지정 이미지 업데이트](./ansible-vmss-update-image.md)

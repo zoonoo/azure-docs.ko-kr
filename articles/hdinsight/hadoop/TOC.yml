@@ -4,6 +4,7 @@
   items:
     - name: HDInsight의 Apache Hadoop 정보
       href: apache-hadoop-introduction.md
+      maintainContext: true
     - name: HDInsight의 Apache Hadoop 아키텍처
       href: ../hdinsight-hadoop-architecture.md
       maintainContext: true
@@ -270,7 +271,7 @@
             - name: cURL 및 Azure REST API 사용
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
         - name: HDInsight 클러스터 관리
@@ -288,7 +289,7 @@
             - name: Azure PowerShell 사용
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Azure 클래식 CLI 사용
+            - name: Azure CLI 사용
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
@@ -422,7 +423,8 @@
       items:
         - name: HDInsight 가상 네트워크 아키텍처
           href: ../hdinsight-virtual-network-architecture.md
-          maintainContext: true
+        - name: 아웃 바운드 트래픽을 제한하는 HDInsight
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet의 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true

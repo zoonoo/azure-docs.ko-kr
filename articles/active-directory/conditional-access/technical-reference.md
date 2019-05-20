@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301269"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823558"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -33,7 +33,7 @@ ms.locfileid: "60301269"
 
 ## <a name="cloud-apps-assignments"></a>클라우드 앱 할당
 
-조건부 액세스 정책을 사용하면 사용자가 [클라우드 앱](conditions.md#cloud-apps)에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성할 경우 하나 이상의 클라우드 앱을 선택해야 합니다. 
+조건부 액세스 정책을 사용하면 사용자가 [클라우드 앱](conditions.md#cloud-apps-and-actions)에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책을 구성할 경우 하나 이상의 클라우드 앱을 선택해야 합니다. 
 
 ![정책에 대한 클라우드 앱 선택](./media/technical-reference/09.png)
 
@@ -48,7 +48,6 @@ Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 
 - Microsoft Application Insights 분석
 - Microsoft Azure Information Protection- [자세한 정보](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure 관리- [자세한 정보](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Microsoft Azure 구독 관리
 - Microsoft Cloud App Security
 - Microsoft Commerce Access Control 포털 도구
@@ -141,8 +140,8 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| 이름 | 1 |
 | Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -150,8 +149,8 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| 이름 | 1 |
 | Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -167,7 +166,6 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
-| Azure 원격 앱 | Azure 원격 앱 서비스 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
 | 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS |
@@ -203,6 +201,7 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 이 설정은 다음 클라이언트 앱에 적용됩니다.
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow

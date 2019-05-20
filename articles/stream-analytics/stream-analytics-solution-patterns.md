@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238064"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761987"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 
@@ -58,7 +58,7 @@ Event Hubs는 반면에 가장 유연한 통합 지점을 제공 합니다. Azur
 
 대부분의 웹 서비스 및 웹 응용 프로그램 오늘날 프레젠테이션 계층을 제공 하는 요청/응답 패턴을 사용 합니다. 요청/응답 패턴을 간단 하 게 빌드하고 상태 비저장 프런트 엔드 및 Cosmos DB와 같은 확장 가능한 저장소를 사용 하 여 낮은 응답 시간을 사용 하 여 쉽게 확장할 수 있습니다.
 
-종종 높은 데이터 볼륨 CRUD 기반 시스템에서 성능 병목 상태를 만듭니다. 합니다 [이벤트 소싱 패턴 솔루션](/azure/architecture/patterns/event-sourcing.md) 성능 병목 상태를 해결 하는 데 사용 됩니다. Temporal 패턴 및 insights도 어렵고 비효율적인 기존의 데이터 저장소에서 추출 하 합니다. 최신 대용량 데이터 기반 응용 프로그램을 자주 데이터 흐름 기반 아키텍처를 채택 합니다. 동작 중인 데이터에 대 한 계산 엔진으로 azure Stream Analytics는 핵심 이며 해당 아키텍처의 경우
+종종 높은 데이터 볼륨 CRUD 기반 시스템에서 성능 병목 상태를 만듭니다. 합니다 [이벤트 소싱 패턴 솔루션](/azure/architecture/patterns/event-sourcing) 성능 병목 상태를 해결 하는 데 사용 됩니다. Temporal 패턴 및 insights도 어렵고 비효율적인 기존의 데이터 저장소에서 추출 하 합니다. 최신 대용량 데이터 기반 응용 프로그램을 자주 데이터 흐름 기반 아키텍처를 채택 합니다. 동작 중인 데이터에 대 한 계산 엔진으로 azure Stream Analytics는 핵심 이며 해당 아키텍처의 경우
 
 ![ASA 이벤트 소싱 앱](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

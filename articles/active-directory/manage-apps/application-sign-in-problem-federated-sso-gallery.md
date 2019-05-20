@@ -3,8 +3,8 @@ title: 페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리
 description: Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대해 구성된 애플리케이션에 로그인하는 경우 특정 문제에 대한 지침
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292217"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825201"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리케이션에 로그인하는 문제
 
@@ -57,7 +57,7 @@ ms.locfileid: "60292217"
 
 1.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-1.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
+1.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
 
 
 
@@ -87,7 +87,7 @@ ms.locfileid: "60292217"
 
 1.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-1.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 확인 하거나 일치 하도록 회신 URL 텍스트 상자에 값을 업데이트 합니다 `AssertionConsumerServiceURL` SAML 요청에는 값입니다.    
+1.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 확인 하거나 일치 하도록 회신 URL 텍스트 상자에 값을 업데이트 합니다 `AssertionConsumerServiceURL` SAML 요청에는 값입니다.    
     
 Azure AD에서 회신 URL 값을 업데이트 한 후 SAML 요청에서 응용 프로그램에서 보낸 값과 일치 하면 응용 프로그램에 로그인 할 수 있어야 합니다.
 
@@ -123,7 +123,7 @@ Azure AD에서 회신 URL 값을 업데이트 한 후 SAML 요청에서 응용 �
 
 1.  **할당 추가** 창에서 **사용자 및 그룹** 선택기를 선택합니다.
 
-1. 에 **이름 또는 전자 메일 주소로 검색** 검색 상자에, 전체 이름을 입력 하거나 추가 하려는 사용자의 전자 메일 주소입니다.
+1. **이름 또는 이메일 주소로 검색** 검색 상자에 추가하려는 사용자의 전체 이름 또는 이메일 주소를 입력합니다.
 
 1. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이 나 사용자를 추가 하는 로고 옆의 확인란을 클릭 합니다 **선택한** 목록입니다.
 
@@ -152,7 +152,7 @@ Azure AD single sign-on에 대 한 응용 프로그램에서 보낸 SAML 요청�
 
 1. SAML 요청을 캡처하십시오. 이 자습서에 따라 [Azure AD에서 SAML 기반 single sign 응용 프로그램을 디버깅 하는 방법을](../develop/howto-v1-debug-saml-sso-issues.md) SAML 요청을 캡처하는 방법.
 
-1. 응용 프로그램 공급 업체에 문의 하 고 다음 정보를 공유 합니다.
+1. 애플리케이션 공급 업체에 연락하여 다음 정보를 공유합니다.
 
    -   SAML 요청
 
@@ -186,7 +186,7 @@ Azure AD single sign-on에 대 한 응용 프로그램에서 보낸 SAML 요청�
 
 1.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-1.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
+1.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 식별자 텍스트 상자에 값에 오류가 표시 되는 식별자 값에 대 한 값이 일치 하는지 확인 합니다.
 
 
 ## <a name="certificate-or-key-not-configured"></a>인증서 또는 키가 구성되지 않음
@@ -263,7 +263,7 @@ Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회�
 
 6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
+7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>애플리케이션에 전송된 SAML 클레임을 사용자 지정할 때 발생하는 문제
 

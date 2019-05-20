@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 514c034c23eed3a87111331724f3a33104651a43
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514906"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523702"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Azure 프런트 도어 (미리 보기)에 대 한 웹 응용 프로그램 방화벽 IP 제한 규칙 구성
  이 문서에서는 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 첫 번째 관문에 대 한 Azure 웹 응용 프로그램 방화벽 (WAF)의 IP 제한 규칙을 구성 하는 방법을 보여 줍니다.
@@ -137,24 +137,24 @@ Install-Module -Name Az.FrontDoor
 [빠른 시작: 첫 번째 관문 프로필 만들기](quickstart-create-front-door.md)
 
 ### <a name="define-ip-match-condition"></a>IP 일치 조건 정의
-사용 합니다 [새로 만들기-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) IP 일치 상태를 정의 하는 명령입니다. 에 아래 예제에서는 대체 *ip 주소-범위 1*를 *ip 주소-범위 2* 고유한 범위를 사용 하 여 합니다.
+사용 합니다 [새로 만들기-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) IP 일치 상태를 정의 하는 명령입니다. 에 아래 예제에서는 대체 *ip 주소-범위 1*를 *ip 주소-범위 2* 고유한 범위를 사용 하 여 합니다.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 IP와 일치 하는 모든 조건 규칙 만들기
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### <a name="create-a-custom-ip-allow-rule"></a>사용자 지정 만들기 규칙을 허용 하는 IP
-   사용 합니다 [새로 만들기-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) 동작을 정의 및 우선 순위를 설정 하는 명령을 합니다. 다음 예에서 목록과 일치 하는 클라이언트 Ip에서에서 요청이 허용 됩니다. 
+   사용 합니다 [새로 만들기-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) 동작을 정의 및 우선 순위를 설정 하는 명령을 합니다. 다음 예에서 목록과 일치 하는 클라이언트 Ip에서에서 요청이 허용 됩니다. 
 
 ```powershell
   $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -175,10 +175,10 @@ IP와 일치 하는 모든 조건 규칙 만들기
    ```
 
 ### <a name="configure-waf-policy"></a>WAF 정책 구성
-`Get-AzResourceGroup`을 사용하여 Front Door 프로필이 포함된 리소스 그룹의 이름을 찾습니다. 다음으로, WAF 정책을 사용 하 여 IP 블록 규칙 구성 [새로 만들기-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy)합니다.
+`Get-AzResourceGroup`을 사용하여 Front Door 프로필이 포함된 리소스 그룹의 이름을 찾습니다. 다음으로, WAF 정책을 사용 하 여 IP 블록 규칙 구성 [새로 만들기-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)합니다.
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

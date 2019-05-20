@@ -3,8 +3,8 @@ title: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제�
 description: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법을 살펴봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093197"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413730"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거(미리 보기)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 등록된 애플리케이션 제거
 
 Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 및 SaaS(Software-as-a-Service) 공급자는 애플리케이션 등록을 제거해야 할 수 있습니다.
 
@@ -35,10 +35,7 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하려면 다음과 같은 필수 구성을 완료했는지 확인합니다.
-
-* 애플리케이션이 등록된 테넌트가 있습니다. [Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
-* Azure Portal에서 앱 등록 미리 보기 환경을 옵트인합니다. 이 빠른 시작의 단계는 새 UI에 해당하며 미리 보기 환경을 옵트인한 경우에만 작동합니다.
+애플리케이션이 등록된 테넌트가 있어야 합니다. [Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>사용자 또는 해당 조직이 작성한 애플리케이션 제거
 
@@ -48,7 +45,7 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 2. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-3. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** 을 차례로 선택합니다. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 페이지가 나타납니다.
+3. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택한 다음, **앱 등록**을 선택합니다. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 페이지가 나타납니다.
 4. **개요** 페이지에서 **삭제**를 선택합니다.
 5. **예**를 선택하여 앱 삭제를 확인합니다.
 

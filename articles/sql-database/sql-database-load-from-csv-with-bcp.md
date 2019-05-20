@@ -7,18 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 03/04/2019
-ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: craigg
+ms.date: 01/25/2019
+ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702472"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799874"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV에서 Azure SQL Database(플랫 파일)로 데이터 로드
 
@@ -125,4 +124,3 @@ SQL Server 데이터베이스를 마이그레이션하려면 [SQL Server 데이�
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-<!--Update_Description: update metadata-->

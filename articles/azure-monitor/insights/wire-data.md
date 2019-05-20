@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387579"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601577"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 실시간 데이터 2.0 (미리 보기) 솔루션
 
@@ -400,7 +400,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | Direction | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
 | Severity | 의심되는 맬웨어 심각도 |
-| RemoteIPCountry | 원격 IP 주소의 국가 |
+| RemoteIPCountry | 원격 IP 주소의 국가/지역 |
 | ManagementGroupName | Operations Manager 관리 그룹의 이름 |
 | SourceSystem | 데이터가 수집된 원본 |
 | SessionStartTime | 세션의 시작 시간 |

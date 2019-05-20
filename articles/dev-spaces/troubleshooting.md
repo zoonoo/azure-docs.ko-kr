@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728820"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596971"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -389,3 +389,18 @@ AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자�
     * 에 대 한 *에 대 한 액세스 할당* 선택 *Azure AD 사용자, 그룹 또는 서비스 주체*합니다.
     * 에 대 한 *선택* 권한을 부여 하려는 사용자를 검색 합니다.
 1. *저장*을 클릭합니다.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>컨트롤러 만들기 컨트롤러 이름 길이로 인해 실패 합니다.
+
+### <a name="reason"></a>이유
+Azure 개발 공간 컨트롤러의 이름은 31 자를 초과할 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 31 자를 초과 하는 컨트롤러의 이름, 다음과 같은 오류가 표시 됩니다.
+
+*클러스터에 대 한 개발 공간 컨트롤러 'a-controller-name-that-is-way-too-long-aks-east-us' 만들지 못했습니다. Azure 개발 공간 컨트롤러 'a-controller-name-that-is-way-too-long-aks-east-us' 이름이 잘못 되었습니다. 위반 제약 조건은 개. Azure 개발 공간 컨트롤러 이름은 최대 수만 있습니다 31 자*
+
+### <a name="try"></a>시도해 보기
+
+대체 이름으로 컨트롤러를 만듭니다.
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

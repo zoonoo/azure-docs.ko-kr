@@ -4,7 +4,7 @@ description: OpenID Connect 표준을 사용하는 기존 웹 브라우저 기�
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191037"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231160"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "65191037"
 
 시작하려면 다음과 같은 필수 구성을 충족하는지 확인합니다.
 
-* Visual Studio 2015 업데이트 3 또는 Visual Studio 2019이 설치되어 있어야 합니다. 이 프로그램이 아직 설치되어 있지 않나요? [체험용 Visual Studio 2019 다운로드](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 업데이트 3 이상이 설치되어 있어야 합니다. 이 프로그램이 아직 설치되어 있지 않나요? [체험용 Visual Studio 2019 다운로드](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>시나리오: 사용자가 ASP.NET 앱에서 회사 및 학교 계정에 로그인
 
@@ -70,9 +70,10 @@ ms.locfileid: "65191037"
 ## <a name="step-2-create-your-aspnet-project"></a>2단계: ASP.NET 프로젝트 만들기
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**로 이동합니다.
-2. **Visual C#\Web**에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-3. 애플리케이션의 이름을 지정하고 **확인**을 선택합니다.
-4. **비어 있음**을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
+2. **프로젝트 형식**으로 **웹**을 선택한 다음, **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
+3. 애플리케이션의 이름을 지정하고 **만들기**를 선택합니다.
+4. **비어 있음**을 선택한 다음, **폴더 및 핵심 참조 추가**에서 **MVC**를 선택하여 MVC 참조를 추가합니다.
+5. **만들기**를 선택합니다.
 
 ## <a name="step-3-add-authentication-components"></a>3단계: 인증 구성 요소 추가
 
@@ -125,7 +126,7 @@ OWIN 미들웨어 *시작 클래스*를 만들려면 다음을 수행합니다.
 로그인 및 로그아웃 메서드를 노출하는 새 컨트롤러를 만듭니다.
 
 1.  **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가 > 컨트롤러**를 선택합니다.
-2.  **MVC(.NET 버전) 컨트롤러 - 비어 있음**을 선택합니다.
+2.  **MVC{버전} 컨트롤러 - 비어 있음**을 선택합니다.
 3.  **추가**를 선택합니다.
 4.  이름을 `HomeController`로 지정하고 **추가**를 선택합니다.
 5.  클래스에 **OWIN** 네임스페이스를 추가합니다.

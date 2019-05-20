@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 6882c46ec0e4925c42de86c87225e9509c84df84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45738470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65757931"
 ---
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 다음으로 이 가이드에 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.
@@ -24,7 +24,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **템플릿** > **Visual C#** > **Windows 클래식 바탕 화면**을 차례로 선택합니다.
 3. **콘솔 앱(.NET Framework)** 을 선택합니다.
-4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
+4. **이름:** 필드에서 애플리케이션의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
 ![Visual Studio의 새 프로젝트 대화 상자 스크린샷](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -36,8 +36,8 @@ Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
 
-* [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 Storage 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
-* [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
+* [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 스토리지 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
+* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
 NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
 

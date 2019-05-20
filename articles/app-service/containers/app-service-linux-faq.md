@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919965"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594269"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -39,13 +39,15 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **런타임 스택을 구성할 때 시작 파일 섹션에 대해 예상되는 값은 무엇인가요?**
 
-| 스택     | 예상 값                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | 시작 하는 명령을 프로그램 `.jar` 응용 프로그램                                    |
-| Tomcat    | 앱에 대 한 모든 구성을 실행 하는 스크립트의 위치          |
-| Node.js   | PM2 구성 파일 또는 스크립트 파일                                |
-| .NET Core | 로 컴파일된 DLL 이름 `dotnet <myapp>.dll`                                 |
-| Ruby      | 사용 하 여 앱을 초기화 하려면 Ruby 스크립트를                     |
+| 스택           | 예상 값                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | JAR 앱을 시작 하는 명령 (예를 들어 `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | 모든 필요한 구성을 수행 하는 스크립트의 위치 (예를 들어 `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | PM2 구성 파일 또는 스크립트 파일                                |
+| .NET Core       | 로 컴파일된 DLL 이름 `dotnet <myapp>.dll`                                 |
+| Ruby            | 사용 하 여 앱을 초기화 하려면 Ruby 스크립트를                     |
+
+기본 제공 Docker 컨테이너 시작 되었지만 코드 전에 응용 프로그램 시작 후 이러한 명령이 나 스크립트가 실행 됩니다.
 
 ## <a name="management"></a>관리
 

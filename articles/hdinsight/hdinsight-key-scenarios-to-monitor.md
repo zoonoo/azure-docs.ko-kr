@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22484885663a4f9a908ae988882b87612129251a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693214"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799799"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 
@@ -29,9 +29,9 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 | 색 | 설명 |
 | --- | --- |
-| 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
-| 주황색 | 호스트에서 적어도 하나 이상의 종속 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
-| 노랑 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
+| 빨간색 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 주황색 | 호스트에서 적어도 하나의 보조 구성 요소는 중단 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 노란색 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
 | 녹색 | 정상적인 실행 상태입니다. |
 
 또한 각 호스트의 코어 수와 RAM 양, 디스크 사용량 및 로드 평균을 보여주는 열이 표시됩니다.

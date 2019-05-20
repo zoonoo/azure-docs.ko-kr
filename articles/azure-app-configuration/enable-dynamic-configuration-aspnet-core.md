@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579039"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408824"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
-ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 즉시 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다. 
+ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 즉시 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다.
 
 애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다. 또한 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정하여 앱 구성 저장소의 모든 변경을 지속적으로 모니터링하고 검색할 수 있습니다. 주기적인 폴링 간격을 정의합니다.
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
-이 빠른 시작의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
+이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -39,13 +39,13 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
+이 자습서를 수행하려면 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
-1. Program.cs를 열고, `config.AddAzureAppConfiguration()` 메서드를 추가하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+1. *Program.cs*를 열고, `config.AddAzureAppConfiguration()` 메서드를 추가하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,7 +64,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
     `.Watch` 메서드의 두 번째 매개 변수는 ASP.NET 클라이언트 라이브러리에서 앱 구성 저장소를 쿼리하는 폴링 간격입니다. 클라이언트 라이브러리에서 특정 구성 설정을 확인하여 변경되었는지 확인합니다.
 
-2. 새 `Settings` 클래스를 정의하고 구현하는 Settings.cs 파일을 추가합니다.
+2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +79,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     }
     ```
 
-3. Startup.cs를 열고, `Settings` 클래스에 구성 데이터를 바인딩하도록 `ConfigureServices` 메서드를 업데이트합니다.
+3. *Startup.cs*를 열고, `Settings` 클래스에 구성 데이터를 바인딩하도록 `ConfigureServices` 메서드를 업데이트합니다.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 ## <a name="use-the-latest-configuration-data"></a>최신 구성 데이터 사용
 
-1. Controllers 디렉터리에서 HomeController.cs를 엽니다. 종속성 주입을 통해 `Settings`를 받도록 `HomeController` 클래스를 업데이트하고 해당 값을 사용합니다.
+1. 컨트롤러 디렉터리에서 *HomeController.cs*를 열고, `Microsoft.Extensions.Options` 패키지의 참조를 추가합니다.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. 종속성 주입을 통해 `Settings`를 받도록 `HomeController` 클래스를 업데이트하고 해당 값을 사용합니다.
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     }
     ```
 
-2. 보기 > 홈 디렉터리에서 Index.cshtml을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
+3. 보기 > 홈 디렉터리에서 *Index.cshtml*을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
 
     ```html
     <!DOCTYPE html>
@@ -160,11 +166,11 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 4. [Azure Portal](https://aka.ms/azconfig/portal)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소 인스턴스를 선택합니다.
 
-5. **키/값 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
+5. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
 
     | 키 | 값 |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
 

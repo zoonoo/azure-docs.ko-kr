@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152641"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762302"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
@@ -26,7 +26,7 @@ ms.locfileid: "65152641"
 이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="terminology"></a>용어
 
@@ -57,7 +57,7 @@ A **스트리밍 끝점** 라이브 및 주문형 콘텐츠를 클라이언트 �
 
 Media Services v3을 사용 하 여 인코딩할 만들 필요가 **변형** 하 고 **작업**합니다.
 
-![변환](./media/encoding/transforms-jobs.png)
+![변형](./media/encoding/transforms-jobs.png)
 
 - [Transforms 및 Jobs](transforms-jobs-concept.md)
 - [Media Services로 인코딩](encoding-concept.md)
@@ -76,7 +76,7 @@ Media Services v3을 사용 하 여 인코딩할 만들 필요가 **변형** 하
 
 라이브 또는 주문형 콘텐츠를 스트림할 수 있는지 여부를 동적 패키징을 사용 됩니다. 다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
 
-![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Media Services를 사용 하 여 Advanced Encryption Standard (AES-128)로 동적 암호화 된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다 또는 / 및 세 가지 주요 디지털 rights management (DRM) 시스템 중 하나: 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.
 
@@ -107,14 +107,14 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 다음 이미지에서는 통과 형식 워크플로를 보여 줍니다.
 
-![통과](./media/live-streaming/pass-through.svg)
+![pass-through(통과)](./media/live-streaming/pass-through.svg)
 
 - [라이브 스트리밍 개요](live-streaming-overview.md)
 - [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>이벤트 표
 
 작업의 진행률을 보려면 사용할지 **Event Grid**합니다. 또한 Media Services는 라이브 이벤트 유형을 내보냅니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 
 
@@ -134,7 +134,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 - [Azure Media Player 개요](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

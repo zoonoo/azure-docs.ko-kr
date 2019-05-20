@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923027"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785694"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 이 경고를 설정 하는 사전 요구 사항 스트림이 해당 모니터링된 한 데이터베이스 솔루션에 기본 메트릭입니다.
 > - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Azure SQL Database 탄력적 풀의 높은 CPU
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 이 경고를 설정 하는 사전 요구 사항 스트림이 해당 모니터링된 한 데이터베이스 솔루션에 기본 메트릭입니다.
 > - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>마지막 1시간에 평균 95% 이상인 Azure SQL Database 스토리지
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 이 경고를 설정 하는 사전 요구 사항 스트림이 해당 모니터링된 한 데이터베이스 솔루션에 기본 메트릭입니다.
 > - 쿼리에서 조건이 일부 데이터베이스에 있는지를 나타내는 결과(> 0 결과)가 있는 경우 이 경고는 경고를 해제하도록 설정한 경고 규칙이 필요합니다. 출력은 정의된 time_range 내의 storage_threshold 위쪽에 있는 데이터베이스 리소스의 목록입니다.
 > - 출력은 정의된 time_range 내의 storage_threshold 위쪽에 있는 데이터베이스 리소스의 목록입니다.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Machine Learning을 사용한 데이터 분석 | Microsoft Docs
 description: Azure Machine Learning을 사용하여 Azure SQL Data Warehouse에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다.
 services: sql-data-warehouse
@@ -77,7 +77,7 @@ FROM [dbo].[vTargetMail]
 ## <a name="2-clean-the-data"></a>2. 데이터 정리
 데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 다음을 수행합니다.
 
-1. **Data Transformation < Manipulation** 아래의 **Select Columns in Dataset** 모듈을 캔버스로 끌기합니다. 이 모듈을 **Import Data** 모듈로 연결합니다.
+1. **Data Transformation < Manipulation** 아래의 **Select Columns in Dataset** 모듈을 캔버스로 끌기합니다.  이 모듈을 연결 합니다 **데이터 가져오기** 모듈입니다.
 2. 속성 창에서 **Launch column selector**을 클릭하여 삭제하려는 열을 지정합니다.
    ![프로젝트 열][4]
 3. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다.

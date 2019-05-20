@@ -4,7 +4,7 @@ description: 응용 프로그램에서 인증 라이브러리 (MSAL (Microsoft) 
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138545"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546022"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -35,7 +35,7 @@ ms.locfileid: "65138545"
     - [클라이언트 암호](#client-secret) (기밀 클라이언트 응용 프로그램)에 대 한 합니다.
 - [로깅 옵션](#logging)로그 수준, 개인 데이터를 제어 및 라이브러리를 사용 하 여 구성 요소의 이름을 포함 합니다.
 
-## <a name="authority"></a>Authority
+## <a name="authority"></a>권한
 인증 기관은 MSAL에서 토큰을 요청할 수 있는 디렉터리를 나타내는 URL입니다. 일반적인 기관 다음과 같습니다.
 
 - https://login.microsoftonline.com/&lt테 넌 트&gt;/, 여기서 &lt;테 넌 트&gt; 이 Azure AD 테 넌 트와 연결 된 도메인 또는 Azure AD 테 넌 트의 테 넌 트 ID입니다.  특정 조직의 사용자를 로그인에 사용 합니다.
@@ -58,7 +58,7 @@ Azure AD 클라우드 기관에는 두 부분으로 구성 합니다.
 
 인스턴스 및 대상 연결 하 고 기관 URL로 제공 될 수 있습니다. MSAL.NET MSAL 이전 버전에서 3.x 기관 대상 및 대상에 로그인 하려는 클라우드를 따라 직접 작성 해야 합니다.  다음 다이어그램은 기관 URL은 구성 하는 방법을 보여 줍니다.
 
-![Authority](media/msal-client-application-configuration/authority.png)
+![권한](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>클라우드 인스턴스
 합니다 **인스턴스** 응용 프로그램 내셔널 클라우드 또는 Microsoft Azure 공용 클라우드에서 사용자가 로그인 하는 경우를 지정 하는 데 사용 됩니다. MSAL을 사용 하 여 코드에서 Azure 클라우드 인스턴스 또는 설정할 수 있습니다 하는 열거형을 사용 하 여 URL을 전달 하 여는 [국가 클라우드 인스턴스](authentication-national-cloud.md#azure-ad-authentication-endpoints) 으로 `Instance` 멤버 (알고) 경우입니다.

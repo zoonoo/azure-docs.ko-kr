@@ -24,7 +24,7 @@ ms.locfileid: "60790336"
 >
 
 ## <a name="introduction"></a>소개 
-[S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)는 Azure에서 [게스트 클러스터](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure)를 만드는 방법을 제공하는 소프트웨어 정의 스토리지입니다.  Microsoft Azure의 게스트 클러스터는 IaaS VM으로 구성된 장애 조치 클러스터입니다. 이를 통해 호스팅된 VM 워크로드가 게스트 클러스터에서 장애 조치되어 단일 Azure VM에서 제공할 수 있는 것보다 더 높은 가용성의 애플리케이션 SLA를 달성할 수 있습니다. 이는 VM에서 SQL 또는 스케일 아웃 파일 서버 등과 같은 중요한 애플리케이션을 호스팅하는 시나리오에서 유용합니다.
+[S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)는 소프트웨어 정의 스토리지로써, Azure에서 [게스트 클러스터](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure)를 만들 수 있도록 합니다.  Microsoft Azure의 게스트 클러스터는 IaaS VM으로 구성된 장애 조치 클러스터입니다. 이를 통해 호스팅된 VM 워크로드가 게스트 클러스터에서 장애 조치되어 단일 Azure VM에서 제공할 수 있는 것보다 더 높은 가용성의 애플리케이션 SLA를 달성할 수 있습니다. 이는 VM에서 SQL 또는 스케일 아웃 파일 서버 등과 같은 중요한 애플리케이션을 호스팅하는 시나리오에서 유용합니다.
 
 ## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>스토리지 공간 다이렉트를 사용하는 Azure Virtual Machines의 재해 복구
 일반적인 시나리오에서는 스케일 아웃 파일 서버와 같은 애플리케이션의 복원력을 높이기 위해 Azure에 가상 머신 게스트 클러스터가 있을 수 있습니다. 이렇게 하면 애플리케이션의 고가용성을 높일 수 있지만 모든 지역 수준 장애에 대해 Site Recovery를 사용하여 이러한 애플리케이션을 보호할 수 있습니다. Site Recovery는 데이터를 한 지역에서 다른 Azure 지역으로 복제하고 장애 조치 시 재해 복구 지역에 클러스터를 제공합니다.

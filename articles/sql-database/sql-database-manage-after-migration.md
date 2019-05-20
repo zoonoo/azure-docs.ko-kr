@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703374"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791489"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -127,7 +127,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>어떤 포트를 통해 SQL Database에 연결하나요?
 
-포트 1433입니다. SQL Database는 이 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려면 조직의 방화벽 설정에 아웃바운드 규칙을 추가해야 합니다. 참고로 포트 1433을 Azure 경계 외부에 노출하지 마세요. [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps)을 사용하여 Azure에서 SSMS를 실행할 수 있습니다. 포트 1433에 대한 나가는 연결을 시작할 필요가 없습니다. IP가 고정적이라 DB가 RemoteApp에만 열릴 수 있으며, MFA(다단계 인증)을 지원합니다.
+포트 1433입니다. SQL Database는 이 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려면 조직의 방화벽 설정에 아웃바운드 규칙을 추가해야 합니다. 참고로 포트 1433을 Azure 경계 외부에 노출하지 마세요.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>SQL Database에서 내 서버 및 데이터베이스의 활동을 어떻게 모니터링 및 조절할 수 있나요?
 

@@ -9,26 +9,26 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445552"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792626"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
 이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
 ## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Microsoft Genomics 서비스 GATK 4 프로모션이란?
-2018년 말까지 Microsoft Genomics 서비스는 무료로 GATK4와 함께 20개의 WGS 실행을 제공합니다. 이 제안에 참여하려면 [여기](https://aka.ms/msgatk4)에 등록합니다. 
+2019 년 6 월 30 일 때까지 Microsoft Genomics 서비스는 비용 없이 GATK4 사용 하 여 20 WGS 실행을 제공 합니다. 이 제안에 참여하려면 [여기](https://aka.ms/msgatk4)에 등록합니다. 
 
 ### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Microsoft Genomics 서비스 GATK4 프로모션을 실행하는 동안 발생할 수 있는 일반적인 문제점은 무엇인가요?
 다음은 일반적인 오류 목록과 권장 해결 방법입니다.
 
 | **메시지**                                                                                                                                                                                    | **원인**                                                                                                    | **해결 방법**                                                                                                                                                                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 평가판은 2018년 말에 만료됩니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
+| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 2019 년 6 월 30 일 평가판이 만료 되는 note 합니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
 | `gatk4-promo`를 사용해 주셔서 감사합니다. 평가판 기간이 종료되었습니다. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics에 대한 자세한 내용은                  | GATK4 평가판이 해당 연도 말에 만료되었으며 `gatk4-promo` process_name을 호출하려고 합니다.  | process_name 매개 변수를 `gatk4-promo` 대신 `gatk4`로 전환합니다. 이는 공식 gatk4 버전이며, 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                         |
 | `gatk4-promo`를 사용해 주셔서 감사합니다. 할당된 모든 실행을 사용했습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요. | GATK4에 대해 20번의 프로모션 실행을 모두 성공적으로 제출했습니다.                               | process_name 인수를 `gatk4-promo` 대신 `gatk4`로 설정된 상태에서 실행되는 새 gatk4를 제출하세요. 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                                          |        
 
@@ -51,7 +51,7 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>`msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 무엇인가요?
 `msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 다음과 같습니다. 
 
- |**명령**          |  **필드 설명** |
+ |**Command**          |  **필드 설명** |
  |:--------------------|:-------------         |
  |`list`               |제출한 작업 목록을 반환합니다. 인수는 `msgen help list`를 참조하세요.  |
  |`submit`             |워크플로 요청을 서비스에 제출합니다. 인수는 `msgen help submit`을 참조하세요.|

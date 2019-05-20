@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356979"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823592"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -262,10 +262,10 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | 윈도우 10 | 기타 |
 > | --- | --- | --- | --- | --- |
-> | **네이티브 앱** | 예 | 예 | 예. |  |
-> | **Microsoft Edge** | 예. | 예 | 예 |  |
+> | **네이티브 앱** | 예. | 예 | 예. |  |
+> | **Microsoft Edge** | 예. | 예 | 예. |  |
 > | **Internet Explorer** | 예. | 예 | 예. |  |
-> | **Chrome(확장 포함)** | 예 | 예 | 예. |  |
+> | **Chrome(확장 포함)** | 예. | 예 | 예. |  |
 
 디바이스별 사용 약관에는 다음 제약 조건이 있습니다.
 
@@ -383,6 +383,9 @@ A: [이전에 동의한 사용 약관을 검토](#how-users-can-review-their-ter
 
 **Q: Intune 사용 약관도 사용하면 어떻게 되나요?**<br />
 A: Azure AD 사용 약관과 [Intune 사용 약관](/intune/terms-and-conditions-create)을 모두 구성한 경우 사용자는 두 약관에 모두 동의해야 합니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)을 참조하세요.
+
+**Q: 사용 약관에서 인증을 위해 어떤 끝점이 사용 하나요?**<br />
+A: 사용 약관에서 인증을 위해 다음 끝점을 사용 합니다. https://tokenprovider.termsofuse.identitygovernance.azure.com 고 https://account.activedirectory.windowsazure.com입니다. 조직이 등록에 대 한 허용 목록 Url의 경우 이러한 끝점에 대 한 Azure AD 끝점 함께 허용 목록에 로그인을 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

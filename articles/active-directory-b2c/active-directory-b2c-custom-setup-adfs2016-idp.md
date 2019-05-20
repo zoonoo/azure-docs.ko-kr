@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698652"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767985"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -35,7 +35,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
+4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
 7. 정책 키의 **이름**을 입력합니다. 예: `SamlCert`. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
@@ -170,10 +170,10 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Surname | family_name |
+    | 성 | family_name |
     | Given-Name | given_name |
-    | E-Mail-Address | 이메일 |
-    | Display-Name | 이름 |
+    | E-Mail-Address | email |
+    | Display-Name | name |
     
 12.  인증서 유형에 따라 해시 알고리즘을 설정해야 할 수 있습니다. 신뢰 당사자 트러스트(B2C 데모) 속성 창에서 **고급** 탭을 선택하고 **보안 해시 알고리즘**을 `SHA-256`으로 변경하고 **확인**을 클릭합니다.  
 13. 서버 관리자에서 **도구**를 선택하고 **ADFS 관리**를 선택합니다.

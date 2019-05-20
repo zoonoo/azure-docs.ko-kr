@@ -1,30 +1,31 @@
 ---
-title: Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
-description: Azure에서 Ansible을 사용하여 Linux 가상 머신을 만드는 방법 알아보기
-ms.service: virtual-machines-linux
+title: 빠른 시작 - Ansible을 사용하여 Azure에서 Linux 가상 머신 구성 | Microsoft Docs
+description: 이 빠른 시작에서는 Ansible을 사용하여 Azure에서 Linux 가상 머신을 만드는 방법을 알아봅니다.
 keywords: ansible, azure, devops, 가상 머신
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 08/22/2018
-ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090256"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237050"
 ---
-# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
-선언적 언어인 Ansible을 사용하면 Ansible *플레이북*을 통해 자동으로 Azure 리소스를 만들고, 구성하고, 배포할 수 있습니다. 이 문서의 각 섹션에서는 Ansible 플레이북의 각 섹션이 Linux 가상 머신의 여러 측면을 만들고 구성하기 위해 어떻게 사용되는지 보여줍니다. [전체 Ansible 플레이북](#complete-sample-ansible-playbook)은 이 문서의 마지막 부분에 나열되어 있습니다.
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성
+
+선언적 언어인 Ansible을 사용하면 Ansible *플레이북*을 통해 자동으로 Azure 리소스를 만들고, 구성하고, 배포할 수 있습니다. 이 문서에서는 Linux 가상 머신을 구성하기 위한 샘플 Ansible 플레이북을 제공합니다. [전체 Ansible 플레이북](#complete-sample-ansible-playbook)은 이 문서의 마지막 부분에 나열되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독** - Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
 Ansible을 사용하려면 리소스가 배포되는 그룹이 필요합니다. 다음 샘플 Ansible 플레이북 섹션에서는 `eastus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```yaml
@@ -35,6 +36,7 @@ Ansible을 사용하려면 리소스가 배포되는 그룹이 필요합니다. 
 ```
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+
 Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/virtual-networks-overview)를 만들거나 기존 가상 네트워크를 사용해야 합니다. 또한 가상 네트워크에서 가상 머신에 액세스하는 방법도 결정해야 합니다. 다음 샘플 Ansible 플레이북 섹션에서는 `10.0.0.0/16` 주소 공간에 `myVnet`이라는 가상 네트워크를 만듭니다.
 
 ```yaml
@@ -59,7 +61,12 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 ```
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-[공용 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 또한 공용 IP 주소를 사용하면 Azure 리소스가 리소스에 할당된 IP 주소에 인터넷 및 공용 Azure 서비스에 대한 아웃바운드와 통신할 수 있습니다. 주소는 사용자가 할당 해제하지 않는 한 리소스에 전용됩니다. 공용 IP 주소가 리소스에 할당되지 않은 경우, 리소스는 여전히 인터넷에 대한 아웃바운드와 통신할 수 있지만, Azure는 리소스에 전용되지 않는 사용 가능한 IP 주소를 동적으로 할당 합니다. 
+
+
+
+
+
+[공용 IP 주소](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 또한 공용 IP 주소를 사용하면 Azure 리소스에서 공용 Azure 서비스에 아웃바운드로 통신할 수 있습니다. 두 시나리오 모두에서 액세스하려는 리소스에 IP 주소가 할당되어 있습니다. 이 주소는 사용자가 할당을 취소할 때까지 해당 리소스에만 전용됩니다. 공용 IP 주소가 리소스에 할당되지 않아도 리소스는 여전히 인터넷에 아웃바운드로 통신할 수 있습니다. Azure에서는 연결이 설정되고, 사용 가능한 IP 주소가 동적으로 할당됩니다. 동적으로 할당된 주소는 해당 리소스에만 전용되지 않습니다.
 
 다음 샘플 Ansible 플레이북 섹션에서는 `myPublicIP`라는 공용 IP 주소를 만듭니다.
 
@@ -72,9 +79,10 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 ```
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-[네트워크 보안 그룹](/azure/virtual-network/security-overview)을 사용하면 Azure 가상 네트워크의 Azure 리소스와 주고받는 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹에는 여러 종류의 Azure 리소스에서 오는 인바운드 트래픽 또는 이러한 리소스로 나가는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙이 포함됩니다. 
 
-다음 샘플 Ansible 플레이북 섹션에서는 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만들고 TCP 포트 22에서 SSH 트래픽을 허용하는 규칙을 정의합니다.
+[네트워크 보안 그룹](/azure/virtual-network/security-overview)은 가상 네트워크의 Azure 리소스 간 네트워크 트래픽을 필터링합니다. Azure 리소스에서 나오는 아웃바운드 트래픽과 Azure 리소스로 들어오는 인바운드 트래픽을 제어하는 보안 규칙이 정의됩니다. Azure 리소스 및 네트워크 보안 그룹에 대한 자세한 내용은 [Azure 서비스의 가상 네트워크 통합](/azure/virtual-network/virtual-network-for-azure-services)을 참조하세요.
+
+다음 플레이북에서는 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹에는 TCP 포트 22에서 SSH 트래픽을 허용하는 규칙이 포함됩니다.
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -90,8 +98,8 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
         direction: Inbound
 ```
 
-
 ## <a name="create-a-virtual-network-interface-card"></a>가상 네트워크 인터페이스 카드 만들기
+
 가상 네트워크 인터페이스 카드는 지정된 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹에 가상 머신을 연결합니다. 
 
 다음 샘플 Ansible 플레이북 섹션에서는 사용자가 만든 가상 네트워킹 리소스에 연결되는 `myNIC`라는 가상 네트워크 인터페이스 카드를 만듭니다.
@@ -108,6 +116,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 ```
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
+
 마지막 단계는 이 문서의 이전 섹션에서 만든 모든 리소스를 사용하는 가상 머신을 만드는 것입니다. 
 
 이 섹션에 제공된 샘플 Ansible 플레이북 섹션에서는 `myVM`이라는 가상 머신을 만들어서 `myNIC`라는 가상 네트워크 인터페이스 카드에 연결합니다. &lt;your-key-data> 자리 표시자를 본인의 완전한 공개 키 데이터로 바꿉니다.
@@ -278,5 +287,6 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
     ```
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"] 
-> [Azure에서 Ansible을 사용하여 Linux 가상 머신 관리](./ansible-manage-linux-vm.md)
+> [빠른 시작: Azure에서 Ansible을 사용하여 Linux 가상 머신 관리](./ansible-manage-linux-vm.md)

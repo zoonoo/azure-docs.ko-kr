@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485678"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561148"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -22,6 +22,10 @@ ms.locfileid: "61485678"
 ## <a name="public-previews"></a>공개 미리 보기
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
+
+### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Azure Stream Analytics (2019 년 5 월 릴리스됨)에 대 한 visual Studio Code
+
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. 참조 우리의 [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)합니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
@@ -47,20 +51,21 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 .NET Standard 사용자 정의 함수를 사용하면 스트리밍 파이프라인의 일부로 .NET Standard 코드를 실행할 수 있습니다. 단순 C# 클래스를 작성하거나 전체 프로젝트 및 라이브러리를 가져올 수 있습니다. 전체 작성 및 디버깅 환경은 Visual Studio에서 지원됩니다. 자세한 내용은 [Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발](stream-analytics-edge-csharp-udf-methods.md)을 참조하세요.
 
-## <a name="private-previews"></a>비공개 미리 보기
+## <a name="other-previews"></a>다른 미리 보기
 
-다음 기능은 비공개 미리 보기에 있습니다.
+다음과 같은 기능이 미리 보기에서 사용할 수 있습니다.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics용 C# 사용자 지정 역직렬 변환기
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#IoT Edge 및 클라우드 (Announced 2019 년 5 월)의 Azure Stream Analytics에 대 한 사용자 지정 역직렬 변환기
 
-개발자는 이제 Azure Stream Analytics에서 수신한 이벤트를 역직렬화하기 위해 C#에서 사용자 지정 역직렬 변환기를 구현할 수 있습니다. 역직렬화할 수 있는 형식의 예로는 Parquet, Protobuf, XML 또는 임의의 이진 형식이 있습니다.
+개발자의 사용자 지정 deserializers를 구현할 수 있습니다 C# Azure Stream Analytics에서 받은 이벤트를 deserialize 합니다. 역직렬화할 수 있는 형식의 예로는 Parquet, Protobuf, XML 또는 임의의 이진 형식이 있습니다. 이 미리 보기에 등록 [여기](https://aka.ms/asapreview1)합니다.
 
-### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
+### <a name="parquet-output-announced-may-2019"></a>Parquet 출력 (월 2019 발표)
+Parquet에 효율적으로 빅 데이터 처리를 사용 하도록 설정 하면 열 형식입니다. Data lake에서 Parquet 형식으로 데이터를 출력 하 여 수 ETL 스트리밍 power 대규모 확장에 Azure Stream Analytics를 활용 및 일괄 처리를 실행, 기계 학습 알고리즘을 학습 또는 기록 데이터에서 대화형 쿼리를 실행 합니다. 이 미리 보기에 등록 [여기](https://aka.ms/asapreview1)합니다.
 
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. 에 대 한 액세스 비공개 미리 보기 기능을 도구에 문의 *ASAToolsfeedback\@microsoft.com*합니다.
+### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Event Hubs (Announced 2019 년 5 월)를 사용 하 여 한 번의 클릭 통합 
+이 통합을 사용 하 여 들어오는 데이터를 시각화 하 여 이벤트 허브 포털에서 한 번의 클릭을 사용 하 여 Stream Analytics 쿼리를 작성을 시작할 수 이제 합니다. 쿼리 준비 되 면 몇 번의 클릭 만으로 제품 화 및 실시간 통찰력을 제공 수 있습니다. 이렇게 하면 시간과 실시간 분석 솔루션 개발 비용을 크게 줄어듭니다. 이 미리 보기에 등록 [여기](https://aka.ms/asapreview1)합니다.
 
-## <a name="next-steps"></a>다음 단계
+### <a name="support-for-azure-stack-announced-may-2019"></a>(월 2019 발표) Azure Stack에 대 한 지원
+이 기능을 Azure IoT Edge 런타임에서 사용은 로컬 입력에 대 한 네이티브 지원과 같은 사용자 지정 Azure Stack 기능을 활용 하 고 (예: Event Hubs, IoT Hub, Blob Storage) Azure Stack에서 실행을 출력 합니다. 이 새로운 통합을 사용 하면 생성 된 위치, 대기 시간을 절감 및 통찰력을 극대화에 가까운 데이터를 분석할 수 있는 하이브리드 아키텍처를 빌드할 수 있습니다.
+이 미리 보기에 등록 [여기](https://aka.ms/asapreview1)합니다.
 
-* [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)(Azure Stream Analytics의 8가지 새 기능)
-
-* [이제 Azure Stream Analytics에서 사용 가능한 네 가지 새 기능](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

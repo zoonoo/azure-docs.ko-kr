@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235669"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551770"
 ---
 # <a name="assets"></a>자산
 
-Azure Media Services의 [자산](https://docs.microsoft.com/rest/api/media/assets)에는 디지털 파일(비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 캡션 파일 포함)과 이러한 파일에 대한 메타데이터가 포함됩니다. 디지털 파일이 자산에 업로드되면 Media Services 콘텐츠 워크플로 인코딩, 스트리밍, 분석에 사용할 수 있습니다. 자세한 내용은 아래의 [자산에 디지털 파일 업로드](#upload-digital-files-into-assets) 섹션을 참조하세요.
+Azure Media Services에는 [자산](https://docs.microsoft.com/rest/api/media/assets) (비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택된 캡션 파일 포함)는 Azure Storage에 저장 된 디지털 파일에 대 한 정보를 포함 합니다. 
 
 자산은 [Azure Storage 계정](storage-account-concept.md)의 Blob 컨테이너에 매핑되고 자산의 파일은 해당 컨테이너에 블록 Blob으로 저장됩니다. Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob 계층을 지원합니다. GPv2를 사용하는 경우 파일을 [쿨 또는 보관 스토리지](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)로 이동할 수 있습니다. **보관** 스토리지는 더 이상 필요 없는 원본 파일을 보관하는 데 적합합니다(예: 인코딩된 후).
 
 **보관** 스토리지 계층은 이미 인코딩되었고 인코딩 작업 출력이 출력 Blob 컨테이너에 배치된 대용량 원본 파일에만 사용할 것을 권장합니다. 자산과 연결하여 콘텐츠를 스트리밍 또는 분석하는 데 사용하려는 출력 컨테이너의 Blob은 **핫** 또는 **쿨** 스토리지 계층에 있어야 합니다.
 
-> [!NOTE]
-> 날짜/시간 형식의 자산 속성은 언제나 UTC 형식입니다.
-
 ## <a name="upload-digital-files-into-assets"></a>자산에 디지털 파일 업로드
 
-일반적인 Media Services 워크플로 중 하나는 파일 업로드, 인코딩 및 스트리밍입니다. 이 섹션에서는 일반 단계를 간략하게 설명합니다.
+디지털 파일 저장소에 업로드 되 고 자산과 연결 된, 후 Media Services 인코딩, 스트리밍, 콘텐츠 워크플로 분석에 사용할 수 있습니다. 일반적인 Media Services 워크플로 중 하나는 파일 업로드, 인코딩 및 스트리밍입니다. 이 섹션에서는 일반 단계를 간략하게 설명합니다.
 
 > [!TIP]
 > 개발을 시작 하기 전에 검토 [Media Services v3 Api를 사용 하 여 개발](media-services-apis-overview.md) (Api, 명명 규칙, 액세스에 대 한 정보를 포함 합니다.)
@@ -54,6 +51,9 @@ Azure Media Services의 [자산](https://docs.microsoft.com/rest/api/media/asset
 자산을 만들고, 쓰기 가능한 SAS URL을 스토리지의 자산 컨테이너로 가져오고, SAS URL을 사용하여 파일을 스토리지의 컨테이너에 업로드하는 방법을 보여주는 전체 .NET 예제는 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조하세요.
 
 ### <a name="create-a-new-asset"></a>새 자산 만들기
+
+> [!NOTE]
+> 날짜/시간 형식의 자산 속성은 언제나 UTC 형식입니다.
 
 #### <a name="rest"></a>REST (영문)
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228621"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560774"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -516,6 +516,66 @@ ADLS Gen2로 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**에서
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1과 File2의 내용이 자동 생성된 파일 이름이 있는 하나의 파일로 병합됩니다. File1에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 Acl을 유지 합니다.
+
+>[!TIP]
+>복사에 대 한 데이터를 Azure 데이터 레이크 저장소 Gen1 Gen2에 일반적으로 볼 수 [Azure Data Lake 저장소 Gen1에서 Azure Data Factory를 사용 하 여 Gen2로 데이터 복사](load-azure-data-lake-storage-gen2-from-gen1.md) 연습 및 모범 사례를 사용 하 여 합니다.
+
+Gen2로 Azure Data Lake 저장소 (ADLS) Gen1 파일 복사 하는 경우에 데이터와 함께 POSIX 액세스 제어 목록 (Acl)을 유지 하기 위해 선택할 수 있습니다. 세부 정보에 액세스 제어에 대 한 참조 [Azure Data Lake 저장소 Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md) 하 고 [Azure Data Lake 저장소 Gen2의 액세스 제어](../storage/blobs/data-lake-storage-access-control.md)입니다.
+
+Azure Data Factory 복사 활동을 사용 하 여 Acl은 보존할 수 있습니다, 그리고 하나 이상의 형식을 선택할 수 있습니다.
+
+- **ACL**: 복사 하 고 유지 **POSIX 액세스 제어 목록** 파일 및 디렉터리에 있습니다. 원본에서 싱크로 전체 기존 Acl을 복사 합니다. 
+- **소유자**: 복사 하 고 유지 **소유 사용자** 파일 및 디렉터리입니다. ADLS Gen2 싱크에 대 한 슈퍼 사용자 액세스가 필요 합니다.
+- **그룹**: 복사 하 고 유지 **소유 그룹** 파일 및 디렉터리입니다. 싱크에 ADLS Gen2 또는 소유 사용자 (소유 사용자 대상 그룹의 멤버 이기도)에 대 한 슈퍼 사용자 액세스가 필요 합니다.
+
+Data Factory 복제는 지정 된 폴더와 파일 및 디렉터리 아래에 대 한 Acl을 폴더로 복사 되도록 지정 하는 경우 (경우 `recursive` 설정을 true로). 단일 파일에 Acl에서 복사 하도록 지정 하면 해당 파일이 복사 됩니다.
+
+>[!IMPORTANT]
+>Acl을 유지 하려는 경우는 높은 싱크도 Gen2 ADLS 계정에 대해 작동 하는 ADF에 대 한 충분 한 권한을 부여 했는지 확인 해야 합니다. 예를 들어, 계정 키 인증을 사용 하거나 서비스 주체, 관리 되는 id 저장소 Blob 데이터 소유자 역할을 할당 합니다.
+
+를 구성한 경우 원본 ADLS Gen1으로 이진 복사 옵션/이진 파일 형식 및 싱크를 사용 하 여 ADLS Gen2로 이진 복사 옵션/이진 형식을 사용 하 여 찾을 수 있습니다 **유지** 옵션 **복사 데이터 도구 설정 페이지** 또는 **복사 활동-> 설정** 활동 제작에 대 한 탭 합니다.
+
+![Gen2로 ADLS Gen1 ACL 유지](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+다음은 JSON 구성의 예 (참조 `preserve`): 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 

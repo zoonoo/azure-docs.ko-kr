@@ -3,8 +3,8 @@ title: Azure AD 갤러리 애플리케이션을 추가하는 문제 | Microsoft 
 description: Azure AD 갤러리 애플리케이션을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업 이해
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438798"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784435"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
@@ -40,7 +40,7 @@ ms.locfileid: "60438798"
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>추가한 후 내 애플리케이션을 설정하는 방법을 모름
 
-애플리케이션을 학습하는 데 도움이 필요한 경우 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서로 시작하는 것이 좋습니다.
+응용 프로그램에 대 한 학습을 사용 하 여 도움이 필요한 경우는 [Azure Active Directory와 SaaS Apps를 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 문서는 시작 하는 것이 좋습니다.
 
 또한 [Azure AD 애플리케이션 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "60438798"
 
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
 
-1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 선택합니다.
+1.  선택 된 **알림을** Azure portal의 오른쪽 위에 있는 아이콘 (벨)
 
 2.  **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "60438798"
 
   -   예제 – **2017-03-23T19:50:43.7583681Z**
 
-- **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
+- **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있습니다 내부 ID
 
   -   예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

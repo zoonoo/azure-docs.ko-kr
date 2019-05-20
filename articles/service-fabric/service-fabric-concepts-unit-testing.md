@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881456"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595505"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 
@@ -36,7 +36,7 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 
 ## <a name="common-practices"></a>일반적인 방법
 
-다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 이 기능을 제공하는 모의 라이브러리가 있습니다. 3.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
+다음 섹션에서는 상태 저장 서비스를 단위 테스트하기 위한 가장 일반적인 방법을 설명합니다. 또한 Service Fabric 오케스트레이션 및 상태 관리에 가깝게 조정해야 하는 모의 계층을 추천합니다. 3.3.0 이상부터 [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/)는 권장되는 모의 기능을 제공하고 아래 설명된 방법을 따르는 이러한 단일 라이브러리입니다.
 
 ### <a name="arrangement"></a>정렬
 

@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5a13dfd760f0c94343b151c9b4c1148c949e854
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149030"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790003"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>AzCopy v10을 사용하여 데이터 전송
 
@@ -22,7 +22,7 @@ AzCopy는 Microsoft Azure Blob 및 File storage 간에 데이터를 복사 하�
 
 ## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10의 새로운 기능
 
-- Azure Blob storage로 또는 그 반대로 파일 시스템을 동기화합니다. `azcopy sync <source> <destination>`를 사용합니다. 증분 복사 시나리오에 적합합니다.
+- Azure Blob storage로 또는 그 반대로 파일 시스템을 동기화합니다. 대신 `azcopy sync <source> <destination>`를 증분 복사 시나리오에 적합합니다.
 - Azure Data Lake Storage Gen2 API를 지원합니다. 사용 하 여 `myaccount.dfs.core.windows.net` Data Lake 저장소 Gen2 Api를 호출 하는 URI로 합니다.
 - 계정 전체를 다른 계정으로 복사하는 기능을 지원합니다(Blob 서비스만 해당).
 - Amazon 웹 서비스 S3 버킷에서 데이터 복사를 지원 합니다.
@@ -53,7 +53,7 @@ AzCopy 설치가 필요 하지 않습니다. 선호 하는 명령줄 응용 프�
 
 AzCopy는 Azure Storage를 사용 하 여 인증 하는 경우 다음 옵션을 지원 합니다.
 - **Azure Active Directory** (지원 **Blob 및 Data Lake 저장소 Gen2 서비스**). 사용 하 여 ```.\azcopy login``` Azure Active Directory에 로그인 합니다.  사용자에 게 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory 인증을 사용 하 여 Blob storage에 쓸 수 있습니다. Azure 리소스에 대 한 관리 되는 id 통해 인증을 사용 하 여 `azcopy login --identity`입니다.
-- **공유 액세스 서명 토큰 [Blob 및 파일 서비스에 대 한 지원 되는]** 합니다. 공유 액세스 서명 (SAS) 토큰을 사용 하려면 명령줄에서 blob 경로에 추가 합니다. Azure portal 사용 하 여 SAS 토큰을 생성할 수 있습니다 [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), 또는 기타 도구를 선택 합니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
+- **공유 액세스 서명 토큰 [Blob 및 파일 서비스에 대 한 지원 되는]** 합니다. 공유 액세스 서명 (SAS) 토큰을 사용 하려면 명령줄에서 blob 경로에 추가 합니다. Azure portal 사용 하 여 SAS 토큰을 생성할 수 있습니다 [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), 또는 기타 도구를 선택 합니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/common/storage-dotnet-shared-access-signature-part-1)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 

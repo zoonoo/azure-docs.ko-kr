@@ -126,23 +126,23 @@
       items:
         - name: 아웃바운드 연결(클래식)
           href: load-balancer-outbound-connections-classic.md
-    - name: 클라우드 서비스의 여러 VIP 구성
-      href: load-balancer-multivip.md
-      items:
-        - name: Cloud Services에 대한 내부 부하 분산 장치 구성
-          href: load-balancer-get-started-ilb-classic-cloud.md
+        - name: 클라우드 서비스의 여러 VIP 구성
+          href: load-balancer-multivip.md
           items:
-            - name: Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)
-              href: load-balancer-get-started-ilb-classic-ps.md
-            - name: Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)
-              href: load-balancer-get-started-ilb-classic-cli.md
-        - name: 공용 부하 분산 장치 구성(클래식 PowerShell)
-          href: load-balancer-get-started-internet-classic-ps.md
-          items:
-            - name: 공용 부하 분산 장치 구성(클래식 클라우드)
-              href: load-balancer-get-started-internet-classic-cloud.md
-            - name: 공용 부하 분산 장치 구성(클래식 CLI)
-              href: load-balancer-get-started-internet-classic-cli.md
+            - name: Cloud Services에 대한 내부 부하 분산 장치 구성
+              href: load-balancer-get-started-ilb-classic-cloud.md
+              items:
+                - name: Cloud Services에 대한 내부 부하 분산 장치 구성(PowerShell)
+                  href: load-balancer-get-started-ilb-classic-ps.md
+                - name: Cloud Services에 대한 내부 부하 분산 장치 구성(CLI)
+                  href: load-balancer-get-started-ilb-classic-cli.md
+            - name: 공용 부하 분산 장치 구성(클래식 PowerShell)
+              href: load-balancer-get-started-internet-classic-ps.md
+              items:
+                - name: 공용 부하 분산 장치 구성(클래식 클라우드)
+                  href: load-balancer-get-started-internet-classic-cloud.md
+                - name: 공용 부하 분산 장치 구성(클래식 CLI)
+                  href: load-balancer-get-started-internet-classic-cli.md
 - name: 참고 자료
   items:
     - name: 코드 샘플

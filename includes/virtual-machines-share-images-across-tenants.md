@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cb7cf932433927d4ead853952ff74d55c55b9cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160022"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546710"
 ---
 공유 이미지 갤러리에서는 RBAC를 사용 하 여 공유 이미지 있습니다. RBAC를 사용 하 여 테 넌 트 외부의 개인을 테 넌 트 내에서 이미지를 공유할 수 있습니다. 하지만 Azure 테 넌 트를 대규모로 외부에 있는 이미지를 공유 하려는 경우 공유를 용이 하 게 하려면 앱 등록을 만들어야 합니다.  앱 등록을 사용 하 여 같은 복잡 한 공유 시나리오를 설정할 수 있습니다. 
 
@@ -44,7 +44,9 @@ ms.locfileid: "65160022"
 1. 아래 **선택**, 형식 *myGalleryApp* 목록에 표시 되 면 선택 합니다. 완료 되 면 선택 **저장할**합니다.
 
 
-브라우저를 사용 하 여 로그인을 요청 하 여 응용 프로그램을 액세스할 때 사용할 테 넌 트 2에 대 한 서비스 주체를 만듭니다. 바꿉니다 *<Tenant2 ID>* 이미지 갤러리를 공유 하려는 테 넌 트에 대 한 테 넌 트 ID를 사용 하 여 합니다. 바꿉니다 *< 응용 프로그램 (클라이언트) ID >* 만든 앱 등록의 응용 프로그램 ID를 사용 하 여 합니다. 마친 대체를 브라우저에 URL을 붙여넣습니다 및 테 넌 트 2에 로그인 하려면 로그인 프롬프트를 따릅니다.
+## <a name="give-tenant-2-access"></a>테 넌 트 2 대 한 액세스를 제공 합니다.
+
+브라우저를 사용 하 여 로그인을 요청 하 여 응용 프로그램에 테 넌 트 2 대 한 액세스를 제공 합니다. 바꿉니다 *<Tenant2 ID>* 이미지 갤러리를 공유 하려는 테 넌 트에 대 한 테 넌 트 ID를 사용 하 여 합니다. 바꿉니다 *< 응용 프로그램 (클라이언트) ID >* 만든 앱 등록의 응용 프로그램 ID를 사용 하 여 합니다. 마친 대체를 브라우저에 URL을 붙여넣습니다 및 테 넌 트 2에 로그인 하려면 로그인 프롬프트를 따릅니다.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

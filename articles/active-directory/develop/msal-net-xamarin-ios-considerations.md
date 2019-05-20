@@ -4,7 +4,7 @@ description: .NET (MSAL.NET)에 대 한 Microsoft 인증 라이브러리를 사�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: bf236bff2300129ec97d3b8946c4c2a2748bca77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406975"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602137"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 가지 MSAL.NET을 사용 하는 경우 계정에 수행 해야 하는 몇 가지 고려 사항
@@ -108,7 +108,7 @@ MSAL의 2.x 및 ADAL 4.x는 TeamId-간에 single sign-on (SSO) 동일한 게시�
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>

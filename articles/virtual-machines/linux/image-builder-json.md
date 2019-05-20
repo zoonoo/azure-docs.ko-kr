@@ -3,16 +3,16 @@ title: Azure 이미지 작성기 템플릿 (미리 보기) 만들기
 description: Azure 이미지 작성기를 사용 하는 템플릿을 만드는 방법에 알아봅니다.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159602"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538288"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -32,7 +32,7 @@ Azure 이미지 작성기 이미지 작성기 서비스로 정보를 전달 하�
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -447,7 +447,7 @@ Azure 공유 이미지 갤러리는 이미지 지역 복제를 관리할 수 있
 > [!NOTE]
 > Azure 이미지 작성기를 사용 하 여 갤러리를 다른 지역에 있지만 Azure 이미지 작성기 서비스는 데이터 센터 간에 이미지를 전송 해야 합니다. 및이 더 오래 걸립니다. 이미지 작성기가 자동으로 버전 이미지를 기반으로 하는 단조 정수, 현재 지정할 수 없습니다. 
 
-### <a name="distribute-vhd"></a>배포: VHD   
+### <a name="distribute-vhd"></a>배포: VHD  
 VHD에 출력할 수 있습니다. 그런 다음 VHD를 복사 하 고 Azure MarketPlace에 게시 하거나 Azure Stack을 사용 하는 데 사용할 수 있습니다.  
 
 ```json

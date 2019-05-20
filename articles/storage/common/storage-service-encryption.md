@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153081"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790062"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대 한 azure Storage 암호화
 
@@ -52,6 +52,9 @@ Azure Storage를 사용 하 여 고객 관리 키를 사용 하는 방법에 알
 - [PowerShell에서 Azure Storage 암호화에 대 한 고객 관리 키를 구성 합니다.](storage-encryption-keys-powershell.md)
 - [Azure CLI에서 Azure Storage 암호화를 사용 하 여 고객 관리 키를 사용 합니다.](storage-encryption-keys-cli.md)
 
+> [!IMPORTANT]
+> Azure 리소스에 대 한 관리 되는 id 기능을 Azure Active Directory (Azure AD)의 고객 관리 키 사용합니다. 관리 되는 다른 id에 하나의 Azure AD 디렉터리에서 구독을 전송 하는 경우는 업데이트 되지 않습니다 및 고객 관리 키를 사용할 수 없습니다. 자세한 내용은 **Azure AD 디렉터리 간에 구독을 양도** 에 [Faq 및 알려진된 문제에는 Azure 리소스에 대 한 id 관리](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)합니다.  
+
 > [!NOTE]  
 > 고객 관리 키에 대 한 지원 되지 않습니다 [Azure 관리 디스크](../../virtual-machines/windows/managed-disks-overview.md)합니다.
 
@@ -61,4 +64,4 @@ Azure Storage 암호화를 사용 하 여 모든 Azure Storage 계정 및 포함
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란?](../../key-vault/key-vault-overview.md)
+- [Azure 키 자격 증명 모음이란?](../../key-vault/key-vault-overview.md)

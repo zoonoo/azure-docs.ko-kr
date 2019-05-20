@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942724"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794334"
 ---
 # <a name="prepare-your-container-technical-assets"></a>컨테이너 기술 자산 준비
 
@@ -45,7 +45,7 @@ ms.locfileid: "64942724"
 
 -   [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   내선 번호: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -53,9 +53,10 @@ ms.locfileid: "64942724"
 
 ## <a name="create-the-container-image"></a>컨테이너 이미지 만들기
 
-- 컨테이너 VM(가상 머신)에 대한 VHD(가상 하드 디스크)를 만들고 구성합니다. 이 VHD는 컨테이너에 대한 운영 체제(Windows, Linux 또는 Ubuntu)를 포함합니다. 추가 데이터 디스크가 필요할 수 있습니다.
-- VM OS, VM 크기, 개방할 포트 및 연결된 데이터 디스크를 구성합니다.
-- 제품에 필요한 애플리케이션 및 기타 소프트웨어를 설치합니다. 예: 데이터베이스 소프트웨어, 제 3자 소프트웨어 또는 사용자 지정 애플리케이션
+자세한 내용은 다음을 참조하세요.
+
+* [자습서: Azure Container Instances에 배포에 대 한 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [자습서: 빌드 및 Azure 컨테이너 레지스트리 작업을 사용 하 여 클라우드에서 컨테이너 이미지 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>다음 단계
 

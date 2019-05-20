@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322794"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796354"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>IoT Hub 장치 id 대량에서 가져오기 및 내보내기
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>장치 가져오기/내보내기 작업 제한
+
+1 개의 활성 장치 가져오기 또는 내보내기 작업은 모든 IoT Hub 계층에 대해 한 번에 허용 됩니다. IoT Hub에는 다음과 같은 작업 작업의 속도 대 한 제한이 있습니다. 자세한 내용은 참조 하세요 [참조-IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)합니다.
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>컨테이너 SAS URI 가져오기
 
-다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)를 생성하는 방법을 보여 줍니다.
+다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 생성하는 방법을 보여 줍니다.
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT Hub 메트릭](iot-hub-metrics.md)
-* [작업 모니터링](iot-hub-operations-monitoring.md)
+* [IoT Hub 로그](iot-hub-monitor-resource-health.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

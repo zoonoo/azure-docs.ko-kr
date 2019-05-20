@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195710"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603202"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
 이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
@@ -74,23 +74,23 @@ ms.locfileid: "60195710"
 14. 쿼리가 업데이트되면, 시각화에 사용할 수 있는 새로운 필드가 **Fields** (필드) 탭에 표시됩니다.
     
     ![업데이트된 필드](./media/data-lake-store-power-bi/updated-query-fields.png "업데이트된 필드")
-15. 특정 국가에 대한 각 도시의 드라이버를 나타내는 원형 차트를 만들겠습니다. 이렇게 하려면, 다음을 선택합니다.
+15. 지정된 된 국가/지역에 대 한 각 도시의 드라이버를 나타내는 원형 차트를 만들겠습니다. 이렇게 하려면, 다음을 선택합니다.
     
     1. Visualizations(시각화) 탭에서 원형 차트 기호를 클릭합니다.
        
         ![원형 차트 만들기](./media/data-lake-store-power-bi/create-pie-chart.png "원형 차트 만들기")
-    2. 사용할 열은 **열 4**(도시 이름) 및 **열 7**(국가 이름)입니다. 아래와 같이 열을 **필드** 탭에서 **시각화** 탭으로 끌어갑니다.
+    2. 사용 하려는 열 **열 4** (도시 이름) 및 **열 7** (국가/지역 이름). 아래와 같이 열을 **필드** 탭에서 **시각화** 탭으로 끌어갑니다.
        
         ![시각화 만들기](./media/data-lake-store-power-bi/create-visualizations.png "시각화 만들기")
     3. 이제 원형 차트가 아래와 비슷하게 표시되는 것을 볼 수 있습니다.
        
         ![원형 차트](./media/data-lake-store-power-bi/pie-chart.png "시각화 만들기")
-16. 페이지 수준 필터에서 특정 국가를 선택하면, 선택한 국가의 각 도시 내 드라이버의 수를 볼 수 있습니다. 예를 들어 **시각화** 탭의 **페이지 수준 필터**에서 **브라질**을 선택합니다.
+16. 특정 국가/지역에서 페이지 수준 필터를 선택 하면 이제 선택한 국가/지역의 각 도시 내에서 드라이버의 수를 볼 수 있습니다. 예를 들어 **시각화** 탭의 **페이지 수준 필터**에서 **브라질**을 선택합니다.
     
-    ![국가 선택](./media/data-lake-store-power-bi/select-country.png "국가 선택")
+    ![국가 선택](./media/data-lake-store-power-bi/select-country.png "국가/지역 선택")
 17. 원형 차트가 브라질의 도시 내 드라이버를 나타내도록 자동으로 업데이트됩니다.
     
-    ![국가의 드라이버](./media/data-lake-store-power-bi/driver-per-country.png "국가별 드라이버")
+    ![국가 내 드라이버](./media/data-lake-store-power-bi/driver-per-country.png "국가/지역당 드라이버")
 18. **파일** 메뉴에서 **저장**을 클릭하여 시각화를 Power BI Desktop 파일로 저장합니다.
 
 ## <a name="publish-report-to-power-bi-service"></a>Power BI 서비스에 보고서 게시

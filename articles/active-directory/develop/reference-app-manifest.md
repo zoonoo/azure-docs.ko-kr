@@ -3,8 +3,8 @@ title: Azure Active Directory 앱 매니페스트 이해 | Microsoft Docs
 description: Azure AD 테넌트의 애플리케이션 ID 구성을 나타내고 OAuth 권한 부여, 승인 환경 등을 용이하게 하는 데 사용되는 Azure Active Directory 앱 매니페스트에 대한 자세한 정보를 다룹니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918767"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545663"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -48,7 +48,7 @@ Azure portal 또는 프로그래밍 방식으로 사용 하 여을 통해 앱의
 > [!NOTE]
 > **설명** 다음에 **예제 값** 열이 표시되지 않는 경우 브라우저 창을 최대화하고 **예제 값** 열이 표시될 때까지 스크롤/살짝 밉니다.
 
-| 키  | 값 형식 | 설명  | 예제 값 |
+| 키  | 값 유형 | 설명  | 예제 값 |
 |---------|---------|---------|---------|
 | `accessTokenAcceptedVersion` | Nullable Int32 | 리소스에서 필요한 액세스 토큰 버전을 지정합니다. 이렇게 하면 엔드포인트 또는 액세스 토큰을 요청하는 데 사용되는 클라이언트와는 독립적으로 만들어진 JWT의 버전과 형식을 변경합니다.<br/><br/>사용된 엔드포인트, v1.0 또는 v2.0은 클라이언트에서 선택되고 id_token의 버전에만 영향을 줍니다. 리소스는 `accesstokenAcceptedVersion`을 명시적으로 구성해서 지원되는 액세스 토큰 형식을 지정해야 합니다.<br/><br/>`accesstokenAcceptedVersion`에 가능한 값은 1, 2 또는 null입니다. 값이 null인 경우 기본값은 1이며 v1.0 엔드포인트에 해당합니다. | `2` |
 | `addIns` | 컬렉션 | 서비스가 특정 컨텍스트에서 앱을 호출 하는 데 사용할 수 있는 사용자 지정 동작을 정의 합니다. 예를 들어 파일 스트림을 렌더링할 수 있는 응용 프로그램은 "FileHandler" 기능에 대해 추가 기능 속성을 설정 될 수 있습니다. 이렇게 하면 Office 365 등의 서비스에서 사용자가 작업 하는 문서의 컨텍스트에서 응용 프로그램을 호출 합니다. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
@@ -94,7 +94,7 @@ Azure portal 또는 프로그래밍 방식으로 사용 하 여을 통해 앱의
 응용 프로그램 매니페스트에 컬렉션 이라고 하는 특성이 여러 개 예를 들어 approles keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess, 하며 oauth2Permissions 합니다. 모든 응용 프로그램에 대 한 완전 한 응용 프로그램 매니페스트 내에서 결합 하는 모든 컬렉션에 있는 항목의 총 수에 1200 제한 되었습니다. 응용 프로그램 매니페스트에 지정 된 Uri 100 리디렉션에 이미 있는 경우 1100 나머지 항목을 결합 하는 다른 모든 컬렉션에서 사용 하 여 매니페스트를 구성 하는 유일한 왼쪽 하 합니다.
 
 > [!NOTE]
-> 응용 프로그램 매니페스트에서 1,200 개 이상의 항목을 추가 하려는 경우 오류가 표시 될 수 있습니다 **"xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 세부 정보: 매니페스트 크기 제한을 초과 합니다. 값의 수를 줄이고 요청을 다시 시도 하세요. "**
+> 응용 프로그램 매니페스트에서 1,200 개 이상의 항목을 추가 하려는 경우 오류가 표시 될 수 있습니다 **"xxxxxx 응용 프로그램을 업데이트 하지 못했습니다. 오류 정보: 매니페스트 크기 제한을 초과 합니다. 값의 수를 줄이고 요청을 다시 시도 하세요. "**
 
 ### <a name="unsupported-attributes"></a>지원 되지 않는 특성
 

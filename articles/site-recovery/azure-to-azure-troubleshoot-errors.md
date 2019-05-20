@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699089"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796421"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -232,10 +232,10 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. 경고를 해제 합니다. 복제 된 항목으로 이동 > VM > 개요 섹션에서 해제 경고를 클릭 합니다.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>"복제 사용"에서 선택할 Azure VM 또는 리소스 그룹을 확인할 수 없습니다.
 
  **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
-현재 Azure Site Recovery에서는 원본 지역 리소스 그룹과 가상 머신이 같은 위치에 있어야 합니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다.
+Azure Site Recovery 현재 영역 리소스 그룹 및 virtual machines의 소스가 되는 규약 해야 동일한 위치에 있습니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다. 대 안으로, Recovery services 자격 증명 대신 VM에서 복제를 사용할 수 있습니다. Sourece VM으로 이동 > 속성 > 재해 복구 및 복제를 사용 하도록 설정 합니다.
 
 **원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
 제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
@@ -252,7 +252,7 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 >
 >아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다.
 
-[부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
+[부실 ASR 구성 스크립트를 제거](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음
  **원인 1:  가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>

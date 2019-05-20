@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627049"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792997"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627049"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* 향상 된 분산 전략 시나리오에 대 한 모든 임대를 가져올 때 네트워크 문제로 인해 예: 임대가 만료 간격 보다 오래 걸리면:
+  * 이 시나리오에서는 부하 분산 알고리즘을 거짓 만료, 임대를 고려 하는 데 현재 소유자 로부터 훔친 임대를 유발 합니다. 이 불필요 한 많은 임대를 다시 분산을 트리거할 수 있습니다.
+  * 이 문제는이 릴리스에서 소유자가 변경 되지 않은 만료 된 임대를 획득 및 posponing 획득을 위해서는 다음 분산 반복 임대가 만료 하는 동안 충돌 시 다시 시도 방지 하 여 해결 합니다.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * 관찰자 예외 처리가 향상되었습니다.
@@ -163,6 +168,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |2019 년 5 월 14 일 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
 | [2.2.4](#2.2.4) |2018년 11월 29일 |--- |

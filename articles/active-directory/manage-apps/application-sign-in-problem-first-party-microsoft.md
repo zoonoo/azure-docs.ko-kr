@@ -3,8 +3,8 @@ title: Microsoft 애플리케이션에 로그인하는 문제 | Microsoft Docs
 description: Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 애플리케이션에 로그인할 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292200"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825224"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -435,7 +435,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 6. 검사하려는 정책을 클릭합니다.
 
-7. 특정 조건, 할당 또는 사용자 액세스를 차단할 수 있는 기타 설정이 없는지 검토합니다.
+7. 특정 조건이 없는, 할당 또는 사용자 액세스를 차단할 수 있는 기타 설정을 검토 합니다.
 
    >[!NOTE]
    >일시적으로 이 정책을 사용하지 않도록 설정하여 로그인에 영향을 주지 않도록 합니다. 이를 위해 **정책 사용** 토글을 **아니오**로 설정하고 **저장** 단추를 클릭합니다.
@@ -456,7 +456,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 5.  **모든 애플리케이션**을 클릭합니다.
 
-6.  애플리케이션 표시 이름 또는 애플리케이션 ID를 기준으로 관심이 있는 애플리케이션이나 로그인하려는 사용자를 검색합니다.
+6.  검색에서는 관심 응용 프로그램 또는 사용자에 대 한 표시 이름 또는 응용 프로그램 id입니다. 응용 프로그램에 로그인 하려고 합니다.
 
      >[!NOTE]
      >찾고 있는 애플리케이션이 보이지 않으면 **필터** 단추를 클릭하고 목록 범위를 **모든 애플리케이션**으로 확장합니다. 더 많은 열을 표시하려면 **열** 단추를 클릭하여 애플리케이션의 추가 세부 정보를 추가합니다.

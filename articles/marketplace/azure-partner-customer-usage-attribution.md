@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935717"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800960"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -245,9 +245,9 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>보고서
+## <a name="report"></a>보고
 
-파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 표시 하려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서를 사용 하 여 문제가 발생 하거나 로그인 하는 경우에 Get 지원 섹션의 지침에 따라 지원 요청을 만듭니다.
 
 보고서를 보려는 파트너 연결 유형 드롭다운 목록에서 추적 템플릿을 선택 합니다.
 
@@ -267,6 +267,10 @@ foreach ($deployment in $deployments){
 
 ## <a name="get-support"></a>지원 받기
 
+보고서 또는 파트너 센터에 로그인을 사용 하 여 문제를 발생 하는 경우 여기에 파트너 센터 지원 팀을 사용 하 여 지원 요청을 만듭니다. [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
 Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필요한 경우 다음이 단계를 수행 합니다.
 
 1. [지원 페이지](https://go.microsoft.com/fwlink/?linkid=844975)로 이동합니다.
@@ -282,7 +286,7 @@ Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필
 
 1. **요청 시작**을 선택합니다.
 
-1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
+1. 다음 페이지에서 필요한 값을 입력합니다. 선택 **계속**합니다.
 
 1. 다음 페이지에서 필요한 값을 입력합니다.
 

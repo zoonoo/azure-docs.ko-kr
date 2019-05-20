@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405361"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550048"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -59,6 +59,9 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
+
+> [!TIP]
+>  여러 언어 (예를 들어: 하나 이상의 오디오 트랙이 영어 및 스페인어 하나의 오디오 트랙만)에서 라이브 이벤트를 스트리밍하는 경우 라이브 피드를 통과 라이브 이벤트를 보내도록 구성할 Media Excel 라이브 인코더를 사용 하 여이 수행할 수 있습니다.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>온-프레미스 라이브 인코더 설정 구성
 

@@ -4,7 +4,7 @@ description: JavaScript (MSAL.js) 용 Microsoft Authentication Library를 사용
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138312"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544018"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL.js를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 JavaScript (MSAL.js)에 대 한 사용자 에이전트 응용 프로그램의 인스턴스를 사용 하 여 초기화 하는 동안 Microsoft 인증 라이브러리를 설명합니다. 사용자 에이전트 응용 프로그램은 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 클라이언트 코드는 공용 클라이언트 응용 프로그램의 폼입니다. 이러한 클라이언트는 브라우저 컨텍스트가 공개적으로 액세스할 수 있으므로 암호를 저장 하지 마십시오. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 참조는 [개요](msal-client-applications.md)합니다.

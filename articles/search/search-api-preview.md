@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024278"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523912"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search 서비스 REST api 버전 2019-05-06-미리 보기
 이 문서에서는 `api-version=2019-05-06-Preview` 버전의 Azure Search Service REST API를 설명하면서 아직 일반 공개되지 않은 실험적 기능을 제공합니다.
@@ -37,6 +37,8 @@ ms.locfileid: "65024278"
 이전 미리 보기에서 공지된 기능이 여전히 공개 미리 보기 상태로 제공됩니다. 이전 미리 보기 API 버전에서 API를 호출하는 경우 계속 해당 버전을 사용하거나 예상되는 동작을 변경하지 않고 `2019-05-06-Preview`로 전환할 수 있습니다.
 
 + [moreLikeThis 쿼리 매개 변수](search-more-like-this.md)는 특정 문서와 관련된 문서를 찾습니다. 이 기능은 이전 미리 보기에 있었습니다. 
+* [CSV blob 인덱싱](search-howto-index-csv-blobs.md) 텍스트 blob 당 문서 하나 대신 줄 당 문서 하나를 만듭니다.
+* [Cosmos DB 인덱서 용 MongoDB API 지원](search-howto-index-cosmosdb.md) 미리 보기로 제공에서 됩니다.
 
 
 ## <a name="how-to-call-a-preview-api"></a>미리 보기 API를 호출하는 방법

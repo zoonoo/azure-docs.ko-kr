@@ -368,7 +368,7 @@
   items:
     - name: 개요
       href: sql-database-howto.md
-    - name: 단일 데이터베이스
+    - name: 단일 데이터베이스 및 탄력적 풀
       items:
         - name: 개요
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: 마이그레이션(오래된 탄력적 작업부터)
               href: elastic-jobs-migrate.md
-    - name: Managed Instance
+    - name: 관리되는 인스턴스
       items:
         - name: 개요
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server 블로그
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure 블로그
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 공용 데이터 집합

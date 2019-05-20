@@ -3,8 +3,8 @@ title: Azure AD 애플리케이션 프록시로 업그레이드 | Microsoft Docs
 description: Microsoft Forefront 또는 Unified Access Gateway를 업그레이드하는 경우 가장 좋은 프록시 솔루션을 선택합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/27/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a98a0394ff2a74aa256637d3c12007374200ef22
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292795"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783457"
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
 
@@ -35,20 +35,20 @@ Azure Active Directory 애플리케이션 프록시는 Microsoft에서 제공하
 | 기능 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | 인증서 인증 | 예. | 예. | - | - |
-| 선택적으로 브라우저 앱 게시 | 예. | 예 | 예 | 예 |
+| 선택적으로 브라우저 앱 게시 | 예. | 예 | 예 | 예. |
 | 사전 인증 및 Single Sign-On | 예. | 예 | 예 | 예. | 
 | 계층 2/3 방화벽 | 예. | 예. | - | - |
 | 전달 프록시 기능 | 예. | - | - | - |
 | VPN 기능 | 예. | 예. | - | - |
 | 다양한 프로토콜 지원 | - | 예. | 예, HTTP를 통해 실행하는 경우 | 예, HTTP 또는 원격 데스크톱 게이트웨이를 통해 실행하는 경우 |
-| ADFS 프록시 서버 역할 수행 | - | 예 | 예 | - |
+| ADFS 프록시 서버 역할 수행 | - | 예. | 예. | - |
 | 애플리케이션 액세스에 대한 단일 포털 | - | 예. | - | 예. |
-| 응답 본문 링크 변환 | 예. | 예 | - | 예 | 
+| 응답 본문 링크 변환 | 예. | 예 | - | 예. | 
 | 헤더를 사용한 인증 | - | 예. | - | 예, PingAccess 사용 | 
-| 클라우드 규모 보안 | - | - | - | 예 | 
-| 조건부 액세스 | - | 예 | - | 예 |
+| 클라우드 규모 보안 | - | - | - | 예. | 
+| 조건부 액세스 | - | 예. | - | 예. |
 | DMZ(완충 영역)에 구성 요소 없음 | - | - | - | 예. |
-| 인바운드 연결 없음 | - | - | - | 예 |
+| 인바운드 연결 없음 | - | - | - | 예. |
 
 대부분의 시나리오에 대 한 최신 솔루션으로 Azure AD Application Proxy 권장 합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요한 시나리오에서만 사용할 수 있으며, Azure Active Directory에서는 사용자 지정 도메인을 사용할 수 없습니다. 
 

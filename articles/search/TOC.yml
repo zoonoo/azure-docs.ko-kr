@@ -27,6 +27,8 @@
       href: search-fiddler.md
     - name: PowerShell
       href: search-create-index-rest-api.md
+    - name: Python
+      href: search-get-started-python.md
 - name: 자습서
   items:
     - name: Azure SQL Database 인덱싱
@@ -207,7 +209,7 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: 문서 링크
           href: cognitive-search-resources-documentation.md
-    - name: 지식 저장소(미리 보기)
+    - name: 기술 저장소(미리 보기)
       items:
         - name: 시작하는 방법
           href: knowledge-store-howto.md
@@ -322,8 +324,6 @@
           href: 'https://aka.ms/jfkfiles'
         - name: NYC 작업 데모
           href: 'https://aka.ms/azjobsdemo'
-        - name: 검색 분석기 데모
-          href: 'https://alice.unearth.ai/'
         - name: 사용 사례 검색
           href: 'https://searchsamples.azurewebsites.net/'
     - name: FAQ

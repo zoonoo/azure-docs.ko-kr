@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938140"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799940"
 ---
 # <a name="virtual-machine-skus-tab"></a>가상 머신 SKU 탭
 
@@ -55,7 +55,7 @@ ms.locfileid: "64938140"
 | **운영 체제 제품군\*** | 솔루션 VM이 Windows 또는 Linux 기반인지 여부를 나타냅니다. |
 | **운영 체제 유형 선택** | 지정된 OS의 특정 공급업체 또는 릴리스입니다. |
 | **OS 이름\*** | 고객에게 표시할 운영 체제 이름입니다.  |
-| **권장 되는 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이러한 권장 사항은 잠재 고객에게 눈에 잘 띄게 표시되지만, 솔루션 이미지와 호환되는 모든 VM 크기를 지정할 수 있습니다. | 
+| **권장 되는 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이 목록은 Azure portal 및 Microsoft 마켓플레이스를 따라 전달 됩니다.  (해당 고객 구독, 지역, 영역 등)에 유효한이 목록의 첫 번째 VM 크기는 잠재 고객에 대 한 기본값으로 설정 됩니다.  사용자는 솔루션 이미지와 호환 되는 모든이 크기를 변경할 수 있습니다. | 
 | **개방 포트**| 개방할 포트와 SKU를 지원할 프로토콜입니다.  이러한 구성은 솔루션 VM의 네트워크에 대해 구성된 가상 네트워크와 일치해야 합니다. 이러한 설정은 VM을 배포하는 중에 적용됩니다. 그러나 SKU가 게시되면 포트 설정을 수정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)을 참조하세요. <br/>모든 VM에 추가되는 기본 네트워크 매핑은 다음과 같습니다. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22에 SSH TCP 22-&GT;합니다. |
 | **디스크 버전**  | 디스크 버전 번호와 디스크 URL로 지정되는 연결된 솔루션 VM입니다. 디스크 버전은 [의미 체계 버전](https://semver.org/) 형식(`<major>.<minor>.<patch>`)이어야 합니다.  URL은 운영 체제 VHD에 대해 만든 공유 액세스 서명 URI입니다.  SKU당 최대 8개의 디스크 버전을 추가할 수 있지만, SKU에 대한 가장 높은 디스크 버전 번호만 Azure Marketplace에 표시됩니다. 다른 버전은 API를 통해서만 볼 수 있습니다.  <!--TD: Add more specific link to API --> <br/> **새 데이터 디스크** 접이식 섹션을 사용하면 최대 15개의 데이터 디스크를 VM에 연결할 수 있습니다.  지정된 VM 버전 및 연결된 데이터 디스크가 있는 SKU가 게시되면 이 구성을 수정할 수 없습니다.  추가 VM 버전이 SKU에 추가되면 동일한 수의 데이터 디스크도 지원해야 합니다. <br/> Azure 기반 VM 이미지를 만들지 않은 경우 나중에 이 필드 업데이트를 추가할 수 있습니다.  연결된 VM 리소스를 만드는 방법에 대한 자세한 내용은 [VM 기술 자산 만들기](./cpp-create-technical-assets.md) 섹션을 참조하세요.  
 |  |  |

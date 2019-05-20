@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939864"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597379"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 
@@ -37,50 +37,48 @@ ms.locfileid: "64939864"
 
 패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 필드 패싯 탐색에서 가장 잘 작동 하는 카디널리티가 낮습니다: 소수의 (예를 들어, 색, 국가/지역 또는 브랜드 이름 목록) 검색 코 퍼스의 문서 전체에서 반복 되는 고유 값입니다. 
 
-패싯은 다음 특성을 TRUE로 설정하여 인덱스를 만들 때 필드별로 활성화됩니다. (`filterable`, `facetable`). 필터링 가능한 필드만 패싯이 가능합니다.
+설정 하 여 인덱스를 만들 때 필드-별로 패싯 가능 합니다 `facetable` 특성을 `true`입니다. 설정 일반적으로 해야 합니다 `filterable` 특성을 `true` 검색 응용 프로그램은 최종 사용자가 선택한 패싯 기준으로 해당 필드에서 필터링 할 수 있도록 이러한 필드에 대 한 합니다. 
 
-패싯 탐색에 사용될 수 있는 [필드 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)은 "facetable"로 표시됩니다.
+모든 REST API를 사용 하 여 인덱스를 만들 때 [필드 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 에 사용 될 수 있는 수는 패싯 탐색으로 표시 되어 `facetable` 기본적으로:
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ 숫자 필드 형식: Edm.Int32, Edm.Int64, Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ 숫자 필드 형식: `Edm.Int32`, `Edm.Int64`, `Edm.Double`
++ 위 형식의 컬렉션 (예를 들어 `Collection(Edm.String)` 또는 `Collection(Edm.Double)`)
 
-Edm.GeographyPoint는 패싯 탐색에 사용할 수 없습니다. 패싯은 사람이 읽을 수 있는 텍스트 또는 숫자로 구성됩니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
+사용할 수 없습니다 `Edm.GeographyPoint` 또는 `Collection(Edm.GeographyPoint)` 패싯 탐색의 필드입니다. 패싯 카디널리티가 낮은 필드에서 가장 잘 작동 합니다. 지리적 좌표를 확인으로 인해 모든 두 개의 좌표 집합이 지정된 된 데이터 집합에서 같아야 하는 거의 없습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
 
 ## <a name="set-attributes"></a>특성 설정
 
-필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예제에서 패싯에 유용한 카디널리티가 낮은 필드는 범주(호텔, 모텔, 호스텔), 편의 시설 및 평점으로 구성됩니다. 
-
-.NET API에서 filtering 특성은 명시적으로 설정되어야 합니다. REST API에서 패싯 및 필터링은 기본적으로 사용하도록 설정되어 있으므로 패싯 및 필터링을 해제할 때 명시적으로 특성을 설정하면 됩니다. 기술적으로 필수는 아니지만 지침을 제공할 목적으로 다음 REST 예제에 특성이 표시되어 있습니다. 
+필드가 사용되는 방식을 제어하는 인덱스 특성은 인덱스의 개별 필드 정의에 추가됩니다. 다음 예에서 패싯에 대 한 유용한 카디널리티가 낮은 필드의 구성: `category` (호텔, 모텔, 호스텔) `tags`, 및 `rating`합니다. 이러한 필드를 `filterable` 고 `facetable` 돕기 위해 다음 예제에서 명시적으로 설정 특성입니다. 
 
 > [!Tip]
-> 성능 및 저장소 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. 특히 ID 또는 제품 이름과 같은 Singleton 값의 문자열 필드는 패싯 탐색에서 실수로(그리고 비효과적으로) 사용되지 않도록 "Facetable": false로 설정해야 합니다.
+> 성능 및 저장소 최적화를 위한 최고의 방법으로, 패싯으로 사용하지 말아야 하는 필드에 대해 패싯을 해제합니다. ID 또는 제품 이름과 같은 고유한 값의 문자열 필드에 설정할 특히 `"facetable": false` 패싯 탐색에서 실수로 (그리고 비 효과적) 사용을 방지 하기 위해.
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> 이 인덱스 정의는 [REST API를 사용하여 Azure Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. filterable 및 facetable 특성은 category, tags, parkingIncluded, smokingAllowed 및 rating 필드에 명시적으로 추가됩니다. 실제로 Edm.String, Edm.Boolean 및 Edm.Int32 필드 유형에서는 filterable 및 facetable을 무료로 사용할 수 있습니다. 
+> 이 인덱스 정의는 [REST API를 사용하여 Azure Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. `filterable` 하 고 `facetable` 특성에 명시적으로 추가 됩니다 `category`, `tags`, `parkingIncluded`, `smokingAllowed`, 및 `rating` 필드. 실제로 `filterable` 고 `facetable` REST API를 사용 하는 경우 이러한 필드는 기본적으로 활성화 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 활성화 되어야 합니다.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
@@ -91,25 +89,26 @@ Edm.GeographyPoint는 패싯 탐색에 사용할 수 없습니다. 패싯은 사
 애플리케이션 코드에서 요청을 식으로 구성하는 데 사용되는 검색 식, 패싯, 필터, 채점 프로필을 비롯한 유효한 쿼리의 모든 부분을 지정하는 쿼리를 구문으로 작성하십시오. 다음 예제에서는 숙박 유형, 평점 및 기타 편의 시설에 따라 패싯 탐색을 만드는 요청을 작성합니다.
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>클릭 이벤트로 필터링된 결과 반환하기
 
-필터 식은 패싯 값의 클릭 이벤트를 처리합니다. 범주 패싯의 경우 "모텔" 범주 클릭은 해당 숙박 유형을 선택하는 `$filter` 식을 통해 구현됩니다. 모텔만 표시되어야 한다고 알리기 위해 사용자가 "모텔"을 클릭하면 애플리케이션이 보내는 다음 쿼리에 $filter=category eq ‘motels’가 포함됩니다.
+패싯 값에 대해 최종 사용자가 click 이벤트 처리기에서 사용자의 의도 실현 하려면 필터 식을 사용 해야 합니다. 지정 된을 `category` 패싯을 사용 하 여 구현 됩니다 "motel" 범주 클릭을 `$filter` 해당 숙박 유형을 선택 하는 식입니다. 사용자가 모델이 표시 됨을 나타내려면 "motel"을 클릭 하면 응용 프로그램이 보내는 다음 쿼리에 포함 `$filter=category eq 'motel'`합니다.
 
 다음 코드 조각은 사용자가 범주 패싯에서 값을 선택하는 경우 범주를 필터에 추가합니다.
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-REST API를 사용하면 요청이 `$filter=category eq 'c1'`으로 명시됩니다. 범주를 다중값 필드로 만들려면 다음 구문을 사용합니다. `$filter=category/any(c: c eq 'c1')`
+
+사용자와 같은 컬렉션 필드에 대 한 패싯 값을 클릭할 경우 `tags`, 예를 들어 값 "pool", 응용 프로그램에 다음 필터 구문을 사용 해야 합니다. `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>팁 및 해결 방법
 

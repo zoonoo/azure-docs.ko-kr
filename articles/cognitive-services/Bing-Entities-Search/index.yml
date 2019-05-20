@@ -5,15 +5,15 @@ metadata:
   title: 'Bing Entity Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
   description: 'Bing Entity Search API를 사용하여 사람, 장소 또는 정의된 다른 주제에 대한 정보를 가져오는 방법입니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 설명합니다.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Bing Entity Search API를 사용하면 애플리케이션이 검색 쿼리에서 검색된 엔터티에 대한 정보를 가져올 수 있습니다. 엔터티는 사람, 장소, 미디어 제목일 수 있습니다.'
 sections:

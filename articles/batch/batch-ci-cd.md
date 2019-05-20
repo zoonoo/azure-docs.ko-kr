@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880949"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541732"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC 솔루션 빌드 및 배포 하려면 Azure 파이프라인을 사용 합니다.
 
@@ -363,7 +363,7 @@ Azure 파이프라인 구축, 배포, 테스트 및 모니터링 소프트웨어
 
 ## <a name="continuous-deployment"></a>지속적인 배포
 
-Azure 파이프라인은 또한 응용 프로그램과 기본 인프라를 배포 하는 데 사용 합니다. [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) 연속 배포를 사용 하도록 설정 하 고 릴리스 프로세스를 자동화 하는 구성 요소입니다.
+Azure 파이프라인은 또한 응용 프로그램과 기본 인프라를 배포 하는 데 사용 합니다. [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release) 연속 배포를 사용 하도록 설정 하 고 릴리스 프로세스를 자동화 하는 구성 요소입니다.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>응용 프로그램을 배포 하 고 기본 인프라
 

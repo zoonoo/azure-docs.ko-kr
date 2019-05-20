@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버에 대 한 가격 책정 계층
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에 대 한 가격 책정 계층을 설명 합니다.
+title: Azure Database for PostgreSQL-단일 서버에 대한 가격 책정 계층
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 가격 책정 계층을 설명합니다.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
@@ -13,13 +13,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65073190"
 ---
-# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 가격 책정 계층
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 가격 책정 계층
 
 Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 가격 책정 계층은 프로비전할 수 있는 계산의 vCore 수, vCore당 메모리 및 데이터를 저장하는 데 사용되는 스토리지 기술로 구분됩니다. 모든 리소스는 PostgreSQL 서버 수준에서 프로비전됩니다. 서버는 하나 이상의 데이터베이스를 갖출 수 있습니다.
 
-|    | **Basic** | **범용** | **메모리 최적화** |
+|    | **기본** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
-| 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
+| 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | vCore 메모리 | 2GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 | 가격 책정 계층  | 대상 워크로드 |
 |:-------------|:-----------------|
-| Basic | 간단한 계산 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
+| 기본 | 간단한 계산 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
@@ -39,7 +39,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 ## <a name="compute-generations-and-vcores"></a>세대 및 vCore 수 계산
 
-계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 두 개의 계산 세대, 4세대 및 5세대에서 선택할 수 있습니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄). 
+계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 두 개의 컴퓨팅 세대, 4세대 및 5세대에서 선택할 수 있습니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄). 
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
@@ -86,7 +86,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 프로비전하는 저장소는 Azure Database for PostgreSQL 서버에 사용할 수 있는 저장소 용량입니다. 저장소는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 저장소 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
-|    | **Basic** | **범용** | **메모리 최적화** |
+|    | **기본** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |

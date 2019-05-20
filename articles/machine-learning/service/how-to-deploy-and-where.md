@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f38f9889ca057f2981774edfb8a67bb986fdd8d7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506999"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619855"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -63,6 +63,9 @@ print(model.name, model.id, model.version, sep='\t')
 ```
 
 ### <a name="register-an-externally-created-model"></a>외부에서 만든된 모델을 등록 합니다.
+
+[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+
 외부에서 만든된 모델을 제공 하 여 등록할 수 있습니다는 **로컬 경로** 모델입니다. 폴더 또는 단일 파일을 제공할 수 있습니다.
 
 **Python SDK를 사용 하 여 ONNX 예제:**
@@ -123,7 +126,7 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
 

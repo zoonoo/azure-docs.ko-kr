@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: 관리 디바이스 필요
       href: require-managed-devices.md
+    - name: MFA 등록을 위해 신뢰할 수 있는 네트워크 필요
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
       href: untrusted-networks.md
     - name: 사용 약관 필요

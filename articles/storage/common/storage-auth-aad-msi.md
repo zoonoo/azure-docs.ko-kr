@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507887"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787970"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스 인증
 
@@ -48,12 +48,12 @@ RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 다음 문서
 
 앱 인증 클라이언트 라이브러리는 자동으로 인증을 관리합니다. 라이브러리는 개발자의 자격 증명을 사용 하 여 로컬 개발 동안 인증. 로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다. 나중에 Azure에는 솔루션을 배포한 경우 응용 프로그램 자격 증명을 사용 하 여 라이브러리를 자동으로 전환 합니다.
 
-Azure Storage 응용 프로그램에서 앱 인증 라이브러리를 사용 하려면에서 최신 미리 보기 패키지를 설치 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), 최신 버전의 뿐만 아니라 합니다 [.NET 용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)합니다. 다음을 추가 합니다 **를 사용 하 여** 문을 코드에:
+Azure Storage 응용 프로그램에서 앱 인증 라이브러리를 사용 하려면에서 최신 미리 보기 패키지를 설치 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), 최신 버전의 뿐만 아니라 합니다 [.NET 용 Azure Storage 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) 하며 [.NET 용 Azure Blob storage 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)합니다. 다음을 추가 합니다 **를 사용 하 여** 문을 코드에:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 앱 인증 라이브러리를 제공 합니다 **AzureServiceTokenProvider** 클래스입니다. 이 클래스의 인스턴스는 토큰을 가져오고 다음 만료 되기 전에 토큰을 갱신 하는 콜백에 전달할 수 있습니다.

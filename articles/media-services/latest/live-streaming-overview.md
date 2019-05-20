@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153371"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556216"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -33,7 +33,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 이 문서에서는 개요 및 Media Services 및 다른 관련 된 문서에 대 한 링크를 사용 하 여 라이브 스트리밍의 지침을 제공 합니다.
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="dynamic-packaging"></a>동적 패키징
 
@@ -53,7 +53,7 @@ Media Services를 사용 하 여 활용을 걸릴 수 있습니다 [동적 패�
 
 ### <a name="pass-through"></a>통과
 
-![통과](./media/live-streaming/pass-through.svg)
+![pass-through(통과)](./media/live-streaming/pass-through.svg)
 
 통과 **라이브 이벤트**를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 실행 시간이 긴 라이브 이벤트에 대 한 이러한 통과 라이브 이벤트를 최적화 하거나 24 x 365 선형 라이브 스트리밍. 
 
@@ -67,9 +67,9 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
 
 Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저 검토 해야 하 고 다음 개념을 이해: 
 
-- [스트리밍 엔드포인트](streaming-endpoint-concept.md)
-- [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
-- [스트리밍 로케이터](streaming-locators-concept.md)
+- [스트리밍 끝점 API](streaming-endpoint-concept.md)
+- [라이브 이벤트 및 라이브 출력 API](live-events-outputs-concept.md)
+- [스트리밍 로케이터 API](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>일반 단계
 
@@ -93,7 +93,7 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 - [상태 및 청구](live-event-states-billing.md)
 - [대기 시간](live-event-latency.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405180"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544473"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -51,7 +51,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md) 
+* [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md) 
 
   게이트웨이 설치를 Azure 구독에 연결할 수 있도록 게이트웨이 설치 동안 이 계정에 로그인합니다. 
   나중에 Azure Portal에서 게이트웨이 설치를 위한 Azure 리소스를 만들 때도 동일한 계정을 사용합니다. 

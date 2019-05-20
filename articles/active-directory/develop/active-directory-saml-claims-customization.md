@@ -3,8 +3,8 @@ title: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML 토큰�
 description: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임을 사용자 지정하는 방법을 알아보세요.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231336"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764658"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -121,7 +121,7 @@ NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign
 | **Extract ()-일치 하기 전에** | 지정된 된 값을 찾을 때까지 부분 문자열을 반환 합니다.<br/>예를 들어, "BSimon_US" 입력의 값을 사용 하는 경우 일치 하는 값은 "_US" 다음 클레임의 출력은 "예를 들어" 합니다. |
 | **Extract ()-일치 하는 사이** | 지정된 된 값을 찾을 때까지 부분 문자열을 반환 합니다.<br/>예를 들어, 입력의 값이 "Finance_BSimon_US" 이면 첫 번째 일치 하는 값은 "Finance_" 두 번째 일치 하는 값은 "_US" 차례로 클레임의 출력은 "예를 들어"입니다. |
 | **ExtractAlpha() - Prefix** | 문자열의 접두사 사전순 부분을 반환 합니다.<br/>예를 들어, "BSimon_123" 입력의 값을 사용 하는 경우 "예를 들어" 반환 합니다. |
-| **ExtractAlpha() - Suffix** | 접미사 사전순 부분 문자열을 반환합니다.<br/>예를 들어, "123_Simon" 입력의 값을 사용 하는 경우 "예를 들어" 반환 합니다. |
+| **ExtractAlpha() - Suffix** | 접미사 사전순 부분 문자열을 반환합니다.<br/>예를 들어, 입력의 값이 "123_Simon" 이면 "Simon" 반환 합니다. |
 | **ExtractNumeric() - Prefix** | 문자열의 접두사 숫자 부분을 반환 합니다.<br/>예를 들어, "123_BSimon" 입력의 값을 사용 하는 경우 "123" 반환 합니다. |
 | **ExtractNumeric() - Suffix** | 문자열의 숫자 접미사 부분을 반환합니다.<br/>예를 들어, "BSimon_123" 입력의 값을 사용 하는 경우 "123" 반환 합니다. |
 | **IfEmpty()** | 입력이 null 이거나 비워 둘 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어, employeeid 지정된 된 사용자에 대 한 비어 있는 경우는 extensionattribute에 저장 된 특성을 출력 하도록 하려는 경우. 이렇게 하려면 다음 값을 구성할는 있습니다.<br/>매개 변수 1(input): user.employeeid<br/>매개 변수 (출력) 2: user.extensionattribute1<br/>매개 변수 3 (출력 일치 항목이 없는 경우): user.employeeid |

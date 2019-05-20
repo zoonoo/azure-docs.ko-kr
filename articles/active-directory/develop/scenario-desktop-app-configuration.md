@@ -15,12 +15,12 @@ ms.date: 05/o7/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f6fc66187d961dc93089a9f81f6de4d67fe41
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075942"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545498"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데스크톱 앱
 
@@ -98,8 +98,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법을 자세히 알아보려면:
 
-- 사용할 수 있는 모든 한정자의 목록은 `PublicClientApplicationBuilder`, 참조 설명서를 참조 [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- 에 표시 된 모든 옵션의 설명은 `PublicClientApplicationOptions` 참조 [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), 참조 설명서에서
+- 사용할 수 있는 모든 한정자의 목록은 `PublicClientApplicationBuilder`, 참조 설명서를 참조 [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- 에 표시 된 모든 옵션의 설명은 `PublicClientApplicationOptions` 참조 [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), 참조 설명서에서
 
 ## <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하 여 전체 예제
 

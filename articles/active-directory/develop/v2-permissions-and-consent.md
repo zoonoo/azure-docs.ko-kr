@@ -3,8 +3,8 @@ title: Microsoft id 플랫폼 범위, 권한 및 동의 | Microsoft Docs
 description: 범위, 권한 및 동의 포함 하 여 Microsoft id 플랫폼 끝점에서 권한 부여의 설명입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112080"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544878"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>사용 권한 및 동의에 Microsoft id 플랫폼 끝점
 
@@ -49,7 +49,7 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 * 사용자의 일정 읽기
 * 사용자의 일정에 쓰기
-* 사용자로 메일 보내기
+* 사용자 권한으로 메일 보내기
 
 이러한 유형의 사용 권한을 정의하면 리소스가 해당 데이터 및 API 기능이 공개되는 방식을 세밀하게 제어할 수 있습니다. 타사 앱은 사용자 및 관리자에게 이러한 사용 권한을 요청할 수 있고, 요청을 받은 사용자 또는 관리자가 요청을 승인해야만 앱이 사용자 대신 데이터에 액세스하거나 작업을 수행할 수 있습니다. 리소스 기능을 더 작은 사용 권한 집합으로 나누면 기능을 수행하는 데 필요한 특정 권한만 요청하도록 타사 앱을 빌드할 수 있습니다. 사용자와 관리자가 정확 하 게 데이터를 앱에 액세스 권한을 알 수 및 악의적인 의도로 동작 하지 않으면 해당 점을 더 확신할 수 있습니다. 개발자는 항상 최소 권한의 개념에 따라 애플리케이션이 작동하는 데 필요한 사용 권한만 요청해야 합니다.
 
@@ -85,7 +85,7 @@ OpenID Connect의 Microsoft id 플랫폼 구현을 특정 리소스에 적용 �
 
 앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. `openid` 인증 앱에서 사용할 수 있는 ID 토큰을 획득 하는 Microsoft id 플랫폼의 토큰 끝점에 범위를 사용할 수 있습니다.
 
-### <a name="email"></a>이메일
+### <a name="email"></a>email
 
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email` 전자 메일 주소는 대/소문자 형태를 사용자 계정과 연결 된 경우에 클레임은 토큰에 포함 되어 있습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 

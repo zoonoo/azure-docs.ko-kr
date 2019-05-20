@@ -57,7 +57,7 @@ SQL data warehouse가 일시 중지 또는 크기 조정 중인지 확인하려�
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL Data Warehouse는 포트 1433을 통해 통신합니다.  회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal)에서 찾을수 있습니다.
+SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal)에서 찾을수 있습니다.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/서비스 끝점 설정 확인
 
@@ -84,7 +84,7 @@ SQL Data Warehouse는 포트 1433을 통해 통신합니다.  회사 네트�
 
 ## <a name="check-your-connection-string"></a>연결 문자열 확인
 
-연결 문자열이 올바르게 설정되어 있는지 확인합니다. 다음은 몇 가지 샘플입니다. [여기서 연결 문자열](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings) 관련 추가정보를 확인할 수 있습니다.
+연결 문자열이 올바르게 설정되어 있는지 확인합니다.  다음은 몇 가지 샘플입니다.  [여기서 연결 문자열](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings) 관련 추가정보를 확인할 수 있습니다.
 
 ADO.NET 연결 문자열
 

@@ -1,10 +1,10 @@
 ---
-title: 웹 API를 공개하는 애플리케이션 구성 | Azure
+title: 웹 API를 공개하는 애플리케이션 구성 - Microsoft ID 플랫폼
 description: 애플리케이션이 새 권한/범위와 역할을 공개하여 해당 애플리케이션을 클라이언트 애플리케이션이 사용할 수 있게 구성하는 방법을 살펴봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080848"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413965"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성(미리 보기)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
 웹 API를 개발하고 [권한/범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하여 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다.
 
@@ -37,7 +37,6 @@ ms.locfileid: "58080848"
 * 지원되는 [권한 및 동의](v2-permissions-and-consent.md)를 살펴봅니다. 여기서는 다른 사용자 또는 애플리케이션에서 사용해야 하는 애플리케이션을 빌드하는 경우를 이해하는 것이 중요합니다.
 * 애플리케이션이 등록된 테넌트가 있습니다.
   * 앱이 등록되지 않았다면 [Microsoft ID 플랫폼에 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
-* Azure Portal에서 앱 등록 미리 보기 환경을 옵트인합니다. 이 빠른 시작의 단계는 새 UI에 해당하며 미리 보기 환경을 옵트인한 경우에만 작동합니다.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Azure Portal에 로그인하고 앱 선택
 
@@ -45,7 +44,7 @@ ms.locfileid: "58080848"
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** 을 차례로 선택합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택합니다.
 1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 새 범위를 공개하는 데 사용할 방법, UI 또는 애플리케이션 매니페스트를 선택합니다.
     * [UI를 통해 새 범위 공개](#expose-a-new-scope-through-the-ui)

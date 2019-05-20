@@ -5,27 +5,48 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917237"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792422"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
 이 문서에는 [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)의 최신 릴리스에 포함된 새로운 기능과 향상된 기능이 요약되어 있습니다. 이 문서는 또한 직접 릴리스 관련 아니지만 동일한 시간 프레임에 게시 하는 중요 한 콘텐츠 업데이트를 나열 합니다. 향상 된 다른 Azure 서비스를 참조 하세요 [서비스 업데이트](https://azure.microsoft.com/updates)합니다.
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Azure SQL Data Warehouse 버전 확인
+
+데이터 웨어하우스 SQL Server Management Studio (SSMS)를 통해 연결한 SQL Data Warehouse의 현재 버전을 반환 하려면 다음 구문을 실행 합니다.
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
+
+릴리스는 것인지 확인 된 날짜를 사용 하 여 Azure SQL Data Warehouse에 적용 되었습니다.
+
+## <a name="may-2019"></a>2019 년 5 월
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|**동적 데이터 마스킹 (미리 보기)**|동적 데이터 마스킹 (DDM) 것에 즉석에서 정의한 마스킹 규칙을 기준으로 쿼리 결과 난독 처리 하 여 데이터 웨어하우스의 중요 한 데이터에 대 한 무단된 액세스를 방지 합니다. 자세한 내용은 [SQL Database 동적 데이터 마스킹](/azure/sql-database/sql-database-dynamic-data-masking-get-started)합니다.|
+|**워크 로드 중요도 이제 일반 공급**|워크 로드 관리 분류 및 중요도의 쿼리 실행된 순서에 영향을 줄 수 있는 기능을 제공 합니다. 워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/> -[워크 로드 관리 개념](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON 함수**|이제 비즈니스 분석가 쿼리하고 다음 새 JSON 함수를 사용 하 여 Azure Data Warehouse의 JSON 데이터로 서식이 지정 된 문서를 조작 하는 데 친숙 한 T-SQL 언어를 사용할 수 있습니다.:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱 비즈니스 분석가 용 이해에 시간을 줄이고 사용자가 보고 하는 동안 즉시 쿼리 응답 시간을 사용 하도록 설정 합니다. 자세한 내용은 다음을 참조하세요.</br> - [ALTER DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 옵션 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [집합 결과 집합 캐싱 (Transact SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (TRANSACT-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (TRANSACT-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="march-2019"></a>2019 년 3 월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**Gen2 미리 보기에 사용할 수 있는 워크 로드 중요도**|워크 로드 중요도 데이터 엔지니어 중요도 사용 하 여 요청을 분류 하는 기능을 제공 합니다. 높은 중요도 사용 하 여 요청에는 Sla를 충족 하는 데 도움이 되는 리소스에 빠르게 액세스할을 보장 됩니다.  워크 로드 중요도 더 적은 리소스를 사용 하 여 공유 환경에서 Sla를 충족 하기 위해 높은 비즈니스 값 작업을 허용 합니다.<br/><br/>워크 로드 관리 분류 및 중요도 미리 보기는 2019 년 4 월 9 일 이상 릴리스 날짜를 사용 하 여 빌드입니다. 사용자는 워크로드 관리 테스트를 위해 이 날짜 이전에는 빌드를 사용하지 않는 것이 좋습니다. 실행 빌드 수 있는 워크 로드 관리 인지를 확인 하려면 `select @@version` SQL Data Warehouse 인스턴스에 연결 합니다.</br></br>워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/>[워크 로드 관리 개념](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**데이터 검색 및 분류**|이제 Azure SQL Data Warehouse에서 데이터 검색 및 분류를 공개 미리 보기로 사용할 수 있습니다. 중요 한 데이터 및 고객의 개인 정보를 보호 하는 것이 반드시 합니다. 비즈니스 및 고객 데이터 자산이 증가 함에 따라 검색, 분류 및 데이터를 보호 하는 것이 어려워집니다. Azure SQL Data Warehouse를 사용 하 여 고유 하 게 도입 하는 데이터 검색 및 분류 기능 보다 관리가 용이한 데이터 보호를 확인 하는 데 도움이 됩니다. 이 기능의 전체적인 이점은 다음과 같습니다.<br/>&bull; &nbsp; 모임 데이터 프라이버시 표준 및 규정 준수 요구 사항<br/>&bull; &nbsp; 에 대 한 액세스를 제한 하 고 데이터의 보안을 강화 웨어하우스에 매우 중요 한 데이터가 들어 있는입니다.<br/>&bull; &nbsp; 모니터링 및 중요 한 데이터에 대 한 비정상적인 액세스 경고 합니다.<br/>&bull; &nbsp; Azure portal에서는 중앙 대시보드에 중요 한 데이터 시각화. </br></br>데이터 검색 및 분류는 모든 Azure 지역에서 Azure SQL Data Warehouse에 대 한 사용 가능한 취약점 평가 및 위협 검색을 포함 하 여 고급 데이터 보안의 일부입니다. 데이터 검색 및 분류 하는 방법에 대 한 자세한 내용은 참조는 [블로그 게시물](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) 및 온라인 [설명서](/azure/sql-database/sql-database-data-discovery-and-classification)합니다.|
 |**그룹 롤업**|Azure Data Warehouse에서 지원 되는 GROUP BY 옵션 롤업 됩니다.   GROUP BY ROLLUP 열 식의 각 조합에 대 한 그룹을 만듭니다. GROUP BY도 "롤업" 결과 부분합 및 총합계를 합니다. GROUP BY 함수는 오른쪽에서 왼쪽으로 집계를 만드는 그룹과 줄입니다 열 식의 수를 줄이거나에서 처리 합니다.  열 순서는 ROLLUP 출력에 영향을 줍니다 및 결과 집합의 행 수에 영향을 줄 수 있습니다.<br/><br/>GROUP BY ROLLUP에 대 한 자세한 내용은 참조 하세요. [GROUP BY (TRANSACT-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**DWU 사용 됨 및 CPU 포털 메트릭에 대 한 정확성 향상된**|SQL Data Warehouse에는 Azure portal에서 메트릭 정확도 크게 향상 됩니다.  이 릴리스에서 모든 계산 노드에서 워크 로드를 올바르게 반영 하기 위해 CPU 및 DWU에 사용 되는 메트릭 정의 대 한 수정은 포함 되어 있습니다. 이 문제가 해결 되기 전에 메트릭 값 dereported 되기 때문입니다. 사용 되는 DWU 증가 및 Azure portal에서 CPU 메트릭을 볼 수 있어야 합니다. |

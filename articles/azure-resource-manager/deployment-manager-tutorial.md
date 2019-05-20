@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880052"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466294"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
 [Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 애플리케이션을 배포하는 방법에 대해 알아봅니다. Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
 * **토폴로지 템플릿**: 응용 프로그램을 구성하는 Azure 리소스와 이러한 리소스를 배포할 위치를 설명합니다.
-* **롤아웃 템플릿**: 응용 프로그램을 배포할 때 수행하는 단계를 설명합니다.
+* **롤아웃 템플릿**: 애플리케이션을 배포할 때 수행하는 단계를 설명합니다.
+
+> [!IMPORTANT]
+> 구독이 새 Azure 기능을 테스트하기 위한 카나리아로 표시된 경우 Azure Deployment Manager를 사용하여 카나리아 지역에 배포하는 것만 가능합니다. 
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -432,4 +435,4 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Deployment Manager를 사용하는 방법을 알아보았습니다. 자세한 내용은 [Azure Resource Manager 설명서](/azure/azure-resource-manager/)를 참조하세요.
+이 자습서에서는 Azure Deployment Manager를 사용하는 방법을 알아보았습니다. Azure Deployment Manager에 상태 모니터링을 통합하려면 [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.

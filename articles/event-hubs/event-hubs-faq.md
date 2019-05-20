@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690282"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789253"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690282"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Event Hubs 네임스페이스란?
 네임스페이스는 Event Hub/Kafka 토픽에 대한 범위 지정 컨테이너입니다. 고유한 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)을 제공합니다. 네임스페이스는 여러 Event Hub/Kafka 토픽을 저장할 수 있는 애플리케이션 컨테이너로 사용됩니다. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>새 네임 스페이스를 사용 하 여 및 기존 네임 스페이스도 만들 때
+용량 할당 ([처리량 단위 (Tu)](#throughput-units)) 네임 스페이스 수준에서 요금이 청구 됩니다. 네임 스페이스에 있는 지역과 연결 이기도합니다.
+
+하나에서 기존 시나리오에서 다음을 사용 하는 대신 새 네임 스페이스를 만드는 것이 좋습니다. 
+
+- 새 영역을 사용 하 여 연결 된 이벤트 허브 해야 합니다.
+- 다른 구독에 연결 된 이벤트 허브 해야 합니다.
+- 고유한 용량 할당을 사용 하 여 이벤트 허브를 해야 (즉, 용량 할 추가 이벤트 허브가 있는 네임 스페이스에는 40 TU 임계값을 초과 하 고 전용된 클러스터에 대 한 이동 하지 않으려는)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Event Hubs 기본 및 표준 계층 간의 차이는 무엇입니까?
 

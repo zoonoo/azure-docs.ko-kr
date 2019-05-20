@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414558"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812822"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가
 
@@ -27,11 +27,15 @@ ms.locfileid: "60414558"
 > [!IMPORTANT]
 > [방법: Azure Active Directory에서 조직의 개인 정보를 추가](https://aka.ms/adprivacystatement)의 단계를 수행하여 조직 개인정보처리방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
 
+## <a name="before-you-begin"></a>시작하기 전에
+
+게스트를 초대할 수 있도록 조직의 외부 공동 작업 설정이 구성 되어 있는지 확인 합니다. 기본적으로 모든 사용자 및 관리자 게스트를 초대할 수 있습니다. 하지만 사용자 또는 게스트를 초대할 관리자가 특정 유형의 방지 하려면 조직의 외부 공동 작업 정책을 구성할 수 있습니다. 보기 및 이러한 정책을 설정 하는 방법을 알아보려면 참조 [B2B 외부 공동 작업을 사용 하도록 설정 하 고 게스트를 초대할 수 있는 사용자 관리](delegate-invitations.md)합니다.
+
 ## <a name="add-guest-users-to-the-directory"></a>디렉터리에 게스트 사용자 추가
 
 B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 디렉터리 역할 제한 된 관리자의 모든 사용자가 할당 합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 제한 된 관리자 디렉터리 역할 또는 게스트 초대자 역할에 할당 된 사용자로 합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **사용자**를 선택합니다.
 4. **새 게스트 사용자**를 선택합니다.
@@ -56,7 +60,7 @@ B2B 협업 사용자를 디렉터리에 추가하려면 다음 단계를 수행�
 ![게스트 사용자 유형의 B2B 사용자 표시](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>그룹에 게스트 사용자 추가
-B2B 협업 사용자를 Azure AD 관리자로 그룹에 수동으로 추가할 필요가 있는 경우 다음 단계를 수행합니다.
+그룹에 B2B 공동 작업 사용자를 수동으로 추가 해야 할 경우 다음이 단계를 수행 합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
@@ -73,7 +77,7 @@ B2B 협업 사용자를 Azure AD 관리자로 그룹에 수동으로 추가할 �
 
 ## <a name="add-guest-users-to-an-application"></a>애플리케이션에 게스트 사용자 추가
 
-B2B 협업 사용자를 Azure AD 관리자로 애플리케이션에 추가하려면 다음 단계를 수행합니다.
+응용 프로그램에 B2B 공동 작업 사용자를 추가 하려면 다음이 단계를 수행 합니다.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.

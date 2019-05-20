@@ -8,19 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 03/01/2018
+ms.date: 05/01/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 148f94410f6acb421d352b68b6f1ecb305a6b16a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995067"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235954"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio의 연결된 서비스를 사용하여 Computer Vision API에 연결
-
-Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추출하여 시각적 데이터를 분류 및 처리하고 이미지의 기계 지원 수정을 수행하여 서비스 조정을 지원할 수 있습니다.
 
 이 문서 및 해당 도우미 문서 Cognitive Services Computer Vision API에 대 한 Visual Studio 연결 된 서비스 기능을 사용 하는 것에 대 한 세부 정보를 제공 합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
 
@@ -103,149 +101,149 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
 1. Configure 메서드를 다음 코드로 바꾸어 Computer Vision API에 액세스하고 이미지를 테스트합니다.
 
    ```csharp
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        // TODO: Change this to your image's path on your site. 
+        string imagePath = @"images/subway.png";
+
+        // Enable static files such as image files. 
+        app.UseStaticFiles();
+
+        string visionApiKey = this.configuration["ComputerVisionAPI_ServiceKey"];
+        string visionApiEndPoint = this.configuration["ComputerVisionAPI_ServiceEndPoint"];
+
+        HttpClient client = new HttpClient();
+
+        // Request headers.
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", visionApiKey);
+
+        // Request parameters. A third optional parameter is "details".
+        string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
+
+        // Assemble the URI for the REST API Call.
+        string uri = visionApiEndPoint + "/analyze" + "?" + requestParameters;
+
+        HttpResponseMessage response;
+
+        // Request body. Posts an image you've added to your site's images folder. 
+        var fileInfo = env.WebRootFileProvider.GetFileInfo(imagePath);
+        byte[] byteData = GetImageAsByteArray(fileInfo.PhysicalPath);
+
+        string contentString = string.Empty;
+        using (ByteArrayContent content = new ByteArrayContent(byteData))
         {
-            // TODO: Change this to your image's path on your site. 
-            string imagePath = @"images/subway.png";
+            // This example uses content type "application/octet-stream".
+            // The other content types you can use are "application/json" and "multipart/form-data".
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
-            // Enable static files such as image files. 
-            app.UseStaticFiles();
+            // Execute the REST API call.
+            response = client.PostAsync(uri, content).Result;
 
-            string visionApiKey = this.configuration["ComputerVisionAPI_ServiceKey"];
-            string visionApiEndPoint = this.configuration["ComputerVisionAPI_ServiceEndPoint"];
-
-            HttpClient client = new HttpClient();
-
-            // Request headers.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", visionApiKey);
-
-            // Request parameters. A third optional parameter is "details".
-            string requestParameters = "visualFeatures=Categories,Description,Color&language=en";
-
-            // Assemble the URI for the REST API Call.
-            string uri = visionApiEndPoint + "/analyze" + "?" + requestParameters;
-
-            HttpResponseMessage response;
-
-            // Request body. Posts an image you've added to your site's images folder. 
-            var fileInfo = env.WebRootFileProvider.GetFileInfo(imagePath);
-            byte[] byteData = GetImageAsByteArray(fileInfo.PhysicalPath);
-
-            string contentString = string.Empty;
-            using (ByteArrayContent content = new ByteArrayContent(byteData))
-            {
-                // This example uses content type "application/octet-stream".
-                // The other content types you can use are "application/json" and "multipart/form-data".
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-
-                // Execute the REST API call.
-                response = client.PostAsync(uri, content).Result;
-
-                // Get the JSON response.
-                contentString = response.Content.ReadAsStringAsync().Result;
-            }
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("<h1>Cognitive Services Demo</h1>");
-                await context.Response.WriteAsync($"<p><b>Test Image:</b></p>");
-                await context.Response.WriteAsync($"<div><img src=\"" + imagePath + "\" /></div>");
-                await context.Response.WriteAsync($"<p><b>Computer Vision API results:</b></p>");
-                await context.Response.WriteAsync("<p>");
-                await context.Response.WriteAsync(JsonPrettyPrint(contentString));
-                await context.Response.WriteAsync("<p>");
-            });
+            // Get the JSON response.
+            contentString = response.Content.ReadAsStringAsync().Result;
         }
 
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.Run(async (context) =>
+        {
+            await context.Response.WriteAsync("<h1>Cognitive Services Demo</h1>");
+            await context.Response.WriteAsync($"<p><b>Test Image:</b></p>");
+            await context.Response.WriteAsync($"<div><img src=\"" + imagePath + "\" /></div>");
+            await context.Response.WriteAsync($"<p><b>Computer Vision API results:</b></p>");
+            await context.Response.WriteAsync("<p>");
+            await context.Response.WriteAsync(JsonPrettyPrint(contentString));
+            await context.Response.WriteAsync("<p>");
+        });
+    }
    ```
+
     여기에 나오는 코드는 URI 및 이미지를 Computer Vision REST API 호출을 위한 이진 콘텐츠로 사용하여 HTTP 요청을 생성합니다.
 
 1. 도우미 함수 GetImageAsByteArray 및 JsonPrettyPrint를 추가합니다.
 
    ```csharp
-        /// <summary>
-        /// Returns the contents of the specified file as a byte array.
-        /// </summary>
-        /// <param name="imageFilePath">The image file to read.</param>
-        /// <returns>The byte array of the image data.</returns>
-        static byte[] GetImageAsByteArray(string imageFilePath)
+    /// <summary>
+    /// Returns the contents of the specified file as a byte array.
+    /// </summary>
+    /// <param name="imageFilePath">The image file to read.</param>
+    /// <returns>The byte array of the image data.</returns>
+    static byte[] GetImageAsByteArray(string imageFilePath)
+    {
+        FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+        BinaryReader binaryReader = new BinaryReader(fileStream);
+        return binaryReader.ReadBytes((int)fileStream.Length);
+    }
+
+    /// <summary>
+    /// Formats the given JSON string by adding line breaks and indents.
+    /// </summary>
+    /// <param name="json">The raw JSON string to format.</param>
+    /// <returns>The formatted JSON string.</returns>
+    static string JsonPrettyPrint(string json)
+    {
+        if (string.IsNullOrEmpty(json))
+            return string.Empty;
+
+        json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+        string INDENT_STRING = "    ";
+        var indent = 0;
+        var quoted = false;
+        var sb = new StringBuilder();
+        for (var i = 0; i < json.Length; i++)
         {
-            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-            BinaryReader binaryReader = new BinaryReader(fileStream);
-            return binaryReader.ReadBytes((int)fileStream.Length);
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            string INDENT_STRING = "    ";
-            var indent = 0;
-            var quoted = false;
-            var sb = new StringBuilder();
-            for (var i = 0; i < json.Length; i++)
+            var ch = json[i];
+            switch (ch)
             {
-                var ch = json[i];
-                switch (ch)
-                {
-                    case '{':
-                    case '[':
-                        sb.Append(ch);
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                        }
-                        break;
-                    case '}':
-                    case ']':
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                        }
-                        sb.Append(ch);
-                        break;
-                    case '"':
-                        sb.Append(ch);
-                        bool escaped = false;
-                        var index = i;
-                        while (index > 0 && json[--index] == '\\')
-                            escaped = !escaped;
-                        if (!escaped)
-                            quoted = !quoted;
-                        break;
-                    case ',':
-                        sb.Append(ch);
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                        }
-                        break;
-                    case ':':
-                        sb.Append(ch);
-                        if (!quoted)
-                            sb.Append(" ");
-                        break;
-                    default:
-                        sb.Append(ch);
-                        break;
-                }
+                case '{':
+                case '[':
+                    sb.Append(ch);
+                    if (!quoted)
+                    {
+                        sb.AppendLine();
+                    }
+                    break;
+                case '}':
+                case ']':
+                    if (!quoted)
+                    {
+                        sb.AppendLine();
+                    }
+                    sb.Append(ch);
+                    break;
+                case '"':
+                    sb.Append(ch);
+                    bool escaped = false;
+                    var index = i;
+                    while (index > 0 && json[--index] == '\\')
+                        escaped = !escaped;
+                    if (!escaped)
+                        quoted = !quoted;
+                    break;
+                case ',':
+                    sb.Append(ch);
+                    if (!quoted)
+                    {
+                        sb.AppendLine();
+                    }
+                    break;
+                case ':':
+                    sb.Append(ch);
+                    if (!quoted)
+                        sb.Append(" ");
+                    break;
+                default:
+                    sb.Append(ch);
+                    break;
             }
-            return sb.ToString();
         }
+        return sb.ToString();
+    }
    ```
 
 1. 웹 애플리케이션을 실행하고 이미지에서 Computer Vision API가 이미지에서 찾은 결과를 확인합니다.

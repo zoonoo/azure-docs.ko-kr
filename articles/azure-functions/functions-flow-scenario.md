@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106973"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787681"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow에서 함수 호출
 
@@ -35,6 +35,8 @@ PowerApps에서 동일한 함수를 호출하는 방법에 대한 내용은 [Pow
 > * API에 연결을 추가합니다.
 > * 복구가 비용 효율적인 경우 전자 메일을 보내는 흐름을 만듭니다.
 > * 흐름을 실행합니다.
+
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -229,7 +231,7 @@ PowerApps에서 동일한 함수를 호출하는 방법에 대한 내용은 [Pow
     | **제목**           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | 예 |
+    | **ServiceRequired** | 예. |
     | **EstimatedEffort** | 10 |
 
 3. **Done**을 클릭합니다.

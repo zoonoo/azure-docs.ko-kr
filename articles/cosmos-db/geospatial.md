@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26eb43060a0a2b564a7274bb1579151e66b2bfee
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888672"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604201"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-위도 및 경도 정보가 없지만 실제 주소나 도시 또는 국가와 같은 위치 이름이 있는 경우 Bing 지도 REST 서비스와 같은 지오코딩 서비스를 사용하여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
+위도 및 경도 정보가 없는 실제 주소나 도시 또는 국가/지역과 같은 위치 이름이 있는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
 
 ## <a name="querying-spatial-types"></a>공간 형식 쿼리
 지리 공간 데이터를 삽입하는 방법을 살펴보았으며, 이제 SQL 및 LINQ에서 Azure Cosmos DB를 사용하여 이 데이터를 쿼리하는 방법을 살펴보겠습니다.

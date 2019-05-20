@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025030"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800862"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
@@ -34,11 +34,14 @@ MLOps 배포 워크플로 다음 단계를 포함 하는 /:
 
 [![' Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>1단계: 모델 등록
 
 모델을 등록하면 작업 영역에서 Azure 클라우드의 모델을 저장하고 버전을 지정할 수 있습니다. 모델 레지스트리에서는 학습된 모델을 쉽게 구성하고 추적할 수 있습니다.
+
+> [!TIP]
+> 또한 Azure Machine Learning 서비스 외부에서 학습 모델을 등록할 수 있습니다.
  
 등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3.5.2를 사용 하 여 로드 이상이 될 수 있는 모든 모델을 지원 합니다.
 
@@ -56,7 +59,7 @@ pickle 형식으로 저장된 모델을 등록하는 예제는 [자습서: 이�
 
 모델을 사용할 수 있습니다 **웹 서비스** 다음을 사용 하 여 계산 대상:
 
-* Azure Container Instance
+* Azure Container Instances
 * Azure Kubernetes Service
 
 웹 서비스로 모델을 배포 하려면 다음을 제공 해야 합니다.
@@ -92,5 +95,7 @@ Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다. 배포의 예제를 참조 하세요. [자습서: Azure Container Instances에서 이미지 분류 모델을 배포할](tutorial-deploy-models-with-aml.md)합니다.
+
+만드는 방법을 알아봅니다 [Azure 파이프라인을 사용 하 여 기계 학습 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)합니다. 
 
 [웹 서비스로 배포된 모델을 사용](how-to-consume-web-service.md)하는 클라이언트 애플리케이션과 서비스를 만드는 방법을 알아봅니다.

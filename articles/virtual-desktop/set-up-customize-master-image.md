@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410587"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551036"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
-이 문서에서는 가상 머신 (Vm) 만들기 및 설치 하 고 에서도 소프트웨어를 구성 하는 방법을 포함 하 여 Azure에 업로드할 마스터 가상 하드 디스크 (VHD) 이미지를 준비 하는 방법을 알려줍니다. 이러한 지침은 조직의 기존 프로세스를 사용 하 여 사용할 수 있는 Windows 가상 데스크톱 미리 보기 전용 구성입니다.
+이 문서에서는 가상 머신 (Vm) 만들기에 소프트웨어를 설치 하는 방법을 포함 하 여 Azure에 업로드할 마스터 가상 하드 디스크 (VHD) 이미지를 준비 하는 방법을 알려줍니다. 이러한 지침은 조직의 기존 프로세스를 사용 하 여 사용할 수 있는 Windows 가상 데스크톱 미리 보기 전용 구성입니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -24,11 +24,11 @@ Windows 10 Enterprise 다중 세션 Azure 이미지 갤러리에서 제공 됩�
 
 첫 번째 옵션은 가상 머신 (VM)를 프로 비전 할 Azure에서의 지침에 따라 [관리 되는 이미지에서 VM을 만듭니다](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), 및 다음 건너 뛰 세요 [소프트웨어 준비 및 설치](set-up-customize-master-image.md#software-preparation-and-installation)합니다.
 
-두 번째 옵션은 이미지를 다운로드, Hyper-v VM을 프로 비전 및 다음 섹션에서 다루게 될 사용자 요구에 맞게 사용자 지정 하 여 로컬 이미지를 만드는 것입니다.
+두 번째 옵션은 이미지를 다운로드, Hyper-v VM을 프로 비전 및 다음 섹션에서 다룰 필요에 맞게 사용자 지정 하 여 로컬 이미지를 만드는 것입니다.
 
 ### <a name="local-image-creation"></a>로컬 이미지 만들기
 
-이미지는 로컬 위치에 다운로드 한 후 엽니다 **Hyper-v 관리자** 방금 복사한 VHD를 사용 하 여 VM을 만들려고 합니다. 다음은 간단한 버전인 있지만의 자세한 지침을 찾을 수 있습니다 [Hyper-v에서 가상 컴퓨터를 만들](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v)합니다.
+이미지는 로컬 위치에 다운로드 한 후 엽니다 **Hyper-v 관리자** 복사한 VHD를 사용 하 여 VM을 만들려고 합니다. 다음 지침은 간단한 버전인 있지만의 자세한 지침을 찾을 수 있습니다 [Hyper-v에서 가상 컴퓨터를 만들](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v)합니다.
 
 복사 된 VHD를 사용 하 여 VM을 만들려면:
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>소프트웨어 준비 및 설치
 
-이 섹션에서는 준비 하 고 office 365 ProPlus, OneDrive, FSLogix, Windows Defender 및 기타 일반 응용 프로그램을 설치 하는 방법에 설명 합니다. 사용자를 특정 LOB 응용 프로그램에 액세스 해야 하는 경우이 섹션의이 지침을 완료 한 후 설치 하는 것이 좋습니다.
+이 섹션에서는 준비 하 고 FSLogix, Windows Defender 및 기타 일반 응용 프로그램을 설치 하는 방법에 설명 합니다. 
 
-이 섹션에서는 Azure 또는 Hyper-v 관리자에서 프로 비전 될 지 여부를 하면 액세스 권한이 상승 된 VM에서 가정 합니다.
+Office 365 ProPlus 및 OneDrive VM에 설치 하는, 참조 [마스터 VHD 이미지에서 Office 설치](install-office-on-wvd-master-image.md)합니다. 이 문서를 반환 하 고 마스터 VHD 프로세스를 완료 하는 문서의 다음 단계에서 링크를 따릅니다.
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>Office 공유 컴퓨터 정품 인증 모드에서 설치
-
-사용 합니다 [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117) Office를 설치 합니다. Windows 10 Enterprise 다중 세션 지원 Office 365 ProPlus의 경우 Office 2019 연속 되지 않습니다.
-
-Office 배포 도구 구성 XML 파일이 필요 합니다. 다음 샘플을 사용자 지정 하려면 참조는 [Office 배포 도구에 대 한 구성 옵션](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)합니다.
-
-이 샘플 구성을 제공 하는 XML을 다음 작업을 수행 합니다.
-
-- 내부 채널에서 Office를 설치 하 고 실행 하는 경우 내부 채널에서 업데이트를 제공 합니다.
-- 사용 하 여 x64 아키텍처입니다.
-- 자동 업데이트를 사용 하지 않도록 설정 합니다.
-- Visio 및 프로젝트 설치 합니다.
-- Office의 모든 기존 설치를 제거 하 고 해당 설정을 마이그레이션하십시오.
-- 터미널 서버 환경에서 작업에 대 한 라이선스 공유 컴퓨터를 사용 하도록 설정 합니다.
-
-않습니다 샘플 구성 XML이 다음과 같습니다.
-
-- 비즈니스용 Skype를 설치 합니다.
-- 사용자별 모드로 OneDrive를 설치 합니다. 자세한 내용은 참조 하세요 [컴퓨터별 모드로 설치 OneDrive](#install-onedrive-in-per-machine-mode)합니다.
-
->[!NOTE]
->공유 컴퓨터 라이선스 설정할 수 있습니다 그룹 정책 개체 (Gpo) 또는 레지스트리 설정을 통해. GPO에 위치한 **컴퓨터 구성\\정책을\\관리 템플릿\\Microsoft Office 2016 (컴퓨터)\\라이선스 설정**
-
-Office 배포 도구는 setup.exe를 포함합니다. Office를 설치 하려면 명령줄에서 다음 명령을 실행 합니다.
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>샘플 configuration.xml
-
-다음 XML 샘플 라고도 참가자 빠르거나 참가자 Main 참가자 릴리스를 설치 됩니다.
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->Office 팀에 대 한 64 비트 설치를 사용 하도록 권장 합니다 **OfficeClientEdition** 매개 변수입니다.
-
-Office를 설치한 후 기본 Office 동작을 업데이트할 수 있습니다. 개별적으로 또는 동작을 업데이트 하는 배치 파일에서 다음 명령을 실행 합니다.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+사용자를 특정 LOB 응용 프로그램에 액세스 해야 하는 경우이 섹션의이 지침을 완료 한 후 설치 하는 것이 좋습니다.
 
 ### <a name="disable-automatic-updates"></a>자동 업데이트 사용 안 함
 
@@ -179,63 +89,13 @@ Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 �
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="install-onedrive-in-per-machine-mode"></a>OneDrive 컴퓨터별 모드에서 설치
-
-OneDrive는 사용자 단위로 정상적으로 설치 합니다. 이 환경에서는 것 컴퓨터별 설치 합니다.
-
-OneDrive 컴퓨터별 모드로 설치 하는 방법을 다음과 같습니다.
-
-1. 먼저 OneDrive 설치 관리자를 준비 하는 위치를 만듭니다. 로컬 디스크 폴더 또는 [\\\\unc] (file://unc) 위치 해도 괜찮습니다.
-
-2. 이 링크를 사용 하 여 스테이징 위치로 OneDriveSetup.exe를 다운로드 합니다. <https://aka.ms/OneDriveWVD-Installer>
-
-3. 생략 하 여 OneDrive를 사용 하 여 office를 설치 하는 경우  **\<ExcludeApp ID = "OneDrive" /\>**, 관리자 권한 명령 프롬프트에서 다음을 실행 하 여 설치 된 기존 OneDrive 사용자별 설치를 제거 명령:
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. 설정 하려면 관리자 권한 명령 프롬프트에서 다음이 명령을 실행 합니다 **AllUsersInstall** 레지스트리 값:
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. 컴퓨터별 모드로 OneDrive를 설치 하려면이 명령을 실행 합니다.
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. 모든 사용자에 대 한 로그인을 시작 하는 OneDrive를 구성 하려면이 명령을 실행 합니다.
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. 사용 하도록 설정 **사용자 계정을 자동으로 구성** 다음 명령을 실행 하 여 합니다.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. 리디렉션 하 고 다음 명령을 실행 하 여 OneDrive로 폴더를 알려진 Windows를 이동 합니다.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>팀 및 Skype
-
-Windows 가상 데스크톱 지원 하지 않습니다 공식적으로 Skype 비즈니스 및 팀.
-
 ### <a name="set-up-user-profile-container-fslogix"></a>사용자 프로필 컨테이너 (FSLogix) 설정
 
 이미지의 일부로 FSLogix 컨테이너를 포함 하려면의 지침을 따릅니다 [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)합니다. 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다 [이 빠른 시작](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)합니다.
 
 ### <a name="configure-windows-defender"></a>Windows Defender를 구성 합니다.
 
-Windows Defender를 VM에 구성 된 경우에서 구성 하지 스캔에 VHD 및 VHDX 파일의 전체 내용을 동일한 연결 하는 동안 있는지 확인 합니다.
+Windows Defender를 VM에 구성 된 경우에서 구성 하지 스캔에 VHD 및 VHDX 파일의 전체 콘텐츠를 연결 하는 동안 있는지 확인 합니다.
 
 이 구성만 첨부 파일 하는 동안 VHD 및 VHDX 파일의 검색을 제거 하지만 실시간 검사에 영향을 미치지 않습니다.
 
@@ -308,7 +168,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\S
 이 섹션에서는 응용 프로그램 및 운영 체제 구성에 설명 합니다. 이 단원의 모든 구성은 명령줄에서 실행 될 수 있는 레지스트리 항목을 통해 수행 됩니다 및 regedit 도구입니다.
 
 >[!NOTE]
->일반 정책 개체 (Gpo) 또는 레지스트리 가져오기 중 하나를 사용 하 여 구성에서 모범 사례를 구현할 수 있습니다. 관리자는 조직의 요구 사항에 따라 옵션 중 하나를 선택할 수 있습니다.
+>그룹 정책 개체 (Gpo) 또는 레지스트리 가져오기 중 하나를 사용 하 여 구성에서 모범 사례를 구현할 수 있습니다. 관리자는 조직의 요구 사항에 따라 옵션 중 하나를 선택할 수 있습니다.
 
 컬렉션에 대 한 피드백 허브 원격 분석 데이터를 Windows 10 Enterprise 다중 세션에서이 명령을 실행 합니다.
 

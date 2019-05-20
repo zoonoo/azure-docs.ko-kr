@@ -7,14 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480236"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826571"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -83,7 +82,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 ## <a name="diagnostics-log-categories"></a>진단 로그 범주
 
-현재 두 가지 진단 로그 범주를 캡처합니다.
+Azure Stream Analytics는 두 가지 범주의 진단 로그를 캡처합니다.
 
 * **작성**: 작업 생성, 입/출력 추가 및 삭제, 쿼리 추가 및 업데이트, 작업 시작 및 중지 등 작업 작성 조작에 관련된 로그 이벤트를 캡처합니다.
 
@@ -110,7 +109,7 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 
 ### <a name="execution-log-properties-schema"></a>실행 로그 속성 스키마
 
-실행 로그에는 Stream Analytics 작업 실행 중에 발생한 이벤트에 대한 정보가 포함됩니다. 속성의 스키마는 이벤트의 형식에 따라 달라집니다. 현재 실행 로그의 형식은 다음과 같습니다.
+실행 로그에는 Stream Analytics 작업 실행 중에 발생한 이벤트에 대한 정보가 포함됩니다. 속성의 스키마는 이벤트 데이터 오류 또는 일반 이벤트 인지에 따라 달라 집니다.
 
 ### <a name="data-errors"></a>데이터 오류
 
@@ -124,10 +123,14 @@ Type | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError
 Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
-* **직렬화 이벤트**입니다. 직렬화 이벤트는 이벤트 읽기 작업 중에 발생합니다. 이는 데이터 입력 시 쿼리 스키마를 충족하지 않을 때 다음과 같은 이유 중 하나로 발생합니다.
-    * *이벤트 (역)직렬화 도중 형식 불일치*: 오류의 원인이 되는 필드를 식별합니다.
-    * *이벤트를 읽을 수 없음, 잘못된 serialization*: 오류가 발생한 입력 데이터의 위치 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
-* **전송 이벤트**. 전송 이벤트는 쓰기 작업 중에 발생합니다. 오류를 발생시키는 스트리밍 이벤트를 식별합니다.
+
+* **이벤트 직렬화** 이벤트 읽기 작업 중에 발생 합니다. 이는 데이터 입력 시 쿼리 스키마를 충족하지 않을 때 다음과 같은 이유 중 하나로 발생합니다.
+
+   * *이벤트 (역)직렬화 도중 형식 불일치*: 오류의 원인이 되는 필드를 식별합니다.
+
+   * *이벤트를 읽을 수 없음, 잘못된 serialization*: 오류가 발생한 입력 데이터의 위치 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
+
+* **이벤트 보내기** 쓰기 작업 중에 발생 합니다. 오류를 발생시키는 스트리밍 이벤트를 식별합니다.
 
 ### <a name="generic-events"></a>일반 이벤트
 

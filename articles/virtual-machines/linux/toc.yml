@@ -66,6 +66,8 @@
     - name: VM 유형 및 크기
       href: sizes.md
       items:
+        - name: 2세대 VM
+          href: generation-2.md
         - name: 범용 가상 컴퓨터
           href: sizes-general.md
           items:

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: a9de15530981e14e664df605cb3274c9e754ef0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733031"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761803"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환-REST 사용 하 여 인코딩하는 방법
 
@@ -115,7 +115,7 @@ Azure Media Services로 인코딩 되 면 시작할 수 있습니다 신속 하 
                     "formats": [
                         {
                             "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
+                            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
                             "outputFiles": []
                         },
                         {

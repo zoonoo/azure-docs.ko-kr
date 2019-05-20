@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59684653"
 ---
-컨테이너에 대 한 쿼리 사용에 대 한 Azure 리소스의 가격 책정 계층으로 청구를 `<ApiKey>`입니다.
+컨테이너에 대한 쿼리는 `<ApiKey>`로 사용된 Azure 리소스의 가격 책정 계층에서 청구됩니다.
 
 Cognitive Services 컨테이너는 계량에 대 한 청구 끝점에 연결 하지 않고 실행 하는 허가 되지 않습니다. 고객은 항상 청구 끝점을 사용 하 여 청구 정보를 통신 하도록 컨테이너를 사용 하도록 설정 해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다. 
 

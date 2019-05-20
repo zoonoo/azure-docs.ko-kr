@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: PaaS(Platform-as-a-Service) 서비스 사용
               href: use-paas-services.md
+            - name: 중첩된 템플릿 배포
+              href: deploy-nested-template-environments.md
         - name: 랩에 대한 보안 액세스
           items:
             - name: 랩 소유자 및 사용자 추가
@@ -188,6 +190,8 @@
           items:
             - name: 정책 및 일정 설정
               href: devtest-lab-set-lab-policy.md
+            - name: 자동 종료 알림 보내기
+              href: devtest-lab-auto-shutdown.md
             - name: 비용 관리 구성
               href: devtest-lab-configure-cost-management.md
             - name: Azure Marketplace 이미지 구성

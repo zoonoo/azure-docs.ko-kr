@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database에서 SSL 연결 구성
-description: 지침 및 정보를 단일 서버 및 관련된 응용 프로그램을 제대로 SSL 연결을 사용 하려면 Azure Database for PostgreSQL-구성 합니다.
+title: PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
+description: Azure Database for PostgreSQL-단일 서버와 SSL 연결을 사용하는 관련된 응용 프로그램을 구성하기 위한 지침 및 정보입니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65067420"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대 한 Azure Database에서 SSL 연결 구성
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
 기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 필요에 따라 클라이언트 애플리케이션이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL을 요구하지 않도록 설정할 수 있습니다. 
@@ -51,7 +51,7 @@ Drupal 및 Django와 같은 데이터베이스 서비스용 PostgreSQL을 사용
 PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하는 데 필요한 인증서는 [여기](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에 있습니다. 인증서 파일을 로컬로 다운로드합니다.
 
 ### <a name="install-a-cert-decoder-on-your-machine"></a>인증서 디코더를 컴퓨터에 설치 
-사용할 수 있습니다 [OpenSSL](https://github.com/openssl/openssl) 데이터베이스 서버로 안전 하 게 연결할 응용 프로그램에 필요한 인증서 파일을 디코딩할 수 있습니다. OpenSSL을 설치 하는 방법에 알아보려면 참조를 [OpenSSL 설치 지침](https://github.com/openssl/openssl/blob/master/INSTALL)합니다. 
+데이터베이스 서버로 안전하게 연결할 응용 프로그램에 필요한 인증서 파일을 디코딩하기 위해 [OpenSSL](https://github.com/openssl/openssl)을 사용할 수 있습니다. OpenSSL을 설치하는 방법에 대해 알아보려면 [OpenSSL 설치 지침](https://github.com/openssl/openssl/blob/master/INSTALL)을 확인합니다. 
 
 
 ### <a name="decode-your-certificate-file"></a>인증서 파일 디코딩
@@ -64,7 +64,7 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>SSL 인증서 인증을 사용하여 PostgreSQL용 Azure 데이터베이스에 연결
 이제 인증서를 성공적으로 디코딩했으므로 SSL을 통해 데이터베이스 서버에 안전하게 연결할 수 있습니다. 서버 인증서 확인을 허용하려면 사용자의 홈 디렉터리에 있는 파일 ~/.postgresql/root.crt에 인증서를 배치해야 합니다. (Microsoft Windows에서 이 파일의 이름은 %APPDATA%\postgresql\root.crt입니다.) 
 
-#### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결
+#### <a name="connect-using-psql"></a>Psql을 사용하여 연결
 다음 예제에서는 psql 명령줄 유틸리티를 사용하여 PostgreSQL 서버에 성공적으로 연결하는 방법을 보여 줍니다. 만든 `root.crt` 파일과 `sslmode=verify-ca` 또는 `sslmode=verify-full` 옵션을 사용합니다.
 
 PostgreSQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.

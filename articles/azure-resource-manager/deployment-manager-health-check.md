@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467080"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796263"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (공개 미리 보기)에 상태 통합 출시 소개
 
@@ -24,7 +24,7 @@ ms.locfileid: "65467080"
 
 ## <a name="health-monitoring-providers"></a>상태 모니터링 공급자
 
-상태 통합을 최대한 쉽게 하려면 상위 서비스 상태 모니터링 배포와 상태 검사를 통합 하는 간단한 복사/붙여넣기 솔루션을 제공 하는 회사의 일부를 사용 하 여 Microsoft 왔습니다. 상태 모니터를 사용 하 고 있지, 이러한 경우 훌륭한 솔루션 시작 하기:
+상태를 최대한 쉽게 통합할 수 있도록, Microsoft에서는 업계 최고 수준의 여러 서비스 상태 모니터링 회사와 협력하여 고객의 시스템에 상태 확인을 통합할 수 있는 간단한 복사/붙여넣기 솔루션을 제공해 왔습니다. 상태 모니터를 사용 하 고 있지, 이러한 경우 훌륭한 솔루션 시작 하기:
 
 | ![azure 배포 관리자 상태 모니터 공급자 datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure 배포 관리자 상태 모니터 공급자 site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure 배포 관리자 상태 모니터 공급자 wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
@@ -32,7 +32,7 @@ ms.locfileid: "65467080"
 
 ## <a name="how-service-health-is-determined"></a>서비스 상태를 확인 하는 방법
 
-[상태 모니터링 공급자](#health-monitoring-providers) 모니터링 서비스 및 서비스 상태 문제를 경고에 대 한 몇 가지 메커니즘을 제공 합니다. [Azure Monitor](/services/monitor/) 은 하나의 제품은의 예입니다. Azure Monitor 특정 임계값을 초과 하는 경우 경고를 만드는 데 사용할 수 있습니다. 예를 들어, 메모리 및 CPU 사용률에 서비스에 새 업데이트를 배포할 때 필요한 수준 외에도 급증 합니다. 알림을 받은 경우에 정정 작업을 수행할 수 있습니다.
+[상태 모니터링 공급자](#health-monitoring-providers) 모니터링 서비스 및 서비스 상태 문제를 경고에 대 한 몇 가지 메커니즘을 제공 합니다. [Azure Monitor](../azure-monitor/overview.md) 은 하나의 제품은의 예입니다. Azure Monitor 특정 임계값을 초과 하는 경우 경고를 만드는 데 사용할 수 있습니다. 예를 들어, 메모리 및 CPU 사용률에 서비스에 새 업데이트를 배포할 때 필요한 수준 외에도 급증 합니다. 알림을 받은 경우에 정정 작업을 수행할 수 있습니다.
 
 이러한 상태 공급자는 일반적으로 서비스의 모니터의 상태를 프로그래밍 방식으로 검사할 수 있도록 REST Api를 제공 합니다. 하거나 REST Api (HTTP 응답 코드에 의해 결정 됨), 간단한 정상/비정상 신호를 사용 하 여 및/또는 수신 신호에 대 한 자세한 정보를 사용 하 여 다시 가져올 수 있습니다.
 
@@ -134,7 +134,7 @@ Azure Deployment Manager 상태 검사를 사용 하 여 설치를 시작 하는
     ]
     ```
 
-예제를 단계별로 참조 [자습서: Azure Deployment Manager에서 상태 검사를 사용 하 여](./deployment-manager-health-check.md)입니다.
+예제를 단계별로 참조 [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-health-check.md)을 참조하세요.
 
 ## <a name="phases-of-a-health-check"></a>상태 검사 단계
 

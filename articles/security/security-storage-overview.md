@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872035"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792774"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -51,7 +51,7 @@ SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 
 자세한 정보:
 
 * [SAS 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Blob Storage에서 SAS 만들기 및 사용](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Blob Storage에서 SAS 만들기 및 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="encryption-in-transit"></a>전송 중 암호화
 
@@ -109,7 +109,7 @@ Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
 * [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
-## <a name="advanced-threat-protection"></a>고급 위협 보호
+## <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
 Azure Storage는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 위해 Advanced Threat Protection을 제공합니다. Advanced Threat Protection은 Azure Storage 진단 로그에서 Blob Storage에 대한 의심스러운 읽기, 쓰기 또는 삭제 요청을 모니터링합니다.
 
@@ -125,4 +125,4 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/
 
 자세한 정보
 
-* [Azure Key Vault란?](../key-vault/key-vault-overview.md)
+* [Azure 키 자격 증명 모음이란?](../key-vault/key-vault-overview.md)

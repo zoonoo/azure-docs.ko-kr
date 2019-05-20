@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031243"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544739"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 계획 (미리 보기)
 
@@ -44,7 +44,7 @@ az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --numb
 
 프리미엄 요금제에서는 최소 계획 크기까지 인스턴스의 지정된 된 수에 미리 준비 앱을 할 수 있습니다.  또한 미리 준비 인스턴스 미리 높은 로드 하기 전에 앱을 확장할 수 있습니다. 앱 확장 되 면 대로 먼저 미리 warmed 인스턴스로 조정 합니다. 추가 인스턴스 및 다음 크기 조정 작업에 대 한 준비에서 즉시 웜 버퍼를 계속 합니다. 사전 준비 인스턴스의 버퍼를가지고 있으므로, 콜드 대기 시간을 효과적으로 방지할 수 있습니다.  미리 준비 인스턴스는 프리미엄 요금제 기능 하 고 하나 이상의 인스턴스를 유지 해야 활성 상태인 모든 시간 계획에서 사용할 수 있습니다.
 
-선택 하 여 Azure portal에서 미리 준비 인스턴스 수를 구성할 수 있습니다 **Scale Out** 에 **플랫폼 기능** 탭 합니다.
+Azure에서 사전 준비 인스턴스 수를 구성할 수 있습니다 선택 하 여 포털에 **함수 앱**를 진행 하는, 합니다 **플랫폼 기능** 탭을 선택 하는 **Scale Out**옵션입니다. 함수 앱 편집 창에서 해당 앱을 미리 준비 인스턴스 관련이 하 하지만 최소 및 최대 인스턴스 전체 계획에 적용 됩니다.
 
 ![탄력적 크기 조정 설정](./media/functions-premium-plan/scale-out.png)
 
@@ -114,6 +114,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |프랑스 중부|
 |일본 서부|
 |한국 중부|
+|미국 중북부|
 |유럽 북부|
 |미국 중남부|
 |인도 남부|

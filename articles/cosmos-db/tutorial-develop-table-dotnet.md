@@ -51,7 +51,7 @@ Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 �
 
 1. **확인**을 선택합니다.
 
-이 샘플의 모든 코드 예제는 콘솔 애플리케이션의 **Program.cs** 파일의 Main() 메서드에 추가될 수 있습니다.
+이 샘플에 예시로 나온 모든 코드는 콘솔 애플리케이션의 **Program.cs** 파일의 Main() 메서드에 추가할 수 있습니다.
 
 ## <a name="install-the-required-nuget-package"></a>필요한 NuGet 패키지 설치
 

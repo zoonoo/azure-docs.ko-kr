@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148943"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796155"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -139,7 +139,7 @@ Azure Cosmos DB SQL 쿼리 언어의 핵심적인 측면을 이해 하려면 JSO
     }]
 ```
 
-다음 쿼리 제품군에서 자식의 모든 지정 된 이름을 반환 합니다. 해당 `id` 일치 `WakefieldFamily`거주 도시의로 정렬 된 합니다.
+다음 쿼리 제품군에서 자식의 모든 지정 된 이름을 반환 합니다. 해당 `id` 일치 `WakefieldFamily`도시별으로 정렬 된 합니다.
 
 ```sql
     SELECT c.givenName
@@ -548,15 +548,15 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **개체** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Undefined** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
+| **Null** | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
+| **Boolean** | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
+| **Number** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
+| **String** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 |
+| **개체** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 |
+| **Array** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** |
 
 와 같은 비교 연산자에 대 한 `>`, `>=`를 `!=`를 `<`, 및 `<=`, 비교 형식 간에 또는 두 개체 또는 배열을 생성 `Undefined`합니다.  
 
@@ -568,27 +568,27 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 **OR 연산자**
 
-| 또는 | True  | 거짓 | Undefined |
+| 또는 | True  | 거짓 | 정의되지 않음 |
 | --- | --- | --- | --- |
 | True  |True |True |True |
-| False |True |거짓 |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| False |True |거짓 |정의되지 않음 |
+| 정의되지 않음 |True  |정의되지 않음 |정의되지 않음 |
 
 **AND 연산자**
 
-| AND | True  | 거짓 | Undefined |
+| AND | True  | 거짓 | 정의되지 않음 |
 | --- | --- | --- | --- |
-| True  |True |거짓 |Undefined |
+| True  |True |거짓 |정의되지 않음 |
 | 거짓 |False |False |거짓 |
-| Undefined |Undefined |거짓 |Undefined |
+| 정의되지 않음 |정의되지 않음 |거짓 |정의되지 않음 |
 
 **NOT 연산자**
 
-| NOT |  |
+| 아님 |  |
 | --- | --- |
 | True  |False |
 | False |True  |
-| Undefined |Undefined |
+| 정의되지 않음 |정의되지 않음 |
 
 ## <a name="between-keyword"></a>BETWEEN 키워드
 
@@ -744,7 +744,7 @@ ANSI SQL 에서처럼 쿼리에 선택적 ORDER BY 절을 포함할 수 있습�
     ]
 ```
 
-또한 여러 속성으로 정렬할 수 있습니다. 여러 속성을 기준으로 정렬 하는 쿼리 필요는 [복합 인덱스](index-policy.md#composite-indexes)합니다. 다음과 같은 쿼리를 고려해 보세요.
+또한 여러 속성으로 정렬할 수 있습니다. 여러 속성을 기준으로 정렬 하는 쿼리 필요는 [복합 인덱스](index-policy.md#composite-indexes)합니다. 다음 쿼리를 살펴보십시오.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -867,6 +867,13 @@ SQL API의 주요 기능은 배열 및 개체 만들기입니다. 이전 예제�
         ]
       }
     ]
+```
+
+다음 SQL 쿼리는 배열 내에서 하위 쿼리에 사용 하는 또 다른 예입니다. 이 쿼리 가져옵니다 고유 이름을 모두는 배열의 크기의 자식 요소입니다.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1291,7 +1298,7 @@ SQL API는 다음과 같은 집계 함수를 지원합니다. 숫자 값에서 �
 | 합계   | 식에서 모든 값의 합계를 반환합니다. |
 | 최소   | 식에서 최소값을 반환합니다. |
 | 최대   | 식에서 최대값을 반환합니다. |
-| 평균   | 식에서 평균값을 반환합니다. |
+| AVG   | 식에서 평균값을 반환합니다. |
 
 배열 반복의 결과 대해 집계할 수 있습니다. 자세한 내용은 참조는 [반복](#Iteration) 섹션입니다.
 
@@ -1319,7 +1326,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다. 다음은 지원되는 기본 제공 수치 연산 함수 표입니다.
 
-| 사용 현황 | 설명 |
+| 사용 | 설명 |
 |----------|--------|
 | ABS (num_expr) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
 | CEILING (num_expr) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
@@ -1337,7 +1344,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 | ASIN (num_expr) | 사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이 함수를 아크사인이라고도 합니다. |
 | ATAN (num_expr) | 탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이 함수는 아크탄젠트를 라고도 합니다. |
 | ATN2 (num_expr) | x와 y가 두 지정된 float 식의 값인 양의 x축과 원점부터 (y, x) 지점의 선 사이의 라디안에서 각도를 반환합니다. |
-| COS (num_expr) | 지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다. |
+| COS (num_expr) | 지정된 된 식의 라디안에서 지정된 된 각도의 삼각 코사인을 반환합니다. |
 | COT (num_expr) | 지정된 숫자 식의 라디안에서 지정된 각도의 삼각 코탄젠트를 반환합니다. |
 | DEGREES (num_expr) | 라디안에서 지정된 각도로 해당하는 각도를 반환합니다. |
 | PI () | PI의 상수 값을 반환합니다. |
@@ -1388,7 +1395,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 다음 스칼라 함수는 문자열 입력된 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
 
-| 사용 현황 | 설명 |
+| 사용 | 설명 |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
@@ -1464,7 +1471,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 다음 스칼라 함수는 배열 입력된 값에 대 한 작업을 수행 하 고 숫자, 부울 또는 배열 값을 반환 합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
-| 사용 현황 | 설명 |
+| 사용 | 설명 |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
@@ -1527,7 +1534,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 Cosmos DB는 지리 공간 쿼리를 위한 다음 Open Geospatial Consortium (OGC) 기본 제공 함수를 지원 합니다. 
 
-| 사용 현황 | 설명 |
+| 사용 | 설명 |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | 두 GeoJSON 사이의 거리를 반환 `Point`하십시오 `Polygon`, 또는 `LineString` 식입니다. |
 | T_WITHIN (point_expr, polygon_expr) | 나타내는 부울 식을 반환 여부를 첫 번째 GeoJSON 개체 (`Point`, `Polygon`, 또는 `LineString`)가 두 번째 GeoJSON 개체 내에 (`Point`, `Polygon`, 또는 `LineString`). |

@@ -89,6 +89,8 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Blob Storage 살펴보기
               href: howto-export-data-blob-storage.md
+        - name: 사용자 지정 규칙 만들기
+          href: howto-create-custom-rules.md
         - name: Power BI에서 데이터 시각화
           href: howto-connect-powerbi.md
         - name: 다른 IoT 클라우드 연결

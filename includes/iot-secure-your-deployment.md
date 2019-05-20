@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289175"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815594"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>IoT(사물 인터넷) 배포 보안 유지
 
@@ -21,11 +21,11 @@ ms.locfileid: "51289175"
 
 Azure IoT 배포 보안 유지 과정은 다음과 같은 세 가지 보안 영역으로 나눌 수 있습니다.
 
-* **장치 보안**: 실제로 배포되는 동안 IoT 장치 보안 유지
+* **장치 보안**: 실제로 배포 되는 동안 IoT 장치를 보호 합니다.
 
-* **연결 보안**: IoT 장치와 IoT Hub 간에 전송된 모든 데이터를 기밀 상태로 유지하고 변경 방지
+* **연결 보안**: 기밀 및 변조 증명은 IoT 장치와 IoT Hub 간에 전송 된 모든 데이터를 확인 합니다.
 
-* **클라우드 보안**: 데이터가 이동되고 클라우드에 저장되는 동안 보안을 유지하는 수단 제공
+* **Cloud Security**: 를 통해 이동 하 고 클라우드에 저장 되는 동안 데이터를 보호 하는 수단을 제공 합니다.
 
 ![세 가지 보안 영역](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ IoT 솔루션 가속기는 다음 두 가지 방법으로 IoT 디바이스를 �
 
 * 각 디바이스에 대해 IoT Hub와 통신하는 데 사용할 수 있는 고유한 ID 키(보안 토큰) 제공
 
-* 디바이스 기반(on-device) [X.509 인증서](http://www.itu.int/rec/T-REC-X.509-201210-I/en) 및 개인 키를 IoT Hub에 디바이스를 인증하는 수단으로 사용합니다. 이 인증 방법은 디바이스의 개인 키를 디바이스 외부에서 항상 알 수 없도록 하여 더 높은 수준의 보안을 제공합니다.
+* 디바이스 기반(on-device) [X.509 인증서](https://www.itu.int/rec/T-REC-X.509-201210-S) 및 개인 키를 IoT Hub에 디바이스를 인증하는 수단으로 사용합니다. 이 인증 방법은 디바이스의 개인 키를 디바이스 외부에서 항상 알 수 없도록 하여 더 높은 수준의 보안을 제공합니다.
 
 보안 토큰 방법은 대칭 키를 각 호출에 연결하여 디바이스에서 IoT Hub에 대해 수행한 각 호출에 대한 인증을 제공합니다. X.509 기반 인증은 TLS 연결 설정의 일부로 물리적 레이어에서 IoT 디바이스 인증을 허용합니다. 보안 토큰 기반 방법은 X.509 인증 없이 사용할 수 있으므로 덜 안전한 패턴입니다. 두 방법 중에서 선택할 때는 우선, 개인 키를 안전하게 저장하는 데 필요한 디바이스 인증의 보안 수준 및 디바이스에 있는 보안 저장소의 가용성을 고려해야 합니다.
 
@@ -47,23 +47,23 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * [보안 토큰 구조](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
 
-* [장치로 SAS 토큰 사용](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
+* [디바이스로 SAS 토큰 사용](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
 각 IoT Hub에는 진행 중인 클라우드-디바이스 메시지를 포함하는 큐와 같은 서비스에 디바이스 단위 리소스를 만들고 디바이스 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 디바이스 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
 
 [IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-devguide-security.md). 이러한 각 프로토콜은 IoT 디바이스에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
 
-* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT 허브 수준 토큰의 경우 `{policyName}@sas.root.{iothubName}`, 디바이스 범위 토큰의 경우 `{deviceId}`)
+* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안 (`{policyName}@sas.root.{iothubName}` IoT hub 수준 토큰을 사용 하 여 `{deviceId}` 장치 범위 토큰을 사용 하 여).
 
-* MQTT: CONNECT 패킷은 **사용자 이름** 필드에서는 `{deviceId}`를 `{ClientId}`, `{IoThubhostname}/{deviceId}`로 사용하고, **암호** 필드에서는 SAS 토큰을 사용합니다.
+* MQTT: CONNECT 패킷에 사용 `{deviceId}` 으로 `{ClientId}`, `{IoThubhostname}/{deviceId}` 에서 **Username** 필드 및 SAS 토큰에 **암호** 필드.
 
-* HTTP: 올바른 토큰은 권한 부여 요청 헤더에 있습니다.
+* HTTP: 유효한 토큰은 권한 부여 요청 헤더입니다.
 
 IoT Hub ID 레지스트리를 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
 
 ### <a name="x509-certificate-based-device-authentication"></a>X.509 인증서 기반 디바이스 인증
 
-[장치 기반 X.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md) 및 연결된 개인/공개 키 쌍을 사용하면 물리적 계층에서 추가 인증이 수행될 수 있습니다. 개인 키는 디바이스에 안전하게 저장되며 디바이스 외부에서 검색할 수 없습니다. X.509 인증서에는 디바이스 ID와 같은 디바이스 정보와 기타 조직 세부 정보가 포함되어 있습니다. 인증서의 서명은 개인 키를 사용하여 생성됩니다.
+[디바이스 기반 X.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md) 및 연결된 개인/공개 키 쌍을 사용하면 물리적 계층에서 추가 인증이 수행될 수 있습니다. 개인 키는 디바이스에 안전하게 저장되며 디바이스 외부에서 검색할 수 없습니다. X.509 인증서에는 디바이스 ID와 같은 디바이스 정보와 기타 조직 세부 정보가 포함되어 있습니다. 인증서의 서명은 개인 키를 사용하여 생성됩니다.
 
 고급 디바이스 프로비저닝 흐름:
 
@@ -101,15 +101,15 @@ Azure IoT Hub 및 이 솔루션에 속할 수 있는 기타 서비스는 Azure A
 
 Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blob Storage 등과 같은 다양한 서비스에서 사용될 수 있습니다. 이러한 서비스는 관리 액세스를 허용합니다. 이러한 서비스 및 사용 가능한 옵션에 대해 읽어보세요.
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): 프로 비전 하는 특성, 구성 및 보안 속성 같은 장치에 대 한 메타 데이터를 관리 하는 반 구조화 된 데이터에 대 한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스입니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 인사이트를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): 에서 실시간 스트림 처리를 신속 하 게 개발 및 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악 하는 저비용 분석 솔루션을 배포할 수 있는 클라우드입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱 어디서 든; 데이터에 연결을 구축 하기 위한 클라우드 플랫폼 클라우드 또는 온-프레미스 iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능에는 IoT 솔루션을 기존의 기간 업무 시스템을 통합 하 고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 저장소입니다.
+* [Azure Blob storage](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송 하는 데이터를 위한 경제적 이면 서 안정적인 클라우드 저장소입니다.
 
 ## <a name="conclusion"></a>결론
 

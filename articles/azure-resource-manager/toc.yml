@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: 테넌트에서 인증
           href: authenticate-multi-tenant.md
-    - name: 배포 감사
+    - name: 변경 내용 감사
       items:
         - name: 활동 로그 보기
           href: resource-group-audit.md

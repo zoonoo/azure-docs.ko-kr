@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415924"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522849"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "65415924"
 
 - **장애 조치 그룹 (안개)**
 
-  장애 조치(failover) 그룹은 주 지역의 중단으로 인해 주 데이터베이스를 모두 또는 일부 사용할 수 없게 될 경우 한 단위로 다른 지역에 장애 조치(failover)될 수 있는, 관리되는 단일 인스턴스 내에 있거나 단일 SQL Database 서버에 의해 관리되는 데이터베이스 그룹입니다. 관리 되는 인스턴스를 만든 경우 인스턴스의 모든 사용자 데이터베이스를 포함 하는 장애 조치 그룹 및 따라서 인스턴스에서 하나의 장애 조치 그룹을 구성할 수 있습니다.
+  장애 조치(failover) 그룹은 주 지역의 중단으로 인해 주 데이터베이스를 모두 또는 일부 사용할 수 없게 될 경우 한 단위로 다른 지역에 장애 조치(failover)될 수 있는, 관리되는 단일 인스턴스 내에 있거나 단일 SQL Database 서버에 의해 관리되는 데이터베이스 그룹입니다. 관리 되는 인스턴스를 만들면 장애 조치 그룹 인스턴스의 모든 사용자 데이터베이스를 포함 하는 하 고 따라서 인스턴스에서 장애 조치 그룹이 하나만 구성할 수 있습니다.
 
 - **SQL Database 서버**
 

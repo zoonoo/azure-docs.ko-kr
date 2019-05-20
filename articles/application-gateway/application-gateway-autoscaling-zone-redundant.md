@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510828"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827431"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
@@ -62,7 +62,7 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-합니다 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
+추가 가격 정보에 대 한 참조를 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/)합니다. 청구는 2019 년 7 월 1 일에 시작 되도록 예약 됩니다.
 
 **예제 1**
 
@@ -100,7 +100,7 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규모를 확장 합니다.
 
 - **자동 크기 조정** -자동 크기 조정을 사용 하도록 설정, Sku를 늘리거나 응용 프로그램 트래픽 요구 사항에 따라 응용 프로그램 게이트웨이 및 WAF v2를 사용 하 여 합니다. 이 모드에는 응용 프로그램 게이트웨이 크기 또는 인스턴스 수를 추측 하지 않아도 및 응용 프로그램에 더 나은 탄력성을 제공 합니다. 이 모드를 사용 하면 예상 된 최대 트래픽 부하에 대 한 프로 비전 된 최대 용량에서 게이트웨이 실행할 수 없게 하 여 비용을 절감할 수 있습니다. 고객은 최소 및 필요에 따라 최대 인스턴스 수를 지정 해야 합니다. Application Gateway 및 WAF v2 트래픽이 없는 경우에도 지정 된 최소 인스턴스 수보다 속하지 않는 보장 하는 최소 용량입니다. 모든 트래픽이 없는 경우에도이 최소 용량에 대해 청구 됩니다. 또한 필요에 따라 지정 된 인스턴스 수를 초과 하는 응용 프로그램 게이트웨이의 확장 되지 않습니다는 보장 하는 최대 인스턴스 수를 지정할 수 있습니다. 게이트웨이에서 제공 하는 트래픽 양에 요금이 계속 합니다. 인스턴스 수를 0에서 125로 까지입니다. 최대 인스턴스 수에 대 한 기본값은 20 이며 지정 하지 않으면.
-- **수동** -게이트웨이 자동으로 조정 되지는 수동 모드 또는 선택할 수 있습니다. 이 모드에서는 어떤 응용 프로그램 게이트웨이 또는 WAF가 처리의 수에 비해 트래픽을 많이 있으면 트래픽 손실에서 될 수 있습니다. 수동 모드를 사용 하 여 인스턴스 수를 지정 하는 필수입니다. 인스턴스 수는 1에서 125 인스턴스에 달라질 수 있습니다.
+- **수동** -게이트웨이 자동으로 조정 되지는 수동 모드 또는 선택할 수 있습니다. 이 모드에서는 응용 프로그램 게이트웨이 또는 WAF 처리할 수 있는 것에 비해 트래픽을 많이 있으면 트래픽 손실에서 될 수 있습니다. 수동 모드를 사용 하 여 인스턴스 수를 지정 하는 필수입니다. 인스턴스 수는 1에서 125 인스턴스에 달라질 수 있습니다.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 및 v2 SKU 기능 비교
 

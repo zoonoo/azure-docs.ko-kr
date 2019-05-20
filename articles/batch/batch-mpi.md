@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775329"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595936"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 애플리케이션 실행
 
@@ -281,7 +281,7 @@ GitHub의 [MultiInstanceTasks][github_mpi] 코드 샘플에서는 다중 인스�
 
 ### <a name="execution"></a>실행
 1. GitHub에서 [azure-batch-samples][github_samples_zip]를 다운로드합니다.
-2. Visual Studio 2017에서 MultiInstanceTasks **솔루션**을 엽니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
+2. MultiInstanceTasks 엽니다 **솔루션** Visual Studio 2019에 있습니다. `MultiInstanceTasks.sln` 솔루션 파일은 다음 위치에 있습니다.
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. **Microsoft.Azure.Batch.Samples.Common** 프로젝트의 `AccountSettings.settings`에 Batch 계정 및 Storage 계정의 자격 증명을 입력합니다.

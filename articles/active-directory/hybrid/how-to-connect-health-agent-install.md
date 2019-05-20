@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350836"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784825"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -45,7 +45,7 @@ ms.locfileid: "60350836"
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
 
- 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 URL이 기본적으로 차단되지 않는지 확인합니다. 이러한 URL의 보안 모니터링 또는 검사를 사용 안 함으로 설정하지 말고 다른 인터넷 트래픽처럼 허용합니다. 해당 URL은 Azure AD Connect Health 서비스 엔드포인트와의 통신을 허용합니다. [아웃바운드 연결 확인](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)에 대해 자세히 알아보기
+ 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 URL이 기본적으로 차단되지 않는지 확인합니다. 이러한 URL의 보안 모니터링 또는 검사를 사용 안 함으로 설정하지 말고 다른 인터넷 트래픽처럼 허용합니다. 해당 URL은 Azure AD Connect Health 서비스 엔드포인트와의 통신을 허용합니다. 설명 하는 방법 [Test-azureadconnecthealthconnectivity를 사용 하 여 아웃 바운드 연결을 확인](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service)합니다.
 
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |

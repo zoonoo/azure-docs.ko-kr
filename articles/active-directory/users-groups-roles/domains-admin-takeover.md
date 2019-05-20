@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472484"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780531"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -37,7 +37,7 @@ ms.locfileid: "60472484"
 
 Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 외부 인수를 지원하지 않습니다. 그것이 시나리오이거나, 또는 관리자이고 셀프 서비스 등록을 사용한 사용자가 만든 관리되지 않거나 또는 "섀도" 테넌트를 인수하려는 경우, 내부 관리자 인수를 사용하여 이를 수행할 수 있습니다.
 
-1. Power BI 등을 통해 등록하는 관리되지 않는 테넌트에 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
+1. Power BI에 대 한 등록을 통해 관리 되지 않는 테 넌 트에서 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
 
 2. [Power BI 사이트](https://powerbi.com)를 열고 **무료로 시작**을 선택합니다. 조직에 대한 도메인 이름을 사용하는 사용자 계정을 입력합니다. 예: `admin@fourthcoffee.xyz`. 확인 코드를 입력한 후 인증 코드에 대한 전자 메일을 확인합니다.
 

@@ -3,8 +3,8 @@ title: 사용자 지정 개발 애플리케이션에 대한 특정 필드를 작
 description: 사용자 지정 개발 애플리케이션을 Azure AD에 등록할 때 특정 필드를 작성하는 방법에 관한 지침
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299059"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545495"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 특정 필드를 작성하는 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "60299059"
 
 | 필드            | 설명                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
+| 이름             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
 | 응용 프로그램 유형 | **웹앱/웹 API**: 웹 애플리케이션, 웹 API 또는 둘 모두를 나타내는 애플리케이션입니다. 
 | |**네이티브**: 사용자의 디바이스 또는 컴퓨터에 설치할 수 있는 애플리케이션입니다.           |
 | 로그온 URL      | 사용자가 애플리케이션을 사용하기 위해 로그인하는 URL                                  |

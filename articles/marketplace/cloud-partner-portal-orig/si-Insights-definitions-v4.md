@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943612"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606920"
 ---
 <a name="seller-insights-definitions"></a>Seller Insights 정의
 =======================
@@ -37,7 +37,7 @@ ms.locfileid: "64943612"
 | **고객의 도시가**  | 고객이 제공한 도시 이름입니다. 고객의 Azure 구독에서 다른 수 있습니다.  |
 | **고객 통신 언어**        | 고객이 통신용으로 선택한 기본 설정 언어입니다.                                  |
 | **고객 회사 이름**                  | 고객이 제공한 회사 이름입니다. 고객의 Azure 구독에서 다른 수 있습니다.                                  |
-| **고객 국가**                       | 고객이 제공한 국가 이름입니다.  고객의 Azure 구독에서 국가 다 수 있습니다.                               |
+| **고객 국가**                       | 고객이 제공한 국가/지역 이름입니다.  국가/지역 고객의 Azure 구독에서 다른 수 있습니다.                               |
 | **고객 통화 (CC)**                 | 고객이 가격 및 청구용으로 선택한 기본 설정 통화입니다.                            |
 | **고객 전자 메일**                         | 최종 고객이 제공한 전자 메일 주소입니다.  고객의 Azure 구독에 전자 메일 주소와 다른 수 있습니다.                   |
 | **고객 이름**                              | 고객이 제공한 이름입니다.  이 고객의 Azure 구독에 지정 된 이름과 다를 수 없습니다.                    |

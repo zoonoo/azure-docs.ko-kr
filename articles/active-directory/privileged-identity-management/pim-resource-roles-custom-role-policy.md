@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437368"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602033"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>PIM에서 Azure 리소스에 사용자 지정 역할 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "60437368"
 
 역할을 Azure Portal의 테넌트에서 생성한 후 **Privileged Identity Management - Azure 리소스** 창으로 이동합니다. 역할을 적용하는 리소스를 선택합니다.
 
-!["Privileged Identity Management - Azure 리소스" 창](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+!["Privileged Identity Management - Azure 리소스" 창](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
 이러한 역할의 멤버에 적용해야 하는 [PIM 역할 설정을 구성](pim-resource-roles-configure-role-settings.md)합니다.
 

@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026002"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786133"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
 [PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 애플리케이션 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
@@ -39,8 +39,7 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 > * 함수를 호출하고 데이터를 표시하기 위한 컨트롤을 추가합니다.
 > * 앱을 실행하여 복구가 비용 효율적인지 여부를 확인합니다.
 
-> [!IMPORTANT]
-> OpenAPI 기능은 현재 미리 보기 상태이며 Azure Functions 런타임 1.x 버전에만 사용할 수 있습니다.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

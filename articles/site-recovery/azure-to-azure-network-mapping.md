@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791101"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521744"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
@@ -58,7 +58,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 - 원본 VM 서브넷과 이름이 같은 서브넷을 대상 네트워크에서 사용할 수 있는 경우 해당 서브넷은 대상 VM에 대해 설정됩니다.
 - 대상 네트워크에 동일한 이름의 서브넷이 없는 경우 사전순으로 첫 번째 서브넷이 대상 서브넷으로 설정됩니다.
-- VM의 **계산 및 네트워크** 설정에서 수정할 수 있습니다.
+- 대상 서브넷을 수정할 수 있습니다 합니다 **Compute 및 네트워크** VM에 대 한 설정입니다.
 
     ![계산 및 네트워크 계산 속성 창](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

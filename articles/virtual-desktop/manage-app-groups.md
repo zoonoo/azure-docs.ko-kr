@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578752"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233912"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop Preview의 앱 그룹 관리
 
@@ -73,7 +73,7 @@ ms.locfileid: "58578752"
 
 ## <a name="next-steps"></a>다음 단계
 
-앱 그룹을 만든 후에는 서비스 주체를 만들고 사용자에게 역할을 할당합니다. 이 작업을 수행하는 방법을 알아보려면 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법에 대한 자습서를 참조하세요.
+이 자습서에서는 앱 그룹을 만들고, RemoteApp을 사용하여 채우고, 앱 그룹에 사용자를 할당하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop 방법에 대한 연결을 계속 진행하세요.
 
-> [!div class="nextstepaction"]
-> [PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당](create-service-principal-role-powershell.md)
+- [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
+- [Windows Virtual Desktop 미리 보기 웹 클라이언트에 연결](connect-web.md)

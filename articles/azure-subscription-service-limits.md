@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233696"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787626"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록 확장 되며 더 많은 서비스에 맞게 업데이트 합니다.
@@ -55,6 +55,7 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning 서비스](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -77,15 +78,22 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Load Balancer](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [네트워킹](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Load Balancer](#load-balancer)
+  * [공용 IP 주소](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [공용 IP 주소](#publicip-address)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +105,6 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [가상 머신 확장 집합](#virtual-machine-scale-sets-limits)
 
@@ -144,6 +151,11 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service 제한
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning 서비스 제한
+최신 Azure Machine Learning Compute 할당량 값에서 찾을 수 있습니다는 [Azure Machine Learning의 할당량 페이지](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

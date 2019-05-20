@@ -5,17 +5,17 @@ services: frontdoor
 author: sharad4u
 ms.service: frontdoor
 ms.topic: include
-ms.date: 9/17/2018
+ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: a3a43c56a49c243390eac964d31988b7d30fbb56
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407843"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65754113"
 ---
-| 리소스 | 기본 제한 |
+| Resource | 기본/최대 제한 |
 | --- | --- |
 | 구독 당 azure 프런트 도어 서비스 리소스 | 100 |
 | 리소스 당 사용자 지정 도메인을 포함 하는 프런트 엔드 호스트 | 100 |

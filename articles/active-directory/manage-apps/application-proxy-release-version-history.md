@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure AD Application Proxy의 모든 릴리스�
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441664"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783298"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 애플리케이션 프록시: 버전 릴리스 내역
 이 문서는 버전 및 출시 된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 기능을 나열 합니다. Azure AD 팀 새로운 특징과 기능을 사용 하 여 응용 프로그램 프록시를 정기적으로 업데이트합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다.
 
 관련 된 리소스의 목록을 다음과 같습니다.
 
-리소스 |  세부 정보
+Resource |  세부 정보
 --------- | --------- |
 응용 프로그램 프록시를 사용 하는 방법 | 필수 구성 요소 및 응용 프로그램 프록시를 사용 하도록 설정 하 고, 설치 하 고, 커넥터 등록에 대 한이 설명 되어 있습니다 [자습서](application-proxy-add-on-premises-application.md)합니다.
 Azure AD 애플리케이션 프록시 커넥터 이해 | 자세히 알아보세요 [커넥터 관리](application-proxy-connectors.md) 방법과 커넥터 [자동 업그레이드](application-proxy-connectors.md#automatic-updates)합니다.

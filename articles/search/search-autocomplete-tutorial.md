@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466426"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524019"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
 
@@ -164,7 +164,7 @@ $(function () {
 
 가장 먼저 알 수 있듯이 호출 되는 클래스의 맨 위에 있는 메서드인지 `InitSearch`합니다. 이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다. 자세한 내용은 [.NET 응용 프로그램에서 Azure Search를 사용 하는 방법을](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)합니다.
 
-41 줄에 Suggest 함수로를 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Suggest 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview)합니다.
+41 줄에 Suggest 함수로를 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Suggest 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)합니다.
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 Suggest 함수에는 적중 강조 표시를 반환할지 또는 검색어 이력과 함께 유사 일치를 사용할지 결정하는 두 매개 변수가 있습니다. 메서드를 [SuggestParameters 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), 제안 API에 전달 되는 합니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
-69 번 줄에서 자동 완성 기능을 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Autocomplete 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview)합니다.
+69 번 줄에서 자동 완성 기능을 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Autocomplete 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet)합니다.
 
 ```csharp
 public ActionResult AutoComplete(string term)

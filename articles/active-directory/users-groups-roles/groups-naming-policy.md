@@ -1,5 +1,5 @@
 ---
-title: 그룹 명명 정책-Office 365 그룹-Azure Active Directory 적용할 | Microsoft Docs
+title: Office 365 그룹-Azure Active Directory에서 그룹 명명 정책 적용 | Microsoft Docs
 description: Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 설정 방법(미리 보기)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690251"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605558"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 그룹 명명 정책 적용
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 그룹 명명 정책 적용
 
 사용자가 생성하거나 편집한 Office 365 그룹에 대해 일관된 명명 규칙을 적용하려면 Azure AD(Azure Active Directory)에서 테넌트에 대한 그룹 명명 정책을 설정하세요. 예를 들어 명명 정책을 사용하여 그룹의 기능, 멤버 자격, 지리적 영역 또는 그룹을 만든 사람 정보를 전달할 수 있습니다. 또한 명명 정책을 사용하여 주소록에서 그룹을 범주화할 수 있습니다. 이 정책을 사용하여 그룹 이름 및 별칭에 특정 단어를 사용하지 않도록 차단할 수 있습니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "64690251"
 - 사용자 관리자
 - 디렉터리 작성자
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Azure portal (미리 보기)를 사용 하 여 테 넌 트에 대 한 명명 정책 그룹 구성
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>Azure portal (미리 보기)에서 명명 정책 구성
 
 1. 사용자 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. 선택 **그룹**을 선택한 후 **명명 정책을** 명명 정책 페이지를 엽니다.
@@ -90,7 +90,7 @@ ms.locfileid: "64690251"
 1. 접두사 또는 접미사 목록에서를 제거 하려면 접두사 또는 접미사를 선택한 다음 선택 **삭제**합니다. 동시에 여러 항목을 삭제할 수 있습니다.
 1. 새 정책 선택 하 여 시행에 대 한 변경 내용을 저장 **저장할**합니다.
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>보기 또는 사용자 정의 차단된 단어를 편집 합니다.
+### <a name="edit-custom-blocked-words"></a>사용자 정의 차단된 단어를 편집 합니다.
 
 1. 에 **명명 정책을** 페이지에서 **정의 차단 단어**합니다.
 
@@ -100,35 +100,36 @@ ms.locfileid: "64690251"
 1. 파일 아이콘을 선택 하 여 새 사용자 정의 차단된 단어 목록을 업로드 합니다.
 1. 새 정책 선택 하 여 시행에 대 한 변경 내용을 저장 **저장할**합니다.
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>명명 정책을 구성하려면 PowerShell cmdlet 설치
+## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
 
 PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈에 대한 Azure Active Directory PowerShell의 이전 버전을 제거하고 [그래프용 Azure Active Directory PowerShell - 공용 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 설치해야 합니다.
 
 1. 관리자로 Windows PowerShell 앱을 엽니다.
 2. AzureADPreview의 이전 버전을 제거합니다.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. AzureADPreview의 최신 버전을 설치합니다.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    신뢰할 수 없는 리포지토리에 액세스 하는 방법에 대 한 메시지가 표시 되 면 **Y**합니다. 새 모듈을 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용하여 테넌트에 대한 그룹 명명 정책 구성
+## <a name="configure-naming-policy-in-powershell"></a>PowerShell에서 명명 정책 구성
 
 1. 컴퓨터에서 Windows PowerShell 창을 엽니다. 높은 권한이 없으면 이 창이 열리지 않습니다.
 
 1. 다음 명령을 실행하여 cmdlet 실행을 준비합니다.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
 
 1. [그룹 설정을 구성하는 Azure Active Directory cmdlet](groups-settings-cmdlets.md)의 단계에 따라 이 테넌트에 대한 그룹 설정을 만듭니다.
@@ -137,13 +138,13 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 
 1. 현재 설정을 보려면 현재 명명 정책을 가져옵니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. 현재 그룹 설정을 표시합니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
 
 1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다. 기능이 제대로 작동하려면 [GroupName]이 설정에 포함되어야 합니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. 제한하려는 사용자 정의 차단 단어를 설정합니다. 다음 예제는 고유한 사용자 정의 단어를 추가하는 방법을 보여줍니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. 다음 예제에서와 같은 효과를 이동할 새 정책에 대 한 설정을 저장 합니다.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 이것으로 끝입니다. 명명 정책을 설정하고 차단된 단어를 추가했습니다.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>내보내기 또는 Azure AD PowerShell을 사용 하 여 사용자 정의 차단된 단어 목록 가져오기
+## <a name="export-or-import-custom-blocked-words"></a>사용자 정의 차단된 단어를 가져오거나 내보내기
 
 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](groups-settings-cmdlets.md) 문서를 참조하세요.
 
 다음은 여러 차단된 단어를 내보내는 PowerShell 스크립트 예제입니다.
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 다음은 여러 차단된 단어를 가져오는 PowerShell 스크립트 예제입니다.
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,27 +203,27 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. 에 **명명 정책을** 페이지에서 **정책을 삭제**합니다.
 1. 삭제를 확인 한 후 명명 정책이를 비롯 하 여 제거 모든 접두사-접미사 명명 정책 및 모든 사용자 정의 차단된 단어입니다.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Azure AD Powershell을 사용 하 여 명명 정책 제거
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용 하 여 명명 정책 제거
 
 1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 비웁니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. 사용자 지정 차단 단어를 비웁니다.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. 설정을 저장합니다.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 앱의 명명 정책 환경
+## <a name="experience-across-office-365-apps"></a>Office 365 앱 환경
 
 Azure AD에서 그룹 명명 정책을 설정한 후 사용자가 Office 365 앱에서 그룹을 만들면 다음 항목이 표시됩니다.
 
@@ -233,9 +233,9 @@ Azure AD에서 그룹 명명 정책을 설정한 후 사용자가 Office 365 앱
 워크로드 | 준수
 ----------- | -------------------------------
 Azure Active Directory 포털 | Azure AD 포털 및 액세스 패널 포털에는 그룹을 작성하거나 편집할 때 사용자가 그룹 이름을 입력하면 명명 정책이 적용된 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
-OWA(Outlook Web Access) | Outlook Web Access는 사용자가 그룹 이름 또는 그룹 별칭을 입력할 때 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 UI에 오류 메시지가 표시됩니다.
+Outlook Web Access(OWA) | Outlook Web Access는 사용자가 그룹 이름 또는 그룹 별칭을 입력할 때 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 UI에 오류 메시지가 표시됩니다.
 Outlook 데스크톱 | Outlook 데스크톱에서 생성된 그룹은 명명 정책 설정을 준수합니다. Outlook 데스크톱 앱에는 적용된 그룹 이름의 미리 보기가 표시되지 않으며 사용자가 그룹 이름을 입력할 때 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 그룹을 만들거나 편집할 때 명명 정책이 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 포함된 경우 오류 메시지가 표시됩니다.
-Microsoft 팀 | Microsoft 팀은 사용자가 팀 이름을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
+Microsoft Teams | Microsoft 팀은 사용자가 팀 이름을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 SharePoint  |  SharePoint에는 사용자가 사이트 이름 또는 그룹 메일 주소를 입력할 때 명명 정책이 적용되는 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Microsoft Stream | Microsoft Stream은 사용자가 그룹 이름 또는 그룹 메일 별칭을 입력할 때 그룹 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 해당 단어를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 Outlook iOS 및 Android 앱 | Outlook 앱에서 만든 그룹은 구성된 명명 정책을 준수합니다. Outlook 모바일 앱은 명명 정책이 적용된 이름의 미리 보기를 아직 표시하지 않으며 사용자가 그룹 이름을 입력하면 사용자 정의 차단 단어 오류를 반환하지 않습니다. 그러나 생성/편집 클릭 시 명명 정책은 자동으로 적용되며 그룹 이름 또는 별칭에 사용자 정의 차단 단어가 있는 경우에는 오류 메시지가 표시됩니다.

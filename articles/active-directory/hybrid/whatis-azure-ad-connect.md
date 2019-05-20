@@ -11,12 +11,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459553"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784472"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
@@ -62,6 +62,11 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 |쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
 다양한 [사용량 메트릭](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|상위 애플리케이션 사용량</br>네트워크 위치 및 TCP 연결</br>서버당 토큰 요청|
 |멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect를 사용 하는 것에 대 한 라이선스 요구 사항
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 
 

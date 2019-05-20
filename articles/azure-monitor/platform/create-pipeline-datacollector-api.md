@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205955"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603239"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "65205955"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>예제 문제
-이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 가상 시나리오에서는 기본적으로 Application Insights SDK에서 수집한 지리적 정보의 상관 관계를 만들어서 전 세계 모든 국가의 인구가 포함된 데이터를 사용자 지정하려고 합니다. 목표는 마케팅 달러를 가장 많이 소비해야 하는 위치를 식별하는 것입니다. 
+이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 에서는 소모 수 해야 상황 파악을 사용 하 여 전 세계 모든 국가/지역의의 모집단이 포함 된 사용자 지정 데이터를 Application Insights SDK에서 기본적으로 수집 하는 지리적 정보를 상호 연결 하려는 가상 시나리오에서는 가장 마케팅 달러입니다. 
 
 이를 위해 [UN World Population Prospects](https://esa.un.org/unpd/wpp/)와 같은 공용 데이터 원본을 사용합니다. 데이터는 다음과 같은 간단한 스키마를 제공합니다.
 

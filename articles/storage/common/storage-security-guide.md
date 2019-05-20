@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154390"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789953"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
 Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다.
 
-- Azure Storage에 쓴 모든 데이터는 [SSE(Storage 서비스 암호화)](storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
+- Azure Storage에 쓴 모든 데이터 (메타 데이터 포함)를 사용 하 여 자동으로 암호화 됩니다 [저장소 서비스 암호화 (SSE)](storage-service-encryption.md)합니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
 - Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.   
     - 저장소 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
     - Blob 및 큐 데이터 작업에 대 한 azure AD 통합은 지원 됩니다. 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
@@ -238,10 +238,9 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
     이 문서에서는 Blob, 큐 메시지, 테이블 범위 및 파일에서 서비스 수준 SAS를 사용하는 예제를 제공합니다.
   * [서비스 SAS 생성(영문)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [계정 SAS 생성(영문)](https://msdn.microsoft.com/library/mt584140.aspx)
-* .NET 클라이언트 라이브러리를 사용하여 공유 액세스 서명 및 저장된 액세스 정책을 만드는 방법에 대한 자습서입니다.
 
+* .NET 클라이언트 라이브러리를 사용 하 여 공유 액세스 서명 및 저장 된 액세스 정책 만들기에 대 한 자습서입니다.
   * [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)
-  * [공유 액세스 서명 2부: Blob Service를 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 최신 세대 Azure SQL Data Warehouse로 업그레이드 | Microsoft Docs
-description: Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처의 최신 세대로 업그레이드합니다.
+description: Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 세대로 업그레이드합니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -63,7 +63,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Azure portal 통해 Gen1에서 Gen2로의 마이그레이션은 영구적입니다. Gen1으로 되돌리기 위한 프로세스는 없습니다. 
+> Azure portal 통해 Gen1에서 Gen2로의 마이그레이션은 영구적입니다. Gen1으로 되돌리기 위한 프로세스는 없습니다.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

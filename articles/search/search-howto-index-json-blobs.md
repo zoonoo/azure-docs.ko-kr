@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024952"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523082"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 이 문서에서는 Azure Search blob을 구성 하는 방법을 보여 줍니다 [인덱서](search-indexer-overview.md) Azure Blob storage에서 JSON 문서에서 구조적된 콘텐츠를 추출 하 여 Azure Search에서 가능 합니다. 이 워크플로 Azure Search 인덱스를 만들고 JSON blob에서 추출 하는 기존 텍스트를 사용 하 여 로드 합니다. 
@@ -279,7 +279,7 @@ Azure Search에서 인덱서를 만드는 데이터 가져오기를 트리거합
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 
-.NET SDK는 REST API와 완전히 동일한 기능을 제공합니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
+.NET SDK는 REST API를 사용 하 여 완벽 한 패리티를 있습니다. 개념, 워크플로 및 요구 사항을 알아보려면 이전 REST API 섹션을 검토하는 것이 좋습니다. 그런 후, 다음 .NET API 참조 설명서를 참조하여 관리되는 코드에서 JSON 인덱서를 구현할 수 있습니다.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -294,7 +294,7 @@ JSON blob는 여러 폼을 가정할 수 있습니다. 합니다 **parsingMode**
 
 | parsingMode | 설명 |
 |-------------|-------------|
-| `json`  | 각 blob을 단일 문서로 인덱스입니다. 이것이 기본값입니다. |
+| `json`  | 각 blob을 단일 문서로 인덱스입니다. 기본값입니다. |
 | `jsonArray` | Blob의 JSON 배열을 구성 하 고 Azure Search에서 별도 문서로 나타내려고 배열의 각 요소 필요한 경우이 모드를 선택 합니다. |
 |`jsonLines` | Blob를 새 줄으로 구분 된 JSON 엔터티를 여러 구성 되며 각 엔터티를 Azure Search에서 별도 문서를 해야 하는 경우이 모드를 선택 합니다. |
 

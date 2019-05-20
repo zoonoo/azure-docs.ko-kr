@@ -76,7 +76,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
     ![쿼리 결과][7]
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
 
 Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][Authenticate to SQL Data Warehouse]을 참조하세요.
 

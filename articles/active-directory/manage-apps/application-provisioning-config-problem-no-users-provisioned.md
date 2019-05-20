@@ -3,8 +3,8 @@ title: 사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 응용 프로그램에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaeb97f88c2482cb9d091afb1c205e9b09a85ce0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443218"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784580"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 응용 프로그램에 대해 자동 프로비전이 구성되면 사용자 및/또는 그룹이 앱에 프로비전됩니다. 프로비전은 다음 사항에 의해 결정됩니다.

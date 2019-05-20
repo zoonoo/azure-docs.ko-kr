@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406416"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544711"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service 란?
 
@@ -77,7 +77,7 @@ Azure Log Analytics를 통해 사용자는 쿼럼 원장에 나 트랜잭션 노
 ## <a name="next-steps"></a>다음 단계
 
 시작 하려면 빠른 시작을 시도 하거나 이러한 리소스에서 자세한 내용을 확인 합니다.
-* [Azure portal을 사용 하 여 블록 체인 멤버를 만들려면](create-member.md) 또는 [Azure CLI를 사용 하 여 블록 체인 멤버를 만들려면]()
+* [Azure portal을 사용 하 여 블록 체인 멤버를 만들려면](create-member.md) 또는 [Azure CLI를 사용 하 여 블록 체인 멤버를 만들려면](create-member-cli.md)
 * 비용 비교 및 계산기에 대 한 참조를 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/blockchain-service)합니다.
 * 사용 하 여 첫 번째 앱 빌드를 [Azure Blockchain 개발 키트](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode 확장 [사용자 가이드](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

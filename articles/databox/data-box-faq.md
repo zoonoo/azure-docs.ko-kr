@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077346"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473257"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -36,12 +36,12 @@ Microsoft Azure Data Box 하이브리드 솔루션을 사용하면 이전 디바
 a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 저장 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
 
 ### <a name="q-what-is-azure-data-box"></a>Q. Azure Data Box란?
-a. Azure Data Box를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
+a. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
 
 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 종단 간 추적됩니다.
 
 ### <a name="q-when-should-i-use-data-box"></a>Q. Data Box는 언제 사용해야 하나요?
-a. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것이 유리합니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 Data Box Heavy에 가입합니다.
+a. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것이 유리합니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.
 
 ### <a name="q-what-is-the-price-of-data-box"></a>Q. Data Box 가격은 어떻게 되나요?
 a. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure 저장소에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
@@ -50,7 +50,7 @@ a. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. A
 a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다. Data Box를 사용하여 최대 80TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디바이스를 더 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>Q. 내 지역에서 Data Box를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
-a.  Data Box를 사용할 수 있는 국가에 대한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.  
+a.  Data Box를 사용할 수 있는 국가/지역에 대한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Data Box에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
 a. Data Box는 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.

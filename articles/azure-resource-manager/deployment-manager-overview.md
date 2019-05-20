@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466549"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595793"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (공개 미리 보기) 사용 하 여 안전한 배포 사례를 사용 하도록 설정
 
@@ -38,15 +38,11 @@ Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure �
 
 Azure Deployment Manager REST API 참조는 [여기](https://docs.microsoft.com/rest/api/deploymentmanager/)서 찾을 수 있습니다.
 
-## <a name="supported-locations"></a>지원되는 위치
-
-미리 보기의 경우 배포 관리자 리소스는 미국 중부 및 미국 동부 2에서 지원됩니다. 토폴로지 및 롤아웃 템플릿에서 이 문서에 설명된 서비스 단위, 아티팩트 원본 및 롤아웃과 같은 리소스를 정의하는 경우 해당 위치에 대해 이러한 지역 중 하나를 지정해야 합니다. 그러나 가상 머신, 저장소 계정 및 웹앱과 같이 서비스를 만들기 위해 배포하는 리소스는 해당하는 모든 [표준 위치](https://azure.microsoft.com/global-infrastructure/services/?products=all)에서 지원됩니다.  
-
 ## <a name="identity-and-access"></a>ID 및 액세스
 
 배포 관리자를 사용할 경우 [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)가 배포 작업을 수행합니다. 배포를 시작하기 전에 이 ID를 만듭니다. 이 ID에는 서비스를 배포할 구독에 대한 액세스 권한이 있어야 하며 배포를 수행하기 위한 충분한 권한이 있어야 합니다. 역할을 통해 부여되는 작업에 대한 내용은 [Azure 리소스에 대한 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-ID는 배포 관리자를 위해 지원되는 위치 중 하나에 있어야 하며 롤아웃과 동일한 위치에 있어야 합니다.
+Id는 출시와 같은 위치에 있어야 합니다.
 
 ## <a name="topology-template"></a>토폴로지 템플릿
 
@@ -221,7 +217,9 @@ ID는 배포 관리자를 위해 지원되는 위치 중 하나에 있어야 하
 
 지속 기간 속성은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. 이전 예제는 1분 대기를 지정합니다.
 
-상태 확인 단계에 대 한 자세한 내용은 참조 하세요. [ ]() 하 고 [ ]() 자세한 내용은 참조 하십시오 [템플릿 참조 단계](/azure/templates/Microsoft.DeploymentManager/steps)합니다.
+상태 확인 단계에 대 한 자세한 내용은 참조 하세요. [상태 통합 출시 Azure Deployment Manager를 소개](./deployment-manager-health-check.md) 고 [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
+
+자세한 내용은 [단계 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/steps)를 참조하세요.
 
 ### <a name="rollouts"></a>출시
 

@@ -3,8 +3,8 @@ title: Azure AD 앱 프록시 링크 및 URL 변환 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437736"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825553"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -59,13 +59,14 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 이 기능을 사용하려면 사용자가 확장을 다운로드하고 로그인해야 합니다. 관리자 또는 사용자에게 필요한 다른 구성은 없습니다. 
 
- 
+이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은를 참조 하십시오 합니다 [MyApps 브라우저 확장](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서.
 
 ### <a name="option-3-link-translation-setting"></a>옵션 3: 링크 변환 설정 
 
-링크 변환을 사용하도록 설정하면 애플리케이션 프록시 서비스에서 게시된 내부 링크에 대한 HTML 및 CSS를 검색하고 변환하므로 사용자가 중단 없이 환경을 이용할 수 있습니다. 
+링크 변환을 사용하도록 설정하면 애플리케이션 프록시 서비스에서 게시된 내부 링크에 대한 HTML 및 CSS를 검색하고 변환하므로 사용자가 중단 없이 환경을 이용할 수 있습니다. MyApps 브라우저 확장을 사용 하 여는 사용자에 게는 더 많은 성능이 뛰어난 환경을 제공 하기 때문 링크 변환을 설정 하는 것이 좋습니다.
 
-
+> [!NOTE]
+> 옵션 2 또는 3을 사용 하는 경우 다음 중 하나에 한 번에 설정 되어야 합니다.
 
 ## <a name="how-link-translation-works"></a>링크 변환의 작동 방식
 

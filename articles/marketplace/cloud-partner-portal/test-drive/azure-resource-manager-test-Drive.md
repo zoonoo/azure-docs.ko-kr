@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941567"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606442"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -140,7 +140,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 
 솔루션에 임의 또는 상수 사용자 이름을 사용할 수 있습니다.
 
-#### <a name="password"></a>암호
+#### <a name="password"></a>password
 
 시험 사용은 이 매개 변수를 새 임의 암호로 초기화합니다.
 
@@ -382,7 +382,7 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 ![Azure Active Directory 테넌트 목록](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Azure AD 테넌트에 대한 조직, 도메인 및 국가를 정의합니다.](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Azure AD 테 넌 트에 대 한 조직, 도메인 및 국가/지역 정의](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![선택 항목을 확인합니다.](./media/azure-resource-manager-test-drive/subdetails6.png)
 

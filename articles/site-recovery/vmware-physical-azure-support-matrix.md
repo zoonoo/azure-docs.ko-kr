@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872912"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540597"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -33,7 +33,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0이나 5.5 또는 vSphere 6.7, 6.5, 6.0이나 5.5 | vCenter Server를 사용하는 것이 좋습니다.<br/><br/> vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버 구성 요소는 구성 서버에서 실행되므로 전용 프로세스 서버를 설정하지 않으면, 구성 서버를 설정한 네트워크가 여기에 해당합니다.
-물리적 | N/A
+실제 | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
 
@@ -64,7 +64,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 머신 워크로드 | Site Recovery는 지원되는 머신에서 실행되는 모든 워크로드(즉, Active Directory, SQL 서버 등)의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
-Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> Windows 2016 Nano Server는 지원되지 않습니다.
+Windows 운영 체제 | Windows Server 2019 (에서 [9.22 버전](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64 비트 Windows Server 2016 (Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상. </br> , [9.24 버전](https://support.microsoft.com/en-in/help/4503156)64 비트, 64 비트 Windows 7, Windows 8 64 비트, 64 비트 Windows 8.1, Windows 10 (Windows 7 RTM은 지원 되지 않음)</br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> Windows 2016 Nano Server는 지원되지 않습니다.
 Linux 운영 체제 아키텍처 | 64 비트 시스템만 지원 됩니다. 32 비트 시스템에서 지원 되지 않습니다.
 Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>\*\*</b>, 7.0~7.6 <br/><br/>CentOS: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>\*\*</b>, 7.0~7.6 <br/><br/>Ubuntu 14.04 LTS 서버 [(지원 되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버 [(지원 되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/debian 8 [(지원 되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, Red Hat 호환 커널 또는 Unbreakable Enterprise Kernel Release 3, 4 및 5 (UEK3, UEK4, UEK5)를 실행 하는 경우 7.6 <br/><br/></br>- 복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.</br></br> Azure에서 Linux 및 오픈 소스 기술 지원에 대해 - [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure). Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> - Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> - 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> - Red Hat Enterprise Linux 5.2-5.11 또는 CentOS 5.2-5.11을 실행하는 서버의 경우 [LIS(Linux Integration Services) 구성 요소](https://www.microsoft.com/download/details.aspx?id=55106)가 설치되어 있어야 머신이 Azure에서 부팅될 수 있습니다.
 
@@ -148,15 +148,15 @@ BTRFS |9.22 버전인 BTRFS 지원 됩니다, 다음과 같은 시나리오를 �
 
 **구성 요소** | **지원됨**
 --- | ---
-Azure ExpressRoute | 예
-ILB | 예
-ELB | 예
-Azure Traffic Manager | 예
-다중 NIC | 예
-예약된 IP 주소 | 예
-IPv4 | 예
-원본 IP 주소 유지 | 예
-Azure Virtual Network 서비스 엔드포인트<br/> | 예
+Azure ExpressRoute | 예.
+ILB | 예.
+ELB | 예.
+Azure Traffic Manager | 예.
+다중 NIC | 예.
+예약된 IP 주소 | 예.
+IPv4 | 예.
+원본 IP 주소 유지 | 예.
+Azure Virtual Network 서비스 엔드포인트<br/> | 예.
 가속 네트워킹 | 아닙니다.
 
 ## <a name="storage"></a>Storage
@@ -165,23 +165,24 @@ Azure Virtual Network 서비스 엔드포인트<br/> | 예
 동적 디스크 | 운영 체제 디스크는 기본 디스크여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
 Docker 디스크 구성 | 아닙니다.
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
-호스트 SAN(iSCSI/FC) | 예
+호스트 SAN(iSCSI/FC) | 예.
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 VMDK | 예
+게스트/서버 VMDK | 예.
 게스트/서버 공유 클러스터 디스크 | 아닙니다.
 게스트/서버 암호화된 디스크 | 아닙니다.
 게스트/서버 NFS | 아닙니다.
+게스트/서버 iSCSI | 아닙니다.
 게스트/서버 SMB 3.0 | 아닙니다.
-게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
+게스트/서버 RDM | 예.<br/><br/> 물리적 서버의 경우 해당 없음
+게스트/서버 디스크 > 1 TB | 예.<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예.
+4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예.
+스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예.
 게스트/서버 - 저장소 공간 | 아닙니다.
 게스트/서버 디스크 핫 추가/제거 | 아닙니다.
-게스트/서버 - 디스크 제외 | 예
+게스트/서버 - 디스크 제외 | 예.
 게스트/서버 다중 경로(MPIO) | 아닙니다.
 게스트/서버 EFI/UEFI 부팅 | VMware Vm 또는 Windows Server 2012를 실행 하는 물리적 서버를 마이그레이션하는 경우 또는 나중에 Azure를 지원 합니다.<br/><br/> 만 마이그레이션에 대 한 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구는 지원 되지 않습니다.<br/><br/> 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.<br/><br/> Mobility Service 버전 9.13 이상이 필요합니다.<br/><br/> NTFS만 지원 됩니다.
 
@@ -198,26 +199,26 @@ Docker 디스크 구성 | 아닙니다.
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 저장소 | 예
-지역 중복 저장소 | 예
-읽기 액세스 지역 중복 저장소 | 예
+로컬 중복 저장소 | 예.
+지역 중복 저장소 | 예.
+읽기 액세스 지역 중복 저장소 | 예.
 쿨 저장소 | 아닙니다.
 핫 저장소| 아닙니다.
 블록 Blob | 아닙니다.
-휴지 상태의 암호화(Storage 서비스 암호화)| 예
-Premium Storage | 예
+휴지 상태의 암호화(Storage 서비스 암호화)| 예.
+Premium Storage | 예.
 Import/Export 서비스 | 아닙니다.
-대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 예
+대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 예.
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아닙니다.
 
 ## <a name="azure-compute"></a>Azure Compute
 
 **기능** | **지원됨**
 --- | ---
-가용성 집합 | 예
+가용성 집합 | 예.
 가용성 영역 | 아닙니다.
-HUB | 예
-관리 디스크 | 예
+HUB | 예.
+관리 디스크 | 예.
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -272,7 +273,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 --- | --- | ---
 구성 서버 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/>  온-프레미스 VMware 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-deploy-configuration-server.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)합니다.
 프로세스 서버|기본적으로 구성 서버에 설치합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.| 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-set-up-process-server-scale.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-process-server.md#upgrade-a-process-server)합니다.
-Mobility Service | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-install-mobility-service.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)합니다.
+모바일 서비스 | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-install-mobility-service.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)합니다.
 
 최신 기능에 대 한 자세한 내용은 방문 [최신 릴리스](https://aka.ms/ASR_latest_release_notes)합니다.
 

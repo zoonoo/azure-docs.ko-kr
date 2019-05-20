@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618059"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538383"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -44,6 +44,7 @@ Ultra SSD의 일부 키 기능은 다음과 같습니다.
 - 디스크 용량: 울트라 SSD의 용량은 4GiB에서 최대 64TiB입니다.
 - 디스크 IOPS: 울트라 SSD는 300IOPS/GiB의 IOPS 제한을 지원하며, 디스크당 최대 160K IOPS입니다. 프로비전한 IOPS를 달성하려면 선택한 디스크 IOPS가 VM IOPS보다 작은지 확인합니다. 최소 디스크 IOPS는 100IOPS입니다.
 - 디스크 처리량: 울트라 SSD를 사용하는 경우 단일 디스크의 처리량 한도는 프로비저닝된 IOPS당 256KiB/s이며, 디스크당 최대 2,000MBps입니다(MBps = 초당 10^6바이트). 최소 디스크 처리량은 1MiB입니다.
+- Ultra Ssd 지원 디스크 성능 특성 (IOPS 및 처리량)를 조정 런타임 시 가상 머신에서 디스크를 분리 하지 않고 있습니다. 디스크 성능 크기 조정 작업이 디스크에서 실행된 후 변경 내용이 실제로 적용되려면 최대 한 시간이 걸릴 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
 
@@ -58,6 +59,10 @@ Ultra SSD의 일부 키 기능은 다음과 같습니다.
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
 |1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2,000         |
+
+### <a name="transactions"></a>트랜잭션
+
+Ultra Ssd에 대 한 각 I/O 작업이 적은 보다 작거나 256 3:n2}kib/ 처리량으로 간주 됩니다 단일 I/O 작업. 입출력 256 3:n2}kib/ 보다 큰 처리량의 크기 256의 여러 I/o 것으로 간주 됩니다 3:n2}kib/ 합니다.
 
 ### <a name="preview-scope-and-limitations"></a>미리 보기 범위 및 제한 사항
 

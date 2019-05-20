@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631892"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606926"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 디바이스에 대한 기술 사양 및 규정 준수
 
@@ -36,7 +36,7 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | 사양 | 580 W PCM(EBOD) | 764 W PCM(기본) |
 | --- | --- | --- |
 | 최대 출력 전원 |580W |764 |
-| Frequency(빈도) |50/60Hz |50/60Hz |
+| 빈도 |50/60Hz |50/60Hz |
 | 전압 범위 선택 |자동 범위 지정: 90 – 264 V AC, 47/63 Hz |자동 범위 지정: 90- 264 V AC, 47/63 Hz |
 | 최대 유입 전류 |20A |20A |
 | 전원 요소 수정 |> 95% 정격 입력 전압 |> 95% 정격 입력 전압 |
@@ -44,7 +44,7 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | 출력 |5V 대기 전압 \@ 2.0 A |5V 대기 전압 \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| 핫 플러그형 |예 |예 |
+| 핫 플러그형 |예. |예. |
 | 스위치 및 LED |AC ON/OFF 스위치와 4개의 상태 표시기 LED |AC ON/OFF 스위치와 6개의 상태 표시기 LED |
 | 냉각 엔클로저 |가변 팬 속도 제어를 사용한 냉각팬 축 |가변 팬 속도 제어를 사용한 냉각팬 축 |
 
@@ -173,7 +173,7 @@ Microsoft Azure StorSimple 디바이스는 다음 EMC 등급을 만족합니다.
 
 ## <a name="ac-power-cord-compliance"></a>AC 전원 코드 규정 준수
 
-플러그 및 전체 전원 코드 어셈블리는 디바이스가 사용 중인 국가에 맞는 표준을 충족해야하며 해당 국가에서 인정할 수 있는 안전 승인서가 있어야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
+플러그와 전체 전원 코드 조립품 장치는 사용 되는, 국가/지역에 대 한 적절 한 표준을 충족 해야 하 고 해당 국가/지역에서 허용 되는 안전 승인을 받아야 합니다. 다음 표에서 미국과 유럽에 대한 표준을 보여줍니다.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC 전원 코드-미국(나열된 NRTL이어야 함)
 

@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708309"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518154"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
 서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 애플리케이션 리소스입니다. 애플리케이션 ID 및 암호 또는 인증서가 있는 고유한 형식의 *사용자 ID*입니다. 서비스 사용자는 할당된 역할 및 사용 권한으로 정의된 작업을 수행하는 데 필요한 권한만 갖습니다. 
 
 Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 애플리케이션 및 웹앱에 사용됩니다. 예를 들어 서버 프로비전, 모델 배포, 데이터 새로 고침, 규모 확대/축소 및 일시 중지/다시 시작은 모두 서비스 사용자를 사용하여 자동화될 수 있습니다. 일반 Azure AD UPN 계정과 매우 유사하게 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다.
+
+또한 analysis Services 서비스 주체를 사용 하 여 관리 되는 id에서 수행한 작업을 지원 합니다. 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 id 관리](../active-directory/managed-identities-azure-resources/overview.md) 하 고 [Azure 서비스 인증을 지 원하는 Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)합니다.
 
 ## <a name="create-service-principals"></a>서비스 주체 만들기
  

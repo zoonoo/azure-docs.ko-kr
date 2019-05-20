@@ -138,22 +138,16 @@
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: VMware VM을 사용하는 Azure Application Gateway
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: VMware VM을 사용하는 Azure Public Load Balancer
-              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
             - name: 사설 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: 워크로드 VM을 사설 클라우드로 마이그레이션
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Azure의 VMware에서 애플리케이션 고가용성 확보
-              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: VMware 에코시스템
           items:
-            - name: 재해 복구 솔루션
-              href: 'https://docs.azure.cloudsimple.com/zerto-solutionguide/'
-            - name: VMware SRM을 사용하여 재해 복구
-              href: 'https://docs.azure.cloudsimple.com/disaster-recovery-srm/'
             - name: 워크로드 가상 머신 백업
-              href: 'https://docs.azure.cloudsimple.com/veeam/'
+              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: VMware Horizon 솔루션 가이드
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: 사설 클라우드에 대한 vSAN 암호화 구성
@@ -165,6 +159,6 @@
             - name: 사설 클라우드 vCenter의 Azure AD ID 소스
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
-              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
