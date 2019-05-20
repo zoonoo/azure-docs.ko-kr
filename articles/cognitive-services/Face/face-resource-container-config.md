@@ -31,7 +31,7 @@ ms.locfileid: "59677785"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정 해야 하며 그 값은 [ `Billing` ](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스를 위한 유효한 키 여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 그 값은 [ `Billing` ](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스를 위한 유효한 키여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -43,17 +43,17 @@ ms.locfileid: "59677785"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정 합니다  이 구성 설정에 대한 값을 지정 해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI 여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정합니다  이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
 * Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
 
-예제에 표시된 대로 끝점 URI로 _얼굴_ 라우팅을 추가 해야 합니다. 
+예제에 표시된 대로 끝점 URI로 _얼굴_ 라우팅을 추가해야 합니다. 
 
 |필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -143,7 +143,7 @@ Face 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 �
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](face-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 azure에서 `Cognitive Services` 리소스 [키] 페이지의 **키** 입니다. 
+> ApiKey 값은 Azure `Cognitive Services` 리소스 [키] 페이지의 **키**입니다. 
 
 ## <a name="face-container-docker-examples"></a>Face 컨테이너 Docker 예제
 
