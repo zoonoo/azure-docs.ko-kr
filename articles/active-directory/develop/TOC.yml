@@ -239,20 +239,30 @@
               href: msal-net-provide-httpclient.md
             - name: Azure AD B2C와 통합
               href: msal-b2c-overview.md
-            - name: 플랫폼별 고려 사항(.NET)
+            - name: 고려 사항 및 알려진 문제
               items:
-                - name: 웹 브라우저
-                  href: msal-net-web-browsers.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Android의 시스템 브라우저
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: 범용 Windows 플랫폼
-                  href: msal-net-uwp-considerations.md
-                - name: AAD B2C 정책 적용
-                  href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.NET
+                  items:
+                    - name: 웹 브라우저
+                      href: msal-net-web-browsers.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Android의 시스템 브라우저
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: 범용 Windows 플랫폼
+                      href: msal-net-uwp-considerations.md
+                    - name: AAD B2C 정책 적용
+                      href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.js
+                  items:
+                    - name: IE를 사용한 고려 사항
+                      href: msal-js-use-ie-browser.md
+                    - name: 알려진 문제 - IE와 Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: 알려진 문제 - Safari
+                      href: msal-js-known-issues-safari-browser.md
         - name: 인증
           items:
             - name: 인증 기본 사항

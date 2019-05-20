@@ -253,7 +253,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: Visual Studio 설치
           href: sql-data-warehouse-install-visual-studio.md
-    - name: 작업 워크로드
+    - name: 워크로드 관리
       items:
         - name: 워크로드 분석
           href: analyze-your-workload.md

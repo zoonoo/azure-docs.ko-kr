@@ -63,8 +63,9 @@
     - name: 확장
       href: concepts-scale.md
     - name: 모범 사례
-      href: best-practices.md
       items:
+        - name: 개요
+          href: best-practices.md
         - name: 클러스터 운영자의 경우
           items:
             - name: 다중 테넌트 지원 및 클러스터 격리
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: 가상 노드 만들기
           items:
-            - name: Azure CLI
+            - name: Azure CLI 사용
               href: virtual-nodes-cli.md
-            - name: Azure portal
+            - name: Azure Portal 사용
               href: virtual-nodes-portal.md
         - name: Virtual Kubelet 사용
           href: virtual-kubelet.md
@@ -165,9 +166,10 @@
             - name: 고유한 인증서와 함께 TLS 사용
               href: ingress-own-tls.md
             - name: Let's Encrypt와 함께 TLS 사용
-              href: ingress-tls.md
               items:
-                - name: 고정 공용 IP 사용
+                - name: 동적 공용 IP 주소 사용
+                  href: ingress-tls.md
+                - name: 고정 공용 IP 주소 사용
                   href: ingress-static-ip.md
         - name: 송신 트래픽
           href: egress.md
@@ -212,6 +214,20 @@
         - name: 실시간 컨테이너 로그 보기(미리 보기)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: Windows Server 컨테이너 모니터링 사용(미리 보기)
+      items:
+        - name: AKS 클러스터 만들기
+          href: windows-container-cli.md
+        - name: 원격으로 연결
+          href: rdp.md
+        - name: 알려진 제한 사항
+          href: windows-node-limitations.md
+        - name: Kubernetes 대시보드 사용
+          href: kubernetes-dashboard.md
+        - name: Windows Server 컨테이너용 Dockerfiles 만들기
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: Windows Server 컨테이너용 Dockerfiles 최적화
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: 애플리케이션 개발 및 실행
       items:
         - name: Dev Spaces를 사용하여 개발

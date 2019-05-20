@@ -55,10 +55,20 @@
 - name: 리소스
   items:
     - name: 가격
-      href: 'https://aka.ms/anomaly-detector-pricing'
+      href: 'https://aka.ms/adpricing'
     - name: 국가별 가용성
-      href: 'https://aka.ms/anomaly-detector-region'
+      href: 'https://aka.ms/adregion'
     - name: 참조 솔루션 아키텍처
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+- name: 지원
+  items:
+    - name: 지원 받기
+      href: 'https://aka.ms/adsupport'
+    - name: 공개 커뮤니티에 조인
+      href: 'https://aka.ms/adadvisorsjoin'
     - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-anomaly-detection'
+      href: 'https://aka.ms/adso'
+    - name: MSDN
+      href: 'https://aka.ms/admsdn'
+    - name: 사용자 의견
+      href: 'https://aka.ms/aduservoice'
