@@ -17,11 +17,11 @@ ms.locfileid: "58886840"
 
 |공급자|목적|
 |--|--|
-|[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
+|[콘솔](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
 |[디버그](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|ASP.NET Core `Debug` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
 |[디스크](#disk-logging)|JSON 로깅 공급자입니다. 이 로깅 공급자는 출력 탑재에 로그 데이터를 씁니다.|
 
-이 컨테이너 명령 출력 탑재를 JSON 형식에 로깅 정보를 저장합니다.
+다음 컨테이너 명령은 출력 탑재에 JSON 형식으로 로깅 정보를 저장합니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -34,7 +34,7 @@ ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
 
-접두사로 컨테이너 명령 디버깅 정보를 보여 줍니다.이 `dbug`, 컨테이너에서 실행 되는 동안:
+다음 컨테이너 명령은 컨테이너가 실행되는 동안 `dbug` 접두사로 디버깅 정보를 보여줍니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 \
