@@ -34,7 +34,7 @@ ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
 
-다음 컨테이너 명령은 컨테이너가 실행 되는 동안 `dbug` 접두사로 디버깅 정보를 보여 줍니다:
+다음 컨테이너 명령은 컨테이너가 실행되는 동안 `dbug` 접두사로 디버깅 정보를 보여줍니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 \
