@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에 대한 가격 책정 계층
-description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 가격 책정 계층을 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 가격 책정 계층을 설명합니다.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
