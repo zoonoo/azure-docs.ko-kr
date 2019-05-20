@@ -20,7 +20,7 @@ ms.locfileid: "61459521"
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-다음과 단계를 수행하여 “mydemoserver”라는 Azure Database for MySQL 서버를 만듭니다.
+다음의 단계를 수행하여 “mydemoserver”라는 Azure Database for MySQL 서버를 만듭니다.
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "61459521"
     | *위치*: | 동남 아시아(북유럽과 미국 서부 사이에서 선택) |
     | *버전* | 5.7(Azure Database for MySQL 서버 버전 선택) |
 
-4. **가격 책정 계층**을 클릭하고 새 서버의 서비스 계층 및 성능 수준을 지정합니다. **범용** 탭을 선택합니다. *5세대*, *vCore 2개*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다.
+4. **가격 책정 계층**을 클릭하고 새 서버의 서비스 계층 및 성능 수준을 지정합니다. **범용** 탭을 선택합니다. *5세대*, *vCore 2개*, *5GB* 및 *7일*은 **컴퓨팅 세대**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
