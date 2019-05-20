@@ -43,11 +43,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Spark** | 예. |
 | host | Spark 서버의 IP 주소 또는 호스트 이름입니다.  | 예. |
-| 포트 | Spark 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
+| port | Spark 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Spark 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **SharkServer**, **SharkServer2**, **SparkThriftServer** | 아닙니다. |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 다음과 같습니다. **Binary**, **SASL**, **HTTP** | 아닙니다. |
 | authenticationType | Spark 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | 예. |
-| 사용자 이름 | Spark 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아닙니다. |
+| username | Spark 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 아닙니다. |
 | password | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
 | httpPath | Spark 서버에 해당하는 부분 URL입니다.  | 아닙니다. |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아닙니다. |
@@ -116,7 +116,7 @@ Spark에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Spa
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SparkSource** | 예. |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 
