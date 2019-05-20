@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database의 제한 사항
-description: 이 문서에서는 PostgreSQL-단일 서버 연결 수 및 저장소 엔진 옵션과 같은 용 Azure Database의 제한 사항을 설명합니다.
+title: PostgreSQL-단일 서버에 대한 Azure Database의 제한 사항
+description: 이 문서에서는 PostgreSQL-단일 서버 연결 수 및 저장소 엔진 옵션과 같은 Azure Database의 제한 사항을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65073554"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대 한 Azure Database의 제한 사항
+# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
 
 ## <a name="maximum-connections"></a>최대 연결 수
@@ -21,8 +21,8 @@ ms.locfileid: "65073554"
 
 |**가격 책정 계층**| **vCore**| **최대 연결** |
 |---|---|---|
-|Basic| 1| 50 |
-|Basic| 2| 100 |
+|기본| 1| 50 |
+|기본| 2| 100 |
 |범용| 2| 150|
 |범용| 4| 250|
 |범용| 8| 480|
