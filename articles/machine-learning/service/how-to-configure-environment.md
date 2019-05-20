@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471591"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606416"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "65471591"
 
 이 문서에서는 다음과 같은 환경 및 도구를 중점적으로 다룹니다.
 
-* 사용자 고유의 [클라우드 기반 notebook server](#notebookvm): 워크스테이션에서 Jupyter notebook을 실행 하는 계산 리소스를 사용 합니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 가장 쉬운 방법입니다.
+* 사용자 고유의 [클라우드 기반 전자 필기장 VM](#notebookvm): 워크스테이션에서 Jupyter notebook을 실행 하는 계산 리소스를 사용 합니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 가장 쉬운 방법입니다.
 
 * [DSVM(Data Science Virtual Machine)](#dsvm) 데이터 과학 작업용으로 설계되고 CPU 전용 VM 인스턴스 또는 GPU 기반 인스턴스에 배포할 수 있는 Azure 클라우드에 미리 구성된 개발 또는 실험 환경입니다. Python 3, Conda, Jupyter Notebook 및 Azure Machine Learning SDK가 이미 설치되어 있습니다. VM은 기계 학습 솔루션 개발에 자주 사용되는 기계 학습 및 딥 러닝 프레임워크, 도구, 편집기가 함께 제공됩니다. Azure 플랫폼에서 가장 완성도 높은 기계 학습용 개발 환경입니다.
 
@@ -42,9 +42,7 @@ ms.locfileid: "65471591"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure Machine Learning 서비스 작업 영역. 참조 된 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
-
-고유한 시작에 필요한 모든 작업 영역은 [클라우드 기반 notebook server](#notebookvm), [DSVM](#dsvm)를 [Azure Databricks](#aml-databricks), 또는 [Azure Notebooks](#aznotebooks).
+Azure Machine Learning 서비스 작업 영역. 참조 된 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다. 고유한 시작에 필요한 모든 작업 영역은 [클라우드 기반 notebook server](#notebookvm), [DSVM](#dsvm)를 [Azure Databricks](#aml-databricks), 또는 [Azure Notebooks](#aznotebooks).
 
 에 대 한 SDK 환경을 설치 하 여 [로컬 컴퓨터](#local), [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 해야:
 
@@ -57,16 +55,30 @@ ms.locfileid: "65471591"
 
 - Windows에서는 명령 프롬프트 또는 Anaconda 프롬프트(Anaconda 및 Miniconda를 통해 설치한)가 필요합니다.
 
-## <a id="notebookvm"></a>고유한 전자 필기장 클라우드 기반 서버
+## <a id="notebookvm"></a>사용자 고유의 VM 클라우드 기반 notebook
 
-Azure Machine Learning의 개발을 시작 하는 가장 쉬운 방법은 Azure Machine Learning 작업 영역에서 노트북 서버를 만듭니다.
+Notebook 가상 컴퓨터 (미리 보기)는 완전히 준비 된 ML 환경, JupyterLab 및 Jupyter 노트북 서버를 사용 하 여 데이터 과학자를 제공 하는 보안, 클라우드 기반 Azure 워크스테이션. 
 
-* Azure Machine Learning SDK가 이미 설치되어 있습니다.
-* Notebook VM 환경 작업 영역에 자동으로 구성 됩니다.
-* 리소스 작업 영역에서 생성 되 고 있는 관리할 수 있습니다.
+VM이 notebook: 
 
-클라우드 기반 notebook 서버를 사용 하 여 개발 시작, 참조 [빠른 시작: 클라우드 기반 노트북 서버를 사용 하 여 Azure Machine Learning을 사용 하 여 시작 하려면](quickstart-run-cloud-notebook.md)합니다.
++ **보안**. VM 및 notebook 액세스는 기본적으로 HTTPS 및 Azure Active Directory를 사용 하 여 보호 되므로 single sign on 및 다단계 인증과 같은 기타 보안 기능 IT 전문가 쉽게 적용할 수 있습니다.
 
++ **미리 구성 된**합니다. 이 완전히 준비 된 Python 기계 학습 환경에서 인기 있는 IaaS 데이터 과학 VM은 해당 계통 그립니다 포함 되어 있습니다.
+  + Azure ML Python SDK (최신)
+  + 작업 영역을 사용 하는 자동 구성
+  + Jupyter notebook 서버
+  + JupyterLab notebook IDE
+  + 미리 구성 된 GPU 드라이버 
+  + 심층 학습 프레임 워크 선택
+ 
+
+  코드로, VM에 포함 되어 있는 자습서 및 샘플을 탐색 하 고 Azure Machine Learning 서비스를 사용 하는 방법을 알아봅니다. 샘플 노트북이 Vm 간에 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 를 실행 하는 경우 또한 데이터 저장소에 액세스할 수 하며 작업 영역 리소스를 계산 합니다. 
+
++ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나 만듭니다. 이름만 제공 하 고 Azure VM 형식을 지정 합니다. 이 사용 하 여 지금 사용해 보기 [빠른 시작: 클라우드 기반 노트북 서버를 사용 하 여 Azure Machine Learning을 사용 하 여 시작 하려면](quickstart-run-cloud-notebook.md)합니다.
+
++ **사용자 지정 가능한**합니다. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 원하는 사용자 지정 합니다. 예를 들어, NVidia V100 novel 신경망 아키텍처의 단계별 디버깅을 수행 하는 VM 기반 최신 신속 하 게 만듭니다.
+
+Notebook VM 요금이 부과 되는 중지 [notebook VM 중지](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)합니다. 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -283,7 +295,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 
 이러한 설정을 사용 합니다.
 
-| 설정 |적용 대상| Value |
+| 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
 | Databricks 런타임 |항상| 모든 비 ML 런타임(비 ML 4.x, 5.x) |
@@ -299,7 +311,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 
 1. 선택할 **하나만** 옵션 (다른 SDK가 설치 되지 않습니다 지원 됨)
 
-   |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;package&nbsp;extras|원본|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks에 대 한| Python 업로드 Egg 또는 PyPI | azureml-sdk[databricks]|
    |-사용 하 여-Databricks에 대 한<br> 자동화 된 기계 학습 기능| Python 업로드 Egg 또는 PyPI | azureml-sdk[automl_databricks]|
@@ -368,7 +380,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 
 * **단계를 따릅니다 [Azure Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md#sdk)**: *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
-* **파일 다운로드**: Azure Portal에서, 해당 작업 영역의 **개요** 섹션에서 [config.json 다운로드](https://ms.portal.azure.com)를 선택합니다.
+* **파일 다운로드**: Azure Portal에서, 해당 작업 영역의 **개요** 섹션에서 **config.json 다운로드** 를 선택합니다.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 
@@ -397,4 +409,3 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 - MNIST 데이터 세트를 사용하여 Azure Machine Learning에서 [모델 학습](tutorial-train-models-with-aml.md)
 - [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 참조 보기
 - 에 대 한 자세한는 [Azure Machine Learning 용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)
-- 
