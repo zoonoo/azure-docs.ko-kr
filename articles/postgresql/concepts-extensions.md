@@ -116,15 +116,15 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 ## <a name="dblink-and-postgresfdw"></a>dblink 및 postgres_fdw
 dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하면 모든 Azure IP가 허용 목록에 추가됩니다.
 
-다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외하고, 현재 PostgreSQL용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다.
+다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외하고, 현재 Azure Database for PostgreSQL에서 아웃바운드 연결은 지원되지 않습니다.
 
 ## <a name="timescaledb"></a>TimescaleDB
-TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데이터베이스입니다. TimescaleDB는 시간 지향적인 분석 함수, 최적화를 제공하고 시계열 작업용 Postgres를 확장 합니다.
+TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데이터베이스입니다. TimescaleDB는 시간 지향적인 분석 함수, 최적화를 제공하고 시계열 작업용 Postgres를 확장합니다.
 
-[Timescale, Inc.](https://www.timescale.com/)의 [TimescaleDB에 자세히 알아보세요](https://docs.timescale.com/latest).
+[Timescale, Inc.](https://www.timescale.com/)의 등록 상표인 [TimescaleDB에 대해 자세히 알아보세요](https://docs.timescale.com/latest).
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
-TimescaleDB를 설치 하려면 서버의 공유 미리 로드 라이브러리에 포함 해야 합니다. Postgres의 공유된 미리 로드 라이브러리로 변경은 **서버를 다시 시작**해야 합니다.
+TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함해야 합니다. Postgres의 공유된 미리 로드 라이브러리 변경은 **서버를 다시 시작**해야 적용됩니다.
 
 > [!NOTE]
 > TimescaleDB은 PostgreSQL 버전 9.6 및 10에 대 한 Azure Database에서 사용할 수 있습니다.
@@ -133,11 +133,11 @@ TimescaleDB를 설치 하려면 서버의 공유 미리 로드 라이브러리�
 
 1. Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 옆쪽 메뉴에서 **서버 매개 변수**를 선택합니다.
+2. 사이드바에서 **서버 매개 변수**를 선택합니다.
 
 3. `shared_preload_libraries` 매개 변수를 검색합니다.
 
-4. `shared_preload_libraries`에 다음 값을 복사하고 붙여넣습니다.
+4. `shared_preload_libraries`의 값으로 다음을 복사하여 붙여넣습니다.
    ```
    timescaledb
    ```
@@ -147,14 +147,14 @@ TimescaleDB를 설치 하려면 서버의 공유 미리 로드 라이브러리�
 6. 알림 후 이러한 변경 내용을 적용하기 위해 서버를 **다시 시작**합니다. 서버를 다시 시작하는 방법을 알아보려면 [Azure Database for PostgreSQL 서버 다시 시작](howto-restart-server-portal.md)을 참조하세요.
 
 
-Postgres 데이터베이스의 TimescaleDB를 이제 사용할 수 있습니다. 데이터베이스에 연결하고 다음 명령을 실행 합니다.
+이제 Postgres 데이터베이스에서 TimescaleDB를 사용 설정할 수 있습니다. 데이터베이스에 연결하고 다음 명령을 실행합니다.
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> 오류가 발생 하는 경우 shared_preload_libraries를 저장 한 후 [서버를 다시 시작](howto-restart-server-portal.md)했는지 확인합니다. 
+> 오류가 발생하는 경우 shared_preload_libraries를 저장한 후 [서버를 다시 시작](howto-restart-server-portal.md)했는지 확인합니다. 
 
-이제 TimescaleDB hypertable를 [처음부터](https://docs.timescale.com/getting-started/creating-hypertables) 만들거나  [PostgreSQL에서 기존 시계열 데이터를](https://docs.timescale.com/getting-started/migrating-data)마이그레이션할 수 있습니다.
+이제 TimescaleDB hypertable을 [처음부터](https://docs.timescale.com/getting-started/creating-hypertables) 만들거나  [PostgreSQL에서 기존 시계열 데이터](https://docs.timescale.com/getting-started/migrating-data)를 마이그레이션할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
