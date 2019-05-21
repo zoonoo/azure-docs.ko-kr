@@ -80,6 +80,12 @@
     - name: 서비스의 작동 방식
       displayName: architecture concepts definitions
       href: concept-azure-machine-learning-architecture.md
+    - name: 작업 영역
+      displayName: concept definitions architecture
+      href: concept-workspace.md
+    - name: 시각적 인터페이스
+      displayName: concept
+      href: ui-concept-visual-interface.md
     - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

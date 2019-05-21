@@ -303,9 +303,9 @@
         - name: 정보
           href: speech-devices-sdk.md
         - name: License
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: 타사 알림
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: Speech SDK 문제 해결
       href: troubleshooting.md
     - name: Speech Devices SDK 문제 해결
