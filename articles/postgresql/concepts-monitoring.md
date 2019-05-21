@@ -1,6 +1,6 @@
 ---
-title: 모니터링 및 PostgreSQL-단일 서버에 대한 Azure Database의 튜닝
-description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 모니터링 및 튜닝 기능을 설명 합니다.
+title: PostgreSQL-단일 서버용 Azure Database의 모니터링 및 튜닝
+description: 이 문서에서는 PostgreSQL-단일 서버용 Azure Database의 모니터링 및 튜닝 기능을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
 
 ## <a name="server-logs"></a>서버 로그
-서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 로그를 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
+서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 로그는 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
 [쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 이 기능은 query_store 스키마 아래의 **azure_sys**라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.
