@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버를 사용하여 비즈니스 연속성 개요
+title: Azure Database for PostgreSQL-단일 서버를 사용하는 비즈니스 연속성 개요
 description: Azure Database for PostgreSQL의 비즈니스 연속성 개요입니다.
 author: rachel-msft
 ms.author: raagyema
@@ -13,11 +13,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65068924"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버를 사용하여 비즈니스 연속성 개요
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버를 사용하는 비즈니스 연속성 개요
 
 이 개요에서는 Azure Database for PostgreSQL에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 
-## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는데 사용할 수 있는 기능
+## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
 Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
 
