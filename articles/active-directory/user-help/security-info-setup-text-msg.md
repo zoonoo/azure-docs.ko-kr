@@ -57,7 +57,7 @@ ms.locfileid: "60482252"
 
     ![전화 번호를 추가하고 문자 메시지 선택](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
 
-    페이지가 변경되어 성공을 표시합니다.
+    완료되면 페이지가 변경됩니다.
 
     ![성공 알림, 전화 번호 연결, 문자 메시지 수신 선택 및 계정](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
@@ -77,10 +77,10 @@ ms.locfileid: "60482252"
 
 2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
 
-## <a name="change-your-default-security-info-method"></a>기본 보안 정보 방법 변경
+## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 문자 메시지를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 

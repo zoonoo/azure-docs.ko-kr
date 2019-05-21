@@ -73,7 +73,7 @@ ms.locfileid: "65233912"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 앱 그룹을 만들고, RemoteApp을 사용하여 채우고, 앱 그룹에 사용자를 할당하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop 방법에 대한 연결을 계속 진행하세요.
+이 자습서에서는 앱 그룹을 만들고, RemoteApp을 사용하여 채우고, 앱 그룹에 사용자를 할당하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop에 연결하는 방법에 관한 다음 페이지를 참고하세요.
 
 - [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
 - [Windows Virtual Desktop 미리 보기 웹 클라이언트에 연결](connect-web.md)

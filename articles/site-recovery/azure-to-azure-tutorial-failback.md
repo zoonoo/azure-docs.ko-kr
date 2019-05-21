@@ -25,7 +25,7 @@ ms.locfileid: "58315320"
 > [!div class="checklist"]
 > 
 > * 보조 지역의 Azure VM 장애 복구(failback)
-> * 주 Azure VM을 보조 지역에 다시 보호
+> * 주 Azure VM을 보조 지역 방향으로 다시 보호 설정
 > 
 > [!NOTE]
 > 
@@ -33,7 +33,7 @@ ms.locfileid: "58315320"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-> * VM이 **장애 조치(failover) 커밋** 상태인지 확인합니다.
+> * VM이 **장애 조치(failover) 커밋됨** 상태인지 확인합니다.
 > * 주 지역을 사용할 수 있으며 그 안에 새 리소스를 만들고 액세스할 수 있는지 확인합니다.
 > * 다시 보호가 사용 설정되어 있는지 확인합니다.
 

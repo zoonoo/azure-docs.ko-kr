@@ -57,19 +57,19 @@ ms.locfileid: "60474996"
 
 5. 입력한 전화 번호로 수신되는 확인 전화 통화에 응답하고 지침을 따릅니다.
 
-    페이지가 변경되어 성공을 표시합니다.
+    완료되면 페이지가 변경됩니다.
 
     ![성공 알림, 전화 번호 연결, 전화 통화 수신 선택 및 계정](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 정보 방법 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
+    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 인증 방식 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
 
-## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 삭제
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 옵션 해제
 더 이상 전화 통화를 보안 정보 방법으로 사용하지 않으려는 경우 **보안 정보** 페이지에서 제거할 수 있습니다.
 
 >[!Important]
->실수로 전화 통화를 삭제하면 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
+>실수로 전화 통화 옵션을 해제하는 경우, 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
 
-### <a name="to-delete-phone-calls"></a>전화 통화를 삭제하려면 다음을 수행합니다.
+### <a name="to-delete-phone-calls"></a>전화 통화 옵션을 해제하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **전화** 옵션 옆에 있는 **삭제** 링크를 선택합니다.
 
@@ -77,10 +77,10 @@ ms.locfileid: "60474996"
 
 2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
     
-## <a name="change-your-default-security-info-method"></a>기본 보안 정보 방법 변경
+## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 전화 통화를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
