@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
-description: 이 문서에서는 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법을 설명 합니다.
+title: Azure Database for PostgreSQL - 단일 서버에서 서버를 복원하는 방법
+description: 이 문서에서는 Azure portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에서 서버를 복원 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65068870"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>백업 및 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기�
 서버를 만들 때 **가격 책정 계층** 창에서 로컬 중복 백업 또는 지역 중복 백업을 위한 서버 구성 중에서 선택할 수 있습니다.
 
 > [!NOTE]
-> 서버가 만들어지면 지리적으로 중복되거나 로컬로 중복된 중복 형식은 전환할 수 없습니다.
+> 서버가 만들어지면 지역 중복과 로컬 중복의 유형을 전환할 수 없습니다.
 >
 
 Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창에서 서버에 대해 **로컬 중복** 또는 **지역 중복** 백업을 선택합니다. 또한 이 창에서는 **백업 보존 기간**(서버 백업을 저장하려는 기간(일))도 선택할 수 있습니다.
