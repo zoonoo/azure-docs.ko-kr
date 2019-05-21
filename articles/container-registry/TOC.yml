@@ -75,9 +75,10 @@
       items:
         - name: 가상 네트워크로 액세스 제한(미리 보기)
           href: container-registry-vnet.md
-        - name: 인증 개요
-          href: container-registry-authentication.md
+        - name: 인증
           items:
+            - name: 인증 개요
+              href: container-registry-authentication.md
             - name: 서비스 주체 인증
               href: container-registry-auth-service-principal.md
             - name: 관리 ID 인증
@@ -143,3 +144,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+    - name: FAQ
+      href: container-registry-faq.md

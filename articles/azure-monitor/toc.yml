@@ -305,6 +305,12 @@
                       href: app/snapshot-debugger-troubleshoot.md
                 - name: 진단
                   href: ../application-insights/app-insights-azure-diagnostics.md
+            - name: ASP.NET Core
+              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+              href: app/asp-net-core.md
+              items:
+                - name: ILogger
+                  href: app/ilogger.md
             - name: ASP.NET 앱
               items:
                 - name: 웹 앱
@@ -339,13 +345,6 @@
                   href: app/windows-services.md
                 - name: Windows 데스크톱
                   href: app/windows-desktop.md
-                - name: ASP.NET Core
-                  href: app/asp-net-core.md
-                  items:
-                    - name: Linux App Services에 대한 Profiler(미리 보기)
-                      href: app/profiler-aspnetcore-linux.md
-                - name: Visual Studio 없는 ASP.NET Core
-                  href: app/asp-net-core-no-visualstudio.md
                 - name: 콘솔
                   href: app/console.md
                 - name: 응용 프로그램 대시보드
@@ -356,8 +355,6 @@
                   href: app/asp-net-exceptions.md
                 - name: 로그 추적
                   href: app/asp-net-trace-logs.md
-                - name: ILogger
-                  href: app/ilogger.md
                 - name: 성능 카운터
                   href: app/performance-counters.md
                 - name: 종속성

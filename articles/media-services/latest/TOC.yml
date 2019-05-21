@@ -49,6 +49,7 @@
       items:
         - name: Storage
           href: storage-account-concept.md
+          displayName: Storage side encryption
         - name: 자산 API
           href: assets-concept.md
     - name: Encoding
@@ -169,6 +170,7 @@
       items:
         - name: 계정 만들기 - CLI
           href: create-account-cli-how-to.md
+          displayName: storage
         - name: 계정 자격 증명 재설정 - CLI
           href: cli-reset-account-credentials.md
         - name: API 액세스 - CLI

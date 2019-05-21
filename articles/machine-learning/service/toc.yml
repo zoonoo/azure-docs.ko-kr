@@ -6,6 +6,9 @@
     - name: Azure Machine Learning 서비스란?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
+    - name: 서비스의 작동 방식
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
 - name: 설정
   items:
     - name: 작업 영역 만들기
@@ -77,9 +80,6 @@
           href: ui-sample-classification-predict-churn.md
 - name: 개념
   items:
-    - name: 서비스의 작동 방식
-      displayName: architecture concepts definitions
-      href: concept-azure-machine-learning-architecture.md
     - name: 작업 영역
       displayName: concept definitions architecture
       href: concept-workspace.md
