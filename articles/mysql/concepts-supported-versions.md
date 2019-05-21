@@ -25,7 +25,7 @@ Azure Database for MySQL은 현재 다음 버전을 지원합니다.
 
 버그 수정 릴리스: 5.6.42
 
-Mysql 참조 [릴리스](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) 향상 된 기능 및 수정 5.6.42 MySQL에 대 한 자세한 내용은 합니다.
+MySQL 5.6.42의 향상된 기능 및 수정에 대한 자세한 내용은 Mysql [릴리스 노트](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) 를 참조합니다.
 
 ## <a name="mysql-version-57"></a>MySQL 버전 5.7
 
