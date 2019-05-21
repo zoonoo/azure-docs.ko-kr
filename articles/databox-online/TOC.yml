@@ -89,6 +89,8 @@
           items:
             - name: Edge 컴퓨팅
               href: data-box-edge-manage-compute.md
+            - name: Edge 컴퓨팅 네트워크
+              href: data-box-edge-extend-compute-access-modules.md
             - name: 공유
               href: data-box-edge-manage-shares.md
             - name: 사용자

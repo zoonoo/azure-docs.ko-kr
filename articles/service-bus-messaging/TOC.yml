@@ -174,7 +174,7 @@
       items:
         - name: Azure PowerShell을 사용하여 엔터티 프로비전
           href: service-bus-manage-with-ps.md
-        - name: Azure Monitoring을 사용하여 Service Bus 모니터링
+        - name: Azure Monitor를 사용하여 Service Bus 모니터링
           href: service-bus-metrics-azure-monitor.md
         - name: Service Bus 관리 라이브러리
           href: service-bus-management-libraries.md

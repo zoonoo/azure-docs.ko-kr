@@ -819,51 +819,45 @@
       items:
         - name: 경고
           items:
-            - name: 메트릭 경고 사용
-              items:
-                - name: 'Azure Monitor에서 메트릭 경고 만들기, 보기 및 관리'
-                  href: platform/alerts-metric.md
-                - name: 'Azure Monitor에서 클래식 메트릭 경고 만들기, 보기 및 관리'
-                  href: platform/alerts-classic-portal.md
-                - name: 동적 임계값을 사용하는 메트릭 경고
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: 로그에 대한 메트릭 경고 구성
-                  href: platform/alerts-metric-logs.md
-                - name: Resource Manager 템플릿을 사용하여 새로운 메트릭 경고 만들기
-                  href: platform/alerts-metric-create-templates.md
-                - name: Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
-                  href: platform/alerts-enable-template.md
-                - name: 메트릭 경고에 웹후크 호출 설정
-                  href: platform/alerts-webhooks.md
-            - name: 로그 경고 사용
-              items:
-                - name: 분석 쿼리에 대한 경고 구성
-                  href: platform/alerts-log.md
-                - name: 로그 경고 쿼리
-                  href: platform/alerts-log-query.md
-                - name: 로그 경고에 대한 웹후크 작업
-                  href: platform/alerts-log-webhook.md
-                - name: 로그 경고 문제 해결
-                  href: platform/alert-log-troubleshoot.md
-            - name: 활동 로그 경고 사용
-              items:
-                - name: 활동 로그 이벤트에 대한 경고 구성
-                  href: platform/alerts-activity-log.md
-                - name: 활동 로그 경고로 마이그레이션
-                  href: platform/migrate-management-alerts.md
-                - name: 서비스 알림에 대한 경고 구성
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: 응용 프로그램 경고 사용
+            - name: 애플리케이션 경고 규칙
               items:
                 - name: 가용성
                   href: app/monitor-web-app-availability.md
                 - name: 메트릭 경고
                   href: app/alerts.md
-            - name: 경고가 있는 작업 그룹 사용
+            - name: 플랫폼 메트릭 경고 규칙
+              items:
+                - name: 메트릭 경고 관리
+                  href: platform/alerts-metric.md
+                - name: 동적 임계값 사용
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: 로그에 대한 메트릭 경고
+                  href: platform/alerts-metric-logs.md
+                - name: Resource Manager 템플릿 사용
+                  href: platform/alerts-metric-create-templates.md
+            - name: 로그 경고 규칙
+              items:
+                - name: 분석 쿼리에 대한 경고 구성
+                  href: platform/alerts-log.md
+                - name: 쿼리
+                  href: platform/alerts-log-query.md
+                - name: 웹후크 작업
+                  href: platform/alerts-log-webhook.md
+                - name: 문제 해결
+                  href: platform/alert-log-troubleshoot.md
+            - name: 활동 로그 경고 규칙
+              items:
+                - name: 활동 로그 이벤트에 대한 경고
+                  href: platform/alerts-activity-log.md
+                - name: 관리 이벤트를 활동 로그 경고로 마이그레이션
+                  href: platform/migrate-management-alerts.md
+                - name: 서비스 상태 알림에 대한 경고
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: 작업 그룹 사용
               items:
                 - name: 작업 그룹 만들기
                   href: platform/action-groups.md
-                - name: 웹후크 스키마에 대해 알아보기
+                - name: 웹후크 스키마
                   href: platform/activity-log-alerts-webhook.md
                 - name: 일반 경고 스키마 정의
                   href: platform/alerts-common-schema-definitions.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: 논리 앱 작업 구현
                   href: platform/action-groups-logic-app.md
-            - name: Operations Manager의 경고
+            - name: 경고 관리 솔루션
               href: platform/alert-management-solution.md
-            - name: 경고 관리
+            - name: 경고 사용자 인터페이스
               items:
                 - name: 경고 인스턴스 관리
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: 다른 모니터링 서비스의 경고 관리
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: 클래식 경고 마이그레이션
+            - name: 클래식 경고 규칙 마이그레이션
               items:
-                - name: 마이그레이션 도구 사용
-                  href: platform/alerts-using-migration-tool.md
                 - name: 마이그레이션 준비
                   href: platform/alerts-prepare-migration.md
                 - name: 마이그레이션 도구 이해
                   href: platform/alerts-understand-migration.md
+                - name: 마이그레이션 도구 사용
+                  href: platform/alerts-using-migration-tool.md
+                - name: 클래식 메트릭 경고 관리
+                  href: platform/alerts-classic-portal.md
+                - name: Resource Manager 템플릿을 사용한 클래식 메트릭 경고
+                  href: platform/alerts-enable-template.md
+                - name: 웹후크를 호출하는 클래식 메트릭 경고
+                  href: platform/alerts-webhooks.md
+        - name: 활동 로그의 서비스 상태 알림
+          items:
+            - name: 알림 확인
+              href: platform/service-notifications.md
+            - name: 알림 이벤트에 대한 경고 구성
+              href: platform/alerts-activity-log-service-notifications.md
         - name: 자동 크기 조정
           items:
-            - name: 자동 크기 조정 연습
+            - name: 연습
               href: platform/autoscale-get-started.md
-            - name: 자동 크기 조정 설정 이해
+            - name: 설정
               href: platform/autoscale-understanding-settings.md
             - name: 모범 사례
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: 일반적인 패턴
               href: platform/autoscale-common-scale-patterns.md
-            - name: 사용자 지정 메트릭을 사용하여 자동 크기 조정
+            - name: 사용자 지정 메트릭으로 크기 조정
               href: platform/autoscale-custom-metric.md
-            - name: Resource Manager 템플릿을 사용하여 자동 크기 조정(가상 머신 확장 집합)
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: 가상 머신 확장 집합에서 자동으로 컴퓨터 크기 조정
+            - name: VM 확장 집합 크기 조정
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: 자동 크기 조정의 웹후크 및 메일 알림 구성
+            - name: Resource Manager 템플릿을 사용하여 VM 확장 집합 크기 조정
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: 웹후크 및 이메일 알림 사용
               href: platform/autoscale-webhook-email.md
-        - name: 서비스 알림
-          items:
-            - name: 서비스 알림 보기
-              href: platform/service-notifications.md
-            - name: 서비스 알림에 대한 경고 구성
-              href: platform/alerts-activity-log-service-notifications.md
         - name: IT 서비스 관리
           items:
             - name: IT Service Management Connector
