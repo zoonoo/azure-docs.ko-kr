@@ -310,7 +310,7 @@ Contoso에서 지역 설계를 통해 네트워킹 전략을 고려할 준비가
 
 Contoso는 Azure와 온-프레미스 데이터 센터 간의 하이브리드 네트워킹에 대한 [아키텍처의 수](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)를 고려했습니다. 비교 옵션에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations).
 
-참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 지점은 다음 IPSec VPN 터널을 통해 데이터 센터에 인터넷을 통해 연결됩니다.
+참고로, Contoso의 온-프레미스 네트워크 인프라는 현재 뉴욕의 데이터 센터와 미국 동부의 지점으로 구성됩니다.  모든 위치에는 인터넷에 대한 비즈니스 클래스 연결이 있습니다.  각 분기는 다음 IPSec VPN 터널을 통해 데이터 센터에 인터넷을 통해 연결 됩니다.
 
 ![Contoso 네트워크](./media/contoso-migration-infrastructure/contoso-networking.png) 
 

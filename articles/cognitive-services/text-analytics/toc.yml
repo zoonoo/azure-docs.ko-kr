@@ -29,6 +29,8 @@
           href: quickstarts/csharp.md
         - name: Python
           href: quickstarts/python-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석

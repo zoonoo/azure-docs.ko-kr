@@ -138,6 +138,18 @@
         - name: 데이터 세트 추가 및 등록
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: 데이터 탐색
+          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: 데이터 정의 버전 관리 및 관리
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: 데이터 스냅숏 만들기
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: 데이터 저장소에서 데이터 가져오기
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
         - name: azureml.dataprep를 사용하여 준비
           items:
             - name: 데이터 로드
@@ -149,18 +161,6 @@
             - name: 데이터 쓰기
               displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-        - name: 데이터 세트(미리 보기)를 사용하여 준비
-          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
-        - name: 데이터 정의 버전 관리 및 관리
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: 데이터 스냅숏 만들기
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
-        - name: 데이터 저장소에서 데이터 가져오기
-          displayName: blob get fileshare access storage
-          href: how-to-access-data.md
     - name: 모델 학습
       items:
         - name: 학습 환경 설정
