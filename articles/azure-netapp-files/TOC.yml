@@ -53,6 +53,8 @@
       items:
         - name: REST (영문)
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Azure NetApp Files SDK
+          href: azure-netapp-files-sdk-cli.md
         - name: Azure NetApp Files 리소스 공급자 오류 문제 해결
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 참고 자료

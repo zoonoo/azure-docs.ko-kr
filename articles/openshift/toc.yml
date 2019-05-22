@@ -1,21 +1,47 @@
-- name: OpenShift 설명서
-  href: index.md
-- name: 빠른 시작
-  expanded: true
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: 개요
   items:
-    - name: 'OpenShift:  커뮤니티 템플릿'
-      href: 'https://azure.microsoft.com/resources/templates/openshift-origin-rhel/'
+    - name: Azure Red Hat OpenShift 정보
+      href: intro-openshift.md
 - name: 자습서
   items:
-    - name: Azure VM으로 배포
-      href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Azure Red Hat OpenShift 클러스터 생성 및 관리
+      items:
+        - name: 1 - Azure Red Hat OpenShift 클러스터 만들기
+          href: tutorial-create-cluster.md
+        - name: 2 - Azure Red Hat OpenShift 클러스터 크기 조정
+          href: tutorial-scale-cluster.md
+        - name: 3- Azure Red Hat OpenShift 클러스터 삭제
+          href: tutorial-delete-cluster.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: Azure Red Hat OpenShift 개발 환경 설정
+      href: howto-setup-environment.md
+      expanded: true
+      items:
+        - name: Azure AD 테넌트 만들기
+          href: howto-create-tenant.md
+        - name: Azure AD 앱 개체 및 사용자 만들기
+          href: howto-aad-app-configuration.md
+- name: 참고 자료
+  items:
+    - name: Azure Red Hat OpenShift CLI
+      href: /cli/azure/openshift
+    - name: Azure Red Hat OpenShift REST API
+      href: /rest/api/openshift
 - name: 리소스
   items:
+    - name: 일반적인 질문
+      href: openshift-faq.md
+    - name: 문제 해결
+      href: troubleshoot.md
+    - name: 지원되는 리소스
+      href: supported-resources.md
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Red Hat OpenShift 설명서
+      href: 'https://docs.openshift.com/aro/welcome/index.html'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: OpenShift 컨테이너 템플릿
-      href: 'https://github.com/Microsoft/openshift-container-platform'
-    - name: OpenShift Origin
-      href: 'https://docs.openshift.org/latest/getting_started/index.html'
-    - name: OpenShift 사이트
-      href: 'https://docs.openshift.org/latest/welcome/index.html'

@@ -116,8 +116,9 @@
             - name: 보존 정책 설정 및 정리 스크립트 실행
               href: image-factory-set-retention-policy-cleanup.md
         - name: 기업의 DevTest Labs
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: 기업 규모의 DevTest Labs
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: 참조 아키텍처
               href: devtest-lab-reference-architecture.md
             - name: DevTest Labs 배포 강화

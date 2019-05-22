@@ -83,8 +83,8 @@
   items:
     - name: 앱 구성
       items:
-        - name: 앱 설정 사용
-          href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 일반 설정 구성
+          href: ../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: ASP.NET Core 구성
           href: configure-language-dotnetcore.md
         - name: Node.js 구성

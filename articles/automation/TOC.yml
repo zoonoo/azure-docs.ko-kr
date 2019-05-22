@@ -42,6 +42,8 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Automation 계정에서 온보드
           href: automation-onboard-solutions-from-automation-account.md
+        - name: 지역 매핑
+          href: how-to/region-mappings.md
     - name: 업데이트 관리
       items:
         - name: 업데이트 관리 개요

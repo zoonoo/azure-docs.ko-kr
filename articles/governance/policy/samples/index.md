@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
-ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 140429cef7f63219a0d5cf82c6ebfb3731b0072b
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "60865904"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979658"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -38,5 +38,5 @@ ms.locfileid: "60865904"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.

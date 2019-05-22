@@ -99,6 +99,16 @@
       href: sql-database-implement-geo-distributed-database.md
     - name: Azure SQL 데이터 동기화 설정
       href: sql-database-get-started-sql-data-sync.md
+    - name: Machine Learning Services
+      items:
+        - name: R에서 예측 모델 빌드 및 배포
+          items:
+            - name: 1 - 데이터 준비
+              href: sql-database-tutorial-predictive-model-prepare-data.md
+            - name: 2 - 모델 만들기
+              href: sql-database-tutorial-predictive-model-build-compare.md
+            - name: 3 - 모델 배포
+              href: sql-database-tutorial-predictive-model-deploy.md
 - name: 샘플
   items:
     - name: 코드 샘플

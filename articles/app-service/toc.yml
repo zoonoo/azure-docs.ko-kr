@@ -92,11 +92,11 @@
   items:
     - name: 앱 구성
       items:
-        - name: 앱 설정 사용
-          href: web-sites-configure.md
+        - name: 일반 설정 구성
+          href: configure-common.md
         - name: PHP 구성
           href: web-sites-php-configure.md
-        - name: Java 개발자 가이드
+        - name: Java 구성
           href: configure-language-java.md
         - name: 온-프레미스 리소스에 연결
           href: web-sites-integrate-with-vnet.md
