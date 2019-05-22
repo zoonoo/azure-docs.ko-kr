@@ -130,13 +130,13 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | 예 |
+| type | 복사 작업의 type 속성은 다음으로 설정해야 합니다. **Copy** | 예 |
 | inputs | 원본 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
 | typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
 | source | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아닙니다. |
+| sink | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
+| translator | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아닙니다. |
 | dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아닙니다. |
 | parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아닙니다. |
 | enableStaging<br/>stagingSettings | 원본에서 싱크로 직접 데이터를 복사 하는 대신 blob 저장소의 중간 데이터를 준비 하도록 선택 합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아닙니다. |
@@ -173,8 +173,8 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 
 | 속성 이름  | 설명 | 단위 |
 |:--- |:--- |:--- |
-| DataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
-| DataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
+| dataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
+| dataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
 | filesRead | 파일 저장소에서 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 저장소로 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
 | rowsRead | 원본 (이진 복사에는 적용 되지 않음)에서 읽어오는 행 수입니다. | Int64 값(단위 없음) |
