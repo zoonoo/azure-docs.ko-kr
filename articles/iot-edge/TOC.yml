@@ -59,7 +59,7 @@
       items:
         - name: Azure IoT Edge 모듈 이해
           href: iot-edge-modules.md
-        - name: 에지 에이전트 및 허브 속성
+        - name: IoT Edge 에이전트 및 허브 속성
           href: module-edgeagent-edgehub.md
     - name: 개발
       items:
@@ -93,7 +93,7 @@
       href: iot-edge-glossary.md
 - name: 방법 가이드
   items:
-    - name: Edge 장치 등록
+    - name: IoT Edge 디바이스 등록
       items:
         - name: Azure portal
           href: how-to-register-device-portal.md
@@ -145,7 +145,7 @@
           href: how-to-deploy-monitor.md
         - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
-    - name: Edge 장치를 게이트웨이로 사용
+    - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: 투명 게이트웨이 구성
           href: how-to-create-transparent-gateway.md
@@ -159,6 +159,8 @@
       items:
         - name: IoT Edge의 Azure Blob Storage
           href: how-to-store-data-blob.md
+        - name: Blob 스토리지 모듈 배포
+          href: how-to-deploy-blob.md
     - name: DevOps 도구로 관리
       items:
         - name: Azure DevOps Projects
@@ -189,7 +191,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: Azure IoT Edge
       items:
         - name: IoT Edge
           href: /azure/iot-edge
