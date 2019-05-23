@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Key Vault의 암호 사용
           href: key-vault-access.md
+        - name: 관리 ID를 사용하여 배포
+          href: publish-managed-identity.md
     - name: 소비자
       items:
         - name: 관리되는 응용 프로그램 모니터링

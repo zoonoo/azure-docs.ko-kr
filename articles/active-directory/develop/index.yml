@@ -20,10 +20,10 @@ abstract:
     image:
       alt: null
       height: 110
-      src: ./media/index/video-featured.png
+      src: ./media/index/identity-platform-thumbnail.png
       width: 250
-    title: '인증을 통해 웹앱 솔루션 빌드(9:31)'
-    href: 'https://www.youtube.com/watch?v=QWh5HZK9vRA'
+    title: 'Microsoft ID 플랫폼 개요(2:20)'
+    href: 'https://youtu.be/y_fgJAatVhk'
     width: 250
 sections:
   - items:
