@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144985"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594093"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용 하 여 기술 자료를 개선 하기 위해
 
@@ -60,9 +60,9 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 활성 학습은 기본적으로 해제되어 있습니다. 제안된 질문을 확인하려면 활성 학습을 설정합니다. 
 
-1. 선택 **게시** 기술 자료를 게시 합니다. 활성 학습 쿼리 GenerateAnswer API 예측 끝점에서 수집 됩니다. Qna Maker 포털에서 테스트 창에 대 한 쿼리로 활성 학습을 영향을 주지 않습니다.
+1. 선택 **게시** 기술 자료를 게시 합니다. 활성 학습 쿼리 GenerateAnswer API 예측 끝점에서 수집 됩니다. QnA Maker 포털에서 테스트 창에 대 한 쿼리로 활성 학습을 영향을 주지 않습니다.
 
-1. 활성 학습을 설정하려면 자신의 **이름**을 클릭하고, QnA Maker 포털에서 오른쪽 위 모서리에 있는 [**서비스 설정**](https://www.qnamaker.ai/UserSettings)으로 이동합니다.  
+1. 활성에서 학습을 설정 하려면 클릭에 **이름을**로 이동 하세요 [ **서비스 설정** ](https://www.qnamaker.ai/UserSettings) QnA Maker 포털 오른쪽 위 모서리에서.  
 
     ![서비스 설정 페이지에서 활성 학습의 제안 된 질문 대안을 켭니다. 사용자 이름 오른쪽 위 메뉴에서 선택한 서비스 설정을 선택 합니다.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -169,12 +169,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|Type|목적|
+|HTTP 요청 속성|Name|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |호스트 하위 도메인|QnAMaker 리소스 이름|문자열|Azure 구독에서 QnA Maker에 대 한 호스트 이름입니다. 기술 자료를 게시 한 후 설정 페이지에서 제공 됩니다. |
 |헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은입니다. `application/json`|
-|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |Post 본문|JSON 개체|JSON|교육 피드백|
 
 JSON 본문을 몇 가지 설정은 다음과 같습니다.
@@ -184,7 +184,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 |`feedbackRecords`|array|피드백의 목록입니다.|
 |`userId`|문자열|제안 된 질문을 수락 하는 사용자의 사용자 ID입니다. 사용자 ID 형식은 사용자의 몫입니다. 예를 들어 전자 메일 주소에는 아키텍처에 올바른 사용자 ID를 수 있습니다. 선택 사항입니다.|
 |`userQuestion`|문자열|질문의 정확한 텍스트입니다. 필수 사항입니다.|
-|`qnaID`|number|질문에 있는 ID를 [GenerateAnswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)합니다. |
+|`qnaID`|번호|질문에 있는 ID를 [GenerateAnswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)합니다. |
 
 예제 JSON 본문 다음과 같습니다.
 
@@ -208,7 +208,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 
 앱이 활성 학습 사용 하도록 설정 하 고 앱을 내보낼 때의 `SuggestedQuestions` tsv 파일의 열은 활성 학습 데이터를 유지 합니다. 
 
-합니다 `SuggestedQuestions` 열이 암시적의 정보는 JSON 개체 (`autosuggested`) 및 명시적 (`usersuggested`) 피드백. 이 JSON 개체의 단일 사용자가 제출한 질문에 대 한 예가 `help` 됩니다.
+`SuggestedQuestions` 열은 암시적 일의 정보는 JSON 개체로 `autosuggested`, 및 명시적 `usersuggested` 피드백. 이 JSON 개체의 단일 사용자가 제출한 질문에 대 한 예가 `help` 됩니다.
 
 ```JSON
 [

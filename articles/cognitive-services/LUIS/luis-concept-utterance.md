@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792541"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073149"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
@@ -74,13 +74,47 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 처음에는 소수의 발언으로 시작한 후 정확한 의도 예측 및 엔터티 추출을 위해 [엔드포인트 발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다.
 
-## <a name="punctuation-marks"></a>문장 부호
+## <a name="utterance-normalization"></a>Utterance 정규화
 
-일부 클라이언트 애플리케이션은 이러한 표시에 대해 의미를 부여할 수도 있으므로 LUIS는 문장 부호를 무시하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다. 사용자의 클라이언트 애플리케이션에서 문장 부호에 특별한 의미를 두지 않는다면 패턴을 사용하여 [문장 부호를 무시](#ignoring-words-and-punctuation)하는 것을 고려하세요. 
+Utterance 정규화는 문장 부호 및 분음 부호의 결과 무시 하 고 학습 및 예측 중의 프로세스입니다.
 
-## <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>분음 부호 및 문장 부호에 대 한 utterance 정규화
 
-예제 발언의 특정 단어 또는 문장 부호를 무시하려는 경우 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax)을 사용합니다. 
+Utterance 정규화 만들거나 앱 JSON 파일의 설정 이기 때문에 앱을 가져올 때 정의 됩니다. Utterance 표준화 설정이 기본적으로 비활성화 되어 있습니다. 
+
+분음 부호와 같은 표시 또는 텍스트에 있는 기호는: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+앱 설정 정규화를 하는 경우의 점수를 **테스트** 창, 테스트 일괄 처리 및 끝점 쿼리 분음 부호 또는 문장 부호를 사용 하 여 모든 표현에 대 한 변경 됩니다.
+
+Utterance 정규화 분음 부호 또는 문장 부호 LUIS JSON 앱 파일에 설정 된 `settings` 매개 변수입니다.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+정규화 **문장 부호** 의미를 모델 교육 및 엔드포인트에 하기 전에 쿼리 예측 가져오기 전에 문장 부호는 표현에서 제거 됩니다. 
+
+정규화 **분음 부호** 일반 문자로 표현에서 분음 부호를 사용 하 여 문자를 바꿉니다. 예를 들어: `Je parle français` 가 `Je parle francais`합니다. 
+
+정규화 되지 참조 문장 부호 및는 예제 표현 또는 예측 응답에서 분음 부호 단순히 학습 및 예측 하는 동안 무시 됩니다 의미 하지 않습니다.
+
+
+### <a name="punctuation-marks"></a>문장 부호
+
+문장 부호, 정규화 되지 않으므로 LUIS 일부 클라이언트 응용 프로그램은 이러한 표시에 대 significance를 배치할 수 있으므로 기본적으로 문장 부호를 무시 하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다. 
+
+문장 부호에 특별 한 의미가 없습니다 클라이언트 응용 프로그램의 경우 것이 좋습니다 [문장 부호를 무시](#utterance-normalization) 문장 부호를 정규화 하 여 합니다. 
+
+### <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
+
+사용 하 여 특정 단어 또는 패턴에서 문장 부호를 무시 하려는 경우는 [패턴](luis-concept-patterns.md#pattern-syntax) 사용 하 여는 _무시_ 대괄호로 구문의 `[]`합니다. 
 
 ## <a name="training-utterances"></a>발언 학습
 

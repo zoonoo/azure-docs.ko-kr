@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471957"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954873"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>후속 프롬프트를 사용 하 여 대화의 여러 설정 만들기
 
@@ -52,7 +52,7 @@ PDF 문서를 가져오면 QnA Maker는 대화형 흐름을 만들기 위해 구
 
 ![! [PDF 문서를 가져오면 QnA Maker 결정 대화형 흐름을 만들기 위해 구조에서 후속 프롬프트 합니다. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>질문 및 답변 컨텍스트에서 필터링
+## <a name="show-questions-and-answers-with-context"></a>질문 및 답변 컨텍스트를 사용 하 여 표시 합니다.
 
 1. 질문 및 답변 쌍을 상황에 맞는 대화를 사용 하 여 표시를 줄입니다. 선택 **옵션을 보려면**을 선택한 후 **표시 컨텍스트 (미리 보기)** 합니다. 목록 후속 프롬프트를 사용 하 여 첫 번째 질문 및 답변 쌍을 추가 하기 전 까지는 비어 있게 됩니다. 
 
@@ -64,22 +64,36 @@ PDF 문서를 가져오면 QnA Maker는 대화형 흐름을 만들기 위해 구
 1. 새 질문 텍스트를 입력할 `Give feedback.` 의 답변을 사용 하 여 `What kind of feedback do you have?`입니다.
 
 1. 에 **답변** 선택이 질문에 대 한 열 **후속 프롬프트 추가**합니다. 
-1. 합니다 **후속 프롬프트** 팝업 대화 상자를 사용 하면 기존 질문에 대 한 검색 하거나 새 질문을 입력할 수 있습니다. 이 절차에서는 텍스트 입력 `Feedback on an QnA Maker service`에 대 한 합니다 **텍스트 표시**합니다. 
-1. 확인할 **상황에 맞는 전용**합니다. 합니다 **상황에 맞는 전용** 옵션 나타냅니다는이 사용자 텍스트 인식 됩니다 _만_ 이전 질문에 대 한 응답에 지정 된 경우. 이 시나리오에 대 한 프롬프트 텍스트를 아무런 의미가 독립 실행형 질문으로,만 이전 질문의 컨텍스트에서 것이 좋습니다.
-1. 에 **응답할 링크** 텍스트 상자에 대 한 답을 입력 `How would you rate QnA Maker?`합니다.
-1. 선택 **새로 만들기** 선택한 **저장**합니다. 
+1. 합니다 **후속 프롬프트 (미리 보기)** 팝업을 사용 하면 기존 질문에 대 한 검색 하거나 새 질문을 입력할 수 있습니다. 다음 값을 입력 하 여 새 프롬프트를 만듭니다. 
+
+    |텍스트 필드|값|
+    |--|--|
+    |**텍스트를 표시 합니다.**|`Feedback on an QnA Maker service`|
+    |**응답에 연결**|`How would you rate QnA Maker??`|
+    |||
 
     ![새 프롬프트 QnA 만들기](../media/conversational-context/create-child-prompt-from-parent.png)
+
+1. 확인할 **상황에 맞는 전용**합니다. 합니다 **상황에 맞는 전용** 옵션 나타냅니다는이 사용자 텍스트 인식 됩니다 _만_ 이전 질문에 대 한 응답에 지정 된 경우. 이 시나리오에 대 한 프롬프트 텍스트를 아무런 의미가 독립 실행형 질문으로,만 이전 질문의 컨텍스트에서 것이 좋습니다.
+1. 선택 **새로 만들기** 선택한 **저장**합니다. 
 
     새 질문 및 답변 쌍을 만들고 후속 프롬프트로 선택한 질문을 연결 합니다. 합니다 **상황에 맞는** 두 질문에 대 한 열에는 후속 프롬프트 관계를 나타냅니다. 
 
     ![! [두 질문에 대 한 상황에 맞는 열에는 후속 프롬프트 관계를 나타냅니다.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. 선택 **추가 후속 프롬프트** 에 대 한는 `Give feedback` 다른 후속 프롬프트를 추가 하는 질문입니다. 
-1. 새 질문을 입력 하 여 만듭니다 `Feedback on an existing feature`에서 답변을 사용 하 여 `Which feature would you like to give feedback on?`입니다.  
+1. 선택 **추가 후속 프롬프트** 에 대 한는 `Give feedback` 다른 후속 프롬프트를 추가 하는 질문입니다. 열립니다는 **후속 프롬프트 (미리 보기)** 팝업 창입니다.
 
-1.  확인할 **상황에 맞는 전용**합니다. 합니다 **상황에 맞는 전용** 옵션 나타냅니다는이 사용자 텍스트 인식 됩니다 _만_ 이전 질문에 대 한 응답에 지정 된 경우. 이 시나리오에 대 한 프롬프트 텍스트를 아무런 의미가 독립 실행형 질문으로,만 이전 질문의 컨텍스트에서 것이 좋습니다.
-1.  **저장**을 선택합니다. 
+1. 다음 값을 입력 하 여 새 프롬프트를 만듭니다.
+
+    |텍스트 필드|값|
+    |--|--|
+    |**텍스트를 표시 합니다.**|`Feedback on an existing feature`|
+    |**응답에 연결**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. 확인할 **상황에 맞는 전용**합니다. 합니다 **상황에 맞는 전용** 옵션 나타냅니다는이 사용자 텍스트 인식 됩니다 _만_ 이전 질문에 대 한 응답에 지정 된 경우. 이 시나리오에 대 한 프롬프트 텍스트를 아무런 의미가 독립 실행형 질문으로,만 이전 질문의 컨텍스트에서 것이 좋습니다.
+
+1. **저장**을 선택합니다. 
 
     이 새 질문을 생성 및 후속 프롬프트 질문을 질문에 연결 된 `Give feedback` 질문 합니다.
     
@@ -93,26 +107,34 @@ PDF 문서를 가져오면 QnA Maker는 대화형 흐름을 만들기 위해 구
 
 1. 후속 프롬프트로 기존 QnA 쌍을 연결 하려는 경우 질문 및 답변 쌍에 대 한 행을 선택 합니다.
 1. 선택 **후속 프롬프트 추가** 해당 행에 있습니다.
-1. 팝업 대화 상자에서 검색 상자에 질문 텍스트를 입력 합니다. 일치 항목을 모두 반환 됩니다. 추가 작업으로 원하며 확인 질문을 선택 **상황에 맞는 전용**을 선택한 후 **저장**합니다. 
+1. 에 **후속 프롬프트 (미리 보기)** 팝업 창에서 검색 상자에 도움말 텍스트를 입력 합니다. 일치 항목을 모두 반환 됩니다. 응답은 추가 작업으로 사용할 하 고 확인을 선택 **상황에 맞는 전용**을 선택한 후 **저장**합니다. 
 
-    Ou는 후속 프롬프트에 추가 되 면 선택 해야 **저장 하 고 학습**합니다.
+    ![답변의 텍스트를 사용 하 여 기존 대답에 대 한 응답 대화 상자에 후속 프롬프트의 링크를 검색 합니다.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    선택 해야 하는 후속 프롬프트를 추가한 후 **저장 하 고 학습**합니다.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>후속 메시지에 메타 데이터를 추가 합니다. 
+<!--
 
-기술 자료의 질문 및 답변 쌍에 연결 된 후속 메시지를 표시, 메타 데이터 필터가 먼저 적용 된 다음는 후속 작업에서 반환 됩니다.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. 두 후속 QnA 쌍에 대 한 메타 데이터를 각각을 추가 합니다.
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |질문|메타데이터 추가|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"기능": "all"|
-    |`Feedback on an existing feature`|"기능": "one"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![서비스에서 대화에 대 한 응답에서 필터링 할 수 있도록 후속 프롬프트에 대 한 메타 데이터 추가](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. 저장 하 고 학습 합니다. 
+1. Save and train. 
 
-    질문을 보낼 때 `Give feedback` 메타 데이터 필터를 사용 하 여 `Feature` 의 값을 사용 하 여 `all`, 해당 메타 데이터를 사용 하 여 QnA 쌍만 반환 됩니다. 필터를 일치 하지 않으므로 둘 모두 QnA 쌍 반환 되지 않습니다. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>테스트는 QnA 집합과 모든 후속 프롬프트
 
@@ -145,7 +167,7 @@ PDF 문서를 가져오면 QnA Maker는 대화형 흐름을 만들기 위해 구
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ JSON 응답의 후속 프롬프트를 포함 합니�
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>클라이언트 응용 프로그램에서 컨텍스트를 보내고 메시지를 표시 합니다. 
 
-클라이언트 응용 프로그램 단추 / 제안 된 작업으로 표시 되는 메시지를 표시 하려면 사용자에 대 한 옵션을 사용 하 여 모든 질문을 표시 합니다.
-그러면 클라이언트 응용 프로그램이 다음 사용자 쿼리와 함께 전달 되어야 하는 컨텍스트로 현재 QnA 쌍 및 사용자 쿼리를 저장 합니다. 
+프롬프트에 기술 자료에 추가 하 고 흐름 테스트 창에 테스트 메시지 시작 되지 않습니다 자동으로 클라이언트 응용 프로그램에 표시 합니다. 에 표시할 수 있습니다 프롬프트 단추 / 제안 된 작업으로 사용자의 쿼리에 대 한 답변의 일부로 클라이언트 응용 프로그램이를 포함 하 여 [Bot Framework 샘플](https://aka.ms/qnamakermultiturnsample) 코드에서. 클라이언트 응용 프로그램은 현재 QnA ID 및 사용자 쿼리를 저장 및 전달에 [GenerateAnswer API의 상황에 맞는 개체](#json-request-to-return-non-initial-answer-and-follow-up-prompts) 다음 사용자 쿼리에 대 한 합니다.
 
-이 사용 하 여 [Bot Framework 샘플](https://aka.ms/qnamakermultiturnsample) 에 다중 설정 대화 작업에 종단 간 QnA Maker 봇의를 참조 하세요.
+## <a name="display-order-supported-in-api"></a>API에서 지원 되는 순서를 표시 합니다.
 
-
-## <a name="prompt-order-supported-in-api"></a>API에서 지원 되는 프롬프트 순서
-
-JSON 응답에서 반환 하는 프롬프트 순서를 편집만 API에 의해 지원 됩니다. 
+JSON 응답에서 반환 된 표시 순서를 편집만 API에 의해 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

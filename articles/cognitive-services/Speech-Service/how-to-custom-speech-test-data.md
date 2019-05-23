@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026723"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785766"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대 한 데이터 준비
 
@@ -27,9 +27,9 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 | 데이터 형식 | 테스트 사용 | 수량 | 학습에 사용 | 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [오디오](#audio-data-for-testing) | 예<br>시각적 조사에 대 한 사용 | 5 + 오디오 파일 | 아닙니다. | 해당 없음 |
-| [오디오 + 사람이 레이블이 지정 된 내용](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도 평가 하는 데 사용 | 0.5-오디오 5 시간 | 예 | 1-오디오 1,000 시간 |
-| [관련된 텍스트](##related-text-data-for-training) | 아닙니다. | 해당 없음 | 예 | 1-200MB의 관련된 텍스트 |
+| [오디오](#audio-data-for-testing) | 예.<br>시각적 조사에 대 한 사용 | 5 + 오디오 파일 | 아닙니다. | 해당 없음 |
+| [오디오 + 사람이 레이블이 지정 된 내용](#audio--human-labeled-transcript-data-for-testingtraining) | 예.<br>정확도 평가 하는 데 사용 | 0.5-오디오 5 시간 | 예. | 1-오디오 1,000 시간 |
+| [관련된 텍스트](##related-text-data-for-training) | 아닙니다. | 해당 없음 | 예. | 1-200MB의 관련된 텍스트 |
 
 파일 형식 데이터 집합으로 그룹화 하 고 zip 파일로 업로드 해야 합니다. 각 데이터 집합을 단일 데이터 형식이 포함할 수 있습니다.
 
@@ -55,7 +55,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 자산 | 값 |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8,000 Hz 또는 16,000 Hz |
+| 샘플 속도 | 8,000 Hz 또는 16,000 Hz |
 | 채널 | 1(mono) |
 | 오디오 당 최대 길이 | 2시간 |
 | 샘플 형식 | PCM, 16비트 |
@@ -76,7 +76,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 | 자산 | 값 |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
-| 샘플링 주기 | 8,000 Hz 또는 16,000 Hz |
+| 샘플 속도 | 8,000 Hz 또는 16,000 Hz |
 | 채널 | 1(mono) |
 | 오디오 당 최대 길이 | 60 s |
 | 샘플 형식 | PCM, 16비트 |
@@ -142,7 +142,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 |--------------|--------------------------|
 | 세 가지 c p o | 3CPO |  
 | c n t k | CNTK |
-| i e를 3 배나 늘리고 | IEE |
+| i e를 3 배나 늘리고 | IEEE |
 
 음성된 양식에 명시 음성 시퀀스입니다. 문자, 단어, 음절, 또는 세 가지의 조합 구성 될 수 있습니다.
 

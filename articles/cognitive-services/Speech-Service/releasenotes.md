@@ -8,17 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465611"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606359"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
+
+이 버그 수정 릴리스입니다 네이티브/관리 되는 SDK에만 영향을 있습니다. JavaScript 버전의 SDK에는 영향을 주지는 합니다.
+
+**버그 수정**
+
+* FromSubscription 대화 기록을 사용 하는 경우 수정 합니다.
+* 음성 우선 가상 도우미에 대 한 spotting 키워드에서 버그를 수정 합니다.
+
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019 월 릴리스
 

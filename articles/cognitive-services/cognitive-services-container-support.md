@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/16/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147575"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833540"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -26,9 +26,12 @@ ms.locfileid: "65147575"
 * [Face](Face/Overview.md)
 * [폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [텍스트 분석](text-analytics/overview.md)
+
+<!--
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
 
 컨테이너화는 종속성 및 구성을 포함한 애플리케이션 또는 서비스가 컨테이너 이미지로 패키징되는 소프트웨어 배포 방법입니다. 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 서로 그리고 기본 운영 체제와 격리되며, 가상 머신보다 공간을 적게 차지합니다. 단기 작업용 컨테이너 이미지에서 컨테이너화를 시작하고, 더 이상 필요 없으면 제거할 수 있습니다.
 
@@ -57,12 +60,15 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**폼 인식기** |양식 이해를 식별 하 여 폼에서 테이블과 키-값 쌍을 추출 하는 기계 학습 기술을 적용 됩니다.<br>[액세스 요청](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([이미지](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer는 실시간 동작에서 배움 사용자에 게 표시할 최상의 환경을 선택할 수 있도록 하는 클라우드 기반 API 서비스.|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Speech-to-text** |연속적인 실시간 음성을 텍스트로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text-to-speech** |텍스트를 자연스럽게 들리는 음성으로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
 |[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다. |
 |[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
 |[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**감정 분석**([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다. 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](./text-analytics/language-support.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다. |
+
+<!--
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+-->
 
 일부 컨테이너는 Cognitive Services에서 지원 되는 또한 [ **하나로 모든 제품** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스 키입니다. 하나의 단일 Cognitive Services에서는 올인원 리소스를 만들고 동일한 청구 키를 사용 하 여 다음 서비스에 대 한 지원 되는 서비스 전반에 걸쳐 수 있습니다.
 
@@ -76,7 +82,12 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 제공되며, Microsoft Container Registry 또는 Docker 허브에서 Docker 컨테이너 이미지를 가져올 수 있습니다. [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 적절한 레지스트리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 [Face](Face/face-how-to-install-containers.md) 및 [텍스트 인식](Computer-vision/computer-vision-how-to-install-containers.md) 컨테이너에 액세스하려면 등록 프로세스를 완료해야 하며, 등록 프로세스에서는 사용자, 회사 및 컨테이너를 구현하려는 사용 사례에 대한 질문이 포함된 설문지를 작성하여 제출해야 합니다. 액세스 권한과 자격 증명을 받은 후에는 Azure Container Registry에서 호스트하는 개인 컨테이너 레지스트리에서 Face 및 텍스트 인식 컨테이너에 대한 컨테이너 이미지를 가져올 수 있습니다.
+> 현재 입력 하 고, 회사 및 컨테이너를 구현 하려면 사용 사례에 대 한 질문을 사용 하 여 설문지를 제출 하는 다음 컨테이너에 액세스 하는 등록 프로세스를 완료 해야 합니다. 액세스 권한과 자격 증명을 받은 후에는 Azure Container Registry에서 호스트하는 개인 컨테이너 레지스트리에서 Face 및 텍스트 인식 컨테이너에 대한 컨테이너 이미지를 가져올 수 있습니다.
+> * [변칙 dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Face](Face/face-how-to-install-containers.md)
+> * [폼 인식기](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [텍스트 인식](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [음성-텍스트 및 텍스트 음성 변환](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -96,6 +107,13 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 개발자 샘플은 [GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-containers-samples)에 있습니다.
 
+## <a name="view-webinar"></a>웹 세미나 보기 
+
+조인 합니다 [웨 비 나](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) 에 대해 자세히 알아보려면:
+
+* Docker를 사용 하 여 컴퓨터에 Cognitive Services를 배포 하는 방법
+* Cognitive Services AKS에 배포 하는 방법
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하고 탐색합니다.
@@ -105,6 +123,8 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 * [얼굴 컨테이너](Face/face-how-to-install-containers.md)
 * [인식기 컨테이너 구성](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [언어 이해 (LUIS) 컨테이너](LUIS/luis-container-howto.md)
-* [Personalizer 컨테이너](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [음성 서비스 API 컨테이너](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [텍스트 분석 컨테이너](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+
+<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+-->

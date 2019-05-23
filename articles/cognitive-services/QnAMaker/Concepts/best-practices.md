@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621977"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792669"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 [기술 자료 개발 수명 주기](../Concepts/development-lifecycle-knowledge-base.md)에서는 KB를 종합적으로 관리하는 방법을 안내합니다. 모범 사례를 사용하여 기술 자료를 개선하고 애플리케이션/챗봇 최종 사용자에게 보다 나은 결과를 제공할 수 있습니다.
@@ -39,29 +39,31 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 가장 좋은 답변은 간단한 답변이지만, 예/아니요 같이 너무 간단하지는 않은 답변입니다. 답변이 다른 원본에 연결되거나 미디어 및 링크를 사용하여 풍부한 경험을 제공해야 하는 경우 [태그 지정](../how-to/metadata-generateanswer-usage.md)을 사용하여 예상 답변 유형을 구분한 다음, 쿼리와 함께 해당 태그를 제출하여 올바른 답변 버전을 가져옵니다.
 
 ## <a name="chit-chat"></a>잠답
-봇에 잡담을 추가하여 적은 노력으로 봇을 대화형이고 몰입도 높게 만듭니다. KB를 만들 때 미리 정의된 3가지 개성에 대한 잡담 데이터 집합을 추가하고 언제든지 변경할 수 있습니다. [KB에 잡담을 추가](../How-To/chit-chat-knowledge-base.md)하는 방법을 알아봅니다. 
+봇에 잡담을 추가하여 적은 노력으로 봇을 대화형이고 몰입도 높게 만듭니다. 쉽게 KB를 만들 때 미리 정의 된 개성에서 chit 채팅 데이터 집합을 추가 하 고 언제 든 지 변경할 수 있습니다. [KB에 잡담을 추가](../How-To/chit-chat-knowledge-base.md)하는 방법을 알아봅니다. 
 
 ### <a name="choosing-a-personality"></a>개성 선택
-미리 정의된 3가지 개성에 잡담이 지원됩니다. 
+몇 가지 미리 정의 된 개성 chit 채팅 지원 됩니다. 
 
-|개성|
-|--|
-|전문가|
-|친구|
-|재미|
+|개인 정보 |QnA Maker 데이터 집합 파일 |
+|---------|-----|
+|전문가 |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|친숙한 |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Witty |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|신경쓰지 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|열광 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-응답은 격식체에서 비격식체의 범위까지 지정됩니다. 봇에 원하는 어조와 가장 가깝게 맞춰진 개성을 선택해야 합니다. 데이터 세트를 보고, 봇에 대한 기준으로 사용되는 데이터 세트를 선택한 다음, 응답을 사용자 지정할 수 있습니다. 
+응답은 격식체에서 비격식체의 범위까지 지정됩니다. 봇에 원하는 어조와 가장 가깝게 맞춰진 개성을 선택해야 합니다. 볼 수 있습니다 합니다 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), 및 봇에 대 한 기준으로 사용 되는 하나를 선택 하 고 다음 응답을 사용자 지정 합니다. 
 
 ### <a name="edit-bot-specific-questions"></a>봇 관련 질문 편집
 잠답 데이터 집합의 일부이며 일반 답변으로 채워진 몇 가지 봇 관련 질문이 있습니다. 이 대답을 변경하여 봇 세부 정보를 가장 잘 반영합니다. 
 
 잡담 QnA를 구체적으로 만드는 것이 좋습니다.
 
-* 당신은 누구인가요?
+* 누구십니까?
 * 어떻게 해야 합니까?
 * 나이가 어떻게 되세요?
 * 만든 사람은 누구인가요?
-* 안녕하세요.
+* 안녕하세요?
    
 
 ## <a name="rankingscoring"></a>순위 지정/채점
@@ -85,7 +87,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 [메타데이터](../How-To/edit-knowledge-base.md)는 메타데이터 태그에 따라 사용자 쿼리 결과를 줄일 수 있는 기능을 추가합니다. 쿼리가 같더라도 메타데이터 태그에 따라 기술 자료 답변이 달라질 수 있습니다. 예를 들어 식당 지점의 위치가 다르면 *“주차장 위치는 어디인가요”* 에 대한 대답이 달라질 수 있습니다. 즉, 메타데이터는 *위치: 시애틀* 또는 *위치: 레드몬드*입니다.
 
 ### <a name="use-synonyms"></a>동의어 사용
-영어에서는 동의어에 대한 지원이 일부 제공되므로 대/소문자를 구분하지 않는 [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 다른 형식의 키워드에 동의어를 추가할 수 있습니다. 동의어는 QnA Maker 서비스 수준에서 추가하고 서비스의 모든 기술 자료에서 공유해야 합니다.
+영어에서는 동의어에 대한 지원이 일부 제공되므로 대/소문자를 구분하지 않는 [단어 변경](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 다른 형식의 키워드에 동의어를 추가할 수 있습니다. 동의어는 QnA Maker 서비스 수준에서 추가하고 서비스의 모든 기술 자료에서 공유해야 합니다.
 
 |원래 단어|동의어|
 |--|--|
@@ -106,7 +108,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 ## <a name="collaborate"></a>공동 작업
 QnA Maker를 통해 사용자들이 기술 자료를 [공동으로 작업](../How-to/collaborate-knowledge-base.md)할 수 있습니다. 사용자는 기술 자료에 액세스하기 위해 Azure QnA Maker 리소스 그룹에 대한 액세스 권한이 필요합니다. 기술 자료 편집 및 유지 관리를 아웃소싱하려는 조직도 있을 것이며, 이 경우에도 여전히 Azure 리소스에 대한 액세스를 보호할 수 있습니다. 이 편집자-승인자 모델은 서로 다른 구독에 최대 2개의 동일한 [QnA Maker 서비스](../How-to/set-up-qnamaker-service-azure.md)를 설정하고 하나를 편집-테스트 주기용으로 지정하여 수행할 수 있습니다. 테스트가 완료되면 [가져오기-내보내기](../Tutorials/migrate-knowledge-base.md) 프로세스를 사용하여 최종적으로 기술 자료를 게시하고 엔드포인트를 업데이트하는 승인자의 QnA Maker 서비스로 기술 자료 콘텐츠를 전송할 수 있습니다.
 
-## <a name="active-learning"></a>능동적 학습
+## <a name="active-learning"></a>활성 학습
 
 [활성 학습](../How-to/improve-knowledge-base.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. 질문 QnA Maker 포털에서 제안 된를 수행할 수 있습니다 **[제안으로 필터링](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** 다음 검토 및 적용 또는 이러한 제안 취소 합니다. 
 

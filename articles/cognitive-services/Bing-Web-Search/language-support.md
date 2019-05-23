@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999127"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798252"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
@@ -56,7 +56,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |포르투갈|PT|
 |필리핀|PH|
 |러시아|RU|
-|사우디아라비아|SA|
+|사우디 아라비아|SA|
 |남아프리카|ZA|
 |스페인|ES|
 |스웨덴|SE|
@@ -99,7 +99,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |포르투갈|포르투갈어|pt-PT|
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
-|사우디아라비아|아랍어|ar-SA|
+|사우디 아라비아|아랍어|ar-SA|
 |남아프리카|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
@@ -109,4 +109,8 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
 |미국|영어|en-US|
-|미국|스페인어|es-US|
+|미국|스페인어|es (미국)|
+
+## <a name="next-steps"></a>다음 단계
+
+* [Bing Image Search API 참조](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

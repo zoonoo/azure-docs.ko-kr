@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510277"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595619"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>포털에서 Bing Custom Search 인스턴스 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "65510277"
 
 Bing Custom Search [포털](https://customsearch.ai)에 로그인한 후에는 검색 인스턴스를 선택하고 **프로덕션** 탭을 클릭합니다. **엔드포인트**에서 API 엔드포인트(예: Web API)를 선택합니다. 사용자 구독에 따라 표시되는 엔드포인트가 달라집니다.
 
-검색 쿼리를 만들려면 엔드포인트에 대한 매개 변수 값을 입력합니다. 포털에 표시되는 매개 변수는 선택한 엔드포인트에 따라 변경될 수 있습니다. 자세한 내용은 [Custom Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요. 검색 인스턴스를 사용 하 여 구독을 변경, 적절 한 구독 키를 추가 및 적절 한 시장 및/또는 언어 매개 변수를 업데이트 합니다.
+검색 쿼리를 만들려면 엔드포인트에 대한 매개 변수 값을 입력합니다. 포털에 표시되는 매개 변수는 선택한 엔드포인트에 따라 변경될 수 있습니다. 참조 된 [Custom Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 자세한 내용은 합니다. 검색 인스턴스를 사용 하 여 구독을 변경, 적절 한 구독 키를 추가 및 적절 한 시장 및/또는 언어 매개 변수를 업데이트 합니다.
 
 몇 가지 중요한 매개 변수는 다음과 같습니다.
 
@@ -48,6 +48,10 @@ Bing Custom Search [포털](https://customsearch.ai)에 로그인한 후에는 �
 |Offset    | 결과를 반환하기 전에 건너뛸 검색 결과의 수입니다. 웹, 이미지 및 비디오 엔드포인트에서만 사용할 수 있습니다.        |
     
 필수 옵션을 모두 지정한 후 **호출**을 클릭하여 오른쪽 창에서 JSON 응답을 확인합니다. 호스트된 UI 엔드포인트를 선택한 경우 아래쪽 창에서 검색 환경을 테스트할 수 있습니다.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Bing Custom Search 구독 변경
+
+새 인스턴스를 만들지 않고 Bing Custom Search 인스턴스와 연결 된 구독을 변경할 수 있습니다. 전송 하 고 새 구독에 청구 API를 호출 하도록 Azure portal에서 새 Bing Custom Search 리소스를 만듭니다. 인스턴스의 사용자 지정 구성 id입니다. 함께 API 요청에 새 구독 키를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

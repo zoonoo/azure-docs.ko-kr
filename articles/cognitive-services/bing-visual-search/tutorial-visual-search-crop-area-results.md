@@ -3,19 +3,19 @@ title: '자습서: Bing Visual Search SDK를 사용하여 이미지 자르기'
 description: Bing Visual Search SDK를 사용하여 이미지의 특정 영역에서 인사이트를 얻습니다.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491137"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896261"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>자습서: Bing Visual Search SDK for C#을 사용하여 이미지 자르기
 
@@ -33,7 +33,7 @@ Bing Visual Search SDK를 사용 하면 유사한 온라인 이미지를 찾기 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* 모든 에디션의 [Visual Studio 2019](https://www.visualstudio.com/downloads/)합니다.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 * [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) 패키지 설치.
     - Visual Studio에서 솔루션 탐색기에서 마우스 오른쪽 단추로 클릭 하면 프로젝트를 마우스 **NuGet 패키지 관리** 합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지를 설치합니다. NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설치됩니다.
@@ -110,7 +110,7 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>참고 항목
 > [Bing Visual Search API 란?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

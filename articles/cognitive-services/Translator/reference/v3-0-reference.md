@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918810"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796873"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -161,7 +161,7 @@ Cognitive 서비스의 다중 서비스 구독을 사용 하도록 마지막 인
 | 405000| 요청 메서드가 요청된 리소스에 대해 지원되지 않습니다.|
 | 408001| 요청된 사용자 지정 변환 시스템을 아직 사용할 수 없습니다. 잠시 후에 다시 시도하세요.|
 | 415000| Content-Type 헤더가 누락되었거나 올바르지 않습니다.|
-| 429000, 429001, 429002| 클라이언트가 너무 많은 요청을 보냈기 때문에 서버에서 요청을 거부했습니다. 제한을 방지하도록 요청의 빈도를 줄입니다.|
+| 429000, 429001, 429002| 서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.|
 | 500000| 예기치 않은 오류가 발생했습니다. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 | 503000| 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 

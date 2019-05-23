@@ -3,19 +3,19 @@ title: ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미�
 titleSuffix: Azure Cognitive Services
 description: ImageInsightsToken에서 지정한 이미지의 URL을 가져오기 위해 Bing Visual Search SDK를 사용합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493948"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909384"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기
 
@@ -25,7 +25,7 @@ Visual Search SDK를 통해 `ImageInsightsToken`을 반환하는 이전 검색�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* 모든 에디션의 [Visual Studio 2019](https://www.visualstudio.com/downloads/)합니다.
 * Linux/MacOS를 사용 하는 경우 사용 하 여이 응용 프로그램 실행할 수 있습니다 [Mono](https://www.mono-project.com/)합니다.
 * NuGet Visual Search 및 Image Search 패키지입니다.
     - Visual Studio에서 솔루션 탐색기에서 마우스 오른쪽 단추로 클릭 하면 프로젝트를 마우스 **NuGet 패키지 관리** 합니다. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 패키지 및 `Microsoft.Azure.CognitiveServices.Search.ImageSearch` 패키지를 차례로 설치합니다. NuGet 패키지를 설치하면 다음도 설치됩니다.
@@ -144,4 +144,4 @@ if (visualSearchResults.Tags.Count > 0)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)

@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922532"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595832"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: 비정상 탐지기 REST API를 사용 하 여 시계열 데이터에서 이상을 감지 하 고C# 
 
@@ -29,13 +29,15 @@ ms.locfileid: "64922532"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Visual studio에서 NuGet 패키지로 Newtonsoft.Json을 설치 합니다.
-        1. 마우스 오른쪽 단추로 클릭는 **솔루션 관리자**
-        2.  **NuGet 패키지 관리...**
-        3. 검색할 `Newtonsoft.Json` 패키지 및 설치
-- Linux/MacOS를 사용 하는 경우이 응용 프로그램 실행할 수 있습니다 사용 하 여 [Mono](https://www.mono-project.com/)합니다.
+- 모든 에디션의 [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/),
+
+- NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크. Visual Studio에서 NuGet 패키지로 Newtonsoft.Json을 설치 합니다.
+    
+    1. 프로젝트를 마우스 오른쪽 단추로 클릭 **솔루션 탐색기**합니다.
+    2. 선택 **NuGet 패키지 관리**합니다.
+    3. 검색할 *Newtonsoft.Json* 및 패키지를 설치 합니다.
+
+- Linux/MacOS를 사용 하는 경우이 응용 프로그램을 사용 하 여 실행할 수 있습니다 [Mono](https://www.mono-project.com/)합니다.
 
 - JSON 파일이 포함 된 시계열 데이터 요소입니다. 이 빠른 시작에 대 한 예제 데이터에서 찾을 수 있습니다 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)합니다.
 

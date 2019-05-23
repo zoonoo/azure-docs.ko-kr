@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439246"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541789"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>빠른 시작: QnA Maker API 서비스 포털을 사용 하 여 기술 자료 만들기
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - 추출하려는 데이터에 대한 파일을 업로드합니다. 추가할 수 있는 문서 수는 [가격 책정 정보](https://aka.ms/qnamaker-pricing)를 참조하세요.
     - QnA를 수동으로 추가하려는 경우 이전 이미지에 표시된 **4단계**를 건너뜁니다.
 
-1. KB에 **잡담**을 추가합니다. 3개의 개성 중에서 하나를 선택하여 봇에 잡담 지원을 추가하도록 선택합니다. 
+1. KB에 **잡담**을 추가합니다. 개성 중에서 선택 하 여 봇에 chit 채팅 지원을 추가 하도록 선택 합니다. 
 
     ![KB에 잡담 추가](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

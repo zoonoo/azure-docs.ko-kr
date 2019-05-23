@@ -11,20 +11,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138175"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603471"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>사용자 지정 음성-첫 번째 가상 도우미 미리 보기 정보
 
-Azure 음성 서비스를 사용 하 여 사용자 지정 가상 도우미 하면 개발자가 자신의 응용 프로그램과 환경에 대 한 자연 스러운, 인간과 유사한 대화형 인터페이스를 만들 수 있습니다. 봇 프레임 워크의 직접 줄 음성 채널의, 짧은 대기 시간 및 높은 안정성으로 상호 작용 아웃 음성 음성 수 있도록 호환 수 조정, 오케스트레이션 된 진입점을 제공 하 여 이러한 기능을 향상 시킵니다. 이러한 봇에 자연 언어 상호 작용에 대 한 Microsoft의 LUIS (Language Understanding)를 사용할 수 있습니다. 직접 줄 음성 음성 소프트웨어 개발 키트 (SDK)를 사용 하 여 장치에 액세스 합니다.
+Azure Speech Services를 사용하는 사용자 지정 가상 도우미는 개발자가 자신의 애플리케이션과 환경을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다. Bot Framework의 Direct Line Speech 채널은 짧은 대기 시간 및 높은 안정성으로 음성 입력, 음성 출력 상호 작용을 가능하게 하는 호환 가능 봇에 조정되고 조율된 진입점을 제공함으로써 이러한 기능을 향상시킵니다. 이러한 봇에 자연 언어 상호 작용에 대 한 Microsoft의 LUIS (Language Understanding)를 사용할 수 있습니다. 직접 줄 음성 음성 소프트웨어 개발 키트 (SDK)를 사용 하 여 장치에 액세스 합니다.
 
    ![직접 회선 음성 오케스트레이션 서비스 흐름의 개념도](media/voice-first-virtual-assistants/overview.png "The 음성 채널 흐름")
 
-직접 줄 음성 및 사용자 지정 음성-첫 번째 가상 도우미에 대 한 관련된 기능을 이상적인 보완은는 [가상 도우미 솔루션](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) 하 고 [엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)합니다. 모든 호환 봇과 직접 줄 음성 작동할 수 있지만 이러한 리소스는 고품질 대화형 환경 뿐만 아니라 일반적인 지원 기술 및 신속 하 게 시작 하는 것에 대 한 모델에 대 한 다시 사용할 수 있는 초기 계획을 제공 합니다.
+
+직접 줄 음성 및 관련된 기능에 대 한 사용자 지정 음성-첫 번째 가상 도우미는 이상적인를 보완 합니다 [가상 도우미 솔루션 및 엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)합니다. 모든 호환 봇과 직접 줄 음성 작동할 수 있지만 이러한 리소스는 고품질 대화형 환경 뿐만 아니라 일반적인 지원 기술 및 신속 하 게 시작 하는 것에 대 한 모델에 대 한 다시 사용할 수 있는 초기 계획을 제공 합니다.
+
 
 ## <a name="core-features"></a>핵심 기능
 

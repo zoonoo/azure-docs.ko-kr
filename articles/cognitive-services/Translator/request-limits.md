@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861573"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796901"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text에 대한 요청 제한
 
 이 문서는 Translator Text API에 대한 제한 한도를 제공합니다. 서비스는 번역, 음차, 문장 길이 감지, 언어 감지 및 대체 번역을 포함합니다.
 
-## <a name="character-limits-per-request"></a>요청당 문자 제한
+## <a name="character-and-array-limits-per-request"></a>요청에 따라 문자 및 배열 제한
 
-각 요청은 5,000자로 제한됩니다. 요청 수가 아닌 문자당 요금이 청구됩니다. 짧은 요청을 전송하고, 특정 시점에 해결되지 않은 일부 요청을 수행하는 것이 좋습니다.
+각 변환 요청 5,000 자로 제한 됩니다. 요청 수가 아닌 문자당 요금이 청구됩니다. 이 더 짧은 요청을 보내는 것이 좋습니다.
 
-Translator Text API에 대한 미해결 요청 수에 제한이 없습니다.
+다음 테이블 목록 배열 요소와 문자 제한 Translator Text API의 각 작업에 대 한 합니다.
+
+| 작업(Operation) | 배열 요소의 최대 크기 |   배열 요소의 최대 수 |  최대 요청 크기 (자) |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| 검색 | 10000 | 100 |   50,000 |
+| BreakSentence | 10000    | 100 | 5,0000 |
+| 사전 조회| 100 |  10  | 1,000 |
+| 사전 예제 | 텍스트 및 변환 (총 200)에 대 한 100 100| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
-시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 이러한 제한에 도달하거나 초과하는 경우 할당량 응답의 부족을 받게 될 가능성이 있습니다.
+시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 시간별 할당량 시간 전체에서 균등 하 게 사용 해야 합니다. 도달 이러한 제한을 초과할 하거나 짧은 기간에 너무 큰 할당량의 일부를 보낼 경우 할당량 응답의 부족 가능성이 받게 됩니다. 
 
 | 계층 | 문자 제한 |
 |------|-----------------|
 | F0 | 시간당 2백만 자 |
 | S1 | 시간당 4천만 자 |
-| S2 | 시간당 4천만 자 |
-| S3 | 시간당 1억 2천만 자 |
-| S4 | 시간당 2억 자 |
+| S2 / C2 | 시간당 4천만 자 |
+| S3 / C3 | 시간당 1억 2천만 자 |
+| S4 / C4 | 시간당 2억 자 |
 
-이러한 제한은 Microsoft의 일반 시스템으로 제한됩니다. Microsoft의 Translator Hub를 사용하는 사용자 지정 번역 시스템은 초당 1,800자로 제한됩니다.
+에 대 한 제한 [다중 서비스 구독](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) S1 계층으로 동일 합니다.
+
+이러한 제한은 Microsoft의 표준 변환 모델을 제한 합니다. 사용자 지정 변환기를 사용 하는 사용자 지정 변환 모델은 초당 1,800 문자로 제한 됩니다.
 
 ## <a name="latency"></a>대기 시간
 
@@ -55,10 +66,10 @@ Translator Text API 15 초 표준 모델을 사용 하 여 최대 대기 시간�
 | 독일어 | de | 290 |
 | 이탈리아어 | it | 280 |
 | 일본어 | ja | 150 |
-| 포르투갈어 | pt | 290 |
+| 포르투갈어 | (태평양 표준시) | 290 |
 | 스페인어 | es | 280 |
 | 이탈리아어 | it | 280 |
-| 태국어 | th | 258 |
+| 태국어 | 번째 | 258 |
 
 > [!NOTE]
 > 이 제한은 번역에 적용되지 않습니다.

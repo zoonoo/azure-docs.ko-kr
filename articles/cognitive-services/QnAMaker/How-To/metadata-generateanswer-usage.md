@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727320"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792229"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 기술 답변을 가져오려면
 
@@ -43,7 +43,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 이 ID는 특정 QnA �
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer 끝점에 게시 
 
-기술 자료를 게시한 후에는 [QnA Maker 포털](https://www.qnamaker.ai)에서 또는 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)를 사용하여 GenerateAnswer 엔드포인트 세부 정보를 가져올 수 있습니다.
+기술 자료를 게시한 후에는 [QnA Maker 포털](https://www.qnamaker.ai)에서 또는 [API](https://go.microsoft.com/fwlink/?linkid=2092179)를 사용하여 GenerateAnswer 엔드포인트 세부 정보를 가져올 수 있습니다.
 
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
@@ -81,11 +81,11 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 |JSON 본문 속성|필수|Type|목적|
 |--|--|--|--|
 |`question`|필수|문자열|기술 자료에 보낼 사용자 질문입니다.|
-|`top`|선택 사항|정수|출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.|
-|`userId`|선택 사항|문자열|사용자를 식별하는 고유 ID입니다. 이 ID는 채팅 로그에 기록됩니다.|
-|`scoreThreshold`|선택 사항|정수|이 임계값 보다 신뢰성 점수를 사용 하 여 대답만 반환 됩니다. 기본값은 0입니다.|
-|`isTest`|선택 사항|부울|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
-|`strictFilters`|선택 사항|문자열|지정할 경우 지정된 메타데이터가 있는 답변만 반환하라고 QnA Maker에 지시합니다. 사용 하 여 `none` 를 나타내는 응답에는 메타 데이터 필터가 있어야 합니다. |
+|`top`|선택적|정수|출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.|
+|`userId`|선택적|문자열|사용자를 식별하는 고유 ID입니다. 이 ID는 채팅 로그에 기록됩니다.|
+|`scoreThreshold`|선택적|정수|이 임계값 보다 신뢰성 점수를 사용 하 여 대답만 반환 됩니다. 기본값은 0입니다.|
+|`isTest`|선택적|부울|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
+|`strictFilters`|선택적|문자열|지정할 경우 지정된 메타데이터가 있는 답변만 반환하라고 QnA Maker에 지시합니다. 사용 하 여 `none` 를 나타내는 응답에는 메타 데이터 필터가 있어야 합니다. |
 
 예제 JSON 본문 다음과 같습니다.
 
@@ -148,7 +148,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>사용자 지정 메타 데이터 태그로 답변을 필터링 할 수 메타 데이터를 사용 하 여
 
-메타 데이터를 추가 합니다. 이러한 메타 데이터 태그로 답을 필터링 할 수 있습니다. 아래 FAQ 데이터를 고려하세요. 메타데이터 아이콘을 클릭하여 기술 자료에 메타데이터를 추가합니다.
+메타 데이터를 추가 합니다. 이러한 메타 데이터 태그로 답을 필터링 할 수 있습니다. 메타 데이터 열을 추가 합니다 **보기 옵션** 메뉴. 메타 데이터를 클릭 하 여 메타 데이터 기술 자료에 추가할 **+** 아이콘을 메타 데이터 쌍을 추가 합니다. 이 쌍 하나 키 한 개와 값으로 구성 됩니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

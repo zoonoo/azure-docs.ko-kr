@@ -3,19 +3,19 @@ title: Web Search 엔드포인트
 titleSuffix: Azure Cognitive Services
 description: News Search API 엔드포인트에 대한 요약 정보입니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 8c3fd0fc091edbc4323315f636ed2f4fea7d822a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: e91f798e6bfae33f8f4c8b5aa2d0f6ddc0047389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880791"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798257"
 ---
 # <a name="web-search-endpoint"></a>Web Search 엔드포인트
 

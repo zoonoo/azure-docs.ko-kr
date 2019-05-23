@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: a1bd8ba36f208936ce52b3a46a72516da89a0e9a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507870"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519822"
 ---
 # <a name="scenario-availability"></a>가용성 시나리오
 
@@ -34,8 +34,9 @@ ms.locfileid: "65507870"
   - Java/Windows & Linux, Android (음성 장치 SDK)
   - 하지만 절전 모드 해제 (키워드 된 관찰자/KWS) 단어 기능이 공식 KWS 지원, 모든 마이크 유형과 함께 작동 될 수 있습니다 현재 제한 된 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK
 - **음성 우선 가상 도우미**
-  - C#/UWP
-  - Java/Windows
+  - C++/ Windows & Linux 및 macOS
+  - C#/Windows
+  - Java/Windows & Linux 및 macOS 및 Android (음성 장치 SDK)
 - **대화 전사**
   - C++/Windows & Linux
   - C#(Framework 및.NET Core) / Windows/UWP & Linux

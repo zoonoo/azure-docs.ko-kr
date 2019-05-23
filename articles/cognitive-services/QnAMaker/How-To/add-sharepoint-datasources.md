@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281746"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954959"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안된 Sharepoint 데이터 소스 추가
 
@@ -53,7 +53,7 @@ QnA Maker를 모두 지원를 추가할 수 있습니다 [파일 형식](../Conc
 
 ![사용자 계정 인증](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-QnA Maker 관리자 계정 선택, Active Directory 관리자가 QnA Maker Sharepoint 리소스에 대 한 앱 (없습니다 QnA Maker 관리자) 액세스를 허용 해야 한다는 알림을 받게 됩니다. Active Directory 관리자를 사용 하는 모든 Sharepoint 리소스에 있지만 해당 리소스의 모든 문서에 대 한이 작업을 수행 해야 합니다. 
+QnA Maker 관리자 계정 선택, Active Directory 관리자가 QnA Maker Sharepoint 리소스에 대 한 앱 (없습니다 QnA Maker 관리자) 액세스를 허용 해야 하는 공지를 받게 됩니다. Active Directory 관리자를 사용 하는 모든 Sharepoint 리소스에 있지만 해당 리소스의 모든 문서에 대 한이 작업을 수행 해야 합니다. 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory 관리자: QnA Maker에 파일 읽기 액세스 부여
 
@@ -142,7 +142,7 @@ Use the following steps to transform the Sharepoint URL into a sharing token.
 
 ### Add or update a Sharepoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) or [updating a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {

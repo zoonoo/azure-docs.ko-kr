@@ -3,19 +3,19 @@ title: 언어 지원 - Bing Custom Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Custom Search API에 지원되는 언어 및 지역 목록입니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867839"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790236"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
@@ -58,7 +58,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |포르투갈|PT|
 |필리핀|PH|
 |러시아|RU|
-|사우디아라비아|SA|
+|사우디 아라비아|SA|
 |남아프리카|ZA|
 |스페인|ES|
 |스웨덴|SE|
@@ -102,7 +102,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |포르투갈|포르투갈어|pt-PT|
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
-|사우디아라비아|아랍어|ar-SA|
+|사우디 아라비아|아랍어|ar-SA|
 |남아프리카|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
@@ -112,4 +112,4 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
 |미국|영어|en-US|
-|미국|스페인어|es-US|
+|미국|스페인어|es (미국)|

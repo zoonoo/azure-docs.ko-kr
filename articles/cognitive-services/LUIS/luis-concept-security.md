@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894186"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522486"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
 
 ## <a name="access-to-authoring"></a>작성에 대한 액세스
-[LUIS](luis-reference-regions.md#luis-website) 웹 사이트 또는 [작성 API](https://aka.ms/luis-authoring-apis)에서 앱에 액세스하는 것은 앱 소유자가 제어합니다. 
+[LUIS](luis-reference-regions.md#luis-website) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 앱에 액세스하는 것은 앱 소유자가 제어합니다. 
 
 소유자 및 모든 협력자가 앱을 작성하기 위해 액세스할 수 있습니다. 
 

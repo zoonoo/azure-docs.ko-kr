@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351300"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550533"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
@@ -69,10 +69,10 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-내보낸 모델을 애플리케이션에 통합합니다. 여러 애플리케이션 예제를 사용할 수 있습니다.
+다음 문서 또는 샘플 중 하나를 탐색 하 여 응용 프로그램에 내보낸된 모델을 통합 합니다.
 
-* Swift를 사용한 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 iOS 애플리케이션에서 사용](https://go.microsoft.com/fwlink/?linkid=857726) 샘플
-* 실시간 이미지 분류에 대한 [내보낸 CoreML 모델을 Xamarin에 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 샘플 iOS 애플리케이션 
-* 실시간 이미지 분류에 대한 [내보낸 Tensorflow 모델을 Android 애플리케이션에서 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 샘플 
-* [Tensorflow 모델을 Windows에 사용](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
-* [내보낸 ONNX 모델을 Windows Machine Learning에 사용](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/) 샘플
+* [Python을 사용 하 여 Tensorflow 모델 사용](export-model-python.md)
+* [Windows Machine Learning을 사용 하 여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)
+* 예제를 참조 하세요 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) Swift 사용 하 여 실시간 이미지 분류에 대 한 합니다.
+* 예제를 참조 하세요 [Android 응용 프로그램에서 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) Android에서 실시간 이미지 분류에 대 한 합니다.
+* 예제를 참조 하세요 [Xamarin 사용 하 여 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) Xamarin iOS 앱에서 실시간 이미지 분류에 대 한 합니다.

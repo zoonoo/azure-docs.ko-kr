@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493878"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914264"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력을 제공 합니다.
 
@@ -64,7 +64,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ### <a name="c-prerequisites"></a>C#필수 구성 요소
 
-- 모든 버전의 [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows에서 실행 되는이 코드를 가져오려고 합니다.
+- 모든 버전의 [Visual Studio 2019](https://www.visualstudio.com/downloads/) Windows에서 실행 되는이 코드를 가져오려고 합니다.
 - Azure 구독. 이 빠른 시작에서 사용할 수는 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키입니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -475,7 +475,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>다음 단계
 
-[비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
+[Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search API 란?](overview.md)  
 [Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
 [평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

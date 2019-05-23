@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508399"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593883"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>텍스트 음성 변환 출력 미세 조정
 
@@ -35,7 +35,7 @@ Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사�
    >Azure portal에서 음성 리소스를 만들 때 Azure 위치 정보를 TTS 음성 영역과 일치 해야 합니다. 신경망 TTS 음성 Azure 위치를 하위 집합을 지원합니다. 지원의 전체 목록을 참조 하세요 [지역](regions.md#text-to-speech)합니다.
 
    >[!NOTE]
-   >F0 또는 서비스를 사용 하려면 먼저 Azure portal에서 만든 S0 키를 해야 합니다. 튜닝 음성 **하지 않습니다** 지원 합니다 [30 일 무료 평가판 키](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial)합니다.
+   >F0 또는 서비스를 사용 하려면 먼저 Azure portal에서 만든 S0 키를 해야 합니다. 튜닝 음성 **하지 않습니다** 지원 합니다 [30 일 무료 평가판 키](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial)합니다.
 
 4. 에 로그인 합니다 [음성 튜닝](https://aka.ms/voicetuning) 포털 음성 서비스 구독을 연결 합니다. 단일 Speech Services 구독을 선택 하 고 프로젝트를 만듭니다.
 5. 선택 **새 튜닝**합니다. 그러고 나서 다음 단계를 수행합니다.
@@ -43,7 +43,7 @@ Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사�
    * 찾기 및 선택 **모든 구독**합니다.  
    * **기존 구독 연결**을 선택합니다.  
      ![기존 구독을 연결](./media/custom-voice/custom-voice-connect-subscription.png)합니다.
-   * 사용자 Azure 음성 서비스의 구독 키를 입력 하 고 선택 **추가**합니다. 구독 키를 사용자 지정 음성 포털에서 사용할 수는 [구독 페이지](https://go.microsoft.com/fwlink/?linkid=2090458)합니다. 리소스 관리 창에서 키를 가져올 수도 있습니다는 [Azure portal](https://portal.azure.com/)합니다. 
+   * 사용자 Azure 음성 서비스의 구독 키를 입력 하 고 선택 **추가**합니다. 구독 키를 사용자 지정 음성 포털에서 사용할 수는 [구독 페이지](https://go.microsoft.com/fwlink/?linkid=2090458)합니다. 리소스 관리 창에서 키를 가져올 수도 있습니다는 [Azure portal](https://portal.azure.com/)합니다.
    * 사용 하려는 음성 서비스 구독이 둘 이상인 경우 각 구독에 대해 이러한 단계를 반복 합니다.
 
 ## <a name="customize-the-text-to-speech-output"></a>텍스트 음성 변환 출력을 사용자 지정

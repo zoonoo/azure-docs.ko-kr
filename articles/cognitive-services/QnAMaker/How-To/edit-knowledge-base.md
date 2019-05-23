@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577207"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541600"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 편집
 
@@ -36,7 +36,7 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
  
 1. **설정**을 선택합니다. 여기에서 필수 필드인 서비스 이름을 편집할 수 있습니다.
   
-    |목표|조치|
+    |목표|액션(Action)|
     |--|--|
     |URL 추가|**기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.|
     |URL 삭제|삭제 아이콘, 휴지통을 선택하여 기존 URL을 삭제할 수 있습니다.|
@@ -72,8 +72,7 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 
 ## <a name="add-metadata"></a>메타데이터 추가
 
-
-메타 데이터 아이콘을 선택 하 여 메타 데이터 쌍을 추가 합니다. 메타 데이터 쌍을 하나의 키 한 개와 값으로 구성 됩니다.
+첫 번째 선택 하 여 메타 데이터 쌍을 추가 **옵션을 보려면**를 선택한 다음 **메타 데이터가 표시**합니다. 이 메타 데이터 열을 표시 합니다. 다음을 선택 합니다 **+** 메타 데이터 쌍을 추가 하려면 로그인 합니다. 이 쌍 하나 키 한 개와 값으로 구성 됩니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

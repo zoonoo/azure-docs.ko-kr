@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341916"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792536"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>QnA Maker에서 키를 관리하는 방법
 
@@ -24,7 +24,7 @@ QnA Maker 서비스는 **구독 키**와 **엔드포인트 키**의 두 종류 �
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **구독 키**: 이러한 키는 [QnA Maker 관리 서비스 API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)에 액세스하는 데 사용됩니다. 이러한 API를 통해 기술 자료를 편집할 수 있습니다.  
+1. **구독 키**: 이러한 키는 [QnA Maker 관리 서비스 API](https://go.microsoft.com/fwlink/?linkid=2092179)에 액세스하는 데 사용됩니다. 이러한 API를 통해 기술 자료를 편집할 수 있습니다.  
 
 2. **엔드포인트 키**: 이러한 키는 사용자 질문에 대한 응답을 가져오기 위해 기술 자료 엔드포인트에 액세스하는 데 사용됩니다. 일반적으로 QnA Maker 서비스를 이용하는 클라이언트 애플리케이션 코드 또는 챗봇에서 이 엔드포인트를 사용합니다.
  

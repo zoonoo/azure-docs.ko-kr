@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522748"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956987"
 ---
 # <a name="collaborating-with-other-authors"></a>다른 작성자와 공동 작업
 
@@ -52,7 +52,7 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>동일한 앱 내부에서 여러 버전 관리
 먼저 각 작성자에 기본 버전에서 [복제](luis-how-to-manage-versions.md#clone-a-version)합니다. 
 
-각 작성자는 자신의 앱 버전으로 변경합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
+각 작성자는 앱의 고유한 버전으로 변경 합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
 
 내보낸 앱은 JSON 형식 파일이며 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다. 
 

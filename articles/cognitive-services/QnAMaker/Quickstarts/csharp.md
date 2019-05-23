@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c7f0afb2776f11ac9406fced1209dfedd769a96f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: cf801b8b6b458104a469932487860285102a641b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245595"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777632"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>C#에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.vis
 
 ## <a name="create-knowledge-base"></a>기술 자료 만들기
 
-다음 코드에서는 [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) 메서드를 사용하여 새 기술 자료를 만듭니다.
+다음 코드에서는 [Create](https://go.microsoft.com/fwlink/?linkid=2092179) 메서드를 사용하여 새 기술 자료를 만듭니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -87,7 +87,7 @@ namespace QnAMaker
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -247,7 +247,7 @@ namespace QnAMaker
 
 ## <a name="update-knowledge-base"></a>기술 자료 업데이트
 
-다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+다음 코드는 [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -287,7 +287,7 @@ namespace QnAMaker
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -441,7 +441,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>요청 상태 가져오기
 
-[Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](#Create) 또는 [Update](#Update) 메서드에 대한 샘플 코드를 참조하세요.
+[Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](#Create) 또는 [Update](#Update) 메서드에 대한 샘플 코드를 참조하세요.
 
 [맨 위로 이동](#HOLTop)
 
@@ -449,7 +449,7 @@ Press any key to continue.
 
 ## <a name="publish-knowledge-base"></a>기술 자료 게시
 
-다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+다음 코드는 [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 메서드를 사용하여 기존 기술 자료를 게시합니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -544,7 +544,7 @@ namespace QnAMaker
 
 ## <a name="replace-knowledge-base"></a>기술 자료 바꾸기
 
-다음 코드에서는 [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 바꿉니다.
+다음 코드에서는 [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 바꿉니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -583,7 +583,7 @@ namespace QnAMaker
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -661,7 +661,7 @@ namespace QnAMaker
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>기술 자료의 콘텐츠 다운로드
 
-다음 코드에서는 [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 다운로드합니다.
+다음 코드에서는 [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) 메서드를 사용하여 지정된 기술 자료의 콘텐츠를 다운로드합니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -746,7 +746,7 @@ namespace QnAMaker
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -881,7 +881,7 @@ namespace QnAMaker
 
 ## <a name="get-information-about-a-knowledge-base"></a>기술 자료에 대한 정보 가져오기
 
-다음 코드에서는 [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 메서드를 사용하여 지정된 기술 자료에 대한 정보를 가져옵니다.
+다음 코드에서는 [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 메서드를 사용하여 지정된 기술 자료에 대한 정보를 가져옵니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -981,7 +981,7 @@ namespace QnAMaker
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>사용자에 대한 모든 기술 자료 가져오기
 
-다음 코드에서는 [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) 메서드를 사용하여 지정된 사용자의 모든 기술 자료에 대한 정보를 가져옵니다.
+다음 코드에서는 [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) 메서드를 사용하여 지정된 사용자의 모든 기술 자료에 대한 정보를 가져옵니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1094,7 +1094,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>기술 자료 삭제
 
-다음 코드에서는 [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) 메서드를 사용하여 지정된 기술 자료를 삭제합니다.
+다음 코드에서는 [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) 메서드를 사용하여 지정된 기술 자료를 삭제합니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1188,7 +1188,7 @@ namespace QnAMaker
 
 ## <a name="get-endpoint-keys"></a>엔드포인트 키 가져오기
 
-다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
+다음 코드에서는 [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1273,7 +1273,7 @@ namespace QnAMaker
 
 ## <a name="refresh-endpoint-keys"></a>엔드포인트 키 새로 고침
 
-다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
+다음 코드에서는 [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1361,7 +1361,7 @@ namespace QnAMaker
 
 ## <a name="get-word-alterations"></a>단어 변경 가져오기
 
-다음 코드에서는 [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) 메서드를 사용하여 현재 단어 변경을 가져옵니다.
+다음 코드에서는 [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) 메서드를 사용하여 현재 단어 변경을 가져옵니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1452,7 +1452,7 @@ namespace QnAMaker
 
 ## <a name="replace-word-alterations"></a>단어 변경 바꾸기
 
-다음 코드에서는 [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) 메서드를 사용하여 현재 단어 변경을 바꿉니다.
+다음 코드에서는 [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) 메서드를 사용하여 현재 단어 변경을 바꿉니다.
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1568,7 +1568,7 @@ namespace QnAMaker
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker(V4) REST API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker(V4) REST API 참조](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>참고 항목 
 

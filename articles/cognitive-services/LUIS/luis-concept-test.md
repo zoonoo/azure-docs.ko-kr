@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789540"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522505"
 ---
 # <a name="testing-example-utterances-in-luis"></a>LUIS에서 예제 발화 테스트
 
@@ -46,7 +46,7 @@ ms.locfileid: "59789540"
 엔드포인트에서 테스트할 때 발화를 기록하지 않으려면 `logging=false` 쿼리 문자열 구성을 사용해야 합니다.
 
 ## <a name="where-to-find-utterances"></a>발화를 찾을 수 있는 위치
-LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://aka.ms/luis-authoring-apis)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
+LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
 
 LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[끝점 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다. 
 

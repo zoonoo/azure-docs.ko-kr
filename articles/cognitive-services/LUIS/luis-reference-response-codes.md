@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337247"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522976"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>일반적인 API 응답 코드 및 해당 의미
 
-[작성](https://aka.ms/luis-authoring-apis) 및 [엔드포인트](https://aka.ms/luis-endpoint-apis) API는 HTTP 응답 코드를 반환합니다. 응답 메시지에는 요청과 관련된 정보가 포함되어 있지만 HTTP 응답 상태 코드는 일반적입니다. 
+[작성](https://go.microsoft.com/fwlink/?linkid=2092087) 및 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) API는 HTTP 응답 코드를 반환합니다. 응답 메시지에는 요청과 관련된 정보가 포함되어 있지만 HTTP 응답 상태 코드는 일반적입니다. 
 
 ## <a name="common-status-codes"></a>일반 상태 코드
-다음 표에는 [작성](https://aka.ms/luis-authoring-apis) 및 [엔드포인트](https://aka.ms/luis-endpoint-apis) API에 대한 가장 일반적인 몇 가지 HTTP 응답 상태 코드가 나와 있습니다.
+다음 표에는 [작성](https://go.microsoft.com/fwlink/?linkid=2092087) 및 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) API에 대한 가장 일반적인 몇 가지 HTTP 응답 상태 코드가 나와 있습니다.
 
 |코드|API|설명|
 |:--|--|--|

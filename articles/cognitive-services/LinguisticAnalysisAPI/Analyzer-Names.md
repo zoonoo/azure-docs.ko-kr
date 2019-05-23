@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873379"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954710"
 ---
 # <a name="analyzer-names"></a>분석기 이름
 
@@ -43,10 +43,10 @@ ms.locfileid: "55873379"
 하지만 종류가 지정된 경우 다른 전문가들이 특정 현상을 분석하는 방법에 동의하지 않을 수 있습니다.
 프로그래밍 언어와는 달리, 분석 방법에 대한 명확하고 정확한 정의가 없습니다.
 
-예를 들어 영어 문장 "He didn't go"에서 토큰을 찾으려 한다고 가정해 봅시다.
+예를 들어 "하지 않은 이동 합니다." 영어 문장의 토큰을 찾을 하려고 한다고 가정
 특히 문자열 "didn't"를 잘 생각해 보세요.
 가능한 해석 중 하나는 이 문자열을 "did"와 "not"의 두 가지 토큰으로 분할하는 것입니다.
-그러면 대체 문장 "He did not go"가 동일한 토큰 집합을 갖게 됩니다.
+그런 다음 대체 문장 "않았습니다 하지 이동" 것이 토큰의 동일한 집합입니다.
 또 다른 가능성은 "did" 및 "n't" 토큰으로 분할하는 것입니다.
 일반적으로 두 번째 토큰은 단어로 취급되지 않지만, 표면 문자열에 대한 더 많은 정보를 제공하므로 경우에 따라 유용할 수 있습니다.
 또는 이 축약형을 한 단어로 간주해야 합니다.

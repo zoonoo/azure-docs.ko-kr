@@ -9,14 +9,32 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785728"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787944"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
+
+## <a name="may-2-2019-and-may-10-2019"></a>2019 년 5 월 2 일 및 2019 년 5 월 10 일
+
+- 버그 수정 및 백 엔드 기능 향상
+
+## <a name="may-23-2019"></a>2019 년 5 월 23 일
+
+- 향상 된 포털 UX 환경을 쉽게 Azure 디렉터리를 선택 하 여 Azure 구독에 관련이 있습니다.
+
+## <a name="april-18-2019"></a>2019 년 4 월 18 일 
+
+- 비전 AI 개발 키트에 대 한 개체 검색 내보내기 추가 합니다.
+- 프로젝트 검색을 포함 하 여 UI 조정 합니다.
+
+## <a name="april-3-2019"></a>2019 년 4 월 3 일
+
+- 경계 상자를 200 이미지당 개수의 한도 증가합니다. 
+- 버그 수정, TensorFlow 모델에 대 한 상당한 성능 업데이트를 포함 하 여 내보냅니다. 
 
 ## <a name="march-26-2019"></a>2019년 3월 26일
 

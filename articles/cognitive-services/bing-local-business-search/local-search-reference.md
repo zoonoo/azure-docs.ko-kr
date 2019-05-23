@@ -3,18 +3,18 @@ title: Bing Local Business Search API v7 참조 | Microsoft Docs
 description: Bing Local Business Search API의 프로그래밍 요소를 설명합니다.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866356"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796757"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
 
@@ -51,7 +51,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 |헤더|설명|  
 |------------|-----------------|  
-|수락|선택적 요청 헤더입니다.<br /><br /> 기본 미디어 형식은 application/json입니다. 응답이 [JSON-LD](https://json-ld.org/)를 사용하도록 지정하려면 Accept 헤더를 application/ld+json으로 설정합니다.|  
+|동의함|선택적 요청 헤더입니다.<br /><br /> 기본 미디어 형식은 application/json입니다. 응답이 [JSON-LD](https://json-ld.org/)를 사용하도록 지정하려면 Accept 헤더를 application/ld+json으로 설정합니다.|  
 |<a name="acceptlanguage" />Accept-Language|선택적 요청 헤더입니다.<br /><br /> 사용자 인터페이스 문자열에 사용할 언어의 쉼표로 구분된 목록입니다. 목록은 기본 설정의 내림차순으로 표시됩니다. 필요한 형식을 포함하여 자세한 내용은 [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)을 참조하세요.<br /><br /> 이 헤더와 [setLang](#setlang) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 이 헤더를 설정하는 경우 cc 쿼리 매개 변수도 지정해야 합니다. 결과를 반환할 지역/국가를 결정하기 위해 Bing은 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 이 언어를 `cc` 매개 변수 값과 결합합니다. 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾거나 집계 또는 기본 지역/국가를 결과에 사용합니다. Bing이 사용한 지역/국가를 확인하려면 BingAPIs-Market 헤더를 참조하세요.<br /><br /> 여러 언어를 지정하는 경우에만 이 헤더와 `cc` 쿼리 매개 변수를 사용합니다. 여러 언어를 지정하지 않는 경우 [mkt](#mkt) 및 [setLang](#setlang) 쿼리 매개 변수를 사용합니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|  
 |<a name="market" />BingAPIs-Market|응답 헤더입니다.<br /><br /> 요청에서 사용하는 지역/국가입니다. 형식은 \<languageCode\>-\<countryCode\>입니다. 예를 들어 en-US입니다.|  
 |<a name="traceid" />BingAPIs-TraceId|응답 헤더입니다.<br /><br /> 요청의 세부 정보를 포함하는 로그 항목의 ID입니다. 오류가 발생하면 이 ID를 캡처합니다. 문제를 확인하고 해결할 수 없는 경우 지원 팀에게 제공할 다른 정보와 함께 이 ID를 기재합니다.|  
@@ -74,7 +74,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |----------|-----------|----------|--------------|
 |<a name="count" />count|지정 된 인덱스부터 반환할 결과 수는 `offset` 매개 변수입니다.|String|아닙니다.|   
 |<a name="localCategories" />localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|아닙니다.|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|String|예|
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|String|예.|
 |<a name="offset"/>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수 |아닙니다.|  
 |<a name="query" />q|사용자의 검색 용어입니다.|String|아닙니다.|  
 |<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](https://json-ld.org/)를 참조하세요.|String|아닙니다.|  
@@ -117,13 +117,13 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="license"></a>License  
 텍스트 또는 사진을 사용할 수 있는 라이선스를 정의합니다.  
   
-|이름|값|Type|  
+|Name|값|Type|  
 |----------|-----------|----------|  
-|이름|라이선스의 이름입니다.|String|  
+|name|라이선스의 이름입니다.|String|  
 |url|사용자가 라이선스에 대한 자세한 정보를 얻을 수 있는 웹 사이트의 URL입니다.<br /><br /> 하이퍼링크를 만들려면 이름 및 URL을 사용합니다.|String|  
 
 
-### <a name="link"></a>링크  
+### <a name="link"></a>연결  
 하이퍼링크의 구성 요소를 정의합니다.  
   
 |이름|값|Type|  
@@ -142,20 +142,20 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 |이름|값|Type|  
 |----------|-----------|----------|  
-|이름|게시자의 이름입니다.|String|  
+|name|게시자의 이름입니다.|String|  
 |url|게시자 웹 사이트의 URL입니다.<br /><br /> 게시자가 웹 사이트를 제공하지 않을 수도 있습니다.|String|  
   
   
 
-### <a name="place"></a>위치  
+### <a name="place"></a>Place  
 식당 또는 호텔과 같은 로컬 비즈니스에 대한 정보를 정의합니다.  
   
-|이름|값|Type|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |_type|다음 중 하나로 설정할 수 있는 힌트를 입력합니다.<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>식당</ul><li>|String|  
 |address|엔터티가 위치한 우편 주소입니다.|PostalAddress|  
 |entityPresentationInfo|엔터티의 형식을 확인하는 데 사용할 수 있는 힌트와 같은 엔터티에 대한 추가 정보입니다. 예를 들어 식당 또는 호텔인지 여부입니다. `entityScenario` 필드는 ListItem으로 설정됩니다.|EntityPresentationInfo|  
-|이름|엔터티의 이름입니다.|String|  
+|name|엔터티의 이름입니다.|String|  
 |telephone|엔터티의 전화 번호입니다.|String|  
 |url|엔터티의 웹 사이트에 대한 URL입니다.<br /><br /> 엔터티의 이름과 함께 이 URL을 사용하여 클릭하면 사용자를 엔터티의 웹 사이트로 이동시키는 하이퍼링크를 만듭니다.|String|  
 |webSearchUrl|이 위치의 Bing 검색 결과에 대한 URL입니다.|String| 
@@ -183,7 +183,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 
 |이름|값|Type|  
 |-------------|-----------------|----------|
-|items|그룹에 표시할 검색 결과 목록입니다.|RankingItem|
+|항목|그룹에 표시할 검색 결과 목록입니다.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 표시할 검색 결과 항목을 정의합니다.
@@ -263,7 +263,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 |코드|SubCode|설명
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP 상태 코드는 500입니다.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>HTTPS 대신 HTTP 프로토콜을 사용하는 경우 Bing은 HttpNotAllowed를 반환하고 HTTP 상태 코드는 410입니다.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단됨|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>HTTPS 대신 HTTP 프로토콜을 사용하는 경우 Bing은 HttpNotAllowed를 반환하고 HTTP 상태 코드는 410입니다.
 |RateLimitExceeded|하위 코드 없음|Bing은 QPS(초당 쿼리 수) 또는 QPM(월별 쿼리 수) 할당량을 초과할 경우 항상 RateLimitExceeded를 반환합니다.<br/><br/>QPS를 초과할 경우 Bing은 HTTP 상태 코드 429를 반환하고, QPM을 초과할 경우 403을 반환합니다.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing이 호출자를 인증할 수 없는 경우 Bing은 InvalidAuthorization을 반환합니다. 예를 들어 `Ocp-Apim-Subscription-Key` 헤더가 없거나 구독 키가 잘못된 경우입니다.<br/><br/>둘 이상의 인증 방법을 지정한 경우 중복이 발생합니다.<br/><br/>오류가 InvalidAuthorization이면 HTTP 상태 코드는 401입니다.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|리소스에 액세스할 수 있는 사용 권한이 호출자에게 없는 경우 Bing은 InsufficientAuthorization을 반환합니다. 이 오류는 구독 키가 비활성화되었거나 만료된 경우에 발생할 수 있습니다. <br/><br/>오류가 InsufficientAuthorization이면 HTTP 상태 코드는 403입니다.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116625"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523513"
 ---
 # <a name="manage-account-and-authoring-key"></a>계정 및 작성 키 관리
 
@@ -24,7 +24,7 @@ LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키
 
 ## <a name="authoring-key"></a>작성 키
 
-이 단일, 지역별 제작에서 키를 **설정을** 페이지에서 모든 앱을 작성할 수 있습니다를 [LUIS](luis-reference-regions.md) 뿐만 포털를 [Api를 작성](https://aka.ms/luis-authoring-api)합니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 엔드포인트 쿼리를 만들 수 있습니다.
+이 단일, 지역별 제작에서 키를 **설정을** 페이지에서 모든 앱을 작성할 수 있습니다를 [LUIS](luis-reference-regions.md) 뿐만 포털를 [Api를 작성](https://go.microsoft.com/fwlink/?linkid=2092087)합니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 엔드포인트 쿼리를 만들 수 있습니다.
 
 [![LUIS 설정 페이지](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

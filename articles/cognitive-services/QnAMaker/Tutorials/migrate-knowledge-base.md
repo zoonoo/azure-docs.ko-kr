@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264321"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794877"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -56,7 +56,7 @@ ms.locfileid: "59264321"
     이때 모든 기술 자료 콘텐츠인 질문, 답변 및 메타데이터와 URL 및 원본 파일의 이름을 새 기술 자료로 가져옵니다. 
 
 ## <a name="chat-logs-and-alterations"></a>채팅 로그 및 변경 내용
-대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. 이전 기술 자료의 변경 내용을 내보내려면 [V2 API](https://aka.ms/qnamaker-v2-apis)를 사용하고, 새 기술 자료에서 변경 내용을 이동하려면 [V4 API](https://aka.ms/qnamaker-v4-apis)를 사용합니다.
+대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. 사용 된 [V4 Api](https://go.microsoft.com/fwlink/?linkid=2092179) 새 기술 자료에서 변경 작업을 이동 합니다.
 
 새 기술 자료는 Application Insights를 사용하여 채팅 로그를 저장하기 때문에 채팅 로그를 마이그레이션할 방법이 없습니다. 
 
