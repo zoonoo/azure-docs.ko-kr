@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310390"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519227"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -115,7 +115,11 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 완료되면 **확인**을 클릭하여 다음 섹션으로 이동합니다.
 
-### <a name="2-prepare-source"></a>2: 원본 준비
+### <a name="2-select-deployment-planning"></a>2: 배포 계획 선택
+
+**배포 계획을 완료하셨나요**에서 **나중에 수행**을 선택한 후 **확인**을 선택합니다.
+
+### <a name="3-prepare-source"></a>3: 원본 준비
 
 **원본 준비** 페이지에서 **+ 구성 서버**를 선택합니다.
 
@@ -140,7 +144,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 구성 서버 설정을 마치면 포털로 돌아가서 **구성 서버** 에 대해 방금 만든 서버를 선택합니다. **확인**을 선택하여 3: 대상 준비로 이동합니다.
 
-### <a name="3-prepare-target"></a>3: 대상 준비
+### <a name="4-prepare-target"></a>4: 대상 준비
 
 이 섹션에서는 이 자습서 앞부분의 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스에 대한 정보를 입력합니다.
 
@@ -149,8 +153,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다. 이는 이 자습서 앞부분의 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스여야 합니다.
 4. 완료되면 **확인**을 선택합니다.
 
-
-### <a name="4-prepare-replication-settings"></a>4: 복제 설정 준비
+### <a name="5-prepare-replication-settings"></a>5: 복제 설정 준비
 
 복제를 활성화하려면 먼저 복제 정책을 만들어야 합니다.
 
@@ -158,12 +161,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 2. **이름**에 **myReplicationPolicy**를 입력합니다.
 3. 나머지 기본 설정은 그대로 두고 **확인**을 클릭하여 정책을 만듭니다. 새로 만든 정책은 자동으로 구성 서버에 연결됩니다.
 
-### <a name="5-select-deployment-planning"></a>5: 배포 계획 선택
-
-**배포 계획을 완료하셨나요**에서 **나중에 수행**을 선택한 후 **확인**을 선택합니다.
-
 **인프라 준비**의 5개 섹션을 모두 완료했으면 **확인**을 선택합니다.
-
 
 ## <a name="enable-replication"></a>복제 사용
 
