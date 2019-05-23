@@ -28,11 +28,11 @@ Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-s
 ## <a name="viewing-performance-insights"></a>Performance Insight 보기
 Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.md) 보기에는 쿼리 저장소의 핵심 정보가 시각화되어 표시됩니다. 
 
-PostgreSQL 서버용 Azure Database의 포털 페이지에서 선택 **쿼리 성능 Insight** 아래의 합니다 **지능형 성능** 메뉴의 섹션입니다.
+PostgreSQL 서버용 Azure Database의 포털 페이지에서 **지능형 성능** 메뉴 섹션 아래의 **Query Performance Insight**를 선택 합니다.
 
 ![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-합니다 **장기 실행 쿼리** 15 분 간격으로 집계 탭 실행 당 평균 기간별 상위 5 개 쿼리를 보여 줍니다. **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
+**장기 실행 쿼리** 탭은 15분 간격으로 집계된 실행당 평균 기간별 상위 5개 쿼리를 보여 줍니다. **쿼리 수** 드롭다운에서 선택하여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
 차트를 클릭하고 끌어 특정 기간으로 범위를 좁힐 수 있습니다. 확대/축소 아이콘을 사용하여 더 긴 기간이나 더 짧은 기간을 표시할 수도 있습니다.
 
