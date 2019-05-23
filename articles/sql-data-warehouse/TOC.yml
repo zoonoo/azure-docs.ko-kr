@@ -257,6 +257,10 @@
       items:
         - name: 워크로드 분석
           href: analyze-your-workload.md
+        - name: 워크로드 중요도 관리 및 모니터링
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: 워크로드 중요도 구성
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: 관리 및 모니터링
       items:
         - name: Gen2로 업그레이드

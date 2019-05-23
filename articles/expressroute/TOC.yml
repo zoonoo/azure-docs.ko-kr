@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: 공급자별 위치
           href: expressroute-locations.md
-    - name: ExpressRoute 가상 네트워크 게이트웨이 및 FastPath
+    - name: 가상 네트워크 게이트웨이 및 FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: 필수 조건
       href: expressroute-prerequisites.md
