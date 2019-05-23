@@ -59,7 +59,7 @@ JSON 파일 또는 다른 Cosmos DB 컬렉션으로/에서 있는 그대로 데�
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **DocumentDb** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **DocumentDb** |예 |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 예제:
@@ -124,7 +124,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| 쿼리 |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예제: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아닙니다. <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예제: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아닙니다. <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아닙니다. |
 
 **DocumentDbCollectionSink**는 다음 속성을 지원합니다.
