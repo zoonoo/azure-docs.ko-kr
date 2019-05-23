@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193433"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124730"
 ---
 Bing Statistics는 Bing Search API에 대한 분석을 제공합니다. 분석에는 호출량, 주요 쿼리 문자열, 지리적 분포 등이 포함됩니다. Bing Search 유료 구독에서 Bing Statistics를 사용하도록 설정하려면 [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)로 이동한 후 유료 구독을 선택하고 Bing Statistics 사용을 클릭합니다. Bing Statistics를 사용하도록 설정하면 구독 속도가 약간 늘어납니다([가격 책정](https://aka.ms/bingstatisticspricing) 참조).
 

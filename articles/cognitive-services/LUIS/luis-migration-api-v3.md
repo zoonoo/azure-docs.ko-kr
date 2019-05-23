@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233555"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123880"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>미리 보기: API 버전으로 마이그레이션하기 LUIS 앱에 대 한 3.x
 
@@ -343,6 +343,9 @@ utterance 사용 된 이전 utterance `him` 에 대 한 참조로 `Hazem`합니�
 
 **V3에서**, 엔터티 표시 되어 `startIndex` 및 `entityLength`합니다.
 
+## <a name="deprecation"></a>사용 중단 
+
+V2 API는 V3 미리 보기 이후에 최소 9 개월 동안 중단 될 예정입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

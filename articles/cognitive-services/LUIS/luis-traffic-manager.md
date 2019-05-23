@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123541"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
@@ -104,7 +104,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-Type|ExternalEndpoints|자세한 내용은 [Traffic Manager 엔드포인트][traffic-manager-endpoints]를 참조하세요. |
     |-Target|eastus.api.cognitive.microsoft.com|LUIS 엔드포인트의 도메인입니다.|
     |-EndpointLocation|“eastus”|엔드포인트의 지역|
-    |-EndpointStatus|사용|엔드포인트를 만들 때 사용하도록 설정|
+    |-EndpointStatus|Enabled|엔드포인트를 만들 때 사용하도록 설정|
 
     성공한 응답은 다음과 같습니다.
 
@@ -173,7 +173,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-Type|ExternalEndpoints|자세한 내용은 [Traffic Manager 엔드포인트][traffic-manager-endpoints]를 참조하세요. |
     |-Target|westus.api.cognitive.microsoft.com|LUIS 엔드포인트의 도메인입니다.|
     |-EndpointLocation|“westus”|엔드포인트의 지역|
-    |-EndpointStatus|사용|엔드포인트를 만들 때 사용하도록 설정|
+    |-EndpointStatus|Enabled|엔드포인트를 만들 때 사용하도록 설정|
 
     성공한 응답은 다음과 같습니다.
 
@@ -239,7 +239,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
     |-Type|NestedEndpoints|자세한 내용은 [추가 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)합니다. |
     |-TargetResourceId|$eastprofile.Id|자식 프로필의 ID|
-    |-EndpointStatus|사용|부모에 추가한 후 엔드포인트 상태|
+    |-EndpointStatus|Enabled|부모에 추가한 후 엔드포인트 상태|
     |-EndpointLocation|“eastus”|리소스의 [Azure 지역 이름](https://azure.microsoft.com/global-infrastructure/regions/)|
     |-MinChildEndpoints|1|최소 자식 엔드포인트 수|
 
@@ -276,7 +276,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-TrafficManagerProfile|$parentprofile|이 엔드포인트를 할당할 프로필|
     |-Type|NestedEndpoints|자세한 내용은 [추가 AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)합니다. |
     |-TargetResourceId|$westprofile.Id|자식 프로필의 ID|
-    |-EndpointStatus|사용|부모에 추가한 후 엔드포인트 상태|
+    |-EndpointStatus|Enabled|부모에 추가한 후 엔드포인트 상태|
     |-EndpointLocation|“westus”|리소스의 [Azure 지역 이름](https://azure.microsoft.com/global-infrastructure/regions/)|
     |-MinChildEndpoints|1|최소 자식 엔드포인트 수|
 

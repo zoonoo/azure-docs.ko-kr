@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072999"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124336"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -36,7 +36,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md#export-app-for-containers) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 값이 모두 리소스에 대 한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요한. 추가 해야 합니다 `luis/v2.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. LUIS 패키지 된 앱에서 발생 하는 경우는 [Api를 작성](#authoring-apis-for-package-file), 해야 하 _제작 키_합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**: 이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APPLICATION_ID}**: 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{ENDPOINT_KEY}**: 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 Azure portal의 _Cognitive Services_ 리소스의 키 목록입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{BILLING_ENDPOINT}**: 예는 `https://westus.api.cognitive.microsoft.com/luis/v2.0`입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
+|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md#export-app-for-containers) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `luis/v2.0` 라우팅을 끝점 URI에 추가해야 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. LUIS 패키지 된 앱에서 발생 하는 경우는 [Api를 작성](#authoring-apis-for-package-file), 해야 하 _제작 키_합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**: 이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APPLICATION_ID}**: 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{ENDPOINT_KEY}**: 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 Azure portal의 _Cognitive Services_ 리소스의 키 목록입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{BILLING_ENDPOINT}**: 예는 `https://westus.api.cognitive.microsoft.com/luis/v2.0`입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
 ### <a name="authoring-apis-for-package-file"></a>패키지 파일에 대 한 Api를 작성
 
@@ -58,7 +58,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 |LUIS|1개 코어, 2GB 메모리|1개 코어, 4GB 메모리|20,40|
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
-* TP-초당 트랜잭션 수
+* TPS - 초당 트랜잭션 수
 
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
@@ -77,7 +77,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-## <a name="how-to-use-the-container"></a>컨테이너사용 방법
+## <a name="how-to-use-the-container"></a>컨테이너 사용 방법
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
@@ -223,7 +223,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLIC
 |{ENDPOINT_KEY} | 이 키는 컨테이너를 시작하는 데 사용됩니다. 시작 키를 사용하지 마세요. |
 |{BILLING_ENDPOINT} | 청구 끝점 값은 Azure portal에서 사용할 수 있는 `Cognitive Services` 개요 페이지. 추가 해야 합니다 `luis/v2.0` 다음 예제에서와 같이 끝점 URI로 라우팅할: `https://westus.api.cognitive.microsoft.com/luis/v2.0`합니다.|
 
-다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
+다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
@@ -244,7 +244,7 @@ ApiKey={ENDPOINT_KEY}
 * LUIS 컨테이너 이미지에서 컨테이너를 실행합니다.
 * 컨테이너 호스트에 있는 c:\input의 입력 탑재에서 LUIS 앱을 로드합니다.
 * CPU 코어 두 개 및 4GB 메모리를 할당합니다.
-* 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
+* TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
 * 컨테이너 및 LUIS 로그를 컨테이너 호스트에 위치한 c:\output의 출력 탑재에 저장합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
@@ -256,13 +256,17 @@ ApiKey={ENDPOINT_KEY}
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>컨테이너에서 지원 되는 Api 끝점
+
+두 V2 및 [V3 (미리 보기)](luis-migration-api-v3.md) 버전의 API 컨테이너를 사용 하 여 사용할 수 있습니다. 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 게시된(스테이징 또는 프로덕션) 앱에 대한 엔드포인트는 학습된 앱에 대한 엔드포인트와 경로가 _다릅니다_. 
 
 컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다. 
 
-|패키지 유형|방법|라우팅|쿼리 매개 변수|
+|패키지 유형|방법|경로|쿼리 매개 변수|
 |--|--|--|--|
 |게시됨|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
 |학습됨|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
@@ -272,7 +276,7 @@ ApiKey={ENDPOINT_KEY}
 |쿼리 매개 변수|Type|목적|
 |--|--|--|
 |`q`|문자열|사용자의 발화입니다.|
-|`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
+|`timezoneOffset`|번호|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
 |`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
@@ -371,7 +375,7 @@ LUIS 앱 종속성 지원 되지 않는 경우 할 수 없습니다 [컨테이�
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+> Cognitive Services 컨테이너는 계량을 위한 청구 끝점에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너를 항상 청구 끝점과 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

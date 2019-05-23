@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65404982"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146017"
 ---
 | 지역 | 엔드포인트 |
 |--------|----------|
@@ -24,7 +24,7 @@ ms.locfileid: "65404982"
 | 일본 동부 | `https://japaneast.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 한국 중부 | `https://koreacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 미국 중북부 | `https://northcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| 유럽 북부 | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| 북유럽 | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 미국 중남부 | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 동남아시아 | `https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 영국 남부 | `https://uksouth.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |

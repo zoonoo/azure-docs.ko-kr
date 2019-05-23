@@ -45,7 +45,11 @@
     - name: iOS
       items:
         - name: iOS 앱에 푸시 알림
-          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+          items:
+            - name: Objective-c
+              href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+            - name: Swift
+              href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
         - name: 특정 디바이스에 푸시 알림
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: 특정 사용자에게 푸시 알림

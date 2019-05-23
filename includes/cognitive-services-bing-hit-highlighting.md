@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572425"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124764"
 ---
 Bing은 일부 응답의 표시 문자열에 쿼리 용어(또는 Bing이 찾은 다른 관련 용어)를 표시하는 적중 항목 강조 표시를 지원합니다. 예를 들어 웹 페이지의 `name`, `displayUrl` 및 `snippet` 필드에 쿼리 용어가 표시될 수 있습니다.
 
