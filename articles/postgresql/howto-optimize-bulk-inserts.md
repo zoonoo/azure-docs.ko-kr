@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서 대량 삽입 최적화
-description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 대량 삽입 작업을 최적화 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 대량 삽입 작업을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
@@ -29,7 +29,7 @@ Unlogged 테이블을 만들려면 다음 옵션을 사용합니다.
 
 프로세스를 역방향으로 수행하려면 `ALTER TABLE <tableName> SET LOGGED` 구문을 사용합니다.
 
-## <a name="unlogged-table-tradeoff"></a>Unlogged 테이블 단점
+## <a name="unlogged-table-tradeoff"></a>Unlogged 테이블의 단점
 Unlogged 테이블은 충돌로부터 안전하지 않습니다. Unlogged 테이블은 충돌 후 자동으로 잘리거나 불완전하게 종료될 수 있습니다. 또한 unlogged 테이블의 콘텐츠는 대기 서버로 복제되지 않습니다. Unlogged 테이블에서 생성된 모든 인덱스는 자동으로 기록되지도 않습니다. 삽입 작업이 완료되면 삽입이 지속될 수 있도록 테이블을 logged 테이블로 변환합니다.
 
 Unlogged 테이블을 사용할 경우 일부 고객 워크로드의 성능이 약 15-20퍼센트 향상되었습니다.
