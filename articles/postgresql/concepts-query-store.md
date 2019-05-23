@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소
-description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database에서 쿼리 저장소 기능을 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 쿼리 저장소 기능을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -29,11 +29,11 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을  `TOP` 으로 설정 하고 **저장**합니다.
+4. 값을 `TOP`으로 설정하고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계를 활성화하려면: 
+쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을  `ALL`로 설정하고 **저장**합니다.
+1. 값을 `ALL`로 설정하고 **저장**합니다.
 
 
 또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
@@ -82,7 +82,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ## <a name="configuration-options"></a>구성 옵션
 쿼리 저장소를 사용하도록 설정하면 데이터가 15분 집계 창에 저장되고 각 창에는 최대 500개의 고유 쿼리가 포함됩니다. 
 
-다음 옵션은 쿼리 저장소 매개 변수를 구성하는데 사용할 수 있습니다.
+다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
 
 | **매개 변수** | **설명** | **기본값** | **범위**|
 |---|---|---|---|
