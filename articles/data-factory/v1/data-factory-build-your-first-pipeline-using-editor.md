@@ -211,11 +211,11 @@ ms.locfileid: "57535997"
 
    | 자산 | 설명 |
    |:--- |:--- |
-   | 형식 |Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다. |
+   | type |Blob Storage에 데이터가 있기 때문에 형식 속성은 **AzureBlob**으로 설정됩니다. |
    | linkedServiceName |이전에 만든 AzureStorageLinkedService를 참조합니다. |
    | folderPath | 입력 Blob이 포함된 Blob 컨테이너와 폴더를 지정합니다. | 
    | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 input.log 파일만 처리됩니다. |
-   | 형식 |로그 파일이 텍스트 형식이므로 **TextFormat**을 사용합니다. |
+   | type |로그 파일이 텍스트 형식이므로 **TextFormat**을 사용합니다. |
    | columnDelimiter |로그 파일의 열은 쉼표(`,`)로 구분됩니다. |
    | frequency/interval |**Month** 및 간격을 설정한 빈도가 **1**인 경우 입력 조각은 매월 제공됩니다. |
    | external | 이 파이프라인에 의해 입력 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서에서는 이 파이프라인에 의해 input.log 파일이 생성되지 않으므로 이 속성이 **true**로 설정됩니다. |
