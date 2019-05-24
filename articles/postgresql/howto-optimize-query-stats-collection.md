@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션 최적화
-description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션을 최적화 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
