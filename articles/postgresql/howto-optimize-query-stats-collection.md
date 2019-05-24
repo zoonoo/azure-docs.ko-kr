@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 통계 컬렉션 최적화
-description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 통계 컬렉션을 최적화 하는 방법을 설명 합니다.
+title: Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션 최적화
+description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65068956"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>쿼리 통계 컬렉션에서 Azure Database for PostgreSQL-단일 서버를 최적화 합니다.
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 쿼리 통계 컬렉션 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
 
 ## <a name="use-pgstatsstatements"></a>pg_stats_statements 사용
@@ -29,7 +29,7 @@ ms.locfileid: "65068956"
 
   ![PostgreSQL 서버 매개 변수 블레이드](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
-- [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 az postgres server configuration set to `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 az postgres server configuration set 명령을 구성합니다. `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
 ## <a name="use-the-query-store"></a>쿼리 저장소 사용 
 Azure Database for PostgreSQL의 [쿼리 저장소](concepts-query-store.md) 기능은 쿼리 성능을 추적하는 더 효과적인 방법을 제공합니다. *pg_stats_statements*를 사용하지 않고 기능을 사용하는 것이 좋습니다. 
