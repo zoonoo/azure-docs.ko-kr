@@ -21,7 +21,7 @@ ms.locfileid: "61292989"
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure Migrate가 VMware 워크로드의 평가만 지원하나요?
 
-예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. 지원 미리 보기에서 Hyper-v에 등록 하세요 [여기](https://aka.ms/migratefuture) 미리 보기에 대 한 액세스를 가져오려고 합니다. 물리적 서버에 대 한 지원은 나중에 사용 됩니다.
+예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. 지원 미리 보기에서 Hyper-v에 등록 하세요. 미리 보기에 접근하기 위해서 [여기](https://aka.ms/migratefuture)에서 가입합니다. 물리적 서버에 대한 지원은 나중에 가능합니다.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
 
