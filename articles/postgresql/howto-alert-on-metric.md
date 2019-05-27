@@ -1,6 +1,6 @@
 ---
-title: Azure portal에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고를 구성
-description: 이 문서에서는 Azure portal에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고 구성 및 액세스 하는 방법을 설명 합니다.
+title: Azure 포털에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고 구성
+description: 이 문서에서는 Azure portal에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -36,7 +36,7 @@ ms.locfileid: "65067323"
 
    ![경고 규칙 선택](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. **경고 규칙 추가**(+ 아이콘)를 선택합니다.
+3. **메트릭 경고 추가**(+ 아이콘)를 선택합니다.
 
 4. 아래와 같이 **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "65067323"
 
 10. **이메일/SMS/푸시/음성** 작업 유형을 구성합니다.
     
-    "메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
+    "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
    
     필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
