@@ -55,7 +55,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 저장소 에뮬레이터는 기본적으로 `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`에 설치됩니다.
 
 > [!TIP]
-> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음 스토리지 탐색기 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
+> [Microsoft Azure Storage 탐색기](https://storageexplorer.com)를 사용하여 로컬 스토리지 에뮬레이터 리소스를 사용할 수 있습니다. 스토리지 에뮬레이터를 설치 및 시작한 다음, Storage Explorer 리소스 트리의 "Storage 계정"에서 "(개발)"을 찾습니다.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.

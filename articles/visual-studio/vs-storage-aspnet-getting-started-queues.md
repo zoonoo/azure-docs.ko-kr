@@ -141,7 +141,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
   
     ![큐 만들기](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    앞에서 언급했듯이 큐가 없고 만들어진 경우에만 **CloudQueue.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 큐가 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 큐를 삭제해야 합니다. **CloudQueue.Delete** 메서드를 통해 큐 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 큐를 삭제할 수도 있습니다.  
+    앞에서 언급했듯이 큐가 없고 만들어진 경우에만 **CloudQueue.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 큐가 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 큐를 삭제해야 합니다. **CloudQueue.Delete** 메서드를 통해 큐 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 큐를 삭제할 수도 있습니다.  
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 

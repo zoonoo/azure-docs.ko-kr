@@ -11,7 +11,7 @@ ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2019
 ms.locfileid: "65797767"
@@ -195,6 +195,6 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Storage PowerShell cmdlet](/powershell/module/az.storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

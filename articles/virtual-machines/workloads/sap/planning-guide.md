@@ -1082,7 +1082,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 * <https://storageexplorer.com/>
 
-Azure Storage 탐색기의 전문가 버전은 아래 페이지에서 확인할 수 있습니다.
+Azure Storage Explorer의 전문가 버전은 아래 페이지에서 확인할 수 있습니다.
 
 * <https://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>

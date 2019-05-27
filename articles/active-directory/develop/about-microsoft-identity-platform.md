@@ -3,8 +3,8 @@ title: Microsoft ID 플랫폼의 발전 - Azure
 description: Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태인 Microsoft ID 플랫폼에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b912b6f3fe42c724468347f9b3a7f0b4efa054
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067964"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832490"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
-Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자는 사용자를 로그인하고, Microsoft Graph 같은 API 또는 개발자가 빌드한 API를 호출하는 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성(개발자 포털 및 애플리케이션 API를 통해), 완전한 개발자 설명서, 빠른 시작 샘플, 코드 샘플, 자습서, 방법 가이드, 기타 개발자 콘텐츠로 구성되어 있습니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
+Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자는 사용자를 로그인하고, Microsoft Graph 같은 API 또는 개발자가 빌드한 API를 호출하는 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성(개발자 포털 및 애플리케이션 API를 통해), 완전한 개발자 설명서, 빠른 시작 샘플, 코드 샘플, 자습서, 방법 가이드, 기타 개발자 콘텐츠로 구성되어 있습니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
 
 지금까지는 대부분의 개발자가 ADAL(Azure AD 인증 라이브러리), 애플리케이션 등록 및 구성을 위한 Azure Portal, 프로그래밍 방식으로 애플리케이션 구성을 위한 Azure AD Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하는 방법으로 Azure AD v1.0 플랫폼을 작업하여 회사 및 학교 계정(Azure AD로 프로비저닝된)을 인증했습니다.
 

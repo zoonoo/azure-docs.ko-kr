@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578801"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619759"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
 
@@ -271,7 +271,7 @@ contract HelloBlockchain {
 
 ### <a name="constructor"></a>생성자
 
-생성자는 워크플로의 새 스마트 계약 인스턴스에 대한 입력 매개 변수를 정의합니다. 생성자는 계약과 동일한 이름을 가진 함수로 선언됩니다. 생성자의 필수 매개 변수는 구성 파일의 생성자 매개 변수로 정의됩니다. 매개 변수의 수, 순서 및 유형은 두 파일에서 일치해야 합니다.
+생성자는 워크플로의 새 스마트 계약 인스턴스에 대한 입력 매개 변수를 정의합니다. 생성자의 필수 매개 변수는 구성 파일의 생성자 매개 변수로 정의됩니다. 매개 변수의 수, 순서 및 유형은 두 파일에서 일치해야 합니다.
 
 생성자 함수에서 계약을 생성하기 전에 수행하려는 비즈니스 논리를 작성합니다. 예를 들어 시작 값으로 상태 변수를 초기화합니다.
 

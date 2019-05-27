@@ -516,9 +516,9 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -532,7 +532,7 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
@@ -543,7 +543,7 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > 데이터 형식이 10진수 중간 형식으로 매핑되는 경우 ADF는 현재 최대 28 자릿수의 데이터를 지원합니다. 28보다 큰 자릿수의 데이터가 있는 경우 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

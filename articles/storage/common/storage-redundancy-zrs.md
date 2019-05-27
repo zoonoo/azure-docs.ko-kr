@@ -11,7 +11,7 @@ ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
 ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65146194"
@@ -128,7 +128,7 @@ ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비
 
 ZRS 클래식은 GPv1(범용 V1) 저장소 계정의 **블록 Blob**에서만 사용할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
-LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage 탐색기, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
+LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage Explorer, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
 
 ZRS 클래식 계정을 ZRS를 사용할 수 있는 지역에서 Azure CLI 또는 Azure PowerShell을 사용 하거나 포털에서 ZRS를 업그레이드할 수도 있습니다.
 

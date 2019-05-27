@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024568"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851972"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 PyTorch 모델 학습
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>ONNX 내보내려면
 
-사용 하 여 최적화 된 추론을 가져오려고 합니다 [ONNX 런타임](concept-onnx.md), PyTorch 학습 된 모델을 ONNX 형식 변환할 수 있습니다. 참조 된 [자습서](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) 예입니다.
+사용 하 여 유추를 최적화 하는 [ONNX 런타임](concept-onnx.md), PyTorch 학습 된 모델을 ONNX 형식으로 변환 합니다. 모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다. 참조 된 [자습서](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) 예입니다.
 
 ## <a name="examples"></a>예
 

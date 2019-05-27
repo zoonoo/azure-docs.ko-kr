@@ -1,7 +1,7 @@
 ---
 title: 모델 해석력
 titleSuffix: Azure Machine Learning service
-description: 모델에서 Azure Machine Learning SDK를 사용 하 여 예측을 수행 하는 이유를 설명 하는 방법에 알아봅니다. 모델에서 예측을 수행 하는 방법을 이해 하려면 학습 및 추론 하는 동안 사용할 수 있습니다.
+description: 모델에서 Azure Machine Learning SDK를 사용 하 여 예측을 수행 하는 이유를 설명 하는 방법에 알아봅니다. 모델에서 예측을 수행 하는 방법을 이해 하려면 교육 및 유추 하는 동안 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926463"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851986"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 모델 interpretability
 
 이 문서에서는 모델의 예측을 수행 하는 이유를 설명 하는 방법을 배우게 됩니다와 Azure Machine Learning Python SDK의 interpretability 패키지 있습니다.
 
 클래스 및 메서드를 사용 하 여이 패키지에, 다음을 얻을 수 있습니다.
-+ 학습 시간 및 추론 하는 동안 규모가 든 실제 데이터 집합에서 interpretability 합니다. 
++ 교육 및 유추 하는 동안 규모가 든 실제 데이터 집합에서 interpretability 합니다. 
 + 학습 시 검색 데이터 및 설명의 패턴을 지원 하기 위해 대화형 시각화
 + 기능 중요도 값: 원시 및 엔지니어링 된 기능
 
 개발 주기의 교육 단계 중 모델 디자이너 및 계산기는 신뢰를 구축 하기 이해 관계자에 게 모델의 출력에 설명 하는 데 사용할 수 있습니다.  또한 사용 하 여 모델에 대 한 정보를 디버깅, 일치 하는 목표를 모델의 동작의 유효성을 검사 및 편차에 대 한 확인 합니다.
 
-추론 단계에서는 데이터 과학자 예측 모델을 사용 하는 사람들에 게 설명 하기 위해 interpretability를 사용할 수 있습니다. 예를 들어, 이유 모델 담보 대출, 거부 또는 않은 투자 포트폴리오를 위험이 높은 예측?
+모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다. 이 단계에서는 데이터 과학자는 결과 예측 모델을 사용 하는 사람들에 게 설명할 수 있습니다. 예를 들어, 이유 모델 담보 대출, 거부 또는 않은 투자 포트폴리오를 위험이 높은 예측?
 
 이러한 제품을 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에서 전역적으로**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>추론에서 interpretability
+## <a name="interpretability-in-inference"></a>유추에서 interpretability
 
 설명 원래 모델과 함께 배포할 수 있으며 로컬 설명 정보를 제공 하는 시간을 점수 매기기에 사용할 수 있습니다. 점수 매기기 설명을 배포 하는 프로세스 모델을 배포 하는 것과 비슷합니다 및 다음 단계가 포함 됩니다.
 

@@ -54,7 +54,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 이 테이블의 데이터에 액세스하기 위해 사용할 수 있는 여러 도구가 있습니다.
 
 * Visual Studio
-* Azure Storage 탐색기
+* Azure Storage Explorer
 * Excel용 파워 쿼리
 
 #### <a name="use-power-query-for-excel"></a>Excel용 파워 쿼리 사용

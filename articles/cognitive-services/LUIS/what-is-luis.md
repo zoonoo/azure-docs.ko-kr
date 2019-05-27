@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441970"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521997"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -53,7 +53,7 @@ LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 �
 * **사용자 지정 엔터티** LUIS는 기계 학습 엔터티, 특정 또는 리터럴 엔터티, 기계 학습 및 리터럴의 조합을 비롯하여 사용자 고유의 의도 및 엔터티를 식별하는 여러 가지 방법을 제공합니다.
 
 ## <a name="build-the-luis-model"></a>LUIS 모델 작성
-[작성](https://aka.ms/luis-authoring-apis) API 또는 LUIS 포털을 사용하여 모델을 작성합니다.
+[작성](https://go.microsoft.com/fwlink/?linkid=2092087) API 또는 LUIS 포털을 사용하여 모델을 작성합니다.
 
 LUIS 모델은 **[의도](luis-concept-intent.md)** 라고 하는 사용자 의도 범주로 시작합니다. 각 의도에는 사용자 **[발언](luis-concept-utterance.md)** 예제가 필요합니다. 각 발언은 **[엔터티](luis-concept-entity-types.md)** 를 사용하여 추출해야 하는 다양한 데이터를 제공할 수 있습니다. 
 
@@ -65,7 +65,7 @@ LUIS 모델은 **[의도](luis-concept-intent.md)** 라고 하는 사용자 의�
 
 ## <a name="query-prediction-endpoint"></a>예측 엔드포인트 쿼리
 
-모델을 작성하여 엔드포인트에 게시하면 클라이언트 애플리케이션은 게시된 예측 [엔드포인트](https://aka.ms/luis-endpoint-apis) API에 발언을 보냅니다. API는 분석할 텍스트에 이 모델을 적용합니다. API는 JSON 형식의 예측 결과로 응답합니다.  
+모델을 작성하여 엔드포인트에 게시하면 클라이언트 애플리케이션은 게시된 예측 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) API에 발언을 보냅니다. API는 분석할 텍스트에 이 모델을 적용합니다. API는 JSON 형식의 예측 결과로 응답합니다.  
 
 최소 JSON 엔드포인트 응답에는 최소한 쿼리 발언 및 최상위 채점 의도가 포함됩니다. 다음 **연락처 유형** 엔터티 같은 데이터를 추출할 수도 있습니다. 
 
@@ -126,6 +126,6 @@ LUIS를 사용하는 샘플:
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

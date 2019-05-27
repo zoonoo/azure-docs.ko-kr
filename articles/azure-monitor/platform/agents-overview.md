@@ -15,7 +15,7 @@ ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
 ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64922847"
@@ -30,7 +30,7 @@ Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자�
 이 문서에서는 IT 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 기능을 결정하기 위해 이러한 서비스와 해당 기능 간의 차이점을 설명합니다.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 진단 확장
-2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure 스토리지에 저장하는 에이전트입니다. 스토리지에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
+2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure 스토리지에 저장하는 에이전트입니다. 스토리지에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
 
 다음을 수집하도록 선택할 수 있습니다.
 

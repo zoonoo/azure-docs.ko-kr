@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Install-Module -Name Az.DeploymentManager
     ```
 
-* [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage 탐색기는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
+* [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage Explorer는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
@@ -141,7 +141,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
 4. 다음 지침에 따라 컨테이너의 SAS 위치를 가져옵니다.
 
-    1. Azure Storage 탐색기에서 Blob 컨테이너로 이동합니다.
+    1. Azure Storage Explorer에서 Blob 컨테이너로 이동합니다.
     2. 왼쪽 창에서 Blob 컨테이너를 마우스 오른쪽 단추로 클릭한 다음, **공유 액세스 서명 가져오기**를 선택합니다.
     3. **시작 시간** 및 **만료 시간**을 구성합니다.
     4. **만들기**를 선택합니다.

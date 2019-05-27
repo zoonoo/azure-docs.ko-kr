@@ -29,7 +29,7 @@ VHD에 대한 SAS URI를 생성하는 경우 준수해야 하는 요구 사항�
 
 SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 생성할 수 있습니다.
 
--   Microsoft Storage 탐색기 - Windows, macOS 및 Linux에서 사용할 수 있는 그래픽 도구
+-   Microsoft Storage Explorer - Windows, macOS 및 Linux에서 사용할 수 있는 그래픽 도구
 -   Microsoft Azure CLI - 비 Windows OS 및 자동 또는 지속적인 통합 환경에 권장됨
 
 
@@ -84,7 +84,7 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
 
 ### <a name="microsoft-storage-explorer"></a>Microsoft Storage Explorer
 
-다음 단계를 사용하여 따라 Microsoft Azure Storage 탐색기를 통해 SAS URI를 생성합니다.
+다음 단계를 사용하여 따라 Microsoft Azure Storage Explorer를 통해 SAS URI를 생성합니다.
 
 1. [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 다운로드하고 설치합니다.
 2. 탐색기를 열고, 왼쪽 메뉴 모음에서 **계정 추가** 아이콘을 클릭합니다.  **Azure Storage에 연결** 대화 상자가 표시됩니다.

@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65510970"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 복제본 읽기
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 복제본 읽기
 
 읽기 복제본 기능을 사용하면 Azure Database for PostgreSQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 최대 5 개의 복제본으로 마스터 서버에서 복제할 수 있습니다. 복제본은 PostgreSQL 엔진 기본 복제 기술을 사용하여 비동기식으로 업데이트 됩니다.
 

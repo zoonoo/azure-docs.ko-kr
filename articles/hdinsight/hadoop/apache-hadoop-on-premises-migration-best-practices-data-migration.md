@@ -24,7 +24,7 @@ ms.locfileid: "64713730"
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
 1.  TLS를 사용하여 네트워크를 통해 데이터 전송
-    1. 인터넷 - Azure Storage 탐색기, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다.  자세한 내용은 [Azure Storage의 데이터 이동](../../storage/common/storage-moving-data.md)을 참조하세요.
+    1. 인터넷 - Azure Storage 탐색기, AzCopy, Azure Powershell, Azure CLI Azure Storage Explorer, AzCopy, Azure Powershell 및 Azure CLI.  자세한 내용은 [Azure Storage의 데이터 이동](../../storage/common/storage-moving-data.md)을 참조하세요.
     2. ExpressRoute - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 비공개 연결을 만들어 주는 Azure 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
     1. Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 저장소 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
 1.  오프라인 데이터 배송

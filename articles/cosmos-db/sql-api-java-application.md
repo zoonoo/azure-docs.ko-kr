@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e276980235494f7f808510889bda91761cb76544
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526880"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794597"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -50,7 +50,7 @@ ms.locfileid: "59526880"
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../app-service/app-service-web-get-started-java.md)
 
-이러한 도구를 처음 설치하는 경우 coreservlets.com에서 [자습서: TomCat7 설치 및 Eclipse에서 사용](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서에 있는 [빠른 시작] 섹션의 단계별 설치 지침을 제공합니다.
+이러한 도구를 처음 설치하는 경우 coreservlets.com에서 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서에 있는 [빠른 시작] 섹션의 단계별 설치 지침을 제공합니다.
 
 ## <a id="CreateDB"></a>1단계: Azure Cosmos DB 계정 만들기
 Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 있거나 이 자습서에서 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: Java JSP 애플리케이션 만들기](#CreateJSP)로 건너뛸 수 있습니다.

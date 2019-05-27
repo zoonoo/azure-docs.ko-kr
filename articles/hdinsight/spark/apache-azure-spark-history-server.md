@@ -69,7 +69,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     ![데이터 다운로드 행](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 스토리지 파일의 경우 **Azure Storage 탐색기에서 열기**는 Azure Storage 탐색기를 시작하고 로그인 시 해당 폴더를 찾습니다.
++ 다운로드 메뉴에서 확장되는 **전체 경로 복사** 또는 **상대 경로 복사**를 선택하여 전체 경로 또는 상대 경로를 복사합니다. Azure 데이터 레이크 스토리지 파일의 경우 **Azure Storage Explorer에서 열기**는 Azure Storage Explorer를 시작하고 로그인 시 해당 폴더를 찾습니다.
 
     ![데이터 복사 경로](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 

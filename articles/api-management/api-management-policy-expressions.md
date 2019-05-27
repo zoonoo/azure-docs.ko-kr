@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656594"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834538"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 C# 7 정책 식 구문에 대해 설명합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.
 
-자세한 내용은 다음을 참조하세요.
+추가 정보
 
 - 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
 - [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
@@ -210,7 +210,7 @@ ms.locfileid: "60656594"
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|context|Api: IApi<br /><br /> 배포<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> lastError<br /><br /> 작업(Operation)<br /><br /> Product<br /><br /> 요청<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> response<br /><br /> 구독<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> 사용자<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|context|Api: IApi<br /><br /> 배포<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> lastError<br /><br /> 작업(Operation)<br /><br /> 제품<br /><br /> 요청<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> response<br /><br /> 구독<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> 사용자<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
 |context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
@@ -242,7 +242,8 @@ ms.locfileid: "60656594"
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - 암호화할 일반 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />암호화된 일반 텍스트를 반환합니다.|
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - 해독할 암호 텍스트<br /><br />alg - 대칭 암호화 알고리즘의 이름<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />일반 텍스트를 반환합니다.|
-|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - 해독할 암호 텍스트<br /><br />alg - 암호화 알고리즘<br /><br />key - 암호화 키<br /><br />iv - 초기화 벡터<br /><br />일반 텍스트를 반환합니다.|
+|bool VerifyNoRevocation (입력:이 System.Security.Cryptography.X509Certificates.X509Certificate2)|인증서 해지 상태를 확인 하지 않고 X.509 체인 유효성 검사를 수행 합니다.<br /><br />입력-인증서 개체<br /><br />반환 `true` 유효성 검사에 성공 합니다. `false` 유효성 검사에 실패 합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,8 +3,8 @@ title: 애플리케이션에 대한 브랜딩 지침 | Microsoft Docs
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e62d24ea56e00b49c32c00136db858ecd0f778
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173777"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540101"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -72,7 +72,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ![애플리케이션 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예: 
 
 > *이미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 

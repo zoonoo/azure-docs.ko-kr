@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
-ms.author: harijay
-ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: alsin
+ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442118"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834746"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows 용 azure 직렬 콘솔
 
@@ -271,7 +271,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-1. https://aka.ms/serialconsolefeedback에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com의 가상 머신 범주에 피드백을 보낼 수 있습니다.
+1. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com 을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 

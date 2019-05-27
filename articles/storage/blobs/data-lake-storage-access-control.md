@@ -11,7 +11,7 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
 ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65233969"
@@ -61,7 +61,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 |이 도구를 사용 하려면:    |이 문서를 참조 하세요.    |
 |--------|-----------|
-|Azure Storage 탐색기    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|Azure Storage Explorer    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
 |REST API    |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]

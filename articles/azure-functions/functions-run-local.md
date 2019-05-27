@@ -14,7 +14,7 @@ ms.author: glenga
 ms.custom: 80e4ff38-5174-43
 ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
 ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2019
 ms.locfileid: "65603402"
@@ -224,7 +224,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
 + [Azure Storage 탐색기](https://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다.
 
-  ![Storage 탐색기에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
+  ![Storage Explorer에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
 + 다음 중 한 명령을 사용하여 Azure에서 연결 문자열을 다운로드하려면 핵심 도구를 사용합니다.
 

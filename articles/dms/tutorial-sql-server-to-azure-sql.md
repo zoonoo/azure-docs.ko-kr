@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 22e55379c79678a2792f439137e8d58d03cd8377
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415086"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605476"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 오프라인 마이그레이션
 
@@ -24,6 +24,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
+>
 > - Data Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가합니다.
 > - Data Migration Assistant를 사용하여 샘플 스키마를 마이그레이션합니다.
 > - Azure Database Migration Service의 인스턴스를 만듭니다.
@@ -79,7 +80,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
    - 데이터베이스 호환성 확인
    - 기능 패리티 확인
 
-     두 보고서 유형이 모두 기본적으로 선택됩니다.
+    두 보고서 유형이 모두 기본적으로 선택됩니다.
 
 3. Data Migration Assistant의 **옵션** 화면에서 **다음**을 선택합니다.
 4. **원본 선택** 화면의 **서버에 연결** 대화 상자에서 SQL Server에 대한 연결 세부 정보를 제공하고 **연결**을 선택합니다.

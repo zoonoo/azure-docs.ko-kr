@@ -1148,7 +1148,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
-                                                <p>Storage 탐색기</p>
+                                                <p>Storage Explorer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2628,7 +2628,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage 탐색기</h3>
+                                                    <h3>Storage Explorer</h3>
                                                     <p>Windows, macOS 및 Linux로 어디에서나 쉽게 저장소 관리</p>
                                                 </div>
                                             </div>
