@@ -322,17 +322,17 @@ Salesforce에서 데이터를 복사할 경우 Salesforce 데이터 형식에서
 | Date/Time |DateTime |
 | Email |String |
 | Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
+| 관계 조회 |String |
+| 다중 선택 선택 목록 |String |
 | Number |Decimal |
 | Percent |Decimal |
 | Phone |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
+| 선택 목록 |String |
+| 텍스트 |String |
+| 텍스트 영역 |String |
+| 텍스트 영역(Long) |String |
+| 텍스트 영역(Rich) |String |
+| 텍스트(암호화됨) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>다음 단계
