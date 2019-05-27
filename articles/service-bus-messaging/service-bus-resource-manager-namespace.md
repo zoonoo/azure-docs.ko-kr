@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111229"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
 이 빠른 시작에서는 **표준** SKU가 있는 **메시지** 형식의 Service Bus 네임스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 이 문서는 또한 배포의 실행에 대해 지정된 매개 변수도 정의합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][Authoring Azure Resource Manager templates]를 참조하세요. 전체 템플릿은 GitHub에서 [Service Bus 네임스페이스 템플릿][Service Bus namespace template]을 참조하세요.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878854"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908062"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "60878854"
 .NET SDK를 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
+* **Visual Studio 2013 이상**합니다. 아래 지침에서는 Visual Studio 2019를 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -41,19 +41,11 @@ ms.locfileid: "60878854"
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
 
-1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+1. Visual Studio에서 선택 합니다 **파일** 메뉴에서 **새로 만들기**를 차례로 **프로젝트**합니다.
+2. 선택할 **콘솔 앱 (.NET Framework)** 를 선택한 후 **다음**합니다.
+3. **프로젝트 이름**를 입력 `CreateADLApplication`를 선택한 후 **만들기**합니다.
 
-   | 자산 | 값 |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 애플리케이션 |
-   | 이름 |CreateADLApplication |
-
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
-
-5. NuGet 패키지를 프로젝트에 추가합니다.
+4. NuGet 패키지를 프로젝트에 추가합니다.
 
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
    2. **NuGet 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
@@ -64,7 +56,7 @@ ms.locfileid: "60878854"
     
       **NuGet 패키지 관리자**를 닫습니다.
 
-6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
+5. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
         using System;
         using System.IO;using System.Threading;
@@ -78,7 +70,7 @@ ms.locfileid: "60878854"
         using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. 아래 표시된 것처럼 변수를 선언하고 자리 표시자에 대한 값을 제공합니다. 또한, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다.
+6. 아래 표시된 것처럼 변수를 선언하고 자리 표시자에 대한 값을 제공합니다. 또한, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다.
 
         namespace SdkSample
         {
