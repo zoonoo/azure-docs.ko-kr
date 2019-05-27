@@ -103,6 +103,8 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
     - name: 구독 키

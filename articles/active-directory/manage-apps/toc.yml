@@ -111,8 +111,6 @@
           href: application-proxy-remove-personal-data.md
         - name: 사용자 지정 도메인 구성
           href: application-proxy-configure-custom-domain.md
-        - name: 구성 오류
-          href: application-proxy-troubleshoot.md
         - name: 게시 연습
           items:
             - name: Cloud App Security와 통합
@@ -129,6 +127,12 @@
               href: application-proxy-qlik.md
         - name: 애플리케이션 프록시 문제 해결
           items:
+            - name: 커넥터 문제 해결 순서도
+              href: application-proxy-debug-connectors.md
+            - name: 애플리케이션 문제 해결 순서도
+              href: application-proxy-debug-apps.md
+            - name: 구성 오류
+              href: application-proxy-troubleshoot.md
             - name: 앱 페이지를 표시할 때 문제
               href: application-proxy-page-appearance-broken-problem.md
             - name: 너무 긴 애플리케이션 로드

@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d22fca27943be7ac7db8b8edd5882b9fa4ab3ab9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607260"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001692"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Azure App Service에 대 한 보안 특성
 
@@ -27,19 +27,19 @@ ms.locfileid: "65607260"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | (예: 서버 쪽 암호화, 고객 관리 키를 사용 하 여 서버 쪽 암호화 및 기타 암호화 기능)는 미사용 데이터 암호화 | 예. | 웹 사이트 파일 콘텐츠는 자동으로 미사용 콘텐츠를 암호화 하는 Azure Storage에 저장 됩니다. 참조 [미사용 데이터에 대 한 Azure Storage 암호화](../storage/common/storage-service-encryption.md)합니다.<br><br>고객이 제공한 암호는 미사용 시 암호화 됩니다. 암호는 App Service 구성 데이터베이스에 저장 하는 동안 미사용 암호화 됩니다.<br><br>필요에 따라 로컬로 연결 된 디스크 (D:\local 및 % TMP %) 웹 사이트에서 임시 저장소로 사용할 수 있습니다. 로컬로 연결 된 디스크는 미사용 시 암호화 되지 않습니다. |
-| (예: ExpressRoute 암호화 Vnet 암호화 및 VNet 대 VNet 암호화에서) 전송 중 암호화| 예. | 고객은 HTTPS를 사용 하 여 인바운드 트래픽을 위해 필요로 하는 웹 사이트를 구성할 수 있습니다. 블로그 게시물을 참조 하세요 [Azure 앱 서비스 HTTPS만 확인 하는 방법을](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/)합니다. |
-| 암호화 키 처리(CMK, BYOK 등)| 예. | 고객은 응용 프로그램 비밀을 Key Vault에 저장 하 고 런타임에 검색할 수 있습니다. 참조 [Key Vault를 사용 하 여 App Service 및 Azure Functions (미리 보기)에 대 한 참조](app-service-key-vault-references.md)합니다.|
-| 열 수준 암호화(Azure Data Services)| N/A | |
+| (예: ExpressRoute 암호화 VNet 암호화 및 VNet 대 VNet 암호화에서) 전송 중 암호화| 예. | 고객은 HTTPS를 사용 하 여 인바운드 트래픽을 위해 필요로 하는 웹 사이트를 구성할 수 있습니다. 블로그 게시물을 참조 하세요 [Azure 앱 서비스 HTTPS만 확인 하는 방법을](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/)합니다. |
+| 암호화 키 처리 (예: CMK, BYOK)| 예. | 고객은 응용 프로그램 비밀을 Key Vault에 저장 하 고 런타임에 검색할 수 있습니다. 참조 [Key Vault를 사용 하 여 App Service 및 Azure Functions (미리 보기)에 대 한 참조](app-service-key-vault-references.md)합니다.|
+| 열 수준 암호화 (Azure Data Services)| N/A | |
 | API 호출 암호화| 예. | App Service를 구성 하려면 management 호출을 통해 발생할 [Azure Resource Manager](../azure-resource-manager/index.yml) HTTPS 통해 호출 합니다. |
 
 ## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 예. | App Service에 대 한 미리 보기에서 현재 사용할 수 있습니다. 참조 [Azure App Service 액세스 제한](app-service-ip-restrictions.md)합니다. |
-| vNET 삽입 지원| 예. | App Service Environment는 App Service 고객의 가상 네트워크에 삽입 하는 단일 고객 전용된의 개인 구현입니다. 참조 [App Service Environment 소개](environment/intro.md)합니다. |
+| 서비스 끝점 지원| 예. | App Service에 대 한 미리 보기에서 현재 사용할 수 있습니다. 참조 [Azure App Service 액세스 제한](app-service-ip-restrictions.md)합니다. |
+| VNet 삽입 지원| 예. | App Service Environment는 App Service 고객의 가상 네트워크에 삽입 하는 단일 고객 전용된의 개인 구현입니다. 참조 [App Service Environment 소개](environment/intro.md)합니다. |
 | 네트워크 격리 및 Firewalling 지원| 예. | App Service의 공용 다중 테 넌 트 변형에 대 한 고객 네트워크 Acl (IP 제한) 허용 되는 인바운드 트래픽을 잠글 수를 구성할 수 있습니다.  참조 [Azure App Service 액세스 제한](app-service-ip-restrictions.md)합니다.  App Service Environment 가상 네트워크에 직접 배포 되 고 따라서 Nsg를 사용 하 여 보호할 수 있습니다. |
-| 강제 터널링 지원 | 예. | 강제 터널링 구성 되어 있는 고객의 가상 네트워크에 app Service Environment은 배포할 수 있습니다. 고객의 지침에 따라 필요가 [강제 터널링으로 App Service Environment 구성](environment/forced-tunnel-support.md)합니다. |
+| 강제 터널링 지원| 예. | 강제 터널링 구성 되어 있는 고객의 가상 네트워크에 app Service Environment은 배포할 수 있습니다. 고객의 지침에 따라 필요가 [강제 터널링으로 App Service Environment 구성](environment/forced-tunnel-support.md)합니다. |
 
 ## <a name="detection"></a>감지
 
@@ -59,7 +59,7 @@ ms.locfileid: "65607260"
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 컨트롤/관리 계획 로깅 및 감사| 예. | App Service 개체에서 수행 된 모든 관리 작업을 통해 발생할 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다. 이러한 작업의 기록 로그는 포털 및 CLI;를 통해 사용할 수 있습니다. 참조 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftweb) 하 고 [az monitor 활동 로그](/cli/azure/monitor/activity-log)합니다. |
+| 제어 및 관리 평면 로깅 및 감사| 예. | App Service 개체에서 수행 된 모든 관리 작업을 통해 발생할 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다. 이러한 작업의 기록 로그는 포털 및 CLI;를 통해 사용할 수 있습니다. 참조 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md#microsoftweb) 하 고 [az monitor 활동 로그](/cli/azure/monitor/activity-log)합니다. |
 | 데이터 평면 로깅 및 감사 | 아닙니다. | App Service에 대 한 데이터 평면 고객 배포 웹 사이트 콘텐츠가 포함 된 원격 파일 공유 위치입니다.  원격 파일 공유의 감사 안 있습니다. |
 
 ## <a name="configuration-management"></a>구성 관리

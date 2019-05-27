@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698417"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015634"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙을 마이그레이션하려면
 
-로 [발표](monitoring-classic-retirement.md), Azure Monitor에서 클래식 경고 2019 년 7 월에에서 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고 마이그레이션 자체 트리거 하려는 고객에 게 Azure portal에서 사용할 수 있습니다. 이 문서에서는 자동 마이그레이션이 2019 년 7 월에서에서 시작 되기 전의 클래식 경고 규칙을 자발적으로 마이그레이션하려면 마이그레이션 도구를 사용 하는 방법에 설명 합니다.
+로 [발표](monitoring-classic-retirement.md), 2019 년 9 월에에서 Azure Monitor에서 클래식 경고 사용이 중지 되는 (7 월 2019 원래 되었습니다). 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고 마이그레이션 자체 트리거 하려는 고객에 게 Azure portal에서 사용할 수 있습니다. 이 문서에서는 자동 마이그레이션이 2019 년 9 월에서에서 시작 되기 전의 클래식 경고 규칙을 자발적으로 마이그레이션하려면 마이그레이션 도구를 사용 하는 방법에 설명 합니다.
+
+> [!NOTE]
+> 클래식 경고 마이그레이션에 대 한 사용 중지 날짜 마이그레이션 도구의 롤아웃을에서 지연으로 인해 되었습니다 [2019 년 8 월 31 일에 확장](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 년 6 월 30 일의 처음 발표 된 날짜에서.
 
 ## <a name="benefits-of-new-alerts"></a>새 경고의 이점
 
@@ -78,7 +81,7 @@ Azure portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>내 구독이 마이그레이션에 대 한 준비 되지 않음으로 나열는 이유는 무엇입니까?
 
-마이그레이션 도구는 단계에서 고객에 게 출시 됩니다. 초기 단계에서 대부분 또는 모든 구독으로 표시 될 수 **마이그레이션 준비가 되지 않은**합니다. 월 중순으로 단, 모든 구독 여야 마이그레이션할 준비를 합니다.
+마이그레이션 도구는 단계에서 고객에 게 출시 됩니다. 초기 단계에서 대부분 또는 모든 구독으로 표시 될 수 **마이그레이션 준비가 되지 않은**합니다. 
 
 구독 마이그레이션에 대 한 준비 되 면이 도구를 사용할 수 있는지와 같은 전자 메일 메시지가 구독 소유자가 받습니다. 이 메시지에 대 한 관심을 가지십시오.
 

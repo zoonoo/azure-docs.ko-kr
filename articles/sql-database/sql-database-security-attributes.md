@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204233"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001031"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Azure SQL Database에 대 한 보안 특성
 
@@ -27,41 +27,41 @@ Azure SQL Database는 둘 다 [단일 데이터베이스](sql-database-single-in
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
-| 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 라고 "암호화 사용", 문서에 설명 된 대로 [Always Encrypted](sql-database-always-encrypted.md)합니다. 서비스 쪽 암호화를 사용 하 여 [투명 한 데이터 암호화](transparent-data-encryption-azure-sql.md) (TDE).|
-| 전송 중 암호화:<ul><li>ExpressRoute 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | HTTPS를 사용합니다. |
-| 암호화 키 처리(CMK, BYOK 등)| 예 | 서비스 관리 및 고객 관리 키 처리에 제공 됩니다 (통해 후자 [Azure Key Vault](../key-vault/index.yml)합니다. |
-| 열 수준 암호화(Azure Data Services)| 예 | 통해 [상시 암호화](sql-database-always-encrypted.md)합니다. |
-| API 호출 암호화| 예 | HTTPS/SSL을 사용합니다. |
+| 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예. | 라고 "암호화 사용", 문서에 설명 된 대로 [Always Encrypted](sql-database-always-encrypted.md)합니다. 서비스 쪽 암호화를 사용 하 여 [투명 한 데이터 암호화](transparent-data-encryption-azure-sql.md) (TDE).|
+| 전송 중 암호화:<ul><li>ExpressRoute 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예. | HTTPS를 사용합니다. |
+| 암호화 키 처리 (예: CMK, BYOK)| 예. | 서비스 관리 및 고객 관리 키 처리에 제공 됩니다 (통해 후자 [Azure Key Vault](../key-vault/index.yml)합니다. |
+| 열 수준 암호화 (Azure Data Services)| 예. | 통해 [상시 암호화](sql-database-always-encrypted.md)합니다. |
+| API 호출 암호화| 예. | HTTPS/SSL을 사용합니다. |
 
 ## <a name="network-segmentation"></a>네트워크 구분
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 예 | 적용 대상 [단일 데이터베이스](sql-database-single-index.yml) 만 합니다. |
-| vNET 삽입 지원| 예 | 적용 대상 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 합니다. |
-| 네트워크 격리/방화벽 지원| 예 | 방화벽에서 두 데이터베이스 및 서버 수준의; 네트워크에 대 한 격리 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 |
-| 강제 터널링 지원 | 예 | [관리 되는 인스턴스](sql-database-managed-instance.md) 를 통해 [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| 서비스 끝점 지원| 예. | 적용 대상 [단일 데이터베이스](sql-database-single-index.yml) 만 합니다. |
+| VNet 삽입 지원| 예. | 적용 대상 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 합니다. |
+| 네트워크 격리 및 방화벽 지원| 예. | 방화벽에서 두 데이터베이스 및 서버 수준의; 네트워크에 대 한 격리 [관리 되는 인스턴스](sql-database-managed-instance.md) 만 |
+| 강제 터널링 지원| 예. | [관리 되는 인스턴스](sql-database-managed-instance.md) 를 통해 [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## <a name="detection"></a>감지
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | Imperva (SecureSphere)에서 타사 SIEM 솔루션도 지원 되며 통해 [Azure Event Hubs](../event-hubs/index.yml) 통합을 통해 [SQL audit](sql-database-auditing.md)합니다. |
+| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예. | Imperva (SecureSphere)에서 타사 SIEM 솔루션도 지원 되며 통해 [Azure Event Hubs](../event-hubs/index.yml) 통합을 통해 [SQL audit](sql-database-auditing.md)합니다. |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 액세스 관리 - 인증| 예 | Azure Active Directory. |
-| 액세스 관리 - 권한 부여| 예 |  |
+| Authentication| 예. | Azure Active Directory. |
+| 권한 부여| 예. |  |
 
 
 ## <a name="audit-trail"></a>감사 내역
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 컨트롤/관리 계획 로깅 및 감사| 예 | 일부 이벤트에만 예입니다. |
-| 데이터 평면 로깅 및 감사 | 예 | 통해 [SQL audit](sql-database-auditing.md)합니다. |
+| 제어 및 관리 평면 로깅 및 감사| 예. | 일부 이벤트에만 예입니다. |
+| 데이터 평면 로깅 및 감사 | 예. | 통해 [SQL audit](sql-database-auditing.md)합니다. |
 
 ## <a name="configuration-management"></a>구성 관리
 
@@ -73,6 +73,6 @@ Azure SQL Database는 둘 다 [단일 데이터베이스](sql-database-single-in
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 취약성 평가 위한 예방 합니다. | 예 | 참조 [서비스를 사용 하면 데이터베이스 취약성을 식별 하는 SQL Vulnerability Assessment](sql-vulnerability-assessment.md)합니다. |
-| 예방: 데이터 검색 및 분류  | 예 | 참조 [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)합니다. |
-| 감지: 위협 감지 | 예 | 참조 [Advanced Threat Protection Azure SQL Database에 대 한](sql-database-threat-detection-overview.md)합니다. |
+| 취약성 평가 위한 예방 합니다. | 예. | 참조 [서비스를 사용 하면 데이터베이스 취약성을 식별 하는 SQL Vulnerability Assessment](sql-vulnerability-assessment.md)합니다. |
+| 예방: 데이터 검색 및 분류  | 예. | 참조 [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)합니다. |
+| 감지: 위협 감지 | 예. | 참조 [Advanced Threat Protection Azure SQL Database에 대 한](sql-database-threat-detection-overview.md)합니다. |

@@ -12,7 +12,7 @@ services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60595555"
@@ -382,7 +382,7 @@ Azure Blob Storage 설명서에는 여러 언어로 샘플 코드를 제공하�
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
-### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
+### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 또한 로컬 저장소 계정에 연결 하려면 "Azure Storage 탐색기"를 시도할 수 있습니다. 협력 [Azure Storage 탐색기 버전 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0)합니다.
 
 > [!NOTE]

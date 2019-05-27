@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501969"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002486"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -49,7 +49,7 @@ VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 
 
 ### <a name="permissions-needed-to-deploy"></a>배포 하는 데 필요한 사용 권한
 
-특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기.
+특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기. 구독에서 참가자 및 전역 관리자가 Azure Active Directory 테 넌 트에 있는 경우 다음 사용 권한을 구성할 필요가 없습니다. 해당 권한이 하지 않거나 사용자 지정 역할을 구성 해야 하는 경우 아래쪽에 필요한 사용 권한을 참조 하십시오.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>기존 Automation 계정 및 Log Analytics 계정
 
@@ -79,41 +79,21 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
 
 배포 시간 동안 Vm 시작/중지 솔루션 새 Automation 계정 및 Log Analytics 작업 영역에 솔루션을 배포 하는 사용자 다음 사용 권한 뿐만 아니라 이전 섹션에 정의 된 권한이 있어야 합니다.
 
-- 공동 관리자 구독-해야 하는 클래식 실행 계정 만들기
-- 일부 여야 합니다 **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+- 공동 관리자가 구독에만 해야 하는 클래식 실행 계정 만들기
+- 일부 여야 합니다 [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+- 구독에 다음 사용 권한을 기여자입니다.
 
 | 사용 권한 |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | 구독|
+| Microsoft.Authorization/permissions/read |구독|
 | Microsoft.Authorization/roleAssignments/read | 구독 |
 | Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Authorization/roleAssignments/delete | 구독 |
 | Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
 | Microsoft.OperationalInsights/workspaces/write | 리소스 그룹 |
-
-### <a name="region-mappings"></a>지역 매핑
-
-작업 시간 외 Vm 시작/중지를 사용 하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결에 대 한 특정 지역 에서만 지원 됩니다.
-
-다음 표에 지원되는 매핑이 나와 있습니다.
-
-|**Log Analytics 작업 영역 지역**|**Azure Automation 지역**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP 및 EastUS 매핑을 Automation 계정과 Log Analytics 작업 영역에 대 한 정확한 지역 매핑이 되지 않지만 올바른 매핑이 있습니다.
-
-<sup>2</sup> 용량 제한으로 인해 지역을 사용할 수 없는 새 리소스를 만들 때. Automation 계정 및 Log Analytics 작업 영역을 포함 합니다. 그러나 지역에서 기존 연결 된 리소스는 계속 작동 합니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -140,6 +120,11 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
    - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서부 2**입니다.
    - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그 업데이트 했습니다 [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/) GB 당 계층은 유일한 옵션입니다.
+
+   > [!NOTE]
+   > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
+   >
+   > 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
 
 5. **Log Analytics 작업 영역** 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 **솔루션 추가** 페이지로 돌아갑니다.
 6. **솔루션 추가** 페이지에서 **Automation 계정**을 선택합니다. 새 Log Analytics 작업 영역을 만드는 경우 연결될 새 Automation 계정을 만들거나 아직 Log Analytics 작업 영역에 연결되지 않은 기존 Automation 계정을 선택할 수 있습니다. 기존 Automation 계정을 선택하거나 **Automation 계정 만들기**를 클릭하고, **Automation 계정 추가** 페이지에서 다음 정보를 제공합니다.
@@ -322,7 +307,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |CorrelationId | Runbook 작업의 상관 관계 ID인 GUID입니다.|
 |JobID | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
-|resourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
+|ResourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
 |ResourceProvider | 배포하고 관리할 수 있는 리소스를 제공하는 Azure 서비스를 지정합니다. Automation에 대한 값은 Azure Automation입니다.|
 |ResourceType | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
@@ -343,7 +328,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |JobID | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
-|resourceId | Azure의 리소스 ID를 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
+|ResourceId | Azure의 리소스 ID를 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
 |ResourceProvider | 배포하고 관리할 수 있는 리소스를 제공하는 Azure 서비스를 지정합니다. Automation에 대한 값은 Azure Automation입니다.|
 |ResourceType | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
 |resultType | 이벤트가 생성될 당시 Runbook 작업의 결과입니다. 가능한 값은 다음과 같습니다.<br>- InProgress입니다.|
@@ -433,7 +418,9 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 
 솔루션을 삭제하려면 다음 단계를 수행합니다.
 
-1. Automation 계정의 왼쪽 페이지에서 **작업 영역**을 선택합니다.
+1. Automation 계정에서 아래의 **관련 된 리소스**를 선택 **연결 된 작업 영역**합니다.
+1. 선택 **작업 영역으로 이동**합니다.
+1. 아래 **일반적인**를 선택 **솔루션**합니다. 
 1. **솔루션** 페이지에서 솔루션 **Start-Stop-VM[Workspace]** 를 선택합니다. **VMManagementSolution[Workspace]** 페이지의 메뉴에서 **삭제**를 클릭합니다.<br><br> ![VM Mgmt 솔루션 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. **솔루션 삭제** 창에서 솔루션을 삭제할 것임을 확인합니다.
 1. 정보가 확인되고 솔루션이 삭제되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 솔루션 제거 프로세스가 시작되면 **솔루션** 페이지로 돌아갑니다.

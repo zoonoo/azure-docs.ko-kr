@@ -3,21 +3,21 @@ title: Databricks Python을 사용하여 데이터 변환 - Azure | Microsoft Do
 description: Databricks Python을 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
+ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589219"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002839"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 
@@ -66,9 +66,9 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 |---|---|---|
 |이름|파이프라인의 작업 이름입니다.|예|
 |description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
-|형식|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
-|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
-|pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
+|형식|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예.|
+|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예.|
+|pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예.|
 |매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아닙니다.|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아닙니다.|
 
