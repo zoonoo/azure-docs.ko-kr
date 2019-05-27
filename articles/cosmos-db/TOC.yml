@@ -71,7 +71,7 @@
     - name: Python 샘플
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples.md
+      href: powershell-samples-sql.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure 리소스 관리자
@@ -277,6 +277,8 @@
                   href: cassandra-spark-table-copy-ops.md
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-cassandra-with-resource-manager.md
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-cassandra.md
     - name: MongoDB API
       items:
         - name: 소개
@@ -356,6 +358,8 @@
               displayName: custom commands
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-mongodb-with-resource-manager.md
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-mongodb.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
@@ -394,6 +398,8 @@
               maintainContext: true
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-gremlin-with-resource-manager.md
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-gremlin.md
     - name: 테이블 API
       items:
         - name: 소개
@@ -446,6 +452,8 @@
               href: table-storage-design-guide.md
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-table-with-resource-manager.md
+            - name: Powershell을 사용하여 관리
+              href: powershell-samples-table.md
         - name: 참고 자료
           items:
             - name: .NET
@@ -508,7 +516,7 @@
         - name: TTL(Time to Live) 구성
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
-        - name: Azure Storage Explorer를 사용하여 데이터 작업
+        - name: Azure Storage Explorer 를 사용하여 데이터 작업
           href: storage-explorer.md
         - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
           href: data-explorer.md

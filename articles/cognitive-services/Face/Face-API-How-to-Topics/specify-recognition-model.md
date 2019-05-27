@@ -60,7 +60,7 @@ var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true
 
 Face API는 이미지에서 얼굴 데이터를 추출 하 고 사용 하 여를 연결할 수는 **Person** 개체 (통해를 [얼굴을 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 예를 들어 API 호출), 및 다중 **Person** 개체 일 수 있습니다 에 함께 저장 된 **PersonGroup**합니다. 그런 다음 새 얼굴을 비교할 수는 **PersonGroup** (사용 하 여는 [직면-식별] 호출), 해당 그룹 내에서 일치 하는 사람을 식별할 수 있습니다.
 
-**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - 만들기] 나 [LargePersonGroup - 만들기]). 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
+**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - 만들기] 나 [LargePersonGroup - Create]). 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -78,7 +78,7 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 
 ## <a name="find-similar-faces-with-specified-model"></a>지정된 모델을 사용하여 유사한 얼굴 찾기
 
-또한 유사성 검색에 대 한 인식 모델을 지정할 수 있습니다. 모델 버전을 지정할 수 있습니다 `recognitionModel` 얼굴 목록을 만들면 [FaceList-만들기] API 또는 [LargeFaceList-만들기]합니다. 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 얼굴 목록을 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 만든 후 변경할 수 없습니다. 얼굴 목록을 사용 하 여 구성 된 어떤 모델을 보려면 사용 하 여는 [FaceList - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 설정 된 매개 변수 **true**합니다.
+또한 유사성 검색에 대 한 인식 모델을 지정할 수 있습니다. 모델 버전을 지정할 수 있습니다 `recognitionModel` 얼굴 목록을 만들면 [FaceList - Create] API 또는 [LargeFaceList-Create]합니다. 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 얼굴 목록을 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 만든 후 변경할 수 없습니다. 얼굴 목록을 사용 하 여 구성 된 어떤 모델을 보려면 사용 하 여는 [FaceList - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 설정 된 매개 변수 **true**합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -118,7 +118,7 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 [PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - 학습]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
-[LargePersonGroup - 만들기]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
-[FaceList-만들기]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
+[LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
+[FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
 [FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
-[LargeFaceList-만들기]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
+[LargeFaceList-Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc

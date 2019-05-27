@@ -137,7 +137,7 @@ TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에
 
 3. `shared_preload_libraries` 매개 변수를 검색합니다.
 
-4. 복사 하 고 다음 값으로 붙여 넣습니다. `shared_preload_libraries`
+4. `shared_preload_libraries`의 값으로 다음을 복사하여 붙여넣습니다.
    ```
    timescaledb
    ```

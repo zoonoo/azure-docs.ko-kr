@@ -51,7 +51,7 @@
           href: sql-database-connect-query-vscode.md
         - name: Visual Studio를 사용하여 .NET
           href: sql-database-connect-query-dotnet-visual-studio.md
-        - name: .NET core
+        - name: .NET Core
           href: sql-database-connect-query-dotnet-core.md
         - name: Active Directory MFA를 사용하는 .NET
           href: active-directory-interactive-connect-azure-sql-db.md
@@ -754,17 +754,3 @@
       href: /azure/architecture/
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: 탄력적 작업(사용되지 않음)
-      items:
-        - name: 탄력적 작업(사용되지 않음)
-          href: sql-database-elastic-jobs-overview.md
-        - name: 탄력적 작업 설치(사용되지 않음)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 작업 만들기 - 포털(사용되지 않음)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 작업 만들기 - Azure PowerShell(사용되지 않음)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 작업 만들기 - 샘플 앱(사용되지 않음)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: 탄력적 작업 제거(사용되지 않음)
-          href: sql-database-elastic-jobs-uninstall.md
