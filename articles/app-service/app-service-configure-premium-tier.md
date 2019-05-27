@@ -17,11 +17,11 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139730"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
@@ -86,7 +86,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-앱이 **PremiumV2**를 사용할 수 없는 App Service 배포에서 실행되거나 앱이 현재 **PremiumV2**를 지원하지 않는 지역에서 실행되는 경우 **PremiumV2**를 이용하려면 앱을 다시 배포해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
+앱이 **PremiumV2**를 사용할 수 없는 App Service 배포에서 실행되거나 앱이 현재 **PremiumV2**를 지원하지 않는 지역에서 실행되는 경우 **PremiumV2**를 이용하려면 앱을 다시 배포해야 합니다.  두 가지가 있습니다.
 
 - **새** 리소스 그룹을 만든 다음, **새** 리소스 그룹에서 **새** 앱 및 App Service 계획을 만들어 생성 프로세스 동안 원하는 Azure 지역을 선택합니다.  새 App Service 계획을 만들 때 **PremiumV2** 계획을 선택**해야 합니다**.  이렇게 하면 리소스 그룹, App Service 계획 및 Azure 지역의 조합이 결국 **PremiumV2**를 지원하는 App Service 배포에서 생성되는 App Service 계획이 되어야 합니다.  그런 다음, 새로 만든 앱 및 App Service 계획에 애플리케이션 코드를 다시 배포합니다. 필요한 경우 이후 **PremiumV2**에서 App Service 계획을 축소하여 비용을 절약할 수 있으며 **PremiumV2**를 사용하여 나중에 다시 성공적으로 확장할 수도 있습니다.
 - 앱이 이미 기존 **프리미엄** 계층에서 실행되는 경우에는 모든 앱 설정, 연결 문자열 및 배포 구성과 함께 앱을 **PremiumV2**를 사용하는 App Service 계획에 복제할 수 있습니다.

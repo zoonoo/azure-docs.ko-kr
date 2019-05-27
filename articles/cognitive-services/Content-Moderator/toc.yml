@@ -139,3 +139,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

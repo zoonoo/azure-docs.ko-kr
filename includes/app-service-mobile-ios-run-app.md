@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115610"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140657"
 ---
 1. Mac에서 [Azure Portal]을 방문합니다. **모든 서비스** > **App Services** > 방금 만든 백 엔드를 클릭합니다. 모바일 앱 설정에서 기본 언어를 선택합니다.
 

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132904"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140899"
 ---
 1. [Azure Portal]을 방문합니다.
 2. **App Services** > 생성한 백 엔드를 차례로 클릭합니다.
 3. 모바일 앱 설정에서 **빠른 시작** > **Cordova**를 클릭합니다.
 ![Mobile Apps가 있는 Azure Portal - 강조 표시된 빠른 시작][quickstart]
-4. **클라이언트 응용 프로그램 구성**에서 **새 앱 만들기**를 선택한 다음 **다운로드**를 클릭합니다.
+4. **클라이언트 애플리케이션 구성**에서 **새 앱 만들기**를 선택한 다음 **다운로드**를 클릭합니다.
 2. 하드 드라이브의 디렉터리에 다운로드한 ZIP 파일 압축을 풀고, 솔루션 파일(.sln)로 이동하여 Visual Studio를 사용하여 엽니다.
 3. Visual Studio에서 시작 화살표 옆에 있는 드롭다운 목록에서 솔루션 플랫폼(Android, iOS 또는 Windows)을 선택합니다. 녹색 화살표의 드롭다운을 클릭하여 특정 배포 디바이스 또는 에뮬레이터를 선택합니다. 기본 Android 플랫폼 및 Ripple 에뮬레이터를 사용할 수 있습니다. 더 많은 고급 자습서(예: 푸시 알림)를 보려면 지원되는 디바이스 또는 에뮬레이터를 선택해야 합니다.
 4. Cordova 앱을 빌드하고 실행하려면 F5 키를 누르거나 녹색 화살표를 클릭합니다. 네트워크에 대한 액세스를 요청하는 에뮬레이터에서 보안 대화 상자가 표시되는 경우, 이를 수락합니다.

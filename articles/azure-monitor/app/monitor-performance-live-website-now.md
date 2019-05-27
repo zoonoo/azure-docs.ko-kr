@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576665"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130997"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
@@ -44,14 +44,14 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |예 |예 |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
+| 요청 및 예외 |예. |예. |
+| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예. |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아닙니다. |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아닙니다. |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아닙니다. |
-| 코드를 다시 빌드해야 함 |예 | 아닙니다. |
+| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예. |예. |
+| [사용자 지정 원격 분석에 대 한 API][api] |예. |아닙니다. |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예. |아닙니다. |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예. |아닙니다. |
+| 코드를 다시 빌드해야 함 |예. | 아닙니다. |
 
 
 
@@ -149,7 +149,9 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 * 자세한 정보 표시 로그를 출력하려면 구성 파일 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config`를 수정하고 `<add key="TraceLevel" value="All" />`을 `appsettings`에 추가합니다.
 그런 후 상태 모니터를 다시 시작합니다.
 
-### <a name="insufficient-permissions"></a>권한 부족
+* 상태 모니터는.NET 응용 프로그램을 사용할 수도 있습니다 [적절 한 진단 구성 파일에 추가 하 여.net 추적](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)합니다. 예를 들어, 일부 시나리오에서 유용 하 여 네트워크 수준에서 발생 한 것을 [네트워크 추적 구성](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
+### <a name="insufficient-permissions"></a>사용 권한 부족
   
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
@@ -184,7 +186,7 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-최신 SP 및 .NET Framework 4.5 포함
+최신 SP 및.NET Framework 4.5를 사용 하 여 (상태 모니터는이 버전의 framework에서 작성 됨)
 
 클라이언트 쪽: Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
 
@@ -276,7 +278,9 @@ IIS 웹 서버에 설치한 데스크톱 애플리케이션입니다. 웹앱을 
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>상태 모니터에서 어떤 버전의 Application Insights SDK를 설치하나요?
 
-현재 상태 모니터는 Application Insights SDK 버전 2.3 또는 2.4만 설치할 수 있습니다.
+현재 상태 모니터는 Application Insights SDK 버전 2.3 또는 2.4만 설치할 수 있습니다. 
+
+Application Insights SDK 버전 2.4는 합니다 [마지막 버전을.NET 4.0 지원](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) 되었습니다 [EOL 2016 년 1 월](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)합니다. 따라서 현재.NET 4.0 응용 프로그램을 계측 하 상태 모니터를 사용 수 있습니다. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>앱을 업데이트할 때마다 상태 모니터를 실행해야 하나요?
 
