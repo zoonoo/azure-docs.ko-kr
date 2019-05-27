@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311952"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967228"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업 계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -185,7 +185,7 @@ Azure 서비스 사용, 제 3 자 Marketplace 사용량 및 다음과 같은 Api
 | 부서 ID | InvoiceSectionId | 정확한 값이 다릅니다. |
 | DepartmentName | InvoiceSectionName | 정확한 문자열 값이 달라질 수 있습니다. 필요한 경우 학부에 맞게 송장 섹션을 구성 합니다. |
 | ExtendedCost 및 비용 | costInBillingCurrency | &nbsp;  |
-| InstanceId | resourceId | &nbsp;  |
+| InstanceId | ResourceId | &nbsp;  |
 | 반복 청구 여부 | 없음 | &nbsp;  |
 | Location | location | &nbsp;  |
 | 미터 범주 | 요금제 범주 | 정확한 문자열 값이 달라질 수 있습니다. |

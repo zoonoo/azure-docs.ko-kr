@@ -4,23 +4,23 @@ description: 이 문서는 Azure Cosmos DB의 데이터베이스 트랜잭션 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889358"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978983"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
 
 데이터베이스 트랜잭션은 데이터에 대한 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. SQL Server와 같은 기존 관계형 데이터베이스, 데이터베이스 엔진 내에서 직접 실행에 대 한 서버에 보낼 저장 프로시저 및/또는 트리거를 사용 하 여 비즈니스 논리를 작성할 수 있습니다. (비트랜잭션) 응용 프로그램 프로그래밍 언어 Python, JavaScript 등 두 가지 다른 프로그래밍 언어를 사용 하 여 처리 하는 데 필요한는 전통적인 관계형 데이터베이스를 사용 하 여 C#를 등 Java 및 트랜잭션 프로그래밍 언어 ( T-SQL)와 같은 데이터베이스를 고유 하 게 실행 되는 합니다.
 
-Azure Cosmos DB의 데이터베이스 엔진은 스냅숏 격리를 사용한 전체 ACID(원자성, 일관성, 격리, 내구성) 준수 트랜잭션을 지원합니다. 데이터베이스의 모든 작업 범위 내에서 컨테이너의 [논리 파티션을](partition-data.md) 파티션의 복제본을 호스팅하는 데이터베이스 엔진 내에서 트랜잭션으로 실행 됩니다. 이러한 작업은 쓰기(논리 파티션 내에서 하나 이상의 항목을 업데이트) 및 읽기 작업을 모두 포함합니다. 다음 표에서는 다양한 작업 및 트랜잭션 형식을 설명합니다.
+Azure Cosmos DB의 데이터베이스 엔진은 스냅숏 격리를 사용한 전체 ACID(원자성, 일관성, 격리, 내구성) 준수 트랜잭션을 지원합니다. 데이터베이스의 모든 작업 범위 내에서 컨테이너의 [논리 파티션을](partition-data.md) 파티션의 복제본을 호스팅하는 데이터베이스 엔진 내에서 트랜잭션으로 실행 됩니다. 이러한 작업은 쓰기(논리 파티션 내에서 하나 이상의 항목을 업데이트) 및 읽기 작업을 모두 포함합니다. 다음 표에서 다양 한 작업 및 트랜잭션 유형:
 
-| **작업**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
+| **연산**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
 |---------|---------|---------|
 | 삽입(사전/사후 트리거 없음) | 쓰기 | 단일 항목 트랜잭션 |
 | 삽입(사전/사후 트리거 있음) | 쓰기 및 읽기 | 다중 항목 트랜잭션 |

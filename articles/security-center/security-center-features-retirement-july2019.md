@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796461"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952143"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Security Center의 사용 중지 기능 (2019 년 7 월)
 
@@ -162,7 +162,7 @@ Security Center를 사용 하도록 설정할 수 [Azure의 보안 솔루션 통
 
 Azure Security Center의 집합을 적용 하 여 보안 구성을 모니터링 [150 개 이상의 권장 규칙](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)합니다. OS를 강화 합니다. 이러한 규칙 방화벽, 감사, 암호 정책 및 더 관련이 있습니다. 컴퓨터에 취약한 구성이 있는 것으로 확인되면 Security Center에서 보안 권장 사항이 생성됩니다. 합니다 [보안 구성 편집 화면](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) 고객은 Security Center에서 기본 OS 보안 구성을 사용자 지정할 수 있습니다.
 
-이 미리 보기 기능 사용을 중지 하는 것입니다.
+이 미리 보기 기능 사용을 중지 하는 것입니다. 사용 중지 날짜 이후에 원하는 보안 구성을 기본값으로 다시 설정 하려면 경우 해도 사용 하 여 API 또는 Powershell을 통해는 [지침](https://aka.ms/ascresetsecurityconfigurations)
 
 ![보안 구성 편집][17]
 

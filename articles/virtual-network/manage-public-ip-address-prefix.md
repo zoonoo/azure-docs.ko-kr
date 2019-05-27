@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601498"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952690"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -49,13 +49,13 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
    |---|---|---|
    |구독|예.|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
    |리소스 그룹|예.|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
-   |이름|예.|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
-   |지역|예.|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다. 접두사는 현재 미국 중서부, 미국 서부, 미국 서부 2, 미국 중부, 북유럽, 유럽 서부 및 동남 아시아에서 미리 보기로 사용할 수 있습니다.|
+   |Name|예.|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |지역|예.|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다.|
    |접두사 크기|예.| 필요한 접두사의 크기입니다. /28 또는 16개의 IP 주소가 기본값입니다.
 
 **도구**
 
-|Tool|명령|
+|도구|명령|
 |---|---|
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
@@ -74,6 +74,13 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
    |유휴 제한 시간(분)|아닙니다.|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
    |DNS 이름 레이블|아닙니다.|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 
+또는 CLI를 사용할 수 있습니다--공용 ip 접두사 (CLI)를 사용 하 여 다음 PS 명령 및-PublicIpPrefix (PS) 매개 변수를 공용 IP를 만들려는 리소스의 주소입니다. 
+
+|도구|명령|
+|---|---|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+
 ## <a name="view-or-delete-a-prefix"></a>접두사 보기 또는 삭제
 
 1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
@@ -84,7 +91,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 **도구**
 
-|Tool|명령|
+|도구|명령|
 |---|---|
 |CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list): 공용 IP 주소를 나열함, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show): 설정을 표시함, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update): 업데이트함, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete): 삭제함|
 |PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) 공용 IP 주소 개체를 검색 하 고 해당 설정을 봅니다 [집합 AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) 설정을 업데이트 하려면 [제거 AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) 삭제 하려면|

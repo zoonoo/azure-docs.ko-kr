@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770153"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957262"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure Maps API 사용량 보기
 
@@ -59,6 +59,11 @@ Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 �
 ## <a name="next-steps"></a>다음 단계
 
 사용량을 추적할 대상이 되는 Azure Maps API에 대해 자세히 알아봅니다.
+> [!div class="nextstepaction"] 
+> [Azure Maps 웹 SDK 사용 방법](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"] 
+> [Azure Maps Android SDK 사용 방법](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API 설명서](https://docs.microsoft.com/rest/api/maps)에서 사용 중인 API에 대해 자세히 참조하세요.

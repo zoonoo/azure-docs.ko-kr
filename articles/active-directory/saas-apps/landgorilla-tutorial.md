@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260998"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>자습서: Land Gorilla Client와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Land Gorilla Client를 Azure AD와 통합하면 다음과 같은 이점이 제�
 - 사용의 Azure AD 계정으로 Land Gorilla Client에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -87,7 +87,7 @@ Land Gorilla Client가 Azure AD에 통합되도록 구성하려면 갤러리에�
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 구성 하 고이 "2. 이라는 테스트 사용자를 기반으로 Land Gorilla Client를 사용 하 여 Azure AD에서 single sign-on 테스트 Simon "로 설정 합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Land Gorilla Client 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Land Gorilla Client 관련 사용자 간에 연결 관계가 형성되어야 합니다.
 
@@ -97,8 +97,8 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - 제한된 그룹으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[Land Gorilla 테스트 사용자 만들기](#creating-a-land-gorilla-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Land Gorilla 테스트 사용자 만들기](#creating-a-land-gorilla-test-user)**  -Azure AD에서 single sign-on B. Simon을 사용 하 여 테스트 합니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)**  -2. simon이 Azure AD에서 single sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -150,7 +150,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 관리 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션의 목적은 B. Simon 이라는 Azure 관리 포털에서 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][100]
 
@@ -172,9 +172,9 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
  
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
+    a. 에 **이름을** 텍스트 상자에 입력 **B. Simon**합니다.
 
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. 에 **사용자 이름** 텍스트 상자에 입력 합니다 **전자 메일 주소** B. Simon의 합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -186,11 +186,11 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Land Gorilla Client에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 B. Simon을 Land Gorilla Client에 대 한 액세스를 부여 하 여 Azure에서 single sign-on을 사용할 수 있도록 합니다.
 
 ![사용자 할당][200] 
 
-**Britta Simon을 Land Gorilla Client에 할당하려면 다음 단계를 수행합니다.**
+**2. Simon을 Land Gorilla Client에 할당 하려면 다음 단계를 수행 합니다.**
 
 1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
@@ -208,7 +208,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![사용자 할당][203]
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자에서 **B. Simon** 사용자 목록에서입니다.
 
 1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 

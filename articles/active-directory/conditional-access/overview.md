@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799388"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997232"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
 
@@ -64,7 +64,7 @@ ms.locfileid: "59799388"
 
 - **[사용자](conditions.md#users-and-groups)**: 액세스를 시도하는 사용자(**Who**)입니다.
 
-- **[클라우드 앱](conditions.md#cloud-apps)**: 액세스 시도 대상(**What**)입니다.
+- **[클라우드 앱](conditions.md#cloud-apps-and-actions)**: 액세스 시도 대상(**What**)입니다.
 
 이러한 두 조건은 조건부 액세스 정책에서 필수입니다. 두 가지 필수 조건 외에도 액세스 시도 방법을 설명하는 추가 조건을 포함할 수 있습니다. 일반적인 예는 회사 네트워크 외부에 있는 모바일 디바이스 또는 위치를 사용하는 경우입니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 조건](conditions.md)을 참조하세요.
 
@@ -86,9 +86,9 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 사용자가 페더레이션된 인증 서비스에 로그인한 후 Azure AD는 장치 준수, 승인된 애플리케이션 같은 다른 정책 요구 사항을 처리합니다.
 
-## <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

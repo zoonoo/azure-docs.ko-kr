@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146194"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961431"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ ZRS를 일반적으로 사용할 수 있는 지역은 다음과 같습니다.
 - 프랑스 중부
 - 일본 동부
 - 영국 남부
+- 미국 중부
 - 미국 동부
 - 미국 동부 2
 - 미국 서부 2
-- 미국 중부
 
 Microsoft는 추가 Azure 지역에서 ZRS를 사용할 수 있도록 계속 지원하고 있습니다. 새 지역에 대한 정보는 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지에서 정기적으로 확인하세요.
 
@@ -75,6 +75,7 @@ ZRS 간에 데이터를 마이그레이션하려면 다른 전략이 필요합�
 - 동일한 지역 내에서만 데이터를 마이그레이션할 수 있습니다. 데이터를 원본 계정과 다른 지역에 있는 ZRS 계정으로 마이그레이션하려면 수동 마이그레이션을 수행해야 합니다.
 - 표준 스토리지 계정 유형만 실시간 마이그레이션을 지원합니다. 프리미엄 스토리지 계정은 수동으로 마이그레이션해야 합니다.
 - LRS, GRS 또는 RA-GRS에서 ZRS 실시간 마이그레이션을 지원 되지 않습니다. 새 또는 기존 저장소 계정에 데이터를 수동으로 이동 해야 합니다.
+- 관리 되는 디스크는 lrs만 사용할 및 ZRS로 마이그레이션할 수 없습니다. 참조를 설정 하는 가용성과 통합에 대 한 [관리 디스크를 Azure 소개](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)합니다. 에 저장할 수 있습니다 스냅숏 및 이미지 SSD 표준 Managed Disks에 대 한 표준 HDD 저장소 및 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)합니다. 
 
 실시간 마이그레이션은 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 통해 요청할 수 있습니다. 포털에서 ZRS로 변환하려는 스토리지 계정을 선택합니다.
 1. **새 지원 요청** 선택
@@ -96,7 +97,7 @@ ZRS 간에 데이터를 마이그레이션하려면 다른 전략이 필요합�
 
 **해야 계획 가동 중지 시간 마이그레이션 중?**
 
-마이그레이션으로 인 한 가동 중지 시간 없이 있습니다. 실시간 마이그레이션 중 데이터 원본 및 대상 저장소 스탬프 간에 마이그레이션하는 동안 저장소 계정 작업을 계속할 수 있습니다. 마이그레이션 과정에서 동일한 수준의 내구성 및 가용성 SLA와 일반적으로 수행 해야 합니다.
+마이그레이션으로 인 한 가동 중지 시간 없이 있습니다. 실시간 마이그레이션 중 데이터 원본 및 대상 저장소 스탬프 간에 마이그레이션하는 동안 저장소 계정을 사용 하 여 계속할 수 있습니다. 마이그레이션 과정에서 동일한 수준의 내구성 및 가용성 SLA와 일반적으로 수행 해야 합니다.
 
 **마이그레이션과 관련 된 데이터 손실을 있나요?**
 

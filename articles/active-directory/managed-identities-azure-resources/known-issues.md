@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448488"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950465"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -82,6 +82,11 @@ Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](h
 
 아니요. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. 
 
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>리소스에 대해 관리 되는 id 하는 데 필요한 Azure RBAC 권한은 무엇입니까? 
+
+- 관리 되는 id 시스템 할당 합니다. 리소스를 통해 쓰기 권한이 필요 합니다. 예를 들면 다음과 같습니다. 특정 기본 제공 역할 리소스에서 Microsoft.Compute/virtualMachines/write 또는이 작업을 포함 [Virtual Machine 참여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)합니다.
+- 사용자 할당 관리 되는 id: 리소스를 통해 쓰기 권한이 필요 합니다. 예를 들면 다음과 같습니다. Microsoft.Compute/virtualMachines/write 합니다. 외에 [관리 Id 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당을 통해 관리 되는 id입니다. 
+
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure 리소스에 대한 관리 ID 확장을 다시 시작하려면 어떻게 하나요?
 Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdlet 사용하여 수동으로 다시 시작할 수 있습니다.
 
@@ -89,7 +94,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-위치: 
+각 항목이 나타내는 의미는 다음과 같습니다. 
 - Windows의 확장 이름 및 형식은 다음과 같습니다. ManagedIdentityExtensionForWindows
 - Linux의 확장 이름 및 형식은 다음과 같습니다. ManagedIdentityExtensionForLinux
 

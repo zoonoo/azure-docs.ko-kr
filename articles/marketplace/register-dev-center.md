@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937594"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965101"
 ---
 # <a name="register-in-dev-center"></a>Dev Center에 등록  
 개인 브라우저 계정에 로그인되지 않았는지 확인하려면 새 Internet Explorer InPrivate 또는 Chrome Incognito 브라우징 세션을 엽니다.  
@@ -156,7 +156,7 @@ Dev Center 등록 관련 문제가 있는 경우 다음 단계를 수행하여 �
   > 우편 번호도 올바르게 입력되어 있는지 확인합니다. 도시, 우편 번호 유효성 검사가 있습니다.
 
 * **프로모션 코드를 어떻게 얻을 수 있나요?**
-  > [Marketplace 등록](https://azuremarketplace.microsoft.com/en-us/sell/signup) 양식을 완료하여 개발자 센터 프로모션 코드를 받습니다.
+  > [Marketplace 등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) 양식을 완료하여 개발자 센터 프로모션 코드를 받습니다. 참조 하는 방법 [파트너 센터 계정을 만들](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
  
 * **등록을 완료한 후에는 어떻게 되나요?**
   > verify@microsoft.com에서 제목 줄이 “필요한 작업: Microsoft를 사용하여 이메일 계정 확인”인 이메일을 찾습니다. 등록을 완료하려면 시간이 중요한 확인 링크를 클릭합니다. *24시간 내에 이메일을 받지 못한 경우 스팸 폴더를 확인하세요.*

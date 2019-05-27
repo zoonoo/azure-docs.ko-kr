@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796155"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954121"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -869,7 +869,7 @@ SQL API의 주요 기능은 배열 및 개체 만들기입니다. 이전 예제�
     ]
 ```
 
-다음 SQL 쿼리는 배열 내에서 하위 쿼리에 사용 하는 또 다른 예입니다. 이 쿼리 가져옵니다 고유 이름을 모두는 배열의 크기의 자식 요소입니다.
+다음 SQL 쿼리는 배열 내에서 하위 쿼리에 사용 하는 또 다른 예입니다. 배열에서 자식의 이름을 지정 하는 모든 고유이 쿼리 가져옵니다.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

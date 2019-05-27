@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046166"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952829"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process에서 프로젝트 리더의 작업
 
-이 자습서에서는 프로젝트 리더가 데이터 과학 팀을 위해 수행해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP(Team Data Science Process)](overview.md)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 Microsoft에서 개발하여 클라우드 기반 예측 분석 솔루션을 효율적으로 실행하는 일련의 구조화된 작업을 제공하는 프레임워크입니다. 이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
+이 자습서 윤곽선 프로젝트 책임자는 작업에는 프로젝트 팀을 위해 완료 해야 합니다. 목표는 [TDSP](overview.md)(Team Data Science Process)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 Microsoft에서 개발하여 클라우드 기반 예측 분석 솔루션을 효율적으로 실행하는 일련의 구조화된 작업을 제공하는 프레임워크입니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
 **프로젝트 리더**는 특정 데이터 과학 프로젝트에서 개별 데이터 과학자의 일상적인 작업을 관리합니다. 다음 그림은 이 환경을 설정하기 위해 프로젝트 리더가 수행하는 작업에 대한 워크플로입니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "61046166"
 
 ## <a name="repositories-and-directories"></a>리포지토리 및 디렉터리
 
-이 자습서에서는 리포지토리 및 디렉터리의 약식 이름을 사용합니다. 이러한 이름을 사용하면 리포지토리와 디렉터리 간의 작업을 더 쉽게 수행할 수 있습니다. 다음 섹션에서는 이 표기법이 사용됩니다(Git 리포지토리에는 R 및 DSVM의 로컬 디렉터리에는 D).
+이 자습서에서는 리포지토리 및 디렉터리의 약식 이름을 사용합니다. 이 이름을 사용하면 리포지토리와 디렉터리 간의 작업을 쉽게 수행할 수 있습니다. 다음 섹션에서는 이 표기법이 사용됩니다(Git 리포지토리에는 R 및 DSVM의 로컬 디렉터리에는 D).
 
 - **R3**: 팀 리더가 설정한 팀 **ProjectTemplate** 리포지토리
 - **R5**: 프로젝트에 대해 설정한 Git의 프로젝트 리포지토리

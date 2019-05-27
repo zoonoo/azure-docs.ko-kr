@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823574"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956537"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -349,7 +349,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | 페이지를 읽고 Azure Active Directory B2C에서 사용자 특성을 구성 합니다. |
 
-### <a name="b2c-ief-keyset-administrator"></a>B2C IEF Keyset 관리자
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF 키 집합 관리자
 페더레이션 및 Identity Experience Framework에서 암호화에 대 한 비밀을 관리 합니다.
 
 | **actions** | **설명** |

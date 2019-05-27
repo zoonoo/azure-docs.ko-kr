@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2019
-ms.author: monhaber
-ms.openlocfilehash: e601bbaa0d15078fc2b19b5b7c536e3a1f6d20ad
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: v-mohabe
+ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442749"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968575"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS의 SQL server에 대 한 고급 데이터 보안
 IaaS의 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다.
