@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603402"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131436"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -52,51 +52,51 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 ### <a name="v2"></a>버전 2.x
 
-버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 먼저 .NET Core 2.x SDK를 설치해야 합니다.
+버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 
+
+> [!IMPORTANT]
+> .NET Core를 설치 하기 위한 요구 사항을 무시할 수 있습니다 사용 하 여 SDK 2.x [확장 번들]합니다.
 
 #### <a name="windows-npm"></a>Windows
 
 다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
 
-1. [Windows용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
+1. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
 
-2. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
-
-3. 다음과 같이 핵심 도구 패키지를 설치합니다.
+1. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. 사용 하려면 [확장 번들]를 설치 합니다 [Windows에 대 한.NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)합니다.
 
 #### <a name="brew"></a>Homebrew가 있는 MacOS
 
 다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
 
-1. [macOS용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)를 설치합니다.
+1. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
 
-2. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
-
-3. 다음과 같이 핵심 도구 패키지를 설치합니다.
+1. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. 사용 하려면 [확장 번들]를 설치 [.NET Core 2.x SDK macOS 용](https://www.microsoft.com/net/download/macos)합니다.
+
 
 #### <a name="linux"></a>APT가 있는 Linux(Debian/Ubuntu)
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
-1. [Linux용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)를 설치합니다.
-
-2. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
+1. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Ubuntu 서버가 아래 표에서 적절한 버전 중 하나를 실행하고 있는지 확인합니다. Apt 원본을 추가하려면 다음을 실행합니다.
+1. Ubuntu 서버가 아래 표에서 적절한 버전 중 하나를 실행하고 있는지 확인합니다. Apt 원본을 추가하려면 다음을 실행합니다.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. 다음과 같이 핵심 도구 패키지를 설치합니다.
+1. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. 사용 하려면 [확장 번들]를 설치 [.NET Core 2.x SDK Linux 용](https://www.microsoft.com/net/download/linux)합니다.
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -186,6 +187,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -200,6 +202,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 | **`Host`** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **`CORS`** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
+| **`CORSCredentials`** |  허용 하려면 true로 설정 `withCredentials` 요청 |
 | **`ConnectionStrings`** | 함수 바인딩에서 사용하는 연결 문자열에 대해 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 일반적으로 연결 문자열에서 가져오기 프레임 워크만 사용 합니다 `ConnectionStrings` 섹션의 구성 파일을 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 명시적으로 추가 해야 합니다 `Connection strings` 함수 앱 설정의 컬렉션입니다. 만들려는 경우는 [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) 함수 코드에서 연결 문자열 값을 저장 해야 **응용 프로그램 설정** 다른 연결을 사용 하 여 포털에 있습니다. |
 
 이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
@@ -500,3 +503,4 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 [Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[확장 번들]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

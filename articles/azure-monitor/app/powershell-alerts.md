@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130973"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
@@ -127,7 +127,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>보기 |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[성능](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[종속성](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[서버 요청](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -138,5 +138,5 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 ## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](powershell-script-create-resource.md)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
-* [Application Insights에 Microsoft Azure 진단 결합 자동화](powershell-azure-diagnostics.md)
+* [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)
 * [경고에 대한 응답 자동화](../../azure-monitor/platform/alerts-webhooks.md)

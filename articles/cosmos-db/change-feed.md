@@ -5,15 +5,15 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898397"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954406"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,10 +35,10 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | 예 | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아닙니다. |
-|자바|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
-|Python|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
-|Node/JS|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+| .NET | 해당 없음 | 예. | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아닙니다. |
+|자바|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+|Python|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+|Node/JS|해당 없음|예.|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
