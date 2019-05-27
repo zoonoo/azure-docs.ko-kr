@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 15047b9782ea86b91ba78e0d745c67892fdc8b76
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741162"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124088"
 ---
 예시 발언을 추가하는 데 사용되는 `response` 배열은 `hasError` 속성을 가진 각 예시 발언의 성공 또는 실패를 나타냅니다. 다음과 같은 JSON 응답은 두 발언이 성공적으로 추가되었음을 보여줍니다. 
 

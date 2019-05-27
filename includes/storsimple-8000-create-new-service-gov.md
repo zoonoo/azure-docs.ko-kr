@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488771"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118158"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://portal.azure.us/)에 로그인합니다.

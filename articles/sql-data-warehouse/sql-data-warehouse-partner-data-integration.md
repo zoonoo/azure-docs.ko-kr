@@ -2,20 +2,20 @@
 title: SQL Data Warehouse 데이터 통합 파트너 | Microsoft Docs
 description: Azure SQL Data Warehouse를 지원하는 데이터 통합 솔루션을 제공하는 타사 파트너 목록
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476840"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873791"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse를 지 원하는 공식 데이터 통합 솔루션을 사용 하 여 Microsoft 파트너 회사를 강조 표시 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "61476840"
 | ![Informatica][4] |**1. Informatica Cloud Services for Azure**<br> Informatica 클라우드는 셀프 서비스 데이터 마이그레이션, 통합 및 관리 기능에 대 한 최고의에서 솔루션을 제공 합니다. 고객에 게 신속 하 게 및 안정적으로 가져오고 내보낼 수 있습니다 페타바이트의 데이터를 Azure로 다양 한 원본에서. Azure용 Informatica Cloud Services는 Azure SQL Data Warehouse, SQL 데이터베이스, Blob Storage, Data Lake Store 및 Azure Cosmos DB에 네이티브, 대용량 및 고성능 연결을 제공합니다. <br><br> **2. Informatica PowerCenter** PowerCenter는 메타 데이터 기반 데이터 통합 플랫폼 해당 전력망 및 수동 직접 코딩 보다 더 빠르게 비즈니스 데이터를 제공 하기 위해 데이터 통합 프로젝트를 가속화 합니다. 데이터 통합 투자에 대 한 기초로 사용 됩니다. |**Azure 용 Informatica Cloud services**<br>[제품 페이지][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[제품 페이지][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
 | ![작성기 정보][5] |**정보 작성기 (모든 범용 데이터 관리)**<br>모든 범용 데이터 관리 플랫폼 정보 작성기의 데이터 통합, 데이터 품질 및 마스터 데이터 관리 솔루션을 제공합니다. 쉽게 액세스, 이동 및 형식, 위치, 볼륨 또는 대기 시간에 관계 없이 모든 데이터를 혼합 합니다.|[제품 페이지][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
 | ![Qubole][9] |**Qubole**<br>Qubole는 ETL, 분석 및 AI/ML 워크 로드를 수행할 수 있도록 하는 클라우드 네이티브 플랫폼을 제공 합니다. 다양 한 오픈 소스 엔진-Apache Spark, TensorFlow, Presto, 기류, Hadoop, Hive, 등을 지원합니다. 노트북 및 강력한 오픈 소스 엔진을 활용 하는 대시보드를 SQL 쿼리 도구에서 데이터 처리에 대 한 최종 사용자 사용 하기 쉬운 도구를 제공 합니다.|[제품 페이지][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![세그먼트][10] |**세그먼트**<br>세그먼트는 데이터 관리 및 분석 솔루션에 도움이 되는 다양 한 소스에서 가져온 고객 데이터의 적합 합니다. 더 나은 의사 결정, 제품 및 환경을 만들려면 200 개가 넘는 도구에 데이터를 연결할 수 있도록 합니다. 세그먼트 변환 되며 해당 기본 제공 데이터 커넥터를 사용 하 여 웨어하우스가 여러 데이터 원본 로드|[제품 페이지][segment_website]<br> |
+| ![세그먼트][10] |**Segment**<br>세그먼트는 데이터 관리 및 분석 솔루션에 도움이 되는 다양 한 소스에서 가져온 고객 데이터의 적합 합니다. 더 나은 의사 결정, 제품 및 환경을 만들려면 200 개가 넘는 도구에 데이터를 연결할 수 있도록 합니다. 세그먼트 변환 되며 해당 기본 제공 데이터 커넥터를 사용 하 여 웨어하우스가 여러 데이터 원본 로드|[제품 페이지][segment_website]<br> |
 | ![Skyvia][11] |**Skyvia (데이터 통합)**<br>Skyvia 데이터 통합 데이터를 가져오는 자동화 하는 마법사를 제공 합니다. 이 마법사를 사용 하면 소스-Crm, 응용 프로그램 데이터베이스, CSV 파일 등의 다양 한 간에 데이터를 마이그레이션할 수 있습니다. |[제품 페이지][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic 플랫폼을 통해 및 Microsoft Azure SQL Data Warehouse에서 데이터를 신속 하 게 전송할 수 있습니다. 수백 개의 응용 프로그램, 서비스 및 IoT 시나리오 한 솔루션을 통합 하는 기능을 제공 합니다.|[제품 페이지][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![Talend][12] |**Talend 클라우드**<br>Talend 클라우드는 interprise 데이터 통합 플랫폼으로 연결에 액세스 하 고 클라우드 또는 온-프레미스에서 데이터를 변환 합니다. 최신 빅 데이터 및 클라우드 기술에 대 한 광범위 한 연결, 기본 제공 데이터 품질 및 기본 지원을 제공 하는 통합 플랫폼-as a service (iPaaS) 제품 이므로 |[제품 페이지][talend_website]<br> [Azure Marketplace][talend_marketplace] |

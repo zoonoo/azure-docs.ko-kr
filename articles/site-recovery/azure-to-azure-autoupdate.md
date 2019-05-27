@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925706"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922125"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제의 모바일 서비스의 자동 업데이트
 
@@ -520,7 +520,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 자동 업데이트를 사용 하지 못했습니다 다음 일반적인 오류 및 권장된 작업을 참조 하세요.
 
-- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 기여자 역할을 부여할 수 있는 권한이 없습니다.
+- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 참가자 역할을 부여할 수 있는 권한이 없습니다.
 
    **권장 조치**: 참가자로 로그인 계정이 할당 되어 있는지 확인 하 고 다시 시도 하세요. 에 필요한 사용 권한 섹션을 참조 하세요 [포털을 사용 하 여 Azure AD 리소스에 액세스할 수 있는 응용 프로그램 및 서비스 주체를 만들려면](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 합니다.
  
@@ -535,3 +535,14 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
     **권장 조치**: 삭제 한 다음 [실행 계정을 다시 만드는](https://docs.microsoft.com/azure/automation/automation-create-runas-account)합니다.
+
+-  **오류**: Azure 실행 자동화 계정에서 사용 되는 인증서가 만료 되려고 합니다. 
+
+    실행 계정에 대해 만든 자체 서명 된 인증서 생성 날짜 로부터 1 년에 만료 됩니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 전자 메일 알림에 대 한 등록을 하는 경우 또한 받게 전자 메일 작업 쪽에서 필요한 경우. 이 오류는 만료 날짜 전에 2 개월 표시 됩니다 하 고 인증서가 만료 된 경우 중요 한 오류 변경 됩니다. 인증서가 만료 되 면 동일한을 갱신할 때까지 자동 업데이트 작동 되지 않습니다.
+
+   **권장 조치**: '복구' 및 ' 인증서 갱신 '이 문제를 해결 하려면 다음을 클릭 합니다.
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> 인증서를 갱신 되 면 현재 상태를 업데이트할 수 있도록 페이지를 새로 고치십시오.

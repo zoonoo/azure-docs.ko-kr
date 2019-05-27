@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880287"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908009"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -30,26 +30,18 @@ ms.locfileid: "60880287"
 이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
+* **Visual Studio 2013 이상**합니다. 아래 지침에서는 Visual Studio 2019를 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Active Directory "네이티브" 애플리케이션을 만듭니다**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
-1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+1. Visual Studio에서 선택 합니다 **파일** 메뉴에서 **새로 만들기**를 차례로 **프로젝트**합니다.
+2. 선택할 **콘솔 앱 (.NET Framework)** 를 선택한 후 **다음**합니다.
+3. **프로젝트 이름**를 입력 `CreateADLApplication`를 선택한 후 **만들기**합니다.
 
-   | 자산 | 값 |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 애플리케이션 |
-   | 이름 |CreateADLApplication |
-
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
-
-5. NuGet 패키지를 프로젝트에 추가합니다.
+4. NuGet 패키지를 프로젝트에 추가합니다.
 
    1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
    2. **NuGet 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
@@ -61,8 +53,8 @@ ms.locfileid: "60880287"
         ![NuGet 원본 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
 
-6. **Program.cs**를 엽니다.
-7. using 문을 다음 줄로 바꿉니다.
+5. **Program.cs**를 엽니다.
+6. using 문을 다음 줄로 바꿉니다.
 
     ```csharp
     using System;
