@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486149"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978536"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -58,7 +58,7 @@ ms.locfileid: "61486149"
 ### <a name="plan-the-names"></a>이름 계획
 
 이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
-- ‘사용자’: **af1**(Ann Finley의 이니셜과 숫자입니다. *앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
+- *사용자:* **af1***(해당의 이니셜과 숫자입니다.   앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
 - *리소스 그룹:* **wingtip-mt-af1** *(wingtip-mt는 분할된 다중 테넌트 앱임을 나타냅니다. 사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
 
 이제 이름을 선택하고, 기록합니다. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: HT
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922847"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977577"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
@@ -30,7 +30,7 @@ Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자�
 이 문서에서는 IT 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 기능을 결정하기 위해 이러한 서비스와 해당 기능 간의 차이점을 설명합니다.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 진단 확장
-2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure 스토리지에 저장하는 에이전트입니다. 스토리지에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
+2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure 스토리지에 저장하는 에이전트입니다. 저장소에서와 같은 몇 가지 사용 가능한 도구 중 하나를 사용 하 여 보려면 선택 되 면 [Visual Studio 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 하 고 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)합니다.
 
 다음을 수집하도록 선택할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure Diagnostics 에이전트는 다음 작업을 수행할 때 사용해야 �
 Log Analytics 에이전트는 다음 작업을 수행할 때 사용해야 합니다.
 
 * Azure, 기타 클라우드 공급자 및 온-프레미스 리소스 내 다양한 원본에서 데이터를 수집합니다. 
-* [VM용 Azure Monitor](../insights/vminsights-overview.md), [컨테이너용 Azure Monitor](../insights/container-insights-overview.md) 등과 같은 Azure Monitor 모니터링 솔루션 중 하나를 사용합니다.  
+* 같은 솔루션을 모니터링 하는 Azure Monitor의 하나를 사용 하 여 [Vm에 대 한 Azure Monitor](../insights/vminsights-overview.md)를 [컨테이너에 대 한 Azure Monitor](../insights/container-insights-overview.md)등입니다.  
 * [Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md) 등과 같은 Azure 관리 서비스 중 하나를 사용합니다.
 
 이전에는 여러 Azure 서비스가 *Operations Management Suite*로 번들되었으며, 그 결과 Log Analytics는 Azure Security Center 및 Azure Automation을 비롯한 여러 서비스에서 공유됩니다.  여기에는 제공되는 모든 기능 집합이 포함되어 있어, Azure VM의 수명 주기 전반에 걸쳐 포괄적인 관리 기능을 제공합니다.  몇 가지 예는 다음과 같습니다.

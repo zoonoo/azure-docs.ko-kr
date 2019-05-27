@@ -6,18 +6,32 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: kasinh
-ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa039680be1e88d74cad63eba17d7f3aa89ea49f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228289"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000417"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
 다음 표에 나열된 정보를 참조하여 Azure Backup Server 사용 중 발생하는 오류를 해결합니다.
+
+## <a name="basic-troubleshooting"></a>기본 문제 해결
+
+수행 하는 것이 좋습니다는 아래 유효성 검사를 시작 하기 전에 Microsoft Azure Backup Server (MABS)를 문제 해결:
+
+- [Microsoft Azure Recovery Services (MARS) 에이전트를 최신 상태로 유지](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 다시 시작 하 고 작업을 다시 시도
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
+- 등록에 실패할 경우의 서버를 Azure Backup Server를 설치 하려는 다른 자격 증명 모음을 사용 하 여 이미 등록 되어 있지 확인 한 다음
+- 푸시 설치에 실패할 경우 이미 DPM 에이전트가 있는지 확인합니다. 있는 경우 해당 에이전트를 제거하고 다시 설치
+- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AA4nyr4)<br>
+- SQL 에이전트 서비스가 실행되고 있으며 MAB 서버에서 자동으로 설정되어 있는지 확인합니다.<br>
+
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
@@ -25,23 +39,23 @@ ms.locfileid: "61228289"
 | --- | --- | --- |
 | 자격 증명 모음에 등록 | 잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. | 권장 작업: <br> <ul><li> 자격 증명 모음에서 최신 자격 증명 파일을 다운로드하고 다시 시도합니다. <br>또는</li> <li> 위의 작업이 효과가 없으면 자격 증명을 다른 로컬 디렉터리에 다운로드하거나 새 자격 증명 모음을 만듭니다. <br>또는</li> <li> [이 블로그](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)에 설명된 대로 날짜 및 시간 설정을 업데이트해 봅니다. <br>또는</li> <li> \windows\temp에 있는 파일 수가 65,000개를 초과하는지 확인합니다. 오래된 파일을 다른 위치에 이동하거나 임시 폴더의 항목을 삭제합니다. <br>또는</li> <li> 인증서의 상태를 확인합니다. <br> a. 제어판에서 **컴퓨터 인증서 관리**를 엽니다. <br> b. **개인** 노드 및 해당 자식 노드 **인증서**를 확장합니다.<br> c.  인증서 **Microsoft Azure Tools**를 제거합니다. <br> d. Azure Backup 클라이언트에서 등록을 다시 시도합니다. <br> 또는 </li> <li> 그룹 정책이 구현되어 있는지 확인합니다. </li></ul> |
 
-## <a name="replica-is-inconsistent"></a>복제본이 불일치
+## <a name="replica-is-inconsistent"></a>복제본이 일치하지 않습니다.
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
 | Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제본 불일치의 원인 및 관련 제안 사항에 대한 자세한 내용은 Microsoft TechNet 문서 [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx)(복제본이 불일치)를 참조하세요.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 사용할 수 없는 상태이면 수동으로 시작하도록 설정합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
 
-## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점 생성 실패
+## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점을 만들지 못했습니다.
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Backup | 온라인 복구 지점 생성 실패 | **오류 메시지**: Microsoft Azure Backup 에이전트가 선택한 볼륨의 스냅숏을 만들 수 없습니다. <br> **해결 방법**: 복제본 및 복구 지점 볼륨의 공간을 늘립니다.<br> <br> **오류 메시지**: Microsoft Azure Backup 에이전트가 OBEngine 서비스에 연결할 수 없습니다. <br> **해결 방법**: 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 “net start OBEngine” 명령을 사용하여 OBEngine 서비스를 시작합니다. <br> <br> **오류 메시지**: 이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화에 사용할 암호를 구성하세요. <br> **해결 방법**: 암호화에 사용할 암호를 구성합니다. 실패하면 다음 단계를 수행합니다. <br> <ol><li>스크래치 위치가 있는지 확인합니다. 레지스트리 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**에 언급된 위치에 **ScratchLocation** 이름이 있어야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록합니다. *암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관합니다.*</li><ol>|
+| Backup | 온라인 복구 지점을 만들지 못했습니다. | **오류 메시지**: Microsoft Azure Backup 에이전트가 선택한 볼륨의 스냅숏을 만들 수 없습니다. <br> **해결 방법**: 복제본 및 복구 지점 볼륨의 공간을 늘립니다.<br> <br> **오류 메시지**: Microsoft Azure Backup 에이전트가 OBEngine 서비스에 연결할 수 없습니다. <br> **해결 방법**: 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 “net start OBEngine” 명령을 사용하여 OBEngine 서비스를 시작합니다. <br> <br> **오류 메시지**: 이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화에 사용할 암호를 구성하세요. <br> **해결 방법**: 암호화에 사용할 암호를 구성합니다. 실패하면 다음 단계를 수행합니다. <br> <ol><li>스크래치 위치가 있는지 확인합니다. 레지스트리 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**에 언급된 위치에 **ScratchLocation** 이름이 있어야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록합니다. *암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관합니다.*</li><ol>|
 
 ## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 복원 | **오류 코드**: CBPServerRegisteredVaultDontMatchWithCurrent/자격 증명 모음 오류: 100110 <br/> <br/>**오류 메시지**: 제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름 | **원인**: 이 문제는 외부 DPM 복구 옵션을 사용하여 원래 서버에서 대체 서버로 파일을 복원하려고 하며, 복구 중인 서버와 데이터가 백업되는 원래 서버가 동일한 Recovery Service 자격 증명 모음과 연결되지 않은 경우에 발생합니다.<br/> <br/>**해결 방법** 이 문제를 해결하려면 원래 서버와 대체 서버가 동일한 자격 증명 모음에 등록되어 있는지 확인합니다.|
+| 복원 | **오류 코드**: CBPServerRegisteredVaultDontMatchWithCurrent/자격 증명 모음 오류: 100110 <br/> <br/>**오류 메시지**: 제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름 | **원인**: 이 문제는 외부 DPM 복구 옵션을 사용하여 원래 서버에서 대체 서버로 파일을 복원하려고 하며, 복구 중인 서버와 데이터가 백업되는 원래 서버가 동일한 Recovery Service 자격 증명 모음과 연결되지 않은 경우에 발생합니다.<br/> <br/>**해결 방법** 이 문제를 확인 하십시오 모두 해결 하려면 원본 및 대체 서버는 동일한 자격 증명 모음에 등록 됩니다.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM에 대한 온라인 복구 지점 생성 작업 실패
 
@@ -60,7 +74,7 @@ ms.locfileid: "61228289"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 |-----------|---------------|------------|
-|설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 문제를 방지하려면 ReFS Trimming 레지스트리 항목을 업데이트합니다. | 레지스트리 키 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**을 조정합니다. Dword 값을 1로 설정합니다. |
+|설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 방지 하려면 ReFS Trimming 레지스트리 항목을 업데이트 합니다. | 레지스트리 키 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**을 조정합니다. Dword 값을 1로 설정합니다. |
 |설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 문제를 방지하려면 Volume SnapOptimization 레지스트리 항목을 업데이트합니다. | 빈 문자열 값을 사용하여 레지스트리 키 **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds**를 만듭니다. |
 
 ## <a name="registration-and-agent-related-issues"></a>등록 및 에이전트 관련 문제
@@ -87,7 +101,7 @@ ms.locfileid: "61228289"
 | --- | --- | --- |
 | Backup | 작업을 실행하는 동안 예기치 않은 오류가 발생했습니다. 디바이스가 준비되지 않았습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> <ul><li>섀도 복사본 저장소 공간을 보호 그룹의 항목에서 무제한으로 설정하고 일관성 검사를 실행합니다.<br></li> 또는 <li>기존 보호 그룹을 삭제하고 여러 개의 새 그룹을 만들어 봅니다. 새 보호 그룹 각각에는 개별 항목이 있어야 합니다.</li></ul> |
 | Backup | 시스템 상태만 백업하는 경우 보호된 컴퓨터에 시스템 상태 백업을 저장하기에 충분한 여유 공간이 있는지 확인합니다. | <ol><li>보호된 컴퓨터에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li>보호된 컴퓨터에 시스템 상태를 저장할 공간이 충분히 있는지 확인합니다. 이를 간단히 확인하려면 보호된 컴퓨터로 이동하고 Windows Server 백업을 연 다음, 선택 사항을 클릭하고 BMR을 선택합니다. 그러면 UI에 얼마나 많은 공간이 필요한지 표시됩니다. **WSB** > **로컬 백업** > **백업 일정** > **백업 구성 선택** > **전체 서버**를 엽니다(크기가 표시됨). 검증에 이 크기를 사용합니다.</li></ol>
-| Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
+| Backup | BMR에 대 한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
 | Backup | 새 Microsoft Azure Backup Server에서 VMware VM을 다시 보호하는 옵션이 추가할 수 있는 것으로 표시되지 않습니다. | VMware 속성이 더 이상 사용되지 않는 이전 Microsoft Azure Backup Server 인스턴스에 지정되어 있습니다. 이 문제를 해결하려면:<br><ol><li>VCenter(SC-VMM에 해당)에서 **요약** 탭, **사용자 지정 특성**으로 이동합니다.</li>  <li>**DPMServer** 값에서 이전 Microsoft Azure Backup Server 이름을 삭제합니다.</li>  <li>새 Microsoft Azure Backup Server로 돌아가서 PG를 수정합니다.  **새로 고침** 단추를 선택하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다.</li></ol> |
 | Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | TechNet 문서[DPM 서버에서 바이러스 백신 소프트웨어 실행](https://technet.microsoft.com/library/hh757911.aspx)에 제안된 대로 바이러스 백신 설정을 수정합니다.|
 

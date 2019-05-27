@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: v-mohabe
+ms.openlocfilehash: 910e9acaea5c8f95dd344bc8e5454cd2bd3b7a25
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233607"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968336"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -98,8 +98,8 @@ ms.locfileid: "65233607"
 
 | Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예. |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예. |
 | Trend Micro - 모든 버전 | Windows Server 제품군  | 아닙니다. | 예. |
 | Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예. |
 | McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예. |

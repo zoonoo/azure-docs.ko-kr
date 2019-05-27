@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123487"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977449"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -89,7 +89,8 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>강력한 형식의 데이터 전송(.NET만 해당)
 
-오케스트레이터에는 여러 개의 데이터가 필요하므로 C# 및 C# 스크립트에서 강력한 형식의 데이터 전송에는 [공유 POCO 개체](../functions-reference-csharp.md#reusing-csx-code)가 사용됩니다. [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+오 케 스트레이 터 필요한 여러 가지 데이터, 따라서 [POCO 개체를 공유](../functions-reference-csharp.md#reusing-csx-code) 에서 강력한 형식의 데이터 전송에 사용 됩니다 C# 및 C# 스크립트:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619727"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978888"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -201,7 +201,9 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 ## <a name="renew-the-domain"></a>도메인 갱신
 
-구입한 App Service 도메인은 구입 시점으로부터 1년 동안 유효합니다. 도메인은 기본적으로 다음 해의 결제 방법을 부과하여 자동으로 갱신되도록 구성됩니다. 자동 갱신을 해제하거나 도메인을 수동으로 갱신하려면 다음 단계를 따릅니다.
+구입한 App Service 도메인은 구입 시점으로부터 1년 동안 유효합니다. 도메인은 기본적으로 다음 해의 결제 방법을 부과하여 자동으로 갱신되도록 구성됩니다. 도메인 이름을 수동으로 갱신할 수 있습니다.
+
+자동 갱신을 해제하거나 도메인을 수동으로 갱신하려면 다음 단계를 따릅니다.
 
 **App Services** 탭에서 앱의 이름을 클릭하고, **설정**을 선택한 다음, **사용자 지정 도메인**을 선택합니다.
 
@@ -211,11 +213,25 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-도메인의 왼쪽 탐색 영역에서 **도메인 갱신**을 선택합니다. 도메인에 대한 자동 갱신을 중지하려면 **끄기**를 선택한 다음 **저장**을 선택합니다. 
+도메인의 왼쪽 탐색 영역에서 **도메인 갱신**을 선택합니다. 도메인에 대한 자동 갱신을 중지하려면 **끄기**를 선택한 다음 **저장**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나 이 단추는 도메인 만료 이전 90일 동안만 활성화되어 있습니다.
+도메인을 수동으로 갱신하려면 **도메인 갱신**을 선택합니다. 그러나이 단추는 때까지 활성화 [도메인의 만료 전 90 일 동안](#when-domain-expires)합니다.
+
+도메인 갱신에 성공 하면 24 시간 동안 전자 메일 알림을 받게 됩니다.
+
+## <a name="when-domain-expires"></a>도메인이 만료 된 경우
+
+Azure는 만료를 처리 또는 App Service 도메인을 다음과 같이 만료:
+
+* 자동 갱신 사용 하지 않도록 설정 합니다. 도메인 만료 전 90 일 동안 갱신 알림 전자 메일을 보낼 수 및 **도메인 갱신** 포털에서 단추가 활성화 됩니다.
+* 자동 갱신 사용 하는 경우: 하루 도메인 만료 날짜 후에 Azure 도메인 이름 갱신에 대 한 요금을 청구할 하려고 합니다.
+* 자동 갱신 중에 오류가 발생 하는 경우 (예를 들어, 카드 파일에서 만료 된 경우), 또는 도메인이 만료 됩니다를 허용 하 고 자동 갱신 비활성화 된 경우 Azure 알림 도메인 만료 및 공원의 도메인 이름입니다. 할 수 있습니다 [수동으로 갱신](#renew-the-domain) 도메인입니다.
+* 만료 후 4 ~ 12 일 하루에 Azure에서는 추가 알림 전자 메일입니다. 할 수 있습니다 [수동으로 갱신](#renew-the-domain) 도메인입니다.
+* 만료 후 19 날 도메인을 대기 중으로 남아 있지만 상환 요금이 적용 됩니다. 도메인 이름에 적용 가능한 모든 갱신 및 상환 요금에 따라 갱신 고객 지원 서비스를 호출할 수 있습니다.
+* 만료 된 후 25 일에 Azure 도메인 이름 업계 경매 서비스를 사용 하 여 경매에 대해 도메인을 배치합니다. 도메인 이름에 적용 가능한 모든 갱신 및 상환 요금에 따라 갱신 고객 지원 서비스를 호출할 수 있습니다.
+* 만료 후 30 일에 여러분이 더 이상 도메인을 사용할 수 없습니다.
 
 <a name="custom"></a>
 

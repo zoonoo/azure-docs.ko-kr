@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785804"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953131"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Azure Data Box Edge에서 컴퓨팅 관리
 
@@ -129,24 +129,6 @@ IoT 디바이스 및 IoT Edge 디바이스 키가 순환되면 Data Box Edge에�
 
 3. 동기화가 완료되면 대화 상자를 종료합니다.
 
-## <a name="enable-a-network-interface-for-compute"></a>컴퓨팅을 위한 네트워크 인터페이스 사용
-
-Data Box Edge 디바이스에서 실행 중인 모듈에 액세스해야 할 수 있습니다. 외부적으로 모듈에 액세스하려면 디바이스의 네트워크 인터페이스에 IP 주소를 할당해야 합니다. 로컬 웹 UI에서 이러한 컴퓨팅 설정을 관리 할 수 있습니다.
-
-로컬 웹 UI에서 다음 단계를 수행하여 컴퓨팅 설정을 구성합니다.
-
-1. 로컬 웹 UI에서 **구성 > 컴퓨팅 설정**으로 이동합니다.  
-
-2. 디바이스의 컴퓨팅 모듈에 연결하는 데 사용할 네트워크 인터페이스를 **사용하도록 설정**합니다. 
-
-    - 고정 IP 주소를 사용하는 경우 네트워크 인터페이스의 IP 주소를 입력합니다.
-    - DHCP를 사용하는 경우에는 IP 주소가 자동으로 할당됩니다.
-
-3. **적용**을 선택하여 설정을 적용합니다.
-
-    ![컴퓨팅 설정 사용](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 통해 사용자를 관리](data-box-edge-manage-users.md)하는 방법을 알아봅니다.
+- 에 대해 알아봅니다 하는 방법 [관리할 지 Azure portal 통해 네트워크 계산](data-box-edge-extend-compute-access-modules.md)합니다.
