@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142459"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834022"
 ---
 # <a name="connect-from-a-web-browser"></a>웹 브라우저에서 연결
 
@@ -38,6 +38,6 @@ ms.locfileid: "65142459"
 브라우저에서로 이동 합니다 [Windows 가상 데스크톱 웹 클라이언트](https://rdweb.wvd.microsoft.com/webclient) 및 사용자 계정으로 로그인 합니다.
 
 >[!NOTE]
->이미 Windows 가상 데스크톱에 대 한 사용 하려는 것과 다른 Azure AD 계정을 사용 하 여 로그인, 로그 아웃 하거나 개인 브라우저 창을 사용 해야 합니다.
+>Windows 가상 데스크톱에 대 한 사용 하려는 것 보다 다른 Azure Active Directory 계정으로 이미 등록 했으면, 로그 아웃 하거나 개인 브라우저 창을 사용 합니다.
 
 로그인 한 후 이제 리소스 목록이 표시 됩니다. 일반 앱 처럼 선택 하 여 리소스를 시작할 수 있습니다 합니다 **모든 리소스** 탭 합니다.

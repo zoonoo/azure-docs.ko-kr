@@ -16,7 +16,7 @@ ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57881132"
@@ -169,8 +169,8 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Azure Storage에서 진단 로그 사용
 이 섹션에서는 CDN 핵심 분석의 스키마를 설명하고, Azure Storage 계정 내에서 이러한 분석을 구성하는 방법을 설명하며, 로그를 CSV 파일로 다운로드하기 위한 샘플 코드를 제공합니다.
 
-### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기 사용
-Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 스토리지 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage 탐색기가 권장됩니다. 도구를 다운로드하려면 [Azure Storage 탐색기](https://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
+### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer 사용
+Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 스토리지 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage Explorer가 권장됩니다. 도구를 다운로드하려면 [Azure Storage Explorer](https://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
 
 1.  **Microsoft Azure Storage 탐색기**를 엽니다.
 2.  저장소 계정을 찾습니다.
@@ -183,7 +183,7 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 
 #### <a name="blob-path-format"></a>Blob 경로 형식
 
-핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. Storage 탐색기 도구는 ‘/’를 디렉터리 구분 기호로 해석하고 계층을 표시하므로 Azure blob에 대한 경로는 계층 구조가 있는 것처럼 표시되고 blob 이름을 나타냅니다. blob의 이름은 다음 명명 규칙을 따릅니다.   
+핵심 분석 로그는 1시간 마다 생성되고 데이터는 JSON 페이로드로 단일 Azure blob 내부에 수집되고 저장됩니다. Storage Explorer 도구는 '/'를 디렉터리 구분 기호로 해석하고 계층을 표시하므로 Azure blob에 대한 경로는 계층 구조가 있는 것처럼 표시되고 blob 이름을 나타냅니다. blob의 이름은 다음 명명 규칙을 따릅니다.   
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 

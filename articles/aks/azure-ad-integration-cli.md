@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920175"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835197"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes 서비스를 사용 하 여 Azure Active Directory 통합
 
@@ -25,7 +25,6 @@ ms.locfileid: "64920175"
 다음 제한 사항이 적용됩니다.
 
 - Azure AD는 RBAC 사용 클러스터를 새로 만들 때만 사용하도록 설정할 수 있습니다. 기존 AKS 클러스터에서는 Azure AD를 사용하도록 설정할 수 없습니다.
-- *게스트* 사용자가 Azure AD에서 이러한 다른 디렉터리에서 페더레이션된 로그인을 사용 하는 경우에 따라 지원 되지 않습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -237,8 +236,9 @@ kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0       
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* 없는 계정에 로그인 하면 사용자는 *게스트* (이 경우 종종 다른 디렉터리에서 페더레이션된 로그인을 사용 하는 경우) Azure AD 인스턴스에 있습니다.
+* 적절 한 개체 ID 또는 UPN이 사용자 계정은 동일한 Azure AD 테 넌 트에이 경우에 따라 정의 했습니다.
 * 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
+* 서버에 대 한 응용 프로그램 등록에서 정의 하는 암호를 사용 하 여 구성 된 값과 일치 `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>다음 단계
 

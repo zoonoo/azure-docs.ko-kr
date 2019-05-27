@@ -10,7 +10,7 @@ ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
 ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58310849"
@@ -41,7 +41,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
-저장소 계정 전체를 직접 백업하는 옵션은 없습니다. 그러나 AzCopy 또는 Storage 탐색기를 사용하여 수동으로 스토리지 계정의 컨테이너를 다른 계정으로 이동할 수 있습니다. 다음 단계에서는 AzCopy를 사용하여 컨테이너를 이동하는 방법을 보여 줍니다.  
+저장소 계정 전체를 직접 백업하는 옵션은 없습니다. 그러나 AzCopy 또는 Storage Explorer를 사용하여 수동으로 스토리지 계정의 컨테이너를 다른 계정으로 이동할 수 있습니다. 다음 단계에서는 AzCopy를 사용하여 컨테이너를 이동하는 방법을 보여 줍니다.  
  
 
 1.  [AzCopy](storage-use-azcopy.md) 명령줄 도구를 설치합니다. 이 도구를 사용하면 저장소 계정 간에 VHD 파일을 이동할 수 있습니다.
@@ -291,7 +291,7 @@ SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원
 
 FTP를 사용하여 저장소 계정에 직접 액세스할 수 있는 방법은 없습니다. 그러나 Azure 가상 머신을 설정한 다음 가상 머신에 FTP 서버를 설치할 수 있습니다. FTP 서버는 Azure Files 공유 또는 가상 머신에서 사용할 수 있는 데이터 디스크에 파일을 저장할 수 있습니다.
 
-Storage 탐색기 또는 유사한 애플리케이션을 사용하지 않고 데이터만 다운로드하려는 경우 SAS 토큰을 사용할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+Storage Explorer 또는 유사한 애플리케이션을 사용하지 않고 데이터만 다운로드하려는 경우 SAS 토큰을 사용할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 **저장소 계정 간에 Blob을 마이그레이션하는 방법**
 

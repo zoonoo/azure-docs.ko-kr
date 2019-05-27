@@ -5,20 +5,24 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
-ms.openlocfilehash: 81e33bf37750dd869c3b52be5b2bca49820f47d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941889"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835047"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS 애플리케이션 제품
 
 이 섹션에서는 SaaS(Software-as-a-Service) 애플리케이션 제안을 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 게시하는 방법에 대해 설명합니다.
 
-자신의 Azure 구독에 솔루션을 배포하고, 애플리케이션을 테스트하기 위해 디자인하고 관리하는 인터페이스를 통해 고객이 로그인하는 경우 SaaS 애플리케이션을 사용합니다. <a href="https://azure.microsoft.com/services/active-directory">AAD(Azure Active Directory)</a>를 사용하여 기존 평가판 환경을 활용합니다.
+> [!IMPORTANT] 
+> SaaS로 마이그레이션되는 기능을 제공 합니다 [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory)합니다.  모든 새 게시자 새 SaaS 제품을 만들고 기존 제품을 관리 하기 위한 파트너 센터를 사용 해야 합니다.  SaaS 제공 서비스를 사용 하 여 현재 게시자 batchwise 마이그레이션될 클라우드 파트너 포털에서 파트너 센터에 있습니다.  클라우드 파트너 포털에는 특정 기존 제품 마이그레이션된 경우를 나타내기 위해 상태 메시지가 표시 됩니다.
+
+
+자신의 Azure 구독에 솔루션이 배포 되 고 디자인 하 고 응용 프로그램을 테스트 관리 인터페이스를 통해 고객은 로그인 하는 경우 SaaS 응용 프로그램을 사용 합니다. <a href="https://azure.microsoft.com/services/active-directory">AAD(Azure Active Directory)</a>를 사용하여 기존 평가판 환경을 활용합니다.
 
 ## <a name="benefits"></a>이점
 

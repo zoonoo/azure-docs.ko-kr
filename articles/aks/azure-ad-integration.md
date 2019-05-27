@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192119"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849883"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -23,7 +23,6 @@ ms.locfileid: "65192119"
 다음 제한 사항이 적용됩니다.
 
 - Azure AD는 RBAC 사용 클러스터를 새로 만들 때만 사용하도록 설정할 수 있습니다. 기존 AKS 클러스터에서는 Azure AD를 사용하도록 설정할 수 없습니다.
-- *게스트* 사용자가 Azure AD에서 이러한 다른 디렉터리에서 페더레이션된 로그인을 사용 하는 것 처럼 사용할 수 없습니다.
 
 ## <a name="authentication-details"></a>인증 세부 정보
 
@@ -114,6 +113,10 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하려면 두 개의 Azure
         권한을 성공적으로 부여 받으면 포털에서 다음 알림이 표시됩니다.
 
         ![성공적인 권한 부여의 알림](media/aad-integration/permissions-granted.png)
+
+1. Azure AD 응용 프로그램의 왼쪽 탐색에서 선택 **인증**합니다.
+
+    * 아래 **기본 클라이언트 형식**를 선택 **예** 하 *공용 클라이언트로 클라이언트를 처리*합니다.
 
 1. Azure AD 응용 프로그램의 왼쪽 탐색에서 메모를 **응용 프로그램 ID**합니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Client application ID`이라고 합니다.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 완료 되 면 인증 토큰 캐시 됩니다. 만 경우 토큰이 만료 되었는지 또는 다시 생성 하는 Kubernetes 구성 파일에 로그인 reprompted는 있습니다.
 
 성공적으로 로그인한 후에 권한 부여 오류 메시지가 표시되는 경우 다음 사항에 해당하는지 여부를 확인합니다.
-1. 사용자 로그인 하는 그대로 (이 시나리오는 경우 다른 디렉터리에서 페더레이션된 계정을 사용 하는 경우) Azure AD 인스턴스에서 게스트 없습니다.
-2. 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
-3. 서버에 대 한 응용 프로그램 등록에서 정의 하는 암호-aad 서버-앱 암호를 사용 하 여 구성 값이 일치 하지 않습니다.
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. 적절 한 개체 ID 또는 UPN이 사용자 계정은 동일한 Azure AD 테 넌 트에이 경우에 따라 정의 했습니다.
+2. 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
+3. 서버에 대 한 응용 프로그램 등록에서 정의 하는 암호를 사용 하 여 구성 된 값과 일치 `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>다음 단계
 

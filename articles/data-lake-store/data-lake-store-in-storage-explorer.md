@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 탐색기에서 Azure Data Lake Storage Gen1 리소스 관리
-description: Azure Storage 탐색기에서 Azure Data Lake Storage Gen1 데이터 및 리소스에 액세스하고 관리하는 방법 알아보기
+title: Azure Storage Explorer에서 Azure Data Lake Storage Gen1 리소스 관리
+description: Azure Storage Explorer에서 Azure Data Lake Storage Gen1 데이터 및 리소스에 액세스하고 관리하는 방법 알아보기
 Keywords: Azure Data Lake Store, Azure Storage 탐색기
 services: Data Lake Store
 documentationcenter: ''
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60613541"
 ---
-# <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Storage 탐색기를 사용하여 Azure Data Lake Storage Gen1 리소스 관리
+# <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Storage Explorer를 사용하여 Azure Data Lake Storage Gen1 리소스 관리
 
-[Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)은 텍스트 또는 이진 데이터와 같이 많은 양의 구조화되지 않은 데이터를 저장하는 서비스입니다. HTTP 또는 HTTPS를 통해 어디서나 데이터에 액세스할 수 있습니다. Azure Storage 탐색기의 Data Lake Storage Gen1을 사용하면 사용자가 Blob 및 큐와 같은 다른 Azure 엔터티와 함께 Data Lake Storage Gen1 데이터 및 리소스에 액세스하고 관리할 수 있습니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다.
+[Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)은 텍스트 또는 이진 데이터와 같이 많은 양의 구조화되지 않은 데이터를 저장하는 서비스입니다. HTTP 또는 HTTPS를 통해 어디서나 데이터에 액세스할 수 있습니다. Azure Storage Explorer의 Data Lake Storage Gen1을 사용하면 사용자가 Blob 및 큐와 같은 다른 Azure 엔터티와 함께 Data Lake Storage Gen1 데이터 및 리소스에 액세스하고 관리할 수 있습니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다.
 
-또 다른 이점은 사용자에게 Data Lake Storage Gen1 데이터를 관리하기 위한 구독 권한이 필요하지 않다는 것입니다. Storage 탐색기에서 누군가 사용 권한을 부여하는 한 Data Lake Storage Gen1 경로를 **로컬 및 연결된** 노드에 연결할 수 있습니다.
+또 다른 이점은 사용자에게 Data Lake Storage Gen1 데이터를 관리하기 위한 구독 권한이 필요하지 않다는 것입니다. Storage Explorer에서 누군가 사용 권한을 부여하는 한 Data Lake Storage Gen1 경로를 **로컬 및 연결된** 노드에 연결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -33,13 +33,13 @@ ms.locfileid: "60613541"
 *   Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial)을 참조하세요.
 *   Data Lake Storage Gen1 계정. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)을 참조하세요.
 
-## <a name="install-storage-explorer"></a>Storage 탐색기 설치
+## <a name="install-storage-explorer"></a>Storage Explorer 설치
 
 [제품 웹 페이지](https://azure.microsoft.com/features/storage-explorer/)에서 최신 Azure Storage 탐색기 BITS를 설치합니다. 설치는 Windows, Linux 및 Mac 버전을 지원합니다.
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
-1. Storage 탐색기에서 왼쪽의 플러그 인 아이콘을 선택합니다.
+1. Storage Explorer에서 왼쪽의 플러그 인 아이콘을 선택합니다.
        
    ![플러그 인 아이콘](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
  
@@ -63,7 +63,7 @@ Data Lake Storage Gen1을 Azure 구독에 성공적으로 연결했습니다.
 
 ## <a name="connect-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 연결
 누군가 리소스에 대한 URI를 제공하는 경우 구독에 존재하지 않는 리소스에 액세스할 수 있습니다. 그런 다음, 로그인한 후 URI를 사용하여 Data Lake Storage Gen1에 연결할 수 있습니다.
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 2. 왼쪽 창에서 **로컬 및 연결됨**을 펼칩니다.
 3. **Data Lake Store**를 마우스 오른쪽 단추로 클릭하고 **Data Lake Store에 연결**을 선택합니다.
 
@@ -78,9 +78,9 @@ Data Lake Storage Gen1을 Azure 구독에 성공적으로 연결했습니다.
 ## <a name="view-a-data-lake-storage-gen1-accounts-contents"></a>Data Lake Storage Gen1 계정 내용 보기
 Data Lake Storage Gen1 계정의 리소스에는 폴더와 파일이 포함되어 있습니다.
 
-다음 단계에서는 Storage 탐색기 내에서 Data Lake Storage Gen1 계정의 내용을 보는 방법을 설명합니다.
+다음 단계에서는 Storage Explorer 내에서 Data Lake Storage Gen1 계정의 내용을 보는 방법을 설명합니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 2. 왼쪽 창에서 보려는 Data Lake Storage Gen1 계정이 포함된 구독을 펼칩니다.
 3. **Data Lake Store**를 펼칩니다.
 4. 보려는 Data Lake Storage Gen1 계정 노드를 마우스 오른쪽 단추로 클릭하고 **열기**를 선택합니다. 또한 Data Lake Storage Gen1 계정을 두 번 클릭하여 열 수도 있습니다. 
@@ -97,11 +97,11 @@ Data Lake Storage Gen1 리소스는 다음 작업을 수행하여 관리할 수 
 *   **로컬 및 연결됨** 아래에 있는 ACL을 통해 다른 사용자가 공유한 Data Lake Storage Gen1 리소스를 봅니다.
 *   파일 및 폴더 CRUD 작업 수행: 재귀 폴더 및 선택한 여러 파일을 지원합니다. 
 *   빠르게 최근 위치에 액세스하려면 폴더를 끌고 드롭하고 추가합니다. 이 작업에는 데스크톱 파일 탐색기 경험이 반영됩니다. 
-*   Storage 탐색기에서 한 번의 클릭으로 Data Lake Storage Gen1 하이퍼링크를 복사하고 엽니다. 
+*   Storage Explorer에서 한 번의 클릭으로 Data Lake Storage Gen1 하이퍼링크를 복사하고 엽니다. 
 *   오른쪽 아래의 창에 활동 로그를 표시하여 활동 상태를 표시합니다.
 *   폴더 통계 및 파일 속성을 표시합니다.
 
-## <a name="manage-resources-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 리소스 관리
+## <a name="manage-resources-in-azure-storage-explorer"></a>Azure Storage Explorer에서 리소스 관리
 Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있습니다.
 
 * 폴더와 파일을 업로드하고 폴더와 파일을 다운로드하고 로컬 컴퓨터에서 리소스를 엽니다.

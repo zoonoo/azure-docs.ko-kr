@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b5083d6b4cf6758997e4e0551e5f3c2968a31c1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d6a2c097a6040e7c005cc0feeefd59caf352441
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145976"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850491"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse로 데이터 로드
 Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다. Data Lake Storage에 저장 된 데이터에서 임시 쿼리를 실행할 수 있습니다, 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
