@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL-단일 서버에 대 한 Azure Database에 연결 문제 해결
-description: PostgreSQL-단일 서버에 대 한 Azure Database에 연결 문제를 해결 하는 방법에 알아봅니다.
+title: Azure Database for PostgreSQL-단일 서버에 대한 연결 문제 해결
+description: Azure Database for PostgreSQL-단일 서버에 대한 연결 문제를 해결하는 방법에 대해 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
 author: jan-eng
 ms.author: janeng
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2019
 ms.locfileid: "65952112"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대 한 Azure Database에 연결 문제 해결
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에 대한 연결 문제 해결
 
 연결 문제는 다음과 같은 다양한 작업으로 인해 발생할 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "65952112"
 * 일부 Azure Database for PostgreSQL 리소스에서 최대 한도 도달
 * 서비스 인프라 관련 문제
 * 서비스에서 유지 관리 수행 중
-* vCores 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 계산 할당 변경
+* vCore 수를 조정하거나 다른 서비스 계층으로 이동하여 서버의 계산 할당 변경
 
 일반적으로 Azure Database for PostgreSQL에 대한 연결 문제는 다음과 같이 분류할 수 있습니다.
 
