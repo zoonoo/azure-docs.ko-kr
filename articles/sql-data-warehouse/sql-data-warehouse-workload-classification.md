@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154202"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000113"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse 작업 분류
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크로드 분류 및 중요도에 대한 자세한 내용은[워크로드 분류자 생성](quickstart-create-a-workload-classifier-tsql.md) 과 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+- 분류자를 만드는 방법에 대 한 자세한 내용은 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  
+- 와 [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)를 참조하세요.
+- 방법 문서를 참조 하세요 [워크 로드 구성 중요도](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법과 [관리 하 고 워크 로드 관리를 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Bing Web Search API에 대한 분석
       href: bing-web-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 지원
       items:
         - name: 사용자 의견 포럼

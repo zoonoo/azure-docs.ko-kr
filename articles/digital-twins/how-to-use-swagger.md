@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/31/2018
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922999"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967765"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -104,7 +104,7 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | 이름  | 다음 항목으로 교체 | 예 |
+    | 이름  | 다음 항목으로 교체 | 예제 |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 포털에 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 

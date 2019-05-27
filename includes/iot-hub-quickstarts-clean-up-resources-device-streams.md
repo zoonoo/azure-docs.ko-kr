@@ -9,11 +9,11 @@ ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
 ms.openlocfilehash: 979ca857a4410a8efd1b211afc09a0563d76a1ba
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830502"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158644"
 ---
 다음 권장 문서를 계속 진행하려는 경우 지금까지 만든 리소스를 그대로 두고 다시 사용할 수 있습니다.
 

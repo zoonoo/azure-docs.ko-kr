@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544519"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961456"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "65544519"
 
 이 문서에서는 다음 작업을 완료하는 방법을 보여줍니다.
 
-* 트래픽이 ISE(통합 서비스 환경)를 통해 가상 네트워크의 서브넷 간에 이동할 수 있도록 Azure 가상 네트워크에 포트를 설정합니다.
+* 트래픽이 해당 가상 네트워크의 서브넷에서 통합 서비스 환경 (ISE)을 통해 이동할 수 있도록 가상 네트워크에서 모든 필요한 포트가 열려 있는지 확인 합니다.
 
 * ISE(통합 서비스 환경)를 만듭니다.
 
@@ -60,11 +60,13 @@ ms.locfileid: "65544519"
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>네트워크 포트 설정
+## <a name="check-network-ports"></a>네트워크 포트를 확인 합니다.
 
-올바르게 작동하고 액세스 가능한 상태로 유지되려면 ISE(통합 서비스 환경)에 가상 네트워크에서 사용 가능한 특정 포트가 있어야 합니다. 이러한 포트 중 하나를 사용할 수 없는 경우 ISE에 액세스할 수 없게 되며, ISE 작동이 중지될 수 있습니다. 가상 네트워크에서 ISE를 사용할 때 일반적인 설정 문제는 차단된 포트가 하나 이상 있는 경우입니다. ISE와 대상 시스템 간의 연결에 사용하는 커넥터에 자체 포트 요구 사항이 있을 수도 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
+가상 네트워크를 사용 하 여 통합 서비스 환경 (ISE)를 사용 하는 경우 설치 프로그램의 일반적인 문제는 하나 이상의 차단 된 포트로 것입니다. 커넥터에 ISE와 대상 시스템 간의 연결을 만드는 데 사용 하는 고유한 포트 요구 사항이 있을 수도 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
 
-ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 설정할 수 있습니다 [네트워크 보안 그룹](../virtual-network/security-overview.md) 하 여 해당 서브넷에 대해 [서브넷 간에 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)합니다. 이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. 합니다 [Resource Manager 서비스 태그](../virtual-network/security-overview.md#service-tags) 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사의 그룹을 나타냅니다.
+ISE 배포할 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 설정할 수 있습니다 [네트워크 보안 그룹](../virtual-network/security-overview.md) 하 여 [서브넷 간에 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)합니다. 그러나 ISE에 특정 포트를 열어 네트워크 보안 그룹을 사용 하는 가상 네트워크에 있어야 합니다. 이런 방식으로 ISE에 액세스할 수 있는 상태를 유지 및 여 ISE에 액세스 권한을 잃지 않도록 제대로 작동할 수 있습니다. 그렇지 않으면 모든 필요한 포트를 사용할 수 없는 경우에 ISE에 작동이 중지 됩니다.
+
+이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. 합니다 [Resource Manager 서비스 태그](../virtual-network/security-overview.md#service-tags) 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사의 그룹을 나타냅니다.
 
 > [!IMPORTANT]
 > 서브넷 내에서 내부 통신용 ISE 이러한 서브넷 내에서 모든 포트를 열어야에 필요 합니다.

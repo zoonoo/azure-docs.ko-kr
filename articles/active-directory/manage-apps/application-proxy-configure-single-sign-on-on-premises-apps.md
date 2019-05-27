@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783763"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956880"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML에서 single sign-on 응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한
 
@@ -50,8 +50,9 @@ SAML 토큰 암호화 기능을 사용 하 여 응용 프로그램 프록시를 
 1. 선택 **SAML** single sign-on 방법으로 합니다.
 1. 에 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지에서 편집를 **기본 SAML 구성** 데이터의 단계를 수행 하 고 [Enter 기본 SAML 구성](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML 기반을 구성 하려면 응용 프로그램에 대 한 인증입니다.
 
-   * 있는지 확인 합니다 **회신 URL** 일치 하거나 아래의 경로 **외부 URL** 응용 프로그램 프록시를 통해 게시 된 온-프레미스 응용 프로그램에 대 한 합니다. 다른 응용 프로그램에 필요한 경우 **회신 URL** 으로 SAML 구성 추가 **첫 번째** URL 목록에 유지 합니다 **외부 URL** 추가 URL을으로 첫 번째 후 정렬 합니다.
-   * 지정 되어 있는지 확인 합니다도 올바른 **회신 URL** 또는 인증 토큰을 받기 위해 사용할 Assertion Consumer Service URL입니다.
+   * 있는지 확인 합니다 **회신 URL** 일치 하거나 아래의 경로 **외부 URL** 응용 프로그램 프록시를 통해 게시 된 온-프레미스 응용 프로그램에 대 한 합니다. 
+   * 다른 응용 프로그램에 필요한 경우 **회신 URL** 으로 SAML 구성 추가 **추가** 표시 옆에 있는 확인란 확인 하 고 목록에는 기본으로 지정 하려면 URL  **회신 URL** IDP 시작 SAML 응답을 보내도록 합니다.
+   * SP에서 시작한 흐름을 지정 하는지 확인 응용 프로그램도 올바른 **회신 URL** 또는 인증 토큰을 받기 위해 사용할 Assertion Consumer Service URL입니다.
 
      ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

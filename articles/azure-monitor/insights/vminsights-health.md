@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522184"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130448"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태를 이해 합니다.
 
@@ -85,7 +85,7 @@ VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 
 
 단일 가상 머신 또는 VM 그룹에 상태 기능을 사용하는 방법을 살펴보기 전에, 정보가 제공되는 방식과 시각화에서 나타내는 의미를 이해할 수 있도록 간략한 소개를 살펴보는 것이 중요합니다.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>가상 머신에서 직접 상태 보기 
+### <a name="view-health-directly-from-a-virtual-machine"></a>가상 머신에서 직접 상태 보기 
 
 Azure VM의 상태를 보려면 가상 머신의 왼쪽 창에서 **인사이트(미리 보기)** 를 선택합니다. VM 인사이트 페이지에는 기본적으로 **상태**가 열려 있으며 VM의 상태 보기가 표시됩니다.  
 
@@ -96,11 +96,21 @@ Azure VM의 상태를 보려면 가상 머신의 왼쪽 창에서 **인사이트
 다음 표에는 VM에 대해 정의된 상태가 나와 있습니다. 
 
 |아이콘 |상태 |의미 |
-|-----|-------------|------------|
-| |정상 |성능 상태는 정의된 상태에 있으면 정상입니다. 이는 VM에 대해 검색된 문제가 없음을 나타내며 필요에 따라 작동합니다. 부모 롤업 모니터를 사용 하 여 상태 롤업 하 고 자식 최상의 또는 최악의 상태를 반영 합니다.|
+|-----|-------------|---------------|
+| |Healthy |성능 상태는 정의된 상태에 있으면 정상입니다. 이는 VM에 대해 검색된 문제가 없음을 나타내며 필요에 따라 작동합니다. 부모 롤업 모니터를 사용 하 여 상태 롤업 하 고 자식 최상의 또는 최악의 상태를 반영 합니다.|
 | |중요 |성능 상태는 정의된 상태 조건 범위 내에 있지 않은 경우 위험입니다. 이 상태는 하나 이상의 위험한 문제가 검색되었으며 정상 기능을 복원하려면 해당 문제를 해결해야 함을 나타냅니다. 부모 롤업 모니터를 사용 하 여 상태 롤업 하 고 자식 최상의 또는 최악의 상태를 반영 합니다.|
 | |Warning |성능 상태는 정의된 상태 조건의 두 임계값 사이에 있으면 경고입니다. 두 임계값 중 하나는 *경고* 상태를, 다른 하나는 *위험* 상태를 나타냅니다(세 가지 성능 상태 임계값을 구성할 수 있음). 또는 해결되지 않으면 위험한 문제가 발생할 수 있는 위험하지 않은 문제가 검색된 경우가 있습니다. 부모 롤업 모니터를 하나 이상의 자식에 경고 상태를 부모 반영 *경고* 상태입니다. 하위 항목이 *위험* 상태이고 다른 하위 항목이 *경고* 상태이면 상위 롤업의 성능 상태는 *위험*으로 표시됩니다.|
-| |알 수 없음 |데이터를 수집할 수 없거나 서비스가 초기화되지 않는 등의 여러 가지 이유로 인해 성능 상태를 계산할 수 없는 경우 성능 상태는 *알 수 없음* 상태입니다. 이 상태는 구성할 수 없습니다.| 
+| |알 수 없음 |성능 상태는 *알 수 없는* 때 여러 가지 이유로 계산할 수 없습니다. 다음의 각주를 참조 하세요 <sup>1</sup> 추가 세부 정보 및 이러한 문제를 해결할 수 솔루션에 대 한 합니다. |
+
+<sup>1</sup> the 알 수 없는 상태는 다음과 같은 문제가 야기 됩니다.
+
+- 에이전트를 다시 구성 하 고 Vm에 대 한 Azure Monitor를 사용 하는 경우 보고서 작업 영역을 지정 하는 더 이상. 작업 영역 참조를 보고 하도록 에이전트를 구성 하려면 [추가 또는 제거 하려면 작업 영역](../platform/agent-manage.md#adding-or-removing-a-workspace)합니다.
+- VM 삭제 되었습니다.
+- Vm에 대 한 Azure Monitor와 사용 하 여 연결 된 작업 영역 삭제 됩니다. 프리미어 지원 혜택을 사용 하 여 지원 요청을 시작할 수 있는 경우 작업 영역을 복구할 [프리미어](https://premier.microsoft.com/)합니다.
+- 솔루션 종속성 삭제 되었습니다. Log Analytics 작업 영역에서은 ServiceMap 및 InfrastructureInsights 솔루션을 다시 설정 하려면 다시 설치할 수 있습니다 사용 하는 [Azure Resource Manager 템플릿을](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) 제공 했거나 있는 작업 영역 구성 옵션을 사용 하는 합니다 시작 됨 탭을 가져옵니다.
+- VM을 종료 했습니다.
+- Azure VM 서비스를 사용할 수 없거나 유지 관리 수행 됨.
+- 작업 영역 [일일 데이터 또는 보존 한도](../platform/manage-cost-storage.md) 충족 됩니다.
 
 **상태 진단 보기**를 선택하면 VM의 모든 구성 요소, 연결된 상태 조건, 상태 변경 및 VM과 관련된 구성 요소를 모니터링하여 찾은 기타 중요한 문제가 표시되는 페이지가 열립니다. 자세한 내용은 [상태 진단](#health-diagnostics)을 참조하세요. 
 
@@ -108,7 +118,7 @@ Azure VM의 상태를 보려면 가상 머신의 왼쪽 창에서 **인사이트
 
 Windows 운영 체제를 실행 하는 Azure VM의 상태에 액세스할 때 위의 상태 5 핵심 Windows 서비스 섹션 아래에 표시 됩니다 **Core services 상태**합니다.  서비스 중 하나를 선택하면 해당 구성 요소 및 성능 상태를 모니터링하는 성능 상태가 나열된 페이지가 열립니다.  상태 조건의 이름을 클릭하면 속성 창이 열리고, 여기에서 상태 조건에 해당하는 구성 세부 정보(예: Azure Monitor 경고가 정의되어 있는지 여부)를 검토할 수 있습니다. 자세한 내용은 [상태 진단 및 상태 조건 사용](#health-diagnostics)을 참조하세요.  
 
-## <a name="aggregate-virtual-machine-perspective"></a>집계 가상 머신 관점
+### <a name="aggregate-virtual-machine-perspective"></a>집계 가상 머신 관점
 
 리소스 그룹에 있는 모든 가상 머신의 상태 컬렉션을 보려면 포털의 탐색 목록에서 **Azure Monitor**를 선택한 다음 **Virtual Machines(미리 보기)** 를 선택합니다.  
 
@@ -154,7 +164,7 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 
 ## <a name="health-diagnostics"></a>상태 진단
 
-**상태 진단** 페이지에서는 VM 상태 모델을 표시하여 VM의 모든 구성 요소, 관련 상태 조건, 상태 변경 내용, 그리고 VM과 관련해 모니터링되는 구성 요소가 식별한 기타 중요 문제를 나열할 수 있습니다.
+합니다 **상태 진단** 상태 조건, 상태 변경, 연결 된 VM의 모든 구성 요소를 나열, VM의 상태 모델을 시각화 하 고 관련 된 구성 요소를 모니터링 하는 기타 중요 한 문제를 식별 하 여 페이지를 사용 하면 VM.
 
 ![VM에 대한 상태 진단 페이지의 예](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ VM용 Azure Monitor 상태 기능은 [Azure 경고](../../azure-monitor/platform
 경고가 생성 되 면 Vm 상태에 대 한 azure Monitor SMS 및 전자 메일 알림을 지 원하는 상태 조건을 비정상 상태가 되는 경우. 에 알림을 구성 하려면 SMS 또는 전자 메일 알림을 보내도록 구성 된 작업 그룹의 이름을 확인 해야 합니다. 
 
 >[!NOTE]
->이 작업에 대 한 알림을 수신 하려는 모니터링 하는 각 VM에 대해 수행 해야 합니다.
+>이 작업에 대 한 알림을 수신 하려는 리소스 그룹의 모든 Vm에 적용 되지 않습니다 모니터링 하는 각 VM에 대해 수행 해야 합니다.  
 
 1. 터미널 창에서 **armclient.exe login**을 입력합니다. 이렇게 Azure에 로그인 하 라는 메시지가 표시 됩니다.
 
