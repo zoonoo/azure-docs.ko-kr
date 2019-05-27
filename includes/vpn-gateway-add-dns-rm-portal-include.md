@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe90de618df04063a5486af80bdade67fb886a48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444242"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157368"
 ---
 1. 가상 네트워크 페이지의 **설정** 섹션에서 **DNS 서버**를 선택하여 **DNS 서버** 페이지를 엽니다.
 

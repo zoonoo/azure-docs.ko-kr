@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794994"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169651"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
-**deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 기존 리소스에 할당된 정책의 **deployIfNotExists** 효과를 실행하도록 Policy에 명령하는 방식으로 수정을 수행할 수 있습니다. 이 문서에서는 Policy를 통한 수정을 이해하고 수행하는 데 필요한 단계를 보여 줍니다.
+**deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 업데이트 관리는 Azure 정책을 실행 하도록 지시 하 여 수행 됩니다는 **deployIfNotExists** 기존 리소스에 할당된 된 정책 적용 합니다. 이 문서에서는 이해 하 고 Azure Policy를 사용 하 여 업데이트 관리를 수행 하는 데 필요한 단계를 보여 줍니다.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
-Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다.
+Azure Policy에서 서식 파일을 실행 하는 경우는 **deployIfNotExists** 정책 정의 수행 하므로 사용 하는 [관리 id](../../../active-directory/managed-identities-azure-resources/overview.md)합니다.
+Azure Policy 각 할당에 대 한 관리 되는 id를 만들지만 관리 되는 id 권한을 부여 하려면 역할에 대 한 정보를 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털을 사용 하는 경우 Azure Policy는 자동으로 부여 관리 되는 id 나열 된 역할 할당 시작 되 면 합니다.
 
 ![관리 ID - 역할 누락](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 �
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>관리 ID 수동 구성
 
-포털을 사용하여 할당을 만들 때 Policy는 관리 ID를 생성하고 **roleDefinitionIds**에 정의된 역할을 부여합니다. 다음과 같은 상황에서는 관리 ID를 만들고 권한을 할당하는 단계를 수동으로 수행해야 합니다.
+Azure Policy에 관리 되는 id를 생성 및에서 정의 된 역할을 부여 포털을 사용 하 여 할당을 만들 때 **roleDefinitionIds**합니다. 다음과 같은 상황에서는 관리 ID를 만들고 권한을 할당하는 단계를 수동으로 수행해야 합니다.
 
 - Azure PowerShell 등의 SDK를 사용하는 경우
 - 할당 범위 외부의 리소스를 템플릿이 수정하는 경우
@@ -126,7 +126,8 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 클릭한 다음 액세스 제어 페이지 위쪽의 **+ 역할 할당 추가**를 클릭합니다.
 
-1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다. **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
+1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다.
+   **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 
@@ -193,9 +194,9 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
-- [규정 준수 데이터를 가져오는 방법](getting-compliance-data.md)을 알아봅니다.
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
+- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
+- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](getting-compliance-data.md)합니다.
+- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154342"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
@@ -488,7 +488,7 @@ Grid Infrastructure를 설치하려면 다음 단계를 완료합니다.
 
     ![설치 관리자 루트 스크립트 실행 구성 페이지의 스크린샷](./media/oracle-asm/install09.png)
 
-11. **필수 요소 확인 수행** 페이지에서 오류가 발생하여 현재 설치에 실패합니다. 이는 정상적인 동작입니다. `Fix & Check Again`를 선택합니다.
+11. **필수 요소 확인 수행** 페이지에서 오류가 발생하여 현재 설치에 실패합니다. 이는 정상적인 동작입니다. `Fix & Check Again`을(를) 선택합니다.
 
 12. **스크립트 수정** 대화 상자에서 `OK`을 클릭합니다.
 
