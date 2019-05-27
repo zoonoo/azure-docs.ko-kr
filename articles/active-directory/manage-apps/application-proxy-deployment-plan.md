@@ -15,16 +15,18 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442592"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113019"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
-Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미스 응용 프로그램에 대 한 원격 액세스를 안전 하 고 비용 효율적인 솔루션입니다. 레거시에 대 한 액세스를 관리 하는 "클라우드 첫 번째" 조직 위한 즉시 전환 경로 온-프레미스 최신 프로토콜을 사용할 수 없는 아직 되지 않은 응용 프로그램을 제공 합니다. 자세한 소개를 참조 하세요 [응용 프로그램 프록시 란](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) 하 고 [응용 프로그램 프록시 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)합니다.
+Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미스 응용 프로그램에 대 한 원격 액세스를 안전 하 고 비용 효율적인 솔루션입니다. 레거시에 대 한 액세스를 관리 하는 "클라우드 첫 번째" 조직 위한 즉시 전환 경로 온-프레미스 최신 프로토콜을 사용할 수 없는 아직 되지 않은 응용 프로그램을 제공 합니다. 자세한 소개를 참조 하세요 [응용 프로그램 프록시 란](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)합니다.
+
+내부 리소스에 원격 사용자가 액세스할 수 있도록 하는 것에 대 한 응용 프로그램 프록시를 사용 하는 것이 좋습니다. 응용 프로그램 프록시는 VPN이 필요 하거나 이러한 원격 액세스 사용 사례에 대 한 역방향 프록시를 대체합니다. 회사 네트워크에 있는 사용자는 것이 아닙니다. 인트라넷 액세스에 대 한 응용 프로그램 프록시를 사용 하는 이러한 사용자는 바람직하지 않은 성능 문제가 있을 수 있습니다.
 
 이 문서에서는 계획, 운영 및 Azure AD 응용 프로그램 프록시를 관리 하는 데 필요한 리소스를 포함 합니다. 
 
@@ -41,25 +43,30 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
    * 모든 하이퍼바이저 솔루션 내에서 호스트 되는 VM
    * 응용 프로그램 프록시 서비스로 아웃 바운드 연결을 사용 하도록 설정 하려면 Azure에서 호스트 되는 VM.
 
-참조 [이해 Azure AD 앱 프록시 커넥터](application-proxy-connectors.md) 에 대 한 자세한 개요입니다.
+* 참조 [이해 Azure AD 앱 프록시 커넥터](application-proxy-connectors.md) 에 대 한 자세한 개요입니다.
 
-   * 커넥터 호스트 해야 합니다 [TLS 1.2에 대해 사용할](application-proxy-add-on-premises-application.md) 커넥터를 설치 하기 전에 합니다.
+     * 커넥터 컴퓨터 해야 [TLS 1.2에 대해 사용할](application-proxy-add-on-premises-application.md) 커넥터를 설치 하기 전에 합니다.
 
-   * 가능한 경우에 커넥터를 배포 합니다 [동일한 네트워크](application-proxy-network-topology.md) 및 백 엔드 웹 응용 프로그램 서버를 세그먼트입니다. 응용 프로그램의 검색을 완료 한 후에 커넥터 호스트를 배포 하는 것이 좋습니다.
+     * 가능한 경우에 커넥터를 배포 합니다 [동일한 네트워크](application-proxy-network-topology.md) 및 백 엔드 웹 응용 프로그램 서버를 세그먼트입니다. 응용 프로그램의 검색을 완료 한 후 커넥터를 배포 하는 것이 좋습니다.
+     * 각 커넥터 그룹에 두 개 이상의 커넥터 고가용성 및 확장성을 제공 하는 것이 좋습니다. 세 명의 커넥터 언제 든 지 컴퓨터를 서비스 해야 하는 경우 적합 합니다. 검토 합니다 [커넥터 용량 테이블](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) 에서 커넥터를 설치 하려면 컴퓨터의 유형을 결정에 도움이 되도록 합니다. 클수록 더 많은 버퍼 컴퓨터 및 고성능 커넥터가 됩니다.
 
-* **네트워크 액세스 설정**: Azure AD 응용 프로그램 프록시 커넥터 [HTTPS (TCP 포트 443) 및 HTTP (TCP 포트 80)를 통해 Azure에 연결 하려고](application-proxy-add-on-premises-application.md)합니다. 
+* **네트워크 액세스 설정**: Azure AD 응용 프로그램 프록시 커넥터 [HTTPS (TCP 포트 443) 및 HTTP (TCP 포트 80)를 통해 Azure에 연결](application-proxy-add-on-premises-application.md)합니다. 
 
    * 종료 커넥터 TLS 트래픽 지원 되지 않으며 커넥터는 각 Azure 앱 프록시 끝점을 사용 하 여 보안 채널 설정에서 수 없게 됩니다.
 
    * 모든 형태의 커넥터와 Azure 간의 아웃 바운드 TLS 통신에서 인라인 검사 하지 않습니다. 내부 검사 커넥터와 백 엔드 응용 프로그램 간의 사용자 환경이 저하 될 수 있고 따라서 권장 되지 않습니다 가능 합니다.
 
-   * 자체 프록시 커넥터의 부하 분산도 지원 되지 않습니다에 필요 합니다.
+   * 자체 커넥터의 부하 분산도 지원 되지 않습니다에 필요 합니다.
 
 ### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 구성 하기 전에 중요 한 고려 사항
 
 다음과 같은 핵심 요구 사항은 구성 하 고 Azure AD 응용 프로그램 프록시를 구현 하기 위해 충족 되어야 합니다.
 
 *  **Azure 온 보 딩**: 응용 프로그램 프록시를 배포 하기 전에 사용자 id는 온-프레미스 디렉터리에서 동기화 하거나 Azure AD 테 넌 트 내에서 직접 만들 수 해야 합니다. Id 동기화는 Azure AD를 미리 게시 된 응용 프로그램을 앱 프록시에 대 한 액세스 권한을 부여 하기 전에 사용자를 인증 하 고에서 single sign-on (SSO) 하는 데 필요한 사용자 식별자 정보를가지고 있습니다.
+
+* **조건부 액세스 요구 사항**: 이 사용자에 영향을 주는 대기 시간을 추가 하기 때문에 인트라넷 액세스에 대 한 응용 프로그램 프록시를 사용 하는 것은 좋지 않습니다. 인터넷에서 원격 액세스를 위한 사전 인증 및 조건부 액세스 정책을 사용 하 여 응용 프로그램 프록시를 사용 하는 것이 좋습니다.  인트라넷에서 사용에 대 한 조건부 액세스 diretly 할 수 있는 응용 프로그램을 현대화 하는 것을 제공 하는 방법은 AAD로 인증 합니다. 가리킵니다 [마이그레이션에 대 한 리소스 AAD에 응용 프로그램](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) 자세한 내용은 합니다. 
+
+* **서비스 제한 사항**: 으로부터 보호 하기 위해 믿지 있습니다 개별 테 넌 트에서 리소스 제한은 응용 프로그램 및 테 넌 트 별로 설정 됩니다. 참조 하는 이러한 한도 보려는 [Azure AD 서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)합니다. 이러한 제한 한도 일반적인 사용량 맨 위에 벤치 마크를 기반으로 하 고는 대부분의 배포에 대 한 충분 한 버퍼를 제공 합니다.
 
 * **공용 인증서**: 사용자 지정 도메인 이름을 사용 하는 경우 신뢰할 수 있는 타사 인증 기관에서 발급 된 공용 인증서를 확보 해야 합니다. 조직 요구 사항에 따라 인증서를 가져오는 시간이 걸릴 수 있으며 최대한 빨리 프로세스를 시작 하는 것이 좋습니다. Azure 응용 프로그램 프록시는 표준 지원 [와일드 카드](application-proxy-wildcard.md), 또는 인증서 SAN 기반 합니다.
 
@@ -73,13 +80,11 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 * **관리 권한 및 역할**
 
-   * **커넥터 설치** 에 설치 된 Windows 서버에 로컬 관리자 권한이 필요 합니다. 또한 인증 및 Azure AD 테 넌 트 커넥터 인스턴스를 등록 하는 응용 프로그램 관리자 역할의 최소가 필요 합니다. 
+   * **커넥터 설치** 에 설치 된 Windows 서버에 로컬 관리자 권한이 필요 합니다. 또한 최소 필요는 *응용 프로그램 관리자* 역할의 인증 및 Azure AD 테 넌 트 커넥터 인스턴스를 등록 합니다. 
 
    * **응용 프로그램 게시 및 관리** 필요 합니다 *응용 프로그램 관리자* 역할입니다. 응용 프로그램 관리자는 등록, SSO 설정, 사용자 및 그룹 할당 및 라이선스, 응용 프로그램 프록시 설정 및 동의 포함 하는 디렉터리의 모든 응용 프로그램을 관리할 수 있습니다. 조건부 액세스를 관리 하는 기능을 부여 하지 것입니다. 합니다 *클라우드 응용 프로그램 관리자* 역할에서는 모든 기능이 응용 프로그램 관리자의 점을 제외 하 고 응용 프로그램 프록시 설정 관리할 수는 없습니다.
 
-* **라이선스**: 응용 프로그램 프록시는 Azure AD Basic 정기 가입을 통해 사용할 수 있습니다. 참조 된 [Azure Active Directory 가격 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 옵션 및 기능 라이선스의 전체 목록은 합니다. 
-
-* 역할 상승을 통해 응용 프로그램 관리자 권한을 얻으려면 해야 할 수 있습니다 [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM)을 이므로 해야 계정에 적합 합니다. 
+* **라이선스**: 응용 프로그램 프록시는 Azure AD Basic 정기 가입을 통해 사용할 수 있습니다. 참조 된 [Azure Active Directory 가격 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 옵션 및 기능 라이선스의 전체 목록은 합니다.  
 
 ### <a name="application-discovery"></a>응용 프로그램 검색
 
@@ -107,9 +112,9 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
  **액세스 권한**
 
-* 도메인 및 Azure AD 사용자는 장치에 연결 된 모든 도메인에 가입 되거나 Azure AD를 사용 하 여 때 안전 하 게 사용 하 여 원활 하 게에서 single sign-on (SSO) 게시 된 응용 프로그램에 액세스할 수 있습니다.
+* 도메인 가입을 사용 하 여 원격 사용자 또는 Azure AD 가입 장치 사용자는 안전 하 게 사용 하 여 원활 하 게에서 single sign-on (SSO) 게시 된 응용 프로그램을 액세스할 수 있습니다.
 
-* 안전 하 게 승인 된 개인 장치가 있는 사용자는 MFA에 등록 된 인증 방법으로 휴대폰에 Microsoft Authenticator 앱을 등록 한 제공 게시 된 응용 프로그램을 액세스할 수 있습니다.
+* 안전 하 게 승인 된 개인 장치가 있는 원격 사용자는 MFA에 등록 된 인증 방법으로 휴대폰에 Microsoft Authenticator 앱을 등록 한 제공 게시 된 응용 프로그램을 액세스할 수 있습니다.
 
 **거 버 넌 스** 
 
@@ -164,7 +169,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 ### <a name="deploy-application-proxy"></a>응용 프로그램 프록시 배포
 
-이 응용 프로그램 프록시를 배포 하는 단계를 나와 [원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 하기 위한 자습서](application-proxy-add-on-premises-application.md)합니다. 설치 성공 아니면 선택 **응용 프로그램 프록시 문제 해결** 포털 또는 문제 해결 가이드를 사용 하 여[응용 프로그램 프록시 에이전트 커넥터를 설치 하는 문제에 대 한](application-proxy-connector-installation-problem.md)합니다.
+이 응용 프로그램 프록시를 배포 하는 단계를 나와 [원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 하기 위한 자습서](application-proxy-add-on-premises-application.md)합니다. 설치 성공 아니면 선택 **응용 프로그램 프록시 문제 해결** 포털 또는 문제 해결 가이드를 사용 하 여 [응용 프로그램 프록시 에이전트 커넥터를 설치 하는 문제에 대 한](application-proxy-connector-installation-problem.md)합니다.
 
 ### <a name="publish-applications-via-application-proxy"></a>응용 프로그램 프록시를 통해 응용 프로그램 게시
 
@@ -174,7 +179,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 응용 프로그램을 게시할 때 따라야 할 몇 가지 모범 사례는 다음과 같습니다.
 
-* **커넥터 그룹을 사용 하 여**: 각각의 응용 프로그램을 게시 하는 것에 대 한 지정 된 커넥터 그룹을 할당 합니다.
+* **커넥터 그룹을 사용 하 여**: 각각의 응용 프로그램을 게시 하는 것에 대 한 지정 된 커넥터 그룹을 할당 합니다. 각 커넥터 그룹에 두 개 이상의 커넥터 고가용성 및 확장성을 제공 하는 것이 좋습니다. 세 명의 커넥터 언제 든 지 컴퓨터를 서비스 해야 하는 경우 적합 합니다. 또한 볼 [별도 네트워크 및 커넥터 그룹을 사용 하 여 위치에서 응용 프로그램 게시](application-proxy-connector-groups.md) 방법을 사용할 수도 있습니다 커넥터 그룹 네트워크 또는 위치에서 커넥터 세그먼트를 볼 수 있습니다.
 
 * **백 엔드 응용 프로그램 시간 제한 설정**: 이 설정은 응용 프로그램 클라이언트 트랜잭션을 처리 하는 데 75 초 이상 필요할 수 있는 시나리오에서 유용 합니다. 예를 들어 클라이언트에 보낼 때 쿼리 웹 응용 프로그램에는 데이터베이스에 대 한 프런트 엔드로 작동 합니다. 프런트 엔드는 백 엔드 데이터베이스 서버에이 쿼리를 보내고 응답을 기다리는 했지만 응답을 받을 시간, 클라이언트 쪽의 대화 시간이 초과 합니다. 긴 트랜잭션이 완료 180 초 동안 제공 하는 제한 시간을 설정 합니다.
 
@@ -190,7 +195,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 * **애플리케이션 본문의 URL 변환**: 클라이언트에 다시 응답 번역할 수 있도록 해당 앱에서 링크 하려는 경우 앱에 대 한 응용 프로그램 본문 링크 변환을 설정 합니다. 사용 하도록 설정 하는 경우이 함수는 앱 프록시 클라이언트로 반환 되는 HTML 및 CSS 응답에서 발견 된 모든 내부 링크 변환에서 시도 하는 최상의 노력을 제공 합니다. 이 경우 하드 코드 된 절대 또는 콘텐츠 전체에서 NetBIOS 짧은 이름 링크를 포함 하는 앱 또는 다른 연결 하는 콘텐츠를 사용 하 여 앱 게시 온-프레미스 응용 프로그램에 유용 합니다.
 
-시나리오는 게시 된 앱 링크를 다른 앱을 게시 하는 위치에 대 한 앱 별 수준에 게 사용자 환경 제어할 수 있도록 링크 변환 또는 각 응용 프로그램 사용 합니다.
+시나리오는 게시 된 앱 링크를 다른 앱을 게시 하는 위치에 대 한 앱 별 수준에 게 사용자 환경 제어할 수 있도록 각 응용 프로그램에 대해 링크 변환을 사용 하도록 설정 합니다.
 
 예를 들어 애플리케이션 프록시를 통해 게시된 다음과 같은 세 개의 애플리케이션이 있고 모두 서로 연결되어 있다고 가정합니다. 혜택, 비용, 이동, 및 피드백을 응용 프로그램 프록시를 통해 게시 되지 않은 네 번째 앱을 합니다.
 
@@ -225,7 +230,7 @@ Benefits 앱에 대해 링크 변환을 사용 하도록 설정 하면 회사 �
 
 ### <a name="enable-pre-authentication"></a>사전 인증을 사용 하도록 설정
 
-응용 프로그램에 응용 프로그램 프록시를 통해 액세스할 수 있는지 확인 합니다. 
+응용 프로그램에 외부 URL을 통해 액세스 하는 응용 프로그램 프록시를 통해 액세스할 수 있는지 확인 합니다. 
 
 1. **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동하고 관리하려는 앱을 선택합니다.
 
@@ -233,7 +238,7 @@ Benefits 앱에 대해 링크 변환을 사용 하도록 설정 하면 회사 �
 
 3. 에 **사전 인증** 필드에서 드롭다운 목록을 사용 하 여 선택 **Azure Active Directory**를 선택 하 고 **저장**합니다.
 
-사전 인증 사용, Azure AD는 문제를 해결할 수 인증용 및 다음 백 엔드 응용 프로그램은 또한 문제를 해결할 수 인증이 필요한 경우. 처음에 HTTP 용으로 구성 하는 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안 됩니다 하도록 외부 URL은 HTTPS를 사용 하 여 구성도 통과 사전 인증을 Azure AD에서 변경 합니다.
+사전 인증 사용, Azure AD는 사용자 먼저 인증에 대 한 하며 이면 single sign on configued 다음 백 엔드 응용 프로그램은 또한 확인 사용자 응용 프로그램에 액세스 하기. 처음에 HTTP 용으로 구성 하는 모든 응용 프로그램은 이제 HTTPS를 사용 하 여 보안 됩니다 하도록 외부 URL을 HTTPS를 사용 하 여 구성도 Azure ad에서 통과 사전 인증 모드를 변경 합니다.
 
 ### <a name="enable-single-sign-on"></a>Single Sign-On 사용
 
@@ -241,7 +246,7 @@ SSO는 사용자만 Azure AD에 액세스할 때 한 번에 로그인 해야 하
 
 선택 된 **통과** 옵션을 사용 하면 Azure AD에 인증 필요 없이 게시 된 응용 프로그램에 액세스할 수 있습니다.
 
-SSO를 수행 하는 Azure AD 응용 프로그램 미리 함수 SSO에 대 한 액세스 시 사용자를 인증 하도록 구성 해야 하므로 리소스에 대 한 액세스를 요청 하는 사용자를 식별할 수, 그렇지 않으면 SSO 옵션을 사용할 수 없습니다 수만 있습니다.
+SSO를 수행 하는 Azure AD 응용 프로그램 미리 함수 SSO에 대 한 액세스 시 Azure AD 사용 하 여 사용자를 인증 하도록 구성 해야 하므로 리소스에 대 한 액세스를 요청 하는 사용자를 식별할 수, 그렇지 않으면 SSO 옵션을 사용할 수 없습니다 수만 있습니다.
 
 읽기 [Azure AD에서 응용 프로그램에서 Single sign-on](what-is-single-sign-on.md) 응용 프로그램을 구성 하는 경우 가장 적절 한 SSO 메서드를 선택할 수 있도록 합니다.
 
@@ -265,7 +270,7 @@ Azure AD 응용 프로그램 프록시를 지원 하기 위해 다음과 같은 
 
 * 위험 기반 조건부 액세스: 사용 하 여 악의적인 해커 로부터 데이터 보호를 [위험 기반 조건부 액세스 정책](https://www.microsoft.com/cloud-platform/conditional-access) 적용할 수 있는 모든 앱 및 모든 사용자에 게 여부 온-프레미스 또는 클라우드에서 합니다.
 
-* Azure AD 응용 프로그램 창: 배포 응용 프로그램 프록시 서비스와 안전 하 게 게시 하는 응용 프로그램을 사용 하 여 사용자가 검색 하 고 모든 응용 프로그램에 액세스 하려면 간단한 허브를 제공 합니다. 새 앱 및 그룹에 대 한 액세스를 요청 하거나 다른 사용자를 대신 하 여 이러한 리소스에 대 한 액세스를 통해 관리 하는 기능과 같은 셀프 서비스 기능으로 생산성 증가 합니다 [액세스 패널](https://aka.ms/AccessPanelDPDownload)합니다.
+* Azure AD 액세스 패널: 배포 응용 프로그램 프록시 서비스와 안전 하 게 게시 하는 응용 프로그램을 사용 하 여 사용자가 검색 하 고 모든 응용 프로그램에 액세스 하려면 간단한 허브를 제공 합니다. 새 앱 및 그룹에 대 한 액세스를 요청 하거나 다른 사용자를 대신 하 여 이러한 리소스에 대 한 액세스를 통해 관리 하는 기능과 같은 셀프 서비스 기능으로 생산성 증가 합니다 [액세스 패널](https://aka.ms/AccessPanelDPDownload)합니다.
 
 ## <a name="manage-your-implementation"></a>구현을 관리 하기
 
@@ -290,7 +295,7 @@ Azure AD 조직의 사용자 사용 현황 및 감사 로그 및 보고서를 �
 
 #### <a name="application-audit-logs"></a>애플리케이션 감사 로그
 
-이러한 로그에는 로그인 응용 프로그램을 액세스 하는 사용자 및 장치에 대 한 정보 뿐만 아니라 응용 프로그램 프록시를 사용 하 여 구성 된 응용 프로그램을 자세히 설명 합니다. 이러한 감사 API 및 Azure portal에서 배치 됩니다.
+이러한 로그는 응용 프로그램 프록시 및 장치 및 응용 프로그램을 액세스 하는 사용자를 사용 하 여 구성 하는 응용 프로그램에 로그인 하는 방법에 대 한 자세한 정보를 제공 합니다. 감사 로그 있는 감사 API 및 Azure portal에서 내보내기에 대 한 합니다.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows 이벤트 로그 및 성능 카운터
 
@@ -300,7 +305,7 @@ Azure AD 조직의 사용자 사용 현황 및 감사 로그 및 보고서를 �
 
 일반적인 문제 및 가이드를 사용 하 여 해결 하는 방법에 자세히 알아보려면 [문제 해결](application-proxy-troubleshoot.md) 오류 메시지입니다. 
 
-이 문서에서는 일반적인 시나리오를 다룹니다 하지만 지원 조직에 대 한 고유한 문제 해결 지침을 만들 수도 있습니다. 
+다음 문서를 만드는 지원 조직에 대 한 문제 해결 가이드도 사용할 수 있는 일반적인 시나리오를 다룹니다. 
 
 * [앱 페이지를 표시할 때 문제](application-proxy-page-appearance-broken-problem.md)
 * [너무 긴 애플리케이션 로드](application-proxy-page-load-speed-problem.md)

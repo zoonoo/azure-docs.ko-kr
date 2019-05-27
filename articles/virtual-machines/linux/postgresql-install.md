@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474230"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955155"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.
@@ -232,7 +232,7 @@ Postgres 데이터베이스를 만듭니다.
 ![Image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>테이블의 데이터 업데이트
-테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 경우에는 Sandy가 참석하겠다고 확인했으므로 회신을 "N"에서 "Y"로 RSVP를 변경합니다.
+테이블의 데이터를 업데이트하려면 다음 명령을 사용합니다. 이 Sandy가 확인는 참석은, "N"에서 "Y"로 RSVP를 변경 합니다.
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

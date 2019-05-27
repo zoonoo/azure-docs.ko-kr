@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918635"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950904"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
 하이브리드 ID 솔루션을 설계하는 첫 번째 단계는 이 솔루션을 활용하는 비즈니스 조직에 대한 요구 사항을 결정하는 것입니다.  하이브리드 ID는 지원 역할(인증을 제공하여 다른 모든 클라우드 솔루션을 지원)로 시작하고 사용자에 대한 새 워크로드의 잠금을 해제하는 새롭고 흥미로운 기능을 계속하여 제공합니다.  사용자에 대해 채택하려는 이러한 워크로드 또는 서비스는 하이브리드 ID 설계에 대한 요구 사항을 결정합니다.  이러한 서비스와 워크로드는 온-프레미스 및 클라우드에서 하이브리드 ID를 활용해야 합니다.  
 
-현재의 요구 사항 및 미래 회사 계획이 무엇인지 이해하려면 비즈니스의 이러한 주요 측면을 검토해야 합니다. 하이브리드 ID 설계에 대한 장기적인 전략을 표시하지 않는다면 비즈니스가 성장하고 변화해야 할 때 솔루션은 확장이 불가능합니다.   아래 다이어그램은 사용자에 잠금이 해제된 하이브리드 ID 아키텍처 및 워크로드의 예를 보여줍니다. 잠금을 해제하고 견고한 하이브리드 ID 전략을 제공할 수 있는 새로운 가능성의 예입니다. 
+현재의 요구 사항 및 미래 회사 계획이 무엇인지 이해하려면 비즈니스의 이러한 주요 측면을 검토해야 합니다. 하이브리드 ID 설계에 대한 장기적인 전략을 표시하지 않는다면 비즈니스가 성장하고 변화해야 할 때 솔루션은 확장이 불가능합니다. 아래 다이어그램에는 하이브리드 id 아키텍처 및 사용자에 대 한 잠금이 해제 되는 작업 부하의 예가 나와 있습니다. 잠금을 해제하고 견고한 하이브리드 ID 전략을 제공할 수 있는 새로운 가능성의 예입니다. 
 
 하이브리드 id 아키텍처의 일부인 일부 구성 요소 ![하이브리드 id 아키텍처](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 

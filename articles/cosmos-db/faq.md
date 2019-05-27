@@ -4,27 +4,17 @@ description: 전역적으로 분산된 다중 모델 데이터베이스 서비�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793796"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954138"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
-
-### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API의 변경된 내용
-
-Azure Cosmos DB DocumentDB API 또는 SQL(DocumentDB) API는 이제 Azure Cosmos DB SQL API라고 합니다. DocumentDB API로 기본 제공된 앱을 계속해서 실행하기 위해 어떠한 항목도 변경할 필요가 없습니다. 기능은 동일하게 유지됩니다.
-
-이전에 DocumentDB API 계정이 있었으면 청구 금액 변동 없이 SQL API 계정이 생성됩니다.
-
-### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Azure DocumentDB as a Service의 변경된 내용
-
-Azure DocumentDB 서비스는 이제 Azure Cosmos DB 서비스의 일부이며 SQL API의 형식으로 나타납니다. Azure DocumentDB에 대해 빌드된 애플리케이션은 Azure Cosmos DB SQL API를 변경하지 않고 실행됩니다. 또한 Cosmos DB는 [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) 및 [Azure Table Storage](table-introduction.md) 유선 프로토콜을 서비스에 직접 구현합니다. 이렇게 하면 일반적으로 사용되는 NoSQL API용 클라이언트 드라이버(및 도구)를 Cosmos 데이터베이스로 직접 가리킬 수 있습니다.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB의 대표적인 사용 사례는 무엇인가요?
 
@@ -34,7 +24,7 @@ Azure Cosmos DB는 자동 크기 조정, 예측 가능한 성능, 밀리초 응�
 
 RU([요청 단위](request-units.md))는 Azure Cosmos DB의 처리량 측정 단위입니다. 1RU 처리량은 1KB 문서의 GET 처리량에 해당합니다. 읽기, 쓰기, SQL 쿼리, 저장 프로시저 실행 등 Azure Cosmos DB에서의 모든 작업에는 작업을 완료하는 데 필요한 처리량을 기반으로 하는 결정적 RU 값이 있습니다. CPU, IO 및 메모리와 이 각각이 애플리케이션 처리량에 미치는 영향을 고려하는 대신 단일 RU 측정값 측면에서 고려할 수 있습니다.
 
-초당 RU 처리량 측면에서 프로비전된 처리량으로 각 Azure Cosmos DB 컨테이너를 구성할 수 있습니다. 모든 규모의 애플리케이션에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 애플리케이션 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대 한 자세한 내용은 컨테이너 요구 사항을 결정에 대 한 도움말을 시도 합니다 [처리량 계산기](https://www.documentdb.com/capacityplanner)합니다.
+초당 Ru 기준으로 프로 비전 된 처리량으로 각 Azure Cosmos 컨테이너를 구성할 수 있습니다. 모든 규모의 애플리케이션에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 애플리케이션 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대 한 자세한 내용은 컨테이너 요구 사항을 결정에 대 한 도움말을 시도 합니다 [처리량 계산기](https://www.documentdb.com/capacityplanner)합니다.
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB에서는 키/값, 열 형식, 문서 및 그래프와 같은 다양한 데이터 모델을 어떻게 지원하나요?
 
@@ -91,8 +81,9 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 
 다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
 
-* SQL, Gremlin API 및 테이블 계정의 구독당 하나의 컨테이너
-* MongoDB 계정의 경우 구독당 최대 3개의 컬렉션
+* 하나의 [처리량 프로 비전 된 컨테이너](./set-throughput.md#set-throughput-on-a-container) SQL, Gremlin API 및 테이블 계정의 구독 당 합니다.
+* 최대 3 개의 [컬렉션을 프로 비전 된 처리량](./set-throughput.md#set-throughput-on-a-container) MongoDB 계정의 구독 당 합니다.
+* 하나의 [처리량 프로 비전 된 데이터베이스](./set-throughput.md#set-throughput-on-a-database) 구독 당 합니다. 프로 비전 된 처리량 데이터베이스 내에서 컨테이너를 개수에 관계 없이 포함할 수 있습니다.
 * 10GB 저장소 용량
 * 전역 복제는 [Azure 지역](https://azure.microsoft.com/regions/) 미국 중부, 북유럽 및 동남 아시아에서 사용할 수 있습니다.
 * 5 5k RU/s 컨테이너 수준에서 프로 비전 하는 경우의 최대 처리량입니다.
@@ -530,7 +521,7 @@ Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 저장소 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin 드라이버를 사용하여 삽입 공격을 방지하려면 어떻게 하나요?
 
-대부분의 네이티브 Tinkerpop Gremlin 드라이버는 쿼리 실행에 매개 변수 사전을 제공하는 옵션을 허용합니다. 다음은 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
+대부분의 네이티브 Apache Tinkerpop Gremlin 드라이버는 쿼리 실행에 대 한 매개 변수 사전을 제공 하는 옵션을 허용 합니다. 다음은 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>“Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없음” 오류가 표시되는 이유는 무엇인가요?
 
@@ -755,7 +746,7 @@ Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생�
 
 아니요, 미리 보기 중에는 안정적인 로더가 지원되지 않습니다.
 
-### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>온-프레미스 Cassandra 클러스터를 Azure Cosmos DB의 Apache Cassandra API와 연결할 수 있나요?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Azure Cosmos DB의 Cassandra API를 사용 하 여 온-프레미스 Apache Cassandra 클러스터를 연결할 수 있나요?
 
 현재 Azure Cosmos DB에는 작업의 오버헤드 없이 클라우드 환경에 최적화된 환경이 있습니다. 페어링이 필요할 경우 해당 시나리오에 대한 설명이 포함된 이메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 보내주세요.
 
