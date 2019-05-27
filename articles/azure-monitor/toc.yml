@@ -450,7 +450,7 @@
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: 스냅숏 디버거
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: 자바
+                - name: Java
                   href: app/java-troubleshoot.md
                 - name: 사용 현황 분석
                   href: app/usage-troubleshoot.md

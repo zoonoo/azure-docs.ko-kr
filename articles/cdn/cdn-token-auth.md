@@ -194,7 +194,7 @@ ms.locfileid: "64869419"
    - C#
    - PHP
    - Perl
-   - 자바
+   - Java
    - Python 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정

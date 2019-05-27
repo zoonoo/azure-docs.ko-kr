@@ -17,7 +17,7 @@
       items:
         - name: PHP
           href: connect-php.md
-        - name: 자바
+        - name: Java
           href: connect-java.md
         - name: .Net
           href: connect-csharp.md
@@ -103,7 +103,7 @@
           href: concepts-connectivity.md
         - name: AKS(Azure Kubernetes Service)로 개발
           href: concepts-aks.md
-        - name: 자바
+        - name: Java
           items:
             - name: Spring Data JDBC 구성
               href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql

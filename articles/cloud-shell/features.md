@@ -86,7 +86,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |---|---|
 |.NET Core  |2.0.0       |
 |Go         |1.9        |
-|자바       |1.8        |
+|Java       |1.8        |
 |Node.js    |8.9.4      |
 |PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 및 3.5(기본값)|

@@ -177,7 +177,7 @@ sudo yum install servicefabricsdkcommon
 
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
- | | DotNetCore | 자바 | Python | NodeJS | 
+ | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
 RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |

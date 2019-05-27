@@ -154,7 +154,7 @@
       href: /powershell/module/az.cdn
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST (영문)
       href: /rest/api/cdn/

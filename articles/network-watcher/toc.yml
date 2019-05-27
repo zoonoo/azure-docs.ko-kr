@@ -156,7 +156,7 @@
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: '/powershell/module/az.network/#network_watcher'
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.network
     - name: Ruby
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher'

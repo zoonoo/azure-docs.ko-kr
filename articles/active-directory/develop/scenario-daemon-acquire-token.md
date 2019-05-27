@@ -51,7 +51,7 @@ MSAL에서. Python 구성 파일을 다음 코드 조각 처럼 보입니다.
 }
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 ```Java
 public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
@@ -115,7 +115,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 ```Java
 ClientCredentialParameters parameters = ClientCredentialParameters

@@ -52,7 +52,7 @@ SQL Azure에서 데이터베이스를 쉽게 확장하려면 분할된 데이터
 
 Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
-| .NET | 자바 |
+| .NET | Java |
 | --- | --- |
 | 정수 |정수 |
 | long |long |

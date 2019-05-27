@@ -418,7 +418,7 @@
           items:
             - name: ASP .NET
               href: quickstart-v1-aspnet-webapp.md
-            - name: 자바
+            - name: Java
               href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
             - name: NodeJS
               href: 'https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS'

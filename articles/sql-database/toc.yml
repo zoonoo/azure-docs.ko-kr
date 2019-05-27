@@ -57,7 +57,7 @@
           href: active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: sql-database-connect-query-go.md
-        - name: 자바
+        - name: Java
           href: sql-database-connect-query-java.md
         - name: Node.js
           href: sql-database-connect-query-nodejs.md
@@ -592,7 +592,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-        - name: 자바
+        - name: Java
           items:
             - name: Spring Data JDBC 사용
               href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
@@ -684,7 +684,7 @@
       href: /cli/azure/sql
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.sql.models
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.sql
     - name: Node.js
       href: /sql/connect/node-js/node-js-driver-for-sql-server

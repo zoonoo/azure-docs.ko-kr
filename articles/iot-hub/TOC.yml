@@ -14,7 +14,7 @@
           href: quickstart-send-telemetry-node.md
         - name: .NET
           href: quickstart-send-telemetry-dotnet.md
-        - name: 자바
+        - name: Java
           href: quickstart-send-telemetry-java.md
         - name: Python
           href: quickstart-send-telemetry-python.md
@@ -28,7 +28,7 @@
           href: quickstart-control-device-node.md
         - name: .NET
           href: quickstart-control-device-dotnet.md
-        - name: 자바
+        - name: Java
           href: quickstart-control-device-java.md
         - name: Python
           href: quickstart-control-device-python.md
@@ -203,7 +203,7 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-c2d.md
             - name: Node.js
               href: iot-hub-node-node-c2d.md
@@ -215,7 +215,7 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-file-upload.md
             - name: Node.js
               href: iot-hub-node-node-file-upload.md
@@ -227,7 +227,7 @@
               href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
@@ -249,7 +249,7 @@
               href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
@@ -259,7 +259,7 @@
               href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md

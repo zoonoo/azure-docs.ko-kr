@@ -133,7 +133,7 @@ azds prep --public
 
 `prep` 명령은 프로젝트의 파일에서 확인 하 고 Kubernetes에서 응용 프로그램을 실행 하는 것에 대 한 Dockerfile과 Helm 차트를 만들려고 시도 합니다. 현재는 `prep` 명령 언어를 사용 하 여 Dockerfile과 Helm 차트를 생성 합니다.
 
-* 자바
+* Java
 * Node.js
 * .NET Core
 

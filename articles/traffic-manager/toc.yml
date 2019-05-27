@@ -99,7 +99,7 @@
       href: /powershell/module/az.trafficmanager
     - name: Azure CLI
       href: /cli/azure/network/traffic-manager
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.trafficmanager
     - name: Node.js
       href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/'

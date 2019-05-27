@@ -115,7 +115,7 @@
       href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
-    - name: 자바
+    - name: Java
       href: /java/api/overview/azure/containerinstance
     - name: Node.js
       href: /javascript/api/overview/azure/containerinstances
