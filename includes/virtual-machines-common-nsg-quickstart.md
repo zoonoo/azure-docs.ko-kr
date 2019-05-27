@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405399"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154775"
 ---
 서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 머신)에 대한 포트를 열거나 엔드포인트를 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다.
 
@@ -34,4 +33,8 @@ ms.locfileid: "60405399"
 
 3. 네트워크 보안 그룹을 VM 네트워크 인터페이스 또는 서브넷에 연결합니다.
 
-    이 예제에서는 HTTP 트래픽을 허용하는 단순 규칙을 사용하지만 네트워크 보안 그룹 및 규칙을 사용하여 더 복잡한 네트워크 구성을 작성할 수도 있습니다.
+이 예제에서는 HTTP 트래픽을 허용하는 단순 규칙을 사용하지만 네트워크 보안 그룹 및 규칙을 사용하여 더 복잡한 네트워크 구성을 작성할 수도 있습니다. 
+
+
+
+

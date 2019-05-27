@@ -14,11 +14,11 @@ ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146835"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -125,8 +125,8 @@ curl.exe가 있는 폴더에서 다음 JSON 파일을 만듭니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
-| clusterSize |HDInsight 클러스터의 크기입니다. |
-| timeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
+| ClusterSize |HDInsight 클러스터의 크기입니다. |
+| TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
 | linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 스토리지 계정을 지정합니다. |
 
 다음 사항에 유의하세요.
@@ -171,10 +171,10 @@ JSON은 **AzureBlobInput**이라는 데이터 세트를 정의하며 이는 파�
 
 | 자산 | 설명 |
 |:--- |:--- |
-| type |만들려는 Azure File Storage의 이름을 입력합니다. |
+| 형식 |만들려는 Azure File Storage의 이름을 입력합니다. |
 | linkedServiceName |이전에 만든 StorageLinkedService를 참조합니다. |
 | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다. |
-| type |로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
+| 형식 |로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
 | columnDelimiter |로그 파일의 열은 ,(쉼표)로 구분됩니다. |
 | frequency/interval |월 및 간격을 설정한 빈도가 1인 경우 입력 조각은 매월 제공됩니다. |
 | external |입력 데이터가 데이터 팩터리 서비스에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. |

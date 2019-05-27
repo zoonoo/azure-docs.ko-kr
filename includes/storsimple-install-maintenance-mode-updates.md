@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61410008"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171936"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트를 설치하려면
 1. 디바이스 직렬 콘솔에 액세스한 다음(아직 액세스하지 않은 경우) 옵션 1, **모든 권한으로 로그인**을 선택합니다. 
 2. 암호를 입력합니다. 기본 암호는 **Password1**입니다.
-3. 명령 프롬프트에 다음을 입력합니다.
+3. 명령 프롬프트에서 다음을 입력합니다.
    
      `Get-HcsUpdateAvailability` 
 4. 업데이트가 사용 가능한지 여부 및 업데이트 시 장치를 중단해야 하는지 여부에 대한 알림이 표시됩니다. 디바이스를 중단하는 업데이트를 적용하려면 디바이스를 유지 관리 모드로 설정해야 합니다. 지침은 [2단계: 유지 관리 모드 종료](../articles/storsimple/storsimple-update-device.md#step2)를 참조하세요.
