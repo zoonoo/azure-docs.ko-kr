@@ -45,7 +45,7 @@ ms.locfileid: "60597105"
 - GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) 리포지토리에서 스크립트 다운로드
 
 ### <a name="csv-input-file"></a>CSV 입력 파일
-모든 필수 완료 했으면 마이그레이션하려는 각 원본 컴퓨터에 대 한 데이터를 있는 CSV 파일을 만드는 해야 합니다. 입력 CSV에는 입력 정보가 포함된 헤더 줄과 마이그레이션해야 하는 각 머신에 대한 세부 정보가 포함된 행이 있어야 합니다. 모든 스크립트가 동일한 CSV 파일을 사용하도록 설계되었습니다. 참조용 샘플 CSV 템플릿이 스크립트 폴더에 제공됩니다.
+모든 필수 사항을 완료했으면 마이그레이션하려는 각 원본 컴퓨터에 대한 데이터가 있는 CSV 파일을 만들어야 합니다. 입력 CSV에는 입력 정보가 포함된 헤더 줄과 마이그레이션해야 하는 각 머신에 대한 세부 정보가 포함된 행이 있어야 합니다. 모든 스크립트가 동일한 CSV 파일을 사용하도록 설계되었습니다. 참조용 샘플 CSV 템플릿이 스크립트 폴더에 제공됩니다.
 
 ### <a name="script-execution"></a>스크립트 실행
 CSV가 준비되면 다음 단계를 실행하여 온-프레미스 VM을 마이그레이션할 수 있습니다.
