@@ -61,9 +61,9 @@ Azure Government | US Gov 버지니아
 
 이 연결은 인터넷을 통해 진행되거나 공용 피어링을 통해 ExpressRoute를 사용할 수 있습니다.
 
-### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Azure Migrate에 대 한 네트워크 연결 요구 사항 필요?
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Azure Migrate에 대한 네트워크 연결 요구 사항 필요?
 
-Azure를 사용 하 여 통신 하도록 Url 및 Azure Migrate에 필요한 포트를 참조 하세요 [연결에 대 한 Url](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity)합니다.
+Azure와 통신하기 위해 Azure Migrate에 필요한 Url 및 포트는 [연결에 대한 Url](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity)을 확인하세요.
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>OVA 템플릿으로 VM 설정을 강화할 수 있나요?
 
