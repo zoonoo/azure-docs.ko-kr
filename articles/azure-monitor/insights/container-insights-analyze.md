@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148840"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906779"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -26,10 +26,6 @@ ms.locfileid: "65148840"
 이 문서는 이러한 두 관점을 이해하고 검색된 문제를 신속하게 평가, 조사 및 해결하는 데 도움이 됩니다.
 
 컨테이너용 Azure Monitor를 사용하도록 설정하는 방법은 [컨테이너용 Azure Monitor 등록](container-insights-onboard.md)을 참조하세요.
-
-> [!IMPORTANT]
-> Windows Server 2019를 실행 하는 AKS 클러스터를 모니터링 하려면 컨테이너 지원에 대 한 azure Monitor는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Monitor는 Linux 및 Windows Server 2019 여러 구독에서 리소스 그룹 배포를 실행 하는 모든 모니터링 대상된 AKS 클러스터의 상태를 표시 하는 다중 클러스터 보기를 제공 합니다.  솔루션에서 모니터링되지 않는 것으로 식별된 AKS 클러스터도 보여줍니다. 즉시 클러스터 상태를 이해할 수 있으며, 여기서 노드 및 컨트롤러 성능 페이지로 드릴다운하거나 클러스터의 성능 차트로 이동할 수 있습니다.  모니터링되지 않는 것으로 식별된 AKS 클러스터의 경우 언제든지 해당 클러스터에 모니터링을 사용할 수 있습니다.  
 
@@ -95,7 +91,7 @@ Linux 클러스터에 비해 컨테이너에 대 한 Azure Monitor를 사용 하
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>AKS 클러스터에서 직접 성능 보기
 왼쪽 창에서 **인사이트**를 선택하여 AKS 클러스터에서 직접 컨테이너용 Azure Monitor에 액세스할 수 있습니다. AKS 클러스터에 대한 정보 보기는 다음 네 가지 관점으로 구성됩니다.
 
-- 프로비전
+- 클러스터
 - 노드 
 - Controllers  
 - 컨테이너
@@ -195,7 +191,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 | 평균, 최소, 최대, 50번째, 90번째 | 선택한 기간 동안 백분위를 기준으로 하는 평균 노드 실제 값입니다. 평균 값은 노드에 대해 설정된 CPU/메모리 제한에서 측정됩니다. Pod 및 컨테이너의 경우에는 호스트에서 보고된 평균 값입니다. |
 | 컨테이너 | 컨테이너의 수입니다. |
 | 작동 시간 | 노드가 시작되었거나 다시 부팅된 이후 경과된 시간을 나타냅니다. |
-| Controllers | 컨테이너 및 Pod용입니다. 어떤 컨트롤러가 상주하는지 보여줍니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A**가 표시될 수 있습니다. | 
+| 컨트롤러 | 컨테이너 및 Pod용입니다. 어떤 컨트롤러가 상주하는지 보여줍니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A**가 표시될 수 있습니다. | 
 | 추세 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 선택기에서 **컨트롤러**를 선택합니다.
@@ -261,7 +257,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
 | Pod | Pod가 위치한 컨테이너입니다.| 
 | 노드 |  컨테이너가 있는 노드입니다. | 
-| Restarts | 컨테이너가 시작된 이후 경과된 시간을 나타냅니다. |
+| 다시 시작함 | 컨테이너가 시작된 이후 경과된 시간을 나타냅니다. |
 | 작동 시간 | 컨테이너가 시작 또는 다시 부팅된 이후 경과된 시간을 나타냅니다. |
 | 추세 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 컨테이너의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 

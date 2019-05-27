@@ -2,20 +2,20 @@
 title: SQL Data Warehouse 비즈니스 인텔리전스 파트너 | Microsoft Docs
 description: SQL Data Warehouse를 지원하는 솔루션을 제공하는 타사 비즈니스 인텔리전스 파트너 목록
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477112"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873805"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse 비즈니스 인텔리전스 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL Data Warehouse를 지 원하는 공식 비즈니스 인텔리전스 (BI) 솔루션을 사용 하 여 Microsoft 파트너 회사를 강조 표시 합니다.

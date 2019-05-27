@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65916871"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure DNS 사설 영역 만들기
 

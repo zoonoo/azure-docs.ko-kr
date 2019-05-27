@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL에서 서비스 매개 변수 구성
-description: 이 문서에서는 Azure CLI 명령줄을 사용하여 PostgreSQL용 Azure 데이터베이스에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
+title: Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정
+description: 이 문서에서는 Azure CLI 명령줄을 사용하여 PostgreSQL용 Azure 데이터베이스에서 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60421215"

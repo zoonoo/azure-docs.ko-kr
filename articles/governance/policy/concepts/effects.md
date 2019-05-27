@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498818"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116196"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -30,7 +30,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
-Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 요청은 먼저 Policy에서 평가됩니다. Policy는 리소스에 적용한 다음, 각 정의에 대해 리소스를 평가하는 모든 할당 목록을 만듭니다. Policy는 적절한 리소스 공급 기업에 요청을 전달하기 전에 다양한 효과를 처리합니다. 이렇게 하면 리소스가 Policy의 디자인된 거버넌스 컨트롤을 충족하지 않을 때 리소스 공급 기업의 불필요한 처리를 방지합니다.
+요청을 만들거나 Azure Resource Manager를 통해 리소스를 업데이트할 Azure 정책에 의해 먼저 평가 됩니다. Azure Policy는 리소스에 적용 하 고 다음 각 정의 대 한 리소스를 평가 하는 모든 할당 목록을 만듭니다. Azure Policy는 적절 한 리소스 공급자에 요청을 전달 하기 전에 다양 한 효과 처리 합니다. 이렇게 리소스는 Azure Policy의 설계 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에서 불필요 한 처리를 방지 합니다.
 
 - **사용 안 함**을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
 - 그런 다음, **추가**를 평가합니다. 추가는 요청을 변경할 수 있으므로 추가에서 만들어진 변경은 감사를 방지하거나 트리거되는 효과를 거부할 수 있습니다.
@@ -88,8 +88,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 �
 }
 ```
 
-예 3: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **[\*]**
-[별칭](definition-structure.md#aliases)이 아닌 별칭을 사용하는 단일 **field/value** 쌍입니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
+예 3: 단일 **필드/값** 사용 하 여 비-쌍 **[\*]** [별칭](definition-structure.md#aliases) 배열을 사용 하 여 **값** 저장소 계정에서 IP 규칙을 설정 합니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 �
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-감사는 리소스의 만들기 또는 업데이트하는 중에 Policy에서 확인된 마지막 효과입니다. 그런 다음, Policy에서는 리소스 공급 기업에 리소스를 전송합니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Policy는 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가하고 리소스를 비준수로 표시합니다.
+Audit는 마지막 효과 만들기 또는 리소스의 업데이트 하는 동안 Azure Policy로 선택 합니다. 그런 다음 azure Policy는 리소스 공급자에 리소스를 보냅니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure 정책 추가 `Microsoft.Authorization/policies/audit/action` 활동 로그에 작업 하 고 호환 되지 않는 리소스를 표시 합니다.
 
 ### <a name="audit-properties"></a>감사 속성
 
@@ -171,7 +170,7 @@ AuditIfNotExists는 **if** 조건과 일치하는 리소스에서 감사를 활�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Policy에서는 감사 효과와 동일한 방식으로 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
+리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. 추가 하는 azure Policy는 `Microsoft.Authorization/policies/audit/action` 작업 활동을 감사 효과와 동일한 방식으로 로그인 합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 속성
 
@@ -300,7 +299,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Policy 정의 구조](definition-structure.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
-- [규정 준수 데이터를 가져오는 방법](../how-to/getting-compliance-data.md)을 알아봅니다.
-- [비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
+- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
+- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](../how-to/programmatically-create.md)합니다.
+- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](../how-to/getting-compliance-data.md)합니다.
+- 설명 하는 방법 [비준수 리소스를 수정](../how-to/remediate-resources.md)합니다.
+- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.

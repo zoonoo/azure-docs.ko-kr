@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344430"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921149"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "60344430"
 - 사용자 지정 역할을 만드는 방법에 대 한 단계에 필요한 경우에 사용 하 여 사용자 지정 역할 자습서를 참조 하세요 [Azure PowerShell](tutorial-custom-role-powershell.md) 하거나 [Azure CLI](tutorial-custom-role-cli.md)합니다.
 - 기존 사용자 지정 역할을 업데이트할 수 없는 경우에 역할이 할당 된 사용자로 로그인 현재 등록 되어 있는지 확인 합니다 `Microsoft.Authorization/roleDefinition/write` 와 같은 권한이 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator).
 - 사용자 지정 역할을 삭제할 수 없고 "역할을 참조하는 기존 역할 할당이 있습니다(코드: RoleDefinitionHasAssignments)" 오류 메시지가 표시되면 사용자 지정 역할을 사용하는 역할 할당이 여전히 있는 것입니다. 이 경우 해당 역할 할당을 제거하고 다시 삭제해 봅니다.
-- 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 없는 역할 정의 만들 수 있습니다 (코드: RoleDefinitionLimitExceeded) "새 사용자 지정 역할을 만들 하려고 할 때 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure는 테넌트에서 최대 **2000**개의 사용자 지정 역할을 지원합니다.
+- 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 없는 역할 정의 만들 수 있습니다 (코드: RoleDefinitionLimitExceeded) "새 사용자 지정 역할을 만들 하려고 할 때 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure를 지 원하는 **5000** 테 넌 트의 사용자 지정 역할입니다. (Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드에 대 한 제한 임 2000 사용자 지정 역할)
 - 하지만 오류가 발생에 있는 것 처럼 "클라이언트 연결 된 구독을 찾을 수 없습니다 범위 / {subscriptionid}', 'Microsoft.Authorization/roleDefinitions/write' 작업을 수행할 수 있는 권한이" 하는 경우 사용자 지정 역할을 업데이트 하려고 할 때 확인 여부를 하나 이상의 [할당 가능한 범위](role-definitions.md#assignablescopes) 테 넌 트에서 삭제 되었습니다. 범위가 삭제되었으면 지원 티켓을 만듭니다. 현재는 사용 가능한 셀프 서비스 솔루션이 없기 때문입니다.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>테넌트에서 구독이 이동될 때 RBAC 복구

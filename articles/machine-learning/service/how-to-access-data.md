@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820285"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909006"
 ---
 # <a name="access-data-from-your-datastores"></a>사용자 데이터 저장소에서 데이터에 액세스
 
@@ -30,7 +30,7 @@ ms.locfileid: "60820285"
 
 ## <a name="prerequisites"></a>필수 조건
 
-데이터 저장소를 사용하려면 먼저 [작업 영역](concept-azure-machine-learning-architecture.md#workspace)이 필요합니다.
+데이터 저장소를 사용하려면 먼저 [작업 영역](concept-workspace.md)이 필요합니다.
 
 [새 작업 영역을 만들](setup-create-workspace.md#sdk)거나 기존 작업 영역을 검색합니다.
 

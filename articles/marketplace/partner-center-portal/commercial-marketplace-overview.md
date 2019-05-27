@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806253"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949582"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>파트너 센터에서 상용 Marketplace 포털 개요
 
@@ -36,7 +36,7 @@ Microsoft Partner Center에서 상용 Marketplace 포털을 시작 합니다. �
 
 ### <a name="improvements-on-user-experience-and-billing"></a>사용자 환경 및 청구의 기능 개선
 
-파트너 센터로 전환을 사용 하 여 새 기능은 게시자의 경우 사용자 경험에 향상 된 기능 외에도 사용할 수 있습니다. 월간 또는 연간을 청구할 수 있는 SaaS 제품 사용자별 사이트별 (요금이) 외에도 (사용자 기반) 라이선스를 지원 합니다. 이 새로운 수익 모델로 비즈니스 소프트웨어에 적합합니다. SaaS 및 사용자 단위 라이선스 미치는 비즈니스 및 산업 솔루션에 대 한 Microsoft의 상용 marketplace, AppSource에서 구매를 완료 하려면 새 기능 하므로 고객이 맞춥니다. 
+파트너 센터로 전환을 사용 하 여 새 기능은 게시자의 경우 사용자 경험에 향상 된 기능 외에도 사용할 수 있습니다. 청구할 수 있는 월간 또는 연간, SaaS 제품에는 사용자 당 사이트별 라이선스 (-요금이) 외에도 (사용자 기반) 라이선스를 지원 합니다. 이 새로운 수익 모델로 비즈니스 소프트웨어에 적합합니다. SaaS 및 사용자 단위 라이선스 미치는 비즈니스 및 산업 솔루션에 대 한 Microsoft 상용 marketplace, AppSource에서 고객은 전체 구매를 허용 하는 새로운 기능으로 맞춥니다. 
 
 ### <a name="account-and-user-management-updates"></a>계정 및 사용자 관리 업데이트
 
@@ -58,3 +58,4 @@ Microsoft Partner Center에서 상용 Marketplace 포털을 시작 합니다. �
 
 - SaaS를 게시 하려는 새로운 Microsoft 파트너에 게 마켓플레이스에 제공에 대 한 참조 [파트너 센터에서 상용 Marketplace 계정을 만드는](./create-account.md)합니다.
 - 클라우드 파트너 포털에서 제품을 이전에 게시 하는 기존 파트너에 대 한 [파트너 센터에서 상용 Marketplace 계정을 관리](./manage-account.md)합니다. 
+- 이 파트너 센터로 이동 하는 클라우드 마켓플레이스 관리에 자세히 알아보려면 [파트너 커뮤니티 블로그 게시물](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), 데모 비디오를 포함 합니다.
