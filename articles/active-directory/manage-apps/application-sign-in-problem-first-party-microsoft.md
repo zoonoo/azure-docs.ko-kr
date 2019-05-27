@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825224"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956851"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -87,7 +87,7 @@ ms.locfileid: "65825224"
 
 - 라이선스를 필요로 하지 않는 **Microsoft****애플리케이션**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
 
-  * 애플리케이션이 **사용자 수준 사용 권한**을 요청하는 경우(예: "이 사용자의 사서함에 액세스") 사용자가 애플리케이션에 로그인하고 **사용자 수준 동의 작업**을 수행하여 애플리케이션이 해당 데이터에 액세스할 수 있도록 합니다.
+  * 응용 프로그램을 요청 하는 경우 **-사용자 수준 권한이** 사용자가 응용 프로그램에 로그인 하 고 수행한 있는지 확인 (예를 들어 "이이 사용자의이 사서함")에 액세스를 **사용자 수준 동의 작업** 응용 프로그램 데이터에 액세스할 수 있도록 합니다.
 
   * 애플리케이션이 **관리자 수준 사용 권한**을 요청하는 경우(예: "모든 사용자의 사서함 액세스 권한") 전역 관리자가 조직의 **모든 사용자를 대신하여 관리자 수준 동의 작업**을 수행했는지 확인합니다.
 
@@ -205,7 +205,7 @@ ms.locfileid: "65825224"
 
 9. 사용자 목록에서 사용자를 선택하고 원하는 대로 Multi-Factor Authentication을 **사용**, **사용 안 함** 또는 **적용**합니다.
 
-   * **참고**: 사용자가 강제된 상태인 경우 일시적으로 **사용 안 함**으로 설정하여 해당 계정으로 다시 돌아올 수 있도록 할 수 있습니다. 다시 돌아오면 해당 상태를 **사용**으로 변경하여 다음 번에 로그인하는 도중 해당 연락처 정보를 다시 등록할 수 있습니다. 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)에 있는 단계를 수행하여 이 데이터를 확인하거나 설정할 수 있습니다.
+   * **참고**: 사용자가 **강제된** 상태인 경우 일시적으로 **사용 안 함**으로 설정하여 해당 계정으로 다시 돌아올 수 있도록 할 수 있습니다. 다시 돌아오면 해당 상태를 **사용**으로 변경하여 다음 번에 로그인하는 도중 해당 연락처 정보를 다시 등록할 수 있습니다. 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)에 있는 단계를 수행하여 이 데이터를 확인하거나 설정할 수 있습니다.
 
 ### <a name="check-a-users-authentication-contact-info"></a>사용자의 인증 연락처 정보 확인
 
