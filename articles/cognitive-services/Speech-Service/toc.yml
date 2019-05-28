@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: 사용자 지정 모델 배포
               href: how-to-custom-speech-deploy-model.md
-            - name: '가이드: 휴먼 레이블 전사 만들기'
+            - name: 휴먼 레이블이 지정된 전사 만들기 가이드
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: 텍스트 음성 변환
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Translator Speech API에서
           href: how-to-migrate-from-translator-speech-api.md
-    - name: 온-프레미스 컨테이너 사용
+    - name: 컨테이너 사용
       items:
-        - name: 온-프레미스 컨테이너 설치 및 실행
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: 컨테이너 설치 및 실행
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: 컨테이너 구성
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: 샘플
   items:
     - name: 음성 SDK
@@ -314,6 +314,8 @@
       href: support.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: 개인정보처리방침

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: f4a9a131bcabc28a1eb77ffc31d93dc1d391cce4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61296066"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157186"
 ---
 ## <a name="prerequisites"></a>필수 조건 
 이 자습서를 완료하려면 사용자 지정 이미지를 만들려는 랩과 연결된 저장소 계정에 업로드된 VHD 파일이 있어야 합니다. VHD 파일을 업로드하려면 다음 링크 중 하나를 선택합니다.

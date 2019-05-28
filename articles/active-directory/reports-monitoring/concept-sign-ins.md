@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288093"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864463"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -131,21 +131,28 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 
-로그인 보기에 다른 필드를 추가할 경우 이러한 필드가 자동으로 필터 목록에 추가됩니다. 예를 들어 **클라이언트 앱** 필드를 목록에 추가하면 다음 필드를 설정할 수 있는 또 다른 필터 옵션이 제공됩니다.
-
-- 브라우저      
-- Exchange ActiveSync(지원됨)               
-- Exchange ActiveSync(지원되지 않음)
-- 기타 클라이언트               
-    - IMAP
-    - MAPI
-    - 이전 버전의 Office 클라이언트
-    - POP
-    - SMTP
-
-
+로그인 보기에 다른 필드를 추가할 경우 이러한 필드가 자동으로 필터 목록에 추가됩니다. 예를 들어 **클라이언트 앱** 필드를 목록에 추가하면 다음 필드를 설정할 수 있는 또 다른 필터 옵션이 제공됩니다.  
 ![로그인 활동](./media/concept-sign-ins/12.png "로그인 활동")
 
+- **브라우저**  
+    이 필터는 모든 표시 이벤트는 로그인 시도 브라우저 흐름을 사용 하 여 수행 되었습니다.
+- **Exchange ActiveSync (지원 됨)**  
+    이 필터는 Exchange ActiveSync (EAS) 프로토콜을 시도한 iOS, Android 및 Windows Phone 등의 지원 되는 플랫폼에서 모든 로그인 시도 보여 줍니다.
+- **Exchange ActiveSync (지원 되지 않음)**  
+    이 필터는 EAS 프로토콜을 시도한 Linux 배포판 등 지원 되지 않는 플랫폼에서 모든 로그인 시도 보여 줍니다.
+- **모바일 앱 및 데스크톱 클라이언트** 이 필터는 모든 로그인 시도 브라우저 흐름을 사용 하지 않는 표시 합니다. 이 Windows 또는 MacOS에서 Office와 같은 데스크톱 클라이언트 앱 또는 모든 프로토콜을 사용 하 여 모든 플랫폼에서 모바일 앱을 수 있습니다.
+  
+- **다른 클라이언트**
+    - **IMAP**  
+        IMAP를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
+    - **MAPI**  
+        Office 2013에 ADAL이 사용 되 고은 MAPI를 사용 합니다.
+    - **이전 Office 클라이언트**  
+        Office 2013에 ADAL 해제 되어 없는 기본 구성, MAPI 또는 Office 2016 ADAL에 사용할 수 사용 합니다.
+    - **POP**  
+        POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
+    - **SMTP**  
+        전자 메일을 보내려면 SMTP를 사용 하 여 레거시 메일 클라이언트입니다.
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 

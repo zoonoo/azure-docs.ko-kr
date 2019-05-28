@@ -8,16 +8,26 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 4f11eac106fe984aa06e41083c2d4f66c7d0e62c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551731"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872909"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
 이 문서에서는 Microsoft Azure의 Red Hat OpenShift에 대 한 질문과 대답을 (Faq)를 다룹니다.
+
+## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
+
+Azure Red Hat OpenShift를 사용 하려면 먼저 Azure Red Hat OpenShift 예약 응용 프로그램 노드 4 개를 구매 해야 합니다.
+
+Azure 고객으로 라면[Azure Red Hat OpenShift 예약 인스턴스 구매](https://aka.ms/openshift/buy) Azure portal을 통해. 를 구입 후 수 클러스터 프로 비전을 24 시간 내 구독 활성화 됩니다.
+
+Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift/contact-sales) 고 프로세스를 시작 하려면 페이지 맨 아래에 판매 양식을 작성 합니다.
+
+참조를 [가격 책정 페이지 Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) 자세한 합니다.
 
 ## <a name="which-azure-regions-are-supported"></a>어떤 Azure 지역이 지원 됩니까?
 

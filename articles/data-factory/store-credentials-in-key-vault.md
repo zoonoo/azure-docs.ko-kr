@@ -76,7 +76,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 필드의 type 속성을 다음으로 설정해야 합니다. **AzureKeyVaultSecret**. | 예. |
+| type | 필드의 type 속성을 다음으로 설정해야 합니다. **AzureKeyVaultSecret**. | 예. |
 | secretName | Azure Key Vault의 비밀 이름입니다. | 예. |
 | secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아닙니다. |
 | store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |

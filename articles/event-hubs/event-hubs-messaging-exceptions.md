@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203434"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001774"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs 메시징 예외
 
@@ -91,6 +91,12 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
 
 이 오류는 드물게 발생합니다. 네임스페이스에 대한 코드를 실행하는 컨테이너의 CPU가 낮아서 Event Hubs 부하 분산 장치가 몇 초 이내에 시작되지 못할 때 이 오류가 발생합니다.
 
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>GetRuntimeInformation 메서드 호출에서 제한
+Azure Event Hubs는 초당 GetRuntimeInfo 초당 최대 50 개의 호출을 지원 합니다. 제한에 도달 하면 다음과 유사한 예외가 나타날 수 있습니다.
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## <a name="next-steps"></a>다음 단계
 

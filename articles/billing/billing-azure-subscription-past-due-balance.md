@@ -13,32 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 056ece53fa154e86cf0b5f5fb24a8842cf5a4261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60617727"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023390"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Azure에서 전자 메일을 받은 후 Azure 구독의 미지불금액 해결
+# <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
 
-귀하의 지불이 수신되지 않거나 지불을 처리할 수 없는 경우 전자 메일이 수신되거나 계정 센터 또는 Azure Portal에 경고가 표시될 수 있습니다. 메시지는 다음과 같을 수 있습니다.
+결제 금액을 받지 못한 경우, 귀하의 지불을 처리할 수 없는 경우 전자 메일이 하거나 Azure 포털 또는 계정 센터에서 경고를 참조 하세요. 수 있습니다.
+경우는 [계정 관리자](billing-subscription-transfer.md#whoisaa), 미납 된 요금을 납부 수는 [Azure portal](https://portal.azure.com)합니다. 결제를 청구서로 보내려면 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다.
 
-**회원님의 신용 카드로 구독을 결제할 수 없습니다. 서비스가 중단되지 않도록 하려면 지불 정보를 업데이트하세요.**
+> [!IMPORTANT]
+> * 동일한 신용 카드를 사용 하는 여러 구독이 있는 경우 모든 기한는 한 번에 전체 미지불 잔액을 지불 해야 합니다.
+> * 미지불 요금을 사용 하 여 결제 실패 한 지불 방법을 사용 하는 모든 구독에 대 한 새 활성 결제 방법이 됩니다.
 
-문서의 단계를 따라 미지불금액을 해결합니다.
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>미지불 금액 해결 Azure portal에서 분산
 
-## <a name="resolve-the-past-due-balance"></a>미지불금액 해결
-
-* 파일의 신용 카드가 거부되었거나 만료된 경우 [구독 요금 지불에 사용된 신용 카드를 변경](billing-how-to-change-credit-card.md)하거나 은행에 연락하여 문제를 해결하세요. 결제 방법을 업데이트하면 Azure는 모든 미결제 요금에 대한 지불을 즉시 처리합니다. 미결제 요금이 있는 다른 Microsoft 서비스에 대한 결제도 처리됩니다.
-
-* 결제를 청구서로 보내려면 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다. 도움이 필요하면 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
-
-* 계정 관리자가 회사를 그만두거나 역할 변경의 이유로 고지서를 받지 못한 경우에는 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하여 문제를 해결할 수 있습니다.
-
-* 결제가 처리되었으나 구독이 여전히 사용할 수 없게 설정된 경우 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 에 계정 관리자로
+1. **Cost Management + 청구**에서 검색합니다.
+1. 개요 페이지에서 구독 목록이 표시 됩니다. 구독 상태 기한 인 경우 클릭 합니다 **분산 납부** 링크 합니다.
+    ![분산 링크를 납부를 보여 주는 스크린샷](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. 총 미지불 잔액 실패 한 결제 방법을 사용 하 여 모든 Microsoft 서비스에서 미 불 요금을 반영 합니다.
+1. 균형을 결제 방법을 선택 합니다. 이 결제 방법을 활성 결제 방법을 현재 실패 한 지불 방법을 사용 하 여 모든 구독에 있게 됩니다.
+    ![선택한 결제 방법을 링크를 보여 주는 스크린샷](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. 선택한 결제 방법에는 또한 Microsoft 서비스에 대 한 미 불 요금에,이 총 미지불 잔액에 반영 됩니다. 너무 해당 미 불 요금을 지불 해야 합니다.
+1. 클릭 **지불**합니다.
 
 ## <a name="not-getting-billing-email-notifications"></a>청구 전자 메일 알림을 받고 있지 않으면?
 
@@ -47,6 +50,8 @@ ms.locfileid: "60617727"
 ## <a name="if-i-forget-to-pay-what-happens"></a>지불하는 것을 잊으면 어떻게 될까요?
 
 서비스는 취소되고 리소스는 더 이상 사용할 수 없게 됩니다. 귀하의 Azure 데이터는 서비스가 종료된 후 90일 후에 삭제됩니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
+
+결제가 처리되었으나 구독이 여전히 사용할 수 없게 설정된 경우 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

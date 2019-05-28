@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596971"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158950"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -374,7 +374,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 Azure 개발 공간 컨트롤러를 액세스 하는 사용자 관리자를 읽을 권한이 있어야 합니다 *kubeconfig* AKS 클러스터에 있습니다. 이 권한에에서 사용할 수 있는 예를 들어 합니다 [기본 제공 Azure Kubernetes 서비스 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)입니다. Azure 개발 공간 컨트롤러를 액세스 하는 사용자도 있어야 합니다 *참여자* 또는 *소유자* 컨트롤러에 대 한 RBAC 역할입니다.
 
 ### <a name="try"></a>시도해 보기
-AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user)합니다.
+AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)합니다.
 
 컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트.
 

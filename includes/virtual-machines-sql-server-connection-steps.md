@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264115"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165554"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 1. 원격 데스크톱을 사용하여 가상 머신에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)를 참조하세요.
@@ -26,12 +26,12 @@ ms.locfileid: "51264115"
 6. **다음**을 클릭합니다.
 7. **작업** 대화 상자에서 **연결 허용**을 선택한 후 **다음**을 클릭합니다.
    
-    **보안 정보:** **안전한 경우 연결 허용**을 선택하면 추가 보안을 제공할 수 있습니다. 사용자 환경에서 추가 보안을 구성하려는 경우 이 옵션을 선택하세요.
+    **보안 정보:** 선택 **보안 연결을 허용** 추가 보안을 제공할 수 있습니다. 사용자 환경에서 추가 보안을 구성하려는 경우 이 옵션을 선택하세요.
    
     ![연결 허용](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. **프로필** 대화 상자에서 **공용**, **개인** 및 **도메인**을 선택합니다. 그런 후 **Next** 를 클릭합니다.
    
-    **보안 정보:** **공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
+    **보안 정보:**  선택 **공용** 인터넷을 통해 액세스할 수 있습니다. 가능하면 더 제한적인 프로필을 선택하세요.
    
     ![공개 프로필](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. **이름** 대화 상자에서 이 규칙의 이름 및 설명을 입력한 후 **마침**을 클릭합니다.
@@ -55,7 +55,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 1. 가상 머신에 연결되어 있는 동안 시작 페이지에서 **SQL Server Management Studio** 를 입력하고 선택한 아이콘을 클릭합니다.
    
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***your_VM_name*\your_local_administrator**를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 머신의 이름을 입력합니다(가상 머신 이름 대신 **(로컬)** 또는 점(.)을 **서버 이름**으로 사용할 수 있음). 선택 **Windows 인증**를 두고 ***your_VM_name\your_local_administrator*** 에 **사용자 이름** 상자입니다. **연결**을 클릭합니다.
    
     ![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 머신 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.

@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920585"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142969"
 ---
-# <a name="refresh-with-azure-automation"></a>Azure Automation을 사용 하 여 새로 고침
+# <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
 Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure Analysis 테이블 형식 모델에서 자동된 데이터 새로 고침 작업을 수행할 수 있습니다.  
 
@@ -136,7 +136,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 
 3. Data Factory에서 구성 된 **웹 작업**
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
    ![예제 웹 작업](./media/analysis-services-refresh-azure-automation/19.png)
 
@@ -148,8 +148,8 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 |자산  |값  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름 <br/> 예제: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예제: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabaseRefreshType**     |새로 고침 수행을 형식입니다. <br/> 예제: 전체         |
+|**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**DatabaseRefreshType**     |새로 고침 수행을 형식입니다. <br/> 예제: 전체 검사         |
 
 예제 JSON 본문:
 

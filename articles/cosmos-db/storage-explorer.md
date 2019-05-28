@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
-description: Azure Storage 탐색기를 사용하여 Azure Cosmos DB에 연결하고 리소스를 관리하는 방법을 알아봅니다.
+description: Azure Storage Explorer를 사용하여 Azure Cosmos DB에 연결하고 리소스를 관리하는 방법을 알아봅니다.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -14,9 +14,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60951266"
 ---
-# <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용하여 데이터 작업
+# <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 데이터 작업
 
-Azure Storage 탐색기에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table API용으로 구성된 Cosmos 계정을 지원합니다.
+Azure Storage Explorer에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage Explorer는 SQL, MongoDB, Graph 및 Table API용으로 구성된 Cosmos 계정을 지원합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -25,7 +25,7 @@ SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 
 
 ## <a name="installation"></a>설치
 
-다음 위치에서 최신 Azure Storage 탐색기 비트를 설치하세요. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/). 이제 Windows, Linux 및 MAC 버전이 지원됩니다.
+다음 위치에서 최신 Azure Storage Explorer 비트를 설치하세요. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/). 이제 Windows, Linux 및 MAC 버전이 지원됩니다.
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
@@ -203,7 +203,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 [Azure Storage 탐색기에서 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)는 Windows, macOS 또는 Linux에서 Sovereign 클라우드 및 Azure에 호스팅되는 Azure Cosmos DB 계정에 연결할 수 있게 해주는 독립 실행형 앱입니다. 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장된 프로시저 및 트리거를 업데이트할 수 있게 됩니다.
 
-Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 대한 솔루션입니다.
+Storage Explorer의 Azure Cosmos DB에서 나타나는 일반적인 문제에 대한 솔루션입니다.
 
 ### <a name="sign-in-issues"></a>로그인 문제
 
@@ -217,7 +217,7 @@ Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 + 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행하고 있습니다.
 
-Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 발견하면 수신하는 HTTPS 메시지가 변조되었는지 여부를 더 이상 알지 못합니다. 자체 서명된 인증서의 복사본을 갖고 있는 경우 Storage 탐색기에 해당 인증서를 신뢰하도록 지시할 수 있습니다. 인증서를 주입하는 주체가 누구인지 모른다면 다음 단계를 수행하여 알아낼 수 있습니다.
+Storage Explorer가 이러한 "자체 서명된 인증서" 중 하나를 발견하면 수신하는 HTTPS 메시지가 변조되었는지 여부를 더 이상 알지 못합니다. 자체 서명된 인증서의 복사본을 갖고 있는 경우 Storage Explorer에 해당 인증서를 신뢰하도록 지시할 수 있습니다. 인증서를 주입하는 주체가 누구인지 모른다면 다음 단계를 수행하여 알아낼 수 있습니다.
 
 1. OpenSSL을 설치합니다.
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html)(라이트 버전도 사용 가능)
@@ -228,7 +228,7 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
 3. `s_client -showcerts -connect microsoft.com:443` 실행
 4. 자체 서명된 인증서를 찾습니다. 어떤 인증서가 자체 서명된 것인지 확실하지 않은 경우 제목(“s:”)과 발급자(“i:”)가 같은 위치를 찾습니다.
 5.  자체 서명된 인증서를 찾았으면 각 인증서에 대해 **-----BEGIN CERTIFICATE-----** 부터 **-----END CERTIFICATE-----** 까지 모든 줄을 복사하여 새 .cer 파일에 붙여넣습니다.
-6.  Storage 탐색기를 연 다음, **편집** > **SSL 인증서** > **인증서 가져오기**로 이동합니다. 파일 선택기를 사용하여, 만든 .cer 파일을 찾아서 선택하고 엽니다.
+6.  Storage Explorer를 연 다음, **편집** > **SSL 인증서** > **인증서 가져오기**로 이동합니다. 파일 선택기를 사용하여, 만든 .cer 파일을 찾아서 선택하고 엽니다.
 
 위의 단계를 사용하여 자체 서명된 인증서를 찾을 수 없는 경우 사용자 의견을 보내 도움을 받을 수 있습니다.
 
@@ -238,7 +238,7 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
 
 - [Azure Portal](https://portal.azure.com/)에 로그인하여 계정이 구독에 액세스할 수 있는지 확인합니다.
 - 올바른 환경([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) 또는 사용자 지정 환경/Azure Stack)을 사용하여 로그인했는지 확인합니다.
-- 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
+- 프록시 뒤에 있는 경우 Storage Explorer 프록시를 제대로 구성했는지 확인합니다.
 - 계정을 제거하고 다시 추가해 봅니다.
 - 홈 디렉터리(예: C:\Users\ContosoUser)에서 다음 파일을 삭제한 다음, 계정을 다시 추가합니다.
   - .adalcache
@@ -253,7 +253,7 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
 인증 페이지를 볼 수 없습니다.
 
 - 연결 속도에 따라 로그인 페이지가 로드되는 데 시간이 걸릴 수 있으므로 인증 대화 상자를 닫기 전에 1분 이상 기다립니다.
-- 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
+- 프록시 뒤에 있는 경우 Storage Explorer 프록시를 제대로 구성했는지 확인합니다.
 - F12 키를 눌러 개발자 콘솔을 가져옵니다. 개발자 콘솔의 응답을 보고 인증이 작동하지 않는 이유에 대한 단서를 찾을 수 있는지 확인합니다.
 
 #### <a name="cannot-remove-account"></a>계정을 제거할 수 없음
@@ -304,6 +304,6 @@ ASE에서 http/https 프록시를 구성할 때 왼쪽 트리에서 Azure Cosmos
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Storage 탐색기에서 Azure Cosmos DB를 사용하는 방법을 보려면 다음 비디오를 시청하세요. [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)(Azure Storage 탐색기에서 Azure Cosmos DB 사용)
+* Azure Storage Explorer에서 Azure Cosmos DB를 사용하는 방법을 보려면 다음 비디오를 시청하세요. [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)(Azure Storage 탐색기에서 Azure Cosmos DB 사용)
 * [Storage 탐색기 시작](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Storage 탐색기에 대해 자세히 알아보고 더 많은 서비스에 연결합니다.
 

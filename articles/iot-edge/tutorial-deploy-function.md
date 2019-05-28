@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1fba2c4e5191d4c827035362a8eb6876fcbb67cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081749"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575932"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -40,52 +40,26 @@ ms.locfileid: "58081749"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
-* [Linux](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 디바이스로 설정할 수 있습니다.
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
+* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
+* Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
-클라우드 리소스:
+Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같은 추가 필수 구성 요소를 개발 머신에 설치합니다. 
 
-* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
-
-개발 리소스:
-
-* [Visual Studio Code](https://code.visualstudio.com/) 
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/). 
-
-## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-
-이 자습서에서는 Visual Studio Code용 Azure IoT Tools를 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
-
-임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
-
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
-
-    ![Azure Portal에서 컨테이너 레지스트리 만들기](./media/tutorial-deploy-function/create-container-registry.png)
-
-2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
-
-   | 필드 | 값 | 
-   | ----- | ----- |
-   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
-   | 구독 | 드롭다운 목록에서 구독을 선택합니다. |
-   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
-   | 위치 | 가까운 위치를 선택합니다. |
-   | 관리 사용자 | **사용**으로 설정합니다. |
-   | SKU | **기본**을 선택합니다. | 
-
-5. **만들기**를 선택합니다.
-
-6. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾은 다음, **액세스 키**를 선택합니다. 
-
-7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다. 
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기
 
 필수 조건에서 설치한 Visual Studio Code용 Azure IoT Tools는 관리 기능뿐만 아니라 일부 코드 템플릿도 제공합니다. 이 섹션에서는 Visual Studio Code를 사용하여 Azure 함수를 포함하는 IoT Edge 솔루션을 만듭니다. 
+
+### <a name="create-a-new-project"></a>새 프로젝트 만들기
+
+고유의 코드로 사용자 지정할 수 있는 C# Function 솔루션 템플릿을 만듭니다.
 
 1. 개발 머신에서 Visual Studio Code를 엽니다.
 
@@ -103,9 +77,29 @@ Azure IoT Edge 디바이스:
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-function/repository.png)
 
-4. VS Code 창은 \.vscode 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. \.env 파일입니다. VS Code 탐색기에서 **모듈** > **CSharpFunction** > **CSharpFunction.cs**를 엽니다.
+### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-5. **CSharpFunction.cs** 파일 내용을 다음 코드로 바꿉니다. 이 코드는 주위 온도 및 기계 온도에 대한 원격 분석을 수신한 후, 기계 온도가 정의된 임계값을 초과하는 경우 IoT Hub에 메시지를 전달합니다.
+환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+
+1. VS Code 탐색기에서 .env 파일을 엽니다.
+2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
+3. 이 파일을 저장합니다.
+
+### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
+
+현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
+
+1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
+
+2. 명령 팔레트의 옵션 목록에서 대상 아키텍처를 선택합니다. 이 자습서에서는 Ubuntu 가상 머신을 IoT Edge 디바이스로 사용할 예정이므로 기본값인 **amd64**를 그대로 둡니다. 
+
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
+
+IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다.
+
+1. Visual Studio Code에서 **모듈** > **CSharpFunction** > **CSharpFunction.cs**를 엽니다.
+
+1. **CSharpFunction.cs** 파일 내용을 다음 코드로 바꿉니다. 이 코드는 주위 온도 및 기계 온도에 대한 원격 분석을 수신한 후, 기계 온도가 정의된 임계값을 초과하는 경우 IoT Hub에 메시지를 전달합니다.
 
    ```csharp
    using System;
@@ -176,7 +170,7 @@ Azure IoT Edge 디바이스:
    }
    ```
 
-6. 파일을 저장합니다.
+1. 파일을 저장합니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
@@ -199,15 +193,7 @@ Azure IoT Edge 디바이스:
     Login Succeeded
     ```
 
-2. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 IoT Edge 런타임에 디바이스에 배포할 모듈을 알려줍니다. **CSharpFunction** 함수 모듈은 테스트 데이터를 제공하는 **tempSensor** 모듈과 함께 나열됩니다. 배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
-
-   ![배포 매니페스트의 모듈 보기](./media/tutorial-deploy-function/deployment-template.png)
-
-3. IoT Edge 솔루션 작업 영역에서 **.env** 파일을 엽니다. 배포 매니페스트 템플릿에 컨테이너 레지스트리 자격 증명을 필요가 없도록 이 git 무시 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. 컨테이너 레지스트리의 **사용자 이름** 및 **암호**를 입력합니다. 
-
-5. 이 파일을 저장합니다.
-
-6. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
+3. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 빌드하고, 함수를 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다. 
 
@@ -224,21 +210,13 @@ Azure IoT Edge 디바이스:
 
 Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge 디바이스에 함수 모듈을 배포할 수 있습니다. 또한 Visual Studio Code 내에서 모듈을 배포하고 모니터링할 수 있습니다. 다음 섹션에서는 필수 조건에 나와 있는 VS Code용 Azure IoT Tools를 사용합니다. 아직 설치하지 않은 경우 확장을 설치합니다. 
 
-1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
+1. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다. 
 
-2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
+2. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 선택합니다. 
+3. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
 
-4. IoT Hub가 있는 구독을 선택한 다음, 액세스하려는 IoT 허브를 선택합니다.
-
-5. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다. 
-
-6. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다. 
-
-7. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
-
-8. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
+4. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
 
    ![VS Code에서 배포된 모듈 보기](./media/tutorial-deploy-function/view-modules.png)
 
@@ -259,12 +237,9 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
-
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 디바이스에서 생성한 원시 데이터를 필터링하는 코드가 포함된 Azure 함수 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure 함수를 개발](how-to-develop-csharp-function.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 
+이 자습서에서는 IoT Edge 디바이스에서 생성한 원시 데이터를 필터링하는 코드가 포함된 Azure 함수 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 개발](how-to-vs-code-develop-module.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
 Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다음 자습서를 진행합니다.
 

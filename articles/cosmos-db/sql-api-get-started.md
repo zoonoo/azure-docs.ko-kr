@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680402"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596097"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -78,7 +78,7 @@ Azure 구독 또는 Cosmos DB 체험 계정:
 
 1. Visual Studio 2017에서 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
    
-1. **새 프로젝트** 대화 상자에서 **Visual C#** > **콘솔 앱(.NET Framework)** 을 차례로 선택하고, 프로젝트 이름을 *AzureCosmosDBApp*으로 지정한 다음, **확인**을 선택합니다.
+1. **새 프로젝트** 대화 상자에서 **Visual C#**  > **콘솔 앱(.NET Framework)** 을 차례로 선택하고, 프로젝트 이름을 *AzureCosmosDBApp*으로 지정한 다음, **확인**을 선택합니다.
    
    ![새 프로젝트 창의 스크린샷](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -145,6 +145,20 @@ Azure 구독 또는 Cosmos DB 체험 계정:
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   프록시 개체를 사용하여 Azure Cosmos DB에 연결하는 경우 대신, 다음 코드 블록을 사용하여 DocumentClient 개체를 만들어야 합니다. 이 문서의 샘플은 프록시 개체를 사용하지 않으므로 아래 예제에는 단순히 참조용입니다.
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. 다음 코드를 `Main` 메서드에 추가하여 `GetStartedDemo` 작업을 실행합니다. `Main` 메서드에서 예외를 catch하여 콘솔에 씁니다.

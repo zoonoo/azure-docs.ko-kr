@@ -282,9 +282,9 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 ![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리가 이미 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조하세요.
-* Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
+* Azure Storage Explorer 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
-![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![스토리지 계정에 액세스하는 Azure Storage Explorer의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **VM에서 Azure Blob: AzCopy로 데이터 이동**
 
@@ -307,15 +307,15 @@ PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. �
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
 ```
 
-Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage 탐색기에 해당 파일이 표시될 것입니다.
+Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage Explorer에 해당 파일이 표시될 것입니다.
 
 ![업로드된 CSV 파일을 표시하는 스토리지 계정의 스크린샷](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob: Azure Storage 탐색기로 데이터 이동**
+**VM에서 Azure Blob: Azure Storage Explorer**
 
-Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
+Azure Storage Explorer를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage 탐색기에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage Explorer에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
 * **파일** 상자 오른쪽의 **...** 을 클릭하고, 파일 시스템에서 업로드할 파일을 하나 이상 선택하고 **업로드**를 클릭하여 파일 업로드를 시작합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Azure Blob: Machine Learning 판독기 모듈에서 데이터 읽기**
@@ -590,7 +590,7 @@ for i in range(1,13):
   * AzCopy: 압축을 푼 CSV를 로컬 폴더에서 HDI 클러스터로 업로드
   * Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 
-데이터가 HDI 클러스터에 로드되면 Azure Storage를 탐색기에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
+데이터가 HDI 클러스터에 로드되면 Azure Storage Explorer에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
 
 **데이터 탐색: Python에서 Hive 쿼리**
 

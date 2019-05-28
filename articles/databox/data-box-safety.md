@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747756"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953016"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Azure Data Box의 안전한 설치 및 작동
 ![경고 아이콘](./media/data-box-safety/warning_icon.png)
@@ -116,7 +116,7 @@ Microsoft의 명시적 승인 없이 디바이스를 변경 또는 수정할 경
 
 ![참고 아이콘](./media/data-box-safety/notice_icon.png) **고지:** 
 
-이 장비는 FCC 규칙 파트 15에 따라 테스트한 결과, 클래스 A 디지털 디바이스에 대한 제한을 준수하는 것으로 확인되었습니다. 이러한 제한은 장비가 상용 환경에서 작동할 때 유해한 간섭을 적절하게 차단할 수 있도록 설계되었습니다. 이 장비는 무선 주파수 에너지를 생성 및 사용하고 방출할 수 있으며, 사용 설명서에 따라 설치하고 사용하지 않을 경우 무선 통신에 해로운 간섭을 일으킬 수 있습니다. 이 장치를 주거 지역에서 작동할 경우 유해한 간섭을 일으킬 수 있으며, 이 경우 사용자가 자비로 간섭을 해결해야 합니다.
+이 장비는 FCC 규칙 파트 15에 따라 테스트한 결과, 클래스 A 디지털 디바이스에 대한 제한을 준수하는 것으로 확인되었습니다. 이러한 제한은 장비가 상용 환경에서 작동할 때 유해한 간섭을 적절하게 차단할 수 있도록 설계되었습니다. 이 장비는 무선 주파수 에너지를 생성 및 사용하고 방출할 수 있으며, 사용 설명서에 따라 설치하고 사용하지 않을 경우 무선 통신에 해로운 간섭을 일으킬 수 있습니다. 주거 지역에서이 기기 작업이 있는 경우 사용자가 자신의 지출 간섭 문제를 해결 하는 데 필요한 됩니다 전자파 발생할 수 있습니다.
 
 이 디바이스는 FCC 규칙 파트 15 및 Industry Canada 라이선스 면제 RSS 표준을 따릅니다. 작업이 다음 두 조건에 따라: (1)이이 장치를 전자파, 않을. 및 (2)이이 장치는 장치의 원치 않는 작업을 일으킬 수 있는 간섭을 포함 하 여 수신 간섭을 동의 해야 합니다.
 

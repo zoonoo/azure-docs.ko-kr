@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823530"
+ms.locfileid: "65872147"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
-Azure Marketplace 및 AppSource에서 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 판매할 수 있도록 API 자세히 설명 하는 문서 합니다. 이 API는 Azure Marketplace 및 AppSource에 SaaS 나열 하기 위한 요구 사항을 제공 합니다.
+Azure Marketplace 및 AppSource에서 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 판매할 수 있도록 API 자세히 설명 하는 문서 합니다. 이 API는 Azure Marketplace 및 AppSource transactable SaaS에 대 한 요구 사항을 제공 합니다.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>SaaS 구독 수명 주기 관리
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Storage 탐색기 문제 해결 가이드 | Microsoft Docs
+title: Azure Storage Explorer 문제 해결 가이드 | Microsoft Docs
 description: Azure Storage 탐색기에 대 한 디버깅 기술 개요
 services: virtual-machines
 author: Deland-Han
@@ -16,9 +16,9 @@ ms.locfileid: "65154184"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
-Microsoft Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 작업할 수 있게 하는 독립 실행형 앱입니다. 앱은 Azure, National Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
+Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 손쉽게 작업할 수 있게 하는 독립 실행형 앱입니다. 앱은 Azure, National Clouds 및 Azure Stack에서 호스트되는 저장소 계정에 연결할 수 있습니다.
 
-이 가이드에는 Storage 탐색기에 나타나는 일반적인 문제에 대한 솔루션이 요약되어 있습니다.
+이 가이드에는 Storage Explorer에 나타나는 일반적인 문제에 대한 솔루션이 요약되어 있습니다.
 
 ## <a name="role-based-access-control-permission-issues"></a>역할 기반 액세스 제어 권한 문제
 
@@ -68,7 +68,7 @@ Storage 탐색기 쉽게 수에 대 한 Azure 리소스에 연결 하는 데 필
 1. 앱이 "투명 프록시"를 통해 연결됩니다. 즉, 회사 서버와 같은 서버가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
 2. 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 애플리케이션을 실행하고 있습니다. 인증서 삽입을 수행하는 애플리케이션에는 바이러스 백신, 네트워크 트래픽 검사 소프트웨어 등이 포함됩니다.
 
-Storage 탐색기가 자체 서명된 인증서나 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage 탐색기가 이를 신뢰하게 할 수 있습니다.
+Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage Explorer가 이를 신뢰하게 할 수 있습니다.
 
 1. 인증서의 Base-64 인코딩 X.509(.cer) 사본 가져오기
 2. **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음, 파일 선택기를 사용하여 해당 .cer 파일을 찾고 선택하고 엽니다.
@@ -86,9 +86,9 @@ Storage 탐색기가 자체 서명된 인증서나 신뢰할 수 없는 인증�
 3. `s_client -showcerts -connect microsoft.com:443` 실행
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서는 잘 모르는 경우 검색할 어디서 나 주체 `("s:")` 발급자 `("i:")` 동일 합니다.
 5. 자체 서명된 인증서를 찾았으면 각 인증서에 대해 **----- BEGIN CERTIFICATE -----** 부터 **----- END CERTIFICATE -----** 까지 모든 줄을 복사하여 새 .cer 파일에 붙여넣습니다.
-6. Storage 탐색기를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음 파일 선택기를 사용하여 만든 .cer 파일을 찾고 선택하고 엽니다.
+6. Storage Explorer를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음, 파일 선택기를 사용하여 만든 .cer 파일을 찾고 선택하고 엽니다.
 
-위의 단계를 사용하여 자체 서명된 인증서를 찾을 수 없는 경우 사용자 의견 도구를 통해 당사에 문의하여 도움을 받습니다. 또는 명령줄에서 `--ignore-certificate-errors` 플래그를 사용하여 Storage 탐색기를 시작합니다. 이 플래그로 시작하면 Storage 탐색기가 인증서 오류를 무시하게 됩니다.
+위의 단계를 사용하여 자체 서명된 인증서를 찾을 수 없는 경우 사용자 의견 도구를 통해 당사에 문의하여 도움을 받습니다. 또는 명령줄에서 `--ignore-certificate-errors` 플래그를 사용하여 Storage Explorer를 시작합니다. 이 플래그로 시작하면 Storage Explorer가 인증서 오류를 무시하게 됩니다.
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
@@ -111,36 +111,36 @@ Storage 탐색기가 자체 서명된 인증서나 신뢰할 수 없는 인증�
 
 재인증 루프에 있거나 계정 중 한 계정의 UPN을 변경한 경우 다음을 수행하세요.
 
-1. 모든 계정을 제거한 다음, Storage 탐색기를 닫습니다
+1. 모든 계정을 제거한 다음, Storage Explorer를 닫습니다
 2. 컴퓨터에서 .IdentityService 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
 3. Mac 또는 Linux를 사용하는 경우 OS의 키 저장소에서 Microsoft.Developer.IdentityService 항목을 삭제해야 합니다. Mac의 경우 키 저장소가 "Gnome 키 집합" 애플리케이션입니다. Linux의 경우 일반적으로 애플리케이션은 "키링"으로 불리는데 이름은 배포에 따라 다를 수 있습니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 
-Windows 10, Linux 또는 macOS에서 Storage 탐색기를 사용하는 경우 조건부 액세스가 지원되지 않습니다. Storage 탐색기에서 사용되는 AAD 라이브러리의 제한 사항 때문입니다.
+Windows 10, Linux 또는 macOS에서 Storage Explorer를 사용하는 경우 조건부 액세스가 지원되지 않습니다. Storage Explorer에서 사용되는 AAD 라이브러리의 제한 사항 때문입니다.
 
 ## <a name="mac-keychain-errors"></a>Mac 키 집합 오류
 
-macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 이 상태에서 키 집합을 가져오려면 다음 단계를 수행 합니다.
+macOS 키 집합은 Storage Explorer의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 이 상태에서 키 집합을 가져오려면 다음 단계를 수행 합니다.
 
-1. Storage 탐색기를 닫습니다.
+1. Storage Explorer를 닫습니다.
 2. 키 집합을 엽니다(**cmd+space**, keychain 입력, enter 키 누름).
 3. "로그인" 키 집합을 선택합니다.
 4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
 
     ![Image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-5. Storage 탐색기를 시작합니다.
+5. Storage Explorer를 시작합니다.
 6. "서비스 허브가 키 집합에 액세스하려고 합니다" 같은 팝업 메시지가 나타납니다. 그럴 때 Mac 관리자 계정의 암호를 입력하고 **항상 허용**(또는 **항상 허용**을 사용할 수 경우 **허용**)을 클릭합니다.
 7. 로그인을 시도합니다.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>일반적인 로그인 문제 해결 단계
 
 * MacOS에 있는 경우를 "Waiting 인증용..."를 통해 로그인 창이 나타나지 않으며 대화 상자에서 시도 [이 단계](#mac-keychain-errors)
-* Storage 탐색기 다시 시작
+* Storage Explorer 다시 시작
 * 인증 창이 비어 있는 경우 1분 이상 기다렸다가 인증 대화 상자를 닫습니다.
-* 컴퓨터와 Storage 탐색기에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
-* 동일한 컴퓨터에 Visual Studio 2017에 대 한 액세스 권한이 및 로그인에 Windows, Visual Studio 2017에 로그인 하십시오. Visual Studio 2017에 성공적인 로그인 후 Storage 탐색기를 열고 계정 패널에서 계정을 확인할 수 있어야 합니다.
+* 머신과 Storage Explorer에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
+* 동일한 컴퓨터에 Visual Studio 2017에 대 한 액세스 권한이 및 로그인에 Windows, Visual Studio 2017에 로그인 하십시오. Visual Studio 2017에 성공적인 로그인 후 Storage Explorer를 열고 계정 패널에서 계정을 확인할 수 있어야 합니다.
 
 이러한 방법으로 문제를 해결하지 못한 경우 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)합니다.
 
@@ -150,7 +150,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 
 * 해당 계정이 원하는 구독에 액세스할 수 있는지 확인합니다. 사용 하려는 Azure 환경에 대 한 포털에 로그인 하 여 액세스를 확인할 수 있습니다.
 * 올바른 Azure 환경(Azure, Azure 중국 21Vianet, Azure 독일, Azure 미국 정부 또는 사용자 지정 환경)을 사용하여 로그인했는지 확인합니다.
-* 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
+* 프록시 뒤에 있는 경우 Storage Explorer 프록시를 제대로 구성했는지 확인합니다.
 * 계정을 제거하고 다시 추가해 봅니다.
 * "자세한 정보" 링크가 있는 경우 실패하는 테넌트에 대해 어떤 오류 메시지가 보고되는지 찾아보고 참조하세요. 확인한 오류 메시지로 무엇을 할지 확실하지 않은 경우 자유롭게 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
@@ -163,7 +163,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
-> 위의 폴더를 삭제하기 전에 Storage 탐색기를 닫습니다.
+> 위의 폴더를 삭제하기 전에 Storage Explorer를 닫습니다.
 
 > [!NOTE]
 > SSL 인증서를 가져온 적이 있는 경우 `certs` 디렉터리의 콘텐츠를 백업합니다. 다음에는 백업을 사용하여 SSL 인증서를 다시 가져올 수 있습니다.
@@ -182,11 +182,11 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 
 그래도 문제가 계속되면 다음 문제 해결 방법을 시도해 봅니다.
 
-* 프록시를 사용하지 않고 인터넷에 연결할 수 있으면 프록시 설정을 사용하지 않고 Storage 탐색기가 작동하는지 확인합니다. 이 경우 프록시 설정에 문제가 있을 수 있습니다. 프록시 관리자와 함께 문제를 식별합니다.
+* 프록시를 사용하지 않고 인터넷에 연결할 수 있으면 프록시 설정을 사용하지 않고 Storage Explorer가 작동하는지 확인합니다. 이 경우 프록시 설정에 문제가 있을 수 있습니다. 프록시 관리자와 함께 문제를 식별합니다.
 * 프록시 서버를 사용하는 다른 애플리케이션이 예상대로 작동하는지 확인합니다.
 * 사용할 Azure 환경에 대한 포털에 로그인하여 확인
 * 서비스 엔드포인트에서 응답을 수신할 수 있는지 확인합니다. 엔드포인트 URL 중 하나를 브라우저에 입력합니다. 연결할 수 있으면 InvalidQueryParameterValue 또는 유사한 XML 응답을 수신해야 합니다.
-* 다른 사용자가 Storage 탐색기와 프록시 서버를 함께 사용하고 있는 경우 연결할 수 있는지 확인합니다. 연결할 수 있다면 프록시 서버 관리자에게 문의해야 할 수도 있습니다.
+* 다른 사용자가 Storage Explorer와 프록시 서버를 함께 사용하고 있는 경우 연결할 수 있는지 확인합니다. 연결할 수 있다면 프록시 서버 관리자에게 문의해야 할 수도 있습니다.
 
 ### <a name="tools-for-diagnosing-issues"></a>문제를 진단하기 위한 도구
 
@@ -194,7 +194,7 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 
 * 프록시를 통해 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
 * 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
-* Storage 탐색기에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 올바르게 수행되면 네트워킹 도구가 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 엔드포인트에 기록하기 시작합니다. 예를 들어 브라우저에서 Blob 엔드포인트에 대해 https://cawablobgrs.blob.core.windows.net/을 입력하면 다음과 유사한 응답이 수신됩니다. 이 응답을 통해 리소스에 액세스할 수는 없지만 리소스가 있음을 알 수 있습니다.
+* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 올바르게 수행되면 네트워킹 도구가 Storage Explorer에서 만든 네트워크 요청을 관리 및 서비스 엔드포인트에 기록하기 시작합니다. 예를 들어 브라우저에서 Blob 엔드포인트에 대해 https://cawablobgrs.blob.core.windows.net/을 입력하면 다음과 유사한 응답이 수신됩니다. 이 응답을 통해 리소스에 액세스할 수는 없지만 리소스가 있음을 알 수 있습니다.
 
 ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -203,7 +203,7 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 프록시 설정이 올바른 경우 프록시 서버 관리자에게 문의해야 할 수도 있습니다.
 
 * 프록시가 Azure 관리 또는 리소스 엔드포인트에 대한 트래픽을 차단하지 않는지 확인합니다.
-* 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage 탐색기는 현재 NTLM 프록시를 지원하지 않습니다.
+* 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage Explorer는 현재 NTLM 프록시를 지원하지 않습니다.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>"하위 항목을 검색할 수 없음" 오류 메시지
 
@@ -225,11 +225,11 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 실수로 잘못된 SAS URL을 사용하여 첨부하고 분리할 수 없는 경우 다음 단계를 따릅니다.
 
-1. Storage 탐색기를 실행 하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
+1. Storage Explorer를 실행하는 경우 F12 키를 눌러 개발자 도구 창을 엽니다.
 2. [애플리케이션] 탭을 클릭한 다음, 왼쪽 트리에서 로컬 스토리지 &gt; file://을 클릭합니다.
 3. 문제가 있는 SAS URI의 서비스 유형과 연결된 키를 찾습니다. 예를 들어 잘못된 SAS URI가 Blob 컨테이너에 대한 것이면 `StorageExplorer_AddStorageServiceSAS_v1_blob`으로 명명된 키를 찾아봅니다.
 4. 키의 값은 JSON 배열이어야 합니다. 잘못된 URI와 연결된 개체를 찾아 제거합니다.
-5. Storage 탐색기를 다시 로드하려면 Ctrl+R 키를 누릅니다.
+5. Storage Explorer를 다시 로드하려면 Ctrl+R 키를 누릅니다.
 
 ## <a name="linux-dependencies"></a>Linux 종속성
 

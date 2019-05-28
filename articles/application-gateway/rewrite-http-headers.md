@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947173"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000964"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더를 다시 작성
 
@@ -157,9 +157,7 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거할 수 있
 
 - 에 정의 된 대로 헤더 이름은 모든 영숫자 문자 및 특정 기호를 포함할 수 있습니다 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)합니다. 밑줄 현재 지원 되지 않습니다 (\_) 헤더 이름에 특수 문자입니다.
 
-## <a name="need-help"></a>도움 필요 시
-
-문의 [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) 이 기능을 사용 하 여 도움이 필요한 경우.
+- 응답에 동일한 이름 가진 여러 헤더 응답에서 다른 헤더를 삭제 한 다음 이러한 헤더 중 하나의 값을 재작성 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

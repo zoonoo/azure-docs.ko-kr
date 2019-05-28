@@ -86,7 +86,7 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 
 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
 
-스크립트를 사용하여 종속성 에이전트를 설치하는 방법 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
+스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>종속성 시각화를 기반으로 그룹 구체화
 그룹의 모든 시스템에 에이전트를 설치했으면 아래 단계에 따라 그룹의 종속성을 시각화하고 그룹을 구체화할 수 있습니다.
@@ -138,7 +138,7 @@ Kusto 쿼리를 실행 합니다.
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 
-연결 메트릭에 대한 테이블의 레코드인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히 알아보십시오](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections).
+연결 메트릭에 대한 테이블의 레코드인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히 알아보십시오](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections). 
 
 ```
 let ips=materialize(ServiceMapComputer_CL

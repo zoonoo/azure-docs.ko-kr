@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853147"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956212"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
@@ -67,7 +67,7 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 
 ## <a name="source-application-settings-from-key-vault"></a>Key Vault의 원본 애플리케이션 설정
 
-Key Vault 참조를 [애플리케이션 설정](web-sites-configure.md#app-settings) 값으로 사용할 수 있어 사이트 구성 대신 Key Vault에서 비밀을 유지할 수 있습니다. 애플리케이션 설정은 안전하게 암호화되어 있지만 비밀 관리 기능이 필요한 경우 Key Vault로 이동해야 합니다.
+Key Vault 참조를 [애플리케이션 설정](configure-common.md#configure-app-settings) 값으로 사용할 수 있어 사이트 구성 대신 Key Vault에서 비밀을 유지할 수 있습니다. 애플리케이션 설정은 안전하게 암호화되어 있지만 비밀 관리 기능이 필요한 경우 Key Vault로 이동해야 합니다.
 
 애플리케이션 설정에 Key Vault 참조를 사용하려면 참조를 설정 값으로 설정합니다. 앱은 키를 사용하여 비밀을 정상적으로 참조할 수 있습니다. 코드 변경은 필요하지 않습니다.
 

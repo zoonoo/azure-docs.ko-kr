@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860506"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149626"
 ---
 ## <a name="troubleshooting-update-failures"></a>업데이트 오류 문제 해결
 **업그레이드 전 검사에 실패했다는 알림을 보는 경우 어떻게 되나요?**

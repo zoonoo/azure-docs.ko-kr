@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152704"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151714"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -76,6 +76,13 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 2. PowerShell을 관리자 권한으로 실행합니다.
 
+   >[!NOTE]
+   >IoT Edge를 하지 PowerShell (x86)를 설치 하는 AMD64 세션의 PowerShell 사용 합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행 합니다.
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
    ```powershell
@@ -85,14 +92,14 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 4. 이 시점에서 IoT Core 장치 수 자동으로 다시 시작 합니다. 다른 Windows 10 또는 Windows Server 장치에서 다시 시작할 것인지 묻는 메시지를 표시할 수 있습니다. 그렇다면 이제 장치 다시 시작 합니다. 일단 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-5. 합니다 **Initialize IoTEdge** 명령은 컴퓨터에서 IoT Edge 런타임을 구성 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 수동 프로 비전 기본값으로 사용 됩니다. 
+5. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
-6. 메시지가 표시 되 면 1 단계에서 검색 된 장치 연결 문자열을 제공 합니다. IoT Hub에서 장치 ID를 사용 하 여 물리적 장치를 연결 하는 장치 연결 문자열입니다. 
+6. 메시지가 표시되면 1단계에서 검색된 장치 연결 문자열을 제공합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결합니다. 
 
    장치 연결 문자열을 다음 형식으로 및 따옴표를 포함 하지 않아야 합니다. `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
@@ -111,12 +118,19 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 다음 예제에서는 Windows 컨테이너를 사용 하 여 자동 설치를 보여 줍니다.
 
-1. [Windows에서 시뮬레이션된 TPM Edge 디바이스 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md)의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 디바이스를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치의 IoT hub에 등록 되 면 설치 단계를 사용 하 여 계속 합니다.  
+1. 단계에 따라 [만들기 및 Windows에서 시뮬레이션된 된 TPM IoT Edge 장치를 프로 비전](how-to-auto-provision-simulated-device-windows.md) Device Provisioning Service 설정 및 검색 하려면 해당 **범위 ID**를 TPM 장치를 시뮬레이션 하 고 해당 검색**등록 ID**, 개별 등록을 만듭니다. 장치의 IoT hub에 등록 되 면 설치 단계를 사용 하 여 계속 합니다.  
 
    >[!TIP]
    >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
 
 2. PowerShell을 관리자 권한으로 실행합니다.
+
+   >[!NOTE]
+   >IoT Edge를 하지 PowerShell (x86)를 설치 하는 AMD64 세션의 PowerShell 사용 합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행 합니다.
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
@@ -127,7 +141,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 4. 이 시점에서 IoT Core 장치 수 자동으로 다시 시작 합니다. 다른 Windows 10 또는 Windows Server 장치에서 다시 시작할 것인지 묻는 메시지를 표시할 수 있습니다. 그렇다면 이제 장치 다시 시작 합니다. 일단 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-6. 합니다 **Initialize IoTEdge** 명령은 컴퓨터에서 IoT Edge 런타임을 구성 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 수동 프로 비전 기본값으로 사용 됩니다. 사용 된 `-Dps` 수동 프로 비전 하는 대신 Device Provisioning Service를 사용 하는 플래그입니다.
+6. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 사용 된 `-Dps` 수동 프로 비전 하는 대신 Device Provisioning Service를 사용 하는 플래그입니다.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -166,7 +180,7 @@ Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시 됩니다.  
+IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시되어야 합니다.  
 
 ```powershell
 Get-Service iotedge
@@ -262,7 +276,7 @@ Uninstall-IoTEdge
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-초기화 IoTEdge 명령에 장치 연결 문자열 및 세부 정보를 사용 하 여 IoT Edge를 구성합니다. 이 명령에 의해 생성 된 정보의 상당 그러면 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령이 특히 이러한 일반 매개 변수를 허용합니다. 전체 목록에 대 한 명령줄을 사용 하 여 `Get-Help Initialize-IoTEdge -full`입니다. 
+초기화 IoTEdge 명령에 장치 연결 문자열 및 세부 정보를 사용 하 여 IoT Edge를 구성합니다. 이 명령에 의해 생성 된 정보의 상당 그러면 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령이 특히 이러한 일반 매개 변수를 허용합니다. 전체 목록에 대 한 명령을 사용 하 여 `Get-Help Initialize-IoTEdge -full`입니다. 
 
 | 매개 변수 | 허용되는 값 | 설명 |
 | --------- | --------------- | -------- |

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721927"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859992"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "64721927"
 - Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="showClusters"></a> 클러스터 나열 및 표시
@@ -67,14 +67,14 @@ ms.locfileid: "64721927"
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
     |SSH + 클러스터 로그인|SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
     |Data Lake Storage Gen1|Data Lake Storage Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.|
-    |Storage 계정|스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.|
+    |저장소 계정|스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.|
     |애플리케이션|HDInsight 애플리케이션을 추가/제거합니다.  [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.|
     |스크립트 작업|클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.|
     |외부 Metastore|[Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/) Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.|
     |HDInsight 파트너|현재 HDInsight 파트너를 추가/제거합니다.|
     |properties|[클러스터 속성](#properties)을 봅니다.|
     |잠금|클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.|
-    |Automation 스크립트|클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.|
+    |자동화 스크립트|클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.|
 
   - **모니터링 메뉴**
 
@@ -103,11 +103,11 @@ ms.locfileid: "64721927"
 |SSH (보안 셸)|SSH를 통해 클러스터에 액세스할 때 사용할 사용자 이름과 호스트 이름입니다.|
 |상태|다음 중 하나입니다. 중단됨, 수락됨, 클러스터 스토리지가 프로비전됨, Azure VM 구성, HDInsight 구성, 작동 가능, 실행 중, 오류, 삭제 중, 삭제됨, 시간이 초과됨, 삭제가 큐에 대기됨, 삭제 시간이 초과됨, 삭제 오류, 패치가 큐에 대기됨, 인증서 롤오버가 큐에 대기됨, 크기가 조정되어 큐에 대기됨 또는 클러스터 사용자 지정|
 |지역|Azure 위치입니다. 지원되는 Azure 위치의 목록은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)의 **지역** 드롭다운 목록 상자를 참조하세요.|
-|날짜 생성됨|클러스터가 배포된 날짜입니다.|
+|만든 날짜|클러스터가 배포된 날짜입니다.|
 |운영 체제|**Windows** 또는 **Linux**입니다.|
 |Type|Hadoop, HBase, Storm, Spark입니다.|
 |Version|[HDInsight 버전](hdinsight-component-versioning.md) 참조|
-|구독|구독 이름입니다.|
+|구독|구독 이름|
 |기본 데이터 원본|기본 클러스터 파일 시스템입니다.|
 |작업자 노드 크기|선택한 작업자 노드의 VM 크기입니다.|
 |헤드 노드 크기|선택한 헤드 노드의 VM 크기입니다.|
@@ -204,7 +204,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 * 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
-* Azure 클래식 CLI 사용 [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
+* Azure CLI 사용 참조 [Azure CLI를 사용 하 여 Azure HDInsight 관리 클러스터](hdinsight-administer-use-command-line.md)합니다.
 * HDInsight .NET SDK 사용 [Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)
@@ -284,7 +284,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 * Oozie
 * Templeton
 
-이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. [Azure 클래식 CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) 및 [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access)을 사용하여 액세스 권한을 해지/부여할 수 있습니다.
+이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. Revoke/권한을 부여할 수 있습니다 사용 하 여 액세스 [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access)합니다.
 
 ## <a name="find-the-subscription-id"></a>구독 ID 찾기
 각 클러스터가 Azure 구독에 연결됩니다.  Azure 구독 ID가 [클러스터 홈 페이지](#homePage)에 표시됩니다.
@@ -316,7 +316,7 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 이 문서에서는 몇 가지 기본 관리 함수에 대해 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
-* [Azure 클래식 CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
+* [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [Apache Ambari 웹 UI 사용에 대한 자세한 내용](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API 사용에 자세한 내용](hdinsight-hadoop-manage-ambari-rest-api.md)

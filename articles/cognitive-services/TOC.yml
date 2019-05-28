@@ -23,6 +23,8 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: 서비스 업데이트

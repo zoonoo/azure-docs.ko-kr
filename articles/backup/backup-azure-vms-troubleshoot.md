@@ -2,21 +2,21 @@
 title: Azure 가상 머신의 백업 오류 문제 해결
 description: Azure 가상 머신의 백업 및 복원 문제 해결
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550025"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002304"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
-다음 테이블에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
+아래 나열 되는 정보를 사용 하 여 Azure Backup을 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 
@@ -30,7 +30,7 @@ ms.locfileid: "60550025"
 ### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM 아닙니다 백업 수 있는 상태입니다.
 
 오류 코드: UserErrorVmNotInDesirableState <br/>
-오류 메시지: VM이 백업을 허용하지 않는 상태입니다.<br/>
+오류 메시지: VM이 백업을 허용하는 상태가 아닙니다.<br/>
 
 실패 상태인 VM이 백업 작업이 실패 했습니다. VM 백업이 성공적으로 실행 중, 중지 됨 또는 중지 됨 (할당 취소) 상태 여야 합니다.
 
@@ -82,7 +82,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-백업 확장에 대 한 구성 분석이 실패 했습니다
 
 오류 코드: ExtensionConfigParsingFailure<br/>
-오류 메시지: 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
+오류 메시지: 백업 확장에 대한 구성 분석이 실패했습니다.
 
 이 오류는 **MachineKeys** 디렉터리: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**에 대한 권한 변경으로 인해 발생합니다.
 다음 명령을 실행 하 고 확인에 대 한 해당 권한을 합니다 **MachineKeys** 디렉터리는 기본 구성을:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**합니다.
@@ -159,9 +159,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 ### <a name="common-vm-backup-errors"></a>일반적인 VM 백업 오류
 
-| 오류 세부 정보 | 해결 방법 |
+| 오류 정보 | 해결 방법 |
 | ------ | --- |
-| 오류 코드: 320001<br/> 오류 메시지: VM이 더 이상 존재하지 않기 때문에 작업을 수행할 수 없습니다. <br/> <br/> 오류 코드: 400094 <br/> 오류 메시지: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**or**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
+| 오류 코드: 320001<br/> 오류 메시지: VM이 더 이상 없으므로 작업을 수행할 수 없습니다. <br/> <br/> 오류 코드: 400094 <br/> 오류 메시지: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**or**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
 | VM이 실패한 프로비전 상태입니다. <br>VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인합니다. | 이 오류는 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태가 될 때 발생합니다. 확장 목록으로 이동하고, 실패한 확장이 있는지 확인하고, 제거한 후 가상 머신을 다시 시작해 봅니다. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
 |오류 코드: UserErrorBCMPremiumStorageQuotaError<br/> 오류 메시지: 저장소 계정에 사용 가능한 공간이 부족 하 여 가상 머신의 스냅숏을 복사할 수 없습니다. | VM 백업 스택 V1에 있는 프리미엄 VM의 경우 스토리지 계정에 스냅숏을 복사합니다. 이 단계는 스냅숏에서 작동하는 백업 관리 트래픽이 프리미엄 디스크를 사용하는 애플리케이션에서 사용 가능한 IOPS 수를 제한하지 않도록 하기 위한 것입니다. <br><br>총 스토리지 계정 공간의 50%, 17.5TB만을 할당하는 것이 좋습니다. 그런 다음, Azure Backup 서비스에서 스토리지 계정에 스냅숏을 복사하고 스토리지 계정의 복사된 위치에서 자격 증명 모음으로 데이터를 전송할 수 있습니다. |
 | 가상 머신 실행 되지 않기 처럼 Microsoft Recovery Services 확장을 설치 하지 못했습니다. <br>VM 에이전트는 Azure Recovery Services 확장에 대한 필수 구성 요소입니다. Azure Virtual Machine 에이전트를 설치하고 등록 작업을 다시 시작합니다. |<ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 자세히 알아보세요. |
@@ -175,7 +175,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 ## <a name="jobs"></a>교육
 
-| 오류 세부 정보 | 해결 방법 |
+| 오류 정보 | 해결 방법 |
 | --- | --- |
 | 취소는 이 작업 유형에 지원되지 않습니다. <br>작업이 완료될 때까지 기다립니다. |없음 |
 | 작업이 취소 가능한 상태에 있지 않습니다. <br>작업이 완료될 때까지 기다립니다. <br>**or**<br> 선택한 작업이 취소 가능한 상태에 있지 않습니다. <br>작업이 완료될 때까지 기다립니다. |작업이 거의 완료되는 것입니다. 작업이 완료될 때까지 기다립니다.|

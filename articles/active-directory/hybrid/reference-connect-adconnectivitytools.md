@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454645"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950644"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell 참조
 
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>설명
 
 로컬 DNS 연결 테스트를 실행합니다.
-Active Directory 커넥터를 구성하려면 사용자가 연결하려고 하는 포리스트와 이 포리스트와 연결된 도메인 컨트롤러의 이름 확인을 모두 가지고 있어야 합니다.
+Active Directory connector를 구성 하려면 사용자도이 포리스트에 연결 된 도메인 컨트롤러와 같이 연결 하려고 하는 포리스트에 대 한 이름 확인 둘 다 있어야 합니다.
 
 ### <a name="examples"></a>예제
 
@@ -309,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-사용자가 AD 사이트/로그온 DC에서 제공하는 DNS 서비스를 사용하지 않는 경우 53 포트를 확인하지 않고 건너뛸 수 있습니다.
+사용자는 AD 사이트에서 제공 하는 DNS 서비스를 사용 하지 않는 경우 / 로그온 DC를 해당 수 검사 포트 53을 건너뜁니다.
 사용자가 여전히 _.ldap._tcp.\<forestfqdn\>을 확인할 수 있어야 Active Directory 커넥터 구성이 성공합니다.
 
 ```yml

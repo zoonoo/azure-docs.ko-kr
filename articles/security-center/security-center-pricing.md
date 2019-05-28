@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
-ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905740"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968312"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
@@ -49,7 +49,7 @@ Security Center는 두 계층으로 제공됩니다.
 (이미지의 가격은 예를 들어 전용입니다.) ![Security Center 가격 책정](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> 모든 Security Center 기능을 사용 하려면 표준 가격 계층 해당 가상 머신이 포함 된 구독에 적용 해야 합니다. 작업 영역에 대해 가격 책정을 구성해도 Just-In-Time VM 액세스, 적응형 애플리케이션 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다.
+> 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 머신이 포함된 구독에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대해 가격 책정을 구성해도 Just-In-Time VM 액세스, 적응형 애플리케이션 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다.
 >
 >
 

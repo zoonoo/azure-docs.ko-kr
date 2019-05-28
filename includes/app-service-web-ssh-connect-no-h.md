@@ -9,11 +9,11 @@ ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 060bc1039982cc0a77214d5dbe2a08de7a839c84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850220"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66138216"
 ---
 컨테이너와 직접 SSH 세션을 열려면 앱을 실행해야 합니다.
 

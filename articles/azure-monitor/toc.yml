@@ -63,54 +63,32 @@
       href: azure-management.md
     - name: 연속 모니터링
       href: continuous-monitoring.md
+    - name: 데이터 원본
+      href: platform/data-sources.md
     - name: 데이터 플랫폼
       items:
         - name: 개요
           href: platform/data-platform.md
+        - name: 데이터 위치
+          href: platform/data-locations.md
         - name: 메트릭
           href: platform/data-platform-metrics.md
         - name: 로그
           href: platform/data-platform-logs.md
-    - name: 데이터 원본
-      items:
-        - name: 데이터 원본 요약
-          href: platform/data-sources.md
-        - name: Azure 데이터 원본
-          href: platform/data-sources-reference.md
-        - name: 활동 로그
-          href: platform/activity-logs-overview.md
-        - name: 진단 로그
-          href: platform/diagnostic-logs-overview.md
         - name: 로그 데이터 수집 시간
           href: platform/data-ingestion-time.md
-        - name: 메트릭 저장소에 대한 사용자 지정 메트릭
-          href: platform/metrics-custom-overview.md
+    - name: 자세한 정보
+      href: insights/insights-overview.md
+    - name: 모니터링 솔루션
+      href: insights/solutions-inventory.md
     - name: 데이터 보안
       items:
         - name: 로그 데이터
           href: platform/data-security.md
         - name: 개인 로그 데이터 처리
           href: platform/personal-data-mgmt.md
-        - name: '응용 프로그램 데이터 수집, 보존 및 저장'
+        - name: '애플리케이션 데이터 수집, 보존 및 저장'
           href: app/data-retention-privacy.md
-    - name: 자세한 정보
-      items:
-        - name: Application Insights
-          items:
-            - name: 개요
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: 분산된 추적
-              href: app/distributed-tracing.md
-            - name: 로그 기반 및 사전 집계 메트릭
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: 컨테이너
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: 모니터링 솔루션
-          href: insights/solutions-inventory.md
     - name: 인시던트에 대응
       items:
         - name: 경고
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: 데이터 수집
       items:
+        - name: Azure 리소스
+          items:
+            - name: 활동 로그
+              items:
+                - name: 개요
+                  href: platform/activity-logs-overview.md
+                - name: 보기 및 검색
+                  href: platform/activity-log-view.md
+                - name: 수집 및 분석
+                  href: platform/activity-log-collect.md
+                - name: 테넌트 간에 수집
+                  href: platform/activity-log-collect-tenants.md
+                - name: 내보내기
+                  href: platform/activity-log-export.md
+                - name: 스키마
+                  href: platform/activity-log-schema.md
+            - name: 진단 로그
+              items:
+                - name: 개요
+                  href: platform/diagnostic-logs-overview.md
+                - name: 로그 수집
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Azure Storage에서 수집
+                  href: platform/collect-azure-metrics-logs.md
+                - name: 스토리지에 보관
+                  href: platform/archive-diagnostic-logs.md
+                - name: Event Hubs로 데이터 스트리밍
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Resource Manager 템플릿 사용
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: 서비스 로그 및 메트릭
+                  href: platform/azure-storage-iis-table.md
+            - name: Event Hubs로 스트림
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: 사용자 지정 데이터 원본 상관 관계 만들기
+              href: app/custom-data-correlation.md
         - name: 에이전트 설치 및 구성
           items:
             - name: 모니터링 에이전트 개요
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: 문제 해결
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Resource Manager 템플릿을 사용하여 진단 설정을 사용하도록 설정
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: JSON 줄 진단 로그 형식에 대한 준비
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: 메트릭 저장소에 대한 VM 게스트
+                - name: 메트릭에 대한 VM 게스트
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: 메트릭 저장소에 대한 가상 머신 확장 집합 게스트
+                - name: 메트릭에 대한 가상 머신 확장 집합 게스트
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: 메트릭 저장소에 대한 VM 클래식 게스트
+                - name: 메트릭에 대한 VM 클래식 게스트
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: 메트릭 저장소에 대한 클라우드 서비스 게스트
+                - name: 메트릭에 대한 클라우드 서비스 게스트
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: 문제 해결
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Windows 서비스
-                  href: app/windows-services.md
                 - name: Windows 데스크톱
                   href: app/windows-desktop.md
                 - name: 콘솔
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: 리소스 만들기
               href: app/create-new-resource.md
-            - name: 문제 해결
+            - name: 애플리케이션 데이터를 Log Analytics로 라우팅
+              href: platform/app-insights-connector.md
+            - name: 애플리케이션 데이터 내보내기
               items:
                 - name: .NET에 대한 데이터 없음
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: 스냅숏 디버거
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: 분석
-                  href: app/analytics-troubleshooting.md
                 - name: 자바
                   href: app/java-troubleshoot.md
                 - name: 사용 현황 분석
                   href: app/usage-troubleshoot.md
-        - name: Azure 리소스
-          items:
-            - name: Azure 활동 로그
-              items:
-                - name: 분석
-                  href: platform/collect-activity-logs.md
-                - name: 구독 간 수집
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: 서비스 로그 및 메트릭
-              href: platform/collect-azure-metrics-logs.md
-            - name: Azure Storage에서 진단 또는 로그 데이터
-              href: platform/azure-storage-iis-table.md
-            - name: Azure PaaS 리소스
-              href: platform/collect-azurepass-posh.md
-            - name: 사용자 지정 데이터 원본 상관 관계 만들기
-              href: app/custom-data-correlation.md
         - name: 사용자 지정 데이터 수집
           items:
+            - name: 사용자 지정 메트릭
+              href: platform/metrics-custom-overview.md
             - name: Log Analytics 데이터 수집기 API
               href: platform/data-collector-api.md
             - name: Log Analytics 데이터 수집기 API 파이프라인 예제
               href: platform/create-pipeline-datacollector-api.md
-            - name: 메트릭 저장소 REST API
+            - name: 메트릭 REST API
               href: platform/metrics-store-custom-rest-api.md
-            - name: 메트릭 저장소 Linux VM(Telegraf)에 대한 GuestOS
+            - name: 메트릭 Linux VM(Telegraf)에 대한 GuestOS
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: 구성 관리자
               href: platform/collect-sccm.md
-            - name: SCOM을 사용하여 응용 프로그램 성능 모니터링
-              href: app/scom.md
-        - name: 데이터 라우팅
-          items:
-            - name: 활동 로그 보관
-              href: platform/archive-activity-log.md
-            - name: 진단 로그 보관
-              href: platform/archive-diagnostic-logs.md
-            - name: 진단 로그 저장
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: 활동 로그를 Event Hubs로 스트림
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: 로그 및 메트릭을 이벤트 허브로 라우팅
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: 진단 로그를 이벤트 허브로 라우팅
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: 애플리케이션 데이터를 Log Analytics로 라우팅
-              href: platform/app-insights-connector.md
-            - name: 응용 프로그램 데이터 내보내기
-              items:
-                - name: 연속 내보내기
-                  href: app/export-telemetry.md
-                  items:
-                    - name: 코드 샘플
-                      items:
-                        - name: Stream Analytics를 사용하여 SQL로 내보내기
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Stream Analytics로 내보내기
-                          href: app/export-stream-analytics.md
-                - name: 데이터 모델 내보내기
-                  href: app/export-data-model.md
     - name: 인사이트 얻기
       items:
-        - name: 응용 프로그램 모니터링
+        - name: 애플리케이션 모니터링
           items:
+            - name: Application Insights 개요
+              items:
+                - name: 개요
+                  href: app/app-insights-overview.md
+                - name: 분산된 추적
+                  href: app/distributed-tracing.md
+                - name: 로그 기반 및 사전 집계 메트릭
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Application Insights 포털
               items:
                 - name: 검색
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: 샘플링
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: 모니터링 솔루션
           items:
             - name: 디자인 및 빌드
@@ -1060,8 +1035,6 @@
       items:
         - name: '진단 로그 서비스, 범주 및 스키마'
           href: platform/diagnostic-logs-schema.md
-        - name: 활동 로그 이벤트 스키마
-          href: platform/activity-log-schema.md
         - name: Azure Diagnostics 확장 스키마
           href: platform/diagnostics-extension-schema.md
           items:

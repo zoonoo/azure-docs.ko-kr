@@ -81,7 +81,7 @@ https://portal.azure.com에서 Azure Portal을 열어서 시작한 후 GPv2 저�
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-다음으로, Azure Portal을 통해 *$web* 컨테이너에 자산을 업로드하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 전체 디렉터리에 업로드합니다. 기능을 활성화할 때 선택한 *인덱스 문서 이름*과 일치하는 파일을 포함합니다.
+다음으로, Azure Portal을 통해 *$web* 컨테이너에 자산을 업로드하거나 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 전체 디렉터리에 업로드합니다. 기능을 활성화할 때 선택한 *인덱스 문서 이름*과 일치하는 파일을 포함합니다.
 
 마지막으로 웹 엔드포인트로 이동하여 웹 사이트를 테스트합니다.
 

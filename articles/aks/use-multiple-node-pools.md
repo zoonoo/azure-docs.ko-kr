@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506901"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142633"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-만들기 및 Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀을 관리
 
@@ -332,7 +332,7 @@ Events:
 
 이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 삭제 하려는 합니다 *gpunodepool*, 또는 전체 AKS 클러스터.
 
-GPU 기반 노드 풀을 삭제 하려면 사용 합니다 [az aks 노드 풀 삭제] [ az-aks-nodepool-delete] 다음 예와에서 같이 명령:
+GPU 기반 노드 풀을 삭제 하려면 사용 합니다 [az aks nodepool 삭제할] [ az-aks-nodepool-delete] 다음 예와에서 같이 명령:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 이 문서에서는 AKS 클러스터에서 여러 노드 풀 만들기 및 관리 하는 방법을 알아보았습니다. 노드 풀에서 pod를 제어 하는 방법에 대 한 자세한 내용은 참조 하세요. [AKS에 고급 스케줄러 기능에 대 한 유용한][operator-best-practices-advanced-scheduler]합니다.
 
+참조를 만들고 Windows Server 컨테이너 노드 풀을 사용 하려면 [AKS에 Windows Server 컨테이너를 만들고][aks-windows]합니다.
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

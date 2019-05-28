@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366347"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950376"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -175,6 +175,20 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
+
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성 
+설정할 수 있습니다 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) ExpressRoute 회로에 있으면 [ExpressRoute 직접](expressroute-erdirect-about.md) 가상 네트워크 게이트웨이 Ultra Performance 인지 ErGw3AZ 합니다. FastPath 패킷 / 초 및 온-프레미스 네트워크와 가상 네트워크 간에 초당 연결 등의 데이터 경로 성능을 향상 됩니다. 
+
+> [!NOTE] 
+> 이미 가상 네트워크에 연결 되어 있지만 FastPath 사용 하도록 설정 하지 않은 경우 새로 만들고 가상 네트워크 연결을 삭제 해야 합니다. 
+> 
+>  
+
+```azurepowershell-interactive 
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
+$gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
+$connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.

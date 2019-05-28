@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: a8b4e3038bfa6a2e937de91804159e340ed13224
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554157"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114821"
 ---
-| 리소스 | 대상 |
+| Resource | 대상 |
 |----------|---------------|
 | 단일 테이블의 최대 크기 | 500TiB |
 | 테이블 엔터티의 최대 크기 | 1MiB |

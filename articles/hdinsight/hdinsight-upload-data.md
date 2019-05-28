@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업용 데이터 업로드
-description: Azure 클래식 CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Apache Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
+description: Azure 클래식 CLI, Azure Storage Explorer, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Apache Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
 keywords: etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드
 author: hrasheed-msft
 ms.reviewer: jasonh

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257232"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794253"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -57,7 +57,7 @@ QnA Maker는 데이터를 이용하는 두 가지 핵심 서비스를 제공합�
 
 QnA Maker 아키텍처는 다음과 같은 두 가지 구성 요소로 이루어져 있습니다.
 
-1. **QnA Maker 관리 서비스**: 초기 생성, 업데이트, 학습 및 게시가 포함된 QnA Maker 기술 자료에 대한 관리 환경입니다. 이러한 작업은 [포털](https://qnamaker.ai) 또는 [관리 API](https://aka.ms/qnamaker-v4-apis)를 통해 수행할 수 있습니다. 
+1. **QnA Maker 관리 서비스**: 초기 생성, 업데이트, 학습 및 게시가 포함된 QnA Maker 기술 자료에 대한 관리 환경입니다. 이러한 작업은 [포털](https://qnamaker.ai) 또는 [관리 API](https://go.microsoft.com/fwlink/?linkid=2092179)를 통해 수행할 수 있습니다. 
 
 2. **QnA Maker 데이터 및 런타임**: 지정된 지역의 Azure 구독에 배포됩니다. 사용자의 KB 콘텐츠는 [Azure Search](https://azure.microsoft.com/services/search/)에 저장되고, 엔드포인트는 [App Service](https://azure.microsoft.com/services/app-service/)로 배포됩니다. 또한 분석을 위해 [Application Insights](https://azure.microsoft.com/services/application-insights/) 리소스를 배포하도록 선택할 수도 있습니다.
 

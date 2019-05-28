@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Disk 주문 자습서 | Microsoft Docs
+title: Azure Data Box Disk 주문 자습서 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure로 데이터를 가져오기 위해 Azure Data Box Disk에 등록하고 주문하는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404899"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603174"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -65,7 +65,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
     |---|---|
     |구독|Data Box 서비스를 사용하도록 설정된 구독을 선택합니다.<br> 구독은 대금 청구 계정에 연결됩니다. |
     |전송 형식| Azure로 가져오기|
-    |원천 국가 | 현재 데이터가 있는 국가를 선택합니다.|
+    |원천 국가 | 현재 데이터가 있는 국가/지역을 선택합니다.|
     |대상 Azure 지역|데이터를 전송하려는 Azure 지역을 선택합니다.|
 
   

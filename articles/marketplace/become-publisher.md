@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 10d2eb45b6706299336094359f10568e6811e1fb
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935661"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967720"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -24,7 +24,7 @@ ms.locfileid: "64935661"
 |:--- |:--- |:--- |:--- |  
 | 1 | Microsoft 파트너 네트워크에 등록 | 15분 | [Microsoft 파트너 네트워크에 등록](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Microsoft 계정 만들기 <ul>(Azure Marketplace 거래 제품에 필요함, 다른 사용자에 대한 권장)</ul> | 15분 | [Microsoft ID 만들기](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | 마켓플레이스 등록 양식 제출 | 15분 | [Marketplace 추천 양식 제출](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | 파트너 센터 계정 만들기 | 15분 | [파트너 센터 계정 만들기](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Cloud 파트너 포털에 로그인 | 1-3일 | [Cloud 파트너 포털에 로그인](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Microsoft 개발자 센터(개발자 센터)에 등록(Azure Marketplace 거래 제품용) | 5-10일 | [개발자 센터에 등록](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -59,14 +59,19 @@ Microsoft를 사용 하 여 티켓을 열어 [파트너 지원](https://partner.
 
 ---
 
-## <a name="3-submit-the-marketplace-registration-form"></a>3. 마켓플레이스 등록 양식 제출  
+## <a name="3-create-a-partner-center-account"></a>3. 파트너 센터 계정 만들기  
 | 15분 |  
-이 간략한 [등록 양식](https://azuremarketplace.microsoft.com/sell/signup)을 완료하면 마켓플레이스 게시자가 됩니다. 이 양식에 제출되는 정보는 마켓플레이스 제품을 만들고, 게시 및 관리할 수 있도록 하는 Cloud 파트너 포털의 게시자 계정을 만드는 데 사용됩니다.
 
-다음 정보를 포함하여 제공합니다.
-*   Microsoft 파트너 네트워크 ID([파트너 센터](https://partnercenter.microsoft.com/partner/home) 또는 [파트너 멤버 자격 센터](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)에서 조회할 수 있음)를 포함하는 조직에 대한 세부 정보
-*   제품과 가장 긴밀하게 연계된 Microsoft 제품 또는 서비스를 포함하여 게시하려는 초기 앱 또는 컨설팅 서비스 제품의 간략한 설명
-*   앱 또는 서비스에 대한 대상 사용자 
+일단 Marketplace에 [솔루션을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다. 참조 하는 방법 [파트너 센터 계정을 만들](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
+
+<!---
+Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
+
+You will be asked to include the following information:
+*   Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
+*   A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
+*   The target audience for your app or service 
+-->
 
 ---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Cloud 파트너 포털에 로그인
@@ -90,10 +95,10 @@ Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 �
 *   [개발자 센터](https://developer.microsoft.com/store/register) 계정에 등록하려면 [여기에서 등록 프로세스를 시작합니다](https://developer.microsoft.com/store/register).
 *   Microsoft 계정 만들기에 대한 자세한 내용은 *Microsoft 계정 만들기* 섹션을 참조하세요.
  
-[개발자 센터](https://developer.microsoft.com/store/register) 등록을 완료한 후 [개발자 센터](https://developer.microsoft.com/store/register) 계정으로 Cloud 파트너 프로필을 연결합니다(여기에서 자세한 단계 참조). 이 단계는 거래 제품을 게시하기 전에 완료되어야 합니다. 
+완료 한 후 합니다 [개발자 센터](https://developer.microsoft.com/store/register) 등록을 사용 하 여 클라우드 파트너 프로필을 연결 하 [개발자 센터](https://developer.microsoft.com/store/register) 계정 ([참조 자세한 단계](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). 이 단계는 거래 제품을 게시하기 전에 완료되어야 합니다. 
 
 >[!Note]
->$99의 개발자 센터 등록 요금을 면제받으려면 [마켓플레이스 등록 양식](https://azuremarketplace.microsoft.com/sell/signup)을 작성하세요. 그러면, 프로모션 코드가 포함된 메일을 받게 됩니다. 
+>$99의 개발자 센터 등록 요금을 면제받으려면 [마켓플레이스 등록 양식](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)을 작성하세요. 그러면, 프로모션 코드가 포함된 메일을 받게 됩니다. 참조 하는 방법 [파트너 센터 계정을 만들](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
 
 >[!Important]
 >Microsoft 개발자 센터 계정을 만들기 전에 중복 계정을 방지하도록 조직에 개발자 센터 계정이 없는지 확인합니다. 자세한 내용은 [개발자 센터에 등록하는 방법](https://docs.microsoft.com/azure/marketplace/register-dev-center) 섹션을 참조하세요.

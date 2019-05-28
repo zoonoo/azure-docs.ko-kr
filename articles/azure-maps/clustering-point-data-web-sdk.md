@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795937"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957322"
 ---
 # <a name="clustering-point-data"></a>지점 데이터를 클러스터링합니다.
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ var datasource = new atlas.source.DataSource(null, {
 
 | 방법 | 반환 형식 | 설명 |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | 약속&lt;기능&lt;기 하 도형 모든&gt; \| 셰이프&gt; | 다음 확대/축소 수준에서 지정 된 클러스터의 자식을 검색합니다. 이러한 자식 모양 및 subclusters의 조합일 수 있습니다. subclusters ClusteredProperties 일치 하는 속성을 사용 하 여 기능 됩니다. |
+| getClusterChildren(clusterId: number) | 약속&lt;배열&lt;기능&lt;기 하 도형 모든&gt; \| 셰이프&gt;&gt; | 다음 확대/축소 수준에서 지정 된 클러스터의 자식을 검색합니다. 이러한 자식 모양 및 subclusters의 조합일 수 있습니다. subclusters ClusteredProperties 일치 하는 속성을 사용 하 여 기능 됩니다. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | 클러스터는 시작 확장 또는 분리를 확대/축소 수준을 계산 합니다. |
-| getClusterLeaves (clusterId: 수를 제한 합니다: number, 오프셋: 수) | 약속&lt;기능&lt;기 하 도형 모든&gt; \| 셰이프&gt; | 클러스터의 모든 요소를 검색합니다. 설정 된 `limit` 요소의 하위 집합을 반환 하 고 사용 하는 `offset` 지점을 통해 페이지로 합니다. |
+| getClusterLeaves (clusterId: 수를 제한 합니다: number, 오프셋: 수) | 약속&lt;배열&lt;기능&lt;기 하 도형 모든&gt; \| 셰이프&gt;&gt; | 클러스터의 모든 요소를 검색합니다. 설정 된 `limit` 요소의 하위 집합을 반환 하 고 사용 하는 `offset` 지점을 통해 페이지로 합니다. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>거품형 계층을 사용 하 여 클러스터를 표시 합니다.
 
@@ -86,10 +86,10 @@ var datasource = new atlas.source.DataSource(null, {
 
 | 속성 이름 | 형식 | 설명 |
 |---------------|------|-------------|
-| cluster | 부울 | 기능에 클러스터를 나타내는지 여부를 나타냅니다. |
+| 클러스터 | 부울 | 기능에 클러스터를 나타내는지 여부를 나타냅니다. |
 | cluster_id | 문자열 | 데이터 소스를 사용 하 여 사용할 수 있는 클러스터에 대 한 고유 ID `getClusterExpansionZoom`, `getClusterChildren`, 및 `getClusterLeaves` 메서드. |
-| point_count | number | 클러스터에 포함 된 요소의 수입니다. |
-| point_count_abbreviated | 문자열 | 긴 경우 point_count 값을 줄여서 표시 하는 문자열입니다. (예: 4k가 4,000) |
+| point_count | 번호 | 클러스터에 포함 된 요소의 수입니다. |
+| point_count_abbreviated | 문자열 | 줄여서 표시 하는 문자열을 `point_count` 긴 경우 값입니다. (예: 4k가 4,000) |
 
 이 예제에서는 클러스터 요소를 렌더링 하며 클릭 이벤트를 추가 하는 거품형 계층은 트리거되면 계산 및 지도는 클러스터의 연결이 끊어집니다 분리를 사용 하 여 다음 확대/축소 수준으로 확대/축소를 `getClusterExpansionZoom` 메서드는 `DataSource` 클래스 및는 `cluster_id` 속성을 클릭 한 데이터 요소를 클러스터링 합니다. 
 

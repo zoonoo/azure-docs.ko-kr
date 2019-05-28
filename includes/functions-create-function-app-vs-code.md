@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641895"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132273"
 ---
 ## <a name="create-an-azure-functions-project"></a>Azure Functions 프로젝트 만들기
 
 Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
 
-1. Visual Studio Code에서 **Azure: Functions** 영역을 표시하도록 Azure 로고를 선택한 다음, 새 프로젝트 만들기 아이콘을 선택합니다.
+1. Visual Studio Code에서 **Azure: Functions** 영역에 표시할 Azure 로고를 선택하고 새 프로젝트 만들기 아이콘을 선택합니다.
 
     ![함수 앱 프로젝트 만들기](./media/functions-create-function-app-vs-code/create-function-app-project.png)
 

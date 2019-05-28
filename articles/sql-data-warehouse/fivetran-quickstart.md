@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse에 대한 Fivetran 빠른 시작 | Microsoft Docs
 description: Fivetran 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: d829ee67d516892283fa31d9180336d768170ac1
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61082514"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65857009"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Fivetran 및 SQL Data Warehouse로 빠른 시작
 
@@ -80,5 +80,5 @@ Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용�
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자(사용자 이름은 반드시 **fivetran\@_server_name_**이어야 하며, 여기서 *server_name*은 Azure 호스트 URI의 일부인 ***server_name*.database.windows.net**입니다.)
-* Password.
+* 사용자(사용자 이름은 반드시 **fivetran\@_server_name_**  이어야 하며, 여기서 *server_name* 은 Azure 호스트 URI의 일부인 ***server_name * 합니다. database.windows.net**입니다).
+* 암호입니다.

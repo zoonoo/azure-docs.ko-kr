@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544527"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990182"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -92,11 +92,15 @@ Azure Logic Apps는 모든 성공 및 실패 한 작업 실행으로 측정합�
 소비 가격에 적용 됩니다 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 고 수 있는 탐색, 개발, 테스트 합니다 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 하 고 [XML 처리](logic-apps-enterprise-integration-xml.md) 없이 Azure Logic Apps의 기능 추가 비용입니다.
 각 Azure 지역에서 통합 계정이 있습니다. 각 통합 계정은 거래 업체, 규약, 맵, 스키마, 어셈블리, 인증서, 일괄 처리 구성 등을 포함하는 특정 [아티팩트 수](../logic-apps/logic-apps-limits-and-config.md)까지 저장할 수 있습니다.
 
-Azure Logic Apps에는 또한 지원 되는 Logic Apps SLA를 사용 하 여 기본 및 표준 통합 계정을 제공합니다. 기본 또는 표준 통합 계정을 사용할지 여부를 선택할 수 있습니다 하는 방법으로 다음과 같습니다.
+Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공합니다. 기본 및 표준 계층에서 지원 됩니다 Logic Apps 서비스 수준 계약 (SLA)에서 무료 계층은 SLA로 지원 되지 않으며 제한이 있지만 처리량 및 사용 현황.
 
-* 하려는 경우에 메시지 처리는 더 큰 비즈니스 엔터티를 사용 하 여 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할 기본 통합 계정을 사용 합니다.
+무료, 기본 또는 표준 통합 계정 간에 선택:
 
-* 더 복잡 한 B2B 관계를 관리할 수 있습니다 하는 엔터티 수를 늘려야 할 경우 표준 통합 계정을 사용 합니다.
+* **체험**: 프로덕션 시나리오 하지 예비 시나리오를 시도 하려는 경우에 대 한 합니다.
+
+* **기본**: 만 메시지 처리 하려는 경우 또는 소규모 비즈니스 파트너 역할을 사용 하 여 대규모 비즈니스 엔터티와 거래 파트너 관계가 있는 합니다.
+
+* **표준**: 더 복잡 한 B2B 관계 및 더 많은 수의 엔터티 해야 하는 경우 관리 합니다.
 
 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 

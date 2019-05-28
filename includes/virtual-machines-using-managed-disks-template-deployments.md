@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581095"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157690"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 Managed Disks 사용
 
@@ -202,7 +202,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>관리 디스크를 사용하여 VM에서 관리 가용성 집합 만들기
 
-관리 디스크를 사용하여 VM에서 관리 가용성 집합을 만들려면 `sku` 개체를 가용성 집합 리소스에 추가하고 `name` 속성을 `Aligned`로 설정합니다. 이 속성을 사용하면 각 VM에 대한 디스크가 단일 실패 지점을 피할 만큼 서로 충분히 격리됩니다. 또한 가용성 집합 리소스의 `apiVersion`도 `2017-03-30`으로 설정됩니다.
+관리 디스크를 사용하여 VM에서 관리 가용성 집합을 만들려면 `sku` 개체를 가용성 집합 리소스에 추가하고 `name` 속성을 `Aligned`로 설정합니다. 이 속성을 사용하면 각 VM에 대한 디스크가 단일 실패 지점을 피할 만큼 서로 충분히 격리됩니다. 또한 가용성 집합 리소스의 `apiVersion`도 `2018-10-01`으로 설정됩니다.
 
 ```json
 {

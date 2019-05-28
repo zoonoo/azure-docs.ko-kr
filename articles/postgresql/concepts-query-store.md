@@ -33,7 +33,7 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 
 쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을 `ALL`로 설정하고 **저장**합니다.
+1. 값을 `ALL`으로 설정하고 **저장**합니다.
 
 
 또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.

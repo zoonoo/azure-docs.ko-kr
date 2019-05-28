@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406922"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991487"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
@@ -28,31 +28,31 @@ ms.locfileid: "65406922"
 1. 이벤트 허브를 만드는 방법을 알아보려면 [Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
 1. 검색 상자에서 **Event Hubs**를 검색합니다. 반환된 목록에서 **Event Hubs**를 선택합니다.
 1. 이벤트 허브를 선택합니다.
-1. 이벤트 허브를 만드는 경우 실제로 이벤트 허브 네임스페이스를 만드는 것입니다. 네임스페이스 내에 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티** 아래에서 이벤트 허브를 만듭니다.  
+1. 이벤트 허브를 만들 때 만들 이벤트 허브 네임 스페이스입니다. 아직 메뉴의 네임 스페이스 내에서 이벤트 허브를 아래에서 만들지 않은 경우 **엔터티**, 이벤트 허브를 만듭니다.  
 
     [![Event hubs의 목록](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. 이벤트 허브를 만든 후 이벤트 허브의 목록에서 선택합니다.
-1. 메뉴의 **엔터티** 아래에서 **Event Hubs**를 선택합니다.
+1. 메뉴에서 아래 **엔터티**를 선택 **Event Hubs**합니다.
 1. 구성할 이벤트 허브의 이름을 선택합니다.
 1. **엔터티**에서 **소비자 그룹**을 선택한 다음, **소비자 그룹**을 선택합니다.
 
     [![소비자 그룹 만들기](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Time Series Insights 이벤트 원본에서 단독으로 사용하는 소비자 그룹을 만들어야 합니다.
+1. Time Series Insights 이벤트 원본에서 단독으로 사용 되는 소비자 그룹을 만들면 있는지 확인 합니다.
 
     > [!IMPORTANT]
-    > 이 소비자 그룹을 다른 서비스(예: Azure Stream Analytics 작업 또는 다른 Time Series Insights 환경)에서 사용하지 못하게 합니다. 소비자 그룹을 다른 서비스에서 사용하는 경우 읽기 작업이 이 환경 및 다른 서비스 모두에 부정적인 영향을 미칩니다. 소비자 그룹으로 **$Default**를 사용하는 경우 다른 읽기 권한자는 소비자 그룹을 잠재적으로 다시 사용할 수 있습니다.
+    > 이 소비자 그룹 Azure Stream Analytics 작업 또는 다른 Time Series Insights 환경 등의 다른 서비스에서 사용 되지 않도록 확인 하십시오. 소비자 그룹을 다른 서비스에서 사용하는 경우 읽기 작업이 이 환경 및 다른 서비스 모두에 부정적인 영향을 미칩니다. 소비자 그룹으로 **$Default**를 사용하는 경우 다른 읽기 권한자는 소비자 그룹을 잠재적으로 다시 사용할 수 있습니다.
 
-1. 메뉴의 **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **추가**를 선택합니다.
+1. 메뉴에서 아래 **설정을**를 선택 **공유 액세스 정책**를 선택한 후 **추가**합니다.
 
     [![공유 액세스 정책을 선택를 선택한 다음 추가 단추](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 문서 뒷부분의 C# 예제에서 이벤트를 보내는 데 이 공유 액세스 정책을 사용합니다.
+1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 공유 액세스 정책을 사용 하 여 이벤트를 전송 하는 C# 이 문서 뒷부분의 예제입니다.
 
     [![정책 이름 상자에 입력 MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. **클레임**에서 **보내기** 확인란을 선택합니다.
+1. 아래 **클레임**를 선택 합니다 **보내기** 확인란 합니다.
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
@@ -70,7 +70,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 1. 이벤트 허브를 선택합니다.
 
-1. **공유 액세스 정책** > **RootManageSharedAccessKey**로 이동합니다. **연결 문자열-기본 키**의 값을 복사합니다.
+1. **공유 액세스 정책** > **RootManageSharedAccessKey**로 이동합니다. 값을 복사 **연결 문자열-기본 키**합니다.
 
     [![기본 키 연결 문자열 값을 복사](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -81,7 +81,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 1. **시작하려면 클릭**을 선택합니다. 시뮬레이터는 직접 사용할 수 있는 인스턴스 JSON을 생성합니다.
 
-1. Azure Portal에서 이벤트 허브로 돌아갑니다. 에 **개요** 페이지에 이벤트 허브에서 받은 새 이벤트를 표시 해야 합니다.
+1. Azure Portal에서 이벤트 허브로 돌아갑니다. 에 **개요** 페이지에 이벤트 허브에서 수신 되는 새 이벤트를 표시 합니다.
 
     [![이벤트 허브에 대 한 메트릭을 보여 주는 이벤트 허브 개요 페이지](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

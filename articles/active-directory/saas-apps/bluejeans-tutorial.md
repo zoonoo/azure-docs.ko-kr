@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>자습서: BlueJeans와 Azure Active Directory 통합
 
@@ -108,7 +108,7 @@ BlueJeans에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![BlueJeans 도메인 및 URL Single Sign-On 정보](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - **식별자** 텍스트 상자에서 `https://samlsp.bluejeans.com`을 입력합니다.
+   - **식별자** 텍스트 상자에서 `http://samlsp.bluejeans.com`을 입력합니다.
     
    - **로그온 URL** 텍스트 상자에 BlueJeans에서 제공한 방문 페이지 URL `https://<companyname>.bluejeans.com`을 입력합니다(이 값을 얻으려면 [BlueJeans 클라이언트 지원 팀](https://support.bluejeans.com/contact)에 문의).
     
@@ -160,9 +160,9 @@ BlueJeans에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![변경 내용 저장](./media/bluejeans-tutorial/ic785874.png "변경 내용 저장")
 
-    a. **사용자 Id** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
+    a. **사용자 Id** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
 
-    b. **전자 메일 주소** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`를 입력합니다.
+    b. **전자 메일 주소** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`를 입력합니다.
 
     다. **변경 내용 저장**을 클릭합니다.
 

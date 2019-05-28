@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69425129d5f049254a60032283ddc6ca2ab84d5c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785953"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872685"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -21,9 +21,9 @@ ms.locfileid: "65785953"
 
 ## <a name="connection-limit"></a>연결 제한
 
-함수 앱에서 실행 되기 때문에 부분적으로 사용 가능한 연결 수는 제한 된 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)합니다. 샌드박스 코드에 적용 되는 제한 사항 중 하나는 연결 (현재 600 활성 연결 및 총 연결 수 1, 200)의 수에 인스턴스당 합니다. 이 제한에 도달하면 함수 런타임에서 `Host thresholds exceeded: Connections` 메시지가 있는 로그를 만듭니다.
+함수 앱에서 실행 되기 때문에 부분적으로 사용 가능한 연결 수는 제한 된 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)합니다. 샌드박스 코드에 적용 되는 제한 사항 중 하나는 아웃 바운드 연결 수에 제한이 현재 인스턴스당 600 활성 (1,200 합계) 연결 합니다. Functions 런타임은 로그에 다음 메시지를 작성이 한도 도달 하면: `Host thresholds exceeded: Connections`합니다. 자세한 내용은 참조는 [함수 서비스 제한 사항](functions-scale.md#service-limits)합니다.
 
-이 제한은 인스턴스당입니다.  경우는 [함수 앱 인스턴스를 추가 하는 크기 조정 컨트롤러](functions-scale.md#how-the-consumption-and-premium-plans-work) 더 많은 요청을 처리 하려면 각 인스턴스에 독립 연결 제한이 있습니다. 즉, 글로벌 연결 제한은 모든 활성 인스턴스에 걸쳐 600 개 이상 훨씬 활성 연결을 할 수 있습니다.
+이 제한은 인스턴스당입니다. 경우는 [함수 앱 인스턴스를 추가 하는 크기 조정 컨트롤러](functions-scale.md#how-the-consumption-and-premium-plans-work) 더 많은 요청을 처리 하려면 각 인스턴스에 독립 연결 제한이 있습니다. 즉, 글로벌 연결 제한은 모든 활성 인스턴스에 걸쳐 600 개 이상 훨씬 활성 연결을 할 수 있습니다.
 
 문제를 해결 하려면 함수 앱에 대 한 Application Insights를 설정 했는지 있는지 확인 합니다. Application Insights를 사용 하면 실행 등의 함수 앱에 대 한 메트릭을 볼 수 있습니다. 자세한 내용은 [Application Insights에서 원격 분석 보기](functions-monitoring.md#view-telemetry-in-application-insights)합니다.  
 

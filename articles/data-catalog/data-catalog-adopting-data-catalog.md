@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002411"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953202"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 
@@ -54,7 +54,7 @@ ms.locfileid: "61002411"
 
 다음은 Adventure Works라는 가상의 회사에 대한 데이터 카탈로그 도입 계획의 비전 문구의 예입니다.
 
-**Azure Data Catalog** Adventure Works 재무 팀에서 핵심 데이터 원본을 공동 작업을 통해 개발 역량을, 모든 팀 멤버를 쉽게 찾아서 데이터를 사용 하도록 해야 하며 자신의 지식을 팀 전체와 공유할 수 있습니다.
+**Azure Data Catalog** Adventure Works 재무 팀에서 핵심 데이터 원본을 공동 작업을 통해 개발 역량을, 모든 팀 멤버를 쉽게 찾아서 데이터를 사용 하도록 해야 하며 지식을 팀 전체와 공유할 수 있습니다.
 
 명확한 비전 문구를 정한 후에는 데이터 카탈로그에 적합한 파일럿 프로젝트를 식별해야 합니다. 일반적으로 Data Catalog에 대한 여러 시나리오가 있으므로 다음 섹션에서는 유용한 사용 사례를 식별하는 몇 가지 팁을 제공합니다.
 

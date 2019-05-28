@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6e859f57f9b5f24ea2f0172f5aa35a60d9769f19
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551718"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962129"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -29,13 +29,15 @@ ms.locfileid: "65551718"
 
 다음 지침에서는 이러한 필수 구성 요소의 모든 안내 합니다.
 
-## <a name="purchase-azure-virtual-machine-reserved-instances"></a>Azure 가상 머신 예약 인스턴스 구매
+## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>Azure Red Hat OpenShift 응용 프로그램 노드 예약된 인스턴스 구매
 
-Azure Red Hat OpenShift를 사용 하려면 먼저 Azure 가상 머신 예약 인스턴스 구매 해야 합니다.
+Azure Red Hat OpenShift를 사용 하려면 먼저 지나면 수 클러스터 프로 비전 하는 Azure Red Hat OpenShift 예약 응용 프로그램 노드 4 개를 구매 해야 합니다.
 
-Azure 고객으로 여기의 경우 하는 방법 [구매 Azure 가상 머신 예약 인스턴스](https://aka.ms/openshift/buy)합니다. 예약을 감소에 완전히 관리 되는 Azure 서비스에 대 한 사전 지불 하 여 소비 합니다. 가리킵니다 [ *Azure 예약 이란* ](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) 예약 및 어떻게 이러한 비용을 절약 하는 방법에 대 한 자세한 내용을 보려면.
+Azure 고객으로 라면 [Azure Red Hat OpenShift 예약 인스턴스 구매](https://aka.ms/openshift/buy) Azure portal을 통해. 구매 후 24 시간 내 구독 활성화 됩니다.
 
 Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift/contact-sales) 고 프로세스를 시작 하려면 페이지 맨 아래에 판매 양식을 작성 합니다.
+
+참조를 [가격 책정 페이지 Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) 자세한 합니다.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
 

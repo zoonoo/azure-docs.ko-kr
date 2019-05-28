@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 05/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3c645ea748834340a2e6cfb8d3e7e1b1e876dcf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357868"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540847"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -161,7 +161,7 @@ ms.locfileid: "59357868"
 
 1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 선택합니다.
 2. Recovery Services 자격 증명 모음 선택(이 자습서에서는 **ContosoVMVault**).
-3. 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** > **+복제 정책**을 선택합니다.
+3. 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 선택합니다.
 4. **복제 정책 만들기**에서 정책 이름을 입력합니다. **VMwareRepPolicy**를 사용합니다.
 5. **RPO 임계값**에서 기본값인 60분을 사용합니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
 6. **복구 지점 보존**에서 각 복구 지점이 보존되는 방법을 지정합니다. 이 자습서에서는 72시간을 사용합니다. 복제된 VM은 보존 기간 중 임의의 시점으로 복구될 수 있습니다.
@@ -180,7 +180,7 @@ ms.locfileid: "59357868"
 1. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
 1. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
 1. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
-1. 프로세스 서버(기본적으로 구성 서버 VM에 설치됨)를 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. 프로세스 서버(기본적으로 구성 서버 VM에 설치됨)를 선택합니다. 그런 다음 **확인**을 선택합니다. 각 프로세스 서버의 상태는 권장되는 제한 및 기타 매개 변수에 따라 표시됩니다. 정상 프로세스 서버를 선택합니다. [위험한](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 프로세스 서버는 선택할 수 없습니다. 오류를 [해결](vmware-physical-azure-troubleshoot-process-server.md)**하거나**  [스케일 아웃 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정할 수 있습니다.
 1. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
 1. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 1. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.

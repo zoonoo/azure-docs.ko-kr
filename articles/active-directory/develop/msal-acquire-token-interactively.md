@@ -1,10 +1,10 @@
 ---
 title: 토큰 관리(Microsoft 인증 라이브러리) | Azure
-description: MSAL(Microsoft 인증 라이브러리)를 사용하여 토큰을 획득 및 캐시하는 것에 관해 알아봅니다.
+description: MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득 및 캐시하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,33 +17,33 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139514"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546058"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>MSAL을 사용하여 토큰 획득 및 캐싱
-[액세스 토큰](access-tokens.md)을 사용하면 Azure에서 보호되는 웹 API를 클라이언트가 안전하게 호출할 수 있습니다. MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득하는 방법은 여러 가지가 있습니다. 몇 가지 방법에는 웹 브라우저를 통해 사용자 상호 작용이 필요합니다. 일부 방법에는 사용자 상호 작용이 필요하지 않습니다. 일반적으로 토큰을 획득하는 방법은 애플리케이션이 공용 클라이언트 애플리케이션(데스크톱 또는 모바일 앱) 또는 기밀 클라이언트 애플리케이션(웹앱, 웹 API 또는 Windows 서비스와 같은 디먼 애플리케이션)인지에 따라 다릅니다.
+[액세스 토큰](access-tokens.md)을 사용하면 클라이언트에서 Azure를 통해 보호되는 웹 API를 안전하게 호출할 수 있습니다. MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득하는 방법에는 여러 가지가 있습니다. 몇 가지 방법에는 웹 브라우저를 통한 사용자 상호 작용이 필요합니다. 일부 방법에는 사용자 상호 작용이 필요하지 않습니다. 일반적으로 토큰을 획득하는 방법은 애플리케이션이 공용 클라이언트 애플리케이션(데스크톱 또는 모바일 앱) 또는 기밀 클라이언트 애플리케이션(Web App, Web API 또는 Windows 서비스와 같은 디먼 애플리케이션)인지에 따라 달라집니다.
 
-MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드는 다른 방법으로 토큰을 획득하기 전에 먼저 자동으로 (캐시에서) 토큰을 가져오려고 시도해야 합니다.
+MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드는 다른 방법으로 토큰을 획득하기 전에 먼저 캐시에서 토큰을 자동으로 가져오도록 시도해야 합니다.
 
-또한 토큰 캐시를 지울 수도 있습니다. 캐시에서 계정을 제거하면 됩니다. 브라우저에 있는 세션 쿠키는 제거되지 않습니다.
+또한 캐시에서 계정을 제거하여 획득한 토큰 캐시를 지울 수도 있습니다. 이 경우 브라우저에 있는 세션 쿠키는 제거되지 않습니다.
 
 ## <a name="scopes-when-acquiring-tokens"></a>토큰 획득 시 범위
-[범위](v2-permissions-and-consent.md)는 클라이언트 애플리케이션에서 액세스를 요청하기 위해 웹 API에서 공개하는 권한입니다. 클라이언트 애플리케이션은 웹 API에 액세스하기 위한 토큰을 가져오도록 인증 요청을 수행하는 경우 이러한 범위에 대한 사용자의 동의를 요청합니다. MSAL을 사용하면 개발자(v1.0)용 Azure AD 및 Microsoft ID 플랫폼(v2.0) API에 액세스하기 위한 토큰을 가져올 수 있습니다. v2.0 프로토콜은 요청에서 리소스 대신 범위를 사용합니다. 자세한 내용은 [v1.0 및 v2.0 비교](active-directory-v2-compare.md)를 읽어보세요. v2.0 엔드포인트는 허용하는 토큰 버전에 대한 웹 API의 구성에 따라 액세스 토큰을 MSAL에 반환합니다.
+[범위](v2-permissions-and-consent.md)는 클라이언트 애플리케이션에서 액세스를 요청하기 위해 웹 API에서 공개하는 권한입니다. 클라이언트 애플리케이션은 웹 API에 액세스하기 위해 토큰을 가져오도록 인증 요청을 할 때 이러한 범위에 대한 사용자의 동의를 요청합니다. MSAL을 사용하면 토큰에서 개발자용 Azure AD(v1.0) 및 Microsoft ID 플랫폼(v2.0) API에 액세스하기 위한 토큰을 가져올 수 있습니다. v2.0 프로토콜은 요청에서 리소스 대신 범위를 사용합니다. 자세한 내용은 [v1.0 및 v2.0 비교](active-directory-v2-compare.md)를 참조하세요. v2.0 엔드포인트는 허용하는 토큰 버전에 대한 웹 API의 구성에 따라 액세스 토큰을 MSAL에 반환합니다.
 
-많은 MSAL 토큰 획득 메서드의 경우 *범위* 매개 변수가 필요합니다. 이 매개 변수는 원하는 사용 권한 및 요청된 리소스를 선언하는 문자열의 간단한 목록입니다. 잘 알려진 범위는 [Microsoft Graph 사용 권한](/graph/permissions-reference)입니다.
+많은 MSAL 토큰 획득 메서드의 경우 *범위* 매개 변수가 필요합니다. 이 매개 변수는 원하는 권한 및 요청된 리소스를 선언하는 간단한 문자열 목록입니다. 잘 알려진 범위는 [Microsoft Graph 권한](/graph/permissions-reference)입니다.
 
-또한 MSAL에서는 v1.0 리소스에 액세스할 수 있습니다. 자세한 내용은 [v1.0 애플리케이션의 범위](msal-v1-app-scopes.md)를 읽어보세요.
+또한 MSAL에서는 v1.0 리소스에도 액세스할 수 있습니다. 자세한 내용은 [v1.0 애플리케이션에 대한 범위](msal-v1-app-scopes.md)를 참조하세요.
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>웹 API에 대한 특정 범위 요청
-사용자 애플리케이션에서 리소스 API에 대한 특정 사용 권한이 있는 토큰을 요청해야 하는 경우 API의 앱 ID URI가 포함된 범위를 *&lt;app ID URI&gt;/&lt;scope&gt;* 형식으로 전달해야 합니다.
+애플리케이션에서 리소스 API에 대한 특정 권한이 있는 토큰을 요청해야 하는 경우 API의 앱 ID URI가 포함된 범위를 *&lt;앱 ID URI&gt;/&lt;scope&gt;* 형식으로 전달해야 합니다.
 
-예를 들어 Microsoft Graph API에 대한 범위: `https://graph.microsoft.com/User.Read`
+예를 들어 Microsoft Graph API에 대한 범위가 `https://graph.microsoft.com/User.Read`이거나,
 
-또는 예를 들어 사용자 지정 웹 API에 대한 범위: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+사용자 지정 웹 PI에 대한 범위가 `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`입니다.
 
 Microsoft Graph API의 경우에만 범위 값 `user.read`는 `https://graph.microsoft.com/User.Read` 형식에 매핑하고 서로 교환해서 사용할 수 있습니다.
 

@@ -10,11 +10,11 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156413"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -84,7 +84,7 @@ Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential 
 ## <a name="manage-accounts"></a>계정 관리
 
 
-### <a name="list-accounts"></a>계정 나열
+### <a name="list-accounts"></a>계정 목록 표시
 
 ```powershell
 # List Data Lake Analytics accounts within the current subscription.
@@ -242,10 +242,10 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 `-Result` 매개 변수를 사용하여 종료된 작업이 성공적으로 완료되었는지 여부를 검색합니다. 다음 값을 포함합니다.
 
-* Cancelled
+* 취소됨
 * 실패
 * 없음
-* Succeeded
+* 성공
 
 ``` powershell
 # List Successful jobs.

@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Apache Kafka용 Event Hubs로 스트리밍
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: 전용 Event Hubs 클러스터 만들기
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: 자습서
   items:
     - name: Event Hubs 데이터 스트림에서 잘못된 데이터 시각화
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: 프로그래밍 가이드
       href: event-hubs-programming-guide.md
-    - name: Azure 리소스용 관리 서비스 ID
-      href: event-hubs-managed-service-identity.md
-    - name: 역할 기반 액세스 제어(미리 보기)
-      href: event-hubs-role-based-access-control.md
-    - name: 지리적 재해 복구 및 지역에서 복제
-      href: event-hubs-geo-dr.md
-    - name: 인증 및 보안 모델 개요
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: 보안
+      items:
+        - name: Azure 리소스용 관리 서비스 ID
+          href: event-hubs-managed-service-identity.md
+        - name: 역할 기반 액세스 제어(미리 보기)
+          href: event-hubs-role-based-access-control.md
+        - name: 지리적 재해 복구 및 지역에서 복제
+          href: event-hubs-geo-dr.md
+        - name: 인증 및 보안 모델 개요
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: 보안 특성
+          href: event-hubs-security-attributes.md
     - name: 가용성 및 일관성
       href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0 프로토콜 가이드

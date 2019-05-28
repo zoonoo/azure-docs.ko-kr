@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486914"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518918"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -56,7 +56,7 @@ ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복�
 
     ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. **Backup**을 클릭하여 Recovery Services 자격 증명 모음에 대한 Azure 파일 공유를 구성합니다. 
+3. **Backup**을 클릭하여 Recovery Services 자격 증명 모음에 대한 Azure 파일 공유를 구성합니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/set-backup-goal.png)
 
@@ -123,10 +123,12 @@ Azure Backup은 Azure Portal 내에서 복원 지점을 찾아보는 기능을 �
 **Backup 작업** 페이지를 열려면:
 
 - 모니터링할 Recovery Services 자격 증명 모음을 열고, Recovery Services 자격 증명 모음 메뉴에서 **작업**을 클릭하고, **Backup 작업**을 클릭합니다.
+
    ![모니터링할 작업 선택](./media/backup-file-shares/open-backup-jobs.png)
 
     Backup 작업 목록과 이러한 작업의 상태가 표시됩니다.
-   ![모니터링할 작업 선택](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![모니터링할 작업 선택](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>새 정책 만들기
 

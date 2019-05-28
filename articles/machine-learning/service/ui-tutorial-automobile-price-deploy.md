@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190913"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787826"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -158,4 +158,4 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 이 자습서에서는 그래픽 인터페이스에서 기계 학습 모델을 만들고, 배포하고, 사용하는 방법에 대한 주요 단계를 알아보았습니다. 그래픽 인터페이스를 사용하여 다른 유형의 문제를 해결하는 방법에 대해 자세히 알아보려면 실험 샘플을 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [신용 위험 분류 샘플](ui-sample-classification-predict-credit-risk-basic.md)
+> [신용 위험 분류 샘플](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

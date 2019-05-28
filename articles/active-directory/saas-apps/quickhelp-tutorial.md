@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408070"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>자습서: QuickHelp와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ QuickHelp를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다
 * 사용자가 자신의 Azure AD 계정을 사용하여 QuickHelp(Single Sign-On)에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -150,11 +150,11 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
    
     b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일로 이동한 다음 **메타데이터 업로드**를 클릭합니다.
    
-    다. **전자 메일 주소** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    다. **전자 메일 주소** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
    
-    d. **이름** 텍스트 상자에 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
+    d. **이름** 텍스트 상자에 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
    
-    e. **성** 텍스트 상자에 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
+    e. **성** 텍스트 상자에 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
    
     f. **작업 모음**에서 **저장**을 클릭합니다.
 

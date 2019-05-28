@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779853"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986826"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -31,7 +31,7 @@ ms.locfileid: "65779853"
 ## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 클릭 합니다 **디렉터리 및 구독 필터** 최상위 메뉴 및 테 넌 트를 포함 하는 디렉터리를 선택 합니다. 
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 클릭 합니다 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다. 
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 
@@ -70,17 +70,17 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 애플리케이션 등록
 
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고, **앱 등록**을 검색하여 선택합니다.
-2. **새 애플리케이션 등록**을 선택합니다.
-3. **이름**에 `IdentityExperienceFramework`를 입력합니다.
-4. **응용 프로그램 종류**로 **웹앱/API**를 선택합니다.
-5. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다.
-6. **만들기**를 클릭합니다. 
-7. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
+1. 선택할 **모든 서비스** Azure portal의 왼쪽 위 모퉁이에서 검색 하 고 선택 **Azure Active Directory**합니다.
+2. 메뉴에서 선택 **앱 등록 (레거시)** 합니다.
+3. **새 애플리케이션 등록**을 선택합니다.
+4. **이름**에 `IdentityExperienceFramework`를 입력합니다.
+5. **응용 프로그램 종류**로 **웹앱/API**를 선택합니다.
+6. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
+7. **만들기**를 클릭합니다. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
-1. **앱 등록**, **새 응용 프로그램 등록**을 차례로 선택합니다.
+1. **앱 등록 (레거시)** 를 선택 **새 응용 프로그램 등록**합니다.
 2. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
 3. **응용 프로그램 종류**로 **네이티브**를 선택합니다.
 4. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트입니다.

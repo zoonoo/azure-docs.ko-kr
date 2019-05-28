@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228026"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956957"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "65228026"
 
 - **서명되지 않은 JSON 토큰을 애플리케이션으로 보내기**: Azure AD B2C는 사용자가 미성년자라는 사실을 애플리케이션에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
 
-- **사용자 차단**: 사용자가 미성년자이고 보호자의 동의가 제공되지 않은 경우 Azure AD B2C에서 사용자에게 차단되었음을 알릴 수 있습니다. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
+- **사용자 차단**: 사용자가 부, 보호자의 동의 제공 하지 않은 경우 Azure AD B2C는 차단 된 사용자 알릴 수 있습니다. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
 
 ## <a name="get-parental-consent"></a>보호자 동의 얻기
 
@@ -48,7 +48,7 @@ ms.locfileid: "65228026"
 
 1. [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
 
-2. 애플리케이션에서 JSON 토큰을 처리하고, 보호자의 동의가 필요하다고 알리고 온라인으로 보호자의 동의를 요청하는 화면을 미성년자에게 표시합니다. 
+2. 응용 프로그램은 JSON 토큰을 처리 하 고 부를 알리는 보호자의 동의 필요 하다 고 온라인 부모의 동의 요청 하는 화면을 보여 줍니다. 
 
 3. Azure AD B2C에서 사용자가 정상적으로 로그인할 수 있는 로그인 경로를 보여 주고, **legalAgeGroupClassification = “minorWithParentalConsent”** 가 포함되도록 설정된 토큰을 애플리케이션에 발급합니다. 애플리케이션에서 보호자 이메일 주소를 수집하고 보호자가 성인인지 확인합니다. 이를 위해 주민 등록증, 면허증 확인 또는 신용 카드 증명과 같은 신뢰할 수 있는 자료를 사용합니다. 성공적으로 확인되면 애플리케이션에서 미성년자에게 Azure AD B2C 사용자 흐름을 사용하여 로그인하라는 메시지를 표시합니다. 동의가 거부되면(예: **legalAgeGroupClassification = “minorWithoutParentalConsent”**) Azure AD B2C에서 동의 프로세스를 다시 시작하기 위해 애플리케이션에 JSON 토큰(로그인 아님)을 반환합니다. 필요에 따라 미성년자 또는 성인이 등록 코드를 미성년자의 이메일 주소 또는 기록에 있는 성인의 이메일 주소로 보내서 미성년자의 계정에 다시 액세스할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415476"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987756"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -85,7 +85,7 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 3. 사용자가 "domain\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
 4. 64비트 서버에서 레지스트리 편집기를 열고 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버에서는 경로에 "Wow6432Node"를 지정합니다. "UsernameCxz_stripPrefixDomain"이라는 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 AD FS 프록시 보안이 유지됩니다.
 
-Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP 섹션](#trusted-ips)을 참조하세요.
+Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 참조 된 [신뢰할 수 있는 Ip 섹션](#trusted-ips) IP 주소를 해당 위치에서 웹 사이트에 로그인 할 때 2 단계 확인이 필요 하지 내부 허용 하려는 경우.
 
 ![회사 설정을 구성 하려면 레지스트리 편집기](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 
 이제 Azure Multi-Factor Authentication을 통해 AD FS 보안이 유지됩니다.
 
-Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP] 섹션을 참조하세요.
+Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인 할 때 2 단계 인증 필요 하지 않도록 내부 IP 주소를 허용 하려는 신뢰할 수 있는 Ip 섹션을 참조 하세요.
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
+
 신뢰할 수 있는 IP를 사용하면 특정 IP 주소 또는 서브넷에서 시작된 웹 사이트 요청에 대한 Azure Multi-Factor Authentication을 바이패스할 수 있습니다. 예를 들어 사용자가 사무실에서 로그인할 경우 2단계 인증에서 제외하려고 합니다. 이를 위해 사무실 서브넷을 신뢰할 수 있는 IP 항목으로 지정할 수 있습니다.
 
 ### <a name="to-configure-trusted-ips"></a>신뢰할 수 있는 IP를 구성하려면
+
 1. IIS 인증 섹션에서 **신뢰할 수 있는 IP** 탭을 클릭합니다.
 2. **추가...** 를 클릭합니다. 단추를 선택합니다.
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
-4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
+4. IP 주소, IP 주소 또는 허용 되어야 하는 서브넷을 입력 합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다.
 
 ![MFA 서버를 신뢰할 수 있는 Ip를 구성 합니다.](./media/howto-mfaserver-adfs-2/trusted.png)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419223"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147487"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
 컨테이너 앱을 사용하여 상태를 유지하는 일반적인 방법은Azure File Storage와 같은 원격 스토리지 또는 Azure Cosmos DB와 같은 데이터베이스를 사용하는 것입니다. 이 경우 원격 저장소에 대한 상당한 읽기 및 쓰기 네트워크 지연이 발생합니다.
@@ -73,7 +73,7 @@ az group deployment show --name counter.sfreliablevolume.linux --resource-group 
 
 애플리케이션이 성공적으로 배포되면 앱에 대한 게이트웨이 리소스의 ipAddress를 가져옵니다. 위의 섹션에서 알게 게이트웨이 이름을 사용합니다.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 출력에 서비스 엔드포인트에 대한 공용 IP 주소인 `ipAddress` 속성이 있어야 합니다. 브라우저에서 속성을 엽니다. 카운터 값이 1초마다 업데이트되는 웹 페이지가 표시됩니다.

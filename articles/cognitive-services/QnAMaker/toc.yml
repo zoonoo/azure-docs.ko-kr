@@ -184,6 +184,8 @@
   items:
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격 책정 및 제한

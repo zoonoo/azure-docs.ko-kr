@@ -9,11 +9,11 @@ ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 64751e0fcbf9a2255964d0de673e2cc2020ceb9a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254616"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114261"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md)는 [Azure AD(Azure Active Directory) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 SMB(서버 메시지 블록)를 통한 ID 기반 인증(미리 보기)을 지원합니다. 도메인 가입 Windows VM(가상 머신)은 [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다. 
 

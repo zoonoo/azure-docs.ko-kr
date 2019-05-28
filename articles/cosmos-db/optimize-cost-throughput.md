@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Cosmos DB에 저장된 데이터의 처�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929032"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967309"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -57,7 +57,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|Keyspace|테이블|
+|Cassandra API|키스페이스|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
 |테이블 API|데이터베이스 계정|테이블|
 

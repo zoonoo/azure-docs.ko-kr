@@ -1,5 +1,5 @@
 ---
-title: 데이터 집합 정 및 버전 관리
+title: 데이터 집합 정 및 azureml 데이터 집합을 사용 하 여 버전 관리
 titleSuffix: Azure Machine Learning service
 description: 데이터 집합 정의 업데이트 하 고 정의의 수명 주기를 관리 하는 방법을 알아봅니다
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028682"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146216"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>업데이트 및 데이터 집합 정의의 수명 주기 관리
 
@@ -344,7 +344,7 @@ dataset.get_definition(version_id=1)
 
 관리할 수 있습니다 각 데이터 집합 정의의 수명 주기에 독립적으로 합니다. 세 가지 단계가 있습니다 수명 주기: 활성, 사용 되지 않으며, 또는 보관 합니다.
 
-### <a name="active"></a>Active
+### <a name="active"></a>활성
 
 새 데이터 집합 정의 만들면 기본적으로 활성화 됩니다. 
 

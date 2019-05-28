@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465537"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002375"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>계정 필터 및 자산 필터 정의  
+# <a name="filters"></a>필터
 
 고객 (라이브 스트리밍 이벤트 또는 주문형 비디오) 콘텐츠를 제공 하는 경우 클라이언트의 기본 자산의 매니페스트 파일에 설명 된 것 보다 더 많은 유연성이 필요할 수 있습니다. Azure Media Services를 사용하면 콘텐츠에 사용할 계정 필터 및 자산 필터를 정의할 수 있습니다. 
 
@@ -88,11 +88,9 @@ Media Services는 미리 정의된 필터에 따라 [동적 매니페스트](fil
 |**Name**|필터링을 위해 트랙의 이름을 사용합니다.|
 |**형식**|필터링을 위해 트랙의 유형을 사용합니다.<br/><br/>허용되는 값은 “video”, “audio” 또는 “text”입니다.|
 
-## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
+### <a name="example"></a>예
 
-스트리밍 로케이터를 사용 하 여 적용할 자산 또는 계정 필터 목록을 지정할 수 있습니다. 합니다 [동적 packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
-
-## <a name="definition-example"></a>정의 예제
+다음 예제에서는 라이브 스트리밍 필터를 정의합니다. 
 
 ```json
 {
@@ -146,6 +144,15 @@ Media Services는 미리 정의된 필터에 따라 [동적 매니페스트](fil
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
+
+목록을 지정할 수 있습니다 [자산 또는 계정 필터](filters-concept.md)에 적용 되는 것에 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다. 합니다 [동적 Packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
+
+다음 예제를 참조하세요.
+
+* [스트리밍 로케이터-.NET을 사용 하 여 연결 필터](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [스트리밍 로케이터-CLI 사용 하 여 연결 필터](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>다음 단계
 

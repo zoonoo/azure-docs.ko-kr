@@ -9,11 +9,11 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117854"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -157,7 +157,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
     Sku                              : Standard
     Status                           : Enabled
 
-ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 주의하세요. ServiceProviderProvisioningState : 프로비전된 상태: 사용
+ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 주의하세요. ServiceProviderProvisioningState : 프로비전된 상태: Enabled
 
 > [!NOTE]
 > *상태*가 ‘사용’이 아니면 [Microsoft 지원][Support]에 문의하고, *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.

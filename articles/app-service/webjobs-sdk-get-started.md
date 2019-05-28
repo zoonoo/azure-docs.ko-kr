@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198611"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864855"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
-이 아티클에서 Visual Studio 2017을 사용 하 여 Azure WebJobs SDK 프로젝트를 만들고 로컬에서 실행 해도 다음 배포 하는 방법 [Azure App Service](overview.md)합니다. 만든 프로젝트는 버전을 사용 하는.NET Core 콘솔 앱을 WebJobs sdk 3.x입니다. 버전에 관심이 있다면.NET Framework를 사용 하는 2.x를 참조 하세요 [개발 및 Visual Studio-Azure App Service를 사용 하 여 WebJobs를 배포](webjobs-dotnet-deploy-vs.md)합니다.
+이 문서에서는 Visual Studio 2019를 사용 하 여 Azure WebJobs SDK 프로젝트를 만들고 로컬에서 실행 해도를 배포 하는 방법을 보여 줍니다 [Azure App Service](overview.md)합니다. 만든 프로젝트는 버전을 사용 하는.NET Core 콘솔 앱을 WebJobs sdk 3.x입니다. 버전에 관심이 있다면.NET Framework를 사용 하는 2.x를 참조 하세요 [개발 및 Visual Studio-Azure App Service를 사용 하 여 WebJobs를 배포](webjobs-dotnet-deploy-vs.md)합니다.
 
 WebJobs SDK를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요 [이벤트 중심 백그라운드 처리를 위해 Azure WebJobs SDK를 사용 하는 방법을](webjobs-sdk-how-to.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 개발** 워크로드를 사용하여 [Visual Studio 2017을 설치](/visualstudio/install/)합니다. Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
+* [Visual Studio 2019 설치할](/visualstudio/install/) 사용 하 여 합니다 **Azure 개발** 워크 로드. Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 
 * 있어야 [Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) azure WebJobs SDK 프로젝트를 게시 합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
-1. Visual Studio에서 **파일 -> 새로 만들기 > 프로젝트**를 선택합니다.
+1. Visual Studio에서 선택 **새 프로젝트를 만들**합니다.
 
-2. 선택 **.NET Core > 콘솔 앱 (.NET Core)** 합니다.
+2. 선택 **콘솔 앱 (.NET Core)** 합니다.
 
-3. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
+3. 프로젝트 이름을 *WebJobsSDKSample*를 선택한 후 **만들기**합니다.
 
    ![새 프로젝트 대화 상자](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -338,7 +338,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |이름  |연결 문자열  |데이터베이스 유형|
+   |Name  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
 

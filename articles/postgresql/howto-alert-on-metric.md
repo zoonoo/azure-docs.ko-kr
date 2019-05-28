@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL-Azure portal에서 단일 서버에 대 한 메트릭 경고를 구성
-description: 이 문서에서는 PostgreSQL-Azure portal에서 단일 서버에 대 한 Azure Database에 대 한 구성 하는 방법 및 액세스 메트릭 경고를 설명 합니다.
+title: Azure 포털에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고 구성
+description: 이 문서에서는 Azure portal에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65067323"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure portal을 사용 하 여 PostgreSQL-단일 서버에 대 한 Azure Database에 대 한 메트릭에 대 한 경고를 설정 하려면
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure portal을 사용하여 Azure Database for PostgreSQL -단일 서버에 대한 메트릭 경고 설정
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 경고를 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 

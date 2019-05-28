@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457897"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150821"
 ---
 1. Virtual WAN 페이지로 이동합니다. 이 페이지로 이동하는 한 가지 방법은 **모든 서비스**로 이동한 다음, Virtual WAN을 검색하는 것입니다.
 1. **+추가**를 클릭하여 **WAN 만들기** 페이지를 엽니다.

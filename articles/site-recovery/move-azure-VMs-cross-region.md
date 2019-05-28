@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192925"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793732"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -53,7 +53,7 @@ ms.locfileid: "57192925"
     - Windows VM의 경우 최신 Windows 업데이트를 설치하여 신뢰할 수 있는 모든 루트 인증서가 컴퓨터에 있도록 합니다. 연결이 끊어진 환경에서 조직의 표준 Windows 업데이트 및 인증서 업데이트 프로세스를 따릅니다.
     - Linux VM의 경우 Linux 배포자의 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 가져옵니다.
 2. 이동하려는 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다.
-3. 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [요구 사항](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)을 확인합니다.
+3. 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [요구 사항](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)을 확인합니다.
 4. 원본 네트워킹 레이아웃 및 현재 사용 중인 모든 리소스(부하 분산 장치, 네트워크 보안 그룹, 확인용 공용 IP 등)를 문서로 정리합니다.
 
 ## <a name="prepare-the-target-region"></a>대상 Azure 지역 준비

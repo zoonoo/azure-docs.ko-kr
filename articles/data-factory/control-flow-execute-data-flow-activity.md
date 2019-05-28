@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236683"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153534"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업을 실행 합니다.
 트리거된 파이프라인 실행 및 파이프라인 디버그 (샌드박스) 실행 ADF 데이터 흐름을 실행 하려면 실행 데이터 흐름 작업을 사용 합니다.
@@ -64,6 +64,10 @@ ms.locfileid: "65236683"
 데이터 흐름 작업 실행에 대 한 사용 하는 Integration Runtime을 정의 하는 필수 필드입니다. 기본적으로 Data Factory는 기본 자동 해결 Azure 통합 런타임을 사용 됩니다. 그러나 특정 영역을 정의 데이터 흐름 작업 실행에 대 한 형식, 코어 수 및 TTL을 계산 하는 사용자 고유의 Azure Integration Runtime을 만들 수 있습니다.
 
 데이터 흐름 실행에 대 한 기본 설정은 60 분의 TTL 사용 하 여 일반 계산 8 코어를입니다.
+
+데이터 흐름 작업에 대 한 Spark 실행 환경 하 게 제어를 해야합니다. 에 [Azure 통합 런타임은](concepts-integration-runtime.md) 설정이 작업자 코어 수 및 time-to-live 데이터 흐름 계산을 사용 하 여 실행 엔진에 맞게 계산 형식 (일반 목적, 메모리 액세스에 최적화 된, 및 compute에 최적화)를 설정 하려면 요구 사항입니다. 또한 TTL을 설정 하면 작업 실행에 대 한 즉시 사용할 수 있는 웜 클러스터를 유지 관리할 수 있습니다.
+
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure 통합 런타임")
 
 ### <a name="staging-area"></a>준비 영역
 

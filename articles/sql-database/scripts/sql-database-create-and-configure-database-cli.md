@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
+author: stevestein
 manager: craigg
-ms.author: carlrab
+ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/08/2019
-ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4c02ab45cd6e10b86681aae41cbb4bd99e6e0d6d
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361425"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832565"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성
 

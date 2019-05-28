@@ -3,8 +3,8 @@ title: 가상 네트워크용 Azure Resource Manager 템플릿 샘플 | Microsof
 description: Azure 가상 네트워크 배포에 사용할 수 있는 다양한 Azure Resource Manager 템플릿에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/13/2018
-ms.author: jdial
-ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/22/2019
+ms.author: kumud
+ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039591"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682514"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>가상 네트워크용 Azure Resource Manager 템플릿 샘플
 
@@ -36,3 +36,4 @@ ms.locfileid: "54039591"
 |[Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|두 서브넷과 각 서브넷의 네트워크 인터페이스를 사용하여 새 가상 네트워크를 만듭니다. 서브넷 중 하나에 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정하고 해당 서브넷에 새 스토리지 계정의 보안을 설정합니다.|
 |[두 가상 네트워크 연결](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| 두 가상 네트워크를 만들고 이들 간에 가상 네트워크 피어링을 만듭니다.|
 |[여러 IP 주소로 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| 여러 IP 주소로 Windows 또는 Linux VM을 만듭니다.|
+|[IPv4 + IPv6 이중 스택 가상 네트워크 구성](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet)|IPv4 및 IPv6 공용 IP 주소가 있는 Azure Basic Load Balancer 및 두 개의 VM으로 이중 스택(IPv4+IPv6) 가상 네트워크를 배포합니다. |

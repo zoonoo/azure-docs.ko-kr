@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148093"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956970"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -215,7 +215,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 | 플랫폼 | 위치 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 변경 내용을 적용 하려면 컨테이너 엔진 다시 시작 해야 합니다.
 

@@ -7,28 +7,30 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 69b03bd24abcdf502bf80cfce4221f4958058932
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541719"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158534"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
-AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-search-concept-intro.md) Azure Search의 구조화 되지 않은 데이터 처리에 사용 합니다. 이러한 알고리즘에 기반한 [Azure Cognitive Services 리소스](https://azure.microsoft.com/services/cognitive-services/)등 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 이미지 분석 및 OCR (광학 문자 인식) 및 [텍스트분석](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 엔터티 인식, 핵심 구 추출 및 다른 강화 합니다.
+AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-search-concept-intro.md) Azure Search에서 문서 보강 사용 합니다. 이러한 알고리즘 비롯 한 Azure Cognitive Services 리소스에 기반한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 이미지 분석 및 OCR (광학 문자 인식) 및 [텍스트 분석](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 엔터티 인식에 대 한 핵심 구 추출 및 다른 강화 합니다. 내에서 알고리즘 래핑 문서 보강을 위해 Azure Search에서 사용을 *기술*에 배치는 *역량*에서 참조 되는 *인덱서* 중 인덱싱.
 
-제한된 수의 문서를 무료로 보강하거나 크고 빈번한 워크로드에 대해 유료 Cognitive Services 리소스를 연결할 수도 있습니다. 이 문서에서는 데이터를 보강 하 cognitive 기술력을 사용 하 여 Cognitive Services 리소스를 연결 하는 방법을 알아봅니다 [Azure Search 인덱싱](search-what-is-an-index.md)합니다.
-
-파이프라인 Cognitive Services Api와 연관 되지 않은 기술을 구성 된 경우에 여전히 Cognitive Services 리소스를 연결 해야 합니다. 이렇게 소수의 하루 원칙이 수를 제한 하는 무료 리소스를 재정의 합니다. Cognitive Services Api에 연결 되지 않습니다는 기술에 부과 되지 않습니다. 이러한 기술을 포함 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), [텍스트 병합기](cognitive-search-skill-textmerger.md)합니다 [텍스트 분할자](cognitive-search-skill-textsplit.md), 및 [쉐이 퍼](cognitive-search-skill-shaper.md)합니다.
+제한된 수의 문서를 무료로 보강하거나 크고 빈번한 워크로드에 대해 유료 Cognitive Services 리소스를 연결할 수도 있습니다. 이 문서에서는 보강 하는 동안 문서에 cognitive 기술력을 사용 하 여 청구 가능한 Cognitive Services 리소스를 연결 하는 방법을 알아봅니다 [Azure Search 인덱싱](search-what-is-an-index.md)합니다.
 
 > [!NOTE]
-> 자세한 AI 알고리즘을 추가 하거나 더 많은 문서를 추가 하거나 처리 빈도 늘려 범위를 확장 하면 청구 가능한 Cognitive Services 리소스를 연결 해야 합니다. Azure Search에서 문서 해독 단계의 일부분으로 이미지 추출 및 Cognitive Services에 대 한 Api 호출에 대 한 요금이 청구 됩니다. 문서에서 텍스트 추출에 대 한 부과 되지 않습니다.
+> 청구 가능한 이벤트는 Azure Search에서 문서 해독 단계의 일부분으로 Cognitive Services Api 및 이미지 추출에 대 한 호출을 포함합니다. Cognitive Services를 호출 하지 않는 기술을 또는 문서에서 텍스트 추출에 대 한 무료입니다.
 >
-> 기본 제공 기술 실행은 요금이 청구 되는 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 이미지 추출 가격 책정에 대 한 자세한 내용은 참조는 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+> 에 청구 가능한 기술 실행 합니다 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 이미지 추출 가격에 대 한 참조를 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+
+## <a name="same-region-requirement"></a>동일한 지역 요구 사항
+
+동일한 지역 내에서 Azure Search 및 Azure Cognitive Services가 필요 합니다. 그렇지 않으면 런타임 시이 메시지를 받게 됩니다. `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 지역에서 서비스를 이동할 방법이 없습니다. 이 오류가 발생할 경우 동일한 지역에 새 서비스 만들기 및 그에 따라 인덱스를 다시 게시 됩니다.
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 
@@ -50,7 +52,7 @@ AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-
 
 ## <a name="use-billable-resources"></a>유료 리소스 사용
 
-워크 로드의 일별 20 개가 넘는 강화를 만든 경우 청구 가능한 Cognitive Services 리소스를 연결 해야 합니다.
+하루 20 개가 넘는 원칙이 만든 워크 로드의 경우 청구 가능한 Cognitive Services 리소스를 연결 해야 합니다. Cognitive Services Api를 호출 하려면 의도 하지 않은 경우에 청구 가능한 Cognitive Services 리소스에 항상 연결 하는 것이 좋습니다. 일일 한도 재정의 리소스를 연결 합니다.
 
 Cognitive Services Api를 호출 하는 기술에 대해서만 요금이 부과 됩니다. 에 대 한 요금이 청구 되지 않습니다 하 고 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), 또는 기술을 like [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md), 및 [쉐이 퍼](cognitive-search-skill-shaper.md), API 기반 하지는 합니다.
 

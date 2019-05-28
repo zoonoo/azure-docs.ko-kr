@@ -9,13 +9,13 @@ ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142992"
 ---
-| 리소스 | 기본 제한 |
+| Resource | 기본 제한 |
 | --- | :--- |
 | 구독 당 최대 클러스터 | 100 |
 | 클러스터당 최대 노드 | 100 |

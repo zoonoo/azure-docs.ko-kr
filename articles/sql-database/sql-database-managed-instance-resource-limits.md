@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560574"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016400"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -56,7 +56,7 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K (1375/vCore) |
-| 로그 처리량 | 인스턴스당 22MB/초 | VCore 당 4 MB/s<br/>인스턴스당 최대 48 MB/s|
+| 로그 처리량 | vCore당 3MB/초<br/>인스턴스당 최대 22 MB/s | VCore 당 4 MB/s<br/>인스턴스당 최대 48 MB/s|
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB) | 제약 조건 없음 - 최대 인스턴스 스토리지 크기로 제한됨 |

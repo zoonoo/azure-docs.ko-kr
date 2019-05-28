@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560774"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122594"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -167,6 +167,9 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 >- **데이터 복사 도구** - 복사 파이프라인을 작성합니다.
 >- **Data Factory UI** - 연결을 테스트하고 작성 중에 폴더를 탐색합니다. 
 >계정 수준에서 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id에 복사할 파일에서 적절 한 권한이 있는 부여는 계속 작동 합니다.
+
+>[!IMPORTANT]
+>ADLS Gen2 ADLS Gen2를 사용 하 여 id 인증을 관리 하는 경우 SQL DW로 데이터 로드를 적절 하 게 ADLS Gen2 저장소에 MSI를 사용 하 여 SQL DW도 구성 해야 하는 PolyBase를 사용 하는 경우에 #3.b #1 단계에 따라 [이 지침](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. VNet 서비스 끝점을 사용 하 여 ADLS Gen2에 구성 된 경우 PolyBase에서 데이터를 로드 하는 데 관리 되는 id 인증을 사용 해야 합니다.
 
 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 

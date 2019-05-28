@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806208"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851189"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -386,7 +386,7 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 
 - **최대 동시 시험** (필수): 한 번에 시험 사용할 수 있는 고객의 최대 수를 설정 합니다. 각 동시 사용자 최대 한도 세트를 지원 하기 위해 사용할 수 있는 충분 한 라이선스가 있는지 확인 해야 하므로 시험 활성화 된 동안 Dynamics 365 라이선스를 사용 합니다. 권장 값은 3~5입니다.
 
-- **시험 사용 기간** (필수): 시험 시간 수를 정의 하 여 유지 됩니다 하는 시간의 길이 입력 합니다. 이 많은 시간 후에도 세션 종료 되며 더 이상 라이선스 중 하나를 사용 합니다. 제품의 복잡성에 따라 2 ~ 24 시간을 사용 하는 것이 좋습니다. 이 기간 수만 bet 설정할 시간 정수 (예: "2" 시간 "1.5" 유효 하지 않습니다).  사용자는 시간이 부족 하며 시험에 다시 액세스 하려고 하는 경우 새 세션을 요청할 수 있습니다.
+- **시험 사용 기간** (필수): 시간을 정의 하 여 Test Drive 활성화 상태로 있는 시간의 길이 입력 합니다. 이 많은 시간 후에도 세션 종료 되며 더 이상 라이선스 중 하나를 사용 합니다. 제품의 복잡성에 따라 2 ~ 24 시간을 사용 하는 것이 좋습니다. 이 기간 수만 bet 설정할 시간 정수 (예: "2" 시간 "1.5" 유효 하지 않습니다).  사용자는 시간이 부족 하며 시험에 다시 액세스 하려고 하는 경우 새 세션을 요청할 수 있습니다.
 
 - **인스턴스 URL** (필수): 고객은 고객이 시험에 주소를 시작할 URL입니다. 일반적으로 설치 하는 샘플 데이터를 사용 하 여 앱을 실행 하 여 Dynamics 365 인스턴스 URL (예: https://testdrive.crm.dynamics.com)합니다.
 

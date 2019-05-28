@@ -1,28 +1,26 @@
 ---
-author: rockboyfor
+author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-origin.date: 11/25/2018
-ms.date: 01/21/2019
-ms.author: v-yeche
+ms.date: 11/25/2018
+ms.author: tomfitz
 ms.openlocfilehash: 03e4053b65cf39101e8cb5d35ce439a759ec11d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65736831"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129036"
 ---
 1. 잠그려는 리소스, 리소스 그룹 또는 구독에 대한 설정 블레이드에서 **잠금**을 선택합니다.
-
+   
       ![잠금 선택](./media/resource-manager-lock-resources/select-lock.png)
 2. 잠금을 추가하려면 **추가**를 선택합니다. 부모 수준에서 잠금을 만들려면 부모를 선택합니다. 현재 선택된 리소스는 부모에서 잠금을 상속합니다. 예를 들어 리소스 그룹을 잠궈 모든 리소스에 잠금을 적용할 수 있습니다.
-
+   
       ![잠금 추가](./media/resource-manager-lock-resources/add-lock.png) 
 3. 잠금에 이름과 잠금 수준을 지정합니다. 필요한 경우 잠금을 설명하는 참고 사항을 추가할 수 있습니다.
-
+   
       ![잠금 설정](./media/resource-manager-lock-resources/set-lock.png) 
 4. 잠금을 삭제하려면 사용 가능한 옵션에서 줄임표와 **삭제** 를 선택합니다.
+   
+      ![잠금 삭제](./media/resource-manager-lock-resources/delete-lock.png) 
 
-      ![잠금 삭제](./media/resource-manager-lock-resources/delete-lock.png)
-
-<!-- Update_Description: wording update -->

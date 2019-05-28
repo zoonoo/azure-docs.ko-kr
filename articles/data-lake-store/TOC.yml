@@ -28,7 +28,7 @@
       items:
         - name: Azure Data Factory 사용
           href: ../data-factory/load-azure-data-lake-store.md
-        - name: 스토리지 탐색기 사용
+        - name: Storage Explorer 사용
           href: data-lake-store-in-storage-explorer.md
         - name: AdlCopy 사용
           href: data-lake-store-copy-data-azure-storage-blob.md

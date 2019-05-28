@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564243"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126305"
 ---
 ## <a name="prerequisites"></a>필수 조건
 CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 상호 작용하도록 몇 가지 준비 작업을 수행해야 합니다. 이러한 준비를 위해 다음이 필요합니다.

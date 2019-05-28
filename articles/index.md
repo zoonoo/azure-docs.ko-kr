@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c1c33cab46082d1d3b748b45b40a7928801b2e55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151254"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -649,6 +649,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     <h3>Azure Stack</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure-stack">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack 연산자</p>
@@ -658,6 +664,11 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/azure-stack/user">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack 사용자</p>
+                                            </a>
+                                        </li>                                        <li>
+                                            <a href="/azure-stack/asdk/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>ASDK(Azure Stack 개발 키트)</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1148,7 +1159,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
-                                                <p>Storage 탐색기</p>
+                                                <p>Storage Explorer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2628,7 +2639,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage 탐색기</h3>
+                                                    <h3>Storage Explorer</h3>
                                                     <p>Windows, macOS 및 Linux로 어디에서나 쉽게 저장소 관리</p>
                                                 </div>
                                             </div>
@@ -5959,6 +5970,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         <a href="#stack">Azure Stack</a>
                         <ul id="stack" class="cardsA">
                             <li>
+                                <a href="/azure-stack">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack</h3>
+                                                    <p>온-프레미스 Azure 서비스 및 기능을 확장하여 클라우드 경계에 걸쳐 하이브리드 클라우드 및 에지 애플리케이션 빌드 및 배포</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5970,7 +6000,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack 연산자</h3>
-                                                    <p>새로운 이 하이브리드 클라우드 플랫폼으로 사용자 고유의 데이터 센터에서 Azure 서비스 제공</p>
+                                                    <p>Azure Stack 통합 시스템 인프라를 관리하는 방법과 서비스 제공 방법 알아보기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5989,6 +6019,23 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <div class="cardText">
                                                 <h3>Azure Stack 사용자</h3>
                                                 <p>Azure Stack에서 서비스 사용 및 애플리케이션 빌드</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-stack/asdk/">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>ASDK(Azure Stack 개발 키트)</h3>
+                                                <p>평가 및 테스트를 위한 비프로덕션 환경</p>
                                             </div>
                                         </div>
                                     </div>
@@ -6472,7 +6519,7 @@ Azure 리소스 관리자 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://storageexplorer.com">Storage 탐색기</a>
+                                                    <a href="https://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>
