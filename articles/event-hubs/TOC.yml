@@ -29,7 +29,7 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: .NET Framework
           href: event-hubs-dotnet-framework-getstarted-send.md
-        - name: 자바
+        - name: Java
           href: event-hubs-java-get-started-send.md
         - name: Python
           href: event-hubs-python-get-started-send.md
@@ -146,7 +146,7 @@
       maintainContext: true
 - name: 참고 자료
   items:
-    - name: 자바
+    - name: Java
       items:
         - name: com.microsoft.azure.eventhubs
           href: /java/api/com.microsoft.azure.eventhubs

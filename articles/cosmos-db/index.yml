@@ -67,7 +67,7 @@ sections:
         columns:
           - image:
               src: media/index/logo_java.svg
-            title: 자바
+            title: Java
           - image:
               src: media/index/logo_net.svg
             title: .NET

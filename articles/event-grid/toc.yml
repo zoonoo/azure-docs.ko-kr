@@ -135,7 +135,7 @@
       href: /rest/api/eventgrid
     - name: .NET
       href: /dotnet/api/overview/azure/eventgrid
-    - name: 자바
+    - name: Java
       href: /java/api/overview/azure/eventgrid
     - name: Python
       href: /python/api/overview/azure/event-grid
