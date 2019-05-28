@@ -49,7 +49,7 @@ ms.locfileid: "66156528"
 
 | 자산 | 설명 | 필수
 -------- | ----------- | --------
-| name | 파이프라인의 이름입니다. 작업 또는 파이프라인이 수행되도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
+| 이름 | 파이프라인의 이름입니다. 작업 또는 파이프라인이 수행되도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description |작업 또는 파이프라인이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다. |
 | activities | 활동의 목록을 포함합니다. | 예 |
 | start |파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예를 들면 다음과 같습니다. 2014-10-14T16:32:41. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아닙니다.<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 시작 및 종료 시간을 지정 하지 않는 경우 파이프라인을 만들 때 나중에 집합 AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
@@ -59,7 +59,7 @@ ms.locfileid: "66156528"
 | expirationTime |생성 후에 파이프라인이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 작업, 실패한 작업 또는 보류 중인 작업이 없는 경우 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. |아닙니다. |
 
 
-## <a name="activity"></a>작업
+## <a name="activity"></a>activities
 파이프라인 정의(activities 요소) 내의 활동(activity)에 대한 간략한 구조는 다음과 같습니다.
 
 ```json
@@ -87,7 +87,7 @@ ms.locfileid: "66156528"
 
 | 태그 | 설명 | 필수 |
 | --- | --- | --- |
-| name |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
+| 이름 |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description |활동의 용도를 설명하는 텍스트입니다. |아닙니다. |
 | type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
@@ -287,7 +287,7 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 | 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | 이름 | 데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
-| 형식 | 데이터 세트의 형식입니다. Azure Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. Data Factory에서 지원하는 모든 데이터 저장소 및 데이터 세트 유형에 대해서는 [데이터 저장소](#data-stores) 섹션을 참조하세요. |
+| type | 데이터 세트의 형식입니다. Azure Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. Data Factory에서 지원하는 모든 데이터 저장소 및 데이터 세트 유형에 대해서는 [데이터 저장소](#data-stores) 섹션을 참조하세요. |
 | structure | 데이터 세트의 스키마입니다. 열, 해당 형식 등을 포함합니다. | 아닙니다. |해당 없음 |
 | typeProperties | 선택한 형식에 해당하는 속성입니다. 지원되는 형식 및 해당 속성은 [데이터 저장소](#data-stores) 섹션을 참조하세요. |예 |해당 없음 |
 | external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. |아닙니다. |false |
@@ -299,7 +299,7 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 이름 |열의 이름입니다. |예 |
-| 형식 |열의 데이터 형식입니다.  |아닙니다. |
+| type |열의 데이터 형식입니다.  |아닙니다. |
 | culture |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 .NET 기반 culture입니다. 기본값은 `en-us`입니다. |아닙니다. |
 | format |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 형식 문자열입니다. |아닙니다. |
 
@@ -592,7 +592,7 @@ Azure Data Lake Store 연결된 서비스를 정의하려면 연결된 서비스
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **AzureDataLakeStore** | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **AzureDataLakeStore** | 예 |
 | dataLakeStoreUri | Azure 데이터 레이크 저장소 계정에 대한 정보를 지정합니다. 형식 예: `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/`. | 예 |
 | subscriptionId | Data Lake Store가 속하는 Azure 구독 ID입니다. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store가 속하는 Azure 리소스 그룹 이름입니다. | 싱크에 필요 |
@@ -1400,7 +1400,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
 | connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 **예제:**
@@ -1422,7 +1422,7 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureStorageSas** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureStorageSas** |예 |
 | sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
 
 **예제:**
@@ -2454,7 +2454,7 @@ SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **OnPremisesSqlServer**. |예 |
+| type |형식 속성은 **OnPremisesSqlServer**. |예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 온-프레미스 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 SQL Server 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 | username |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |아닙니다. |
@@ -3317,7 +3317,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
+| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
 | host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요. |예 |
 | userid |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
 | 암호 |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
@@ -3730,7 +3730,7 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **HDFS** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **HDFS** |예 |
 | Url |HDFS에 대한 URL |예 |
 | authenticationType |익명 또는 Windows입니다. <br><br> HDFS 커넥터에 **Kerberos 인증**을 사용하려면 이 섹션을 참조하여 온-프레미스 환경을 적절히 설정하십시오. |예 |
 | userName |Windows 인증에 대한 사용자 이름. |예(Windows 인증에 대한) |
@@ -4745,7 +4745,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |데이터 세트의 형식입니다. **데이터 집합** |예 |
+| type |데이터 세트의 형식입니다. **데이터 집합** |예 |
 | path |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 HTML 페이지에서 테이블의 인덱스 가져오기 섹션을 참조하세요. |예 |
 
@@ -4838,7 +4838,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. |예 |
+| type |형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. |예 |
 | clusterSize |클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. |예 |
 | timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. |예 |
 | 버전 |HDInsight 클러스터의 버전입니다. 자세한 내용은 [Azure Data Factory에서 지원되는 HDInsight 버전](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)을 참조하세요. |아닙니다. |
@@ -4876,7 +4876,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **HDInsight**로 설정해야 합니다. |예 |
+| type |형식 속성은 **HDInsight**로 설정해야 합니다. |예 |
 | clusterUri |HDInsight 클러스터의 URI입니다. |예 |
 | 사용자 이름 |기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. |예 |
 | 암호 |사용자 계정으로 password를 지정합니다. |예 |
@@ -4909,7 +4909,7 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **AzureBatch**로 설정해야 합니다. |예 |
+| type |형식 속성은 **AzureBatch**로 설정해야 합니다. |예 |
 | accountName |Azure Batch 계정의 이름 |예 |
 | accessKey |Azure Batch 계정에 대한 선택키 |예 |
 | poolName |가상 머신의 풀 이름입니다. |예 |
@@ -5060,7 +5060,7 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **OnPremisesSqlServer**. |예 |
+| type |형식 속성은 **OnPremisesSqlServer**. |예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 온-프레미스 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 SQL Server 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 | username |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |아닙니다. |
@@ -5110,7 +5110,7 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 
 ## <a name="data-transformation-activities"></a>데이터 변환 작업
 
-작업 | 설명
+activities | 설명
 -------- | -----------
 [HDInsight Hive 활동](#hdinsight-hive-activity) | Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다.
 [HDInsight Pig 활동](#hdinsight-pig-activity) | Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다.

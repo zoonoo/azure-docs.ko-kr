@@ -60,7 +60,7 @@ var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true
 
 Face API는 이미지에서 얼굴 데이터를 추출 하 고 사용 하 여를 연결할 수는 **Person** 개체 (통해를 [얼굴을 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 예를 들어 API 호출), 및 다중 **Person** 개체 일 수 있습니다 에 함께 저장 된 **PersonGroup**합니다. 그런 다음 새 얼굴을 비교할 수는 **PersonGroup** (사용 하 여는 [직면-식별] 호출), 해당 그룹 내에서 일치 하는 사람을 식별할 수 있습니다.
 
-**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - 만들기] 나 [LargePersonGroup - Create]). 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
+**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - Create] 나 [LargePersonGroup - Create]). 원래가 매개이 변수를 지정 하지 않으면 경우 `recognition_01` 모델을 사용 합니다. 그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -99,8 +99,8 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 데이터에서 _recognition_01_와 _recognition_02_ 모델의 성능을 비교하려는 경우, 다음과 같이 비교할 수 있습니다.
 
 1. _recognition_01_과 _recognition_02_를 사용하여 각각 **PersonGroup**을 생성합니다.
-1. 이미지 데이터를 사용 하 여 얼굴을 감지 되도록 어셈블리를 등록 하 **Person**이 두 s **PersonGroup**사용 하 여 처리 및 학습 트리거 [PersonGroup - 학습] API.
-1. 테스트 [직면-식별] 둘 다에 **PersonGroup**s 및 결과 비교 합니다.
+1. 이미지 데이터를 사용하여 얼굴을 감지하고 두 **PersonGroup**의 **Person**에 얼굴을 등록하고, [PersonGroup - 학습] API를 사용하여 학습 프로세스를 시작합니다.
+1. [직면-식별]를 사용하여 두 **PersonGroup**을 테스트하고 결과를 비교합니다.
 
 일반적으로 신뢰도 임계값(얼굴을 식별하는데 모델이 얼마나 신뢰성이 있어야 하는지 결정하는 0과 1 사이의 값)을 지정하면 다른 모델에 대해서는 다른 임계값을 사용해야 할 수 있습니다. 한 모델의 임계값은 다른 모델과 공유되지 않으며 반드시 동일한 결과가 도출되지는 않습니다.
 
@@ -114,7 +114,7 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 [얼굴-비슷한 찾을]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [직면-식별]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
 [직면-확인]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
-[PersonGroup - 만들기]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
+[PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
 [PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - 학습]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
