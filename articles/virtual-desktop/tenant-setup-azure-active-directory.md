@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 88b3ffa38eb42eef42c98920b2c3193661b1c0f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c9682746201306f1b99a04462819618225caa11
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236064"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164259"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
 
@@ -114,7 +114,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-대괄호로 묶인 값은 조직 및 테넌트와 관련된 값으로 바꾸어야 합니다. 예를 들어 Contoso 조직의 Windows Virtual Desktop TenantCreator라고 가정해 보겠습니다. 이 경우 다음과 같은 cmdlet을 실행할 수 있습니다.
+대괄호로 묶인 값은 조직 및 테넌트와 관련된 값으로 바꾸어야 합니다. 새 Windows Virtual Desktop 테넌트에 대해 선택한 이름은 전역적으로 고유해야 합니다. 예를 들어 Contoso 조직의 Windows Virtual Desktop TenantCreator라고 가정해 보겠습니다. 이 경우 다음과 같은 cmdlet을 실행할 수 있습니다.
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999

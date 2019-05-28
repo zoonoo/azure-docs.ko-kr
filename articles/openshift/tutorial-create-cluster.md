@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/08/2019
-ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/14/2019
+ms.openlocfilehash: d8d767b97e335feeb31851c89a9b21eddf7157ea
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466187"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962218"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
@@ -32,13 +32,19 @@ ms.locfileid: "65466187"
 
 ## <a name="prerequisites"></a>필수 조건
 
+> [!IMPORTANT]
+> 이 자습서에서는 Azure CLI 버전 2.0.65가 필요합니다.
+>    
+> Azure Red Hat OpenShift를 사용하려면 먼저 [Red Hat OpenShift Azure 개발 환경 설정](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances)에 설명된 대로 최소 4개의 Azure Red Hat OpenShift 예약 애플리케이션 노드를 구매해야 합니다.
+
 이 자습서를 시작하기 전에:
 
 다음을 포함하여 [개발 환경이 설정되어 있는지 확인](howto-setup-environment.md)합니다.
-- 최신 CLI 설치(2.0.64 이상 버전)
-- 테넌트 만들기
-- Azure 애플리케이션 개체 만들기
-- 클러스터에서 실행되는 앱에 로그인하는 데 사용되는 Active Directory 사용자 만들기
+- 최신 CLI 설치(2.0.65 이상 버전)
+- 테넌트가 아직 없으면 만들기
+- Azure 애플리케이션 개체가 아직 없으면 만들기
+- 보안 그룹 만들기
+- 클러스터에 로그인하기 위한 Active Directory 사용자 만들기
 
 ## <a name="step-1-sign-in-to-azure"></a>1단계: Azure에 로그인
 
@@ -55,33 +61,31 @@ az login
 Bash 명령 창에서 다음 변수를 설정합니다.
 
 > [!IMPORTANT]
-> 클러스터 이름은 모두 소문자여야 합니다. 그렇지 않으면 클러스터 만들기가 실패합니다.
+> 클러스터에 대해 고유하며 모두 소문자로 이루어진 이름을 선택합니다. 그렇지 않으면 클러스터를 만들 수 없습니다.
 
 ```bash
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
- [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 6단계에서 선택한 것과 동일한 클러스터 이름을 사용합니다.
+클러스터를 만들 위치를 선택합니다. Azure에서 OpenShift를 지원하는 Azure 지역 목록은 [지원되는 지역](supported-resources.md#azure-regions)을 참조하세요. 예: `LOCATION=eastus`
 
 ```bash
 LOCATION=<location>
 ```
 
-클러스터를 만들 위치를 선택합니다. Azure에서 OpenShift를 지원하는 Azure 지역 목록은 [지원되는 지역](supported-resources.md#azure-regions)을 참조하세요. 예: `LOCATION=eastus`
-
-`FQDN`을 클러스터의 정규화된 이름으로 설정합니다. 이 이름은 클러스터 이름, 위치 그리고 끝부분에 추가되는 `.cloudapp.azure.com`으로 구성됩니다. [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 6단계에서 만든 로그온 URL과 동일합니다. 예:   
-
-```bash
-FQDN=$CLUSTER_NAME.$LOCATION.cloudapp.azure.com
-```
-
-`APPID`를 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 9단계에서 저장한 값으로 설정합니다.  
+`APPID`를 [Azure AD 앱 등록 만들기](howto-aad-app-configuration.md#create-an-azure-ad-app-registration)의 5단계에서 저장한 값으로 설정합니다.  
 
 ```bash
 APPID=<app ID value>
 ```
 
-`SECRET`를 [클라이언트 비밀 만들기](howto-aad-app-configuration.md#create-a-client-secret)의 6단계에서 저장한 값으로 설정합니다.  
+'GROUPID'를 [Azure AD 보안 그룹 만들기](howto-aad-app-configuration.md#create-an-azure-ad-security-group)의 10단계에서 저장한 값으로 설정합니다.
+
+```bash
+GROUPID=<group ID value>
+```
+
+`SECRET`를 [클라이언트 비밀 만들기](howto-aad-app-configuration.md#create-a-client-secret)의 8단계에서 저장한 값으로 설정합니다.  
 
 ```bash
 SECRET=<secret value>
@@ -93,7 +97,7 @@ SECRET=<secret value>
 TENANT=<tenant ID>
 ```
 
-클러스터용 리소스 그룹을 만듭니다. 위에서 변수를 정의할 때 사용한 Bash 셸에서 다음 명령을 실행합니다.
+클러스터용 리소스 그룹을 만듭니다. 위에서 변수를 정의할 때 사용한 동일한 Bash 셸에서 다음 명령을 실행합니다.
 
 ```bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -117,33 +121,59 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 ### <a name="create-the-cluster"></a>클러스터 만들기
 
-이제 클러스터를 만들 준비가 되었습니다.
+이제 클러스터를 만들 준비가 되었습니다. 다음에서는 지정된 Azure AD 테넌트에서 클러스터를 만들고, 보안 주체로 사용할 Azure AD 앱 개체 및 비밀, 클러스터에 대해 관리자 권한이 있는 멤버를 포함하는 보안 그룹을 지정합니다.
 
- 클러스터의 가상 네트워크를 기존 가상 네트워크에 연결할 필요가 없으면 다음 예제에서 후행 `--vnet-peer-id $VNET_ID` 매개 변수를 생략합니다.
+클러스터를 가상 네트워크에 연결하지 **않으려는 경우** 다음 명령을 사용합니다.
 
 ```bash
-az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --fqdn $FQDN --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --vnet-peer-id $VNET_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-몇 분 후 `az openshift create` 명령이 성공적으로 완료되고 클러스터 세부 정보가 포함된 JSON 응답이 반환됩니다.
+클러스터를 가상 네트워크에 연결**하려는 경우** `--vnet-peer` 플래그를 추가하는 다음 명령을 사용합니다.
+ 
+```bash
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
+```
 
 > [!NOTE]
-> 클러스터 이름이 고유하지 않으면 호스트 이름을 사용할 수 없다는 오류가 발생할 수 있습니다. 원래 앱 등록을 삭제하고, 다른 클러스터 이름을 사용하여 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 단계를 다시 실행해보세요. 사용자를 이미 만들었으므로 마지막 단계인 새 사용자 만들기는 생략하세요.
+> 클러스터 이름이 고유하지 않으면 호스트 이름을 사용할 수 없다는 오류가 발생할 수 있습니다. 원래 앱 등록을 삭제하고, 다른 클러스터 이름을 사용하여 [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 단계를 다시 실행해보세요. 새 사용자 및 보안 그룹을 만드는 단계는 생략합니다.
 
-## <a name="step-3-sign-in-to-the-openshift-console"></a>3단계: OpenShift 콘솔에 로그인
+몇 분 후 `az openshift create`가 완료됩니다.
+
+### <a name="get-the-sign-in-url-for-your-cluster"></a>클러스터의 로그인 URL 가져오기
+
+다음 명령을 실행하여 클러스터에 로그인할 URL을 가져옵니다.
+
+```bash
+az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
+```
+
+출력에서 `publicHostName`을 찾습니다(예: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`).
+
+클러스터의 로그인 URL은 `https://` + `publicHostName` 값입니다.  예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`  이 URI는 다음 단계에서 앱 등록 리디렉션 URI의 일부로 사용합니다.
+
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>3단계: 앱 등록 리디렉션 URI 업데이트
+
+이제 클러스터의 로그인 URL을 확보했으므로 앱 등록 리디렉션 UI를 설정합니다.
+
+1. [앱 등록 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)를 엽니다.
+2. 앱 등록 개체를 클릭합니다.
+3. **리디렉션 URI 추가**를 클릭합니다.
+4. **TYPE**이 **Web**인지 확인하고, 패턴 `https://<public host name>/oauth2callback/Azure%20AD`를 사용하여 **리디렉션 URI**를 설정합니다. 예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+5. 페이지 맨 아래에 있는 **저장**
+
+## <a name="step-4-sign-in-to-the-openshift-console"></a>4단계: OpenShift 콘솔에 로그인
 
 이제 새 클러스터의 OpenShift 콘솔에 로그인할 준비가 되었습니다. [OpenShift 웹 콘솔](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html)에서는 OpenShift 프로젝트의 콘텐츠를 시각화, 탐색 및 관리할 수 있습니다.
 
-테스트용으로 만든 [새 Azure AD 사용자](howto-aad-app-configuration.md#create-a-new-active-directory-user)로 로그인하겠습니다. 이렇게 하려면 평소에 Azure Portal에 로그인할 때 사용하는 ID를 캐시하지 않은 새 브라우저 인스턴스가 필요합니다.
+평소에 Azure Portal에 로그인할 때 사용하는 ID를 캐시하지 않은 새 브라우저 인스턴스가 필요합니다.
 
 1. *incognito* 창(Chrome) 또는 *InPrivate* 창(Microsoft Edge)을 엽니다.
-2. [새 앱 등록 만들기](howto-aad-app-configuration.md#create-a-new-app-registration)의 6단계에서 만든 로그온 URL로 이동합니다. 예를 들어 https://constoso.eastus.cloudapp.azure.com
+2. 예를 들어, 위에서 확보한 로그온 URL로 이동합니다(예: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`).
 
-> [!NOTE]
-> OpenShift 콘솔은 자체 서명된 인증서를 사용합니다.
-> 브라우저에서 메시지가 표시되면 경고를 무시하고 "신뢰할 수 없는" 인증서를 수락합니다.
+[새 Azure Active Directory 사용자 만들기](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user)의 3단계에서 만든 사용자 이름을 사용하여 로그인합니다.
 
-[새 Active Directory 사용자 만들기](howto-aad-app-configuration.md#create-a-new-active-directory-user)에서 만든 사용자 이름 및 암호로 로그인합니다. **요청된 권한** 대화 상자가 나타나면 **조직 대신 동의**를 선택한 다음, **동의**를 선택합니다.
+**요청된 권한** 대화 상자가 나타납니다. **조직 대신 동의**를 클릭하고 **수락**을 클릭합니다.
 
 이제 클러스터 콘솔에 로그인되었습니다.
 
@@ -151,7 +181,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 
  [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) 설명서에서 [OpenShift 콘솔을 사용](https://docs.openshift.com/aro/getting_started/developers_console.html)하여 이미지를 만들고 빌드하는 방법을 자세히 알아보세요.
 
-## <a name="step-4-install-the-openshift-cli"></a>4단계: OpenShift CLI 설치
+## <a name="step-5-install-the-openshift-cli"></a>5단계: OpenShift CLI 설치
 
 [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html)(또는 *OC 도구*)는 OpenShift 클러스터의 다양한 구성 요소와 상호 작용하는 데 사용되는 애플리케이션 및 하위 수준 유틸리티를 관리할 수 있는 명령을 제공합니다.
 

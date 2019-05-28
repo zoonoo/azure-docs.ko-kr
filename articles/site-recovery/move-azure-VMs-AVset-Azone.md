@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855418"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793751"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [Azure에서 가용성 영역이란?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)에 설명된 것처럼 선택 지역에서 지원됩니다.
@@ -50,7 +50,7 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 4. Linux VM의 경우 Linux 배포자가 제공한 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 VM에 가져옵니다.
 5. 이동할 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다.
 
-6. 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [아웃바운드 네트워크 연결 구성](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)에서 요구 사항을 확인합니다.
+6. 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [아웃바운드 네트워크 연결 구성](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)에서 요구 사항을 확인합니다.
 
 7. 원본 네트워킹 레이아웃 및 현재 확인에 사용하는 모든 리소스(부하 분산 장치, NSG, 공용 IP 등)를 식별합니다.
 

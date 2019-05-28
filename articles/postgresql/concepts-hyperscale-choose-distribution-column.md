@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL – 대규모 (Citus) (미리 보기) 용 Azure Database에서 배포 열 선택
-description: 일반적인 대규모 시나리오에서 배포 열에 대 한 적절 한 선택
+title: Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)에서 분산 열 선택
+description: 일반적인 하이퍼스케일 시나리오에서 분산 열에 대한 적절한 선택
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65078987"
 ---
-# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>PostgreSQL – 대규모 (Citus) (미리 보기) 용 Azure Database에서 배포 열 선택
+# <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)에서 분산 열 선택
 
 각 테이블의 배포 열을 선택 하는 것 **가장 중요 한 중** 의사 결정을 모델링 합니다. 대규모 배포 열 행의 값을 기반으로 하는 분할 된 데이터베이스에 행을 저장 합니다.
 

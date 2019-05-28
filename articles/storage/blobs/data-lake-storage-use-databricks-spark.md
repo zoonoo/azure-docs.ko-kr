@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939171"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951385"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
-* 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+* 서비스 주체 만들기 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
   > [!IMPORTANT]
   > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
 
-  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+  :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 앱 ID 및 암호 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ### <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -82,11 +82,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![Azure Databricks 작업 영역 만들기](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Azure Databricks 서비스 만들기")
 
-3. **대시보드에 고정**을 선택한 다음, **만들기**를 선택합니다.
+3. 계정 생성에는 몇 분 정도가 소요됩니다. 작업 상태를 모니터링하려면 맨 위에 있는 진행률 표시줄을 확인합니다.
 
-4. 계정 생성에는 몇 분 정도가 소요됩니다. 계정을 만드는 동안 포털의 오른쪽에 **Azure Databricks에 대한 배포 제출** 타일이 표시됩니다. 작업 상태를 모니터링하려면 맨 위에 있는 진행률 표시줄을 확인합니다.
-
-    ![Databricks 배포 타일](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks 배포 타일")
+4. **대시보드에 고정**을 선택한 다음, **만들기**를 선택합니다.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Azure Databricks에 Spark 클러스터 만들기
 
@@ -110,51 +108,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     * **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
 
-## <a name="create-a-file-system-and-mount-it"></a>파일 시스템 만들기 및 탑재
-
-이 섹션에서는 스토리지 계정에 파일 시스템 및 폴더를 만들겠습니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
-
-2. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook**을 차례로 선택합니다.
-
-    ![Databricks에서 Notebook 만들기](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
-
-3. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python**을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
-
-4. **만들기**를 선택합니다.
-
-5. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
-
-    ```Python
-    configs = {"fs.azure.account.auth.type": "OAuth",
-           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
-           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
-
-    dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
-    mount_point = "/mnt/flightdata",
-    extra_configs = configs)
-    ```
-
-18. 이 코드 블록에서 `application-id`, `authentication-id`, `tenant-id` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 바꿉니다.
-
-   * `application-id` 및 `authentication-id`는 서비스 주체 만들기의 일환으로 활성 디렉터리에 등록한 앱에서 가져온 것입니다.
-
-   * `tenant-id`는 구독에서 가져온 것입니다.
-
-   * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
-
-   > [!NOTE]
-   > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
-
-19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
-
-   나중에 명령을 추가할 것이므로 이 Notebook을 계속 열어 둡니다.
-
 ## <a name="ingest-data"></a>데이터 수집
 
 ### <a name="copy-source-data-into-the-storage-account"></a>저장소 계정에 원본 데이터 복사
@@ -177,9 +130,58 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
    * `<csv-folder-path>` 자리 표시자 값을 *.csv* 파일의 경로로 바꿉니다.
 
-   * `storage-account-name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+
+   * `<file-system-name>` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+
+## <a name="create-a-file-system-and-mount-it"></a>파일 시스템 만들기 및 탑재
+
+이 섹션에서는 스토리지 계정에 파일 시스템 및 폴더를 만들겠습니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
+
+2. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook**을 차례로 선택합니다.
+
+    ![Databricks에서 Notebook 만들기](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
+
+3. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python**을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
+
+4. **만들기**를 선택합니다.
+
+5. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
+
+    ```Python
+    configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
+    dbutils.fs.mount(
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
+    ```
+
+18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 이전 단계에서 ADLS 파일 시스템에 지정한 이름으로 바꿉니다.
+
+이러한 값을 사용하여 언급된 자리 표시자를 바꿉니다.
+
+   * `appId` 및 `password`는 서비스 주체 만들기의 일환으로 활성 디렉터리에 등록한 앱에서 가져온 것입니다.
+
+   * `tenant-id`는 구독에서 가져온 것입니다.
+
+   * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
 
    * `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+
+   > [!NOTE]
+   > 프로덕션 설정에서 Azure Databricks에서 암호를 저장하는 것이 좋습니다. 그런 다음, 암호 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
+
+19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
+
+   나중에 명령을 추가할 것이므로 이 Notebook을 계속 열어 둡니다.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook을 사용하여 CSV를 Parquet로 변환
 
