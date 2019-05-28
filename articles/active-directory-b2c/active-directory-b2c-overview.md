@@ -3,23 +3,23 @@ title: Azure Active Directory B2C란? | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 애플리케이션에서 등록 로그인 및 프로필 관리와 같은 ID 환경을 만들고 관리하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455503"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701367"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
-Azure AD(Azure Active Directory) B2C는 ID 관리 서비스입니다. 이 서비스를 사용하면 사용자가 웹, 데스크톱, 모바일 또는 단일 페이지 애플리케이션과 안전하게 상호 작용하는 방식을 사용자 지정하고 제어할 수 있습니다. Azure AD B2C를 사용하여 사용자는 등록, 로그인, 암호 재설정 및 프로필 편집을 수행할 수 있습니다. Azure AD B2C는 OpenID Connect 및 OAuth 2.0 프로토콜의 형태를 구현합니다. 이러한 프로토콜을 구현하는 데 있어 중요한 키는 리소스에 대한 보안 액세스를 제공할 수 있는 보안 토큰 및 해당 클레임입니다.
+Azure AD(Azure Active Directory) B2C는 비즈니스-소비자 ID 관리 서비스입니다. 이 서비스를 사용하면 사용자가 웹, 데스크톱, 모바일 또는 단일 페이지 애플리케이션과 안전하게 상호 작용하는 방식을 사용자 지정하고 제어할 수 있습니다. Azure AD B2C를 사용하여 사용자는 등록, 로그인, 암호 재설정 및 프로필 편집을 수행할 수 있습니다. Azure AD B2C는 OpenID Connect 및 OAuth 2.0 프로토콜의 형태를 구현합니다. 이러한 프로토콜을 구현하는 데 있어 중요한 키는 리소스에 대한 보안 액세스를 제공할 수 있는 보안 토큰 및 해당 클레임입니다.
 
 *사용자 경험*은 사용자 및 애플리케이션에서 Azure AD B2C와 상호 작용하는 방법에 대한 동작을 제어하는 정책을 지정하는 요청입니다. Azure AD B2C에서 사용자 경험을 정의하는 데 두 가지 경로를 사용할 수 있습니다. 
 
@@ -70,7 +70,7 @@ Azure AD B2C를 사용하도록 애플리케이션을 구성하기 전에 먼저
 
 ## <a name="identity-providers"></a>ID 공급자 
 
-애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다. Azure Portal을 사용하여 Azure AD B2C에서 지원되는 ID 공급자를 추가할 수 있습니다. 
+애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다.  Azure Portal을 사용하여 Azure AD B2C에서 지원되는 ID 공급자를 추가할 수 있습니다. 
 
 일반적으로 애플리케이션에는 하나의 ID 공급자만 사용되지만, ID 공급자를 추가할 수 있는 옵션이 있습니다. Azure AD B2C 테넌트에서 ID 공급자를 구성하려면 먼저 애플리케이션을 ID 공급자 개발자 사이트에 만든 다음, 생성한 ID 공급자 애플리케이션에서 애플리케이션 식별자, 클라이언트 식별자와 암호 또는 클라이언트 비밀을 기록합니다. 그런 다음, 이 식별자와 암호를 사용하여 애플리케이션을 구성합니다. 
 
@@ -117,7 +117,7 @@ ASP.NET 웹 애플리케이션 개발자인 경우 [자습서: Azure Active Dire
 
 데스크톱 애플리케이션 개발자인 경우 [자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여](active-directory-b2c-tutorials-desktop-app-webapi.md)의 단계를 사용하여 보호된 API를 호출하도록 애플리케이션을 설정합니다.
 
-Node.js를 사용하는 단일 페이지 애플리케이션 개발자인 경우 [자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여](active-directory-b2c-tutorials-spa-webapi.md)의 단계를 사용하여 계정을 인증하도록 애플리케이션을 설정합니다.
+Node.js를 사용한 단일 페이지 애플리케이션 개발자인 경우 [자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여](active-directory-b2c-tutorials-spa-webapi.md)의 단계를 사용하여 계정을 인증하도록 애플리케이션을 설정합니다.
 
 ### <a name="javascript"></a>JavaScript
 

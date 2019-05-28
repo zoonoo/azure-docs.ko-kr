@@ -22,7 +22,7 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-the-solutions"></a>솔루션을 사용하도록 설정
 
@@ -51,7 +51,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 선택한 작업 영역에 솔루션이 이미 있는 경우 솔루션은 다시 배포되지 않고 범위 구성이 추가되지 않습니다.
 
-이 구성 중 하나에서 줄임표(**...**)를 선택한 다음, **편집**을 선택합니다. **편집 범위 구성** 창에서 **컴퓨터 그룹 선택**을 선택합니다. **컴퓨터 그룹** 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다.
+이 구성 중 하나에서 줄임표( **...** )를 선택한 다음, **편집**을 선택합니다. **편집 범위 구성** 창에서 **컴퓨터 그룹 선택**을 선택합니다. **컴퓨터 그룹** 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다.
 
 ## <a name="saved-searches"></a>저장된 검색
 

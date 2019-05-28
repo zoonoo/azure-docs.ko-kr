@@ -1,5 +1,5 @@
 ---
-title: '자습서: 데이터 복사 서비스를 통해 Microsoft Azure Data Box 디바이스로 데이터 복사 | Microsoft Docs'
+title: 데이터 복사 서비스를 통해 Azure Data Box 디바이스에 데이터를 복사하는 자습서 | Microsoft Docs
 description: 이 자습서에서는 데이터 복사 서비스를 통해 Azure Data Box 디바이스로 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343530"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925313"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 

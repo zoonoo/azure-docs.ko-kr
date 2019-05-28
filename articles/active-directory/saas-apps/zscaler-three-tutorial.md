@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564556"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>자습서: Azure Active Directory와 Zscaler Three 통합
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Zscaler Three와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Zscaler Three Single Sign-On이 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -154,9 +154,17 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Zscaler Three Single Sign-On 구성
 
-1. 다른 웹 브라우저 창에서 Zscaler Three 회사 사이트에 관리자로 로그인합니다.
+1. Zscaler Three 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Zscaler Three 설정**을 클릭하면 Zscaler Three 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Zscaler Three에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![SSO 설정](common/setup-sso.png)
+
+3. Zscaler Three를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Zscaler Three 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
+
+4. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
    
     ![관리](./media/zscaler-three-tutorial/ic800206.png "관리")
 
@@ -164,7 +172,7 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     b. **SAML 구성**을 클릭합니다.
 
-3. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
+5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
             
     ![사용자 및 인증 관리](./media/zscaler-three-tutorial/ic800208.png "사용자 및 인증 관리")
     
@@ -184,7 +192,7 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     h. **저장**을 클릭합니다.
 
-4. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+6. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     ![관리](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -241,7 +249,7 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
