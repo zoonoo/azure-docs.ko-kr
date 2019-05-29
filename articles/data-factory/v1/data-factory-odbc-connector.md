@@ -69,7 +69,7 @@ ODBC 데이터 저장소에서 지원되는 모든 싱크 데이터 저장소로
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesOdbc** |예. |
 | connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. <br/><br/>`"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`와 같은 패턴으로 연결 문자열을 지정하거나 `"DSN=<name of the DSN>;"`을 사용하여 게이트웨이 컴퓨터에서 설정한 시스템 DSN(데이터 원본 이름)을 사용할 수 있습니다(그에 따라 연결된 서비스에 자격 증명 부분을 지정해야 함). |예. |
-| credential 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |아닙니다. |
+| 자격 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |아닙니다. |
 | authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 다음과 같습니다. 익명 및 기본. |예 |
 | userName 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |

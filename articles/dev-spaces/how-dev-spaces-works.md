@@ -133,7 +133,7 @@ azds prep --public
 
 `prep` 명령은 프로젝트의 파일에서 확인 하 고 Kubernetes에서 응용 프로그램을 실행 하는 것에 대 한 Dockerfile과 Helm 차트를 만들려고 시도 합니다. 현재는 `prep` 명령 언어를 사용 하 여 Dockerfile과 Helm 차트를 생성 합니다.
 
-* 자바
+* Java
 * Node.js
 * .NET Core
 
@@ -278,7 +278,7 @@ Dockerfile, csproj 파일, Helm 차트의 일부 등 프로젝트 파일에 대 
 
 이루어지면 HTTP 요청을 서비스에 클러스터 내에서 다른 서비스에서 요청은 먼저 호출 하는 서비스의 devspaces 프록시 컨테이너를 통해 이동 합니다. HTTP 요청 및 검사에 살펴봅니다 devspaces 프록시 컨테이너를 `azds-route-as` 헤더입니다. 헤더에 따라 devspaces 프록시 컨테이너에서는 헤더 값을 사용 하 여 연결 된 서비스의 IP 주소를 찾습니다. IP 주소가 있으면 devspaces 프록시 컨테이너 다시 해당 IP 주소에 대 한 요청을 라우팅합니다. IP 주소가 없으면 devspaces 프록시 컨테이너 부모 응용 프로그램 컨테이너에 요청을 라우팅합니다.
 
-예를 들어, 응용 프로그램 *serviceA* 하 고 *serviceB* 이라는 부모 개발 공간으로 배포 됩니다 *기본*입니다. *serviceA* 의존 *serviceB* HTTP 호출 하 고 있습니다. Azure 사용자에 따라 자식 개발 공간을 만듭니다는 *기본* 호출 하는 공간 *azureuser*합니다. Azure 사용자는 또한 고유한 버전의 배포 *serviceA* 하위 공간에 해당 합니다. 요청을 하려고 하면 *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+예를 들어, 응용 프로그램 *serviceA* 하 고 *serviceB* 이라는 부모 개발 공간으로 배포 됩니다 *기본*입니다. *serviceA* 의존 *serviceB* HTTP 호출 하 고 있습니다. Azure 사용자에 따라 자식 개발 공간을 만듭니다는 *기본* 호출 하는 공간 *azureuser*합니다. Azure 사용자는 또한 고유한 버전의 배포 *serviceA* 하위 공간에 해당 합니다. 요청을 하려고 하면 *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure 개발 공간 라우팅](media/how-dev-spaces-works/routing.svg)
 
@@ -339,11 +339,11 @@ Helm 차트를 설치할 때 Azure 개발 공간은 Helm 차트에서 값을 재
 
 컨테이너 이미지를로 생성 된 Helm 차트에서 *{{합니다. Values.image.repository}}:{{합니다. Values.image.tag}}* 합니다. 합니다 `azds.yaml` 파일은 정의 *install.set.image.tag* 속성을 *$(tag)* 기본적으로 값으로 사용 되는 *{{합니다. Values.image.tag}}* 합니다. 설정 하 여 합니다 *install.set.image.tag* Azure 개발 공간을 실행 하는 경우 고유한 방식으로 태그가 지정 되어야 하는 응용 프로그램에 대 한 컨테이너 이미지 수 있도록이 방식으로 속성입니다. 이 특정 예제의 이미지로 태그가 지정 됩니다  *\<image.repository 값 >: $(tag)* 합니다. 사용 해야 합니다 *$(tag)* 값으로 변수 *install.set.image.tag* 개발 공간에서 인식 하 고 AKS 클러스터에서 컨테이너를 찾습니다.
 
-위의 예에서 `azds.yaml` 정의 *install.set.ingress.hosts*합니다. 합니다 *install.set.ingress.hosts* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성을 사용 하도 *$(spacePrefix)*, *$(rootSpacePrefix)*, 및 *$(hostSuffix)* 는 컨트롤러에서 제공 되는 값입니다. 
+위의 예에서 `azds.yaml` 정의 *install.set.ingress.hosts*합니다. 합니다 *install.set.ingress.hosts* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성을 사용 하도 *$(spacePrefix)* , *$(rootSpacePrefix)* , 및 *$(hostSuffix)* 는 컨트롤러에서 제공 되는 값입니다. 
 
 합니다 *$(spacePrefix)* 형태는 자식 개발 공간으로 이름인 *SPACENAME.s*합니다. 합니다 *$(rootSpacePrefix)* 부모 공간의 이름입니다. 예를 들어 경우 *azureuser* 의 자식 공간이 *기본*의 값 *$(rootSpacePrefix)* 은 *기본* 값 *$(spacePrefix)* 됩니다 *azureuser.s*합니다. 공간 자식 공백, 없으면 *$(spacePrefix)* 비어 있습니다. 예를 들어 경우는 *기본* 공간에 대 한 값을 부모 공간이 없습니다 *$(rootSpacePrefix)* 됩니다 *기본* 값과 *$(spacePrefix)* 비어 있습니다. 합니다 *$(hostSuffix)* AKS 클러스터에서 실행 되는 Azure 개발 공간 수신 컨트롤러를 가리키는 DNS 접미사입니다. 이 DNS 접미사에 해당 하는 와일드 카드 DNS 항목을 예를 들어  *\*합니다. RANDOM_VALUE.eus.azds.io*, Azure 개발 공간 컨트롤러 AKS 클러스터에 추가 될 때 생성 된 합니다.
 
-위의 `azds.yaml` 파일을 업데이트할 수 있습니다 수도 *install.set.ingress.hosts* 응용 프로그램의 호스트 이름을 변경 합니다. 예를 들어 응용 프로그램의 호스트 이름을 단순화 하려고 한다고 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 에 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+위의 `azds.yaml` 파일을 업데이트할 수 있습니다 수도 *install.set.ingress.hosts* 응용 프로그램의 호스트 이름을 변경 합니다. 예를 들어 응용 프로그램의 호스트 이름을 단순화 하려고 한다고 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 에 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 응용 프로그램에 대 한 컨테이너를 작성 하려면 컨트롤러를 사용 하는 섹션 아래를 `azds.yaml` 구성 파일:
 
