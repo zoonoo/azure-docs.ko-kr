@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905854"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595534"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱 및 SQL Database를 배포합니다.  
 
-이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2017](/dotnet/azure/dotnet-tools) 사용 방법을 보여줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다.
+이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2017 이상](/dotnet/azure/dotnet-tools)을 사용하는 방법을 보여줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

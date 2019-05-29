@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/02/2018
-ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/17/2019
+ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048390"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898929"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집
 
@@ -22,11 +22,11 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-* [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
+* [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md).
 
 * 데이터를 생성하고 이벤트 허브로 보내는 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)이 있어야 합니다. 샘플 앱을 시스템에 다운로드하세요.
 
-* 샘플 앱을 실행할 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
+* 샘플 앱을 실행하기 위한 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

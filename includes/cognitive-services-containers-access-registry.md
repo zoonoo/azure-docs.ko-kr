@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2019
 ms.openlocfilehash: 27c6b59a458fb79b86d7064d710a01593a1745dc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028877"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125154"
 ---
-## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>Docker CLI를 사용 하 여 개인 컨테이너 레지스트리를 인증 합니다.
+## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>Docker CLI를 사용하여 프라이빗 컨테이너 레지스트리 인증
 
 Cognitive Services 컨테이너용 개인 컨테이너 레지스트리를 사용하여 인증하는 몇 가지 방법이 있지만, 명령줄에서 권장되는 방법은 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)를 사용하는 것입니다.
 

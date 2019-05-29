@@ -90,7 +90,7 @@ autovacuum_max_worker 매개 변수는 동시에 실행할 수 있는 autovacuum
 
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
-## <a name="optimize-autovacuum-per-table"></a>테이블당 자동 진공 최적화
+## <a name="optimize-autovacuum-per-table"></a>테이블별 autovacuum 최적화
 테이블당 이전 구성 매개 변수를 모두 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
@@ -99,10 +99,10 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_limit = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 ```
 
-자동 진공은 테이블당 동기 프로세스입니다. 한 테이블에 있는 데드 튜플의 백분율이 높을수록 자동 진공 “비용”도 높아집니다. 업데이트 및 삭제 비율이 높은 테이블을 여러 테이블로 분할할 수 있습니다. 테이블을 분할하면 자동 진공을 병렬 처리하여 한 테이블에서 자동 진공을 완료하는 “비용”을 줄일 수 있습니다. 작업자 예약이 편리하도록 병렬 자동 진공 작업자 수를 늘릴 수도 있습니다.
+Autovacuum은 테이블별 동기 프로세스입니다. 한 테이블에 있는 데드 튜플의 백분율이 높을수록 autovacuum “비용”도 높아집니다. 업데이트 및 삭제 비율이 높은 테이블을 여러 테이블로 분할할 수 있습니다. 테이블을 분할하면 autovacuum을 병렬 처리하여 한 테이블에서 autovacuum을 완료하는 “비용”을 줄일 수 있습니다. 작업자 예약이 편리하도록 병렬 autovacuum 작업자 수를 늘릴 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-자동 진공을 사용하고 튜닝하는 방법에 대한 자세한 내용은 다음 PostgreSQL 문서를 참조하세요.
+autovacuum을 사용하고 튜닝하는 방법에 대한 자세한 내용은 다음 PostgreSQL 문서를 참조하세요.
 
  - [18장, 서버 구성](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - [24장, 일상적인 데이터베이스 유지 관리 작업](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

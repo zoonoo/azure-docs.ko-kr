@@ -3,8 +3,8 @@ title: Microsoft ID 플랫폼(v2.0) 개요 - Azure
 description: Microsoft ID 플랫폼(v2.0) 엔드포인트와 플랫폼에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231082"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833036"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft ID 플랫폼(v2.0) 개요
 
-Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. Microsoft ID 플랫폼은 다음으로 구성됩니다.
+Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. Microsoft ID 플랫폼은 다음으로 구성됩니다.
 
 - **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스**: 개발자가 다음을 비롯한 Microsoft ID를 인증할 수 있습니다.
   - 회사 또는 학교 계정(Azure AD를 통해 프로비저닝됨)

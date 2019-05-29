@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: a061c2705a5c0155b54dd2fa1e89f19223409a12
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609443"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793693"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -50,7 +50,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1(Windows만 해당) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1.1 |1.1, 1.0 *(아래 참고 사항 참조) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1.1 |1.1.1.0 *(아래 참조) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -83,7 +83,6 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |예 |예 |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | | |예 |예 |
 
-*&ast;Spark 클러스터 형식에 대해서만 HDInsight 3.5 지원이 확장되었습니다.*
 
 > [!NOTE]  
 > 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.

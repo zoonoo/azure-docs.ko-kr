@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204283"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921930"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -53,7 +53,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 - **API를 통한 외부 솔루션**: 일부 데이터 원본은 연결된 데이터 원본에서 제공하는 API를 사용하여 연결됩니다. 일반적으로 대부분의 보안 기술은 이벤트 로그에 검색할 수 있는 API 세트를 제공합니다. 이러한 API는 Azure Sentinel에 연결되며, 특정 데이터 형식을 수집한 후 Azure Log Analytics로 보냅니다. API를 통해 연결되는 어플라이언스는 다음과 같습니다.
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **에이전트를 통한 외부 솔루션**: Azure Sentinel은 에이전트를 통해 Syslog 프로토콜을 사용하여 실시간 로그 스트리밍을 수행할 수 있는 다른 모든 데이터 원본에 연결할 수 있습니다. <br>대부분의 어플라이언스는 Syslog 프로토콜을 사용하여 로그 자체 및 로그에 대한 데이터를 포함하는 이벤트 메시지를 보냅니다. 로그의 형식은 다양하지만, 대부분의 어플라이언스는 CEF(일반 이벤트 형식) 표준을 지원합니다. <br>OMS 에이전트를 기준으로 하는 Azure Sentinel 에이전트는 CEF 형식 로그를 Log Analytics에서 수집할 수 있는 형식으로 변환합니다. 어플라이언스 유형에 따라 에이전트가 어플라이언스에 직접 설치되거나 전용 Linux 서버에 설치됩니다. Linux용 에이전트는 UDP를 통해 Syslog 디먼에서 이벤트를 수신하지만, Linux 머신이 대량의 Syslog 이벤트를 수집해야 하는 경우 TCP를 통해 Syslog 디먼에서 에이전트로, 에이전트에서 Log Analytics로 전송됩니다.
+- **에이전트를 통한 외부 솔루션**: Azure Sentinel은 에이전트를 통해 Syslog 프로토콜을 사용하여 실시간 로그 스트리밍을 수행할 수 있는 다른 모든 데이터 원본에 연결할 수 있습니다. <br>대부분의 어플라이언스는 Syslog 프로토콜을 사용하여 로그 자체 및 로그에 대한 데이터를 포함하는 이벤트 메시지를 보냅니다. 로그의 형식은 다양하지만, 대부분의 어플라이언스는 CEF(일반 이벤트 형식) 표준을 지원합니다. <br>Microsoft Monitoring Agent를 기반으로 하는 Azure Sentinel 에이전트는 CEF 형식 로그를 Log Analytics에서 수집할 수 있는 형식으로 변환합니다. 어플라이언스 유형에 따라 에이전트가 어플라이언스에 직접 설치되거나 전용 Linux 서버에 설치됩니다. Linux용 에이전트는 UDP를 통해 Syslog 디먼에서 이벤트를 수신하지만, Linux 머신이 대량의 Syslog 이벤트를 수집해야 하는 경우 TCP를 통해 Syslog 디먼에서 에이전트로, 에이전트에서 Log Analytics로 전송됩니다.
     - 방화벽, 프록시 및 엔드포인트:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
