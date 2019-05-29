@@ -70,7 +70,6 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 `az mariadb server restore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
@@ -110,7 +109,6 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 ```
 
 `az mariadb server georestore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-
 | 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 새 서버가 속하게 되는 리소스 그룹의 이름입니다.|
