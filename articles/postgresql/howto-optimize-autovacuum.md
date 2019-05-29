@@ -55,38 +55,38 @@ autovacuum_max_workers|한 번에 실행할 수 있는 자동 진공 프로세�
 
 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다. 
 
-## <a name="autovacuum-cost"></a>자동 진공 비용
-진공 작업을 실행하는 “비용”은 다음과 같습니다.
+## <a name="autovacuum-cost"></a>Autovacuum 비용
+vacuum 작업을 실행하는 “비용”은 다음과 같습니다.
 
-- 진공이 실행되는 데이터 페이지가 잠깁니다.
-- 진공 작업을 실행할 때 컴퓨팅 및 메모리가 사용됩니다.
+- vacuum이 실행되는 데이터 페이지가 잠깁니다.
+- vacuum 작업을 실행할 때 컴퓨팅 및 메모리가 사용됩니다.
 
-따라서 진공 작업을 너무 자주 실행하거나 너무 드물게 실행하지 마세요. 워크로드에 맞게 진공 작업을 조정해야 합니다. 자동 진공 매개 변수 간의 절충 때문에 자동 진공 매개 변수의 모든 변경 내용을 테스트합니다.
+따라서 vacuum 작업을 너무 자주 실행하거나 너무 드물게 실행하지 마세요. 워크로드에 맞게 vacuum 작업을 조정해야 합니다. Autovacuum 매개 변수 간 절충되므로 Autovacuum 매개 변수의 모든 변경 내용을 테스트하도록 합니다.
 
-## <a name="autovacuum-start-trigger"></a>자동 진공 시작 트리거
-데드 튜플 수가 autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples를 초과할 경우 자동 진공이 트리거됩니다. 여기서 reltuples는 상수입니다.
+## <a name="autovacuum-start-trigger"></a>Autovacuum 시작 트리거
+데드 튜플 수가 autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples를 초과할 경우 autovacuum이 트리거됩니다. 여기서 reltuples는 상수입니다.
 
-데이터베이스 부하에 따라 자동 진공을 통해 정리되어야 합니다. 그렇지 않으면 스토리지가 부족하여 쿼리 성능이 일반적으로 저하될 수 있습니다. 시간에 따라 분할 시, 진공 작업이 데드 튜플을 정리하는 속도는 데드 튜플이 생성되는 속도와 같아야 합니다.
+데이터베이스 부하에 따라 autovacuum을 통해 정리되어야 합니다. 그렇지 않으면 스토리지가 부족하여 쿼리 성능이 일반적으로 저하될 수 있습니다. 시간에 따라 분할 시, vacuum 작업이 데드 튜플을 정리하는 속도는 데드 튜플이 생성되는 속도와 같아야 합니다.
 
-많은 업데이트 및 삭제가 있는 데이터베이스에 데드 튜플이 더 많으며, 더 많은 공간이 필요합니다. 일반적으로 많은 업데이트 및 삭제가 있는 데이터베이스의 경우 autovacuum_vacuum_scale_factor 및 autovacuum_vacuum_threshold에 낮은 값을 사용하는 것이 좋습니다. 낮은 값을 사용하면 데드 튜플이 장기간 누적되는 것을 방지할 수 있습니다. 작은 데이터베이스의 경우 진공 요구가 비교적 긴급하지 않으므로 두 매개 변수에 더 높은 값을 사용할 수 있습니다. 자주 진공하면 컴퓨팅 및 메모리가 소모됩니다.
+많은 업데이트 및 삭제가 있는 데이터베이스에는 데드 튜플이 더 많으며, 더 많은 공간이 필요합니다. 일반적으로 많은 업데이트 및 삭제가 있는 데이터베이스의 경우 autovacuum_vacuum_scale_factor 및 autovacuum_vacuum_threshold에 낮은 값을 사용하는 것이 좋습니다. 낮은 값을 사용하면 데드 튜플이 장기간 누적되는 것을 방지할 수 있습니다. 작은 데이터베이스의 경우 vacuum 요구가 비교적 긴급하지 않으므로 두 매개 변수에 더 높은 값을 사용할 수 있습니다. 자주 vacuum하면 컴퓨팅 및 메모리가 소모됩니다.
 
 기본 배율 20%는 데드 튜플 백분율이 낮은 테이블에 적합합니다. 데드 튜플 백분율이 높은 테이블에는 효과적이지 않습니다. 예를 들어 20GB 테이블에서 이 배율은 4GB 데드 튜플을 나타냅니다. 1TB 테이블에서는 200GB 데드 튜플이 됩니다.
 
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
-## <a name="estimate-the-cost-of-autovacuum"></a>자동 진공 비용 예측
-자동 진공을 실행하는 경우 “비용이 많이 들기” 때문에 진공 작업의 런타임을 제어하는 매개 변수가 있습니다. 진공 실행 비용을 예측하는 데 도움이 되는 매개 변수는 다음과 같습니다.
+## <a name="estimate-the-cost-of-autovacuum"></a>Autovacuum 비용 예측
+Autovacuum을 실행하는 경우 “비용이 많이 들기” 때문에 vacuum 작업의 런타임을 제어하는 매개 변수가 있습니다. Vacuum 실행 비용을 예측하는 데 도움이 되는 매개 변수는 다음과 같습니다.
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-진공 프로세스는 물리적 페이지를 읽고 데드 튜플을 확인합니다. shared_buffers의 모든 페이지는 비용이 1(vacuum_cost_page_hit)인 것으로 간주됩니다. 다른 모든 페이지는 데드 튜플이 있는 경우 비용이 20(vacuum_cost_page_dirty), 데드 튜플이 없는 경우 10(vacuum_cost_page_miss)인 것으로 간주됩니다. 프로세스가 autovacuum_vacuum_cost_limit를 초과하면 진공 작업이 중지됩니다. 
+Vacuum 프로세스는 물리적 페이지를 읽고 데드 튜플을 확인합니다. shared_buffers의 모든 페이지는 비용이 1(vacuum_cost_page_hit)인 것으로 간주됩니다. 다른 모든 페이지는 데드 튜플이 있는 경우 비용이 20(vacuum_cost_page_dirty), 데드 튜플이 없는 경우 10(vacuum_cost_page_miss)인 것으로 간주됩니다. 프로세스가 autovacuum_vacuum_cost_limit를 초과하면 vacuum 작업이 중지됩니다. 
 
-제한에 도달하면 프로세스가 autovacuum_vacuum_cost_delay 매개 변수에 지정된 기간에 일시 중지되었다가 다시 시작됩니다. 제한에 도달하지 않으면 자동 진공이 autovacuum_nap_time 매개 변수에 지정된 값 이후에 시작됩니다.
+제한에 도달하면 프로세스가 autovacuum_vacuum_cost_delay 매개 변수에 지정된 기간에 일시 중지되었다가 다시 시작됩니다. 제한에 도달하지 않으면 autovacuum이 autovacuum_nap_time 매개 변수에 지정된 값 이후에 시작됩니다.
 
 요약하면, autovacuum_vacuum_cost_delay 및 autovacinum_vacuum_cost_limit 매개 변수는 시간 단위당 허용되는 데이터 정리 양을 제어합니다. 기본값은 대부분의 가격 책정 계층에서 너무 낮습니다. 이러한 매개 변수에 대한 최적 값은 가격 책정 계층에 따라 달라지며 이에 따라 적절히 구성해야 합니다.
 
-autovacuum_max_worker 매개 변수는 동시에 실행할 수 있는 자동 진공 프로세스의 최대 개수를 결정합니다.
+autovacuum_max_worker 매개 변수는 동시에 실행할 수 있는 autovacuum 프로세스의 최대 개수를 결정합니다.
 
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
