@@ -55,6 +55,8 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: 개념
   items:
+    - name: 인증
+      href: concepts/authentication.md
     - name: 앵커 관계
       href: concepts/anchor-relationships-way-finding.md
     - name: 환경 지침
