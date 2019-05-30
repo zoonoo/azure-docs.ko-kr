@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버 다시 시작
-description: 이 문서에서는 Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버를 다시 시작하는 방법에 대해 설명 합니다.
+description: 이 문서에서는 Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버를 다시 시작하는 방법에 대해 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -32,7 +32,7 @@ ms.locfileid: "65068969"
 
 ## <a name="restart-the-server"></a>서버 다시 시작
 
-다음 명령을 사용하여 서버를 다시 시작 합니다.
+다음 명령을 사용하여 서버를 다시 시작합니다.
 
 ```azurecli-interactive
 az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -40,4 +40,4 @@ az postgres server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-[PostgreSQL용 Azure Database에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-using-cli.md)에 대해 알아봅니다.
+[PostgreSQL용 Azure Database에서 매개 변수를 설정하는 방법](howto-configure-server-parameters-using-cli.md)에 대해 알아봅니다.
