@@ -20,7 +20,7 @@
     - name: 'F#'
       href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
       maintainContext: true
-    - name: 자바
+    - name: Java
       href: /azure/cosmos-db/table-storage-how-to-use-java
       maintainContext: true
     - name: Node.js

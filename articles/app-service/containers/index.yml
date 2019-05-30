@@ -34,7 +34,7 @@ sections:
             href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-php'
           - image:
               src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
-            text: 자바
+            text: Java
             href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-java'
           - image:
               src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg'

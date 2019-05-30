@@ -136,7 +136,7 @@
       href: '/powershell/module/az.managedserviceidentity#managed_service_identity'
     - name: .NET
       href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
-    - name: 자바
+    - name: Java
       href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
     - name: Python
       href: /python/api/azure.mgmt.msi

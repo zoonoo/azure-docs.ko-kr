@@ -80,7 +80,7 @@ sections:
             html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric CLI</a></p>
           - title: .NET
             html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">시작</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Voting</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">웹 참조</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>'
-          - title: 자바
+          - title: Java
             html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">시작</a></p>'
   - title: 참고 자료
     items:

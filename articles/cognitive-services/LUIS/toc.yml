@@ -29,7 +29,7 @@
               href: luis-get-started-cs-get-intent.md
             - name: Go
               href: luis-get-started-go-get-intent.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-get-intent.md
             - name: Node.js
               href: luis-get-started-node-get-intent.md
@@ -41,7 +41,7 @@
               href: luis-get-started-cs-add-utterance.md
             - name: Go
               href: luis-get-started-go-add-utterance.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: Node.js
               href: luis-get-started-node-add-utterance.md
@@ -350,7 +350,7 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
             - name: 참고 자료
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-        - name: 자바
+        - name: Java
           items:
             - name: Maven - 제작
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'

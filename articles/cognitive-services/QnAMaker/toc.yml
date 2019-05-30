@@ -22,7 +22,7 @@
               href: Quickstarts/create-new-kb-csharp.md
             - name: Go
               href: Quickstarts/create-new-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
               href: Quickstarts/create-new-kb-nodejs.md
@@ -34,7 +34,7 @@
               href: Quickstarts/publish-kb-csharp.md
             - name: Go
               href: Quickstarts/publish-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
               href: Quickstarts/publish-kb-nodejs.md
@@ -46,7 +46,7 @@
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
             - name: Go
               href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/get-answer-from-knowledge-base-java.md
             - name: Node.js
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
@@ -133,7 +133,7 @@
       items:
         - name: 'C#'
           href: Quickstarts/csharp.md
-        - name: 자바
+        - name: Java
           href: Quickstarts/java.md
         - name: Node.js
           href: Quickstarts/nodejs.md

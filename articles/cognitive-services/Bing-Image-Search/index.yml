@@ -53,7 +53,7 @@ sections:
           - image:
               src: media/index/logo_java.svg
             href: image-sdk-java-quickstart
-            text: 자바
+            text: Java
           - image:
               src: media/index/logo_nodejs.svg
             href: image-search-sdk-node-quickstart

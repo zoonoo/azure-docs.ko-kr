@@ -49,7 +49,7 @@ sections:
             title: 'C#'
           - image:
               src: media/index/logo_java.svg
-            title: 자바
+            title: Java
           - image:
               src: media/index/logo_nodejs.svg
             title: Node.js

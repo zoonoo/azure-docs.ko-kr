@@ -31,7 +31,7 @@ MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-conne
 Node.js |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하
 이동 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 사용 하 여 `allowNativePasswords=true` 버전 1.3에 대 한 연결 문자열에 있습니다. 버전 1.4 수정 사항을 포함 하 고 `allowNativePasswords=true` 필요 하지 않습니다.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 |
-자바 | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
+Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
 
 ## <a name="management-tools"></a>관리 도구
 
