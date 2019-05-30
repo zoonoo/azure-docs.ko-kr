@@ -102,7 +102,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
 먼저 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 명령줄 도구를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 소프트웨어 설치 없이 브라우저 및 Azure Cloud Shell을 사용할 수도 있습니다. mysql 유틸리티를 로컬로 설치한 경우 여기서도 연결할 수 있습니다.
 
-1. Azure Portal의 오른쪽 도구 모음 위에 있는 터미널 아이콘(**>_**)을 통해 Azure Cloud Shell을 시작합니다.
+1. Azure Portal의 오른쪽 도구 모음 위에 있는 터미널 아이콘( **>_** )을 통해 Azure Cloud Shell을 시작합니다.
    ![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
 2. 브라우저에서 Azure Cloud Shell을 엽니다. Cloud Shell의 bash 셸 명령을 사용할 수 있습니다.
@@ -125,7 +125,7 @@ Azure Database for MariaDB 서비스는 서버 수준에서 방화벽을 만듭�
 
     mysql 매개 변수 |제안 값|설명
     ---|---|---
-    --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
+    --host | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다.
     --user | *서버 관리자 로그인 이름* |Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 이름 값입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     -p | *사용자 암호*<br>(메시지가 표시될 때까지 대기) |메시지가 표시되면 서버를 만드는 데 사용한 암호를 입력합니다. 입력한 암호 문자는 입력하는 동안 Bash 프롬프트에 표시되지 않습니다. 암호를 입력한 후 Enter 키를 누릅니다.
 
@@ -190,7 +190,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
 
 1. 클라이언트 컴퓨터에서 MySQL Workbench를 엽니다. MySQL Workbench를 다운로드하여 설치하려면 [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)로 이동합니다.
 
-2. 새 연결을 만들려면 **MySQL 연결** 제목 옆의 더하기 아이콘(**+**)을 선택합니다.
+2. 새 연결을 만들려면 **MySQL 연결** 제목 옆의 더하기 아이콘( **+** )을 선택합니다.
 
 3. **새 연결 설정** 대화 상자의 **매개 변수** 탭에 서버 연결 정보를 입력합니다. 자리 표시자 값은 예로 표시됩니다. **호스트 이름**, **사용자 이름** 및 **암호**를 원하는 값으로 대체합니다.
 
@@ -200,7 +200,7 @@ MySQL Workbench를 사용하여 서버에 연결하려면
     |---|---|---|
      연결 이름 | **데모 연결** | 이 연결에 대한 레이블입니다. |
     연결 방법 | **표준(TCP/IP)** | 표준(TCP/IP)이면 충분합니다. |
-    호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름(**\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
+    호스트 이름 | *서버 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.mariadb.database.azure.com**입니다. 예제와 같이 정규화된 도메인 이름( **\*.mariadb.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다.|
      포트 | 3306 | Azure Database for MariaDB 서버에 연결할 때 사용할 포트입니다. |
     사용자 이름 |  *서버 관리자 로그인 이름* | Azure Database for MariaDB 서버를 만들 때 사용한 서버 관리자 로그인 정보입니다. 예제의 사용자 이름은 **myadmin\@mydemoserver**입니다. 사용자 이름을 잊어버린 경우 이 문서의 이전 섹션 단계를 완료하여 연결 정보를 가져옵니다. 형식은 *username\@servername*입니다.
     암호 | *사용자 암호* | 암호를 저장하려면 **자격 증명 모음에 저장...** 을 선택합니다. |
