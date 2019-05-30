@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835112"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389032"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux 용 azure 직렬 콘솔
 
@@ -117,7 +117,9 @@ SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 > 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 이러한 사용 권한은 관리자 또는 소유자 역할을 포함합니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 ### <a name="subscription-level-disable"></a>구독 수준에서 비활성화
-[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 **기본값**을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
+[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. 이 작업에 대 한 참가자 수준 액세스 필요 이상 구독에 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 **기본값**을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
+
+직렬 콘솔에 대 한 구독을 다시 설정 하려면 사용 합니다 [콘솔을 사용 하도록 설정 REST API 호출](/rest/api/serialconsole/console/enableconsole)합니다.
 
 ![REST API 사용해 보기](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -198,6 +200,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 직렬 콘솔 텍스트는 화면 크기의 일부만 차지합니다(종종 텍스트 편집기를 사용한 이후). | 직렬 콘솔은 창 크기([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))에 대한 협상을 지원하지 않습니다. 즉, 화면 크기를 업데이트하기 위해 전송된 SIGWINCH 신호가 없으며, VM은 사용자 터미널 크기를 모른다는 것입니다. `resize` 명령에서 제공된 xterm 또는 유사한 유틸리티를 설치한 다음, `resize`를 실행합니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
 직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
+직렬 콘솔 계층적 네임 스페이스를 사용 하 여 Azure Data Lake 저장소 Gen2를 사용 하 여 저장소 계정을 사용 하 여 작동 하지 않습니다. | 계층적 네임 스페이스를 사용 하 여 알려진된 문제입니다. 를 완화 하기 위해 VM의 부트 진단 저장소 계정이 생성 되지 않도록 Azure Data Lake 저장소 Gen2를 사용 하 여 확인 합니다. 이 옵션은 저장소 계정 만들 때만 설정할 수 있습니다. 이 문제를 완화 하려면 사용 하도록 설정 하는 Azure Data Lake 저장소 Gen2 없이 별도 부트 진단 저장소 계정을 만들려면 해야 합니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

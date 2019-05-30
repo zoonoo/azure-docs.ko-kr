@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311136"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399211"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
 
@@ -56,12 +56,12 @@ ms.locfileid: "60311136"
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
 | $schema |아닙니다. |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
-| title |예. |랩에 표시되는 아티팩트의 이름입니다. |
+| title |예 |랩에 표시되는 아티팩트의 이름입니다. |
 | description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
 | iconUri |아닙니다. |랩에 표시되는 아이콘의 URI입니다. |
-| targetOsType |예. |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
-| parameters |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
-| runCommand |예. |VM에서 실행되는 아티팩트 설치 명령입니다. |
+| targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
+| 매개 변수 |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
+| runCommand |예 |VM에서 실행되는 아티팩트 설치 명령입니다. |
 
 ### <a name="artifact-parameters"></a>아티팩트 매개 변수
 정의 파일의 매개 변수 섹션에서 아티팩트를 설치할 때 사용자가 입력할 수 있는 값을 지정합니다. 아티팩트 설치 명령에서 다음 값을 참조할 수 있습니다.
@@ -78,9 +78,9 @@ ms.locfileid: "60311136"
 
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
-| 형식 |예. |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
-| displayName |예. |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
-| description |예. |랩에 표시되는 매개 변수의 설명입니다. |
+| 형식 |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
+| displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
+| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 
@@ -89,6 +89,31 @@ ms.locfileid: "60311136"
 * bool(유효한 모든 JSON 부울)
 * array(유효한 모든 JSON 배열)
 
+## <a name="secrets-as-secure-strings"></a>안전한 문자열로 암호
+안전한 문자열로 암호를 선언 합니다. 내에서 보안 문자열 매개 변수를 선언 하기 위한 구문은 다음과 같습니다 합니다 `parameters` 의 섹션을 **artifactfile.json** 파일:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+아티팩트 설치 명령, Convertto-securestring 명령을 사용 하 여 생성 된 보안 문자열을 사용 하는 PowerShell 스크립트를 실행 합니다. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+전체 예제 artifactfile.json artifact.ps1 (PowerShell 스크립트)을 참조 하세요 [GitHub에서이 샘플](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)합니다.
+
+다른 중요 한 참고 사항 사용자 디버깅에 출력이 캡처됩니다를 콘솔에 암호를 기록 되지 않습니다. 
+
 ## <a name="artifact-expressions-and-functions"></a>아티팩트 식 및 함수
 식과 함수를 사용하여 아티팩트 설치 명령을 구성할 수 있습니다.
 식은 대괄호([ 및 ]) 안에 들어 있고 아티팩트를 설치할 때 평가됩니다. 식은 JSON 문자열 값의 어디든지 표시될 수 있습니다. 식은 항상 다른 JSON 값을 반환합니다. 대괄호([)로 시작하는 리터럴 문자열을 사용해야 하는 경우 대괄호를 두 개([[) 사용해야 합니다.
@@ -96,8 +121,8 @@ ms.locfileid: "60311136"
 
 다음 목록에는 일반 함수가 나와 있습니다.
 
-* **parameters(parameterName)**: 아티팩트 명령이 실행될 때 제공되는 매개 변수 값을 반환합니다.
-* **concat(arg1, arg2, arg3,….. )**: 여러 문자열 값을 결합합니다. 이 함수는 다양한 인수를 사용할 수 있습니다.
+* **parameters(parameterName)** : 아티팩트 명령이 실행될 때 제공되는 매개 변수 값을 반환합니다.
+* **concat(arg1, arg2, arg3,….. )** : 여러 문자열 값을 결합합니다. 이 함수는 다양한 인수를 사용할 수 있습니다.
 
 다음 예제에서는 값을 구성하기 위해 식과 함수를 사용하는 방법을 보여 줍니다.
 

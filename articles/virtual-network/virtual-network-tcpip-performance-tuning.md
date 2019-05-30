@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410055"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234992"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
 
@@ -79,7 +79,7 @@ MTU를 늘리면 더 효율적으로 네트워크를 만들 반드시 않습니�
 
 #### <a name="azure-and-vm-mtu"></a>Azure 및 VM MTU
 
-기본 Azure Vm에 대 한 MTU는 1,500 바이트입니다. Azure Virtual Network 스택 1,400 바이트로 패킷 조각을 하려고 합니다. 하지만 가상 네트워크 스택을 사용 하면 패킷 2,006 바이트까지 비트 IP 헤더에 설정 된 경우.
+기본 Azure Vm에 대 한 MTU는 1,500 바이트입니다. Azure Virtual Network 스택 1,400 바이트로 패킷 조각을 하려고 합니다.
 
 Vm의 1,500 MTU 없는 경우에 1,400 바이트에서 패킷을 조각화 때문에 가상 네트워크 스택는 기본적으로 비효율적인 아닙니다. 네트워크 패킷 비율을는 1,400 또는 1,500 바이트 보다 훨씬 작습니다.
 
@@ -264,7 +264,7 @@ Set-NetTCPSetting
 
 가속화 된 네트워킹에는 게스트 VM이 호스트를 우회 하 고 호스트의 SmartNIC 사용 하 여 직접 데이터를 설정 함으로써 성능이 향상 됩니다. 가속화 된 네트워킹의 몇 가지 이점은 다음과 같습니다.
 
-- **더 낮은 대기 시간 / 더 높은 초당 패킷 초 (pps)**: 데이터 경로에서 가상 스위치를 제거 패킷이 정채 처리를 위해 호스트에서 소요 되는 시간을 제거 하 고 VM에서 처리할 수 있는 패킷의 수를 늘립니다.
+- **더 낮은 대기 시간 / 더 높은 초당 패킷 초 (pps)** : 데이터 경로에서 가상 스위치를 제거 패킷이 정채 처리를 위해 호스트에서 소요 되는 시간을 제거 하 고 VM에서 처리할 수 있는 패킷의 수를 늘립니다.
 
 - **감소 된 지터**: 가상 스위치 처리 적용 해야 하는 정책의 양과 처리를 수행 하는 CPU의 워크 로드에 따라 달라 집니다. 정책 적용을 하드웨어로 오프 로드 패킷을 호스트-에-VM 통신과 모든 소프트웨어 인터럽트 및 컨텍스트 전환 없이 VM에 직접 제공 하 여 해당 가변성을 제거 합니다.
 

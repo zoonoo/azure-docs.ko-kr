@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190004"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240089"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -97,8 +97,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 작업이 끝나면 **만들기**를 선택하여 저장소 동기화 서비스를 배포합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Azure 파일 동기화 관리 cmdlet과 상호 작용하려면 DLL을 가져오고 Azure 파일 동기화 관리 컨텍스트를 만들어야 합니다. Azure 파일 동기화 관리 cmdlet은 아직 Azure PowerShell 모듈의 일부가 아니기 때문입니다.
-
+바꿉니다 **< Az_Region >** 를 **< RG_Name >** , 및 **< my_storage_sync_service >** 고유한 값을 사용 하 여를 사용 하 여 다음 명령 수 만들기 및 배포를 저장소 동기화 서비스:
 
 ```powershell
 Connect-AzAccount
@@ -133,7 +132,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-$storageSyncName = "<my-storage-sync-service>"
+$storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 

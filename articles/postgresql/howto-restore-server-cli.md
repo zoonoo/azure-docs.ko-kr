@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
-description: Azure CLI를 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법을 알아봅니다.
+title: 백업 및 PostgreSQL-단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
+description: 백업 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법을 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419924"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069091"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 서버를 백업 및 복원하는 방법
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>백업 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.

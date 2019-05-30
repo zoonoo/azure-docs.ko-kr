@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e248a005b499227a667bebacf7244fc3df9c828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122594"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239142"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -41,7 +41,7 @@ Azure Data Lake 저장소 Gen2 (ADLS Gen2)에 기본 제공 되는 빅 데이터
 >계층 구조 네임스페이스를 활성화하는 경우 현재 Blob과 ADLS Gen2 API 간에 작업의 운용성이 없습니다. "지정된 파일 시스템이 존재하지 않습니다."라는 상세 메시지와 함께 "ErrorCode=FilesystemNotFound" 오류가 발생하는 경우 ADLS Gen2 API가 아닌 Blob API를 통해 생성된 지정된 싱크 파일 시스템에서 야기됩니다. 이 문제를 해결하려면 Blob 컨테이너의 이름이 아닌 이름으로 새 파일 시스템을 지정합니다. 그러면 ADF가 데이터 복사 중에 자동으로 해당 파일을 만듭니다.
 
 >[!NOTE]
->Azure Storage 방화벽 설정에서 _“Allow trusted Microsoft services to access this storage account”_(신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용) 옵션을 사용하도록 설정하면 ADF가 신뢰할 수 있는 Microsoft 서비스로 처리되지 않으므로 Azure Integration Runtime을 사용하여 Data Lake Storage Gen2에 연결할 수 없으며 사용 권한 없음 오류가 발생합니다. 대신 자체 호스팅 통합 런타임을 연결 수단으로 사용하세요.
+>Azure Storage 방화벽 설정에서 _“Allow trusted Microsoft services to access this storage account”_ (신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용) 옵션을 사용하도록 설정하면 ADF가 신뢰할 수 있는 Microsoft 서비스로 처리되지 않으므로 Azure Integration Runtime을 사용하여 Data Lake Storage Gen2에 연결할 수 없으며 사용 권한 없음 오류가 발생합니다. 대신 자체 호스팅 통합 런타임을 연결 수단으로 사용하세요.
 
 ## <a name="get-started"></a>시작하기
 
@@ -169,7 +169,7 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 >계정 수준에서 권한 부여에 문제가 있다면 작성 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id에 복사할 파일에서 적절 한 권한이 있는 부여는 계속 작동 합니다.
 
 >[!IMPORTANT]
->ADLS Gen2 ADLS Gen2를 사용 하 여 id 인증을 관리 하는 경우 SQL DW로 데이터 로드를 적절 하 게 ADLS Gen2 저장소에 MSI를 사용 하 여 SQL DW도 구성 해야 하는 PolyBase를 사용 하는 경우에 #3.b #1 단계에 따라 [이 지침](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. VNet 서비스 끝점을 사용 하 여 ADLS Gen2에 구성 된 경우 PolyBase에서 데이터를 로드 하는 데 관리 되는 id 인증을 사용 해야 합니다.
+>PolyBase를 사용 하 여 ADLS Gen2를 사용 하 여 id 인증을 관리 하는 경우 ADLS Gen2에서 데이터를 SQL DW로 로드 하는 경우 또한 # 1과 2의 단계를 따르고 있는지 확인 [이 지침은](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 활성 Azure를 사용 하 여 SQL Database 서버를 등록 하려면 Directory (AAD) 및 SQL Database 서버;에 저장소 Blob 데이터 참가자 RBAC 역할 할당 나머지는 ADF에서 처리 됩니다. VNet 서비스 끝점을 사용 하 여 ADLS Gen2에 구성 된 경우 PolyBase에서 데이터를 로드 하는 데 관리 되는 id 인증을 사용 해야 합니다.
 
 연결된 서비스에서 지원되는 속성은 다음과 같습니다.
 
@@ -253,7 +253,7 @@ ADLS Gen2에서 데이터를 복사 하 **ORC/Avro/JSON/이진 형식**, 다음 
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **AzureBlobFSFile**로 설정해야 합니다. |예 |
 | folderPath | Data Lake Storage Gen2의 폴더에 대한 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: 파일 시스템/폴더/에서 더 많은 예제를 참조 하세요 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)합니다. |아닙니다. |
-| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않으면, 복사 작업은 다음과 같은 패턴으로 파일 이름을 자동으로 생성합니다. "*데이터입니다. [작업 실행 ID GUID]. [GUID 경우 FlattenHierarchy]. [형식 구성 된 경우]입니다. [구성 된 경우에 압축]* ", 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식 원본에서 복사하면, 이름 패턴이 "*[table name].[format].[compression if configured]*"입니다(예: "MyTable.csv"). |아닙니다. |
+| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않으면, 복사 작업은 다음과 같은 패턴으로 파일 이름을 자동으로 생성합니다. "*데이터입니다. [작업 실행 ID GUID]. [GUID 경우 FlattenHierarchy]. [형식 구성 된 경우]입니다. [구성 된 경우에 압축]* ", 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식 원본에서 복사하면, 이름 패턴이 " *[table name].[format].[compression if configured]* "입니다(예: "MyTable.csv"). |아닙니다. |
 | modifiedDatetimeStart | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일에서에서 필터 파일 수행 하려는 경우이 설정을 사용 하 여 데이터 이동의 전반적인 성능을 영향을 알아야 합니다. <br/><br/> 속성에는 데이터 집합에 없는 파일 특성 필터를 적용할 것을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
 | modifiedDatetimeEnd | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일에서에서 필터 파일 수행 하려는 경우이 설정을 사용 하 여 데이터 이동의 전반적인 성능을 영향을 알아야 합니다. <br/><br/> 속성에는 데이터 집합에 없는 파일 특성 필터를 적용할 것을 의미 하는 NULL 일 수 있습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
 | format | 파일 기반 저장소(이진 복사본) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 format 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**입니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
