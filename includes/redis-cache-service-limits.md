@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554077"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238822"
 ---
-| 리소스 | 제한 |
+| Resource | 제한 |
 | --- | --- |
 | 캐시 크기 |530GB |
 | 데이터베이스 |64 |

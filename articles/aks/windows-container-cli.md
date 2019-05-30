@@ -2,17 +2,17 @@
 title: 미리 보기-Azure Kubernetes Service (AKS) 클러스터에서 Windows Server 컨테이너 만들기
 description: 신속 하 게 Kubernetes 클러스터를 만드는 Azure Kubernetes Service (AKS)에서 Azure CLI를 사용 하 여 Windows Server 컨테이너에서 응용 프로그램을 배포 하는 방법에 알아봅니다.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: zarhoads
-ms.openlocfilehash: 328fb9707c7151b8696cfb55e13567db90e45b7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: twhitney
+ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991146"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305293"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 Azure Kubernetes Service (AKS) 클러스터에서 Windows Server 컨테이너 만들기
 
@@ -35,9 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Windows Server 컨테이너를 실행할 수 있는 클러스터를 만든 후 추가 노드 풀을 추가 해야 합니다. 이후 단계에 대해서는 추가 노드 풀을 추가 하지만 먼저 몇 가지 미리 보기 기능을 사용 하도록 설정 해야 합니다.
 
 > [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 및 옵트인 합니다. 미리 보기는 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 그러나 Azure 기술 지원 서비스에서 지원 되지 않습니다 됩니다. 클러스터를 만들거나 기존 클러스터에 이러한 기능을 추가 하는 경우에 기능이 더 이상 미리 보기 상태 이며 일반 공급 (GA) 라는 될 때까지 해당 클러스터 지원 되지 않습니다.
+> AKS 미리 보기 기능은 셀프 서비스, 옵트인 합니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 미리 보기에서이 기능이 없는 프로덕션 사용 해야 합니다. 공개 미리 보기에서 기능 '최상의' 지원에 속합니다. AKS 기술 지원 팀의 지원 업무 시간은 태평양 표준 시간대 (PST)만 제공 됩니다. 추가 정보는 다음과 같은 지원 문서를 참조 하세요.
 >
-> 미리 보기 기능을 사용 하 여 문제가 발생 하면 [AKS GitHub 리포지토리에서 문제를 제기] [ aks-github] 버그 제목에 미리 보기 기능의 이름입니다.
+> * [AKS 지원 정책][aks-support-policies]
+> * [Azure 지원 FAQ][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
     
@@ -302,7 +303,6 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -328,3 +328,5 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

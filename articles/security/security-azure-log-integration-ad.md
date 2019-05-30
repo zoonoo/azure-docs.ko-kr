@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: db065c78008e47326155e9e2b3a0f65031ec4cd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e99553afc05fca0250607bfccd2799adaf471e5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478432"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298170"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directo
 
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure 로그 통합 기능을 06/15/2019 지원이 중지 될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합 단계
 

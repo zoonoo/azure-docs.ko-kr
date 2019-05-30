@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979339"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298934"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -87,22 +87,26 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 
 |이유 | 조건 |
 |-|-|
-|현재 값은 대상 값을 키로 포함해야 합니다. |containsKey 또는 **되지** notContainsKey |
-|현재 값은 대상 값을 포함해야 합니다. |포함 하거나 **되지** notContains |
-|현재 값은 대상 값과 같아야 합니다. |같음 또는 **되지** notEquals |
-|현재 값이 있어야 합니다. |있음 |
+|현재 값을 키로 대상 값을 포함 해야 합니다. |containsKey 또는 **되지** notContainsKey |
+|현재 값에는 대상 값을 포함 해야 합니다. |포함 하거나 **되지** notContains |
+|현재 값은 대상 값 이어야 합니다. |같음 또는 **되지** notEquals |
+|현재 값은 대상 값 보다 작아야 합니다. |less 나 **되지** greaterOrEquals |
+|대상 값 보다 크거나 같은 경우 현재 값 이어야 합니다. |greaterOrEquals 또는 **되지** 적은 |
+|현재 값은 대상 값 보다 커야 합니다. |큰 또는 **되지** lessOrEquals |
+|현재 값 보다 작거나 대상 값 이어야 합니다. |lessOrEquals 또는 **되지** 큰 |
+|현재 값이 존재 해야 합니다. |exists |
 |현재 값은 대상 값에 있어야 합니다. |또는 **되지** notIn |
-|현재 값은 대상 값과 같아야 합니다. |같은 또는 **되지** notLike |
-|현재 값은 대/소문자를 구분하며 대상 값과 일치해야 합니다. |일치 하거나 **되지** notMatch |
-|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치해야 합니다. |matchInsensitively 또는 **되지** notMatchInsensitively |
-|현재 값은 대상 값을 키로 포함할 수 없습니다. |notContainsKey 또는 **되지** containsKey|
-|현재 값은 대상 값을 포함할 수 없습니다. |notContains 또는 **되지** 포함 |
-|현재 값은 대상 값과 같을 수 없습니다. |notEquals 또는 **되지** 같음 |
+|현재 값은 대상 값 처럼 여야 합니다. |같은 또는 **되지** notLike |
+|현재 값을 대상 값을 대/소문자 구분 일치 해야합니다. |일치 하거나 **되지** notMatch |
+|현재 값을 대상 값을 대 소문자를 구분 해야합니다. |matchInsensitively 또는 **되지** notMatchInsensitively |
+|현재 값을 키로 대상 값을 포함 하지 않아야 합니다. |notContainsKey 또는 **되지** containsKey|
+|현재 값에는 대상 값을 포함 하지 않아야 합니다. |notContains 또는 **되지** 포함 |
+|현재 값은 대상 값이 아니어야 합니다. |notEquals 또는 **되지** 같음 |
 |현재 값이 없어야 합니다. |**하지** 존재  |
-|현재 값이 대상 값에 포함될 수 없습니다. |notIn 또는 **되지** 에서 |
-|현재 값은 대상 값과 같을 수 없습니다. |notLike 또는 **되지** 같은 |
-|현재 값은 대/소문자를 구분하며 대상 값과 일치할 수 없습니다. |notMatch 또는 **되지** 일치 |
-|현재 값은 대/소문자를 구분하지 않으며 대상 값과 일치할 수 없습니다. |notMatchInsensitively 또는 **되지** matchInsensitively |
+|대상 값의 현재 값 수 없습니다. |notIn 또는 **되지** 에서 |
+|현재 값이 대상 값 처럼 아니어야 합니다. |notLike 또는 **되지** 같은 |
+|현재 값을 대상 값을 하지 대/소문자 구분 일치 해야합니다. |notMatch 또는 **되지** 일치 |
+|현재 값을 대 소문자를 구분 하지 대상 값을 해야합니다. |notMatchInsensitively 또는 **되지** matchInsensitively |
 |정책 정의에 적용 세부 정보와 일치 하는 관련된 리소스가 없습니다. |에 정의 된 형식의 리소스 **then.details.type** 에 정의 된 리소스에 관련 된 합니다 **경우** 부분 정책 규칙이 존재 하지 않습니다. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대 한 준수 세부 정보
@@ -128,7 +132,7 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
    - **리소스 종류** - _guestConfigurationAssignments_ 전체 이름입니다.
    - **마지막 평가 시간** -대상 가상 컴퓨터의 상태에 대 한 Azure Policy에는 게스트 구성 서비스가 알림을 마지막 시간입니다.
 
-   ![정책 준수 세부 정보를 봅니다.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![규정 준수 세부 정보 보기](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. 게스트 구성 할당 이름을 선택 합니다 **이름** 열려면 열을 **리소스 준수** 페이지.
 
@@ -136,7 +140,7 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 
 합니다 **게스트 할당** 모든 규정 준수 세부 정보 페이지에 표시 됩니다. 뷰에서 각 행에는 가상 머신 내에서 수행 된 평가 나타냅니다. 에 **이유** 열, 게스트 할당 인 이유를 설명 하는 _비준수_ 표시 됩니다. 예를 들어 Vm을 도메인에 가입 되어야 해야는 감사를 **이유** 열에는 현재 도메인 구성원 자격을 포함 하 여 텍스트 표시 됩니다.
 
-![정책 준수 세부 정보를 봅니다.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![규정 준수 세부 정보 보기](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -233,4 +237,4 @@ _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩�
 - 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
 - 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](getting-compliance-data.md)합니다.
 - 설명 하는 방법 [비준수 리소스를 수정](remediate-resources.md)합니다.
-- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

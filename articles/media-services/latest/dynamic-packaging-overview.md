@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761959"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299178"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -31,6 +31,9 @@ Media Services에는 [스트리밍 끝점](streaming-endpoint-concept.md) 를 �
 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, Media Services 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 
 
 Media Services 동적 패키징 라이브 또는 주문형으로 스트리밍하는 지 여부를 사용 합니다. 
+
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
 ## <a name="common-on-demand-workflow"></a>일반적인 주문형 워크플로
 
@@ -92,10 +95,32 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 오디오 코덱
 
-동적 패키징을 사용 하 여 인코딩된 오디오를 포함 하는 MP4 파일을 지 원하는 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(향상 된 ac-3 또는 E-AC3) Dolby Atmos 또는 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express에 DTS LBR, DTS HD, 무손실 DTS HD). Dolby Atmos 콘텐츠 스트리밍에는 조각화 된 MP4, MPEG DASH 프로토콜 일반적인 스트리밍 형식 (CSF) 또는 일반 미디어 응용 프로그램 형식 (CMAF)와 같은 표준 및 통해 HTTP 라이브 스트리밍 (HLS) CMAF 사용 하 여 지원 됩니다.
+### <a name="mp4-files-support"></a>MP4 파일 지원
 
-> [!NOTE]
-> 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.
+동적 패키징을 사용 하 여 인코딩된 오디오를 포함 하는 MP4 파일 지원 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(ac-3 또는 E-AC3 확장)
+* Dolby Atmos
+   
+   Dolby Atmos 콘텐츠 스트리밍에는 조각화 된 MP4, MPEG DASH 프로토콜 일반적인 스트리밍 형식 (CSF) 또는 일반 미디어 응용 프로그램 형식 (CMAF)와 같은 표준 및 통해 HTTP 라이브 스트리밍 (HLS) CMAF 사용 하 여 지원 됩니다.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS 코덱 DASH CSF, CMAF DASH, HLS-M2TS 및 HLS CMAF 패키징 형식에서 지원 되는 다음과 같습니다.  
+
+    * DTS 디지털 서라운드 (dtsc)
+    * DTS HD 고해상도 및 마스터 DTS HD 오디오 (dtsh)
+    * DTS (dtse) Express
+    * DTS HD 무손실 (코어 없음) (dtsl)
+
+### <a name="hls-support"></a>HLS 지원
+
+동적 패키징을 지원 HLS (버전 4 이상) 여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산에 대 한 합니다.
+
+### <a name="not-supported"></a>지원되지 않음
+
+동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.
 
 ## <a name="dynamic-encryption"></a>동적 암호화
 
@@ -193,10 +218,7 @@ DASH 매니페스트 예는 다음과 같습니다.
 
 ## <a name="dynamic-manifest"></a>Dynamic Manifest
 
-동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)합니다.
-
-> [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
+동적 필터링은 추적, 형식, 비트 전송률을 및 플레이어에 전송 되는 프레젠테이션 기간 수를 제어 하는 데 사용 됩니다. 자세한 내용은 [동적 Packager를 사용 하 여 매니페스트 미리 필터링](filters-dynamic-manifest-overview.md)합니다.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

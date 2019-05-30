@@ -4,14 +4,14 @@ description: Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 05/23/2019
 ms.author: dech
-ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04cfdd1f96f83898710b6f292116f0afddc8df96
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889455"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237244"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 

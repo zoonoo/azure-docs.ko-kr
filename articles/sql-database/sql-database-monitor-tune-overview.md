@@ -7,56 +7,48 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719091"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393205"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
-Azure SQL Database는 사용량을 쉽게 모니터링하고, 리소스(CPU, 메모리, I/O)를 추가 또는 제거하고, 데이터베이스 성능을 향상시킬 수 있는 권장 사항을 찾고, 데이터베이스가 사용자 워크로드에 맞게 조정되고 성능을 자동으로 최적화할 수 있는 자동으로 관리되는 유연한 데이터 서비스입니다.
+쉽게 사용을 모니터링할 수 있습니다 리소스 추가 또는 제거 (CPU, 메모리, I/O)를 azure SQL Database 사용 잠재적인 문제를 해결 하 고 데이터베이스의 성능을 향상 시킬 권장 사항을 찾습니다. Azure SQL Database에는 데이터베이스 워크 로드에 맞게 조정 하 고 성능을 자동으로 최적화할 수 있도록 하려는 경우 데이터베이스에서 문제를 해결 자동으로 수 있는 많은 기능이 있습니다. 그러나 문제를 해결 해야 할 수 있는 몇 가지 사용자 지정 문제가 있습니다. 이 문서에서는 몇 가지 모범 사례 및 성능 문제를 해결 하는 데 사용할 수 있는 도구를 설명 합니다.
+
+데이터베이스는 문제 없이 실행 중인지 확인 하기 위해 수행 해야 하는 두 가지 주요 작업이 있습니다.
+- [데이터베이스 성능 모니터링](#monitoring-database-performance) 하려면 데이터베이스에 할당 된 리소스 워크 로드를 처리할 수 있는지 확인 합니다. 리소스 제한 도달 했는지을 표시 하는 경우에 상위 리소스 소비 쿼리를 식별 하 고, 최적화 또는 서비스 계층을 업그레이드 하 여 더 많은 리소스를 추가 해야 합니다.
+- [성능 문제를 해결](#troubleshoot-performance-issues) 잠재적인 문제가 발생 한 이유를 식별 하기 위해 문제 및 문제를 해결 하는 작업의 근본 원인을 식별 합니다.
 
 ## <a name="monitoring-database-performance"></a>데이터베이스 성능 모니터링
 
-Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. Azure SQL Database를 사용하면 [성능 튜닝 권장 사항](sql-database-advisor.md)을 검토하여 리소스를 변경하지 않고도 쿼리 성능을 개선 및 최적화하는 기회를 찾을 수 있습니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다. 이러한 튜닝 권장 사항을 적용하여 워크로드의 성능을 개선할 수 있습니다. 또한 Azure SQL 데이터베이스를 통해 식별된 모든 권장 사항을 적용하고 이를 통해 데이터베이스 성능이 개선되는지 확인하여 [쿼리의 성능을 자동으로 최적화](sql-database-automatic-tuning.md)할 수 있습니다.
+Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스에 대해 선택한 데이터베이스 성능 수준을 기준으로 리소스 사용률을 모니터링하는 것으로 시작합니다. 다음 리소스를 모니터링 해야 합니다.
+ - **CPU 사용량** -CPU 사용률이 100%를 긴 시간 동안에서 연결 하려는 확인 해야 합니다. 데이터베이스 또는 인스턴스 업그레이드 또는 식별 하 고 대부분의 계산 능력을 사용 하는 쿼리를 튜닝 해야 할 수 있습니다 있다는 의미일 수 있습니다.
+ - **대기 작업 통계** -확인 해야 할 몇 가지 리소스에 대 한 대기 중인 쿼리 하는 이유입니다. Queriesmig 인출 하거나 등 몇 가지 리소스 제한에 도달 하기 때문에 대기 중인 데이터베이스 파일에 저장 된 데이터를 기다립니다.
+ - **IO 사용량** -기본 저장소 IO 제한을 접근할 수를 확인 해야 합니다.
+ - **메모리 사용량** -확인 해야 하 고 데이터베이스 또는 인스턴스의 Vcore 수에 비례 하는 사용 가능한 메모리 양이 충분 워크 로드에 대 한 합니다. 페이지 수명 예상은 페이지가 신속 하 게 메모리에서 제거를 나타낼 수 있는 매개 변수 중 하나입니다.
+
+Azure SQL Database **advice 도움이 될 수 있는 문제를 해결 하 고 잠재적 성능 문제를 해결 제공**합니다. 개선 및 검토 하 여 리소스를 변경 하지 않고 쿼리 성능을 최적화할 기회를 쉽게 식별할 수 있습니다 [성능 튜닝 권장 사항](sql-database-advisor.md)합니다. 인덱스 누락 및 최적화되지 않은 쿼리는 데이터베이스 성능을 저하시키는 일반적인 원인입니다. 이러한 튜닝 권장 사항을 적용하여 워크로드의 성능을 개선할 수 있습니다. 또한 Azure SQL 데이터베이스를 통해 식별된 모든 권장 사항을 적용하고 이를 통해 데이터베이스 성능이 개선되는지 확인하여 [쿼리의 성능을 자동으로 최적화](sql-database-automatic-tuning.md)할 수 있습니다.
 
 데이터베이스 성능 문제 해결 및 모니터링에 대한 다음과 같은 옵션이 있습니다.
 
 - [Azure Portal](https://portal.azure.com)에서 **SQL Database**를 클릭하고 데이터베이스를 선택한 후 모니터링 차트를 사용하여 최대값에 근접한 리소스를 찾습니다. 기본적으로 DTU 사용량이 표시됩니다. **편집** 을 클릭하여 표시된 시간 범위 및 값을 변경합니다.
-- [Query Performance Insight](sql-database-query-performance.md)를 사용하여 가장 많은 리소스를 소비하는 쿼리를 파악합니다.
-- [SQL Database Advisor](sql-database-advisor-portal.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 확인합니다.
+- SQL Server Management Studio와 같은 도구 등의 많은 유용한 보고서를 제공할를 [성능 대시보드](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) 리소스 사용률을 모니터링 하 고 상위 리소스 소비 쿼리를 식별할 수 있습니다 위치 또는 [쿼리 저장소가](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)재발 된 성능이 사용 하 여 쿼리를 식별할 수 있습니다.
+- 사용 하 여 [Query Performance Insight](sql-database-query-performance.md) 는 [Azure portal](https://portal.azure.com) 가장 많은 리소스를 소비 하는 쿼리를 식별 하려면. 이 기능은 단일 데이터베이스 및 탄력적 풀에서 사용할 수만 있습니다.
+- [SQL Database Advisor](sql-database-advisor-portal.md)를 사용하여 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 확인합니다. 이 기능은 단일 데이터베이스 및 탄력적 풀에서 사용할 수만 있습니다.
 - 데이터베이스 성능 자동 모니터링에 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)를 사용합니다. 성능 문제가 검색되면 문제의 세부 정보와 RCA(근본 원인 분석)가 포함된 진단 로그가 생성됩니다. 성능 개선 권장 향상이 제공됩니다(가능한 경우).
 - [자동 튜닝을 사용](sql-database-automatic-tuning-enable.md)하고 Azure SQL 데이터베이스에서 식별된 성능 문제를 자동으로 수정하도록 합니다.
 - [DMV(동적 관리 뷰)](sql-database-monitoring-with-dmvs.md), [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 및 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)를 사용하여 성능 문제에 대한 구체적인 내용을 볼 수 있습니다.
 
 > [!TIP]
 > 위의 방법 중 하나 이상을 사용하여 성능 문제를 식별한 후 Azure SQL Database의 성능을 향상시키는 데 사용할 수 있는 기술을 찾으려면 [성능 지침](sql-database-performance-guidance.md)을 참조하세요.
-
-## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
-
-에 [Azure portal](https://portal.azure.com/)를 클릭 하 여 데이터베이스를 선택 하는 개별 데이터베이스의 사용률을 모니터링할 수 있습니다는 **모니터링** 차트. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
-
-- CPU 비율
-- DTU 비율
-- 데이터 IO 비율
-- 데이터베이스 크기 비율
-
-이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
-
-![데이터베이스 성능의 서비스 계층 모니터링.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-성능 메트릭에 대한 경고를 구성할 수도 있습니다. **메트릭** 창에서 **경고 추가** 단추를 클릭합니다. 마법사를 따라 경고를 구성합니다. 메트릭이 특정 임계값을 초과하거나 메트릭이 특정 임계값보다 낮은 경우 경고하는 옵션이 있습니다.
-
-예를 들어 데이터베이스에 대한 워크로드가 확장될 것으로 예상되면 데이터베이스가 성능 메트릭의 80%에 도달할 때마다 이메일 경고를 보내도록 구성할 수 있습니다. 이 경고를 조기 경고로 사용하여 더 큰 다음 컴퓨팅 크기로 전환해야 하는 시기를 파악할 수 있습니다.
-
-또한 성능 메트릭을 사용하여 작은 컴퓨팅 크기로 다운그레이드할 수 있는지 여부를 판단할 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 작은 컴퓨팅 크기로 이동하도록 결정하기 전에 급증하거나 변동하는 워크로드에 주의해야 합니다.
 
 ## <a name="troubleshoot-performance-issues"></a>성능 문제 해결
 
@@ -65,6 +57,18 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 ![워크로드 상태](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 성능 문제가 있는 워크로드의 경우 문제 원인이 CPU 경합일 수도 있고(**실행 관련** 조건), 또는 개별 쿼리가 무언가를 기다리기 때문일 수도 있습니다(**대기 관련** 조건).
+
+원인 또는 **실행 관련** 문제가 될 수 있습니다.
+- **컴파일 문제가** -SQL 쿼리 최적화 프로그램은 오래 된 통계, 처리할 행 수가 잘못 된 예측 또는 예상 되는 데 필요한 메모리 때문에 최적 계획을 생성할 수 있습니다. 다른 인스턴스 (관리 되는 인스턴스 또는 SQL Server 인스턴스) 또는 이전에는 쿼리가 더 빠르게 실행 된 경우 실제 실행 계획 하 고 비교 하는 다양 한 합니다. 쿼리 힌트 또는 다시 작성 통계 더 나은 계획을 가져올 인덱스를 적용 하려고 합니다. 자동 계획 수정 자동으로 이러한 문제를 완화 하기 위해 Azure SQL Database에서 사용 하도록 설정 합니다.
+- **실행 문제** -최적의 쿼리 계획은 다음 로그 쓰기 처리량 등 데이터베이스의 일부 리소스 제한에 도달할 것이 또는 조각 모음 된 인덱스 다시 작성 해야 하는 사용할 수 있습니다. 리소스를 소비 하는 동시 쿼리 수가 많은 실행 문제의 원인을 수도 있습니다. **대기 중인 관련** 효율적으로 실행 중인 쿼리는 일부 리소스에 대 한 대기 것 이므로 실행 문제와 관련 된 대부분의 문제는 합니다.
+
+원인 또는 **대기 중인 관련** 문제가 될 수 있습니다.
+- **차단** -다른 사용자가 동일한 개체에 액세스 하려고 하는 동안 하나의 쿼리가 데이터베이스의 일부 개체에 잠금을 보유할 수 있습니다. DMV를 사용 하 여 또는 모니터링 도구 차단 쿼리를 쉽게 식별할 수 있습니다.
+- **IO 문제** -쿼리 데이터 또는 로그 파일을 쓸 수 있도록 페이지를 기다리고 있을 수 있습니다. 이 경우에 표시 됩니다 `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, 또는 `PAGEIOLATCH_*` DMV의 통계를 기다립니다.
+- **TempDB 문제** -는 많은 수의 임시 테이블을 사용 하는 경우 TempDB 처리량은 문제가 있을 쿼리 계획에서 많은 TempDB 유출 하는 것이 표시 됩니다. 
+- **메모리 관련 문제** -없을 수 있습니다 메모리가 부족 하 여 워크 로드에 대 한 페이지 수명 예상 사용자를 삭제 하거나 쿼리는 필요한 것 보다 적은 메모리 부여를 시작 합니다. 일부 경우에 쿼리 최적화 프로그램의 기본 제공 인텔리전스는 이러한 문제 해결 됩니다.
+ 
+다음 섹션에서 설명 됩니다 식별 하 고 이러한 문제 중 일부를 해결 하는 방법.
 
 ## <a name="running-related-performance-issues"></a>실행 관련 성능 문제
 
@@ -76,10 +80,10 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 실행 관련 성능 문제가 있는 것으로 확인되면 한 가지 이상의 방법을 사용하여 정확한 문제를 식별해야 합니다. 실행 관련 문제를 식별하는 가장 일반적인 방법은 다음과 같습니다.
 
-- [Azure Portal](#monitor-databases-using-the-azure-portal)을 사용하여 CPU 사용률을 모니터링합니다.
+- [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal)을 사용하여 CPU 사용률을 모니터링합니다.
 - 다음 [동적 관리 뷰](sql-database-monitoring-with-dmvs.md)를 사용합니다.
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database 데이터베이스에 대한 CPU, I/O 및 메모리 사용량을 반환합니다. 데이터베이스에 작업이 없는 경우에도 한 행은 15초 간격으로 존재합니다. 기록 데이터는 1시간 동안 유지됩니다.
+  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database 데이터베이스에 대한 CPU, I/O 및 메모리 사용량을 반환합니다. 데이터베이스에 작업이 없는 경우에도 한 행은 15초 간격으로 존재합니다. 기록 데이터는 한 시간 동안 유지됩니다.
   - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 스토리지 데이터를 반환합니다. 데이터는 5분 미만 간격으로 수집되고 집계됩니다.
 
 > [!IMPORTANT]
@@ -188,7 +192,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 
 - 잠금(차단)
-- I/O
+- 입력/출력
 - `tempdb` 관련 콘텐츠
 - 메모리 부여 대기
 

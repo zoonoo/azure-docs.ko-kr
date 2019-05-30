@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962649"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235330"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -81,10 +81,10 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 
 라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
 
-라이브러리 및 해당 GitHub 리포지토리 목록을 보려면 다음 문서를 참조하세요.
+라이브러리 및 해당 GitHub 리포지토리의 목록이, 다음을 참조 합니다.
 
 * [ADAL](active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL 합니다. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), 및 [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 

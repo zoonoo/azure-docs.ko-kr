@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1e78109472668c0f9a73af6430253a0d709979af
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1ec3ecdafb8e475f5f13372789528612ccd7b8b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156148"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226049"
 ---
 ## <a name="using-rbac-to-share-images"></a>RBAC를 사용하여 이미지 공유
 
@@ -33,22 +33,22 @@ az sig list -o table
 [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list)를 사용하여 OS 유형 및 상태에 대한 정보를 포함한 갤러리의 이미지 정의를 나열합니다.
 
 ```azurecli-interactive 
-az sig image-definition list -g myGalleryRG -r myGallery -o table
+az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
 [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list)를 사용하여 갤러리의 공유 이미지 버전을 나열합니다.
 
 ```azurecli-interactive
-az sig image-version list -g myGalleryRG -r myGallery -i myImageDefinition -o table
+az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
 [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show)를 사용하여 이미지 버전의 ID를 가져옵니다.
 
 ```azurecli-interactive
 az sig image-version show \
-   -g myGalleryRG \
-   -r myGallery \
-   -i myImageDefinition \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --query "id"
 ```

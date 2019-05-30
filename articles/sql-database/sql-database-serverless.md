@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951489"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393535"
 ---
 # <a name="sql-database-serverless-preview"></a>Azure SQL Database 서버리스(미리 보기)
 
-## <a name="what-is-the-serverless-compute-tier"></a>서버리스 컴퓨팅 계층이란?
+## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
 SQL Database 서버리스(미리 보기)는 단일 데이터베이스에서 사용하는 컴퓨팅에 대한 비용을 초 단위로 청구하는 컴퓨팅 계층입니다. 서버리스는 간헐적이고 예측 불가능한 사용 패턴이 있는 단일 데이터베이스에 최적화된 가격 대비 성능이며, 유휴 사용 기간 후 컴퓨팅 준비가 약간 지연될 수 있습니다.
 
@@ -66,14 +66,14 @@ SQL Database 서버리스(미리 보기)는 단일 데이터베이스에서 사�
 |**일반적인 사용량 시나리오**| 비활성 기간과 섞여 간헐적이고 예측 불가능한 사용량이 있는 데이터베이스가 있습니다. | 더 규칙적인 사용량이 있는 데이터베이스 또는 탄력적 풀이 있습니다.|
 | **성능 관리 작업** |더 적음|더 많음|
 |**컴퓨팅 크기 조정**|자동|수동|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 크기 조정
+## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -83,7 +83,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 서버 리스 데이터베이스에 대 한 메모리를 회수 하는 보다 더 자주 데이터베이스 프로 비전 된 계산 합니다. 이 서버 리스에 비용을 제어 해야 동작과 성능에 영향을 줄 수 있습니다.
 
-#### <a name="cache-reclaiming"></a>회수 캐시
+#### <a name="cache-reclamation"></a>캐시 확보
 
 프로 비전 된 계산 데이터베이스와 달리 SQL 캐시의 메모리는 CPU 또는 캐시 사용률 사용량이 적을 때 하지 않는 데이터베이스에서 회수 됩니다.
 
@@ -145,7 +145,7 @@ SQL 캐시를 프로 비전 된 데이터베이스와 동일한 속도 동일한
 - SQL 데이터 동기화에 사용되는 동기화 데이터베이스
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>서버리스 컴퓨팅 계층으로 온보딩
+## <a name="onboarding-into-serverless-compute-tier"></a>서버 리스 계산 계층으로 온 보 딩
 
 새 데이터베이스를 만들거나 기존 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 경우 프로비저닝된 컴퓨팅 계층에서 새 데이터베이스를 만드는 것과 동일한 패턴을 따르면 다음 두 단계를 수행해야 합니다.
 
@@ -167,11 +167,11 @@ SQL 캐시를 프로 비전 된 데이터베이스와 동일한 속도 동일한
 > [!NOTE]
 > T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Azure Portal을 사용하여 새 데이터베이스 만들기
+### <a name="create-new-serverless-database-using-azure-portal"></a>Azure portal을 사용 하 여 새 서버 리스 데이터베이스 만들기
 
 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
-### <a name="create-new-database-using-powershell"></a>PowerShell을 사용하여 새 데이터베이스 만들기
+### <a name="create-new-serverless-database-using-powershell"></a>PowerShell을 사용 하 여 새 서버 리스 데이터베이스 만들기
 
 다음 예제에서는 최소 vCore 수 및 자동 일시 중지 지연에 대한 기본값을 사용하여 GP_S_Gen5_4라는 서비스 목표로 정의된 서버리스 컴퓨팅 계층에 새 데이터베이스를 만듭니다.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>기존 데이터베이스를 서버리스 컴퓨팅 계층으로 이동
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>서버 리스 계산 계층에 프로 비전 된 계산 데이터베이스 이동
 
 다음 예제에서는 기존 단일 데이터베이스를 프로비저닝된 컴퓨팅 계층에서 서버리스 컴퓨팅 계층으로 이동시킵니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>데이터베이스를 서버리스 컴퓨팅 계층 외부로 이동
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>프로 비전 된 계산 계층으로 이동 하지 않는 데이터베이스
 
 서버리스 데이터베이스는 프로비저닝된 컴퓨팅 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 것과 동일한 방식으로 프로비저닝된 컴퓨팅 계층으로 이동할 수 있습니다.
 
-## <a name="modify-serverless-configuration-parameters"></a>서버리스 구성 매개 변수 수정
+## <a name="modifying-serverless-configuration"></a>서버 리스 구성 수정
 
 ### <a name="maximum-vcores"></a>최대 vCore 수
 
@@ -225,7 +225,7 @@ Set-AzSqlDatabase
 
 사용 하 여 수행 됩니다 autopause 지연 시간을 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `AutoPauseDelay` 인수입니다.
 
-## <a name="monitor-serverless-database"></a>서버리스 데이터베이스 모니터링
+## <a name="monitoring"></a>모니터링
 
 ### <a name="resources-used-and-billed"></a>리소스 사용 및 청구
 
@@ -237,7 +237,7 @@ Set-AzSqlDatabase
 
 #### <a name="user-resource-pool"></a>사용자 리소스 풀
 
-데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀은 DDL 쿼리(예: CREATE, ALTER 등) 및 DML 쿼리(예: SELECT, INSERT, UPDATE, DELETE 등)에서 생성된 사용자 워크로드에 대한 CPU 및 IO를 검색합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
+데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀 범위 CPU 및 IO 같은 CREATE 및 ALTER 및 DML 쿼리 같은 DDL 쿼리에 의해 생성 되는 사용자 워크 로드에 대 한 선택, 삽입, 업데이트 및 삭제 합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
 
 ### <a name="metrics"></a>메트릭
 
@@ -279,7 +279,7 @@ Get-AzSqlDatabase `
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
 - **청구되는 리소스**: CPU 및 메모리
-- **청구 금액($)**: vCore 단가 * 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3) 
+- **청구 금액($)** : vCore 단가 * 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3) 
 - **청구 주기**: 초당
 
 초당 vCore 당 비용은 vCore 단위 가격입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
@@ -310,7 +310,7 @@ Get-AzSqlDatabase `
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-서버리스 컴퓨팅 계층은 다음 지역을 제외한 모든 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 중국 동부, 중국 북부, 프랑스 남부, 독일 중부, 독일 북동부, 인도 서부, 한국 남부, 남아프리카 공화국 서부, 영국 북부, 영국 남부, 영국 서부 및 미국 중서부
+서버리스 컴퓨팅 계층은 다음 지역을 제외한 모든 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 중국 동부, 중국 북부, 프랑스 남부, 독일 중부, 독일 북동부, 인도 서 부, 한국 남부, 남아프리카 공화국 서 부, 영국 북부, 영국 남부, 영국 서 부 및 미국 서 부입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
