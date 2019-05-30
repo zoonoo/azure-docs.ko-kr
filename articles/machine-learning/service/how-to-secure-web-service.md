@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0487fe0331bfce3d0302fe997562cb124ac317d6
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 527f16e34e0f21d435fbd166328235566687bc88
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561074"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852015"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL을 사용하여 Azure Machine Learning 서비스로 웹 서비스 보호
 
@@ -154,5 +154,5 @@ Ssl 사용 서비스를 배포 (또는 다시 배포)를 설정 합니다 `ssl_e
 ## <a name="next-steps"></a>다음 단계
 다음 작업을 수행하는 방법을 배워 보십시오.
 + [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
-+ [Azure Virtual Network 내에서 안전하게 실험 및 추론 실행](how-to-enable-virtual-network.md)
++ [실험 및 Azure Virtual Network 내에서 유추를 안전 하 게 실행](how-to-enable-virtual-network.md)
 

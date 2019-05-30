@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: e4b366075cb16f62a0e16b5b06da6fb19ffefdb9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508276"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150726"
 ---
 1. Data Box 디바이스에 로그인합니다. 잠겨 있지 않은지 확인합니다.
 

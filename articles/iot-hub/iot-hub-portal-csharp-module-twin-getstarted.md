@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 75b86ea028a500b6b358c468a1d10a830db01b6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354951"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873170"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -34,7 +34,7 @@ ms.locfileid: "60354951"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Visual Studio 2015 또는 Visual Studio 2017.
+* 있습니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기

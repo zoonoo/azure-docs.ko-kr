@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161780"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Service Fabric Linux 클러스터 노드에 대한 디스크 암호화 사용 
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 * 최신 버전 설치 [Azure CLI](/cli/azure/install-azure-cli) , 새 암호화 명령이 있습니다.
 * [Azure PowerShell 릴리스에서 최신 버전의 Azure SDK](https://github.com/Azure/azure-powershell/releases)를 설치합니다. 다음은 가상 머신 확장 집합을 ADE를 사용 하도록 설정 하는 cmdlet ([설정](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 암호화를 검색 ([가져오기](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 암호화 상태 및 제거 ([사용 하지 않도록 설정](/powershell/module/az.compute/disable-azvmssdiskencryption)) 확장에서 암호화 인스턴스를 설정 합니다. 
 
-| 명령 | 버전 |  원본  |
+| 명령 | Version |  원본  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 이상 | Az.Compute |

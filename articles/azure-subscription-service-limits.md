@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787626"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66023223"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록 확장 되며 더 많은 서비스에 맞게 업데이트 합니다.
@@ -54,6 +54,7 @@ Azure 가격 책정에 대 한 자세한 내용은 참조 하세요 [가격 책�
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning 서비스](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
@@ -234,6 +235,9 @@ Azure Files 한도에 대 한 자세한 내용은 참조 하세요. [Azure Files
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### <a name="functions-limits"></a>함수 제한
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### <a name="scheduler-limits"></a>Scheduler 제한
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -246,7 +250,7 @@ Azure Files 한도에 대 한 자세한 내용은 참조 하세요. [Azure Files
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
-Azure Cosmos DB는 어떠한 애플리케이션의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB에서 제공 하는 규모에 대 한 질문이 있으면 전자 메일을 보내 askcosmosdb@microsoft.com합니다.
+Azure Cosmos DB 제한 참조 [Azure Cosmos DB의 제한 사항](cosmos-db/concepts-limits.md)합니다.
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](mysql/concepts-limits.md)을 참조하세요.

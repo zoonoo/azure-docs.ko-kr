@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838963"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955750"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -105,7 +105,7 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 
-애플리케이션 비밀(예: 데이터베이스 자격 증명, API 토큰 및 개인 키)을 코드 또는 구성 파일에 저장하지 않습니다. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. App Service에서 환경 변수를 정의하는 방법은 [앱 설정](web-sites-configure.md#app-settings)(특히 .NET 애플리케이션의 경우 [연결 문자열](web-sites-configure.md#connection-strings))을 통해 이루어집니다. 앱 설정과 연결 문자열은 Azure에서 암호화되어 저장되며, 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 해독됩니다. 암호화 키는 정기적으로 회전합니다.
+애플리케이션 비밀(예: 데이터베이스 자격 증명, API 토큰 및 개인 키)을 코드 또는 구성 파일에 저장하지 않습니다. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. App Service에서 환경 변수를 정의하는 방법은 [앱 설정](configure-common.md#configure-app-settings)(특히 .NET 애플리케이션의 경우 [연결 문자열](configure-common.md#configure-connection-strings))을 통해 이루어집니다. 앱 설정과 연결 문자열은 Azure에서 암호화되어 저장되며, 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 해독됩니다. 암호화 키는 정기적으로 회전합니다.
 
 또는 고급 비밀 관리를 위해 App Service 앱을 [Azure Key Vault](/azure/key-vault/)와 통합할 수 있습니다. [관리 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다.
 

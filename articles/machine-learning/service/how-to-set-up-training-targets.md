@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236957"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160473"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정
+# <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
 Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-target)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
@@ -38,7 +38,7 @@ Azure Machine Learning SDK, Azure Portal 또는 Azure CLI를 사용하여 컴퓨
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 
-|학습용 컴퓨팅 대상| GPU 가속 | 자동화됨<br/> 하이퍼 매개 변수 튜닝 | 자동화됨</br> Machine Learning | Azure Machine Learning 파이프라인 |
+|학습용 컴퓨팅 대상| GPU 가속 | 자동화됨<br/> 하이퍼 매개 변수 튜닝 | 자동화됨<br/> Machine Learning | Azure Machine Learning 파이프라인 |
 |----|:----:|:----:|:----:|:----:|
 |[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning 컴퓨팅](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 * [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다. 
 * [CLI 확장을 사용하여](reference-azure-machine-learning-cli.md#experiments) 실험을 제출합니다.
+
+## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+
+원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
 
 ## <a name="notebook-examples"></a>Notebook 예제
 

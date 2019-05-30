@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727494"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015601"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>논리 앱 및 runbook 클래식 경고 규칙의 마이그레이션 준비
 
-로 [발표](monitoring-classic-retirement.md), Azure Monitor에서 클래식 경고 2019 년 7 월에에서 사용 중지 됩니다. 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고 마이그레이션 자체 트리거 하려는 고객에 게 Azure portal에서 사용할 수 있습니다.
+로 [발표](monitoring-classic-retirement.md), 2019 년 9 월에에서 Azure Monitor에서 클래식 경고 사용이 중지 되는 (7 월 2019 원래 되었습니다). 마이그레이션 도구는 클래식 경고 규칙을 사용 하는 고 마이그레이션 자체 트리거 하려는 고객에 게 Azure portal에서 사용할 수 있습니다.
+
+> [!NOTE]
+> 마이그레이션 도구의 롤아웃을에서 지연으로 인해 클래식 경고 마이그레이션에 대 한 사용 중지 날짜는 2019 년 8 월 31 일에 처음 발표 된 2019 년 6 월 30 일 로부터 확장 되었습니다.
 
 새 경고 규칙에 클래식 경고 규칙을 자발적으로 마이그레이션하도록 선택 하는 경우는 두 시스템 간의 일부 차이점이 있습니다 주의 합니다. 이 문서에서는 이러한 차이점과 변경에 대 한 준비 하는 방법을 설명 합니다.
 
@@ -30,7 +33,7 @@ ms.locfileid: "64727494"
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager 템플릿 | [클래식 경고에 대 한](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새로운 메트릭 경고에 대 한](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>알림 페이로드가 변경
@@ -41,7 +44,7 @@ ms.locfileid: "64727494"
 
 |  |클래식 경고  |새로운 메트릭 경고 |
 |---------|---------|---------|
-|경고 활성화 되었거나 해결?    | **status**       | **data.status** |
+|경고 활성화 되었거나 해결?    | **상태**       | **data.status** |
 |경고에 대 한 컨텍스트 정보     | **context**        | **data.context**        |
 |타임 스탬프는 경고가 활성화 되었거나 해결     | **context.timestamp**       | **data.context.timestamp**        |
 | 경고 규칙 ID | **context.id** | **data.context.id** |

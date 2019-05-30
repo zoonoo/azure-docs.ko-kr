@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365097"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965915"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 직접 구성
 
@@ -280,8 +280,9 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
 여기에 설명된 시나리오만 지원하도록 ExpressRoute Direct에서 추가 회로 대역폭을 사용할 수 있습니다. 대역폭은 40Gbps 및 100Gbps입니다.
 
-표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 서비스 비용에 포함됩니다. 프리미엄 회로 비용은 선택한 대역폭을 기준으로 합니다. 회로는 데이터 요금제 방식으로만 만들 수 있습니다. 무제한 회로는 ExpressRoute Direct에서 지원되지 않습니다.
+**SkuTier** 로컬, Standard 또는 Premium 될 수 있습니다.
 
+**SkuFamily** 무제한 으로만 MeteredData 해야 ExpressRoute 직접 지원 되지 않습니다.
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
   ```azurecli

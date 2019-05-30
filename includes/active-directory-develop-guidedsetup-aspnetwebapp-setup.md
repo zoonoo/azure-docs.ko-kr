@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505820"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121791"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "59505820"
 ## <a name="add-authentication-components"></a>인증 구성 요소 추가
 
 1. Visual Studio에서: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 *OWIN 미들웨어 NuGet 패키지* 를 추가합니다.
+2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 [OWIN 미들웨어 NuGet 패키지]를 추가합니다.
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -57,7 +57,7 @@ ms.locfileid: "59505820"
 > [!TIP]
 > 프로젝트의 루트 폴더에 `Startup.cs` 파일이 없는 경우:
 > 1. 프로젝트의 루트 폴더를 마우스 오른쪽 단추로 클릭합니다. > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. 이름 지정 `Startup.cs`
+> 2. 이름을 `Startup.cs`로 지정합니다.
 >
 >> 선택한 클래스가 표준 C# 클래스가 아니라 OWIN Startup 클래스인지 확인합니다. 네임스페이스 위에 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`가 보이면 선택하여 확인합니다.
 

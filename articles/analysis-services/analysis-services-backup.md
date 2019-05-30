@@ -75,7 +75,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet을 사용합니다.
 
 ## <a name="restore"></a>복원
-복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 스토리지 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
+복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 스토리지 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
 
 
 

@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 460f79eb0679dc7d71bc929e4e790b68bd0f6774
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ca2346de84a97bff370a7d5bacb006130cb5116
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447400"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792469"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>빠른 시작: .NET Core(C#)를 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -196,5 +196,5 @@ namespace sqltest
 
 - [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
 - [.NET Framework 및 Visual Studio를 사용하여 Azure SQL 데이터베이스를 연결하고 쿼리하는 방법](sql-database-connect-query-dotnet-visual-studio.md)을 알아봅니다.  
-- [SSMS를 사용하여 첫 번째 Azure SQL Database를 디자인](sql-database-design-first-database.md)하거나 [Azure SQL Database를 디자인하고 C# 및 ADO.NET에 연결](sql-database-design-first-database-csharp.md)하는 방법을 알아봅니다.
+- [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스를 디자인](sql-database-design-first-database.md)하거나 [Azure SQL 데이터베이스를 디자인하고 C# 및 ADO.NET에 연결](sql-database-design-first-database-csharp.md)하는 방법을 알아봅니다.
 - .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.

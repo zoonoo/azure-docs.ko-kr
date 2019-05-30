@@ -7,17 +7,18 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: WenJason
+ms.author: v-jay
 ms.reviewer: genemi,ayolubek, jrasnick
-manager: craigg
-ms.date: 03/12/2019
+manager: digimobile
+origin.date: 03/12/2019
+ms.date: 04/08/2019
 ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160797"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 
@@ -89,7 +90,7 @@ REST API에 대한 설명서는 다음 웹 위치 근처에서 사용할 수 있
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 REST API를 호출하는 PowerShell cmdlet을 사용할 수 있습니다.
 

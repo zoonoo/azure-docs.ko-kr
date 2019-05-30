@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122010"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -27,8 +27,8 @@ ms.locfileid: "59528263"
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
-|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |같은 데이터 집합|
+|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |같은 데이터 집합|
 |[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.

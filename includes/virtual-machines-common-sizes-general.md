@@ -9,11 +9,11 @@ ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 2864946af6bd9ed2a271ef35d3afb385bfa9a71d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65815574"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145750"
 ---
 범용 VM 크기는 적당한 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. 이 문서에서는 이 그룹화에서 크기에 대한 저장소 처리량 뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 

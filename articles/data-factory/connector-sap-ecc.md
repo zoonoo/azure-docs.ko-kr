@@ -122,7 +122,7 @@ SAP ECC에서 데이터를 복사하려면 복사 활동의 원본 형식을 **S
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SapEccSource** | 예 |
-| query | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
+| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
 
 **예제:**
 

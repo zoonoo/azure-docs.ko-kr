@@ -281,7 +281,7 @@ foreach($labVM in $labVMs)
 사용자 지정 이미지를 만들도록 VHD 파일 업로드를 자동화하기 위해 두 가지 옵션이 있습니다.
 
 - [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage)를 사용하여 랩과 연결된 저장소 계정에 VHD 파일을 복사 또는 업로드할 수 있습니다.
-- [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용합니다. 저장소 탐색기는 Windows, OS X 및 Linux에서 실행되는 독립 실행형 앱입니다.
+- [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용합니다. Storage Explorer는 Windows, OS X 및 Linux에서 실행되는 독립 실행형 앱입니다.
 
 랩과 연결된 대상 저장소 계정을 찾으려면:
 

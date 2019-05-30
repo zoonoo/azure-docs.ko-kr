@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822858"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117016"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -45,6 +45,9 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 
     이 인증 메커니즘은 웹 후크 엔드포인트 수동 유효성 검사 모드로 배치할 수 전에 유효성 검사 이벤트에 대 한 게시를 받았음을 알 수 있도록 HTTP 상태 코드 200 반환 해야 합니다. 즉, 끝점 200을 반환 하지만 반환 하지 다시 유효성 검사 응답을 프로그래밍 방식으로 모드를 수동 유효성 검사 모드를 전환 됩니다. 유효성 검사 URL에 GET을 5 분 내에 있으면 유효성 검사 핸드셰이크 성공으로 간주 됩니다.
 
+> [!NOTE]
+> 유효성 검사에 대 한 자체 서명 된 인증서를 사용 하 여 지원 되지 않습니다. 인증 기관 (CA)에서 서명 된 인증서를 대신 사용 합니다.
+
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
 * 이벤트 구독 생성/업데이트 시 Event Grid는 대상 엔드포인트에 구독 유효성 검사 이벤트를 게시합니다. 
@@ -64,8 +67,8 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",

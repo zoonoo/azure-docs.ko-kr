@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66170241"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: a02eadcacddc91ae9d17c50efd5e573718c41a21
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904678"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131648"
 ---
 * [Azure Functions 트리거 및 바인딩 개념](../articles/azure-functions/functions-triggers-bindings.md)  
   Functions를 다른 서비스와 통합하는 방법을 알아봅니다.  

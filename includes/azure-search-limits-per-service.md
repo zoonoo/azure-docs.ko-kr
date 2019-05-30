@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212006"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160497"
 ---
 저장소는 디스크 공간이나 인덱스, 문서 또는 기타 고급 리소스의 *최대 수*의 하드 제한 중에서 먼저 충족되는 조건에 따라 제한됩니다. 다음 표에서는 저장소 제한에 대해 설명합니다. 인덱스, 문서 및 기타 개체의 최대 제한에 대해서 [리소스별 제한](../articles/search/search-limits-quotas-capacity.md#index-limits)합니다.
 

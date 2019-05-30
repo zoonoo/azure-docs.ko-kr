@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294290"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956938"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>갱신된 Azure Active Directory ID 보호 소개
 
@@ -147,44 +147,44 @@ ID 보호에서 위험을 검색하는 방식을 파악하려면 사용자 위�
 
 ## <a name="common-scenarios"></a>일반적인 시나리오 
 
-Contoso 직원인 Sarah의 경우를 예로 들어 보겠습니다. 
+Contoso의 직원의 예제를 살펴보겠습니다. 
 
-1. Sarah가 Tor 브라우저에서 Exchange Online 로그인을 시도합니다. 로그인 시 Azure AD가 실시간 위험 이벤트를 검색합니다. 
+1. 직원은 Tor 브라우저에서 Exchange Online에 로그인 하려고 시도 합니다. 로그인 시 Azure AD가 실시간 위험 이벤트를 검색합니다. 
 
-2. Sarah가 익명 IP 주소에서 로그인함을 Azure AD가 검색하여 중간 수준의 로그인 위험을 트리거합니다. 
+2. Azure AD는 직원이 로그인 하는 익명 IP 주소에서 로그인 위험 수준 보통 수준 트리거를 검색 합니다. 
 
-3. Contoso IT 관리자가 ID 보호 로그인 위험 조건부 액세스 정책을 구성했으므로 Sarah에게 MFA 프롬프트 챌린지가 표시됩니다. 이 정책에 따르면 중간 수준 이상의 로그인 위험 발생 시에는 MFA를 진행해야 합니다. 
+3. 직원은 Contoso의 IT 관리자는 Id 보호에서 로그인 위험 조건부 액세스 정책을 구성 하기 때문에 MFA 프롬프트를 여 요구 됩니다. 이 정책에 따르면 중간 수준 이상의 로그인 위험 발생 시에는 MFA를 진행해야 합니다. 
 
-4. Sarah가 MFA 프롬프트를 통과하여 Exchange Online에 액세스합니다. 그리고 Sarah의 사용자 위험 수준은 변경되지 않았습니다. 
+4. MFA 프롬프트를 전달 하 고 Exchange Online에 액세스 하는 직원 및 해당 사용자 위험 수준은 변경 되지 않습니다. 
 
-이 시나리오의 경우, 백그라운드에서는 Tor 브라우저에서 로그인을 시도하여 Azure AD에서 익명 IP 주소에 대한 실시간 로그인 위험이 트리거되었습니다. Azure AD는 요청을 처리할 때 ID 보호에 구성된 로그인 위험 정책을 적용했습니다. Sarah의 로그인 위험 수준이 임계값인 중간을 충족했기 때문입니다. Sarah는 이전에 MFA에 등록해 두었으므로 프롬프트에 응답하여 MFA 챌린지를 통과할 수 있었습니다. Sarah가 MFA 챌린지를 정상적으로 통과했으므로 적법한 ID 소유자일 가능성이 높다는 정보가 Azure AD에 전달되었으며 사용자 위험 수준이 높아지지 않았습니다. 
+이 시나리오의 경우, 백그라운드에서는 Tor 브라우저에서 로그인을 시도하여 Azure AD에서 익명 IP 주소에 대한 실시간 로그인 위험이 트리거되었습니다. 요청을 처리 하는 Azure AD를 해당 직원의 로그인 위험 수준 (중간) 임계값을 충족 하기 때문에 Id 보호에 구성 된 로그인 위험 정책을 적용 합니다. MFA에 대 한 직원 이전에 등록 해야 하므로 응답 하 고 MFA 챌린지를 통과 하는 일을 할 것입니다. 성공적으로 MFA 챌린지를 통과 하는 데 Azure AD에 신호 있었던 합법적인 identity 소유자 가능성이 하는 사용자 위험 수준 증가 하지 않습니다. 
 
 
-반면 로그인을 시도한 사람이 Sarah가 아닌 경우에는 다음과 같은 단계가 진행됩니다. 
+그러나 직원 않았습니다 하나에 로그인을 시도 하는 경우에 어떻게? 
 
-1. Sarah의 자격 증명을 입수한 악의적인 행위자가 IP 주소를 숨기기 위해 Tor 브라우저에서 Sarah의 Exchange Online 계정 로그인을 시도합니다. 
+1. 직원의 자격 증명을 사용 하 여 악의적인 행위자는 해당 IP 주소를 숨기려는 하려고 하므로 Tor 브라우저에서 Exchange Online 계정에 로그인 하려고 합니다. 
 
 2. 익명 IP 주소의 로그인 시도를 Azure AD가 검색하여 실시간 로그인 위험을 트리거합니다. 
 
 3. 로그인 위험이 중간 이상일 때 MFA를 진행해야 하도록 Contoso IT 관리자가 ID 보호 로그인 위험 조건부 액세스 정책을 구성했으므로 악의적인 행위자에게 MFA 프롬프트 챌린지가 표시됩니다. 
 
-4. 악의적인 행위자의 MFA 챌린지가 실패하여 Sarah의 Exchange Online 계정에 액세스할 수 없게 됩니다. 
+4. 악의적인 행위자는 MFA 챌린지를 실패 하 고 직원의 Exchange Online 계정에 액세스할 수 없습니다. 
 
-5. MFA 프롬프트가 실패하여 위험 이벤트가 기록되며, 그러면 Sarah의 이후 로그인에 대한 사용자 위험 수준이 높아집니다. 
+5. 실패 한 MFA 프롬프트 트리거되는 위험 이벤트를 기록 하는 데 후속 로그인에 대 한 해당 사용자 위험 발생 합니다. 
 
-악의적인 행위자가 Sarah의 계정에 액세스를 시도한 이후 Sarah가 로그인을 시도할 때 진행되는 과정은 다음과 같습니다. 
+악의적인 행위자가 Sarah의 계정에 액세스를 시도 했으므로 다음에 로그인 하려고 하는 직원을 어떻게 확인해 보겠습니다. 
 
-1. Sarah가 Outlook에서 Exchange Online 로그인을 시도합니다. 로그인 시 Azure AD가 실시간 위험 이벤트와 이전 사용자 위험을 모두 검색합니다. 
+1. 직원은 Outlook에서 Exchange Online에 로그인 하려고 시도 합니다. 로그인 시 Azure AD가 실시간 위험 이벤트와 이전 사용자 위험을 모두 검색합니다. 
 
 2. 실시간 로그인 위험은 검색되지 않지만, 위의 시나리오에서 설명했던 이전의 위험한 활동으로 인해 높은 사용자 위험이 검색됩니다.  
 
-3. Sarah에게 암호 재설정 프롬프트 챌린지가 표시됩니다. 위험성이 높은 사용자가 로그인하면 암호를 변경해야 하도록 Contoso IT 관리자가 ID 보호 사용자 위험 정책을 구성했기 때문입니다. 
+3. 직원은 암호 재설정 메시지 부족할 때문에 Contoso의 IT 관리자 구성 Id 보호 사용자 위험 정책 위험 수준이 높은 사용 하 여 사용자가 로그인 할 때 암호를 변경 해야 합니다. 
 
-4. Sarah는 SSPR과 MFA에 등록되어 있으므로 암호를 정상적으로 재설정할 수 있습니다. 
+4. 직원이 SSPR MFA에 등록 되어 있으므로 자신의 암호를 재설정 성공적으로 있습니다. 
 
-5. 암호를 재설정했으므로 Sarah의 자격 증명은 더 이상 손상된 상태가 아니며, Sarah의 ID도 다시 안전한 상태가 됩니다. 
+5. 자신의 암호를 재설정 하 여 직원의 자격 증명이 더 이상 손상 된 및 해당 id를 안전한 상태로 반환 합니다. 
 
-6. 이전에 Sarah의 계정에서 발생했던 위험 이벤트가 해결되며, 자격 증명 손상이 완화되어 Sarah의 사용자 위험 수준이 자동으로 재설정됩니다. 
+6. 직원의 이전 위험 이벤트를 해결 하 고 자신의 사용자 위험 수준 자격 증명 손상을 완화에 대 한 응답으로 자동으로 다시 설정 됩니다. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>ID 보호 구성 방법 
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128284"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
 
@@ -543,7 +543,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 2. 인증 앱을 클릭하고 아래와 같이 **홈페이지 URL** 및 **권한 부여 콜백 URL**을 업데이트합니다.
 
-    | 설정 | 예 |
+    | 설정 | 예제 |
     | ------- | ------- |
     | 홈페이지 URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | 권한 부여 호출 URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |

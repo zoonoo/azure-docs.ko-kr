@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827677"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952942"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -51,7 +51,7 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 
 - **Azure 데이터 센터 IP 범위 허용**합니다. 이 옵션을 사용 하면 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 다운로드에서 합니다. 네트워크 보안 그룹 (NSG)에 액세스 하려면 Set-azurenetworksecurityrule cmdlet을 사용 합니다. 허용 목록에 추가 지역별 경우 Ip 있습니다 것도 필요한 Azure Active Directory (Azure AD)를 허용 목록에 서비스 태그 인증을 사용 하도록 설정 합니다.
 
-- **NSG 태그를 사용 하 여 액세스를 허용**합니다. Nsg를 사용 하 여 연결을 제한 하는 경우이 옵션 AzureBackup 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 하는 NSG 규칙을 추가 합니다. 이 태그 외에 해야 해당 [규칙](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) Azure ad 및 Azure Storage 인증 및 데이터 전송에 대 한 연결을 허용 하도록 합니다. AzureBackup 태그는 PowerShell에서 현재 사용할 수만 있습니다. AzureBackup 태그를 사용 하 여 규칙을 만들려면:
+- **NSG 태그를 사용 하 여 액세스를 허용**합니다. Nsg를 사용 하 여 연결을 제한 하는 경우이 옵션 AzureBackup 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 하는 NSG 규칙을 추가 합니다. 이 태그 외에 해야 해당 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) Azure ad 및 Azure Storage 인증 및 데이터 전송에 대 한 연결을 허용 하도록 합니다. AzureBackup 태그는 PowerShell에서 현재 사용할 수만 있습니다. AzureBackup 태그를 사용 하 여 규칙을 만들려면:
 
     - Azure 계정 자격 증명을 추가 하 고 국가별 클라우드를 업데이트 합니다.<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 
   - NSG를 저장 합니다.<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Azure 방화벽 태그를 사용 하 여 액세스를 허용할**합니다. Azure 방화벽을 사용 하는 경우는 AzureBackup를 사용 하 여 응용 프로그램 규칙을 만듭니다 [FQDN 태그](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags)합니다. Azure Backup에 대 한 아웃 바운드 액세스 허용
+- **Azure 방화벽 태그를 사용 하 여 액세스를 허용할**합니다. Azure 방화벽을 사용 하는 경우는 AzureBackup를 사용 하 여 응용 프로그램 규칙을 만듭니다 [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)합니다. Azure Backup에 대 한 아웃 바운드 액세스 허용
 - **트래픽을 라우트하도록 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업할 때 VM의 백업 확장이 HTTPS Api를 Azure Backup 및 Azure Storage에 데이터 관리 명령을 보내는 데 사용 합니다. 또한 예비 내선 번호는 인증에 대 한 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장은 공용 인터넷에 액세스 하도록 구성 된 유일한 구성 요소입니다.
 
 연결 옵션에는 장점과 단점은 다음과 같습니다.

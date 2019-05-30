@@ -4,15 +4,15 @@ description: 이 문서를 만들고 Azure Cosmos DB의 데이터베이스, 컨�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ea3ba91859bbfb1a7c589cdb36e9fb87b52a89b8
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560297"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954212"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>데이터베이스, 컨테이너 및 Azure Cosmos DB에서 항목을 사용 하 여 작동 합니다.
 

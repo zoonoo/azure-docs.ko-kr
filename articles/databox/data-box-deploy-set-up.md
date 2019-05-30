@@ -1,19 +1,19 @@
 ---
-title: Azure Data Box 설정| Microsoft Docs
+title: Azure Data Box 설치 자습서 | Microsoft Docs
 description: 장치에 케이블을 연결하고 Azure Data Box에 연결하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6a725784c419b67f7738b70ad867d2d6ef8b0785
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895756"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795968"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 

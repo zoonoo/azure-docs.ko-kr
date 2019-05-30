@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: bb03e4b5b04a0272d8fa9b032da5adb50878b620
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 51a75ee7bf87c38e3916bdbc8d85abcfb14dca8b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809478"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140243"
 ---
 1. [Azure Portal](https://portal.azure.com/)에서 **모두 찾아보기** > **App Services** > Mobile Apps 백 엔드를 클릭합니다. **설정** 아래에서 **App Service 푸시**를 클릭한 후 알림 허브 이름을 클릭합니다.
 2. **Google(GCM)** 로 이동하고, 이전 절차에서 Firebase로부터 얻은 **Server Key** 값을 입력한 다음 **저장**을 클릭합니다.

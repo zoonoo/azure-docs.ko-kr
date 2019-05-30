@@ -52,7 +52,7 @@ sections:
           - image:
               src: media/logo_Java.svg
             href: quickstarts/detect-data-anomalies-java
-            text: 자바
+            text: Java
           - image:
               src: media/logo_python.svg
             href: quickstarts/detect-data-anomalies-python

@@ -182,7 +182,7 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 * 바탕 화면 바로 가기를 사용하면 Azure SDK 설명서로 이동합니다.
 * **AzCopy**를 사용하여 Azure Storage 계정 간에 데이터를 복사합니다. 사용법을 보려면 명령 프롬프트에서 **Azcopy**를 입력합니다.
-* **Azure Storage 탐색기**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage 탐색기**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
+* **Azure Storage 탐색기**를 사용하여 Azure Storage 계정에 저장한 개체를 찾아봅니다. Azure Storage 간에도 데이터를 복사합니다. 이 도구에 액세스하려면 **검색** 필드에서 **Storage Explorer**를 입력합니다. 또는 Windows **시작** 메뉴에서 찾습니다.
 * **Adlcopy**는 데이터를 Azure Data Lake로 복사합니다. 사용법을 보려면 명령 프롬프트에서 **adlcopy**를 입력합니다.
 * **dtui**는 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB 간에 데이터를 복사합니다. 명령 프롬프트에서 **dtui**를 입력합니다.
 * **Azure Data Factory Integration Runtime**은 온-프레미스 데이터 원본과 클라우드 간에 데이터를 복사합니다. Azure Data Factory와 같은 도구 내에서 사용합니다.

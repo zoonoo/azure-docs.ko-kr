@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306141"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962905"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure Front Door Service를 사용한 캐싱
 다음 문서는 캐싱을 허용하고 회람 규칙을 사용하는 Front Door의 동작을 설명합니다.
@@ -101,7 +101,7 @@ Front Door의 캐시 제거에서는 대/소문자를 구분하지 않습니다.
 ## <a name="cache-expiration"></a>캐시 만료
 항목이 캐시에 저장될 기간을 결정하기 위해 다음 순서의 헤더가 사용됩니다.</br>
 1. Cache-control: 기간 =\<시간 (초) >
-2. Cache-Control: maxage=\<seconds>
+2. Cache-Control: max-age=\<seconds>
 3. 만료: \<http 날짜 >
 
 Cache-Control: private, Cache-Control: no-cache 및 Cache-Control: no-store와 같이 응답이 캐시되지 않음을 나타내는 Cache-Control 응답 헤더가 적용됩니다. 그러나 여러 요청이 동일한 URL에 대해 POP에서 이동 중인 경우 해당 응답을 공유할 수도 있습니다. 없는 Cache-control이 있는 경우 기본 동작은 AFD 시간 X에 대 한 리소스를 캐시 하는 여기서 X는 임의로 선택 됩니다 1 ~ 3 일 사이입니다.

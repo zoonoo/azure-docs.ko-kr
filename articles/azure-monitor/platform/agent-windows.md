@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138138"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952478"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -54,9 +54,9 @@ Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 �
 Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜을 사용하도록 구성하려면 아래 단계에 따라 가상 머신에 에이전트를 설치하기 전이나 나중에 활성화하면 됩니다.   
 
 1. 다음 레지스트리 하위 키를 찾습니다. **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. **프로토콜** 아래에서 TLS 1.2에 대한 하위 키를 만듭니다. **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. 이전에 만든 TLS 1.2 프로토콜 버전 하위 키 아래에 **클라이언트** 하위 키를 만듭니다. 예를 들어 다음과 같습니다. **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**
-4. 다음 아래에 DWORD 값을 만듭니다. **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**
+2. 아래에 하위 키를 만듭니다 **프로토콜** TLS 1.2에 대 한 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. 이전에 만든 TLS 1.2 프로토콜 버전 하위 키 아래에 **클라이언트** 하위 키를 만듭니다. 예를 들어 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**합니다.
+4. 아래에 다음 DWORD 값을 만듭니다 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **사용** [값 = 1]
     * **DisabledByDefault** [값 = 0]  

@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324914"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909686"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     ![제거 단추](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 제거 요청은 **Verizon의 Azure CDN**(표준 및 프리미엄)으로 처리하려면 약 2-3분, **Akamai의 Azure CDN**으로 처리하려면 약 7분이 소요됩니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 50개로 제한됩니다. 
+> 제거 요청으로 처리 하는 데 약 2 분이 소요 **Microsoft의 Azure CDN** 하 고 **verizon에서의 Azure CDN** (표준 및 프리미엄) 및 사용 하 여 약 10 초 **Azure CDN akamai에서**합니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 50개로 제한됩니다. 
 > 
 > 
 

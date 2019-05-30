@@ -16,11 +16,11 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab0a5b021048f0f684473d3f54bbeadf870cd007
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112809"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성
 

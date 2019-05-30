@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877272"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827158"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>빠른 시작: C#의 URL 미리 보기 쿼리
 
@@ -23,7 +23,7 @@ ms.locfileid: "55877272"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (무료 Community Edition이 작동됩니다.)
+Windows에서 이 코드를 실행하려면 [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
 
 [Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 

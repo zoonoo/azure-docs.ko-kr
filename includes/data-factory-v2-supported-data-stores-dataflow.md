@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: jingwang
 ms.openlocfilehash: 7b54b6b369e15ca0a712efefec5c7817e88d9065
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199290"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120477"
 ---
 | Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 | 지 원하는 [데이터 흐름](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |

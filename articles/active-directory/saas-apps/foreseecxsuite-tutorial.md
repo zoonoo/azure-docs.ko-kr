@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999760"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ ForeSee CX Suite를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 * 사용자가 자신의 Azure AD 계정으로 ForeSee CX Suite에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -194,7 +194,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="create-foresee-cx-suite-test-user"></a>ForeSee CX Suite 테스트 사용자 만들기
 
-이 섹션에서는 ForeSee CX Suite에서 Britta Simon이라는 사용자를 만듭니다. [ForeSee CX Suite 지원 팀](mailto:support@foresee.com)과 협력하여 ForeSee CX Suite 플랫폼의 허용 목록에 포함하는 데 필요한 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 ForeSee CX Suite 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ForeSee CX Suite에서 Britta Simon이라는 사용자를 만듭니다. [ForeSee CX Suite 지원 팀](mailto:support@foresee.com)과 협력하여 ForeSee CX Suite 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 ForeSee CX Suite 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

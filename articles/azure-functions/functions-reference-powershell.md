@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530385"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833513"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure PowerShell 함수 개발자 가이드
 
@@ -23,9 +23,9 @@ ms.locfileid: "64530385"
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-PowerShell 함수는 트리거될 때 실행 되는 PowerShell 스크립트로 표시 됩니다. 각 함수 스크립트에 트리거되는 방법 등 함수 작동 방식 및 입력 및 출력 매개 변수를 정의 하는 관련 된 function.json 자세한 내용은 참조는 [트리거 및 바인딩 문서](functions-triggers-bindings.md)합니다. 
+PowerShell Azure function (함수)는 트리거될 때 실행 되는 PowerShell 스크립트로 표시 됩니다. 함수 스크립트 마다 관련 `function.json` 트리거됩니다 방법 등의 함수 동작 방식을 정의 하는 파일 및 해당 입력 및 출력 매개 변수입니다. 자세한 내용은 참조는 [트리거 및 바인딩 문서](functions-triggers-bindings.md)합니다. 
 
-다른 종류의 함수 처럼 PowerShell 스크립트 function.json에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수를 사용 합니다. `TriggerMetadata` 매개 변수는 함수를 시작 하는 트리거 추가 정보를 포함 하는 또한으로 전달 합니다.
+다른 종류의 함수 처럼 PowerShell 스크립트 함수에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수에서 사용 된 `function.json` 파일입니다. `TriggerMetadata` 매개 변수는 함수를 시작 하는 트리거 추가 정보를 포함 하는 또한으로 전달 합니다.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 도 완료 해야 합니다 [powershell Functions 빠른 시작](functions-create-first-function-powershell.md) 첫 번째 PowerShell 함수를 만들려고 합니다.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-프로젝트 루트에는 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일 (.ps1) 및 바인딩 구성 파일 (function.json)를 사용 하 여 폴더에 있습니다. `function.json`의 부모 디렉터리 이름은 항상 함수의 이름입니다.
+프로젝트의 루트에 없는 공유 [ `host.json` ](functions-host-json.md) 함수 앱을 구성 하는 파일입니다. 각 함수에는 고유한 코드 파일 (.ps1) 및 바인딩 구성 파일을 사용 하 여 폴더 (`function.json`). Function.json 파일의 부모 디렉터리의 이름은 항상 함수의 이름입니다.
 
-특정 바인딩이 필요는 `extensions.csproj`합니다. 바인딩 확장에 필요 [버전 2.x](functions-versions.md) Functions 런타임의 정의 된 합니다 `extensions.csproj` 파일의 실제 라이브러리 파일을 사용 하 여를 `bin` 폴더. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+특정 바인딩이 필요는 `extensions.csproj` 파일입니다. 바인딩 확장에 필요 [버전 2.x](functions-versions.md) Functions 런타임의 정의 된 합니다 `extensions.csproj` 파일의 실제 라이브러리 파일을 사용 하 여를 `bin` 폴더. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 PowerShell 함수 앱에서 필요에 따라 했을 수 있습니다는 `profile.ps1` 함수 앱을 실행 하기 시작할 때 실행 되는 (그렇지 않은 경우으로 알고 있는  *[콜드](#cold-start)* 합니다. 자세한 내용은 [PowerShell 프로필](#powershell-profile)합니다.
 
@@ -81,7 +81,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 자산   | 설명                                     | Type     |
+| 자산   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | 시기, utc에서는 함수가 트리거되는        | DateTime |
 | MethodName | 트리거된 함수 이름     | 문자열   |
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은 호출에 대 한 올바른 매개 변수 `Push-OutputBinding`:
 
-| 이름 | Type | Position | 설명 |
+| Name | Type | Position | 설명 |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 출력 바인딩의 사용할 값을 설정 하려면 ByValue 파이프라인에서 허용 되는 합니다. |
@@ -302,9 +302,9 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 요청 개체는 유형이 `HttpRequestContext`, 다음 속성이 있는:
 
-| 자산  | 설명                                                    | Type                      |
+| 자산  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | object |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | 개체 |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | Dictionary < 문자열, 문자열 ><sup>*</sup> |
 | **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | Dictionary < 문자열, 문자열 ><sup>*</sup> |
@@ -317,9 +317,9 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 유형이 `HttpResponseContext`, 다음 속성이 있는:
 
-| 자산      | 설명                                                 | Type                      |
+| 자산      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
 | **`ContentType`** | 응답에 대 한 내용 유형을 설정 하는 것에 대 한 짧은 손 모양입니다. | 문자열                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 이나 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |

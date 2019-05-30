@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228405"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978809"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용 
 
@@ -29,7 +29,23 @@ ms.locfileid: "65228405"
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus 역할 및 사용 권한
 
-관리 ID는 Service Bus 네임스페이스의 "소유자" 또는 "참가자" 역할에만 추가할 수 있습니다. 이러한 역할에 ID를 추가하면 네임스페이스의 모든 엔터티에 대한 모든 제어 권한이 ID에 부여됩니다. 그러나 네임스페이스 토폴로지를 변경하는 관리 작업은 처음에는 Azure Resource Manager를 통해서만 지원되고 네이티브 Service Bus REST 관리 인터페이스를 통해서는 지원되지 않습니다. 이 지원은.NET Framework 클라이언트를 사용할 수 없다는 의미 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는.NET Standard 클라이언트 [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) 내의 id 관리 되는 개체입니다.
+Service Bus 네임 스페이스의 "Service Bus 데이터 소유자" 역할에는 관리 되는 id를 추가할 수 있습니다. Id, 네임 스페이스의 모든 엔터티에 대해 모든 권한 (에 대 한 관리 및 데이터 작업)을 부여합니다.
+
+>[!IMPORTANT]
+> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **"소유자"** 또는 **"참가자"** 역할입니다.
+>
+> 그러나 데이터 액세스에 대 한 권한을 **"소유자"** 및 **"참가자"** 역할 더 이상 적용 됩니다. 사용한 경우는 **"소유자"** 또는 **"참가자"** 역할을 활용 하도록 조정할 필요 합니다 **"Service Bus 데이터 소유자"** 역할.
+
+새 기본 제공 역할을 사용 하려면 하세요 완료는 아래 단계-
+
+1. 이동 된 [Azure portal](https://portal.azure.com)
+2. 여기서 설정한 현재 "소유자" 또는 "참가자" 역할을 Service Bus 네임 스페이스를 이동 합니다.
+3. 왼쪽 메뉴에서 "액세스 제어 (iam)"를 클릭 합니다.
+4. 아래와 같이 새 역할 할당을 추가 하려면 계속 진행
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. 새 역할 할당을 저장 하려면 "저장"을 누릅니다.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용
 
@@ -51,7 +67,7 @@ ms.locfileid: "65228405"
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>새 Service Bus 메시지 네임스페이스 만들기
 
-그런 다음, RBAC에 대한 미리 보기 지원이 있는 Azure 지역 중 한 곳에 [Service Bus 메시지 네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**. 
+그런 다음, [Service Bus 메시징 네임 스페이스 만들기](service-bus-create-namespace-portal.md)합니다. 
 
 포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 관리형 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 애플리케이션의 이름을 검색하고 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
 

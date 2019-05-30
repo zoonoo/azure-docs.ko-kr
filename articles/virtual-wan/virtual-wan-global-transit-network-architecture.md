@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414062"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965975"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>전역 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -48,7 +48,7 @@ Azure 지역 Azure 가상 WAN 아키텍처에서 분기를 연결 하도록 선�
 
 ## <a name="crossregion"></a>지역 간 연결
 
-기업에서는 클라우드 공간은 일반적으로 실제 설치 공간을 따릅니다. 대부분의 기업은 해당 물리적 사이트 및 사용자에 게 가장 가까운 지역에서 클라우드를 액세스 합니다. 네트워크 엔터티와 끝점 간의 지역 간 연결을 사용 하도록 설정 방법은 전역 네트워크 아키텍처의 주요 보안 주체 중 하나입니다. 클라우드 사용 공간을 여러 지역에 걸쳐 있을 수 있습니다. 이 트래픽이 한 지역에서 클라우드로 연결 된 분기에서 다른 분기 또는 다른 지역의 VNet에 연결할 수 있는지를 의미 합니다.
+기업에서는 클라우드 공간은 일반적으로 실제 설치 공간을 따릅니다. 대부분의 기업은 해당 물리적 사이트 및 사용자에 게 가장 가까운 지역에서 클라우드를 액세스 합니다. 네트워크 엔터티와 끝점 간의 지역 간 연결을 사용 하도록 설정 방법은 전역 네트워크 아키텍처의 주요 보안 주체 중 하나입니다. 클라우드 사용 공간을 여러 지역에 걸쳐 있을 수 있습니다. 이 트래픽이 한 지역에서 클라우드로 연결 된 분기에서 다른 분기 또는 현재 미리 보기에는 허브-허브 연결을 사용 하 여 다른 지역의 VNet에 연결할 수 있는지를 의미 합니다.
 
 ## <a name="any"></a>Any-임의의 연결
 
@@ -89,7 +89,7 @@ Azure 가상 WAN 다음 전역 전송 연결 경로 지원합니다. 괄호 안�
 
 ### <a name="vnetvnet"></a>VNet 피어 링을 사용 하 여 VNet 대 VNet 전송
 
-여러 Vnet에서 구현 되는 다중 계층 응용 프로그램을 지원 하기 위해 서로에 Vnet를 연결, VNet 피어 링을 사용 합니다. Azure 가상 WAN을 통해 VNet 대 VNet 전송 시나리오는 현재 지원 되지 않는 이지만 Azure 로드맵 상에 있습니다. VNet 피어 링을 통해 Vnet을 연결 하는 것은 서로 연결 해야 하는 Vnet에 대 한 권장 솔루션입니다. VNet 피어 링 하는 방법에 대 한 자세한 내용은 참조 하세요. [VNet 피어 링 개요](../virtual-network/virtual-network-peering-overview.md)합니다.
+여러 Vnet에서 구현 되는 다중 계층 응용 프로그램을 지원 하기 위해 서로에 Vnet를 연결, VNet 피어 링을 사용 합니다. Azure 가상 WAN을 통해 VNet 대 VNet 전송 시나리오는 현재 지원 되지 않는 이지만 Azure 로드맵 상에 있습니다. VNet 피어 링을 통해 Vnet을 연결 하는 것은 서로 연결 해야 하는 Vnet에 대 한 권장 솔루션입니다. [게이트웨이 전송은](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (의 컨텍스트에서 VNet 피어 링) 필요 하지 않은 가상 WAN에 대 한 가상 WAN 게이트웨이 전송 중에 자동으로 사용 합니다.
 
 ### <a name="globalreach"></a>ExpressRoute Global Reach
 

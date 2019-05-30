@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794119"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957301"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 
@@ -43,10 +43,14 @@ Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Maps 계정의 가격 책정 계층을 관리하는 방법을 알아봅니다.
-    > [!div class="nextstepaction"] 
-    > [가격 책정 계층 관리](./how-to-manage-pricing-tier.md)
+Azure Maps를 사용 하 여 인증을 설정 합니다.
+> [!div class="nextstepaction"]
+> [인증 관리](how-to-manage-authentication.md)
 
-* Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
-    > [!div class="nextstepaction"] 
-    > [사용 메트릭 보기](./how-to-view-api-usage.md)
+Azure Maps 계정의 가격 책정 계층을 관리하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [가격 책정 계층 관리](how-to-manage-pricing-tier.md)
+
+Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [사용 메트릭 보기](how-to-view-api-usage.md)

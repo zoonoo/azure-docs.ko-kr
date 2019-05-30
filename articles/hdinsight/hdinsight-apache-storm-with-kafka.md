@@ -1,7 +1,6 @@
 ---
 title: '자습서: Apache Storm을 사용하여 Apache Kafka로 데이터 읽기 및 쓰기 - Azure HDInsight'
 description: HDInsight에서 Apache Storm 및 Apache Kafka를 사용하여 스트리밍 파이프라인을 만드는 방법을 알아봅니다. 이 자습서에서는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에서 데이터를 스트리밍합니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316952"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873023"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -80,7 +79,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Storm 토폴로지 내에서 사용되는 튜플 데이터 구조에서 Kafka에 저장되는 필드로 매핑합니다.
 
 이러한 구성 요소는 `org.apache.storm : storm-kafka` 패키지에서 사용할 수 있습니다. Storm 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Storm 버전은 1.1.0입니다.
-또한 추가 Kafka 구성 요소를 포함하는 `org.apache.kafka : kafka_2.10` 패키지도 필요합니다. Kafka 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Kafka 버전은 0.10.0.0입니다.
+또한 추가 Kafka 구성 요소를 포함하는 `org.apache.kafka : kafka_2.10` 패키지도 필요합니다. Kafka 버전과 일치하는 패키지 버전을 사용합니다. HDInsight 3.6의 경우 Kafka 버전은 1.1.1입니다.
 
 다음 XML은 [Apache Maven](https://maven.apache.org/) 프로젝트에 대한 `pom.xml`의 종속성 선언입니다.
 
@@ -95,7 +94,7 @@ Apache Storm은 Apache Kafka로 작업하기 위한 몇 가지 구성 요소를 
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -392,7 +391,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿의 위치는 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**입니다. 이 템플릿은 다음 리소스를 만듭니다.
+    Azure Resource Manager 템플릿의 위치는 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** 입니다. 이 템플릿은 다음 리소스를 만듭니다.
     
     * Azure 리소스 그룹
     * Azure Virtual Network

@@ -33,7 +33,7 @@ Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되�
 * JuliaPro - 인기 있는 과학 및 데이터 분석 라이브러리와 함께 Julia 언어의 큐레이트 배포
 * 독립 실행형 Spark 인스턴스 및 단일 노드 Hadoop(HDFS, Yarn)
 * JupyterHub - R, Python, PySpark, Julia 커널을 지원하는 다중 사용자 Jupyter Notebook 서버
-* Azure Storage 탐색기
+* Azure Storage Explorer
 * Azure 리소스 관리를 위한 Azure CLI(명령줄 인터페이스)
 * PostgresSQL 데이터베이스
 * 기계 학습 도구
@@ -255,7 +255,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
+* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 * **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.

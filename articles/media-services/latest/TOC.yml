@@ -50,7 +50,7 @@
         - name: Storage
           href: storage-account-concept.md
           displayName: Storage side encryption
-        - name: 자산 API
+        - name: 자산
           href: assets-concept.md
     - name: Encoding
       items:
@@ -275,7 +275,7 @@
       items:
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-ref'
-        - name: 자바
+        - name: Java
           href: 'https://aka.ms/ams-v3-java-ref'
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
@@ -310,7 +310,7 @@
           href: 'https://aka.ms/ams-v3-cli'
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'
-        - name: 자바
+        - name: Java
           href: 'https://aka.ms/ams-v3-java-sdk'
         - name: Python
           href: 'https://aka.ms/ams-v3-python-sdk'

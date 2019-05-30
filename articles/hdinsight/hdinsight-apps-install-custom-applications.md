@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706377"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859805"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -116,8 +116,8 @@ HDInsight 애플리케이션을 삭제하는 방법에는 여러 가지가 있�
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 Azure PowerShell을 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure PowerShell을 사용하여 클러스터 삭제](hdinsight-administer-use-powershell.md#delete-clusters)를 참조하세요.
 
-### <a name="use-azure-classic-cli"></a>Azure 클래식 CLI 사용
-Azure 클래식 CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure 클래식 CLI를 사용하여 클러스터 삭제](hdinsight-administer-use-command-line.md#delete-clusters)를 참조하세요.
+### <a name="use-azure-cli"></a>Azure CLI 사용
+Azure CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure CLI를 사용하여 클러스터 삭제](hdinsight-administer-use-command-line.md#delete-clusters)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 배포하기 위해 Resource Manager 템플릿을 개발하는 방법을 알아봅니다.

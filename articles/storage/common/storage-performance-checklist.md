@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477299"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951164"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
 Microsoft Azure Storage 서비스가 출시된 이후 Microsoft는 이러한 서비스를 성능 기준에 맞는 방식으로 사용할 수 있도록 효율성이 검증된 다양한 작업 방식을 개발했습니다. 이 문서에는 이러한 작업 방식 중 가장 중요한 항목을 검사 목록 스타일의 목록으로 통합되어 있습니다. 이 문서에서는 애플리케이션 개발자가 Azure Storage와 관련하여 검증된 작업 방식을 사용하고 있는지를 확인하고, 도입을 고려해야 하는 기타 검증된 작업 방식을 파악하는 데 도움이 되는 정보를 제공합니다. 그러나 가능한 모든 성능 및 확장성 최적화 기능에 대해 다루지는 않으며, 큰 영향을 주지 않거나 광범위하게 적용할 수 없는 기능은 제외됩니다. 디자인 중에 애플리케이션 동작을 예측할 수 없는 범위 내에서는 이러한 사항을 초기에 파악해 두면 성능 문제를 야기하는 디자인을 피하는 데 유용합니다.  
 
-Azure Storage를 사용하는 모든 애플리케이션 개발자는 시간을 할애하여 이 문서의 내용을 파악하고 자신이 개발한 애플리케이션이 아래에 나와 있는 각각의 검증된 작업 방식을 따르는지를 확인해야 합니다.  
+Azure Storage를 사용 하 여 모든 응용 프로그램 개발자는이 문서를 읽고 해당 응용 프로그램의 검증 아래에 나열 된 각 따르는지를 확인 하는 시간을 수행 해야 합니다.  
 
 ## <a name="checklist"></a>검사 목록
 이 문서에는 검증된 작업 방식이 다음과 같은 그룹으로 구성되어 있습니다. 검증된 작업 방식이 적용되는 대상은 다음과 같습니다.  
@@ -29,7 +29,7 @@ Azure Storage를 사용하는 모든 애플리케이션 개발자는 시간을 �
 * 테이블
 * 큐  
 
-| 완료된 | 영역 | Category | 질문 |
+| 완료 | 영역 | Category | 질문 |
 | --- | --- | --- | --- |
 | &nbsp; | 모든 서비스 |확장성 목표 |[애플리케이션이 확장성 목표에 도달하지 않도록 설계되어 있습니까?](#subheading1) |
 | &nbsp; | 모든 서비스 |확장성 목표 |[명명 규칙이 부하 분산 향상에 맞게 설계되었습니까?](#subheading47) |
@@ -38,8 +38,8 @@ Azure Storage를 사용하는 모든 애플리케이션 개발자는 시간을 �
 | &nbsp; | 모든 서비스 |네트워킹 |[클라이언트 애플리케이션이 스토리지 계정 "근처"에 있습니까?](#subheading4) |
 | &nbsp; | 모든 서비스 |콘텐츠 배포 |[콘텐츠 배포를 위해 CDN을 사용합니까?](#subheading5) |
 | &nbsp; | 모든 서비스 |직접 클라이언트 액세스 |[SAS 및 CORS를 사용하여 프록시가 아닌 저장소에 직접 액세스를 허용합니까?](#subheading6) |
-| &nbsp; | 모든 서비스 |구성 |[애플리케이션에서 반복적으로 사용되며 거의 변경되지 않는 데이터를 캐시합니까?](#subheading7) |
-| &nbsp; | 모든 서비스 |구성 |[애플리케이션에서 업데이트를 일괄 처리(클라이언트 쪽에서 업데이트를 캐시한 다음, 더 큰 집합으로 업로드)합니까?](#subheading8) |
+| &nbsp; | 모든 서비스 |캐싱 |[애플리케이션에서 반복적으로 사용되며 거의 변경되지 않는 데이터를 캐시합니까?](#subheading7) |
+| &nbsp; | 모든 서비스 |캐싱 |[애플리케이션에서 업데이트를 일괄 처리(클라이언트 쪽에서 업데이트를 캐시한 다음, 더 큰 집합으로 업로드)합니까?](#subheading8) |
 | &nbsp; | 모든 서비스 |.NET 구성 |[클라이언트가 충분한 수의 동시 연결을 사용하도록 구성했습니까?](#subheading9) |
 | &nbsp; | 모든 서비스 |.NET 구성 |[.NET이 충분한 수의 스레드를 사용하도록 구성했습니까?](#subheading10) |
 | &nbsp; | 모든 서비스 |.NET 구성 |[가비지 수집 기능이 개선된 .NET 4.5 이상을 사용 중입니까?](#subheading11) |
@@ -159,7 +159,7 @@ SAS에 대한 자세한 내용은 [공유 액세스 서명 1부: SAS 모델 이�
 
 CORS에 대한 자세한 내용은 [Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원](https://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.  
 
-### <a name="caching"></a>구성
+### <a name="caching"></a>캐싱
 #### <a name="subheading7"></a>데이터 가져오기
 일반적으로는 서비스에서 데이터를 가져오는 횟수가 적을수록 좋습니다. 웹 역할에서 실행 중인 MVC 웹 애플리케이션이 사용자에게 콘텐츠로 제공하기 위해 스토리지 서비스에서 50MB의 Blob을 이미 검색했다고 가정해 보겠습니다. 이 애플리케이션은 사용자가 요청할 때마다 같은 Blob을 검색할 수도 있고, 해당 Blob을 디스크에 로컬로 캐시하고, 후속 사용자 요청에 대해 캐시된 버전을 다시 사용할 수도 있습니다. 또한 사용자가 데이터를 요청할 때 애플리케이션은 수정 시간에 대한 조건부 헤더가 포함된 GET을 실행할 수도 있습니다. 이 경우 Blob이 수정되지 않았으면 전체 Blob을 가져오지 않습니다. 테이블 엔터티 사용 시에도 이와 같은 패턴을 적용할 수 있습니다.  
 

@@ -75,14 +75,14 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 ## <a name="syntax-details"></a>구문 세부 정보
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 |작업의 이름 |예 |
+| name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아닙니다. |
-| 형식 |HDinsightHive |예 |
+| type |HDinsightHive |예 |
 | inputs |Hive 활동에서 사용된 입력 |아닙니다. |
 | outputs |Hive 활동에서 생성된 출력 |예. |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예. |
 | script |Hive 스크립트 인라인 지정 |아닙니다. |
-| script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
+| scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아닙니다. |
 
 ## <a name="example"></a>예

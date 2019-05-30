@@ -9,11 +9,11 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858097"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148992"
 ---
 이 자습서를 완료하려면 다음 요구 사항을 충족해야 합니다.
 

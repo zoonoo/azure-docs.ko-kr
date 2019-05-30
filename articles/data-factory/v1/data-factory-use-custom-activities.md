@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254647"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910824"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
 ### <a name="prerequisites"></a>필수 조건
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
@@ -100,10 +100,10 @@ public IDictionary<string, string> Execute(
 ### <a name="procedure"></a>절차
 1. **.NET 클래스 라이브러리** 프로젝트를 만듭니다.
    <ol type="a">
-     <li><b>Visual Studio 2017</b> 또는 <b>Visual Studio 2015</b> 또는 <b>Visual Studio 2013</b> 또는 <b>Visual Studio 2012</b>를 시작합니다.</li>
+     <li>Visual Studio를 시작합니다.</li>
      <li><b>File</b>을 클릭하고 <b>New</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
      <li><b>템플릿</b>을 확장하고 <b>Visual C#</b>를 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
-     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. VS 2017에서 <b>클래스 라이브러리(.NET Framework)</b> 를 선택합니다.</li>
+     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. Visual studio에서 <b>클래스 라이브러리 (.NET Framework)</b> </li>
      <li><b>이름</b>에 <b>MyDotNetActivity</b>를 입력합니다.</li>
      <li><b>위치</b>에 <b>C:\ADFGetStarted</b>를 선택합니다.</li>
      <li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>

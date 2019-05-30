@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546733"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145868"
 ---
 공유 이미지 갤러리는 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데 사용할 수 있는 서비스입니다. 공유 이미지 갤러리를 제공합니다.
 
@@ -80,11 +80,11 @@ ms.locfileid: "65546733"
 | 오스트레일리아 중부   | 미국 중부 EUAP | 한국 중부    | 영국 남부 2      |
 | 오스트레일리아 중부 2 | 동아시아       | 한국 남부      | 영국 서부         |
 | 오스트레일리아 동부      | 미국 동부         | 미국 중북부 | 미국 중서부 |
-| 오스트레일리아 남동부 | 미국 동부 2       | 유럽 북부     | 서유럽     |
+| 오스트레일리아 남동부 | 미국 동부 2       | 북유럽     | 서유럽     |
 | 브라질 남부        | 미국 동부 2 EUAP  | 미국 중남부 | 인도 서부      |
 | 캐나다 중부      | 프랑스 중부  | 인도 남부      | 미국 서부         |
 | 캐나다 동부         | 프랑스 남부    | 동남아시아   | 미국 서부         |
-| 중앙 인도       | 일본 동부      | 영국 북부         | 미국 서부 2       |
+| 인도 중부       | 일본 동부      | 영국 북부         | 미국 서부 2       |
 | 미국 중부          | 일본 서부      | 영국 남부         |                 |
 
 

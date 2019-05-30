@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 74f15452c7def068403b97b11e784170835edc18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65827491"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156316"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager 요청 인증 준비
 Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.

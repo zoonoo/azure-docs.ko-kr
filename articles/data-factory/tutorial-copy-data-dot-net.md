@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dbf45853f5f7a440578f3a9005831a4ef63d85e7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792436"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65778856"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -28,7 +28,7 @@ ms.locfileid: "58792436"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure Storage 및 Azure SQL Database 연결된 서비스를 만듭니다.
-> * Azure BLob 및 Azure SQL Database 데이터 세트를 만듭니다.
+> * Azure Blob 및 Azure SQL Database 데이터 세트를 만듭니다.
 > * 복사 작업이 포함된 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338448"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689503"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
-이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv1 및 IKEv2) VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. 가상 WAN에 대한 자세한 내용은 [가상 WAN 개요](virtual-wan-about.md)를 참조하세요.
+이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv1 및 IKEv2) VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 > [!NOTE]
 > 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 디바이스를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
@@ -32,6 +32,7 @@ ms.locfileid: "58338448"
 > * 사이트 만들기
 > * 허브 만들기
 > * 사이트에 허브 연결
+> * 호환되는 VNet 만들기(아직 없는 경우)
 > * 허브에 VNet 연결
 > * VPN 디바이스 구성 다운로드 및 적용
 > * 가상 WAN 보기
@@ -40,21 +41,15 @@ ms.locfileid: "58338448"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. 가상 네트워크 만들기
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. 가상 WAN 만들기
+## <a name="openvwan"></a>1. 가상 WAN 만들기
 
 브라우저에서 [Azure 포털](https://aka.ms/azurevirtualwanpreviewfeatures) 로 이동하고 Azure 계정으로 로그인합니다.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. 사이트 만들기
+## <a name="site"></a>2. 사이트 만들기
 
 물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 이 때, 사이트에 대한 개인 주소 공간은 하나만 지정할 수 있습니다.
 
@@ -62,21 +57,21 @@ ms.locfileid: "58338448"
 2. **VPN 사이트** 페이지에서 **+사이트 만들기**를 클릭합니다.
 3. **사이트 만들기** 페이지에서 다음 필드를 채웁니다.
 
-   * **이름** - 온 - 프레미스 사이트를 참조할 때 사용하려는 이름입니다.
+   * **이름** - 온-프레미스 사이트를 참조할 때 사용하려는 이름입니다.
    * **공용 IP 주소** - 온-프레미스 사이트에 상주하는 VPN 디바이스의 공용 IP 주소입니다.
    * **개인 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
    * **구독** - 구독을 확인합니다.
    * **리소스 그룹** - 사용하려는 리소스 그룹입니다.
-   * **위치** -
+   * **위치**:
 4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. **디바이스 정보**(선택적 필드)를 입력할 수도 있습니다. 이렇게 하면 Azure 팀이 환경을 더 잘 이해하고 향후 최적화 가능성을 높이거나 문제를 해결하는 데 도움이 됩니다.
 5. **확인**을 클릭합니다.
 6. **확인** 을 클릭한 다음 VPN 사이트 페이지에서 상태를 확인합니다. 사이트가 **프로비저닝 중**에서 **프로비저닝됨**으로 이동됩니다.
 
-## <a name="hub"></a>4. 허브 만들기
+## <a name="hub"></a>3. 허브 만들기
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. 사이트를 허브와 연결합니다.
+## <a name="associate"></a>4. 사이트를 허브와 연결합니다.
 
 일반적으로 허브는 VNet이 있는 동일한 지역에 있는 사이트와 연결되어야 합니다.
 
@@ -85,6 +80,12 @@ ms.locfileid: "58338448"
 3. 여기에서 특정 **PSK**를 추가하거나 기본값을 사용할 수도 있습니다.
 4. **확인**을 클릭합니다.
 5. **VPN 사이트** 페이지에서 연결 상태를 볼 수 있습니다.
+
+## <a name="vnet"></a>5. 가상 네트워크 만들기
+
+VNet이 없으면 PowerShell 또는 Azure Portal을 사용하여 신속하게 만들 수 있습니다. VNet이 이미 있는 경우에는 필요한 조건을 충족하는지 가상 네트워크 게이트웨이가 없는지 확인합니다.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. 허브에 VNet 연결
 
@@ -114,7 +115,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 디바이스 구성 파일은 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
 * **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
-* **vpnSiteConnections -** 이 섹션은 다음 항목에 대한 정보를 제공합니다.
+* **vpnSiteConnections -** 이 섹션에서는 다음 설정에 관한 정보를 제공합니다.
 
     * 가상 허브 VNet의 **주소 공간**<br>예제:
  
@@ -126,7 +127,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * 가상 허브 vpngateway의 **IP 주소**. vpngateway에는 활성-활성 구성의 2개 터널로 구성된 각 연결이 있기 때문에 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예제:
+    * 가상 허브 vpngateway의 **IP 주소**. vpngateway의 각 연결은 활성-활성 구성의 2개 터널로 구성되므로 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예제:
 
         ``` 
         "Instance0":"104.45.18.186"

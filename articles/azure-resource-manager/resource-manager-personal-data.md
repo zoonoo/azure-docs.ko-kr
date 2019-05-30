@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
 ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128464"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Azure Resource Manager와 관련된 개인 데이터 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "55495210"
 
 기록에서 **배포**를 삭제하려면 다음을 사용합니다.
 
-* [삭제](/rest/api/resources/deployments/delete)
+* [Delete](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az 그룹 배포 삭제](/cli/azure/group/deployment#az-group-deployment-delete)
 
@@ -56,7 +56,7 @@ ms.locfileid: "55495210"
 
 **리소스 그룹**을 삭제하려면 다음을 사용홥니다.
 
-* [삭제](/rest/api/resources/resourcegroups/delete)
+* [Delete](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -72,7 +72,7 @@ ms.locfileid: "55495210"
 
 **태그**를 삭제하려면 다음을 사용합니다.
 
-* [삭제](/rest/api/resources/tags/delete)
+* [Delete](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az 태그 삭제](/cli/azure/tag#az-tag-delete)
 

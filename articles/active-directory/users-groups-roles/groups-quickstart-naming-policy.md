@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651289"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605632"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 그룹에 대한 명명 정책
 
@@ -31,121 +31,43 @@ ms.locfileid: "58651289"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Azure Portal을 사용하여 테넌트에 대한 그룹 명명 정책 구성(미리 보기)
 
-PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈에 대한 Azure Active Directory PowerShell의 이전 버전을 제거하고 [그래프용 Azure Active Directory PowerShell - 공용 미리 보기 릴리스 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 설치해야 합니다. 
+1. 사용자 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. **그룹**을 선택한 다음, **명명 정책**을 선택하여 명명 정책 페이지를 엽니다.
 
-1. 관리자로 Windows PowerShell 앱을 엽니다.
-2. AzureADPreview의 이전 버전을 제거합니다.
-  
+    ![관리 센터에서 명명 정책 페이지 열기](./media/groups-naming-policy/policy-preview.png)
 
-   ```powershell
-   Uninstall-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>접두사-접미사 명명 정책 보기 또는 편집
 
-3. AzureADPreview의 최신 버전을 설치합니다.
-  
+1. **명명 정책** 페이지에서 **그룹 명명 정책**을 선택합니다.
+1. 명명 정책의 일부로 적용하려는 특성 또는 문자열을 선택하여 현재 접두사 또는 접미사 명명 정책을 개별적으로 보거나 편집할 수 있습니다.
+1. 목록에서 접두사 또는 접미사를 제거하려면 접두사 또는 접미사를 선택한 다음, **삭제**를 선택합니다. 동시에 여러 항목을 삭제할 수 있습니다.
+1. 정책에 대한 변경 사항이 효력을 발휘하도록 **저장**을 선택합니다.
 
-   ```powershell
-   Install-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-custom-blocked-words"></a>사용자 지정 차단 단어 보기 또는 편집
 
-   신뢰할 수 없는 리포지토리에 액세스하라는 메시지가 표시되면 **Y**를 입력합니다. 새 모듈을 설치하는 데 몇 분 정도 걸릴 수 있습니다.
+1. **명명 정책** 페이지에서 **차단된 단어**를 선택합니다.
 
-## <a name="set-up-naming-policy"></a>명명 정책 설정
+    ![명명 정책에서 차단된 단어 목록 편집 및 업로드](./media/groups-naming-policy/blockedwords-preview.png)
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>1단계: PowerShell cmdlet을 사용하여 로그인
+1. **다운로드**를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다.
+1. 파일 아이콘을 선택하여 사용자 지정 차단 단어의 새로운 목록을 업로드합니다.
+1. 정책에 대한 변경 사항이 효력을 발휘하도록 **저장**을 선택합니다.
 
-1. Windows PowerShell 앱을 엽니다. 상승된 권한이 필요 없습니다.
-
-2. 다음 명령을 실행하여 cmdlet 실행을 준비합니다.
-  
-
-   ```powershell
-   Import-Module AzureADPreview
-   Connect-AzureAD
-   ```
-
-   **계정에 로그인** 화면이 열리면 관리자 계정 및 암호를 입력하여 서비스에 연결하고 **로그인**을 선택합니다.
-
-3. [그룹 설정을 구성하는 Azure Active Directory cmdlet](groups-settings-cmdlets.md)의 단계에 따라 이 테넌트에 대한 그룹 설정을 만듭니다.
-
-### <a name="step-2-view-the-current-settings"></a>2단계: 현재 설정 보기
-
-1. 현재 명명 정책 설정을 봅니다.
-  
-
-   ```powershell
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
-
-  
-2. 현재 그룹 설정을 표시합니다.
-  
-
-   ```powershell
-   $Setting.Values
-   ```
-
-  
-
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3단계: 명명 정책 및 사용자 지정 차단 단어 설정
-
-1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다. 기능이 제대로 작동하려면 [GroupName]이 설정에 포함되어야 합니다.
-  
-
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-   ```
-
-  
-2. 제한하려는 사용자 정의 차단 단어를 설정합니다. 다음 예제는 고유한 사용자 정의 단어를 추가하는 방법을 보여줍니다.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-   ```
-
-  
-3. 다음 예제와 같이 새 정책을 적용하기 위한 설정을 저장합니다.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
-
-  
 이것으로 끝입니다. 명명 정책을 설정하고 사용자 지정 차단 단어를 추가했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 비웁니다.
-  
+### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Azure Portal을 사용하여 명명 정책 제거(미리 보기)
 
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =""
-   ```
-
-  
-2. 사용자 지정 차단 단어를 비웁니다.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=""
-   ```
-
-  
-3. 설정을 저장합니다.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+1. **명명 정책** 페이지에서 **정책 삭제**를 선택합니다.
+1. 삭제를 확인한 후 모든 접두사-접미사 명명 정책 및 모든 사용자 지정 차단 단어를 비롯한 명명 정책이 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 PowerShell cmdlet을 사용하여 Azure AD 테넌트에 대한 명명 정책을 설정하는 방법을 알아보았습니다.
+이 빠른 시작에서는 Azure Portal을 통해 Azure AD 조직에 대한 명명 정책을 설정하는 방법을 알아보았습니다.
 
-기술 제약 조건, 사용자 지정 차단 단어를 추가하는 방법 또는 Office 365 앱의 최종 사용자 환경에 대한 자세히 알아보려면 명명 정책에 대해 자세히 다루는 그 다음 문서를 진행하세요.
+명명 정책에 대한 PowerShell cmdlet, 기술 제약 조건, 사용자 지정 차단 단어의 목록 추가 및 Office 365 앱의 최종 사용자 환경에 대해 자세히 알아보는 다음 문서를 진행하세요.
 > [!div class="nextstepaction"]
-> [명명 정책 모든 세부 정보](groups-naming-policy.md)
+> [명명 정책 PowerShell](groups-naming-policy.md)

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
 ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127783"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure Backup을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## <a name="install-azure-powershell"></a>Azure Powershell 설치
+## <a name="install-azure-powershell"></a>Azure PowerShell 설치
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 시작 하려면 [최신 PowerShell 릴리스를 설치](/powershell/azure/install-az-ps)합니다.
@@ -104,7 +104,7 @@ MARSAgentInstaller.exe /q
 
 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
 
-![에이전트 설치됨](./media/backup-client-automation/installed-agent-listing.png)
+![에이전트가 설치됨](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>설치 옵션
 

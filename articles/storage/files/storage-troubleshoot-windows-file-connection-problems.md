@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926391"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991374"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -284,6 +284,8 @@ AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD D
 ### <a name="solution"></a>해결 방법
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

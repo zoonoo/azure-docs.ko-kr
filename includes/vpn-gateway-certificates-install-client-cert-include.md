@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 03/21/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0068bd151c3d7d243b05c326ec73a201f4131296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679979"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146827"
 ---
 클라이언트 인증서를 생성하는 데 사용한 것 외의 클라이언트 컴퓨터에서 P2S 연결을 만들려는 경우 클라이언트 인증서를 설치해야 합니다. 클라이언트 인증서를 설치하는 경우 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
 

@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
 ms.openlocfilehash: b1889230e9abfbafbdeddcbf4f4c1f74fc3f8843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028862"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125143"
 ---
 이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 제출되면 Azure Cognitive Services 팀에서 양식을 검토하여 개인 컨테이너 레지스트리에 대한 액세스 조건을 충족하는지 확인합니다.
 

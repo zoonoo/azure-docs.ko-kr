@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
 ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155948"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -37,7 +37,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
   - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
-- **원활한 공동 작업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인할 수 있는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
+- **원활한 협업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인할 수 있는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
 

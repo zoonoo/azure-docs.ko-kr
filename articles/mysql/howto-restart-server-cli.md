@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: d00aa35437f93c010ce48f3036b4a684910702c0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623155"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66160422"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 MySQL 서버용 Azure 데이터베이스를 다시 시작
 이 항목에서는 Azure Database for MySQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.

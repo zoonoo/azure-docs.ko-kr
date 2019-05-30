@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407074"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>자습서: DocuSign와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ DocuSign을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 DocuSign에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -178,7 +178,7 @@ DocuSign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 구성][62]
 
-    i. Azure AD 클레임을 사용하여 매핑할 필드를 선택합니다. 이 예제의 **emailaddress** 클레임은 **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값에 매핑됩니다. 이는 이메일 클레임에 대한 Azure AD의 기본 클레임입니다. 그런 다음, **저장**을 클릭합니다.
+    i. Azure AD 클레임을 사용하여 매핑할 필드를 선택합니다. 이 예제의 **emailaddress** 클레임은 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값에 매핑됩니다. 이는 이메일 클레임에 대한 Azure AD의 기본 클레임입니다. 그런 다음, **저장**을 클릭합니다.
 
     ![Single Sign-On 구성][57]
 

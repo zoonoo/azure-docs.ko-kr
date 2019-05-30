@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501383"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory 통합
 
@@ -67,7 +67,7 @@ JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목�
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](jira52microsoft-tutorial.md)을 클릭하세요.
 
 > [!NOTE]
-> JIRA도 Linux Ubuntu 버전 16.04를 지원합니다.
+> JIRA 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -133,11 +133,11 @@ JIRA SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하려면 다�
 
     ![JIRA SAML SSO by Microsoft 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<domain:port>/plugins/servlet/saml/auth`
+    a. **로그인 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `https://<domain:port>/`
+    b. **식별자** 텍스트 상자에서 `https://<domain:port>/` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<domain:port>/plugins/servlet/saml/auth`
+    다. **회신 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
@@ -262,7 +262,7 @@ JIRA SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하려면 다�
 
 Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 하려면 사용자를 JIRA SAML SSO by Microsoft에 프로비저닝해야 합니다. JIRA SAML SSO by Microsoft의 경우 프로비전이 수동 작업입니다.
 
-**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. JIRA 온-프레미스 서버에 관리자로 로그인합니다.
 
@@ -302,6 +302,6 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

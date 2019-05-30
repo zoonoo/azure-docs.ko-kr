@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414717"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861572"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>방법: Windows 7, 8 및 8.1에서 암호 재설정 사용
 
@@ -60,6 +60,8 @@ Windows 10 머신과 달리 Windows 7, 8 및 8.1 머신에는 암호 재설정�
 ![암호를 재설정하기 위해 추가 보안 정보가 필요합니다.](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 재설정할 알림 및 코드에 대해 Microsoft Authenticator 앱을 사용하면 암호가 이 초기 릴리스에서 작동하지 않습니다. 사용자는 정책 요구 사항을 충족하는 대체 방법을 등록해야 합니다.
+
+한 3 개 이상의 타사 자격 증명 공급자 컴퓨터에서 사용 하는 경우 사용자 로그온 화면에서 둘 이상의 사용자 프로필이 나타납니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

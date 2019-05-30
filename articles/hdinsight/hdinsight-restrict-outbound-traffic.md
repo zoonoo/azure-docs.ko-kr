@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762425"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978010"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽을 제한 구성
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 (미리 보기)에 대 한 아웃 바운드 네트워크 트래픽을 제한 구성
 
 이 문서에서는 Azure 방화벽을 사용 하 여 HDInsight 클러스터에서 아웃 바운드 트래픽의 보안을 유지 하는 단계를 제공 합니다. 다음 단계는 기존 클러스터에 대 한 Azure 방화벽을 구성 하는 것을 가정 합니다. 새 클러스터를 배포 하는 경우를 방화벽 뒤에 있는 HDInsight 클러스터 및 서브넷을 처음 만들기 한 다음이 가이드의 단계를 따릅니다.
 
@@ -27,7 +27,7 @@ Azure HDInsight 클러스터는 일반적으로 사용자 고유의 가상 네�
 
 HDInsight 아웃 바운드 트래픽을 종속성 Fqdn 뒤에 고정 IP 주소 없는 거의 전적으로 정의 됩니다. 고정 주소 부족 클러스터에서 아웃 바운드 트래픽을 잠글 네트워크 보안 그룹 (Nsg)을 사용할 수 없음을 의미 합니다. 주소를 현재 이름 확인에 따라 규칙을 설정할 수 없습니다 및 NSG 규칙을 설정 하는 사용 하 여 하나는 충분히 자주 변경 합니다.
 
-아웃 바운드 주소를 보호 하기 위한 솔루션 도메인 이름을 기준으로 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.
+아웃 바운드 주소를 보호 하기 위한 솔루션 도메인 이름을 기준으로 아웃 바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용 하는 것입니다. Azure 방화벽에는 대상의 FQDN을 기반으로 아웃 바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다 또는 [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)합니다.
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>HDInsight를 사용 하 여 Azure 방화벽 구성
 
@@ -80,7 +80,7 @@ Azure 방화벽을 사용 하 여 기존에 HDInsight에서의 송신을 잠그�
         1. 입력 `https:443` 아래에서 **프로토콜: 포트** 하 고 `sqm.telemetry.microsoft.com` 아래 **FQDN 대상**합니다.
     1. 클러스터는 WASB에서 지원 하 고 위의 서비스 끝점을 사용 하지 않는 경우 다음 WASB에 대 한 규칙을 추가 합니다.
         1. 에 **대상 Fqdn** 섹션에서 제공을 **이름**, 설정 및 **원본 주소** 에 `*`입니다.
-        1. 입력 `wasb` 아래에서 **프로토콜: 포트** 하 고 `*` 아래 **FQDN 대상**합니다.
+        1. 입력 `http` [https] wasb를 사용 하는 경우에 따라 또는: / / 또는 wasbs: / / 아래에 있는 **프로토콜: 포트** 아래에서 저장소 계정 url **대상 FQDN**합니다.
 1. **추가**를 클릭합니다.
 
 ![제목: 응용 프로그램 규칙 컬렉션 세부 정보를 입력 합니다.](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

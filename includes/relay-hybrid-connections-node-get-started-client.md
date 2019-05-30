@@ -1,10 +1,15 @@
 ---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
 ms.openlocfilehash: 9d4f7faa18ee7fae158afb42b8c42287e61dd103
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553859"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150340"
 ---
 ### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
@@ -15,6 +20,7 @@ ms.locfileid: "60553859"
 프로젝트 폴더에 있는 노드 명령 프롬프트에서 `npm install hyco-ws`를 실행합니다.
 
 ### <a name="write-some-code-to-send-messages"></a>메시지를 보내는 코드 작성
+
 1. `sender.js` 파일 맨 위에 다음 `constants`를 추가합니다.
    
     ```js

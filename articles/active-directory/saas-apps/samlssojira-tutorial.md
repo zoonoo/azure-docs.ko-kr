@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509950"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -168,7 +168,7 @@ Jira by resolution GmbH에 대해 SAML SSO를 사용하는 Single Sign-On을 구
     
     d. **다음**을 클릭합니다.
     
-11. **ID 공급 기업 구성** 페이지에서 **다음**을 클릭합니다.
+11. **ID 공급자 구성** 페이지에서 **다음**을 클릭합니다.
  
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 

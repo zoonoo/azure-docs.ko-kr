@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498766"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979321"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대해 작성자 정책
 
@@ -207,9 +207,9 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용 하는 경우 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
-- [비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
+- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
+- 설명 하는 방법 [비준수 리소스를 수정](remediate-resources.md)합니다.
+- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.

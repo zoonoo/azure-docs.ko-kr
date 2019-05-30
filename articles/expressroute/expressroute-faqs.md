@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794771"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991601"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -72,6 +72,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>
   **다음 서비스는 지원되지 않습니다**.
     * CDN
+    * Azure Front Door
     * Multi-Factor 인증
     * Traffic Manager
 
@@ -84,6 +85,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
     * CDN
+    * Azure Front Door
     * Multi-Factor 인증
     * Traffic Manager
 
@@ -220,7 +222,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
 
-Microsoft 피어링 BGP 세션에 대해 개인 접두사(RFC1918)는 허용하지 않습니다.
+Microsoft 피어링 BGP 세션에 대해 개인 접두사(RFC1918)는 허용하지 않습니다. 모든 접두사 크기 (최대/32) Microsoft 및 개인 피어 링을 모두 수락합니다.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>BGP 제한을 초과하면 어떻게 되나요?
 
@@ -283,6 +285,26 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>표준 ExpressRoute 요금 외에도 ExpressRoute premium에 대한 납부 여부
 
 예. ExpressRoute 프리미엄 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
+
+## <a name="expressroute-local"></a>ExpressRoute 로컬
+### <a name="what-is-expressroute-local"></a>ExpressRoute 로컬 란?
+ExpressRoute 로컬 SKU의 ExpressRoute 회로입니다. 로컬의 주요 기능에는 피어 링 위치를 사용 하면 ExpressRoute에서 로컬 circit 또는 동일한 메트로 거의 같은 하나 이상의 Azure 지역에만 액세스할. 반면, 표준 회로에 액세스할 수는 지정 학적 영역 및 모든 Azure 지역에 Premium 회로에서 모든 Azure 지역 전역적으로 합니다. 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 로컬의 이점은 무엇 인가요?
+표준 또는 프리미엄 ExpressRoute 회로 대 한 송신 데이터 전송 요금을 지불 해야 하는 동안 지불 하지 않습니다 송신 데이터 전송 별도로 로컬 ExpressRoute 회로 대 한 합니다. 즉, ExpressRoute 로컬 가격은 데이터 전송 요금을 포함 합니다. ExpressRoute 로컬은 보다 경제적인 솔루션 엄청난 양의 데이터를 전송 하 고 원하는 Azure 지역에 가까운 ExpressRoute 피어 링 위치에 개인 연결을 통해 데이터를 가져올 수 있습니다. 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>사용할 수 있는 기능 및 ExpressRoute 로컬에서 하지 이란?
+표준 ExpressRoute 회로에 비해, 로컬 회로 동일한 기능 집합을 제외 하 고 있습니다.
+* Azure 지역에 설명 된 대로 위의 액세스 범위
+* 사용할 수 없는 ExpressRoute 글로벌 환경에서 로컬
+
+ExpressRoute 로컬 역시 동일한 제한을 리소스 (예: Vnet 수가 회로 당)에서 표준으로 합니다. 
+
+### <a name="how-to-configure-expressroute-local"></a>로컬 ExpressRoute를 구성 하는 방법 
+ExpressRoute 로컬만 ExpressRoute 직접 제공 됩니다. 먼저 ExpressRoute 직접 포트를 구성 해야 합니다. 직접 포트 생성 되 면 지침에 따라 로컬 회로 만들 수 있습니다 [여기](expressroute-howto-erdirect.md)합니다.
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>여기서 ExpressRoute 로컬을 사용할 수 있는 Azure 지역은 각 피어 링 위치에 매핑된?
+ExpressRoute 로컬 하나 또는 두 개의 Azure 지역에서 닫기 있는 피어 링 위치에서 사용할 수 있습니다. 사용할 수 없는 피어 링 위치에 있는 해당 상태, 시/도 또는 국가에서 Azure 지역이 없습니다. 에 정확한 매핑을 참조 하십시오 [위치 페이지](expressroute-locations-providers.md)합니다.  
 
 ## <a name="expressroute-for-office-365"></a>Office 365용 ExpressRoute
 

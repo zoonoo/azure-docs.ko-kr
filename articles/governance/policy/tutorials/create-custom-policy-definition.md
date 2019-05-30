@@ -3,18 +3,18 @@ title: 사용자 지정 정책 정의 만들기
 description: 사용자 지정 비즈니스 규칙을 적용하는 Azure Policy에 대한 사용자 지정 정책 정의를 만듭니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267755"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979660"
 ---
-# <a name="create-a-custom-policy-definition"></a>사용자 지정 정책 정의 만들기
+# <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
 사용자 지정 정책 정의를 통해 고객은 Azure 사용에 대한 자체 규칙을 정의할 수 있습니다. 이러한 규칙은 종종 다음 항목을 적용합니다.
 
@@ -46,12 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 요구 사항에서 "사용" 및 "사용 안 함" 리소스 상태를 정확하게 식별해야 합니다.
 
-예상되는 리소스 상태를 정의했지만, 비 규격 리소스에 원하는 내용은 아직 정의하지 않았습니다. 정책에서는 다양한 [효과](../concepts/effects.md)를 지원합니다. 이 자습서에서는 비즈니스 규칙을 준수하지 않는 리소스 만들기를 차단하는 비즈니스 요구 사항을 정의할 것입니다. 이 목표를 달성하기 위해 [Deny](../concepts/effects.md#deny) 효과를 사용하겠습니다. 또한 특정 할당에 대한 정책을 일시 중단하려고 합니다. 따라서 [Disabled](../concepts/effects.md#disabled) 효과를 사용하고, 정책 정의에 [매개 변수](../concepts/definition-structure.md#parameters) 효과를 만들겠습니다.
+예상되는 리소스 상태를 정의했지만, 비 규격 리소스에 원하는 내용은 아직 정의하지 않았습니다. Azure Policy에서는 다양한 [효과](../concepts/effects.md)를 지원합니다. 이 자습서에서는 비즈니스 규칙을 준수하지 않는 리소스 만들기를 차단하는 비즈니스 요구 사항을 정의할 것입니다. 이 목표를 달성하기 위해 [Deny](../concepts/effects.md#deny) 효과를 사용하겠습니다. 또한 특정 할당에 대한 정책을 일시 중단하려고 합니다. 따라서 [Disabled](../concepts/effects.md#disabled) 효과를 사용하고, 정책 정의에 [매개 변수](../concepts/definition-structure.md#parameters) 효과를 만들겠습니다.
 
 ## <a name="determine-resource-properties"></a>리소스 속성 확인
 
-비즈니스 요구 사항에 따라 정책을 통해 감사할 Azure 리소스는 스토리지 계정입니다.
-그러나 우리는 정책 정의에 어떤 속성을 사용해야 하는지 아직 모릅니다. 정책은 리소스의 JSON 표현과 비교하여 평가하므로 해당 리소스에 사용할 수 있는 속성을 이해해야 합니다.
+비즈니스 요구 사항에 따라 Azure Policy를 통해 감사할 Azure 리소스는 스토리지 계정입니다. 그러나 우리는 정책 정의에 어떤 속성을 사용해야 하는지 아직 모릅니다. Azure Policy는 리소스의 JSON 표현과 비교하여 평가하므로 해당 리소스에 사용할 수 있는 속성을 이해해야 합니다.
 
 Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니다. 이 자습서에는 각 방법을 살펴보도록 하겠습니다.
 
@@ -69,9 +68,9 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 #### <a name="existing-resource-in-the-portal"></a>포털의 기존 리소스
 
 속성을 찾는 가장 간단한 방법은 동일한 형식의 기존 리소스를 살펴보는 것입니다. 적용하려는 설정을 사용하여 이미 구성된 리소스는 비교 값을 제공합니다.
-해당 리소스에 대한 Azure Portal에서 **Automation 스크립트** 페이지(**설정** 아래)를 확인하세요.
+해당 리소스에 대한 Azure Portal에서 **템플릿 내보내기** 페이지(**설정** 아래)를 확인하세요.
 
-![기존 리소스에서 템플릿 페이지 내보내기](../media/create-custom-policy-definition/automation-script.png)
+![기존 리소스에서 템플릿 페이지 내보내기](../media/create-custom-policy-definition/export-template.png)
 
 스토리지 계정에 대해 이렇게 하면 다음 예제와 비슷한 템플릿이 표시됩니다.
 
@@ -121,8 +120,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 #### <a name="create-a-resource-in-the-portal"></a>포털에서 리소스 만들기
 
-포털을 이용하는 또 다른 방법은 리소스 만들기 환경입니다. 포털을 통해 스토리지 계정을 만들 때 **고급** 탭 아래를 보면 **보안 전송 필요**라는 옵션이 있습니다.
-이 속성은 _사용 안 함_ 및 _사용_ 옵션을 제공합니다. 정보 아이콘에는 이 옵션이 우리가 찾는 속성일 확률이 높다는 것을 확인해주는 추가 텍스트가 있습니다. 그러나 포털의 이 화면에는 속성 이름이 표시되지 않습니다.
+포털을 이용하는 또 다른 방법은 리소스 만들기 환경입니다. 포털을 통해 스토리지 계정을 만들 때 **고급** 탭 아래를 보면 **보안 전송 필요**라는 옵션이 있습니다. 이 속성은 _사용 안 함_ 및 _사용_ 옵션을 제공합니다. 정보 아이콘에는 이 옵션이 우리가 찾는 속성일 확률이 높다는 것을 확인해주는 추가 텍스트가 있습니다. 그러나 포털의 이 화면에는 속성 이름이 표시되지 않습니다.
 
 **검토 + 만들기** 탭에서 페이지 하단을 보면 **자동화 템플릿 다운로드** 링크가 있습니다. 이 링크를 선택하면 우리가 구성한 리소스를 만드는 템플릿이 열립니다. 이 예에서는 다음과 같은 두 가지 핵심 정보가 보입니다.
 
@@ -181,8 +179,7 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell에서 `Get-AzPolicyAlias` cmdlet은 리소스 별칭을 검색하는 데 사용됩니다.
-앞에서 Azure 리소스에 대해 찾은 세부 정보를 기반으로 **Microsoft.Storage** 네임스페이스를 필터링할 것입니다.
+Azure PowerShell에서 `Get-AzPolicyAlias` cmdlet은 리소스 별칭을 검색하는 데 사용됩니다. 앞에서 Azure 리소스에 대해 찾은 세부 정보를 기반으로 **Microsoft.Storage** 네임스페이스를 필터링할 것입니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ Azure CLI와 마찬가지로, 결과를 보면 스토리지 계정에서 **suppo
 
 [Azure Resource Graph](../../resource-graph/overview.md)는 미리 보기로 제공되는 신규 서비스입니다. 이 서비스는 Azure 리소스 속성을 찾을 수 있는 또 다른 방법입니다. 다음은 Resource Graph를 사용하여 단일 스토리지 계정을 찾는 샘플 쿼리입니다.
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 Azure Resource Graph의 결과에는 [별칭](../concepts/definition-structure.md#aliases) 세부 정보까지 포함되어 있습니다. 다음은 별칭에 대한 스토리지 계정의 출력 예제입니다.
+Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _별칭_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+다음은 별칭에 대한 스토리지 계정의 출력 예제입니다.
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Azure Resource Graph(미리 보기)는 [Cloud Shell](https://shell.azure.com)을
 
 ## <a name="determine-the-effect-to-use"></a>사용할 효과 결정
 
-비 규격 리소스를 어떻게 할 것인지 결정하는 사안은 무엇을 평가할 것인지 결정하는 사안만큼 중요합니다. 비 규격 리소스에 대해 나올 수 있는 각 대응을 [효과](../concepts/effects.md)라고 합니다. 효과는 비 규격 리소스가 로깅되는지, 차단되는지, 데이터가 추가되었는지 또는 리소스를 규정 준수 상태로 되돌리기 위한 배포가 연결되는지 여부를 제어합니다.
+비 규격 리소스를 어떻게 할 것인지 결정하는 사안은 무엇을 평가할 것인지 결정하는 사안만큼 중요합니다. 비 규격 리소스에 대해 나올 수 있는 각 대응을 [효과](../concepts/effects.md)라고 합니다.
+효과는 비 규격 리소스가 로깅되는지, 차단되는지, 데이터가 추가되었는지 또는 리소스를 규정 준수 상태로 되돌리기 위한 배포가 연결되는지 여부를 제어합니다.
 
 우리 예에서는 Azure 환경에 비 규격 리소스를 만들지 않을 것이므로 우리에게 필요한 효과는 Deny입니다. 감사는 정책을 Deny로 설정하기 전에 정책의 영향을 확인하기에 좋은 정책 효과입니다. 할당별 효과를 보다 쉽게 변경하는 한 가지 방법은 효과를 매개 변수화하는 것입니다. 자세한 방법은 아래의 [매개 변수](#parameters)를 참조하세요.
 

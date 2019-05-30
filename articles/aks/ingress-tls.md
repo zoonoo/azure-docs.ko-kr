@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ae1ef2c51fba9186eb75bfec421fbbb05baa4582
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073857"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956450"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -40,6 +40,8 @@ ms.locfileid: "65073857"
 
 수신 컨트롤러를 만들려면 `Helm`을 사용하여 *nginx-ingress*를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
+수신 컨트롤러는 또한 Linux 노드에서 예약 해야 합니다. (현재 AKS에서 미리 보기)는에서 Windows 서버 노드에서 수신 컨트롤러를 실행 해서는 안 됩니다. 노드 선택기를 사용 하 여 지정 된 `--set nodeSelector` Kubernetes 스케줄러에서 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행 하도록 지시 하려면 매개 변수입니다.
+
 > [!TIP]
 > 다음 예제에서는 명명 된 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다 *수신 basic*합니다. 필요에 따라 사용자 고유의 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터 RBAC를 사용할 수 없는 경우 추가 `--set rbac.create=false` Helm 명령입니다.
 
@@ -48,7 +50,10 @@ ms.locfileid: "65073857"
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set nodeSelector."beta.kubernetes.io/os"=linux
 ```
 
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.
@@ -249,7 +254,7 @@ metadata:
   name: tls-secret
   namespace: ingress-basic
 spec:
-  secretName: tls-secret
+  secretName: tls-secret-staging
   dnsNames:
   - demo-aks-ingress.eastus.cloudapp.azure.com
   acme:
@@ -268,7 +273,7 @@ spec:
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.certmanager.k8s.io/tls-secret-staging created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>수신 구성 테스트

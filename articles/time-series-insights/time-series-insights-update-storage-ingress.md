@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405710"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951095"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -28,7 +28,7 @@ Time Series Insights 미리 보기 종량제 SKU 환경을 만들 때 다음 두
 * Time Series Insights 환경
 * 데이터가 저장되는 Azure Storage 범용 V1 계정
 
-Time Series Insights 미리 보기는 Parquet 파일 형식과 함께 Azure Blob Storage를 사용합니다. Time Series Insights는 Azure Storage 계정의 Blob 생성, 인덱싱 및 데이터 분할을 비롯한 모든 데이터 작업을 관리합니다. Azure Storage 계정을 사용하여 이러한 Blob을 만듭니다.
+Time Series Insights 미리 보기는 Parquet 파일 형식을 사용 하 여 Azure Blob 저장소를 사용합니다. Time Series Insights는 Azure Storage 계정의 Blob 생성, 인덱싱 및 데이터 분할을 비롯한 모든 데이터 작업을 관리합니다. Azure Storage 계정을 사용하여 이러한 Blob을 만듭니다.
 
 다른 Azure Storage Blob과 달리, Time Series Insights에서 만든 Blob에서는 읽고 쓸 수 있으므로 다양한 통합 시나리오가 지원됩니다.
 
@@ -101,12 +101,12 @@ Time Series Insights는 동적 분할을 통해 파티션을 삭제한 후 다�
 
 ### <a name="logical-partitions"></a>논리 파티션
 
-논리 파티션은 단일 파티션 키 값과 관련된 모든 데이터를 저장하는 실제 파티션 내의 파티션입니다. Time Series Insights 미리 보기는 다음 두 속성을 기준으로 각 Blob을 논리적으로 분할합니다.
+논리 파티션은 단일 파티션 키 값과 관련된 모든 데이터를 저장하는 실제 파티션 내의 파티션입니다. Time Series Insights 미리 보기 두 속성을 기반으로 하는 각 blob을 논리적으로 분할 합니다.
 
 * **시계열 ID**: 이벤트 스트림 및 모델 내의 모든 Time Series Insights 데이터에 대한 파티션 키입니다.
 * **타임스탬프**: 초기 수신에 따른 시간입니다.
 
-Time Series Insights 미리 보기는 이러한 두 속성을 기준으로 하는 고성능 쿼리를 제공합니다. 또한 이러한 두 속성은 Time Series Insights 데이터를 신속하게 제공하기 위한 가장 효율적인 방법을 제공합니다.
+Time Series Insights 미리 보기는 이러한 두 속성을 기반으로 하는 고성능 쿼리를 제공 합니다. 또한 이러한 두 속성은 Time Series Insights 데이터를 신속하게 제공하기 위한 가장 효율적인 방법을 제공합니다.
 
 시계열 ID는 변경할 수 없는 속성이므로 신중히 선택해야 합니다. 자세한 내용은 [시계열 ID 선택](./time-series-insights-update-how-to-id.md)을 참조하세요.
 
@@ -120,7 +120,7 @@ Time Series Insights는 Azure Storage 계정에 각 이벤트 복사본을 최�
 
 또한 Time Series Insights는 Parquet 파일을 다시 분할하여 Time Series Insights API에 맞게 최적화합니다. 가장 최근에 다시 분할된 파일도 저장됩니다.
 
-공개 미리 보기 동안 데이터는 Azure Storage 계정에 무기한 저장됩니다.
+공개 미리 보기 기간 동안 데이터는 Azure 저장소 계정에 무기한으로 저장 됩니다.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Time Series Insights blob 작성 및 편집
 
@@ -146,13 +146,13 @@ Time Series Insights 미리 보기 탐색기에 저장된 데이터에 액세스
 
 ### <a name="data-deletion"></a>데이터 삭제
 
-Time Series Insights 미리 보기는 Blob 내에 Blob 관련 메타데이터를 유지합니다. 따라서 Blob를 삭제하지 않도록 합니다.
+Blob을 삭제 하지 마십시오. 뿐 아니라 데이터 레코드를 유지 관리 및 감사에 대 한 유용한, Time Series Insights 미리 보기 각 blob에 blob 메타 데이터를 유지 합니다.
 
 ## <a name="time-series-insights-data-ingress"></a>Time Series Insights 데이터 수신
 
 ### <a name="ingress-policies"></a>수신 정책
 
-Time Series Insights 미리 보기는 Time Series Insights가 현재 지원하는 동일한 이벤트 원본 및 파일 형식을 지원합니다.
+Time Series Insights 미리 보기에는 Time Series Insights는 현재 지원 되는 동일한 이벤트 원본 및 파일 형식을 지원 합니다.
 
 지원되는 이벤트 원본은 다음과 같습니다.
 
@@ -168,7 +168,7 @@ Time Series Insights 미리 보기는 Time Series Insights가 현재 지원하�
 
 ### <a name="data-availability"></a>데이터 가용성
 
-Time Series Insights 미리 보기는 Blob 크기 최적화 전략을 사용하여 데이터를 인덱싱합니다. 데이터는 인덱싱된 후에 데이터가 들어오는 양과 속도를 기준으로, 쿼리에 사용할 수 있게 됩니다.
+Time Series Insights 미리 보기 blob 크기 최적화 전략을 사용 하 여 데이터를 인덱싱합니다. 데이터는 인덱싱된 후에 데이터가 들어오는 양과 속도를 기준으로, 쿼리에 사용할 수 있게 됩니다.
 
 > [!IMPORTANT]
 > * Time Series Insights GA(일반 공급) 릴리스는 60초의 이벤트 원본 적중 시간 내에 데이터를 사용할 수 있도록 지원합니다. 
@@ -177,7 +177,7 @@ Time Series Insights 미리 보기는 Blob 크기 최적화 전략을 사용하�
 
 ### <a name="scale"></a>확장
 
-Time Series Insights 미리 보기는 환경을 기준으로 초당 최대 6메가바이트(Mbps)의 초기 수신 크기를 지원합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이러한 개선 사항에 맞게 설명서를 업데이트할 예정입니다.
+Time Series Insights 미리 보기 환경 당 최대 1 메가 바이트 / 초 (Mbps)의 초기 수신 확장을 지원합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이러한 개선 사항에 맞게 설명서를 업데이트할 예정입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

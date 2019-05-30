@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511085"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967597"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -122,7 +122,7 @@ Azure portal에서 편집 사용 되는지 여부를 나타냅니다. 유효한 
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (C#/F#), `node` (JavaScript/TypeScript) `java` (Java) 및 `python` (Python).
+함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (C#/F#), `node` (JavaScript/TypeScript) `java` (Java)를 `powershell` (PowerShell), 및 `python` (Python).
 
 |키|샘플 값|
 |---|------------|

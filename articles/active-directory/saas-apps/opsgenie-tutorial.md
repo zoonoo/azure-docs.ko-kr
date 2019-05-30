@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280172"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>자습서: OpsGenie와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ OpsGenie를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 OpsGenie에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -71,16 +71,16 @@ OpsGenie의 Azure AD 통합을 구성하려면 갤러리의 OpsGenie를 관리�
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **B. Simon**이라는 테스트 사용자를 기반으로 OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 OpsGenie의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[OpsGenie Single Sign-On 구성](#configure-opsgenie-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[OpsGenie 테스트 사용자 만들기](#create-opsgenie-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 OpsGenie에 만듭니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B. Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[OpsGenie 테스트 사용자 만들기](#create-opsgenie-test-user)** - B. Simon의 Azure AD 표현과 연결된 해당 사용자를 OpsGenie에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -149,7 +149,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션의 목적은 Azure Portal에서 B. Simon이라는 테스트 사용자를 만드는 것입니다.
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
@@ -163,10 +163,10 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **B. Simon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 **bsimon@yourcompanydomain.extension** 을 입력합니다.  
+    예를 들어 BSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -174,7 +174,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 OpsGenie에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B. Simon에게 OpsGenie에 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **OpsGenie**를 차례로 선택합니다.
 
@@ -192,7 +192,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B. Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -200,7 +200,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="create-opsgenie-test-user"></a>OpsGenie 테스트 사용자 만들기
 
-이 섹션은 OpsGenie에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. 
+이 섹션은 OpsGenie에서 B. Simon이라는 사용자를 만들기 위한 것입니다. 
 
 1. 웹 브라우저 창에서 OpsGenie의 테넌트에 관리자로 로그인합니다.
 
@@ -214,14 +214,14 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
    
     ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. **메일** 텍스트 상자에 Azure Active Directory에 나열된 Britta Simon의 메일 주소를 입력합니다.
+    a. **메일** 텍스트 상자에 Azure Active Directory에 나열된 B. Simon의 메일 주소를 입력합니다.
    
-    b. **전체 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+    b. **전체 이름** 텍스트 상자에 **B. Simon**을 입력합니다.
    
     다. **저장**을 클릭합니다. 
 
 >[!NOTE]
->Britta는 자신의 프로필 설정에 대한 지침이 포함된 메일을 받게 됩니다.
+>B. Simon은 자신의 프로필 설정에 대한 지침이 포함된 메일을 받게 됩니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

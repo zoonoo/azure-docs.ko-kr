@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192206"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849843"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -50,7 +50,7 @@ Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한
 
 사용자 또는 그룹에 필요한 최소 개수의 권한을 부여하는 것과 같은 방식으로, 컨테이너도 필요한 작업 및 프로세스로 제한해야 합니다. 공격 위험을 최소화하기 위해서는 에스컬레이션된 권한 또는 루트 액세스를 요구하는 애플리케이션 및 컨테이너를 구성하지 마세요. 예를 들어 pod 매니페스트에서 `allowPrivilegeEscalation: false`를 설정합니다. 이러한 *pod 보안 컨텍스트*가 Kubernetes에 빌드되며, 추가 권한(예: 사용자 또는 그룹으로 실행)을 정의하거나 노출할 Linux 기능을 정의할 수 있습니다. 추가 모범 사례에 대해서는 [리소스에 대한 pod 액세스 보안 유지][pod-security-contexts]를 참조하세요.
 
-컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다.
+컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다. 기본 제공 Linux 보안 기능에만 Linux 노드 및 pod에서 제공 됩니다.
 
 > [!NOTE]
 > AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *AppArmor*, *seccomp*, *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 AKS의 업그레이드에 대한 자세한 내용은 [AKS의 지원되는 Kubernetes 버전][aks-supported-versions] 및 [AKS 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>kured를 사용하여 노드 업데이트 및 다시 부팅 처리
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>프로세스 Linux 노드를 업데이트 및 kured를 사용 하 여 다시 부팅
 
-**모범 사례 지침** - AKS는 각 작업자 노드에서 보안 수정 사항을 자동으로 다운로드한 후 설치하지만, 필요한 경우에도 자동으로 다시 부팅되지 않습니다. `kured`를 사용하여 보류 중인 다시 부팅을 감시하고, 노드를 안전하게 차단했다가 드레이닝하여 다시 부팅되도록 하고, 업데이트를 적용한 후 OS와 관련해서 최대한 안전하게 유지합니다.
+**모범 사례 지침** -AKS를 자동으로 다운로드 및 설치 보안 각 Linux 노드에 있는 오류를 수정 하지만 필요한 경우 자동으로 재부팅 하지 않습니다. `kured`를 사용하여 보류 중인 다시 부팅을 감시하고, 노드를 안전하게 차단했다가 드레이닝하여 다시 부팅되도록 하고, 업데이트를 적용한 후 OS와 관련해서 최대한 안전하게 유지합니다. (현재 AKS에서 미리 보기)는에서 Windows Server 노드에 대 한 정기적으로 안전 하 게 cordon 및 드레이닝 pod 및 업데이트 된 노드를 배포 하려면 AKS 업그레이드 작업을 수행 합니다.
 
-매일 저녁, AKS 노드는 distro 업데이트 채널을 통해 사용 가능한 보안 패치를 가져옵니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
+시간 늘어 매일 저녁 AKS의 Linux 노드 업데이트 distro 채널을 통해 사용할 수 있는 보안 패치를 가져옵니다. 이 동작은 노드가 AKS 클러스터에 배포되면 자동으로 구성됩니다. 실행 중인 워크로드 중단 및 잠재적인 영향을 최소화하기 위해 보안 패치 또는 커널 업데이트에 필요한 경우에도 노드가 자동으로 다시 부팅되지 않습니다.
 
-Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. 노드가 다시 부팅해야 하는 업데이트를 적용할 경우, 안전하게 차단되었다가 드레이닝되어 클러스터의 다른 노드에서 포드를 이동하고 예약합니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
+Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝트는 보류 중인 노드 다시 부팅을 감시합니다. Linux 노드에 재부팅이 필요한 업데이트에 적용 될 때 노드는 안전 하 게 통제 하 고 드레이닝 이동 하 고 클러스터의 다른 노드에 pod를 예약 합니다. 노드는 일단 다시 부팅되면 클러스터에 다시 추가되고, Kubernetes는 해당 포드 예약을 다시 시작합니다. 중단을 최소화하기 위해 한 번에 하나의 노드만 `kured`에서 다시 부팅되도록 허용됩니다.
 
 ![kured를 사용하는 AKS 노드 다시 부팅 프로세스](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

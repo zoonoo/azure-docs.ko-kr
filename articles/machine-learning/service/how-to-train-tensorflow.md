@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442356"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915106"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras와 TensorFlow 모델 학습
 
@@ -28,7 +28,7 @@ Azure 계산에서 TensorFlow 교육 작업을 쉽게 실행할 수 있습니다
 
 하므로 `TensorFlow` 스 티 메이 터 클래스는 기본 비슷합니다 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), 좋습니다, 첫 번째 읽기를 [기본 스 티 메이 터 방법 문서](how-to-train-ml-models.md) 가장 중요 한 개념을 이해 합니다.
 
-Azure Machine Learning 서비스를 시작 하기 [빠른 시작을 완료](quickstart-run-cloud-notebook.md)합니다. 완료 되 면 해야는 [Azure Machine Learning 작업 영역](concept-azure-machine-learning-architecture.md#workspace) 및 모든 우리의 [노트북 샘플](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) Keras와 TensorFlow를 사용 하 여 학습 Dnn를 포함 하 여.
+Azure Machine Learning 서비스를 시작 하기 [빠른 시작을 완료](quickstart-run-cloud-notebook.md)합니다. 완료 되 면 해야는 [Azure Machine Learning 작업 영역](concept-workspace.md) 및 모든 우리의 [노트북 샘플](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) Keras와 TensorFlow를 사용 하 여 학습 Dnn를 포함 하 여.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 

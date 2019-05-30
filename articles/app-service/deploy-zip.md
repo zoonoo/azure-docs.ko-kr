@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130775"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978812"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -95,7 +95,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="deploy-war-file"></a>WAR 파일 배포
 
-App Service에 WAR 파일을 배포하려면 POST 요청을 https://<app_name>.scm.azurewebsites.net/api/wardeploy에 보냅니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다. 
+App Service에 WAR 파일을 배포 하려면 POST 요청을 보낼 `https://<app_name>.scm.azurewebsites.net/api/wardeploy`합니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
 
 HTTP BASIC 인증의 경우 App Service 배포 자격 증명이 필요합니다. 배포 자격 증명을 설정하는 방법을 알아보려면 [사용자 수준 자격 증명 설정 및 다시 설정](deploy-configure-credentials.md#userscope)을 참조하세요.
 
@@ -117,7 +117,7 @@ $password = "<deployment_password>"
 $filePath = "<war_file_path>"
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

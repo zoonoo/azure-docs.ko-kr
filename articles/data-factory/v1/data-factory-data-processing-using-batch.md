@@ -123,7 +123,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    f. **확인**을 선택하여 풀을 만듭니다.
 
-#### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
+#### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 [Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
 1. 개인 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
@@ -134,7 +134,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    `Inputfolder` 및 `outputfolder`는 `mycontainer`에서 최상위 폴더입니다. `inputfolder` 폴더에는 날짜-시간 스탬프(YYYY-MM-DD-HH)를 포함하는 하위 폴더가 있습니다.
 
-   Storage 탐색기를 사용하는 경우 다음 단계에서 `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` 등과 같은 이름이 지정된 파일을 업로드합니다. 이 단계는 자동으로 폴더를 만듭니다.
+   Storage Explorer를 사용하는 경우 다음 단계에서 `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` 등과 같은 이름이 지정된 파일을 업로드합니다. 이 단계는 자동으로 폴더를 만듭니다.
 
 1. 키워드 **Microsoft**가 있는 콘텐츠를 사용하여 컴퓨터에 텍스트 파일 **file.txt**를 만듭니다. "테스트 사용자 지정 작업 Microsoft 테스트 사용자 지정 작업 Microsoft"를 예로 들 수 있습니다.
 
@@ -142,7 +142,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    ![입력 폴더](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Azure Storage 탐색기를 사용하는 경우 **file.txt** 파일을 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 선택하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
+   Azure Storage Explorer를 사용하는 경우 **file.txt** 파일을 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 선택하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
 
 1. `customactivitycontainer`라는 다른 컨테이너를 만듭니다. 이 컨테이너에 사용자 지정 작업 zip 파일을 업로드합니다.
 

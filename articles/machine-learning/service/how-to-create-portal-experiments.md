@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035441"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990145"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>작성 및 자동화 된 machine learning 실험 (미리 보기)는 Azure 포털을 탐색 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "65035441"
 
 ![Azure 포털 실험 방문 페이지](media/how-to-create-portal-experiments/landing-page.png)
 
-그렇지 않으면 모든 자동화 된 기계 학습 실험을 비롯 한 SDK를 사용 하 여 실행 되는 것에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
+그렇지 않으면 모든 자동화 된 machine learning 실험에서 SDK를 사용 하 여 만든 라이선스 포함에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
 
 ![Azure 포털 실험 대시보드](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -184,6 +184,63 @@ ms.locfileid: "65035441"
 
 ![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>모델 배포
+
+에 가장 적합 한 모델을 만든 후 새 데이터에 예측 웹 서비스로 배포 하는 차례입니다.
+
+자동화 된 기계 학습을 지 원하는 코드를 작성 하지 않고 모델을 배포 합니다.
+
+1. 배포에 대 한 몇 가지 옵션이 있습니다. 
+    1. 메트릭 조건에 따라 최상의 모델을 배포 하려는 경우 선택 실험에서 설정한 **최상의 모델 배포** 에서 합니다 **실행 세부 정보** 페이지입니다.
+
+        ![배포 모델 단추](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. 특정 모델 반복을 배포 하려는 경우 해당 특정 실행된 세부 정보 페이지를 열고 선택 모델에서 드릴 **배포 모델**합니다.
+
+        ![배포 모델 단추](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. 먼저는 서비스에 모델을 등록 하는 것입니다. "모델을 등록 합니다."를 선택 하 고 등록 프로세스를 완료 될 때까지 기다립니다.
+
+    ![블레이드 모델 배포](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. 모델 등록 되 면 점수 매기기 스크립트 (scoring.py) 및 배포 하는 동안 사용할 환경 스크립트 (condaEnv.yml)를 다운로드할 수 있습니다.
+
+1. 점수 매기기 스크립트 및 환경 스크립트를 다운로드 한 경우로 이동 합니다 **자산** 왼쪽된 탐색 창 및 선택 블레이드 **모델**합니다.
+
+    ![탐색 창 모델](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. 등록, 모델을 선택 하 고 "이미지 만들기"를 선택 합니다.
+
+    다음 형식으로 실행된 하는 ID, 반복 번호를 포함 하는 해당 설명에 따라 모델을 식별할 수 있습니다: *< Run_ID > _ < Iteration_number > (_m)*
+
+    ![모델: 이미지 만들기](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. 이미지의 이름을 입력 합니다. 
+1. 선택 된 **찾아보기** 는 점수 매기기 (scoring.py) 이전에 다운로드 한 파일을 업로드 하려면 "점수 매기기 파일" 상자 옆에 있는 단추입니다.
+
+1. 선택 된 **찾아보기** 이전에 다운로드 한 (condaEnv.yml) 환경에서 파일을 업로드할 "Conda 파일" 상자 옆에 있는 단추입니다.
+
+    추가 파일 업로드 수 있을 뿐만 아니라 고유한 점수 매기기 스크립트 및 conda 파일을 사용할 수 있습니다. [점수 매기기 스크립트에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script)합니다.
+
+      >[!Important]
+      > 파일 이름에서 32 자가 하 여야 하 고 해야 시작 하 고 끝나야 영숫자를 사용 하 여 합니다. 대시, 밑줄, 마침표, 및 사이의 영숫자만 포함할 수 있습니다. 공백은 허용 되지 않습니다.
+
+    ![이미지 만들기](media/how-to-create-portal-experiments/create-image.png)
+
+1. 이미지 만들기를 시작 하려면 "만들기" 단추를 선택 합니다. 완료 되 면 완료 하는 데 몇 분 걸립니다, 그리고 위쪽 막대에서 메시지가 나타납니다.
+1. "이미지" 탭으로 이동한 배포 하려는 이미지 옆의 확인란을 "배포 만들기"를 선택 합니다. [배포에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)합니다.
+
+    2 가지 방법으로 배포 합니다.
+     + Azure Container Instance (ACI)-이 값은 대규모로 운영 배포가 아닌 범용 테스트에 더 사용 됩니다. 에 대 한 하나 이상의 코어에 대 한 값을 입력 해야 _CPU 예약 용량_, 및 적어도 하나의 기가바이트 (GB에 대 한) _메모리 예약 용량_
+     + AKS (azure Kubernetes Service))-이 옵션은 대규모로 배포 됩니다. 준비는 AKS 기반 계산 하도록 해야 합니다.
+
+     ![이미지: 배포 만들기](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. 완료되면 **만들기**를 선택합니다. 모델을 배포 하면 각 파이프라인 실행을 완료 하려면 몇 분 정도 걸릴 수 있습니다.
+
+1. 정말 간단하죠. 운영 웹 서비스를 예측을 생성 해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [자동화 된 기계 학습에 자세히 알아보려면](concept-automated-ml.md) 및 Azure Machine Learning입니다.
+* [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)합니다.

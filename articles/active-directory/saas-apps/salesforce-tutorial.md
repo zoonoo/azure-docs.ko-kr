@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500365"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Salesforce를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 자신의 Azure AD 계정으로 Salesforce에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -253,7 +253,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: 8a09a52db40f4f52219bce3e703e275b0f310c1a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550419"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150742"
 ---
 다음 단계에 따라 스토리지 계정에 연결하고 연결을 확인합니다.
 
-1. Storage 탐색기에서 **Azure Storage에 연결** 대화 상자를 엽니다. **Azure Storage에 연결** 대화 상자에서 **스토리지 계정 이름 및 키 사용**을 선택합니다.
+1. Storage Explorer에서 **Azure Storage에 연결** 대화 상자를 엽니다. **Azure Storage에 연결** 대화 상자에서 **스토리지 계정 이름 및 키 사용**을 선택합니다.
 
     ![Data Box 대시보드](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
@@ -25,6 +25,6 @@ ms.locfileid: "53550419"
 
     ![Data Box 대시보드](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
 
-4. 성공적으로 추가한 계정은 Storage 탐색기의 왼쪽 창에 해당 이름에 (외부, 기타)가 추가된 상태로 표시됩니다. 컨테이너를 보려면 **Blob 컨테이너**를 클릭합니다.
+4. 성공적으로 추가한 계정은 Storage Explorer의 왼쪽 창에 해당 이름에 (외부, 기타)가 추가된 상태로 표시됩니다. 컨테이너를 보려면 **Blob 컨테이너**를 클릭합니다.
 
     ![Data Box 대시보드](media/data-box-verify-connection/data-box-connect-via-rest-17.png)

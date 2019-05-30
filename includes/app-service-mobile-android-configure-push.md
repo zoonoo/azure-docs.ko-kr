@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 686688bf0f6b9970b29d540a2425139e78b91a35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: a0b52c5f30e3d90570f4e9a1995b164dc9b6d0c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809442"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140582"
 ---
 1. [Azure Portal](https://portal.azure.com/)에서 **모두 찾아보기** > **App Services**를 선택합니다. 그런 다음, Mobile Apps 백엔드를 선택합니다. 
 2. **설정**에서 **푸시**를 선택합니다. 그런 다음, **푸시 알림 서비스 구성**을 선택합니다.

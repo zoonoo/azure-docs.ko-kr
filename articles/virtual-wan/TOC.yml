@@ -14,12 +14,14 @@
       href: virtual-wan-point-to-site-portal.md
 - name: 개념
   items:
-    - name: 위치 및 파트너
+    - name: 위치 및 파트너 정보
       href: virtual-wan-locations-partners.md
-    - name: 글로벌 전송 네트워크 아키텍처
+    - name: 글로벌 전송 네트워크 아키텍처 정보
       href: virtual-wan-global-transit-network-architecture.md
-    - name: Virtual WAN의 Office 365 제어판
+    - name: Virtual WAN의 Office 365 제어 영역 정보
       href: virtual-wan-office365-overview.md
+    - name: IPsec 정책 정보
+      href: virtual-wan-ipsec.md
 - name: 방법 가이드
   items:
     - name: 가상 허브에서 NVA로 트래픽 라우팅

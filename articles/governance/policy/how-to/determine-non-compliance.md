@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868695"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979339"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -90,7 +90,7 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 |현재 값은 대상 값을 키로 포함해야 합니다. |containsKey 또는 **되지** notContainsKey |
 |현재 값은 대상 값을 포함해야 합니다. |포함 하거나 **되지** notContains |
 |현재 값은 대상 값과 같아야 합니다. |같음 또는 **되지** notEquals |
-|현재 값이 있어야 합니다. |exists |
+|현재 값이 있어야 합니다. |있음 |
 |현재 값은 대상 값에 있어야 합니다. |또는 **되지** notIn |
 |현재 값은 대상 값과 같아야 합니다. |같은 또는 **되지** notLike |
 |현재 값은 대/소문자를 구분하며 대상 값과 일치해야 합니다. |일치 하거나 **되지** notMatch |
@@ -215,11 +215,11 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
 
-   ![규정 준수 리소스 페이지에서 정책 변경 기록 탭](../media/determine-non-compliance/change-history-tab.png)
+   ![규정 준수 리소스 페이지에 azure 정책 변경 기록 탭](../media/determine-non-compliance/change-history-tab.png)
 
 1. 검색된 변경 중 하나를 선택합니다. _visual diff_ 리소스가 표시 됩니다에 대 한 합니다 **변경 내용** 페이지입니다.
 
-   ![정책 변경 기록을 변경 기록 페이지의 시각적 Diff](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure 정책 변경 기록을 Visual Diff 변경 기록 페이지](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색 된 변경 내용은 리소스의 현재 호환성 상태 관련이 있을 수 있습니다.
 
@@ -228,7 +228,7 @@ _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩�
 ## <a name="next-steps"></a>다음 단계
 
 - 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
 - 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](getting-compliance-data.md)합니다.

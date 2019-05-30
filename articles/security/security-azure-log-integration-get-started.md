@@ -139,7 +139,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    4. Azure에 로그인합니다.
    5. Azure Diagnostics용으로 구성된 스토리지 계정이 표시되는지 확인합니다. 
 
-   ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Storage Explorer의 스토리지 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
    1. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
 

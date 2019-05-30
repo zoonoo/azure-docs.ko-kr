@@ -93,7 +93,7 @@ cmdlet을 실행하면 Network Watcher는 리소스를 검토하여 상태를 �
 
 작업 텍스트에서는 문제를 해결하는 방법에 대한 일반적인 지침을 제공합니다. 문제에 대한 조치를 취할 수 있는 경우 링크는 추가 설명서와 함께 제공됩니다. 추가 지침이 없는 경우에 응답은 지원 사례를 열 URL을 제공합니다.  응답의 속성 및 포함된 항목에 대한 자세한 내용은 [Network Watcher 문제 해결 개요](network-watcher-troubleshoot-overview.md)를 방문하세요.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 저장소 탐색기입니다. Storage 탐색기에 대한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>다음 단계
 

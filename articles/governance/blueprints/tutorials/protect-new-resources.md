@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791612"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779578"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Azure Blueprints 리소스 잠금으로 새 리소스 보호
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
 Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용하면 새로 배포한 리소스를 _소유자_ 역할 계정으로도 변조할 수 없게 보호할 수 있습니다. 이 보호를 청사진 정의에서 Resource Manager 템플릿 아티팩트로 만든 리소스에 추가할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
 이 단계에서 구독에 청사진을 할당할 수 있습니다. 게시한 후에도 여전히 변경할 수 있습니다. 추가로 변경하려면 동일한 청사진 정의의 다른 버전 간 차이를 추적할 수 있도록 새 **버전** 값으로 게시해야 합니다.
 
-**청사진 정의를 게시했습니다** 포털 알림이 나타나면 다음 단계로 이동합니다.
+**청사진 정의를 게시하는 중** 포털 알림이 나타나면 다음 단계로 이동합니다.
 
 ## <a name="assign-the-blueprint-definition"></a>청사진 정의 할당
 
@@ -127,7 +127,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
+1. 청사진 할당의 매개 변수 값을 지정합니다.
 
    - 기본 사항
 
@@ -139,7 +139,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
    - 할당 잠금
 
-     _읽기 전용_ 청사진 잠금 모드를 선택합니다. 자세한 내용은 [청사진 리소스 잠금](../concepts/resource-locking.md)을 참조하세요.
+     _읽기 전용_ 청사진 잠금 모드를 선택입니다. 자세한 내용은 [청사진 리소스 잠금](../concepts/resource-locking.md)을 참조하세요.
 
    - 관리 ID
 

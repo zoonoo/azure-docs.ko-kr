@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561271"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170368"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -98,15 +98,57 @@ Premium Storage 캐싱: 지원됨
 
 Write Accelerator [지원됨](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+Mv2 시리즈 기능 높은 처리량, 짧은 대기 시간, 로컬 NVMe 저장소에서 실행 되는 하이퍼 스레드 Intel® Xeon® Platinum 8180 M 2.5ghz (Skylake) 프로세서 2.5ghz의 모든 핵심 기본 빈도와 3.8 GHz 최대 터보 빈도 직접 매핑됩니다. 모든 Mv2 시리즈 가상 머신 크기는 표준 및 프리미엄 영구적 디스크를 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리 액세스에 최적화 된 대규모 메모리 내 데이터베이스 및 관계형 데이터베이스 서버, 캐시 및 메모리에 이상적인 메모리 대 CPU 비율이 높은 워크 로드를 지원 하기 위해 뛰어난된 계산 성능을 제공 하는 VM 크기 분석 합니다. 
+
 |크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000/1000 | 8 / 16000 |
 
 Mv2 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술  
 
-<sup>1</sup> 이러한 큰 vCPU의 지원 되는 게스트 Os 중 하나가 필요 합니다. Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 및 RHEL 7.6
+<sup>1</sup> 이러한 대형 Vm 지원 되는 게스트 Os 중 하나가 필요 합니다. Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
+<sup>2</sup> Mv2 시리즈 Vm은 2 세대입니다. Linux를 사용 하는 SUSE Linux 이미지를 선택 하는 방법에 대 한 다음 섹션을 참조 합니다.
+
+#### <a name="find-a-suse-image"></a>SUSE 이미지를 찾지
+
+Azure portal에서 적절 한 SUSE Linux 이미지를 선택 합니다. 
+
+1. Azure portal에서 선택 **리소스 만들기** 
+1. "SUSE SAP" 검색 
+1. SLES를 SAP 2 세대 이미지에는 하거나 종 량 제 하거나 사용자 고유의 구독 (BYOS) 상태로 전환 합니다. 검색 결과에서 원하는 이미지 범주를 확장 합니다.
+
+    * SAP 용 SUSE Linux Enterprise Server (SLES)
+    * (BYOS) SAP 용 SUSE Linux Enterprise Server (SLES)
+    
+1. SUSE 이미지는 Mv2 시리즈 호환 이름 접두사가 `GEN2:`합니다. 다음 SUSE 이미지는 Mv2 시리즈 Vm에 사용할 수 있습니다.
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 for SAP Applications SP4
+    * GEN2: SUSE Linux Enterprise Server for SAP Applications (SLES) 15
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 for SAP Applications (BYOS) SP4
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 for SAP Applications (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Azure CLI를 통해 SUSE 이미지를 선택 합니다.
+
+Mv2 시리즈 Vm, SAP 이미지에 대 한 현재 사용 가능한 SLES 목록을 보려면 다음을 사용 하 여 [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) 명령:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+명령은은 Mv2 시리즈 Vm에 대 한 SUSE에서 사용할 수 있는 현재 사용 가능한 세대 2 Vm을 출력합니다. 
+
+예제 출력:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>M 시리즈 
 

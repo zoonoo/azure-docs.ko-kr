@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730412"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872479"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
-이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2017을 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
+이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그런 다음 랩의 VM에서 앱을 실행할 수 있도록 파일 공유에 앱을 배포 하려면 Visual Studio 2019를 사용 합니다.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ ms.locfileid: "56730412"
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시
 이 섹션에서는 Visual Studio에서 클라우드의 테스트 VM으로 앱을 게시합니다.
 
-1. Visual Studio 2017을 사용하여 데스크톱/웹 애플리케이션을 만듭니다.
+1. Visual Studio 2019를 사용 하 여 데스크톱/웹 응용 프로그램을 만듭니다.
 2. 앱을 빌드합니다.
 3. 앱을 게시하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 
 4. **게시 마법사**에서 파일 공유에 매핑된 **드라이브**를 입력합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "56730412"
 
     **웹앱:**
 
-    ![웹앱](media/test-app-in-azure/web-app.png)
+    ![웹 앱](media/test-app-in-azure/web-app.png)
 
 1. **다음**을 선택하여 게시 워크플로를 완료하고 **마침**을 선택합니다. 마법사 단계를 마치면 Visual Studio에서 애플리케이션을 빌드하고 파일 공유에 게시합니다. 
 

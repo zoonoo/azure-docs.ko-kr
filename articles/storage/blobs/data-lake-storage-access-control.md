@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233969"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949567"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -61,7 +61,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 |이 도구를 사용 하려면:    |이 문서를 참조 하세요.    |
 |--------|-----------|
-|Azure Storage 탐색기    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|Azure Storage Explorer    |[Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
 |REST API    |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -150,7 +150,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 #### <a name="the-owning-group"></a>소유 그룹
 
-POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 사용자 "Alice"는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
+POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 사용자 "Alice"는 "finance" 그룹에 속할 수 있습니다. Alice가 여러 그룹에 속할 수도 있습니다 하지만 하나의 그룹을 항상 해당 기본 그룹으로 지정 됩니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 

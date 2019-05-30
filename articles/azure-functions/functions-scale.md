@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045850"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872736"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -165,3 +165,9 @@ Azure Functions는 *크기 조정 컨트롤러*라는 구성 요소를 사용하
 유용한 쿼리 및 소비 청구서를 이해 하는 방법에 대 한 정보를 찾을 수 있습니다 [청구 FAQ에](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)입니다.
 
 [Azure Functions 가격 책정 페이지]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>서비스 제한
+
+다음 표에서 다양 한 호스팅 계획에서 실행 될 때 함수 앱에 적용 된 한도 나타냅니다.
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776638"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914714"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "60776638"
 
 ## <a name="old-and-new-alerting-capabilities"></a>이전 및 새 경고 기능
 
-이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다. 경고
+이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다.
 
 Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 볼 수 있습니다. 경고 화면의 **클래식 경고 보기** 단추를 누르면 이 화면을 표시할 수 있습니다. 
 

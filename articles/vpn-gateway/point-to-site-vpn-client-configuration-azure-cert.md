@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66113868"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -109,7 +109,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
    ![ID](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. **로컬 ID** 필드에서 인증서 이름(6단계에서 사용한 이름)을 지정합니다. 이 예에서는 "ikev2Client.com"입니다. 그런 다음 **적용** 단추를 클릭하여 변경 내용을 저장합니다.
 
-   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![적용](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. **네트워크** 대화 상자에서 **적용**을 클릭하여 모든 변경 내용을 저장합니다. 그런 다음 **연결**을 클릭하여 Azure VNet에 대한 P2S 연결을 시작합니다.
 
 ## <a name="linuxgui"></a>Linux(strongSwan GUI)

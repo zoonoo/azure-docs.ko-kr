@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345299"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952214"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC를 사용하여 Azure 리소스에 대한 외부 사용자의 액세스 관리
 
@@ -57,7 +57,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 역할의 할당 가능한 범위에 대한 자세한 설명은 [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)을 참조하세요.
 
-관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **[구독] > [액세스 제어(IAM)]** 를 표시합니다.
+관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 아래에 표시 됩니다 외부 사용자를 초대한 후 **구독 > Access Control (IAM)** 현재 구독 범위에서 RBAC 역할에 할당 된 모든 사용자를 사용 하 여 합니다.
 
 ![새 RBAC 역할에 사용 권한 추가](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 사용자 "chessercarlton@gmail.com"은 "체험 평가판" 구독에 대한 **소유자**로 초대되었습니다. 외부 사용자는 초대를 보낸 후에 활성화 링크를 포함한 이메일 확인을 받게 됩니다.
 ![RBAC 역할에 대한 이메일 초대](./media/role-assignments-external-users/5.png)
 
-조직의 외부에 있는 새 사용자는 "기본 테넌트 Azure" 디렉터리에서 기존 특성을 갖지 않습니다. 해당 특성은 외부 사용자가 역할을 할당한 구독과 연결되어 있는 디렉터리에 기록하는 데 동의한 후에 만들어집니다.
+조직의 외부에 있는 새 사용자는 "기본 테넌트 Azure" 디렉터리에서 기존 특성을 갖지 않습니다. 외부 사용자가 동의한 후 생성 된 구독에 연결 된 디렉터리에 기록 하는 데 할당 된 역할을 합니다.
 
 ![RBAC 역할에 대한 이메일 초대 메시지](./media/role-assignments-external-users/6.png)
 

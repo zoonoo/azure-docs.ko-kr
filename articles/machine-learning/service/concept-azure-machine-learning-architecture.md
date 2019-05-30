@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502093"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151173"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -34,39 +34,23 @@ Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 1. 만족스러운 실행이 발견되면 **모델 레지스트리**에 지속되는 모델을 등록합니다.
 1. 모델을 사용 하는 점수 매기기 스크립트를 개발 및 **모델을 배포할** 으로 **웹 서비스** Azure에서 또는 **IoT Edge 장치**합니다.
 
+다음 중 하나를 사용 하 여 이러한 단계를 수행.
++ [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++  [Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > 이 문서에서는 Azure Machine Learning에서 사용되는 용어와 개념을 정의하지만, Azure 플랫폼에 대한 용어와 개념은 다루지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
 
 ## <a name="workspace"></a>작업 영역
 
-작업 영역은 Azure Machine Learning 서비스의 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다.
-
-작업 영역은 모델을 학습시키는 데 사용할 수 있는 컴퓨팅 대상 목록을 유지합니다. 또한 스크립트의 로그, 메트릭, 출력 및 스냅숏을 포함하는 학습 실행 기록을 유지합니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.
-
-모델을 작업 영역에 등록합니다. Azure Container Instances에서 Azure Kubernetes Service를 또는 프로그래밍할 수 필드 FPGA (gate array)는 REST 기반 HTTP 끝점으로 모델을 배포 하는 등록 된 모델 및 점수 매기기 스크립트를 사용 합니다. 또한 이미지를 Azure IoT Edge 디바이스에 모듈로 배포할 수도 있습니다. 내부적으로 배포 된 이미지를 호스팅하는 docker 이미지 생성 됩니다. 필요한 경우 사용자 고유의 이미지를 지정할 수 있습니다.
-
-여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유 하는 경우에 다음 역할에 사용자를 할당 하 여 액세스를 제어할 수 있습니다.
-
-* 소유자
-* 참가자
-* 판독기
-
-이러한 역할에 대 한 자세한 내용은 참조는 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md) 문서.
-
-새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
-
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중 및 모델을 배포할 때 사용하는 docker 컨테이너를 등록합니다.
-* [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대한 기본 데이터 저장소로 사용됩니다.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): 모델에 대한 모니터링 정보를 저장합니다.
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 컴퓨팅 대상에서 사용되는 비밀 및 작업 영역에 필요한 기타 중요한 정보를 저장합니다.
-
-> [!NOTE]
-> 새 버전을 만드는 것 외에 기존 Azure 서비스를 사용할 수도 있습니다.
+[작업 영역](concept-workspace.md) Azure Machine Learning 서비스에 대 한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다.
 
 다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
 
 [![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+작업 영역에 대 한 자세한 내용은 참조 하세요. [는 Azure Machine Learning 작업 영역 이란?](concept-workspace.md)합니다.
 
 ## <a name="experiment"></a>실험
 
@@ -170,6 +154,10 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 모델 학습을 통해 생성된 실행 보기 예제는 [빠른 시작: Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
+## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+
+원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다. 이 스 티 메이 터, ML 파이프라인을 실행 하는 스크립트를 사용 하 여 제출 하는 실행을 사용 하 여 작동 합니다. 또한 Machine Learning CLI 또는 SDK에서 전송 하는 실행에 대 한 작동 합니다.
+
 ## <a name="snapshot"></a>스냅숏
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅숏으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅숏을 다운로드할 수 있습니다.
@@ -228,7 +216,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 ## <a name="pipeline"></a>파이프라인
 
-기계 학습 파이프라인을 사용하여 기계 학습 단계를 연결하는 워크플로를 만들고 관리합니다. 예를 들어, 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 추론 단계가 포함될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
+기계 학습 파이프라인을 사용하여 기계 학습 단계를 연결하는 워크플로를 만들고 관리합니다. 예를 들어, 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기 단계 파이프라인을 포함할 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
 
 이 서비스를 사용한 기계 학습 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md)를 참조하세요.
 

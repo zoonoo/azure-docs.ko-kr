@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604353"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179823"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -65,7 +65,7 @@ Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 �
 
 Linux 용 azure App Service에서 Azure portal 및 CLI를 통해 사용자 지정 하 고 상자 튜닝을 지원합니다. 비 특정 Java 웹 앱 구성에 대 한 다음 문서를 검토 합니다.
 
-- [App Service 설정 구성](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [앱 설정 구성](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [사용자 지정 도메인 설정](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [SSL 사용](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [CDN 추가](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Linux 용 azure App Service에서 Azure portal 및 CLI를 통해 사용자 지�
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 만듭니다는 [응용 프로그램 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) 라는 `JAVA_OPTS` 옵션을 사용 합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
+Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 만듭니다는 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 라는 `JAVA_OPTS` 옵션을 사용 합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
 Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
@@ -140,11 +140,45 @@ Linux용 App Service에서 실행되는 Java 애플리케이션의 [보안 모�
 
 ### <a name="authenticate-users"></a>사용자 인증
 
-사용 하 여 Azure portal에서 앱 인증을 설정 합니다 **인증 및 권한 부여** 옵션입니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다. 자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 및 기타 ID 공급자 관련 문서를 참조하세요.
+사용 하 여 Azure portal에서 앱 인증을 설정 합니다 **인증 및 권한 부여** 옵션입니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다. 자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 및 기타 ID 공급자 관련 문서를 참조하세요. 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 문서의 지침을 따르세요.
 
-여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 문서의 지침을 따르세요.
+#### <a name="tomcat"></a>Tomcat
 
- Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)를 사용하여 친숙한 Spring Security 주석 및 API로 애플리케이션을 보호할 수 있습니다. `application.properties` 파일에서 최대 헤더 크기를 늘려야 합니다. 이 값은 `16384`로 설정하는 것이 좋습니다.
+사용자의 Tomcat 응용 프로그램에 액세스할 수 클레임 직접 보안 주체를 캐스팅 하 여 Tomcat servlet에서 개체에 Map 개체입니다. Map 개체에는 해당 형식에 대 한 클레임의 컬렉션에 각 클레임 유형에 매핑됩니다. 아래 코드에 `request` 의 인스턴스가 `HttpServletRequest`합니다.
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+검사할 수 이제는 `Map` 특정 클레임에 대 한 개체입니다. 예를 들어, 다음 코드 조각은 모든 클레임 유형이을 반복 하며 각 컬렉션의 내용을 인쇄 합니다.
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+사용자 로그 아웃 하 고 다른 작업을 수행 하려면 설명서를 참조 하십시오 온 [App Service 인증 및 권한 부여 사용](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to)합니다. Tomcat의 공식적인 설명서 이기도 [HttpServletRequest 인터페이스](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) 및 해당 메서드. 메서드는 또한 하이드레이션 다음 servlet App Service 구성에 따라:
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+이 기능을 사용 하지 않으려면 라는 응용 프로그램 설정을 만들고 `WEBSITE_AUTH_SKIP_PRINCIPAL` 값을 사용 하 여 `1`입니다. App Service에서 추가 하는 모든 servlet 필터를 사용 하지 않으려면 이라는 설정을 만들 `WEBSITE_SKIP_FILTERS` 값을 사용 하 여 `1`입니다.
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)를 사용하여 친숙한 Spring Security 주석 및 API로 애플리케이션을 보호할 수 있습니다. `application.properties` 파일에서 최대 헤더 크기를 늘려야 합니다. 이 값은 `16384`로 설정하는 것이 좋습니다.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL 구성
 
@@ -232,7 +266,7 @@ App Service Linux 응용 프로그램으로 포트 80에서 수신 대기 해야
 </appSettings>
 ```
 
-또는 Azure Portal의 “애플리케이션 설정” 블레이드에서 환경 변수를 설정합니다.
+환경 변수를 설정 또는 합니다 **구성** > **응용 프로그램 설정** Azure 포털의 페이지입니다.
 
 다음으로, 데이터 원본을 한 애플리케이션에만 제공할 것인지 또는 Tomcat 서블릿에서 실행 중인 모든 애플리케이션에 제공할 것인지 결정합니다.
 
@@ -327,10 +361,7 @@ App Service Linux 응용 프로그램으로 포트 80에서 수신 대기 해야
 
 연결 문자열 만들기 및 삽입으로 제안에 Spring Boot 응용 프로그램에서 데이터 원본에 연결 하려면 프로그램 `application.properties` 파일입니다.
 
-1. App Service 블레이드의 "응용 프로그램 설정" 섹션에서는 문자열의 이름을 설정할 JDBC 연결 문자열 값 필드에 붙여 넣고 유형을 "Custom"으로 설정 합니다. 슬롯 설정으로 필요에 따라이 연결 문자열을 설정할 수 있습니다.
-
-    ! [포털에서 연결 문자열을 만드는 중입니다.]
-    
+1. App Service 페이지의 "구성" 섹션에서는 문자열의 이름을 설정할 JDBC 연결 문자열 값 필드에 붙여 넣고 유형을 "Custom"으로 설정 합니다. 슬롯 설정으로 필요에 따라이 연결 문자열을 설정할 수 있습니다.
 
     이 연결 문자열은 라는 환경 변수로 응용 프로그램에 액세스할 수 있는 `CUSTOMCONNSTR_<your-string-name>`합니다. 위에서 만든 연결 문자열 이름은 예를 들어 `CUSTOMCONNSTR_exampledb`합니다.
 
@@ -383,13 +414,13 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 
 다음 예와 같이 Azure Portal의 **시작 스크립트** 필드를 시작 셸 스크립트의 위치에 설정합니다. `/home/site/deployments/tools/your-startup-script.sh`
 
-제공할 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) 스크립트에서 사용 하기 위해 환경 변수를 전달 하 고 응용 프로그램 구성에서 합니다. 애플리케이션 설정은 연결 문자열 및 버전 제어에서 벗어나도록 애플리케이션을 구성하는 데 필요한 기타 비밀을 유지합니다.
+제공할 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 스크립트에서 사용 하기 위해 환경 변수를 전달 하 고 응용 프로그램 구성에서 합니다. 애플리케이션 설정은 연결 문자열 및 버전 제어에서 벗어나도록 애플리케이션을 구성하는 데 필요한 기타 비밀을 유지합니다.
 
 ### <a name="modules-and-dependencies"></a>모듈 및 종속성
 
 모듈 및 해당 종속성을 JBoss CLI를 통해 Wildfly 클래스 경로에 설치하려면 해당 디렉터리에서 다음 파일을 작성해야 합니다. 일부 모듈 및 종속성에는 JNDI 명명 또는 기타 API 관련 구성과 같은 추가 구성이 필요할 수 있습니다. 따라서 이 목록은 대부분의 경우에서 종속성을 구성해야 하는 최소 세트입니다.
 
-- [XML 모듈 설명자](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). 이 XML 파일은 모듈의 이름, 특성 및 종속성을 정의합니다. 이 [예제 module.xml 파일](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource)은 Postgres 모듈, 해당 JAR 파일 JDBC 종속성 및 필요한 기타 모듈 종속성을 정의합니다.
+- [XML 모듈 설명자](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). 이 XML 파일은 모듈의 이름, 특성 및 종속성을 정의합니다. 이 [예제 module.xml 파일](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource)은 Postgres 모듈, 해당 JAR 파일 JDBC 종속성 및 필요한 기타 모듈 종속성을 정의합니다.
 - 사용자 모듈에 대한 필수 JAR 파일 종속성.
 - 새 모듈을 구성하기 위한 JBoss CLI 명령을 사용하는 스크립트. 이 파일은 종속성을 사용하도록 서버를 구성하기 위해 JBoss CLI에서 실행할 명령을 포함합니다. 모듈, 데이터 원본 및 메시징 공급자를 추가하는 명령에 대한 문서는 [이 문서](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)를 참조하세요.
 - JBoss CLI를 호출하고 이전 단계에서 스크립트를 실행하는 Bash 시작 스크립트. 이 파일은 스케일 아웃을 수행하는 동안 App Service 인스턴스를 다시 시작하거나 새 인스턴스를 프로비전할 때 실행됩니다. 이 시작 스크립트는 JBoss 명령이 JBoss CLI로 전달되므로 애플리케이션에 대해 다른 구성을 수행할 수 있습니다. 최소한 이 파일은 JBoss CLI 명령 스크립트를 JBoss CLI에 전달하는 단일 명령일 수 있습니다.
@@ -401,7 +432,7 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 모듈에 대한 파일 및 콘텐츠가 준비되면 아래 단계에 따라 모듈을 Wildfly 애플리케이션 서버에 추가합니다.
 
 1. App Service 인스턴스의 `/home/site/deployments/tools`에 파일을 FTP로 업로드합니다. FTP 자격 증명을 가져오기 위한 지침은 이 문서를 참조하세요.
-2. 다음 예제와 같이 Azure Portal의 애플리케이션 설정 블레이드에서 “시작 스크립트” 필드를 시작 셸 스크립트의 위치에 설정합니다. `/home/site/deployments/tools/your-startup-script.sh`
+2. 에 **Configuration** > **일반 설정** 예를 들어 azure portal, "스크립트의 시작" 페이지 시작 셸 스크립트의 위치에 필드 `/home/site/deployments/tools/your-startup-script.sh` 합니다.
 3. 키를 눌러 App Service 인스턴스를 다시 시작 합니다 **다시 시작** 단추를 **개요** 포털 또는 Azure CLI를 사용 하는 섹션입니다.
 
 ### <a name="configure-data-source-connections"></a>데이터 원본 연결 구성

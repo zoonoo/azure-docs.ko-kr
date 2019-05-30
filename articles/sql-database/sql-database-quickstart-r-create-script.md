@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013117"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708594"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행
 
@@ -56,7 +56,7 @@ print(c(c, d))
 
 1. 전체 R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 전달합니다.
 
-   이 스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 내의 모든 항목이 유효한 R 코드여야 합니다.
+   이 스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -102,9 +102,9 @@ GO
 
 | | |
 |-|-|
-|*@language* | 호출할 언어 확장을 정의합니다(이 경우 R). |
-|*@script* | R 런타임에 전달되는 명령을 정의합니다. 전체 R 스크립트는 이 인수에 유니코드 텍스트로 묶어야 합니다. 텍스트를 **nvarchar** 형식의 변수에 추가한 다음, 해당 변수를 호출할 수도 있습니다. |
-|*@input_data_1* | 쿼리에서 반환되어 데이터를 데이터 프레임으로 SQL Server에 반환하는 R 런타임에 전달되는 데이터입니다. |
+| @language | 호출할 언어 확장을 정의합니다(이 경우 R). |
+| @script | R 런타임에 전달되는 명령을 정의합니다. 전체 R 스크립트는 이 인수에 유니코드 텍스트로 묶어야 합니다. 텍스트를 **nvarchar** 형식의 변수에 추가한 다음, 해당 변수를 호출할 수도 있습니다. |
+| @input_data_1 | 쿼리에서 반환되어 데이터를 데이터 프레임으로 SQL Server에 반환하는 R 런타임에 전달되는 데이터입니다. |
 |WITH RESULT SETS | SQL Server에 대해 반환된 데이터 테이블의 스키마를 정의하고, "Hello World"를 **int** 데이터 형식의 열 이름으로 추가하는 절입니다. |
 
 명령에서 출력하는 텍스트는 다음과 같습니다.
@@ -146,7 +146,7 @@ GO
 
     **결과**
 
-    ![RTestData 테이블의 콘텐츠](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![RTestData 테이블의 콘텐츠](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
 1. 다음 R 스크립트를 실행합니다. `SELECT` 문을 사용하여 테이블에서 데이터를 검색하고, R 런타임을 통해 전달한 다음, 데이터를 데이터 프레임으로 반환합니다. `WITH RESULT SETS` 절에서는 SQL Database에 대해 반환된 데이터 테이블의 스키마를 정의하고, *NewColName* 열 이름을 추가합니다.
 
@@ -159,7 +159,7 @@ GO
 
     **결과**
 
-    ![테이블의 데이터를 반환하는 R 스크립트의 출력](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![테이블의 데이터를 반환하는 R 스크립트의 출력](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. 이제 입력 및 출력 변수의 이름을 변경해 보겠습니다. 기본 입력 및 출력 변수 이름은 **InputDataSet** 및 **OutputDataSet**이며, 이 스크립트에서 해당 이름을 **SQL_in** 및 **SQL_out**으로 변경합니다.
 
@@ -193,7 +193,7 @@ GO
 
     **결과**
 
-    ![@script를 입력으로 사용하는 쿼리 결과](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![@script를 입력으로 사용하는 쿼리 결과](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>R 버전 확인
 
@@ -251,7 +251,7 @@ WITH result sets((
 
 **결과**
 
-![R에 설치된 패키지](./media/sql-database-connect-query-r/r-installed-packages.png)
+![R에 설치된 패키지](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -260,10 +260,8 @@ SQL Database에서 R을 사용하여 기계 학습 모델을 만들려면
 > [!div class="nextstepaction"]
 > [Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습](sql-database-quickstart-r-train-score-model.md) 빠른 시작을 수행합니다.
 
-Machine Learning Services에 대한 자세한 내용은 아래 문서를 참조하세요. 이러한 문서 중 일부는 SQL Server와 관련되어 있지만, 대부분의 정보가 Azure SQL Database의 Machine Learning Services(R 포함)에도 적용됩니다.
+Azure SQL Database Machine Learning Services(R 포함)(미리 보기)에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure SQL Database Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [자습서: SQL Server 데이터에 RevoScaleR R 함수 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services(R 포함)(미리 보기)](sql-database-machine-learning-services-overview.md)
+- [Machine Learning Services(미리 보기)를 사용하여 Azure SQL Database에서 고급 R 함수 작성](sql-database-machine-learning-services-functions.md)
+- [Azure SQL Database Machine Learning Services(미리 보기)에서 R 및 SQL 데이터 사용](sql-database-machine-learning-services-data-issues.md)

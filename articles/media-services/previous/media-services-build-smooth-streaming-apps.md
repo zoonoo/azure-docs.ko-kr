@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466071"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949616"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -507,7 +507,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 
    > [!NOTE]
-   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다.  예를 들면 다음과 같습니다.
+   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이, 발생할 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들면 다음과 같습니다.
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          </ListBox>
          </StackPanel>
    ```
-3. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
+3. 키를 눌러 **CTRL + S** 변경 내용을 저장 하려면
 
 ### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
 

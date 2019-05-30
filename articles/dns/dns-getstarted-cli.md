@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111344"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -82,7 +82,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예를 들면 다음과 같습니다.
+   예: 
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

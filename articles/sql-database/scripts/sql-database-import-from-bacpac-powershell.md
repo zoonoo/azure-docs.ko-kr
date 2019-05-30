@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 6d6fadc1508df63fdc4062bd45a98e31c1f1674f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/24/2019
+ms.openlocfilehash: be8fb1f7219ae017d520744778c0b83feb748379
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361222"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244233"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 BACPAC 파일을 Azure SQL 데이터베이스에 가져오기
 

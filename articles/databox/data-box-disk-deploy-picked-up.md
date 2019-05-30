@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150758"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603094"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Disk 반환 및 Azure에 대한 데이터 업로드 확인
 
@@ -56,7 +56,7 @@ ms.locfileid: "65150758"
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
 3. UPS를 사용하여 픽업을 예약합니다. 픽업을 예약하려면 다음을 수행합니다.
 
-    - 로컬 UPS(국가별 무료 전화 번호)에 전화합니다.
+    - 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
     - 통화에서 인쇄된 레이블에 표시된 대로 역방향 배송 추적 번호를 알려줍니다.
     - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
     - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
@@ -78,7 +78,7 @@ ms.locfileid: "65150758"
 
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
 3. DHL로 유럽에서 디바이스를 반환하는 경우 해당 웹 사이트를 방문하고 항공 화물 운송장 번호를 지정하여 DHL에서 픽업을 요청합니다.
-4. 국가 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.
+4. 국가/지역 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.
 
     ![DHL 반송 배송](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     

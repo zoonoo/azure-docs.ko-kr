@@ -9,14 +9,16 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a83b8a56a8108f86d868e3420d8368c74fba308a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 86aab19eb0203e75fb8586adbdeb3f6fff9d14bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578198"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575434"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
+
+Azure IoT Edge를 실행하는 Linux 디바이스에 데이터를 저장하는 SQL Server 모듈을 배포합니다.
 
 Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하고 쿼리합니다. Azure IoT Edge는 디바이스가 오프라인 상태인 경우 메시지를 캐시한 후, 연결이 다시 설정될 때 전달하는 기본 스토리지 기능을 제공합니다. 그러나 데이터를 로컬로 쿼리하는 등 고급 저장소 기능을 추가할 수 있습니다. IoT Edge 디바이스는 로컬 데이터베이스를 사용하여 IoT Hub에 대한 연결을 유지 관리하지 않고 더 복잡한 컴퓨팅을 수행할 수 있습니다. 
 
@@ -34,54 +36,24 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
-* [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 Azure 가상 머신을 IoT Edge 디바이스로 사용할 수 있습니다.
-* SQL Server는 Linux 컨테이너만 지원합니다. Windows 디바이스를 IoT Edge 디바이스로 사용하여 이 자습서를 테스트하려면 Linux 컨테이너를 사용하도록 구성해야 합니다. Windows에서 Linux 컨테이너에 대한 IoT Edge 런타임을 구성하는 필수 구성 요소와 설치 단계는 [Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조하세요.
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
+* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
+* Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
-클라우드 리소스:
+이 자습서에서는 SQL Server에 데이터를 보내도록 Azure Functions 모듈을 사용합니다. Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같은 추가 필수 구성 요소를 개발 머신에 설치합니다. 
 
-* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
-
-개발 리소스:
-
-* [Visual Studio Code](https://code.visualstudio.com/) 
 * Visual Studio Code에 대한 [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
-* [Visual Studio Code용 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
-* [Docker CE](https://docs.docker.com/install/). 
-  * Windows 머신에서 개발하는 경우 Docker가 [Linux 컨테이너를 사용하도록 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)되어 있는지 확인합니다. 
-
-## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-
-이 자습서에서는 Visual Studio Code용 Azure IoT Tools를 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
-
-임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
-
-컨테이너 레지스트리가 아직 없는 경우 다음 단계를 따라 Azure에서 새로 만드세요.
-
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
-
-2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
-
-   | 필드 | 값 | 
-   | ----- | ----- |
-   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
-   | 구독 | 드롭다운 목록에서 구독을 선택합니다. |
-   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
-   | 위치 | 가까운 위치를 선택합니다. |
-   | 관리 사용자 | **사용**으로 설정합니다. |
-   | SKU | **기본**을 선택합니다. | 
-
-5. **만들기**를 선택합니다.
-
-6. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾은 다음, **액세스 키**를 선택합니다. 
-
-7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다.  
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기
 
 데이터를 데이터베이스에 보내려면 데이터를 제대로 구성한 다음, 테이블에 저장할 수 있는 모듈이 필요합니다. 
+
+### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
 다음 단계에서는 Visual Studio Code 및 Azure IoT Tools를 사용하여 IoT Edge Node.js 함수를 만드는 방법을 보여 줍니다.
 
@@ -101,24 +73,27 @@ Azure IoT Edge 디바이스:
 
    VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 
    
-4. IoT Edge 솔루션에서 \.env 파일을 엽니다. 
+### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-   새 IoT Edge 솔루션을 만들 때마다 VS Code에서 \.env 파일에 레지스트리 자격 증명을 제공하라는 메시지를 표시합니다. 이 파일은 git에서 무시되며, IoT Edge 확장은 나중에 이 파일을 사용하여 IoT Edge 디바이스에 레지스트리 액세스를 제공합니다. 
+환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
 
-   이전 단계에서 컨테이너 레지스트리를 제공하지 않았지만 기본 localhost:5000을 허용한 경우 \.env 파일이 없습니다.
+1. VS Code 탐색기에서 .env 파일을 엽니다.
+2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
+3. 이 파일을 저장합니다.
 
-5. .env 파일에서 모듈 이미지에 액세스할 수 있도록 IoT Edge 런타임에 레지스트리 자격 증명을 제공합니다. **CONTAINER_REGISTRY_USERNAME** 및 **CONTAINER_REGISTRY_PASSWORD** 섹션을 찾고 등호 기호 뒤에 자격 증명을 삽입합니다. 
+### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 
-   ```env
-   CONTAINER_REGISTRY_USERNAME_yourregistry=<username>
-   CONTAINER_REGISTRY_PASSWORD_yourregistry=<password>
-   ```
+현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 C 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
 
-6. .env 파일을 저장합니다.
+1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
 
-7. VS Code 탐색기에서 **모듈** > **sqlFunction** > **sqlFunction.cs**를 엽니다.
+2. 명령 팔레트의 옵션 목록에서 대상 아키텍처를 선택합니다. 이 자습서에서는 Ubuntu 가상 머신을 IoT Edge 디바이스로 사용할 예정이므로 기본값인 **amd64**를 그대로 둡니다. 
 
-8. 파일의 전체 내용을 다음 코드로 바꿉니다.
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
+
+1. VS Code 탐색기에서 **모듈** > **sqlFunction** > **sqlFunction.cs**를 엽니다.
+
+2. 파일의 전체 내용을 다음 코드로 바꿉니다.
 
    ```csharp
    using System;
@@ -205,23 +180,23 @@ Azure IoT Edge 디바이스:
    }
    ```
 
-6. 줄 35에서 문자열 **\<sql 연결 문자열\>** 을 다음 문자열로 바꿉니다. **데이터 원본** 속성은 SQL Server 컨테이너를 참조하며, 이 항목은 아직 존재하지 않지만 다음 섹션에서 **SQL**이라는 이름으로 만들게 됩니다. 
+3. 줄 35에서 문자열 **\<sql 연결 문자열\>** 을 다음 문자열로 바꿉니다. **데이터 원본** 속성은 SQL Server 컨테이너를 참조하며, 이 항목은 아직 존재하지 않지만 다음 섹션에서 **SQL**이라는 이름으로 만들게 됩니다. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-7. **sqlFunction.cs** 파일을 저장합니다. 
+4. **sqlFunction.cs** 파일을 저장합니다. 
 
-8. **sqlFunction.csproj** 파일을 엽니다.
+5. **sqlFunction.csproj** 파일을 엽니다.
 
-9. 패키지 참조 그룹을 찾고, 새 항목을 추가하여 SqlClient를 포함시킵니다. 
+6. 패키지 참조 그룹을 찾고, 새 항목을 추가하여 SqlClient를 포함시킵니다. 
 
    ```csproj
    <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
    ```
 
-10. **sqlFunction.csproj** 파일을 저장합니다.
+7. **sqlFunction.csproj** 파일을 저장합니다.
 
 ## <a name="add-the-sql-server-container"></a>SQL Server 컨테이너 추가
 
@@ -275,19 +250,11 @@ sqlFunction 모듈이 컨테이너 레지스트리에 성공적으로 푸시된 
 
 IoT Hub를 통해 디바이스에서 모듈을 설정할 수 있지만 Visual Studio Code를 통해 IoT Hub 및 디바이스에 액세스할 수도 있습니다. 이 섹션에서는 IoT Hub에 대한 액세스 권한을 설정한 다음, VS Code를 사용하여 IoT Edge 디바이스에 솔루션을 배포합니다. 
 
-1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 선택합니다.
+1. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다. 
 
-2. 표시되는 메시지에 따라 Azure 계정에 로그인합니다. 
+2. 배포에서 대상으로 지정하려는 디바이스를 마우스 오른쪽 단추로 클릭하고, **단일 디바이스 배포 만들기**를 선택합니다. 
 
-3. 명령 팔레트에서 Azure 구독을 선택한 다음, IoT Hub를 선택합니다. 
-
-4. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
-
-5. 배포에서 대상으로 지정하려는 장치를 마우스 오른쪽 단추로 클릭하고, **단일 장치 배포 만들기**를 선택합니다. 
-
-   ![단일 장치용 배포 만들기](./media/tutorial-store-data-sql-server/create-deployment.png)
-
-6. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.amd64**를 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
+3. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.amd64**를 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
 
    deployment.template.json 파일을 배포 매니페스트로 사용하지 마십시오.
 
@@ -360,7 +327,7 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 
 이 자습서에서는 IoT Edge 장치에서 생성된 원시 데이터를 필터링하는 코드가 포함된 Azure Functions 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [Visual Studio Code에 대한 Azure IoT Edge를 사용하여 Azure Functions를 개발](how-to-develop-csharp-function.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 
 
-Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다음 자습서를 진행합니다.
+에지에서 다른 스토리지 메서드를 시도하려는 경우 IoT Edge의 Azure Blob Storage를 사용하는 방법을 읽어보세요. 
 
 > [!div class="nextstepaction"]
-> [C# 코드를 사용하여 센서 데이터 필터링](tutorial-csharp-module.md)
+> [IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장](how-to-store-data-blob.md)

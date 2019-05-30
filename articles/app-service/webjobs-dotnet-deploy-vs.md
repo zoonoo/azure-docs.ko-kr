@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832412"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873015"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -92,11 +92,11 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
-Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads)를 설치합니다.
+Visual Studio 2019를 사용 하는 경우 설치 합니다 [Azure 개발 워크 로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads)합니다.
 
 ### <a id="convert"></a>기존 콘솔 애플리케이션 프로젝트에 WebJobs 배포 사용
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+두 가지가 있습니다.
 
 * [웹 프로젝트를 사용하여 자동 배포 사용](#convertlink).
 
@@ -240,7 +240,7 @@ WebJobs는 Azure Functions에서 타이머 트리거를 예약 하는 데 동일
 | ----------- | --------- | --------------- |
 | `is_in_place` | 모두 | 작업을을 먼저 임시 폴더에 복사 되지 않고 현재 위치에서 실행할 수 있습니다. 자세한 내용은 참조 하세요 [WebJobs 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)합니다. |
 | `is_singleton` | 연속 | 만 확장 되는 경우 단일 인스턴스 WebJobs를 실행 합니다. 자세한 내용은 참조 하세요 [연속 작업을 단일 항목으로 설정](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)합니다. |
-| `schedule` | 트리거 | CRON 기반 일정에서 WebJob을 실행 합니다. 자세한 내용은 참조는 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#cron-expressions)합니다. |
+| `schedule` | 트리거됨 | CRON 기반 일정에서 WebJob을 실행 합니다. 자세한 내용은 참조는 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#cron-expressions)합니다. |
 | `stopping_wait_time`| 모두 | 종료 문제의 제어할 수 있습니다. 자세한 내용은 참조 하세요 [정상적으로 종료](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)합니다. |
 
 ## <a name="next-steps"></a>다음 단계

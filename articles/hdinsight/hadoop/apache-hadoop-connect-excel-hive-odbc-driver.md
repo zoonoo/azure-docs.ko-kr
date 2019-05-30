@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 100482496df2db1bff07a070bb82c6811208cfd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718153"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891343"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -52,7 +52,7 @@ ODBC 드라이버를 사용할 애플리케이션 버전에 맞는 [Microsoft Hi
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
    |  호스트 |&lt;HDInsightClusterName&gt;.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
-   |  포트 |<strong>443</strong>을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+   |  Port |<strong>443</strong>을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |<strong>기본값</strong>을 사용합니다. |
    |  메커니즘 |<strong>Azure HDInsight Service</strong> 선택 |
    |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 <strong>admin</strong>입니다. |
@@ -99,7 +99,7 @@ ODBC 드라이버를 사용할 애플리케이션 버전에 맞는 [Microsoft Hi
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](apache-hadoop-connect-hive-power-bi.md)
 * [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
-* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md)
+* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](../interactive-query/hdinsight-connect-hive-zeppelin.md)
 * [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
 * [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)

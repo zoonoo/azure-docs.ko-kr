@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: fb7d84264b8de8833d7dec2a8b22dc23995c17bb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66133581"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -228,7 +228,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기

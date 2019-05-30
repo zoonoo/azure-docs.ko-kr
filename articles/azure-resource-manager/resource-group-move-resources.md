@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792689"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872632"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 

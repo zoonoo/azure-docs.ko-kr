@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f5d1c66cb049ab9ec52db619d55a4bb3e485e4b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60588539"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147648"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -137,6 +137,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 * Standard_G5
 * Standard_DS15_v2
 * Standard_D15_v2
+* Standard_F72s_v2
 
 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
 

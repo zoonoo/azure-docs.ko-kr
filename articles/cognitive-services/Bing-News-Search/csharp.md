@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87e328230b346deaa25a1d83ca46c1698dd84882
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074798"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798354"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>빠른 시작: C# 및 Bing News Search REST API를 사용하여 뉴스 검색
 
@@ -26,7 +26,7 @@ ms.locfileid: "58074798"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 

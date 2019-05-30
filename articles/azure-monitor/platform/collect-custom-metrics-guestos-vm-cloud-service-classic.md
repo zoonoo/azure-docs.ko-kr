@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 90e841628d989a16f504d2efd7a2c7b18335ff48
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129490"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 

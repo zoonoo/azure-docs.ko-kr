@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161916"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.

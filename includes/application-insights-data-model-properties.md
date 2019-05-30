@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: eb4fb0e08564921556c0562e9fa7d670b76e860a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899301"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131009"
 ---
 사용자 지정 속성의 이름-값 컬렉션입니다. 이 컬렉션은 사용자 지정 크기로 표준 원격 분석을 확장하는 데 사용됩니다. 주문 번호 같은 원격 분석 또는 원격 분석 항목 관련 속성을 생성하는 배포 슬롯을 예로 들 수 있습니다. 
 

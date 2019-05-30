@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa009ed99b2067b5a3cbde910a7265f42ea478f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 395172fc77ff0c2e07658386ba827022af1ad26c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337451"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595490"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>빠른 시작: C#용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -25,10 +25,10 @@ ms.locfileid: "57337451"
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/)의 모든 버전.
+* [Visual Studio 2017 이상](https://visualstudio.microsoft.com/vs/whatsnew/)의 모든 버전.
 * [Cognitive Image Search NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Visual Studio에서 Bing Image Search SDK를 설치하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 사용합니다.
+Visual Studio에서 Bing Image Search SDK를 설치하려면 **솔루션 탐색기**에서 **NuGet 패키지 관리** 옵션을 사용합니다.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

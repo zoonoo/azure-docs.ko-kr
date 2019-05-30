@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272481"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950339"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -128,7 +128,7 @@ az account management-group delete --name 'Contoso'
 
 1. 관리 그룹의 세부 정보를 보려면 관리 그룹의 제목 옆에 있는 **(세부 정보)** 링크를 선택합니다. 이 링크를 사용할 수 없으면 해당 관리 그룹을 볼 수 있는 권한이 없습니다.
 
-   ![기본](./media/main.png)
+   ![메인](./media/main.png)
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
@@ -281,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>계층 구조에서 관리 그룹 이동  
 
-부모 관리 그룹으로 이동 하면 해당 그룹 계층도 함께 이동 합니다.
+부모 관리 그룹으로 이동 하면 해당 그룹 계층도 함께 이동 합니다. 관리 그룹 이동 내용은 해야 액세스가 [관리 그룹 액세스](index.md#management-group-access)합니다.
 
 ### <a name="move-management-groups-in-the-portal"></a>포털에서 관리 그룹 이동
 

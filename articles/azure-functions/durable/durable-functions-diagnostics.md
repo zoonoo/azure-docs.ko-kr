@@ -325,7 +325,7 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 
 ## <a name="storage"></a>Storage
 
-기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 즉 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션 상태를 검사할 수 있습니다.
+기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 즉 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션 상태를 검사할 수 있습니다.
 
 ![Azure Storage 탐색기 스크린샷](./media/durable-functions-diagnostics/storage-explorer.png)
 

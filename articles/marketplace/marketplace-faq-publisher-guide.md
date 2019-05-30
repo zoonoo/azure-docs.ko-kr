@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938648"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964055"
 ---
 # <a name="marketplace-faqs"></a>Marketplace FAQ
 
@@ -36,7 +36,7 @@ Azure Marketplace는 Azure 제품과 서비스를 확장하기 위해 빌드된 
 
 * 기본 운영 체제
 * 데이터베이스
-* security
+* 보안
 * ID
 * 네트워킹
 * 블록체인
@@ -310,7 +310,7 @@ Azure Marketplace 및 AppSource 관련 세부 정보와 관련 혜택을 확인�
 
 **Azure Marketplace에서 판매를 시작하려면 어떻게 해야 하나요?**
 
-[Azure Marketplace 판매자 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [판매자 등록](https://docs.microsoft.com/azure/marketplace/become-publisher)을 검토하여 Azure Marketplace 등록을 시작합니다. 그런 다음 [Azure Marketplace 신청 양식](https://azuremarketplace.microsoft.com/sell/signup)을 작성하여 신청서를 제출합니다.
+[Azure Marketplace 판매자 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [판매자 등록](https://docs.microsoft.com/azure/marketplace/become-publisher)을 검토하여 Azure Marketplace 등록을 시작합니다. 다음으로 하 여 응용 프로그램을 제출 [제품을 제출](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)합니다. 참조 하는 방법 [파트너 센터 계정을 만들](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 자세한 내용은 합니다.
 
 **MPN(Microsoft 파트너 네트워크) 회원만 Azure Marketplace에 애플리케이션과 서비스를 등록할 수 있나요?**
 

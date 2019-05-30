@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Visual Search SDK for C#을 사용하여 이미지 �
 titleSuffix: Azure Cognitive Services
 description: Bing Visual Search SDK를 사용하여 이미지를 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/16/2018
+ms.date: 05/15/2019
 ms.author: v-gedod
-ms.openlocfilehash: a7fc4686ec31b4c3a23d3e0ff72e5e2a270015b0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9fd693207b429ddc0a2bfdd772f4822f188ac3f7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532102"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884935"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>빠른 시작: Bing Visual Search SDK for C#을 사용하여 이미지 인사이트 가져오기
 
@@ -23,7 +23,7 @@ ms.locfileid: "57532102"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 * NuGet Visual Search 패키지입니다. 
     - Visual Studio의 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 메뉴에서 `Manage NuGet Packages`를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 패키지를 설치합니다. NuGet 패키지를 설치하면 다음도 설치됩니다.

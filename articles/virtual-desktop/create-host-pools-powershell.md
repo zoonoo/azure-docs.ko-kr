@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523966"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833962"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -78,6 +78,9 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 3. 선택 **컴퓨터 이름**를 선택 **설정을 변경**를 선택한 후 **변경 하는 중...**
 4. 선택 **도메인** 가상 네트워크에 Active Directory 도메인을 입력 합니다.
 5. 도메인 가입 컴퓨터에 대 한 권한이 있는 도메인 계정으로 인증 합니다.
+
+    >[!NOTE]
+    > Azure AD Domain Services 환경에 Vm을 조인 하는 경우 또한 도메인 조인 사용자의 멤버 인지 확인 합니다 [AAD DC Administrators 그룹](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)합니다.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Windows 가상 데스크톱 미리 보기 호스트 풀에 가상 컴퓨터 등록
 

@@ -4,15 +4,15 @@ description: Azure Cosmos DB의 API for MongoDB가 MongoDB 3.4에 제공하는 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 09d12c817e9e8678cf96c63c0bff623923f7074d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885790"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978833"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB: 지원되는 기능 및 구문
 

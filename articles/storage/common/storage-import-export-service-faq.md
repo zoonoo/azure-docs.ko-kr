@@ -121,7 +121,7 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>이 서비스를 통해 가져오는 데이터에 액세스하려면 어떻게 하나요?
 
-Azure Portal 또는 [스토리지 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 Azure Storage 계정에서 데이터에 액세스합니다.  
+Azure Portal 또는 [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 Azure Storage 계정에서 데이터에 액세스합니다.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
 

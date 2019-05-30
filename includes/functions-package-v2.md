@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: c12f805de93762c9bd18d65cf8d6ff082db80c41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca308a19148f27a6b853aa4ffe6c3c8cdd377ecb
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744384"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132318"
 ---
 다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.
 
 | 개발 환경               | 다음에서 지원을 추가하려면 <br>Functions 2.x  |
 |----------------------|----------------|
-|로컬 개발 - C# 클래스 라이브러리       | [패키지 설치](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) |
+|로컬 개발 - C# 클래스 라이브러리       | [패키지 설치](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2019) |
 |로컬 개발 - C# 스크립트, JavaScript, F#, Java 및 Python |[확장 등록](../articles/azure-functions/functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)         |
 |포털 개발| 출력 바인딩을 추가할 때 설치    |
 

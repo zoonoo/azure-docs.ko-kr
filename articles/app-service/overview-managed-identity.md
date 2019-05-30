@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136956"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -287,9 +287,9 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 
 > |매개 변수 이름|그런 다음|설명|
 > |-----|-----|-----|
-> |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
+> |리소스|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
 > |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
-> |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
+> |비밀|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
 > |clientid|쿼리|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
@@ -298,7 +298,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |-------------|----------|
 > |access_token|요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.|
 > |expires_on|액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다.|
-> |resource|수신 웹 서비스의 앱 ID URI입니다.|
+> |리소스|수신 웹 서비스의 앱 ID URI입니다.|
 > |token_type|토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요.|
 
 이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Edge를 사용하여 데이터 전송 | Microsoft Docs
+title: Azure Data Box Edge와 공유할 데이터를 전송하는 자습서 | Microsoft Docs
 description: Data Box Edge 디바이스에 공유를 추가하고 연결하는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403683"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924625"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>자습서: Azure Data Box Edge를 통해 데이터 전송
 

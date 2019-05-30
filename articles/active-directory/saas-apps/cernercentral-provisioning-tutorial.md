@@ -3,9 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자를 Cerner Central의 명단으로 자동으로 프로비전하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281209"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964207"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cerner Central 구성
 

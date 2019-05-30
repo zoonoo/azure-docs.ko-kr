@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866857"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852139"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -192,7 +192,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - [버퍼 풀 확장](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) 지원 되지 않습니다.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`는 지원되지 않습니다. [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>데이터 정렬
 
 기본 인스턴스 데이터 정렬은 `SQL_Latin1_General_CP1_CI_AS`이며 생성 매개 변수로 지정할 수 있습니다. [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
 
@@ -471,7 +471,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 
 ### <a name="tempdb-size"></a>TEMPDB 크기
 
-최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 있습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb`합니다.
+최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 없습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb`합니다. `tempdb` 인스턴스 시작 또는 장애 조치 및 모든 변경에서 만든 빈 데이터베이스를 다시 생성 항상 됩니다 `tempdb` 유지 되지 것입니다. 
 
 ### <a name="cant-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281882"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ NetDocuments를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 * 사용자가 해당 Azure AD 계정으로 NetDocuments에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -104,12 +104,12 @@ NetDocuments에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![NetDocuments 도메인 및 URL Single Sign-On 정보](common/sp-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [NetDocuments Client 지원 팀](https://support.netdocuments.com/hc/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 리포지토리 ID는 CA로 시작하고 뒤에 NetDocuments 리포지토리와 연결된 8자 코드가 나오는 값입니다. 자세한 내용은 [NetDocuments 페더레이션 ID 지원 문서](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)에서 확인할 수 있습니다. 또는 위 정보로 구성하는 데 문제가 있는 경우 [NetDocuments 클라이언트 지원 팀](https://support.netdocuments.com/hc/)에 문의하여 이러한 값을 받을 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 

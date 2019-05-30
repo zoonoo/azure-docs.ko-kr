@@ -37,7 +37,7 @@
           href: media-services-portal-vod-get-started.md
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
-        - name: 자바
+        - name: Java
           href: media-services-java-how-to-use.md
         - name: REST (영문)
           href: media-services-rest-get-started.md

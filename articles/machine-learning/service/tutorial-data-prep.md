@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470277"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604484"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -38,7 +38,7 @@ ms.locfileid: "65470277"
 [개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
 
 * 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    * Python용 Azure Machine Learning Data Prep SDK
+    *  Python용 Azure Machine Learning SDK의 azureml-dataprep 패키지
 * 자습서 Notebook
 
 * [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
@@ -56,8 +56,8 @@ ms.locfileid: "65470277"
 
 사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 
-1. [[Azure Machine Learning Python 빠른 시작](quickstart-run-local-notebook.md)](setup-create-workspace.md#python)의 설치 단계를 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
-1. `pip install azureml-dataprep`를 사용하여 사용 환경에 Data Prep SDK를 설치합니다.
+1. [Azure Machine Learning Python 빠른 시작](setup-create-workspace.md#sdk)의 설치 단계를 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
+1. `pip install azureml-dataprep`을 사용하여 작업 환경에 azureml-dataprep를 설치합니다.
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
     ```

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499854"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913866"
 ---
 # <a name="manage-pre-and-post-scripts"></a>관리 사전 및 사후 스크립트
 
@@ -30,9 +30,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
 
-사용하려는 스크립트를 선택합니다. 이 예에는 **UpdateManagement-TurnOnVms** Runbook이 사용되었습니다. Runbook을 선택하면 **스크립트 구성** 페이지가 열리고, 매개 변수 값을 제공하고, **사전 스크립트**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-
-![스크립트 구성](./media/pre-post-scripts/configure-script.png)
+사용하려는 스크립트를 선택합니다. 이 예에는 **UpdateManagement-TurnOnVms** Runbook이 사용되었습니다. Runbook을 선택 하는 경우는 **스크립트 구성** 페이지가 열립니다, 선택 **사전 스크립트**합니다. 완료되면 **확인**을 클릭합니다.
 
 **UpdateManagement-TurnOffVms** 스크립트에 대해 이 프로세스를 반복합니다. 그러나 **스크립트 유형**을 선택할 때는 **사후 스크립트**를 선택합니다.
 

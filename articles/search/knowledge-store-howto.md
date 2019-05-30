@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471750"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540719"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>지식 저장소 시작 방법
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Azure Search에서 지식 저장소 시작 방법
 
-[지식 저장소](knowledge-store-concept-intro.md)는 다른 앱의 기술 마이닝을 위해 인덱싱 파이프라인에서 만들어진 AI 강화를 저장하는 Azure Search의 새로운 미리 보기 기능입니다. 또한 저장된 강화를 사용하여 Azure Search 인덱싱 파이프라인을 이해하고 구체화할 수 있습니다.
+> [!Note]
+> 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+>
+
+[기술 저장소](knowledge-store-concept-intro.md)는 인덱싱 중에 생성된 AI 보강을 다른 앱의 다운스트림 지식 마이닝을 위해 Azure 스토리지 계정에 저장합니다. 또한 저장된 강화를 사용하여 Azure Search 인덱싱 파이프라인을 이해하고 구체화할 수 있습니다.
 
 지식 저장소는 기술 집합으로 정의됩니다. 일반적인 Azure Search 전체 텍스트 검색 시나리오의 경우 기술 집합의 목적은 콘텐츠를 더 쉽게 검색할 수 있도록 AI 강화를 제공하는 것입니다. 기술 마이닝 시나리오의 경우 기술 집합의 역할은 다른 앱 및 프로세스에서 분석하거나 모델링하기 위해 여러 데이터 구조를 만들, 채우고, 저장하는 것입니다.
 

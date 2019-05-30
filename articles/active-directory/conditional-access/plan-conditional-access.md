@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301419"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001186"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
@@ -81,7 +81,7 @@ Azure Active Directory 조건부 액세스를 사용하면 클라우드 앱의 �
  
 ![이름 지정 표준](./media/plan-conditional-access/11.png)
 
-설명이 포함된 이름을 사용하면 조건부 액세스 구현에 대한 개요를 유지할 수 있지만, 대화에서 정책을 참조해야 하는 경우에는 시퀀스 번호가 유용합니다. 예를 들어 문제를 해결하기 위해 동료 관리자에게 전화로 문의하는 경우 EM063 정책을 열도록 요청할 수 있습니다.
+설명이 포함된 이름을 사용하면 조건부 액세스 구현에 대한 개요를 유지할 수 있지만, 대화에서 정책을 참조해야 하는 경우에는 시퀀스 번호가 유용합니다. 예를 들어 휴대폰에서을 관리자를 이야기 하면 문제를 해결 하기 위해 EM063 정책을 열려면 해당 요청할 수 있습니다.
 
 
 
@@ -131,7 +131,7 @@ Azure Active Directory 조건부 액세스를 사용하면 클라우드 앱의 �
 
 MFA를 요구하는 일반적인 사용 사례는 다음과 같은 액세스입니다.
 
-- [관리자에 의한 액세스](baseline-protection.md#require-mfa-for-admins)
+- [관리자에 의한 액세스](howto-baseline-protect-administrators.md)
 - [특정 앱에 대한 액세스](app-based-mfa.md) 
 - [신뢰하지 않는 네트워크 위치에서의 액세스](untrusted-networks.md)
 

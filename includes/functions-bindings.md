@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403793"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131331"
 ---
 다음 표는 Azure Functions 런타임의 두 주요 버전에서 지원되는 바인딩을 보여 줍니다.
 

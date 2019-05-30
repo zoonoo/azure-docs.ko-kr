@@ -2,21 +2,21 @@
 title: 통계 만들기 및 업데이트 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937267"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851535"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 통계
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582417"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977209"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
 
@@ -41,7 +41,7 @@ ms.locfileid: "60582417"
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
@@ -94,6 +94,16 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 다단계 작업을 사용하면 단계 간 종속성 지원을 통해 이미지 빌드, 실행 및 테스트를 보다 복잡한 단계로 분할할 수 있습니다. ACR 작업의 다단계 작업을 통해 이미지 빌드, 테스트, OS 및 프레임워크 패치 워크플로를 보다 세부적으로 제어할 수 있습니다.
 
 [ACR 작업에서 다단계 빌드, 테스트 및 패치 작업 실행](container-registry-tasks-multi-step.md)에서 다단계 작업에 대해 알아보세요.
+
+## <a name="view-task-logs"></a>작업 로그 보기
+
+각 작업 실행 작업 단계를 성공적으로 실행 여부를 확인 하려면 검사할 수 있는 로그 출력을 생성 합니다. 사용 하는 경우는 [az acr 빌드](/cli/azure/acr#az-acr-build), [실행 하는 az acr](/cli/azure/acr#az-acr-run), 또는 [az acr 태스크](/cli/azure/acr/task#az-acr-task-run) 작업을 트리거하는 명령을, 작업 실행에 대 한 로그 출력은 콘솔로 스트리밍되 및 나중에 저장 검색 합니다. 작업에 대 한 로그를 Azure portal에서 실행 하거나 사용 하 여 보기를 [az acr 작업 로그](/cli/azure/acr/task#az-acr-task-logs) 명령입니다.
+
+2019 년 7 월부터, 데이터 및 로그 레지스트리에 작업 실행에 대 한 기본적으로 30 일 동안 보존 되며 자동으로 제거 합니다. 실행 되는 작업에 대 한 데이터를 보관 하려는 경우 사용 하 여 보관 하도록 설정 합니다 [az acr 작업 업데이트 실행](/cli/azure/acr/task#az-acr-task-update-run) 명령입니다. 다음 예제에서는 태스크 실행에 대 한 보관 *cf11* 레지스트리에서 *myregistry*합니다.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>다음 단계
 

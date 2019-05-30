@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171314"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for MariaDB 서버를 다양한 성능 수준으로 확장합니다.

@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484253"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115513"
 ---
 > [!IMPORTANT]
 > 저장소 계정 키는 저장소 계정의 루트 암호와 비슷합니다. 항상 계정 키를 보호해야 합니다. 다른 사용자에게 배포하거나 하드 코딩하거나 다른 사람이 액세스할 수 있는 일반 텍스트로 아무 곳이나 저장하지 마세요. 손상되었다고 생각되면 Azure Portal을 사용하여 계정 키를 다시 생성합니다.

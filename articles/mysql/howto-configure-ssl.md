@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: f7346d5f40e0fe7dd4dbe892e96549f7ff181cb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/21/2019
+ms.openlocfilehash: eb405549ba2d1c97b16f5b465abf0dc54de3b80d
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511004"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000924"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure Database 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -21,6 +21,9 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
 
 ## <a name="step-2-bind-ssl"></a>2단계: SSL 바인딩
+
+특정 프로그래밍 언어 연결 문자열을 참조 하십시오 합니다 [샘플 코드](howto-configure-ssl.md#sample-code) 아래.
+
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL로 MySQL 워크벤치를 사용하는 서버에 연결
 SSL을 통해 안전하게 연결하도록 MySQL Workbench를 구성합니다. 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동합니다. **SSL CA 파일:** 필드에 **BaltimoreCyberTrustRoot.crt.pem**의 파일 위치를 입력합니다. 
 ![사용자 지정된 타일 저장](./media/howto-configure-ssl/mysql-workbench-ssl.png) 기존 연결의 경우 연결 아이콘을 마우스 오른쪽 단추로 클릭하여 SSL을 바인딩하고 편집을 선택할 수 있습니다. 그런 다음 **SSL** 탭으로 이동하고 인증서 파일을 바인딩합니다.
@@ -83,24 +86,44 @@ try:
 except mysql.connector.Error as err:
     print(err)
 ```
+
 ### <a name="python-pymysql"></a>Python(PyMySQL)
 ```python
 conn = pymysql.connect(user = 'myadmin@mydemoserver', 
         password = 'yourpassword', 
         database = 'quickstartdb', 
         host = 'mydemoserver.mysql.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+        ssl = {'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
+
+### <a name="django-pymysql"></a>Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.azure.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+        }
+    }
+}
+```
+
 ### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(
-        :host     => 'mydemoserver.mysql.database.azure.com', 
-        :username => 'myadmin@mydemoserver',      
-        :password => 'yourpassword',    
+        :host     => 'mydemoserver.mysql.database.azure.com',
+        :username => 'myadmin@mydemoserver',
+        :password => 'yourpassword',
         :database => 'quickstartdb',
         :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
     )
 ```
+
 ### <a name="golang"></a>Golang
 ```go
 rootCertPool := x509.NewCertPool()
@@ -113,7 +136,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="javajdbc"></a>JAVA(JDBC)
+### <a name="java-mysql-connector-for-java"></a>Java (Java 용 MySQL 커넥터)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -140,7 +163,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="javamariadb"></a>JAVA(MariaDB)
+### <a name="java-mariadb-connector-for-java"></a>Java (Java 용 MariaDB 커넥터)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

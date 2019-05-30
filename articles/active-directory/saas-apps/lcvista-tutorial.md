@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406966"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>자습서: LCVista와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ LCVista를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 LCVista에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -140,13 +140,13 @@ LCVista에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     다. Azure Portal에서 다운로드한 메타데이터 XML 파일을 메모장에서 열고 **X509Certificate** 값을 복사하여 **x509 Certificate** 섹션에 붙여넣습니다.
 
-    d. **First name attribute(이름 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    d. **First name attribute(이름 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    e. **Last name attribute(성 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    e. **Last name attribute(성 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
-    f. **Email attribute(전자 메일 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    f. **Email attribute(전자 메일 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    g. **Username attribute(사용자 이름 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+    g. **Username attribute(사용자 이름 특성)** 텍스트 상자에 다음 값을 붙여 넣습니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 
     e. **저장**을 클릭하여 설정을 저장합니다.
 

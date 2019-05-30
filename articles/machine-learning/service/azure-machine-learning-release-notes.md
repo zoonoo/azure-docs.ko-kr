@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779441"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989857"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -30,6 +30,24 @@ ms.locfileid: "65779441"
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning Python v1.0.39 for SDK
 + **변경된 기능**
   + 실행된 구성 auto_prepare_environment 옵션은 사용 되지 않습니다, 그리고 자동 기본값이 되를 준비 합니다.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning 데이터 준비 SDK v1.1.3
+
++ **새로운 기능**
+  + Read_postgresql 호출 또는 데이터 저장소를 사용 하 여 PostgresSQL 데이터베이스에서 읽기에 대 한 지원이 추가 되었습니다.
+    + 방법 가이드의 예제를 참조 하세요.
+      + [데이터 수집 notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [데이터 저장소 notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **버그 수정 및 향상 된 기능**
+  + 열 형식 변환 문제가 해결 되었습니다.
+  + 이제 부울 열을 변환 부울 또는 숫자 열을 올바르게 합니다.
+  + 이제 날짜 형식으로 날짜 열을 설정 하려고 할 때 실패 하지 않습니다.
+  + 향상 된 JoinType 형식과 함께 제공 된 참조 설명서입니다. 두 데이터 흐름을 조인할 경우 이제 이러한 조인 유형 중 하나 지정할 수 있습니다.
+    + NONE, 일치, 내부, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, 전체.
+  + 향상 된 데이터 형식 유추 자세한 날짜 형식을 인식할 수 있습니다.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Python v1.0.30 출시에 대 한 azure Machine Learning SDK입니다.
 이번 릴리스에서는 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute)을 통해 새로운 관리형 컴퓨팅 환경을 발표합니다. 이 컴퓨팅 대상은 Azure Machine Learning에 대한 Azure Batch AI 컴퓨팅을 대체합니다. 
 
 이 컴퓨팅 대상:
-+ 모델 학습 및 일괄 처리 추론에 사용됨
++ 모델 학습 및 일괄 처리 유추 점수를 매기는
 + 단일-다중 노드 컴퓨팅
 + 클러스터 관리 및 사용자에 대한 작업 예약 수행
 + 기본적으로 자동 크기 조정

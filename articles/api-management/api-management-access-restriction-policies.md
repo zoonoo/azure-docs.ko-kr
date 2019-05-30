@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541691"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921210"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 
@@ -48,7 +48,7 @@ ms.locfileid: "65541691"
 </check-header>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
@@ -191,7 +191,7 @@ ms.locfileid: "65541691"
 
 | 이름                | 설명                                                                                           | 필수 | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| 호출               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | 예.      | N/A     |
+| calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다. | 예.      | N/A     |
 | counter-key         | 속도 제한 정책에 사용할 키입니다.                                                             | 예.      | N/A     |
 | increment-condition | 요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).        | 아닙니다.       | N/A     |
 | renewal-period      | 할당량이 재설정되는 초 단위의 기간입니다.                                              | 예.      | N/A     |
@@ -269,7 +269,7 @@ ms.locfileid: "65541691"
 </quota>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <policies>
@@ -285,7 +285,7 @@ ms.locfileid: "65541691"
 
 ### <a name="elements"></a>요소
 
-| 이름      | 설명                                                                                                                                                                                                                                                                                  | 필수 |
+| Name      | 설명                                                                                                                                                                                                                                                                                  | 필수 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | 루트 요소입니다.                                                                                                                                                                                                                                                                                | 예.      |
 | api       | 제품 내에서 Api 호출 할당량을 적용 하려면 이러한 요소 중 하나 이상을 추가 합니다. 제품 및 API 호출 할당량은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.                    | 아닙니다.       |
@@ -315,8 +315,6 @@ ms.locfileid: "65541691"
 `quota-by-key` 정책은 키를 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다. 할당량에 포함될 요청을 지정하기 위해 선택적 증분 조건을 추가할 수 있습니다. 여러 정책이 동일한 키 값을 증가시키는 경우 요청당 한 번만 증가됩니다. 요청 제한에 도달하면 호출자는 `403 Forbidden` 응답 상태 코드를 수신합니다.
 
 이 정책에 대한 자세한 내용과 예제는 [Azure API Management로 고급 요청 제한](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)을 참조하세요.
-
-> [정책 식](api-management-policy-expressions.md)은 이 정책에 대한 정책 특성에 사용할 수 없습니다.
 
 ### <a name="policy-statement"></a>정책 문
 
@@ -349,13 +347,13 @@ ms.locfileid: "65541691"
 
 ### <a name="elements"></a>요소
 
-| 이름  | 설명   | 필수 |
+| Name  | 설명   | 필수 |
 | ----- | ------------- | -------- |
 | quota | 루트 요소입니다. | 예.      |
 
 ### <a name="attributes"></a>특성
 
-| 이름                | 설명                                                                                               | 필수                                                         | Default |
+| Name                | 설명                                                                                               | 필수                                                         | Default |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | 대역폭           | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다. | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |
 | calls               | `renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.     | `calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다. | N/A     |

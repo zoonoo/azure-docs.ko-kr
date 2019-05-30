@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66110245"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.

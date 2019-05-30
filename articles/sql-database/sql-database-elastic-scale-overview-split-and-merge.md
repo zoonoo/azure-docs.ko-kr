@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123363"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -218,7 +218,7 @@ ms.locfileid: "57901936"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 

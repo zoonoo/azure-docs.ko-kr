@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
 ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012288"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133057"
 ---
 1. 새 앱 구성 저장소를 만들려면 [Azure Portal](https://aka.ms/azconfig/portal)에 로그인합니다. 페이지의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 상자에서 **App Configuration**을 입력하고 Enter 키를 누릅니다.
 

@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097725"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165401"
 ---
 Azure에서 가용성 그룹 수신기를 구성하는 경우 두 가지 방법을 사용하는 것을 고려해야 합니다. 이러한 방법은 수신기를 만들 때 사용하는 Azure 부하 분산 장치의 유형에 따라 달라집니다. 다음 표에 차이점이 나와 있습니다.
 
@@ -26,4 +25,3 @@ Azure에서 가용성 그룹 수신기를 구성하는 경우 두 가지 방법�
 
 ILB는 지역 범위의 가상 네트워크에서만 구성할 수 있습니다. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다. 자세한 내용은 [내부 부하 분산 장치 개요](../articles/load-balancer/load-balancer-internal-overview.md)를 참조하세요.
 
-<!-- Update_Description: update meta properties -->

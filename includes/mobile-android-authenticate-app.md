@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119767"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141015"
 ---
 1. Android Studio에서 프로젝트를 엽니다.
 

@@ -4,16 +4,16 @@ description: 만들기 및 찾는 방법의 자세한 설명은 Azure 공간 앵
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d1c5f906fef495f7ef1dde5df38a84629a6d6c61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39432523adea1941ab8c2616decc4b64729acf8e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333652"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964798"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>만들기 및 Azure 공간 앵커를 사용 하 여 Unity에서 앵커를 찾는 방법
 

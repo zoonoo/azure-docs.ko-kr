@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file
-ms.openlocfilehash: 9782c6c2024c5cf490f207bb12a214c93a53b813
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a4b0c2e2d7732c6d2a4f57411731f7145cf3e73e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951348"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967665"
 ---
 ## <a name="register-your-application"></a>애플리케이션 등록
 
@@ -40,7 +40,7 @@ ms.locfileid: "64951348"
 2. 애플리케이션의 이름을 입력합니다.
 3. [단계별 설정] 옵션이 선택 취소되어 있는지 확인합니다.
 4. `Add Platform`, `Native Application`을 차례로 선택합니다.
-5. `Save`를 선택합니다.
+5. `Save`을(를) 선택합니다.
 6. Xcode로 돌아갑니다. `ViewController.swift`에서 '`let kClientID`'로 시작하는 줄을 방금 등록한 애플리케이션 ID로 바꿉니다.
 
 ```swift

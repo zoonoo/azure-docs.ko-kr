@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825946"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015468"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -112,7 +112,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure에서는 다음과 같은 URL을 사용하여 인증서를 확인합니다. |
 | login.windows.net<br>login.microsoftonline.com | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용 목록에 추가할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽 또는 프록시를 통해 구성할 수 있습니다 하는 경우 DNS 허용 목록을에 대 한 연결을 허용할 수 있습니다 \*. msappproxy.net 및 \*. servicebus.windows.net 합니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.

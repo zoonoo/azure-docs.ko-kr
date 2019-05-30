@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 1d1f7eeb6f55fa19b94a1eb4d05520c76352a414
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7e40a847b6ea4daa640a7ae6bc69fd25daa86a5b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756553"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575800"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
@@ -26,7 +26,7 @@ ms.locfileid: "58756553"
 | [기본 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| 단일 백 엔드를 사용하여 기본 Front Door 구성을 만듭니다. |
 | [다중 백 엔드 및 백 엔드 풀과 URL 기반 라우팅을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| URL 경로를 기준으로 백 엔드 풀의 여러 백 엔드 및 백 엔드 풀 간에 부하 분산이 구성된 Front Door를 만듭니다. |
 | [Front Door에서 HTTPS(Front Door 관리 인증서)를 사용하여 사용자 지정 도메인 온보드](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| 사용자 지정 도메인을 Front Door에 추가하고 DigiCert를 통해 생성된 Front Door 관리 인증서를 사용하여 해당 HTTPS 트래픽을 사용하도록 설정합니다. |
-| [지역 필터링을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| 특정 국가의 트래픽을 허용/차단하는 Front Door를 만듭니다. |
+| [지역 필터링을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| 특정 국가/지역의 트래픽을 허용/차단하는 Front Door를 만듭니다. |
 | [Front Door에서 백 엔드에 대한 상태 프로브 제어](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| 프로브 경로 및 프로브가 전송되는 간격을 업데이트하여 Front Door를 업데이트함으로써 상태 프로브 설정을 변경합니다. |
 | [활성/대기 백 엔드 구성을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| 활성/대기 애플리케이션 토폴로지에 대한 우선 순위 기반 라우팅을 보여 주는 Front Door를 만듭니다. 이러한 Front Door는 기본적으로 기본(최고 우선 순위) 백 엔드가 사용 불가능해질 때까지 이 백 엔드로 모든 트래픽을 전송합니다. |
 | [특정 경로에 대해 캐싱이 사용되도록 설정된 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| 정의된 라우팅 구성에 대해 캐싱이 사용되도록 설정되어 워크로드에 대한 정적 자산이 캐싱되는 Front Door를 만듭니다. |

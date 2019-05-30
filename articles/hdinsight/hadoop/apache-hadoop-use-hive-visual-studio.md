@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3a2e81234702e1fcff0349a14a4bc2852d257ad6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686180"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861591"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -21,35 +21,78 @@ Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 �
 
 ## <a id="prereq"></a>필수 조건
 
-* Azure HDInsight(HDInsight의 Apache Hadoop) 클러스터
-
-  > [!IMPORTANT]  
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+* HDInsight에서 Apache Hadoop 클러스터를 합니다. 참조 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)합니다.
 
 * Visual Studio(다음 버전 중 하나)
 
+    * Visual Studio 2015, 2017 (모든 버전)
     * Visual Studio 2013 Community/Professional/Premium/Ultimate 업데이트 4
-
-    * Visual Studio 2015(모든 버전)
-
-    * Visual Studio 2017(모든 버전)
 
 * Visual Studio용 HDInsight 도구 또는 Visual Studio용 Azure Data Lake 도구 도구 설치 및 구성에 대한 내용은 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](apache-hadoop-visual-studio-tools-get-started.md) 을 참조하세요.
 
 ## <a id="run"></a> Visual Studio를 사용하여 Apache Hive 쿼리 실행
 
-1. **Visual Studio**를 열고 **새로 만들기** > **프로젝트** > **Azure Data Lake** > **HIVE** > **Hive 애플리케이션**을 차례로 선택합니다. 이 프로젝트에 대한 이름을 입력합니다.
+Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
-2. 이 프로젝트에서 만든 **Script.hql** 파일을 열고 아래 HiveQL 문을 붙여 넣습니다.
+* 임시 쿼리 만들기
+* Hive 애플리케이션 만들기
 
-   ```hiveql
-   set hive.execution.engine=tez;
-   DROP TABLE log4jLogs;
-   CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-   STORED AS TEXTFILE LOCATION '/example/data/';
-   SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   ```
+### <a name="ad-hoc"></a>임시
+
+임시 쿼리를 실행할 수 있습니다 **일괄 처리** 하거나 **대화형** 모드입니다.
+
+1. 오픈 **Visual Studio**합니다.
+
+2. **서버 탐색기**, 이동할 **Azure** > **HDInsight**합니다.
+
+3. 확장 **HDInsight**, 쿼리를 실행 하 고 클릭 하려는 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성**합니다.
+
+4. 다음 hive 쿼리를 입력 합니다.
+
+    ```hql
+    SELECT * FROM hivesampletable;
+    ```
+
+5. **실행**을 선택합니다. 실행 모드는 기본값으로 보면 **대화형**합니다.
+
+    ![대화형 Hive 쿼리 실행 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+
+6. 동일한 쿼리를 실행 하려면 **일괄 처리** 모드, 토글 드롭다운 목록에서 **대화형** 하 **일괄 처리**합니다. 실행 단추에서 변경 되 면 **Execute** 하 **제출**합니다.
+
+    ![Hive 쿼리 제출 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
+
+    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 입력 `SELECT * FROM`, IntelliSense 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
+
+    ![HDInsight Visual Studio Tools- IntelliSense 예 1의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![HDInsight Visual Studio Tools - IntelliSense 예 2의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
+
+7. **제출** 또는 **제출(고급)** 을 선택합니다.
+
+   고급 제출 옵션을 선택하는 경우 스크립트에 대한 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리**를 구성합니다.
+
+    ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "쿼리 제출")
+
+### <a name="hive-application"></a>Hive 응용 프로그램
+
+1. 오픈 **Visual Studio**합니다.
+
+2. 메뉴 모음에서로 이동 **파일** > **새로 만들기** > **프로젝트**합니다.
+
+3. **새 프로젝트** 창에서 이동할 **템플릿** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **응용 프로그램을 hive**합니다. 
+
+4. 이 프로젝트에 대 한 이름을 입력 하 고 선택한 **확인**합니다.
+
+5. 이 프로젝트에서 만든 **Script.hql** 파일을 열고 아래 HiveQL 문을 붙여 넣습니다.
+
+    ```hiveql
+    set hive.execution.engine=tez;
+    DROP TABLE log4jLogs;
+    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE LOCATION '/example/data/';
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    ```
 
     이러한 문은 다음 작업을 수행합니다.
 
@@ -70,40 +113,44 @@ Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 �
 
    * `INPUT__FILE__NAME LIKE '%.log'` - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 이 절은 데이터가 포함된 sample.log 파일로 검색을 제한합니다.
 
-3. 도구 모음에서 쿼리에 사용할 **HDInsight 클러스터**를 선택합니다. **제출**을 선택하여 Hive 작업으로 문을 실행합니다.
+6. 도구 모음에서 쿼리에 사용할 **HDInsight 클러스터**를 선택합니다. **제출**을 선택하여 Hive 작업으로 문을 실행합니다.
 
    ![제출 표시줄](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-4. **Hive 작업 요약** 이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
+7. **Hive 작업 요약** 이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태**가 **완료**로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
 
    ![완료된 작업을 표시하는 작업 요약](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
-5. 이 작업의 출력을 보려면 **작업 출력** 링크를 사용합니다. 이 쿼리로 반환된 값으로 `[ERROR] 3`이 표시되어야 합니다.
+8. 이 작업의 출력을 보려면 **작업 출력** 링크를 사용합니다. 이 쿼리로 반환된 값으로 `[ERROR] 3`이 표시되어야 합니다.
 
-6. 또한 프로젝트를 만들지 않고도 Hive 쿼리를 실행할 수 있습니다. **서버 탐색기**에서 **Azure** > **HDInsight**를 확장하고, HDInsight 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hive 쿼리 작성**을 선택합니다.
+### <a name="additional-example"></a>추가 예제
 
-7. 나타나는 **temp.hql** 문서에서 다음 HiveQL 문을 추가합니다.
+이 예에서는 `log4jLogs` 이전 단계에서 만든 테이블입니다.
 
-   ```hiveql
-   set hive.execution.engine=tez;
-   CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-   INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   ```
+1. **서버 탐색기**, 클러스터를 마우스 오른쪽 단추로 **Hive 쿼리 작성**합니다.
+
+2. 다음 hive 쿼리를 입력 합니다.
+
+    ```hql
+    set hive.execution.engine=tez;
+    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+    ```
 
     이러한 문은 다음 작업을 수행합니다.
 
-   * `CREATE TABLE IF NOT EXISTS`: 테이블이 아직 없는 경우 테이블을 만듭니다. `EXTERNAL` 키워드가 사용되지 않으므로 이 문으로 내부 테이블이 생성됩니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 의해 관리됩니다.
+    * `CREATE TABLE IF NOT EXISTS`: 테이블이 아직 없는 경우 테이블을 만듭니다. `EXTERNAL` 키워드가 사용되지 않으므로 이 문으로 내부 테이블이 생성됩니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 의해 관리됩니다.
+    
+    > [!NOTE]  
+    > `EXTERNAL` 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
-     > [!NOTE]  
-     > `EXTERNAL` 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
+    * `STORED AS ORC`: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
+    
+    * `INSERT OVERWRITE ... SELECT`: `[ERROR]`가 포함된 `log4jLogs` 테이블에서 행을 선택하고 데이터를 `errorLogs` 테이블에 삽입합니다.
 
-   * `STORED AS ORC`: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
+3. 쿼리를 실행할 **일괄 처리** 모드입니다.
 
-   * `INSERT OVERWRITE ... SELECT`: `[ERROR]`가 포함된 `log4jLogs` 테이블에서 행을 선택하고 데이터를 `errorLogs` 테이블에 삽입합니다.
-
-8. 도구 모음에서 **제출** 을 선택하여 작업을 실행합니다. **작업 상태** 를 사용하여 작업이 성공적으로 완료되었는지 결정합니다.
-
-9. 작업에서 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
+4. 작업에서 테이블이 만들어졌는지 확인하려면 **서버 탐색기**를 사용하여 **Azure** > **HDInsight** > HDInsight 클러스터 > **Hive 데이터베이스** > **기본값**을 확장합니다. **errorLogs** 및 **log4jLogs** 테이블이 나열됩니다.
 
 ## <a id="nextsteps"></a>다음 단계
 
@@ -122,31 +169,3 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Visual Studio용 HDInsight 도구 시작](apache-hadoop-visual-studio-tools-get-started.md)
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png

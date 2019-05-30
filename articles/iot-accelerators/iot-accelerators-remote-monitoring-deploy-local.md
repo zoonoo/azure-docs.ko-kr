@@ -3,17 +3,17 @@ title: 로컬로 원격 모니터링 솔루션 배포(Visual Studio IDE를 통�
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 Visual Studio를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150962"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967513"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio
 
@@ -60,9 +60,9 @@ ms.locfileid: "65150962"
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>그 외의 모든 마이크로 서비스를 로컬 머신에 배포
 
-다음 단계는 Visual Studio 2017에서 원격 모니터링 마이크로 서비스를 실행하는 방법을 보여줍니다.
+다음 단계를 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
-1. Visual Studio 2017 시작
+1. Visual Studio를 시작합니다.
 1. 리포지토리의 로컬 복사본에서 **services** 폴더의 **remote-monitoring.sln** 솔루션을 엽니다.
 1. **솔루션 탐색기**에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. **공용 속성 > 시작 프로젝트**를 선택합니다.

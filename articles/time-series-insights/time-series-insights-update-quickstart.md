@@ -4,19 +4,19 @@ description: Azure Time Series Insights Preview 데모 환경을 파악합니다
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e35d46607e0a186c8a3a38669c68a6ea52711b51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205814"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242083"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 

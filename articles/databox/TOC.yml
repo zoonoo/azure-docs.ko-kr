@@ -121,6 +121,12 @@
           items:
             - name: Data Box Heavy란?
               href: data-box-heavy-overview.md
+        - name: 개념
+          items:
+            - name: 요구 사항 검토
+              href: data-box-heavy-system-requirements.md
+            - name: 제한 이해
+              href: data-box-heavy-limits.md
     - name: 리소스
       items:
         - name: Data Box 제품

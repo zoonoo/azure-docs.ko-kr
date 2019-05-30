@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384511"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113196"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>그룹에 직접 액세스를 검토 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
 Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 또는 응용 프로그램에 대 한 액세스를 관리 방법과 검토 하는 Azure AD 액세스를 호출 하는 기능을 사용 하 여 다른 Microsoft Online Services 간소화 합니다.
 
 이 문서에서는 그룹 또는 응용 프로그램에 대 한 자신의 액세스를 검토 하는 방법을 설명 합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+- Azure AD Premium P2
+
+자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
 
 ## <a name="open-the-access-review"></a>액세스 검토를 엽니다.
 

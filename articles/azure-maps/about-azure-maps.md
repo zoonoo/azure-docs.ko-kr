@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268773"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575736"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -123,7 +123,7 @@ Azure Maps는 키 기반 인증 체계를 사용합니다. 계정에는 미리 �
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Maps API는 현재 다음 지역을 제외한 모든 국가에서 제공됩니다.
+Azure Maps API는 현재 다음 지역을 제외한 모든 국가/지역에서 제공됩니다.
 
 * 아르헨티나
 * 중국
@@ -132,7 +132,7 @@ Azure Maps API는 현재 다음 지역을 제외한 모든 국가에서 제공�
 * 파키스탄
 * 대한민국
 
-현재 IP 주소의 위치가 위의 지원되지 않는 국가 중 하나에 포함되지 않는지 확인합니다.
+현재 IP 주소의 위치가 위의 지원되지 않는 국가/지역 중 하나에 포함되지 않는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

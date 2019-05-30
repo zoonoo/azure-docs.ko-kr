@@ -2,21 +2,21 @@
 title: 데이터 로드 모범 사례 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
-ms.reviewer: jrasnick
+ms.author: kevin
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 905f14e025ae7995635962abf1cccc3afe7f5f35
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075285"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65857033"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 

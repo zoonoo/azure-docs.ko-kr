@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542631"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156240"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역 및 가용성
 Azure는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 애플리케이션을 빌드할 위치를 유연하게 선택할 수 있습니다. 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
@@ -40,10 +40,10 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 지역 쌍 예제는 다음과 같습니다.
 
-| 보조 | 주 |
+| 주 | 보조 |
 |:--- |:--- |
 | 미국 서부 |미국 동부 |
-| 유럽 북부 |서유럽 |
+| 북유럽 |서유럽 |
 | 동남아시아 |동아시아 |
 
 [여기에서 전체 지역 쌍 목록](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)을 확인할 수 있습니다.
@@ -63,7 +63,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
   * 저장소 계정을 만든 지역 내에서 데이터를 3번 복제합니다.
 * ZRS(영역 중복 저장소)
   * 단일 지역 내에서 또는 2개 지역에 걸쳐 2~3개 시설에서 데이터를 3번 복제합니다.
-* GRS(지역 중복 저장소)
+* GRS(지역 중복 스토리지)
   * 기본 지역에서 수백 마일 떨어져 있는 보조 영역에 데이터를 복제합니다.
 * RA-GRS(읽기 액세스 지역 중복 저장소)
   * GRS를 사용할 경우와 마찬가지로 보조 지역에 데이터를 복제하지만 보조 위치의 데이터에 대해 읽기 전용 액세스를 제공합니다.
@@ -72,8 +72,8 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |아닙니다. |예 |예 |예 |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아닙니다. |아니요 |아니요 |예 |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |아닙니다. |예 |예 |예. |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아닙니다. |아니요 |아니요 |예. |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
@@ -95,6 +95,8 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 가용성 세트은 중복성과 가용성을 제공하기 위해 Azure에서 애플리케이션이 빌드되는 방식을 이해할 수 있도록 하는 데이터 센터에 있는 VM의 논리적 그룹입니다. 고가용성 애플리케이션을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 가용성 집합 자체에 대한 비용은 없으므로 만드는 각 VM 인스턴스에 대해서만 요금을 지불합니다. 단일 VM이 [Azure 프리미엄 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd)를 사용하는 경우, 계획되지 않은 유지 관리 이벤트에 대해 Azure SLA가 적용됩니다.
 
 가용성 집합은 하드웨어 오류를 방지하고 업데이트를 안전하게 적용할 수 있도록 하는 두 가지 추가 그룹, 즉 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다. [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 또는 [Windows VM](../articles/virtual-machines/windows/manage-availability.md)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
+
+그러나 여러 계산 리소스를 할당할 때 장애 도메인의 고가용성 구문을 사용 하지 않는 방법이 선호도 방지의 높은 확률,이 선호도 방지이 보장 되지 않습니다.
 
 ### <a name="fault-domains"></a>장애 도메인
 장애 도메인은 온-프레미스 데이터 센터 내의 랙과 비슷하게 공통 전원 및 네트워크 스위치를 공유하는 기본 하드웨어의 논리적 그룹입니다. 가용성 집합 내에서 VM을 만들 때 Azure 플랫폼에서는 이러한 오류 도메인에 걸쳐 VM을 자동으로 분산합니다. 이 방법은 잠재적인 물리적 하드웨어 오류, 네트워크 중단 또는 전원 중단의 영향을 제한합니다.

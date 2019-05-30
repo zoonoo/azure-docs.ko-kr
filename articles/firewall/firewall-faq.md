@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145955"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016014"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -87,7 +87,7 @@ Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습
 예를 들면 다음과 같습니다.
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
@@ -123,9 +123,9 @@ Azure 방화벽 서비스 제한에 대 한 참조 [Azure 구독 및 서비스 �
 
 기본적으로 강제 터널링은 지원 되지 않지만 지원의 도움으로 사용할 수 있습니다.
 
-Azure 방화벽에는 직접 인터넷 연결이 있어야 합니다. 프로그램 AzureFirewallSubnet 학습 기본 경로가 BGP 통해 온-프레미스 네트워크에이 사용 하 여 0.0.0.0/0 UDR을 사용 하 여 재정의 해야 합니다 **NextHopType** 값으로 설정 됩니다 **인터넷** 직접 유지 관리 인터넷에 연결 합니다. 기본적으로 Azure 방화벽 온-프레미스 네트워크에 강제 터널링을 지원 하지 않습니다.
+Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다. 기본적으로 Azure Firewall은 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 않습니다.
 
-그러나 구성에 필요한 온-프레미스 네트워크에 강제 터널링을 경우 Microsoft는 지원에서 상황별으로. 에서는 사례를 검토할 수 있도록 지원에 문의 합니다. 수락 된 경우에서는 허용 목록 구독 하 고 필요한 방화벽 인터넷 연결이 유지 되도록 합니다.
+그러나 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요한 경우 Microsoft는 사례별로 지원할 예정입니다. 사용자의 사례를 검토할 수 있도록 지원 부서에 연락해주시기 바랍니다. 수락된 경우 사용자의 구독을 허용 목록에 추가하고 필요한 방화벽 인터넷 연결이 유지되도록 보장해드리겠습니다.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
 
