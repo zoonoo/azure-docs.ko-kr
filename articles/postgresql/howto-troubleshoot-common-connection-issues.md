@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에 대한 연결 문제 해결
-description: Azure Database for PostgreSQL-단일 서버에 대한 연결 문제를 해결하는 방법에 대해 알아봅니다.
+description: Azure Database for PostgreSQL-단일 서버에 대한 연결 문제를 해결 하는 방법에 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
 author: jan-eng
 ms.author: janeng
@@ -53,7 +53,7 @@ ms.locfileid: "65952112"
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 
 1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](howto-manage-firewall-using-portal.md) 을 설정합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
-2. 클라이언트와 인터넷 간의 모든 방화벽에서 포트 5432가 아웃 바운드 연결에 대해 열려 있는지를 확인 합니다.
+2. 클라이언트와 인터넷 간의 모든 방화벽에서 아웃바운드 연결을 위해 5432 포트가 열려 있는지 확인합니다.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다.
 4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 있다고 생각되는 경우 새 영역으로 복구하는 단계는 [Azure Database for PostgreSQL의 비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.
 
