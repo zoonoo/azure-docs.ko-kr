@@ -2,18 +2,18 @@
 title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149532"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305283"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 

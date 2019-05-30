@@ -10,22 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: 2e9e26243511972c7d05dc55c8e041d83efcbc7d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546615"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297795"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>빠른 시작: Python SDK를 사용하여 Text Analytics Service 호출 
 <a name="HOLTop"></a>
 
-이 빠른 시작을 사용하여 Python용 Text Analytics SDK를 통해 언어 분석을 시작합니다. Text Analytics REST API는 대부분의 프로그래밍 언어와 호환되는 반면, SDK를 사용하면 JSON의 직렬화 및 역직렬화 없이 서비스를 애플리케이션에 쉽게 통합할 수 있습니다.
-
-
-> [!Note]
-> * API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
-> * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py)에서 확인할 수 있습니다.  
+이 빠른 시작을 사용하여 Python용 Text Analytics SDK를 통해 언어 분석을 시작합니다. Text Analytics REST API는 대부분의 프로그래밍 언어와 호환되는 반면, SDK를 사용하면 JSON의 직렬화 및 역직렬화 없이 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py)에서 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

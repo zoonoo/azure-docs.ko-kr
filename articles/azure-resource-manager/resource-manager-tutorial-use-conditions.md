@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990769"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357820"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "65990769"
 이 자습서에서는 기본적인 조건 사용 시나리오만 다룹니다. 자세한 내용은 다음을 참조하세요.
 
 * [템플릿 파일 구조: 조건](./resource-group-authoring-templates.md#condition).
-* [조건부로 Azure Resource Manager 템플릿의 리소스를 배포합니다](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [조건부로 Azure Resource Manager 템플릿의 리소스를 배포합니다](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [템플릿 함수: If](./resource-group-template-functions-logical.md#if).
 * [Azure Resource Manager 템플릿용 비교 함수](./resource-group-template-functions-comparison.md)
 

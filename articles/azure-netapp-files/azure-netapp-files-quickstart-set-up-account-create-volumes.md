@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523019"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299440"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 
-1. Azure Portal의 검색 상자에 **Azure NetApp Files**를 입력한 다음, 나타나는 목록에서 **Azure NetApp Files(미리 보기)** 를 선택합니다.
+1. Azure Portal의 검색 상자에 **Azure NetApp Files**를 입력한 다음, 나타나는 목록에서 **Azure NetApp Files**를 선택합니다.
 
       ![Azure NetApp Files 선택](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 

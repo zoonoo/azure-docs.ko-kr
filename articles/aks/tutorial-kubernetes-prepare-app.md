@@ -2,18 +2,18 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 준비
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Docker Compose를 사용하여 AKS에 배포할 수 있는 다중 컨테이너 앱을 준비하고 빌드하는 방법을 알아봅니다.
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002017"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304443"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 

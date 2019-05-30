@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e972dfdd7694a1a43302fa5879ea22f2ecd051ad
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298864"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -50,7 +50,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1(Windows만 해당) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1.1 |1.1.1.0 *(아래 참조) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1.1 |1.1, 1.0 *(아래 참고 사항 참조) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
