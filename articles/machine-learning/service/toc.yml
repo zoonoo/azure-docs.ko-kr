@@ -176,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: PyTorch 사용
           href: how-to-train-pytorch.md
-        - name: TensorFlow 및 Keras 사용
+        - name: TensorFlow 사용
           href: how-to-train-tensorflow.md
         - name: hyperparameters 조정
           displayName: parameter

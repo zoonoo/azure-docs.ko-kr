@@ -216,7 +216,7 @@
           href: online-backup-and-restore.md
         - name: 규정 준수
           href: compliance.md
-    - name: 제한
+    - name: 리소스 한계
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true

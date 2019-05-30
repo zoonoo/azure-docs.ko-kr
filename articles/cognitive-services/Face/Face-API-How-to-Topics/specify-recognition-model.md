@@ -60,7 +60,7 @@ var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true
 
 Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(예를 들어, [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해)와 연결하고, 여러 **Person** 개체는 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
 
-**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - Create] 나 [LargePersonGroup - Create]). 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다.  그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
+**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다.  그룹은 항상 생성된 인식 모델을 사용하며 추가된 새 얼굴은 이 모델과 연관됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 

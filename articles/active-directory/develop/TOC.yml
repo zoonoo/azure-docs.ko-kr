@@ -297,6 +297,8 @@
           items:
             - name: 애플리케이션 및 서비스 주체
               href: app-objects-and-service-principals.md
+            - name: 앱을 Azure AD에 추가하는 방법 및 이유
+              href: active-directory-how-applications-are-added.md
             - name: 단일 테넌트 및 다중 테넌트 앱
               href: single-and-multi-tenant-apps.md
         - name: 권한 및 동의
