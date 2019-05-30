@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765709"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390644"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 이 문서에서는 [Azure App Service](overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
@@ -130,7 +130,7 @@ BitBucket을 통해 지속적인 배포를 사용하도록 설정하려면 [Azur
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
-App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](deploy-staging-slots.md)할지 여부를 선택한 다음, **계속**을 클릭합니다. 
+App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](deploy-staging-slots.md)할지 여부를 선택한 다음, **계속**을 클릭합니다. DevOps는 프로덕션 슬롯으로 연속 배달을 허용 하지 않습니다. 이 프로덕션 환경에 실수로 인 한 배포를 방지 하기 위해 의도적입니다. 스테이징 슬롯에 지속적인 전송을 설정 하 고, 여기에서 변경 내용을 확인 하 고, 준비가 되 면 경우 슬롯을 교환 해야 합니다.
 
 ### <a name="finish-configuration"></a>구성 완료
 

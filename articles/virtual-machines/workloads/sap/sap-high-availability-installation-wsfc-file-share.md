@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969391"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357703"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
 
-[클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]에 설명된 대로 SAP ASCS/SCS 클러스터 네트워크 이름(예: **pr1-ascs [10.0.6.7]**)을 만듭니다.
+[클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]에 설명된 대로 SAP ASCS/SCS 클러스터 네트워크 이름(예: **pr1-ascs [10.0.6.7]** )을 만듭니다.
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>클러스터에 ASCS/SCS 및 ERS 인스턴스 설치
@@ -300,7 +300,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 첫 번째 클러스터 노드에서 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<제품 >** > **\<DBMS >** > **설치** > **응용 프로그램 서버 ABAP** ( 또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **첫번째클러스터노드**.
+**\<제품 >**  >  **\<DBMS >**  > **설치** > **응용 프로그램 서버 ABAP** ( 또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **첫번째클러스터노드**.
 
 ### <a name="add-a-probe-port"></a>프로브 포트 추가
 
@@ -310,12 +310,12 @@ PowerShell을 사용하여 SAP 클러스터 리소스인 SAP-SID-IP 프로브 �
 
 두 번째 클러스터 노드에서 SAP ASCS/SCS 인스턴스를 설치 합니다. 인스턴스를 설치하려면 SAP SWPM 설치 도구에서 다음으로 이동합니다.
 
-**\<제품 >** > **\<DBMS >** > **설치** > **응용 프로그램 서버 ABAP** ( 또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **추가 클러스터 노드** .
+**\<제품 >**  >  **\<DBMS >**  > **설치** > **응용 프로그램 서버 ABAP** ( 또는 **Java**) > **고가용성 시스템** > **ASCS/SCS 인스턴스** > **추가 클러스터 노드** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>SAP ASCS/SCS 인스턴스 프로필 업데이트
 
-SAP ASCS/SCS 인스턴스 프로필에 매개 변수를 업데이트 \<SID >_ASCS/SCS\<Nr >_\<호스트 >.
+SAP ASCS/SCS 인스턴스 프로필에 매개 변수를 업데이트 \<SID >_ASCS/SCS\<Nr >_ \<호스트 >.
 
 
 | 매개 변수 이름 | 매개 변수 값 |
@@ -324,7 +324,7 @@ SAP ASCS/SCS 인스턴스 프로필에 매개 변수를 업데이트 \<SID >_ASC
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-SAP ASCS/SCS 인스턴스를 다시 시작 합니다. 설정할 `KeepAlive` 지침에 따라 두 SAP ASCS/SCS 클러스터 노드에서 매개 변수 [SAP ASCS/SCS 인스턴스의 클러스터 노드에 레지스트리 항목을 설정]([high-availability-guide]:high-availability-guide.md)합니다. 
+SAP ASCS/SCS 인스턴스를 다시 시작 합니다. 설정 `KeepAlive` 지침에 따라 두 SAP ASCS/SCS 클러스터 노드에서 매개 변수 [SAP ASCS/SCS 인스턴스의 클러스터 노드에 레지스트리 항목 집합][high-availability-guide]합니다. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS 인스턴스 및 SAP 애플리케이션 서버 설치
 

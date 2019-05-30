@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 5b3475f35ac958432d319eafe6e3392e155d9ff4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002114"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242458"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가 
 
@@ -28,14 +28,14 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 - 사용에 따라  크기를 조정하여 비용을 제어합니다.
 - Cloudyn에서 비용 효과적인 크기 조정 최적화 권장 사항을 가져옵니다.
 
-예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. Azure VM 메트릭은 _[호스트] 백분율 CPU_ 및 _[게스트] 메모리 백분율_에 해당합니다.
+예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. 에 해당 하는 Azure VM 메트릭은 _CPU 비율_ 하 고 _\Memory\% Committed Bytes In Use_합니다.
 
 > [!NOTE]
 > 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn에서 Azure Monitor 로그 VM 확장을 사용 하 여 호환 되지 않습니다.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>확장 메트릭을 사용하도록 설정되었는지 확인
 
-1.  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. **가상 머신**에서 VM을 선택한 다음, **모니터링**에서 **메트릭**을 선택합니다. 사용 가능한 메트릭 목록이 표시됩니다.
 3. 일부 메트릭을 선택하면 그래프가 해당 항목에 대한 데이터를 표시합니다.  
     ![예제 메트릭 - 호스트 백분율 CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -44,7 +44,7 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Azure Portal에서 확장 메트릭스 사용
 
-표준 메트릭은 호스트 컴퓨터 메트릭입니다. _[호스트] 백분율 CPU_ 메트릭이 한 예입니다. 게스트 VM의 기본 메트릭도 있는데 역시 확장 메트릭이라고 합니다. 확장 메트릭의 예로 _[게스트] 메모리 백분율_ 및 _[게스트] 사용 가능한 메모리_가 있습니다.
+표준 메트릭은 호스트 컴퓨터 메트릭입니다. 합니다 _백분율 CPU_ 메트릭이 한 예입니다. 게스트 VM의 기본 메트릭도 있는데 역시 확장 메트릭이라고 합니다. 확장 메트릭의 예로 _\Memory\% Committed Bytes In Use_ 하 고 _\Memory\Available 바이트_합니다.
 
 확장 메트릭을 사용하도록 설정하는 방법은 간단합니다. 각 VM에 대해 게스트 수준 모니터링을 사용하도록 설정합니다. 게스트 수준 모니터링을 사용하면 Azure 진단 에이전트가 VM에 설치됩니다. 기본적으로 확장 메트릭의 기본 집합이 추가됩니다. 다음 프로세스는 클래식 및 기본 VM에서 같고, Windows 및 Linux VM에서도 동일합니다.
 

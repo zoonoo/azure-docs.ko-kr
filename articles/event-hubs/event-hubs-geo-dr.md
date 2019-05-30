@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821851"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305003"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
 ([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)전체 Azure 지역 또는 데이터 센터에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지리적 재해 복구* 및 *지리적 복제*는 기업에 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-지역 재해 복구 기능은 Event Hubs 표준 SKU에 전역적으로 사용할 수 있습니다.
+지리적 재해 복구 기능은 Event Hubs 표준 및 전용 SKU에 대 한 전역적으로 사용할 수 있습니다. SKU의 동일한 계층에서 네임 스페이스 지역 쌍만을 수 있습니다 note 하십시오. 예를 들어 네임 스페이스는 전용 SKU 에서만에서 제공 되는 클러스터에 있는 경우 다른 클러스터에서 네임 스페이스와 연결할만 있습니다. 
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 
@@ -47,7 +47,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 -  *메타데이터*: Event Hubs 및 소비자 그룹과 같은 엔터티 및 네임스페이스와 연결된 서비스의 해당 속성입니다. 엔터티 및 해당 설정만이 자동으로 복제됩니다. 메시지 및 이벤트는 복제되지 않습니다. 
 
--  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다.
+-  *장애 조치(Failover)* : 보조 네임스페이스를 활성화하는 프로세스입니다.
 
 ## <a name="setup-and-failover-flow"></a>흐름 설정 및 장애 조치
 
@@ -55,7 +55,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 ![1][]
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치
 
 먼저 기존의 기본 네임스페이스 및 새로운 보조 네임스페이스를 만들거나 사용한 다음 둘을 쌍으로 연결합니다. 이 페어링은 연결하는 데 사용할 수 있는 별칭을 제공합니다. 별칭을 사용하므로 연결 문자열을 변경할 필요가 없습니다. 새 네임스페이스에만 장애 조치(Failover) 페어링에 추가할 수 있습니다. 마지막으로 장애 조치가 필요한 경우 감지할 몇 가지 모니터링을 추가해야 합니다. 대부분의 경우에 서비스는 큰 에코시스템의 일부입니다. 따라서 장애 조치가 주로 나머지 하위 시스템 또는 인프라와 동기화되어 수행되어야 하므로 자동 장애 조치는 거의 불가능합니다.
 

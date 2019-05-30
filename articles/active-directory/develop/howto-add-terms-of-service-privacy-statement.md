@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540201"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235315"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 및 개인정보취급방침 조건 구성
 
@@ -56,33 +56,20 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
-* [Azure Portal을 통해](#registered-in-azure-portal)
-* [애플리케이션 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
+* [Azure Portal을 통해](#azure-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
 * [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Azure Portal에서 앱을 등록한 경우
-
-Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
+### <a name="azure-portal"></a>Azure portal을 사용 하 여
+Azure portal에서 다음이 단계를 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
-3. 앱의 **속성** 섹션을 엽니다.
+3. 엽니다는 **브랜드** 창입니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
     ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>애플리케이션 등록 포털에서 앱을 등록한 경우
-
-애플리케이션 등록 포털 또는 개발자 센터에서 앱을 등록한 경우 다음 단계를 수행합니다.
-
-1. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)에 로그인합니다.
-2. 앱을 선택하고 **프로필** 섹션으로 스크롤합니다.
-3. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
-4. 변경 내용을 저장합니다.
-
-    ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 프로필 섹션](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>앱 개체 JSON을 사용하여
 

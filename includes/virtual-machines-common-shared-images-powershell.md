@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145783"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241221"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -105,3 +105,20 @@ $job.State
 >
 > 이미지 버전을 저장할 수도 있습니다 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 추가 하 여 `-StorageAccountType Standard_ZRS` 이미지 버전을 만들 때.
 >
+
+
+## <a name="share-the-gallery"></a>갤러리를 공유 합니다.
+
+이미지 갤러리 수준에서 액세스를 공유 하는 것이 좋습니다. 전자 메일 주소를 사용 및 [Get AzADUser](/powershell/module/az.resources/get-azaduser) 사용자에 대 한 개체 ID를 가져오려면 다음 사용 하 여 cmdlet [새로 만들기-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) 갤러리에 액세스를 제공 합니다. 예제에서는 전자 메일, 대체 alinne_montes@contoso.com 이 예제에서는 사용자 고유의 정보로 합니다.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

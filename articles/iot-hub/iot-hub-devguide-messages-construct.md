@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364313"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252808"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -21,7 +21,7 @@ ms.locfileid: "61364313"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub는 스트리밍 메시징 패턴을 사용하여 디바이스-클라우드 메시징을 구현합니다. IoT Hub의 디바이스 - 클라우드 메시지는 여러 독자가 읽을 수 있는 서비스를 통과하는 많은 양의 이벤트가 있다는 점에서 [Service Bus](/azure/service-bus-messaging/) ‘메시지’보다는 [Event Hubs](/azure/event-hubs/) ‘이벤트’에 가깝습니다.
+IoT Hub는 스트리밍 메시징 패턴을 사용하여 디바이스-클라우드 메시징을 구현합니다. IoT Hub의 디바이스 - 클라우드 메시지는 여러 독자가 읽을 수 있는 서비스를 통과하는 많은 양의 이벤트가 있다는 점에서 [Service Bus](/azure/service-bus-messaging/) ‘메시지’보다는 [Event Hubs](/azure/event-hubs/) ‘이벤트’에 가깝습니다.  
 
 IoT Hub 메시지는 다음으로 구성됩니다.
 
@@ -42,6 +42,8 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 * IoT Hub는 임의 분할을 허용하지 않습니다. 디바이스-클라우드 메시지는 원래 **deviceId**와 관련하여 분할됩니다.
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 설명한 것처럼, IoT Hub는 장치 단위 인증 및 액세스 제어를 허용합니다.
+
+* 응용 프로그램 속성에 입력 되는 정보를 사용 하 여 메시지를 스탬프 수 있습니다. 자세한 내용은 참조 하십시오 [원칙이 메시지](iot-hub-message-enrichments-overview.md)합니다.
 
 다른 프로토콜을 사용하여 보낸 메시지를 인코딩하고 디코딩하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

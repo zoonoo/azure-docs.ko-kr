@@ -12,17 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691304"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256176"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 사용하여 [자동으로 요청 계측, 종속성 추적 및 성능 카운터를 수집하고](auto-collect-dependencies.md#java), [성능 문제 및 예외를 진단하며](../../azure-monitor/app/detect-triage-diagnose.md), [코드를 작성하여][api] 앱을 통해 사용자가 수행하는 작업을 추적할 수 있습니다. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 사용 하 여 [자동으로 계측 요청, 종속성 추적 및 수집 성능 카운터](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고 [코드를 작성할] [ api] 앱을 사용 하 여 사용자가 수행할 추적 합니다. 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
@@ -487,7 +486,6 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 * [Unix 성능 카운터 모니터링](java-collectd.md)
 * [웹 페이지에 모니터링](javascript.md)을 추가하여 페이지 로드 시간, AJAX 호출, 브라우저 예외를 모니터링합니다.
 * [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md)을 작성하여 브라우저 또는 서버에서 사용량을 추적합니다.
-* [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 만들어서 시스템을 모니터링하기 위한 키 차트를 가져옵니다.
 * 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](../../azure-monitor/app/analytics.md)을 사용합니다.
 * 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 방문하세요.
 

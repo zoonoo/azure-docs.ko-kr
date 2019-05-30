@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562039"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304291"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -22,8 +22,6 @@ ms.locfileid: "60562039"
 * 인증 및 권한 부여를 관리합니다.
 * 각 토픽을 개별적으로 관리하지 않고 토픽을 분할합니다.
 * 각 토픽 엔드포인트에 개별적으로 게시할 필요가 없습니다.
-
-이 기능은 미리 보기 상태입니다. 이 기능을 사용하려면 미리 보기 확장 또는 모듈을 설치해야 합니다. 자세한 내용은 [이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법](how-to-event-domains.md)을 참조하세요.
 
 ## <a name="event-domain-overview"></a>이벤트 도메인 개요
 
@@ -49,7 +47,7 @@ ms.locfileid: "60562039"
 
 ### <a name="built-in-roles"></a>기본 제공 역할
 
-Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 역할 할당 범위는 사용자가 구독해야 하는 토픽에만 적용됩니다.
+Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 항목에만 역할 할당을 범위를 있습니다.
 
 이러한 역할에 대한 자세한 내용은 [Event Grid의 기본 제공 역할](security-authentication.md#built-in-roles)을 참조하세요.
 
@@ -99,18 +97,18 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 이벤트 도메인은 토픽에 게시를 자동으로 처리합니다. 관리하는 각 토픽에 개별적으로 이벤트를 게시하는 대신, 도메인의 엔드포인트에 모든 이벤트를 게시할 수 있습니다. Event Grid는 각 이벤트가 올바른 토픽에 전송되도록 합니다.
 
 ## <a name="limits-and-quotas"></a>한도 및 할당량
+제한 및 할당량 도메인 이벤트와 관련 된 다음과 같습니다.
 
-### <a name="control-plane"></a>제어 평면
+- 이벤트 도메인당 100,000 항목 
+- Azure 구독 당 100 이벤트 도메인 
+- 이벤트에는 토픽 당 500 이벤트 구독
+- 도메인 범위 구독이 50 
+- (도메인)에 두 번째 수집 요금 5,000 이벤트
 
-미리 보기 기간에는 이벤트 도메인이 도메인 내 토픽 1,000개, 도메인 내 토픽당 이벤트 구독 50개로 제한됩니다. 이벤트 도메인 범위 구독도 50으로 제한됩니다.
-
-### <a name="data-plane"></a>데이터 평면
-
-미리 보기 기간에는 사용자 지정 토픽과 동일하게 이벤트 도메인의 이벤트 처리량이 초당 이벤트 5,000개로 수집 속도가 제한됩니다.
+지원 티켓을 열어 또는 전자 메일을 전송 하 여 이러한 제한을 적합 하지 않습니다, 경우 제품 팀 도달할 [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com)합니다. 
 
 ## <a name="pricing"></a>가격
-
-미리 보기 기간에는 Event Grid의 다른 모든 기능에서 사용하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)이 이벤트 도메인에 사용됩니다.
+이벤트 도메인을 사용 하 여 동일한 [가격 책정 작업](https://azure.microsoft.com/pricing/details/event-grid/) Event Grid의 다른 모든 기능을 사용 하는 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.
 

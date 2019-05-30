@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990182"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299092"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -38,14 +38,14 @@ Azure Logic Apps는 논리 앱에서 실행 되는 모든 작업을 측정 합�
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 기본 제공 작업 및 트리거 및 표준 커넥터에 대 한 고정된 월별 가격을 지불 합니다.
+[ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) Azure 가상 네트워크의 리소스에 액세스할 수 있는 논리 앱 만들기 및 실행 하는 개인, 격리 및 전용 방법을 제공 합니다. ISE를 내에서 실행 되는 새 논리 앱에 대해 지불 하는 [월 고정 가격](https://azure.microsoft.com/pricing/details/logic-apps) 기본 제공 작업 및 트리거 및 표준 커넥터에 대 한 합니다.
 
-ISE에 원하는 만큼 많은 연결을 포함 하는 하나의 무료 엔터프라이즈 커넥터를도 포함 되어 있습니다. 추가 엔터프라이즈 커넥터에 대 한 사용량 기반 엔터프라이즈 소비 가격으로 요금이 청구 됩니다.
+ISE에는 또한 만큼 포함 하는 하나의 무료 엔터프라이즈 커넥터 *연결* 원하는 만큼 합니다. 추가 엔터프라이즈 커넥터에 대 한 사용량에 따라 요금이 청구 됩니다 합니다 [Enterprise 소비 가격](https://azure.microsoft.com/pricing/details/logic-apps)합니다. 만 일반적으로 엔터프라이즈 소비 가격 개 엔터프라이즈 커넥터를 사용할 수 있는 청구 됩니다. 공개 미리 보기 엔터프라이즈 커넥터 부과 됩니다 합니다 [표준 커넥터 속도](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 > [!NOTE]
 > ISE를, 기본 제공 트리거 및 작업 내에서 표시 합니다 **Core** 레이블을 지정 하 고 논리 앱으로 동일한 ISE에서 실행 합니다. 표준 및 표시 하는 엔터프라이즈 커넥터는 **ISE** 레이블 logic apps와 동일한 ISE에서 실행 합니다. ISE 레이블을 표시 하지는 커넥터 전역 Logic Apps 서비스에서 실행 합니다.
 
-ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. 
+ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. ISE에서 실행 되는 논리 앱에는 데이터 보존 비용 비용이 발생 하지 않습니다.
 
 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
@@ -108,7 +108,7 @@ Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공합니다. 
 
 ## <a name="data-retention"></a>데이터 보존
 
-논리 앱의 기반으로 모든 입력 및 출력 논리 앱의 실행된 기록에 저장 되는 요금이 청구 [보존 기간 실행](logic-apps-limits-and-config.md#run-duration-retention-limits)합니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
+논리 앱을 제외한를 논리 앱에 따라는 통합 서비스 환경 (ISE)에서 실행, 모든 입력 및 출력 논리 앱의 실행된 기록에 저장 되는 요금이 청구 됩니다 [보존 기간 실행](logic-apps-limits-and-config.md#run-duration-retention-limits)합니다. ISE에서 실행 되는 논리 앱에는 데이터 보존 비용 비용이 발생 하지 않습니다. 특정 가격 정보 참조 [Azure Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)합니다.
 
 를 논리 앱의 저장소 사용량을 모니터링할 수 있도록 하려면 다음을 수행할 수 있습니다.
 

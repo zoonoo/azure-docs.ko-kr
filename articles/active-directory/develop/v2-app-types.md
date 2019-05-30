@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545369"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235245"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼에 대 한 응용 프로그램 유형
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>단일 페이지 앱(JavaScript)
 
-대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 단일 페이지 앱 프런트 엔드가 있습니다. Microsoft id 플랫폼 끝점 사용 하 여 이러한 앱을 지원 합니다 [OAuth 2.0 암시적 흐름](v2-oauth2-implicit-grant-flow.md)합니다.
+대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 종종 Angular, React, 또는 Vue 같은 프레임 워크를 사용 하 여 기록 됩니다. Microsoft id 플랫폼 끝점 사용 하 여 이러한 앱을 지원 합니다 [OAuth 2.0 암시적 흐름](v2-oauth2-implicit-grant-flow.md)합니다.
 
 이 흐름에서 앱을 Microsoft id 플랫폼에서 직접 토큰을 받습니다 서버 간 교환 없이 끝점에 권한을 부여 합니다. 모든 인증 논리 및 세션 처리가 추가 페이지 리디렉션 없이 전적으로 JavaScript 클라이언트에서 발생합니다.
 
@@ -59,7 +59,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 이 시나리오의 작동이 방식을 보려면,의 단일 페이지 앱 코드 샘플 중 하나를 수행 합니다 [시작 하는 Microsoft id 플랫폼](v2-overview.md#getting-started) 섹션.
 
-## <a name="web-apps"></a>웹앱
+## <a name="web-apps"></a>웹 앱
 
 사용자가 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node)의 경우 사용자 로그인에 [OpenID Connect](active-directory-v2-protocols.md)를 사용할 수 있습니다. OpenID Connect에서는 웹앱이 ID 토큰을 받습니다. ID 토큰은 사용자 ID를 확인하고 클레임 형태로 사용자 정보를 제공하는 보안 토큰입니다.
 

@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 94ec38bc2cad3566fad88dc2ac56648f79aa16b2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873368"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241279"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
@@ -93,4 +93,4 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 환경이 개선되면서 이러한 제한 및 참고 사항은 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 샘플 데이터로 [개발](sql-data-warehouse-overview-develop.md), [로드](design-elt-data-loading.md) 또는 [마이그레이션](sql-data-warehouse-overview-migrate.md)할 준비 시간을 드리겠습니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.
+이제 샘플 데이터를 사용 하 여 준비 하는 데 시간이 제공한를 참조 하는 방법 [개발](sql-data-warehouse-overview-develop.md) 또는 [로드](design-elt-data-loading.md)합니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.

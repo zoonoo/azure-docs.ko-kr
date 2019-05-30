@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689318"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258295"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -621,11 +621,11 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 
 ## <a name="patching-and-operations"></a>패치 및 작업
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>기존 리소스 그룹에서 확장 집합을 만들려면 어떻게 하나요?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>기존 리소스 그룹에서 확장 집합을 만들 수 있나요?
 
-기존 리소스 그룹에서 확장 집합을 만드는 것은 아직 Azure Portal에서 할 수는 없지만 Azure Resource Manager 템플릿에서 확장 집합을 배포할 때에는 기존 리소스 그룹을 지정할 수 있습니다. 또한 Azure PowerShell 또는 CLI를 사용하여 확장 집합을 만들 때에도 기존 리소스 그룹을 지정할 수 있습니다.
+예, 기존 리소스 그룹에서 확장 집합을 만들 수 있습니다.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹으로 이동할 수 있나요?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹을 이동할 수 있나요?
 
 예. 확장 집합 리소스를 새 구독 또는 리소스 그룹에 이동할 수 있습니다.
 
