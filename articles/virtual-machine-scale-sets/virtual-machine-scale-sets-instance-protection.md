@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259424"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416559"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>인스턴스 보호에 대 한 Azure 가상 머신 확장 집합 인스턴스 (미리 보기)
 Azure 가상 머신 확장 집합 사용을 통해 워크 로드에 대 한 더 나은 탄력성 [자동 크기 조정](virtual-machine-scale-sets-autoscale-overview.md)때 인프라 확장을 구성할 수 있도록 및 해당 눈금 체크 합니다. 확장 집합 사용 하면 수도 중앙에서 관리, 구성 및 업데이트를 통해 다른 많은 수의 Vm [업그레이드 정책을](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 설정 합니다. 확장 집합 모델에 대 한 업데이트를 구성할 수 있습니다 하 고 새 구성을 자동으로 적용 됩니다 모든 확장 집합 인스턴스에 자동 또는 롤링 업그레이드 정책을 설정한 경우.
@@ -30,7 +30,7 @@ Azure 가상 머신 확장 집합 사용을 통해 워크 로드에 대 한 더 
 이 문서 적용 확장 집합 인스턴스를 사용 하 여 다른 인스턴스 보호 기능을 사용 하는 방법에 대해 설명 합니다.
 
 > [!NOTE]
->인스턴스 보호는 현재 공개 미리 보기로 제공 됩니다. 아래에 설명 된 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저가 필요 합니다. 인스턴스 protection 미리 보기 API-VERSION 2019-03-01을 사용 하 여 이상 에서만 지원 됩니다.
+>인스턴스 보호는 현재 공개 미리 보기로 제공 됩니다. 아래에 설명 된 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저가 필요 합니다. 인스턴스 protection 미리 보기 API-VERSION 2019-03-01와 managed disks를 사용 하는 확장 집합에만 지원 됩니다.
 
 ## <a name="types-of-instance-protection"></a>유형의 인스턴스 보호
 확장 집합 두 가지 유형의 인스턴스 보호 기능을 제공합니다.

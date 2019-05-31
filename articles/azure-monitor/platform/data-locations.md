@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: bwren
-ms.openlocfilehash: 61f34277a03deb312e93920e3bd76ce5297f020f
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 1d92973e32e9c694b1d0488753b9a701e7d71a5d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357536"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416901"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor의 모니터링 데이터 위치
 
@@ -32,7 +32,7 @@ Azure Monitor 기반을 [데이터 플랫폼](data-platform.md) 의 [로그](dat
 | Azure Monitor 메트릭 | 시계열 데이터베이스 타임 스탬프 데이터 분석을 위해 최적화 됩니다. | [메트릭 탐색기](metrics-getting-started.md)<br>[Azure Monitor 메트릭 API](/rest/api/monitor/metrics) |
 | Azure Monitor 로그    | Log Analytics 작업 영역 강력한 분석 엔진 및 다양 한 쿼리 언어를 제공 하는 Azure 데이터 탐색기를 기반으로 하는 합니다. | [Log Analytics](../log-query/portals.md)<br>[Log Analytics API](https://dev.loganalytics.io/)<br>[Application Insights API](https://dev.applicationinsights.io/reference/get-query) |
 | 활동 로그 | 활동 로그에서 데이터를 다른 데이터를 사용 하 여 분석을 Azure Monitor 로그를 보낼 때 가장 유용 하지만 Azure portal에서 직접 볼 수 있도록 자체적으로 수집도 됩니다. | [Azure Portal](activity-log-view.md#azure-portal)<br>[Azure Monitor 이벤트 API](/rest/api/monitor/eventcategories) |
-| Azure Storage | 일부 데이터 원본은 Azure storage에 직접 작성 하 고 로그에 데이터를 이동 하는 구성이 필요 합니다. 또한 외부 시스템과 통합 및 보관에 대 한 Azure storage에 데이터를 보낼 수 있습니다.  | [저장소 분석](/rest/api/storageservices/storage-analytics)<br>[서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Storage 탐색기](/visualstudio/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
+| Azure Storage | 일부 데이터 원본은 Azure storage에 직접 작성 하 고 로그에 데이터를 이동 하는 구성이 필요 합니다. 또한 외부 시스템과 통합 및 보관에 대 한 Azure storage에 데이터를 보낼 수 있습니다.  | [저장소 분석](/rest/api/storageservices/storage-analytics)<br>[서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Storage 탐색기](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
 | Event Hubs | 다른 위치에 스트리밍하려면 Azure Event Hubs에 데이터를 보냅니다. | [Storage에 캡처를](../../event-hubs/event-hubs-capture-overview.md)  |
 | VM용 Azure Monitor | Vm에 대 한 azure Monitor는 Azure portal에서 해당 모니터링 환경에서 사용 되는 사용자 지정 위치에 작업 상태 데이터를 저장 합니다. | [Azure Portal](../insights/vminsights-overview.md)<br>[작업 모니터를 REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/)  |
 | 경고 | Azure Monitor에서 생성 된 경고입니다. | [Azure Portal](alerts-managing-alert-instances.md)<br>[경고 관리 REST API](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |

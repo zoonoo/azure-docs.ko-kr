@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400224"
+ms.locfileid: "66417133"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Azure Machine Learning 서비스를 사용 하 여 학습 및 TensorFlow 모델을 등록
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 등록 합니다.
 
 이 문서에서는 학습 Azure Machine Learning 서비스를 사용 하 여 TensorFlow 모델을 등록 하는 방법을 보여 줍니다. 사용 하면 인기 있는 [MNIST 데이터 집합](http://yann.lecun.com/exdb/mnist/) TensorFlow 기반 심층 신경망을 사용 하 여 필기 숫자를 분류 합니다.
 
-Azure Machine Learning 서비스를 사용 하 여 탄력적인 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 신속 하 게 확장할 수 있습니다. 또한 수 교육 실행, 버전 모델을 통해 추적, 모델 등을 배포 합니다. 부터 TensorFlow 모델을 개발 하는 기존 모델을 클라우드로 가져오는, Azure Machine Learning 서비스 인지 여기 프로덕션이 준비 된 모델을 빌드할 수 있도록 합니다.
+Azure Machine Learning 서비스를 사용 하 여 탄력적인 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 신속 하 게 확장할 수 있습니다. 또한 수 교육 실행, 버전 모델을 통해 추적, 모델 등을 배포 합니다. 
+
+부터 TensorFlow 모델을 개발 하 든 기존 모델을 클라우드로 가져오는 Azure Machine Learning 서비스를 사용 하 여 프로덕션이 준비 된 모델을 빌드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

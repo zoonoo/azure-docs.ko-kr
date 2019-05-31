@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393478"
+ms.locfileid: "66417990"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -25,7 +25,7 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 
 만들려는 프로그램 스트림에서 암호화 옵션을 지정 하려면를 [스트리밍 정책](streaming-policy-concept.md) 와 연결 프로그램 [스트리밍 로케이터](streaming-locators-concept.md)합니다. 만든를 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 구성 하려면 어떻게 콘텐츠 키 (에 대 한 보안 액세스를 제공 하는 프로그램 [자산](assets-concept.md)) 최종 클라이언트에 배달 됩니다. 클라이언트에 전달 되도록 지정 된 구성을 사용 하 여 키를 위해 충족 해야 하는 콘텐츠 키 정책에서 요구 사항 (제한)를 설정 하려면 필요 합니다. 이 콘텐츠 키 정책 지우기 스트리밍 또는 다운로드에 대 한 필요 하지 않습니다. 
 
-연결 하는 일반적으로 프로그램 **콘텐츠 키 정책** 사용 하 여 프로그램 **스트리밍 로케이터**합니다. 또는 (고급 시나리오에 대 한 사용자 지정 스트리밍 정책 만들기) 하는 경우 스트리밍 정책 내에서 콘텐츠 키 정책을 지정할 수 있습니다. 
+연결 하는 일반적으로 프로그램 **콘텐츠 키 정책** 사용 하 여 프로그램 [스트리밍 로케이터](streaming-locators-concept.md)합니다. 내에서 콘텐츠 키 정책을 지정할 수는 또는 [스트리밍 정책](streaming-policy-concept.md) (경우에 대 한 사용자 지정 스트리밍 정책을 만드는 고급 시나리오). 
 
 Media Services를 통해 콘텐츠 키 자동 생성 하는 것이 좋습니다. 일반적으로 장기적인된 키를 사용 하는 사용 하 여 정책 있는지 확인할 **가져올**합니다. 키를 가져오려면 별도의 동작 메서드를 호출하여 비밀 또는 자격 증명을 가져와야 합니다. 아래 예제를 참조하세요.
 

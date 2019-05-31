@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79082056403460a7f1be50c386960ce1476c8ad
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397908"
+ms.locfileid: "66417886"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -58,6 +58,8 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 개인 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
   * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
   * 중요한 개인 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자
+
+* **[Azure Information Protection 관리자](#azure-information-protection-administrator)** : 이 역할을 가진 사용자는 Azure Information Protection 서비스에 대한 모든 사용 권한을 갖습니다. 이 역할은 Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화하는 권한을 갖습니다. 이 역할은 ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 보안 및 준수 센터에서 어느 권한도 부여하지 않습니다.
 
 * **[B2C 사용자 흐름 관리자](#b2c-user-flow-administrator)** : 이 역할의 사용자를 만들고 B2C 사용자 (즉, "기본 제공" 정책) Azure Portal에서 흐름을 관리할 수 있습니다. 만들거나 사용자 흐름을 편집 하 여 이러한 사용자에이 게 사용자 경험의 html/CSS/javascript 내용을 변경, 사용자 한 흐름 당 MFA 요구 사항을 변경, 토큰의 클레임을 테 넌 트의 모든 정책에 대 한 세션 설정을 조정 합니다. 반면에이 역할 않습니다 하지 사용자 데이터를 검토 하는 기능을 포함 또는 테 넌 트 스키마에 포함 된 특성에 대 한 변경입니다. Id 경험 프레임 워크를 변경 (즉, 사용자 지정) 정책은 또한이 역할의 범위를 벗어납니다.
 
@@ -135,8 +137,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[게스트 초대자](#guest-inviter)** : 이 역할의 사용자는 **멤버가 초대할 수 있음** 사용자 설정을 아니요로 설정하는 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 협업에 대한 자세한 내용은 [Azure AD B2B 협업 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
 
-* **[Information Protection 관리자](#information-protection-administrator)** : 이 역할을 가진 사용자는 Azure Information Protection 서비스에 대한 모든 사용 권한을 갖습니다. 이 역할은 Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화하는 권한을 갖습니다. 이 역할은 ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 보안 및 준수 센터에서 어느 권한도 부여하지 않습니다.
-
 * **[Intune 관리자](#intune-service-administrator)** : 이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 글로벌 사용 권한을 갖습니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 디바이스를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Intune 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Intune 관리자"입니다.
@@ -185,7 +185,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * 사용자가 기존 비 암호 자격 증명 (예:: MFA FIDO)에 대해 다시 등록 하도록 강제 적용
   * '장치에서 MFA를 기억', 해지 다음 로그인 시 MFA 요청
 
-* **[권한 있는 역할 관리자](#privileged-role-administrator)** : 이 역할을 가진 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
+* **[권한 있는 역할 관리자](#privileged-role-administrator)** : 이 역할을 가진 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management에서 역할 할당을 관리할 수 있습니다. 또한이 역할에는 관리 단위 및 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
   <b>중요</b>: 이 역할에 대 한 전역 관리자 역할을 포함 하 여 모든 Azure AD 역할 할당을 관리 하는 기능을 부여 합니다. 이 역할은 사용자 생성 또는 업데이트와 같은 Azure AD의 다른 모든 권한 있는 기능을 포함하지는 않습니다. 그러나 이 역할에 할당된 사용자는 추가 역할을 할당하여 본인 또는 다른 사용자에게 추가 권한을 부여할 수 있습니다.
 
@@ -341,6 +341,22 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+
+### <a name="azure-information-protection-administrator"></a>Azure Information Protection 관리자
+Azure Information Protection 서비스의 모든 측면을 관리할 수 있습니다.
+
+  > [!NOTE]
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면을 관리합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
@@ -770,22 +786,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="information-protection-administrator"></a>Information Protection 관리자
-Azure Information Protection 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
-  >
-  >
-
-| **actions** | **설명** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면을 관리합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-
 ### <a name="intune-service-administrator"></a>Intune 서비스 관리자
 Intune 제품의 모든 측면을 관리할 수 있습니다.
 
@@ -998,8 +998,12 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 
 | **actions** | **설명** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | Azure Active Directory에서 directoryRoles를 업데이트합니다. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | 읽기 및 Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 구성 합니다. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | 읽기 및 Azure Active Directory에서 servicePrincipals.oAuth2PermissionGrants 속성을 구성 합니다. |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | 만들기 및 멤버 등 관리 단위 관리 |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | 역할 할당을 만들고 설정 합니다. |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | 역할 정의 만들고 설정 합니다. |
 
 ### <a name="reports-reader"></a>보고서 구독자
 로그인 및 감사 보고서를 읽을 수 있습니다.
@@ -1251,6 +1255,7 @@ DisplayName 그래프 | Azure 포털 표시 이름 | directoryRoleTemplateId
 애플리케이션 관리자 | 애플리케이션 관리자 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 애플리케이션 개발자 | 애플리케이션 개발자 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 인증 관리자 | 인증 관리자 | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C 사용자 흐름 관리자 | B2C 사용자 흐름 관리자 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 사용자 흐름 특성 관리자 | B2C 사용자 흐름 특성 관리자 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 B2C IEF 키 집합 관리자 | B2C IEF 키 집합 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1275,7 +1280,6 @@ Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d09
 외부 Id 공급자 관리자 | 외부 Id 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
 게스트 초대자 | 게스트 초대자 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 기술 지원팀 관리자 | 암호 관리자 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Information Protection 관리자 | Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune 서비스 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 라이선스 관리자 | 라이선스 관리자 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61276140"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417841"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -43,7 +43,7 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 ## <a name="workload-summary"></a>워크로드 요약
 Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제할 수 있습니다. 또한 추가 앱별 테스트를 수행하는 제품 팀과 협력하고 있습니다.
 
-| **워크로드** |**Azure VM을 Azure에 복제** |**Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** |
+| **작업** |**Azure VM을 Azure에 복제** |**Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** |
 | --- | --- | --- | --- | --- |---|
 | Active Directory, DNS |Y |Y |Y |Y |Y|
 | 웹앱(IIS, SQL) |Y |Y |Y |Y |Y|
