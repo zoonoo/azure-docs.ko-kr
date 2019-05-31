@@ -1,6 +1,6 @@
 ---
-title: Azure CLI에서 Azure Database for PostgreSQL - 단일 서버에 대한 읽기 복제본 관리
-description: Azure CLI에서 Azure Database for PostgreSQL - 단일 서버의 읽기 복제본을 관리 하는 방법에 알아봅니다.
+title: Azure CLI로부터 읽기 복제본 만들기 및 관리
+description: Azure CLI에서 Azure Database for PostgreSQL - 단일 서버의 읽기 복제본을 관리하는 방법에 대해 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -15,10 +15,10 @@ ms.locfileid: "65510245"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Azure CLI에서 읽기 복제본 만들기 및 관리
 
-이 문서에서는 Azure CLI에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리 하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
+이 문서에서는 Azure CLI에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
 > [!NOTE]
-> Azure CLI 마스터 서버에서 다른 지역에 복제본을 만드는 것은 아직 지원 하지 않습니다. 교차 지역 복제본을 만들려면 [Azure portal](howto-read-replicas-portal.md)을 사용 합니다.
+> Azure CLI 마스터 서버에서 다른 지역에 복제본을 만드는 것은 아직 지원하지 않습니다. 교차 지역 복제본을 만들려면 [Azure portal](howto-read-replicas-portal.md)을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 - 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md)
@@ -31,7 +31,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 ## <a name="prepare-the-master-server"></a>마스터 서버 준비
 이러한 단계는 범용 또는 메모리 최적화 계층에서 마스터 서버를 준비하는 데 사용합니다.
 
-마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 정적 매개 변수가 변경 되면 변경 내용을 적용하기 위해 서버 다시 시작이 필요 합니다.
+마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 정적 매개 변수가 변경되면 변경 내용을 적용하기 위해 서버 재시작이 필요합니다.
 
 1. `azure.replication_support`를 REPLICA로 설정합니다.
 
@@ -47,7 +47,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
-[az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) 명령에는 다음 매개 변수가 필요 합니다.
+[az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) 명령에는 다음 매개 변수가 필요합니다.
 
 | 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
@@ -59,7 +59,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정 하지 않고 서버를 다시 시작하게 되면 오류가 발생 합니다. 복제본을 만들기 전에 두 단계를 완료 합니다.
+범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하게 되면 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
 
 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 세대, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
 
@@ -76,7 +76,7 @@ az postgres server replica list --server-name mydemoserver --resource-group myre
 ## <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
 [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) 명령을 사용하여 마스터 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
-마스터 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행을 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
+범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하게 되면 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
