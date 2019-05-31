@@ -73,10 +73,10 @@ Linux 파일 공유를 사용하려면 Linux 서버에 [Samba](https://www.samba
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
+| type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
 | host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |예. |
 | userid |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
-| 암호 |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
+| password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
 | encryptedCredential |새로 만들기-AzDataFactoryEncryptValue cmdlet을 실행 하 여 얻을 수 있는 암호화 된 자격 증명을 지정 합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
 | gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |예. |
 
