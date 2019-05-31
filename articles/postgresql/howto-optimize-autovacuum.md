@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL-단일 서버에서 Autovacuum 최적화
-description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 autovacuum를 최적화 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Database for PostgreSQL-단일 서버에서 autovacuum를 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
@@ -19,7 +19,7 @@ ms.locfileid: "65069109"
 ## <a name="overview-of-autovacuum"></a>Autovacuum 개요
 PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베이스 동시성을 향상합니다. 업데이트할 때마다 삽입 및 삭제가 발생하고, 삭제할 때마다 행이 삭제되도록 소프트 표시됩니다. 소프트 표시는 나중에 제거할 데드 튜플을 식별합니다. 이러한 작업을 수행하기 위해 PostgreSQL은 vacuum 작업을 실행합니다.
 
-vacuum 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우 데드 튜플이 더 많습니다. 데이터베이스가 유휴 상태일 때 데드 튜플이 더 적습니다. 데이터베이스 부하가 많은 경우 더 자주 vacuum해야 하므로 ‘수동으로’ vacuum 작업을 실행하는 것이 불편합니다.
+vacuum 작업은 수동 또는 자동으로 트리거할 수 있습니다. 데이터베이스에서 많은 업데이트 또는 삭제 작업이 발생하는 경우에는 데드 튜플이 많습니다. 데이터베이스가 유휴 상태일 때는 데드 튜플이 적습니다. 데이터베이스 부하가 많은 경우 더 자주 vacuum해야 하므로 이 경우 ‘수동으로’ vacuum 작업을 실행하는 것이 불편합니다.
 
 Autovacuum은 구성할 수 있으며 튜닝의 이점을 활용할 수 있습니다. PostgreSQL이 제공하는 기본값은 모든 종류의 디바이스에서 제품이 작동하도록 합니다. 이러한 디바이스에는 Raspberry Pi가 포함됩니다. 이상적인 구성 값은 다음에 따라 다릅니다.
 - 사용 가능한 총 리소스 크기(예: SKU 및 스토리지 크기)
@@ -61,14 +61,14 @@ vacuum 작업을 실행하는 “비용”은 다음과 같습니다.
 - vacuum이 실행되는 데이터 페이지가 잠깁니다.
 - vacuum 작업을 실행할 때 컴퓨팅 및 메모리가 사용됩니다.
 
-따라서 vacuum 작업을 너무 자주 실행하거나 너무 드물게 실행하지 마세요. 워크로드에 맞게 vacuum 작업을 조정해야 합니다. Autovacuum 매개 변수 간의 절충 때문에 Autovacuum 매개 변수의 모든 변경 내용을 테스트합니다.
+따라서 vacuum 작업을 너무 자주 실행하거나 너무 드물게 실행하지 마세요. 워크로드에 맞게 vacuum 작업을 조정해야 합니다. Autovacuum 매개 변수 간 절충되므로 Autovacuum 매개 변수의 모든 변경 내용을 테스트하도록 합니다.
 
 ## <a name="autovacuum-start-trigger"></a>Autovacuum 시작 트리거
 데드 튜플 수가 autovacuum_vacuum_threshold + autovacuum_vacuum_scale_factor * reltuples를 초과할 경우 autovacuum이 트리거됩니다. 여기서 reltuples는 상수입니다.
 
 데이터베이스 부하에 따라 autovacuum을 통해 정리되어야 합니다. 그렇지 않으면 스토리지가 부족하여 쿼리 성능이 일반적으로 저하될 수 있습니다. 시간에 따라 분할 시, vacuum 작업이 데드 튜플을 정리하는 속도는 데드 튜플이 생성되는 속도와 같아야 합니다.
 
-많은 업데이트 및 삭제가 있는 데이터베이스에 데드 튜플이 더 많으며, 더 많은 공간이 필요합니다. 일반적으로 많은 업데이트 및 삭제가 있는 데이터베이스의 경우 autovacuum_vacuum_scale_factor 및 autovacuum_vacuum_threshold에 낮은 값을 사용하는 것이 좋습니다. 낮은 값을 사용하면 데드 튜플이 장기간 누적되는 것을 방지할 수 있습니다. 작은 데이터베이스의 경우 vacuum 요구가 비교적 긴급하지 않으므로 두 매개 변수에 더 높은 값을 사용할 수 있습니다. 자주 vacuum하면 컴퓨팅 및 메모리가 소모됩니다.
+많은 업데이트 및 삭제가 있는 데이터베이스에는 데드 튜플이 더 많으며, 더 많은 공간이 필요합니다. 일반적으로 많은 업데이트 및 삭제가 있는 데이터베이스의 경우 autovacuum_vacuum_scale_factor 및 autovacuum_vacuum_threshold에 낮은 값을 사용하는 것이 좋습니다. 낮은 값을 사용하면 데드 튜플이 장기간 누적되는 것을 방지할 수 있습니다. 작은 데이터베이스의 경우 vacuum 요구가 비교적 긴급하지 않으므로 두 매개 변수에 더 높은 값을 사용할 수 있습니다. 자주 vacuum하면 컴퓨팅 및 메모리가 소모됩니다.
 
 기본 배율 20%는 데드 튜플 백분율이 낮은 테이블에 적합합니다. 데드 튜플 백분율이 높은 테이블에는 효과적이지 않습니다. 예를 들어 20GB 테이블에서 이 배율은 4GB 데드 튜플을 나타냅니다. 1TB 테이블에서는 200GB 데드 튜플이 됩니다.
 
@@ -90,7 +90,7 @@ autovacuum_max_worker 매개 변수는 동시에 실행할 수 있는 autovacuum
 
 PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 인스턴스 수준에서 설정할 수 있습니다. 현재 이러한 매개 변수는 Azure Database for PostgreSQL의 테이블 수준에서만 설정할 수 있습니다.
 
-## <a name="optimize-autovacuum-per-table"></a>테이블당 autovacuum 최적화
+## <a name="optimize-autovacuum-per-table"></a>테이블별 autovacuum 최적화
 테이블당 이전 구성 매개 변수를 모두 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
@@ -99,10 +99,10 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_limit = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 ```
 
-Autovacuum은 테이블당 동기 프로세스입니다. 한 테이블에 있는 데드 튜플의 백분율이 높을수록 autovacuum “비용”도 높아집니다. 업데이트 및 삭제 비율이 높은 테이블을 여러 테이블로 분할할 수 있습니다. 테이블을 분할하면 autovacuum을 병렬 처리하여 한 테이블에서 autovacuum을 완료하는 “비용”을 줄일 수 있습니다. 작업자 예약이 편리하도록 병렬 autovacuum 작업자 수를 늘릴 수도 있습니다.
+Autovacuum은 테이블별 동기 프로세스입니다. 한 테이블에 있는 데드 튜플의 백분율이 높을수록 autovacuum “비용”도 높아집니다. 업데이트 및 삭제 비율이 높은 테이블을 여러 테이블로 분할할 수 있습니다. 테이블을 분할하면 autovacuum을 병렬 처리하여 한 테이블에서 autovacuum을 완료하는 “비용”을 줄일 수 있습니다. 작업자 예약이 편리하도록 병렬 autovacuum 작업자 수를 늘릴 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-utovacuum을 사용하고 튜닝하는 방법에 대한 자세한 내용은 다음 PostgreSQL 문서를 참조하세요.
+autovacuum을 사용하고 튜닝하는 방법에 대한 자세한 내용은 다음 PostgreSQL 문서를 참조하세요.
 
  - [18장, 서버 구성](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - [24장, 일상적인 데이터베이스 유지 관리 작업](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
