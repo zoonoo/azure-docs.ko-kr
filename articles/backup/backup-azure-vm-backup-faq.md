@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848183"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966311"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>자주 묻는 질문-Azure Vm 백업
 
@@ -24,25 +24,25 @@ ms.locfileid: "60848183"
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>만들 때 어떤 VM 이미지가 백업을 사용할 수 있습니다?
 실행 중인 Vm에 대 한 백업을 설정할 수 있습니다. VM을 만들면 [지원 되는 운영 체제](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>VM 비용에 포함 된 백업 비용은 인가요? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>VM 비용에 포함 된 백업 비용은 인가요?
 
 아니요. 백업 비용은 VM의 비용과 별개입니다. 에 대해 자세히 알아보세요 [Azure Backup 가격](https://azure.microsoft.com/pricing/details/backup/)합니다.
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은? 
 
-VM 참가자 인 경우 VM에서 백업을 사용할 수 있습니다. 사용자 지정 역할을 사용 하는 경우 VM에서 백업을 사용 하도록 설정 하려면 다음 권한이 필요 합니다. 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+VM 참가자 인 경우 VM에서 백업을 사용할 수 있습니다. 사용자 지정 역할을 사용 하는 경우 VM에서 백업을 사용 하도록 설정 하려면 다음 권한이 필요 합니다.
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있는 경우에 Recovery Services 자격 증명 모음에 대 한 리소스 그룹에 대 한 쓰기 권한이 있는지 확인 합니다.  
 
 
@@ -140,3 +140,6 @@ VM은 수정된 정책 또는 새 정책의 일정 및 보존 설정을 사용�
 3. 동일 하거나 새로운 자격 증명 모음의 백업 다시 사용 하도록 설정된 합니다.
 
 이동 작업 전에 만든 사용 가능한 복원 지점에서 VM을 복원할 수 있습니다.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>동일한 백업 정책과 사용 하 여 연결할 수 있는 Vm 수에 제한이 있나요?
+예, 포털에서 동일한 백업 정책에 연결할 수 있는 100 개의 Vm의 제한이 있습니다. 에서는 100 개 이상의 Vm에 대 한 것이 좋습니다, 그리고 동일한 일정 또는 다른 일정을 사용 하 여 여러 백업 정책을 만듭니다.

@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484894"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252859"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -26,7 +25,7 @@ Azure HDInsight 클러스터에 다른 유형의 virtual machines 또는 노드�
 | Type | 설명 |
 | --- | --- |
 | 헤드 노드 |  Apache Storm을 제외 하 고 모든 클러스터 유형의 경우 헤드 노드 배포 응용 프로그램의 실행을 관리 하는 프로세스를 호스트 합니다. 헤드 노드 이기도에 SSH 할 수 있는 노드 및 클러스터 리소스를 실행 하기 위해 다음 조정 되는 응용 프로그램을 실행 합니다. 모든 클러스터 유형에 대해 두 개의 헤드 노드 수가 고정 됩니다. |
-| ZooKeeper 노드 | Zookeeper는 데이터 처리를 수행 하는 노드 간에 작업을 조정 합니다. 또한 헤드 노드의 리더 않으며 추적 헤드 노드는 특정 마스터 서비스를 실행 합니다. ZooKeeper 노드 수가 두 개에 고정 됩니다. |
+| ZooKeeper 노드 | Zookeeper는 데이터 처리를 수행 하는 노드 간에 작업을 조정 합니다. 또한 헤드 노드의 리더 않으며 추적 헤드 노드는 특정 마스터 서비스를 실행 합니다. ZooKeeper 노드 수가 3 개에 고정 됩니다. |
 | 작업자 노드 | 데이터 처리 기능을 지 원하는 노드를 나타냅니다. 작업자 노드를 추가 하거나 컴퓨팅 기능을 확장 하 고 비용을 관리 하려면 클러스터에서 제거 될 수 있습니다. |
 | R Server에 지 노드 | R 서버 가장자리 노드에 SSH를 실행할 수 있습니다 노드를 나타내고 클러스터 리소스를 실행 하기 위해 다음 조정 되는 응용 프로그램을 실행 합니다. 에 지 노드는 클러스터 내에서 데이터 분석에 참여 하지 않습니다. 이 노드에 또한 브라우저를 사용 하 여 R 응용 프로그램을 실행할 수 인 R Studio Server를 호스트 합니다. |
 | 영역 노드 | HBase 클러스터 유형에 대해 (데이터 노드를 라고도 함) 지역 노드 지역 서버를 실행 합니다. 지역 서버는 제공 하 고 HBase에서 관리 하는 데이터의 부분을 관리 합니다. 영역 노드를 추가 또는 컴퓨팅 기능을 확장 하 고 비용을 관리 하려면 클러스터에서 제거할 수 있습니다.|
@@ -55,7 +54,7 @@ HDInsight를 사용 하 여 가상 네트워크 내에서 다음 네트워크 �
 | 네트워킹 리소스 | 수 있는 | 세부 정보 |
 | --- | --- | --- |
 |부하 분산 장치 | three | |
-|네트워크 인터페이스 | 구 | 이 값은 각 노드에 자체 네트워크 인터페이스에 있는 일반 클러스터를 기반으로 합니다. 9 인터페이스는 두 헤드 노드, zookeeper 노드 3 개, 2 개의 작업자 노드 및 두 개의 게이트웨이 노드가 이전 표에서 언급 합니다. |
+|네트워크 인터페이스 | 9 | 이 값은 각 노드에 자체 네트워크 인터페이스에 있는 일반 클러스터를 기반으로 합니다. 9 인터페이스는 두 헤드 노드, zookeeper 노드 3 개, 2 개의 작업자 노드 및 두 개의 게이트웨이 노드가 이전 표에서 언급 합니다. |
 |공용 IP 주소 | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>HDInsight에 연결 하기 위한 끝점

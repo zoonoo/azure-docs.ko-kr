@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900831"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860329"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 
@@ -34,7 +34,7 @@ ms.locfileid: "57900831"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Community Edition을 포함하여 Visual Studio 2017의 모든 버전이 필요합니다.
+이 자습서에서는 Community Edition을 포함하여 Visual Studio 2019의 모든 버전이 필요합니다.
 
 Visual Studio 솔루션은 애플리케이션에 대한 설치 관리자도 빌드합니다. 이 기능을 지원하려면 [WiX 도구 집합](http://wixtoolset.org/) 및 [WiX 도구 집합 Visual Studio 확장](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)이 필요합니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901815"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256253"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 애플리케이션의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
@@ -69,7 +69,6 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 리소스를 자동으로 만드는 [PowerShell 스크립트](../../azure-monitor/app/powershell.md) 를 작성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [대시보드 만들기](../../azure-monitor/app/app-insights-dashboards.md)
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
 * [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md)
 * [분석 쿼리 작성](../../azure-monitor/app/analytics.md)

@@ -1,5 +1,5 @@
 ---
-title: Node.js에서 Service Bus 큐를 사용하는 방법 | Microsoft Docs
+title: Node.js에서 Azure Service Bus 큐를 사용 하는 방법 | Microsoft Docs
 description: Node.js app에서 Azure의 Service Bus 큐를 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,22 +14,25 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589995"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988300"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Node.js에서 Service Bus 큐를 사용하는 방법
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Node.js 및 azure sb 패키지와 함께 Service Bus 큐를 사용 하는 방법
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+이 자습서에서는 메시지를 전송 하 여 Service Bus 큐에서 메시지를 수신 하는 Node.js 응용 프로그램을 만드는 방법을 배웁니다 합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지 있습니다. 샘플은 JavaScript로 작성 되었으며 Node.js를 사용 하 여 [Azure 모듈](https://www.npmjs.com/package/azure) 내부적으로 사용 하는 `azure-sb` 패키지 있습니다.
 
-이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다. 샘플은 JavaScript로 작성되었으며 Node.js Azure 모듈을 사용합니다. 
+합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 사용 하 여 패키지 [Service Bus REST 런타임 Api](/rest/api/servicebus/service-bus-runtime-rest)합니다. New를 사용 하는 빠른 경험을 얻을 수 있습니다 [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) 패키지는 더 빨리 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)합니다. 새 패키지에 대 한 자세한 내용은를 참조 하세요. [Node.js를 사용 하 여 Service Bus 큐를 사용 하는 방법 및 @azure/service-bus 패키지](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), 그렇지 않은 읽기를 사용 하는 방법을 알아보려면 계속 진행 합니다 [azure](https://www.npmjs.com/package/azure) 패키지 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
+- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+- 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
     1. 빠른 읽을 **개요** Service bus **큐**합니다. 
     2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
     3. 가져오기의 **연결 문자열**합니다. 
@@ -46,7 +49,7 @@ Azure Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드하�
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **Windows PowerShell for Node.js** 명령 창을 사용하여 애플리케이션 예제를 만든 **c:\\node\\sbqueues\\WebRole1** 폴더로 이동합니다.
-2. 명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2. 형식 **npm 설치 azure** 명령 창에서 다음 예와 비슷한 출력이 표시 될 해야 있습니다.
 
     ```
     azure@0.7.5 node_modules\azure
@@ -61,7 +64,7 @@ Azure Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드하�
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 Service Bus 큐에 액세스하는 데 필요한 라이브러리가 포함된 **azure** 패키지를 찾습니다.
+3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 해당 폴더 내에서 찾을 합니다 **azure** Service Bus 큐에 액세스 하는 데 필요한 라이브러리가 포함 된 패키지입니다.
 
 ### <a name="import-the-module"></a>모듈 가져오기
 메모장 또는 다른 텍스트 편집기를 사용하여 다음을 애플리케이션의 **server.js** 파일 맨 위에 추가합니다.
@@ -71,7 +74,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Azure Service Bus 연결 설정
-Azure 모듈은 `AZURE_SERVICEBUS_CONNECTION_STRING` 환경 변수를 읽어 Service Bus에 연결하는 데 필요한 정보를 가져옵니다. 이러한 환경 변수가 설정되어 있지 않은 경우 `createServiceBusService`를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 `AZURE_SERVICEBUS_CONNECTION_STRING` 환경 변수를 읽어 Service Bus에 연결하는 데 필요한 정보를 가져옵니다. 호출할 때 계정 정보를 지정 해야이 환경 변수 설정 하지 않으면 `createServiceBusService`합니다.
 
 Azure 웹 사이트의 [Azure Portal][Azure portal]에서 환경 변수를 설정하는 방법에 대한 예제는 [스토리지를 포함한 Node.js 웹 애플리케이션][Node.js Web Application with Storage]을 참조하세요.
 
@@ -147,14 +150,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus quotas]을 참조하세요.
+Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 큐에 보관 된 메시지의 수에 제한이 있지만 큐에서 대기 하는 메시지의 총 크기는 합니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus quotas]을 참조하세요.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 **ServiceBusService** 개체의 `receiveQueueMessage` 메서드를 사용하여 큐에서 메시지를 받습니다. 기본적으로 읽은 메시지는 큐에서 삭제됩니다. 그러나 선택적 매개 변수 `isPeekLock`을 **true**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(최대) 후 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 실패할 경우 애플리케이션이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus는 메시지를 이용되는 것으로 표시하기 때문에 애플리케이션이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
+읽고 메시지를 받기 작업의 일부로 삭제의 기본 동작은 가장 단순한 모델 이며는 응용 프로그램 오류가 발생할 경우 메시지를 처리 하지 허용할 수 없는 시나리오에 가장 적합. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus는 메시지를 이용 되는 것으로 표시 한 다음 응용 프로그램 다시 시작 되 고 메시지 소비를 다시 시작할 때 했기 때문은 누락 크래시 전에 이용 된 메시지입니다.
 
-`isPeekLock` 매개 변수를 **true**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `deleteMessage` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `deleteMessage` 메서드는 메시지를 사용 중인 것으로 표시하고 큐에서 제거합니다.
+경우는 `isPeekLock` 매개 변수는 설정 **true**, 수신 되는 2 단계 작업 이므로 메시지 누락을 허용 하지 않는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `deleteMessage` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `deleteMessage` 메서드는 메시지를 사용 중인 것으로 표시하고 큐에서 제거합니다.
 
 다음 예제에서는 `receiveQueueMessage`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 먼저 메시지를 받고 삭제한 다음 **true**로 설정된 `isPeekLock`을 사용하여 메시지를 받고 `deleteMessage`를 사용하여 메시지를 삭제합니다.
 
@@ -177,11 +180,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>애플리케이션 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. 그러면 Service Bus에서 큐 메시지의 잠금을 해제하므로 동일한 소비 애플리케이션이나 다른 소비 애플리케이션에서 메시지를 다시 받을 수 있습니다.
+Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. Service Bus 큐 내에서 메시지를 잠금 해제 하 고 동일한 소비 응용 프로그램이 나 다른 소비 응용 프로그램을 다시 받을 수 있도록에 발생 합니다.
 
-큐 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 애플리케이션에서 잠금 제한 시간이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
+큐 내에서 잠긴 메시지와 연결 된 제한 역시 고 실패 하면 응용 프로그램에서 잠금 시간 제한이 만료 되기 전에 메시지를 처리 하는 데 (예를 들어 응용 프로그램이 크래시 되는 경우) 만료 되 면 Service Bus는 메시지를 자동으로 잠금 해제 하 고 다시 받을 수는 사용할 수 있습니다.
 
-애플리케이션이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
+애플리케이션이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 접근 방식 이라고 *한 번 이상 처리 이상*, 즉, 각 메시지가 최소 한 번 이상 처리 되지만 특정 상황에서는 동일한 메시지를 다시 배달 될 수 있습니다. 시나리오가 중복 처리를 허용할 수 없는, 응용 프로그램 개발자가 중복 메시지 배달을 처리 하는 응용 프로그램에 추가 논리를 추가 해야 합니다. 대체로 사용 하 여 **MessageId** 배달 시도 간에 일정 남아 있는 메시지의 속성입니다.
+
+> [!NOTE]
+> 사용 하 여 Service Bus 리소스를 관리할 수 있습니다 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)합니다. Service Bus 탐색기를 사용 하면 Service Bus 네임 스페이스에 연결 하 고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스에서 notification hubs 및 이벤트 허브를 테스트할 수와 같은 고급 기능을 제공 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 큐에 대한 자세한 내용은 다음 리소스를 참조하세요.

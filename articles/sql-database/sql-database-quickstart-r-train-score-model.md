@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714902"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습
 
@@ -50,7 +50,7 @@ ms.locfileid: "60013098"
 - 모델을 교육하는 데 사용할 입력 데이터를 제공합니다.
 
 > [!TIP]
-> 선형 모델에 리프레셔가 필요하면 rxLinMod를 사용하여 모델을 적절하게 조정하는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 사용해 보세요.
+> 선형 모델에 리프레셔가 필요하면 rxLinMod를 사용하여 모델을 적절하게 조정하는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
 
 다음 단계에서는 학습 데이터를 설정하고, 회귀 모델을 만들고, 학습 데이터를 사용하여 모델을 학습시킨 다음, 모델을 SQL 테이블에 저장합니다.
 
@@ -171,7 +171,7 @@ VALUES (
 
 **결과**
 
-![추가 출력이 있는 학습된 모델](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![추가 출력이 있는 학습된 모델](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>학습된 모델을 사용하여 새 데이터 점수 매기기
 
@@ -239,7 +239,7 @@ VALUES (
 
    **결과**
 
-   ![장지 거리를 예측하는 결과 집합](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![장지 거리를 예측하는 결과 집합](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > 이 예제 스크립트에서는 R에서 반환되는 데이터의 스키마를 확인하기 위해 `str` 함수가 테스트 단계에서 추가됩니다. 이 명령문은 나중에 제거할 수 있습니다.
@@ -248,10 +248,9 @@ VALUES (
 
 ## <a name="next-steps"></a>다음 단계
 
-Machine Learning Services에 대한 자세한 내용은 아래 문서를 참조하세요. 이러한 문서 중 일부는 SQL Server와 관련되어 있지만, 대부분의 정보가 Azure SQL Database의 Machine Learning Services(R 포함)에도 적용됩니다.
+Azure SQL Database Machine Learning Services(R 포함)(미리 보기)에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure SQL Database Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [자습서: SQL Server 데이터에 RevoScaleR R 함수 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services(R 포함)(미리 보기)](sql-database-machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행](sql-database-quickstart-r-create-script.md)
+- [Machine Learning Services(미리 보기)를 사용하여 Azure SQL Database에서 고급 R 함수 작성](sql-database-machine-learning-services-functions.md)
+- [Azure SQL Database Machine Learning Services(미리 보기)에서 R 및 SQL 데이터 사용](sql-database-machine-learning-services-data-issues.md)

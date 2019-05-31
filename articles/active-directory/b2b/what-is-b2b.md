@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 09/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6ab73b501fc9dbe6209a92fff6f6e19de03fcdc1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293637"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768071"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -74,14 +74,14 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 애플리케이션을 쉽게 빌드할 수 있음
 
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
-- [B2B 공동 작업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 
+- [B2B 협업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 
 - [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)의 셀프 서비스 포털에 Microsoft가 제공하는 샘플 코드를 사용합니다.
 
 ![샘플 등록 포털을 보여 주는 스크린샷](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 공동 작업 라이선스 지침](licensing-guidance.md)
-- [포털에서 B2B 공동 작업 게스트 사용자 추가](add-users-administrator.md)
+- [Azure AD B2B 협업 라이선스 지침](licensing-guidance.md)
+- [포털에서 B2B 협업 게스트 사용자 추가](add-users-administrator.md)
 - [초대 사용 프로세스 이해](redemption-experience.md)
 - 또한 피드백, 논의 사항 및 제안이 있는 경우 언제나처럼 [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)(Microsoft 기술 커뮤니티)를 통해 제품 팀에 연결할 수 있습니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464433"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399740"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure 가상 컴퓨터 백업에 대한 경고 모니터링
 
@@ -70,7 +70,7 @@ Backup 경고 타일에서 Backup 경고 블레이드를 열려면:
    | 경고 수준 | 전송되는 경고 |
    | --- | --- |
    | 중요 | 백업 실패, 복구 실패 |
-   | Warning | 백업 작업 성공, 경고 있음(예: 스냅숏을 만드는 중 일부 작성기 오류) |
+   | Warning | 현재 없는 경고는 Azure VM 백업에 사용할 수 있습니다 (예: 스냅숏을 만드는 중 일부 작성기 오류) |
    | 정보 제공 | 현재 Azure VM 백업에 사용할 수 있는 정보 경고 없음 |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>알림이 구성된 경우에도 이메일이 전송되지 않는 경우

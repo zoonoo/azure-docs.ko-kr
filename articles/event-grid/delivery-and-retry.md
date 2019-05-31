@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562001"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952891"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -24,16 +24,18 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지를 �
 
 ## <a name="retry-schedule-and-duration"></a>예약 및 기간 재시도
 
-Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. 끝점이 응답 하지 않거나 오류 코드가 반환, Event Grid를 최상의 기준으로 다음 일정에 따라 배달을 다시 시도 합니다.
+Event Grid 메시지 배달 한 후 응답에 30 초를 대기 합니다. 30 초 후 끝점이 응답 하지 않은 경우 재시도 대 한 메시지 대기 됩니다. Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 사용합니다. Event Grid를 최상의 기준으로 다음 일정에 따라 배달을 다시 시도합니다.
 
-1. 10초
-1. 30초
-1. 1분
-1. 5분
-1. 10분
-1. 30분
-1. 1시간
-1. 최대 24 시간 동안 1 시간 마다
+- 10초
+- 30초
+- 1분
+- 5분
+- 10분
+- 30분
+- 1시간
+- 최대 24 시간 동안 1 시간 마다
+
+끝점 3 분 이내에 응답 하는 경우 Event Grid는 이벤트를 최상의 기준으로 재시도 큐에서 제거 하려고 하지만 중복 항목을 계속 수신할 수 있습니다.
 
 Event Grid는 약간의 불규칙을 모든 재시도 단계를 추가 및 끝점 긴 기간 동안 다운 일관 되 게 정상 되지 않거나 무력화 될 것 이므로 경우에 선택적으로 특정 재시도 건너뛸 수 있습니다.
 

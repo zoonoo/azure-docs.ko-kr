@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012526"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238248"
 ---
-| 리소스 | 기본 제한 | 최대 제한 |
+| Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 리소스 당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), 리소스 유형별 |800 |리소스 유형마다 다름 |
 | 배포 기록의 리소스 그룹당 배포 |800<sup>1</sup> |800 |

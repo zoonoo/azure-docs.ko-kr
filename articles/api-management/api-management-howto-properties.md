@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60658038"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241700"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
 API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변경하도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 명명된 값을 사용하여 생성할 수 있습니다. 
@@ -27,10 +27,10 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 | 특성 | Type | 설명 |
 | --- | --- | --- |
-| Display name |문자열 |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
-| Value |문자열 |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
-|Secret|부울|값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.|
-| Tags |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
+| `Display name` |string |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
+| `Value`        |string |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
+| `Secret`       |부울|값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.|
+| `Tags`         |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
 
 ![명명된 값](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 속성이 생성되면 속성을 클릭하여 속성을 편집할 수 있습니다. 속성 이름을 변경한 경우 해당 속성을 참조하는 모든 정책이 새 이름을 사용하도록 자동으로 업데이트됩니다.
 
-REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](/rest/api/apimanagement/property?Patch)을 참조하세요.
+REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](/rest/api/apimanagement/2019-01-01/property?patch)을 참조하세요.
 
 ## <a name="to-delete-a-property"></a>속성을 삭제하려면
 
@@ -66,7 +66,7 @@ REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내�
 > 
 > 
 
-REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](/rest/api/apimanagement/property?Delete)를 참조하세요.
+REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](/rest/api/apimanagement/2019-01-01/property/delete)를 참조하세요.
 
 ## <a name="to-search-and-filter-named-values"></a>명명된 값을 검색하고 필터링하려면
 

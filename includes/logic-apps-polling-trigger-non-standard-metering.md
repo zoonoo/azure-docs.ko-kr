@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: estfan
 ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598466"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161952"
 ---
 보다 정확한 소비 비용을 계산하려면 폴링 간격만을 기반으로 계산을 하기 보다는 특정 일에 수신할 수 있는 메시지나 이벤트 수를 고려하는 것이 좋습니다. 이벤트나 메시지가 트리거 조건을 충족하면 많은 트리거가 조건을 충족하는 대기 중인 모든 이벤트나 메시지를 즉시 읽으려고 시도합니다. 이러한 동작은 폴링 간격을 길게 선택하더라도 워크플로를 시작하기에 적합한 대기 중인 이벤트나 메시지 수를 기반으로 트리거가 실행된다는 것을 의미합니다. 이러한 동작을 따르는 트리거에는 Azure Service Bus 및 Azure Event Hub가 있습니다.
 

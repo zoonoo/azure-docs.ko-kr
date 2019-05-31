@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 718e34cdba31b3b747ebb5c10f5c5708c0572448
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 88fd480f87c3a33af1d16e57d6687d739dc1ec7d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123405"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -55,9 +55,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="prepare-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse 준비
 
-**원본 Azure SQL Database 준비**
+**원본 Azure SQL Database 준비**:
 
-[Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 SQL 데이터 웨어하우스로 복사합니다.
+[Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md) 문서에 따라 Adventure Works LT 샘플 데이터가 포함된 Azure SQL Database를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 SQL 데이터 웨어하우스로 복사합니다.
 
 **싱크 Azure SQL Data Warehouse 준비**
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517116"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860876"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 
@@ -37,7 +37,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 개발하는 중이고 Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 및 **.NET을 사용한 모바일 개발** 워크로드를 사용하도록 설정합니다.
+Windows에서 개발하는 중이고 Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 및 **.NET을 사용한 모바일 개발** 워크로드를 사용하도록 설정합니다.
 
 Mac을 사용하는 경우 **무료** [Mac용 Visual Studio](https://www.visualstudio.com/vs/mac/)를 다운로드할 수 있습니다.
 
@@ -92,7 +92,7 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Visual Studio 2017 또는 Mac용 Visual Studio에서 azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers 폴더에 있는 APIKeys.cs 파일을 엽니다.
+2. Visual Studio 2019 또는 Mac용 Visual Studio에서 azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers 폴더에 있는 APIKeys.cs 파일을 엽니다.
 
 3. 포털에서 URI 값을 복사(복사 단추 사용)하고 이 값을 APIKeys.cs의 `CosmosEndpointUrl` 변수로 만듭니다.
 

@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4debd5408abda7e6ae7a7ebf2210fb69210582ae
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 629b872f78a30592fc00cb268066970b12b20561
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687919"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952810"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 특성 정의
 
  모든 고객 대상 애플리케이션은 수집해야 하는 정보에 대한 특정 요구 사항이 있습니다. Azure AD(Azure Active Directory) B2C 테넌트에는 이름, 성, 도시, 우편 번호 등의 특성에 저장된 일련의 기본 정보가 포함되어 있습니다. Azure AD B2C를 사용하면 각 고객 계정에 저장된 특성 집합을 확장할 수 있습니다. 
  
- [Azure Portal](https://portal.azure.com/)에서 사용자 지정 특성을 만든 후 등록 사용자 흐름, 등록 또는 로그인 사용자 흐름 또는 프로필 편집 사용자 흐름에서 사용할 수 있습니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다. Azure AD B2C의 사용자 지정 특성은 [Azure AD Graph API 디렉터리 스키마 확장](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)을 사용합니다.
+ [Azure Portal](https://portal.azure.com/)에서 사용자 지정 특성을 만든 후 등록 사용자 흐름, 등록 또는 로그인 사용자 흐름 또는 프로필 편집 사용자 흐름에서 사용할 수 있습니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다. Azure AD B2C의 사용자 지정 특성은 [Azure AD Graph API 디렉터리 스키마 확장](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)을 사용합니다.  
+
+> [!NOTE]
+> 에 대 한 지원 최신 [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) 쿼리 하는 Azure AD B2C에 대 한 테 넌 트는 여전히 개발 중입니다.
+>
 
 ## <a name="create-a-custom-attribute"></a>사용자 지정 특성 만들기
 
@@ -41,7 +45,8 @@ ms.locfileid: "64687919"
 7. 필요에 따라 정보 제공을 위해 **설명**을 입력합니다. 
 8. **만들기**를 클릭합니다.
 
-이제 사용자 지정 특성을 **사용자 특성** 목록 및 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 **사용자 특성** 목록에 추가될 때가 아니라 사용자 흐름에 사용될 때 처음으로 만들어집니다.
+이제 사용자 지정 특성을 **사용자 특성** 목록 및 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 **사용자 특성** 목록에 추가될 때가 아니라 사용자 흐름에 사용될 때 처음으로 만들어집니다. 
+
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>사용자 흐름에 사용자 지정 특성 사용
 
@@ -51,5 +56,5 @@ ms.locfileid: "64687919"
 5. **애플리케이션 클레임**을 선택하고 사용자 지정 특성을 선택합니다. 
 6. **저장**을 클릭합니다.
 
-사용자 흐름에 대해 **사용자 흐름 실행** 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다.
+새로 만든된 사용자 지정 특성을 사용 하는 사용자 흐름을 사용 하 여 새 사용자를 만든 후에 개체를 쿼리할 수 있습니다 [Azure AD Graph Explorer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)합니다. 또는 사용할 수 있습니다 합니다 [ **사용자 흐름을 실행** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) 고객 환경을 확인 하는 사용자 흐름에서 기능입니다. 이제 등록 과정 동안 수집되는 특성 목록에 **ShoeSize**가 표시되며 애플리케이션으로 다시 전송되는 토큰에도 표시됩니다. 
 

@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
-ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/16/2019
+ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795809"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>빠른 시작: 1 - C#에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -36,11 +37,11 @@ ms.locfileid: "59269047"
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
++ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)는 Azure 샘플 GitHub 리포지토리에 있는 C#로 작성된 .NET Core 콘솔 애플리케이션인 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다. 데이터는 솔루션에 포함되어 있습니다.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)는 Azure 샘플 GitHub 리포지토리에 있는 C#로 작성된 .NET Core 콘솔 애플리케이션인 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다. 데이터는 솔루션에 포함되어 있습니다.
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 

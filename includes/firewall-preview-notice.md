@@ -9,11 +9,11 @@ ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: ea1d331eefe07980547ffae18fbbca920475ec06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193062"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148433"
 ---
 > [!IMPORTANT]
 > Azure Firewall은 현재 관리되는 공개 미리 보기로 제공됩니다. `Register-AzProviderFeature` PowerShell 명령을 사용하여 명시적으로 활성화해야 합니다.

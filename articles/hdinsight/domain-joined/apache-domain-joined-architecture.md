@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.date: 05/29/2019
+ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556343"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391678"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "65556343"
 
 대부분의 기업이 클러스터를 IT 팀에서 관리하고 여러 애플리케이션 팀이 클러스터를 공유하는 모델로 이동했습니다. 이러한 대기업은 Azure HDInsight의 각 클러스터에 대한 다중 사용자 액세스 권한이 필요합니다.
 
-HDInsight는 널리 사용되는 ID 공급자인 Active Directory를 관리되는 방식으로 사용합니다. [Azure AD DS(Azure Active Directory Domain Services)](../../active-directory-domain-services/active-directory-ds-overview.md)와 HDInsight를 통합하고 도메인 자격 증명을 사용하여 클러스터에 액세스할 수 있습니다. 
+HDInsight는 널리 사용되는 ID 공급자인 Active Directory를 관리되는 방식으로 사용합니다. [Azure AD DS(Azure Active Directory Domain Services)](../../active-directory-domain-services/overview.md)와 HDInsight를 통합하고 도메인 자격 증명을 사용하여 클러스터에 액세스할 수 있습니다. 
 
 HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입니다. 따라서 HDInsight에서 실행 중인 모든 서비스(Apache Ambari, Apache Hive 서버, Apache Ranger, Apache Spark thrift 서버 및 기타)가 인증된 사용자에 대해 원활하게 작동합니다. 관리자는 Apache Ranger를 사용하여 클러스터의 리소스에 대한 역할 기반 액세스 제어를 제공하는 강력한 권한 부여 정책을 만들 수 있습니다.
 
@@ -45,7 +45,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메인 컨트롤러로 Azure AD DS만 지원합니다. 그러나 이러한 설정을 통해 HDInsight 액세스에 Azure AD DS를 사용하도록 설정하면 다른 복잡한 Active Directory 설정이 가능합니다.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md)는 관리되는 도메인을 제공합니다. 이 도메인은 Windows Server Active Directory와 완벽하게 호환됩니다. Microsoft는 HA(고가용성) 설정에서 도메인을 관리하고, 패치하고, 모니터링하는 작업에 주의를 기울입니다. 도메인 컨트롤러를 유지 관리할 걱정 없이 클러스터를 배포할 수 있습니다. 
+[Azure AD DS](../../active-directory-domain-services/overview.md)는 관리되는 도메인을 제공합니다. 이 도메인은 Windows Server Active Directory와 완벽하게 호환됩니다. Microsoft는 HA(고가용성) 설정에서 도메인을 관리하고, 패치하고, 모니터링하는 작업에 주의를 기울입니다. 도메인 컨트롤러를 유지 관리할 걱정 없이 클러스터를 배포할 수 있습니다. 
 
 사용자, 그룹 및 암호는 Azure AD에서 동기화됩니다. Azure AD 인스턴스에서 Azure AD DS로 단방향 동기화를 사용하면 사용자가 동일한 회사 자격 증명을 통해 클러스터에 로그인할 수 있습니다. 
 

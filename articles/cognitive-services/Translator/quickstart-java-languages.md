@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 8847b5c6e7ceac5bec321ebcf6310a624f16e184
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c3b80e7aea9add143cf74a21b8023723a1142a9c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916739"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604317"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 지원되는 언어 목록 가져오기
 
@@ -172,7 +172,7 @@ gradle run
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 

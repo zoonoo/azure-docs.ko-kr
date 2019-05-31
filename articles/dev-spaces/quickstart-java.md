@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425749"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979119"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
 
@@ -41,7 +41,7 @@ ms.locfileid: "59425749"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
@@ -122,7 +122,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예: 
 
 1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
-1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 16줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16)을 다음으로 업데이트합니다.
+1. [`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)을 다음으로 업데이트합니다.
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Visual Studio Code에도 기본 이미지와 노출된 포트를 구성하라는
 
 *Java 프로그램 시작(AZDS)* 을 사용하여 디버깅 모드에서 서비스를 시작합니다.
 
-*보기*, *탐색기*를 차례로 클릭하여 *탐색기* 보기로 다시 이동합니다. `src/main/java/com/ms/sample/webfrontend/Application.java`를 열고 16줄의 아무 곳이나 클릭하여 커서를 놓습니다. 중단점을 설정하려면 *F9* 키를 누르거나 *디버그*를 클릭한 후 *중단점 설정/해제*를 클릭합니다.
+*보기*, *탐색기*를 차례로 클릭하여 *탐색기* 보기로 다시 이동합니다. `src/main/java/com/ms/sample/webfrontend/Application.java`를 열고 19줄의 아무 곳이나 클릭하여 커서를 놓습니다. 중단점을 설정하려면 *F9* 키를 누르거나 *디버그*를 클릭한 후 *중단점 설정/해제*를 클릭합니다.
 
-브라우저에서 서비스를 열고 메시지가 표시되지 않는 것을 확인합니다. Visual Studio Code로 돌아가서 16줄이 강조 표시된 것을 확인합니다. 설정한 중단점으로 인해 서비스가 16줄에서 일시 중지되었습니다. 서비스를 다시 시작하려면 *F5* 키를 누르거나 *디버그*, *계속*을 차례로 클릭합니다. 브라우저로 돌아가서 메시지가 표시되는 것을 확인합니다.
+브라우저에서 서비스를 열고 메시지가 표시되지 않는 것을 확인합니다. Visual Studio Code로 돌아가서 19줄이 강조 표시된 것을 확인합니다. 설정한 중단점으로 인해 서비스가 19줄에서 일시 중지되었습니다. 서비스를 다시 시작하려면 *F5* 키를 누르거나 *디버그*, *계속*을 차례로 클릭합니다. 브라우저로 돌아가서 메시지가 표시되는 것을 확인합니다.
 
 디버거가 연결된 Kubernetes에서 서비스를 실행 중일 때는 호출 스택, 지역 변수 및 예외 정보와 같은 디버그 정보 전체에 액세스할 수 있습니다.
 
-`src/main/java/com/ms/sample/webfrontend/Application.java`의 16줄에 커서를 놓고 *F9* 키를 눌러서 중단점을 제거합니다.
+`src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄에 커서를 놓고 *F9*를 눌러서 중단점을 제거합니다.
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio Code에서 코드 업데이트
 
-서비스가 디버깅 모드에서 실행 중인 경우 `src/main/java/com/ms/sample/webfrontend/Application.java`의 16줄을 업데이트합니다. 예: 
+서비스가 디버깅 모드에서 실행 중인 경우 `src/main/java/com/ms/sample/webfrontend/Application.java`의 19줄을 업데이트합니다. 예: 
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

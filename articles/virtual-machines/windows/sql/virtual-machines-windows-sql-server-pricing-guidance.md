@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477246"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393850"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
@@ -57,7 +57,7 @@ ms.locfileid: "61477246"
 
 | SQL Server 버전 | 워크로드 |
 |-----|-----|
-| 웹 | 작은 웹 사이트 |
+| Web | 작은 웹 사이트 |
 | Standard | 소규모~중간 규모 작업 |
 | Enterprise | 대규모 또는 중요 업무용 작업|
 
@@ -99,7 +99,7 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 **License Mobility를 통해 SQL Server 사용자 라이선스 필요**(**BYOL**이라고도 함)는 Azure VM에서 기존 SQL Server 볼륨 라이선스와 함께 Software Assurance를 사용함을 의미합니다. BYOL을 사용하는 SQL Server VM의 경우 볼륨 라이선싱 프로그램을 통해 이미 라이선스 및 Software Assurance를 구매했다면 SQL Server 라이선스가 아닌 VM 실행에 대한 비용만 청구됩니다.
 
 > [!IMPORTANT]
-> BYOL 이미지에는 Software Assurance를 통한 기업 계약이 필요합니다. 현재 BYOL 이미지는 Azure CSP(클라우드 솔루션 파트너)의 일부로 사용할 수 없습니다.
+> BYOL 이미지에는 Software Assurance를 통한 기업 계약이 필요합니다. 현재 BYOL 이미지는 Azure CSP(클라우드 솔루션 파트너)의 일부로 사용할 수 없습니다. 종 량 제 이미지를 배포 하 고 다음 사용 하도록 설정 하 여 CSP 고객에 게는 자신의 라이선스를 가져올 수는 [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md)합니다.
 
 > [!NOTE]
 > BYOL 이미지는 현재 Windows 가상 머신에만 사용할 수 있습니다. 그러나 Linux 전용 VM에 SQL Server를 수동으로 설치할 수 있습니다. 지침은 [Linux SQL VM FAQ](../../linux/sql/sql-server-linux-faq.md)를 참조하세요.

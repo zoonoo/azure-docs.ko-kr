@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215863"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60515435"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
 
@@ -40,7 +41,7 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-Name| 형식 | 설명
+이름| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
@@ -59,18 +60,18 @@ Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
 다음 표에서는 음성 합성 요청에 사용되는 HTTP 헤더를 보여 줍니다.
 
-헤더 |값 |설명
+헤더 |Value |설명
 ----|----|----
 콘텐츠 형식 | application/ssml+xml | 입력 콘텐츠 형식입니다.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 출력 오디오 형식입니다.
 X-Search-AppId | GUID(16진수만, 대시 없음) | 클라이언트 애플리케이션을 고유하게 식별하는 ID입니다. 앱의 스토어 ID일 수 있습니다. 스토어 ID를 사용할 수 없는 경우 사용자가 생성한 애플리케이션 ID일 수 있습니다.
 X-Search-ClientID | GUID(16진수만, 대시 없음) | 각 설치에서 애플리케이션 인스턴스를 고유하게 식별하는 ID입니다.
-User-Agent | 애플리케이션 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
+사용자 에이전트 | 애플리케이션 이름 | 애플리케이션 이름은 필수이며 255자 미만이어야 합니다.
 권한 부여 | 권한 부여 토큰 |  <a href="#Subscription">인증 토큰</a> 섹션을 참조하세요.
 
 ### <a name="InputParam"></a>입력 매개 변수
 
-Bing Text to Speech API에 대한 요청은 HTTP POST 호출을 사용하여 수행됩니다. 헤더는 이전 섹션에서 지정되었습니다. 본문에는 합성할 텍스트를 나타내는 SSML(Speech Synthesis Markup Language) 입력이 포함되어 있습니다. 화자의 언어 및 성별과 같은 음성 측면을 제어하는 데 사용되는 태그에 대한 설명은 [SSML W3C 사양](http://www.w3.org/TR/speech-synthesis/)을 참조하세요.
+Bing Text to Speech API에 대한 요청은 HTTP POST 호출을 사용하여 수행됩니다. 헤더는 이전 섹션에서 지정되었습니다. 본문에는 합성할 텍스트를 나타내는 SSML(Speech Synthesis Markup Language) 입력이 포함되어 있습니다. 화자의 언어 및 성별과 같은 음성 측면을 제어하는 데 사용되는 태그에 대한 설명은 [SSML W3C 사양](https://www.w3.org/TR/speech-synthesis/)을 참조하세요.
 
 >[!NOTE]
 >지원되는 SSML 입력의 최대 크기는 모든 태그를 포함하여 1,024자입니다.
@@ -140,43 +141,43 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>SSML을 통해 음성 출력 변경
 
-Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버전 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)에 정의된 대로 SSML 1.0을 지원합니다. 이 섹션에서는 SSML 태그를 사용하여 말하기 속도, 발음 등 생성된 음성 출력의 특정 특성을 변경하는 예를 보여 줍니다.
+Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버전 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)에 정의된 대로 SSML 1.0을 지원합니다. 이 섹션에서는 SSML 태그를 사용하여 말하기 속도, 발음 등 생성된 음성 출력의 특정 특성을 변경하는 예를 보여 줍니다.
 
 1. 중단 추가
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+   ```
 
 2. 말하기 속도 변경
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 3. 발음
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+   ```
 
 4. 볼륨 변경
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 5. 피치 변경
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 6. 운율 곡선 변경
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+   ```
 
 > [!NOTE]
 > 오디오 데이터는 다음 형식의 8k 또는 16k wav 파일이어야 합니다. **CRC 코드**(CRC-32): 유효한 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)/**오디오 형식 플래그**: 유효한 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)/**샘플 수**: 유효한 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)/**이진 본문 크기**: 유효한 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)/**이진 본문**: n바이트
@@ -269,6 +270,7 @@ zh-HK | Male | “Microsoft Server Speech Text to Speech Voice(zh-HK, Danny, Apo
 zh-TW | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, Yating, Apollo)”
 zh-TW | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)”
 zh-TW | Male | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)”
+
  *ar-EG는 MSA(Modern Standard Arabic)를 지원합니다.
 
 > [!NOTE]

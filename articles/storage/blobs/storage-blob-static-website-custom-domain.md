@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145050"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949610"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>자습서: Azure CDN을 사용하여 정적 웹 사이트에서 SSL과 함께 사용자 지정 도메인을 사용하도록 설정
 
@@ -44,8 +44,9 @@ ms.locfileid: "65145050"
 1. **새 엔드포인트** 섹션에서 새 CDN 엔드포인트를 만들려면 필드를 채웁니다.
 1. 엔드포인트 이름(예: *mystaticwebsiteCDN*)을 입력합니다.
 1. 웹 사이트 도메인을 CDN 엔드포인트에 대한 호스트 이름으로 입력합니다.
-1. 원본 호스트 이름에 대한 정적 웹 사이트 엔드포인트를 입력합니다. 정적 웹 사이트 엔드포인트를 찾으려면 스토리지 계정에 대한 **정적 웹 사이트** 섹션으로 이동하고 엔드포인트를 복사합니다. 
+1. 원본 호스트 이름에 대한 정적 웹 사이트 엔드포인트를 입력합니다. 정적 웹 사이트 엔드포인트를 찾으려면 스토리지 계정에 대한 **정적 웹 사이트** 섹션으로 이동하고 엔드포인트를 복사합니다(선행 https:// 제거).
 1. 브라우저에서 *mywebsitecdn.azureedge.net*으로 이동하여 CDN 엔드포인트를 테스트합니다.
+1. 또한 설정, 원본 아래의 **새 엔드포인트**로 이동하여 원본 형식이 *사용자 지정 원본*으로 설정되어 있고 *원본 호스트 이름*에 정적 웹 사이트 엔드포인트 이름이 표시되는지 확인합니다.
 
 ## <a name="enable-custom-domain-and-ssl"></a>사용자 지정 도메인 및 SSL 사용
 

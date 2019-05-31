@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561548"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257943"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -74,7 +74,7 @@ Event Hubs 이벤트를 구독하여 캡처 파일 이벤트에 응답합니다.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-IoT Hub 이벤트를 구독하여 디바이스 생성, 삭제, 연결 및 연결 해제 이벤트에 응답합니다.
+IoT Hub 응답으로 이벤트를 생성, 삭제, 연결, 연결이 끊긴 장치에 원격 분석 이벤트를 구독 합니다.
 
 |제목  |설명  |
 |---------|---------|

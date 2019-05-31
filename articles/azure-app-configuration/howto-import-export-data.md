@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741789"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393279"
 ---
 # <a name="import-or-export-configuration-data"></a>구성 데이터 가져오기 또는 내보내기
 
@@ -29,7 +29,7 @@ Azure 앱 구성을 지 원하는 데이터 가져오기 및 내보내기 작업
 
 가져오기는 수동으로 입력 하는 대신 기존 원본에서 데이터를 앱 구성을 저장 하는 구성 합니다. 가져오기 함수를 사용 하 여 앱 구성 저장소나 여러 원본의 데이터를 집계로 데이터를 마이그레이션할 수 있습니다. 앱 구성 JSON, YAML, 또는 속성 파일에서 가져오는 것을 지원 합니다.
 
-중 하나를 사용 하 여 데이터를 가져올는 [Azure portal](https://aka.ms/azconfig/portal) 또는 [Azure CLI](./scripts/cli-import.md)합니다. Azure portal에서 다음이 단계를 따르세요.
+중 하나를 사용 하 여 데이터를 가져올는 [Azure portal](https://portal.azure.com) 또는 [Azure CLI](./scripts/cli-import.md)합니다. Azure Portal에서 다음 단계를 따릅니다.
 
 1. 앱 구성 저장소를 찾아 선택할 **Import/Export**합니다.
 
@@ -53,7 +53,7 @@ Azure 앱 구성을 지 원하는 데이터 가져오기 및 내보내기 작업
 
 내보내기는 다른 대상 앱 구성에 저장 된 구성 데이터를 씁니다. 예를 들어, 배포 하는 동안 응용 프로그램 코드를 사용 하 여 포함 된 파일에는 앱 구성 저장소에 데이터를 저장 하려면 내보내기 함수를 사용 합니다.
 
-중 하나를 사용 하 여 데이터를 내보낼 합니다 [Azure portal](https://aka.ms/azconfig/portal) 또는 [Azure CLI](./scripts/cli-export.md)합니다. Azure portal에서 다음이 단계를 따르세요.
+중 하나를 사용 하 여 데이터를 내보낼 합니다 [Azure portal](https://portal.azure.com) 또는 [Azure CLI](./scripts/cli-export.md)합니다. Azure Portal에서 다음 단계를 따릅니다.
 
 1. 앱 구성 저장소를 찾아 선택할 **Import/Export**합니다.
 

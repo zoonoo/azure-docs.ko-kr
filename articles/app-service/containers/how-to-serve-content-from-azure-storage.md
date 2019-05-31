@@ -8,12 +8,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920036"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956021"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
@@ -62,7 +62,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 스토리지 계정에 연결하려는 다른 디렉터리에 대해 이 작업을 수행해야 합니다.
 
-## <a name="verify"></a>Verify
+## <a name="verify"></a>확인
 
 스토리지 컨테이너가 웹앱에 연결되면 다음 명령을 실행하여 이를 확인할 수 있습니다.
 
@@ -85,4 +85,4 @@ wordpress:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure App Service에서 웹앱 구성](https://docs.microsoft.com/azure/app-service/web-sites-configure)
+- [Azure App Service에서 웹앱 구성](../configure-common.md)

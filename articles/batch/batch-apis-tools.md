@@ -70,7 +70,7 @@ Batch 애플리케이션 및 서비스를 빌드 및 디버깅하는 데 도움�
 * [Azure Portal][portal]: Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 계산 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 계산 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
 * [Azure Batch Explorer][batch_labs]: Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다.
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard는 Azure Batch에서 컨테이너 기반 일괄 처리 및 HPC 워크로드를 프로비저닝, 실행 및 모니터링하는 데 도움이 되는 도구입니다.
-* [Azure Storage 탐색기][storage_explorer]: 엄격히 말해 Azure Batch 도구는 아니지만 스토리지 탐색기는 Batch 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
+* [Azure Storage 탐색기][storage_explorer]: 엄격히 말해 Azure Batch 도구는 아니지만 Storage Explorer는 Batch 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

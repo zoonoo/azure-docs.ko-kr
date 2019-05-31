@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415715"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977298"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -26,7 +26,7 @@ ms.locfileid: "60415715"
 
 Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다. Azure AD ID 보호 팀은 일반적으로 사용되는 보안 위험이 있는 암호를 지속적으로 살펴보고 있습니다. 그리고 소위 말하는 전역 금지 암호 목록에서 자주 보이는 암호를 차단합니다. 사이버 범죄자 역시 비슷한 전략을 공격에 사용하므로 Microsoft는 이 목록의 콘텐츠를 공개적으로 게시하지 않습니다. 이와 같이 취약한 암호는 Microsoft 고객에게 실질적인 위협으로 다가오기 전에 차단됩니다. 현재 보안 노력에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/operations/security-intelligence-report)를 참조하세요.
 
-## <a name="custom-banned-password-list"></a>사용자 지정 금지 암호 목록
+## <a name="custom-banned-password-list"></a>사용자 지정 금지된 암호 목록
 
 일부 조직은 Microsoft에서 사용자 금지 암호 목록이라고 부르는 전역 금지 암호 목록 위에 자체적인 사용자 지정을 추가하여 보안을 강화하려 합니다. Contoso 같은 대기업 고객은 브랜드 이름, 회사 관련 용어 또는 기타 항목의 변형을 차단하도록 선택할 수 있습니다.
 
@@ -44,7 +44,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 사용자 암호에 금지된 암호가 포함되어 있더라도 전체 암호의 보안 수준이 충분히 높으면 해당 암호를 사용할 수 있습니다. 암호를 새로 구성하면 다음 단계가 진행되어 암호의 전반적인 보안 수준을 평가함으로써 암호를 수락할지 아니면 거부할지가 결정됩니다.
 
-### <a name="step-1-normalization"></a>1단계: 정규화
+### <a name="step-1-normalization"></a>1단계: 표준화
 
 먼저 새 암호에 대해 정규화 프로세스가 진행됩니다. 이 과정을 통해 소수의 금지된 암호 세트를 취약할 가능성이 있는 대규모 암호 세트에 매핑할 수 있습니다.
 
@@ -54,8 +54,8 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 | --- | --- |
 | '0'  | 'o' |
 | '1'  | 'l' |
-| '$'  | 's' |
-| '\@'  | 'a' |
+| '$'  | ' |
+| '\@'  | ' a' |
 
 예: "blank"라는 암호가 금지된 상태에서 사용자가 암호를 "Bl@nK"로 변경하려 한다고 가정해 보겠습니다. "Bl@nk"는 구체적으로 금지되어 있지는 않지만 정규화 프로세스에서는 이 암호를 금지된 암호인 "blank"로 변환합니다.
 
@@ -75,7 +75,7 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 부분 문자열 일치는 정규화된 암호에서 사용자 이름/성 및 테넌트 이름을 확인하는 데 사용됩니다. Active Directory 도메인 컨트롤러에서 암호 유효성을 검사할 때는 테넌트 이름 일치가 수행되지 않습니다.
 
-예: John Doe 사용자가 암호를 "J0hn123fb"로 재설정하려 한다고 가정해 보겠습니다. 정규화 후에 이 암호는 "john123fb"가 됩니다. 그러므로 부분 문자열 일치에서는 해당 암호에 사용자 이름인 "John"이 포함되어 있음이 확인됩니다. "J0hn123fb"는 금지된 암호 목록에 구체적으로 포함되어 있지는 않지만 부분 문자열 확인에서 암호의 "John"이 확인되었으므로 이 암호는 거부됩니다.
+예: Pol "P0l123fb"를 자신의 암호를 재설정 하려는 사용자 한다고 가정해 보겠습니다. 정규화 후이 암호는 "pol123fb"가 됩니다. 부분 문자열 일치 하는 암호에는 "Pol" 사용자의 이름을 포함 하는 작업을 찾습니다. "P0l123fb" 금지 된 암호 목록 중 하나에 대해 구체적으로 없습니다, 경우에 암호에 "Pol"를 찾을 부분 문자열 일치 합니다. 이 암호는 거부됩니다.
 
 #### <a name="score-calculation"></a>점수 계산
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051173"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570612"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -145,7 +145,7 @@ Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](https:
 
 Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. Azure에서 서비스, 애플리케이션 또는 VM을 프로비저닝할 때 지역을 선택하라는 메시지가 나타납니다. 선택한 지역은 애플리케이션이 실행되는 특정 데이터 센터를 나타냅니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
-Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 애플리케이션을 배포할 수 있다는 것입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
+Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 애플리케이션을 배포할 수 있다는 것입니다. 선택한 지역은 애플리케이션의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가/지역에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 

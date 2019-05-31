@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128673"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
 
@@ -167,7 +167,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |예 |string |반환할 매개 변수의 이름입니다. |
+| parameterName |예. |문자열 |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -193,7 +193,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ]
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)에서는 매개 변수 함수의 간소화된 사용을 보여줍니다.
 
@@ -254,11 +254,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | 문자열 | 옵션 1 |
+| stringOutput | String | 옵션 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {“one”: “a”, “two”: “b”} |
 | arrayOutput | 배열 | [1, 2, 3] |
-| crossOutput | 문자열 | 옵션 1 |
+| crossOutput | String | 옵션 1 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -283,7 +283,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| variableName |예 |문자열 |반환할 변수의 이름입니다. |
+| variableName |예. |String |반환할 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -313,7 +313,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ],
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)은 각기 다른 변수 값을 반환합니다.
 
@@ -357,9 +357,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| exampleOutput1 | 문자열 | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | 배열 | [1, 2, 3, 4] |
-| exampleOutput3 | 문자열 | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.

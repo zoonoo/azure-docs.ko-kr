@@ -44,7 +44,7 @@ ms.locfileid: "64943959"
     >[!NOTE]
     >Windows에서 다운로드한 .zip 파일을 차단할 수 있습니다. 압축을 풀 수 없는 경우 해당 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. “이 파일은 다른 컴퓨터로부터 왔으며 사용자의 컴퓨터를 보호하기 위해 차단되었을 수도 있습니다.”라는 메시지가 표시되면 **차단 해제** 옵션을 선택하여 **적용**을 클릭합니다.
 
-Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테이너의 내용을 보기 위한 도구도 필요합니다. Visual Studio를 사용하는 경우 [Visual Studio용 Azure 도구](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 또는 [Visual Studio 클라우드 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer)를 사용할 수 있습니다. 또는 [Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)과 같은 독립 실행형 도구를 설치할 수 있습니다. 
+Streaming Analytics 작업 결과를 확인하려면 Azure Blob Storage 컨테이너의 내용을 보기 위한 도구도 필요합니다. Visual Studio를 사용하는 경우 [Visual Studio용 Azure 도구](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 또는 [Visual Studio 클라우드 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer)를 사용할 수 있습니다. 또는 [Azure Storage Explorer](https://storageexplorer.com/) 또는 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)과 같은 독립 실행형 도구를 설치할 수 있습니다. 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>이벤트를 수집하는 Azure Event Hub 만들기
 
@@ -383,7 +383,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
 
 이제 Streaming Analytics 작업을 완료합니다. 작업에서 전화 통화 메타데이터 스트림을 검사하여 실시간으로 사기성 전화 통화를 찾고 이러한 사기성 통화에 대한 정보를 저장소에 기록합니다. 
 
-이 자습서를 완료하기 위해 Streaming Analytics 작업으로 캡처된 데이터를 살펴보려 할 수 있습니다. 데이터는 청크(파일)로 Azure Blob Storage에 기록됩니다. Azure Blob Storage를 읽는 데 아무 도구나 사용할 수 있습니다. 필수 조건 섹션에서 설명한 대로, Visual Studio에서 Azure 확장을 사용하거나 [Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)과 같은 도구를 사용할 수 있습니다. 
+이 자습서를 완료하기 위해 Streaming Analytics 작업으로 캡처된 데이터를 살펴보려 할 수 있습니다. 데이터는 청크(파일)로 Azure Blob Storage에 기록됩니다. Azure Blob Storage를 읽는 데 아무 도구나 사용할 수 있습니다. 필수 조건 섹션에서 설명한 대로, Visual Studio에서 Azure 확장을 사용하거나 [Azure Storage Explorer](https://storageexplorer.com/) 또는 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage)과 같은 도구를 사용할 수 있습니다. 
 
 Blob Storage에서 파일 내용을 검사할 때 다음과 같은 항목이 표시됩니다.
 

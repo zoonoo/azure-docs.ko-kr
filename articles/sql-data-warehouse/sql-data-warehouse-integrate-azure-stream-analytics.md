@@ -2,21 +2,20 @@
 title: SQL Data Warehouse와 함께 Azure Stream Analytics 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse와 함께 Azure Stream Analytics 사용을 위한 팁
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474337"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873277"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Azure Stream Analytics 사용
 Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
@@ -85,6 +84,4 @@ SQL Database를 선택 합니다.
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /stream-analytics/
-
-<!-- Update_Description: update meta properties, wording update -->
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

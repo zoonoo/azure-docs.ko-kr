@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154422"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907222"
 ---
 # <a name="using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 사용
 
@@ -115,7 +115,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Storage 서비스 버전 |`sv=2015-04-05` |2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다. |
 | 시작 시간 |`st=2015-04-29T22%3A18%3A26Z` |UTC 시간으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오. |
 | 만료 시간 |`se=2015-04-30T02%3A23%3A26Z` |UTC 시간으로 지정됩니다. |
-| 리소스 |`sr=b` |Blob의 리소스입니다. |
+| Resource |`sr=b` |Blob의 리소스입니다. |
 | 권한 |`sp=rw` |SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다. |
 | IP 범위 |`sip=168.1.5.60-168.1.5.70` |요청을 수락할 IP 주소 범위입니다. |
 | Protocol |`spr=https` |HTTPS를 사용하는 요청만 허용됩니다. |
@@ -129,7 +129,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| 이름 | SAS 부분 | 설명 |
+| Name | SAS 부분 | 설명 |
 | --- | --- | --- |
 | 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 엔드포인트입니다. |
 | Services |`ss=bf` |SAS는 Blob 및 파일 서비스에 적용됩니다. |
@@ -232,7 +232,7 @@ catch (StorageException e)
 이러한 C# 예제를 실행하려면 프로젝트에서 다음 NuGet 패키지를 참조해야 합니다.
 
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), 버전 6.x 이상(계정 SAS 사용을 위해).
-* [Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 SAS를 만들고 테스트하는 방법을 보여 주는 추가 예제는 [저장소에 대한 Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage)을 참조하세요.
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 공유 액세스 서명은 계정 키가 필요하지 않은 클라이언트에게 저장소 계정에 대한 제한된 권한을 제공하는 데 유용합니다. 일반적으로 공유 액세스 서명은 Azure Storage를 사용하는 애플리케이션에 대한 보안 모델의 필수적인 부분입니다. 여기에 나열된 모범 사례를 따를 경우 SAS를 사용하여 애플리케이션의 보안을 훼손하지 않으면서 스토리지 계정에 있는 리소스에 유연하게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [공유 액세스 서명 2부: Blob Storage를 통해 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)
 * [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [테이블 및 큐 SAS 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

@@ -184,7 +184,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 Data Factory 샘
 
 | 자산 | 메모 |
 |:--- |:--- |
-| 형식 |type은 **HDInsightMapReduce**로 설정되어야 합니다. |
+| type |type은 **HDInsightMapReduce**로 설정되어야 합니다. |
 | className |클래스 이름은 **wordcount** |
 | jarFilePath  |클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. |
 | jarLinkedService |jar 파일을 포함하는 Azure Storage 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 저장소를 지칭합니다. |

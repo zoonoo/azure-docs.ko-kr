@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461989"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
 이 빠른 시작에서는 글로벌 웹 애플리케이션에 고가용성 및 고성능을 제공하는 Front Door 프로필을 만드는 방법을 설명합니다. 
 
-이 빠른 시작에 설명된 시나리오에는 서로 다른 Azure 지역에서 실행되는 두 개의 웹 애플리케이션 인스턴스가 포함되어 있습니다. 동등한 [가중치 및 동일한 우선 순위 백 엔드](front-door-routing-methods.md)를 기반으로 애플리케이션을 실행하는 가장 가까운 사이트 백 엔드에 사용자 트래픽을 보내는 Front Door 구성이 만들어집니다. Front Door는 지속적으로 웹 애플리케이션을 모니터링하다가 가장 가까운 사이트를 사용할 수 없게 되면 그 다음 가용 백업 사이트로 자동 장애 조치(failover)합니다.
+이 빠른 시작에 설명된 시나리오에는 서로 다른 Azure 지역에서 실행되는 두 개의 웹 애플리케이션 인스턴스가 포함되어 있습니다. 동등한 [가중치 및 동일한 우선 순위 백 엔드](front-door-routing-methods.md)를 기반으로 응용 프로그램을 실행하는 가장 가까운 사이트 백 엔드에 사용자 트래픽을 보내는 Front Door 구성이 만들어집니다. Front Door는 지속적으로 웹 응용 프로그램을 모니터링하다가 가장 가까운 사이트를 사용할 수 없게 되면 그 다음 가용 백업 사이트로 자동 장애 조치(failover)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작을 진행하려면 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에서 실행되는 두 개의 웹 애플리케이션 인스턴스를 배포해야 합니다. 두 웹 애플리케이션 인스턴스 모두 활성/활성 모드에서 실행됩니다. 즉, 둘 중 하나가 장애 조치(failover) 역할을 하는 능동/대기 모드와는 달리 둘 중 하나가 언제든지 트래픽을 받을 수 있습니다.
+이 빠른 시작을 진행하려면 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에서 실행되는 두 개의 웹 응용 프로그램 인스턴스를 배포해야 합니다. 두 웹 응용 프로그램 인스턴스 모두 활성/활성 모드에서 실행됩니다. 즉, 둘 중 하나가 장애 조치(failover) 역할을 하는 능동/대기 모드와는 달리 둘 중 하나가 언제든지 트래픽을 받을 수 있습니다.
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **웹** > **웹앱** > **만들기**를 선택합니다.
 2. **웹앱**에서, 다음 정보를 입력 또는 선택하고, 지정된 설정이 없으면 기본 설정을 입력합니다.
 
      | 설정         | 값     |
      | ---              | ---  |
-     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
+     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
      | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD1*을 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanEastUS*를 입력하고 **확인**을 선택합니다. 
      |      위치  |   미국 동부        |
@@ -51,14 +51,14 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
      | 설정         | 값     |
      | ---              | ---  |
-     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
+     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
      | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD2*를 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanWestEurope*을 입력하고 **확인**을 선택합니다. 
      |      위치  |   서유럽      |
     |||
 
 
-## <a name="create-a-front-door-for-your-application"></a>애플리케이션에 대한 Front Door 만들기
+## <a name="create-a-front-door-for-your-application"></a>응용 프로그램에 대한 Front Door 만들기
 ### <a name="a-add-a-frontend-host-for-front-door"></a>a. Front Door에 대한 프런트 엔드 호스트 추가
 두 개의 백 엔드 간의 가장 낮은 대기 시간에 따라 사용자 트래픽을 전달하는 Front Door 구성을 만듭니다.
 
@@ -66,7 +66,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. **Front Door 만들기**에서, 기본 정보를 추가하고 Front Door를 구성할 구독을 제공합니다. 다른 Azure 리소스와 마찬가지로, 새로 만드는 경우 ResourceGroup 및 리소스 그룹 영역을 새로 제공해야 합니다. 마지막으로, Front Door의 이름을 제공해야 합니다.
 3. 기본 정보를 입력한 후 정의할 첫 번째 단계는 구성에 대한 **프런트 엔드 호스트**입니다. 결과는 `myappfrontend.azurefd.net`처럼 유효한 도메인 이름이어야 합니다. 이 호스트 이름은 글로벌하게 고유해야 하지만 Front Door가 유효성 검사를 처리할 것입니다. 
 
-### <a name="b-add-application-backend-and-backend-pools"></a>B. 애플리케이션 백 엔드 및 백 엔드 풀 추가
+### <a name="b-add-application-backend-and-backend-pools"></a>B. 응용 프로그램 백 엔드 및 백 엔드 풀 추가
 
 다음으로, 애플리케이션이 어디에 상주하는지 Front Door가 알 수 있도록 백 엔드 풀에 애플리케이션 백 엔드를 구성해야 합니다. 
 
@@ -94,4 +94,4 @@ View Front를 만든 후 구성이 모든 곳에 글로벌하게 배포될 때�
 더 이상 필요하지 않은 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 고가용성 및 고성능이 필요한 웹 애플리케이션에 대한 사용자 트래픽을 보낼 수 있도록 Front Door를 만들었습니다. 트래픽 라우팅에 대한 자세한 내용은 Front Door에서 사용하는 [라우팅 방법](front-door-routing-methods.md)을 참조하세요.
+이 빠른 시작에서는 고가용성 및 고성능이 필요한 웹 응용 프로그램에 대한 사용자 트래픽을 보낼 수 있도록 Front Door를 만들었습니다. 트래픽 라우팅에 대한 자세한 내용은 Front Door에서 사용하는 [라우팅 방법](front-door-routing-methods.md)을 참조하세요.

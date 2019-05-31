@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562358"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305266"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -22,7 +22,8 @@ ms.locfileid: "60562358"
 
 이벤트는 시스템에서 발생하는 무언가를 완벽히 설명하는 가장 작은 크기의 정보입니다. 모든 이벤트에는 이벤트의 원본, 이벤트가 발생한 시간 및 고유 식별자와 같은 일반적인 정보가 있습니다. 또한 모든 이벤트에는 특정 유형의 이벤트에만 관련된 특정 정보도 있습니다. 예를 들어 Azure Storage에서 만드는 새 파일에 대한 이벤트에는 `lastTimeModified` 값과 같은 파일에 대한 세부 정보가 포함되어 있습니다. 또는 Event Hubs 이벤트는 캡처 파일의 URL을 갖습니다. 
 
-각 이벤트는 64KB의 데이터로 제한됩니다.
+최대 크기의 경우 64KB는 GA (일반 공급) 서비스 수준 계약 (SLA)을 설명 합니다. 최대 크기의 이벤트에 대 한 지원 1MB는 현재 미리 보기 상태입니다. 64KB를 초과 이벤트는 64KB 단위로 요금이 청구 됩니다. 
+
 
 이벤트에 포함되어 전송되는 속성은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
@@ -36,7 +37,7 @@ ms.locfileid: "60562358"
 
 지원되는 Event Grid 원본을 구현하는 방법에 대한 내용은 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
 
-## <a name="topics"></a>토픽
+## <a name="topics"></a>항목
 
 Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제공됩니다. 게시자는 Event Grid 항목을 만들고 이벤트 원본에 항목이 하나 필요한지 또는 둘 이상 필요한지 여부를 결정합니다. 항목은 관련 이벤트의 컬렉션에 사용됩니다. 특정 이벤트 형식에 응답하려면 구독자가 구독할 토픽을 결정합니다.
 
@@ -59,9 +60,6 @@ Event Grid 항목에는 원본이 이벤트를 보내는 엔드포인트가 제�
 현재 Event Grid 구독을 확보하는 방법에 대한 정보는 [쿼리 Event Grid 구독](query-event-subscriptions.md)을 참조하세요.
 
 ## <a name="event-subscription-expiration"></a>이벤트 구독 만료
-
-Azure CLI의 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 사용하면 이벤트 구독을 만들 때 만료 날짜를 설정할 수 있습니다. REST API를 사용 중인 경우 `api-version=2018-09-15-preview`를 사용합니다.
-
 해당 날짜 이후 이벤트 구독이 자동으로 만료됩니다. 제한된 시간 동안만 필요한 이벤트 구독 만료를 설정하고 이러한 구독을 정리하는 것에 대해 신경 쓰고 싶지 않습니다. 예를 들어, 시나리오를 테스트하기 위해 이벤트 구독을 만들 때 만료를 설정할 수 있습니다. 
 
 만료를 설정하는 예제는 [고급 필터가 포함된 구독](how-to-filter-events.md#subscribe-with-advanced-filters)을 참조하세요.
@@ -82,7 +80,10 @@ Event Grid에서 이벤트가 구독자의 엔드포인트에서 수신되었는
 
 ## <a name="batching"></a>일괄 처리
 
-사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트도 64KB보다 크면 안 됩니다.
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트 하지 64 KB (일반 공급) (미리 보기) 1MB 보다 크거나 수 해야 합니다.
+
+> [!NOTE]
+> 최대 크기의 경우 64KB는 GA (일반 공급) 서비스 수준 계약 (SLA)을 설명 합니다. 최대 크기의 이벤트에 대 한 지원 1MB는 현재 미리 보기 상태입니다. 64KB를 초과 이벤트는 64KB 단위로 요금이 청구 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

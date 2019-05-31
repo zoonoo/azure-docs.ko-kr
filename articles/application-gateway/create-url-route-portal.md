@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134854"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 

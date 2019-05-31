@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: jingwang
 ms.openlocfilehash: 19cb37ea40daa1e416f0dea82b2ddc8ad107454c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167450"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>PowerShell을 사용하여 데이터 팩터리 파이프라인을 만들어 클라우드의 데이터 복사
 
@@ -28,14 +28,197 @@ ms.locfileid: "57436567"
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure Storage 계정**. Blob Storage를 **원본** 및 **싱크** 데이터 스토리지 모두로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하여 하나 만듭니다. 
-* Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
+* Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
 > [!IMPORTANT]
 > 이 스크립트는 하드 드라이브의 c:\ 폴더에 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 정의하는 JSON 파일을 만듭니다.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
+```powershell
+# Set variables with your own values
+$resourceGroupName = "<Azure resource group name>"
+$dataFactoryName = "<Data factory name>" # must be globally unquie
+$dataFactoryRegion = "East US" 
+$storageAccountName = "<Az.Storage account name>"
+$storageAccountKey = "<Az.Storage account key>"
+$sourceBlobPath = "<Azure blob container name>/<Azure blob input folder name>" # example: adftutorial/input
+$sinkBlobPath = "<Azure blob container name>/<Azure blob output folder name>" # example: adftutorial/output
+$pipelineName = "CopyPipeline"
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $dataFactoryRegion
+
+# Create a data factory
+$df = Set-AzDataFactory -ResourceGroupName $resourceGroupName -Location $dataFactoryRegion -Name $dataFactoryName 
+
+# Create an Az.Storage linked service in the data factory
+
+## JSON definition of the linked service. 
+$storageLinkedServiceDefinition = @"
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "value": "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey",
+                "type": "SecureString"
+            }
+        }
+    }
+}
+"@
+
+## IMPORTANT: stores the JSON definition in a file that will be used by the Set-AzDataFactoryLinkedService command. 
+$storageLinkedServiceDefinition | Out-File c:\StorageLinkedService.json
+
+## Creates a linked service in the data factory
+Set-AzDataFactoryLinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File c:\StorageLinkedService.json
+
+# Create an Azure Blob dataset in the data factory
+
+## JSON definition of the dataset
+$datasetDefiniton = @"
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": {
+                "value": "@{dataset().path}",
+                "type": "Expression"
+            }
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+"@
+
+## IMPORTANT: store the JSON definition in a file that will be used by the Set-AzDataFactoryDataset command. 
+$datasetDefiniton | Out-File c:\BlobDataset.json
+
+## Create a dataset in the data factory
+Set-AzDataFactoryDataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -File "c:\BlobDataset.json"
+
+# Create a pipeline in the data factory
+
+## JSON definition of the pipeline
+$pipelineDefinition = @"
+{
+    "name": "$pipelineName",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                    "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+"@
+
+## IMPORTANT: store the JSON definition in a file that will be used by the Set-AzDataFactoryPipeline command. 
+$pipelineDefinition | Out-File c:\CopyPipeline.json
+
+## Create a pipeline in the data factory
+Set-AzDataFactoryPipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "c:\CopyPipeline.json"
+
+# Create a pipeline run 
+
+## JSON definition for pipeline parameters
+$pipelineParameters = @"
+{
+    "inputPath": "$sourceBlobPath",
+    "outputPath": "$sinkBlobPath"
+}
+"@
+
+## IMPORTANT: store the JSON definition in a file that will be used by the Invoke-AzDataFactoryPipeline command. 
+$pipelineParameters | Out-File c:\PipelineParameters.json
+
+# Create a pipeline run by using parameters
+$runId = Invoke-AzDataFactoryPipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName -ParameterFile c:\PipelineParameters.json
+
+# Check the pipeline run status until it finishes the copy operation
+while ($True) {
+    $result = Get-AzDataFactoryActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+
+    if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+        Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+        Start-Sleep -Seconds 30
+    }
+    else {
+        Write-Host "Pipeline '$pipelineName' run finished. Result:" -foregroundcolor "Yellow"
+        $result
+        break
+    }
+}
+
+# Get the activity run details 
+    $result = Get-AzDataFactoryActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName `
+        -PipelineRunId $runId `
+        -RunStartedAfter (Get-Date).AddMinutes(-10) `
+        -RunStartedBefore (Get-Date).AddMinutes(10) `
+        -ErrorAction Stop
+
+    $result
+
+    if ($result.Status -eq "Succeeded") {`
+        $result.Output -join "`r`n"`
+    }`
+    else {`
+        $result.Error -join "`r`n"`
+    }
+
+# To remove the data factory from the resource gorup
+# Remove-AzDataFactory -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+# 
+# To remove the whole resource group
+# Remove-AzResourceGroup  -Name $resourceGroupName
+```
 
 
 ## <a name="clean-up-deployment"></a>배포 정리

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 290b548f31a967d514b09e4de775b12de7703b07
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016068"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 사용하는 경우 발생하는 "이 회사 애플리케이션에 액세스할 수 없습니다." 오류
 
@@ -77,7 +77,7 @@ Azure의 애플리케이션에 사용자가 할당되었는지 확인하려면 �
 
 1. **Azure Active Directory**로 이동하고 **엔터프라이즈 애플리케이션**을 클릭한 다음 **애플리케이션 프록시**를 클릭하여 포털에서 애플리케이션을 엽니다. 애플리케이션을 열고 왼쪽 메뉴에서 **애플리케이션 프록시**를 선택합니다.
 
-2. 커넥터 그룹 필드를 확인합니다. 그룹에 활성 커넥터가 없는 경우 경고가 표시됩니다. 경고가 표시되지 않으면 "모든 필요한 포트를 허용 목록에 추가했는지 확인"으로 이동합니다.
+2. 커넥터 그룹 필드를 확인합니다. 그룹에 활성 커넥터가 없는 경우 경고가 표시됩니다. 모든 경고를 보이지 않으면 이동할 모든 필요한 포트 수를 확인 합니다.
 
 3. 잘못된 커넥터 그룹이 표시되면 드롭다운을 사용하여 올바른 그룹을 선택하고 경고가 더 이상 표시되지 않는지 확인합니다. 원하는 커넥터 그룹이 표시되면 경고 메시지를 클릭하여 커넥터 관리가 있는 페이지를 엽니다.
 
@@ -87,11 +87,11 @@ Azure의 애플리케이션에 사용자가 할당되었는지 확인하려면 �
 
    * 해당 그룹의 새 커넥터 다운로드: 이 페이지에서 [새 커넥터 다운로드](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download)에 연결할 수 있습니다. 백 엔드 애플리케이션에 직접 연결되는 컴퓨터에 커넥터를 설치합니다. 일반적으로 커넥터는 동일한 응용 프로그램 서버에 설치 됩니다. 다운로드 커넥터 링크를 사용하여 대상 컴퓨터에 커넥터를 다운로드합니다. 다음으로 커넥터를 클릭하고 "커넥터 그룹" 드롭다운을 사용하여 해당 그룹에 속하는지 확인합니다.
 
-   * 비활성 커넥터 조사: 커넥터가 비활성으로 표시되는 경우 서비스에 연결할 수 없습니다. 이 오류는 일반적으로 필요한 포트 일부가 차단되어 발생합니다. 이 문제를 해결하려면 "모든 필요한 포트를 허용 목록에 추가했는지 확인"으로 이동합니다.
+   * 비활성 커넥터 조사: 커넥터가 비활성으로 표시되는 경우 서비스에 연결할 수 없습니다. 이 오류는 일반적으로 필요한 포트 일부가 차단되어 발생합니다. 이 문제를 해결 하기 위해 이동할 모든 필요한 포트 수를 확인 합니다.
 
 작동하는 커넥터를 사용하여 애플리케이션을 그룹에 할당했는지 확인하기 위해 이러한 단계를 사용한 후에 애플리케이션을 다시 테스트합니다. 여전히 작동하지 않는 경우 다음 섹션으로 계속합니다.
 
-## <a name="check-all-required-ports-are-whitelisted"></a>모든 필요한 포트가 허용 목록에 포함되는지 확인
+## <a name="check-all-required-ports-are-open"></a>모든 필요한 포트가 열려 있는지 확인 합니다.
 
 필요한 모든 포트가 열려 있는지를 확인하려면 포트 열기에 대한 설명서를 참조하세요. 모든 필요한 포트가 열려 있으면 다음 섹션으로 이동합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Portal에서 Azure Data Box Edge 디바이스에 연결, 구성 및 활성화 | Microsoft Docs
-description: Data Box Edge 배포에 대한 세 번째 자습서에서는 물리적 디바이스에 연결하고, 설정하고, 활성화하는 방법을 안내합니다.
+title: Azure Portal에서 Azure Data Box Edge 디바이스에 연결하고, 구성하고, 활성화하는 자습서 | Microsoft Docs
+description: Data Box Edge 배포에 대한 자습서에서는 물리적 디바이스에 연결하고, 설정하고, 활성화하는 방법을 안내합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3e951e44aeaa4ca8d3d06bae80a80bcb2eb1dd52
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998110"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924551"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: Azure Data Box Edge 연결, 설정 및 활성화 
 

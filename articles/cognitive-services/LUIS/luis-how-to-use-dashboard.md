@@ -1,7 +1,7 @@
 ---
 title: 대시보드-Language Understanding
 titleSuffix: Azure Cognitive Services
-description: 분석 요약 대시보드를 보고 시각화 도구를 사용 하 여 의도 수정 합니다.
+description: Analytics 대시보드를 보고 시각화 도구를 사용 하 여 의도 수정 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072575"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236951"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
 
-찾기 및 예제에서는 길이 발언을 사용 하는 경우 학습 된 앱의 의도 사용 하 여 문제를 해결 합니다. 요약 대시보드를 수정 해야 하는 의도의 중요 정보를 사용 하 여 전체 앱 정보를 표시 합니다. 
+찾기 및 예제에서는 길이 발언을 사용 하는 경우 학습 된 앱의 의도 사용 하 여 문제를 해결 합니다. 대시보드 수정 해야 하는 의도의 중요 정보를 사용 하 여 전체 앱 정보를 표시 합니다. 
 
 분석은 반복 프로세스 반복을 변경 하 고 모델을 개선 하는 대시보드를 검토 합니다.
 
@@ -34,15 +34,15 @@ ms.locfileid: "65072575"
 |--|--|--|
 |데이터 불균형|-|이 예제 길이 발언의 양에 따라 크게 달라질 때 발생 합니다. 모든 의도 할 _약_ 수가-None 의도 제외 하 고 예제 길이 발언. 앱의 총 길이 발언 양의 10%-15%만 있어야 합니다.<br><br> 데이터를 불균형 있지만 의도 정확도 특정 임계값을 초과 하는 경우 이러한 불균형 문제를 보고 되지 않습니다.<br><br>**시작이 문제를 사용 하 여 다른 문제의 근본 원인을 수 있습니다.**|
 |명확 하지 않은 예측|주황색|상위 의도 및 다음 의도 점수 가까이로 인해 다음 학습 넘길 수는 경우 이런 [음수 샘플링](luis-how-to-train.md#train-with-all-data) 또는 의도에 추가 하는 자세한 예제 길이 발언. |
-|잘못 된 예측|빨강|이 예제 utterance 레이블이 지정 된 의도 (의도)에 대해 예측 하지 하는 경우 발생 합니다.|
+|잘못 된 예측|빨간색|이 예제 utterance 레이블이 지정 된 의도 (의도)에 대해 예측 하지 하는 경우 발생 합니다.|
 
 올바른 예측은 파란색으로 표시 됩니다.
 
-요약 대시보드는 의도 영향을 알려 및 무엇을 해야 앱을 개선 하기 위해 제안 이러한 문제를 보여 줍니다. 
+대시보드는 의도 영향을 알려 및 무엇을 해야 앱을 개선 하기 위해 제안 이러한 문제를 보여 줍니다. 
 
 ## <a name="before-app-is-trained"></a>앱을 학습 하기 전에 
 
-앱을 학습 하기 전에 요약 대시보드 수정에 대 한 모든 제안이 없습니다. 이러한 제안을 보려면 앱을 학습 합니다.  
+앱을 학습 하기 전에 대시보드 수정에 대 한 모든 제안이 없습니다. 이러한 제안을 보려면 앱을 학습 합니다.  
 
 ## <a name="check-your-publishing-status"></a>게시 상태 확인
 
@@ -50,7 +50,7 @@ ms.locfileid: "65072575"
 
 현재 사용 중인 버전 해결 하려는 버전 인지 확인 합니다. 
 
-![요약 대시보드 표시 앱의 외부 서비스 지역, 게시 및 끝점 적중 횟수를 집계 합니다.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![대시보드 표시 앱의 외부 서비스 지역, 게시 및 끝점 적중 횟수를 집계 합니다.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 이 또한 모든 외부 서비스, 게시 된 지역 나타나며 끝점 적중 횟수를 집계 합니다. 
 
@@ -96,7 +96,7 @@ ms.locfileid: "65072575"
 
 * 자세한 길이 발언 의도를 추가한 다음 다시 학습 합니다. 
 
-요약 대시보드에서 제안 되는 경우가 아니면 길이 발언 None 의도를 추가 하지 마세요.
+대시보드에서 제안 되는 경우가 아니면 길이 발언 None 의도를 추가 하지 마세요.
 
 > [!Tip]
 > 세 번째 섹션을 사용 하 여 페이지의 **의도 당 길이 발언** 사용 하 여는 **길이 발언 (number)** 의도는 자세한 길이 발언을 해야 하는 빠른 visual 가이드로 설정 합니다.  
@@ -154,7 +154,7 @@ ms.locfileid: "65072575"
 
 필터를 사용 하면 특정 문제를 사용 하 여 의도 찾을 수 있습니다.
 
-|Filter|제안 된 백분율|목적|
+|필터|제안 된 백분율|목적|
 |--|--|--|
 |가장 문제가 의도|-|**여기에서 시작** -다른 수정 보다 많은 앱이이 의도에서 대상이 눈에 띄도록 수정 향상 됩니다.|
 |아래 올바른 예측|60%|선택한 의도에 길이 발언 올바른지 있지만 신뢰도 점수 임계값의 비율입니다. |

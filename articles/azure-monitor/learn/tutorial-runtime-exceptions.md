@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095571"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595600"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -34,7 +34,7 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
@@ -75,7 +75,7 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
     ![예외 세부 정보](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
-스냅숏 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
+스냅숏 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅샷을 다운로드하여 Visual Studio 2019 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
 1. 예외 속성에서 **디버그 스냅숏 열기**를 클릭합니다.
 2. **디버그 스냅숏** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.

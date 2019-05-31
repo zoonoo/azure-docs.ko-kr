@@ -2,18 +2,18 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 062e16c0d196cf91d6e0adde46ed973f1c0d1191
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029859"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304433"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-자동 크기 조정기를 사용하려면 Pod에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
+자동 크기 조정기를 사용하려면 Pod와 Pod의 모든 컨테이너에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 다음 예제 코드 조각에 나와 있는 것처럼 이러한 리소스 요청 및 제한이 정의됩니다.
 
 ```yaml
 resources:

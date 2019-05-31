@@ -9,11 +9,11 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131404"
 ---
 Functions를 사용하면 간단하게 [Azure Portal]에서 함수 앱에 Application Insights 통합을 추가할 수 있습니다.
 

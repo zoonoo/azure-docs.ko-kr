@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MariaDB 드라이버 및 관리 도구 호환성
-description: 이 문서에서는 MariaDB 드라이버 및 Azure Database for MariaDB와 호환 되는 관리 도구를 설명 합니다.
+description: 이 문서에서는 Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구를 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -13,15 +13,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61386818"
 ---
-# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB 드라이버 및 관리 도구를 Azure Database for MariaDB 호환
+# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구
 
-이 문서에는 드라이버 및 Azure Database for MariaDB와 호환 되는 관리 도구를 설명 합니다.
+이 문서에는 Azure Database for MariaDB와 호환되는 드라이버 및 관리 도구를 설명합니다.
 
 ## <a name="mariadb-drivers"></a>MariaDB 드라이버
 
-Azure Database for MariaDB MariaDB 서버가의 community edition을 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. MariaDB의 API 및 프로토콜에는 MySQL에서 사용 되는와 호환 됩니다. 즉, MySQL을 사용 하는 커넥터 MariaDB를 사용 하 여 작동 합니다.
+Azure Database for MariaDB는 MariaDB 서버의 community edition을 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. MariaDB의 API 및 프로토콜은 MySQL에서 사용되는 것과 호환됩니다. 즉, MySQL에서 작동하는 커넥터는 MariaDB에서도 작동합니다.
 
-목표는 세 가지 가장 최근 버전 MariaDB 드라이버를 지원 하 고 지속적으로 기능 및 MariaDB 드라이버의 유용성을 개선 하기 위해 오픈 소스 커뮤니티의 작성자를 사용 하 여 드라이브 계속 합니다. 테스트 및 Azure Database for MariaDB 10.2와 호환 되도록 발견 된 드라이버 목록은 표에 제공 됩니다.
+목표는 가장 최근 세 가지 버전의 MariaDB 드라이버를 지원하고, 지속적으로 MariaDB 드라이버의 유용성 및 기능을 개선하기 위해 오픈 소스 커뮤니티의 작성자와 함께 계속 노력하는 것입니다. 테스트 후 Azure Database for MariaDB 10.2와 호환되는 것으로 알려진 드라이버 목록은 다음 표에 제공됩니다.
 
 **드라이버** | **연결** | **호환되는 버전** | **호환되지 않는 버전** | **참고 사항**
 ---|---|---|---|---
@@ -31,11 +31,11 @@ MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-conne
 Node.js |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하
 이동 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 사용 하 여 `allowNativePasswords=true` 버전 1.3에 대 한 연결 문자열에 있습니다. 버전 1.4 수정 사항을 포함 하 고 `allowNativePasswords=true` 필요 하지 않습니다.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 |
-자바 | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
+Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
 
 ## <a name="management-tools"></a>관리 도구
 
-호환성 장점은 데이터베이스 관리 도구까지 확장됩니다. 기존 도구와 데이터베이스 조작이 사용자 권한의 범위 내에서 Azure Database for MariaDB, 작업할 계속 해야 합니다. 테스트 및 Azure Database for MariaDB 10.2와 호환 되도록 발견 된 세 가지 일반 데이터베이스 관리 도구는 다음 표에 나열 됩니다.
+호환성 장점은 데이터베이스 관리 도구까지 확장됩니다. 사용자 권한의 범위 내에서 데이터베이스 작업을 하는 한 기존 도구는 Azure Database for MariaDB에서 계속 작동합니다. 테스트 후 Azure Database for MariaDB 10.2와 호환되는 것으로 발견된 세 가지 일반 데이터베이스 관리 도구는 다음 표에 나열됩니다.
 
 | | **MySQL Workbench 6.x 이상** | **Navicat 12** | **PHPMyAdmin 4.x 이상**
 ---|---|---|---

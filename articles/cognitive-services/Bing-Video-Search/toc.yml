@@ -64,14 +64,14 @@
 - name: 참고 자료
   items:
     - name: Bing Video Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'
     - name: Bing Video Search API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference'
     - name: SDK
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet'
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python'
@@ -102,3 +102,5 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Bing Video Search API에 대한 분석
       href: bing-video-stats.md
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

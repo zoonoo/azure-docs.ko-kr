@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704988"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389484"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Azure Security Center에서 ID 및 액세스 모니터링(미리 보기)
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.
+
+> [!NOTE]
+> "뷰 *클래식* Id 및 액세스" 링크 2019 년 7 월 31 일에 만료 됩니다. 클릭 [여기](security-center-features-retirement-july2019.md#menu_classicidentity) 를 다른 서비스에 알아보세요.
 
 > [!NOTE]
 > ID 및 액세스 모니터링은 미리 보기로 제공되며 Security Center의 표준 계층에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
@@ -115,8 +118,8 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 |구독|30|구독에서 소유자 권한이 있는 외부 계정 제거|모니터링되지 않는 액세스를 방지하려면 소유자 권한이 있는 외부 계정을 구독에서 제거합니다. |
 |구독|30|구독에 대한 읽기 권한이 있는 Azure Management 앱 계정에 대해 MFA 사용|계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용합니다.|
 |구독|25|구독에서 쓰기 권한이 있는 외부 계정 제거|모니터링되지 않는 액세스를 방지하려면 쓰기 권한이 있는 외부 계정을 구독에서 제거합니다. |
-|구독|20|구독에서 소유자 권한이 있는 사용되지 않는 계정 제거|구독에서 소유자 권한이 있는 사용되지 않는 계정을 제거합니다.|
-|구독|5|구독에서 더 이상 사용되지 않는 계정 제거|현재 사용자에 대해서만 액세스할 수 있게 구독에서 더 이상 사용되지 않는 계정을 제거합니다. |
+|구독|20|구독에서 소유자 권한이 있는 사용되지 않는 계정 제거|구독에서 소유자 권한이 있는 사용되지 않는 계정을 제거합니다. 사용 되지 않는 계정에는 로그인에서 차단 되어 Azure AD 계정이 됩니다.|
+|구독|5|구독에서 더 이상 사용되지 않는 계정 제거|현재 사용자에 대해서만 액세스할 수 있게 구독에서 더 이상 사용되지 않는 계정을 제거합니다. 사용 되지 않는 계정에는 로그인에서 차단 되어 Azure AD 계정이 됩니다.|
 |구독|5|하나의 구독에 둘 이상의 소유자 지정|관리자 액세스 중복성을 유지하려면 둘 이상의 구독 소유자를 지정합니다.|
 |구독|5|구독에 최대 3명의 소유자 지정|보안이 침해된 소유자의 위반 가능성을 줄이려면 최소 3명의 구독 소유자를 지정합니다.|
 |주요 자격 증명 모음|5|Key Vault에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |

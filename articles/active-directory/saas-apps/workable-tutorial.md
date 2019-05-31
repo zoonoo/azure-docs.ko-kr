@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c5194f75ad973514a3ec015ef29c1d6f48330a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d2a62c64ea114e45b49e38eda0ddc686fe7cf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838190"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>자습서: Workable과 Azure Active Directory 통합
 
@@ -31,7 +32,7 @@ Workable을 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 * 사용자가 해당 Azure AD 계정으로 Workable에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -68,7 +69,7 @@ Workable과 Azure AD 통합을 구성하려면 갤러리에서 Workable을 관�
 
 4. 검색 상자에 **Workable**을 입력하고 결과 패널에서 **Workable**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Workable](common/search-new-app.png)
+    ![결과 목록의 Workable](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -80,8 +81,8 @@ Workable에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Workable Single Sign-On 구성](#configure-workable-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Workable 테스트 사용자 만들기](#create-workable-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Workable에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Workable 테스트 사용자 만들기](#create-workable-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Workable에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -141,7 +142,7 @@ Workable에서 SSO를 사용하도록 설정하려면 전용 Workable 계정을 
 
 3. 로그아웃 URL
 
-Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사용자에게 알려주고 사용자는 [Workable의 SSO 페이지](https://www.workable.com/sso/signin)를 사용하여 Workable 계정 하위 도메인을 통해 로그인할 수 있습니다.
+Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사용자에게 알려주고 사용자는 [Workable의 SSO 페이지](https://id.workable.com/sso/signin)를 사용하여 Workable 계정 하위 도메인을 통해 로그인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -161,10 +162,9 @@ Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

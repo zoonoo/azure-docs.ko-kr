@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903991"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957297"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -93,6 +93,9 @@ availabilityResults
    ![새 함수 만들기 스크린샷](./media/automate-custom-reports/function-app-03.png)
 
 5. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
+
+     > [!NOTE]
+     > 함수 앱은 기본적으로 런타임 버전을 사용 하 여 생성 됩니다 2.x입니다. 수행 해야 합니다 [Azure Functions 런타임 버전을 대상](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) Application Insights를 사용 하는 1.x 다이제스트 서식 파일을 예약 합니다.
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614163"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951507"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>2단계: 정기적으로 워크로드 실행
 임시 테이블의 주요 장점은 변경 내용 추적을 사용하는 방식으로 웹 사이트를 변경하거나 조정할 필요가 없다는 것입니다. 임시 테이블은 한 번 만들면 데이터에 수정 작업을 수행할 때마다 이전 행 버전을 분명하게 유지합니다. 
 
-특정 시나리오에 대한 자동 변경 내용 추적을 활용하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 **PagesVisited** 열을 업데이트하겠습니다.
+자동 변경이 특정 시나리오에 대 한 추적을 활용 하기 위해 열을 업데이트 하겠습니다 **PagesVisited** 될 때마다 사용자 웹 사이트에서 해당 세션을 종료 합니다.
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

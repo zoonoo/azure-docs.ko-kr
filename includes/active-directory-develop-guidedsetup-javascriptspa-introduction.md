@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503241"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121720"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 

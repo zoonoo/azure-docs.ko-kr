@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148584"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254859"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문 
 
@@ -101,7 +101,7 @@ MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/File
 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다.
 - 캐시 폴더 볼륨에 백업 데이터의 총 크기의 5 ~ 10% 이상에 해당 하는 사용 가능한 공간이 있어야 합니다.
 - 볼륨에 여유 공간이 5% 미만인 경우 볼륨 크기를 늘리거나 캐시 폴더를 충분 한 공간이 있는 볼륨으로 이동 합니다.
-- 
+- Windows 시스템 상태를 백업 하는 경우 캐시 폴더를 포함 하는 볼륨의 사용 가능한 공간을 추가 30 ~ 35 GB 필요
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS 에이전트에 대 한 캐시 위치를 변경 하려면 어떻게 해야 합니까?
 
 
@@ -112,7 +112,7 @@ MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/File
 2. 파일을 이동 하지 마십시오. 대신 캐시 공간 폴더를 충분 한 공간이 있는 다른 드라이브로 복사 합니다.
 3. 새 캐시 폴더의 경로 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.<br/>
 
-    | 레지스트리 경로 | 레지스트리 키 | 값 |
+    | 레지스트리 경로 | 레지스트리 키 | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |

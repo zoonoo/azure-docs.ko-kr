@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728833"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964759"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Media Services 메트릭 및 진단 로그를 모니터링 합니다.
 
@@ -34,11 +34,11 @@ ms.locfileid: "64728833"
 
 다음 Media Services를 현재 [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) Azure에서 메트릭을 내보냅니다.
 
-|이름|설명|
-|---|---|
-|요청|스트리밍 끝점에서 서비스 요청 총 수에 대 한 세부 정보를 제공 합니다.|
-|송신|송신 바이트의 총 수입니다. 예를 들어 (바이트) 스트리밍 끝점에 의해 스트리밍됩니다.|
-|성공 종단 간 대기 시간| 성공한 요청의 종단 간 대기 시간에 대 한 정보를 제공합니다.|
+|메트릭|Display name|설명|
+|---|---|---|
+|요청|요청|스트리밍 끝점에서 서비스 요청 총 수에 대 한 세부 정보를 제공 합니다.|
+|송신|송신|송신 바이트의 총 수입니다. 예를 들어 (바이트) 스트리밍 끝점에 의해 스트리밍됩니다.|
+|SuccessE2ELatency|성공 종단 간 대기 시간| 성공한 요청의 종단 간 대기 시간에 대 한 정보를 제공합니다.|
 
 예를 들어 하려면 CLI 사용 하 여 "송신" 메트릭을 가져오려면 실행 다음 `az monitor metrics` CLI 명령:
 

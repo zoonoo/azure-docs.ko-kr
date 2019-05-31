@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b635ab96f1438377cb0d282c17304c2531185be
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357795"
 ---
 # <a name="get-information-from-a-coordinate"></a>좌표에서 정보 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "60769127"
 
 위의 코드에서 첫 번째 코드 블록은 map 개체를 생성 하 고 구독 키를 사용 하는 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록을 만듭니다는 `SubscriptionKeyCredentialPolicy` 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. 그런 다음 `atlas.service.MapsURL.newPipeline()` 에서는 합니다 `SubscriptionKeyCredential` 정책 만들고를 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
+두 번째 코드 블록을 만듭니다는 `SubscriptionKeyCredentialPolicy` 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. 그런 다음 `atlas.service.MapsURL.newPipeline()` 에서는 합니다 `SubscriptionKeyCredential` 정책 만들고를 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스. `searchURL`은 Azure Maps [검색](https://docs.microsoft.com/rest/api/maps/search) 작업에 대한 URL을 나타냅니다.
 
 세 번째 코드 블록은 포인터에 마우스 커서의 스타일을 업데이트 하 고 만듭니다는 [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) 개체입니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
 

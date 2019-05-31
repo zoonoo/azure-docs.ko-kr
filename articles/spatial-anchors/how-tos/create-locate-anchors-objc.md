@@ -4,16 +4,16 @@ description: 자세한 설명은 만들고 Azure 공간 앵커를 사용 하 여
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3dd4fbedd51e11e84303f997cef0bb28bf79b241
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 58d3b3e3da518c9f6c32924ec29fbec3c810b58e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918181"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242332"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>만들기 및 Azure 공간 앵커를 사용 하 여 Objective-c에서 앵커를 찾는 방법
 
@@ -154,7 +154,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
     NSArray<ARHitTestResult *> *hits = [_sceneView.session.currentFrame hitTest:CGPointMake(0.5, 0.5) types:ARHitTestResultTypeEstimatedHorizontalPlane];
     if ([hits count] == 0) return;
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ARAnchor *localAnchor = [[ARAnchor alloc] initWithTransform:hits[0].worldTransform];
     [_sceneView.session addAnchor:localAnchor];

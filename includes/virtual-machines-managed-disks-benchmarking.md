@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679784"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147901"
 ---
 *캐시 준비 중*  
 ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 제공할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 직접적인 디스크가 아니라 실제 캐시에 적중합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
@@ -62,7 +62,7 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
 
-   | 이름 | 요청 크기 | 임의 % | 읽기 % |
+   | Name | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |

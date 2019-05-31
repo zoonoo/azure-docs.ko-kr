@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997447"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357163"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>빠른 시작: Computer Vision C# SDK를 사용하여 필기 텍스트 추출
 
@@ -53,10 +53,6 @@ ms.locfileid: "59997447"
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
             private const string subscriptionKey = "<Subscription key>";
-
-            // For printed text, change to TextRecognitionMode.Printed
-            private const TextRecognitionMode textRecognitionMode =
-                TextRecognitionMode.Handwritten;
 
             // localImagePath = @"C:\Documents\LocalImage.jpg"
             private const string localImagePath = @"<LocalImage>";
@@ -106,7 +102,7 @@ ms.locfileid: "59997447"
                 // Start the async process to read the text
                 BatchReadFileHeaders textHeaders =
                     await computerVision.BatchReadFileAsync(
-                        imageUrl, textRecognitionMode);
+                        imageUrl);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -127,7 +123,7 @@ ms.locfileid: "59997447"
                     // Start the async process to recognize the text
                     BatchReadFileInStreamHeaders textHeaders =
                         await computerVision.BatchReadFileInStreamAsync(
-                            imageStream, textRecognitionMode);
+                            imageStream);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
                 }
@@ -177,7 +173,6 @@ ms.locfileid: "59997447"
 
 1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
 1. 필요한 경우 `computerVision.Endpoint`를 구독 키와 연결된 Azure 지역으로 변경합니다.
-1. 필요에 따라 `textRecognitionMode`를 `TextRecognitionMode.Printed`로 설정합니다.
 1. `<LocalImage>`를 로컬 이미지의 경로 및 파일 이름으로 바꿉니다.
 1. 필요에 따라 `remoteImageUrl`을 다른 이미지로 설정합니다.
 1. 프로그램을 실행합니다.

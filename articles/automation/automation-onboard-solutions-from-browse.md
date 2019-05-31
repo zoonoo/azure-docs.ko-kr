@@ -9,20 +9,20 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739044"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133134"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
 Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 내용을 추적하며, 컴퓨터에 설치된 항목을 재고 자산으로 처리(인벤토리)하기 위한 솔루션을 제공합니다. 컴퓨터를 등록하는 여러 가지 방법이 있습니다. [가상 머신](automation-onboard-solutions-from-vm.md)에서 솔루션을 등록할 수도 있고, 가상 머신을 검색할 때 [Automation 계정](automation-onboard-solutions-from-automation-account.md)에서 등록할 수도 있고, [Runbook](automation-onboard-solutions.md)에서 등록할 수도 있습니다. 이 문서에서는 Azure에서 가상 머신을 검색할 때 솔루션을 등록하는 방법을 다룹니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure에 로그인
+ https://portal.azure.com 에서 Azure에 로그인
 
 ## <a name="enable-solutions"></a>솔루션 사용
 
@@ -59,27 +59,10 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 ![작업 영역 없음](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
-
-다음 표에 지원되는 매핑이 나와 있습니다.
-
-|**Log Analytics 작업 영역 지역**|**Azure Automation 지역**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP 및 EastUS 매핑을 Automation 계정과 Log Analytics 작업 영역에 대 한 정확한 지역 매핑이 되지 않지만 올바른 매핑이 있습니다.
-
-<sup>2</sup> 용량 제한으로 인해 지역을 사용할 수 없는 새 리소스를 만들 때. Automation 계정 및 Log Analytics 작업 영역을 포함 합니다. 그러나 지역에서 기존 연결 된 리소스는 계속 작동 합니다.
+> [!NOTE]
+> 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
+>
+> 지원 되는 매핑 쌍의 목록을 참조 하세요 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑을](how-to/region-mappings.md)합니다.
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
@@ -120,7 +103,9 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* 변수
+* variables
+
+또는 수 연결을 끊을 수도 작업 영역이 Automation 계정에서 Log Analytics 작업 영역에서 합니다. 작업 영역 선택 **Automation 계정** 아래에서 **관련 된 리소스**합니다. Automation 계정 페이지에서 선택 **계정을 연결 해제**합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -152,7 +137,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 **원인**: 클래식 배포 모델을 사용하는 가상 머신이 지원되지 않습니다.
 
-**솔루션**: 가상 머신을 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**솔루션**: Resource Manager 배포 모델에 가상 컴퓨터를 마이그레이션하십시오. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 

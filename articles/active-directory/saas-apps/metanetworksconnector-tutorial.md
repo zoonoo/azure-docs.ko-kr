@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408064"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>자습서: Meta Networks Connector와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Meta Networks Connector를 Azure AD와 통합하면 다음과 같은 이점이 �
 * 사용자가 해당 Azure AD 계정으로 Meta Networks Connector에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -131,8 +131,8 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |
-    | emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | 이름 | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | 이름 | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
@@ -172,7 +172,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
 1. 브라우저에서 새 탭을 열고 Meta Networks Connector 관리자 계정으로 로그인합니다.
     
     > [!NOTE]
-    > Meta Networks Connector는 보안 시스템입니다. 따라서 해당 포털에 액세스하기 전에 공용 IP 주소가 해당 허용 목록에 추가되어야 합니다. 공용 IP 주소를 가져오려면 [여기](https://whatismyipaddress.com/)에 지정된 아래 링크를 따릅니다. IP 주소를 [Meta Networks Connector 클라이언트 지원팀](mailto:support@metanetworks.com)으로 보내 IP 주소가 허용 목록에 포함되도록 합니다.
+    > Meta Networks Connector는 보안 시스템입니다. 따라서 해당 포털에 액세스하기 전에 공용 IP 주소를 해당 허용 목록에 추가해야 합니다. 공용 IP 주소를 가져오려면 [여기](https://whatismyipaddress.com/)에 지정된 아래 링크를 따릅니다. IP 주소를 [Meta Networks Connector 클라이언트 지원팀](mailto:support@metanetworks.com)으로 보내 IP 주소를 허용 목록에 추가합니다.
     
 2. **관리자**로 이동한 후 **설정**을 선택합니다.
     

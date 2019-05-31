@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse를 이용한 Striim 빠른 시작 | Microsoft Docs
 description: Striim 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475250"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873404"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
 
@@ -29,7 +29,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포되면 Azure portal에서 \<VM 이름>-masternode를  클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다.   
+배포되면 Azure portal에서\<VM 이름>-masternode를 클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다.  
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
@@ -55,7 +55,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 선호하는 브라우저를 열고 \<DNS 이름 >: 9080으로 이동합니다.
+이제 선호 하는 브라우저를 열고 이동할 \<DNS 이름 >: 9080
 
 ![로그인 화면으로 이동][navigate]
 

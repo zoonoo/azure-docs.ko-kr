@@ -2,19 +2,18 @@
 title: 대칭 키를 사용하여 Azure IoT Hub Device Provisioning Service로 레거시 디바이스를 프로비전하는 방법 | Microsoft Docs
 description: 대칭 키를 사용하여 디바이스 프로비저닝 서비스 인스턴스로 레거시 디바이스를 프로비전하는 방법
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775182"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914309"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
 
@@ -44,7 +43,7 @@ ms.locfileid: "60775182"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 활성화된 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상 합니다 ['를 사용한 데스크톱 개발 C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 작업을 사용 하도록 설정 합니다.
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 
@@ -173,7 +172,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 **REG_ID**의 값을 등록 ID로 바꿉니다.
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -184,7 +183,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 

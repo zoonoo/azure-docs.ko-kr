@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294239"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113114"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 
@@ -29,8 +29,6 @@ ms.locfileid: "60294239"
 ## <a name="multi-factor-authentication-registration-not-configured"></a>다단계 인증 등록이 구성 되지 않음
 
 이 취약점으로 인이 한 조직에서 Azure Multi-factor Authentication의 배포를 평가 하는 데 도움이 됩니다.
-
-MFA에 대 한 등록 되지 않은 사용자가 클릭에 대 한 개수를 보려면 취약점을 보완 하 고 Identity 보안 점수 내 통계로 리디렉션됩니다.
 
 Azure Multi-factor Authentication 사용자 인증에 대 한 보안의 두 번째 계층을 제공합니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. Azure Multi-factor Authentication과 같은 사용 하기 쉬운 확인 옵션을 제공합니다.
 

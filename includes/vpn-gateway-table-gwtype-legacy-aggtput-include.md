@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197181"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159196"
 ---
 다음 테이블에서는 게이트웨이 형식과 게이트웨이 SKU에 의한 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델에 적용됩니다. 
 
@@ -23,9 +23,9 @@ UltraPerformance 게이트웨이 SKU는 이 테이블에 표시되지 않습니�
 
 |  | **VPN Gateway 처리량(1)** | **VPN Gateway 최대 IPsec 터널(2)** | **ExpressRoute 게이트웨이 처리량** | **VPN Gateway 및 ExpressRoute 공존** |
 | --- | --- | --- | --- | --- |
-| **기본 SKU(3)(5)(6)** |100Mbps |10 |500Mbps(6) |아니오 |
-| **표준 SKU(4)(5)** |100Mbps |10 |1000Mbps |예 |
-| **고성능 SKU(4)** |200Mbps |30 |2000Mbps |예 |
+| **기본 SKU(3)(5)(6)** |100Mbps |10 |500Mbps(6) |아닙니다. |
+| **표준 SKU(4)(5)** |100Mbps |10 |1000Mbps |예. |
+| **고성능 SKU(4)** |200Mbps |30 |2000Mbps |예. |
 
 
 (1) VPN 처리량은 동일한 Azure 지역 내의 VNet 간 측정값을 기반으로 하는 대략적인 예상 값입니다. 인터넷을 통해 프레미스간 연결에 대한 처리량을 보장하지 않습니다. 가능한 최대 처리량 측정값입니다.

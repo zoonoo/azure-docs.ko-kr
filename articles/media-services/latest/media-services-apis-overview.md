@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556238"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890974"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
@@ -133,6 +133,10 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
+
+## <a name="see-also"></a>참고 항목
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>다음 단계
 

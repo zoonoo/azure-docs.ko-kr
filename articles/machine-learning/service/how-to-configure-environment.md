@@ -86,7 +86,7 @@ DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 데이터 과�
 
   - TensorFlow, PyTorch, Scikit-learn, XGBoost 및 Azure Machine Learning SDK 같은 패키지
   - Spark Standalone 및 Drill 같은 인기 있는 데이터 과학 도구
-  - Azure CLI, AzCopy 및 Storage 탐색기 같은 Azure 도구
+  - Azure CLI, AzCopy 및 Storage Explorer 같은 Azure 도구
   - Visual Studio Code 및 PyCharm 같은 IDE(통합 개발 환경)
   - Jupyter Notebook 서버
 
@@ -380,7 +380,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 
 * **단계를 따릅니다 [Azure Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md#sdk)**: *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
-* **파일 다운로드**: Azure Portal에서, 해당 작업 영역의 **개요** 섹션에서 **config.json 다운로드** 를 선택합니다.
+* **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)에서, 해당 작업 영역의 **개요** 섹션에서 **config.json 다운로드** 를 선택합니다.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 

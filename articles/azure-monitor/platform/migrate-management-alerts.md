@@ -1,26 +1,26 @@
 ---
 title: 관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 description: 관리 이벤트에 대한 경고는 10월 1일에 제거됩니다. 기존 경고를 마이그레이션하여 대비합니다.
-author: johnkemnetz
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255920"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388725"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> 관리 이벤트에 대한 경고는 10월 1일 이후로 해제됩니다. 아래의 지침을 사용하여 이러한 경고가 있는지 파악하고 마이그레이션하세요(있는 경우).
+> 관리 이벤트에 대 한 경고 꺼집니다 년 10 월 이후로 1,2017 합니다. 아래의 지침을 사용하여 이러한 경고가 있는지 파악하고 마이그레이션하세요(있는 경우).
 
 ## <a name="what-is-changing"></a>변경 사항
 

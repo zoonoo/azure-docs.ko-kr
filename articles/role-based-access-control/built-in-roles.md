@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073348"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977756"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -56,12 +56,14 @@ ms.locfileid: "65073348"
 | [Avere 연산자](#avere-operator) | Avere vFXT 클러스터에서 클러스터 관리에 사용 |
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
+| [Azure Maps 데이터 판독기 (미리 보기)](#azure-maps-data-reader-preview) | Azure 지도 계정에서 지도 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
 | [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
 | [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [블록 체인 멤버 노드 액세스 (미리 보기)](#blockchain-member-node-access-preview) | 블록체인 멤버 노드에 대한 권한 허용 |
 | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
@@ -86,6 +88,7 @@ ms.locfileid: "65073348"
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
 | [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
+| [Event Hubs 데이터 소유자](#event-hubs-data-owner) | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. | 
 | [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
 | [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 클러스터 연산자](#hdinsight-cluster-operator) | 읽기 및 HDInsight 클러스터 구성을 수정할 수 있습니다. |
@@ -116,6 +119,7 @@ ms.locfileid: "65073348"
 | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
+| [Service Bus 데이터 소유자](#service-bus-data-owner) | Azure Service Bus 리소스에 대 한 전체 액세스 허용 |
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
@@ -574,6 +578,21 @@ ms.locfileid: "65073348"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Azure Maps 데이터 판독기(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 지도 계정에서 지도 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 등록 소유자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -812,6 +831,21 @@ ms.locfileid: "65073348"
 > | *없음* |  |
 > | **DataActions** |  |
 > | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>블록체인 멤버 노드 액세스(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 블록체인 멤버 노드에 대한 권한 허용 |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **actions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 기존 블록 체인 멤버 트랜잭션 노드를 나열 하거나 가져옵니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | 블록 체인 멤버 트랜잭션 노드에 연결합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -1139,6 +1173,8 @@ ms.locfileid: "65073348"
 > | Microsoft.Resources/subscriptions/read | 구독 목록을 가져옵니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Advisor/configurations/read | 구성 가져오기 |
+> | Microsoft.Advisor/recommendations/read | 권장 사항을 읽습니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ ms.locfileid: "65073348"
 > | Microsoft.Resources/subscriptions/read | 구독 목록을 가져옵니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Advisor/configurations/read | 구성 가져오기 |
+> | Microsoft.Advisor/recommendations/read | 권장 사항을 읽습니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ ms.locfileid: "65073348"
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | 주문과 관련된 암호화되지 않은 자격 증명을 나열합니다. |
 > | Microsoft.Databox/locations/availableSkus/action | 이 메서드는 사용할 수 있는 SKU 목록을 반환합니다. |
+> | Microsoft.Databox/locations/validateAddress/action | 배송 주소의 유효성을 검사하고, 있는 경우, 대체 주소를 제공합니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ ms.locfileid: "65073348"
 > | Microsoft.DevTestLab/*/read | 랩의 속성 읽기 |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | 랩에서 임의 클레임 가능 가상 머신을 클레임합니다. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | 랩에 가상 머신을 만듭니다. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | 현재 사용자를 랩에 대 한 올바른 프로필을 확인 합니다. |
 > | Microsoft.DevTestLab/labs/formulas/delete | 수식을 삭제합니다. |
 > | Microsoft.DevTestLab/labs/formulas/read | 수식을 읽습니다. |
 > | Microsoft.DevTestLab/labs/formulas/write | 수식을 추가하거나 수정합니다. |
@@ -1369,6 +1409,22 @@ ms.locfileid: "65073348"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="event-hubs-data-owner"></a>Event Hubs 데이터 소유자
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Event Hubs 리소스에 대 한 전체 액세스를 허용합니다. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **actions** |  |
+> | Microsoft.EventHubs/* | Event Hubs 네임 스페이스에 대 한 완전 한 관리 액세스를 허용합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Event Hubs 네임 스페이스에 대 한 전체 데이터 액세스를 허용합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ ms.locfileid: "65073348"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2019,6 +2076,22 @@ ms.locfileid: "65073348"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="service-bus-data-owner"></a>Service Bus 데이터 소유자
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Service Bus 리소스에 대 한 전체 액세스를 허용합니다. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **actions** |  |
+> | Microsoft.ServiceBus/* | Service Bus 네임 스페이스에 대 한 완전 한 관리 액세스를 허용합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Service Bus 네임 스페이스에 대 한 전체 데이터 액세스를 허용합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery 참가자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2482,7 +2555,7 @@ ms.locfileid: "65073348"
 > | **설명** | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 전체 권한입니다.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 전체 권한입니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |

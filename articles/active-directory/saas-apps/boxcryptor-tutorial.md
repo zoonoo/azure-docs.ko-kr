@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860563"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>자습서: Boxcryptor와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Boxcryptor를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 자신의 Azure AD 계정으로 Boxcryptor에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -181,7 +181,7 @@ Boxcryptor에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 ### <a name="create-boxcryptor-test-user"></a>Boxcryptor 테스트 사용자 만들기
 
-이 섹션에서는 Boxcryptor에서 Britta Simon이라는 사용자를 만듭니다.  [Boxcryptor 지원 팀](mailto:support@boxcryptor.com) 과 협의하여 Boxcryptor 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Boxcryptor 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Boxcryptor에서 Britta Simon이라는 사용자를 만듭니다.  [Boxcryptor 지원 팀](mailto:support@boxcryptor.com) 과 협의하여 Boxcryptor 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Boxcryptor 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236803"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834003"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -59,6 +59,9 @@ ms.locfileid: "65236803"
 
 가상 머신 설정 블레이드의 경우:
 
+>[!NOTE]
+> Azure AD Domain Services 환경에 VM을 가입하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)의 멤버이기도 한지 확인합니다.
+
 1. **이미지 원본**을 선택하고 해당 이미지 원본을 찾고 저장할 방법에 대한 적절한 정보를 입력합니다. 관리형 디스크를 사용하지 않으려면 .vhd 파일이 포함된 스토리지 계정을 선택합니다.
 2. Active Directory 도메인에 VM을 조인하는 도메인 계정에 대한 사용자 계정 이름 및 암호를 입력합니다. 이 동일한 사용자 이름과 암호는 로컬 계정으로 가상 머신에서 생성됩니다. 이러한 로컬 계정은 나중에 다시 설정할 수 있습니다.
 3. Active Directory 서버에 연결되어 있는 가상 네트워크를 선택한 다음, 가상 머신을 호스트하는 서브넷을 선택합니다.
@@ -68,7 +71,7 @@ ms.locfileid: "65236803"
 
 Windows Virtual Desktop 테넌트 정보 블레이드의 경우:
 
-1. 사용자의 테넌트를 포함하는 테넌트 그룹에 사용할 **Windows Virtual Desktop 테넌트 그룹 이름**을 입력합니다. 계획된 특정 테넌트 그룹 이름이 없다면 기본값을 그대로 유지합니다.
+1. 사용자의 테넌트를 포함하는 테넌트 그룹에 사용할 **Windows Virtual Desktop 테넌트 그룹 이름**을 입력합니다. 특정 테넌트 그룹 이름이 제공되지 않은 경우 기본값을 그대로 유지합니다.
 2. 이 호스트 풀을 만들 테넌트에 사용할 **Windows Virtual Desktop 테넌트 이름**을 입력합니다.
 3. Windows Virtual Desktop 테넌트 RDS 소유자로 인증하는 데 사용할 자격 증명 유형을 지정합니다. [PowerShell 자습서를 사용하여 서비스 주체 및 역할 할당 만들기](./create-service-principal-role-powershell.md)를 완료했으면 **서비스 주체**를 선택합니다. 이제 서비스 주체를 포함하는 Azure Active Directory의 **Azure AD 테넌트 ID**를 입력해야 합니다.
 4. 테넌트 관리자 계정에 사용할 자격 증명을 입력합니다. 암호 자격 증명을 사용하는 서비스 주체만 지원됩니다.
@@ -94,12 +97,6 @@ Azure Marketplace 제품이 완료된 후, 가상 머신에서 전체 세션 테
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-다음 cmdlet을 사용하여 Azure Marketplace 제품에 지정한 Windows Virtual Desktop 테넌트 그룹에 컨텍스트를 설정합니다. Azure Marketplace 제품에서 Windows Virtual Desktop 테넌트 그룹 값을 기본값으로 유지하는 경우 이 단계를 건너뛸 수 있습니다.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 이러한 두 가지를 수행했으면 다음 cmdlet을 사용하여 데스크톱 애플리케이션 그룹에 사용자를 추가할 수 있습니다.

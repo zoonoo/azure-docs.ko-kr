@@ -22,6 +22,8 @@
   items:
     - name: 온-프레미스 리소스에 대한 SSO
       href: azuread-join-sso.md
+    - name: Azure Managed Workstations
+      href: concept-azure-managed-workstation.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: 엔터프라이즈 상태 로밍 사용
       href: enterprise-state-roaming-enable.md
+    - name: Azure Managed Workstations 배포
+      href: howto-azure-managed-workstation.md
     - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
       href: troubleshoot-hybrid-join-windows-current.md
     - name: 하이브리드 Azure AD 조인 레거시 Windows 디바이스 문제 해결

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: df637ee16d2116696af42fa1b162e1c77a880c19
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 19b235baa68222ac7e8c7f8d2277d6542f0ac810
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922180"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606544"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js를 사용하는 지원되는 언어 목록 가져오기
 
@@ -89,7 +89,7 @@ node get-languages.js
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 이 샘플은 결과 조각을 표시하도록 잘렸습니다.
 

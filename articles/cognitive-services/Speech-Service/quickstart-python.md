@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: chlandsi
-ms.openlocfilehash: 34af7544a7678dfd8c8f870369bf0b4b1083b96d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 30e25fa8ea9e49b3005badc3db8f6ada3c0aed50
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020711"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65885169"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>빠른 시작: Python용 Speech SDK를 사용하여 음성 인식
 
@@ -47,7 +47,7 @@ ms.locfileid: "65020711"
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* Windows의 경우 플랫폼에 맞는 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다.
+* Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다.
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 

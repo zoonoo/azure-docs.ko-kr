@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471642"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399688"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -40,10 +40,10 @@ Azure Vm (Windows만 해당)의 직접 백업  | 특정 파일/폴더/볼륨을 
 
 **작업** | **지원**
 --- | ---
-Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상:  Windows Server 2019 (데이터 센터/Datacenter Core), Windows Server 2016 (데이터 센터/데이터 센터 코어); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM 및 SP1)
+Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상: <br/><br/> Windows Server 2019 (데이터 센터/Datacenter Core/표준) <br/><br/> Windows Server 2016 (데이터 센터/Datacenter Core/표준) <br/><br/> Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> Windows Server 2008 R2 (RTM 및 SP1 Standard)
 Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 18.04 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 VM 종료/오프 라인 상태인 VM 백업 |  지원됩니다.<br/><br/> 스냅숏이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
-디스크 관리로 마이그레이션 후 디스크 백업 |  지원됩니다.<br/><br/> 백업이 계속 작동합니다. 별도의 작업이 필요 없습니다.
+디스크 관리로 마이그레이션 후 디스크 백업 |  지원됩니다.<br/><br/> 백업이 계속 작동합니다. 추가적인 조치가 필요하지 않습니다.
 리소스 그룹 잠금을 사용하도록 설정한 후 Managed Disks를 백업합니다. | 지원되지 않습니다.<br/><br/> 백업 복원 지점 중 최대 제한에 도달한 경우 실패 하기 시작 하 고 azure Backup은 이전 리소스 요소를 삭제할 수 없습니다.
 VM의 백업 정책 수정 |  지원됩니다.<br/><br/> 새 정책의 일정 및 보존 설정을 사용 하 여 VM 백업 됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 절감 하는 경우 기존 복구 지점이 다음 정리 작업에서 정리 되며 결과적으로 삭제 합니다.
 백업 작업 취소 | 스냅숏 프로세스 동안 지원됩니다.<br/><br/> 스냅숏이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
@@ -61,7 +61,7 @@ VM의 백업 정책 수정 |  지원됩니다.<br/><br/> 새 정책의 일정 �
 
 **시나리오** | **OS 지원**
 --- | ---
-Azure VM 에이전트 확장을 사용하는 백업 | Windows 클라이언트: 지원되지 않음<br/><br/> Windows Server 2019 (데이터 센터/Datacenter Core), Windows Server 2016 (데이터 센터/데이터 센터 코어); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM 및 SP1)
+Azure VM 에이전트 확장을 사용하는 백업 | Windows 클라이언트: 지원되지 않음<br/><br/>Windows Server 2019 (데이터 센터/Datacenter Core/표준) <br/><br/> Windows Server 2016 (데이터 센터/Datacenter Core/표준) <br/><br/> Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> Windows Server 2008 R2 (RTM 및 SP1 Standard)
 MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#support-for-direct-backups) 운영 체제
 DPM/MABS를 사용 하 여 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)을 사용하는 백업이 지원되는 운영 체제
 
@@ -215,10 +215,10 @@ Azure로의 네트워크 트래픽:
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예.][green] | ![예][green]
-Azure VM | ![예][green] | ![예.][green]
-온-프레미스/Azure VM(DPM 사용) | ![예.][green] | ![예.][green]
-온-프레미스/Azure VM(MABS 사용) | ![예.][green] | ![예.][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
+Azure VM | ![예][green] | ![예][green]
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 
 
@@ -231,10 +231,10 @@ Azure VM | ![예][green] | ![예.][green]
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음 (HTTPS)에 압축**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![예.][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![예][green]
 Azure VM | 해당 없음 | 해당 없음
-온-프레미스/Azure VM(DPM 사용) | ![예.][green] | ![예.][green]
-온-프레미스/Azure VM(MABS 사용) | ![예.][green] | ![예][green]
+온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
 
 ## <a name="next-steps"></a>다음 단계

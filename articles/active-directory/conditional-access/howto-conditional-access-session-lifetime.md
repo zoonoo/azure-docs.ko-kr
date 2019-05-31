@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766864"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988571"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리를 구성 합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "65766864"
 
 ## <a name="configuring-authentication-session-controls"></a>인증 세션 제어를 구성합니다.
 
-조건부 액세스는 Azure AD Premium 기능 및 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려는 경우 [Azure Active Directory의 조건부 액세스란?](overview.md#license-requirements-for-using-conditional-access)을 참조하세요.
+조건부 액세스는 Azure AD Premium 기능 및 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려는 경우 [Azure Active Directory의 조건부 액세스란?](overview.md#license-requirements)을 참조하세요.
 
 > [!WARNING]
 > 사용 중인 경우는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 현재 공개 미리 보기 기능, 동일한 사용자 또는 앱 조합에 대 한 두 개의 서로 다른 정책 만들기는 지원 되지 않습니다는 점에 유의 하십시오:이 기능 및 사용 하 여 다른 구성 가능한 토큰 수명 기능입니다. Microsoft는 10 월 15에서 구성 가능한 토큰 수명 기능을 사용 중지 및 조건부 액세스 인증 세션 관리 기능을 사용 하 여 대체 계획입니다.  
@@ -66,7 +66,7 @@ ms.locfileid: "65766864"
 1. 로 이동 **액세스 제어** > **세션** 를 클릭 하 고 **로그인 빈도**
 1. 첫 번째 텍스트 상자에 필요한 날짜 및 시간 값을 입력 합니다.
 1. 값 선택 **시간** 하거나 **일** 드롭다운 목록에서
-1. 사용자 정책 저장
+1. 정책 저장
 
 ![빈도의 로그인에 대 한 구성 된 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

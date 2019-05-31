@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165648"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>공용 IP 주소에 대한 DNS 레이블 구성
 
@@ -44,6 +44,6 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 머신** 를 선택�
 
 1. **암호** 상자에 로그인 암호를 입력합니다.
 
-1. **Connect**를 클릭합니다.
+1. **연결**을 클릭합니다.
 
     ![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

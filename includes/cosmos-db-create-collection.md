@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 28ecac39d991754cfadeb87479c336a6c6086fd7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532333"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151354"
 ---
 이제 Azure Portal에서 데이터 탐색기 도구를 사용하여 데이터베이스 및 컬렉션을 만들 수 있습니다. 
 
@@ -28,7 +28,7 @@ ms.locfileid: "59532333"
     설정|제안 값|설명
     ---|---|---
     데이터베이스 ID|작업|새 데이터베이스의 이름으로 *작업*을 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다.
-    컬렉션 ID|항목|새 컬렉션의 이름으로 *항목*을 입력입니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.
+    컬렉션 ID|Items|새 컬렉션의 이름으로 *Items*를 입력합니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.
     파티션 키| `<Your partition key>`| */userid*와 같은 파티션 키를 입력합니다.
     처리량|400RU|처리량을 400RU/s(초당 요청 단위)로 변경합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. 
     

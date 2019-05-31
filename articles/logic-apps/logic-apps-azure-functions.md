@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9b304f2d4d2e498701be5977decf202cb0fa995b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142318"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922059"
 ---
 # <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>추가 하 고 Azure Logic Apps에서 Azure Functions를 사용 하 여 코드를 실행 합니다.
 
@@ -51,6 +51,9 @@ Azure functions를 만들지 않고 코드 조각을 실행 하려면 하는 방
   함수를 실행할 수 있는 작업을 추가하려면 먼저 논리 앱이 트리거로 시작되어야 합니다.
 
   논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+
+> [!NOTE]
+> 슬롯 (미리 보기) 설정 된 경우에 논리 앱과 함수의 통합 작동 하지 않습니다.
 
 <a name="create-function-external"></a>
 

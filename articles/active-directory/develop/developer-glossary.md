@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540086"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235345"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
@@ -133,7 +133,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 장치에 고유하게 설치된 [클라이언트 애플리케이션](#client-application) 의 유형. 모든 코드가 디바이스에서 실행되기 때문에 자격 증명을 비공개로/기밀로 저장할 수 없으므로 “공용” 클라이언트로 간주합니다. 더 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 [클라이언트 애플리케이션](#client-application)은 권한 요청을 선언하여 [리소스 서버](#resource-server)에 대한 액세스 권한을 얻습니다. 두 가지 유형이 있습니다.
 
@@ -142,7 +142,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 또한 [동의](#consent) 프로세스 동안 표면화되어 관리자 또는 리소스 소유자에게 자신의 테넌트에 있는 리소스에 대한 클라이언트 액세스를 허용/거부할 기회를 제공합니다.
 
-사용 권한 요청은 [Azure Portal][AZURE-portal]의 "애플리케이션" / "설정" 탭에서 원하는 "위임된 권한" 및 "애플리케이션 사용 권한"(후자는 전역 관리자 역할 필요)을 선택하여 "필요한 사용 권한" 아래에 구성됩니다. [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 애플리케이션 권한을 모두 요청할 수 있습니다. 클라이언트의 [애플리케이션 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
+권한 요청에 구성 된 합니다 **API 사용 권한** 에서 응용 프로그램에 대 한 페이지는 [Azure portal][AZURE-portal]는 원하는 "위임 된 권한"을 선택 하 여 및 " 응용 프로그램 권한 (후자 필요 전역 관리자 역할의 멤버 자격이). [공용 클라이언트](#client-application)는 자격 증명을 안전하게 유지할 수 없으므로 위임된 권한만 요청할 수 있는 반면에 [기밀 클라이언트](#client-application)는 위임된 권한 및 애플리케이션 권한을 모두 요청할 수 있습니다. 클라이언트의 [애플리케이션 개체](#application-object)는 선언된 사용 권한을 [requiredResourceAccess 속성][AAD-Graph-App-Entity]에 저장할 수 있습니다.
 
 ## <a name="resource-owner"></a>리소스 소유자
 
@@ -156,7 +156,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 클라이언트 애플리케이션과 마찬가지로 리소스 애플리케이션 ID 구성은 Azure AD 테넌트에서 [등록](#application-registration)을 통해 설정되며 애플리케이션과 서비스 주체 개체를 모두 제공합니다. Azure AD Graph API와 같은 일부 Microsoft 제공 API에는 프로비전 중에 모든 테넌트에서 사용할 수 있도록 설정된 사전 등록된 서비스 주체가 있습니다.
 
-## <a name="roles"></a>역할
+## <a name="roles"></a>roles
 
 [범위](#scopes)와 마찬가지로 역할은 [리소스 서버](#resource-server)에서 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 여기에는 두 가지 유형이 있습니다. "사용자" 역할은 리소스에 대한 액세스 권한이 필요한 사용자/그룹의 역할 기반 액세스 제어를 구현하는 반면, "애플리케이션" 역할은 액세스 권한이 필요한 [클라이언트 애플리케이션](#client-application)에 대해 동일한 제어를 구현합니다.
 

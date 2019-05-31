@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365080"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964252"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>ExpressRoute 직접 구성 하는 방법
 
@@ -226,7 +226,9 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
 위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 다음과 같습니다. 40Gbps 및 100Gbps.
 
-표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 비용에 포함되지만, 프리미엄 회로는 선택한 대역폭을 기준으로 비용이 부과됩니다. ExpressRoute Direct에서는 무제한이 지원되지 않으므로 데이터 통신 연결로만 회로를 만들 수 있습니다.
+**SkuTier** 로컬, Standard 또는 Premium 될 수 있습니다.
+
+**SkuFamily** 무제한 으로만 MeteredData 해야 ExpressRoute 직접 지원 되지 않습니다.
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 

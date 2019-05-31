@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65069013"
 ---
-# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 방화벽 규칙 만들기 및 관리
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 지정된 IP 주소 또는 IP 주소 범위에서 PostgreSQL 서버용 Azure Database에 대한 액세스 관리에 사용될 수 있습니다.
 
 Virtual Network (VNet) 규칙도 서버에 대한 액세스를 보호하는 데 사용할 수 있습니다. [Azure Portal을 사용하여 VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리](howto-manage-vnet-using-portal.md)에 대해 알아봅니다.

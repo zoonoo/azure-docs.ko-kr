@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510738"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002998"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -42,7 +42,9 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
 * 2019년 5월 - 이제 [대화 기록](conversation-transcription-service.md), [호출 센터 전사](call-center-transcription.md) 및 [음성 우선 가상 도우미](voice-first-virtual-assistants.md)에 대한 설명서를 사용할 수 있습니다.
-* 2019년 5월 - Speech SDK 1.5.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
+* 2019년 5월
+    * Speech SDK 1.5.1이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
+    * Speech SDK 1.5.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2019년 4월 - Windows 및 Linux에서 C++, C# 및 Java용 텍스트 음성 변환(베타)을 지원하는 Speech SDK 1.4.0을 출시했습니다. 또한 SDK는 이제 Linux에서 C++ 및 C#용 MP3 및 Opus/Ogg 오디오 형식을 지원합니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2019년 3월 - 특정 지역에서 사용할 수 있는 전체 음성 목록을 반환하는 새로운 TTS(텍스트 음성 변환) 엔드포인트가 제공됩니다. 또한 새로운 지역에서 TTS가 지원됩니다. 자세한 내용은 [Text-to-speech API 참조(REST)](rest-text-to-speech.md)를 참조하세요.
 

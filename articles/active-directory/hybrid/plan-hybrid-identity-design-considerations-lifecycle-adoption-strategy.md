@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381277"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950837"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
 이 작업에서 하이브리드 ID 솔루션에 대한 ID 관리 전략을 정의하여 [하이브리드 ID 관리 작업 확인](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)에 정의된 비즈니스 요구 사항을 충족합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "60381277"
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 역할 기반 액세스 제어(RBAC)는 역할 및 프로비전 정책을 사용하여 사용자에게 액세스 권한을 부여하는 비즈니스 프로세스 및 규칙을 평가, 테스트, 적용합니다. 키 관리자는 프로비전 정책을 만들고 사용자를 역할에 할당하며 해당 역할에 대한 리소스에 권한 부여의 집합을 정의합니다. RBAC는 ID 관리 솔루션을 확장하여 소프트웨어 기반 프로세스를 사용하고 프로비전 프로세스에서 사용자의 수동 개입을 줄입니다.
-Azure AD RBAC를 사용하면 회사는 개인이 Azure Portal에 액세스하면 수행할 수 있는 작업의 수를 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
+Azure AD RBAC를 사용 하면 개별 Azure portal에 대 한 액세스를 후 작업을 수행할 수 있는 작업의 수를 제한 하려면 회사입니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
 * **그룹 기반 역할 할당**: 로컬 Active Directory에서 동기화할 수 있는 Azure AD 그룹에 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
 * **Azure의 기본 제공 역할 이용**: 소유자, 기여자 및 읽기 권한자의 세 가지 역할을 사용하여 사용자 및 그룹이 작업 수행에 필요한 작업만 수행하는 권한을 보유하는지 확인할 수 있습니다.

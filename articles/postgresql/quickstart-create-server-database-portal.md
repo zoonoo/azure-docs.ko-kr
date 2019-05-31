@@ -153,7 +153,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
-    	이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
+    이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
 
 3. 프롬프트에서 다음 명령을 실행하여 새로 만든 **mypgsqldb** 데이터베이스에 대한 연결로 전환합니다.
     ```bash

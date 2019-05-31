@@ -9,11 +9,11 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684670"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154561"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>이벤트 처리기 호스트에 대한 저장소 계정 만들기
 이벤트 처리기 호스트는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 병렬 수신을 수행하는 지능형 에이전트입니다. 검사점 지정을 위해 이벤트 처리기 호스트에는 저장소 계정이 필요합니다. 다음 예제에서는 저장소 계정을 만들고 액세스를 위해 키를 가져오는 방법을 보여 줍니다.
@@ -22,7 +22,7 @@ ms.locfileid: "59684670"
 
 2. **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
    
-    ![Storage 계정 선택](./media/event-hubs-create-storage/create-storage1.png)
+    ![스토리지 계정 선택](./media/event-hubs-create-storage/create-storage1.png)
 
 3. **저장소 계정 만들기** 페이지에서 다음 단계를 수행합니다. 
 

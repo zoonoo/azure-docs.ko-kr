@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 347969ac129faa9cbe841be097e2bc7fd66c6b8e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020561"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003137"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -35,7 +35,7 @@ ms.locfileid: "65020561"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.5.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.5.1`입니다.
 
 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
 [여기](https://aka.ms/csspeech/iosbinary)에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.

@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523559"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417747"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Site Recovery 구성 요소 (구성, 프로세스, 마스터 대상)에 대 한
 
@@ -22,7 +22,7 @@ ms.locfileid: "65523559"
 
 Site Recovery는 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 필요한 구성 서버 온-프레미스를 배포 합니다.
 
-**설정** | **세부 정보** | **링크**
+**설정** | **세부 정보** | **연결**
 --- | --- | ---
 **구성 요소**  | 구성 서버 컴퓨터에는 모든 온-프레미스 Site Recovery 구성 요소를 구성 서버, 프로세스 서버 및 마스터 대상 서버를 포함 하는 실행 됩니다.<br/><br/> 구성 서버를 설정한 경우 모든 구성 요소가 자동으로 설치 됩니다. | [읽기](vmware-azure-common-questions.md#configuration-server) 구성 서버 FAQ.
 **역할** | 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. | 아키텍처에 자세히 알아보려면 [VMware](vmware-azure-architecture.md) 하 고 [물리적 서버](physical-azure-architecture.md) Azure로 재해 복구 합니다.
@@ -34,7 +34,7 @@ Site Recovery는 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 
 ## <a name="process-server"></a>프로세스 서버
 
-**설정** | **세부 정보** | **링크**
+**설정** | **세부 정보** | **연결**
 --- | --- | ---
 **배포**  | 프로세스 서버를 재해 복구 및 온-프레미스 VMware Vm 및 물리적 서버 복제의 경우 필요한 온-프레미스입니다. 기본적으로 프로세스 서버는 배포할 때 구성 서버에 설치 됩니다. | [자세히 알아보기](vmware-azure-architecture.md?#architectural-components).
 **역할 (온-프레미스** | -복제용으로 설정 된 컴퓨터에서 복제 데이터를 수신 합니다.<br/> --캐싱, 압축 및 암호화를 사용 하 여 복제 데이터를 최적화 하는 중 하 고 Azure Storage로 보냅니다.<br/> -온-프레미스 VMware Vm 및 물리적 서버 복제를 Site Recovery 모바일 서비스의 강제 설치를 수행 합니다.<br/> -온-프레미스 컴퓨터의 자동 검색을 수행 합니다. | [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md#process-server). 

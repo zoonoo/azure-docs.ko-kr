@@ -49,7 +49,7 @@ ms.locfileid: "60397280"
 
 다음 표에서는 주요 기능의 차이점을 요약해서 보여 줍니다.
 
-| 기능 | Azure Storage 탐색기 | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
+| 기능 | Azure Storage Explorer | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | 가용성 | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구 | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스 |
 | 그래픽 인터페이스 | 예. | 예 | 아니오 | 아닙니다. |

@@ -1,6 +1,6 @@
 ---
 title: Visual Studio를 사용하여 Azure Functions 개발 | Microsoft Docs
-description: Azure Functions Tools for Visual Studio 2017을 사용하여 Azure Functions를 개발하고 테스트하는 방법을 알아봅니다.
+description: 개발 하 고 Visual Studio 2019에 대 한 Azure Functions 도구를 사용 하 여 Azure Functions를 테스트 하는 방법에 알아봅니다.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403898"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864523"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
-Azure Functions Tools for Visual Studio 2017은 C# 함수를 Azure에 개발, 테스트 및 배포할 수 있는 Visual Studio에 대한 확장입니다. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
+Visual Studio 2019에 대 한 azure Functions 도구는 개발, 테스트 및 배포할 수 있는 Visual Studio 용 확장 C# Azure에는 함수입니다. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
 
 Azure Functions 도구는 다음과 같은 이점을 제공합니다. 
 
@@ -29,16 +29,16 @@ Azure Functions 도구는 다음과 같은 이점을 제공합니다.
 * 미리 컴파일된 C# 함수를 개발하고 배포합니다. 미리 컴파일된 함수는 C# 스크립트 기반 함수보다 더 뛰어난 콜드 부팅 성능을 제공합니다. 
 * Visual Studio 개발의 모든 이점을 누리면서 C#에서 함수를 코딩합니다. 
 
-이 문서에서는 Azure Functions Tools for Visual Studio 2017을 사용하여 C# 함수를 개발하여 Azure에 게시하는 방법에 대해 자세히 알려줍니다. 이 문서를 읽으려면 먼저 [Visual Studio용 Functions 빠른 시작](functions-create-your-first-function-visual-studio.md)을 완료해야 합니다. 
+이 문서에서는 개발에 Visual Studio 2019에 대 한 Azure Functions 도구를 사용 하는 방법에 대 한 정보를 제공 C# 함수를 Azure에 게시 합니다. 이 문서를 읽으려면 먼저 [Visual Studio용 Functions 빠른 시작](functions-create-your-first-function-visual-studio.md)을 완료해야 합니다. 
 
 > [!IMPORTANT]
 > 로컬 개발과 포털 개발을 동일한 함수 앱에 혼합하지 않도록 합니다. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Functions 도구는 [Visual Studio 2017 버전 15.5](https://www.visualstudio.com/vs/) 이상에서 Azure 개발 워크로드에 포함되어 있습니다. Visual Studio 2017 설치에 **Azure 개발** 워크로드가 포함되어 있는지 확인합니다.
+Azure Functions 도구는 Azure 개발 워크 로드에 포함 되어 [Visual Studio 2017](https://www.visualstudio.com/vs/), 또는 이후 버전입니다. 포함 되어 있는지 확인 합니다 **Azure 개발** Visual Studio 2019 설치에서 워크 로드:
 
-![Azure 개발 워크로드를 통한 Visual Studio 2017 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Azure 개발 워크 로드를 사용 하 여 Visual Studio 2019 설치](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-version)의 Azure Functions 도구를 사용하고 있는지 확인합니다.
 

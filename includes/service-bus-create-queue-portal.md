@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115835"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171302"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Azure Portal에서 큐 만들기
 1. **Service Bus 네임스페이스** 페이지의 왼쪽 탐색 메뉴에서 **큐**를 선택합니다.

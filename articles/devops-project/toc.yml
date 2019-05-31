@@ -13,7 +13,7 @@
     - name: Node.js
       href: /azure/devops-project/azure-devops-project-nodejs
       maintainContext: true
-    - name: 자바
+    - name: Java
       href: /azure/devops-project/azure-devops-project-java
       maintainContext: true
     - name: Python

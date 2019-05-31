@@ -12,11 +12,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167134"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>인증서를 사용하여 B2B 메시지 보호
 
@@ -89,7 +89,7 @@ B2B 기능이 포함된 논리 앱에서 *개인 인증서*를 사용하려면 �
    | 자산 | 값 | 설명 | 
    |----------|-------|-------------|
    | **Name** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
-   | **인증서 종류** | 개인 | 인증서의 종류입니다. |
+   | **인증서 종류** | 비공개 | 인증서의 종류입니다. |
    | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. | 
    | **리소스 그룹** | <*integration-account-resource-group*> | 통합 계정의 리소스 그룹(이 예제의 "MyResourceGroup")입니다. | 
    | **Key Vault** | <*key-vault-name*> | Azure Key Vault의 이름입니다. |

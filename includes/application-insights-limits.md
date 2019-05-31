@@ -9,15 +9,15 @@ ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794443"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130801"
 ---
 일부의 제한이 있습니다 메트릭 및 응용 프로그램에서 초당 이벤트 수에, 계측 키 기준입니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
-| 리소스 | 기본 제한 | 참고
+| Resource | 기본 제한 | 참고
 | --- | --- | --- |
 | 일당 총 데이터 | 100GB | 한도를 설정하여 데이터를 줄일 수 있습니다. 더 많은 데이터가 필요한 경우 포털에서 최대 1,000GB로 한도를 늘릴 수 있습니다. 1,000GB 보다 큰 용량에 대 한 전자 메일을 보내 AIDataCap@microsoft.com합니다.
 | 제한 | 32,000 개 이벤트/초 | 제한은 분을 기준으로 측정됩니다.

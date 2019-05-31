@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713747"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873427"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -225,7 +225,11 @@ vf_tx_dropped: 0
 ```
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속화된 네트워킹을 사용하도록 설정
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>동적 바인딩 및 가상 함수는 취소를 처리 합니다. 
+응용 프로그램은 VM에서 제공 되는 가상 NIC를 통해 실행 해야 합니다. VF NIC를 통해 직접 응용 프로그램을 실행을 받지 못하면 **모든** 일부 패킷이 가상 인터페이스를 통해 표시 되므로 VM에 대상이 지정 된 된 패킷을 합니다.
+가상 NIC를 통해 응용 프로그램을 실행 하는 경우 응용 프로그램에서 받는 보장 **모든** 를 향하는 패킷이 합니다. 하기가 응용 프로그램이 계속 실행 하 고 있는지, 호스트를 처리 하는 경우 VF가 해지 하는 경우에 합니다. 가상 NIC에 바인딩 응용 프로그램을 **필수** 활용 하는 모든 응용 프로그램에 대 한 요구 사항 **가속화 된 네트워킹**합니다.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
 
 * VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함

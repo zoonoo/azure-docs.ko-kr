@@ -247,7 +247,7 @@
       href: /cli/azure/resource
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.resourcemanager
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python

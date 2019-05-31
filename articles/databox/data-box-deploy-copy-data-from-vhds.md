@@ -1,5 +1,5 @@
 ---
-title: VHD에서 데이터 가져오기 및 Microsoft Azure Data Box를 사용하여 관리 디스크로 복사 | Microsoft Docs
+title: Azure Data Box를 통해 VHD의 데이터를 관리 디스크에 복사하는 자습서 | Microsoft Docs
 description: 온-프레미스 VM 워크로드의 VHD에서 Azure Data Box로 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3284821e0ec65a76b29d5195315136639304e411
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282562"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925469"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 

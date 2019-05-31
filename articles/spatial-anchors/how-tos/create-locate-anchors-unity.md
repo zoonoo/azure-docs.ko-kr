@@ -4,16 +4,16 @@ description: 만들기 및 찾는 방법의 자세한 설명은 Azure 공간 앵
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d1c5f906fef495f7ef1dde5df38a84629a6d6c61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dc86aff7324b79f2c1b7a14b349337fc26a1901
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333652"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244308"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>만들기 및 Azure 공간 앵커를 사용 하 여 Unity에서 앵커를 찾는 방법
 
@@ -190,7 +190,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
     var hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface().HitTest(point, ARHitTestResultType.ARHitTestResultTypeEstimatedHorizontalPlane | ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent);
     if (hitResults.Count > 0)
     {
-        // The hitTest method sorts the resulting list by distance from the camera, increasing
+        // The hitTest method sorts the resulting list by increasing distance from the camera
         // The first hit result will usually be the most relevant when responding to user input
         ARHitTestResult hitResult = hitResults[0];
         hitPosition = UnityARMatrixOps.GetPosition(hitResult.worldTransform);

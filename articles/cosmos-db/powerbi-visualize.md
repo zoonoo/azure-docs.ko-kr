@@ -4,14 +4,14 @@ description: 이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929826"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979003"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
@@ -48,7 +48,7 @@ ms.locfileid: "60929826"
 
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 
-## <a name="lets-get-started"></a>이제 시작하겠습니다.
+## <a name="lets-get-started"></a>시작하기
 이 자습서에서는 전세계 화산을 연구하는 지질학자라고 보겠습니다. 화산 데이터는 Azure Cosmos DB 계정에 저장되며, JSON 문서 형식은 다음과 같습니다.
 
     {

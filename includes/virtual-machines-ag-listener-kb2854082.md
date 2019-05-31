@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262938"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165428"
 ---
 다음으로, 클러스터에서 Windows Server 2008 R2 또는 Windows Server 2012를 실행하는 서버가 있는 경우 각각의 온-프레미스 서버 또는 해당 클러스터에 속하는 Azure VM에 핫픽스 [KB2854082](https://support.microsoft.com/kb/2854082) 가 설치되어 있는지 확인해야 합니다. 클러스터에 있지만 가용성 그룹에 없는 서버 또는 VM에도 이 핫픽스를 설치해야 합니다.
 

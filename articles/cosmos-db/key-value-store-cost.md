@@ -4,15 +4,15 @@ description: 키/값 저장소로 사용될 경우 간단한 쓰기 및 읽기 �
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e81dec7d7556819e60a65a44106426c226c6223d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043289"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236754"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>키 값 저장소로서의 Azure Cosmos DB – 비용 개요
 

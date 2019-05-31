@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785271"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952850"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>메일 일회성 암호 인증(미리 보기)
 
@@ -64,7 +64,7 @@ ms.locfileid: "65785271"
 > 사용자가 일회성 암호를 사용하고 나중에 MSA, Azure AD 계정 또는 기타 페더레이션 계정을 얻을 경우 일회성 암호를 사용하여 계속 인증됩니다. 인증 방법을 업데이트하려면 해당 게스트 사용자 계정을 삭제하고 사용자를 다시 초대하면 됩니다.
 
 ### <a name="example"></a>예
-게스트 사용자 alexdoe@gmail.com이 Google 페더레이션이 설정되지 않은 Fabrikam에 초대되었습니다. Alex는 Microsoft 계정이 없습니다. 인증을 위해 일회성 암호를 받게 됩니다.
+게스트 사용자 alexdoe@gmail.com이 Google 페더레이션이 설정되지 않은 Fabrikam에 초대되었습니다. Alex는 Microsoft 계정이 없습니다. 인증에 대 한 일회용 암호를 받게 됩니다.
 
 ## <a name="opting-in-to-the-preview"></a>미리 보기에 옵트인 
 옵트인 작업을 적용하는 데 몇 분 정도 걸릴 수 있습니다. 적용된 후에는 위의 조건을 충족하는 새로 초대된 사용자만 일회성 암호 인증을 사용합니다. 이전에 초대를 사용한 게스트 사용자는 동일한 인증 방법을 계속 사용합니다.

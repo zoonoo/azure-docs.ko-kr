@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943302"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258178"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>필수 구성 요소를 제공 하는 power BI 앱
 
@@ -29,7 +29,7 @@ ms.locfileid: "64943302"
 
 비즈니스 요구 사항을 절차, 계약 및 법적 의무를 포함 합니다.  다음이 필요합니다.
 
-- 등록된 한 클라우드가 marketplace 게시자 여야 합니다. 단계를 수행 하는 등록 되지 않은 경우 [클라우드 마켓플레이스 게시자가 되려면](../../become-publisher.md)합니다.
+- 등록된 한 클라우드가 marketplace 게시자 여야 합니다. 단계를 수행 하는 등록 되지 않은 경우 [클라우드 마켓플레이스 게시자가 되려면](https://docs.microsoft.com/azure/marketplace/become-publisher)합니다.
 
     > [!NOTE] 
     > 동일한 Microsoft 개발자 센터 등록 계정에 로그인 하는 데는 [클라우드 파트너 포털](https://cloudpartner.azure.com)합니다. AppSource 제안에는 하나의 Microsoft 계정만 있어야 합니다. 계정 개별 서비스 또는 제품에 특정 되지 않습니다.

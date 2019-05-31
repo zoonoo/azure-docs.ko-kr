@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160328"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -215,7 +215,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>액세스 권한 부여
+## <a name="grant-access"></a>액세스 허용
 
 RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 

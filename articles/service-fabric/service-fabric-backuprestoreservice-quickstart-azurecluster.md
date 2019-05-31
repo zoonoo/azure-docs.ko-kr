@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 9bce408215cef540604a72109bc5b29ebc3359e7
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413782"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237374"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric에서 정기적인 백업 및 복원 
 > [!div class="op_single_selector"]
@@ -185,9 +185,6 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
-> [!IMPORTANT]
-> 런타임의 문제로 인해 보존 정책의 보존 기간을 24일 이내로 구성해야 합니다. 그렇지 않으면 백업 복원 서비스가 복제본 장애 조치(Failover) 후 쿼럼 손실 상태가 될 수 있습니다.
-
 ### <a name="enable-periodic-backup"></a>정기적 백업 사용
 애플리케이션의 데이터 보호 요구 사항을 충족하도록 백업 정책을 정의한 후 백업 정책을 애플리케이션과 연결해야 합니다. 요구 사항에 따라 백업 정책을 애플리케이션, 서비스 또는 파티션과 연결할 수 있습니다.
 
@@ -286,10 +283,6 @@ FailureError            :
 ## <a name="limitation-caveats"></a>제한/주의 사항
 - 서비스 패브릭 PowerShell cmdlet 미리 보기 모드의 경우
 - Linux에서 Service Fabric 클러스터에 대한 지원이 없습니다.
-
-## <a name="known-issues"></a>알려진 문제
-- 보존 기간을 24일 이내로 구성했는지 확인합니다. 
-
 
 ## <a name="next-steps"></a>다음 단계
 - [정기 백업 구성 이해](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

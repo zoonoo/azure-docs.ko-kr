@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135290"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       -Settings $publicSettings
     ```
 
-3. 가상 머신을 두 개 더 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. 이름을 입력 *myVM2* 하 고 *myVM3* 집합 AzVMExtension에서 VMName의 값과 이름에 대 한 합니다.
+3. 가상 머신을 두 개 더 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzVMExtension에서 VMName의 이름과 값으로 *myVM2* 및 *myVM3*를 입력합니다.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 

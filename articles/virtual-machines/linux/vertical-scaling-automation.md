@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: singhkay
+ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c959b42086df2df816583ea9d2f8f2fc7a9243fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743592"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966038"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Azure Automation을 사용하여 Azure Linux 가상 컴퓨터를 수직으로 확장
 수직 확장은 워크로드에 응답하여 컴퓨터의 리소스를 늘리거나 줄이는 프로세스입니다. Azure에서는 Virtual Machine의 크기를 변경하여 이를 수행할 수 있습니다. 이는 다음과 같은 시나리오에 유용합니다.

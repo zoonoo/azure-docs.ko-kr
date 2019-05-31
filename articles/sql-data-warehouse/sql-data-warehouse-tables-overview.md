@@ -2,20 +2,20 @@
 title: 테이블 디자인 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 테이블 디자인을 소개합니다.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/15/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1073e1b4ad38c4b05c9195cf4ea16ade7416fbce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474976"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851582"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
@@ -59,7 +59,6 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>임시 테이블
-
 임시 테이블은 세션 기간 동안만 유지됩니다. 다른 사용자가 임시 결과를 보지 못하도록 하고 또한 정리에 대한 필요성을 줄이기 위해 임시 테이블을 사용할 수 있습니다.  임시 테이블은 빠른 성능을 제공하기 위해 로컬 저장소를 활용합니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
 
 ### <a name="external-table"></a>외부 테이블

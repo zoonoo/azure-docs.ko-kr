@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719225"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991441"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -177,7 +177,7 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 #### <a name="availability"></a>가용성
 
-|이름|상태|데이터 센터
+|Name|상태|데이터 센터
 |---|---|---|
 |Standard|GA|모두|
 |Premium|GA|모두|
@@ -197,7 +197,7 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
 |미디어 인코더 표준|GA|모두|
-|미디어 인코더 Premium 워크플로|GA|중국을 제외한 모든 지역|
+|Media Encoder Premium Workflow|GA|중국을 제외한 모든 지역|
 
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
 
@@ -208,7 +208,6 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
 |Azure 미디어 얼굴 탐지기|미리 보기|모두|
-|Azure 미디어 Hyperlapse|미리 보기|모두|
 |Azure Media Indexer|GA|모두|
 |Azure 미디어 동작 탐지기|미리 보기|모두|
 |Azure 미디어 OCR|미리 보기|모두|

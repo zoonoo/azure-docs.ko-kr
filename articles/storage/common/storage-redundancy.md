@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789989"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002816"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
 Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. Azure Storage는 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되었거나 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 데이터를 복사합니다. 동일한 데이터 센터, 동일한 지역 내의 영역 데이터 센터 또는 지리적으로 분리된 지역 간에 데이터를 복제하도록 선택할 수 있습니다.
 
 복제를 사용하면 스토리지 계정은 오류 상황에서도 [Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
+
+Azure Storage는 정기적으로 순환 중복 검사 (Crc)를 사용 하 여 저장 된 데이터의 무결성을 확인 합니다. 데이터 손상이 발견 되는 경우 중복 데이터를 사용 하 여 복구 합니다. Azure Storage는 또한 저장 하거나 데이터를 검색 하는 경우 데이터 패킷 손상 감지를 모든 네트워크 트래픽을 체크섬을 계산 합니다.
 
 ## <a name="choosing-a-redundancy-option"></a>중복 옵션 선택
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682121"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896856"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor에서 azure AD 활동 로그
 
@@ -107,6 +107,23 @@ Azure AD 라이선스가 이미 있는 경우 저장소 계정 및 이벤트 허
 | 로그인 | 1,000 | 178 | 53,400 | 106.8MB&nbsp; | 418 | 3,611,520 | $11.06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor 로그 비용 고려 사항
+
+
+
+| 로그 범주       | 사용자 수 | 일간 이벤트 수 | 이벤트 / 월 (30 일) | (동부 표준시) USD에서 월별 비용 |
+| :--                | ---             | ---            | ---                        | --:                          |
+| 감사 및 로그인 | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| 감사              | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| 로그인           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
+
+
+
+
+
+
+
+
+
 
 Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monitor 로그에서 데이터 볼륨 및 보존을 제어하여 비용 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage)를 참조하세요.
 

@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 57a1e9ad6bf377fa5148a4d5c716be00db786c84
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136843"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>CLI를 사용하여 스토리지 계정에 App Service 앱 연결
 

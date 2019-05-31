@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/19/2019
-ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 36f3d421ee0b41a0ff71b549a4d4b5646188c3fa
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696539"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417344"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 만들기
 
-Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine Learning 서비스 작업 영역**](concept-azure-machine-learning-architecture.md#workspace)합니다.  이 작업 영역은 서비스에 대 한 최상위 수준 리소스 이며 만든 모든 아티팩트를 작업할 수 있는 중앙된 위치를 제공 합니다. 
+Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine Learning 서비스 작업 영역**](concept-workspace.md)합니다.  이 작업 영역은 서비스에 대 한 최상위 수준 리소스 이며 만든 모든 아티팩트를 작업할 수 있는 중앙된 위치를 제공 합니다. 
 
 이 문서에서는 이러한 방법 중 하나를 사용 하 여 작업 영역을 만드는 방법 알아보기: 
 * 합니다 [Azure portal](#portal) 인터페이스
@@ -33,7 +33,7 @@ Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine
 
 작업 영역을 만든 다음 Azure 리소스를 자동으로 (지역적으로 사용 가능한 경우) 추가 됩니다.
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): ACR은 비용을 최소화 하려면 **지연 로드** 배포 이미지를 만들 때까지 합니다.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
@@ -168,7 +168,7 @@ Python SDK를 사용하여 Jupyter Notebook에서 작업 영역을 만듭니다.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-이 `write_config()` API 호출은 현재 디렉터리에 구성 파일을 만듭니다. *config.json* 파일에는 다음 항목이 포함되어 있습니다.
+이 `write_config()` API 호출은 현재 디렉터리에 구성 파일을 만듭니다. 합니다 *.azureml/config.json* 파일에는 다음이 포함 됩니다.
 
 ```json
 {

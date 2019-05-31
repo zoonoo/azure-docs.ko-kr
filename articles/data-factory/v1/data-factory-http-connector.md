@@ -53,7 +53,7 @@ ms.locfileid: "60318481"
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 | **type** 속성은 **Http**로 설정해야 합니다. | 예. |
+| type | **type** 속성은 **Http**로 설정해야 합니다. | 예. |
 | url | 웹 서버의 기본 URL입니다. | 예. |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 문서의 이후 섹션을 참조하세요. | 예. |
 | enableServerCertificateValidation | 소스가 HTTPS 웹 서버인 경우 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 **false**로 설정합니다. | 아닙니다.<br /> (기본값: **true**) |
@@ -68,7 +68,7 @@ ms.locfileid: "60318481"
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 사용자 이름 | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예. |
+| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예. |
 | password | 사용자(**username**)의 암호입니다. | 예. |
 
 **예제: Basic, Digest 또는 Windows 인증 사용**
@@ -160,13 +160,13 @@ ms.locfileid: "60318481"
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | 예. |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 아닙니다. |
+| type | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | 예. |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | 아닙니다. |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST**입니다. | 아닙니다. <br />(기본값: **GET**) |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아닙니다. |
 | requestBody | HTTP 요청의 본문입니다. | 아닙니다. |
-| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 그대로 검색하려면 **format** 설정을 건너뜁니다. <br><br> 복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format)을 참조하세요. |아닙니다. |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
+| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 그대로 검색하려면 **format** 설정을 건너뜁니다.  <br><br> 복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format)을 참조하세요. |아닙니다. |
+| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
 
 **예제: GET(기본) 메서드 사용**
 
@@ -231,7 +231,7 @@ ms.locfileid: "60318481"
 
 ## <a name="json-examples"></a>JSON 예
 
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [지원되는](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 싱크로 직접 데이터를 복사할 수 있습니다.
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공하며, HTTP 소스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 [지원되는](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 싱크로 직접 데이터를 복사할 수 있습니다. 
 
 **예제: HTTP 소스에서 Azure Blob Storage로 데이터 복사**
 

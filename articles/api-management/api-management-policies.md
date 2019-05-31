@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786438"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254394"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.  
@@ -39,12 +39,15 @@ ms.locfileid: "65786438"
     -   [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) - 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.  
 -   [고급 정책](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [제어 흐름](api-management-advanced-policies.md#choose) - 부울 식의 평가 결과에 따라 정책 문을 조건부로 적용합니다.  
-    -   [요청 전달](api-management-advanced-policies.md#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.  
-    -   [이벤트 허브에 기록](api-management-advanced-policies.md#log-to-eventhub) - 로거 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.  
+    -   [요청 전달](api-management-advanced-policies.md#ForwardRequest) - 백 엔드 서비스에 요청을 전달합니다.
+    -   [동시성 제한](api-management-advanced-policies.md#LimitConcurrency) - 지정된 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다.
+    -   [이벤트 허브에 기록](api-management-advanced-policies.md#log-to-eventhub) - 로거 엔터티가 정의한 메시지 대상에 지정된 형식으로 메시지를 보냅니다.
+    -   [모의 응답](api-management-advanced-policies.md#mock-response) - 파이프라인 실행을 중단하고 호출자에게 직접 모의 응답을 반환합니다.
     -   [다시 시도](api-management-advanced-policies.md#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.  
     -   [응답 반환](api-management-advanced-policies.md#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.  
     -   [단방향 요청 전송](api-management-advanced-policies.md#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.  
-    -   [요청 전송](api-management-advanced-policies.md#SendRequest) - 지정된 URL로 요청을 보냅니다.  
+    -   [요청 전송](api-management-advanced-policies.md#SendRequest) - 지정된 URL로 요청을 보냅니다.
+    -   [HTTP 프록시 설정](api-management-advanced-policies.md#SetHttpProxy) - HTTP 프록시를 통해 전달되는 요청을 라우팅할수 있습니다.
     -   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 context 변수의 값을 유지합니다.  
     -   [요청 메서드 설정](api-management-advanced-policies.md#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
     -   [상태 코드 설정](api-management-advanced-policies.md#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.  

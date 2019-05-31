@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449600"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601564"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
@@ -35,7 +35,7 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 애�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 - [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
@@ -59,11 +59,11 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
     ![시간 범위 변경](media/tutorial-users/TimeRange.png)
 
-4. **분할 기준** 드롭다운을 클릭하여 그래프에 사용자 속성으로 분석을 추가합니다.  **국가 또는 지역**을 선택합니다.  그래프는 동일한 데이터를 포함하지만 각 국가에 대한 사용자 수의 분석을 볼 수 있습니다.
+4. **분할 기준** 드롭다운을 클릭하여 그래프에 사용자 속성으로 분석을 추가합니다.  **국가 또는 지역**을 선택합니다.  그래프는 동일한 데이터를 포함하지만 각 국가/지역에 대한 사용자 수의 분석을 볼 수 있습니다.
 
     ![국가 또는 지역 그래프](media/tutorial-users/CountryorRegion.png)
 
-5. 차트의 다른 막대 위로 커서를 배치하고 각 국가에 대한 수가 해당 막대로 표시된 시간 창만 반영하는지 확인합니다.
+5. 차트의 다른 막대 위로 커서를 배치하고 각 국가/지역에 대한 수가 해당 막대로 표시된 시간 창만 반영하는지 확인합니다.
 6. 사용자 데이터에 대한 분석을 수행하는 오른쪽의 **Insights** 열을 살펴봅니다.  기간에 따른 고유한 세션 수 및 중요한 사용자 데이터를 구성하는 공용 속성이 있는 레코드와 같은 정보를 제공합니다. 
 
     ![Insights 열](media/tutorial-users/insights.png)

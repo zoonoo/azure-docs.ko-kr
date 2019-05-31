@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500943"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916916"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -46,7 +46,7 @@ ms.locfileid: "59500943"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 활성화된 Visual Studio 2015 또는 [Visual Studio 2017](https://www.visualstudio.com/vs/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상 합니다 ['를 사용한 데스크톱 개발 C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 작업을 사용 하도록 설정 합니다.
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

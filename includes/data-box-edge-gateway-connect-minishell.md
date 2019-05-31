@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556295"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161193"
 ---
 장치에 원격으로 연결 하는 절차는 클라이언트의 운영 체제에 따라 다릅니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "57556295"
 Windows 클라이언트에서 원격으로 연결 하려면 다음이 단계를 따릅니다.
 
 1. 관리자 권한으로 Windows PowerShell 세션을 실행 합니다.
-2. 클라이언트에서 Windows Remote Management 서비스가 실행 되 고 있는지 확인 합니다. 명령 프롬프트에 다음을 입력합니다.
+2. 클라이언트에서 Windows Remote Management 서비스가 실행 되 고 있는지 확인 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
     `winrm quickconfig`
 

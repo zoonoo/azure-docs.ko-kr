@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152655"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -110,7 +110,7 @@ Azure-SSIS 통합 런타임에서 조인된 가상 네트워크에서 고유한 
 ### <a name="nsg"></a> 네트워크 보안 그룹
 Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다. 
 
-| 방향 | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 설명 |
+| Direction | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 설명 |
 |---|---|---|---|---|---|---|
 | 인바운드 | TCP | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | * | VirtualNetwork | 29876, 29877(IR을 Azure Resource Manager 가상 네트워크에 조인하는 경우) <br/><br/>10100, 20100, 30100(IR을 클래식 가상 네트워크에 조인하는 경우)| Data Factory 서비스는 이러한 포트를 사용하여 가상 네트워크의 Azure-SSIS 통합 런타임 노드와 통신합니다. <br/><br/> 서브넷 수준 NSG를 만들든 그렇지 않든, Data Factory는 Azure-SSIS IR을 호스트하는 가상 머신에 연결된 NIC(네트워크 인터페이스 카드)의 수준에서 항상 NSG를 구성합니다. 지정된 포트에서 Data Factory IP 주소의 인바운드 트래픽만 해당 NIC 수준 NSG에서 허용됩니다. 서브넷 수준에서 인터넷 트래픽에 대해 이러한 포트를 여는 경우라도 Data Factory IP 주소가 아닌 IP 주소에서의 트래픽은 NIC 수준에서 차단됩니다. |
 | 아웃바운드 | TCP | VirtualNetwork | * | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | 443 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |

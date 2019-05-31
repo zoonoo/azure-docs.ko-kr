@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: msmbaldwin
 ms.service: security
 ms.topic: include
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/17/2019
+ms.author: mbaldwin
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461410"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114723"
 ---
 보안 특성을 품질 또는 예방, 감지 및 보안 취약성에 대응 하는 서비스의 기능에 영향을 주는 Azure 서비스의 기능입니다.
 

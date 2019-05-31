@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723632"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956311"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -34,7 +34,7 @@ ms.locfileid: "64723632"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 여기서 ![화살표](./media/api-management-howto-aad/arrow.png).
+2. 선택 ![화살표](./media/api-management-howto-aad/arrow.png).
 3. 검색 상자에 **api**를 입력합니다.
 4. **API Management 서비스**를 선택합니다.
 5. API Management 서비스 인스턴스를 선택합니다.
@@ -61,21 +61,22 @@ ms.locfileid: "64723632"
 14.  응용 프로그램을 등록 한 후 복사 합니다 **(클라이언트) 응용 프로그램 ID** 에서 합니다 **개요** 페이지입니다. 
 15. API Management 인스턴스를 다시 돌아갑니다. 에 **id 공급자 추가** 창에 붙여 넣습니다를 **(클라이언트) 응용 프로그램 ID** 값을 **클라이언트 ID** 상자.
 16. Azure AD 구성에서는 선택으로 전환 **인증서 및 비밀** 아래에서 **관리**합니다. 선택 된 **새 클라이언트 암호** 단추입니다. 에 값을 입력 **설명을**에 대 한 옵션을 선택 **Expires** 선택한 **추가**합니다. 페이지를 나가기 전에 클라이언트 비밀 값을 복사 합니다. 이는 다음 단계에서 필요합니다. 
-17. API Management 인스턴스로 돌아가서, 암호를 붙여 넣고 합니다 **클라이언트 암호** 상자입니다.
+17. 아래 **관리**를 선택 **인증** 선택한 후 **ID 토큰** 아래 **암시적 권한 부여**
+18. API Management 인스턴스로 돌아가서, 암호를 붙여 넣고 합니다 **클라이언트 암호** 상자입니다.
 
     > [!IMPORTANT]
     > 키가 만료되기 전에 **클라이언트 암호**를 업데이트해야 합니다. 
     >  
     >
 
-18. **ID 공급자 추가** 창에는 **허용된 테넌트** 텍스트 상자도 포함됩니다. 여기에서 API Management 서비스 인스턴스의 API에 대한 액세스 권한을 부여하려는 Azure AD 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
+19. **ID 공급자 추가** 창에는 **허용된 테넌트** 텍스트 상자도 포함됩니다. 여기에서 API Management 서비스 인스턴스의 API에 대한 액세스 권한을 부여하려는 Azure AD 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
 
 > [!NOTE]
 > **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 애플리케이션이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 애플리케이션에 권한을 부여해야 합니다. 전역 관리자는 권한을 부여 하려면:를 합니다. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent)로 이동합니다.
 > b. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
 > 다. **제출**을 선택합니다. 
 
-19.  원하는 구성을 지정한 후에 **추가**를 선택합니다.
+20.  원하는 구성을 지정한 후에 **추가**를 선택합니다.
 
 변경 내용이 저장되면 지정된 Azure AD 인스턴스의 사용자는 [Azure AD 계정을 사용하여 개발자 포털에 로그인](#log_in_to_dev_portal)의 단계를 수행하여 개발자 포털에 로그인할 수 있습니다.
 

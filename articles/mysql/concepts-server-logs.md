@@ -36,7 +36,7 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우. 기본값은 10초입니다.
+- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
 - **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
 - **log_throttle_queries_not_using_indexes**: 이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 인덱스가 아닌 쿼리 수의 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.

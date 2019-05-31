@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524262"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072845"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
@@ -59,7 +59,7 @@ Are there any SQL server jobs?
 
 1. 에 예제 utterance에는 **의도** 페이지에서 새 목록에 단어나 구를 선택 합니다. 엔터티 드롭다운 목록에 표시 되 면 상위 텍스트 상자에 새 목록 엔터티의 이름을 입력 하 고 선택 **새 엔터티 만들기**합니다.   
 
-1. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.) 팝업 상자에서 엔터티 이름을 지정하고 형식으로 **목록**을 선택합니다. 이 목록 항목의 동의어를 추가하고 **완료**를 선택합니다. 
+1. **What type of entity do you want to create?** (만들려는 엔터티 형식을 선택하세요.) 팝업 상자에서 엔터티 이름을 지정하고 형식으로 **목록**을 선택합니다. 이 목록 항목의 동의어를 추가하고 **완료**를 선택합니다. 
 
     ![목록 엔터티 동의어를 입력하는 스크린샷](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
@@ -81,32 +81,13 @@ Utterance, 가정 `Does John Smith work in Seattle?`, 복합 utterance 직원 �
 
     엔터티를 올바르게 래핑하면 전체 구 아래에 녹색 줄이 표시됩니다.
 
-1. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.) 팝업 상자에서 복합 엔터티 세부 정보가 유효한지 확인하고 **완료**를 선택합니다.
+1. **What type of entity do you want to create?** (만들려는 엔터티 형식을 선택하세요.) 팝업 상자에서 복합 엔터티 세부 정보가 유효한지 확인하고 **완료**를 선택합니다.
 
     ![엔터티 세부 정보 팝업 스크린샷](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
 1. 복합 엔터티는 개별 엔터티는 파란색으로 강조되고 전체 복합 엔터티에는 녹색 밑줄이 표시됩니다. 
 
     ![복합 엔터티를 포함하는 의도 세부 정보 페이지 스크린샷](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
-
-## <a name="add-hierarchical-entity"></a>계층적 엔터티 추가
-
-**계층적 엔터티는 결국 사용 중단 됩니다. 사용 하 여 [엔터티 역할](luis-concept-roles.md) 계층적 엔터티 대신 엔터티 하위 형식 확인 하려면.**
-
-계층 구조 엔터티는 컨텍스트에 따라 학습되고 개념적으로 관련이 있는 엔터티의 범주입니다. 다음 예제에서는 엔터티에는 출발지 및 목적지 위치가 포함되어 있습니다. 
-
-발언 `Move John Smith from Seattle to Cairo`에서 Seattle은 출발지 위치이고 Cairo는 목적지 위치입니다. 각 위치는 컨텍스트가 다르며, 발언의 단어 순서 및 단어 선택에서 학습됩니다.
-
-1. 의도 페이지의 발언에서 `Seattle`을 선택하고 엔터티 이름 `Location`을 입력한 후 키보드에서 Enter 키를 선택합니다.
-
-1. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.) 팝업 상자에서 **엔터티 형식**으로 _계층 구조_를 선택하고 `Origin` 및 `Destination`을 자식으로 추가한 후 **완료**를 선택합니다.
-
-    ![ToLocation 엔터티가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. 발언의 단어는 부모 계층 구조 엔터티로 레이블이 지정되었습니다. 자식 엔터티에 해당 단어를 할당해야 합니다. 의도 세부 정보 페이지를 utterance를 반환 합니다. 해당 단어를 선택하고 드롭다운 목록에서 만든 엔터티 이름을 선택한 후, 오른쪽 메뉴에 따라 올바른 자식 엔터티를 선택합니다.
-
-    >[!CAUTION]
-    >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
 
 ## <a name="add-entitys-role-to-utterance"></a>Utterance 엔터티의 역할 추가
 
@@ -143,9 +124,6 @@ LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오�
 |레이블이 지정되지 않은 텍스트|빨간색 밑줄|잘못된 예측|모든 의도에서 이 잘못된 엔터티를 사용하는 현재 발언을 검토해야 합니다. 현재 발언이 이 텍스트가 예측 엔터티라고 LUIS에 잘못 알려주었습니다.
 |올바르게 레이블이 지정된 텍스트|파란색 엔터티 강조 표시, 빨간색 밑줄|잘못된 예측|다양한 위치 및 사용 현황에서 레이블이 올바르게 지정된 엔터티를 더 많이 제공합니다. LUIS에 이 엔터티가 바로 그 엔터티라고 알려주기에는 현재 발언이 충분하지 않거나 비슷한 엔터티가 동일한 컨텍스트에서 나타납니다. LUIS가 혼동하지 않도록 비슷한 엔터티를 단일 엔터티로 결합해야 합니다. 또 다른 방법은 단어의 중요성을 높이는 구 목록을 추가하는 것입니다. |
 |레이블이 잘못 지정된 텍스트|파란색 엔터티 강조 표시, 빨간색 밑줄|올바른 예측| 다양한 위치 및 사용 현황에서 레이블이 올바르게 지정된 엔터티를 더 많이 제공합니다. 
-
-> [!Note]
-> 빨간색 상자가 예제 utterance의 행에 레이블이 지정 된 의도 하는 경우는 [의도 예측 오차](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) 발생 했습니다. 수정 해야 합니다. 
 
 ## <a name="other-actions"></a>다른 작업
 

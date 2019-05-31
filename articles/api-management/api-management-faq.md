@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793308"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357262"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -39,7 +39,7 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 * [단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [API Management와 함께 SOAP를 사용할 수 있습니까?](#can-i-use-soap-with-api-management)
 * [API Management 게이트웨이 IP 주소가 상수입니까? 그것을 방화벽 규칙에 사용할 수 있습니까?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?
+* [AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [여러 지리적 위치에 배포할 때 API Management에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있습니까?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -137,7 +137,7 @@ API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라
 [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend)(새로운 백 엔드) 또는 [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend)(기존 백 엔드) PowerShell cmdlet을 사용하고 `-SkipCertificateChainValidation` 매개 변수를 `True`로 설정할 수 있습니다. 
 
 ```powershell
-$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 

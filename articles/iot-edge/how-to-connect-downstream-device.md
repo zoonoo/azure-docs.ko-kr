@@ -172,7 +172,7 @@ C용 Azure IoT 디바이스 SDK는 클라이언트를 설정할 때 CA 인증서
 
 Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하지 않는 경우 SDK는 기본적으로 Schannel를 사용합니다. Schannel이 작동하려면 IoT Edge 루트 CA 인증서를 `IoTHubDeviceClient_SetOption` 작업을 사용하여 설정하지 않고 Windows 인증서 스토리지에 설치해야 합니다. 
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 이 섹션에서는 Azure IoT Java 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. 
 

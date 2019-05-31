@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416023"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833130"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 주소 168.63.129.16
 
@@ -38,7 +38,7 @@ IP 주소 168.63.129.16은 Azure 플랫폼 리소스에 대한 통신 채널을 
 
 [Azure Load Balancer 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 이 IP 주소에서 시작 합니다. 이 IP 주소를 차단 하는 경우에 프로브 실패 합니다.
 
-비가상 네트워크 시나리오에서 상태 프로브에서 개인 IP를 원본으로 사용 되 고 168.63.129.16 사용 되지 않습니다.
+가상 네트워크 (클래식) 시나리오에서는 상태 프로브는 개인 IP에서 소싱 된 및 168.63.129.16 사용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

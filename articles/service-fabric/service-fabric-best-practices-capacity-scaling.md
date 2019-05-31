@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235771"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258747"
 ---
 # <a name="capacity-planning-and-scaling"></a>용량 계획 및 크기 조정
 
@@ -70,6 +70,9 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하�
 2. `Get-ServiceFabricNode`를 실행하여 노드가 사용하지 않도록 전환되었는지 확인합니다. 그렇지 않은 경우 노드가 사용되지 않도록 설정될 때까지 기다립니다. 각 노드별로 몇 시간씩 기다려야 할 수 있습니다. 노드가 사용 안 함 상태로 전환될 때까지는 다음 단계를 진행하지 마세요.
 3. 해당 노드 형식의 VM 수를 1개 줄입니다. 그러면 번호가 가장 큰 VM 인스턴스가 제거됩니다.
 4. 필요에 따라 1~3단계를 반복하되, 주 노드 형식의 인스턴스 수를 안정성 계층이 경고하는 크기보다 작게 줄이지 않아야 합니다. 권장 인스턴스 목록은 [Service Fabric 클러스터 용량 계획](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)을 참조하세요.
+
+> [!NOTE]
+> 세로 크기 조정 작업을 수행 하는 경우 지원 되는 시나리오는 다음과 같습니다. I 수 내 Service Fabric 클러스터 및 응용 프로그램 관리 되지 않는 디스크에서 Managed Disks로 마이그레이션 응용 프로그램 가동 중지 시간 없이 합니다. 새 가상 컴퓨터를 프로 비전 하 여 managed disks를 사용 하 여 확장 집합 및 배치 제약 조건을 사용 하 여 응용 프로그램 업그레이드는 수행 대상으로 하는 프로 비전 된 용량입니다. Service Fabric 클러스터 응용 프로그램 가동 중지 시간 없이 업그레이드 도메인에서 롤아웃 되는 프로 비전 된 클러스터 노드 용량에 작업을 예약할 수 있습니다. [Azure 부하 분산 장치 기본 SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) 백 엔드 풀 끝점에는 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 컴퓨터 일 수 있습니다. 즉, Service Fabric 시스템 응용 프로그램 확장 집합 간에 이동 하는 경우에 기본 SKU 부하 분산 장치를 사용할 수 없습니다, 그리고 서비스 패브릭의 임시 인해 발생 하지 않고 클러스터 관리 끝점에도 클러스터 및 해당 응용 프로그램 계속 실행 됩니다. 일반적으로 사용자는 기본 SKU LB 및 표준 SKU LB 리소스 사이의 가상 IP 주소 (VIP) 교체를 수행 하는 경우 표준 SKU 부하 분산 장치를 프로 비전, 향후 모든 약 완화 하기 위해 30 초 때문 인해 VIP를 교환 하는 데 필요한 합니다.
 
 ## <a name="horizontal-scaling"></a>수평적 크기 조정
 

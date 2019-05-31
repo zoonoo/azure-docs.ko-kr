@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942231"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257549"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Azure Marketplace 및 AppSource 게시자 프로필 관리
 
@@ -49,7 +49,7 @@ ms.locfileid: "64942231"
 > [!NOTE]
 > 개발자 센터 계정 등록 유료 marketplace Sku 게시를 위해 반드시 필요 합니다.
 
-에 설명 된 대로 계정 개발자 센터 계정이 없는 경우 만들 수 있습니다 [개발자 센터에 등록](../../register-dev-center.md)합니다.  그런 다음, 제품에 대한 Cloud 파트너 포털에서 소유자로 등록된 이메일 주소를 추가합니다. 소유자만 **사용자** 섹션에서 게시 프로필에 등록된 전자 메일 주소를 추가할 수 있습니다. 그런 후 동일한 전자 메일 주소를 사용하여 포털에 로그인하고 개발자 센터 계정을 연결합니다.
+에 설명 된 대로 계정 개발자 센터 계정이 없는 경우 만들 수 있습니다 [개발자 센터에 등록](https://docs.microsoft.com/azure/marketplace/register-dev-center)합니다.  그런 다음, 제품에 대한 Cloud 파트너 포털에서 소유자로 등록된 이메일 주소를 추가합니다. 소유자만 **사용자** 섹션에서 게시 프로필에 등록된 전자 메일 주소를 추가할 수 있습니다. 그런 후 동일한 전자 메일 주소를 사용하여 포털에 로그인하고 개발자 센터 계정을 연결합니다.
 
 ![게시자 프로필 세부 정보 - 게시자 프로필 설명](./media/publisherprofiledescription.png)
 

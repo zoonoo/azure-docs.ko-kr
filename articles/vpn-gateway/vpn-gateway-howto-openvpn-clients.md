@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274675"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989096"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN Gateway(미리 보기)에 대해 OpenVPN 클라이언트 구성
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성
 
 이 문서를 통해 구성한 **OpenVPN® 프로토콜** 클라이언트입니다.
-
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -138,6 +134,6 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 
 ## <a name="next-steps"></a>다음 단계
 
-VPN 클라이언트 (프로덕션) 다른 VNet의 리소스에 액세스할 수 있게 되기를 원하는 경우 다음의 지침에 따라 합니다 [VNet 대 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) vnet 대 vnet 연결을 설정 하는 문서입니다. 게이트웨이 및 연결에서 BGP를 사용하도록 설정해야 합니다. 그렇지 않으면 트래픽이 흐르지 않습니다.
+다른 VNet의 리소스에 액세스 하려면 VPN 클라이언트를 하려는 경우 다음의 지침에 따라 합니다 [VNet 대 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) vnet 대 vnet 연결을 설정 하는 문서입니다. 게이트웨이 및 연결에서 BGP를 사용하도록 설정해야 합니다. 그렇지 않으면 트래픽이 흐르지 않습니다.
 
 **"OpenVPN"는 OpenVPN i n c.의 상표**

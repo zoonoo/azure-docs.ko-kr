@@ -4,15 +4,15 @@ description: Azure Cosmos DB 예약 용량을 구매하여 계산 비용을 절�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7944980ec1806d2c8c4ab908c71efd971ee0d7aa
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892100"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968960"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 

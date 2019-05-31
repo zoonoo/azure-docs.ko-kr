@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176619"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603450"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
@@ -45,7 +45,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
+* .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발용 작업이 포함된 [Visual Studio 2019](https://www.visualstudio.com/vs/)
 * 컴퓨터에 [EventHubsCaptureEventGridDemo 샘플 프로젝트](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)를 다운로드합니다.
 
 ## <a name="deploy-the-infrastructure"></a>인프라 배포
@@ -196,7 +196,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 
 ## <a name="publish-the-azure-functions-app"></a>Azure Functions 앱 게시
 
-1. Visual Studio 2017을 시작합니다. 
+1. Visual Studio를 시작합니다.
 2. [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)에서 필수 구성 요소의 일부로 다운로드한 **EventHubsCaptureEventGridDemo.sln** 솔루션을 엽니다.
 3. 솔루션 탐색기에서 **FunctionEGDWDumper**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 

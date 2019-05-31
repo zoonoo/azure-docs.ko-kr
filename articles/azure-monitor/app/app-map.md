@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780027"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964032"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -94,7 +94,9 @@ ms.locfileid: "65780027"
 
 응용 프로그램 맵을 사용 하는 **클라우드 역할 이름** 맵에서 구성 요소를 식별 하는 속성입니다. Application Insights SDK 구성 요소에서 내보낸 원격 분석에 클라우드 역할 이름 속성을 자동으로 추가 합니다. 예를 들어, SDK 클라우드 역할 이름 속성에는 웹 사이트 이름 또는 서비스 역할 이름을 추가 합니다. 그러나 기본값을 대체할 수 있는 경우가 있습니다. 클라우드 역할 이름 재정의 및 Application Map에 표시 되는 내용 변경:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**아래와 같이 사용자 지정 TelemetryInitializer를 작성 합니다.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**이니셜라이저 로드**
+**활성 TelemetryConfiguration 이니셜라이저 로드**
 
-ApplicationInsights.config에서:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -131,7 +133,10 @@ ApplicationInsights.config에서:
     </ApplicationInsights>
 ```
 
-또는 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
+> [!NOTE]
+> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` ASP.NET Core 응용 프로그램에 적합 하지 않습니다.
+
+ASP.NET 웹 앱에 대 한 대체 방법을 Global.aspx.cs에서 예를 들어 코드에서 이니셜라이저를 인스턴스화하는:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ ApplicationInsights.config에서:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 
@@ -165,7 +181,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 

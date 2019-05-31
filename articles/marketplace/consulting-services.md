@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938304"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964124"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -80,7 +80,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 다른 국가/지역에 대 한 카탈로그 라이브 의미 있는 지나면 되 고 경쟁력 있는 서비스 제품의 엄선 된 파트너가 제출 있고 Microsoft에서 승인 합니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법
-먼저 Marketplace에서 회사 정보를 [등록](https://azuremarketplace.microsoft.com/sell/signup)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
 
 **등록 후 예상 결과** 온보딩 팀이 영업일 기준 1~3일 이내에 CPP(Cloud 파트너 포털) 로그인 정보를 포함하는 환영 이메일로 연락을 드립니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)은 게시자가 목록 정보 및 제안을 제출하는 제품 목록 포털입니다. 
 

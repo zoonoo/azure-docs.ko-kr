@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25797c15a821579cd15333cdd833e491acbd0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 55c1a2a56743b53d6d5932665be0c45e1ac9b9b3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546112"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596042"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>빠른 시작: Bing Autosuggest REST API 및 C#으로 검색 쿼리 제안
 
@@ -23,7 +23,7 @@ ms.locfileid: "57546112"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]

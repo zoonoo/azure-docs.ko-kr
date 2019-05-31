@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406718"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory 통합
 
@@ -126,10 +126,10 @@ Leapsome에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     | Name | 원본 특성 | 네임스페이스 |
     | ---------------| --------------- | --------- |  
-    | firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | picture | 직원의 그림에 대한 URL | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | picture | 직원의 그림에 대한 URL | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="create-leapsome-test-user"></a>Leapsome 테스트 사용자 만들기
 
-이 섹션에서는 Leapsome에서 Britta Simon이라는 사용자를 만듭니다. [Leapsome 지원 팀](mailto:support@leapsome.com)과 협력하여 Leapsome 플랫폼의 허용 목록에 포함하는 데 필요한 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Leapsome 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Leapsome에서 Britta Simon이라는 사용자를 만듭니다. [Leapsome 클라이언트 지원 팀](mailto:support@leapsome.com)과 협력하여 Leapsome 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Leapsome 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

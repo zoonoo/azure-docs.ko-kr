@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591818"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992105"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Node.js에서 Service Bus 토픽 및 구독을 사용하는 방법
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>사용 하 여 Service Bus 토픽 및 구독 Node.js 및 azure sb 패키지와 함께 하는 방법
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+이 자습서에서는 Service Bus 토픽에 메시지를 보내고 사용 하 여 Service Bus 구독에서 메시지를 수신 하는 Node.js 응용 프로그램을 만드는 방법을 배웁니다 합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지 있습니다. 샘플은 JavaScript로 작성 되었으며 Node.js를 사용 하 여 [Azure 모듈](https://www.npmjs.com/package/azure) 내부적으로 사용 하는 `azure-sb` 패키지 있습니다.
 
-이 가이드에서는 Node.js 애플리케이션에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
+합니다 [azure-sb](https://www.npmjs.com/package/azure-sb) 사용 하 여 패키지 [Service Bus REST 런타임 Api](/rest/api/servicebus/service-bus-runtime-rest)합니다. New를 사용 하는 빠른 경험을 얻을 수 있습니다 [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) 패키지는 더 빨리 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)합니다. 새 패키지에 대 한 자세한 내용은를 참조 하세요. [Node.js를 사용 하 여 Service Bus 토픽 및 구독을 사용 하는 방법 및 @azure/service-bus 패키지](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), 그렇지 않은 읽기를 사용 하는 방법을 알아보려면 계속 진행 합니다 [azure](https://www.npmjs.com/package/azure) 패키지 합니다.
+
+여기에서 다루지 시나리오에는 다음이 포함 됩니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -36,8 +41,8 @@ ms.locfileid: "60591818"
 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
+- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+- 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
 
     > [!NOTE]
     > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Node.js** 이 빠른 시작 합니다. 
@@ -82,7 +87,7 @@ Azure 클라우드 서비스의 환경 변수 설정 예제는 [환경 변수 �
 
 
 
-## <a name="create-a-topic"></a>토픽 만들기
+## <a name="create-a-topic"></a>주제 만들기
 **ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하십시오.
 
 ```javascript
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> 사용 하 여 Service Bus 리소스를 관리할 수 있습니다 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)합니다. Service Bus 탐색기를 사용 하면 Service Bus 네임 스페이스에 연결 하 고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스에서 notification hubs 및 이벤트 허브를 테스트할 수와 같은 고급 기능을 제공 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.

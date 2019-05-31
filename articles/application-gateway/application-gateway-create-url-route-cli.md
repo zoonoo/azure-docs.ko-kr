@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135722"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI를 사용하는 URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -242,7 +242,7 @@ URL을 변경 `http://<ip-address>:8080/video/test.html` 다음과 같이 표시
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정

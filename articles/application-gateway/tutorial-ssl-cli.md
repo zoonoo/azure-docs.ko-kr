@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753081"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955691"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 SSL 종료로 애플리케이션 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Azure CLI를 사용하여 SSL 종료로 애플리케이션 게이트웨이 만들기
 
 Azure CLI를 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](ssl-overview.md)용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
@@ -29,17 +29,17 @@ Azure CLI를 사용하여 백엔드 서버에 [가상 머신 확장 집합](../v
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-원하는 경우 [Azure PowerShell](tutorial-ssl-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+원하는 경우 [Azure PowerShell](tutorial-ssl-powershell.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 openssl 명령을 사용하여 자체 서명된 인증서 및 pfx 파일을 만듭니다.
+프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 문서에서는 openssl 명령을 사용하여 자체 서명된 인증서 및 pfx 파일을 만듭니다.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서는 URL이 **https://52.170.203.149**입니다.
+공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서는 URL이 **https://52.170.203.149** 입니다.
 
 ![보안 경고](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기](./tutorial-multiple-sites-cli.md)
+* [여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기](./tutorial-multiple-sites-cli.md)

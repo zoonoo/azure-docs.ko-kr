@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213112"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137513"
 ---
 _로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;deploymentLocalGitUrl-from-create-step>_ 을 [웹앱 만들기](#create-a-web-app)에 저장된 Git 원격의 URL로 바꿉니다.
 

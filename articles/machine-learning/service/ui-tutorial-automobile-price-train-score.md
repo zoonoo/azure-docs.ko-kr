@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 352f695f186b656ad0f6471d8ede905d53ad5274
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234109"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66019844"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 자동차 가격 예측
 
@@ -35,8 +35,8 @@ ms.locfileid: "65234109"
 > 이 자습서의 완료된 버전을 샘플 실험으로 사용할 수 있습니다.
 > 실험 페이지에서 **새로 추가** > **샘플 1 - 회귀: 자동차 가격 예측(기본)** 으로 이동합니다.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 

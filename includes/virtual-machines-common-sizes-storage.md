@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509829"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420798"
 ---
 스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다.
 
@@ -37,11 +37,11 @@ Premium Storage 캐싱: 지원되지 않음
 
 | 크기          | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup>(IOPS/MBps 읽기) | 최대 데이터 디스크 처리량 (IOPs/MBps) 캐시 되지 않은<sup>4</sup> | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2/3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4/6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 M / 8,000    | 32,000/640 | 32 | 8/12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9 M 16,000 /   | 64,000/1,280 | 32 | 8 / 16,600+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20,000   | 80,000/1,400 | 32 | 8 / 16,000+ |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92TB  | 1.5 M / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92TB  | 2.9M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Lsv2 시리즈 VM에는 OS 페이징/스왑 파일용 표준 SCSI 기반 임시 리소스 디스크가 있습니다(Windows의 D:, Linux의 /dev/sdb). 이 디스크는 모든 8 vCPU에 대해 80GiB 스토리지, 4,000 IOPS 및 80MBps 전송 속도를 제공합니다(예: Standard_L80s_v2는 40,000 IOPS 및 800MBPS에서 800GiB 제공). 이 경우 NVMe 드라이브는 완전히 애플리케이션 전용일 수 있습니다. 이는 임시 디스크이며 중지/할당 취소 시 모든 데이터가 손실됩니다.
 
@@ -50,6 +50,18 @@ Premium Storage 캐싱: 지원되지 않음
 <sup>3</sup> Hyper-V NVMe Direct 기술은 게스트 VM 공간에 안전하게 매핑된 로컬 NVMe 드라이브에 대한 무제한 액세스를 제공합니다.  최상의 성능을 위해 Azure Marketplace에서 최신 WS2019 빌드나 Ubuntu 18.04 또는 16.04를 사용해야 합니다.  쓰기 성능은 IO 크기, 드라이브 로드 및 용량 사용률에 따라 달라집니다.
 
 <sup>4</sup> Lsv2 시리즈 VM은 Lsv2 워크로드에 도움이 되지 않으므로 데이터 디스크에 대한 호스트 캐시를 제공하지 않습니다.  그러나 Lsv2 VM은 Azure의 임시 VM OS 디스크 옵션(최대 30GiB)을 수용할 수 있습니다.
+
+<sup>5</sup> 64 개 Vcpu 사용 하 여 Vm이 지원 되는 게스트 운영 체제 중 하나가 필요 합니다.
+- Windows Server 2016 이상
+- Ubuntu 16.04 LTS 또는 나중에 Azure를 사용 하 여 커널을 조정해 (4.15 커널 이상)
+- SLES 12 SP2 이상
+- RHEL 또는 CentOS 버전 6.7 통해 Microsoft에서 제공한 LIS 패키지 4.3.1 6.10 (또는 이상) 설치
+- Microsoft에서 제공한 LIS 4.2.1 패키지를 사용 하 여 CentOS 또는 RHEL 버전 7.3 (또는 이상) 설치
+- CentOS 또는 RHEL 버전 7.4 이상
+- UEK4 또는 나중에 oracle Linux
+- 10 이상 Debian backports 커널로 debian 9
+- CoreOS 4.14 커널 이상
+
 
 ## <a name="size-table-definitions"></a>크기 테이블 정의
 

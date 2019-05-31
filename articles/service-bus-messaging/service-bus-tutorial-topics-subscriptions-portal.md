@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079846"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991931"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -393,6 +393,9 @@ private async Task ReceiveMessages(string subscription)
     await receiver.CloseAsync();
 }
 ```
+
+> [!NOTE]
+> [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus 탐색기를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 Import/Export 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 Event Hubs를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

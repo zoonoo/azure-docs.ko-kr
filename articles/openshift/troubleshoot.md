@@ -2,18 +2,18 @@
 title: Azure Red Hat OpenShift를 문제 해결 | Microsoft Docs
 description: Azure Red Hat OpenShift를 사용 하 여 일반적인 문제 해결 및 문제 해결
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 7f2bdf643f12671bec3d0c087d8775844099fe9a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550923"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306257"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 문제 해결
 
@@ -23,10 +23,6 @@ ms.locfileid: "65550923"
 
 하는 경우 사용 하 여 클러스터 만들기는 Azure의 Red Hat OpenShift를 `az` CLI 명령이 실패, 만들기를 다시 시도 계속 실패 합니다.
 사용 하 여 `az openshift delete` 실패 한 클러스터를 삭제 하려면 다음 완전히 새로운 클러스터를 만듭니다.
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>신뢰할 수 없는 Azure Red Hat OpenShift 서버 인증서
-
-OpenShift 콘솔은 자체 서명된 인증서를 사용합니다. 브라우저에서 메시지가 표시되면 경고를 무시하고 "신뢰할 수 없는" 인증서를 수락합니다.
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>숨겨진된 Azure Red Hat OpenShift 클러스터 리소스 그룹
 

@@ -1,54 +1,36 @@
 ---
-title: Azure Data Box에서 문제 해결 | Microsoft Docs
-description: Azure에 데이터를 업로드 하는 경우 Azure Data Box에 표시 되는 문제를 해결 하는 방법을 설명 합니다.
+title: Azure 데이터 상자 과도 한 Azure Data Box에 대 한 문제 해결 | Microsoft Docs
+description: 이러한 장치에 데이터를 복사 하는 경우 Azure Data Box 및 Azure 데이터 많은 상자에 표시 되는 문제를 해결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594008"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257280"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Azure Data Box와 관련 된 문제 해결
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure 데이터 많은 상자와 관련 된 문제 해결
 
-이 문서에서는 Azure Data Box를 사용 하는 경우 표시 될 수 있습니다 문제를 해결 하는 방법에 대 한 정보를 자세히 설명 합니다.
+이 문서에서는 Azure 데이터 Boxn 또는 Azure 데이터 많은 상자를 사용 하는 경우 표시 될 수 있습니다 문제를 해결 하는 방법에 대 한 정보를 자세히 설명 합니다.
 
 ## <a name="errors-during-data-copy"></a>데이터 복사 중 오류
 
 데이터를 복사 하는 동안 표시 되는 모든 오류는 다음 섹션에 요약 되어 있습니다.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**오류 설명:** 컨테이너 또는 공유 이름은 3자~63자여야 합니다.
-
-**제안 된 해결 방법:** 데이터를 복사한 데이터 상자 (SMB/NFS) 공유 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
-
-- 에 **연결 및 복사** 페이지 Data Box 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
-- Data Box 공유 되도록 아래 폴더 이름을 변경 합니다.
-
-    - 이름은 3 ~ 63 자 사이 있습니다.
-    - 이름은 문자, 숫자 및 하이픈 하나만 사용할 수 있습니다.
-    - 이름을 시작 하거나 하이픈으로 끝날 수 없습니다.
-    - 이름에는 하이픈을 연속으로 사용할 수 없습니다.
-    - 유효한 이름의 예: `my-folder-1`, `my-really-extra-long-folder-111`합니다.
-    - 유효 하지 않은 이름의 예: `my-folder_1`, `my`하십시오 `--myfolder`, `myfolder--`, `myfolder!`
-
-    자세한 내용은 참조에 대 한 Azure 명명 규칙 [컨테이너 이름은](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)합니다.
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **오류 설명:** 컨테이너 또는 공유 이름은 3자~63자여야 합니다. 
 
-**제안 된 해결 방법:** 데이터를 복사한 데이터 상자 (SMB/NFS) 공유 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
+**제안 된 해결 방법:** 데이터를 복사한 Data Box 또는 데이터 상자 많은 share(SMB/NFS) 아래의 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
 
-- 에 **연결 및 복사** 페이지 Data Box 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
-- Data Box 공유 되도록 아래 폴더 이름을 변경 합니다.
+- 에 **연결 및 복사** 페이지 장치의 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
+- Data Box 또는 상자에 과도 한 데이터 공유 되도록 아래 폴더 이름을 변경 합니다.
 
     - 이름은 3 ~ 63 자 사이 있습니다.
     - 이름은 문자, 숫자 및 하이픈 하나만 사용할 수 있습니다.
@@ -64,10 +46,10 @@ ms.locfileid: "65594008"
 
 **오류 설명:** 컨테이너 또는 공유 이름은 문자, 숫자 또는 하이픈만으로 구성되어야 합니다.
 
-**제안 된 해결 방법:** 데이터를 복사한 데이터 상자 (SMB/NFS) 공유 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
+**제안 된 해결 방법:** 데이터를 복사한 Data Box 또는 데이터 상자 많은 share(SMB/NFS) 아래의 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
 
-- 에 **연결 및 복사** 페이지 Data Box 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
-- Data Box 공유 되도록 아래 폴더 이름을 변경 합니다.
+- 에 **연결 및 복사** 페이지 장치의 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
+- Data Box 또는 상자에 과도 한 데이터 공유 되도록 아래 폴더 이름을 변경 합니다.
 
     - 이름은 3 ~ 63 자 사이 있습니다.
     - 이름은 문자, 숫자 및 하이픈 하나만 사용할 수 있습니다.
@@ -82,10 +64,10 @@ ms.locfileid: "65594008"
 
 **오류 설명:** 컨테이너 이름 및 공유 이름을 시작할 수 없습니다 또는 하이픈으로 끝날 및 하이픈을 연속으로 사용할 수 없습니다.
 
-**제안 된 해결 방법:** 데이터를 복사한 데이터 상자 (SMB/NFS) 공유 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
+**제안 된 해결 방법:** 데이터를 복사한 Data Box 또는 데이터 상자 많은 share(SMB/NFS) 아래의 폴더에는 Azure 저장소 계정의 컨테이너를 됩니다. 
 
-- 에 **연결 및 복사** 페이지 Data Box 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
-- Data Box 공유 되도록 아래 폴더 이름을 변경 합니다.
+- 에 **연결 및 복사** 페이지 장치의 로컬 웹 UI, 다운로드 및 문제를 사용 하 여 폴더를 식별 하는 오류 파일의 이름을 검토 합니다.
+- Data Box 또는 상자에 과도 한 데이터 공유 되도록 아래 폴더 이름을 변경 합니다.
 
     - 이름은 3 ~ 63 자 사이 있습니다.
     - 이름은 문자, 숫자 및 하이픈 하나만 사용할 수 있습니다.
@@ -112,7 +94,7 @@ ms.locfileid: "65594008"
 
 **오류 설명:** Azure 파일 공유에 5TB의 데이터가 공유를 제한합니다. 일부 공유에 대 한이 제한을 초과 했습니다.
 
-**제안 된 해결 방법:** 에 **연결 및 복사** 페이지 Data Box 로컬 웹 UI에서의 다운로드 및 오류 파일을 검토 합니다.
+**제안 된 해결 방법:** 에 **연결 및 복사** 페이지의 로컬 웹 UI에서 다운로드 하 고 오류 파일을 검토 합니다.
 
 오류 로그에서이 문제가 발생 하 고 해당 폴더의 파일에서 5TB 되는지 확인 하는 폴더를 식별 합니다.
 
@@ -194,7 +176,7 @@ ms.locfileid: "65594008"
 
 **오류 설명:** Blob 또는 파일이 잘못 정렬되었습니다.
 
-**제안 된 해결 방법:** Data Box 지원 파일만 512 바이트에 있는 페이지 blob 공유 (예: VHD/VHDX) 정렬 합니다. 페이지 blob 공유에 복사 된 모든 데이터는 페이지 blob으로 Azure에 업로드 됩니다.
+**제안 된 해결 방법:** Data Box 또는 데이터 상자 많은 지원 파일에 512 바이트 페이지 blob 공유 (예: VHD/VHDX) 정렬 합니다. 페이지 blob 공유에 복사 된 모든 데이터는 페이지 blob으로 Azure에 업로드 됩니다.
 
 페이지 blob 공유에서 VHD/VHDX 아닌 데이터를 제거 합니다. 블록 blob 또는 일반 데이터에 대 한 Azure 파일 공유를 사용할 수 있습니다.
 

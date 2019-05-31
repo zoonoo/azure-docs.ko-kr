@@ -4,15 +4,15 @@ description: 이 문서에서는 Application Gateway용 WAF(웹 애플리케이�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518187"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991393"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure Application Gateway에 대 한 웹 응용 프로그램 방화벽
 
@@ -38,7 +38,7 @@ SSL 정책 관리를 포함 하는 응용 프로그램 게이트웨이 보안 �
 
 * 웹 취약점 및 백 엔드 코드를 수정 하지 않고 공격 으로부터 웹 응용 프로그램을 보호 합니다.
 
-* 동시에 여러 웹 응용 프로그램을 보호 합니다. Application Gateway의 인스턴스를 호스팅할 수는 웹 응용 프로그램 방화벽으로 보호 되는 최대 20 개의 웹 사이트입니다.
+* 동시에 여러 웹 응용 프로그램을 보호 합니다. Application Gateway의 인스턴스를 호스팅할 수는 웹 응용 프로그램 방화벽으로 보호 되는 최대 100 개의 웹 사이트입니다.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -121,12 +121,19 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행 되도록 구�
 * **방지 모드**: 블록 침입 및 규칙을 검색 하는 공격입니다. 공격자가 "403 무단된 액세스" 예외를 수신 하 고 연결이 종료 됩니다. 방지 모드는 이러한 공격을 WAF 로그를 기록합니다.
 
 ### <a name="anomaly-scoring-mode"></a>변칙 점수 매기기 모드
- 
+
 OWASP에 트래픽을 차단 하도록 여부를 결정 하기 위한 두 가지 모드가 있습니다. 일반 모드 및 변칙 점수 매기기 모드입니다.
 
 일반 모드에서 모든 규칙과 일치 하는 트래픽은 다른 규칙이 일치와 독립적으로 간주 됩니다. 이 모드는 이해 하기 쉽습니다. 하지만 제한은 얼마나 많은 규칙이 특정 요청을 일치 하는 방법에 대 한 정보가 부족 합니다. 따라서 변칙 점수 매기기 모드가 도입 되었습니다. 해당 OWASP 3에 대 한 기본값입니다. *x*합니다.
 
 변칙 점수 매기기 모드 방화벽 방지 모드에 있을 때에 즉시 모든 규칙과 일치 하는 트래픽을 차단 되지 않습니다. 규칙에는 특정 심각도: *중요*, *오류*를 *경고*, 또는 *공지*합니다. 해당 심각도 변칙 점수 라고 하는 요청에 대 한 숫자 값을 영향을 줍니다. 예를 들어 하나 *경고* 일치 점수 3에 기여 하는 규칙입니다. 하나의 *위험* 일치 항목 5에 기여 하는 규칙입니다.
+
+|Severity  |값  |
+|---------|---------|
+|중요     |5|
+|오류        |4|
+|Warning      |3|
+|알림       |2|
 
 임계값이 트래픽 차단 하는 변칙 점수에 대 한 5 있습니다. 따라서 단일 *위험* 일치 하는 규칙은 Application Gateway WAF도 방지 모드에서에서 요청을 차단 하는 데 충분 합니다. 하나를 제외한 *경고* 일치 항목에만 트래픽을 차단할를 자체적으로 충분 하지 않습니다는 변칙 점수 3을 증가 하는 규칙입니다.
 

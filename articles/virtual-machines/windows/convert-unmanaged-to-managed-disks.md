@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9cbee4f9f4f694510e852fe3790c8242ef346576
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796575"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416065"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -37,7 +37,7 @@ ms.locfileid: "65796575"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-
+* 원래 VHD와 변환 전 VM에서 사용된 저장소 계정은 삭제되지 않습니다. 이들 작업은 요금이 계속 청구됩니다. 이러한 아티팩트에 대한 요금이 청구되지 않도록 하려면 변환이 완료되었는지 확인한 후 원래 VHD Blob을 삭제합니다. 삭제 하기 위해 이러한 연결 되지 않은 디스크를 찾아야 하는 경우 문서를 참조 하세요 [연결 되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제](find-unattached-disks.md)합니다.
 
 
 ## <a name="convert-single-instance-vms"></a>단일 인스턴스 VM 변환

@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65067042"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 대량 삽입 최적화 및 임시 데이터 사용
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 대량 삽입 최적화 및 임시 데이터 사용 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 대량 삽입 작업을 최적화하고 임시 데이터를 사용하는 방법을 설명합니다.
 
 ## <a name="use-unlogged-tables"></a>Unlogged 테이블 사용

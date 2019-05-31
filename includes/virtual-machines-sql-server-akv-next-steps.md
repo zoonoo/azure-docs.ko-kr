@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: rothja
 ms.service: virtual-machines-sql
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129614"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165333"
 ---
 ## <a name="next-steps"></a>다음 단계
 
@@ -39,9 +38,11 @@ CREATE CREDENTIAL sysadmin_ekm_cred
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
+
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
 ADD CREDENTIAL sysadmin_ekm_cred;
+
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
 FROM PROVIDER [AzureKeyVault_EKM_Prov]
@@ -146,5 +147,3 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 이러한 암호화 기능을 사용하는 방법에 대한 자세한 내용은 [SQL Server 암호화 기능과 함께 EKM 사용](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)을 참조하세요.
 
 이 문서의 단계는 Azure 가상 머신에서 이미 SQL Server가 실행되고 있는 것으로 가정합니다. 아직 실행하고 있지 않다면 [Azure에서 SQL Server 가상 머신 프로비전](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요. Azure VM에서 SQL Server 실행과 관련된 기타 참고 자료는 [Azure Virtual Machines의 SQL Server 개요](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-<!--Update_Description: wording update, update link-->

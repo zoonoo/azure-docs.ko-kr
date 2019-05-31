@@ -8,6 +8,8 @@
   items:
     - name: ESP 클러스터 플랜
       href: apache-domain-joined-architecture.md
+    - name: ESP 클러스터 생성 및 온-프레미스와 동기화
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Azure AD DS를 사용하여 ESP 클러스터 구성
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD 사용자를 HDInsight 클러스터에 동기화

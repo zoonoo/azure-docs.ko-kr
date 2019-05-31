@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728096"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967952"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -57,7 +57,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 1. 데이터 개발자가 PowerShell cmdlet을 사용하여 Azure Data Factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal은 이 기능을 지원하지 않습니다.
 2. 데이터 개발자가 데이터 스토리지에 연결하는 데 사용할 자체 호스팅 통합 런타임 인스턴스를 지정하여 온-프레미스 데이터 스토리지에 대한 연결된 서비스를 만듭니다.
 3. 자체 호스팅 통합 런타임 노드가 Windows DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 자격 증명을 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게는 표시되지 않으며, 자체 호스팅 IR에서 처리됩니다.    
-4. Data Factory 서비스가 작업의 예약 및 관리를 위해 공유 Azure Service Bus 큐를 사용하는 *컨트롤 채널*을 통해 자체 호스팅 통합 런타임과 통신합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
+4. 예약 및 관리를 통해 작업에 대 한 자체 호스팅된 integration runtime을 사용 하 여 통신 하는 Data Factory 서비스는 *컨트롤 채널* 공유를 사용 하는 [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay)합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
 5. 자체 호스팅 통합 런타임이 데이터 파이프라인에서 복사 작업이 구성된 방법에 따라 온-프레미스 스토리지와 클라우드 스토리지 간에 데이터를 복사합니다. 이 단계에서 자체 호스팅 통합 런타임은 보안(HTTPS) 채널을 통해 Azure Blob Storage 등의 클라우드 기반 스토리지 서비스와 직접 통신합니다.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648655"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872831"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지 속성 함수를 실행 하는 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "60648655"
 
 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
-* **Azure 개발** 워크로드를 통해 [Visual Studio 2017 버전 15.6 이상을 설치](https://docs.microsoft.com/visualstudio/install/)합니다.
+* [Visual Studio 2019 설치할](https://docs.microsoft.com/visualstudio/install/) 사용 하 여 합니다 **Azure 개발** 워크 로드.
 
   Visual Studio를 이미 없지만 해당 워크 로드가 없는 경우 선택 하 여 워크 로드를 추가할 **도구가** > **도구 및 기능 가져오기**합니다.
 

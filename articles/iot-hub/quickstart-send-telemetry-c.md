@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 1299b627c70b23714ea48dbc62af36ca1f27290e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 92575f2fc8e6dbcfc5767a179ddf60df1bce0c83
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499906"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872596"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(C#)으로 읽습니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [‘C++를 사용한 데스크톱 개발’](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 사용하도록 설정하고 [Visual Studio 2017](https://www.visualstudio.com/vs/)을 설치합니다.
+* [‘C++를 사용한 데스크톱 개발’](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정하고 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
 * 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다.
 * 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 다음 환경용 패키지 및 라이브러리를 설치하여 SDK를 사용할 수 있습니다.
 
-* **Linux**: apt-get 패키지는 CPU 아키텍처인 amd64, arm64, armhf 및 i386을 사용하여 Ubuntu16.04 및 18.04에서 사용할 수 있습니다. 자세한 내용은 [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)(apt-get을 사용하여 Ubuntu에서 C 디바이스 클라이언트 프로젝트 만들기)를 참조하세요.
+* **Linux**: apt-get 패키지는 CPU 아키텍처인 amd64, arm64, armhf 및 i386을 사용하여 Ubuntu 16.04 및 18.04에서 사용할 수 있습니다. 자세한 내용은 [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)(apt-get을 사용하여 Ubuntu에서 C 디바이스 클라이언트 프로젝트 만들기)를 참조하세요.
 
 * **mbed**: mbed 플랫폼에서 디바이스 애플리케이션을 만드는 개발자를 위해 Azure IoT Hub를 통해 몇 분 안에 시작할 수 있는 라이브러리 및 샘플을 게시했습니다. 자세한 내용은 [Use the mbed library](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed)(mbed 라이브러리 사용)를 참조하세요.
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     cmake ..
     ```
     
-    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
+    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -114,13 +114,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyCDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyCDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
+   **MyCDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyCDevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 

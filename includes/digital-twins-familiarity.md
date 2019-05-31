@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 0d5f483f074f90c51f500e8f8142bb54f9f6bb1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926499"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157915"
 ---
 이 문서에서는 Azure Digital Twins 관리 API를 사용한 인증 방법에 대해 어느 정도 알고 있다고 가정합니다.
 

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 09/27/2018
 ms.author: diberry
 ms.openlocfilehash: e077373532ffdc409c3748e969c33a3b84b4f6c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177866"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145664"
 ---
 1. Open Visual Studio 2017 Community Edition.
 1. 새 **콘솔 앱(.NET Core)** 프로젝트를 만들고 프로젝트를 이름을 `QnaMakerQuickstart`로 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.

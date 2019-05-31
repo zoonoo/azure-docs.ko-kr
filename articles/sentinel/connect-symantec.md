@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0410b052f17a868aed70ce407b9c9fdefbe023df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233629"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244350"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDX 어플라이언스에서 연결 
 
@@ -37,13 +37,36 @@ Symantec ICDX 커넥터를 사용 하면 프로그램 Azure Sentinel, 대시보�
 
 Symantec ICDX 통합 하 고 Azure Sentinel에 직접 로그를 내보낼 수 있습니다.
 
-1. ICDX 관리 콘솔을 엽니다.
-2. 왼쪽된 탐색 메뉴에서 선택 **Configuration** 차례로 합니다 **전달자** 탭 합니다.
-3. Microsoft Azure Log Analytics 행에서 클릭 **자세한**차례로 **편집**합니다. 
-4. 에 **Microsoft Azure Log Analytics Forwarder** 창에서 다음을 설정 합니다.
-    - 사용자 지정 로그 이름을 SymantecICDX 기본값으로 그대로 둡니다.
-    - 작업 영역 ID를 복사 하 고 붙여 넣습니다 합니다 **고객 식별자** 필드입니다. 복사 합니다 **기본 키** 공유 키 필드에 붙여 넣습니다. 선택 하 여 Azure Sentinel 포털에서 이러한 값을 복사할 수 있습니다 **데이터 커넥터** 차례로 **Symantec ICDX**합니다.
-6. Log Analytics에서 관련 스키마를 사용 하 여 Symantec ICDX 이벤트를 검색할 **SymantecICDX_CL**합니다.
+1. Microsoft Azure Sentinel (Log Analytics) 전달자를 추가 하려면 ICDX 관리 콘솔을 엽니다.
+2. ICDx 탐색 모음에서 클릭 **구성**합니다. 
+3. 맨 위에 있는 합니다 **구성** 화면에서 클릭 **전달자**합니다.
+4. 아래 **전달자**, Microsoft Azure Sentinel (Log Analytics), 옆에 있는 **추가**합니다. 
+4. 에 **Microsoft Azure (Log Analytics) Sentinel** 창 클릭 **고급 표시**합니다. 
+5. 확장된 된 맨 위에 있는 Microsoft Azure Sentinel (Log Analytics) 창에 다음을 수행 합니다.
+    -   **이름**: 30 개 이상의 문자가 포함 된 전달자에 대 한 이름을 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은의 전달자 목록에 표시 됩니다는 **구성** 화면에서 대시보드 및 합니다 **대시보드** 화면. 예를 들면 다음과 같습니다. Microsoft Azure Log Analytics East. 이 필드는 필수입니다.
+    -   **설명**: 전달자에 대 한 설명을 입력 합니다. 이 설명은 나타나는 전달자 목록에는 **구성** 화면. 전달 중인 이벤트 유형과 같은 정보와 데이터를 검사 해야 하는 그룹을 포함 합니다.
+    -   **시작 유형**: 전달자 구성에 대 한 시작 방법을 선택 합니다. 옵션은 수동 및 자동입니다.<br>기본값은 자동입니다. 
+6. 아래 **이벤트**, 다음을 수행 합니다. 
+    - **원본**: 이벤트를 전달 하는 하나 이상의 보관 파일을 선택 합니다. 분리 된 활성 수집기 보관 (일반적인 보관 파일 포함)를 선택할 수 있습니다 수집기 보관 파일 (즉, 보관 파일을 삭제 하는 수집기에 대 한), ICDx 수신기 보관, 또는 시스템 보관 합니다. <br>기본값은 일반적인 보관 합니다.
+      > [!NOTE]
+      > ICDx 수신기 보관 파일 이름으로 개별적으로 나열 됩니다. 
+ 
+    - **필터**: 전달할 이벤트의 하위 집합을 지정 하는 필터를 추가 합니다. 다음 중 하나를 수행합니다.
+        - 필터 조건을 선택한 형식, 특성, 연산자 및 값을 클릭 합니다. 
+        - 필터 필드를 필터 조건을 검토 합니다. 필드에 직접 편집 하거나 필요에 따라 삭제할 수 있습니다.
+        - 클릭 또는 및 또는 필터 조건에 추가 합니다.
+        - 저장된 된 쿼리를 적용 하려면 저장 된 쿼리를 클릭할 수도 있습니다.
+    - **특성을 포함**: 전달 된 데이터에 포함할 특성을 쉼표로 구분 된 목록을 입력 합니다. 포함 된 특성 제외 되는 특성 보다 우선합니다.
+    - **제외 된 특성**: 전달 된 데이터에서 제외 하려면 특성의 쉼표로 구분 된 목록을 입력 합니다.
+    - **일괄 처리 크기**: 일괄 처리당 보낼 이벤트의 수를 선택 합니다. 옵션에는 10, 50, 100, 500 및 1000 됩니다.<br>기본값은 100입니다. 
+    - **속도 제한**: 이벤트 전달 되는, 초당 이벤트로 표현 되는 속도 선택 합니다. 옵션은 무제한, 500, 1000, 5000, 10000입니다. <br> 기본값은 5000입니다. 
+7. 아래 **Azure 대상**, 다음을 수행 합니다. 
+    - **작업 영역 ID**: 아래에서 작업 영역 ID를 붙여 넣습니다. 이 필드는 필수입니다.
+    - **기본 키**: 아래에서 기본 키를 붙여 넣습니다. 이 필드는 필수입니다.
+    - **사용자 지정 로그 이름을**: Microsoft Azure 포털 Log Analytics 작업 영역에서 이벤트를 전달 하려는는 사용자 지정 로그 이름을 입력 합니다. 기본값은 SymantecICDx 합니다. 이 필드는 필수입니다.
+8. 클릭 *저장할* 전달자 구성을 완료 합니다. 
+9. 아래에 있는 전달자를 시작 하려면 **옵션**, 클릭 **자세한** 차례로 **시작**합니다.
+10. Log Analytics에서 관련 스키마를 사용 하 여 Symantec ICDX 이벤트를 검색할 **SymantecICDX_CL**합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
