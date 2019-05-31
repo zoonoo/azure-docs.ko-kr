@@ -17,8 +17,10 @@ ms.locfileid: "66306029"
 
 이 문서에서는 Azure CLI에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
-> [!IMPORTANT]
-> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
+
+> [!NOTE]
+> Azure CLI 마스터 서버에서 다른 지역에 복제본을 만드는 것은 아직 지원하지 않습니다. 교차 지역 복제본을 만들려면 [Azure portal](howto-read-replicas-portal.md)을 사용합니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 - 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md)
@@ -61,13 +63,13 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
+
 크로스 만들려는 지역 읽기 복제본을 사용 하 여는 `--location` 매개 변수입니다. 다음 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
-범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하게 되면 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
 
 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 세대, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
 
@@ -84,7 +86,7 @@ az postgres server replica list --server-name mydemoserver --resource-group myre
 ## <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
 [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) 명령을 사용하여 마스터 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
-마스터 서버와 읽기 복제본에 대한 복제를 중지한 경우 실행을 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버가 되면 다시 복제본으로 만들 수 없습니다.
+범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하게 되면 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
