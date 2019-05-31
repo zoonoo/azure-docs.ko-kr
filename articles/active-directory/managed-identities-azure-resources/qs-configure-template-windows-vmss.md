@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112496"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용 하는 Azure 가상 머신 확장에서 Azure 리소스에 대 한 관리 되는 id를 구성 합니다.
 

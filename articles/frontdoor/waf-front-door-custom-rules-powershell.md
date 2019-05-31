@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523732"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241331"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 정책 구성
 Azure 웹 응용 프로그램 방화벽 (WAF) 정책 정의 검사 요청이 첫 번째 관문에서 도착 하는 경우에 필요 합니다.
@@ -57,15 +57,15 @@ Install-Module -Name Az.FrontDoor
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
 $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
-$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
+$AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>Http 요청 메서드를 기준으로 사용자 지정 규칙
-"PUT" 메서드를 사용 하 여 차단 하는 규칙을 만들 [새로 만들기-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) 다음과 같습니다.
+"PUT" 메서드를 사용 하 여 차단 하는 규칙을 만들 [새로 만들기-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) 다음과 같습니다.
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
-$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+$BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
 ## <a name="create-a-custom-rule-based-on-size-constraint"></a>크기 제약 조건을 기반으로 사용자 지정 규칙 만들기
@@ -73,7 +73,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 다음 예제에서는 Azure PowerShell을 사용 하는 100 자 보다 긴 Url 사용 하 여 요청을 차단 하는 규칙을 만듭니다.
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
-$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+$URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>관리 되는 기본 규칙 집합 추가
 

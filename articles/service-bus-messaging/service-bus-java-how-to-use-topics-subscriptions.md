@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 46891a60e6fd36ec0bc19d4b52de87d18e2b6793
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510288"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991719"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "65510288"
 ## <a name="prerequisites"></a>필수 조건
 
 1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 등록을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Azure portal을 사용 하 여 Service Bus 토픽 및 구독 항목을 만들려면](service-bus-quickstart-topics-subscriptions-portal.md) 다음 태스크를 수행 합니다.
+2. 단계를 수행 합니다 [빠른 시작: Azure Portal을 사용하여 Service Bus 항목 및 해당 항목에 대한 하나 이상의 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md): 다음 작업을 수행합니다.
     1. Service Bus를 만듭니다 **네임 스페이스**합니다.
     2. 가져오기의 **연결 문자열**합니다.
     3. 만들기는 **항목** 네임 스페이스에 있습니다.
@@ -454,6 +454,8 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> 사용 하 여 Service Bus 리소스를 관리할 수 있습니다 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)합니다. Service Bus 탐색기를 사용 하면 Service Bus 네임 스페이스에 연결 하 고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스에서 notification hubs 및 이벤트 허브를 테스트할 수와 같은 고급 기능을 제공 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Service Bus 큐, 토픽 및 구독][Service Bus queues, topics, and subscriptions]을 참조하세요.

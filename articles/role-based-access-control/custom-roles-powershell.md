@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158461"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 

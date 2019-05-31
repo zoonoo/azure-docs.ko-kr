@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
-ms.author: rayne
-ms.openlocfilehash: 5fac369f15edb3ef0be31d3dc7d7434104c18dfe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/30/2019
+ms.author: raynew
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928169"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418292"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 

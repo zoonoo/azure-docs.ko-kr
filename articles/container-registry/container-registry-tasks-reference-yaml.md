@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192261"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954463"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -81,22 +81,22 @@ az configure --defaults acr=myregistry
 
 | 자산 | Type | 옵션 | 설명 | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 최신 버전으로 기본값은입니다. | 아닙니다. | 없음 |
-| `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 기본 설정 작업에 속성을 지정 하는 경우 `timeout` 모든 단계의 속성입니다. 경우는 `timeout` 속성이 지정 단계를 작업에 의해 제공 되는 속성을 재정의 합니다. | 예 | 600(10분) |
-| `workingDirectory` | string | 예 | 런타임 동안 컨테이너의 작업 디렉터리입니다. 기본 설정 작업에 속성을 지정 하는 경우 `workingDirectory` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 제공 되는 속성 보다 우선 합니다. | 예 | `$HOME` |
-| `env` | [string, string, ...] | 예 |  배열에서 문자열의 `key=value` 작업에 대 한 환경 변수를 정의 하는 형식입니다. 기본 설정 작업에 속성을 지정 하는 경우 `env` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 상속 되며, 환경 변수 재정의 합니다. | 없음 |
-| `secrets` | [secret, secret, ...] | 예 | 배열을 [비밀](#secret) 개체입니다. | 없음 |
-| `networks` | [network, network, ...] | 예 | 배열을 [네트워크](#network) 개체입니다. | 없음 |
+| `version` | 문자열 | 예. | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 최신 버전으로 기본값은입니다. | 아닙니다. | 없음 |
+| `stepTimeout` | int(초) | 예. | 단계를 실행할 수 있는 최대 시간(초)입니다. 기본 설정 작업에 속성을 지정 하는 경우 `timeout` 모든 단계의 속성입니다. 경우는 `timeout` 속성이 지정 단계를 작업에 의해 제공 되는 속성을 재정의 합니다. | 예. | 600(10분) |
+| `workingDirectory` | 문자열 | 예. | 런타임 동안 컨테이너의 작업 디렉터리입니다. 기본 설정 작업에 속성을 지정 하는 경우 `workingDirectory` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 제공 되는 속성 보다 우선 합니다. | 예. | `$HOME` |
+| `env` | [string, string, ...] | 예. |  배열에서 문자열의 `key=value` 작업에 대 한 환경 변수를 정의 하는 형식입니다. 기본 설정 작업에 속성을 지정 하는 경우 `env` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 상속 되며, 환경 변수 재정의 합니다. | 없음 |
+| `secrets` | [secret, secret, ...] | 예. | 배열을 [비밀](#secret) 개체입니다. | 없음 |
+| `networks` | [network, network, ...] | 예. | 배열을 [네트워크](#network) 개체입니다. | 없음 |
 
-### <a name="secret"></a>secret
+### <a name="secret"></a>비밀
 
 보안 개체에는 다음 속성이 있습니다.
 
 | 자산 | Type | 옵션 | 설명 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | 아닙니다. | 비밀의 식별자입니다. | 없음 |
-| `akv` | 문자열 | 예 | Azure Key Vault (AKV) 비밀 URL입니다. | 없음 |
-| `clientID` | string | 예 | 사용자 할당의 클라이언트 ID는 Azure 리소스에 대 한 id를 관리 합니다. | 없음 |
+| `id` | 문자열 | 아닙니다. | 비밀의 식별자입니다. | 없음 |
+| `keyvault` | 문자열 | 예. | Azure Key Vault 비밀 URL입니다. | 없음 |
+| `clientID` | 문자열 | 예. | 사용자 할당의 클라이언트 ID는 Azure 리소스에 대 한 id를 관리 합니다. | 없음 |
 
 ### <a name="network"></a>네트워크
 
@@ -105,10 +105,10 @@ az configure --defaults acr=myregistry
 | 자산 | Type | 옵션 | 설명 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | 아닙니다. | 네트워크의 이름입니다. | 없음 |
-| `driver` | 문자열 | 예 | 네트워크를 관리 하는 드라이버. | 없음 |
-| `ipv6` | bool | 예 | IPv6 네트워킹은 사용 되었는지 여부를 나타냅니다. | `false` |
-| `skipCreation` | bool | 예 | 네트워크 만들기를 건너뛸 것인지 지정 합니다. | `false` |
-| `isDefault` | bool | 예 | 네트워크의 Azure Container Registry를 사용 하 여 제공 하는 기본 네트워크 인지 여부 | `false` |
+| `driver` | 문자열 | 예. | 네트워크를 관리 하는 드라이버. | 없음 |
+| `ipv6` | bool | 예. | IPv6 네트워킹은 사용 되었는지 여부를 나타냅니다. | `false` |
+| `skipCreation` | bool | 예. | 네트워크 만들기를 건너뛸 것인지 지정 합니다. | `false` |
+| `isDefault` | bool | 예. | 네트워크의 Azure Container Registry를 사용 하 여 제공 하는 기본 네트워크 인지 여부 | `false` |
 
 ## <a name="task-step-types"></a>작업 단계 유형
 
@@ -137,8 +137,8 @@ steps:
 
 | 매개 변수 | 설명 | 옵션 |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | 빌드된 이미지의 정규화된 `image:tag`를 정의합니다.<br /><br />기능 테스트와 같은 내부 작업 유효성 검사에 이미지가 사용될 수도 있으므로 일부 이미지는 레지스트리로 `push`할 필요가 없습니다. 그러나 작업 실행 내에서 이미지를 인스턴스화하려면 이미지를 참조하기 위해 이름이 필요합니다.<br /><br />와 달리 `az acr build`, ACR 작업 실행 기본 푸시 동작을 제공 하지 않습니다. ACR 작업을 사용한 기본 시나리오에서는 이미지를 빌드하고 유효성을 검사한 다음, 푸시하는 기능을 가정합니다. 빌드된 이미지를 선택적으로 푸시하는 방법은 [push](#push)를 참조하세요. | 예 |
-| `-f` &#124; `--file` | `docker build`에 전달된 Dockerfile을 지정합니다. 지정하지 않으면 컨텍스트 루트의 기본 Dockerfile이 가정됩니다. Dockerfile을 지정 하려면 컨텍스트의 루트에 상대적인 파일을 전달 합니다. | 예 |
+| `-t` &#124; `--image` | 빌드된 이미지의 정규화된 `image:tag`를 정의합니다.<br /><br />기능 테스트와 같은 내부 작업 유효성 검사에 이미지가 사용될 수도 있으므로 일부 이미지는 레지스트리로 `push`할 필요가 없습니다. 그러나 작업 실행 내에서 이미지를 인스턴스화하려면 이미지를 참조하기 위해 이름이 필요합니다.<br /><br />와 달리 `az acr build`, ACR 작업 실행 기본 푸시 동작을 제공 하지 않습니다. ACR 작업을 사용한 기본 시나리오에서는 이미지를 빌드하고 유효성을 검사한 다음, 푸시하는 기능을 가정합니다. 빌드된 이미지를 선택적으로 푸시하는 방법은 [push](#push)를 참조하세요. | 예. |
+| `-f` &#124; `--file` | `docker build`에 전달된 Dockerfile을 지정합니다. 지정하지 않으면 컨텍스트 루트의 기본 Dockerfile이 가정됩니다. Dockerfile을 지정 하려면 컨텍스트의 루트에 상대적인 파일을 전달 합니다. | 예. |
 | `context` | `docker build`에 전달된 루트 디렉터리입니다. 각 작업의 루트 디렉터리는 공유 [workingDirectory](#task-step-properties)로 설정되며, Git clone된 관련 디렉터리의 루트를 포함합니다. | 아닙니다. |
 
 ### <a name="properties-build"></a>속성: build
@@ -149,24 +149,24 @@ steps:
 | -------- | ---- | -------- |
 | `detach` | bool | 옵션 |
 | `disableWorkingDirectoryOverride` | bool | 옵션 |
-| `entryPoint` | string | 옵션 |
+| `entryPoint` | 문자열 | 옵션 |
 | `env` | [string, string, ...] | 옵션 |
 | `expose` | [string, string, ...] | 옵션 |
 | `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 옵션 |
 | `isolation` | 문자열 | 옵션 |
 | `keep` | bool | 옵션 |
-| `network` | object | 옵션 |
+| `network` | 개체 | 옵션 |
 | `ports` | [string, string, ...] | 옵션 |
 | `pull` | bool | 옵션 |
 | `repeat` | int | 옵션 |
 | `retries` | int | 옵션 |
 | `retryDelay` | int(초) | 옵션 |
-| `secret` | object | 옵션 |
+| `secret` | 개체 | 옵션 |
 | `startDelay` | int(초) | 옵션 |
 | `timeout` | int(초) | 옵션 |
 | `when` | [string, string, ...] | 옵션 |
-| `workingDirectory` | string | 옵션 |
+| `workingDirectory` | 문자열 | 옵션 |
 
 ### <a name="examples-build"></a>예: build
 
@@ -271,15 +271,15 @@ steps:
 | `expose` | [string, string, ...] | 옵션 |
 | `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 옵션 |
-| `isolation` | string | 옵션 |
+| `isolation` | 문자열 | 옵션 |
 | `keep` | bool | 옵션 |
-| `network` | object | 옵션 |
+| `network` | 개체 | 옵션 |
 | `ports` | [string, string, ...] | 옵션 |
 | `pull` | bool | 옵션 |
 | `repeat` | int | 옵션 |
 | `retries` | int | 옵션 |
 | `retryDelay` | int(초) | 옵션 |
-| `secret` | object | 옵션 |
+| `secret` | 개체 | 옵션 |
 | `startDelay` | int(초) | 옵션 |
 | `timeout` | int(초) | 옵션 |
 | `when` | [string, string, ...] | 옵션 |
@@ -364,28 +364,28 @@ steps:
 
 | 자산 | Type | 옵션 | 설명 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | bool | 예 | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. | `false` |
-| `disableWorkingDirectoryOverride` | bool | 예 | 사용 하지 않도록 설정할 것인지 `workingDirectory` 기능을 재정의 합니다. 와 함께에서이 사용 하 여 `workingDirectory` 컨테이너의 작업 디렉터리를 완전히 제어 해야 합니다. | `false` |
-| `entryPoint` | 문자열 | 예 | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. | 없음 |
-| `env` | [string, string, ...] | 예 | 단계의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. | 없음 |
-| `expose` | [string, string, ...] | 예 | 컨테이너에서 노출 되는 포트의 배열입니다. |  없음 |
-| [`id`](#example-id) | 문자열 | 예 | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. | `acb_step_%d`여기서 `%d` 단계의 YAML 파일에서 하향식으로 0 기반 인덱스 |
-| `ignoreErrors` | bool | 예 | 컨테이너 실행 하는 동안 오류가 발생 했는지 여부에 관계 없이 성공적으로 단계 표시 여부를 나타냅니다. | `false` |
-| `isolation` | 문자열 | 예 | 컨테이너의 격리 수준입니다. | `default` |
-| `keep` | bool | 예 | 실행 후 단계 컨테이너를 유지할지 여부입니다. | `false` |
-| `network` | object | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
-| `ports` | [string, string, ...] | 예 | 컨테이너에서 호스트에 게시 되는 포트의 배열입니다. |  없음 |
-| `pull` | bool | 예 | 모든 캐싱 동작을 방지 하기 위해를 실행 하기 전에 컨테이너의 끌어오기를 강제 적용 여부를 나타냅니다. | `false` |
-| `privileged` | bool | 예 | 특권된 모드에서 컨테이너를 실행할 것인지 지정 합니다. | `false` |
-| `repeat` | int | 예 | 컨테이너의 실행을 반복 하는 재시도 횟수입니다. | 0 |
-| `retries` | int | 예 | 컨테이너 실행을 실패 하면 재시도 횟수입니다. 재시도 컨테이너의 종료 코드가 0이 아닌 경우에 시도 됩니다. | 0 |
-| `retryDelay` | int(초) | 예 | 컨테이너의 실행을 다시 시도 간격 (초)에서 지연입니다. | 0 |
-| `secret` | object | 예 | Azure Key Vault 비밀 또는 Azure 리소스에 대 한 관리 되는 id를 식별 합니다. | 없음 |
-| `startDelay` | int(초) | 예 | 컨테이너의 실행을 지연 시간 (초) 수입니다. | 0 |
-| `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
-| [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
-| `user` | 문자열 | 예 | 사용자 이름 또는 컨테이너의 UID | 없음 |
-| `workingDirectory` | string | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `$HOME` |
+| `detach` | bool | 예. | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. | `false` |
+| `disableWorkingDirectoryOverride` | bool | 예. | 사용 하지 않도록 설정할 것인지 `workingDirectory` 기능을 재정의 합니다. 와 함께에서이 사용 하 여 `workingDirectory` 컨테이너의 작업 디렉터리를 완전히 제어 해야 합니다. | `false` |
+| `entryPoint` | 문자열 | 예. | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. | 없음 |
+| `env` | [string, string, ...] | 예. | 단계의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. | 없음 |
+| `expose` | [string, string, ...] | 예. | 컨테이너에서 노출 되는 포트의 배열입니다. |  없음 |
+| [`id`](#example-id) | 문자열 | 예. | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. | `acb_step_%d`여기서 `%d` 단계의 YAML 파일에서 하향식으로 0 기반 인덱스 |
+| `ignoreErrors` | bool | 예. | 컨테이너 실행 하는 동안 오류가 발생 했는지 여부에 관계 없이 성공적으로 단계 표시 여부를 나타냅니다. | `false` |
+| `isolation` | 문자열 | 예. | 컨테이너의 격리 수준입니다. | `default` |
+| `keep` | bool | 예. | 실행 후 단계 컨테이너를 유지할지 여부입니다. | `false` |
+| `network` | 개체 | 예. | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
+| `ports` | [string, string, ...] | 예. | 컨테이너에서 호스트에 게시 되는 포트의 배열입니다. |  없음 |
+| `pull` | bool | 예. | 모든 캐싱 동작을 방지 하기 위해를 실행 하기 전에 컨테이너의 끌어오기를 강제 적용 여부를 나타냅니다. | `false` |
+| `privileged` | bool | 예. | 특권된 모드에서 컨테이너를 실행할 것인지 지정 합니다. | `false` |
+| `repeat` | int | 예. | 컨테이너의 실행을 반복 하는 재시도 횟수입니다. | 0 |
+| `retries` | int | 예. | 컨테이너 실행을 실패 하면 재시도 횟수입니다. 재시도 컨테이너의 종료 코드가 0이 아닌 경우에 시도 됩니다. | 0 |
+| `retryDelay` | int(초) | 예. | 컨테이너의 실행을 다시 시도 간격 (초)에서 지연입니다. | 0 |
+| `secret` | 개체 | 예. | Azure Key Vault 비밀 또는 Azure 리소스에 대 한 관리 되는 id를 식별 합니다. | 없음 |
+| `startDelay` | int(초) | 예. | 컨테이너의 실행을 지연 시간 (초) 수입니다. | 0 |
+| `timeout` | int(초) | 예. | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
+| [`when`](#example-when) | [string, string, ...] | 예. | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
+| `user` | 문자열 | 예. | 사용자 이름 또는 컨테이너의 UID | 없음 |
+| `workingDirectory` | 문자열 | 예. | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `$HOME` |
 
 ### <a name="examples-task-step-properties"></a>예제: 작업 단계 속성
 

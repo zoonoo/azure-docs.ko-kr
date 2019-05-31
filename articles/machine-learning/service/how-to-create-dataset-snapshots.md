@@ -1,5 +1,5 @@
 ---
-title: 비교 (&) 데이터 스냅숏 사용 하 여 시간이 지남에 따라 재현
+title: 비교 (&) 데이터 집합 스냅숏 사용 하 여 데이터를 재현 합니다.
 titleSuffix: Azure Machine Learning service
 description: 시간이 지남에 따라 데이터를 비교 하 고 데이터 집합 스냅숏 사용 하 여 재현 가능성을 보장 하는 방법을 알아봅니다
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205010"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162066"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>데이터를 비교 하 고 스냅숏 (미리 보기)를 사용 하 여 재현 가능성을 보장
 
@@ -41,7 +41,7 @@ ms.locfileid: "65205010"
 
 ## <a name="create-dataset-snapshots"></a>데이터 집합 스냅숏 만들기
 
-사용 하 여 데이터 집합의 스냅숏을 만들려면 [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) Azure Machine Learning SDK에서.
+사용 하 여 데이터 집합의 스냅숏을 만들려면 [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) Azure Machine Learning SDK의 azureml 데이터 집합 패키지에서.
 
 기본적으로 스냅숏 프로필을 저장 합니다 (요약 통계)의 최신 데이터로 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 적용 합니다. 데이터 집합 정의의 데이터에 대해 정의 된 모든 변환 단계 레코드를 포함 합니다. 작동 하 여 데이터 준비를 재현할 수 있도록 유용한 방법입니다.
 

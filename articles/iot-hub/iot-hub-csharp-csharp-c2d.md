@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: d16f57db6a3c39be34c13663db62d7be50749f57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741123"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864439"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 디바이스에 메시지 보내기
 
@@ -48,7 +48,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Visual Studio 2017
+* Visual Studio
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
@@ -163,7 +163,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
    Console.ReadLine();
    ```
 
-8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...** 을 선택합니다. 여러 시작 프로젝트를 선택한 다음 **ReadDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다.
+8. Visual Studio 내에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정...** 을 선택합니다. **여러 시작 프로젝트**를 선택한 다음 **ReadDeviceToCloudMessages**, **SimulatedDevice** 및 **SendCloudToDevice**에 대한 **시작** 작업을 선택합니다.
 
 9. **F5**키를 누릅니다. 세 애플리케이션이 모두 시작됩니다. **SendCloudToDevice** 창을 선택하고 **Enter** 키를 누릅니다. 디바이스 앱에서 수신하고 있는 메시지가 표시됩니다.
 

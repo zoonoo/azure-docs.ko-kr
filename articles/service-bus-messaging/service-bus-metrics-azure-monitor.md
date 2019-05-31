@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에서 Azure Service Bus 메트릭(미리 보기) | Microsoft Docs
-description: Azure 모니터링을 사용하여 Service Bus 엔터티 모니터링
+description: Azure 모니터를 사용 하 여 Service Bus 엔터티 모니터링
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716108"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921241"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -160,7 +160,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)를 참조하세요.
+참조 된 [Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)합니다.
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: a061c2705a5c0155b54dd2fa1e89f19223409a12
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: e972dfdd7694a1a43302fa5879ea22f2ecd051ad
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609443"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298864"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -83,7 +83,6 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |예 |예 |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | | |예 |예 |
 
-*&ast;Spark 클러스터 형식에 대해서만 HDInsight 3.5 지원이 확장되었습니다.*
 
 > [!NOTE]  
 > 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.

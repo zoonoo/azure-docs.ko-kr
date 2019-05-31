@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124734"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164564"
 ---
 리소스를 Azure에 배포할 때 배포할 리소스의 형식, 위치 및 설정 방법을 결정하는 데 놀라운 유연성을 경험할 수 있습니다. 단, 그러한 유연성으로 인해 조직에서 허용하려는 것보다 더 많은 선택 사항이 있을 수도 있습니다. 리소스를 Azure에 배포할 때 다음에 대해 궁금하실 수도 있습니다.
 
-* 특정 국가에서 데이터 독립성에 대한 법률 요구 사항을 충족하려면 어떻게 해야 하나요?
+* 특정 국가/지역에서 데이터 독립성에 대한 법률 요구 사항을 충족하려면 어떻게 해야 하나요?
 * 비용은 어떻게 관리할 수 있나요?
 * 누군가가 중요한 시스템을 실수로 변경하지 않도록 보장하려면 어떻게 해야 하나요?
 * 리소스 비용을 추적하고 정확하게 청구하려면 어떻게 해야 하나요?

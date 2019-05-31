@@ -9,11 +9,11 @@ ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 2bfca370e8e89d98f700c8c5adfd29129e810d9b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416325"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131576"
 ---
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
 

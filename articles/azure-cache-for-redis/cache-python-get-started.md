@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779452"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872992"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
@@ -46,7 +46,7 @@ ms.locfileid: "57779452"
 
 [Redis-py](https://github.com/andymccurdy/redis-py)는 Azure Cache for Redis에 대한 Python 인터페이스입니다. Python 패키지 도구 *pip*를 사용하여 redis-py 패키지를 설치합니다. 
 
-다음 예제는 Python3용 *pip3*을 통해 상승된 관리자 권한을 가지고 실행한 Visual Studio 2017 개발자 명령 프롬프트를 사용하여 Windows 10에 redis-py 패키지를 설치합니다.
+다음 예제는 Python3용 *pip3*을 통해 상승된 관리자 권한을 가지고 실행한 Visual Studio 2019 개발자 명령 프롬프트를 사용하여 Windows 10에 redis-py 패키지를 설치합니다.
 
     pip3 install redis
 

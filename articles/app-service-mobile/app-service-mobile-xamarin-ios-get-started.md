@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 559050cbc575fce5bdb5b32ec266e1cc3d09b2d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097483"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242719"
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,59 +33,40 @@ ms.locfileid: "62097483"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져옵니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](/visualstudio/cross-platform/setup-and-install) 을 참조하세요.
-* Xcode v7.0 이상 및 Xamarin Studio Community가 설치된 Mac입니다. [Visual Studio 및 Xamarin을 위한 설정 및 설치](/visualstudio/cross-platform/setup-and-install) 및 [Mac 사용자를 위한 설정, 설치 및 유효성 검사](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users)(MSDN)를 참조하세요.
-
+* Visual Studio for Mac. 참조 [설정 및 Mac 용 Visual Studio 용 설치](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Xcode 9.0 이상 Mac입니다.
+  
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
-다음 단계에 따라 새 Mobile App 백 엔드를 만드세요.
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>서버 프로젝트 구성
-이제 모바일 클라이언트 애플리케이션에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 "할 일 목록" 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
-
-다음 단계에 따라 Node.js 또는 .NET 백 엔드를 사용하도록 서버 프로젝트를 구성합니다.
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트와 서버 프로젝트 구성
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinios-app"></a>Xamarin.iOS 앱 다운로드 및 실행
-1. 브라우저 창에서 [Azure 포털] 을 엽니다.
-2. Mobile App의 설정 블레이드에서 **시작** > **Xamarin.iOS**를 클릭합니다. 3단계 아래에서 **새 앱 만들기** 가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
+## <a name="run-the-xamarinios-app"></a>Xamarin.iOS 앱 실행
+1. Xamarin.iOS 프로젝트를 엽니다.
 
-      모바일 백 엔드에 연결되는 클라이언트 애플리케이션이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
-3. 다운로드한 프로젝트를 추출하고 Xamarin Studio(또는 Visual Studio)에서 엽니다.
+2. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net합니다.
 
-    ![][9]
+3. 파일을 열고 `QSTodoService.cs` 이 폴더에서 xamarin.iOS/ZUMOAPPNAME 합니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
 
-    ![][8]
-4. F5 키를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
-5. 앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 **+** 단추를 클릭합니다.
+4. `QSTodoService` 클래스를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 변수입니다.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    됩니다.
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. 배포 하 고 iPhone 에뮬레이터에서 앱을 실행 하려면 F5 키를 누릅니다.
+
+6. 앱에서 의미 있는 텍스트 입력와 같은 *자습서를 완료* 클릭 및는 + 단추입니다.
 
     ![][10]
 
-    요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
+    요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 나타납니다.
 
-> [!NOTE]
-> 모바일 앱 백 엔드에 액세스하여 QSTodoService.cs C# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
->
->
-
-## <a name="next-steps"></a>다음 단계
-* [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [앱에 인증 추가](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)
-
-<!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
-
+   > [!NOTE]
+   > 모바일 앱 백 엔드에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
+   
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
-[9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-
-<!-- URLs. -->
-[Azure 포털]: https://portal.azure.com/

@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
-ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401314"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910335"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -126,7 +126,7 @@ Windows 버전에는 **iothub_client\_샘플\_iothub_convenience_sample** 응용
   ![Visual Studio 솔루션 탐색기](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Visual Studio 2017에서 이 프로젝트를 열면 프롬프트를 수락하여 프로젝트를 최신 버전으로 변경합니다.
+> Visual Studio 최신 버전으로 프로젝트 대상을 다시 지정를 묻는 메시지를 수락 합니다.
 
 이 솔루션에는 다음의 단일 프로젝트가 포함됩니다. 이 솔루션에 설치되어 있는 4개의 NuGet 패키지는 다음과 같습니다.
 
@@ -339,7 +339,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
   ![mqtt 샘플용 Visual Studio 솔루션](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Visual Studio 2017에서 이 프로젝트를 열면 프롬프트를 수락하여 프로젝트를 최신 버전으로 변경합니다.
+> Visual Studio 최신 버전으로 프로젝트 대상을 다시 지정를 묻는 메시지를 수락 합니다.
 
 이전 샘플과 마찬가지로 이 하나에는 여러 NuGet 패키지가 포함됩니다.
 

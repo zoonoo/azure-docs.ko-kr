@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046056"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243025"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure Function App을 API로 가져오기
 
@@ -118,7 +118,7 @@ Azure Function App 가져오기에서 자동으로 생성되는 항목은 다음
 * Function App 내에 apim-{*Azure API Management 서비스 인스턴스 이름*} 이름이 있는 호스트 키,
 * Azure API Management 인스턴스 내에 {*Azure Function App 인스턴스 이름*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
 
-2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 Function App으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)로 전달합니다. 이 동작은 Function App과 연결된 *백 엔드* 항목의 `PATCH Backend` [REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
+2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 Function App으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)로 전달합니다. 이 동작은 Function App과 연결된 *백 엔드* 항목의 `PATCH Backend` [REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
 
 > [!WARNING]
 > Azure Function App 호스트 키 또는 Azure API Management 명명된 값을 제거하거나 변경하면 서비스 간 통신이 중단됩니다. 값은 자동으로 동기화되지 않습니다.

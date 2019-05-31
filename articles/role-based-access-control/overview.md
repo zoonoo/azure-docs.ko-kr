@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011029"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540909"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -84,7 +84,7 @@ Azure는 여러 수준([관리 그룹](../governance/management-groups/index.md)
 
 ![역할 할당 범위](./media/overview/rbac-scope.png)
 
-부모 범위에서 액세스 권한을 부여하는 경우 해당 권한은 자식 범위에 상속됩니다. 예를 들면 다음과 같습니다.
+부모 범위에서 액세스 권한을 부여하는 경우 해당 권한은 자식 범위에 상속됩니다. 예: 
 
 - 관리 그룹 범위에서 [소유자](built-in-roles.md#owner) 역할을 사용자에게 할당하는 경우 해당 사용자는 모든 관리 그룹의 모든 구독에서 모든 항목을 관리할 수 있습니다.
 - 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하면 해당 그룹의 멤버가 구독의 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
@@ -138,4 +138,4 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 - [빠른 시작: Azure Portal을 사용하여 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기](check-access.md)
 - [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
 - [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
-- [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)

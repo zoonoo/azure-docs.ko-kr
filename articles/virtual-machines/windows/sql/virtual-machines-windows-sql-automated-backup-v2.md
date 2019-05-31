@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165725"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -107,7 +107,7 @@ ms.locfileid: "57780017"
 
 월요일에서 다음 설정으로 자동화된 Backup v2를 사용하도록 설정합니다.
 
-- 백업 일정: 설명서
+- 백업 일정: 수동
 - 전체 백업 빈도: 매일
 - 전체 백업 시작 시간: 22:00
 - 전체 백업 기간: 6시간

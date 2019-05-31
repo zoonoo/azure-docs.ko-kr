@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66115707"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 

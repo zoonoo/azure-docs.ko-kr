@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694102"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952557"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -98,4 +98,8 @@ RBAC는 세분화 된 액세스 제어를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure AD 인증 및 Azure Maps 웹 SDK에 대한 자세한 내용은 [Azure AD 및 Azure Maps 웹 SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조하세요.
+Azure AD 인증 및 Azure Maps 웹 SDK에 대한 자세한 내용은 [Azure AD 및 Azure Maps 웹 SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조하세요.
+
+Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 알아봅니다.
+> [!div class="nextstepaction"] 
+> [사용 메트릭 보기](how-to-view-api-usage.md)

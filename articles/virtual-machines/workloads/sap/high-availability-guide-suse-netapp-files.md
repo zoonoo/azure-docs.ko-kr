@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142976"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357723"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142976"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 가상 컴퓨터를 배포, 가상 컴퓨터를 구성, 클러스터 프레임 워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명를 사용 하 여 [Azure NetApp 파일 (공개 미리 보기)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)합니다.
+이 문서에서는 가상 컴퓨터를 배포, 가상 컴퓨터를 구성, 클러스터 프레임 워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명를 사용 하 여 [Azure NetApp 파일](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)합니다.
 예제 구성, 설치 명령 등, ASCS 인스턴스 번호 00, ERS 인스턴스 번호 01, 기본 응용 프로그램 인스턴스 (PA) 02 이며 응용 프로그램 인스턴스 AAS ()는 03 합니다. SAP 시스템 ID QAS 사용 됩니다. 
 
 이 문서에서는 Azure NetApp 파일을 사용 하 여 SAP NetWeaver 응용 프로그램에 대 한 고가용성을 달성 하는 방법에 설명 합니다. 데이터베이스 계층은이 문서에서 자세히 적용 되지 않습니다.
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 저장소가 필요합니다.  Azure NetApp 파일 인프라에 대 한 설치를 진행 하기 전에 숙지 합니다 [NetApp Azure Files 설명서][anf-azure-doc]합니다. 선택한 Azure 지역에 Azure NetApp 파일 제공 하는 경우를 확인 합니다. 다음 링크를 Azure 지역에 따라 NetApp 파일을 Azure의 가용성을 보여 줍니다. [Azure 지역에 따라 가용성 파일을 azure NetApp][anf-avail-matrix]합니다.
 
-Azure NetApp 파일 기능은 여러 Azure 지역에서 공개 미리 보기로 제공에서 됩니다. NetApp Azure Files를 배포 하기 전에 Azure NetApp 파일 미리 보기에 등록을 수행 합니다 [Azure NetApp 파일 지침에 대 한 등록][anf-register]합니다. 
+Azure NetApp 파일은 몇 가지 사용 가능한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)합니다. NetApp Azure Files를 배포 하기 전에 Azure NetApp 파일을 다음으로 온 보 딩을 요청 합니다 [Azure NetApp 파일 지침에 대 한 등록][anf-register]합니다. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>NetApp 파일 Azure 리소스 배포  
 
-단계를 이미 배포한 가정 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)합니다. Azure NetApp 파일 리소스 및 Azure NetApp 파일 리소스를 탑재할 Vm을 동일한 Azure Virtual Network에 배포 되어야 합니다는 것을 염두에 두십시오.  
+단계를 이미 배포한 가정 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)합니다. 동일한 Azure Virtual Network 또는 피어 링 된 Azure Virtual Network에서 Azure NetApp 파일 리소스 및 Azure NetApp 파일 리소스를 탑재할 Vm에 배포 되어야 합니다.  
 
-1. 아직 수행 하지 않은, 경우 요청할 [NetApp Azure 미리 보기에 등록](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)합니다.  
+1. 아직 수행 하지 않은, 경우 요청 [NetApp 파일을 Azure에 온 보 딩](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)합니다.  
 
 2. 다음 선택한 Azure 지역에서 NetApp 계정을 만들려면 합니다 [NetApp 계정을 만드는 지침은](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)합니다.  
 3. 다음 Azure NetApp Files 용량 풀을 설정 합니다 [NetApp 파일 Azure 용량 풀을 설정 하는 방법에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)합니다.  
@@ -153,7 +153,7 @@ Azure NetApp 파일 기능은 여러 Azure 지역에서 공개 미리 보기로 
 
 4. 에 설명 된 대로 Azure NetApp 파일에 서브넷을 위임 합니다 [지침은 위임할 Azure NetApp 파일에 서브넷](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)합니다.  
 
-5. 다음 Azure NetApp 파일 볼륨을 배포 하는 [볼륨을 만들려면 Azure NetApp 파일에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)합니다. 지정된 된 Azure NetApp 파일의 볼륨에 배포할 [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)합니다. Azure NetApp 파일 리소스 및 Azure Vm을 동일한 Azure Virtual Network에 있어야 하는 점을 염두에 두십시오. 예를 들어 sapmnt<b>QAS</b>, usrsap<b>QAS</b>등은 볼륨 이름 및 sapmnt<b>qas</b>, usrsap<b>qas</b>등 azure는 filepaths는 NetApp 파일 볼륨입니다.  
+5. 다음 Azure NetApp 파일 볼륨을 배포 하는 [볼륨을 만들려면 Azure NetApp 파일에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)합니다. 지정된 된 Azure NetApp 파일의 볼륨에 배포할 [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)합니다. Azure NetApp 파일 리소스 및 Azure Vm을 동일한 Azure Virtual Network 또는 피어 링 된 Azure Virtual Network 수 있어야 하는 점을 염두에 두십시오. 예를 들어 sapmnt<b>QAS</b>, usrsap<b>QAS</b>등은 볼륨 이름 및 sapmnt<b>qas</b>, usrsap<b>qas</b>등 azure는 filepaths는 NetApp 파일 볼륨입니다.  
 
    1. 볼륨 sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. 볼륨 usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -256,7 +256,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 ### <a name="installation"></a>설치
 
-다음 항목에는 접두사 **[A]**(모든 노드에 적용됨), **[1]**(노드 1에만 적용됨), **[2]**(노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
 1. **[A]** SUSE 커넥터 설치
 
@@ -364,7 +364,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    > [!NOTE]
    > 현재 Azure NetApp 파일 NFSv3만 지원합니다. nfsvers 생략 하지 않음 = 3 스위치입니다.
    
-   autofs를 다시 시작하여 새 공유를 탑재합니다.
+   다시 시작 `autofs` 새 공유를 탑재 하려면
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   autofs를 다시 시작하여 새 공유를 탑재합니다.
+   다시 시작 `autofs` 새 공유를 탑재 하려면
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   autofs를 다시 시작하여 새 공유를 탑재합니다.
+   다시 시작 `autofs` 새 공유를 탑재 하려면
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   이 명령을 한 번만 실행하는 경우 sapstart가 프로세스 다시 시작합니다. 충분히 자주 실행하면 sapstart가 해당 프로세스를 다시 시작하지 않으며 리소스는 중지된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   실행 하는 경우만 명령을 한 번 `sapstart` 프로세스를 다시 시작 됩니다. 실행 하는 경우 충분히 자주 `sapstart` 프로세스 다시 시작 되지 것입니다 및 리소스를 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

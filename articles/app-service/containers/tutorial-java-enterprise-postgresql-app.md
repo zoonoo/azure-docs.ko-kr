@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545353"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603195"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
@@ -158,7 +158,7 @@ _pom.xml_에서 대문자로 시작하는 자리 표시자 값을 Postgres 서�
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly 애플리케이션 서버 구성
 
-다시 구성된 애플리케이션을 배포하기 전에, WildFly 애플리케이션 서버를 Postgres 모듈 및 해당 종속성으로 업데이트해야 합니다. 자세한 구성 정보는 [WildFly 서버 구성](configure-language-java.md#configure-wildfly-server)에서 찾을 수 있습니다.
+다시 구성된 애플리케이션을 배포하기 전에, WildFly 애플리케이션 서버를 Postgres 모듈 및 해당 종속성으로 업데이트해야 합니다. 자세한 구성 정보는 [WildFly 서버 구성](configure-language-java.md#configure-java-ee-wildfly)에서 찾을 수 있습니다.
 
 서버를 구성하려면 `wildfly_config/` 디렉터리에 있는 4개 파일이 필요합니다.
 

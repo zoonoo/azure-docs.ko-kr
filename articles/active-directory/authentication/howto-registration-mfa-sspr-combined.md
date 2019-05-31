@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823383"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119378"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>보안 정보 등록 결합 사용 (미리 보기)
 
@@ -43,7 +43,7 @@ ms.locfileid: "65823383"
 > 2019 년 3 월부터, 전화 통화 옵션을 Multi-factor Authentication 및 Azure AD 체험/평가판 테 넌 트에 사용자가 SSPR 사용할 수 없습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화 옵션을 사용할 수 있습니다 사용자에 게 유료 Azure AD 테 넌 트입니다.
 
 > [!NOTE]
-> 결합 된 등록, 등록 또는 자신의 전화 번호를 확인 하는 사용자를 사용 하거나 새 환경을 통해 모바일 앱 수 사용 하 여 해당 Multi-factor Authentication 및 SSPR에 대 한 이러한 메서드는 Multi-factor Authentication 및 SSPR에 설정 된 경우 정책입니다. 이전 SSPR 등록으로 이동 하는 사용자 페이지에서 다음에이 환경을 비활성화 하면 `https:/aka.ms/ssprsetup` 페이지에 액세스 하기 전에 multi-factor authentication을 수행 해야 합니다.
+> 결합 된 등록, 등록 또는 자신의 전화 번호를 확인 하는 사용자를 사용 하거나 새 환경을 통해 모바일 앱 수 사용 하 여 해당 Multi-factor Authentication 및 SSPR에 대 한 이러한 메서드는 Multi-factor Authentication 및 SSPR에 설정 된 경우 정책입니다. 이전 SSPR 등록으로 이동 하는 사용자 페이지에서 다음에이 환경을 비활성화 하면 `https://aka.ms/ssprsetup` 페이지에 액세스 하기 전에 multi-factor authentication을 수행 해야 합니다.
 
 Internet Explorer에서 사이트 할당 목록 영역을 구성한 경우 다음 사이트를 동일한 영역에 수 해야 합니다.
 

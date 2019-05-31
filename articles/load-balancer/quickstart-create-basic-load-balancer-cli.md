@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156190"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 부하 분산 장치 만들기
 

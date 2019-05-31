@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 9cd7a207a76ddfbeeb3b2e6b46abbc6423825093
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681015"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603523"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -27,7 +27,7 @@ Azure 빠른 시작에서 [Azure Portal](https://portal.azure.com)을 사용하�
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 - 동작합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
+- [Visual Studio 2019)](https://www.visualstudio.com/vs) 이상.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기

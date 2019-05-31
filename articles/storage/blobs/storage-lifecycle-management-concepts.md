@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001750"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -393,8 +393,12 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 ## <a name="faq"></a>FAQ
 
-**작업이 실행 되는 이유 즉시 새 정책을 만든?**  
+**이유는 작업이 실행 되지 않고 즉시 새 정책을 만든?**  
 플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 정책에 구성한 후 처음으로 실행 하려면 몇 가지 작업에 대 한 최대 24 시간이 걸릴 수 있습니다.  
+
+**수동으로 보관된에서 blob을 리하이드레이션 하나요, 수 없도록 하려는 것 이동 되지 않도록 다시 보관 계층으로 일시적으로?**  
+Blob에 대 한 액세스 계층에서 다른 액세스 계층으로 이동 될 때 해당 마지막 수정 시간이 변경 되지 않습니다. 수동으로 핫 계층으로 보관된에서 blob을 리하이드레이션을 하는 경우이 다시 이동할 수 보관 계층 수명 주기 관리 엔진에서. 일시적으로이 blob에 영향을 주는 규칙을 사용 하지 않도록 설정 하 여 방지할 수 있습니다. Blob을 핫 계층 영구적으로 유지 해야 하는 경우 다른 위치로 복사할 수 있습니다. Blob 수 안전 하 게 다시 이동할 수 계층을 보관 하는 경우 규칙을 다시 활성화할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

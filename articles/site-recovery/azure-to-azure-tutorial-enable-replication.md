@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678848"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795759"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "59678848"
 > [!div class="checklist"]
 > * Recovery Services 자격 증명 모음 만들기
 > * 대상 리소스 설정 확인
-> * VM에 대해 아웃바운드 액세스 설정
+> * VM에 대한 아웃바운드 네트워크 연결 설정
 > * VM에 대한 복제 사용
 
 > [!NOTE]
@@ -38,7 +38,7 @@ ms.locfileid: "59678848"
 - [시나리오 아키텍처 및 구성 요소](concepts-azure-to-azure-architecture.md)를 이해해야 합니다.
 - 시작하기 전에 [지원 요구 사항](site-recovery-support-matrix-azure-to-azure.md)을 검토합니다.
 
-## <a name="create-a-vault"></a>자격 증명 모음 만들기
+## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 원본 지역을 제외한 모든 지역에 자격 증명 모음을 만듭니다.
 
@@ -52,12 +52,12 @@ ms.locfileid: "59678848"
 
    **대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
 
-## <a name="verify-target-resources"></a>대상 리소스 확인
+## <a name="verify-target-resource-settings"></a>대상 리소스 설정 확인
 
 1. Azure 구독에서 대상 지역에 VM을 만들 수 있도록 허용하는지 확인합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 2. 구독에 원본 VM과 동일한 크기의 VM을 지원할 수 있을 만큼 충분한 리소스가 있는지 확인합니다. Site Recovery는 대상 VM에 대해 동일한 크기 또는 가장 가깝게 가능한 크기를 선택합니다.
 
-## <a name="configure-outbound-network-connectivity"></a>아웃바운드 네트워크 연결 구성
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>VM에 대한 아웃바운드 네트워크 연결 설정
 
 Site Recovery가 예상대로 작동하려면 복제하려는 VM에서 아웃바운드 네트워크 연결을 수정해야 합니다.
 
@@ -107,7 +107,7 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 
 [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 자세히 알아봅니다.
 
-## <a name="enable-replication"></a>복제 사용
+## <a name="enable-replication-for-a-vm"></a>VM에 대한 복제 사용
 
 ### <a name="select-the-source"></a>원본 선택
 
@@ -145,8 +145,8 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
     **대상 리소스 그룹** | 장애 조치 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
     **대상 가상 네트워크** | 장애 조치 후 VM이 있는 대상 지역의 네트워크입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크(및 서브넷)를 만듭니다.
     **캐시 저장소 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세한 정보](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-    **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)**: | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 저장소 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다.
-    **복제본 Managed Disks(원본 VM에서 Managed Disks를 사용하는 경우)**: | 기본적으로 Site Recovery는 대상 지역에 복제본 관리 디스크를 만들어 원본 VM의 관리 디스크를 이 관리 디스크와 동일한 스토리지 유형(표준 또는 프리미엄)으로 미러링합니다.
+    **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 저장소 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다.
+    **복제본 Managed Disks(원본 VM에서 Managed Disks를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 복제본 관리 디스크를 만들어 원본 VM의 관리 디스크를 이 관리 디스크와 동일한 스토리지 유형(표준 또는 프리미엄)으로 미러링합니다. 디스크 유형만 사용자 지정할 수 있습니다. 
     **대상 가용성 집합** | 기본적으로 Azure Site Recovery는 원본 지역에서 가용성 세트에 있는 VM 부분의 이름에 “asr” 접미사가 있는 대상 지역에 새 가용성 세트를 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.
     **대상 가용성 영역** | 기본적으로 Site Recovery는 대상 지역이 가용성 영역을 지원하는 경우 대상 지역의 원본 지역과 동일한 영역 번호를 할당합니다.<br/><br/> 대상 지역이 가용성 영역을 지원하지 않는 경우 대상 VM은 기본적으로 단일 인스턴스로 구성됩니다.<br/><br/> **사용자 지정**을 클릭하여 대상 지역에서 가용성 집합의 일부로 VM을 구성합니다.<br/><br/> 복제를 사용하도록 설정한 후에는 가용성 유형(단일 인스턴스, 가용성 집합 또는 가용성 영역)을 변경할 수 없습니다. 가용성 유형을 변경하려면 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 

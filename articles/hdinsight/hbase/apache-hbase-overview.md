@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789197"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235906"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase 란
 
@@ -30,7 +30,7 @@ HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니
 HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HBase 클러스터는 가상 네트워크 내에 만들 수 있습니다. 자세한 내용은 [Azure Virtual Network에 HDInsight 클러스터 만들기](./apache-hbase-provision-vnet.md)를 참조하세요.
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>HDInsight HBase에서 데이터를 관리하는 방법
-HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get`을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 [Apache Hive](https://hive.apache.org/)를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Apache Hadoop와 함께 Apache HBase를 사용하여 시작](./apache-hbase-tutorial-get-started-linux.md)을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
+HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get`을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 [Apache Hive](https://hive.apache.org/)를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Apache Hadoop와 함께 Apache HBase를 사용하여 시작](./apache-hbase-tutorial-get-started-linux.md)을 참조하세요. 보조 프로세서도 사용할 수 있습니다, 노드의 데이터 처리를 허용 하는 데이터베이스를 호스팅하는 합니다.
 
 > [!NOTE]  
 > Thrift는 HDInsight의 HBase에서 지원되지 않습니다.

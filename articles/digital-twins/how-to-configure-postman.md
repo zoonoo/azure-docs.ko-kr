@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926204"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967789"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -74,7 +74,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
     | 인증 URL | 2단계의 **권한 부여 URL**을 사용합니다. |
     | 클라이언트 ID | 이전 섹션에서 생성되거나 용도가 변경된 Azure Active Directory 앱에 대해 **애플리케이션 ID**를 사용합니다. |
-    | 범위 | 비워 둠 |
+    | Scope | 비워 둠 |
     | 시스템 상태 | 비워 둠 |
     | 클라이언트 인증 | `Send as Basic Auth header` |
 

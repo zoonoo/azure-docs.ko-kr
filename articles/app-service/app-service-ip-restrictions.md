@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541681"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236111"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 #
 
@@ -54,7 +54,7 @@ Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는
 
 규칙을 만들 때 허용/거부 및 규칙의 유형을 선택 해야 합니다. 또한 해야 하는 제한 및 우선 순위 값에 대 한 액세스를 제공 합니다.  필요에 따라 규칙에 이름 및 설명을 추가할 수 있습니다.  
 
-규칙 기반 IP 주소를 설정 하려면, IPv4 또는 IPv6 유형을 선택 합니다. IP 주소 표기법은 IPv4 및 IPv6 주소 둘 다에 대해 CIDR 표기법으로 지정해야 합니다. 정확한 주소를 지정하려면 1.2.3.4/32와 같이 처음 4개의 8진수로 IP 주소를 나타내고 /32로 마스크를 나타낼 수 있습니다. 모든 주소에 대한 IPv4 CIDR 표기법은 0.0.0.0/0입니다. CIDR 표기법에 대한 자세한 내용은 [Classless Inter-domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요. 
+규칙 기반 IP 주소를 설정 하려면, IPv4 또는 IPv6 유형을 선택 합니다. IP 주소 표기법은 IPv4 및 IPv6 주소 둘 다에 대해 CIDR 표기법으로 지정해야 합니다. 정확한 주소를 지정하려면 1.2.3.4/32와 같이 처음 4개의 8진수로 IP 주소를 나타내고 /32로 마스크를 나타낼 수 있습니다. 모든 주소에 대한 IPv4 CIDR 표기법은 0.0.0.0/0입니다. CIDR 표기법에 대한 자세한 내용은 [Classless Inter-domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.
 
 ![VNet 대 한 액세스 제한 규칙 추가](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ App Service Environment에서 실행 되는 앱에 대 한 액세스를 제한 �
 앱에 대 한 액세스를 제어할 수 있을 뿐만 앱에서 사용 되는 scm 사이트에 액세스를 제한할 수도 있습니다. Scm 사이트는 웹 끝점 및 Kudu 콘솔을 배포 합니다. 별도로 앱에서 액세스 제한 scm 사이트에 할당 하거나 동일한 앱과 scm 사이트에 대 한 집합을 사용 하 여 수 있습니다. 앱과 동일한 제한 하도록 상자를 선택 하는 경우 모든 항목은 사라짐. 확인란의 선택을 취소 하는 경우에 scm 사이트에 앞서 사용 했던 모든 설정이 적용 됩니다. 
 
 ![목록 액세스 제한](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>단일 IP 주소를 차단합니다. ##
+
+첫 번째 IP 제한 규칙 추가, 서비스 명시적인 추가 됩니다 **모두 거부** 2147483647의 우선 순위를 사용 하 여 규칙입니다. 실제로 명시적인 **모두 거부** 규칙 마지막 규칙이 실행 되 고 사용 하 여 명시적으로 허용 되지 않은 모든 IP 주소에 대 한 액세스를 차단 합니다는 **허용** 규칙입니다.
+
+사용자가 있는 단일 IP 주소 또는 IP 주소 블록을 명시적으로 차단 하려는 시나리오의 경우 하나는 허용 모든 다른 액세스 해야 하는 명시적인 추가 **모든 허용** 규칙입니다.
+
+![단일 ip 주소 블록](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>액세스 제한 규칙의 프로그래밍 방식으로 조작 ##
 

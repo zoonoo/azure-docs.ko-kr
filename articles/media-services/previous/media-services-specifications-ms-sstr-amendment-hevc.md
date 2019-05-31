@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650712"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963244"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC용 부드러운 스트리밍 프로토콜(MS-SSTR) 수정 사항 
 
@@ -40,11 +40,11 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 
 다음 용어는 이 문서에서만 사용됩니다.
 
->  **컴퍼지션 시간:** 클라이언트에서 샘플이 표시되는 시간으로, [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의되어 있습니다.
+>  **컴퍼지션 시간:** 시간에 정의 된 대로 클라이언트에서 샘플을 제시 됩니다 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)합니다.
 > 
 >   **CENC**: Common Encryption으로, [ISO/IEC 23001-7] 제2판에 정의되어 있습니다.
 > 
->   **디코딩 시간:** 클라이언트에서 샘플을 디코딩하는 데 필요한 시간으로,[[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)에 정의되어 있습니다.
+>   **디코딩 시간:** 샘플 시간은 클라이언트에서 디코딩할 필요가에 정의 된 대로 [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)합니다.
 
 **조각(Fragment):** 하나 이상의 **샘플**로 구성되어 있고 독립적으로 다운로드 가능한 **미디어** 단위입니다.
 
@@ -52,11 +52,11 @@ HTTP를 통한 MPEG-4([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=3277
 > 
 >   **매니페스트:** 클라이언트가 **미디어**에 대한 요청을 할 수 있도록 허용하는 **프레젠테이션**에 대한 메타데이터. **미디어:** 클라이언트에서 **프레젠테이션** 재생에 사용하는 압축된 오디오, 비디오 및 텍스트 데이터. **미디어 형식:** 오디오 또는 비디오를 압축된 **샘플**로 표시하는 데 사용되는 잘 정의된 형식.
 > 
->   **프레젠테이션:** 단일 동영상을 재생하는 데 필요한 모든 **스트림** 및 관련 메타데이터 세트. **요청:** 클라이언트에서 서버로 전송된 HTTP 메시지로, [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)에 정의되어 있습니다. **응답:** 서버에서 클라이언트로 전송된 HTTP 메시지로, [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)에 정의되어 있습니다.
+>   **프레젠테이션:** 단일 동영상을 재생하는 데 필요한 모든 **스트림** 및 관련 메타데이터 세트. **요청:** HTTP 메시지에 정의 된 대로 서버에 클라이언트에서 보낸 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **응답:** 에 정의 된 대로 클라이언트에 서버에서 보낸 HTTP 메시지 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **샘플:** **미디어**가 저장되고 처리되는 가장 작은 기본 단위(예: 프레임).
 > 
->   **MAY(할 수 있다), SHOULD(하는 것이 좋다), MUST(반드시 해야 한다), SHOULD NOT(하지 않는 것이 좋다), MUST NOT(절대 하면 안 된다):** 이러한 용어(영문의 경우 모두 대문자)는 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317)에 설명된 대로 사용됩니다. 선택적 동작을 서술하는 설명문은 MAY(할 수 있다), SHOULD(하는 것이 좋다) 또는 SHOULD NOT(하지 않는 것이 좋다) 중 하나를 사용합니다.
+>   **MAY(할 수 있다), SHOULD(하는 것이 좋다), MUST(반드시 해야 한다), SHOULD NOT(하지 않는 것이 좋다), MUST NOT(절대 하면 안 된다):** 이러한 용어 (모두 대문자)에 설명 된 대로 되 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) 선택적 동작 사용의 모든 문이 하거나 수 SHOULD, 또는 SHOULD NOT입니다.
 
 ## <a name="12-references"></a>1.2 참조
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 87c80857a1d4321768d9e0cdefa48d06c4d16a52
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 627ff40361b562630f05c70823e9ad2c7ef711e0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761468"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002222"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>가상 네트워크 스크립트 예제 (미리 보기)에 있는 IPv6 끝점을 구성 합니다.
 
@@ -257,7 +257,6 @@ Remove-AzResourceGroup -Name <resourcegroupname> -Force
 | [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)  | Azure Load Balancer를 만듭니다. |
 | [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | 부하 분산 장치 프로브를 만듭니다. 부하 분산 장치 프로브는 부하 분산 장치 집합의 각 VM을 모니터링하는 데 사용됩니다. 모든 VM이 액세스할 수 없게 되면 트래픽은 VM에 라우팅되지 않습니다. |
 | [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | 부하 분산 장치 규칙을 만듭니다. 이 샘플에서는 포트 80에 대한 규칙을 만듭니다. HTTP 트래픽이 부하 분산 장치에 도착하면 부하 분산 장치 집합에서 VM 중 하나인 포트 80에 라우팅됩니다. |
-| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | 부하 분산 장치 NAT(네트워크 주소 변환) 규칙을 만듭니다.  NAT 규칙은 VM에 있는 포트에 부하 분산 장치의 포트를 매핑합니다. 이 샘플에서는 부하 분산 장치 집합의 각 VM에 SSH 트래픽에 대한 NAT 규칙을 만듭니다.  |
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | 인터넷과 가상 머신 간에 보안 경계인 NSG(네트워크 보안 그룹)을 만듭니다. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |

@@ -139,7 +139,7 @@ Kusto 쿼리를 실행 합니다.
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 
-연결 메트릭에 대한 테이블의 레코드인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히 알아보십시오](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections).
+연결 메트릭에 대한 테이블의 레코드인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히 알아보십시오](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections). 
 
 ```
 // the machines of interest

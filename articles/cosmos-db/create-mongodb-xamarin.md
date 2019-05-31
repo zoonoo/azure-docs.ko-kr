@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588095"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860337"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 
@@ -34,7 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 샘플을 실행하려면 [Visual Studio](https://www.visualstudio.com/downloads/) 또는 [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/) 및 유효한 Azure CosmosDB 계정이 필요합니다.
 
-아직 Visual Studio가 없으면 설치 시 **.NET을 사용한 모바일 개발** 워크로드가 설치된 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드합니다.
+아직 Visual Studio가 없으면 설치 시 **.NET을 사용한 모바일 개발** 워크로드가 설치된 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드합니다.
 
 Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.microsoft.com/vs/mac/)를 다운로드하여 설치 프로그램을 실행합니다.
 
@@ -164,7 +164,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 ## <a name="run-the-app"></a>앱 실행
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. Visual Studio의 **솔루션 탐색기**에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 2. **모든 NuGet 패키지 복원**을 클릭합니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073989"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956397"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -22,6 +22,9 @@ ms.locfileid: "65073989"
 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking]를 사용하면 모든 pod가 서브넷에서 IP 주소를 가져오고 직접 액세스 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획해야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다.
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
+
+> [!WARNING]
+> (현재 AKS에서 미리 보기)는에서 Windows Server 노드 풀을 사용 하려면 Azure CNI 사용 해야 합니다. 네트워크 모델로 kubenet 사용 Windows Server 컨테이너에 대해 사용할 수 없는 경우
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -149,6 +152,8 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
     * 이 주소 범위는 확장할 예정인 노드 수를 수용할만큼 충분히 커야 합니다. 추가 노드를 위해 더 많은 주소가 필요하더라도 클러스터를 배포한 후에는 이 주소 범위를 변경할 수 없습니다.
     * Pod IP 주소 범위를 사용하여 */24* 주소 공간을 클러스터의 각 노드에 할당합니다. 다음 예제에서 *192.168.0.0/16*의 *-pod-cidr*은 첫 번째 노드 *192.168.0.0/24*, 두 번째 노드 *192.168.1.0/24*, 세 번째 노드 *192.168.2.0/24*를 할당합니다.
     * 클러스터가 확장 또는 업그레이드되면 Azure 플랫폼은 새로운 각 노드에 pod IP 주소 범위를 계속 할당합니다.
+    
+* 합니다 *-docker 브리지 주소* AKS 노드의 기본 관리 플랫폼을 사용 하 여 통신할 수 있습니다. 이 IP 주소는 클러스터의 가상 네트워크 IP 주소 범위 내에 속하지 않아야 하고 네트워크에서 사용 중인 다른 주소 범위와 겹쳐서는 안 됩니다.
 
 ```azurecli-interactive
 az aks create \

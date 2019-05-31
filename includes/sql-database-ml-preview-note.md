@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye
 ms.openlocfilehash: de3cbf4411c2b10c0a5a06c4e220f3a245f5bdc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584571"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110233"
 ---
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services는 현재 공개 미리 보기로 제공됩니다.

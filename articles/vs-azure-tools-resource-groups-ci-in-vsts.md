@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458907"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019762"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
 Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합니다. Azure에 빌드, 테스트, 복사 ("스테이징" 라고도 함) 및 템플릿을 배포 합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
@@ -55,7 +55,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하고 Azure PowerShell 빌드 단계를 추가합니다. **빌드 파이프라인** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 파이프라인 편집][0]
-2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다.  단추를 선택합니다.
+2. 새 **Azure PowerShell** 빌드 단계를 빌드 파이프라인에 추가한 다음, **빌드 단계 추가...** 단추를 선택합니다. 단추를 선택합니다.
    
    ![빌드 단계 추가][1]
 3. **배포 작업** 범주를 선택한 다음 **Azure PowerShell** 작업을 선택하고 해당 항목의 **추가** 버튼을 선택합니다.
@@ -93,7 +93,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
       
       Azure CLI의 경우 
       
-      `azure account show`
+      `az account show`
    8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 애플리케이션 및 서비스 주체 만들기](active-directory/develop/howto-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](active-directory/develop/howto-authenticate-service-principal-powershell.md)의 절차에 따릅니다.
    9. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID 값을 **Azure 구독 추가** 대화 상자에 추가한 다음 **확인** 단추를 선택합니다.
       
@@ -139,7 +139,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 1. Azure DevOps Services 빌드 파이프라인을 편집하여 두 개의 새 빌드 단계를 추가합니다. **빌드 정의** 범주 아래에서 빌드 파이프라인을 선택하고 **편집** 링크를 선택합니다.
    
    ![빌드 정의 편집][12]
-2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다.  단추를 선택합니다.
+2. **빌드 단계 추가...** 를 사용하여 빌드 파이프라인에 새 빌드 단계를 추가합니다. 단추를 선택합니다.
    
    ![빌드 단계 추가][13]
 3. **배포** 작업 범주를 선택한 다음 **Azure File Copy** 작업을 선택하고 해당 항목의 **추가** 단추를 선택합니다.

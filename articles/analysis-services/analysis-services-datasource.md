@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506827"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142557"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -27,14 +27,14 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |Azure SQL 데이터 웨어하우스     |   예      |   예.       |
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예.       |    아닙니다.      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예.       |    아닙니다.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아닙니다.        |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예.        |  아닙니다.        |
 |Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예.       |    아닙니다.      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예.     |   아닙니다.       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아닙니다.       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예.       |   아닙니다.       |
 ||||
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance가 지원됩니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance가 지원됩니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다. Azure SQL Database Managed Instance 공용 끝점을 사용 하 여 현재 지원 되지 않습니다.   
 <a name="databricks">3</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.   
 <a name="gen2">4</a> - ADLS Gen2는 현재 지원되지 않습니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137874"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955792"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -54,7 +54,7 @@ ms.locfileid: "65137874"
 
 3. **슬롯 추가** 대화 상자에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 앱 구성을 복제할 것인지 여부를 선택합니다. **추가**를 클릭하여 계속합니다.
    
-    ![구성 원본](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![구성 소스](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     기존 슬롯에서 구성을 복제할 수 있습니다. 복제할 수 있는 설정에는 앱 설정, 연결 문자열, 언어 프레임워크 버전, 웹 소켓, HTTP 버전 및 플랫폼 비트 수가 포함됩니다.
 
@@ -93,13 +93,13 @@ ms.locfileid: "65137874"
 
 **교환되지 않은 설정**:
 
-* 게시 엔드포인트
+* 게시 끝점
 * 사용자 지정 도메인 이름
 * 개인 인증서 및 SSL 바인딩
 * 크기 조정 설정
 * WebJob 스케줄러
 * IP 제한
-* Always On
+* 항상 설정됨
 * 프로토콜 설정 (HTTP**S**, TLS 버전, 클라이언트 인증서)
 * 진단 로그 설정
 * CORS
@@ -217,7 +217,7 @@ ms.locfileid: "65137874"
 
 사용자 지정 하는 방법은 합니다 `applicationInitialization` 요소를 참조 하세요 [가장 일반적인 배포 슬롯 교환 오류 및 해결 방법](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)합니다.
 
-또한 다음 [앱 설정](web-sites-configure.md) 중 하나 이상을 사용하여 준비 동작을 사용자 지정할 수 있습니다.
+또한 다음 [앱 설정](configure-common.md) 중 하나 이상을 사용하여 준비 동작을 사용자 지정할 수 있습니다.
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트 준비를 ping할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예: `/statuscheck`. 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. `200,202`를 예로 들 수 있습니다. 반환된 상태 코드가 목록에 없는 경우 준비 및 교환 작업이 중지됩니다. 기본적으로 모든 응답 코드는 유효합니다.
@@ -289,7 +289,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.  
 
 - - -
-### <a name="create-web-app"></a>웹앱 만들기
+### <a name="create-web-app"></a>웹 앱 만들기
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

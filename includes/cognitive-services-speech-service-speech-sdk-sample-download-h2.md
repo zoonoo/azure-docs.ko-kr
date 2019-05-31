@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 07/16/2018
 ms.author: wolfma
 ms.openlocfilehash: 17f2aa8e70f8d8e18c5c7500d34060c0ed027c84
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144271"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145316"
 ---
 ## <a name="get-the-samples"></a>샘플 가져오기
 

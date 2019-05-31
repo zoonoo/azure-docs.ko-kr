@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733760"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238298"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
-| 리소스 | 최대 제한 |메모|
+| Resource | 최대 제한 |메모|
 | --- | --- |---|
 | (임의 작업) Azure Automation 계정당 30 초 마다 전송할 수 있는 새 작업의 최대 수 |100 |이 한도 도달 하면 작업을 만드는 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
 | 최대 시간 (임의 작업) Automation 계정당 동일한 인스턴스에서 실행 되는 동시 작업 수 |200 |이 한도 도달 하면 작업을 만드는 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
@@ -53,3 +53,11 @@ ms.locfileid: "64733760"
 |Linux 패키지|1,250||
 |Services|250||
 |디먼|250||
+
+#### <a name="update-management"></a>업데이트 관리
+
+다음 표에서 업데이트 관리에 대 한 제한을 보여 줍니다.
+
+| **리소스** | **제한**| **참고 사항** |
+|---|---|---|
+|업데이트 배포 당 컴퓨터 수|1000||

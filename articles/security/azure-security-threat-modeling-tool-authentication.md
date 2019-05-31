@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610872"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951719"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 
@@ -103,7 +103,7 @@ ms.locfileid: "60610872"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | N/A  |
 | **참조**              | N/A  |
-| 세부 정보 | <p>조직의 정책 및 모범 사례에 따라 암호 및 계정 정책이 구현되어야 합니다.</p><p>무차별 암호 대입 및 사전 기반 추측을 방지하려면: 강력한 암호 정책을 구현하여 사용자가 복잡한 암호를 만들도록 해야 합니다(예: 최소 12자, 영숫자 및 특수 문자).</p><p>다음과 같이 계정 잠금 정책을 구현할 수 있습니다.</p><ul><li>**소프트 잠금:** 무차별 암호 대입 공격(brute force attack)으로부터 사용자를 보호하기 적합한 옵션일 수 있습니다. 예를 들어 사용자가 잘못된 암호를 세 번 입력할 때마다 애플리케이션은 1분 동안 계정을 잠그고 무차별 암호 대입 과정의 속도를 저하시켜 공격자의 진행을 방해할 수 있습니다. 이 예제의 경우 하드 잠금 대응 방법을 구현했다면 계정을 영구적으로 잠금으로써 "Dos"를 달성합니다. 또는 애플리케이션에서 OTP(일회성 암호)를 생성하고 대역외(전자 메일, sms 등을 통해) 사용자에게 보냅니다. 다른 방법은 실패한 시도 횟수 임계값에 도달한 후 CAPTCHA를 구현하는 것입니다.</li><li>**하드 잠금:** 이 유형의 잠금은 애플리케이션을 공격하는 사용자를 감지할 때마다 적용해야 하며 대응 팀이 과학 수사를 수행할 시간을 확보할 때까지 계정을 영구적으로 잠그는 방법으로 대응합니다. 이 과정을 거친 후 사용자에게 계정을 다시 제공하거나 추가 법적 조치를 취하도록 결정할 수 있습니다. 이러한 접근 방식은 공격자가 애플리케이션 및 인프라를 더 이상 통과하지 못하도록 합니다.</li></ul><p>기본 및 예측 가능한 계정에 대한 공격을 방어하려면 모든 키 및 암호를 대체할 수 있는, 설치 시간 후 생성 또는 대체되는지 확인합니다.</p><p>애플리케이션에서 암호를 자동으로 생성해야 하는 경우 생성된 암호가 임의적이며 높은 엔트로피를 포함하는지 확인합니다.</p>|
+| 세부 정보 | <p>조직의 정책 및 모범 사례에 따라 암호 및 계정 정책이 구현되어야 합니다.</p><p>무차별 암호 대입 및 사전 기반 추측을 방지하려면: 강력한 암호 정책을 구현하여 사용자가 복잡한 암호를 만들도록 해야 합니다(예: 최소 12자, 영숫자 및 특수 문자).</p><p>다음과 같이 계정 잠금 정책을 구현할 수 있습니다.</p><ul><li>**소프트 잠금:** 무차별 암호 대입 공격(brute force attack)으로부터 사용자를 보호하기 적합한 옵션일 수 있습니다. 예를 들어, 잘못 된 암호를 입력할 때마다 세 번 응용 프로그램 수 계정을 잠그고 1 분에 대 한 무차별 암호 대입 공격자의 진행을 방해할 있으므로 암호 강제 적용 프로세스를 저하 시켜 합니다. 달성 하는이 예제에서는 하드 잠금 대응 방법을 구현 했다면 계정을 영구적으로 잠금으로써 "DoS"를 합니다. 또는 애플리케이션에서 OTP(일회성 암호)를 생성하고 대역외(전자 메일, sms 등을 통해) 사용자에게 보냅니다. 다른 방법은 실패한 시도 횟수 임계값에 도달한 후 CAPTCHA를 구현하는 것입니다.</li><li>**하드 잠금:** 이 유형의 잠금은 응용 프로그램 및 수사를 수행 하는 시간을가 계정 대응 팀까지 영구적으로 잠그는 통해 이러한 카운터를 공격 하 고 사용자를 검색할 때마다 적용 되어야 합니다. 사용자에 게 제공 하도록 결정할 수 있습니다이 프로세스가 완료 된 후 해당 계정을 다시 제공 하거나 추가 법적 조치에 대해 합니다. 이러한 접근 방식은 공격자가 애플리케이션 및 인프라를 더 이상 통과하지 못하도록 합니다.</li></ul><p>기본 및 예측 가능한 계정에 대한 공격을 방어하려면 모든 키 및 암호를 대체할 수 있는, 설치 시간 후 생성 또는 대체되는지 확인합니다.</p><p>애플리케이션에서 암호를 자동으로 생성해야 하는 경우 생성된 암호가 임의적이며 높은 엔트로피를 포함하는지 확인합니다.</p>|
 
 ## <a id="controls-username-enum"></a>사용자 이름 열거를 방지하기 위한 컨트롤 구현
 
@@ -125,7 +125,7 @@ ms.locfileid: "60610872"
 | **적용 가능한 기술** | OnPrem |
 | **특성**              | SQL 버전 - 모두 |
 | **참조**              | [SQL Server - 인증 모드 선택](https://msdn.microsoft.com/library/ms144284.aspx) |
-| **단계** | Windows 인증은 Kerberos 보안 프로토콜을 사용하고 강력한 암호를 위한 복잡한 검증을 거치는 암호 정책 적용을 제공하며 계정 잠금, 암호 만료를 지원합니다.|
+| **단계** | Windows 인증은 Kerberos 보안 프로토콜을 사용하고, 암호 정책을 적용하여 강력한 암호에 대해 적합한 복잡성 수준을 유지하도록 하며, 계정 잠금 및 암호 만료를 지원합니다.|
 
 ## <a id="aad-authn-sql"></a>가능한 경우 SQL Database에 연결하는 데 Azure Active Directory 인증 사용
 
@@ -285,7 +285,7 @@ ms.locfileid: "60610872"
 ```
 모든 들어오거나 나가는 메시지에 대해 항상 Windows 도메인 또는 인증서 인증을 요구하도록 MSMQ를 구성합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 아래 WCF 구성 파일의 `<netMsmqBinding/>` 요소는 MSMQ 큐에 연결할 때 WCF가 인증서 인증을 사용하도록 지시합니다. 클라이언트는 X.509 인증서를 사용하여 인증됩니다. 클라이언트 인증서는 서버의 클라이언트 저장소에 있어야 합니다.
 ```
 <bindings>
@@ -310,7 +310,7 @@ ms.locfileid: "60610872"
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. message clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -326,7 +326,7 @@ ms.locfileid: "60610872"
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 해당 기능에 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 애플리케이션을 구성합니다. transport clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 <transport clientCredentialType=""Certificate""/>
 ```
@@ -375,7 +375,7 @@ ms.locfileid: "60610872"
 | **참조**              | [웹 애플리케이션에 대한 Azure Active Directory의 최신 인증](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)(영문) |
 | **단계** | <p>TokenReplayCache 속성을 통해 개발자는 토큰 재생 캐시를 정의할 수 있으며 두 번 이상 사용할 수 있는 토큰이 없음을 확인할 용도로 토큰을 저장하는 데 사용할 수 있는 저장소를 정의할 수 있습니다.</p><p>일반적인 공격 즉, 토큰 재생 공격에 대한 조치입니다. 로그인 시 전송된 토큰을 가로채는 공격자는 새로운 세션을 설정하기 위해 토큰을 다시 앱에 전송("재생")하려고 할 수 있습니다. 예를 들어, OIDC 코드 부여 흐름에서 사용자가 성공적으로 인증된 후 신뢰 당사자의 "/signin-oidc" 엔드포인트에 대한 요청은 "id_token", "code" 및 "state" 매개 변수로 구성됩니다.</p><p>신뢰 당사자는 이 요청을 확인하고 새 세션을 설정합니다. 이 요청을 악의적으로 캡처하고 재생한 공격자는 성공적인 세션을 설정하여 사용자를 스푸핑할 수 있습니다. OpenID Connect에서 nonce의 존재를 제한할 수는 있지만 공격을 성공적으로 적용할 수 있는 환경이 완전히 사라지지는 않습니다. 이러한 애플리케이션을 보호하려면 개발자는 ITokenReplayCache의 구현을 제공하고 인스턴스를 TokenReplayCache에 할당할 수 있습니다.</p>|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 }
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ITokenReplayCache 인터페이스의 예제 구현은 다음과 같습니다. (프로젝트별 캐싱 프레임워크를 사용자 지정 및 구현하세요)
 ```csharp
 public class TokenReplayCache : ITokenReplayCache
@@ -458,7 +458,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **참조**              | 해당 없음 [.NET을 사용 하 여 Azure IoT hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [IoT hub 및 Node JS 시작](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted)합니다 [SAS 및 인증서로 IoT 보호](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 디바이스를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 디바이스에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```csharp
 static DeviceClient deviceClient;
 

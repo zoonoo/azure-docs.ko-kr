@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386338"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148169"
 ---
 **프리미엄 관리 되지 않는 가상 머신 디스크: 계정 별로 제한**
 
-| 리소스 | 기본 제한 |
+| Resource | 기본 제한 |
 | --- | --- |
 | 계정당 총 디스크 용량 |35TB |
 | 계정당 총 스냅숏 용량 |10TB |
@@ -32,7 +32,7 @@ ms.locfileid: "60386338"
 
 **프리미엄 관리 되지 않는 가상 머신 디스크: VM 당 제한**
 
-| 리소스 | 기본 제한 |
+| Resource | 기본 제한 |
 | --- | --- |
 | VM 당 최대 IOPS |GS5 VM에서 80,000 IOPS |
 | VM 당 최대 처리량 |GS5 VM을 사용 하 여 초당 2,000MB |

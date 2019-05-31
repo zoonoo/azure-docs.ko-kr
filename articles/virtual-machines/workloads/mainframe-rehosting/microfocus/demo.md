@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125477"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304930"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 CICS BankDemo 설정
 
@@ -20,13 +20,13 @@ CICs 고객 정보 제어 시스템에서 다양 한 온라인 메인프레임 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 사용 하 여 VM [엔터프라이즈 개발자](set-up-micro-focus-azure.md)합니다. 엔터프라이즈 개발자는 전체 Enterprise Server 인스턴스의에 개발 및 테스트 목적에 염두에 두어야 합니다. 이 데모에 사용 되는 Enterprise Server의 인스턴스입니다.
+- 사용 하 여 VM [엔터프라이즈 개발자](set-up-micro-focus-azure.md)합니다. 엔터프라이즈 개발자는 전체 Enterprise Server 인스턴스의에 개발 및 테스트 목적에 염두에 두어야 합니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)합니다. 다운로드 하 고 Enterprise Developer VM에 설치 합니다. Enterprise Server CICS 영역의 관리에 대 한 데이터베이스가 필요 및 BankDemo 응용 프로그램에는 또한 BANKDEMO 라는 SQL Server 데이터베이스를 사용 합니다. 이 데모 데이터베이스 모두에 대 한 SQL Server Express를 사용 한다고 가정 합니다. 를 설치할 때 기본 설치를 선택 합니다.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS는 데이터베이스를 관리 하 고 T-SQL 스크립트를 실행에 사용 됩니다. 다운로드 하 고 Enterprise Developer VM에 설치 합니다.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) 최신 서비스 팩을 사용 하 여 또는 [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), 무료로 다운로드할 수 있습니다.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) 최신 서비스 팩을 사용 하 여 또는 [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), 무료로 다운로드할 수 있습니다.
 
 - 데스크톱 또는 다른 rumba 3270 에뮬레이터.
 
@@ -38,7 +38,7 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
 2. 클릭 합니다 **검색** 옆에 아이콘을 **시작** 단추 **Windows 기능**합니다. 서버 관리자 추가 역할 및 기능 마법사가 열립니다.
 
-3. 선택 **웹 서버 (IIS) 역할**, 그런 다음 다음을 확인 합니다.
+3. 선택 **웹 서버 (IIS) 역할**, 다음 옵션을 확인 합니다.
 
     - 웹 관리 도구
     - IIS 6 관리 호환성 (사용 가능한 모든 기능을 선택 합니다.)
@@ -46,7 +46,7 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
     - IIS 관리 스크립트 및 도구
     - IIS 관리 서비스
 
-4. 선택 **World Wide Web 서비스**, 다음을 확인 합니다.
+4. 선택 **World Wide Web 서비스**, 다음 옵션을 선택 합니다.
 
      응용 프로그램 개발 기능:
     - .NET 확장성
@@ -59,12 +59,12 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
 5. 선택 **Windows Process Activation Service** 및 모든 자식입니다.
 
-6. 에 대 한 **기능**, 확인 **Microsoft.NET framework 3.5.1**, 다음을 확인 합니다.
+6. 에 대 한 **기능**, 확인 **Microsoft.NET framework 3.5.1**, 다음 옵션을 선택 합니다.
 
     - Windows Communication Foundation HTTP 활성화
     - Windows Communication Foundation 비 HTTP 활성화
 
-7. 에 대 한 **기능**, 확인 **Microsoft.NET framework 4.6**, 다음을 확인 합니다.
+7. 에 대 한 **기능**, 확인 **Microsoft.NET framework 4.6**, 다음 옵션을 선택 합니다.
 
    - 명명 된 파이프 활성화
    - TCP 활성화
@@ -88,7 +88,7 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
 ## <a name="configure-the-local-system-account-for-sql-server"></a>SQL Server에 대 한 로컬 시스템 계정 구성
 
-일부 Enterprise Server 프로세스는 SQL Server에 로그온 하 고 데이터베이스 및 기타 개체를 만들 수 있으려면 해야 합니다. 이러한 프로세스 해당 계정에 sysadmin 권한을 부여 해야 하므로 로컬 시스템 계정을 사용 합니다.
+일부 Enterprise Server 프로세스는 SQL Server 로그인 및 데이터베이스와 다른 개체를 만들 수 있으려면 해야 합니다. 이러한 프로세스 해당 계정에 sysadmin 권한을 부여 해야 하므로 로컬 시스템 계정을 사용 합니다.
 
 1. 시작 합니다 **SSMS** 클릭 **연결** Windows 인증을 사용 하 여 로컬 SQLEXPRESS 서버에 연결 합니다. 사용할 수 있어야 합니다 **서버 이름** 목록입니다.
 
@@ -126,7 +126,7 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
 ## <a name="build-the-application-in-enterprise-developer"></a>엔터프라이즈 개발자의 응용 프로그램 빌드
 
-1. Visual Studio를 열고 로그온 합니다.
+1. Visual Studio를 열고 로그인합니다.
 
 2. 아래는 **파일** 메뉴 옵션을 선택 **프로젝트/솔루션 열기**, 이동할 **c:\\사용자가\\공용\\문서\\마이크로 포커스\\Enterprise Developer\\샘플\\메인프레임\\CICS\\DotNet\\BankDemo**를 선택 하 고는 **sln**파일입니다.
 
@@ -197,18 +197,18 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
      ![새 데이터베이스 XA 리소스 정의 화면](media/09-demo-xa.png)
 
-6. 줄임표를 클릭 (**...** ) 연결 문자열 마법사를 표시 합니다. 에 대 한 **서버 이름**, 형식 **(local)\\SQLEXPRESS**합니다. 에 대 한 **로그온**를 선택 **Windows 인증**합니다. 데이터베이스 이름에 대 한 입력 **BANKDEMO**
+6. 줄임표를 클릭 ( **...** ) 연결 문자열 마법사를 표시 합니다. 에 대 한 **서버 이름**, 형식 **(local)\\SQLEXPRESS**합니다. 에 대 한 **로그온**를 선택 **Windows 인증**합니다. 데이터베이스 이름에 대 한 입력 **BANKDEMO**
 
      ![연결 문자열 화면 편집](media/10-demo-string.png)
 
-7. 연결을 테스트합니다.
+7. 연결을 테스트 합니다.
 
 ## <a name="start-the-bankdemo-region"></a>BANKDEMO 지역 시작
 
 > [!NOTE]
 > 첫 번째 단계는 중요 합니다. 방금 만든 XA 리소스 정의 사용 하는 영역을 설정 해야 합니다.
 
-1. 이동할를 **BANDEMO CICS 지역** 아래를 **지역 컨테이너**를 선택한 후 **지역 시작 파일 편집** 에서 **작업** 창입니다. SQL 속성까지 아래로 스크롤하여 입력 **bankdemo** 에 대 한 합니다 **XA 리소스 이름** , 줄임표를 사용 하 여 선택 합니다.
+1. 이동할를 **BANDEMO CICS 지역** 아래를 **지역 컨테이너**를 선택한 후 **지역 시작 파일 편집** 에서 **작업** 창입니다. SQL 속성까지 아래로 스크롤하여 입력 **bankdemo** 에 대 한 합니다 **XA 리소스 이름**, 줄임표를 사용 하 여 선택 합니다.
 
 2. 클릭 합니다 **저장** 변경 내용을 저장 하는 아이콘입니다.
 
@@ -216,13 +216,13 @@ VM에서 엔터프라이즈 개발자 4.0을 설치한 후 함께 제공 되는 
 
 4. 맨 아래에는 **시작/중지 지역** 의 가운데 창에 나타나는 입력란 **시작**합니다. 몇 초 후 영역을 시작합니다.
 
-     ![SQL 시작/중지 상자](/media/11-demo-sql.png)
+     ![SQL 시작/중지 상자](media/11-demo-sql.png)
 
      ![CICS 지역 BANKDEMO-시작된 화면](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>수신기 만들기
 
-TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신기를 만들려고 합니다.
+TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신기를 만듭니다.
 
 1. 왼쪽된 창에서 확장 **구성 편집기** 선택한 **수신기**합니다.
 
@@ -236,7 +236,7 @@ TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신
 
 6. TN3270 채널을 마우스 오른쪽 단추로 클릭 하 여 추가 **BANKDEMO 지역** 를 선택 하 고 **채널 추가**합니다.
 
-7. 에 대 한 **이름을**를 입력 **TN3270**합니다. 에 대 한 **포트**를 입력 **9024**합니다. (을 ESDEMO 응용 프로그램이 다른 포트를 사용 해야 하므로 포트 9230을 사용 하는 note).
+7. 에 대 한 **이름을**를 입력 **TN3270**합니다. 에 대 한 **포트**를 입력 **9024**합니다. ESDEMO 응용 프로그램이 다른 포트를 사용 해야 하므로 9230 포트를 사용 합니다.
 
 8. 파일을 저장 하려면 클릭 합니다 **저장** 아이콘 선택 하거나 **파일** \> **저장**합니다.
 
@@ -247,7 +247,7 @@ TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Rumba BankDemo 응용 프로그램에 액세스를 구성 합니다.
 
-마지막 작업 해야 할은 Rumba, 3270 에뮬레이터를 사용 하 여 3270 세션을 구성 합니다. 이 단계를 사용 하면 방금 만든 수신기를 통해 BankDemo 응용 프로그램에 액세스할 수 있습니다.
+마지막 작업 해야 할은 Rumba, 3270 에뮬레이터를 사용 하 여 3270 세션을 구성 합니다. 이 단계를 사용 하면 사용자가 만든 수신기를 통해 BankDemo 응용 프로그램에 액세스할 수 있습니다.
 
 1. Windows에서 **시작** 메뉴 Rumba Desktop을 시작 합니다.
 

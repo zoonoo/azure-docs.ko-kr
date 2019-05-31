@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236933"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523307"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
-서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop 미리 보기에서 다음 목적을 위해 서비스 주체를 만들 수 있습니다.
+서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop 미리 보기에서 서비스 주체를 만들 수 있습니다.
 
 - 특정 Windows Virtual Desktop 관리 작업 자동화
 - 모든 Windows Virtual Desktop Azure Resource Manager 템플릿을 실행하는 경우 MFA 필요 사용자 대신 자격 증명으로 사용
@@ -25,12 +25,12 @@ ms.locfileid: "65236933"
 
 > [!div class="checklist"]
 > * Azure Active Directory에 서비스 주체 만들기
-> * Windows Virtual Desktop에서 역할 할당 수행하기
+> * Windows Virtual Desktop에서 역할 할당 만들기
 > * 서비스 주체를 사용하여 Windows Virtual Desktop에 로그인
 
 ## <a name="prerequisites"></a>필수 조건
 
-서비스 주체를 만들고 역할 할당을 수행하기 전에 먼저 다음 세 가지 작업을 수행해야 합니다.
+서비스 주체 및 역할 할당을 만들기 전에 먼저 다음 세 가지 작업을 수행해야 합니다.
 
 1. AzureAD 모듈을 설치합니다. 모듈을 설치하려면 관리자 권한으로 PowerShell을 실행하고 다음 cmdlet을 실행합니다.
 
@@ -38,14 +38,13 @@ ms.locfileid: "65236933"
     Install-Module AzureAD
     ```
 
-2. 세션에 관련된 값으로 대체된 따옴표 안의 값으로 다음 cmdlet을 실행합니다. [Windows Virtual Desktop에서 테넌트 만들기 자습서](./tenant-setup-azure-active-directory.md)에서 Windows Virtual Desktop 테넌트를 만든 경우 "기본 테넌트 그룹"을 테넌트 그룹 이름으로 사용합니다.
+2. 세션에 관련된 값으로 대체된 따옴표 안의 값으로 다음 cmdlet을 실행합니다.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
-3. 동일한 PowerShell 세션에서 이 문서의 모든 지침을 따릅니다. 창을 닫고 나중에 재개하는 경우 작동하지 않을 수도 있습니다.
+3. 동일한 PowerShell 세션에서 이 문서의 모든 지침을 따릅니다. 창을 닫고 나중에 반환하는 경우 작동하지 않을 수도 있습니다.
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Azure Active Directory에 서비스 주체 만들기
 
@@ -60,21 +59,20 @@ $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrin
 
 ## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Windows Virtual Desktop 미리 보기에서 역할 할당 만들기
 
-서비스 주체를 만들었으므로 이제 이를 사용하여 Windows Virtual Desktop에 로그인할 수 있습니다. 역할 할당을 수행할 수 있는 권한이 있는 계정으로 로그인해야 합니다.
+서비스 주체를 만들었으므로 이제 이를 사용하여 Windows Virtual Desktop에 로그인할 수 있습니다. 역할 할당을 만들 수 있는 권한이 있는 계정으로 로그인해야 합니다.
 
 먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우).
 
-다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 서비스 주체에 대한 역할 할당을 수행합니다.
+다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 서비스 주체에 대한 역할 할당을 만듭니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>서비스 주체를 사용하여 로그인
 
-서비스 주체에 대한 역할 할당을 수행한 후 이제 서비스 주체가 다음 cmdlet을 실행하여 Windows Virtual Desktop에 로그인할 수 있도록 해야 합니다.
+서비스 주체에 대한 역할 할당을 만든 후 이제 서비스 주체가 다음 cmdlet을 실행하여 Windows Virtual Desktop에 로그인할 수 있도록 해야 합니다.
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))

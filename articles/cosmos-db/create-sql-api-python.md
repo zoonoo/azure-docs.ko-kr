@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410671"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979076"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB는 Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -26,7 +26,7 @@ ms.locfileid: "65410671"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 문서, 키/값 및 그래프 데이터베이스를 신속하게 만들고 쿼리할 수 있습니다. 이러한 모든 작업은 Azure Cosmos DB의 분포와 규모의 이점을 활용합니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 문서, 키/값, 넓은 열 및 그래프 데이터베이스를 신속하게 만들고 쿼리할 수 있습니다. 이러한 모든 작업은 Azure Cosmos DB의 분포와 규모의 이점을 활용합니다.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컨테이너를 만드는 방법을 보여줍니다. 그런 다음, [SQL API](sql-api-sdk-python.md)용 Python SDK를 사용하여 빌드된 콘솔 앱을 빌드하고 실행합니다. 이 빠른 시작에서는 [Python SDK](https://pypi.org/project/azure-cosmos) 3.0 버전을 사용합니다.
 
@@ -58,16 +58,21 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 GitHub에서 SQL API 앱을 복제하고, 연결 문자열을 설정하고, 실행해보겠습니다.
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
-    ```bash
-    md "C:\git-samples"
+    ```cmd
+    md "git-samples"
     ```
+   bash 프롬프트를 사용하는 경우에는 다음 명령을 대신 사용해야 합니다.
+
+   ```bash
+   mkdir "git-samples"
+   ```
 
 2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
 
     ```bash
-    cd "C:\git-samples"
+    cd "git-samples"
     ```
 
 3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다. 
@@ -84,7 +89,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-dotnet/keys.png)
 
-2. Visual Studio Code의 C:\git-samples\azure-cosmos-db-python-getting-started에서 `CosmosGetStarted.py` 파일을 엽니다.
+2. Visual Studio Code의 \git-samples\azure-cosmos-db-python-getting-started에서 `CosmosGetStarted.py` 파일을 엽니다.
 
 3. 복사 단추를 사용하여 포털에서 **URI** 값을 복사하고, 이 값을 ``CosmosGetStarted.py``의 **엔드포인트** 키 값으로 만듭니다. 
 
@@ -180,7 +185,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 4. 통합 터미널 창에서, azure-cosmos-db-python-getting-started 폴더를 실행 중인지 확인합니다. 이 폴더에 있지 않으면 다음 명령을 실행하여 샘플 폴더로 전환합니다. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
+    cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. 다음 명령을 실행하여 azure-cosmos 패키지를 설치합니다. 

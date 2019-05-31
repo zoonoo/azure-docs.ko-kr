@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6e1ac5dfd1972e406a1bd8dcd26e6aef2c4ea6d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919875"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142392"
 ---
-# <a name="refresh-with-logic-apps"></a>Logic Apps를 사용 하 여 새로 고침
+# <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
 Logic Apps 및 REST 호출을 사용 하 여 쿼리 스케일 아웃에 대 한 읽기 전용 복제본의 동기화를 포함 하 여 Azure Analysis 테이블 형식 모델에서 자동된 데이터 새로 고침 작업을 수행할 수 있습니다.
 
@@ -66,14 +66,14 @@ HTTP 작업을 다음과 같이 구성 합니다.
 |자산  |값  |
 |---------|---------|
 |**메서드**     |POST         |
-|**URI**     | https://*서버 지역을*/서버*aas 서버 이름*/models/*데이터베이스 이름*/ <br /> <br /> 예: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*서버 지역을*/서버*aas 서버 이름*/models/*데이터베이스 이름*/ <br /> <br /> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
 |**헤더**     |   콘텐츠 형식이 application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 참조 하세요 [POST /refreshes-REST API를 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)합니다. |
 |**인증**     |Active Directory OAuth         |
 |**Tenant**     |Azure Active Directory TenantId를 입력         |
 |**대상**     |https://*.asazure.windows.net         |
 |**클라이언트 ID**     |에 서비스 주체 이름 ClientID를 입력 합니다.         |
-|**자격 증명 유형**     |Secret         |
+|**자격 증명 유형**     |비밀         |
 |**비밀**     |에 서비스 사용자 이름 암호를 입력 합니다.         |
 
 예제:

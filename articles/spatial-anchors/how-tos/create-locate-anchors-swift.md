@@ -4,16 +4,16 @@ description: 만들기 및 찾는 방법의 자세한 설명은 Azure 공간 앵
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6147616156bc192ffd8d38ddcc636734d8d5179c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe3ee8a98b24c26af8b08959d271226bde36cee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232727"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244365"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>만들기 및 Azure 공간 앵커를 사용 하 여 Swift에서 앵커를 찾는 방법
 
@@ -160,7 +160,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
     var localAnchor : ARAnchor? = nil
     let hits = self.sceneView.session.currentFrame?.hitTest(CGPoint(x:0.5, y:0.5), types: ARHitTestResult.ResultType.estimatedHorizontalPlane)
     if (hits!.count == 0) return
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     localAnchor = ARAnchor(transform:hits![0].worldTransform)
     self.sceneView.session.add(anchor: _localAnchor!)

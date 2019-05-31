@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 50a67ca5c7d1fa3165889b1e59565d1a1030690d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: be2195092cf3890f754f875ea7bccc1f717eb95b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712147"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762346"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka란?
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka란?
 
 [Apache Kafka](https://kafka.apache.org)는 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 오픈 소스 분산형 스트리밍 플랫폼입니다. 또한 Kafka는 명명된 데이터 스트림을 게시하고 구독할 수 있는 메시지 대기열과 비슷한 메시지 브로커 기능을 제공합니다. 
 

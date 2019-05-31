@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025321"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850898"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 
@@ -113,5 +113,5 @@ az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientis
 ## <a name="next-steps"></a>다음 단계
 
 - [엔터프라이즈 보안 개요](concept-enterprise-security.md)
-- [실험 및 가상 네트워크 내부 추론을 안전 하 게 실행](how-to-enable-virtual-network.md)
+- [실험 및 가상 네트워크 내에서 유추 점수 매기기를 안전 하 게 실행](how-to-enable-virtual-network.md)
 - [자습서: 모델 학습](tutorial-train-models-with-aml.md)

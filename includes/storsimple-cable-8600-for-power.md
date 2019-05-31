@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482724"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155913"
 ---
 #### <a name="to-cable-your-device-for-power"></a>디바이스에 전원 케이블을 연결하려면
 > [!NOTE]

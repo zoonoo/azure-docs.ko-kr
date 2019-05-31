@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577594"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957232"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python(미리 보기)에서 분산 추적 수집
 
@@ -78,10 +78,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="opencensus-python-package"></a>OpenCensus Python 패키지
 
-1. 명령줄에서 pip 또는 pipenv를 사용하여 Python에 대한 Open Census 패키지를 설치합니다.
+1. Python 및 pip 또는 명령줄에서 pipenv를 사용 하 여 내보내기에 대 한 열기 인구 조사 패키지를 설치 합니다.
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -92,20 +94,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ```python
     from opencensus.trace.tracer import Tracer
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
         tracer = Tracer()
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
-    
+
     ```
 
 3. 코드를 실행하면 값을 입력하라는 메시지가 반복적으로 표시됩니다. 각 항목을 사용하여 값은 셸에 출력되고, **SpanData**의 해당 부분이 OpenCensus Python 모듈에 의해 생성됩니다. OpenCensus 프로젝트는 [_범위 트리로 추적_](https://opencensus.io/core-concepts/tracing/)을 정의합니다.
@@ -127,32 +129,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
-    
+
     import os
-    
-    def main():        
+
+    def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-        
+
         tracer = Tracer(exporter=export_LocalForwarder)
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
+
     ```
 
 5. 위의 모듈을 저장하고 실행하는 경우 `grpc`에 대한 `ModuleNotFoundError`를 받을 수 있습니다. 이 오류가 발생하는 경우 다음을 실행하여 다음과 함께 [grpcio 패키지](https://pypi.org/project/grpcio/)를 설치합니다.
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 

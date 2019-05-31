@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2010
 ms.author: raynew
 ms.openlocfilehash: 83e9e584967f780532ce9b3c51bf3f41a963eabf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925594"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170033"
 ---
 1. 프로세스 서버에 관리자로 로그인 합니다.
 2. 최신 버전을 다운로드 합니다 [설치 Unified Installer](https://aka.ms/unifiedinstaller)합니다.

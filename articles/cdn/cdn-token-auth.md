@@ -179,11 +179,11 @@ ms.locfileid: "64869419"
 
 4. 규칙 엔진에서 추가 토큰 인증 관련 기능을 사용하도록 설정할 수도 있습니다. 다음 기능 중 하나를 사용하도록 설정하려면 **기능** 목록에서 해당 기능을 선택한 다음 **사용**을 선택합니다.
     
-   - **[토큰 인증 거부 코드](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: 요청이 거부 되는 경우 사용자에 게 반환할 응답 유형을 결정 합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
+   - **[토큰 인증 거부 코드](cdn-rules-engine-reference-features.md#token-auth-denial-code)** : 요청이 거부 되는 경우 사용자에 게 반환할 응답 유형을 결정 합니다. 여기서 설정된 규칙은 토큰 기반 인증 페이지의 **사용자 지정 거부 처리** 섹션에 설정된 응답 코드를 재정의합니다.
 
-   - **[토큰 인증 URL 대/소문자를 무시](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: 토큰의 유효성을 검사 하는 데 URL은 대/소문자 구분 여부를 결정 합니다.
+   - **[토큰 인증 URL 대/소문자를 무시](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)** : 토큰의 유효성을 검사 하는 데 URL은 대/소문자 구분 여부를 결정 합니다.
 
-   - **[토큰 인증 매개 변수](cdn-rules-engine-reference-features.md#token-auth-parameter)**: 요청된 된 URL에 표시 되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
+   - **[토큰 인증 매개 변수](cdn-rules-engine-reference-features.md#token-auth-parameter)** : 요청된 된 URL에 표시 되는 토큰 인증 쿼리 문자열 매개 변수의 이름을 바꿉니다. 
         
      ![CDN 규칙 엔진 토큰 인증 설정 예제](./media/cdn-token-auth/cdn-rules-engine2.png)
 
@@ -194,7 +194,7 @@ ms.locfileid: "64869419"
    - C#
    - PHP
    - Perl
-   - 자바
+   - Java
    - Python 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 기능 및 공급자 가격 책정

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b34d37fa79ccb8344fdacd99877403d61ba5f5c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138874"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157940"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
 
@@ -33,6 +33,8 @@ ms.locfileid: "65138874"
 - 대상 지역
 - 최신에서 제외
 - 수명 주기 끝
+
+지역 복제본을 추가 하려는 경우에 소스 관리 되는 이미지를 삭제 하지 마세요. 원본 관리 되는 이미지의 이미지 버전 추가 지역에 복제 하기 위해 필요 합니다. 
 
 사용 하 여 갤러리의 설명을 업데이트 ([az sig 업데이트](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update)합니다. 
 

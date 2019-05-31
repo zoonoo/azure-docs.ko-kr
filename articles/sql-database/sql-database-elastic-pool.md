@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60936409"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240370"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -132,7 +132,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>탄력적 작업 및 탄력적 풀
 
-풀을 통해 **[탄력적 작업](sql-database-elastic-jobs-overview.md)** 의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다. 시작하려면 [탄력적 작업 시작](sql-database-elastic-jobs-getting-started.md)을 참조하세요.
+풀을 통해 **[탄력적 작업](elastic-jobs-overview.md)** 의 스크립트를 실행하여 관리 작업이 간소화됩니다. 탄력적 작업은 많은 수의 데이터베이스와 관련된 번거로움을 대부분 없애 줍니다.
 
 여러 데이터베이스를 사용하기 위한 다른 데이터베이스 도구에 대한 자세한 내용은 [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)을 참조합니다.
 
@@ -172,7 +172,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사용률을 모니터링할 수 있습니다. 탄력적 풀에 일련의 내용을 변경하는 동시에 모든 변경 내용을 전송할 수도 있습니다. 이러한 변경 내용에는 데이터베이스 추가 또는 제거, 탄력적 풀 설정 변경, 데이터베이스 설정 변경이 포함됩니다.
 
-탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음 내용이 포함됩니다.
+탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음을 포함합니다.
 
 - 탄력적 풀의 리소스 사용을 보여주는 모니터링 차트
 - 사용 가능한 경우 탄력적 풀에 대한 최근 경고 및 권장 사항

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Disk 설정 | Microsoft Docs
+title: Azure Data Box 디스크의 압축을 풀고, 연결하고, 잠금을 해제하기 위한 자습서 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure Data Box Disk를 설정하는 방법 알아보기
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652153"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939661"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -208,12 +208,12 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 
     다음 명령을 입력합니다.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     샘플 출력은 다음과 같습니다. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

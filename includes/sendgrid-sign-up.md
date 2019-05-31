@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: erikre
 ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121369"
 ---
 Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 매달 이러한 25,000통의 무료 메일을 통해 고급 보고 및 분석과 [모든 API][all APIs](Web, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.
 
@@ -53,7 +53,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 ### <a name="to-find-your-sendgrid-api-key"></a>SendGrid API 키를 찾으려면
 1. **관리**를 클릭합니다.
 
-    ![manage][manage]
+    ![관리][manage]
 2. SendGrid 대시보드의 왼쪽 메뉴에서 **설정**을 선택한 다음 **API 키**를 선택합니다.
 
     ![api-keys][api-keys]
@@ -74,7 +74,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
 전자 메일 배달 설정을 관리하려면 **관리** 단추를 클릭합니다. 그러면 SendGrid 대시보드로 리디렉션됩니다.
 
-![manage][manage]
+![관리][manage]
 
 SendGrid 통해 전자 메일을 보내는 방법에 대한 자세한 내용은 [전자 메일 API 개요][Email API Overview]를 참조하세요.
 

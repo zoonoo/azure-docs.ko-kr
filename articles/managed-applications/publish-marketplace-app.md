@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892917"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572589"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace에서 Azure 관리되는 애플리케이션
 
@@ -29,7 +29,7 @@ ms.locfileid: "57892917"
 
 또한 여러 비즈니스 사전 요구 사항이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-* 회사 또는 해당 자회사는 마켓플레이스에서 지원하는 판매처 국가에 위치해야 합니다.
+* 회사 또는 해당 자회사는 Marketplace에서 지원하는 판매처 국가/지역에 위치해야 합니다.
 * 제품은 마켓플레이스에서 지원하는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다.
 * 상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 구축합니다. 이러한 지원은 평가판, 유료 또는 커뮤니티 지원을 통해 이루어질 수 있습니다.
 * 소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받습니다.
@@ -42,8 +42,8 @@ ms.locfileid: "57892917"
 Azure Marketplace에서 게시자가 되려면 다음을 수행해야 합니다.
 
 1. Microsoft ID 만들기 - 회사 도메인에 속하지만 단일 개인이 아닌 메일 주소를 사용하여 Microsoft 계정을 만듭니다. 이 메일 주소는 Microsoft 개발자 센터 및 Cloud 파트너 포털에 모두 사용됩니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
-1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?**(게시 방법)를 보려면 **관리되는 애플리케이션**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 애플리케이션을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
-1. [개발자 센터](https://dev.windows.com/registration?accountprogram=azure)에 등록 - Microsoft는 조직이 등록된 국가의 올바른 세금 ID를 가진 유효한 법인인지 유효성을 검사합니다. 승인 프로세스는 5~10일이 걸릴 수 있습니다. 등록 요금을 내지 않으려면 추천 프로세스에서 메일로 받은 프로모션 코드를 사용합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
+1. [Azure Marketplace 추천 양식](https://aka.ms/ampnomination) 제출 - **Solution that you intend to publish?** (게시 방법)를 보려면 **관리되는 애플리케이션**을 선택합니다. 양식이 제출되면 Marketplace 온보딩 팀에서 애플리케이션을 검토하고 요청의 유효성을 검사합니다. 승인 프로세스는 1~3일이 걸릴 수 있습니다. 추천이 승인되면 개발자 센터에 대한 등록 요금을 면제받을 수 있는 프로모션 코드를 받게 됩니다. Marketplace 추천 양식을 완료하지 **않을** 경우 $99의 등록 요금이 청구됩니다.
+1. [개발자 센터](https://dev.windows.com/registration?accountprogram=azure)에 등록 - Microsoft는 조직이 등록된 국가/지역의 올바른 세금 ID를 가진 유효한 법인인지 유효성을 검사합니다. 승인 프로세스는 5~10일이 걸릴 수 있습니다. 등록 요금을 내지 않으려면 추천 프로세스에서 메일로 받은 프로모션 코드를 사용합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 1. [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인 - 게시자 프로필에서 Marketplace 게시자 프로필에 개발자 센터 계정을 연결합니다. 자세한 내용은 [Azure Marketplace 게시자 가이드](https://aka.ms/sellerguide)를 참조하세요.
 
 ## <a name="create-a-new-azure-application-offer"></a>새 Azure 애플리케이션 제품 만들기
@@ -94,15 +94,15 @@ SKU는 마켓플레이스의 부모 제품 아래에 표시됩니다. Azure Port
    * **요약**: 이 SKU에 대한 간단한 요약을 입력합니다. 이 텍스트는 제목 아래에 나타납니다.
    * **설명**: SKU에 대한 자세한 설명을 입력합니다.
    * **SKU 형식**: 허용된 값은 *관리되는 애플리케이션* 및 *솔루션 템플릿*입니다. 이 경우 *관리되는 애플리케이션*을 선택합니다.
-   * **국가/지역 가용성**: 관리되는 애플리케이션을 사용할 수 있는 국가를 선택합니다.
-   * **가격 책정**: 애플리케이션의 관리 가격을 제공합니다. 가격을 설정하기 전에 사용 가능한 국가를 선택합니다.
+   * **국가/지역 가용성**: 관리형 애플리케이션을 사용할 수 있는 국가/지역을 선택합니다.
+   * **가격 책정**: 애플리케이션의 관리 가격을 제공합니다. 가격을 설정하기 전에 사용 가능한 국가/지역을 선택합니다.
 
 1. 새 패키지를 추가합니다. 다음 양식의 **패키지 세부 정보** 섹션을 작성합니다.
 
    다음 필드를 작성합니다.
 
    * **버전**: 업로드하는 패키지에 대한 버전을 입력합니다. `{number}.{number}.{number}{number}` 형식이어야 합니다.
-   * **패키지 파일(.zip)**: 이 패키지에는 .zip 패키지로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 애플리케이션에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 애플리케이션을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
+   * **패키지 파일(.zip)** : 이 패키지에는 .zip 패키지로 압축된 두 개의 필수 파일이 포함되어 있습니다. 한 파일은 관리되는 애플리케이션에 배포할 리소스를 정의하는 Resource Manager 템플릿입니다. 다른 한 파일은 포털을 통해 관리되는 애플리케이션을 배포하는 소비자를 위한 [사용자 인터페이스](create-uidefinition-overview.md)를 정의합니다. 사용자 인터페이스에서 소비자가 매개 변수 값을 제공할 수 있도록 하는 요소를 지정합니다.
    * **PrincipalId**: 이 속성은 고객 구독에서 리소스에 대한 액세스 권한이 부여된 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD(Azure Active Directory) 식별자입니다. 역할 정의는 권한을 설명합니다.
    * **역할 정의**: 이 속성은 Azure AD가 제공한 모든 기본 제공 RBAC(역할 기반 액세스 제어) 역할 목록입니다. 고객을 대신하여 리소스를 관리하는 데 사용할 가장 적합한 역할을 선택할 수 있습니다.
    * **정책 설정**: 배포된 솔루션에 대한 규정 준수 요구 사항을 지정하려면 [Azure Policy](../governance/policy/overview.md)를 관리되는 애플리케이션에 적용합니다. 사용 가능한 옵션에서 적용할 정책을 선택합니다. **정책 매개 변수**의 경우 JSON 문자열에 매개 변수 값을 제공합니다. 매개 변수 값의 형식 및 정책 정의는 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.

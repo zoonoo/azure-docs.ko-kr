@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: load data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550603"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242254"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 PolyBase 데이터 로드 전략 설계
 
@@ -64,7 +64,7 @@ PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서
 |        double         |                          smallmoney                          |
 |        문자열         |                            nchar                             |
 |        문자열         |                           nvarchar                           |
-|        문자열         |                             char                             |
+|        string         |                             char                             |
 |        문자열         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
@@ -72,7 +72,7 @@ PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           Datetime                           |
-|       timestamp       |                             time                             |
+|       timestamp       |                             실시간                             |
 |       date        | 1) int로 로드 하 고 날짜를 캐스팅 합니다. </br> 2) [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
 |        Decimal        | [Azure Databricks SQL DW 커넥터를 사용 하 여](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) 사용 하 여 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**곧 업데이트**) |
 

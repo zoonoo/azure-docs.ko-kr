@@ -10,16 +10,16 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733047"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866853"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Bing Entity Search API란?
 
-Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다. 장소 결과에는 식당, 호텔 또는 다른 현지 회사가 포함됩니다. Bing은 쿼리에서 현지 회사의 이름을 지정하거나 비즈니스 유형(예: 주변 식당)을 요청하는 경우 장소를 반환합니다. Bing은 쿼리에서 잘 알려진 사람, 장소(관광 명소, 시/도, 국가 등) 또는 사물을 지정하는 경우 엔터티를 반환합니다.
+Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다. 장소 결과에는 식당, 호텔 또는 다른 현지 회사가 포함됩니다. Bing은 쿼리에서 현지 회사의 이름을 지정하거나 비즈니스 유형(예: 주변 식당)을 요청하는 경우 장소를 반환합니다. 쿼리가 잘 알려진 사람, 장소(관광 명소, 시/도, 국가/지역 등) 또는 사물을 지정하는 경우 Bing은 엔터티를 반환합니다.
 
 |기능  |설명  |
 |---------|---------|

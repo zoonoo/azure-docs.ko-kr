@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726259"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -37,7 +37,7 @@ Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-speci
 
 이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 저장소 계정을 사용해야 하는 레거시 배포가 있는 경우 [저장소 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
@@ -132,7 +132,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>VHD에서 관리 디스크를 만들려면
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*을 원본 VHD의 URI로 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 을 원본 VHD의 URI로 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 

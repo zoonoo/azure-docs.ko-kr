@@ -9,11 +9,11 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152333"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -157,7 +157,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-출력:
+출력
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -239,7 +239,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-출력:
+출력
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}

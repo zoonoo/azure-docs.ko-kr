@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245271"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991797"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
@@ -58,7 +58,6 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
 
 * **콜 센터** 소셜 미디어의 출현에도 고객 콜 센터는 여전히 고객 서비스 트랜잭션의 많은 부분을 용이하게 합니다. 높은 고객 만족도 달성하기 위해 분석될 수 있는 많은 양의 고객 정보가 이 오디오 데이터에서 인코딩됩니다. Media Indexer를 사용하여 조직은 텍스트를 추출하고 검색 인덱스와 대시보드를 빌드할 수 있습니다. 그런 다음 일반적인 불만, 불만의 원인 및 기타 관련 데이터 인텔리전스를 추출할 수 있습니다.
 * **사용자 생성 콘텐츠 조정** 뉴스 미디어 방송국부터 경찰서까지 많은 조직에는 비디오 및 이미지와 같은 사용자 생성 미디어를 허용하는 공공 포털이 있습니다. 예기치 않은 이벤트로 인해 콘텐츠 양이 급증할 수 있습니다. 이러한 시나리오에서는 콘텐츠의 적합성을 수동으로 효과적으로 검토하는 것이 어렵습니다. 고객은 콘텐츠 감수 서비스에 의존하여 적절한 콘텐츠에 중점을 둘 수 있습니다.
-* **감시** IP 카메라 사용이 증가함에 따라 감시 비디오의 인벤토리도 증가합니다. 감시 비디오를 수동으로 검토하는 것은 많은 시간이 소요되고 실수가 발생하기 쉽습니다. 미디어 분석에서는 파생물을 보다 쉽게 검토, 관리 및 생성할 수 있도록 동작 감지, 얼굴 감지 및 Hyperlapse와 같은 서비스를 제공합니다.
 
 ## <a name="media-analytics-media-processors"></a>미디어 분석 미디어 프로세서
 이 섹션에서는 미디어 분석 미디어 프로세서를 나열하고 .NET 또는 REST를 사용하여 미디어 프로세서(MP) 개체를 가져옵니다.
@@ -66,7 +65,6 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
 ### <a name="mp-names"></a>MP 이름
 * Azure Media Indexer 2 미리 보기
 * Azure Media Indexer
-* Azure 미디어 Hyperlapse
 * Azure 미디어 얼굴 탐지기
 * Azure 미디어 동작 탐지기
 * Azure 미디어 비디오 미리 보기

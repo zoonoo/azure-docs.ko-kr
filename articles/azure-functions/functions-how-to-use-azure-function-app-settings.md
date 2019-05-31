@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511195"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957400"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -54,14 +54,14 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 이 항목의 나머지 부분에서는 Functions에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
 
 + [App Service 편집기](#editor)
-+ [Console](#console)
++ [콘솔](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
 + [CORS](#cors)
 + [인증](#auth)
 + [API 정의](#swagger)
 
-App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service/web-sites-configure.md)을 참조하세요.
+App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service/configure-common.md)을 참조하세요.
 
 ### <a name="editor"></a>App Service 편집기
 
@@ -124,7 +124,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure App Service 설정 구성](../app-service/web-sites-configure.md)
++ [Azure App Service 설정 구성](../app-service/configure-common.md)
 + [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
 
 

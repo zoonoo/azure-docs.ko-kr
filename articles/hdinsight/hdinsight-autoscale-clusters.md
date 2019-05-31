@@ -8,27 +8,27 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413710"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000096"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 (미리 보기)를 자동으로 조정
+
+> [!Important]
+> 자동 크기 조정 기능 월 8 일 2019 이후 생성 된 Spark, Hive 및 MapReduce 클러스터 에서만 작동 합니다. 
 
 Azure HDInsight 클러스터 크기 조정 기능 자동으로 조정 작업자 노드 수는 클러스터의 위아래로 합니다. 현재 다른 유형의 클러스터의 노드를 확장할 수 없습니다.  새 HDInsight 클러스터를 만드는 동안 작업자 노드의 최소 및 최대 수를 설정할 수 있습니다. 다음 자동 크기 조정은 analytics 부하의 리소스 요구를 모니터링 하 고 작업자 노드 수를 확장 하거나 축소 합니다. 이 기능에 대 한 추가 비용은 없습니다.
 
 ## <a name="cluster-compatibility"></a>클러스터 호환성
 
-> [!Important]
-> 2019 년 5 월에에서 기능 일반 공급 후에 만든 클러스터에 대 한 자동 크기 조정 기능 에서만 작동 합니다. 기존 클러스터에 대 한 작동 하지 않습니다.
-
 다음 표에서 클러스터 형식 및 크기 조정 기능을 사용 하 여 호환 되는 버전을 설명 합니다.
 
 | Version | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 ESP 없이 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| HDInsight 3.6 ESP 없이 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
 | ESP 없이 4.0 HDInsight | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
 | ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
 | ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
@@ -189,6 +189,25 @@ Resource Manager 템플릿을 사용하여 클러스터를 만드는 방법에 �
 을 실행 중인 클러스터에서 자동 크기 조정을 사용 하도록 설정 하려면 선택 **클러스터 크기** 아래에서 **설정**합니다. 누른 **자동 크기 조정 사용**합니다. 자동 크기 조정 하려면 부하 또는 일정 기반 크기 조정에 대 한 옵션을 입력 하는 유형을 선택 합니다. 끝으로, **저장**을 클릭합니다.
 
 ![작업자 노드 일정 기반 자동 크기 조정 옵션을 사용 하도록 설정](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>모범 사례
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>부하 또는 일정 기반 크기 조정 선택
+
+모드 선택에 대 한 결정을 내리기 전에 다음 요소를 고려 합니다.
+
+* 부하 분산: 클러스터의 부하를 따르지 일치 패턴을 특정 날짜에서 특정 시간에 있습니다. 그렇지 않은 경우 부하 기반 예약 하는 것이 더 좋습니다.
+* SLA 요구 사항: 자동 크기 조정 확장 하는 것은 예측 하는 대신 반응 형입니다. 부하 증가 하 고 클러스터를 대상 크기로 가능 해야 하는 경우 시작 될 때 사이 충분 한 지연이 됩니까? 엄격한 SLA 요구 사항이 되어 부하 고정된 알려진된 패턴을 '따라 일정' 더 나은 옵션입니다.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>구성 확장의 대기 시간을 고려 하거나 규모 축소 작업
+
+크기 조정 작업을 완료 하려면 10 ~ 20 분 정도 걸릴 수 있습니다. 사용자 지정된 일정을 설정할 때이 지연을 계획 합니다. 예를 들어, 클러스터 크기를 20 오전 9:00에 있을 경우 일정 트리거를 설정 8:30 AM 같은 이전 시점으로 오전 9 시까지 크기 조정 작업이 완료 되도록 합니다.
+
+### <a name="preparation-for-scaling-down"></a>규모를 축소 하는 것에 대 한 준비
+
+클러스터 크기 조정 프로세스를 하는 동안 자동 크기 조정에는 대상 크기에 맞게 노드 서비스 해제 됩니다. 해당 노드에서 작업 실행 중인 경우 자동 크기 조정 작업이 완료 될 때까지 기다릴 수 있습니다. 각 작업자 노드에 HDFS의 역할도 역할을 하므로 임시 데이터 나머지 노드로 이동 합니다. 따라서 모든 임시 데이터를 호스트할 나머지 노드에 충분 한 공간이 있는지 확인 해야 합니다. 
+
+실행 중인 작업을 실행 하 고 완료 계속 됩니다. 보류 중인 작업이 더 적은 수의 사용 가능한 작업자 노드를 사용 하 여 정상적으로 예약 되기 위해 대기 합니다.
 
 ## <a name="monitoring"></a>모니터링
 

@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602372"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253830"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스에 대한 보안 경고 구성
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용자 환경에서 의심 스러운 또는 안전 하지 않은 활동이 있을 때 경고를 생성 합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
@@ -54,4 +54,4 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스에 대한 보안 경고 구성](pim-resource-roles-configure-alerts.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)

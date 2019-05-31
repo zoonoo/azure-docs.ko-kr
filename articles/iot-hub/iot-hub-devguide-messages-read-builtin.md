@@ -63,7 +63,7 @@ IoT Hub를 노출 하는 기본 제공 Event Hub 호환 끝점에 연결 하 여
 | 언어 | SDK) | 예 | 메모 |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [빠른 시작](quickstart-send-telemetry-dotnet.md) | Event Hubs 호환 정보를 사용 하 여 |
- 자바 | https://github.com/Azure/azure-event-hubs-java | [빠른 시작](quickstart-send-telemetry-java.md) | Event Hubs 호환 정보를 사용 하 여 |
+ Java | https://github.com/Azure/azure-event-hubs-java | [빠른 시작](quickstart-send-telemetry-java.md) | Event Hubs 호환 정보를 사용 하 여 |
 | Node.js | https://github.com/Azure/azure-event-hubs-node | [빠른 시작](quickstart-send-telemetry-node.md) | IoT Hub 연결 문자열 사용 |
 | Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | IoT Hub 연결 문자열 사용 |
 

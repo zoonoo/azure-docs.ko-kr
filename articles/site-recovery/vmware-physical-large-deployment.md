@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805923"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237274"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware v m/물리적 서버에 대해 대규모로 재해 복구 설정
 
@@ -100,7 +100,7 @@ Deployment Planner를 사용 하면 온-프레미스 VMware 환경에 대 한 �
 
 **Azure를 사용 하 여 컴퓨터 준수?** | **Azure VM 제한 (관리 디스크 장애 조치)**
 --- | --- 
-예. | 2000
+예 | 2000
 아닙니다. | 1000
 
 - 제한 구독에 대 한 대상 지역에서 진행 중인 다른 작업에는 최소 가정 합니다.
@@ -188,7 +188,7 @@ vCPU 12대<br> 2 소켓 * 6 코어 @ 2.5ghz | 24GB | 1 GB | 하루 최대 2TB
 1. 복제 된 컴퓨터의 상태를 모니터링 하는 재해 복구 관리자를 할당 합니다.
 2. [이벤트 모니터링](site-recovery-monitor-and-troubleshoot.md) 복제 된 항목 및 인프라에 대 한 합니다.
 3. [상태를 모니터링](vmware-physical-azure-monitor-process-server.md) 스케일 아웃 프로세스 서버.
-4. 신청 [전자 메일 알림](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) 쉬운 모니터링을 위해 이벤트에 대 한 합니다.
+4. 신청 [전자 메일 알림](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) 쉬운 모니터링을 위해 이벤트에 대 한 합니다.
 5. 일반 실시 [재해 복구 훈련](site-recovery-test-failover-to-azure.md)을 모두 예상 대로 작동 하는지 확인 해야 합니다.
 
 

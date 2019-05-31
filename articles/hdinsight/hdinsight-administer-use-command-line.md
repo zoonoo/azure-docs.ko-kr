@@ -1,110 +1,98 @@
 ---
-title: Azure Classic CLI를 사용하여 Apache Hadoop 클러스터 관리 - Azure HDInsight
-description: Azure Classic CLI를 사용하여 Azure HDInsight의 Apache Hadoop 클러스터를 관리하는 방법을 알아봅니다.
+title: Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
+description: Azure CLI를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다. 클러스터 형식에는 Apache Hadoop, Spark, HBase, Storm, Kafka, 대화형 쿼리, ML 서비스 포함 됩니다.
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 94ef5a60ecc5d943d78b16a386660049cc52d82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694454"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859970"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Azure Classic CLI를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
+# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Classic CLI](../cli-install-nodejs.md)를 사용하여 Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리하는 방법을 알아봅니다. Classic CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다.
+사용 방법 알아보기 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) Azure HDInsight 클러스터를 관리 합니다. Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **Azure Classic CLI** - 설치 및 구성 정보는 [Azure Classic CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하세요.
-* **Azure에 연결**. 다음 명령을 사용합니다.
+* Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 단계에 대 한 합니다.
 
-    ```cli
-    azure login
-    ```
-  
-    회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure Classic CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
-* **Azure Resource Manager 모드로 전환**은 다음 명령을 사용합니다.
-  
-    ```cli
-    azure config mode arm
-    ```
+* HDInsight에서 Apache Hadoop 클러스터를 합니다. 참조 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)합니다.
 
-도움말을 보려면 **-h** 스위치를 사용합니다.  예를 들면 다음과 같습니다.
+## <a name="connect-to-azure"></a>Azure에 연결
 
-```cli
-azure hdinsight cluster create -h
+Azure 구독에 로그인합니다. Azure Cloud Shell을 사용 하도록 선택 하기만 하면 계획 이라면 **사용해** 코드 블록의 오른쪽 위 모퉁이에서. 그렇지 않은 경우 아래 명령을 입력 합니다.
+
+```azurecli-interactive
+az login
+
+# If you have multiple subscriptions, set the one to use
+# az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="create-clusters-with-the-cli"></a>CLI를 사용하여 클러스터 만들기
-[Azure Classic CLI를 사용하여 HDInsight의 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)를 참조하세요.
+## <a name="list-clusters"></a>클러스터 나열
 
-## <a name="list-and-show-cluster-details"></a>클러스터 세부 정보 나열 및 표시
-클러스터 세부 정보를 나열하고 표시하려면 다음 명령을 사용합니다.
+사용 하 여 [az hdinsight 목록](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-list) 목록 클러스터에 있습니다. 대체 하 여 아래 명령을 편집 `RESOURCE_GROUP_NAME` 리소스 그룹의 이름을 사용 하 여 다음 명령을 입력 합니다.
 
-```cli
-azure hdinsight cluster list
-azure hdinsight cluster show <Cluster Name>
+```azurecli-interactive
+# List all clusters in the current subscription
+az hdinsight list
+
+# List only cluster name and its resource group
+az hdinsight list --query "[].{Cluster:name, ResourceGroup:resourceGroup}" --output table
+
+# List all cluster for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME
+
+# List all cluster names for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:name}" --output table
 ```
 
-![클러스터 목록의 명령줄 보기][image-cli-clusterlisting]
+## <a name="show-cluster"></a>클러스터 표시
+
+사용 하 여 [az hdinsight 표시](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show) 지정된 된 클러스터에 대 한 정보를 표시 합니다. 대체 하 여 아래 명령을 편집할 `RESOURCE_GROUP_NAME`, 및 `CLUSTER_NAME` 관련 정보를 사용 하 여 다음 명령을 입력 합니다.
+
+```azurecli-interactive
+az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
+```
 
 ## <a name="delete-clusters"></a>클러스터 삭제
-클러스터를 삭제하려면 다음 명령을 사용합니다.
 
-```cli
-azure hdinsight cluster delete <Cluster Name>
+사용 하 여 [az hdinsight 삭제](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete) 지정된 된 클러스터를 삭제 합니다. 대체 하 여 아래 명령을 편집할 `RESOURCE_GROUP_NAME`, 및 `CLUSTER_NAME` 관련 정보를 사용 하 여 다음 명령을 입력 합니다.
+
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 ```
 
-또한 클러스터를 포함하는 리소스 그룹을 삭제하여 클러스터를 삭제할 수도 있습니다. 이렇게 하면 기본 저장소 계정을 포함한 그룹 내 모든 리소스가 삭제됩니다.
+또한 클러스터를 포함하는 리소스 그룹을 삭제하여 클러스터를 삭제할 수도 있습니다. Note: 기본 저장소 계정을 비롯 하 여 그룹의 모든 리소스가 삭제 됩니다.
 
-```cli
-azure group delete <Resource Group Name>
+```azurecli-interactive
+az group delete --name RESOURCE_GROUP_NAME
 ```
 
 ## <a name="scale-clusters"></a>클러스터 크기 조정
-Apache Hadoop 클러스터 크기를 변경하려면:
 
-```cli
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
+사용 하 여 [az hdinsight의 크기를 조정](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 를 지정한 크기에 지정된 된 HDInsight 클러스터를 조정 합니다. 명령을 편집 하 여 아래 바꿔 `RESOURCE_GROUP_NAME`, 및 `CLUSTER_NAME` 관련 정보를 사용 하 여 합니다. 대체 `TARGET_INSTANCE_COUNT` 원하는 클러스터에 대 한 작업자 노드의 수입니다. 클러스터 크기 조정 하는 방법에 대 한 자세한 내용은 참조 하세요. [확장 HDInsight 클러스터](./hdinsight-scaling-best-practices.md)합니다. 다음 명령을 입력합니다.
 
-
-## <a name="enabledisable-http-access-for-a-cluster"></a>클러스터에 대한 HTTP 액세스 사용/사용 안 함
-
-```cli
-azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 문서에서는 HDInsight 클러스터 관리 작업을 수행하는 여러 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
-* [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
-* [Azure HDInsight 시작][hdinsight-get-started]
-* [Azure Classic CLI를 사용하는 방법][azure-command-line-tools]
-
-[azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-
-[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
-[image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
-[image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "클러스터 나열 및 표시"
+* [Azure PowerShell을 사용 하 여 HDInsight 관리](hdinsight-administer-use-powershell.md)
+* [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)

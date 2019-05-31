@@ -2,20 +2,20 @@
 title: 분산 테이블 디자인 지침 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c3de7b46449b8075d17a19733eda88d692b1d876
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b101a4e19d00d44805c7eb5f44d449a18d756804
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935823"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851611"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024758"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606453"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 > [!div class="op_single_selector"]
@@ -252,7 +252,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 예제 쿼리는 위치 데이터의 모든 결과를 필터링하며, 결과는 위도 및 경도 좌표로 지정된 특정 지점으로부터 5킬로미터 미만입니다. **$count**를 추가하면 거리 또는 좌표를 변경할 때 반환되는 결과가 몇 개인지 확인할 수 있습니다.
 
-지리 공간 검색은 검색 애플리케이션에 "주변 찾기" 기능이 있거나 지도 탐색을 사용하는 경우에 유용합니다. 하지만 전체 텍스트 검색은 아닙니다. 이름으로 도시 또는 국가를 검색할 수 있어야 한다는 사용자 요구 사항이 있는 경우 좌표 외에도 도시 또는 국가 이름이 포함된 필드를 추가하면 됩니다.
+지리 공간 검색은 검색 애플리케이션에 "주변 찾기" 기능이 있거나 지도 탐색을 사용하는 경우에 유용합니다. 하지만 전체 텍스트 검색은 아닙니다. 이름으로 도시 또는 국가/지역를 검색할 수 있어야 한다는 사용자 요구 사항이 있는 경우 좌표 외에도 도시 또는 국가/지역 이름이 포함된 필드를 추가하면 됩니다.
 
 ## <a name="takeaways"></a>핵심 내용
 

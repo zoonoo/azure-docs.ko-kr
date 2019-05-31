@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155255"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 컴퓨팅 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.

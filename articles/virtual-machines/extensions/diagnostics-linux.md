@@ -699,7 +699,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 * Visual Studio 서버 탐색기.
 * [Microsoft Azure Storage 탐색기](https://azurestorageexplorer.codeplex.com/ "Azure Storage 탐색기").
 
-Microsoft Azure Storage 탐색기의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
+Microsoft Azure Storage Explore의 이 스냅숏 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
 ![이미지](./media/diagnostics-linux/stg_explorer.png)
 

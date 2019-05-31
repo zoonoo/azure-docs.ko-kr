@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209736"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237756"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB를 통한 Azure Active Directory 인증(미리 보기) 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Azure Files용 SMB를 통한 Azure AD 인증과 관련된 몇 가지 핵심 용�
     Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 -   **Azure AD Domain Services**  
-    Azure AD Domain Services는 도메인 가입, 그룹 정책, LDAP, Kerberos/NTLM 인증 등 관리되는 도메인 서비스를 제공합니다. 이러한 서비스는 Windows Server Active Directory와 완벽하게 호환됩니다. 자세한 내용은 [Azure AD(Active Directory) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
+    Azure AD Domain Services는 도메인 가입, 그룹 정책, LDAP, Kerberos/NTLM 인증 등 관리되는 도메인 서비스를 제공합니다. 이러한 서비스는 Windows Server Active Directory와 완벽하게 호환됩니다. 자세한 내용은 [Azure AD(Active Directory) Domain Services](../../active-directory-domain-services/overview.md)를 참조하세요.
 
 -   **Azure RBAC(역할 기반 액세스 제어)**  
     Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 사용자에게 작업을 수행하는 데 필요한 최소한의 권한을 부여하여 리소스에 대한 액세스를 관리할 수 있습니다. RBAC에 대한 자세한 내용은 [Azure의 RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
@@ -60,7 +60,7 @@ VM에서 실행 중인 애플리케이션과 연결된 ID가 Azure Files의 데�
 ### <a name="enable-azure-ad-authentication-over-smb"></a>SMB를 통한 Azure AD 인증 사용
 2018년 9월 24일 이후에 만든 새 저장소 계정 및 기존 저장소 계정에서는 Azure Files용 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있습니다. 
 
-SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 먼저 해당 저장소 계정이 연결된 주 Azure AD 테넌트에 대해 Azure AD Domain Services가 배포되었는지 확인하세요. Azure AD Domain Services를 아직 설정하지 않은 경우 [Azure Portal을 사용하여 Azure Active Directory Domain Services 사용](../../active-directory-domain-services/active-directory-ds-getting-started.md)에 제공된 단계별 지침을 따르세요.
+SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 먼저 해당 저장소 계정이 연결된 주 Azure AD 테넌트에 대해 Azure AD Domain Services가 배포되었는지 확인하세요. Azure AD Domain Services를 아직 설정하지 않은 경우 [Azure Portal을 사용하여 Azure Active Directory Domain Services 사용](../../active-directory-domain-services/create-instance.md)에 제공된 단계별 지침을 따르세요.
 
 Azure AD Domain Services 배포에는 일반적으로 10-15분이 소요됩니다. Azure AD Domain Services가 배포되면 Azure Files용 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Enable Azure Active Directory authentication over SMB for Azure Files(Preview)](storage-files-active-directory-enable.md)(Azure Files용 SMB를 통한 Azure Active Directory 인증(미리 보기) 사용)를 참조하세요. 
 

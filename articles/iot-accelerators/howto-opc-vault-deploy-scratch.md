@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450332"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835156"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>처음부터 OPC 자격 증명 모음 배포
 
@@ -45,7 +45,7 @@ OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 �
 
 Visual Studio를 사용 하면 신속 하 게 IDE 외부에서 아무것도 구성 하지 않고 명령 프롬프트를 사용 하지 않고 응용 프로그램을 열 수 있습니다.
 
-Visual Studio 2017을 사용 하 여 단계:
+실행 하 고 Visual Studio를 사용 하 여 응용 프로그램을 디버그 합니다.
 
 1. 사용 하 여 솔루션을 엽니다는 `iot-opc-gds-service.sln` 파일입니다.
 
@@ -131,7 +131,7 @@ Visual Studio 2017을 사용 하 여 단계:
 다음은 Azure IoT PCS에서 작동 하는 데 사용할 수 있는 Ide의 일부입니다.
 
 - [Visual Studio](https://www.visualstudio.com)
-- [Mac용 Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac)
+- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac)
 - [IntelliJ Rider](https://www.jetbrains.com/rider)
 - [Visual Studio Code](https://code.visualstudio.com)
 

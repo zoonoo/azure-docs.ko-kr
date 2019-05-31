@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595438"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957161"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -848,12 +848,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |GatewayRequests|게이트웨이 요청|카운트|합계|게이트웨이 요청 수|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|분류된 게이트웨이 요청|카운트|합계|범주별 게이트웨이 요청 수(1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|자동 크기 조정|자동 크기 조정 메트릭|카운트|최대|자동 크기 조정 메트릭|ClusterDnsName, MetricName|
-|AllocatedMB|할당 된 MB|카운트|최대|할당 된 MB|ClusterDnsName, MetricName|
-|AvailableMB|사용 가능한 MB|카운트|최대|사용 가능한 MB|ClusterDnsName, MetricName|
-|AppsPending|앱 보류 중|카운트|최대|앱 보류 중|ClusterDnsName, MetricName|
-|AppsRunning|실행 중인 앱|카운트|최대|실행 중인 앱|ClusterDnsName, MetricName|
-|AppsSubmitted|제출 된 앱|카운트|최대|제출 된 앱|ClusterDnsName, MetricName|
 |NumActiveWorkers|활성 작업자 수|카운트|최대|활성 작업자 수|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings

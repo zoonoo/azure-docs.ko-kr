@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544042"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121978"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>사용자가 MSAL.NET을 사용 하 여 여러 리소스에 대 한 동의
 Microsoft id 플랫폼 끝점 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없도록 합니다. Microsoft 인증 라이브러리.NET (MSAL.NET)를 사용 하는 경우 토큰 획득 메서드 범위 매개 변수는 단일 리소스에 대 한 범위만 포함 해야 합니다. 그러나 수 사전에 동의 하는 몇 가지 리소스 사전 사용 하 여 추가 범위를 지정 하 여는 `.WithExtraScopeToConsent` 작성기 메서드.
@@ -32,8 +32,8 @@ Microsoft id 플랫폼 끝점 한 번에 여러 리소스에 대 한 토큰을 �
 
 예를 들어 있는 두 개의 리소스가 있는 경우 2 각 범위:
 
-- https://mytenant.onmicrosoft.com/customerapi (2 범위를 사용 하 여 `customer.read` 고 `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (2 범위를 사용 하 여 `vendor.read` 고 `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (2 범위를 사용 하 여 `customer.read` 고 `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (2 범위를 사용 하 여 `vendor.read` 고 `vendor.write`)
 
 사용 해야 합니다 `.WithExtraScopeToConsent` 있는 한정자를 *extraScopesToConsent* 다음 예와에서 같이 매개 변수:
 

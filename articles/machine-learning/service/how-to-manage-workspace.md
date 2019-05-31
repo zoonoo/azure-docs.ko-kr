@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f0806a1d68cd2cede1ae51f0a50a8125c1e7c8b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819610"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66016535"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Azure Machine Learning Service 작업 영역 만들기 및 관리
 
-이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-azure-machine-learning-architecture.md#workspace)을 만들고 확인하고 삭제해 봅니다.  [CLI를 사용하여](reference-azure-machine-learning-cli.md) 또는 [Python 코드를 사용하여](https://aka.ms/aml-sdk) 작업 영역을 만들고 삭제할 수도 있습니다.
+이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-workspace.md)을 만들고 확인하고 삭제해 봅니다.  만들기 및 작업 영역을 삭제할 수도 있습니다 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md), [Python 코드를 사용 하 여](https://aka.ms/aml-sdk) 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning)합니다.
 
-## <a name="create-a-workspace"></a>작업 영역 만들기 
+## <a name="create-a-workspace"></a>작업 영역 만들기
 
 작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -30,7 +30,7 @@ ms.locfileid: "60819610"
 
 ## <a name="view"></a>작업 영역 보기
 
-1. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다. 
+1. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
 
 1. 에 **모든 서비스** 필터 필드에 입력 **기계 학습 서비스**합니다.  
 
@@ -49,8 +49,7 @@ ms.locfileid: "60819610"
 
   ![삭제 단추](media/how-to-manage-workspace/delete-workspace.png)
 
-
-## <a name="clean-up-resources"></a>리소스 정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

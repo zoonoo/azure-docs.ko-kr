@@ -3,8 +3,8 @@ title: Azure AD를 사용하여 Web API 보안 유지 | Microsoft Docs
 description: 인증을 위해 Azure AD와 통합되는 Node.js REST Web API를 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416771"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545982"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 Web API 보안 유지
 

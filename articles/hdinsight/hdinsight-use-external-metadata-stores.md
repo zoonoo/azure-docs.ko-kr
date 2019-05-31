@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/27/2019
+ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701190"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298883"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -50,7 +50,7 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>클러스터를 만드는 동안 사용자 지정 metastore 선택
 
-클러스터를 만드는 동안 클러스터로 이전에 만든 Azure SQL Database를 가리키거나 클러스터가 만들어진 후 SQL Database를 구성할 수 있습니다. 이 옵션은 Azure Portal에서 새 Hadoop, Spark 또는 대화형 Hive 클러스터를 만드는 동안 [저장소] > [Metastore 설정]으로 지정됩니다.
+클러스터를 만드는 동안 클러스터로 이전에 만든 Azure SQL Database를 가리키거나 클러스터가 만들어진 후 SQL Database를 구성할 수 있습니다. 이 옵션을 사용 하 여 지정 된 **저장소 > Metastore 설정** Azure portal에서 새 Hadoop, Spark 또는 대화형 Hive 클러스터를 만드는 동안.
 
 ![HDInsight Hive 메타데이터 저장소 Azure Portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 

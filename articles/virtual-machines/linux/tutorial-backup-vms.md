@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 99ec8ea6a5b08323021a168e8ec47b976e1ae7f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739427"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>자습서: Azure의 Linux 가상 머신을 위한 파일 백업 및 복원
 
@@ -44,7 +44,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
 ## <a name="create-a-backup"></a>백업 만들기
 예약된 매일 백업을 Recovery Services 자격 증명 모음에 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **가상 머신**를 선택합니다. 
 3. 목록에서 백업할 VM을 선택합니다.
 4. VM 블레이드의 **설정** 섹션에서 **Backup**을 클릭합니다. **백업 사용** 블레이드가 열립니다.
@@ -156,7 +156,7 @@ Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거�
 
     ![기본 nginx 웹 페이지](./media/tutorial-backup-vms/nginx-working.png)
 
-18. 로컬 컴퓨터에서 Azure Portal의 브라우저 탭으로 돌아가서 **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
+18. 로컬 컴퓨터에서 Azure Portal용 브라우저 탭으로 돌아가고, **3단계: 복구 후 디스크 분리**에서 **디스크 분리** 단추를 클릭합니다. 이 단계를 수행하지 않으면 12시간 후에 탑재 지점에 대한 연결이 자동으로 끊깁니다. 12시간이 지나면 새 스크립트를 다운로드하여 새 탑재 지점을 만들어야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

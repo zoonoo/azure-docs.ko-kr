@@ -82,7 +82,7 @@ REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯�
 
 .NET SDK의 2.x 버전에 대한 자세한 내용은 [릴리스 정보](key-vault-dotnet2api-release-notes.md)를 참조하세요.
 
-#### <a name="java"></a>자바
+#### <a name="java"></a>Java
 
 [Key Vault용 Java SDK](/java/api/overview/azure/keyvault)
 

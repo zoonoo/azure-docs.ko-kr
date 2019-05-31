@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077567"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595761"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 az extension add --name azure-cli-iot-ext
 ```
 
-이 자습서에서 실행하는 장치 시뮬레이터 애플리케이션은 Node.js를 사용하여 작성해야 합니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 자습서에서 실행하는 장치 시뮬레이터 애플리케이션은 Node.js를 사용하여 작성해야 합니다. 개발 컴퓨터에 Node.js v10.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 

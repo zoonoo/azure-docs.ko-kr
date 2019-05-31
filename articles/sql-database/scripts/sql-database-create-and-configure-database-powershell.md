@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e1ce1ad692f544d668ae557c85e504ffcb9d0dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 949e0569a0ee2095e0dc7044160ec4e16ce33c78
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356674"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834253"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>PowerShell을 사용하여 단일 Azure SQL 데이터베이스 만들기 및 SQL Database 서버 방화벽 규칙 구성
 

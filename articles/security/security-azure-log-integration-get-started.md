@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1df35c82ffb8b98f8b7bf86c21694b62b3804e4
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480254"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298294"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Diagnostics 로깅 및 Windows 이벤트 전달과 Azure Log Integration
 
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure 로그 통합 기능을 06/15/2019 지원이 중지 될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 SIEM(Security Incident and Event Management) 공급업체에서 [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) 커넥터를 사용할 수 없는 경우에만 Azure Log Integration을 사용해야 합니다.
 
@@ -139,7 +139,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    4. Azure에 로그인합니다.
    5. Azure Diagnostics용으로 구성된 스토리지 계정이 표시되는지 확인합니다. 
 
-   ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Storage Explorer의 스토리지 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
    1. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
 

@@ -65,14 +65,14 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 
 | 자산 | 설명 | 필수 | Default |
 | --- | --- | --- | --- |
-| 형식 |FtpServer로 설정합니다. |예 |&nbsp; |
+| type |FtpServer로 설정합니다. |예 |&nbsp; |
 | host |FTP 서버의 이름 또는 IP 주소를 지정합니다. |예 |&nbsp; |
 | authenticationType |인증 유형을 지정합니다. |예 |기본, 익명 |
-| 사용자 이름 |FTP 서버에 액세스하는 사용자를 지정합니다. |아닙니다. |&nbsp; |
+| username |FTP 서버에 액세스하는 사용자를 지정합니다. |아닙니다. |&nbsp; |
 | password |사용자(사용자 이름)의 암호를 지정합니다. |아닙니다. |&nbsp; |
 | encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명을 지정합니다. |아닙니다. |&nbsp; |
 | gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 게이트웨이 이름을 지정합니다. |아닙니다. |&nbsp; |
-| 포트 |FTP 서버가 수신 대기하는 포트를 지정합니다. |아닙니다. |21 |
+| port |FTP 서버가 수신 대기하는 포트를 지정합니다. |아닙니다. |21 |
 | enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다. |아닙니다. |true |
 | enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다. |아닙니다. |true |
 
@@ -160,7 +160,7 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 | fileFilter |모든 파일이 아닌 **folderPath**의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter**는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS(Hadoop Distributed File System)에서 지원되지 않습니다. |아닙니다. |
 | partitionedBy |동적 **folderPath** 및 시계열 데이터에 대한 **filename**을 지정하는 데 사용합니다. 예를 들어 매 시간 데이터에 대해 매개 변수가 있는 **folderPath**를 지정할 수 있습니다. |아닙니다. |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의에서 형식 섹션을 건너뜁니다. |아닙니다. |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2**, **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
+| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2**, **ZipDeflate**이고 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |
 | useBinaryTransfer |이진 전송 모드를 사용할지 여부를 지정합니다. 값은 이진 모드(기본값)에서만 true이며 ASCII에서는 false입니다. 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아닙니다. |
 
 > [!NOTE]

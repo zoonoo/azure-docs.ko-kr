@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780490"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850407"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -40,7 +40,7 @@ ms.locfileid: "65780490"
 
 이 문서에 설명 된 단계 가정 AKS 클러스터를 만든 (Kubernetes `1.11` 이상에서 RBAC를 사용 하 여 사용 하도록 설정 하 고) 설정 하 고는 `kubectl` 클러스터와 연결 합니다. 이 항목에 대한 도움이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-해야 [Helm] [ helm] 이러한 지침 및 Istio를 설치 합니다. 버전을 갖고 있는 것이 좋습니다. `2.12.2` 또는 나중에 올바르게 설치 하 고 클러스터에서 구성 합니다. Helm을 설치 하 여 도움이 필요한 경우 다음 참조를 [AKS Helm 설치 지침][helm-install]합니다.
+해야 [Helm] [ helm] 이러한 지침 및 Istio를 설치 합니다. 버전을 갖고 있는 것이 좋습니다. `2.12.2` 또는 나중에 올바르게 설치 하 고 클러스터에서 구성 합니다. Helm을 설치 하 여 도움이 필요한 경우 다음 참조를 [AKS Helm 설치 지침][helm-install]합니다. 또한 모든 Istio pod Linux 노드에서 실행 되도록 예약 해야 합니다.
 
 이 문서에서는 몇 단계로 Istio 설치 지침을 구분합니다. 최종 결과는 공식 설치 [지침][istio-install-helm]과 동일한 구조입니다.
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 `istio` Helm 차트는 다 수의 개체를 배포 합니다. 출력의 목록을 볼 수 있습니다 프로그램 `helm install` 위의 명령입니다. Istio 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 4 ~ 5 분 정도 걸릴 수 있습니다.
+
+> [!NOTE]
+> 모든 Istio pod Linux 노드에서 실행 되도록 예약 해야 합니다. Windows Server 노드 풀 Linux 노드 풀 외에도 클러스터에 있는 경우 모든 Istio pod Linux 노드에서 실행 되도록 예약 된가 있는지 확인 합니다.
 
 이 시점에서 Istio AKS 클러스터에 배포 했습니다. Istio 성공적으로 배포 된 것을 보장 하려면 다음 섹션을 보겠습니다으로 이동 [Istio 설치 유효성 검사](#validate-the-istio-installation)합니다.
 

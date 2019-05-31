@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138763"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -193,7 +193,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예를 들면 다음과 같습니다.
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예: 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

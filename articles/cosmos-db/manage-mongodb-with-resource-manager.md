@@ -4,24 +4,24 @@ description: Azure Resource Manager 템플릿 만들기 및 MongoDB에 대 한 A
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: bcf9e0492e58de79efbb16f9ee13adbd0f27b572
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99f1e41107c277c8b3f1b21f81952d5d5cadaa29
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077772"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968878"
 ---
-# <a name="create-azure-cosmos-db-api-for-mongodb-resources-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 리소스를 MongoDB에 대 한 Azure Cosmos DB API 만들기
+# <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB MongoDB API 리소스 관리
 
-Azure Resource Manager 템플릿을 사용 하는 MongoDB 리소스에 대 한 Azure Cosmos DB API를 만드는 방법에 알아봅니다. 다음 예제에서 MongoDB API에 대 한 Azure Cosmos DB 계정을 만듭니다는 [Azure 빠른 시작 템플릿](https://aka.ms/mongodb-arm-qs)합니다. 이 템플릿은 데이터베이스 수준에서 400 RU/s 처리량을 공유 하는 두 컬렉션을 사용 하 여 MongoDB API에 대 한 Azure Cosmos 계정이 만들어집니다.
+## MongoDB 계정, 데이터베이스 및 컬렉션에 대 한 Azure Cosmos DB API 만들기 <a id="create-resource"></a>
 
-다음은 템플릿의 복사본입니다.
+Azure Resource Manager 템플릿을 사용 하는 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 RU/s 처리량을 공유 하는 두 컬렉션을 사용 하 여 MongoDB API에 대 한 Azure Cosmos 계정이 만들어집니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 
-## <a name="deploy-via-azure-cli"></a>Azure CLI를 통해 배포
+### <a name="deploy-via-azure-cli"></a>Azure CLI를 통해 배포
 
 Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **복사본** 선택한 스크립트 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 `az cosmosdb show` 명령은 프로 비전 된 후 새로 만든된 Azure Cosmos 계정을 보여 줍니다. Cloud Shell을 사용 하는 대신 로컬에 설치 된 버전의 Azure CLI를 사용 하려는 경우 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/) 문서.
 
-이전 예제에서는 GitHub에 저장 된 템플릿을 참조 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+## 데이터베이스에 대 한 처리량 (RU/s)를 업데이트 합니다. <a id="database-ru-update"></a>
+
+다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+
+[!code-json[cosmosdb-mongodb-database-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-azure-cli"></a>Azure CLI를 통해 데이터베이스 템플릿 배포
+
+Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## 컬렉션의 처리량 (RU/s)를 업데이트 합니다. <a id="collection-ru-update"></a>
+
+다음 템플릿 컬렉션의 처리량을 업데이트 합니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+
+[!code-json[cosmosdb-mongodb-collection-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json)]
+
+### <a name="deploy-collection-template-via-azure-cli"></a>Azure CLI를 통해 컬렉션 템플릿 배포
+
+Azure CLI를 사용 하 여 Resource Manager 템플릿을 배포 하려면 **사용해** 를 Azure Cloud shell을 엽니다. 스크립트를 붙여 넣으려면 셸을 마우스 오른쪽 단추로 클릭 **붙여**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the collection name: ' collectionName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName collectionName=$collectionName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>다음 단계
 

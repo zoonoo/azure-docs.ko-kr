@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824566"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388207"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
@@ -48,7 +48,7 @@ Office 365 애플리케이션 실행 프로그램에 대한 자세한 내용은 
 ## <a name="direct-sign-on-to-federated-apps"></a>페더레이션된 앱에 직접 로그온
 SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페더레이션된 애플리케이션은 사용자가 애플리케이션에서 시작한 다음, 자동 리디렉션을 통하거나 로그인 링크를 클릭하여 Azure AD로 로그인하는 기능을 지원합니다. 이것을 서비스 공급자에서 시작한 로그온이라고 하며, Azure AD 애플리케이션 갤러리에서 페더레이션된 대부분의 애플리케이션이 이 기능을 지원합니다(자세한 내용은 Azure Portal에 있는 앱의 Single Sign-On 구성 마법사에서 연결된 설명서를 참조).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![모바일 앱 로그인 페이지의 예](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>직접 로그온 링크
 Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 애플리케이션에 대한 직접 Single Sign-On 링크도 지원합니다.

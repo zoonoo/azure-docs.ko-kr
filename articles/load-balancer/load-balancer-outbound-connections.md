@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190165"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967725"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -34,7 +34,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 애플리케이션 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
 
 >[!IMPORTANT] 
->표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에는 내부 표준 Load Balancer를 사용할 경우 아웃바운드 연결 만들기가 포함됩니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
+>표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에 내부 표준 Load Balancer를 사용 하는 경우 아웃 바운드 연결을 만듭니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오 개요
 

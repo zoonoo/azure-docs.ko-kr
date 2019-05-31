@@ -3,18 +3,18 @@ title: Azure IoT Edge용 모듈 개발 | Microsoft Docs
 description: 런타임 및 IoT Hub과 통신할 수 있는 Azure IoT Edge용 사용자 지정 모듈을 개발합니다.
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 02/25/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seodec18
+ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322451"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833431"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -67,7 +67,7 @@ DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법�
 
 [IoT Edge에 대 한 개발 및 테스트 환경 준비](development-environment.md)
 
-[개발에 Visual Studio 2017을 사용 하 여 C# IoT Edge 용 모듈](how-to-visual-studio-develop-csharp-module.md)
+[Visual Studio를 사용 하 여 개발 C# IoT Edge 용 모듈](how-to-visual-studio-develop-module.md)
 
 [Visual Studio 코드를 사용 하 여 IoT Edge 용 모듈 개발](how-to-vs-code-develop-module.md)
 

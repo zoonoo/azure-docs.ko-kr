@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942196"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257499"
 ---
 # <a name="cloud-partner-portal-management"></a>클라우드 파트너 포털 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "64942196"
 클라우드 파트너 포털을 사용 하기 전에 잘 이해 해야 다음 문서를 사용 하 여:
 
 - [Azure Marketplace 정책 및 용어](../../policies-terms.md) 다양 한 법률 및 기술 요구 사항 및 사용자와 게시자에 적용 되는 규칙을 나열 합니다 [Azure Marketplace](https://azuremarketplace.microsoft.com) 하 고 [AppSource](https://appsource.microsoft.com)합니다.
-- [클라우드 Marketplace 게시자가 되려면](../../become-publisher.md) 공식 Microsoft 클라우드 게시자를 될 하는 데 필요한 모든 단계를 간략하게 설명 합니다.
+- [클라우드 Marketplace 게시자가 되려면](https://docs.microsoft.com/azure/marketplace/become-publisher) 공식 Microsoft 클라우드 게시자를 될 하는 데 필요한 모든 단계를 간략하게 설명 합니다.
 
 
 ## <a name="account-creation-and-management"></a>계정 만들기 및 관리

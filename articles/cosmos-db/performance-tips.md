@@ -4,14 +4,14 @@ description: Azure Cosmos DB 데이터베이스 성능 향상을 위한 클라�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097898"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953792"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -164,7 +164,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
  
 1. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
+    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  다음 코드를 사용 하 여 인덱싱에서 (하위) 문서의 전체 섹션을 제외 하는 방법에 표시 하는 예를 들어를 "*" 와일드 카드입니다.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

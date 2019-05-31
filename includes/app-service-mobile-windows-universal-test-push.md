@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: c86210208b9f747cbef1d9231528fa6cedbdb5d2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 70e0d766fe3c9669912ce9f13f729fb1c757a26f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815062"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140447"
 ---
 1. Windows 스토어 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 F5 키를 눌러 Windows 스토어 앱을 실행합니다.
 

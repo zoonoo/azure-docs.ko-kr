@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771178"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966119"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
-이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요.
+이 문서에서는 Azure용 RHEL(Red Hat Enterprise Linux) 가상 머신을 준비하는 방법을 알아봅니다. 이 문서에 설명되어 있는 RHEL의 버전은 6.7+ 및 7.1+입니다. 이 문서에서 다룰 준비에 대한 하이퍼바이저는 Hyper-V, KVM(커널 기반 가상 머신) 및 VMware입니다. Red Hat 클라우드 액세스 프로그램에 참여하기 위한 자격 요구 사항에 대한 자세한 내용은 [Red Hat 클라우드 액세스 웹 사이트](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 및 [Azure에서 실행 중인 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)을 참조하세요. RHEL 빌드 자동화 하는 방법에 대 한 이미지 참조를 [Azure 이미지 작성기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)합니다.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 머신 준비
 
@@ -110,7 +110,7 @@ ms.locfileid: "60771178"
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크는 비워질 수 있습니다 가상 컴퓨터 프로 비전을 해제 하는 경우 및 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -124,6 +124,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -193,7 +195,7 @@ ms.locfileid: "60771178"
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크를 가상 컴퓨터 프로 비전을 해제 하는 경우 비워질 수 있습니다 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -207,6 +209,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -315,7 +319,7 @@ ms.locfileid: "60771178"
 
         # chkconfig waagent on
 
-1. Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 컴퓨터의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) **/etc/waagent.conf**에서 다음 매개 변수를 적절하게 수정합니다.
+1. Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크를 가상 컴퓨터 프로 비전을 해제 하는 경우 비워질 수 있습니다 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) **/etc/waagent.conf**에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -329,6 +333,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -464,7 +470,7 @@ ms.locfileid: "60771178"
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크를 가상 컴퓨터 프로 비전을 해제 하는 경우 비워질 수 있습니다 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -478,6 +484,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -593,7 +601,7 @@ ms.locfileid: "60771178"
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크를 가상 컴퓨터 프로 비전을 해제 하는 경우 비워질 수 있습니다 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -607,6 +615,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -707,7 +717,7 @@ ms.locfileid: "60771178"
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
-    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크를 가상 컴퓨터 프로 비전을 해제 하는 경우 비워질 수 있습니다 note 합니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -721,6 +731,8 @@ ms.locfileid: "60771178"
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -875,7 +887,7 @@ ms.locfileid: "60771178"
         NM_CONTROLLED=no
         EOF
 
-        # Deprovision and prepare for Azure
+        # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
 
         %end

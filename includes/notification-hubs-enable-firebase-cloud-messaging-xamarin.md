@@ -9,11 +9,11 @@ ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57908289"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162185"
 ---
 1. [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.
 2. 프로젝트를 만든 후 **Android 앱에 Firebase 추가**를 선택합니다. 

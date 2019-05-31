@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 공유 VM 이미지 만들기 | Microsoft Docs
+title: Azure CLI를 사용 하 여 공유 이미지 갤러리 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM의 공유 이미지를 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bb6db6e5d5e33b7c7b5ba5a8711a06d6394b71f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236409"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226035"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지 갤러리 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "65236409"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | 설명|
+| Resource | 설명|
 |----------|------------|
 | **관리되는 이미지** | 이는 단독으로 사용하거나 이미지 갤러리에 **이미지 버전**을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
@@ -46,15 +46,17 @@ ms.locfileid: "65236409"
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 이미지 버전으로 VM을 만듭니다.
+사용 하 여 최신 이미지 버전에서 VM 만들기 [az vm 만들기](/cli/azure/vm#az-vm-create)합니다.
 
 ```azurecli-interactive 
 az vm create\
-   -g myGalleryRG \
-   -n myVM \
-   --image "/subscriptions/<subscription-ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
+   --resource-group myGalleryRG \
+   --name myVM \
+   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
    --generate-ssh-keys
 ```
+
+에 대 한 이미지 버전 ID를 사용 하 여 특정 버전을 사용할 수도 있습니다는 `--image` 매개 변수입니다. 예를 들어 이미지 버전을 사용 하도록 *1.0.0* 유형: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`합니다.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 

@@ -25,7 +25,7 @@
               href: QuickStarts/curl.md
             - name: Go
               href: QuickStarts/go.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/Java.md
             - name: JavaScript
               href: QuickStarts/JavaScript.md
@@ -111,5 +111,7 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 릴리스 정보
       href: ReleaseNotes.md

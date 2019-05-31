@@ -8,15 +8,6 @@
     - name: Azure Marketplace 및 AppSource 개요 및 이점
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Marketplace에서 게시자 되기
-          href: ./become-publisher.md
-          items:
-            - name: Microsoft 계정 만들기
-              href: ./guidelines.md
-            - name: Dev Center에 등록
-              href: ./register-dev-center.md
-            - name: Azure 파트너 고객 사용량 특성
-              href: ./azure-partner-customer-usage-attribution.md
         - name: '하나의 Marketplace, 두 개의 상점'
           href: ./comparing-appsource-azure-marketplace.md
         - name: 옵션 및 고려 사항 게시
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: 표준 계약
               href: ./standard-contract.md
+            - name: Azure 파트너 고객 사용량 특성
+              href: ./azure-partner-customer-usage-attribution.md
         - name: 제품 형식별 게시 가이드
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,9 +474,20 @@
       items:
         - name: SaaS 제품 만들기
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS 처리 API
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: SaaS 애플리케이션 등록
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS 처리 API v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS 처리 API v1(사용되지 않음)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: 게시 상태
       href: ./partner-center-portal/publishing-status.md
     - name: 기존 제품 업데이트
       href: ./partner-center-portal/update-existing-offer.md
     - name: 지원 옵션
       href: ./partner-center-portal/support.md
+    - name: 파트너 센터 분석
+      href: ./partner-center-portal/analytics.md

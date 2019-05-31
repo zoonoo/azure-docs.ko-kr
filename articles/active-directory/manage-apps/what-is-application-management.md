@@ -2,22 +2,22 @@
 title: Azure Active Directory와 애플리케이션 관리 | Microsoft Docs
 description: 이 문서는 온-프레미스, 클라우드 및 SaaS 애플리케이션을 사용하여 Azure Active Directory를 통합하는 이점을 얻을 수 있습니다.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a65c42ff2d03946c021497e350836623a408ce7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 657527272ccf8b5f69764052a2385ceec57ddc03
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197524"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826026"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory의 애플리케이션 관리
 

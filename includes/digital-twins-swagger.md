@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 35078d9cf705351a9f64f52738c9eaca90814f7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922890"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157908"
 ---
 > [!TIP]
 > Swagger 미리 보기는 API 기능 집합을 설명하기 위해 제공됩니다.
@@ -25,7 +25,7 @@ ms.locfileid: "60922890"
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 이름 | 다음 항목으로 교체 |
+| Name | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Azure Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |

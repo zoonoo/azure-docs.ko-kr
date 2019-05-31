@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520852"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255274"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 시작
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 이 쿼리는 속성에 “error”라는 용어를 포함하는 레코드에 대한 _이벤트_ 테이블을 검색합니다.
 
-쿼리는 테이블 이름 또는 **search** 명령을 사용하여 시작할 수 있습니다. 위의 예제는 쿼리의 범위를 정의하는 테이블 이름 _Event_로 시작합니다. 파이프(|) 문자는 명령을 분리하므로 다음 명령의 입력에서 첫 번째 명령의 출력입니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
+쿼리는 테이블 이름 또는 **search** 명령을 사용하여 시작할 수 있습니다. 위의 예제는 쿼리의 범위를 정의하는 테이블 이름 _Event_로 시작합니다. 파이프 (|) 문자 다음 명령의 입력으로 사용 되는 첫 번째 출력 하므로 명령을 구분 합니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
 
 동일한 쿼리를 작성하는 또 다른 방법은 다음과 같습니다.
 

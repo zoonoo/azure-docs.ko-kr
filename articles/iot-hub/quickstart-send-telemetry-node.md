@@ -10,12 +10,12 @@ ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: a4f0761af7da1add6a295b7627783daae6fac07c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b99ed85495e00282c6a27f42b5817e46f4736720
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007096"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597509"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Node.js)으로 읽습니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -47,7 +47,7 @@ node --version
 az extension add --name azure-cli-iot-ext
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip) 에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

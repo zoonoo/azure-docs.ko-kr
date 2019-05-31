@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 01/30/2019
-ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722865"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304001"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -175,7 +175,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
     
     1. **파일** 메뉴에서 **프로젝트 구조...** 를 선택합니다.
 
-    2. **프로젝트 구조** 창에서 **아티팩트** > **더하기 기호 +** > **JAR** > **종속 항목이 있는 모듈에서...** 로 이동합니다.
+    2. **프로젝트 구조** 창에서 **아티팩트** > **더하기 기호 +**  > **JAR** > **종속 항목이 있는 모듈에서...** 로 이동합니다.
        
         ![JAR 만들기](./media/apache-spark-create-standalone-application/create-jar-1.png)
 

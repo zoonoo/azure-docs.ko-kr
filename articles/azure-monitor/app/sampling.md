@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c11eeb84fe4ed1ded93cb8de7ff54b756fd36749
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779903"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388381"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -527,3 +527,4 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 ## <a name="next-steps"></a>다음 단계
 
 * [필터링](../../azure-monitor/app/api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
+* Developer Network 문서를 읽어보세요 [Application Insights로 원격 분석을 최적화](https://msdn.microsoft.com/magazine/mt808502.aspx)합니다.

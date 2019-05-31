@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66115634"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 업그레이드
 
@@ -131,7 +131,7 @@ Blob Storage에 대한 데이터 액세스 패턴을 모니터링하려면 API�
 
 #### <a name="capacity-costs"></a>용량 비용
 
-*'data'* 행 키가 있는 *$MetricsCapacityBlob* 용량 메트릭 테이블의 최신 항목은 사용자 데이터에서 사용하는 저장소 용량을 보여 줍니다. *'analytics'* 행 키가 있는 *$MetricsCapacityBlob* 용량 메트릭 테이블의 최신 항목은 분석 로그에서 사용하는 저장소 용량을 보여 줍니다.
+*'data'* 행 키가 있는 *$MetricsCapacityBlob* 용량 메트릭 테이블의 최신 항목은 사용자 데이터에서 사용하는 저장소 용량을 보여 줍니다. *'analytics'* 행 키가 있는 *$MetricsCapacityBlob* 용량 메트릭 테이블의 최신 항목은 분석 로그에서 사용하는 스토리지 용량을 보여줍니다.
 
 사용자 데이터 및 분석 로그(활성화된 경우)에서 소비되는 이 전체 용량은 저장소 계정에서 데이터 저장의 비용을 예측하는 데 사용할 수 있습니다. GPv1 저장소 계정에서 저장소 비용을 예상하는 데 동일한 메서드를 사용할 수도 있습니다.
 

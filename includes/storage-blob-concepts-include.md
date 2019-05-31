@@ -9,11 +9,11 @@ ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804623"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158669"
 ---
 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다.
 

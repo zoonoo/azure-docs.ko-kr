@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231160"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001451"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -199,14 +199,15 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 애플리케이션을 등록한 다음, *web.config*에 정보 추가하기
 
-1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 애플리케이션을 등록합니다.
-2. **새 애플리케이션 등록**을 선택합니다.
-3. 애플리케이션의 이름을 입력합니다.
-4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 애플리케이션의 회신 URL 목록에도 자동으로 추가됩니다.
-5. **만들기**를 선택하여 애플리케이션을 등록합니다. 그러면 애플리케이션 목록으로 돌아갑니다.
-6. 이제 방금 만든 애플리케이션을 검색 및/또는 선택하여 해상 속성을 엽니다.
-7. **애플리케이션 ID**의 GUID를 클립보드에 복사합니다.
-8. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
+1. [Azure Portal](https://portal.azure.com/)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+2. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
+3. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+4. **새 등록**을 선택합니다.
+5. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
+6. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+7. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 Visual Studio 프로젝트의 *SSL URL*(Azure AD가 토큰을 반환할 위치)로 설정합니다.
+78. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 복사합니다.
+9. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 > [!TIP]
 > 여러 디렉터리에 액세스하도록 계정이 구성된 경우 Azure Portal의 오른쪽 상단에 있는 계정 이름을 클릭한 다음, 선택한 디렉터리가 표시되는지 확인하여 애플리케이션을 등록할 조직의 디렉터리를 올바로 선택해야 합니다.<br/>![올바른 디렉터리 선택](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
@@ -279,7 +280,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>예상 결과
 
-사용자가 로그인하면 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL에 해당하는 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}*({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
+사용자가 로그인하면 Microsoft 애플리케이션 등록 포털의 애플리케이션 등록 정보에 지정된 HTTPS URL에 해당하는 웹 사이트의 홈페이지로 리디렉션됩니다. 이제 이 페이지에 *Hello {User}* ({User} 님, 안녕하세요?) 및 로그아웃 링크, 사용자의 클레임을 표시하는 링크(이전에 만든 권한 부여 컨트롤러에 대한 링크)가 표시됩니다.
 
 ### <a name="see-users-claims"></a>사용자의 클레임 보기
 

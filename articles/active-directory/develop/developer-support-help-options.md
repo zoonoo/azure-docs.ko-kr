@@ -5,25 +5,24 @@ services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, dadobali
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540376"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235330"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -52,7 +51,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| Tool  | 설명  |
+| 도구  | 설명  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
@@ -63,7 +62,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 검색을 통해 질문에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | Tags |
+|구성 요소/영역  | 태그들 |
 |---------|---------|
 | ADAL 라이브러리 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -82,10 +81,10 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 
 라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
 
-라이브러리 및 해당 GitHub 리포지토리 목록을 보려면 다음 문서를 참조하세요.
+라이브러리 및 해당 GitHub 리포지토리의 목록이, 다음을 참조 합니다.
 
 * [ADAL](active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL](reference-v2-libraries.md) 라이브러리 및 GitHub 리포지토리
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL 합니다. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), 및 [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 

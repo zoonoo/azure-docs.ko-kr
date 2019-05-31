@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309169"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122517"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>사각형 데이터 세트의 구조 정의 지정
 데이터 세트 JSON의 구조 섹션은 사각형 테이블(행 및 열 포함)에 대한 **선택적** 섹션으로, 해당 테이블에 대한 열 모음을 포함합니다. 형식 변환에 필요한 형식 정보를 제공하거나 열 매핑을 수행하기 위해 구조 섹션을 사용합니다. 다음 섹션에서는 이러한 기능을 자세히 설명합니다. 

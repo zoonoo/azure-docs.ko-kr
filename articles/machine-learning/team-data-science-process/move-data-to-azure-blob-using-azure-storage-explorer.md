@@ -1,6 +1,6 @@
 ---
-title: Azure Storage 탐색기를 사용하여 Blob 스토리지 데이터 이동 - Team Data Science Process
-description: Azure Storage 탐색기를 사용하여 Azure Blob Storage의 데이터 이동
+title: Azure Storage Explorer를 사용하여 Blob 스토리지 데이터 이동 - Team Data Science Process
+description: Azure Storage Explorer를 사용하여 Azure Blob Storage 간에 데이터 이동
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -18,8 +18,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61430824"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용하여 Azure Blob Storage 간에 데이터 이동
-Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이터 작업 시에 사용할 수 있는 Microsoft의 무료 도구입니다. 이 항목에서는 Azure Storage Explorer를 사용하여 Azure Blob 스토리지에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다. 이 도구는 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)에서 다운로드할 수 있습니다.
+# <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Blob Storage 간에 데이터 이동
+Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage 데이터 작업 시에 사용할 수 있는 Microsoft의 무료 도구입니다. 이 항목에서는 Azure Storage Explorer를 사용하여 Azure Blob 스토리지에서 데이터를 업로드 및 다운로드하는 방법을 설명합니다. 이 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -35,15 +35,15 @@ Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이�
 이 문서에서는 사용자에게 Azure 구독, 저장소 계정 및 계정에 해당하는 저장소 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure 저장소 계정 이름 및 계정 키를 알아야 합니다. 
 
 * Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요. Storage 계정의 선택키를 적어 두세요. Azure Storage 탐색기 도구를 사용하여 계정에 연결하려면 이 키가 있어야 합니다.
-* Azure Storage 탐색기 도구는 [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 설치 중에 표시되는 기본값을 적용합니다.
+* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요. Storage 계정의 선택키를 적어 두세요. Azure Storage Explorer 도구를 사용하여 계정에 연결하려면 이 키가 있어야 합니다.
+* Azure Storage Explorer 도구는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 다운로드할 수 있습니다. 설치 중에 표시되는 기본값을 적용합니다.
 
 <a id="explorer"></a>
 
-## <a name="use-azure-storage-explorer"></a>Azure Storage 탐색기 사용
-다음 단계에서는 Azure Storage 탐색기를 사용하여 데이터를 업로드/다운로드하는 방법을 설명합니다. 
+## <a name="use-azure-storage-explorer"></a>Azure Storage Explorer 사용
+다음 단계에서는 Azure Storage Explorer를 사용하여 데이터를 업로드/다운로드하는 방법을 설명합니다. 
 
-1. Microsoft Azure Storage 탐색기를 시작합니다.
+1. Microsoft Azure Storage Explorer를 시작합니다.
 2. **계정에 로그인...** 마법사를 실행하려면 **Azure 계정 설정** 아이콘을 선택하고 **계정 추가**를 선택한 후에 자격 증명을 입력합니다. ![Azure Storage 계정 추가](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. **Azure Storage에 연결** 마법사를 실행하려면 **Azure Storage에 연결** 아이콘을 선택합니다. !["Azure 스토리지에 연결" 클릭](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. **Azure Storage에 연결** 마법사에서 Azure Storage 계정의 선택키를 입력한 후에 **다음**을 클릭합니다. ![Azure 스토리지 계정의 액세스 키 입력](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)

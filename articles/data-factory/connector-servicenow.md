@@ -110,7 +110,7 @@ ServiceNow에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ServiceNowSource** | 예. |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Actual.alm_asset"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Actual.alm_asset"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 쿼리에서 ServiceNow에 대해 스키마 및 열을 지정하는 경우 다음에 유의하고, **복사 성능에 미치는 영향에 대한 [성능 팁](#performance-tips)을 참조하세요**.
 

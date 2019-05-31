@@ -173,7 +173,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
   
     ![테이블 만들기](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    앞에서 언급했듯이 테이블이 없고 만들어진 경우에만 **CloudTable.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 테이블이 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 테이블을 삭제해야 합니다. **CloudTable.Delete** 메서드를 통해 테이블 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블을 삭제할 수도 있습니다.  
+    앞에서 언급했듯이 테이블이 없고 만들어진 경우에만 **CloudTable.CreateIfNotExists** 메서드에서 **true**를 반환합니다. 따라서 테이블이 있을 때 앱을 실행하면 메서드에서 **false**를 반환합니다. 앱을 여러 번 실행하려면 앱을 다시 실행하기 전에 테이블을 삭제해야 합니다. **CloudTable.Delete** 메서드를 통해 테이블 삭제를 수행할 수 있습니다. 또한 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) 또는 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 테이블을 삭제할 수도 있습니다.  
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 

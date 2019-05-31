@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse 릴리스 정보 2018년 9월 | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 릴리스 정보입니다.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474977"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912168"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 9월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 9월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -50,7 +50,7 @@ Azure SQL Data Warehouse 유지 관리 예약 기능은 미리 보기로 제공�
 ### <a name="stringsplit"></a>STRING_SPLIT
 [STRING_SPLIT](https://docs.microsoft.com/sql/t-sql/functions/string-split-transact-sql) 함수는 지정된 구분 기호를 사용하여 문자 문자열을 분할합니다. STRING_SPLIT는 열에 구문 분석 후 다른 테이블에 삽입할 값이 여러 개 있는 데이터 로딩 시나리오에서 유용합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```sql
 DECLARE @tags NVARCHAR(400) = 'clothing,road,,touring,bike';
 
@@ -65,7 +65,7 @@ WHERE
 ### <a name="compressdecompress-functions"></a>COMPRESS/DECOMPRESS 함수
 [COMPRESS](https://docs.microsoft.com/sql/t-sql/functions/compress-transact-sql) / [DECOMPRESS](https://docs.microsoft.com/sql/t-sql/functions/decompress-transact-sql) 함수를 사용하면 GZIP 알고리즘을 사용하여 문자열 입력을 압축하거나 압축을 풀 수 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```sql
 SELECT
@@ -79,7 +79,7 @@ FROM
 ### <a name="if-exists-clause-for-dropping-views"></a>뷰를 삭제하는 IF EXISTS 절
 [DROP VIEW](https://docs.microsoft.com/sql/t-sql/statements/drop-view-transact-sql) 문에 IF EXISTS 절을 추가하면 데이터 웨어하우스에서 보기를 제거하는 데 필요한 T-SQL 코드가 간소화됩니다. IF EXISTS 구문은 DROP VIEW 문에 적용할 경우 보기가 있으면 보기를 삭제하고 보기가 없으면 명령문을 무시합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```sql
 DROP VIEW IF EXISTS dbo.TestView;
 ```

@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171337"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버의 느린 쿼리 로그 사용 및 다운로드
 이 샘플 CLI 스크립트는 단일 Azure Database for MariaDB 서버의 느린 쿼리 로그를 사용하도록 설정하고 다운로드합니다.

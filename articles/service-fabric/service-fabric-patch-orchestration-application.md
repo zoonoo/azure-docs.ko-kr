@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522370"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951949"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -141,9 +141,7 @@ POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체�
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
-설치 스크립트와 함께 애플리케이션을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=869566)에서 다운로드할 수 있습니다.
-
-sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+응용 프로그램 패키지를 다운로드 하려면 GitHub 릴리스를 참조 하세요 [페이지](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) 패치 오케스트레이션 응용 프로그램입니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -205,13 +203,15 @@ PowerShell을 사용하여 기존 패치 오케스트레이션 앱을 업그레�
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -234,6 +234,9 @@ ResultCode | OperationResult와 동일 | 이 필드는 개별 업데이트에 �
 OperationType | 1 - 설치<br> 0 - 검색 및 다운로드.| 설치는 기본적으로 결과에 표시되는 유일한 OperationType입니다.
 WindowsUpdateQuery | 기본값은 “IsInstalled = 0”입니다. |업데이트 검색에 사용된 Windows 업데이트 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
 RebootRequired | true - 다시 부팅 필요<br> false - 다시 부팅 필요 없음 | 업데이트 설치를 완료하는 데 다시 부팅이 필요한지 여부를 표시합니다.
+OperationStartTime | DateTime | 시작 하는 operation(Download/Installation) 시간을 나타냅니다.
+OperationTime | DateTime | 완료는 operation(Download/Installation) 시간을 나타냅니다.
+HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25beb0d6"를 사용 하 여 windows update의 오류의 이유를 나타냅니다.
 
 업데이트가 아직 예약되어 있지 않으면 결과 JSON은 비어 있습니다.
 
@@ -255,6 +258,58 @@ RebootRequired | true - 다시 부팅 필요<br> false - 다시 부팅 필요 �
 
 ## <a name="diagnosticshealth-events"></a>진단/상태 이벤트
 
+다음 섹션에서는 Service Fabric 클러스터에 패치 오케스트레이션 응용 프로그램을 통해 패치 업데이트를 사용 하 여 문제를 디버그/진단 하는 방법을 설명 합니다.
+
+> [!NOTE]
+> 많은 가져오려는 설치 POA v1.4.0 버전이 있어야를 자체 진단 개선 사항에 아래 명시 합니다.
+
+NodeAgentNTService를 만듭니다 [수리 작업](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) 노드에서 업데이트를 설치 합니다. 각 태스크는 다음 작업 승인 정책에 따라 CoordinatorService에서 준비 됩니다. 준비 작업에는 복구 관리자가 클러스터 비정상 상태 이면 모든 작업을 승인 하지 것입니다는 승인 마지막 됩니다. 수는 노드에서 업데이트 진행 하는 방법을 이해 하려면 과정을 단계별로 이동 합니다.
+
+1. NodeAgentNTService, 모든 노드에서 실행 중인 예약된 된 시간에 사용 가능한 Windows 업데이트를 찾습니다. 업데이트를 사용할 수 있는 경우 진행 하 고 노드에 다운로드 합니다.
+2. 업데이트가 다운로드 되 면 NodeAgentNTService, 이름을 POS___ < unique_id >를 사용 하 여 노드에 대 한 해당 복구 작업을 만듭니다. 이 볼 수 있습니다 cmdlet을 사용 하 여 작업을 복구할 [Get ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) 또는 SFX 노드 세부 정보 섹션에서. 복구 작업을 만든 후 신속 하 게 이동할 [상태를 요청](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet)합니다.
+3. 코디네이터 서비스를 정기적으로 요청 된 상태에서 복구 작업을 찾습니다 진행 및 상태는 TaskApprovalPolicy 기반 준비를 위해이 업데이트 합니다. TaskApprovalPolicy는 NodeWise, 노드에 해당 하는 복구 작업으로 구성 된 경우는 경우에 다른 복구 작업이 현재 준비/승인 됨/실행/Restoring 상태로 준비 합니다. 마찬가지로, UpgradeWise TaskApprovalPolicy의 언제 든 지 확인 하는 경우 작업의에서 경우 동일한 업그레이드 도메인에 속하는 노드에 대해서만 위의 상태 복구 작업 상태를 준비를 위해 이동 되 면 해당 Service Fabric 노드인 [사용 하지 않도록 설정](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) "다시 시작" 의도 사용 하 여 합니다.
+
+   POA(v1.4.0 and above)가 패치 되 고 있는 노드를 표시 하는 CoordinaterService에서 "ClusterPatchingStatus" 속성을 사용 하 여 이벤트를 게시 합니다. 아래 이미지를 업데이트 하는 표시 _poanode_0에서 설치 시작 됩니다.
+
+    [![상태를 패치 하는 클러스터의 이미지](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. 노드 비활성화 되 면 복구 작업은 실행 상태로 이동 됩니다. 참고, 노드는 비활성화 상태로 멈출 때문에 상태 후 준비 중단 복구 작업을 차단 하는 새 복구 작업에서 발생 하 고 따라서 클러스터의 패치 적용을 중지 수 있습니다.
+5. 복구 작업 상태를 실행 중이면 해당 노드에서 패치 설치를 시작 합니다. 여기에 패치가 설치 되 면 노드 수 또는 패치에 따라 다시 시작할 수 있습니다. Post는 복구 작업은 이동할 수 있도록 하는 다시 노드 다시 상태를 한 다음 복원 완료로 표시 됩니다.
+
+   V1.4.0 이상 버전의 응용 프로그램에서 속성 "WUOperationStatus-[NodeName]"를 사용 하 여 NodeAgentService에 상태 이벤트를 확인 하 여 업데이트의 상태를 찾을 수 있습니다. 아래 그림에 강조 표시 된 섹션에는 노드 'poanode_0' 및 'poanode_2'에 대 한 windows 업데이트의 상태를 보여 줍니다.
+
+   [![Windows 업데이트 작업 상태 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Windows 업데이트 작업 상태 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   Powershell을 사용 하 여 클러스터에 연결 하 고 사용 하 여 복구 작업의 상태 가져오기 세부 정보를 가져올 수도 하나 [Get ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps)합니다. 마찬가지로 아래 예제는 "POS__poanode_2_125f2969 933 c-4774 85 d 1-ebdf85e79f15" 작업 DownloadComplete 상태입니다. 즉, "poanode_2" 노드에서 업데이트가 다운로드 된 작업 실행 중 상태로 전환 되 면 설치를 시도 합니다.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   있으면 다음 찾을 더 분 발해 로그인 특정 VM/Vm에 Windows 이벤트 로그를 사용 하 여 문제에 대 한 자세한 내용을 확인 하려면. 위에서 설명한 복구 작업 실행 기 하위 상태를 하나만 사용할 수 있습니다.
+
+      ExecutorSubState | Detail
+    -- | -- 
+      None = 1 |  진행 중인 작업 노드에서 저렇게 의미 합니다. 가능한 상태 전환 됩니다.
+      DownloadCompleted=2 | 다운로드 작업이 성공, 부분적으로 완료 된 것을 의미 오류 또는 실패 합니다.
+      InstallationApproved=3 | 이전 다운로드 작업이 완료 되 고 복구 관리자가 설치를 승인한 의미 합니다.
+      InstallationInProgress=4 | 복구 작업의 실행 상태에 해당합니다.
+      InstallationCompleted = 5 | 설치가 성공, 부분적 성공 또는 실패를 사용 하 여 완료를 의미 합니다.
+      RestartRequested=6 | 설치가 완료 된 패치 이며 노드에 대 한 보류 중인 다시 시작 동작을 의미 합니다.
+      RestartNotNeeded=7 |  패치 설치가 완료 된 후 해당 다시 시작 필요 하지 않음 의미 합니다.
+      RestartCompleted = 8 | 성공적으로 완료 하는 다시 시작을 의미 합니다.
+      OperationCompleted=9 | Windows 업데이트 작업이 완료 되었습니다.
+      OperationAborted=10 | Windows 업데이트 작업이 중단 될 것을 의미 합니다.
+
+6. V1.4.0에서 위의 응용 프로그램 노드에서 업데이트 시도는 다음이 완료 되 면 속성 "WUOperationStatus-[NodeName]"를 사용 하 여 이벤트 게시 될 다음 시도 되는 경우에 알리기 위해, 다운로드 및 업데이트 설치를 시작 하는 NodeAgentService에 및 합니다. 아래 이미지를 참조 하세요.
+
+     [![Windows 업데이트 작업 상태 이미지](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>진단 로그
 
 Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 로그가 수집됩니다.
@@ -269,12 +324,6 @@ Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 �
 ### <a name="health-reports"></a>상태 보고서
 
 패치 오케스트레이션 앱은 다음과 같은 경우에도 코디네이터 서비스 또는 노드 에이전트 서비스에 대한 상태 보고서를 게시합니다.
-
-#### <a name="a-windows-update-operation-failed"></a>Windows 업데이트 작업 실패
-
-노드에서 Windows 업데이트 작업이 실패하면 노드 에이전트 서비스에 대한 상태 보고서가 생성됩니다. 상태 보고서의 세부 정보에 문제가 있는 노드 이름이 포함됩니다.
-
-문제가 있는 노드에서 패치 작업이 성공적으로 완료되면 보고서가 자동으로 지워집니다.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>노드 에이전트 NTService 중단
 
@@ -347,6 +396,14 @@ Q. **Linux에서 클러스터 노드를 패치 마십시오는 방법**
 
 a. 참조 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) linux에서 업데이트를 오케스트레이션 하는 것에 대 한 합니다.
 
+Q.**이유는 업데이트 주기 시간이 많이 걸리는?**
+
+a. 결과 json, 그런 다음 모든 노드 및 그런 다음 사용자에 대 한 업데이트 주기의 항목을 통해 이동에 대 한 쿼리 수 OperationStartTime 및 OperationTime(OperationCompletionTime)를 사용 하 여 모든 노드에서 업데이트 설치에 걸린 시간을 확인 하려고 합니다. 큰 시간 창에 있는 경우는 업데이트가 일어났던, 클러스터 된 오류 상태와 관리자는 복구로 인해 다른 POA 복구 태스크를 승인 하지 않았습니다 때문일 수 있습니다. 업데이트가 모든 노드에서 긴 경우, 그런 다음 때문일 노드 오랫동안에서 업데이트 되지 않았습니다 있으며 많은 업데이트 시간이 걸렸을 들어 설치가 보류 된 있습니다. 또한 있을 수 있는 노드는 노드를 사용 하지 않도록 설정 하기 때문에 일반적으로 발생 하는 상태를 사용 하지 않도록 설정 중 중지로 인해 차단 됩니다 노드에서 패치 하는 경우 쿼럼/데이터 손실 상황에 발생할 수 있습니다.
+
+Q. **이유 필요 하지 않습니다 POA 패치 적용 되는 경우 노드를 사용 하지 않도록 설정 하 시겠습니까?**
+
+a. 패치 오케스트레이션 응용 프로그램 노드는 노드에서 실행 중인 모든 서비스 패브릭 서비스를 중지/다시 할당. '다시 시작' 의도 사용 하 여 사용 하지 않도록 설정 합니다. 응용 프로그램 노드를 패치 하는 것을 사용 하지 않도록 설정 하지 않고는 권장 되지 않습니다 신규 버전과 기존 dll 혼합을 사용 하 여 끝나지 않는 되도록 수행 됩니다.
+
 ## <a name="disclaimers"></a>고지 사항
 
 - 패치 오케스트레이션 앱은 사용자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다. 필요에 따라 애플리케이션 구성에서 설정을 해제할 수 있습니다.
@@ -386,6 +443,9 @@ a. 참조 [Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드
 관리자가 개입하여 Windows 업데이트로 인해 애플리케이션 또는 클러스터가 비정상 상태가 된 이유를 확인해야 합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+>[!NOTE]
+> 버전 1.4.0에서에서 시작 하며, 릴리스 정보 및 릴리스 있습니다 GitHub 릴리스에서 [페이지](https://github.com/microsoft/Service-Fabric-POA/releases/)합니다.
 
 ### <a name="version-110"></a>버전 1.1.0
 - 공개 릴리스

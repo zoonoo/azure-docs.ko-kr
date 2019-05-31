@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541386"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159763"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 이 명령은 다음 표와 비슷한 결과를 생성합니다.
 
-| userId | 사용자 이름 | partition | rowkey |
+| userid | username | 파티션 | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 결과는 다음 표와 비슷합니다.
 
-| userId | 사용자 이름 | partition | rowkey |
+| userid | username | 파티션 | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -103,8 +103,8 @@ Get-AzTableRow -table $cloudTable `
 
 |필드|값|
 |----|----|
-| userId | 1 |
-| 사용자 이름 | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -120,8 +120,8 @@ Get-AzTableRow `
 
 |필드|값|
 |----|----|
-| userId | 1 |
-| 사용자 이름 | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -155,8 +155,8 @@ Get-AzTableRow -table $cloudTable `
 
 |필드|값|
 |----|----|
-| userId | 2 |
-| 사용자 이름 | Jessie2 |
+| userid | 2 |
+| username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

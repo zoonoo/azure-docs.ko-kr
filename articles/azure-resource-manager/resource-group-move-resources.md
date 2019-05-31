@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792689"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225898"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -64,13 +64,13 @@ ms.locfileid: "65792689"
 * Azure Stack - 등록
 * 일괄 처리
 * BizTalk Services
-* Bot Service
+* Bot 서비스
 * CDN
 * Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* 컨테이너 레지스트리
+* Container Registry
 * Content Moderator
-* 비용 관리
+* Cost Management
 * Customer Insights
 * Data Catalog
 * Data Factory
@@ -99,7 +99,7 @@ ms.locfileid: "65792689"
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
 * Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure의 SAP HANA
-* 스케줄러
+* Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
 * Service Bus
 * Service Fabric
@@ -130,17 +130,17 @@ ms.locfileid: "65792689"
 * Azure Firewall
 * AKS(Azure Kubernetes Service)
 * Azure Migrate
-* Azure NetApp 파일
+* Azure NetApp Files
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 클래식 애플리케이션
-* 컨테이너 인스턴스
+* Container Instances
 * 컨테이너 서비스
 * Data Box
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
-* 관리 애플리케이션
+* Managed Applications
 * Microsoft Genomics
 * 보안
 * Site Recovery
@@ -197,7 +197,7 @@ Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방�
 
 #### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 
-‘동일한 구독 내’에서 웹앱을 이동할 경우 타사 SSL 인증서는 이동할 수 없습니다. 그러나 타사 인증서를 이동하지 않고 웹앱을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
+‘동일한 구독 내’에서 웹앱을 이동할 경우 타사 SSL 인증서는 이동할 수 없습니다.  그러나 타사 인증서를 이동하지 않고 웹앱을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
 
 Web App을 사용하여 SSL 인증서를 이동하려면 다음 단계를 수행합니다.
 
@@ -323,7 +323,7 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 ### <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
 
- Recovery Services 자격 증명 모음을 이동하려면 [제한된 공개 미리 보기](../backup/backup-azure-move-recovery-services-vault.md)에 등록해야 합니다.
+ Recovery Services 자격 증명 모음을 이동 하려면 다음이 단계를 수행 합니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../backup/backup-azure-move-recovery-services-vault.md)합니다.
 
 현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다.
 

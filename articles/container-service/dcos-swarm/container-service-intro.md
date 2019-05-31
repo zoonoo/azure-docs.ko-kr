@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 957725d40c66ffe9d8d7ce1362279c2bb4d4fded
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528868"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788731"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(사용되지 않음) Azure Container Service를 사용한 Docker 컨테이너 호스팅 솔루션 소개 
 
@@ -45,7 +45,7 @@ DC/OS는 Apache Mesos 분산 시스템 커널을 기반으로 운영 체제를 �
 DC/OS 및 Apache Mesos는 다음과 같은 인상적인 기능 집합을 포함합니다.
 
 * 입증된 확장성
-* Apache ZooKeeper를 사용하는 내결함성 있는 복제된 마스터 및 슬레이브
+* Apache ZooKeeper를 사용하는 내결함성 있는 복제된 기본 및 보조 항목
 * Docker 형식의 컨테이너에 대한 지원
 * Linux 컨테이너를 사용하여 작업 간에 네이티브 격리
 * 다중 리소스 예약(메모리, CPU, 디스크 및 포트)

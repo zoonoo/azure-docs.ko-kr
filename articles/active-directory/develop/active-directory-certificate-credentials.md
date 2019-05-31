@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545130"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001225"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>애플리케이션 인증을 위한 인증서 자격 증명
 
@@ -98,11 +98,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>인증서 파일 업로드
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. **설정 > 키**를 선택한 다음, **공개 키 업로드**를 선택합니다. 
-2. 업로드하려는 인증서 파일을 선택합니다.
-3. **저장**을 선택합니다. 
-   
-   일단 저장하면 인증서가 업로드되고 지문, 시작 날짜 및 만료 값이 표시됩니다. 
+1. 선택 **인증서 및 비밀**합니다. 
+2. 클릭할 **인증서 업로드** 업로드할 인증서 파일을 선택 합니다.
+3. **추가**를 클릭합니다.
+  인증서가 업로드 되 면 지문, 시작 날짜 및 만료 값이 표시 됩니다. 
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
 
@@ -114,7 +113,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
-1. 애플리케이션 매니페스트를 엽니다.
+1. 선택 **매니페스트** 응용 프로그램 매니페스트를 엽니다.
 2. 다음 스키마를 사용해서 *keyCredentials* 속성을 새 인증서 정보로 바꿉니다.
 
    ```

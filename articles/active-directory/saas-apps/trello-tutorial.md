@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>자습서: Trello와 Azure Active Directory 통합
 

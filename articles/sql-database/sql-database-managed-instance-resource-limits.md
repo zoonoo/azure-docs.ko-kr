@@ -9,30 +9,30 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp
+ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560574"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303207"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>개요 Azure SQL Database 관리 인스턴스 리소스 제한
 
-이 문서에서는 Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요를 제공하고, 기본 지역 구독 제한을 늘리기 위한 요청을 만드는 방법에 대해 설명합니다.
+이 문서에서는 Azure SQL Database 관리 되는 인스턴스에 대 한 리소스 제한의 개요를 제공 하 고 이러한 한도 증가 요청 하는 방법에 대 한 정보를 제공 합니다.
 
 > [!NOTE]
-> Managed Instance의 다른 제한 사항은 [vCore 기반 구매 모델](sql-database-managed-instance.md#vcore-based-purchasing-model) 및 [Managed Instance 서비스 계층](sql-database-managed-instance.md#managed-instance-service-tiers)을 참조하세요. 지원되는 기능 및 T-SQL 문의 차이점은 [기능 차이](sql-database-features.md) 및 [T-SQL 문 지원](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.
+> 지원되는 기능 및 T-SQL 문의 차이점은 [기능 차이](sql-database-features.md) 및 [T-SQL 문 지원](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.
 
 ## <a name="instance-level-resource-limits"></a>인스턴스 수준 리소스 제한
 
-Managed Instance에는 기본 인프라 및 아키텍처에 따라 달라지는 특성과 리소스 제한이 있습니다. 제한은 하드웨어 세대 및 서비스 계층에 따라 다릅니다.
+관리 되는 인스턴스는 특성 및 기본 인프라 및 아키텍처에 종속 된 리소스 제한에 있습니다. 제한은 하드웨어 세대 및 서비스 계층에 따라 다릅니다.
 
 ### <a name="hardware-generation-characteristics"></a>하드웨어 세대 특성
 
-Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 Gen5)에 배포할 수 있습니다. 하드웨어 세대에는 다음 표에서 설명하는 다양한 특성이 있습니다.
+Azure SQL Database 관리 되는 인스턴스는 두 세대의 하드웨어에 배포할 수 있습니다. Gen4와 Gen5 합니다. 하드웨어 세대에는 다음 표에서 설명하는 다양한 특성이 있습니다.
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 G
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 
-Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스 계층이 있습니다. 이러한 계층은 아래 표에서 설명한 대로 다양한 기능을 제공합니다.
+관리 되는 인스턴스 범용 및 중요 비즈니스용 두 가지 서비스 계층에 있습니다. 이러한 계층은 아래 표에서 설명한 대로 다양한 기능을 제공합니다.
 
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
@@ -56,23 +56,24 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K (1375/vCore) |
-| 로그 처리량 | 인스턴스당 22MB/초 | VCore 당 4 MB/s<br/>인스턴스당 최대 48 MB/s|
+| 로그 처리량 | vCore당 3MB/초<br/>인스턴스당 최대 22 MB/s | VCore 당 4 MB/s<br/>인스턴스당 최대 48 MB/s|
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB) | 제약 조건 없음 - 최대 인스턴스 스토리지 크기로 제한됨 |
+| 최대 세션 | 30000 | 30000 |
 
 **참고**:
 
 - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
-- 처리량 및 IOPS도 Managed Instance에 의해 명시적으로 제한되지 않은 페이지 크기에 따라 다릅니다.
+- 처리량 및 IOPS도 종속 페이지 크기를 명시적으로 관리 되는 인스턴스에서 제한 되지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Managed Instance는 [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원되지 않는 지역에서 Managed Instance를 만들려면 [Azure Portal을 통해 지원 요청을 보낼 수 있습니다](#obtaining-a-larger-quota-for-sql-managed-instance).
+관리 되는 인스턴스 에서만 만들 수 있습니다 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)합니다. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들 수 있습니다 [Azure portal 통해 지원 요청을 보낼](#obtaining-a-larger-quota-for-sql-managed-instance)합니다.
 
 ## <a name="supported-subscription-types"></a>지원되는 구독 유형
 
-Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합니다.
+관리 되는 인스턴스는 현재 다음과 같은 유형의 구독에만 배포를 지원합니다.
 
 - [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)
@@ -85,17 +86,17 @@ Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합니�
 
 ## <a name="regional-resource-limitations"></a>지역별 리소스 제한
 
-지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. Managed Instance에는 구독 유형에 따라 Azure 지역당 다음 두 가지 기본 제한이 있습니다.
+지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. 관리 되는 인스턴스 형식에 구독에 따라 Azure 지역 마다 두 가지 기본 제한을 있습니다.
 
 - **서브넷 제한**: 관리되는 인스턴스가 단일 지역에 배포되는 서브넷의 최대 수입니다.
 - **인스턴스 수 제한**: 단일 지역에 배포할 수 있는 인스턴스의 최대 수입니다.
 
 > [!Note]
-> 이러한 제한은 기본 설정 및 없습니다 기술적 제한 사항을 적용 합니다. 특수 만들어 제한 증가 주문형 수 [Azure portal에서 지원 요청](#obtaining-a-larger-quota-for-sql-managed-instance) 현재 지역에서 관리 되는 인스턴스를 더 필요한 경우. 대안으로, 지원 요청을 보내지 않고 다른 Azure 지역에 새 Managed Instance를 만들 수 있습니다.
+> 이러한 제한은 기본 설정 및 없습니다 기술적 제한 사항을 적용 합니다. 특별 한 만들어 제한 증가 주문형 수 [Azure portal에서 지원 요청](#obtaining-a-larger-quota-for-sql-managed-instance) 현재 지역에서 관리 되는 인스턴스에 더 해야 합니다. 지원 요청을 보내지 않고 대신 다른 Azure 지역에 새 관리 되는 인스턴스를 만들 수 있습니다.
 
-다음 표에는 지원되는 구독에 대한 지역별 기본 제한이 나와 있습니다.
+다음 표에서 지원 되는 구독에 대 한 기본 국가별 제한을 보여 줍니다.
 
-|구독 유형| Managed Instance 서브넷의 최대 수 | 인스턴스의 최대 수 |GP 관리되는 인스턴스의 최대 수*|BC 관리되는 인스턴스의 최대 수*|
+|구독 유형| 관리 되는 인스턴스 서브넷의 최대 수 | 인스턴스의 최대 수 |GP 관리되는 인스턴스의 최대 수*|BC 관리되는 인스턴스의 최대 수*|
 | :---| :--- | :--- |:--- |:--- |
 |종량제|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
@@ -103,14 +104,13 @@ Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합니�
 |Enterprise 개발/테스트|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
-\* 하나의 서브넷에 1개 BC 또는 4개 GP 인스턴스를 배포할 수 있으므로 서브넷의 총 "인스턴스 단위" 수는 4개를 초과할 수 없습니다.
+\* 단위의 총 수 "인스턴스"는 서브넷에서 4를 초과 하지 않습니다 있도록 1 BC 또는 GP 인스턴스 4 개 이상의 서브넷에 하거나 배포할 수 있습니다.
 
-** 다른 서비스 계층에 인스턴스가 없는 경우 한 서비스 계층의 최대 인스턴스 수가 적용됩니다. 동일한 서브넷 내에서 GP 및 BC 인스턴스를 혼합하려는 경우 다음 섹션을 허용되는 조합에 대한 참조로 사용합니다. 간단한 규칙으로, 서브넷의 총 수는 3개를 초과할 수 없으며, 인스턴스 단위의 총 수는 12개를 초과할 수 없습니다.
-
+** 다른 서비스 계층에 인스턴스가 없는 경우 한 서비스 계층의 최대 인스턴스 수가 적용됩니다. 동일한 서브넷 내에 GP 및 BC 인스턴스를 혼합 하려는 경우에 허용 되는 조합에 대 한 다음 섹션 참조로 사용 합니다. 간단한 규칙으로, 서브넷의 총 수는 3개를 초과할 수 없으며, 인스턴스 단위의 총 수는 12개를 초과할 수 없습니다.
 
 
 > [!IMPORTANT]
-> 배포를 계획할 때는 일반적으로 중복성 추가로 인해 BC(중요 비즈니스용) 인스턴스에서 GP(범용) 인스턴스보다 4배 많은 용량을 사용한다고 가정합니다. 따라서 계산상 1개 GP 인스턴스 = 1개 인스턴스 단위 및 1개 BC 인스턴스 = 4개 인스턴스 단위입니다. 기본 제한에 대한 사용량 분석을 간소화하려면 Managed Instance가 배포된 지역의 모든 서브넷에 대한 인스턴스 단위를 요약하고 결과를 구독 유형의 인스턴스 단위 제한과 비교합니다.
+> 배포를 계획할 때는 일반적으로 중복성 추가로 인해 BC(중요 비즈니스용) 인스턴스에서 GP(범용) 인스턴스보다 4배 많은 용량을 사용한다고 가정합니다. 따라서 계산상 1개 GP 인스턴스 = 1개 인스턴스 단위 및 1개 BC 인스턴스 = 4개 인스턴스 단위입니다. 기본 제한 값에 대 한 사용량 분석을 단순화 하기 위해 여러 지역에 있는 관리 되는 인스턴스에 배포 된 인스턴스 단위 제한 구독 유형에 대 한 결과 비교 하는 모든 서브넷 인스턴스 단위 요약 되어 있습니다.
 
 ## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>범용 및 중요 비즈니스용 인스턴스 혼합 배포 전략
 
@@ -130,9 +130,9 @@ Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합니�
 |3|1개 BC, 0개 GP|1개 BC, 0개 GP|0개 BC, 최대 4개 GP|
 |3|1개 BC, 0개 GP|0개 BC, 최대 4개 GP|0개 BC, 최대 4개 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>더 많은 SQL Managed Instance 할당량 가져오기
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>관리 되는 인스턴스를 SQL에 대 한 더 많은 할당량을 가져오지
 
-현재 지역에 더 많은 Managed Instance가 필요한 경우 Azure Portal을 사용하여 할당량을 늘리기 위한 지원 요청을 보낼 수 있습니다.
+에 현재 지역에서 관리 되는 인스턴스에 더 해야 하는 경우 Azure portal을 사용 하 여 할당량을 확장 하기 위한 지원 요청을 보냅니다.
 더 많은 할당량을 가져오는 프로세스를 시작하려면 다음을 수행합니다.
 
 1. **도움말 + 지원**을 열고, **새 지원 요청**을 클릭합니다.
@@ -166,6 +166,6 @@ Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Managed Instance에 대한 자세한 내용은 [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.
+- 관리 되는 인스턴스에 대 한 자세한 내용은 참조 하세요. [관리 되는 인스턴스란 무엇 인가요?](sql-database-managed-instance.md)합니다.
 - 가격 정보는 [SQL Database Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.
-- 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](sql-database-managed-instance-get-started.md)를 참조하세요.
+- 첫 번째 관리 되는 인스턴스를 만드는 방법에 알아보려면 참조 [빠른 시작 가이드](sql-database-managed-instance-get-started.md)합니다.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466460"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143016"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
@@ -41,15 +41,17 @@ ms.locfileid: "60466460"
     * *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 사용자 자격 증명을 나열][api-cluster-user]합니다.
     * *clusterUser* 역할의 *kubeconfig*를 다운로드합니다.
 
-## <a name="assign-role-permissions-to-a-user"></a>사용자에게 역할 권한 할당
+이러한 RBAC 역할은 Azure Active Directory (AD) 사용자 또는 그룹에 적용할 수 있습니다.
 
-사용자에게 Azure 역할 중 하나를 할당하려면 AKS 클러스터의 리소스 ID와 사용자 계정의 ID를 가져와야 합니다. 다음 예제 명령은 다음 단계를 수행합니다.
+## <a name="assign-role-permissions-to-a-user-or-group"></a>사용자 또는 그룹에 역할 권한을 할당합니다
+
+사용 가능한 역할 중 하나에 할당 하려면 AKS 클러스터의 리소스 ID를 가져오고 Azure AD 사용자 계정 또는 그룹의 ID를 지정 해야 합니다. 다음 예제 명령은 다음 단계를 수행합니다.
 
 * *myResourceGroup* 리소스 그룹의 *myAKSCluster*라는 클러스터에 [az aks show][az-aks-show] 명령을 사용하여 클러스터 리소스 ID를 가져옵니다. 필요에 따라 고유한 클러스터 및 리소스 그룹 이름을 지정합니다.
-* [az account show][az-account-show] 및 [az ad user show][az-ad-user-show] 명령을 사용하여 사용자 ID를 가져옵니다.
+* 사용 하는 [az 계정 표시] [ az-account-show] 하 고 [az ad 사용자 표시] [ az-ad-user-show] 명령에 사용자 ID를 가져옵니다.
 * 마지막으로, [az role assignment create][az-role-assignment-create] 명령을 사용하여 역할을 할당합니다.
 
-다음 예에서는 *Azure Kubernetes Service 클러스터 관리자 역할*을 할당합니다.
+다음 예제에서는 합니다 *Azure Kubernetes 서비스 클러스터 관리자 역할* 개별 사용자 계정:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -65,6 +67,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> Azure AD 그룹에 권한을 할당 하려는 경우 업데이트는 `--assignee` 앞의 예제에 표시 된 대로 사용자 대신 그룹의 개체 ID 사용 하 여 매개 변수입니다. 그룹에 대 한 개체 ID를 가져오려면 합니다 [az ad 그룹 표시] [ az-ad-group-show] 명령입니다. 다음 예제에서는 Azure AD 그룹에 대 한 개체 ID를 가져옵니다 *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
 
@@ -120,7 +125,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>역할 권한 제거
 
-역할 할당을 제거하려면 [az role assignment delete][az-role-assignment-delete] 명령을 사용하세요. 이전 명령에서 가져온 계정 ID 및 클러스터 리소스 ID를 지정하세요.
+역할 할당을 제거하려면 [az role assignment delete][az-role-assignment-delete] 명령을 사용하세요. 이전 명령에서 가져온 대로 계정 ID 및 클러스터 리소스 ID를 지정 합니다. 사용자 대신 그룹을 역할에 할당 한 경우 적절 한 그룹 개체에 대 한 계정 개체 ID가 아니라 ID를 지정 합니다 `--assignee` 매개 변수:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -148,3 +153,4 @@ AKS 클러스터에 대한 액세스 보안을 강화하기 위해 [Azure Active
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
 [aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

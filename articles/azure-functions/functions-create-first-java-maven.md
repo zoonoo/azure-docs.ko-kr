@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801847"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827407"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -29,10 +29,10 @@ ms.locfileid: "58801847"
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) 버전 8
-- [Apache Maven](https://maven.apache.org) 버전 3.0 이상
+- [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
+- [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2)(**.NET Core 2.x SDK** 필요).
+- [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
 
 > [!IMPORTANT]
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
@@ -89,8 +89,8 @@ public class Function {
      * 2. curl {your host}/api/hello?name=HTTP%20Query
      */
     @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -99,14 +99,18 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponse(200, "Hello, " + name);
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
         }
     }
 }
 
 ```
+
+## <a name="reference-bindings"></a>바인딩 참조
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
@@ -135,7 +139,7 @@ Http Functions:
 새 터미널 창에서 curl을 사용하여 명령줄에서 함수를 트리거합니다.
 
 ```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
 ```Output
@@ -177,7 +181,7 @@ mvn azure-functions:deploy
 > **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)를 제공해야 합니다.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -198,7 +202,7 @@ return request.createResponse(200, "Hello, " + name);
 return request.createResponse(200, "Hi, " + name);
 ```
 
-변경 내용을 저장하고 이전처럼 터미널에서 `azure-functions:deploy`를 실행하여 다시 배포합니다. 함수 앱이 업데이트되고 이 요청은 다음을 갖습니다.
+변경 내용을 저장합니다. 이전처럼 터미널에서 `azure-functions:deploy`를 실행하여 mvn 정리 패키지를 실행하고 다시 배포합니다. 함수 앱이 업데이트되고 이 요청은 다음을 갖습니다.
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

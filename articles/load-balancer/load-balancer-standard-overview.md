@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734521"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957478"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
-Azure Load Balancer를 사용하여 애플리케이션 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다. 
+Azure Load Balancer를 사용하면 애플리케이션의 크기를 조정하고 서비스에 대한 고가용성을 만들 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오에 사용할 수 있으며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다. 
 
 이 문서에서는 표준 Load Balancer에 대해 설명합니다.  Azure Load Balancer에 대한 보다 일반적인 개요를 보려면 [Load Balancer 개요](load-balancer-overview.md)도 검토하세요.
 
@@ -226,7 +226,6 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 - SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.
 - 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
 - Load Balancer 규칙은 두 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트엔드 및 해당 관련 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
-- Load Balancer 프런트 엔드는 전역 가상 네트워크 피어링에 액세스할 수 없습니다.
 - [구독 작업 이동](../azure-resource-manager/resource-group-move-resources.md)은 표준 SKU LB 및 PIP 리소스에 대해 지원되지 않습니다.
 - VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스 작동 방식의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 해당 서비스 자체 또는 기본 플랫폼이 예고 업이 변경될 수 있기 때문에 여기에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 만들어야 한다고 항상 가정해야 합니다.
 - Load Balancer는 이러한 특정 IP 프로토콜에 대한 부하 분산 및 포트 전달용 TCP 또는 UDP 제품입니다.  부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP에 대해 지원되며 ICMP를 포함한 다른 IP 프로토콜에 대해서는 지원되지 않습니다. Load Balancer가 종료 및 응답하지 않거나 UDP 또는 TCP 흐름의 페이로드와 상호 작용하지 않습니다. 프록시가 아닙니다. 프런트 엔드 연결에 대한 성공적인 유효성 검사는 부하 분산 또는 인바운드 NAT 규칙(TCP 또는 UDP)에 사용된 동일한 프로토콜을 사용하여 대역 내에서 이뤄져야 하며, _그리고_ 하나 이상의 가상 머신은 프런트 엔드에서 응답을 확인하려면 클라이언트에 대한 응답을 생성해야 합니다.  Load Balancer 프런트 엔드에서 대역 내 응답을 수신하지 못하면 어떤 가상 머신도 응답할 수 없음을 나타냅니다.  응답할 수 있는 가상 머신이 없으면 Load Balancer 프런트 엔드와 상호 작용이 불가능합니다.  이는 [SNAT 모조 포트](load-balancer-outbound-connections.md#snat)가 TCP 및 UDP에 대해서만 지원되고 ICMP를 포함한 다른 모든 IP 프로토콜이 실패하는 경우에 아웃 바운드 연결에도 적용됩니다.  완화할 인스턴스 수준 공용 IP 주소를 할당합니다.

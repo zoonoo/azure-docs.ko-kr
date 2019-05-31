@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466270"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949878"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -28,7 +28,9 @@ ms.locfileid: "65466270"
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/).
+
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-managed-instance"></a>관리되는 인스턴스 만들기
 

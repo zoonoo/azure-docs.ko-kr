@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66168467"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  

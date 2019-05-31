@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad6570a3f30e40e4074502a8ce85bf739f58d3f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866434"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832681"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
@@ -112,7 +112,7 @@ ms.locfileid: "64866434"
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>검토 + 만들기
+## <a name="review--create"></a>리뷰 + 만들기
 
 에 **검토 + 만들기** 탭, 설정 및 유효성 검사 오류에 대 한 확인을 검토할 수 있습니다.
 
@@ -126,5 +126,5 @@ ms.locfileid: "64866434"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [편집 및 기존 액세스 패키지 관리](entitlement-management-access-package-edit.md)
+- [기존 액세스 패키지 편집 및 관리](entitlement-management-access-package-edit.md)
 - [만들기 및 카탈로그 관리](entitlement-management-catalog-create.md)

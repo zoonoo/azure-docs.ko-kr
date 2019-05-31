@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190803"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235218"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -178,12 +178,12 @@ Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으�
 
 ### <a name="configure-seamless-sso"></a>Seamless SSO 구성
 
-Azure AD 클라우드 인증 방법으로 PTA(통과 인증) 또는 PHS(암호 해시 동기화)를 사용 중인 관리되는 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하려면 [Seamless SSO도 구성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)해야 합니다. 
+Azure AD 클라우드 인증 방법으로 PTA(통과 인증) 또는 PHS(암호 해시 동기화)를 사용 중인 관리되는 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하려면 [Seamless SSO도 구성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)해야 합니다. Seamless SSO를 구성하는 데 문제가 있는 경우 [Azure Active Directory Seamless Single Sign-On 문제 해결](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso)을 참조하세요.
 
 
-### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어 
+### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 
 
-Windows 하위 수준 장치를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
+Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [디바이스의 하이브리드 Azure AD 조인 제어](hybrid-azuread-join-control.md#control-windows-down-level-devices) 문서를 참조하세요. 
 
 
 ## <a name="verify-the-registration"></a>등록 확인

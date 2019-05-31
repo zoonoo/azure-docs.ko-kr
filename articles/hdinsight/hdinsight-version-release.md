@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679682"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546293"
 ---
 # <a name="hdinsight-40-overview"></a>HDInsight 4.0 개요
 
@@ -90,7 +90,7 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* HDInsight 4.0은 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
+* HDInsight 4.0은 Apache Hive용 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
 * HDInsight 4.0은 Apache Storm을 지원하지 않습니다. 
 * Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다. 
 * Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원되지 않습니다.

@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797865"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398343"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>다른 지역 간에 Azure Vm을 복제 하기 위한 지원 매트릭스
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
 이 문서에서는 요약 지원 및 필수 구성 요소를 설정 하면 Azure Vm의 재해 복구 Azure 지역 간에 다른을 사용 하 여 합니다 [Azure Site Recovery](site-recovery-overview.md) 서비스입니다.
 
@@ -182,6 +182,7 @@ RBAC 정책 | 지원되지 않음 | 역할 기반 액세스 제어 (RBAC) 정책
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
 임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 4,095GB |
+데이터 디스크에 대 한 최소 크기 | 관리 되지 않는 디스크에 대 한 제한이 없습니다. 관리 되는 디스크에 대 한 2GB | 
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
 데이터 디스크 변경 비율 | Premium Storage는 디스크당 최대 10MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 계속해서 최대값보다 큰 경우 복제가 처리되지 않습니다.<br/><br/>  그러나 최대값을 산발적으로 초과하는 경우 복제가 처리될 수 있지만 복구 지점이 약간 지연될 수 있습니다.
 데이터 디스크 - Standard Storage 계정 | 지원됨 |

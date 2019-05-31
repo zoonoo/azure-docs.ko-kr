@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540597"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237312"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -33,7 +33,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0이나 5.5 또는 vSphere 6.7, 6.5, 6.0이나 5.5 | vCenter Server를 사용하는 것이 좋습니다.<br/><br/> vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버 구성 요소는 구성 서버에서 실행되므로 전용 프로세스 서버를 설정하지 않으면, 구성 서버를 설정한 네트워크가 여기에 해당합니다.
-실제 | N/A
+물리적 | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
 
@@ -46,7 +46,7 @@ RAM | 16GB
 디스크 수 | 3개의 디스크<br/><br/> 디스크에는 OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용)가 포함됩니다.
 사용 가능한 디스크 공간 | 프로세스 서버 캐시에 600GB의 공간이 필요합니다.
 사용 가능한 디스크 공간 | 보존 드라이브에 600GB의 공간이 필요합니다.
-운영 체제  | Windows Server 2012 R2 또는 Windows Server 2016 |
+운영 체제  | Windows Server 2012 R2 또는 Windows Server 2016 데스크톱 환경 포함 |
 운영 체제 로케일 | 미국 영어(en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") 버전을 사용 하 여 구성 서버에 필수적 요소가 아닙니다 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)합니다.
 Windows Server 역할 | 다음을 사용하지 않음 <br/> - Active Directory Domain Services <br/>- 인터넷 정보 서비스 <br/> - Hyper-V |
@@ -148,15 +148,15 @@ BTRFS |9.22 버전인 BTRFS 지원 됩니다, 다음과 같은 시나리오를 �
 
 **구성 요소** | **지원됨**
 --- | ---
-Azure ExpressRoute | 예.
-ILB | 예.
-ELB | 예.
-Azure Traffic Manager | 예.
-다중 NIC | 예.
-예약된 IP 주소 | 예.
-IPv4 | 예.
-원본 IP 주소 유지 | 예.
-Azure Virtual Network 서비스 엔드포인트<br/> | 예.
+Azure ExpressRoute | 예
+ILB | 예
+ELB | 예
+Azure Traffic Manager | 예
+다중 NIC | 예
+예약된 IP 주소 | 예
+IPv4 | 예
+원본 IP 주소 유지 | 예
+Azure Virtual Network 서비스 엔드포인트<br/> | 예
 가속 네트워킹 | 아닙니다.
 
 ## <a name="storage"></a>Storage
@@ -165,24 +165,24 @@ Azure Virtual Network 서비스 엔드포인트<br/> | 예.
 동적 디스크 | 운영 체제 디스크는 기본 디스크여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
 Docker 디스크 구성 | 아닙니다.
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
-호스트 SAN(iSCSI/FC) | 예.
+호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 VMDK | 예.
+게스트/서버 VMDK | 예
 게스트/서버 공유 클러스터 디스크 | 아닙니다.
 게스트/서버 암호화된 디스크 | 아닙니다.
 게스트/서버 NFS | 아닙니다.
 게스트/서버 iSCSI | 아닙니다.
 게스트/서버 SMB 3.0 | 아닙니다.
-게스트/서버 RDM | 예.<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예.<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예.
-4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예.
-스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예.
+게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
+게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB<br/><br/> 디스크는 1024MB보다 커야 합니다.
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
+4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
+스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
 게스트/서버 - 저장소 공간 | 아닙니다.
 게스트/서버 디스크 핫 추가/제거 | 아닙니다.
-게스트/서버 - 디스크 제외 | 예.
+게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 아닙니다.
 게스트/서버 EFI/UEFI 부팅 | VMware Vm 또는 Windows Server 2012를 실행 하는 물리적 서버를 마이그레이션하는 경우 또는 나중에 Azure를 지원 합니다.<br/><br/> 만 마이그레이션에 대 한 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구는 지원 되지 않습니다.<br/><br/> 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.<br/><br/> Mobility Service 버전 9.13 이상이 필요합니다.<br/><br/> NTFS만 지원 됩니다.
 
@@ -199,26 +199,26 @@ Docker 디스크 구성 | 아닙니다.
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 저장소 | 예.
-지역 중복 저장소 | 예.
-읽기 액세스 지역 중복 저장소 | 예.
+로컬 중복 저장소 | 예
+지역 중복 저장소 | 예
+읽기 액세스 지역 중복 저장소 | 예
 쿨 저장소 | 아닙니다.
 핫 저장소| 아닙니다.
 블록 Blob | 아닙니다.
-휴지 상태의 암호화(Storage 서비스 암호화)| 예.
-Premium Storage | 예.
+휴지 상태의 암호화(Storage 서비스 암호화)| 예
+Premium Storage | 예
 Import/Export 서비스 | 아닙니다.
-대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 예.
+대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 예
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아닙니다.
 
 ## <a name="azure-compute"></a>Azure Compute
 
 **기능** | **지원됨**
 --- | ---
-가용성 집합 | 예.
+가용성 집합 | 예
 가용성 영역 | 아닙니다.
-HUB | 예.
-관리 디스크 | 예.
+HUB | 예
+관리 디스크 | 예
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -273,7 +273,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 --- | --- | ---
 구성 서버 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/>  온-프레미스 VMware 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-deploy-configuration-server.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)합니다.
 프로세스 서버|기본적으로 구성 서버에 설치합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.| 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-set-up-process-server-scale.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-process-server.md#upgrade-a-process-server)합니다.
-모바일 서비스 | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-install-mobility-service.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)합니다.
+Mobility Service | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-install-mobility-service.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)합니다.
 
 최신 기능에 대 한 자세한 내용은 방문 [최신 릴리스](https://aka.ms/ASR_latest_release_notes)합니다.
 

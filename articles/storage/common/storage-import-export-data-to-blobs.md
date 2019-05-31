@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409372"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356421"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -58,7 +58,7 @@ ms.locfileid: "65409372"
 6.  디스크를 준비하려면 다음 명령을 실행합니다. **데이터 크기에 따라 몇 시간에서 며칠이 걸릴 수 있습니다.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     저널 파일이 도구를 실행한 폴더와 동일한 폴더에 만들어집니다. *.xml* 파일(도구를 실행하는 폴더)과 *drive-manifest.xml* 파일(데이터가 있는 폴더)의 두 개의 다른 파일도 만들어집니다.
     
@@ -68,12 +68,12 @@ ms.locfileid: "65409372"
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID입니다. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
-    |/sk:     |Azure Storage 계정 키입니다.         |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
     |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
+    |/enablecontentmd5:     |옵션을 사용 하도록 설정 하면 azure 블록 blob 업로드할 때 MD5 계산 되는 것을 확인 합니다.          |
 7. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
     
     > [!IMPORTANT]

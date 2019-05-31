@@ -4,14 +4,14 @@ description: Azure Cosmos DB 및 Azure Functions를 함께 사용하여 서버�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db85d02a4f5c6e0f644a03394b570aac46202e72
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330814"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256948"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -107,11 +107,11 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 ## <a name="tooling"></a>도구
 
-Azure Cosmos DB와 Azure Functions 간의 네이티브 통합은 Azure Portal 및 Visual Studio 2017에서 지원됩니다.
+Azure Cosmos DB 및 Azure Functions 간의 네이티브 통합은 Azure portal에서 Visual Studio 2019에 제공 됩니다.
 
 * Azure Functions Portal에서 Azure Cosmos DB 트리거를 만들 수 있습니다. 빠른 시작 지침은 [Azure Portal에서 Azure Cosmos DB 트리거 만들기](https://aka.ms/cosmosdbtriggerportalfunc)를 참조하세요.
 * Azure Cosmos DB Portal에서 동일한 리소스 그룹의 기존 Azure Functions 앱에 Azure Cosmos DB 트리거를 추가할 수 있습니다.
-* Visual Studio 2017에서 [Azure Functions Tools for Visual Studio 2017](../azure-functions/functions-develop-vs.md)을 사용하여 Azure Cosmos DB 트리거를 만들 수 있습니다.
+* Visual Studio 2019 만들 수 있습니다 사용 하 여 Azure Cosmos DB 트리거를 [Azure Functions 도구](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 
