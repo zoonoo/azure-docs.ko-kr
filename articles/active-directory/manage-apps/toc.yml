@@ -287,6 +287,8 @@
               href: application-proxy-connector-installation-problem.md
             - name: 로그인 문제
               href: application-sign-in-problem-on-premises-application-proxy.md
+            - name: 애플리케이션 프록시의 CORS 문제
+              href: application-proxy-understand-cors-issues.md
 - name: 참고 자료
   items:
     - name: 응용 프로그램 프록시 버전 내역
