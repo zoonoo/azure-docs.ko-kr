@@ -21,18 +21,18 @@ HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기
 
 | 설명 | 데모 | 언어/프레임워크 |
 |:--- |:--- |:--- |
-| [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |자바 |
-| [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |자바 |
-| [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] |Maven |자바 |
+| [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |Java |
+| [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |Java |
+| [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] |Maven |Java |
 | [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |Visual Studio용 HDInsight 도구 |C#, Java |
 | [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)][844d1d81] |Event Hubs |C# 및 Java |
-| [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |자바 |
+| [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [HDInsight의 Apache Storm을 사용하여 Event Hubs의 차량 센서 데이터 처리][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob(WASB) |C#, Java |
 | [HDInsight의 Apache Storm을 사용하여 Azure Event Hub에서 Apache HBase로 ETL(추출, 변환 및 로드)][b4b68194] |Event Hubs, HBase |C# |
 | [HDInsight의 Apache Storm에서 Azure 서비스로 작업하는 데 사용되는 템플릿 C# Storm 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
 | [HDInsight의 Apache Storm을 사용하여 Azure Event Hub에서 읽기 위한 확장성 벤치마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
 | [HDInsight의 Apache Storm에서 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |Python |
-| [HDInsight의 Apache Storm에서 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | 자바 |
+| [HDInsight의 Apache Storm에서 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | Java |
 
 > [!WARNING]  
 > 이 목록의 C# 예제는 Windows 기반 HDInsight로 작성 및 테스트되었으므로 Linux 기반 HDInsight 클러스터에는 올바르게 작동하지 않을 수 있습니다. Linux 기반 클러스터는 Mono를 사용하여 .NET 코드를 실행하므로 이 예제에서 사용된 프레임워크 및 패키지와 호환성 문제가 있을 수 있습니다.

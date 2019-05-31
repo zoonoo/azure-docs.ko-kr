@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707537"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417138"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 저장소 형식 업데이트
 
-네 가지 방법으로 Azure에 대 한 관리 디스크: Ultra azure 디스크 저장소, 프리미엄 SSD, 표준 SSD 및 표준 HDD입니다. 가동 성능 요구 사항에 따라 이러한 저장소 유형 간에 전환할 수 있습니다. 이 기능은 관리 되지 않는 디스크에 대 한 지원 되지 않습니다. 쉽게 수행할 수 있습니다 하지만 [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 디스크 유형 간에 전환할 수 있습니다.
+네 가지 디스크 유형의 Azure 관리 디스크: Azure ultra Ssd (미리 보기), premium SSD, 표준 SSD 및 HDD 표준입니다. 세 가지 GA 디스크 유형 간에 전환할 수 있습니다 (premium SSD, 표준 SSD 및 HDD 표준) 성능 요구 사항에 따라 합니다. Ultra SSD에서 전환할 수 있는지를 배포 해야 새로 아직 되지 있습니다.
+
+이 기능은 관리 되지 않는 디스크에 대 한 지원 되지 않습니다. 쉽게 수행할 수 있습니다 하지만 [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 디스크 유형 간에 전환할 수 있습니다.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

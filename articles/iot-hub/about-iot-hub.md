@@ -88,7 +88,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 * C
 * C#
-* 자바
+* Java
 * Python
 * Node.js
 

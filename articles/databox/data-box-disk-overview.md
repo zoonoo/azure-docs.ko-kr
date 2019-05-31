@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575831"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787447"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -89,22 +89,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="region-availability"></a>지역 가용성
 
-현재 Data Box Disk에서 데이터를 전송할 수 있는 Azure 지역은 다음과 같습니다.
-
-
-|Azure 지역  |Azure 지역  |
-|---------|---------|
-|미국 중서부     |캐나다 중부       |        
-|미국 서부2     |캐나다 동부         |     
-|미국 서부     | 서유럽        |      
-|미국 중남부   |북유럽     |         
-|미국 중부     |오스트레일리아 동부|
-|미국 중북부  |오스트레일리아 남동부   |
-|미국 동부      |오스트레일리아 중부 |
-|미국 동부2     |오스트레일리아 중부 2|
-|일본 동부     |한국 중부 |
-|일본 서부     |한국 남부 |
-|동남아시아 |
+지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요.
 
 
 ## <a name="pricing"></a>가격

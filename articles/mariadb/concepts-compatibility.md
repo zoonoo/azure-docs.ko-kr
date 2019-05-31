@@ -13,7 +13,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61386818"
 ---
-# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구 
+
+# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구
 
 이 문서에는 Azure Database for MariaDB와 호환되는 드라이버 및 관리 도구를 설명합니다.
 

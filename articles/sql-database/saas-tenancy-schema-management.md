@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484391"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241905"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
  
 데이터베이스 애플리케이션이 발전하면 데이터베이스 스키마나 참조 데이터를 변경해야 합니다.  데이터베이스 유지 관리 작업도 주기적으로 수행해야 합니다. 테넌트별 데이터베이스 패턴을 사용하는 애플리케이션을 관리하기 위해서는 수많은 테넌트 데이터베이스를 대상으로 변경을 적용하거나 유지 관리 작업을 수행해야 합니다.
 
-이 자습서에서는 1) 모든 테넌트에 대해 참조 데이터 업데이트 배포와 2) 참조 데이터를 포함하는 테이블에서 인덱스 다시 빌드의 두 가지 시나리오를 살펴봅니다. 이러한 작업을 모든 테넌트에서 실행할 때와 새 테넌트 데이터베이스를 생성할 때 사용하는 템플릿 데이터베이스에서 실행할 때 [탄력적 작업](sql-database-elastic-jobs-overview.md)이라는 기능이 사용됩니다.
+이 자습서에서는 1) 모든 테넌트에 대해 참조 데이터 업데이트 배포와 2) 참조 데이터를 포함하는 테이블에서 인덱스 다시 빌드의 두 가지 시나리오를 살펴봅니다. 이러한 작업을 모든 테넌트에서 실행할 때와 새 테넌트 데이터베이스를 생성할 때 사용하는 템플릿 데이터베이스에서 실행할 때 [탄력적 작업](elastic-jobs-overview.md)이라는 기능이 사용됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "61484391"
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
-테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](sql-database-elastic-jobs-overview.md)을 사용하면 SQL 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 애플리케이션에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
+테넌트별 데이터베이스 패턴은 테넌트 데이터를 효과적으로 격리하지만, 유지 관리해야 할 데이터베이스의 수가 늘어난다는 단점이 있습니다. [탄력적 작업](elastic-jobs-overview.md)을 사용하면 SQL 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 여러 개의 데이터베이스를 대상으로 안전하고 안정적으로 작업(T-SQL 스크립트)을 실행할 수 있습니다. 또한, 하나의 애플리케이션에서 모든 테넌트 데이터베이스를 대상으로 스키마와 공통 참조 데이터 변경 사항을 배포할 수 있습니다. 새 테넌트를 만들 때 사용되는 *템플릿* 데이터베이스를 관리할 때도 탄력적 작업을 사용하면 템플릿 데이터베이스에 항상 최신 스키마와 참조 데이터가 유지됩니다.
 
 ![화면](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ _OnlineReindex.sql_ 스크립트에서 다음과 같은 요소를 살펴봅니�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포를 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)
-* [규모가 확장된 클라우드 데이터베이스 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)
+* [규모가 확장된 클라우드 데이터베이스 관리](elastic-jobs-overview.md)

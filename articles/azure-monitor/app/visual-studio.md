@@ -15,12 +15,12 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: b22f52ce9aa7f57e5b6638eef580a2675d5c9b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372573"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255128"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
@@ -105,5 +105,5 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 |  |  |
 | --- | --- |
 | **[더 많은 데이터 추가](../../azure-monitor/app/asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/visual-studio/64.png) |
-| **[Application Insights 포털 사용](../../azure-monitor/app/app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/visual-studio/62.png) |
+| **[Application Insights 포털 사용](../../azure-monitor/app/overview-dashboard.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/visual-studio/62.png) |
 

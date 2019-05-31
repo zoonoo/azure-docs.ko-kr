@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855625"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>자습서: FactSet와 Azure Active Directory 통합
 
@@ -105,12 +105,12 @@ FactSet으로 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![FactSet 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://login.factset.com/services/auth-test?idpid=<GUID>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<intendedDestinationURL>.factset.com?idpid=<GUID>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://login.factset.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [FactSet 클라이언트 지원 팀](mailto:support@factset.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 확인하려면 FactSet 계정 담당자에게 문의하세요. FactSet 담당자가 누구인지 모른다면 [FactSet 고객 지원팀 전화번호](https://www.factset.com/support-numbers) 페이지를 참조하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -128,7 +128,7 @@ FactSet으로 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="configure-factset-single-sign-on"></a>FactSet Single Sign-On 구성
 
-**FactSet** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [FactSet 지원 팀](mailto:support@factset.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**FactSet** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 FactSet 고객 지원 팀 담당자에게 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -183,7 +183,7 @@ FactSet으로 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ### <a name="create-factset-test-user"></a>FactSet 테스트 사용자 만들기
 
-이 섹션에서는 FactSet에서 Britta Simon이라는 사용자를 만듭니다. FactSet 플랫폼에 사용자를 추가하려면 [FactSet 지원 팀](mailto:support@factset.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 FactSet에서 Britta Simon이라는 사용자를 만듭니다. FactSet 플랫폼에 사용자를 추가하려면 FactSet 계정 고객 지원 팀 담당자와 협업하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

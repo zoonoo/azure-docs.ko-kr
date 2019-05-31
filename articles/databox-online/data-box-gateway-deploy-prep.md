@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620090"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686528"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -51,6 +51,8 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 시작하기 전에 다음 사항을 확인합니다.
 
 - Data Box Gateway 리소스에 Microsoft Azure 구독이 지원되어야 합니다. 종량제 구독은 지원되지 않습니다.
+- 구독에 대한 소유자 또는 기여자 액세스 권한이 있습니다.
+- Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
 ### <a name="for-the-data-box-gateway-device"></a>Data Box Gateway 디바이스의 경우
@@ -85,7 +87,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 1. Microsoft Azure 자격 증명을 사용하여 다음에 로그인합니다.
 
-    - URL [https://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인하거나
+    - URL [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인하거나
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
 
 2. 왼쪽 창에서 **+ 리소스 만들기**를 선택합니다. **Data Box Edge/Data Box Gateway**를 검색합니다. Data Box Edge/Data Box Gateway를 선택합니다. **만들기**를 선택합니다.

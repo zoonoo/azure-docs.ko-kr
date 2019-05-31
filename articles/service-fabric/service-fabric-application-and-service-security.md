@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621563"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302233"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 애플리케이션 및 서비스 보안
 마이크로 서비스 아키텍처는 [많은 이점](service-fabric-overview-microservices.md)을 제공할 수 있습니다. 그러나 마이크로 서비스의 보안을 관리하는 일은 기존의 모놀리식 애플리케이션 보안을 관리하는 것과는 다르며 어려울 수 있습니다. 
@@ -36,7 +36,7 @@ API 수준 신뢰를 결정하는 첫 번째 단계는 인증입니다. 인증�
 
 서비스에 직접 액세스할 수 있는 경우 Azure Active Directory 또는 STS(보안 토큰 서비스)로 작동하는 전용 인증 마이크로 서비스와 같은 인증 서비스를 사용하여 사용자를 인증할 수 있습니다. 신뢰 결정은 보안 토큰 또는 쿠키와 함께 서비스 간에 공유됩니다. 
 
-ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET Core ID는 개발자가 구성한 데이터 저장소에 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  외부 인증 공급자도 지원되므로, 사용자는 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용하여 로그인할 수 있습니다. 
+ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)하는 기본 메커니즘이 ASP.NET Core ID 멤버 자격 시스템입니다. ASP.NET Core ID는 개발자가 구성한 데이터 저장소에 사용자 정보(로그인 정보, 역할 및 클레임 포함)를 저장합니다. ASP.NET Core ID는 2단계 인증을 지원합니다.  사용자가 Microsoft, Google, Facebook 또는 Twitter와 같은 공급자의 기존 인증 프로세스를 사용 하 여 로그인 할 수 있도록 외부 인증 공급자도 지원 됩니다.
 
 ### <a name="authorization"></a>권한 부여
 인증 후에, 서비스는 사용자 액세스를 허가하거나 사용자가 수행할 수 있는 작업을 결정해야 합니다. 이 프로세스를 통해 전체가 아닌 일부 인증된 사용자만 서비스의 API를 사용할 수 있게 됩니다. 권한 부여는 인증과 일치하는 부분도 있고 독립된 부분도 있으며, 사용자가 누군지 확인하는 프로세스입니다. 인증으로 현재 사용자에 대해 하나 이상의 ID가 만들어질 수 있습니다.

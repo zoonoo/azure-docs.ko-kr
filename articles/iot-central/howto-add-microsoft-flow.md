@@ -8,16 +8,16 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467940"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235817"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
-‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
+‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’ 
 
 Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애플리케이션 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터에서 작업을 사용할 수 있습니다.
 - 디바이스 만들기
@@ -41,7 +41,7 @@ IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스�
 
     ![새 Microsoft Flow 작업 만들기](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. 에 대 한 액세스를 있고이 IoT Central 규칙에 연결 된 워크플로 tha 목록이 표시 됩니다. 클릭 **템플릿을 살펴봅니다** 하거나 **새로 만들기 > 템플릿에서 만들기** 사용 가능한 템플릿 중 하나에서 선택할 수 있습니다. 
+1. 에 대 한 액세스를 있고이 IoT Central 규칙에 연결 된 워크플로 목록을 표시 됩니다. 클릭 **템플릿을 살펴봅니다** 하거나 **새로 만들기 > 템플릿에서 만들기** 사용 가능한 템플릿 중 하나에서 선택할 수 있습니다. 
 
     ![사용 가능한 Microsoft Flow 템플릿](media/howto-add-microsoft-flow/flowtemplates1.png)
 

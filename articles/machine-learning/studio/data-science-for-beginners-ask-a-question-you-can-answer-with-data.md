@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751260"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239068"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -48,7 +48,7 @@ ms.locfileid: "60751260"
 
 모호한 질문에는 이름이나 숫자로 답변할 필요가 없습니다. 하지만 정확한 질문에는 그렇게 해야만 합니다.
 
-묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 하지만 짓궂은 지니는, 빠져나갈 구멍을 만들기 위해 모호하고 혼란스러운 답을 주려고 할 것입니다. 빈틈없이 완벽한 질문으로 그를 꼼짝 못하게 하면, 원하는 것을 알려주지 않고는 못 배길 것입니다.
+묻는 질문에 정직하게 답하는 지니의 요술 램프를 찾았다고 상상해 보겠습니다. 이지만 유해 찾았다고를 사용 하 여 바로 가져올 수 있습니다 모호 하 고 혼란 스러운 답을 확인 하려고 합니다. 꼼짝 도움말 있지만를 알고 싶은 알 수 없는 질문을 사용 하 여 고정 해야 합니다.
 
 “내 주식이 어떻게 될까요?”라는 모호한 질문을 한다면, 지니는 “가격이 변할 것입니다.”라고 답변할 것입니다. 정직한 답변이지만 별로 도움은 되지 않습니다.
 

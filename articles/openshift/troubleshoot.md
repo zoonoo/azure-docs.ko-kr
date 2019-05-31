@@ -2,18 +2,18 @@
 title: Azure Red Hat OpenShift를 문제 해결 | Microsoft Docs
 description: Azure Red Hat OpenShift를 사용 하 여 일반적인 문제 해결 및 문제 해결
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7f2bdf643f12671bec3d0c087d8775844099fe9a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992166"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306257"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 문제 해결
 

@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758136"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551294"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
-Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인식 서비스입니다. 이러한 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [Content Moderator API](#content-moderator-apis) 섹션을 참조하세요.
+Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거나, 원치 않는 텍스트, 이미지 및 비디오 콘텐츠를 확인하는 인식 서비스입니다. 이러한 자료가 발견되면 서비스가 콘텐츠에 적절한 레이블(플래그)을 적용합니다. 그러면 앱이 규정에 부합하고 원하는 사용자 환경을 유지하기 위해 플래그가 지정된 콘텐츠를 처리할 수 있습니다. 다양한 콘텐츠 플래그의 의미를 자세히 알아보려면 [중재 API](#moderation-apis) 섹션을 참조하세요.
 
 ## <a name="where-it-is-used"></a>사용 위치
 
@@ -35,11 +35,13 @@ Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거
 
 Content Moderator 서비스는 REST 호출 및 .NET SDK 둘 다를 통해 사용 가능한 몇 가지 웹 서비스 API로 구성됩니다. 또한 검토자 역할을 하는 사람이 서비스를 보조하고 조정 기능을 개선하거나 세부 조정하는 데 사용되는 사용자 검토 도구도 포함되어 있습니다.
 
-![Moderation API, Review API 및 사용자 검토 도구를 보여주는 Content Moderator의 블록 다이어그램](images/content-moderator-block-diagram.png)
+## <a name="moderation-apis"></a>중재 API
 
-### <a name="content-moderator-apis"></a>Content Moderator API
+Content Moderator 서비스에는 콘텐츠에 잠재적으로 부적절하거나 불쾌한 자료가 있는지 확인하는 중재 API가 포함되어 있습니다.
 
-Content Moderator 서비스에는 다음 시나리오를 위한 API가 포함됩니다.
+![Content Moderator 중재 API의 블록 다이어그램](images/content-moderator-mod-api.png)
+
+다음 표에서는 다양한 유형의 중재 API를 설명합니다.
 
 | API 그룹 | 설명 |
 | ------ | ----------- |
@@ -48,9 +50,17 @@ Content Moderator 서비스에는 다음 시나리오를 위한 API가 포함됩
 |[**이미지 조정**](image-moderation-api.md)| 이미지에서 성인 또는 외설 콘텐츠를 검사하고, OCR(광학 문자 인식) 기능을 사용하여 이미지에서 텍스트를 감지하고, 얼굴을 감지합니다.|
 |[**사용자 지정 이미지 목록**](try-image-list-api.md)| 사용자 지정 이미지 목록을 기준으로 이미지를 검사합니다. 사용자 지정 이미지 목록을 사용하여 다시 분류하지 않으려는 일반적인 반복 콘텐츠의 인스턴스를 필터링합니다.|
 |[**비디오 조정**](video-moderation-api.md)| 비디오에서 성인 또는 외설 콘텐츠를 검사하고 언급된 콘텐츠의 시간 마커를 반환합니다.|
-|[**API 검토**](try-review-api-job.md)| [작업](try-review-api-job.md), [검토](try-review-api-review.md) 및 [워크플로](try-review-api-workflow.md) 작업을 사용하여 사용자 검토 도구 내에서 인간 참여형 워크플로를 만들고 자동화합니다. Workflow API는 아직 .NET SDK에서 사용할 수 없습니다.|
 
-### <a name="review-tool"></a>검토 도구
+## <a name="review-apis"></a>API 검토
+
+검토 API를 사용하여 중재 파이프라인과 사용자 검토자를 통합할 수 있습니다. [작업](review-api.md#jobs), [검토](review-api.md#reviews) 및 [워크플로](review-api.md#workflows) 작업을 사용하여 [검토 도구](#the-review-tool)(아래)로 인간 참여형 워크플로를 만들고 자동화합니다.
+
+> [!NOTE]
+> 워크플로 API는 .NET SDK에서 아직 사용할 수 없지만 REST 엔드포인트와 함께 사용할 수는 있습니다.
+
+![Content Moderator 검토 API의 블록 다이어그램](images/content-moderator-rev-api.png)
+
+## <a name="the-review-tool"></a>검토 도구
 
 Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 다양한 Content Moderator 리소스에 대해 간단한 프런트 엔드도 제공합니다.
 

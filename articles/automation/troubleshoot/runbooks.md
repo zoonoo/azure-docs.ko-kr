@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401785"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397138"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -305,6 +305,8 @@ The job was tried three times but it failed
 
 4. Runbook 호출 실행 파일 또는 샌드박스를 Azure에서 실행 되는 runbook에서 subprocess 하려고 시도 합니다. 이 시나리오는 Azure 샌드박스에서 지원되지 않습니다.
 
+5. Runbook 출력 스트림에 너무 많은 예외 데이터를 쓰려고 했습니다.
+
 #### <a name="resolution"></a>해결 방법
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
@@ -316,6 +318,8 @@ The job was tried three times but it failed
 * 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스의 메모리 및 네트워크 제한 사항에 따라 제한되지 않습니다.
 
 * Runbook에서 프로세스(예: .exe 또는 subprocess.call)를 호출해야 하는 경우 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행해야 합니다.
+
+* 작업 출력 스트림 1MB 제한이 있습니다. Try/catch 블록에서 실행 파일 또는 하위 프로세스에 대 한 호출을 묶습니다 있는지 확인 합니다. 예외를 throw 하는 Automation 변수를 해당 예외에서 메시지를 작성 합니다. 이에서 방해 하는 작업 출력 스트림에 기록 합니다.
 
 ### <a name="fails-deserialized-object"></a>시나리오: deserialize된 개체로 인해 Runbook 실패
 

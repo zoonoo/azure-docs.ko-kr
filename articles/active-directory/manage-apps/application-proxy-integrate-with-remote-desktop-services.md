@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 05/23/2019
 ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783417"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233722"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -71,8 +71,9 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    - URL 헤더 변환: 아닙니다.
 2. 게시된 RD 애플리케이션에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
-4. **Azure Active Directory** > **앱 등록** > *애플리케이션* > **설정**으로 이동합니다.
-5. **속성**을 선택하고, RD 웹 엔드포인트(예: `https://\<rdhost\>.com/RDWeb`)를 가리키도록 **홈페이지 URL** 필드를 업데이트합니다.
+4. 선택 **Azure Active Directory**를 차례로 **앱 등록**합니다. 목록에서 앱을 선택 합니다.
+5. 아래 **관리**를 선택 **브랜드**합니다.
+6. 업데이트를 **홈 페이지 URL** RD 웹 끝점을 가리키도록 필드 (같은 `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>애플리케이션 프록시에 대한 직접 RDS 트래픽
 

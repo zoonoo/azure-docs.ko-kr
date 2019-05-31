@@ -69,12 +69,12 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesMySql** |예 |
-| 서버 |MySQL 서버의 이름입니다. |예 |
-| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
+| server |MySQL 서버의 이름입니다. |예 |
+| database |MySQL 데이터베이스의 이름입니다. |예 |
 | schema |데이터베이스에서 스키마의 이름입니다. |아닙니다. |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
-| 사용자 이름 |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| 암호 |지정한 사용자 계정의 암호를 지정합니다. |예 |
+| userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -95,7 +95,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON 예제: MySQL에서 Azure Blob으로 데이터 복사

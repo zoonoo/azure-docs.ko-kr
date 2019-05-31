@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758667"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573965"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -119,7 +119,7 @@ IoT Edge 디바이스에서 Azure IoT Edge 런타임을 시작합니다.
 
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
 
 런타임을 구성하는 동안 장치 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다.
 
@@ -146,13 +146,13 @@ IoT Edge 디바이스에서 런타임이 성공적으로 설치 및 구성되었
 >[!TIP]
 >`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다.
 
-1. Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
+1. IoT Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![시스템 서비스로 실행되는 Edge 디먼 확인](./media/quickstart-linux/iotedged-running.png)
+   ![시스템 서비스로 실행되는 IoT Edge 디먼 확인](./media/quickstart-linux/iotedged-running.png)
 
 2. 서비스 문제를 해결해야 할 경우 서비스 로그를 검색합니다.
 
@@ -206,38 +206,22 @@ IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 장치를 사용할 수 있습니다. 그렇지 않으면 만든 Azure 리소스를 삭제하고 장치에서 IoT Edge 런타임을 제거할 수 있습니다.
-
-### <a name="delete-azure-resources"></a>Azure 리소스 삭제
+IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 디바이스를 사용할 수 있습니다. 그렇지 않으면 요금이 발생하지 않도록 Azure 리소스를 삭제할 수 있습니다.
 
 새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 리소스 그룹의 콘텐츠를 한 번 더 확인하여 유지할 내용이 없는지 검토합니다. 전체 그룹을 삭제하지는 않으려는 경우 대신, 개별 리소스를 삭제할 수 있습니다.
 
 **IoTEdgeResources** 그룹을 제거합니다.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>IoT Edge 런타임 제거
-
-장치에서 설치를 제거하려면 다음 명령을 사용합니다.  
-
-IoT Edge 런타임을 제거합니다.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-컨테이너 런타임을 제거합니다.
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작은 모든 IoT Edge 자습서에 대한 필수 구성 요소입니다. 다른 자습서를 계속 진행하면서 Azure IoT Edge가 이러한 데이터를 통해 비즈니스 통찰력을 얻는 데 어떻게 도움을 줄 수 있는지 알아볼 수 있습니다.
+
+이 빠른 시작에서는 새 IoT Edge 디바이스를 만들고 Azure IoT Edge 클라우드 인터페이스를 사용하여 디바이스에 코드를 배포했습니다. 이제 해당 환경에 대한 원시 데이터를 생성하는 테스트 디바이스가 준비되었습니다.
+
+다음 단계는 비즈니스 논리를 실행하는 IoT Edge 모듈을 만들기 시작할 수 있도록 로컬 개발 환경을 설정하는 것입니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Function을 사용하여 센서 데이터 필터링](tutorial-deploy-function.md)
+> [Linux 디바이스를 위한 IoT Edge 모듈 개발 시작](tutorial-develop-for-linux.md)

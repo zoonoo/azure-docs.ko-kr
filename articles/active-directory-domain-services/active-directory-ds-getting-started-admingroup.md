@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 시작 | Microsoft Docs'
 description: Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417701"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234950"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -44,7 +44,7 @@ ms.locfileid: "60417701"
 
 ## <a name="configure-synchronization"></a>동기화 구성
 
-Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사용자 및 그룹의 전체 동기화 중 하나를 허용하거나 특정 그룹만 동기화하려면 범위가 지정된 동기화를 선택할 수 있습니다. 전체 동기화를 선택하는 경우 나중에 범위가 지정된 동기화를 선택할 수 **없습니다**. 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화 문서](active-directory-ds-scoped-synchronization.md)를 참조하세요.
+Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사용자 및 그룹의 전체 동기화 중 하나를 허용하거나 특정 그룹만 동기화하려면 범위가 지정된 동기화를 선택할 수 있습니다. 전체 동기화를 선택하는 경우 나중에 범위가 지정된 동기화를 선택할 수 **없습니다**. 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화 문서](scoped-synchronization.md)를 참조하세요.
 
 ### <a name="full-synchronization"></a>전체 동기화
 
@@ -98,7 +98,7 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 
 ## <a name="need-help"></a>도움 필요 시
 
-관리되는 도메인의 도메인 컨트롤러 모두를 프로비전하는 데 한두 시간 정도가 걸릴 수 있습니다. 배포에 실패하거나 2시간 넘게 '보류 중' 상태인 경우 [제품팀에 문의](active-directory-ds-contact-us.md)하는 것이 좋습니다.
+관리되는 도메인의 도메인 컨트롤러 모두를 프로비전하는 데 한두 시간 정도가 걸릴 수 있습니다. 배포에 실패하거나 2시간 넘게 '보류 중' 상태인 경우 [제품팀에 문의](contact-us.md)하는 것이 좋습니다.
 
 ## <a name="next-step"></a>다음 단계
 

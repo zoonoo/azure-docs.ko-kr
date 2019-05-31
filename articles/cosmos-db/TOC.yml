@@ -11,7 +11,7 @@
       href: create-sql-api-dotnet.md
     - name: .NET 미리 보기
       href: create-sql-api-dotnet-preview.md
-    - name: 자바
+    - name: Java
       href: create-sql-api-java.md
     - name: Node.js
       href: create-sql-api-nodejs.md
@@ -33,7 +33,7 @@
               href: sql-api-dotnetcore-get-started.md
             - name: .NET Core 미리 보기
               href: sql-api-dotnet-core-get-started-preview.md
-            - name: 자바
+            - name: Java
               href: sql-api-java-get-started.md
             - name: 비동기 Java
               href: sql-api-async-java-get-started.md
@@ -45,7 +45,7 @@
               href: sql-api-dotnet-application.md
             - name: .NET 미리 보기
               href: sql-api-dotnet-application-preview.md
-            - name: 자바
+            - name: Java
               href: sql-api-java-application.md
             - name: Node.js
               href: sql-api-nodejs-application.md
@@ -216,7 +216,7 @@
           href: online-backup-and-restore.md
         - name: 규정 준수
           href: compliance.md
-    - name: 제한
+    - name: 리소스 한계
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true
@@ -231,7 +231,7 @@
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-cassandra-java.md
             - name: Node.js
               href: create-cassandra-nodejs.md
@@ -289,7 +289,7 @@
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-mongodb-java.md
             - name: Node.js
               href: create-mongodb-nodejs.md
@@ -373,7 +373,7 @@
               href: create-graph-gremlin-console.md
             - name: .NET
               href: create-graph-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-graph-java.md
             - name: Node.js
               href: create-graph-nodejs.md
@@ -408,7 +408,7 @@
           items:
             - name: .NET
               href: create-table-dotnet.md
-            - name: 자바
+            - name: Java
               href: create-table-java.md
             - name: Node.js
               href: create-table-nodejs.md
@@ -429,7 +429,7 @@
           items:
             - name: .NET
               href: table-storage-how-to-use-dotnet.md
-            - name: 자바
+            - name: Java
               href: table-storage-how-to-use-java.md
             - name: Node.js
               href: table-storage-how-to-use-nodejs.md
@@ -460,7 +460,7 @@
               href: table-sdk-dotnet.md
             - name: .NET Standard
               href: table-sdk-dotnet-standard.md
-            - name: 자바
+            - name: Java
               href: table-sdk-java.md
             - name: Node.js
               href: table-sdk-nodejs.md
@@ -678,7 +678,7 @@
       href: sql-api-sdk-dotnet-changefeed.md
     - name: .NET Bulk Executor 라이브러리
       href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: 자바
+    - name: Java
       href: sql-api-sdk-java.md
     - name: Java Bulk Executor 라이브러리
       href: sql-api-sdk-bulk-executor-java.md

@@ -142,6 +142,8 @@
           href: concepts-data-flow-column-pattern.md
         - name: 데이터 흐름 모니터링
           href: concepts-data-flow-monitoring.md
+        - name: 데이터 흐름 성능
+          href: concepts-data-flow-performance.md
         - name: 이동 노드
           href: concepts-data-flow-move-nodes.md
         - name: 최적화 탭
@@ -318,6 +320,8 @@
           href: connector-sap-ecc.md
         - name: SAP HANA
           href: connector-sap-hana.md
+        - name: SAP 테이블
+          href: connector-sap-table.md
         - name: ServiceNow
           href: connector-servicenow.md
         - name: SFTP

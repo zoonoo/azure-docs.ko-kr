@@ -83,7 +83,7 @@
           displayName: roles
         - name: 자유 형식 데이터 추출
           href: luis-tutorial-pattern-any.md
-    - name: 봇 사용
+    - name: V4 Bot Framework 사용
       items:
         - name: 'C# 사용'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
           href: luis-tutorial-speech-to-intent.md
-        - name: 봇 사용
+        - name: V3 Bot Framework 사용
           items:
             - name: 웹앱 봇
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: 경계
       href: luis-boundaries.md
+    - name: 애플리케이션 설정
+      href: luis-reference-application-settings.md
     - name: 미리 작성된 엔터티 참조
       items:
         - name: 문화권별 엔터티
@@ -350,7 +352,7 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
             - name: 참고 자료
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-        - name: 자바
+        - name: Java
           items:
             - name: Maven - 제작
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'

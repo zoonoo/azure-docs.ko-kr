@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203647"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244419"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight의 OS 패치 
 
@@ -45,6 +45,7 @@ ms.locfileid: "65203647"
 
 > [!NOTE]  
 > 기존 클러스터에 적용하는 경우 이 스크립트를 지속형으로 표시해야 합니다. 그렇지 않은 경우 크기 조정 작업을 통해 만들어진 모든 새 노드는 기본 패치 일정을 사용합니다.  클러스터를 만드는 프로세스의 일부로 스크립트를 적용하는 경우 자동으로 유지됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

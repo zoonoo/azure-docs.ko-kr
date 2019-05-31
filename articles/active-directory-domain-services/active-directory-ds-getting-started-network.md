@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 시작 | Microsoft Docs'
 description: Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: ergreenl
-ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/22/2019
+ms.author: mstephen
+ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103577"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234901"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[Azure Active Directory Domain Services의 네트워킹 고려 사항](active-directory-ds-networking.md)을 참조하세요.
+[Azure Active Directory Domain Services의 네트워킹 고려 사항](network-considerations.md)을 참조하세요.
 
 
 ## <a name="task-2-configure-network-settings"></a>작업 2: 네트워크 설정 구성
@@ -41,7 +41,7 @@ ms.locfileid: "62103577"
 3. Azure AD Domain Services를 사용하도록 설정해야 하는 가상 네트워크를 선택합니다. 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다.
 
    > [!TIP]
-   > **Azure AD Domain Services를 사용하도록 설정한 후에는 관리되는 도메인을 다른 가상 네트워크로 이동할 수 없습니다.** 오른쪽 가상 네트워크를 선택하여 관리되는 도메인을 활성화합니다. 관리되는 도메인을 만든 후에 관리되는 도메인을 삭제하지 않고 다른 가상 네트워크로 이동할 수 없습니다. 계속하기 전에 [Azure Active Directory Domain Services의 네트워킹 고려 사항](active-directory-ds-networking.md)을 검토하는 것이 좋습니다.  
+   > **Azure AD Domain Services를 사용하도록 설정한 후에는 관리되는 도메인을 다른 가상 네트워크로 이동할 수 없습니다.** 오른쪽 가상 네트워크를 선택하여 관리되는 도메인을 활성화합니다. 관리되는 도메인을 만든 후에 관리되는 도메인을 삭제하지 않고 다른 가상 네트워크로 이동할 수 없습니다. 계속하기 전에 [Azure Active Directory Domain Services의 네트워킹 고려 사항](network-considerations.md)을 검토하는 것이 좋습니다.  
    >
 
 4. **가상 네트워크 만들기:** **새로 만들기**를 클릭하여 새 가상 네트워크를 만듭니다. Azure AD Domain Services에 전용 서브넷을 사용합니다. 예를 들어 이름이 'DomainServices'인 서브넷을 만들어 다른 관리자가 서브넷에 배포된 항목을 이해하기 쉽게 만듭니다. 완료되면 **확인**을 클릭합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "62103577"
 
    > [!NOTE]
    > **서브넷 선택 지침**
-   > 1. Azure AD Domain Services에 전용 서브넷을 사용합니다. 이 서브넷에 다른 가상 머신을 배포하지 않습니다. 이 구성을 사용하면 관리되는 도메인을 방해하지 않고 워크로드/가상 머신에 대해 NSG(네트워크 보안 그룹)을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory Domain Services의 네트워킹 고려 사항](active-directory-ds-networking.md)을 참조하세요.
+   > 1. Azure AD Domain Services에 전용 서브넷을 사용합니다. 이 서브넷에 다른 가상 머신을 배포하지 않습니다. 이 구성을 사용하면 관리되는 도메인을 방해하지 않고 워크로드/가상 머신에 대해 NSG(네트워크 보안 그룹)을 구성할 수 있습니다. 자세한 내용은 [Azure Active Directory Domain Services의 네트워킹 고려 사항](network-considerations.md)을 참조하세요.
    > 2. Azure AD Domain Services 배포를 위해 게이트웨이 서브넷을 선택하지 마세요. 이 서브넷에는 지원되는 구성이 없습니다.
    > 3. 선택한 서브넷의 주소 공간에는 3-5개의 사용 가능한 IP 주소가 있어야 합니다.
 

@@ -153,7 +153,7 @@
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.network
     - name: Node.js
       href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'

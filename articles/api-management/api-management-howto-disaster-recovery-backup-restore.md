@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141737"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241713"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -63,7 +63,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 6. **리디렉션 URI**로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
 7. **만들기**를 클릭합니다.
 
-### <a name="add-an-application"></a>응용 프로그램 추가
+### <a name="add-an-application"></a>애플리케이션 추가
 
 1. 애플리케이션을 만들면 **설정**을 클릭합니다.
 2. **필수 사용 권한**을 클릭합니다.
@@ -124,7 +124,7 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
-REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/apimanagementservice/restore)입니다.
+REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)입니다.
 
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 

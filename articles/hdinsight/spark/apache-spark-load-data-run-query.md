@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716092"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909219"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
 이 자습서에서는 csv 파일에서 데이터 프레임을 만드는 방법과 Azure HDInsight의 [Apache Spark](https://spark.apache.org/) 클러스터에 대해 대화형 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Spark에서 데이터 프레임은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 데이터 프레임은 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
- 
+
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * csv 파일에서 데이터 프레임 만들기
@@ -26,7 +26,22 @@ ms.locfileid: "64716092"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 완료합니다.
+HDInsight의 Apache Spark 클러스터입니다. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
+
+## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
+
+Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 Notebook 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다. 
+
+1. `SPARKCLUSTER`를 Spark 클러스터의 이름으로 바꿔 URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter`를 편집합니다. 그런 다음, 웹 브라우저에 편집한 URL을 입력합니다. 메시지가 표시되면 클러스터에 대한 클러스터 로그인 자격 증명을 입력합니다.
+
+2. Jupyter 웹 페이지에서 **새로 만들기** > **PySpark**를 선택하여 노트북을 만듭니다. 
+
+   ![Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행")
+
+   새 노트북이 만들어지고 이름 Untitled(`Untitled.ipynb`)로 열립니다.
+
+    > [!NOTE]  
+    > PySpark 커널을 사용하여 Notebook을 만들면 첫 번째 코드 셀을 실행할 때 `spark` 세션이 자동으로 만들어집니다. 세션을 명시적으로 만들 필요가 없습니다.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>csv 파일에서 데이터 프레임 만들기
 
@@ -34,13 +49,7 @@ ms.locfileid: "64716092"
     
 ![대화형 Spark SQL 쿼리용 데이터의 스냅숏](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅숏")
 
-
-1. 필수 조건 섹션에서 만든 Jupyter Notebook을 열고 PySpark를 사용하여 새 Notebook을 만듭니다.
-
-    > [!NOTE]  
-    > PySpark 커널을 사용하여 Notebook을 만들면 첫 번째 코드 셀을 실행할 때 `spark` 세션이 자동으로 만들어집니다. 세션을 명시적으로 만들 필요가 없습니다.
-
-2. 노트북의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
+1. Jupyter Notebook의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ ms.locfileid: "64716092"
 
     ![대화형 Spark SQL 쿼리 상태](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "대화형 Spark SQL 쿼리 상태")
 
-3. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다. 
+2. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다. 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-> [!div class="checklist"]
-> * Apache Spark 데이터 프레임을 만듭니다.
-> * 데이터 프레임에 대해 Spark SQL을 실행합니다.
+이 자습서에서는 csv 파일에서 데이터 프레임을 만드는 방법과 Azure HDInsight의 Apache Spark 클러스터에 대해 대화형 Spark SQL 쿼리를 실행하는 방법을 알아보았습니다. 다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요.
 
-다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
 > [!div class="nextstepaction"]
 > [BI 도구를 사용하여 데이터 분석](apache-spark-use-bi-tools.md)

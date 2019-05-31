@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130997"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255477"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
@@ -42,16 +42,16 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 
 다음은 각 루트의 장점을 요약한 것입니다.
 
-|  | 빌드 시간 | 실행 시간 |
+|  | 빌드 시간 | 런타임 |
 | --- | --- | --- |
-| 요청 및 예외 |예. |예. |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예. |
+| 요청 및 예외 |예 |예 |
+| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예. |예. |
-| [사용자 지정 원격 분석에 대 한 API][api] |예. |아닙니다. |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예. |아닙니다. |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예. |아닙니다. |
-| 코드를 다시 빌드해야 함 |예. | 아닙니다. |
+| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 |아닙니다. |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아닙니다. |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아닙니다. |
+| 코드를 다시 빌드해야 함 |예 | 아닙니다. |
 
 
 
@@ -151,7 +151,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 
 * 상태 모니터는.NET 응용 프로그램을 사용할 수도 있습니다 [적절 한 진단 구성 파일에 추가 하 여.net 추적](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)합니다. 예를 들어, 일부 시나리오에서 유용 하 여 네트워크 수준에서 발생 한 것을 [네트워크 추적 구성](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
-### <a name="insufficient-permissions"></a>사용 권한 부족
+### <a name="insufficient-permissions"></a>권한 부족
   
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
@@ -321,7 +321,6 @@ Application Insights SDK 버전 2.4는 합니다 [마지막 버전을.NET 4.0 �
 * [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
 * [이벤트 및 로그를 검색하여][diagnostic] 문제를 진단합니다.
 * [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
-* [대시보드를 만듭니다](../../azure-monitor/app/app-insights-dashboards.md).
 
 원격 분석 더 추가:
 

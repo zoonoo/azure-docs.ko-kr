@@ -4,14 +4,14 @@ description: Azure Cosmos DB Core API를 사용하여 실제 예제를 모델링
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919896"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240993"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -282,7 +282,7 @@ ms.locfileid: "58919896"
 
 달성하고자 하는 것은 댓글이나 좋아요를 추가할 때마다 해당 게시물에서 `commentCount` 또는 `likeCount`도 증분시키는 것입니다. `posts` 컨테이너가 `postId`로 분할되므로 새 항목(댓글 또는 좋아요)과 해당 게시물은 동일한 논리 파티션에 배치됩니다. 따라서 [저장 프로시저](stored-procedures-triggers-udfs.md)를 사용하여 해당 작업을 수행할 수 있습니다.
 
-이제 댓글(**[C3]**)을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
+이제 댓글( **[C3]** )을 만들 때 `posts` 컨테이너에 새 항목을 추가하는 대신 해당 컨테이너에 대해 다음과 같은 저장 프로시저를 호출합니다.
 
 ```javascript
 function createComment(postId, comment) {

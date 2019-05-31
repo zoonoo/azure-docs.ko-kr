@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005993"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541520"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -40,17 +40,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다.
+Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. 이 리소스는 Azure의 Computer Vision 서비스에 대한 액세스를 관리합니다. 
 
-1. [Azure Portal](https://ms.portal.azure.com)에 로그인하고, **리소스 만들기**를 클릭한 다음, **AI + Machine Learning** 및 **Computer Vision**을 클릭합니다.
+1. [Azure Cognitive Services 리소스 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription)의 지침에 따라 Computer Vision 리소스를 만듭니다.
 
-    ![새 Computer Vision API 구독 만들기](../Images/new-vision-api.png)
-
-1. 대화 상자 창의 에서 **이름** 필드에서 "vision-api-key"를 입력하고 **가격 책정 계층**으로 **F0**을 선택합니다. Azure Storage 계정을 설정할 때 선택한 것과 동일한 **위치**를 선택합니다. **리소스 그룹** 아래에서 **기존 항목 사용**을 선택하고, 동일한 리소스 그룹도 선택합니다. **동의** 확인란을 선택한 다음, **만들기**를 클릭합니다.
-
-    ![Computer Vision API 구독](../Images/create-vision-api.png)
-
-1. 리소스 그룹의 메뉴로 돌아가서 방금 만든 Computer Vision API 구독을 클릭합니다. **엔드포인트** 아래의 URL을 잠시 후에 쉽게 검색할 수 있는 위치에 복사합니다. 그런 다음, **액세스 키 표시**를 클릭합니다.
+1. 그런 다음, 리소스 그룹의 메뉴로 이동하여 방금 만든 Computer Vision API 구독을 클릭합니다. **엔드포인트** 아래의 URL을 잠시 후에 쉽게 검색할 수 있는 위치에 복사합니다. 그런 다음, **액세스 키 표시**를 클릭합니다.
 
     ![설명된 엔드포인트 URL 및 액세스 키 링크가 있는 Azure Portal 페이지](../Images/copy-vision-endpoint.png)
 

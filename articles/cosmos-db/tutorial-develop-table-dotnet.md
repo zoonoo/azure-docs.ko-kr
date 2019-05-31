@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
-ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192394"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953613"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -41,15 +41,15 @@ Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우�
 
 ## <a name="create-a-net-console-project"></a>.NET 콘솔 프로젝트 만들기
 
-Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다. Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이션을 비롯한 모든 .NET 애플리케이션 형식에서 Azure Cosmos DB Table Library를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
+Visual Studio에서 새 .NET 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2019에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 애플리케이션을 비롯한 모든 .NET 애플리케이션 형식에서 Azure Cosmos DB Table Library를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 애플리케이션을 사용합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
-1. **설치** > **Visual C#** > **콘솔 앱(.NET Core)** 을 선택합니다.
+1. **콘솔 앱(.NET Core)** 을 선택한 후 **다음**을 선택합니다.
 
-1. **이름** 필드에서 애플리케이션에 사용할 이름(예: **CosmosTableSamples**)을 입력합니다(필요에 따라 다른 이름을 제공할 수 있음).
+1. **프로젝트 이름** 필드에 애플리케이션의 이름(예: **CosmosTableSamples**)을 입력합니다. (필요에 따라 다른 이름을 제공할 수 있습니다.)
 
-1. **확인**을 선택합니다.
+1. **만들기**를 선택합니다.
 
 이 샘플에 예시로 나온 모든 코드는 콘솔 애플리케이션의 **Program.cs** 파일의 Main() 메서드에 추가할 수 있습니다.
 
@@ -63,7 +63,9 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정 또는 Table Storage 계정으로 이동합니다. 
+
+1. **연결 문자열** 또는 **액세스 키** 창을 엽니다. 창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 
    ![연결 문자열 창에서 기본 연결 문자열 보기 및 복사](./media/create-table-dotnet/connection-string.png)
    

@@ -65,6 +65,6 @@ ms.locfileid: "65545398"
 
 MSAL Python은 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 참조 하세요. [MSAL Python 클라이언트 자격 증명 저장소에서 샘플](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py)합니다.
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 MSAL Python은 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 참조 하세요. [MSAL Java 저장소에서 샘플](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples)합니다.

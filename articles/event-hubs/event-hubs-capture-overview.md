@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee64d25afcb2be73bed26c6c4dec87f216a0fd82
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822455"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383881"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-features.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -68,7 +68,7 @@ Event Hubs 캡처가 구성되면 첫 번째 이벤트를 전송하는 즉시 �
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>캡처된 파일 탐색 및 Avro 작업
 
-Event Hubs 캡처는 구성된 기간에 지정된 대로 Avro 형식의 파일을 만듭니다. [Azure Storage 탐색기][Azure Storage Explorer]와 같은 도구에서 이러한 파일을 볼 수 있습니다. 파일을 로컬로 다운로드하여 작업할 수 있습니다.
+Event Hubs 캡처는 구성된 기간에 지정된 대로 Avro 형식의 파일을 만듭니다. [Azure Storage Explorer][Azure Storage Explorer]와 같은 도구에서 이러한 파일을 볼 수 있습니다. 파일을 로컬로 다운로드하여 작업할 수 있습니다.
 
 Event Hubs 캡처에서 생성된 파일에는 다음과 같은 Avro 스키마가 있습니다.
 
@@ -155,7 +155,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.9.0/java/avro-tools-1.9.0.jar
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

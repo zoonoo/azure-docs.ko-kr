@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9ff756270c368d39b7ef78d7c1046f7c91169668
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf24b2d1395e128dc73361670ea93ac938574146
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103749"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258777"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure 간 VM 복제에서 진행 중인 문제 해결
 
@@ -62,7 +62,7 @@ Azure Site Recovery에는 디스크 유형에 따라 데이터 변경률 제한�
 
 간헐적인 데이터 버스트에서 스파이크가 발생하고 데이터 변경률이 일정 시간 동안 10MB/s(프리미엄) 및 2MB/s(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 그러나 변동이 대부분의 시간 동안 지원되는 제한을 초과하는 경우 가능하면 다음 옵션 중 하나를 고려합니다.
 
-* **높은 데이터 변경률을 일으키는 디스크 제외**: [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)을 사용하여 디스크를 제외할 수 있습니다.
+* **높은 데이터 변경률을 일으키는 디스크 제외**: 사용 하 여 디스크를 제외할 수 있습니다 [PowerShell](./azure-to-azure-exclude-disks.md)합니다. 디스크를 제외 하려면 복제를 먼저 사용 하지 않도록 설정 해야 합니다. 
 * **재해 복구 스토리지 디스크 계층의 변경**: 이 옵션은 디스크 데이터 변동이 10MB/s보다 작은 경우에만 가능합니다. P10 디스크가 있는 VM에 8MB/s보다 크지만 10MB/s보다 작은 데이터 변동이 있다고 가정합니다. 고객이 보호 중에 대상 스토리지에 대해 P30 디스크를 사용할 수 있는 경우 문제를 해결할 수 있습니다.
 
 ## <a name="Network-connectivity-problem"></a>네트워크 연결 문제
@@ -76,3 +76,63 @@ Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보냅�
 
 ### <a name="network-connectivity"></a>네트워크 연결
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다. 모든 URL이 연결되었는지 확인하려면 [Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하세요. 
+
+## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>오류 ID 153006-지난 'XXX' 분 동안에서 VM에 대 한 사용 가능한 앱 일치 복구 지점 없음
+
+가장 일반적인 문제 중 일부는 다음과 같습니다.
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>원인 1: 에서 알려진 문제 SQL server 2008/2008 R2 
+**해결 방법** : 2008/2008 R2 SQL server 사용 하 여 알려진된 문제가 없습니다. 이 기술 자료 문서를 참조 하십시오 [Azure Site Recovery Agent 또는 다른 구성 요소가 아닌 VSS 백업 SQL Server 2008 R2를 호스팅하는 서버에 대 한 실패](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>원인 2: 모든 버전의 AUTO_CLOSE Db를 사용 하 여 SQL Server 인스턴스를 호스팅하는 서버에서 azure Site Recovery 작업 실패 
+**해결 방법** : 기술 자료를 참조 하세요. [문서](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017 알려진된 문제
+**해결 방법** : 기술 자료를 참조 하세요. [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>원인 4: 저장소 공간 다이렉트 구성을 사용 하는
+**해결 방법** : Azure Site Recovery는 저장소 공간 다이렉트 구성에 대 한 응용 프로그램 일치 복구 지점을 만들 수 없습니다. 올바르게 문서를 참조 하십시오 [복제 정책 구성](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
+
+### <a name="more-causes-due-to-vss-related-issues"></a>VSS 인해 자세한 원인은 관련 문제:
+
+추가로 문제를 해결 하려면 실패에 대 한 정확한 오류 코드를 가져올 원본 컴퓨터의 파일을 확인 합니다.
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+파일에서 오류를 찾으려면 어떻게 하나요?
+편집기에서 vacp.log 파일을 열어 "vacpError" 문자열을 검색 합니다.
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+위의 예에서 **2147754994** 는 아래와 같이 오류에 대 한 알려 주는 오류 코드
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치 되지 않음-오류 2147221164 
+
+*해결 방법*: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 해당 작업에 대 한 VSS 공급자를 설치 합니다. 이 VSS 공급자 서비스로 설치 됩니다. VSS 공급자를 설치 되지 않은 경우 응용 프로그램 일관성 스냅숏 만들기 실패 0x80040154 오류 id를 사용 하 여 "클래스가 등록 되지 않았습니다." 합니다. </br>
+참조 [VSS 기록기 설치 문제 해결에 대 한 문서](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용 하는 사용 안 함-오류 2147943458
+
+**해결 방법**: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. 응용 프로그램 일관성 스냅숏을 해당 작업에 대 한 VSS 공급자를 설치 합니다. 이 VSS 공급자 서비스로 설치 됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 "지정한 서비스 비활성화 되 고 started(0x80070422) 일 수 없습니다." 오류 id를 사용 하 여 응용 프로그램 일관성 스냅숏 만들기 실패 합니다. </br>
+
+- VSS를 사용 하지 않도록 설정 하는 경우
+    - VSS 공급자 서비스의 시작 유형이 설정 되어 있는지 확인 **자동**합니다.
+    - 다음 서비스를 다시 시작 합니다.
+        - VSS 서비스
+        - Azure Site Recovery VSS 공급자
+        - VDS 서비스
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS 공급자 NOT_REGISTERED-2147754756 오류
+
+**해결 방법**: Azure Site Recovery는 응용 프로그램 일관성 태그를 생성 하려면 Microsoft 볼륨 섀도 복사본 서비스 (VSS)를 사용 합니다. Azure Site Recovery VSS 공급자를 설치 하는 경우를 확인 합니다. </br>
+
+- 다음 명령을 사용 하 여 공급자 설치를 다시 시도 합니다.
+- 기존 공급자를 제거 합니다. C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- 다시 설치 합니다. C:\Program 파일 (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+VSS 공급자 서비스의 시작 유형이 설정 되어 있는지 확인 **자동**합니다.
+    - 다음 서비스를 다시 시작 합니다.
+        - VSS 서비스
+        - Azure Site Recovery VSS 공급자
+        - VDS 서비스

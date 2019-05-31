@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952942"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236875"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -21,7 +21,7 @@ SQL Server 데이터베이스는 낮은 복구 지점 목표 (RPO) 및 장기 �
 
 이 아티클에서 Azure Backup Recovery Services 자격 증명 모음에 Azure VM에서 실행 되는 SQL Server 데이터베이스를 백업 하는 방법에 설명 합니다.
 
-이 문서에서는 알아봅니다 방법:
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 자격 증명 모음을 만들고 구성합니다.
@@ -49,7 +49,7 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
 
 다음 옵션 중 하나를 사용 하 여 연결을 설정 합니다.
 
-- **Azure 데이터 센터 IP 범위 허용**합니다. 이 옵션을 사용 하면 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 다운로드에서 합니다. 네트워크 보안 그룹 (NSG)에 액세스 하려면 Set-azurenetworksecurityrule cmdlet을 사용 합니다. 허용 목록에 추가 지역별 경우 Ip 있습니다 것도 필요한 Azure Active Directory (Azure AD)를 허용 목록에 서비스 태그 인증을 사용 하도록 설정 합니다.
+- **Azure 데이터 센터 IP 범위 허용**합니다. 이 옵션을 사용 하면 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 다운로드에서 합니다. 네트워크 보안 그룹 (NSG)에 액세스 하려면 Set-azurenetworksecurityrule cmdlet을 사용 합니다. 안전한 경우 받는 사람 목록 지역별 Ip만, 인증을 사용 하도록 설정 하려면 Azure Active Directory (Azure AD) 서비스 태그 안전 받는 사람 목록을 업데이트 해야 합니다.
 
 - **NSG 태그를 사용 하 여 액세스를 허용**합니다. Nsg를 사용 하 여 연결을 제한 하는 경우이 옵션 AzureBackup 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 하는 NSG 규칙을 추가 합니다. 이 태그 외에 해야 해당 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) Azure ad 및 Azure Storage 인증 및 데이터 전송에 대 한 연결을 허용 하도록 합니다. AzureBackup 태그는 PowerShell에서 현재 사용할 수만 있습니다. AzureBackup 태그를 사용 하 여 규칙을 만들려면:
 
@@ -68,7 +68,7 @@ SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 �
   - NSG를 저장 합니다.<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 - **Azure 방화벽 태그를 사용 하 여 액세스를 허용할**합니다. Azure 방화벽을 사용 하는 경우는 AzureBackup를 사용 하 여 응용 프로그램 규칙을 만듭니다 [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)합니다. Azure Backup에 대 한 아웃 바운드 액세스 허용
-- **트래픽을 라우트하도록 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업할 때 VM의 백업 확장이 HTTPS Api를 Azure Backup 및 Azure Storage에 데이터 관리 명령을 보내는 데 사용 합니다. 또한 예비 내선 번호는 인증에 대 한 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장은 공용 인터넷에 액세스 하도록 구성 된 유일한 구성 요소입니다.
+- **트래픽을 라우트하도록 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SQL Server 데이터베이스를 백업할 때 VM의 백업 확장이 HTTPS Api를 Azure Backup 및 Azure Storage에 데이터 관리 명령을 보내는 데 사용 합니다. 또한 예비 내선 번호는 인증에 대 한 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
 
 연결 옵션에는 장점과 단점은 다음과 같습니다.
 
@@ -96,7 +96,8 @@ Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 UserErrorSQLNoS
   * 선행 공백 및 후행
   * 후행 느낌표 (!)
   * 닫는 대괄호 (])
-  * F:\부터
+  * 세미콜론 ';'
+  * 슬래시 '/'
 
 별칭 지정은 지원 되지 않는 문자에 사용할 수 있지만 방지 하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
 
@@ -162,7 +163,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법.
 
      * 50개가 넘는 데이터베이스를 보호하려면 여러 백업을 구성합니다.
      * 사용할 수 있도록 [ ](#enable-auto-protection) 전체 인스턴스 또는 Always On 가용성 그룹입니다. 에 **AUTOPROTECT** 드롭 다운 목록에서 **ON**를 선택한 후 **확인**합니다.
-     
+
     > [!NOTE]
     > 합니다 [자동 보호](#enable-auto-protection) 기능 뿐만 아니라 모든 기존 데이터베이스에 대 한 한 번에 보호를 사용 하도록 설정 되지만 자동으로 해당 인스턴스 또는 가용성 그룹에 추가 된 모든 새 데이터베이스를 보호 합니다.  
 
@@ -174,7 +175,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법.
 
    - 기본 정책 HourlyLogBackup로 선택 합니다.
    - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
-   - RPO 및 보존 범위에 따라 새 정책을 정의 합니다.
+   - RPO(복구 지점 목표) 및 보존 범위를 기반으로 새 정책을 정의합니다.
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -182,7 +183,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법.
 
     ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. 구성 진행률을 추적 합니다 **알림을** 포털의 영역입니다.
+7. 포털의  **알림**  영역에서 구성 진행률을 추적합니다.
 
     ![알림 영역](./media/backup-azure-sql-database/notifications-area.png)
 

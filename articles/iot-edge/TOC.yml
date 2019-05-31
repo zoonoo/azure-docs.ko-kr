@@ -33,7 +33,7 @@
               href: tutorial-csharp-module.md
             - name: 'Windows 디바이스용 C# 모듈'
               href: tutorial-csharp-module-windows.md
-        - name: 자바
+        - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
@@ -127,7 +127,7 @@
           href: how-to-auto-provision-simulated-device-windows.md
     - name: 사용자 지정 모듈 개발 및 디버그
       items:
-        - name: Visual Studio 2017
+        - name: Visual Studio 2019
           href: how-to-visual-studio-develop-module.md
         - name: Visual Studio Code
           href: how-to-vs-code-develop-module.md

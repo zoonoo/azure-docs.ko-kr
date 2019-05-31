@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416978"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -35,9 +35,9 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 1. [포털](https://portal.azure.com)에서 **모니터**를 선택합니다. 합니다 **모니터** 창 모든 모니터링 설정과 데이터를 하나의 뷰에 통합 합니다.
 
     ![“모니터링” 서비스](./media/action-groups/home-monitor.png)
-1. **경고**, **작업 그룹 관리**를 차례로 선택합니다.
+1. 선택 **경고** 선택한 **작업을 관리할**합니다.
 
-    ![작업 그룹 관리 단추](./media/action-groups/manage-action-groups.png)
+    ![관리 작업 단추](./media/action-groups/manage-action-groups.png)
 1. **작업 그룹 추가**를 선택하고 필드를 입력합니다.
 
     ![“작업 그룹 추가” 명령](./media/action-groups/add-action-group.png)
@@ -102,6 +102,8 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

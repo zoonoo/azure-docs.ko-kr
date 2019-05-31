@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179823"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254460"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-사용자 로그 아웃 하 고 다른 작업을 수행 하려면 설명서를 참조 하십시오 온 [App Service 인증 및 권한 부여 사용](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to)합니다. Tomcat의 공식적인 설명서 이기도 [HttpServletRequest 인터페이스](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) 및 해당 메서드. 메서드는 또한 하이드레이션 다음 servlet App Service 구성에 따라:
+사용자 로그 아웃 하 고 다른 작업을 수행 하려면 설명서를 참조 하십시오 온 [App Service 인증 및 권한 부여 사용](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)합니다. Tomcat의 공식적인 설명서 이기도 [HttpServletRequest 인터페이스](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) 및 해당 메서드. 메서드는 또한 하이드레이션 다음 servlet App Service 구성에 따라:
 
 ```java
 public boolean isSecure()

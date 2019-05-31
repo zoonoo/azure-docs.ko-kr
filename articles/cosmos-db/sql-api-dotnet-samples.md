@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 04/04/2019
 ms.author: sngun
-ms.openlocfilehash: cb132c8e36797e4ae089420e48d75271cddb5c04
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a54c7493dd40d26151311a4211a791a99b0a265e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270543"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833545"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 .NET 예제
 > [!div class="op_single_selector"]
@@ -34,8 +34,8 @@ ms.locfileid: "59270543"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 개발 워크플로가 설치된 Visual Studio 2017
-- [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다. 
+Azure 개발 워크플로가 설치된 Visual Studio 2019
+- [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다. 
 
 [Microsoft.Azure.DocumentDB NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

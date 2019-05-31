@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016361"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226407"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램용 application Insights
 
@@ -111,7 +111,7 @@ ms.locfileid: "66016361"
     > [!NOTE]
     > 환경 변수를 통해 코드 wins에 지정 된 계측 키 `APPINSIGHTS_INSTRUMENTATIONKEY`, 다른 옵션과 비교 wins입니다.
 
-## <a name="run-your-application"></a>응용 프로그램 실행
+## <a name="run-your-application"></a>애플리케이션 실행
 
  응용 프로그램을 실행 하 고 요청을 확인 합니다. 원격 분석이 Application Insights로 이동 하는 것을 시작 됩니다. 다음과 같은 원격 분석은 Application Insights SDK에서 자동으로 수집 됩니다.
 
@@ -382,7 +382,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="video"></a>비디오
 
-- 에 대 한 외부 단계별 비디오 [.NET Core 및 Visual Studio를 사용 하 여 Application Insights 구성](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) 부터.
+- 처음부터 [.NET Core 및 애플리케이션으로 Visual Studio으로 Application Insight 구성](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)에 대한 외부의 단계별 비디오입니다.
+- 에 대 한 외부 단계별 비디오 [.NET Core 및 Visual Studio Code를 사용 하 여 Application Insights 구성](https://youtu.be/ygGt84GDync) 부터.
 
 ## <a name="next-steps"></a>다음 단계
 * [사용자 흐름을 탐색](../../azure-monitor/app/usage-flows.md)하여 사용자가 앱을 탐색하는 방식을 이해합니다.

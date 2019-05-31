@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004247"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860468"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결
 
 Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각적 데이터를 분류 및 처리하고 이미지의 기계 지원 수정을 수행하여 서비스 조정을 지원할 수 있습니다.
 
-이 문서 및 함께 제공되는 문서에서는 Text Analytics 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
+이 문서 및 함께 제공되는 문서에서는 Text Analytics 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2019 이상에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-- 웹 개발 워크로드가 설치된 Visual Studio 2017 버전 15.7 [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- 웹 개발 워크로드가 설치된 Visual Studio 2019. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

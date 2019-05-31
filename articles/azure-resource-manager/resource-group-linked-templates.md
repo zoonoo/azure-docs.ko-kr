@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205934"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357414"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -91,7 +91,7 @@ ms.locfileid: "65205934"
 > [!NOTE]
 > 중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
 >
-> 내에 정의 된 두 개의 리소스에 대 한 다른에 따라 달라 집니다 중첩 템플릿 및 리소스, 종속성의 값이 단순히 이러한 종속된 리소스의 이름:
+> 내에 정의 된 두 개의 리소스에 대 한 중첩 된 템플릿 및 리소스를 다른, 종속성의 값은 단순히 종속 리소스의 이름:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541058"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258162"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -96,7 +96,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 논리 앱 디자이너의 트리거 아래에서 선택 **새 단계**합니다.
 
-   ![새 단계를 선택 합니다.](./media/logic-apps-using-sap-connector/add-action.png)
+   ![“새 단계” 선택](./media/logic-apps-using-sap-connector/add-action.png)
 
 1. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **SAP로 메시지 보내기**
   
@@ -119,6 +119,8 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
       **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항).
 
       ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      기본적으로 강력한 형식을 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값에 대 한 확인에 사용 됩니다. 이 동작은 이전 문제를 검색할 수 있습니다. 합니다 **안전 하 게 입력** 옵션 이전 버전과 호환성을 위해 제공 되며만 문자열 길이 확인 합니다. 에 대 한 자세한 정보는 [ **안전 하 게 입력** 옵션](#safe-typing)합니다.
 
    1. 작업을 완료하면 **만들기**를 선택합니다.
 
@@ -225,6 +227,8 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      기본적으로 강력한 형식을 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값에 대 한 확인에 사용 됩니다. 이 동작은 이전 문제를 검색할 수 있습니다. 합니다 **안전 하 게 입력** 옵션 이전 버전과 호환성을 위해 제공 되며만 문자열 길이 확인 합니다. 에 대 한 자세한 정보는 [ **안전 하 게 입력** 옵션](#safe-typing)합니다.
+
 1. SAP 시스템 구성에 따라 필요한 매개 변수를 제공합니다.
 
    필요에 따라 하나 이상의 SAP 작업을 제공할 수 있습니다. 이 작업 목록은 트리거가 데이터 게이트웨이를 통해 SAP 서버에서 수신하는 메시지를 지정합니다. 빈 목록은 트리거가 모든 메시지를 수신하도록 지정합니다. 목록에 메시지가 두 개 이상 있는 경우 트리거는 목록에 지정된 메시지만 수신합니다. SAP 서버에서 보낸 그 외의 메시지는 게이트웨이에 의해 거부됩니다.
@@ -282,7 +286,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 논리 앱 디자이너의 트리거 아래에서 선택 **새 단계**합니다.
 
-   ![새 단계를 선택 합니다.](./media/logic-apps-using-sap-connector/add-action.png)
+   ![“새 단계” 선택](./media/logic-apps-using-sap-connector/add-action.png)
 
 1. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **스키마 생성**
   
@@ -306,7 +310,11 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. 작업을 완료하면 **만들기**를 선택합니다. Logic Apps는 연결을 설정하고 테스트하여 제대로 작동되는지 확인합니다.
+      기본적으로 강력한 형식을 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값에 대 한 확인에 사용 됩니다. 이 동작은 이전 문제를 검색할 수 있습니다. 합니다 **안전 하 게 입력** 옵션 이전 버전과 호환성을 위해 제공 되며만 문자열 길이 확인 합니다. 에 대 한 자세한 정보는 [ **안전 하 게 입력** 옵션](#safe-typing)합니다.
+
+   1. 작업을 완료하면 **만들기**를 선택합니다. 
+   
+      Logic Apps는 연결을 설정하고 테스트하여 제대로 작동되는지 확인합니다.
 
 1. 스키마를 생성할 아티팩트의 경로를 입력합니다.
 
@@ -397,11 +405,58 @@ SNC SAP 시스템의 요청에 사용 하려면 선택 합니다 **SNC 사용** 
    | **SNC SSO** | SNC에 연결 하는 경우 SNC id는 일반적으로 호출자를 인증 하기 위해 사용 됩니다. 호출자를 인증 하기 위한 사용자 및 암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 재정의 하는 방법도 있습니다. |
    | **SNC 내 이름** | 대부분의 경우에서이 속성을 생략할 수 있습니다. 설치 된 SNC 솔루션에는 일반적으로 자체 SNC 이름을 알고 있습니다. "여러 id"를 지 원하는 솔루션에 대해서만이 서버나 특정 대상에 사용할 id를 지정 해야 합니다. |
    | **SNC 파트너 이름** | SNC 백 엔드에 대 한 이름 |
-   | **SNC 보호 품질이** | 이 특정 대상/서버의 SNC 통신에 사용될 서비스 품질입니다. 기본값은 백 엔드 시스템에 의해 정의 됩니다. 최 댓 값 SNC에 사용 되는 보안 제품에 의해 정의 됩니다. |
+   | **SNC 보호 품질이** | 이 특정 대상 서버의/SNC 통신에 사용 되는 서비스의 품질입니다. 기본값은 백 엔드 시스템에 의해 정의 됩니다. 최 댓 값 SNC에 사용 되는 보안 제품에 의해 정의 됩니다. |
    |||
 
    > [!NOTE]
    > SNC_LIB 및 SNC_LIB_64 환경 변수 하지 설정할 컴퓨터에 있는 경우 데이터 게이트웨이 및 SNC 라이브러리입니다. 경우 설정에 우선 커넥터를 통해 전달 된 SNC 라이브러리 값입니다.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>안전 하 게 입력
+
+기본적으로 SAP 연결을 만들 때 스키마에 대해 XML 유효성 검사를 수행 하 여 잘못 된 값을 확인 하려면 사용은 강력한 형식 지정 합니다. 이 동작은 이전 문제를 검색할 수 있습니다. 합니다 **안전 하 게 입력** 옵션 이전 버전과 호환성을 위해 제공 되며만 문자열 길이 확인 합니다. 선택 하면 **안전 하 게 입력**, sap에서 TIMS 형식과 DATS 형식이 XML 해당 아닌 문자열로 처리 됩니다 `xs:date` 하 고 `xs:time` 여기서 `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. 안전 하 게 입력 동작을 둘 다 "전송" 페이로드 "받은" 응답 및 트리거 메시지를 보내는 모든 스키마 생성에 대 한 영향을 줍니다. 
+
+강력한 형식을 사용 하는 경우 (**안전 하 게 입력** 해제), 스키마는 DATS 및 TIMS 형식을 더 간단 하 게 XML 형식으로 매핑합니다.
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+강력한 형식 지정을 사용 하 여 메시지를 보낼 때 일치 하는 XML 형식에 DATS 및 TIMS 응답 준수 합니다.
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+때 **안전 하 게 입력** 는 활성화 스키마의 DATS 매핑하고 TIMS 형식을 XML 문자열 길이 제한만을 사용 하 여 필드 예를 들어:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+사용 하 여 메시지를 보내면 **안전 하 게 입력** 이 예제에서와 같이 DATS 및 TIMS 응답은 사용 하도록 설정 합니다.
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 

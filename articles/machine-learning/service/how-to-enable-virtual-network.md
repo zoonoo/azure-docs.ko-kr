@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978239"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356188"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>실험 및 Azure virtual network 내에서 유추를 안전 하 게 실행
 
@@ -141,7 +141,7 @@ Batch가 자체 NSG를 구성하므로 서브넷 수준에서 NSG를 지정할 �
 
 ![주소 접두사에 대 한 예제에서는 사용자 정의 경로](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-자세한 내용은 참조는 [가상 네트워크에 Azure Batch 풀을 만들어야](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) 문서.
+자세한 내용은 참조는 [가상 네트워크에 Azure Batch 풀을 만들어야](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) 문서.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>가상 네트워크에서 Machine Learning 컴퓨팅 만들기
 

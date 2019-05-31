@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65754110"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238744"
 ---
 | Resource | 기본/최대 제한 | 참고 |
 | --- | --- | --- |
@@ -23,9 +23,10 @@ ms.locfileid: "65754110"
 | 백 엔드 HTTP 설정 |100<sup>1</sup> | |
 | 게이트웨이당 인스턴스 |32 | |
 | SSL 인증서 |100<sup>1</sup> |HTTP 수신기 당 1 |
+| SSL 인증서 최대값 |V1 SKU-10KB<br>V2 SKU-25KB| |
 | 인증 인증서 |100 | |
 | 신뢰할 수 있는 루트 인증서 |100 | |
-| 최소 요청 시간 초과 |1초 | |
+| 최소 요청 시간 초과 |1 초 | |
 | 최대 요청 시간 초과 |24시간 | |
 | 사이트 수 |100<sup>1</sup> |HTTP 수신기 당 1 |
 | 수신기당 URL 맵 |1 | |
