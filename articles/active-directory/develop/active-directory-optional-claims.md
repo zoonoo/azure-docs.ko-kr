@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544573"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119717"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
 
@@ -125,6 +125,9 @@ ms.locfileid: "65544573"
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
 애플리케이션 매니페스트를 수정하여 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다(아래 예제 참조). 자세한 내용은 참조는 [Azure AD 응용 프로그램 매니페스트 문서 이해](reference-app-manifest.md)합니다.
+
+> [!IMPORTANT]
+> 액세스 토큰은 **항상** 클라이언트가 아닌 리소스의 매니페스트를 사용 하 여 생성 합니다.  요청에 따라서 `...scope=https://graph.microsoft.com/user.read...` 리소스는 그래프입니다.  따라서 그래프 매니페스트에 없습니다 클라이언트의 매니페스트를 사용 하 여 액세스 토큰이 만들어집니다.  응용 프로그램에 대 한 매니페스트를 변경 하면 다르게 보이게 하려면 그래프에 대 한 토큰 하지 않습니다.  확인 하기 위해 프로그램 `accessToken` 변경 내용이 적용, 응용 프로그램, 다른 앱에 대 한 토큰을 요청 합니다.  
 
 **샘플 스키마:**
 

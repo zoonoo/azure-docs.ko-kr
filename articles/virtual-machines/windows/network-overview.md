@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: be472eb78646140baa1b6cc09d11f77fa5874513
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154792"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure의 가상 네트워크 및 가상 머신 
 

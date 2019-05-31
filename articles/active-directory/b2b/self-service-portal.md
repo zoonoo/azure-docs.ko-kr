@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3ad424e8cab444b2405715eaa468411166ebd9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 28db43a345fb29a7529136ddfb929f5a48ccb1f8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674279"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785427"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 협업 등록을 위한 셀프 서비스 포털
 
@@ -32,6 +32,6 @@ ms.locfileid: "56674279"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-* [Azure AD B2B 공동 작업 라이선스](licensing-guidance.md)
-* [Azure Active Directory B2B 공동 작업 자주 묻는 질문(FAQ)](faq.md)
+* [Azure AD B2B 협업이란?](what-is-b2b.md)
+* [Azure AD B2B 협업 라이선스](licensing-guidance.md)
+* [Azure Active Directory B2B 협업 자주 묻는 질문(FAQ)](faq.md)

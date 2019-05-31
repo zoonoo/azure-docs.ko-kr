@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409819"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258674"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
 이 문서에서는 데이터베이스 보안 모범 사례를 설명 합니다.
@@ -165,6 +165,10 @@ SQL Server Database Engine 또는 개별 데이터베이스의 인스턴스를 �
 - 잠재적 위협을 검색하고 적절한 대응을 할 수 있습니다.
 
 또한 위협 검색에는 Azure Security Center를 통한 경고 기능도 통합되어 있으므로 모든 Azure 리소스의 보안 상태를 중앙에서 확인할 수 있습니다.
+
+## <a name="enable-feature-restrictions"></a>기능 제한을 사용 하도록 설정
+
+데이터베이스 오류 및 쿼리 실행 시간을 활용 하는 공격 벡터를 사용 하 여 공격자에 게 데이터베이스에 포함 된 데이터를 노출할 수 있습니다. Azure SQL Database는 여러 데이터베이스를 보호 하려면 기능 제한 메커니즘을 제공 합니다. 자세한 내용은 참조 하세요 [SQL Database 기능 제한 사항](../sql-database/sql-database-feature-restrictions.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.

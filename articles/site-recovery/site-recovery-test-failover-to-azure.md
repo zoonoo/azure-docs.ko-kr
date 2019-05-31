@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471488"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399928"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행 
 
@@ -54,7 +54,7 @@ ms.locfileid: "61471488"
 테스트 장애 조치(Failover)가 트리거되면 다음 작업이 수행됩니다.
 
 1. **필수 조건**: 필수 구성 요소 확인을 실행하여 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인합니다.
-2. **장애 조치(failover)**: Azure VM이 만들어질 수 있도록 장애 조치(Failover)가 데이터를 처리하고 준비합니다.
+2. **장애 조치(failover)** : Azure VM이 만들어질 수 있도록 장애 조치(Failover)가 데이터를 처리하고 준비합니다.
 3. **최신**: 최신 복구 지점을 선택한 경우 서비스로 전송된 데이터에서 복구 지점이 만들어집니다.
 4. **시작**: 이 단계는 이전 단계에서 처리된 데이터를 사용하여 Azure 가상 머신을 만듭니다.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111481"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -80,7 +80,7 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 **netTCPRelay** WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 이 바인딩을 사용하는 경우, 발신자와 리스너만이 보내고 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. **netTCPRelay** 바인딩을 사용하는 릴레이의 경우 청구 가능한 메시지를 계산하기 위해 모든 데이터를 스트림으로 처리합니다. 이 경우에 Service Bus는 5분 단위로 개별 릴레이를 통해 보내거나 받은 데이터의 총 크기를 계산합니다. 그런 다음 64KB로 총 데이터 양을 나누어서 해당 기간 동안 해당 릴레이에 대한 청구 가능 메시지 수를 결정합니다.
 
 ## <a name="quotas"></a>할당량
-| 할당량 이름 | 범위 |  메모 | 값 |
+| 할당량 이름 | Scope |  메모 | 값 |
 | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
 | 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |

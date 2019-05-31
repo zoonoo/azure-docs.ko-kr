@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121829"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950000"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -147,9 +147,9 @@ Storage Blob 데이터 Contributor
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그녀의 권한은 그녀가 모든 관리 작업을 수행할 수 있도록 상속됩니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
+Alice에 와일드 카드 (`*`) 구독 범위의 작업을 해당 사용 권한을 상속 모든 관리 작업을 수행할 수 있도록 합니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
 
-Bob의 권한은 제한만 `Actions` 하 고 `DataActions` 에 지정 된 된 [Storage Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
+Bob의 권한은 제한만 `Actions` 하 고 `DataActions` 에 지정 된 된 [Storage Blob 데이터 기여자](built-in-roles.md#storage-blob-data-contributor) 역할. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob 수 읽고, 쓰기 및 지정된 된 저장소 계정에서 컨테이너를 삭제 및 수 읽을 수도, 쓰고, blob을 삭제 합니다.
 
 스토리지의 관리 및 데이터 평면 보안에 대한 자세한 내용은 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)를 참조하세요.
 
@@ -220,7 +220,7 @@ Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
-| 시나리오 | 예 |
+| 시나리오 | 예제 |
 |----------|---------|
 | 역할은 단일 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | 역할은 두 개의 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |

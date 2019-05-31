@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325734"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131279"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>함수 앱에 사용자 지정 SSL 인증서 바인딩
 
@@ -27,7 +27,7 @@ ms.locfileid: "60325734"
 * 업로드하고 바인딩하려는 SSL 인증서에 사용할 유효한 .PFX 파일 및 암호
 * 웹앱의 기본 도메인 이름을 가리키는 사용자 지정 도메인에 A 레코드를 구성했습니다. 자세한 내용은 [Azure App Service에 대한 사용자 지정 도메인 지침 매핑](https://aka.ms/appservicecustomdns)을 참조합니다.
 
-SSL 인증서를 바인딩하려면 함수 앱이 소비 계획이 아니라 App Service 계획에서 생성되어야 합니다.
+SSL 인증서를 바인딩하려면 함수 앱이 소비 계획이 아니라 프리미엄 플랜 또는 App Service 계획에서 생성되어야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

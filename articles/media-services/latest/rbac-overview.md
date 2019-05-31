@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236911"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)
 
@@ -43,6 +43,7 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 - [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Azure 리소스에 대 한 RBAC 란?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [RBAC를 사용 하 여 액세스를 관리 하려면](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
+- [Media Services 리소스 공급자 작업](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
 
 ## <a name="next-steps"></a>다음 단계
 

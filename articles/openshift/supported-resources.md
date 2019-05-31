@@ -2,18 +2,18 @@
 title: Azure Red Hat OpenShift에 대 한 지원 되는 리소스 | Microsoft Docs
 description: Microsoft Azure의 Red Hat OpenShift에서 지원 되는 Azure 지역 및 가상 머신 크기를 이해 합니다.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/15/2019
-ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788706"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306212"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure의 Red Hat OpenShift 리소스
 
@@ -23,7 +23,7 @@ ms.locfileid: "65788706"
 
 참조 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) Azure Red Hat OpenShift를 배포할 수 있는 지역 목록은 현재 클러스터.
 
-## <a name="virtual-machine-sizes"></a>가상 컴퓨터 크기
+## <a name="virtual-machine-sizes"></a>가상 머신 크기
 
 Azure Red Hat OpenShift 클러스터의 계산 노드에 대해 지정할 수 있습니다 하는 지원 되는 가상 컴퓨터 크기는 다음과 같습니다.
 

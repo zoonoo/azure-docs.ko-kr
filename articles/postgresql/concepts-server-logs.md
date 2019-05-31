@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL-단일 서버용 Azure Database에서의 서버 로그
-description: 이 문서에서는 PostgreSQL-단일 서버용 Azure 데이터베이스를 설명합니다. 쿼리 및 오류 로그를 생성하고 로그 보존을 구성하는 방법을 설명합니다.
+description: 이 문서에서는 PostgreSQL 용 Azure 데이터베이스를 설명 합니다.-단일 서버 쿼리 및 오류 로그 및 로그 보존을 구성 하는 방법을 생성 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

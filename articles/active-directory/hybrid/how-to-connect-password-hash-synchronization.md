@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348334"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235148"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -64,7 +64,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 >원래 MD4 해시는 Azure AD로 전송되지 않습니다. 대신 원래 MD4 해시의 SHA256 해시가 전송됩니다. 결과적으로 Azure AD에 저장된 해시를 습득하더라도 온-프레미스 pass-the-hash 공격에 사용할 수 없습니다.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 암호 해시 동기화 작동 방식
-암호 해시 동기화 기능을 사용하여 온-프레미스 암호를 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)에 동기화할 수도 있습니다. 이 시나리오에서는 Azure Active Directory Domain Services 인스턴스가 온-프레미스 Active Directory 인스턴스에서 사용할 수 있는 모든 방법을 사용하여 클라우드에서 사용자를 인증합니다. 이 시나리오의 환경은 온-프레미스 환경에서 ADMT(Active Directory 마이그레이션 도구)를 사용하는 것과 비슷합니다.
+암호 해시 동기화 기능을 사용하여 온-프레미스 암호를 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)에 동기화할 수도 있습니다. 이 시나리오에서는 Azure Active Directory Domain Services 인스턴스가 온-프레미스 Active Directory 인스턴스에서 사용할 수 있는 모든 방법을 사용하여 클라우드에서 사용자를 인증합니다. 이 시나리오의 환경은 온-프레미스 환경에서 ADMT(Active Directory 마이그레이션 도구)를 사용하는 것과 비슷합니다.
 
 ### <a name="security-considerations"></a>보안 고려 사항
 암호를 동기화할 때, 사용자 암호의 일반 텍스트 버전은 암호 해시 동기화 기능, Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않습니다.

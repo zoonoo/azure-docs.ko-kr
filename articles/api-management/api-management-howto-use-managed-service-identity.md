@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656705"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393380"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id를 사용 합니다.
 
 이 문서에서는 API Management 서비스 인스턴스에 대 한 관리 되는 id를 만드는 방법과 다른 리소스에 액세스 하는 방법을 보여 줍니다. Azure Active Directory (Azure AD)에서 생성 된 관리 되는 id를 쉽고 안전 하 게 Azure Key Vault 처럼 하 다른 Azure AD로 보호 된 리소스에 액세스 하기 위해 API Management 인스턴스를 허용 합니다. 이 id가 Azure에서 관리 및 프로 비전 하거나 암호를 회전 하면 필요가 없습니다. 관리 되는 id에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 관리 되는 id 란](../active-directory/managed-identities-azure-resources/overview.md)합니다.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>API Management 인스턴스에 대 한 관리 되는 id 만들기
 
@@ -242,3 +240,4 @@ Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 정보:
 
 * [Azure 리소스에 대 한 관리 되는 id 란](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates)
+* [정책에서 관리 되는 id를 사용 하 여 인증](./api-management-authentication-policies.md#ManagedIdentity)

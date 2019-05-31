@@ -1,7 +1,7 @@
 ---
 title: FPGA에 모델 배포
 titleSuffix: Azure Machine Learning service
-description: 대기 시간이 매우 짧은 추론을 위해 Azure Machine Learning 서비스를 사용하여 FPGA에서 실행되는 모델로 웹 서비스를 배포하는 방법을 알아봅니다.
+description: 매우 짧은 대기 시간 유추를 위한 Azure Machine Learning 서비스를 사용 하 여 FPGA에서 실행 되는 모델을 사용 하 여 웹 서비스를 배포 하는 방법에 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149604"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852043"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
-모델을 웹 서비스로 배포할 수 있습니다 [field-programmable gate array (Fpga)](concept-accelerate-with-fpgas.md) Azure Machine Learning 하드웨어 가속 모델을 사용 하 여 합니다. FPGA를 사용하면 단일 배치 크기로도 대기 시간이 엄청나게 짧은 추론이 가능합니다.
+모델을 웹 서비스로 배포할 수 있습니다 [field-programmable gate array (Fpga)](concept-accelerate-with-fpgas.md) Azure Machine Learning 하드웨어 가속 모델을 사용 하 여 합니다. Fpga를 사용 하 여 단일 일괄 처리 크기로 대기 시간이 엄청나게 짧은 유추를 제공 합니다. 모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다.
 
 현재 사용 가능한 모델은 다음과 같습니다.
   - ResNet 50
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> 입력을 저장 하 고 모델 변환 및 추론 요청에 대 한 필요 하기 때문에 tensors를 출력 합니다.
+> 입력을 저장 하 고 모델 변환 및 유추 요청에 대 한 필요 하기 때문에 tensors를 출력 합니다.
 
-사용 가능한 모델 및 해당 기본 분류자는 양만큼 추론 하는 동안 기본 분류자를 사용 하는 경우는 아래 tensors는 출력입니다.
+사용 가능한 모델 및 해당 기본 분류자는 양만큼 유추에 대 한 기본 분류자를 사용 하는 경우는 아래 tensors는 출력입니다.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

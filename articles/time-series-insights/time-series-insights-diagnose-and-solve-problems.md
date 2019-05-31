@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure Time Series Insights 환경에서 발생�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471694"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235037"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -108,9 +108,9 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 값은 표시되지 않아야 합니다.
 
-- *(abc)*: Time Series Insights가 데이터 값을 문자열로 읽고 있음을 나타냅니다.
+- *(abc)* : Time Series Insights가 데이터 값을 문자열로 읽고 있음을 나타냅니다.
 - *달력 아이콘*: Time Series Insights가 데이터 값을 *날짜/시간*으로 읽고 있음을 나타냅니다.
-- *#*: Time Series Insights가 데이터 값을 정수로 읽고 있음을 나타냅니다.
+- *#* : Time Series Insights가 데이터 값을 정수로 읽고 있음을 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

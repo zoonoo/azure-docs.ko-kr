@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764018"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150308"
 ---
 클라이언트 인증서를 생성하는 경우 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려는 경우 생성한 클라이언트 인증서를 내보내야 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "60764018"
    ![내보내기 파일 형식](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
 5. **보안** 페이지에서 개인 키를 보호해야 합니다. 암호를 사용하도록 선택하는 경우 이 인증서에 대해 설정한 암호를 기록해두거나 기억합니다. 그런 후 **다음**을 클릭합니다.
 
-   ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+   ![보안](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
 6. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
 
    ![내보낼 파일](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)

@@ -9,11 +9,11 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141757"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66112249"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "65141757"
     - **사용자가 선택한** -액세스가 필요한 사용자 알 수 없는 경우이 옵션을 사용 합니다. 이 옵션을 사용하여 리소스 소유자 또는 관리자 그룹에게 검토를 완료하도록 할당할 수 있습니다.
     - **멤버 (자체)** -이 옵션을 사용 하 여 사용자에 게 자신의 역할 할당을 검토 해야 합니다.
 
-### <a name="upon-completion-settings"></a>완료 시 설정
+### <a name="upon-completion-settings"></a>설정 완료 시
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 

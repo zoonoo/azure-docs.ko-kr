@@ -4,16 +4,16 @@ description: 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145157"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399765"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -42,6 +42,24 @@ The solution cannot be enabled on this VM because the permission to read the wor
 #### <a name="resolution"></a>해결 방법
 
 가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 발생 하는 경우 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, 했는지를 `Microsoft.OperationalInsights/workspaces/read` 권한을 VM이 작업 영역에 등록 하는 경우를 찾을 수 있습니다.
+
+### <a name="diagnostic-logging"></a>시나리오: 진단 로깅에 대 한 Automation 계정을 구성 하지 못했습니다-메시지와 함께 등록이 실패
+
+#### <a name="issue"></a>문제
+
+가상 머신을 솔루션에 온보딩하려고 하면 다음 메시지가 표시됩니다.
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>원인
+
+가격 책정 계층에는 구독의 청구 모델 맞지 않는 경우이 오류를 발생할 수 있습니다. 자세한 내용은 [모니터링 사용량 및 예상된 비용 Azure Monitor에서](http://aka.ms/PricingTierWarning)합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Log Analytics 작업 영역을 수동으로 만들고 만든 작업 영역을 선택 하는 온 보 딩 프로세스를 반복 합니다.
 
 ### <a name="computer-group-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
 

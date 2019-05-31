@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438774"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572921"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Azure Time Series Insights Preview 개요
+# <a name="the-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기
 
-Azure Time Series Insights Preview는 엔드투엔드 PaaS(Platform as a Service) 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
+Azure Time Series Insights Preview는 엔드투엔드 PaaS(Platform as a Service) 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장, 분석 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
+
+> [!TIP]
+> 일반 공급되는 기능은 [Azure Time Series Insights GA 개요](time-series-insights-overview.md)를 읽어보세요.
 
 ## <a name="video"></a>비디오
 
-이 비디오에서는 클라우드 기반 IoT 분석 플랫폼인 Azure Time Series Insights Preview를 간략하게 설명합니다.
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>Azure Time Series Insights 미리 보기에 대해 자세히 알아보세요. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>IoT 데이터 정의
 
-IoT 데이터란 자산 집약적 조직에서 사용할 수 있는 모든 “산업” 데이터를 말합니다. IoT 데이터는 비교적 정리되지 않은 측정값을 기록하는 자산에서 전송되기 때문에 고도로 비정형인 경우가 많습니다. 이 측정값에는 온도, 동작, 습도 등이 포함됩니다. 때때로 이러한 데이터 스트림은 상당한 차이, 손상된 메시지, 거짓 판독값 등의 특성이 있습니다. 분석을 수행하려면 먼저 이러한 스트림의 데이터를 정리해야 합니다. 대체로 IoT 데이터는 CRM 또는 ERP와 같은 자사 원본에서 제공되는 추가 데이터 입력의 컨텍스트에서만 의미가 있습니다. 날씨 또는 위치와 같은 타사 데이터 원본에서 입력이 제공되기도 합니다.
+IoT 데이터란 자산 집약적 조직에서 사용할 수 있는 모든 산업 데이터를 말합니다. IoT 데이터는 비교적 정리되지 않은 측정값을 기록하는 자산에서 전송되기 때문에 고도로 비정형인 경우가 많습니다. 이 측정값에는 온도, 동작, 습도 등이 포함됩니다. 때때로 이러한 데이터 스트림은 상당한 차이, 손상된 메시지, 거짓 판독값 등의 특성이 있습니다. 분석을 수행하려면 먼저 이러한 스트림의 데이터를 정리해야 합니다.
+
+대체로 IoT 데이터는 CRM 또는 ERP와 같은 자사 원본에서 제공되는 추가 데이터 입력의 컨텍스트에서만 의미가 있습니다. 날씨 또는 위치와 같은 타사 데이터 원본에서 입력이 제공되기도 합니다.
 
 그 결과, 데이터의 일부만 운영 및 비즈니스 목적으로 사용됩니다. 이러한 데이터는 비즈니스 보고 및 분석에 대한 현재의 일관적이고 포괄적이며 올바른 정보를 제공합니다. 수집된 IoT 데이터를 작업 가능한 인사이트로 전환하려면 다음이 필요합니다.
 
@@ -46,8 +51,8 @@ IoT 데이터란 자산 집약적 조직에서 사용할 수 있는 모든 “�
 
 현재 IoT 환경은 다양합니다. 제조, 자동차, 에너지, 공공 설비, 스마트 빌딩, 컨설팅 업계의 고객이 IoT 서비스를 사용하고 있습니다. IoT 시나리오로는 데이터 모양을 알 수 없는 임시 데이터 탐색을 비롯하여 스키마화된 데이터 또는 명시적으로 모델링된 데이터에 대한 운영 분석을 통해 운영 효율성을 도출하는 경우가 있습니다. 이러한 시나리오는 일반적으로 병렬로 존재하며 다양한 사용 사례를 지원합니다. 산업 IoT 엔터프라이즈 및 해당 디지털 혁신의 성공에 관건이 되는 플랫폼 기능은 다음과 같습니다.
 
-- 다중 계층 스토리지(웜 및 콜드) 
-- 수십 년 분량의 시계열 데이터를 저장하는 기능 
+- 다중 계층 스토리지(웜 및 콜드)
+- 수십 년 분량의 시계열 데이터를 저장하는 기능
 - 자산 기반의 운영 인텔리전스를 위해 쿼리를 명시적으로 모델링하고 최적화하는 기능
 
 Time Series Insights는 IoT 데이터 탐색 및 운영 인사이트 둘 다를 위한 포괄적인 엔드투엔드 PaaS(Platform as a Service) 제품입니다. Time Series Insights는 IoT 규모 시계열 데이터를 분석하기 위해 완전 관리형 클라우드 서비스를 제공합니다.

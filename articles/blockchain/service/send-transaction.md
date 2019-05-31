@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027499"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777334"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>자습서: Azure Blockchain Service를 사용하여 트랜잭션 보내기
 
@@ -80,7 +80,7 @@ ms.locfileid: "65027499"
     truffle develop
     ```
 
-    Truffle에서 로컬 개발 블록체인을 만들고 대화형 콘솔을 제공합니다.
+    Truffle이 로컬 개발 블록체인을 만들고 대화형 콘솔을 제공합니다.
 
 ## <a name="connect-to-transaction-node"></a>트랜잭션 노드에 연결
 
@@ -128,7 +128,7 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
 ### <a name="transaction-node-endpoint-addresses"></a>트랜잭션 노드 엔드포인트 주소
 
 1. Azure Portal에서 각 트랜잭션 노드로 이동하여 **트랜잭션 노드 > 연결 문자열**을 차례로 선택합니다.
-1. 각 트랜잭션 노드에 대한 **HTTPS(액세스 키 1)에서 엔드포인트 URL을 복사하여 저장합니다. 자습서의 뒷부분에 있는 스마트 계약 구성 파일에 대한 엔드포인트 주소가 필요합니다.
+1. 각 트랜잭션 노드에 대한 **HTTPS(액세스 키 1)** 에서 엔드포인트 URL을 복사하여 저장합니다. 자습서의 뒷부분에 있는 스마트 계약 구성 파일에 대한 엔드포인트 주소가 필요합니다.
 
     ![트랜잭션 엔드포인트 주소](./media/send-transaction/endpoint.png)
 

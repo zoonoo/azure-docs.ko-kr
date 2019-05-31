@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 495326c172f900dc8bcff78b0df38f2cb64ed27e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546537"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147770"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>사용 하도록 설정 하 고 Azure ultra Ssd (미리 보기) 배포
 
@@ -27,7 +27,7 @@ Azure ultra 반도체 (SSD) (미리 보기) 제품에 대 한 높은 처리량, 
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
+CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
 응답을 여기서 X는 미국 동부 2에에서 배포 하기 위해 사용 하는 영역 아래 폼 비슷할 것입니다. X는 1, 2 또는 3이 될 수 있습니다.
 

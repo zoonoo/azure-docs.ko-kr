@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363762"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304982"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
 
@@ -59,16 +59,14 @@ Visual Studio를 사용하여 Azure SQL Database를 참조 입력 원본으로 �
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio의 필수 구성 요소
 
-1. Visual Studio 2017을 사용하는 경우 15.8.2 이상으로 업데이트합니다. 16.0 이상은 현재 지원되지 않습니다.
-
-2. [Stream Analytics Tools for Visual Studio를 설치](stream-analytics-tools-for-visual-studio-install.md)합니다. 다음 Visual Studio 버전이 지원됩니다.
+1. [Stream Analytics Tools for Visual Studio를 설치](stream-analytics-tools-for-visual-studio-install.md)합니다. 다음 Visual Studio 버전이 지원됩니다.
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. [Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) 빠른 시작을 숙지합니다.
+2. [Stream Analytics Tools for Visual Studio](stream-analytics-quick-create-vs.md) 빠른 시작을 숙지합니다.
 
-4. 저장소 계정을 만듭니다.
+3. 저장소 계정을 만듭니다.
 
 ### <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2017을 사용하며 SQL Server Data Tools를 설치한 경우 **실행**을 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
+5. Visual Studio 2019를 사용 하는 SQL Server Data tools를 설치한 경우 클릭 하 여 쿼리를 테스트할 수 있습니다 **Execute**합니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
@@ -175,6 +173,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
    Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅숏 쿼리를 주기적으로 실행할 수 있습니다.
 
+## <a name="test-your-query"></a>쿼리 테스트
+   쿼리에서 참조 데이터로 사용할 Stream Analytics 작업을 예상된 데이터 집합을 반환 하는 확인 하는 것이 반드시 합니다. 쿼리를 테스트 하려면 입력 작업 토폴로지 섹션에서 포털에서으로 이동 합니다. 그런 다음 입력 하 여 SQL Database 참조에서 샘플 데이터를 선택할 수 있습니다. 샘플 사용 가능 해지면, 파일을 다운로드할 수 있으며로 반환 될 데이터 인지 확인 하려면 확인 수 있습니다. 사용 하도록 권장 되는 개발 및 테스트 반복을 최적화 하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)합니다. 쿼리가 올바른 결과 반환 하는 Azure SQL database에서 먼저 확인 하 여 Stream Analytics 작업에 사용 하 여 기본 설정의 다른 도구도 할 수 있습니다. 
+
 ## <a name="faqs"></a>FAQ
 
 **Azure Stream Analytics에서 SQL 참조 데이터 입력을 사용하면 추가 비용이 부과되나요?**
@@ -193,10 +194,6 @@ Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microso
 **특수한 유형의 Azure SQL Database가 필요한가요?**
 
 Azure Stream Analytics는 모든 유형의 Azure SQL Database에서 작동합니다. 그러나 참조 데이터 입력에 대해 설정된 새로 고침 빈도가 쿼리 로드에 영향을 미칠 수 있는지 이해해야 합니다. 델타 쿼리 옵션을 사용하려면 Azure SQL Database의 temporal 테이블을 사용하는 것이 좋습니다.
-
-**SQL Database 참조 데이터 입력에서 입력을 샘플링할 수 있나요?**
-
-이 기능은 사용할 수 없습니다.
 
 **Azure Stream Analytics가 Azure Storage 계정에 스냅숏을 저장하는 이유는 무엇인가요?**
 

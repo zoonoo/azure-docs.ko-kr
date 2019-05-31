@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464781"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016518"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
-이 문서에서는 학습 하 고 기계 학습 및 딥 러닝 모델을 Visual Studio Code에서 Azure Machine Learning 서비스를 사용 하 여 배포 하려면 Visual Studio Code에 대 한 Azure Machine Learning에 대 한 확장을 사용 하는 방법에 알아봅니다.
+이 문서에서는 Visual Studio Code에 대 한 Azure Machine Learning에 대 한 확장을 사용 하 여 학습 및 기계 학습 및 딥 러닝 모델을 배포 하는 방법에 알아봅니다.
 
-Azure Machine Learning 서비스는 로컬 및 원격 계산 대상에서 실행 하는 실험에 대 한 지원을 제공 합니다. 모든 실험에서 여러 다른 기법, 하이퍼 매개 변수 등을 반복적으로 시도하기 위해 여러 실행을 추적할 수 있습니다. Azure Machine Learning을 사용하여 사용자 지정 메트릭 및 실험 실행을 추적하여 데이터 과학을 재현하고 감사하도록 할 수 있습니다.
+합니다 [Azure Machine Learning 서비스](overview-what-is-azure-ml.md) 로컬 및 원격에서 실행 하는 실험 계산 대상에 대 한 지원을 제공 합니다. 모든 실험에서 여러 다른 기법, 하이퍼 매개 변수 등을 반복적으로 시도하기 위해 여러 실행을 추적할 수 있습니다. Azure Machine Learning을 사용하여 사용자 지정 메트릭 및 실험 실행을 추적하여 데이터 과학을 재현하고 감사하도록 할 수 있습니다.
 
 또한 테스트 및 프로덕션 요구에 맞게 이러한 모델을 배포할 수 있습니다.
 
@@ -69,13 +69,13 @@ Azure Machine Learning 확장을 설치 합니다.
 
    ![인터프리터 선택](./media/vscode-tools-for-ai/python.png)
 
-1. 창의 오른쪽 아래 구석에 알림이 표시 됩니다, Azure Machine Learning SDK는 자동으로 설치 되었는지 합니다. 새로 생성된 된 Python 환경에 로컬 이며 개인 있고 Visual Studio Code 필수 구성 요소는 Azure Machine Learning 서비스를 사용 합니다.
+1. 창의 오른쪽 아래 구석에 알림이 표시 됩니다, 나타내는 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 자동으로 설치 됩니다. 새로 생성된 된 Python 환경에 로컬 이며 개인 있고 Visual Studio Code 필수 구성 요소는 Azure Machine Learning 서비스를 사용 합니다.
 
    ![Python용 Azure Machine Learning SDK 설치](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning 시작
 
-교육을 시작 하 고 생성 해야 Visual Studio Code에서 기계 학습 모델을 배포 하기 전에 [Azure Machine Learning 서비스 작업 영역](concept-azure-machine-learning-architecture.md#workspace) 클라우드에서 합니다. 이 작업 영역에서 모델 및 리소스에 포함 됩니다. 
+교육을 시작 하 고 생성 해야 Visual Studio Code에서 기계 학습 모델을 배포 하기 전에 [Azure Machine Learning 서비스 작업 영역](concept-workspace.md) 클라우드에서 합니다. 이 작업 영역에서 모델 및 리소스에 포함 됩니다. 
 
 작업 영역을 만들고 첫 번째 실험을 추가 합니다.
 

@@ -13,7 +13,7 @@ ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59677785"
@@ -43,11 +43,11 @@ ms.locfileid: "59677785"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정합니다  이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 끝점 URI를 지정의 합니다 _Cognitive Services_ Azure에서 리소스 계량 컨테이너에 대 한 청구 정보를 사용 합니다. 이 구성 설정에 대 한 값을 지정 해야 하며 값은 유효한 끝점 URI 여야 합니다.에 _Cognitive Services_ Azure에서 리소스입니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
+* Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
 
 예제에 표시된 대로 끝점 URI로 _얼굴_ 라우팅을 추가해야 합니다. 
 

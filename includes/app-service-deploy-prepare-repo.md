@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7ec4028c319749b6a3da019e1d320d3937e9c4b2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951549"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133164"
 ---
 ## <a name="prepare-your-repository"></a>리포지토리 준비
 
@@ -26,7 +26,7 @@ Azure App Service Kudu 빌드 서버에서 자동 빌드를 가져오려고 하�
 | PHP | _index.php_ |
 | Ruby(Linux만 해당) | _Gemfile_ |
 | Node.js | _server.js_, _app.js_ 또는 _package.json_(시작 스크립트 포함) |
-| Python(Windows만 해당) | _\*.py_, _requirements.txt_ 또는 _runtime.txt_ |
+| Python | _\*.py_, _requirements.txt_ 또는 _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ 또는 _iisstart.htm_ |
 | 웹 작업 | _App\_Data/jobs/continuous_(연속 WebJobs용) 또는 _App\_Data/jobs/triggered_(트리거된 WebJobs용)의 _\<job_name>/run.\<extension>_ 자세한 내용은 [Kudu WebJobs 설명서](https://github.com/projectkudu/kudu/wiki/WebJobs)합니다. |
 | Functions | [Azure Functions에 대한 연속 배포](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment)를 참조하세요. |

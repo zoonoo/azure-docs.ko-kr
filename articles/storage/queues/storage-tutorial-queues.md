@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233866"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797533"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>자습서: Azure 스토리지 큐 작업
 
@@ -129,18 +129,19 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-1. **WindowsAzure. Storage** 패키지를 프로젝트에 설치합니다(`dotnet add package` 명령 사용). 콘솔 창의 프로젝트 폴더에서 다음 dotnet 명령을 실행합니다.
+1. `dotnet add package` 명령을 사용하여 **Microsoft.Azure.Storage.Common** 및 **Microsoft.Azure.Storage.Queue** 패키지를 프로젝트에 설치합니다. 콘솔 창의 프로젝트 폴더에서 다음 dotnet 명령을 실행합니다.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. **Program.cs** 파일의 맨 위에서, `using System;` 문 바로 뒤에 다음 네임스페이스를 추가합니다. 이 앱은 이 네임스페이스의 형식을 사용하여 Azure Storage에 연결하고 큐를 사용합니다.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. **Program.cs** 파일을 저장합니다.
@@ -206,7 +207,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="insert-messages-into-the-queue"></a>큐에 메시지 삽입
 
-큐에 메시지를 보내는 새 메서드를 만듭니다. **Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 큐 참조를 가져온 다음, 기존 큐가 없으면 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet)를 호출하여 새 큐를 만듭니다. 그런 다음, [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet)를 호출하여 메시지를 큐에 추가합니다.
+큐에 메시지를 보내는 새 메서드를 만듭니다. **Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 큐 참조를 가져온 다음, 기존 큐가 없으면 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync)를 호출하여 새 큐를 만듭니다. 그런 다음, [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)를 호출하여 메시지를 큐에 추가합니다.
 
 1. **Program** 클래스에 다음 **SendMessageAsync** 메서드를 추가합니다.
 
@@ -229,7 +230,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="dequeue-messages"></a>큐에서 메시지 제거
 
-**ReceiveMessageAsync**라는 새 메서드를 만듭니다. 이 메서드는 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 받습니다. 메시지가 성공적으로 수신되면 메시지가 여러 번 처리되지 않도록 큐에서 삭제해야 합니다. 메시지가 수신된 후 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 삭제합니다.
+**ReceiveMessageAsync**라는 새 메서드를 만듭니다. 이 메서드는 [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync)를 호출하여 큐에서 메시지를 받습니다. 메시지가 성공적으로 수신되면 메시지가 여러 번 처리되지 않도록 큐에서 삭제해야 합니다. 메시지가 수신된 후 [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync)를 호출하여 큐에서 메시지를 삭제합니다.
 
 1. **Program** 클래스에 다음 **ReceiveMessageAsync** 메서드를 추가합니다.
 
@@ -343,8 +344,8 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

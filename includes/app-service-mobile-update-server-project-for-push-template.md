@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804630"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140137"
 ---
 이 섹션에서는 새 항목이 추가될 때마다 푸시 알림을 보내도록 기존 Mobile Apps 백 엔드 프로젝트의 코드를 업데이트합니다. 이 프로세스는 플랫폼 간 푸시를 구현하는 Azure Notification Hubs의 [템플릿](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) 기능으로 구동됩니다. 템플릿을 사용한 푸시 알림에 대해 다양한 클라이언트가 등록되며 단일 범용 푸시를 통해 모든 클라이언트 플랫폼을 가져올 수 있습니다.
 

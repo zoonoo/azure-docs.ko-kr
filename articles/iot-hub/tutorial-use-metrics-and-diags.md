@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162406"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -274,7 +274,7 @@ IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-colle
 
 앞서 스크립트 설정 섹션에서 IoT 디바이스를 사용하여 시뮬레이션하도록 디바이스를 설정했습니다. 이 섹션에서는 IoT Hub로 디바이스-클라우드 메시지를 전송하는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다.  
 
-[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션을 사용한 리포지토리를 다운로드합니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/SimulatedDevice/에 있습니다.
+[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션을 사용한 리포지토리를 다운로드합니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/에 있습니다.
 
 솔루션 파일(SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
 
@@ -298,7 +298,7 @@ await Task.Delay(10);
 
 ### <a name="see-the-metrics-in-the-portal"></a>포털에서 메트릭 확인
 
-대시보드에서 메트릭을 엽니다. 시간 단위를 *1분*으로 하고 시간 값을 *지난 30분*으로 변경합니다. 차트의 아래쪽에 최신 숫자와 함께 전송된 원격 분석 메시지와 사용된 전체 메시지 수가 차트에 표시됩니다. 
+대시보드에서 메트릭을 엽니다. 시간 단위를 *1분*으로 하고 시간 값을 *지난 30분*으로 변경합니다. 차트의 아래쪽에 최신 숫자와 함께 전송된 원격 분석 메시지와 사용된 전체 메시지 수가 차트에 표시됩니다.
 
    ![메트릭을 보여주는 스크린샷.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ az group delete --name $resourceGroup
 IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
-[백 엔드 서비스에서 디바이스 구성](tutorial-device-twins.md)
+> [백 엔드 서비스에서 디바이스 구성](tutorial-device-twins.md)

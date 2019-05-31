@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
 ms.openlocfilehash: f038510c20e70c9d6b9dc8e396d9a15beb7270ca
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155146"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기
 
@@ -139,7 +139,7 @@ $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-### <a name="grant-permission"></a>사용 권한 부여
+### <a name="grant-permission"></a>권한 부여
 
 만들고 등록한 자체 호스팅 통합 런타임에 액세스해야 하는 데이터 팩터리에 권한을 부여합니다.
 

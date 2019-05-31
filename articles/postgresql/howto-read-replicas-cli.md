@@ -5,20 +5,22 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510245"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306029"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Azure CLI에서 읽기 복제본 만들기 및 관리
 
 이 문서에서는 Azure CLI에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
 
+
 > [!NOTE]
 > Azure CLI 마스터 서버에서 다른 지역에 복제본을 만드는 것은 아직 지원하지 않습니다. 교차 지역 복제본을 만들려면 [Azure portal](howto-read-replicas-portal.md)을 사용합니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 - 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md)
@@ -55,11 +57,19 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 | name | mydemoserver-replica | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제에 기존 마스터 서버 이름 또는 리소스 ID입니다. |
 
+다음 CLI 예제에서는 복제본 마스터와 동일한 지역에 만들어집니다.
+
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-범용 또는 메모리 액세스에 최적화된 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정하지 않고 서버를 다시 시작하게 되면 오류가 발생합니다. 복제본을 만들기 전에 이 두 단계를 완료합니다.
+
+크로스 만들려는 지역 읽기 복제본을 사용 하 여는 `--location` 매개 변수입니다. 다음 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
+
 
 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 세대, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
 

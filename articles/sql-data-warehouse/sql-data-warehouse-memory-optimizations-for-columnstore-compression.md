@@ -1,22 +1,21 @@
 ---
-title: Columnstore 인덱스 성능 향상 - Azure SQL Data Warehouse | Microsoft Docs
+title: Azure SQL Data Warehouse의 columnstore 인덱스 성능 향상 | Microsoft Docs
 description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화합니다.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: load data
+ms.date: 03/22/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748795"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225377"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 

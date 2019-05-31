@@ -6,18 +6,32 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: kasinh
-ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228289"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304332"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
 다음 표에 나열된 정보를 참조하여 Azure Backup Server 사용 중 발생하는 오류를 해결합니다.
+
+## <a name="basic-troubleshooting"></a>기본 문제 해결
+
+수행 하는 것이 좋습니다는 아래 유효성 검사를 시작 하기 전에 Microsoft Azure Backup Server (MABS)를 문제 해결:
+
+- [Microsoft Azure Recovery Services (MARS) 에이전트를 최신 상태로 유지](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 다시 시작 하 고 작업을 다시 시도
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
+- 등록에 실패할 경우의 서버를 Azure Backup Server를 설치 하려는 다른 자격 증명 모음을 사용 하 여 이미 등록 되어 있지 확인 한 다음
+- 푸시 설치에 실패할 경우 이미 DPM 에이전트가 있는지 확인합니다. 있는 경우 해당 에이전트를 제거하고 다시 설치
+- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AA4nyr4)<br>
+- SQL 에이전트 서비스가 실행되고 있으며 MAB 서버에서 자동으로 설정되어 있는지 확인합니다.<br>
+
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
@@ -29,7 +43,7 @@ ms.locfileid: "61228289"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제본 불일치의 원인 및 관련 제안 사항에 대한 자세한 내용은 Microsoft TechNet 문서 [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx)(복제본이 불일치)를 참조하세요.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 사용할 수 없는 상태이면 수동으로 시작하도록 설정합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
+| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제본 불일치 내용과 관련 제안 사항은의 원인에 대 한 자세한 내용은 문서를 참조 하세요 [복제본이 일치 하지](https://technet.microsoft.com/library/cc161593.aspx)합니다.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 사용할 수 없는 상태이면 수동으로 시작하도록 설정합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점 생성 실패
 
@@ -41,7 +55,7 @@ ms.locfileid: "61228289"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 복원 | **오류 코드**: CBPServerRegisteredVaultDontMatchWithCurrent/자격 증명 모음 오류: 100110 <br/> <br/>**오류 메시지**: 제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름 | **원인**: 이 문제는 외부 DPM 복구 옵션을 사용하여 원래 서버에서 대체 서버로 파일을 복원하려고 하며, 복구 중인 서버와 데이터가 백업되는 원래 서버가 동일한 Recovery Service 자격 증명 모음과 연결되지 않은 경우에 발생합니다.<br/> <br/>**해결 방법** 이 문제를 해결하려면 원래 서버와 대체 서버가 동일한 자격 증명 모음에 등록되어 있는지 확인합니다.|
+| 복원 | **오류 코드**: CBPServerRegisteredVaultDontMatchWithCurrent/자격 증명 모음 오류: 100110 <br/> <br/>**오류 메시지**: 제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름 | **원인**: 이 문제는 외부 DPM 복구 옵션을 사용하여 원래 서버에서 대체 서버로 파일을 복원하려고 하며, 복구 중인 서버와 데이터가 백업되는 원래 서버가 동일한 Recovery Service 자격 증명 모음과 연결되지 않은 경우에 발생합니다.<br/> <br/>**해결 방법** 이 문제를 확인 하십시오 모두 해결 하려면 원본 및 대체 서버는 동일한 자격 증명 모음에 등록 됩니다.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM에 대한 온라인 복구 지점 생성 작업 실패
 
@@ -60,7 +74,7 @@ ms.locfileid: "61228289"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 |-----------|---------------|------------|
-|설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 문제를 방지하려면 ReFS Trimming 레지스트리 항목을 업데이트합니다. | 레지스트리 키 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**을 조정합니다. Dword 값을 1로 설정합니다. |
+|설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 방지 하려면 ReFS Trimming 레지스트리 항목을 업데이트 합니다. | 레지스트리 키 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**을 조정합니다. Dword 값을 1로 설정합니다. |
 |설치 | 설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다. 이 업데이트 오류로 인해 저장소가 지나치게 사용될 수 있습니다. 이 문제를 방지하려면 Volume SnapOptimization 레지스트리 항목을 업데이트합니다. | 빈 문자열 값을 사용하여 레지스트리 키 **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds**를 만듭니다. |
 
 ## <a name="registration-and-agent-related-issues"></a>등록 및 에이전트 관련 문제
@@ -68,7 +82,7 @@ ms.locfileid: "61228289"
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
 | 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
-| Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 **psexec -i -s "c:\Program Files\InternetExplorer\iexplore.exe** 명령을 실행합니다. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다. <br/> 3. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다. <br/> 4. Internet Explorer를 닫습니다.|
+| Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 **psexec -i -s "c:\Program Files\InternetExplorer\iexplore.exe** 명령을 실행합니다. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다. <br/> 3. 프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<br/> 4. 컴퓨터에서 인터넷을 제한 한 경우 방화벽 설정을 컴퓨터 또는 프록시에이 허용 하는지 확인 [Url](backup-configure-vault.md#verify-internet-access) 하 고 [IP 주소](backup-configure-vault.md#verify-internet-access)합니다.|
 | Azure Backup Agent 설치 실패 | Microsoft Azure Recovery Services 설치에 실패했습니다. 시스템에 Microsoft Azure Recovery Services 설치로 인한 모든 변경 사항은 롤백되었습니다. (ID: 4024) | Azure 에이전트를 수동으로 설치합니다.
 
 
@@ -87,7 +101,7 @@ ms.locfileid: "61228289"
 | --- | --- | --- |
 | Backup | 작업을 실행하는 동안 예기치 않은 오류가 발생했습니다. 디바이스가 준비되지 않았습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> <ul><li>섀도 복사본 저장소 공간을 보호 그룹의 항목에서 무제한으로 설정하고 일관성 검사를 실행합니다.<br></li> 또는 <li>기존 보호 그룹을 삭제하고 여러 개의 새 그룹을 만들어 봅니다. 새 보호 그룹 각각에는 개별 항목이 있어야 합니다.</li></ul> |
 | Backup | 시스템 상태만 백업하는 경우 보호된 컴퓨터에 시스템 상태 백업을 저장하기에 충분한 여유 공간이 있는지 확인합니다. | <ol><li>보호된 컴퓨터에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li>보호된 컴퓨터에 시스템 상태를 저장할 공간이 충분히 있는지 확인합니다. 이를 간단히 확인하려면 보호된 컴퓨터로 이동하고 Windows Server 백업을 연 다음, 선택 사항을 클릭하고 BMR을 선택합니다. 그러면 UI에 얼마나 많은 공간이 필요한지 표시됩니다. **WSB** > **로컬 백업** > **백업 일정** > **백업 구성 선택** > **전체 서버**를 엽니다(크기가 표시됨). 검증에 이 크기를 사용합니다.</li></ol>
-| Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
+| Backup | BMR에 대 한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
 | Backup | 새 Microsoft Azure Backup Server에서 VMware VM을 다시 보호하는 옵션이 추가할 수 있는 것으로 표시되지 않습니다. | VMware 속성이 더 이상 사용되지 않는 이전 Microsoft Azure Backup Server 인스턴스에 지정되어 있습니다. 이 문제를 해결하려면:<br><ol><li>VCenter(SC-VMM에 해당)에서 **요약** 탭, **사용자 지정 특성**으로 이동합니다.</li>  <li>**DPMServer** 값에서 이전 Microsoft Azure Backup Server 이름을 삭제합니다.</li>  <li>새 Microsoft Azure Backup Server로 돌아가서 PG를 수정합니다.  **새로 고침** 단추를 선택하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다.</li></ol> |
 | Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | TechNet 문서[DPM 서버에서 바이러스 백신 소프트웨어 실행](https://technet.microsoft.com/library/hh757911.aspx)에 제안된 대로 바이러스 백신 설정을 수정합니다.|
 

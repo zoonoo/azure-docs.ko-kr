@@ -233,7 +233,7 @@ Data Lake Storage Gen1은 파이프라인을 운영하는 데 도움이 되는 �
 
 * Data Lake Storage Gen2는 최대 5TB의 파일만 지원합니다. Data Lake Storage Gen2로 업그레이드하려면 Data Lake Storage Gen1의 파일 크기를 5TB보다 작게 조정해야 합니다.
 
-* ACL을 복사하지 않거나 ACL을 통해 복사하지 않으려면 대상의 ACL을 적절한 최상위 수준에서 수동으로 설정해야 합니다. 이 작업은 Storage 탐색기를 사용하여 수행할 수 있습니다. 이러한 ACL이 기본 ACL이므로 복사한 파일 및 폴더에서 해당 ACL을 상속합니다.
+* ACL을 복사하지 않거나 ACL을 통해 복사하지 않으려면 대상의 ACL을 적절한 최상위 수준에서 수동으로 설정해야 합니다. 이 작업은 Storage Explorer를 사용하여 수행할 수 있습니다. 이러한 ACL이 기본 ACL이므로 복사한 파일 및 폴더에서 해당 ACL을 상속합니다.
 
 * Data Lake Storage Gen1에서 ACL을 설정할 수 있는 최상위 수준은 계정의 루트에 있습니다. 하지만 Data Lake 저장소 Gen2 가장 높은 수준 Acl을 설정할 수 있습니다는 루트 폴더에 파일 시스템에서 전체 계정이 아닙니다. 따라서 계정 수준에서 기본 ACL을 설정하려면 Data Lake Storage Gen2 계정의 모든 파일 시스템에서 해당 ACL을 복제해야 합니다.
 

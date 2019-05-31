@@ -51,7 +51,7 @@ MSAL에서. Python 구성 파일을 다음 코드 조각 처럼 보입니다.
 }
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 ```Java
 public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
@@ -65,7 +65,7 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 > [!IMPORTANT]
 > Azure AD v1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 MSAL ((v2.0 끝점)에 대 한 마지막 슬래시 앞에 나오는 모든 가져오고 리소스 식별자로 사용 하 여 요청된 된 범위에서 원하는 대상을 구문 분석 합니다.
-> 따라서 Azure SQL과 같은 경우 (**https://database.windows.net**) 리소스는 슬래시로 끝나는 대상 (Azure SQL에 대 한: `https://database.windows.net/`), 범위를 요청 해야 `https://database.windows.net//.default` (이중 슬래시 참고). MSAL.NET를 참조 하세요. 문제가 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql 인증 실패를 발생 시킨 리소스 url의 후행 슬래시는 생략 됩니다.
+> 따라서 Azure SQL과 같은 경우 ( **https://database.windows.net** ) 리소스는 슬래시로 끝나는 대상 (Azure SQL에 대 한: `https://database.windows.net/`), 범위를 요청 해야 `https://database.windows.net//.default` (이중 슬래시 참고). MSAL.NET를 참조 하세요. 문제가 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql 인증 실패를 발생 시킨 리소스 url의 후행 슬래시는 생략 됩니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -115,7 +115,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 ```Java
 ClientCredentialParameters parameters = ClientCredentialParameters

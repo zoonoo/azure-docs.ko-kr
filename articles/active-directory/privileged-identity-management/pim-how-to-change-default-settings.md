@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288717"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417881"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>PIM에서 Azure AD 역할 설정 구성
 
@@ -72,6 +72,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 * 전자 메일 주소로 Microsoft 계정을 이용하는 사용자(일반적으로 @outlook.com이지만 항상 그렇지는 않음)는 Azure MFA에 등록할 수 없습니다. Microsoft 계정 가진 사용자에게 역할을 할당하려는 경우, 영구 관리자가 되도록 하거나 해당 역할에 대해 MFA를 사용하지 않도록 설정해야 합니다.
 * Azure AD 및 Office365에 대해 높은 권한이 있는 역할에 대한 MFA를 사용하지 않도록 설정할 수 없습니다. 이런 안전 기능을 둔 것은 이러한 역할을 신중하게 보호해야 하기 때문입니다.  
   
+  * Azure Information Protection 관리자
   * 대금 청구 관리자
   * 클라우드 애플리케이션 관리자
   * 규정 준수 관리자
@@ -81,7 +82,6 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
   * 디렉터리 작성자
   * Exchange 관리자
   * 전역 관리자
-  * Information Protection 관리자
   * Intune 서비스 관리자
   * Power BI 서비스 관리자
   * 권한 있는 역할 관리자

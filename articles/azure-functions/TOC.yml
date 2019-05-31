@@ -104,7 +104,7 @@
           href: functions-reference-fsharp.md
         - name: JavaScript
           href: functions-reference-node.md
-        - name: 자바
+        - name: Java
           href: functions-reference-java.md
         - name: PowerShell
           href: functions-reference-powershell.md
@@ -234,7 +234,7 @@
   items:
     - name: API 참조
       items:
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'

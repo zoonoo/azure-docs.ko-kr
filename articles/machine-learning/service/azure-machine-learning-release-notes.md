@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779441"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298477"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -25,11 +25,44 @@ ms.locfileid: "65779441"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning 데이터 준비 SDK v1.1.4
+
++ **새로운 기능**
+  + 이제 추출 하 고 새 열에 날짜/시간 값을 구문 분석 하는 다음 식 언어 기능을 사용할 수 있습니다.
+    + `RegEx.extract_record()` 새 열에 날짜/시간 요소를 추출합니다.
+    + `create_datetime()` 별도 날짜/시간 요소에서 datetime 개체를 만듭니다.
+  + 호출할 때 `get_profile()`, 이제는 변 위치 열 레이블이 표시 되어 (예상)으로 명확 하 게 값으로 어림 값을 볼 수 있습니다.
+  + 이제 사용할 수 있습니다 * * Azure Blob Storage에서 읽을 때 와일드 카드 사용 합니다.
+    + 예: `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **버그 수정**
+  + 원격 원본 (Azure Blob)에서 Parquet 파일 읽기와 관련 된 버그가 수정 되었습니다.
+
 ## <a name="2019-05-14"></a>2019-05-14
 
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning Python v1.0.39 for SDK
 + **변경된 기능**
   + 실행된 구성 auto_prepare_environment 옵션은 사용 되지 않습니다, 그리고 자동 기본값이 되를 준비 합니다.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning 데이터 준비 SDK v1.1.3
+
++ **새로운 기능**
+  + Read_postgresql 호출 또는 데이터 저장소를 사용 하 여 PostgresSQL 데이터베이스에서 읽기에 대 한 지원이 추가 되었습니다.
+    + 방법 가이드의 예제를 참조 하세요.
+      + [데이터 수집 notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [데이터 저장소 notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **버그 수정 및 향상 된 기능**
+  + 열 형식 변환 문제가 해결 되었습니다.
+  + 이제 부울 열을 변환 부울 또는 숫자 열을 올바르게 합니다.
+  + 이제 날짜 형식으로 날짜 열을 설정 하려고 할 때 실패 하지 않습니다.
+  + 향상 된 JoinType 형식과 함께 제공 된 참조 설명서입니다. 두 데이터 흐름을 조인할 경우 이제 이러한 조인 유형 중 하나 지정할 수 있습니다.
+    + NONE, 일치, 내부, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, 전체.
+  + 향상 된 데이터 형식 유추 자세한 날짜 형식을 인식할 수 있습니다.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +400,7 @@ Python v1.0.30 출시에 대 한 azure Machine Learning SDK입니다.
 이번 릴리스에서는 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute)을 통해 새로운 관리형 컴퓨팅 환경을 발표합니다. 이 컴퓨팅 대상은 Azure Machine Learning에 대한 Azure Batch AI 컴퓨팅을 대체합니다. 
 
 이 컴퓨팅 대상:
-+ 모델 학습 및 일괄 처리 추론에 사용됨
++ 모델 학습 및 일괄 처리 유추 점수를 매기는
 + 단일-다중 노드 컴퓨팅
 + 클러스터 관리 및 사용자에 대한 작업 예약 수행
 + 기본적으로 자동 크기 조정

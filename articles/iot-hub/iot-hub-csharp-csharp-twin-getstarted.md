@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: eec63cbdbdb852aff2cf9c6fa768bdc2580d4665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780536"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873227"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>디바이스 쌍(.NET/.NET) 시작
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "60780536"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Visual Studio 2017.
+* 있습니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기

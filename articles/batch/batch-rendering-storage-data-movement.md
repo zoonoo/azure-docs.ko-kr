@@ -81,7 +81,7 @@ blobfuse는 Azure Blob Storage에 대한 가상 파일 시스템 드라이버이
 
 ### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>입력 자산 파일을 Blob Storage에서 Batch 풀 VM에 복사
 
-파일이 단순히 Azure Storage의 Blob이므로 표준 Blob API, 도구 및 UI를 사용하여 온-프레미스 파일 시스템과 Blob Storage 간에 파일을 복사할 수 있습니다(예: azcopy, Storage 탐색기, Batch Explorer 등).
+파일이 단순히 Azure Storage의 Blob이므로 표준 Blob API, 도구 및 UI를 사용하여 온-프레미스 파일 시스템과 Blob Storage 간에 파일을 복사할 수 있습니다(예: azcopy, Storage Explorer, Batch Explorer 등).
 
 ## <a name="using-azure-files-with-windows-vms"></a>Windows VM에서 Azure Files 사용
 
@@ -124,7 +124,7 @@ JSON 파일에서 사용하기 위해 이스케이프된 풀 템플릿의 cmdkey
 
 ### <a name="copying-input-asset-files-from-blob-storage-to-batch-pool-vms"></a>입력 자산 파일을 Blob Storage에서 Batch 풀 VM에 복사
 
-Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원됩니다(예: azcopy, Azure CLI, Storage 탐색기, Azure PowerShell, Batch Explorer 등).
+Azure Files는 Azure Storage를 지원하는 기본 API 및 도구에서 지원됩니다(예: azcopy, Azure CLI, Storage Explorer, Azure PowerShell, Batch Explorer 등).
 
 [Azure 파일 동기화](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)는 온-프레미스 파일 시스템과 Azure 파일 공유 간에 파일을 자동으로 동기화하기 위해 사용할 수 있습니다.
 

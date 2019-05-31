@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: be36f9ab881f2375b14ba0ea36038f9e840d199f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156523"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 또는 IaaS(Azure VM) SQL Server 간 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,7 +133,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
+| tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예. |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 SQL Server 데이터베이스에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **SqlSource**로 설정합니다. 마찬가지로 SQL Server 데이터베이스로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **SqlSink**로 설정합니다. 이 섹션에서는 SqlSource 및 SqlSink에서 지원되는 속성의 목록을 제공합니다.
@@ -655,30 +655,30 @@ SQL 서버 간에 데이터를 이동할 때는 SQL 형식에서 .NET 형식으�
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
+| bit |Boolean |
 | char |String, Char[] |
 | date |Datetime |
-| DateTime |Datetime |
+| Datetime |Datetime |
 | datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
-| 10진수 |10진수 |
-| FILESTREAM 특성(varbinary(max)) |Byte[] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 이미지 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
-| money |10진수 |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |10진수 |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |단일 |
+| real |Single |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |
-| smallmoney |10진수 |
-| sql_variant |개체 * |
+| smallmoney |Decimal |
+| sql_variant |Object * |
 | text |String, Char[] |
-| 실시간 |timespan |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799459"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306805"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -197,7 +197,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 사용자 배포의 *cluster.parameters.json*에 다음의 빈 매개 변수를 입력합니다.
 
-|매개 변수|값|
+|매개 변수|Value|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -288,7 +288,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. 리소스 그룹 및 사용 하 여 모든 클러스터 리소스를 삭제 합니다 [제거 AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. 리소스 그룹 및 사용 하 여 모든 클러스터 리소스를 삭제 합니다 [제거 AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)합니다.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

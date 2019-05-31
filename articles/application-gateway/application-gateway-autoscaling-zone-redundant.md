@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827431"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986880"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
@@ -93,8 +93,6 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 
 총 요금 = $267.84 + $85.71 $353.55 =
 
-합니다 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>크기 조정 응용 프로그램 게이트웨이 및 WAF v2
 
 Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규모를 확장 합니다.
@@ -138,7 +136,7 @@ Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규�
 |Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원되지 않음|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
-|결제|청구 2019 년 6 월 1 일에 시작 하도록 예약 합니다.|
+|결제|청구 2019 년 7 월 1 일에 시작 하도록 예약 합니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
 |Netwatcher 통합|지원되지 않습니다.|

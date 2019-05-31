@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882793"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -80,7 +80,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 2. [AnswerHub Single Sign-On 구성](#configure-answerhub-single-sign-on) - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. Britta Simon이라는 [Azure AD 테스트 사용자를 만듭니다](#create-an-azure-ad-test-user).
 4. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. [AnswerHub 테스트 사용자 만들기](#create-answerhub-test-user) - Azure AD 테스트 사용자에 해당하고 연결됩니다.
+5. Azure AD 테스트 사용자에 해당하고 연결되는 AnswerHub 테스트 사용자를 만듭니다.
 6. [Single Sign-On 테스트](#test-single-sign-on) - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -184,7 +184,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 상자에 **brittasimon@<yourcompanydomain.extension>** 을 입력합니다.  
+    b. **사용자 이름** 상자에 **brittasimon\@<yourcompanydomain.extension>** 을 입력합니다.  
     예: BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.

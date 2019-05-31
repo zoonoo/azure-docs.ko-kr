@@ -1,5 +1,5 @@
 ---
-title: 지식 저장소 소개 및 개요 - Azure Search
+title: 지식 저장소 소개 및 개요(미리 보기) - Azure Search
 description: 보강된 문서를 Azure Storage에 보낸 후 Azure Search 및 다른 애플리케이션에서 해당 문서를 보고 변형하고 사용할 수 있습니다.
 manager: cgronlun
 author: HeidiSteen
@@ -9,16 +9,20 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030091"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540742"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Azure Search의 지식 저장소란 무엇인가요?
 
-지식 저장소는 보강된 문서 및 AI 기반 인덱싱 파이프라인[(인식 검색)](cognitive-search-concept-intro.md)에서 생성된 메타데이터를 저장하는 Azure Search의 선택적 기능이며 현재 공개 미리 보기 상태에 있습니다. 지식 저장소는 파이프라인의 일부로 구성하는 Azure 스토리지 계정에 의해 지원됩니다. 사용하도록 설정된 경우, 검색 서비스는 이 스토리지 계정을 사용하여 각 보강된 문서의 표시를 캐시에 저장합니다. 
+> [!Note]
+> 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+>
+
+지식 저장소는 보강된 문서 및 AI 기반 인덱싱 파이프라인[(인식 검색)](cognitive-search-concept-intro.md)에서 생성된 메타데이터를 저장하는 Azure Search의 선택적 기능입니다. 지식 저장소는 파이프라인의 일부로 구성하는 Azure 스토리지 계정에 의해 지원됩니다. 사용하도록 설정된 경우, 검색 서비스는 이 스토리지 계정을 사용하여 각 보강된 문서의 표시를 캐시에 저장합니다. 
 
 과거에 인식 검색을 사용해본 적이 있는 경우 기술 세트를 사용하여 보강 시퀀스를 통해 문서를 이동할 수 있음을 이미 알고 있을 것입니다. 그 결과는 Azure Search 인덱스 또는 지식 저장소의 프로젝션(이 미리 보기의 새로운 기능)일 수 있습니다.
 

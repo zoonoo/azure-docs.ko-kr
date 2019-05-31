@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601676"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388353"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -150,7 +150,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
    * 원격 네트워크가 온-프레미스 네트워크인 경우 다음과 같이 DNS를 구성합니다.
         
-     * __사용자 지정 DNS(가상 네트워크에서)__:
+     * __사용자 지정 DNS(가상 네트워크에서)__ :
 
          * 가상 네트워크의 DNS 접미사에 대한 요청을 Azure 재귀 확인자(168.63.129.16)에 전달합니다. Azure에서 가상 네트워크의 리소스에 대한 요청을 처리합니다.
 
@@ -162,7 +162,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
    * 원격 네트워크가 다른 Azure Virtual Network인 경우 다음과 같이 DNS를 구성합니다.
 
-     * __사용자 지정 DNS(각 가상 네트워크에서)__:
+     * __사용자 지정 DNS(각 가상 네트워크에서)__ :
 
          * 가상 네트워크 DNS 접미사에 대한 요청은 사용자 지정 DNS 서버에 전달됩니다. 각 가상 네트워크에 있는 DNS는 해당 네트워크 내에서 리소스를 확인하는 역할을 합니다.
 
@@ -211,41 +211,39 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 ## <a id="networktraffic"></a> 네트워크 트래픽 제어
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 인바운드 트래픽 제어
+
 Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하여 제어할 수 있습니다.
 
 * **NSG(네트워크 보안 그룹)** 를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
 
-    > [!WARNING]  
-    > HDInsight는 아웃바운드 트래픽을 제한하도록 지원하지 않습니다. 모든 아웃바운드 트래픽을 허용해야 합니다.
-
-* **UDR(사용자 정의 경로)** 은 네트워크에 있는 리소스 간에 트래픽이 흐르는 방식을 정의합니다. 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md) 문서를 참조하세요.
-
 * **네트워크 가상 어플라이언스**는 방화벽 및 라우터와 같은 디바이스 기능을 복제합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
 
-관리 서비스로 HDInsight 필요 HDInsight 상태에 대 한 무제한 액세스 및 관리 VNET에서 들어오고 나가는 트래픽에 대 한 서비스. NSG 및 UDR을 사용하는 경우 이러한 서비스가 HDInsight와 계속 통신할 수 있는지 확인해야 합니다.
+관리 서비스로 HDInsight 필요 HDInsight 상태에 대 한 무제한 액세스 및 관리 VNET에서 들어오고 나가는 트래픽에 대 한 서비스. Nsg를 사용 하는 경우 HDInsight 클러스터를 사용 하 여 이러한 서비스 계속 통신할 수 있는지 확인 해야 합니다.
 
-### <a id="hdinsight-ip"></a> 네트워크 보안 그룹 및 사용자 정의 경로가 있는 HDInsight
+![사용자 지정 Azure VNET에서 만든 HDInsight 엔터티 다이어그램](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-네트워크 트래픽을 제어하는 데 **네트워크 보안 그룹** 또는 **사용자 정의 경로**를 사용할 계획인 경우 HDInsight를 설치하기 전에 다음 작업을 수행합니다.
+### <a id="hdinsight-ip"></a> 네트워크 보안 그룹을 사용 하 여 HDInsight
+
+사용 하려는 경우 **네트워크 보안 그룹** 네트워크 트래픽을 제어 하려면 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
 2. HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight에 필요한 IP 주소](#hdinsight-ip) 섹션을 참조하세요.
 
-3. HDInsight을 설치하려는 서브넷에 대한 사용자 정의 경로 또는 네트워크 보안 그룹을 만들거나 수정합니다.
+3. 만들거나에 HDInsight를 설치 하려고 하는 서브넷에 네트워크 보안 그룹을 수정 합니다.
 
-    * __네트워크 보안 그룹__: IP 주소에서 포트 __443__에 __인바운드__ 트래픽을 허용합니다. 이렇게 하면 HDI 관리 서비스가 VNET 외부에서 클러스터에 도달할 수 있습니다.
-    * __사용자 정의 경로__: UDR을 사용할 계획인 경우 각 IP 주소에 대한 경로를 만들고 __다음 홉 유형__을 __인터넷__으로 설정합니다. VNET에서 오는 다른 아웃바운드 트래픽도 제한 없이 허용해야 합니다. 예를 들어 Azure 방화벽 또는 네트워크 가상 어플라이언스로 (Azure에서 호스팅됨) 모니터링을 위해 다른 모든 트래픽을 라우팅할 수 있지만 나가는 트래픽을 차단 되지 않아야 합니다.
+    * __네트워크 보안 그룹__: IP 주소에서 포트 __443__에 __인바운드__ 트래픽을 허용합니다. 이렇게 하면 HDInsight 관리 서비스가 virtual network 외부에서 클러스터를 확보할 수 있습니다.
 
-네트워크 보안 그룹 또는 사용자 정의 경로에 대한 자세한 내용은 다음 설명서를 참조하세요.
+네트워크 보안 그룹에 대 한 자세한 내용은 참조는 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md)합니다.
 
-* [네트워크 보안 그룹](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>HDInsight 클러스터에서 아웃 바운드 트래픽 제어
 
-* [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)
+HDInsight 클러스터에서 아웃 바운드 트래픽 제어에 대 한 자세한 내용은 참조 하세요. [Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽을 제한 구성](hdinsight-restrict-outbound-traffic.md)합니다.
 
 #### <a name="forced-tunneling-to-on-premise"></a>온-프레미스에 강제 터널링
 
-강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight 않습니다 __되지__ 강제 터널링을 온-프레미스 네트워크에 지원 합니다. Azure 방화벽이 나 Azure에서 호스트 되는 네트워크 가상 어플라이언스를 사용 하는 경우에 모니터링을 위해 트래픽을 라우팅하고 나가는 모든 트래픽이 허용 Udr을 사용할 수 있습니다.
+강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight 않습니다 __되지__ 강제 온-프레미스 네트워크에 대 한 트래픽의 터널링을 지원 합니다. 
 
 ## <a id="hdinsight-ip"></a> 필수 IP 주소
 
@@ -283,12 +281,12 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
     | &nbsp; | 중국 동부 | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | 인바운드 |
     | &nbsp; | 중국 북부 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | 인바운드 |
     | &nbsp; | 중국 동부 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | 인바운드 |
-    | 유럽 | 유럽 북부 | 52.164.210.96</br>13.74.153.132 | \*:443 | 인바운드 |
+    | 유럽 | 북유럽 | 52.164.210.96</br>13.74.153.132 | \*:443 | 인바운드 |
     | &nbsp; | 서유럽| 52.166.243.90</br>52.174.36.244 | \*:443 | 인바운드 |
     | 프랑스 | 프랑스 중부| 20.188.39.64</br>40.89.157.135 | \*:443 | 인바운드 |
     | 독일 | 독일 중부 | 51.4.146.68</br>51.4.146.80 | \*:443 | 인바운드 |
     | &nbsp; | 독일 북동부 | 51.5.150.132</br>51.5.144.101 | \*:443 | 인바운드 |
-    | 인도 | 중앙 인도 | 52.172.153.209</br>52.172.152.49 | \*:443 | 인바운드 |
+    | 인도 | 인도 중부 | 52.172.153.209</br>52.172.152.49 | \*:443 | 인바운드 |
     | &nbsp; | 인도 남부 | 104.211.223.67<br/>104.211.216.210 | \*:443 | 인바운드 |
     | 일본 | 일본 동부 | 13.78.125.90</br>13.78.89.60 | \*:443 | 인바운드 |
     | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | \*:443 | 인바운드 |

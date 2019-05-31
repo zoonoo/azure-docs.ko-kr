@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432110"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357385"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -39,14 +39,14 @@ Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 
 |**[이미지 유형 감지](concept-detecting-image-types.md)**|이미지가 선 그리기인지, 아니면 이미지가 클립 아트인지 여부와 같은 이미지에 대한 특성을 감지합니다.|
 |**[도메인 특정 콘텐츠 감지](concept-detecting-domain-content.md)**|도메인 모델을 사용하여 유명인 및 랜드마크와 같은 이미지의 도메인 관련 콘텐츠를 감지하고 식별합니다. 예를 들어 이미지에 사람이 포함되어있는 경우 Computer Vision은 서비스에 포함된 유명인에 대한 도메인 모델을 사용하여 이미지에서 감지된 사람이 알려진 유명인과 일치하는지 확인합니다.|
 |**[색 구성표 감지](concept-detecting-color-schemes.md)**|이미지 내의 색 사용을 분석합니다. Computer Vision은 이미지가 흑백인지, 아니면 컬러인지 여부를 결정할 수 있고, 컬러 이미지의 경우 기준 컬러와 테마 컬러를 식별할 수 있습니다.|
-|**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다. 그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
-|**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다. 이는 썸네일을 생성하는 데 사용되는 것과 동일한 기능이지만, 이미지를 자르는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
+|**[썸네일 생성](concept-generating-thumbnails.md)**|이미지의 콘텐츠를 분석하여 해당 이미지에 대한 적절한 썸네일을 생성합니다. Computer Vision은 먼저 고품질 썸네일을 생성한 다음, 이미지 내의 개체를 분석하여 ‘관심 영역’을 결정합니다.  그런 다음, Computer Vision은 관심 영역의 요구 사항에 맞게 이미지를 자릅니다. 생성된 썸네일은 필요에 따라 원래 이미지의 가로 세로 비율과 다른 가로 세로 비율을 사용하여 표시할 수 있습니다.|
+|**[관심 영역 가져오기](concept-generating-thumbnails.md#area-of-interest)**|이미지의 콘텐츠를 분석하여 ‘관심 영역’의 좌표를 반환합니다.  이는 썸네일을 생성하는 데 사용되는 것과 동일한 기능이지만, 이미지를 자르는 대신 Computer Vision은 영역의 경계 상자 좌표를 반환하므로 호출 애플리케이션이 원하는 대로 원본 이미지를 수정할 수 있습니다.|
 
 ## <a name="extract-text-from-images"></a>이미지에서 텍스트 추출
 
 Computer Vision을 사용하여 [OCR(광학 문자 인식)을 통해 이미지의 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 추출](concept-recognizing-text.md#ocr-optical-character-recognition-api)할 수 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
 
-[Read API](concept-recognizing-text.md#read-api)를 사용하여 이미지 및 텍스트가 많은 문서에서 인쇄 및 필기 텍스트를 추출할 수도 있습니다. Read API는 업데이트된 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 개체(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재, Read API는 미리 보기로 제공되며, 영어만 지원됩니다.
+[Read API](concept-recognizing-text.md#read-api)를 사용하여 이미지 및 텍스트가 많은 문서에서 인쇄 및 필기 텍스트를 추출할 수도 있습니다. Read API는 업데이트된 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 개체(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재 지원되는 언어는 영어뿐입니다.
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 

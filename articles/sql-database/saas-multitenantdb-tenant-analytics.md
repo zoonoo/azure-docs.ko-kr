@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486660"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242792"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
  
@@ -64,7 +64,7 @@ ms.locfileid: "61486660"
 
 각 테넌트가 서비스를 얼마나 일관적으로 사용하는지 파악하면 각 테넌트에 맞는 최적의 서비스 요금제를 구성하는 데 도움이 됩니다. 이 자습서에서는 테넌트 데이터로부터 창출할 수 있는 기본적인 인사이트를 살펴볼 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -176,7 +176,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **연결**을 클릭합니다.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
@@ -228,7 +228,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기
@@ -242,5 +242,5 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 ## <a name="additional-resources"></a>추가 리소스
 
 [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [탄력적 작업](sql-database-elastic-jobs-overview.md).
+- [탄력적 작업](elastic-jobs-overview.md).
 - [추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱](saas-tenancy-tenant-analytics.md) 

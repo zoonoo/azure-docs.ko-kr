@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001238"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967753"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 통합 계정을 위한 지역 간 재해 복구
 
@@ -62,7 +62,7 @@ Logic Apps 통합 계정의 비즈니스 연속성은 B2B 프로토콜 X12, AS2 
 
 재해 중 주 지역을 비즈니스 연속성에 사용할 수 없는 경우 트래픽을 보조 지역으로 전송합니다. 보조 지역은 기업이 파트너가 합의한 RPO/RTO를 충족시키도록 신속하게 기능을 복구하도록 도와줍니다. 또한 한 지역에서 다른 지역으로 장애 조치(Failover)하는 데 필요한 노력을 최소화합니다. 
 
-주 지역에서 보조 지역으로 컨트롤 번호를 복사하는 동안 예상되는 대기 시간이 있습니다. 재해 이벤트 중에 중복되는 생성된 컨트롤 번호를 파트너에게 보내지 않도록 [PowerShell cmdlet](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery)을 사용하여 보조 지역 계약의 컨트롤 번호를 늘리는 것이 좋습니다.
+주 지역에서 보조 지역으로 컨트롤 번호를 복사하는 동안 예상되는 대기 시간이 있습니다. 재해 이벤트 중에 중복되는 생성된 컨트롤 번호를 파트너에게 보내지 않도록 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0)을 사용하여 보조 지역 계약의 컨트롤 번호를 늘리는 것이 좋습니다.
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>재해 처리 후 주 지역으로 복귀
 
@@ -70,7 +70,7 @@ Logic Apps 통합 계정의 비즈니스 연속성은 B2B 프로토콜 X12, AS2 
 
 1. 보조 지역의 파트너로부터 메시지 수신을 중지합니다.  
 
-2. [PowerShell cmdlet](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery)을 사용하여 모든 주 지역 계약에 대해 생성된 컨트롤 번호를 늘립니다.  
+2. [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0)을 사용하여 모든 주 지역 계약에 대해 생성된 컨트롤 번호를 늘립니다.  
 
 3. 보조 지역에서 주 지역에 트래픽을 전송합니다.
 
@@ -112,7 +112,7 @@ EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합
 
 6. **X12**를 검색하고 **X12 - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
 
-   ![제어 번호를 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![컨트롤 번호 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. 작업을 보조 지역 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 *보조 지역 통합 계정*을 선택한 후 **만들기**를 선택합니다. 
 

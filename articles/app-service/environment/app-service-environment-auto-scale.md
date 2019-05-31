@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769417"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955973"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>자동 크기 조정 및 App Service Environment v1
 
@@ -63,7 +63,7 @@ App Service 환경의 자동 크기 조정은 시나리오를 살펴보면서 �
 이 문서에서는 자동 크기 조정을 설정할 때 필요한 모든 고려 사항에 대해 설명합니다. 이 문서에서는 App Service 환경에서 호스팅되는 App Service 환경의 자동 크기 조정에 반영하게 되는 모든 상호 작용에 대해 설명합니다.
 
 ### <a name="scenario-introduction"></a>시나리오 소개
-Frank는 한 기업의 시스템 관리자로, 자신이 관리하는 워크로드의 일부를 App Service 환경으로 마이그레이션했습니다.
+Frank는 한 기업의 App Service environment를 관리 하는 워크 로드의 일부를 마이그레이션 했습니다.
 
 App Service Environment는 다음과 같이 수동 크기 조정으로 구성되었습니다.
 
@@ -76,7 +76,7 @@ App Service Environment는 다음과 같이 수동 크기 조정으로 구성되
 
 QA 및 개발에 대한 App Service 계획은 수동 확장 하도록 구성됩니다. App Service 계획 프로덕션은 부하 및 트래픽을 다양하게 처리하도록 자동 크기 조정으로 설정됩니다.
 
-Frank는 애플리케이션에 대해 잘 알고 있습니다. 직원이 사무실에 있는 동안 사용하는 LOB(기간 업무) 애플리케이션이므로 사용이 많은 피크 시간은 오전 9시와 오후 6시 사이라는 것을 알고 있습니다. 사용자가 퇴근한 후에는 사용량이 줍니다. 피크 시간 이외에도 사용자가 모바일 디바이스 또는 가정용 PC를 사용하여 원격으로 앱에 액세스할 수 있으므로 여전히 일부 부하가 있습니다. 프로덕션 App Service 계획은 이미 다음 규칙을 기준으로 CPU 사용량에 따라 자동 크기 조정을 수행하도록 구성되어 있습니다.
+Frank는 애플리케이션에 대해 잘 알고 있습니다. 직원이 사무실 하는 동안 사용 하는 기간 업무 (LOB) 응용 프로그램을 이기 때문에 부하에 대 한 사용량이 많은 시간 오전 9 시에서 오후 6:00 사이 알고 있는 합니다. 사용자가 퇴근한 후에는 사용량이 줍니다. 피크 시간 이외에도 사용자가 모바일 디바이스 또는 가정용 PC를 사용하여 원격으로 앱에 액세스할 수 있으므로 여전히 일부 부하가 있습니다. 프로덕션 App Service 계획은 이미 다음 규칙을 기준으로 CPU 사용량에 따라 자동 크기 조정을 수행하도록 구성되어 있습니다.
 
 ![LOB 앱에 대한 특정 설정입니다.][asp-scale]
 

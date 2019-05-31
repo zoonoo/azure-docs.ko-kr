@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153182"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874108"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
@@ -35,7 +35,7 @@ Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임�
 
 사용자의 연결 문자열을 구성 파일에 저장하면 연결 문자열을 업데이트하여 스토리지 에뮬레이터와 클라우드의 Azure Storage 계정 사이에 전환하기 쉽습니다. 대상 환경을 가리키도록 연결 문자열을 편집하기만 하면 됩니다.
 
-[Microsoft Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)를 사용하여 애플리케이션이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
+[Microsoft Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)를 사용하여 애플리케이션이 실행 중인 위치와 상관없이 런타임에 사용자의 연결 문자열에 액세스할 수 있습니다.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>저장소 에뮬레이터에 대한 연결 문자열 만들기
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ AccountKey=<account-key>
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>엔드포인트 접미사를 사용하여 연결 문자열 만들기
-Azure 중국 또는 Azure Government와 같이 다른 엔드포인트 접미사를 사용하여 지역이나 인스턴스에 저장소 서비스에 대한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 표시하며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
+Azure Government 또는 Azure 중국 21Vianet 같은 지역 또는 다른 끝점 접미사를 사용 하 여 인스턴스 저장소 서비스에 대 한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용 합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 표시하며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-다음은 Azure 중국에서 저장소 서비스에 대한 연결 문자열에 대한 예입니다.
+Azure 중국 21Vianet에서 저장소 서비스에 대 한 연결 문자열의 예는 다음과 같습니다.
 
 ```
 DefaultEndpointsProtocol=https;
@@ -130,6 +130,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>다음 단계
 * [개발 및 테스트에 Azure Storage 에뮬레이터 사용](storage-use-emulator.md)
-* [Azure Storage 탐색기](storage-explorers.md)
+* [Azure Storage Explorer](storage-explorers.md)
 * [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
 

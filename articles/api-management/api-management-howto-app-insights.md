@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527550"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241837"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -51,7 +51,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
     ![Application Insights 로거](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) 엔터티가 만들어집니다.
+> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) 엔터티가 만들어집니다.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>API에 대한 Application Insights 로깅 사용
 
@@ -70,13 +70,13 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 > **본문의 첫 번째 바이트** 필드에서 기본값 **0**을 재정의하면 API의 성능이 현저히 저하될 수 있습니다.
 
 > [!NOTE]
-> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
+> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
 
-| 설정 이름                        | 값 형식                        | 설명                                                                                                                                                                                                                                                                                                                                      |
+| 설정 이름                        | 값 유형                        | 설명                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 사용                              | 부울                           | 이 API의 로깅이 사용되는지 여부를 지정합니다.                                                                                                                                                                                                                                                                                                |
 | 대상                         | Azure Application Insights 로거 | 사용할 Azure Application Insights 로거를 지정합니다.                                                                                                                                                                                                                                                                                           |
-| 샘플링(%)                        | decimal                           | 0-100의 값(퍼센트)입니다. <br/> Azure Application Insights에 기록할 요청의 백분율을 지정합니다. 0% 샘플링은 기록되는 요청이 없음을 의미하고, 100%는 모든 요청이 기록됨을 의미합니다. <br/> 이 설정은 Azure Application Insights에 대한 로깅 요청으로 인해 성능에 미치는 영향을 줄이기 위해 사용됩니다(아래 섹션 참조). |
+| 샘플링(%)                        | Decimal                           | 0-100의 값(퍼센트)입니다. <br/> Azure Application Insights에 기록할 요청의 백분율을 지정합니다. 0% 샘플링은 기록되는 요청이 없음을 의미하고, 100%는 모든 요청이 기록됨을 의미합니다. <br/> 이 설정은 Azure Application Insights에 대한 로깅 요청으로 인해 성능에 미치는 영향을 줄이기 위해 사용됩니다(아래 섹션 참조). |
 | 항상 오류 로깅                   | 부울                           | 이 설정을 선택하면 **샘플링** 설정에 관계없이 모든 오류가 Azure Application Insights에 기록됩니다.                                                                                                                                                                                                                  |
 | 기본 옵션: 헤더              | list                              | 요청 및 응답에 대해 Azure Application Insights에 기록할 헤더를 지정합니다.  기본값: 헤더가 기록되지 않음                                                                                                                                                                                                             |
 | 기본 옵션: 본문의 첫 번째 바이트  | 정수                           | 요청 및 응답에 대해 Azure Application Insights에 기록할 본문의 첫 번째 바이트 수를 지정합니다.  기본값: 본문이 기록되지 않음                                                                                                                                                                                              |

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos Emulator로 로컬에서 개발
-description: Azure Cosmos Emulator를 사용하면 Azure를 따로 구독하지 않고도 로컬에서 무료로 애플리케이션을 개발하고 테스트할 수 있습니다.
+description: Azure Cosmos Emulator를 사용하면 Azure 구독을 구입하지 않고도 로컬에서 무료로 애플리케이션을 개발하고 테스트할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 03/14/2019
-ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205777"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953966"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -31,7 +31,7 @@ Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습�
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이
 
-Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 에뮬레이터와 클라우드의 Azure Cosmos 계정 사이에는 기능 면에서 다음과 같은 몇 가지 차이가 있습니다.
+Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 에뮬레이터와 클라우드의 Azure Cosmos 계정 사이에는 기능 면에서 몇 가지 차이가 있습니다.
 
 * 현재 에뮬레이터의 Data Explorer는 SQL API에 대한 클라이언트를 지원합니다. Data Explorer 보기 및 Azure Cosmos DB API에 대한 작업(예: MongoDB, Table, Graph 및 Cassandra API)은 완전히 지원되지 않습니다.
 * Azure Cosmos Emulator는 고정된 단일 계정 및 알려진 마스터 키만 지원합니다. Azure Cosmos Emulator에서는 키 재생성이 불가능하지만 명령줄 옵션을 사용하여 기본 키를 변경할 수 있습니다.
@@ -43,7 +43,7 @@ Azure Cosmos Emulator는 로컬 개발자 워크스테이션에서 실행되는 
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-Azure Cosmos Emulator를 사용하려면 다음과 같은 하드웨어 및 소프트웨어 요구 사항을 충족해야 합니다.
+Azure Cosmos Emulator에는 다음과 같은 하드웨어 및 소프트웨어 요구 사항이 있습니다.
 
 * 소프트웨어 요구 사항
   * Windows Server 2012 R2, Windows Server 2016 또는 Windows 10

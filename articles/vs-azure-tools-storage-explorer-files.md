@@ -1,6 +1,6 @@
 ---
-title: Azure File Storage와 함께 스토리지 탐색기 사용 | Microsoft Docs
-description: 저장소 탐색기를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
+title: Azure File Storage와 함께 Storage Explorer 사용 | Microsoft Docs
+description: Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60456858"
 ---
-# <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage 탐색기 사용
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage Explorer 사용
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 저장소 탐색기를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,9 +37,9 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 모든 파일은 단지 파일의 논리적 그룹화인 파일 공유에 있어야 합니다. 한 계정에 포함될 수 있는 파일 공유 수에 제한이 없으며, 각 공유에 저장될 수 있는 파일 수에도 제한이 없습니다.
 
-다음 단계에서는 저장소 탐색기 내에서 파일 공유를 만드는 방법을 보여줍니다.
+다음 단계에서는 Storage Explorer 내에서 파일 공유를 만드는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 파일 공유를 만들고자 하는 곳의 저장소 계정을 확장합니다.
 
@@ -59,9 +59,9 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 파일 공유는 파일 및 폴더(파일을 포함할 수도 있음)를 포함합니다.
 
-다음 단계에서는 저장소 탐색기 내에서 파일 공유 내용 보기 방법을 보여줍니다.
+다음 단계에서는 Storage Explorer 내에서 파일 공유 내용 보기 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 보려는 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 
@@ -79,9 +79,9 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 필요에 따라 파일 공유를 쉽게 만들고 삭제할 수 있습니다. (개별 파일 삭제 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
-다음 단계에서는 저장소 탐색기 내에서 파일 공유를 삭제하는 방법을 보여줍니다.
+다음 단계에서는 Storage Explorer 내에서 파일 공유를 삭제하는 방법을 보여줍니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 보려는 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 
@@ -97,11 +97,11 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 ## <a name="copy-a-file-share"></a>파일 공유 복사
 
-스토리지 탐색기를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
+Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다음, 다른 Storage 계정에 붙여넣을 수 있습니다. (개별 파일 복사 방법에 대한 자세한 내용은 [파일 공유의 파일 관리](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) 섹션을 참조하세요.)
 
 다음 단계에서는 한 저장소 계정에서 다른 계정으로 파일 공유를 복사하는 방법을 보여 줍니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 복사하려는 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 
@@ -121,7 +121,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 다음 단계에서는 파일 공유에 대한 SAS를 만드는 방법을 보여 줍니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 SAS 가져오기를 하려는 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 
@@ -147,7 +147,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 다음 단계에서는 파일 공유에 대한 액세스 정책을 관리(추가 및 제거)하는 방법을 보여 줍니다. 액세스 정책은 사람들이 정의된 기간 동안 저장소 파일 리소스에 액세스하는 데 사용할 수 있는 SAS URL을 만드는 데 사용됩니다.
 
-1. 저장소 탐색기를 엽니다.
+1. Storage Explorer를 엽니다.
 
 1. 왼쪽 창에서 관리하려는 액세스 정책의 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 
@@ -181,7 +181,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 다음 단계에서는 파일 공유 내에서 파일 (및 폴더)을 관리하는 방법을 보여 줍니다.
 
-1.  저장소 탐색기를 엽니다.
+1.  Storage Explorer를 엽니다.
 
 1.  왼쪽 창에서 관리하려는 파일 공유가 들어 있는 저장소 계정을 확장합니다.
 

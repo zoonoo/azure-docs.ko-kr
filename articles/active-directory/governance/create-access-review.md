@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247059"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113470"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 만들거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -30,8 +30,11 @@ ms.locfileid: "60247059"
 
 ## <a name="prerequisites"></a>필수 조건
 
+- Azure AD Premium P2
 - [액세스 검토를 사용하도록 설정](access-reviews-overview.md)
 - 전역 관리자 또는 사용자 관리자
+
+자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
 
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
@@ -77,11 +80,15 @@ ms.locfileid: "60247059"
 
     ![액세스 검토 만들기 - 검토자](./media/create-access-review/reviewers.png)
 
-1. **프로그램** 섹션에서 사용하려는 프로그램을 선택합니다. 액세스 검토를 프로그램으로 구성하여 다양한 용도로 추적하고 수집하는 방법을 간소화할 수 있습니다. **기본 프로그램**은 항상 존재하거나 다른 프로그램을 만들 수 있습니다. 예를 들어 준수 이니셔티브 또는 비즈니스 목표 각각에 대한 프로그램을 하나씩 선택할 수 있습니다.
+1. **프로그램** 섹션에서 사용하려는 프로그램을 선택합니다. **기본 프로그램**은 항상 존재합니다.
 
     ![액세스 검토 만들기 - 프로그램](./media/create-access-review/programs.png)
 
-### <a name="upon-completion-settings"></a>완료 시 설정
+    액세스 검토를 프로그램으로 구성하여 다양한 용도로 추적하고 수집하는 방법을 간소화할 수 있습니다. 각 액세스 검토를 프로그램에 연결할 수 있습니다. 그런 다음, 감사자에게 제공할 보고서를 준비하면 특정 이니셔티브 범위의 액세스 검토에 초점을 맞출 수 있습니다. 프로그램 및 액세스 검토 결과 전역 관리자, 사용자 관리자, 보안 관리자 또는 보안 읽기 권한자 역할의 사용자에 게 표시 됩니다.
+
+    Go 액세스가 검토 페이지에 프로그램의 목록을 보려면 **프로그램**합니다. 전역 관리자 또는 사용자 관리자 역할의 경우 추가 프로그램을 만들 수 있습니다. 예를 들어 준수 이니셔티브 또는 비즈니스 목표 각각에 대한 프로그램을 하나씩 선택할 수 있습니다. 프로그램이 더 이상 필요하지 않고 연결된 컨트롤이 없는 경우 해당 프로그램을 삭제할 수 있습니다.
+
+### <a name="upon-completion-settings"></a>설정 완료 시
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 
@@ -110,6 +117,8 @@ ms.locfileid: "60247059"
 
 1. **미리 알림**을 **사용**으로 설정하면 Azure AD는 검토를 완료하지 않은 검토자에게 진행 중인 액세스 검토에 대한 미리 알림을 보냅니다.
 
+    Azure AD에서는 기본적으로 아직 응답하지 않은 검토자에게 종료일 중간에 미리 알림을 자동으로 보냅니다.
+
 ## <a name="start-the-access-review"></a>액세스 검토 시작
 
 액세스 검토에 대한 설정을 지정했으면 **시작**을 클릭합니다. 액세스 검토는 해당 상태 표시기를 사용 하 여 목록에 표시 됩니다.
@@ -118,19 +127,7 @@ ms.locfileid: "60247059"
 
 검토가 시작되면 Azure AD에서 기본적으로 검토자에게 전자 메일을 보냅니다. Azure AD에서 전자 메일을 보내지 않도록 선택한 경우 검토자에게 완료할 때까지 대기 중인 액세스 검토가 있음을 알려야 합니다. 방법에 대 한 지침을 표시할 수 있습니다 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)합니다. 게스트가 자신의 액세스 검토를 표시 하는 방법에 대 한 지침 [그룹 또는 응용 프로그램에 직접 액세스를 검토](review-your-access.md)합니다.
 
-검토자 중 일부가 게스트이면 해당 게스트가 이미 초대를 수락한 경우에만 전자 메일을 통해 알려줍니다.
-
-## <a name="manage-the-access-review"></a>액세스 검토 관리
-
-검토자가 검토를 완료 진행률을 추적할 수는 **개요** 액세스 검토 페이지입니다. 액세스 권한은 [검토가 완료](complete-access-review.md)될 때까지 디렉터리에서 변경되지 않습니다.
-
-![액세스 검토 진행률](./media/create-access-review/overview-progress.png)
-
-일회성 검토 인 경우 다음 액세스 검토 기간이 만료 또는 관리자가 액세스 검토를 중지 한 후의 단계에 따라 [그룹 또는 응용 프로그램의 액세스 검토를 완료](complete-access-review.md) 확인 하 고 결과 적용 합니다.  
-
-일련의 액세스를 관리 하려면 검토, 액세스 검토로 이동 및는 예약 된 검토에 대 한 예정 된 찾습니다와 종료 날짜를 편집 또는 추가/제거 검토자 적절 하 게 합니다.
-
-선택한 항목 기반 **설정 완료 시**, 자동 적용 됩니다가 검토의 종료 날짜 또는 검토를 수동으로 중지 후에 실행 합니다. 검토 상태가 변경 됩니다 **완료 됨** 와 같은 중간 상태 **적용** 마지막 상태로 **적용**합니다. 거부된 사용자(있는 경우)가 몇 분 내에 그룹 구성원 자격 또는 애플리케이션 할당에서 제거되는 것을 볼 수 있어야 합니다.
+게스트 검토자로 할당 하 고는 초대를 수락 하지 않은 경우는 받지 전자 메일 액세스 검토에서 때문 invite 검토 하기 전에 먼저 동의 해야 합니다.
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 

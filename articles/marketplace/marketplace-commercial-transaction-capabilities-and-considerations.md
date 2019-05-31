@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826564"
+ms.locfileid: "65849715"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
 
@@ -144,7 +144,7 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft %를 지불 90 라이선스 비용의 정규화 된 SaaS 앱에 대 한   |   매월 $80.00 <br> \* 매출 매월 $ 90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 10%를 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
 
-* **축소 된 Marketplace 서비스 요금:** 특정 상용 Marketplace에 게시 하는 SaaS 제품 Microsoft 줄어듭니다 해당 Marketplace 서비스 요금 20%에서 (Microsoft 판매자 계약에 설명)으로 10%입니다.  되려면 제품에 대 한 순서 대로 귀하의 제품 하나 이상 지정 해야 Microsoft에서 IP로 공동 판매 준비 또는 IP 공동 판매 우선 순위를 지정 합니다. 해당 월에 대 한이 감소 하는 Marketplace 서비스 요금을 받으려면 자격 최소 5 개 비즈니스 일 해당 월의 종료 되기 전에 충족 되어야 합니다. Marketplace 서비스 요금 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 사용할 수 있는 다른 제품에 적용 되지 것입니다 줄어듭니다.  이 감소 Marketplace 서비스 요금은 2019 년 5 월 31 일 사이의 2020 년 6 월 30 년 Microsoft에서 수집 하는 라이선스 비용을 사용 하 여 정규화 된 제품으로 제공 됩니다.  해당 시간이 지난 후 Marketplace 서비스 요금 고 일반 크기 돌아갑니다.
+* **축소 된 Marketplace 서비스 요금:** 특정 상용 Marketplace에 게시 하는 SaaS 제품 Microsoft 줄어듭니다 해당 Marketplace 서비스 요금 20%에서 (Microsoft 판매자 계약에 설명)으로 10%입니다.  되려면 제품에 대 한 순서 대로 귀하의 제품 하나 이상 지정 해야 Microsoft에서 IP로 공동 판매 준비 또는 IP 공동 판매 우선 순위를 지정 합니다. 해당 월에 대 한이 감소 하는 Marketplace 서비스 요금을 받으려면 자격 최소 5 개 비즈니스 일 해당 월의 종료 되기 전에 충족 되어야 합니다. Marketplace 서비스 요금 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 사용할 수 있는 다른 제품에 적용 되지 것입니다 줄어듭니다.  이 감소 Marketplace 서비스 요금은 2019 년 5 월 1 일 사이의 2020 년 6 월 30 년 Microsoft에서 수집 하는 라이선스 비용을 사용 하 여 정규화 된 제품으로 제공 됩니다.  해당 시간이 지난 후 Marketplace 서비스 요금 고 일반 크기 돌아갑니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 

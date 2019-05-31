@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075147"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121868"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>MSAL.NET의 AuthenticationResult 속성
 
@@ -27,7 +27,7 @@ ms.locfileid: "65075147"
 
 MSAL.NET을에서 `AuthenticationResult` 노출 합니다.
 
-- `AccessToken` 웹 api를 리소스에 액세스 합니다. 이 매개 변수는 문자열로, 일반적으로 base64 인코딩된 JWT 있지만 클라이언트 액세스 토큰 안에 표시 되지 됩니다. 형식 안정적으로 유지 하면서 보장 되지 않습니다 및 리소스에 대 한 암호화할 수 있습니다. 클라이언트에서 액세스 토큰 내용에 따라 사용자 작성 코드는 오류와 클라이언트 논리 나누기의 가장 큰 소스 중 하나입니다. 참고 [액세스 토큰](../articles/active-directory/develop/access-tokens.md)
+- `AccessToken` 웹 api를 리소스에 액세스 합니다. 이 매개 변수는 문자열로, 일반적으로 base64 인코딩된 JWT 있지만 클라이언트 액세스 토큰 안에 표시 되지 됩니다. 형식은 안정적 상태 유지가 보장되지 않으며 리소스에 대해 암호화할 수 있습니다. 클라이언트의 액세스 토큰 콘텐츠에 따라 코드를 작성하는 사용자는 오류 및 클라이언트 논리 나누기의 가장 큰 원인 중 하나입니다. 참고 [액세스 토큰](../articles/active-directory/develop/access-tokens.md)
 - `IdToken` 사용자 (이 매개 변수는 인코딩된 JWT는 하는 데 사용). 참조 [ID 토큰](../articles/active-directory/develop/id-tokens.md)
 - `ExpiresOn` 토큰이 만료 되는 경우 날짜/시간을 알려 줍니다.
 - `TenantId` 사용자를 찾을 수 있는 테 넌 트를 포함 합니다. 게스트 사용자 (Azure AD B2B 시나리오)에 대 한 테 넌 트 ID가 게스트 테 넌 트를 고유한 테 넌 트 하지 않습니다.
@@ -37,7 +37,7 @@ MSAL.NET을에서 `AuthenticationResult` 노출 합니다.
 
 ### <a name="iaccount"></a>IAccount
 
-계정의 개념을 정의 하는 MSAL.NET (통해를 `IAccount` 인터페이스). 올바른 의미 체계를 제공 하는이 주요 변경 내용: 사실 동일한 사용자는 여러 계정에서 다른 Azure AD 디렉터리입니다. 또한 MSAL.NET 홈 계정 정보를 제공 하는 대로 게스트 시나리오의 경우 더 나은 정보를 제공 합니다.
+계정의 개념을 정의 하는 MSAL.NET (통해를 `IAccount` 인터페이스). 이 주요 변경은 올바른 의미 체계, 즉 동일한 사용자가 여러 Azure AD 디렉터리에 여러 계정을 가질 수 있다는 사실을 제공합니다. 또한 MSAL.NET 홈 계정 정보를 제공 하는 대로 게스트 시나리오의 경우 더 나은 정보를 제공 합니다.
 다음 다이어그램은 구조를 보여 줍니다.는 `IAccount` 인터페이스:
 
 ![Image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)

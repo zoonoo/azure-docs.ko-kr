@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472253"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979634"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -31,11 +31,18 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus 역할 및 사용 권한
 
-초기 공개 미리 보기의 경우 Azure AD 계정 및 서비스 주체를 Service Bus 메시지 네임스페이스의 “소유자” 또는 “기여자” 역할로만 추가할 수 있습니다. 이 작업은 네임스페이스의 모든 엔터티에 대한 모든 제어 권한을 ID에 부여합니다. 네임스페이스 토폴로지를 변경하는 관리 작업은 처음에는 Azure 리소스 관리를 통해서만 지원되고 네이티브 Service Bus REST 관리 인터페이스를 통해서는 지원되지 않습니다. 이 지원은 또한 Azure AD 계정으로 .NET Framework 클라이언트 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 개체를 사용할 수 없음을 의미합니다.
+Azure에서 제공 된 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하는 것에 대 한 기본 제공 RBAC 역할 아래:
+
+* [Service Bus 데이터 소유자 (미리 보기)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Service Bus 네임 스페이스 및 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 사용 하도록 설정
+
+>[!IMPORTANT]
+> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **"소유자"** 또는 **"참가자"** 역할입니다.
+>
+> 그러나 데이터 액세스에 대 한 권한을 **"소유자"** 및 **"참가자"** 역할 더 이상 적용 됩니다. 사용한 경우는 **"소유자"** 또는 **"참가자"** 역할을 활용 하도록 조정할 필요 합니다 **"Service Bus 데이터 소유자"** 역할.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Service Bus 사용
 
-다음 섹션에서는 대화형 Azure AD 사용자 로그인을 요구하는 애플리케이션 예제를 만들고 배포하는 데 필요한 단계, Service Bus에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법, 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다.
+만들기 및 대화형 Azure에서 요구 하는 샘플 응용 프로그램을 실행 하는 데 필요한 단계를 설명 하는 다음 섹션에서는 AD 사용자에 게 로그인, 해당 사용자 계정에 대 한 Service Bus 액세스를 부여 하는 방법 및 해당 id를 사용 하 여 Event Hubs에 액세스 하는 방법입니다.
 
 이 소개에서는 [GitHub에 있는 코드](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)인 간단한 콘솔 애플리케이션을 설명합니다.
 
@@ -47,7 +54,7 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 
 ### <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
-그런 다음, RBAC에 대한 미리 보기 지원이 있는 Azure 지역 중 하나에 [Service Bus 메시지 네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**.
+그런 다음, [Service Bus 메시징 네임 스페이스 만들기](service-bus-create-namespace-portal.md)합니다.
 
 네임스페이스를 만들고 나면, 포털의 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 Azure AD 사용자 계정을 소유자 역할에 추가합니다. 사용자 고유의 사용자 계정을 사용하고 네임스페이스를 만든 경우 이미 소유자 역할에 있는 것입니다. 다른 계정을 역할에 추가하려면 **권한 추가** 패널의 **선택** 필드에서 웹 애플리케이션의 이름을 검색한 다음, 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다.
 
@@ -67,7 +74,7 @@ Azure AD RBAC를 사용하는 애플리케이션은 SAS 규칙 및 키 또는 �
 
 - `tenantId`: **TenantId** 값으로 설정합니다.
 - `clientId`: **ApplicationId** 값으로 설정합니다.
-- `clientSecret`: 클라이언트 암호를 사용하여 로그온하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
+- `clientSecret`: 클라이언트 암호를 사용하여 로그인하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
 - `serviceBusNamespaceFQDN`: 새로 만든 Service Bus 네임스페이스의 전체 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
 - `queueName`: 만든 큐의 이름으로 설정합니다.
 - 이전 단계에서 앱에 지정된 리디렉션 URI입니다.

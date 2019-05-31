@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746904"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978437"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs를 통해 Azure 리소스에 관리 ID 사용
 
@@ -27,8 +27,28 @@ ms.locfileid: "60746904"
 관리 ID와 연결된 Event Hubs 클라이언트는 권한이 부여된 모든 작업을 수행할 수 있습니다. 관리 ID를 Event Hubs 역할에 연결하는 방식을 통해 권한이 부여됩니다. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs 역할 및 사용 권한
+관리 되는 id를 추가할 수 있습니다 합니다 **Event Hubs 데이터 소유자** Event Hubs 네임 스페이스의 역할입니다. 이 역할에는 네임 스페이스에 있는 모든 엔터티 (대 한 관리 및 데이터 작업) 전체 컨트롤 id를 부여합니다.
 
-관리 ID는 Event Hubs 네임스페이스의 "소유자" 또는 "참가자" 역할에만 추가할 수 있습니다. 그러면 네임스페이스의 모든 엔터티에 대한 모든 권한이 해당 ID에 부여됩니다. 그러나 네임스페이스 토폴로지를 변경하는 관리 작업은 처음에는 Azure Resource Manager를 통해서만 지원되고 네이티브 Event Hubs REST 관리 인터페이스를 통해서는 지원되지 않습니다. 그러므로 관리 ID 내에서는 .NET Framework 클라이언트 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 개체를 사용할 수 없습니다. 
+>[!IMPORTANT]
+> 에서는 이전에 지원 된 관리 되는 id를 추가 합니다 **소유자** 또는 **참가자** 역할입니다. 그러나 데이터 액세스에 대 한 권한을 **소유자** 하 고 **참가자** 역할은 더 이상 적용 합니다. 사용 중인 경우는 **소유자** 또는 **참가자** 역할을 사용 하도록 전환 합니다 **Event Hubs 데이터 소유자** 역할입니다.
+
+새 기본 제공 역할을 사용 하려면 다음이 단계를 수행 합니다. 
+
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. Event Hubs 네임 스페이스를 이동 합니다.
+3. 에 **Event Hubs Namespace** 페이지에서 **액세스 제어 (iam)** 왼쪽된 메뉴에서.
+4. 에 **액세스 제어 (IAM)** 페이지에서 **추가** 에 **역할 할당을 추가** 섹션입니다. 
+
+    ![역할 할당 단추 추가](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. 에 **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다. 
+    1. 에 대 한 **역할**를 선택 **Azure Event Hubs 데이터 소유자**합니다. 
+    2. 선택 된 **identity** 역할을 추가할 수 있습니다.
+    3. **저장**을 선택합니다. 
+
+        ![이벤트 허브 데이터 소유자 역할](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. 로 전환 합니다 **역할 할당** 페이지 및 사용자 추가 되어 있는지 확인 합니다 **Azure Event Hubs 데이터 소유자** 역할. 
+
+    ![사용자가 역할에 추가 확인](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Event Hubs에서 Azure 리소스용 관리 ID 사용
 
@@ -54,7 +74,7 @@ ms.locfileid: "60746904"
 
 ### <a name="create-a-new-event-hubs-namespace"></a>새 Event Hubs 네임스페이스 만들기
 
-그런 다음, Azure 리소스용 관리 ID 미리 보기를 지원하는 Azure 지역 중 한 곳에 [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). **미국 동부**, **미국 동부 2** 또는 **유럽 서부**. 
+그런 다음, [Event Hubs 네임 스페이스 만들기](event-hubs-create.md)합니다. 
 
 포털의 네임스페이스 **액세스 제어(IAM)** 페이지로 이동한 후 **역할 할당 추가**를 클릭하여 관리형 ID를 **소유자** 역할에 추가합니다. 이렇게 하려면 **권한 추가** 패널의 **선택** 필드에서 웹 애플리케이션의 이름을 검색하고 해당 항목을 클릭합니다. 그런 다음 **Save**를 클릭합니다. 이제 웹 애플리케이션의 관리 ID는 Event Hubs 네임스페이스 및 이전에 만든 이벤트 허브에 액세스할 수 있습니다. 
 

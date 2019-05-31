@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: e203877b2bc939c1d7fb9390df39f3e2451d12d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852315"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956208"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Linux를 구성 합니다. Azure App Service 용 ASP.NET Core 앱
 
@@ -50,7 +50,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서, 앱 코드 외부에서 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET 패턴을 사용 하 여 액세스할 수 있습니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET 패턴을 사용 하 여 액세스할 수 있습니다.
 
 ```csharp
 include Microsoft.Extensions.Configuration;

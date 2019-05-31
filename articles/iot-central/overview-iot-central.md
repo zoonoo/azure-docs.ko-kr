@@ -3,18 +3,18 @@ title: Azure IoT Central이란? | Microsoft Docs
 description: Azure IoT Central은 사용자 지정 IoT 솔루션을 구축하고 관리하는 데 사용할 수 있는 엔드투엔드 SaaS 솔루션입니다. 이 문서에서는 Azure IoT Central의 기능에 대한 개요를 제공합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 04/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84fa7aa006a6bc5365527dbf8043797617543590
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183274"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704533"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,16 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
-Azure IoT Central은 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있게 해주며, 완벽하게 관리되는 IoT SaaS(Software-as-a-Service) 솔루션입니다. 다음을 통해 연결된 제품 비전을 실현할 수 있습니다.
+Azure IoT Central은 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있게 해주는 완전 관리형 IoT SaaS(Software-as-a-Service) 솔루션입니다. 다음을 통해 연결된 제품 비전을 실현할 수 있습니다.
 
 - 고객에게 더 나은 제품과 경험을 제공할 수 있도록 연결된 디바이스에서 새로운 인사이트 유도.
 - 조직을 위한 새로운 비즈니스 기회 창출.
 
-Azure IoT Central은 일반적인 IoT 프로젝트와 비교하여 다음과 같은 방법으로 IoT 솔루션 관리의 번거로움을 덜어줍니다.
+Azure IoT Central이 일반 IoT 프로젝트와 다른 점:
 
-- 관리 부담 경감.
-- 운영 비용 및 오버헤드 경감.
-- 애플리케이션을 쉽게 사용자 지정하는 동시에 다음을 활용할 수 있습니다.
+- 관리 부담 경감
+- 운영 비용 및 오버헤드 경감
+- 애플리케이션을 쉽게 사용자 지정하는 동시에 다음과 같은 장점 활용
   - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)와 같은 업계 최고의 기술.
   - 종단 간 암호화와 같은 엔터프라이즈급 보안 기능.
 
@@ -42,7 +42,7 @@ Azure IoT Central은 일반적인 IoT 프로젝트와 비교하여 다음과 같
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-이 문서의 나머지 부분에서는 Azure IoT Central에 대해 개략적으로 설명합니다.
+이 문서에서는 Azure IoT Central에 대해 개략적으로 설명합니다.
 
 - 프로젝트와 관련된 일반적인 가상 사용자.
 - 애플리케이션을 만드는 방법.
@@ -51,7 +51,7 @@ Azure IoT Central은 일반적인 IoT 프로젝트와 비교하여 다음과 같
 
 ## <a name="personas"></a>가상 사용자
 
-Azure IoT Central 문서는 Azure IoT Central 애플리케이션과 상호 작용하는 4명의 일반적인 가상 사용자를 나타냅니다.
+Azure IoT Central 설명서는 Azure IoT Central 애플리케이션과 상호 작용하는 다음 4명의 일반적인 가상 사용자와 관련이 있습니다.
 
 - _개발자_는 애플리케이션에 연결하는 장치 유형을 정의하고 운영자에 맞게 애플리케이션을 사용자 지정하는 역할을 담당합니다.
 - _운영자_는 애플리케이션에 연결된 장치를 관리합니다.
@@ -65,11 +65,11 @@ Azure IoT Central 문서는 Azure IoT Central 애플리케이션과 상호 작�
 - 장치에서 원격 분석을 수신하고 해당 장치를 관리할 수 있게 해주는 클라우드 기반 애플리케이션.
 - 클라우드 기반 애플리케이션에 연결된 사용자 지정 코드를 실행하는 여러 장치.
 
-새로운 Azure IoT Central 애플리케이션을 빠르게 배포한 다음, 브라우저에서 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. Azure IoT Central 개발자는 웹 기반 도구를 사용하여 애플리케이션에 연결하는 장치에 대한 _장치 템플릿_을 만들 수 있습니다. 디바이스 템플릿은 디바이스 모델의 청사진입니다. 동일한 디바이스 템플릿에서 만들어진 모든 디바이스는 템플릿을 공유합니다. 디바이스 템플릿은 다음과 같은 디바이스 유형의 특성 및 동작을 정의합니다.
+새로운 Azure IoT Central 애플리케이션을 빠르게 배포한 다음, 브라우저에서 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. 개발자는 웹 기반 도구를 사용하여 애플리케이션에 연결하는 디바이스를 위한 _디바이스 템플릿_을 만들 수 있습니다. 디바이스 템플릿은 다음과 같은 디바이스 유형의 특성과 동작을 정의하는 청사진입니다.
 
 - 전송하는 원격 분석.
 - 운영자가 수정할 수 있는 비즈니스 속성.
-- 디바이스에서 설정하고 애플리케이션에서 읽기 전용인 디바이스 속성.
+- 장치에서 설정하고 애플리케이션에서 읽기 전용인 장치 속성.
 - 애플리케이션이 응답하는 임계값.
 - 디바이스의 동작을 결정하는 설정.
 
@@ -83,7 +83,7 @@ Azure IoT Central에서 생성하는 시뮬레이션 데이터를 사용하여 �
 
 ## <a name="connect-your-devices"></a>사용자 디바이스 연결
 
-개발자가 애플리케이션에 연결할 수 있는 장치 유형을 정의한 후 장치 개발자는 장치에서 실행할 코드를 만듭니다. 디바이스 개발자는 Microsoft의 오픈 소스를 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)를 사용하여 디바이스 코드를 만듭니다. 이 SDK는 광범위한 언어, 플랫폼 및 프로토콜 지원을 통해 Azure IoT Central 애플리케이션에 장치를 연결하는 데 필요한 사항을 충족합니다. SDK를 사용하면 Azure IoT Central에 연결된 디바이스에서 다음 작업을 수행할 수 있습니다.
+개발자가 애플리케이션에 연결할 수 있는 장치 유형을 정의한 후 장치 개발자는 장치에서 실행할 코드를 만듭니다. 디바이스 개발자는 Microsoft의 오픈 소스를 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)를 사용하여 디바이스 코드를 만듭니다. 이 SDK는 광범위한 언어, 플랫폼 및 프로토콜 지원을 통해 Azure IoT Central 애플리케이션에 장치를 연결하는 데 필요한 사항을 충족합니다. SDK를 사용하면 다음과 같은 디바이스 기능을 구현할 수 있습니다.
 
 - 보안 연결 생성.
 - 원격 분석 전송.
@@ -96,15 +96,15 @@ Azure IoT Central에서 생성하는 시뮬레이션 데이터를 사용하여 �
 
 Azure IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므로 애플리케이션 관리 부담이 줄어듭니다.
 
-운영자는 Azure IoT Central 애플리케이션을 사용하여 Azure IoT Central 솔루션의 장치를 관리합니다. 운영자는 다음과 같은 작업을 수행할 수 있습니다.
+운영자는 Azure IoT Central 애플리케이션을 사용하여 Azure IoT Central 솔루션의 장치를 관리합니다. 운영자는 다음과 같은 작업을 수행합니다.
 
 - 애플리케이션에 연결된 장치 모니터링.
 - 디바이스 관련 문제 해결 및 수정.
 - 새 디바이스 프로비저닝.
 
-개발자는 디바이스 템플릿 수준에서 스트리밍 데이터에 적용되는 사용자 지정 규칙 및 작업을 정의할 수 있습니다. 운영자는 장치 수준에서 이러한 규칙을 사용하거나 사용하지 않도록 설정하여 애플리케이션 내에서 작업을 제어하고 자동화할 수 있습니다.
+개발자는 연결된 디바이스의 스트리밍 데이터에 적용되는 사용자 지정 규칙 및 작업을 정의할 수 있습니다. 운영자는 장치 수준에서 이러한 규칙을 사용하거나 사용하지 않도록 설정하여 애플리케이션 내에서 작업을 제어하고 자동화할 수 있습니다.
 
-관리자는 [사용자 역할 및 사용 권한](howto-administer.md)을 사용하여 애플리케이션에 대한 액세스를 관리할 수 있습니다.
+관리자는 [사용자 역할 및 권한](howto-administer.md)을 사용하여 애플리케이션에 대한 액세스를 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687074"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991413"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>프리미엄 계층으로 기존 Azure Service Bus 표준 네임 스페이스 마이그레이션
 이전에 Azure Service Bus 네임 스페이스의 표준 계층 에서만 제공 됩니다. 네임 스페이스는 개발자 환경과 낮은 처리량에 최적화 된 다중 테 넌 트 설정 합니다. 프리미엄 계층은 예측 가능한 대기 시간 및 고정된 가격으로 향상 된 처리량에 대 한 네임 스페이스 당 전용된 리소스를 제공합니다. 프리미엄 계층은 높은 처리량과 추가 엔터프라이즈 기능을 필요로 하는 프로덕션 환경에 대 한 최적화 됩니다.
 
-이 문서에서는 프리미엄 계층으로 기존 표준 계층 네임 스페이스를 마이그레이션하는 방법을 설명 합니다.
+이 문서에서는 프리미엄 계층으로 기존 표준 계층 네임 스페이스를 마이그레이션하는 방법을 설명 합니다.  
 
 >[!WARNING]
 > 마이그레이션은 Service Bus 표준 네임 스페이스에서 프리미엄 계층으로 업그레이드를 위한 것입니다. 마이그레이션 도구를 다운 그레이드 하는 것을 지원 하지 않습니다.
@@ -33,6 +33,7 @@ ms.locfileid: "64687074"
 - **premium** 네임 스페이스 있어야 **엔터티가 없습니다.** 에 성공 하려면 마이그레이션에 대 한 합니다. 
 - 모든 **엔터티** 표준 네임 스페이스에는 **복사** 마이그레이션 프로세스 중 premium 네임 스페이스에 있습니다. 
 - 마이그레이션 지원 **메시징 단위 당 1,000 개의 엔터티** 프리미엄 계층. 필요한 메시징 단위 수를 식별 하려면 현재 표준 네임 스페이스에 있는 엔터티의 수를 사용 하 여 시작 합니다. 
+- 직접 마이그레이션할 수 없습니다 **기본 계층** 하 **프리미어 계층**, 수 하지 직접 기본 표준 첫 번째에서 및를 표준에서 프리미엄 다음 단계에서 다음을 마이그레이션하여 있지만 합니다.
 
 ## <a name="migration-steps"></a>마이그레이션 단계
 일부 조건 마이그레이션 프로세스에 연결 됩니다. 오류를 방지 하기 위해 다음 단계를 숙지 합니다. 다음이 단계에는 마이그레이션 프로세스를 간략하게 설명 하 고 단계별 세부 정보 섹션에 나열 됩니다.

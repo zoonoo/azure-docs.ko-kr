@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960057"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237263"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 QnA Maker에 대한 포괄적인 제한 목록입니다.
@@ -51,19 +51,19 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 * 메타데이터 값에 지원되는 문자: : 및 | 외 모든 문자 
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
-* 최대 대체 질문 수: 100
+* 최대 대체 질문 수: 300
 * 질문-응답 쌍의 최대 수: 종속 된 [Azure Search 계층](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) 선택 합니다. 질문 및 답변 쌍을 Azure Search 인덱스에서 문서에 매핑됩니다. 
 
 ## <a name="create-knowledge-base-call-limits"></a>기술 자료 호출 제한 만들기
-이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
-* 답변별 최대 대체 질문 수: 100
+이는 각 기술 자료 만들기 작업(‘기술 자료 만들기’ 클릭 또는 CreateKnowledgeBase API 호출)에 대한 제한을 나타냅니다. 
+* 답변별 최대 대체 질문 수: 300
 * 최대 URL 수: 10
 * 최대 파일 수: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>기술 자료 호출 제한 업데이트
-이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다.
+이는 각 업데이트 작업(‘저장 및 학습’ 클릭 또는 UpdateKnowledgeBase API 호출)에 대한 제한을 나타냅니다. 
 * 각 원본 이름의 길이: 300
-* 추가 또는 삭제된 최대 대체 질문 수: 100
+* 추가 또는 삭제된 최대 대체 질문 수: 300
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: sngun
 ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546766"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151322"
 ---
 Azure Portal에서는 Cosmos DB 계정 처리량, 스토리지, 가용성, 대기 시간 및 일관성을 모니터링합니다. [Azure Cosmos DB SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/cosmos-db/)와 관련된 메트릭 차트에는 실제 성능 대비 SLA 값이 표시됩니다. 이 메트릭 모음을 통해 SLA를 투명하게 모니터링할 수 있습니다.
 

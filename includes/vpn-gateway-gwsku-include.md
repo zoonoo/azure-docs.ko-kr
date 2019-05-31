@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305129"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159313"
 ---
 가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 가상 네트워크 게이트웨이 Sku Azure 가용성 영역에서 대해서 [Azure 가용성 영역 게이트웨이 Sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "58305129"
 
 SLA 및 기능 집합의 차이로 인해 프로덕션 vs. 개발-테스트에 다음과 같은 SKU를 사용하는 것이 좋습니다.
 
-| **워크로드**                       | **SKU**               |
+| **작업**                       | **SKU**               |
 | ---                                | ---                    |
 | **프로덕션, 중요한 워크로드** | VpnGw1, VpnGw2, VpnGw3 |
 | **개발-테스트 또는 개념 증명**   | 기본(\*\*)                 |

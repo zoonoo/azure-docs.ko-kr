@@ -75,7 +75,7 @@ sections:
             href: /azure/application-insights/app-insights-nodejs-quick-start
           - image:
               src: 'https://docs.microsoft.com/media/common/java.svg'
-            text: 자바
+            text: Java
             href: /azure/application-insights/app-insights-java-quick-start
           - image:
               src: /azure/application-insights/media/index/mobile-center.png

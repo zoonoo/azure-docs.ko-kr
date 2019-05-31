@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148077"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146749"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포
 
@@ -138,6 +138,13 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
 1. 아직 없는 경우 [새 Azure IoT Edge 디바이스 등록](how-to-register-device-portal.md)의 단계를 따라 디바이스를 등록하고 디바이스 연결 문자열을 검색합니다. 
 
 2. PowerShell을 관리자 권한으로 실행합니다.
+
+   >[!NOTE]
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **Deploy-IoTEdge** 명령은 사용자의 Windows 머신이 지원되는 버전인지 확인하고, 컨테이너 기능을 작동하도록 켜고, moby 런타임을 다운로드한 다음, IoT Edge 런타임을 다운로드합니다.
 

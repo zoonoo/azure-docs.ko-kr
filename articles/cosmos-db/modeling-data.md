@@ -5,15 +5,15 @@ description: NoSQL 데이터베이스의 데이터 모델링과 관계형 데이
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446711"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953861"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 모델링
 

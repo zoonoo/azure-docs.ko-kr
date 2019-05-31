@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: d5255e8cd8c662295a714931a3e292b20ab10079
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156944"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 
@@ -433,7 +433,7 @@ $runId = $response.runId
 
 ## <a name="verify-the-output"></a>출력 확인
 
-Azure Storage 탐색기를 사용하여 파이프라인 실행을 만들 때 지정한 대로 Blob이 “inputBlobPath”에서 “outputBlobPath”로 복사되었는지 검사합니다.
+Azure Storage Explorer를 사용하여 파이프라인 실행을 만들 때 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 검사합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 이 자습서에서 만든 데이터 팩터리만 삭제합니다.

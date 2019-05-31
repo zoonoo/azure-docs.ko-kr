@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: diberry
 ms.openlocfilehash: 4ada2e36f067db685944c683de8cc36d3bbf8cf6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741234"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123567"
 ---
 **관리** 섹션(오른쪽 위 메뉴)의 **키 및 엔드포인트** 페이지(왼쪽 메뉴)에서, 페이지 맨 아래에 있는 **엔드포인트** URL을 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 표시된 다른 브라우저 탭이 열립니다. 
 

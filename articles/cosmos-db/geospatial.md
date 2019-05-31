@@ -4,14 +4,14 @@ description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/01/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 26eb43060a0a2b564a7274bb1579151e66b2bfee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 2d8d62dd8426b2ab1c60f8e50e8ab0c17a37abfb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604201"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241059"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 

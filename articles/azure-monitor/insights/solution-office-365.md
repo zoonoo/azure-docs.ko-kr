@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794022"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357571"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
 ![Office 365 로고](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그를 연결 하려면 사용 합니다 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md), Office 365 관리 로그 보다 더 다양 한 로그 데이터를 제공 하는 합니다. 
+>
+> 경우 있습니다 [온 보 딩 Azure Sentinel](../../sentinel/quickstart-onboard.md), Log Analytics 작업 영역에 설치 된 Office 365 솔루션을 지정 합니다. 커넥터를 사용 하도록 설정 하면 솔루션 작업 영역에서 사용할 수 있습니다 하 고 설치한 다른 모니터링 솔루션으로 사용 하는 동일 합니다.
+>
+> 사용자가 Azure government cloud의 Azure Sentinel 아직 사용할 수 없으므로 government 클라우드에서이 문서의 단계를 사용 하 여 Office 365를 설치 해야 합니다.
 
 Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환경을 모니터링할 수 있습니다.
 
@@ -30,6 +38,7 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
 - 조직의 Office 365 활동 데이터를 토대로 [로그 쿼리](../log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -530,7 +539,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |

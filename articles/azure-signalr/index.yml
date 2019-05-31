@@ -37,7 +37,7 @@ sections:
             href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
           - image:
               src: 'https://docs.microsoft.com/azure/media/index/logo_java.svg'
-            text: 자바
+            text: Java
             href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_REST.svg'

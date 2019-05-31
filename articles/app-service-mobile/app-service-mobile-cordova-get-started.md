@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 7014d09bbb62e78c37a9496628e3509b6eaaa4ac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ac6c2b0f93c56de6e0a2b559645884b60d761ba8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123334"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240230"
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -43,42 +43,13 @@ Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure 모바일 앱 백 엔드 만들기
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-[유사한 단계를 보여 주는 비디오 보기](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
-
-## <a name="configure-the-server-project"></a>서버 프로젝트 구성
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트와 서버 프로젝트 구성
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Apache Cordova 앱 다운로드 및 실행
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
-
-## <a name="next-steps"></a>다음 단계
-이제 이 빠른 시작 자습서를 완료했으므로 다음 자습서 중 하나로 이동합니다.
-
-* Apache Cordova 앱에 [오프라인 데이터 추가](app-service-mobile-cordova-get-started-offline-data.md)
-* [인증을 추가](app-service-mobile-cordova-get-started-users.md) 합니다.
-* [푸시 알림을 추가](app-service-mobile-cordova-get-started-push.md) 합니다.
-
-Azure App Service의 주요 개념에 대해 자세히 알아봅니다.
-
-* [오프라인 데이터]
-* [인증]
-* [푸시 알림]
-
-SDK 사용 방법을 알아봅니다.
-
-* [Apache Cordova SDK]
-* [ASP.NET 서버 SDK]
-* [Node.js 서버 SDK]
-
-<!-- Images. -->
-
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
+
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[오프라인 데이터]: app-service-mobile-offline-data-sync.md
-[인증]: app-service-mobile-auth.md
-[푸시 알림]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
-[ASP.NET 서버 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js 서버 SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

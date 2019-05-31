@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866857"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258602"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -27,6 +27,7 @@ ms.locfileid: "64866857"
 - [보안](#security) 차이 포함 [감사](#auditing), [인증서](#certificates)를 [자격 증명](#credential), [암호화 공급자](#cryptographic-providers)하십시오 [로그인 및 사용자](#logins-and-users), 및 [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)합니다.
 - [Configuration](#configuration) 의 차이도 포함 됩니다 [버퍼 풀 확장](#buffer-pool-extension), [데이터 정렬을](#collation)를 [호환성 수준](#compatibility-levels), [데이터베이스 미러링 ](#database-mirroring), [데이터베이스 옵션](#database-options)합니다 [SQL Server 에이전트](#sql-server-agent), 및 [테이블 옵션](#tables)합니다.
 - [기능](#functionalities) 포함 [대량 삽입/OPENROWSET](#bulk-insert--openrowset)를 [CLR](#clr)를 [DBCC](#dbcc)를 [분산 트랜잭션](#distributed-transactions), [확장 이벤트](#extended-events), [외부 라이브러리](#external-libraries), [filestream 및 FileTable](#filestream-and-filetable)하십시오 [전체 텍스트 의미 체계 검색](#full-text-semantic-search), [연결 된 서버](#linked-servers), [PolyBase](#polybase), [복제](#replication)합니다 [복원](#restore-statement), [Service Broker](#service-broker)를 [저장 프로시저, 함수 및 트리거](#stored-procedures-functions-and-triggers)합니다.
+- [환경 설정을](#Environment) Vnet 및 서브넷 구성 등입니다.
 - [관리 되는 인스턴스 기능 서로 다른 동작을](#Changes)입니다.
 - [임시 제한 사항 및 알려진된 문제](#Issues)합니다.
 
@@ -192,7 +193,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - [버퍼 풀 확장](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) 지원 되지 않습니다.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`는 지원되지 않습니다. [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>데이터 정렬
 
 기본 인스턴스 데이터 정렬은 `SQL_Latin1_General_CP1_CI_AS`이며 생성 매개 변수로 지정할 수 있습니다. [데이터 정렬](https://docs.microsoft.com/sql/t-sql/statements/collations)을 참조하세요.
 
@@ -455,6 +456,19 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - `Extended stored procedures` 지원 되지 않으며, 이때 `sp_addextendedproc`  및 `sp_dropextendedproc`합니다. 참조 [확장 저장된 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)합니다.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
+## <a name="Environment"></a>Environmet 제약 조건
+
+### <a name="subnet"></a>서브넷
+- 관리 되는 인스턴스에 대 한 예약 된 서브넷에서 다른 리소스 (예: 가상 머신)을 배치할 수 없습니다. 이러한 리소스는 다른 사용자에 배치할 서브넷입니다.
+- 서브넷의 사용 가능한 충분 한 수 있어야 합니다. [IP 주소](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 최소 16 이며 서브넷에서 IP 주소를 최소한 32가 권장 됩니다.
+- [서비스 끝점을 관리 되는 인스턴스의 서브넷과 연결할 수 없습니다](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션은 사용 되지 않음을 확인 합니다.
+- 서브넷에 배치할 수 있는 인스턴스의 종류와 수는 일부의 [제약 조건 및 제한](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- 몇 가지 [서브넷에 적용 해야 하는 보안 규칙](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다.
+
+### <a name="vnet"></a>VNET
+- 리소스 모델을 사용 하 여 VNet을 배포할 수 있습니다-VNet에 대 한 클래식 모델이 지원 되지 않습니다.
+- App Service Environment, Logic apps 및 관리 되는 인스턴스 (연결 된 서버 또는 지역에서 복제, 트랜잭션 복제에 사용 됨)와 같은 일부 서비스가 Vnet 를사용하여연결된경우다른지역에관리되는인스턴스를액세스할수없습니다[전역 피어 링](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)합니다. VNet 대 VNet을 통해 VNet 게이트웨이 또는 ExpressRoute를 통해 이러한 리소스에 연결할 수 있습니다.
+
 ## <a name="Changes"></a> 동작 변경
 
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
@@ -471,7 +485,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 
 ### <a name="tempdb-size"></a>TEMPDB 크기
 
-최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 있습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb`합니다.
+최대 파일 크기인 `tempdb` 범용 계층에서 코어당 24GB 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 데이터베이스는 항상 12 데이터 파일로 분할 됩니다. 파일당이 최대 크기를 변경할 수 없으며, 새 파일에 추가할 수 없습니다 및 `tempdb`합니다. 일부 쿼리가 둘 24GB의 코어당 해야 하는 경우 오류를 반환할 수 있습니다 `tempdb`합니다. `tempdb` 인스턴스 시작 또는 장애 조치 및 모든 변경에서 만든 빈 데이터베이스를 다시 생성 항상 됩니다 `tempdb` 유지 되지 것입니다. 
 
 ### <a name="cant-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
 

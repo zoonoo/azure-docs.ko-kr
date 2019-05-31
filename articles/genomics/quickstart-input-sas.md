@@ -44,10 +44,10 @@ Microsoft Genomics 서비스에 전송된 각 워크플로에 대해 두 개 이
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>입력 파일 및 출력 컨테이너에 대한 SAS 만들기
-Azure Storage 탐색기를 사용하거나 프로그래밍 방식의 두 가지 방법으로 SAS 토큰을 만들 수 있습니다.  코드를 작성하는 경우 SAS를 직접 생성하거나 기본 설정 언어에서 Azure Storage SDK를 사용할 수 있습니다.
+Azure Storage Explorer를 사용하거나 프로그래밍 방식의 두 가지 방법으로 SAS 토큰을 만들 수 있습니다.  코드를 작성하는 경우 SAS를 직접 생성하거나 기본 설정 언어에서 Azure Storage SDK를 사용할 수 있습니다.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>설정: Azure Storage 탐색기를 사용하여 SAS 만들기
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>설정: Azure Storage Explorer를 사용하여 SAS 만들기
 
 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 Azure Storage에 저장한 리소스를 관리하는 도구입니다.  [여기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Azure Storage 탐색기를 사용하는 방법에 대해 자세히 알아볼 수 있습니다.
 

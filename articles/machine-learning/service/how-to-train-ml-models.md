@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818482"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153607"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -26,7 +26,7 @@ Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training
 
 ## <a name="train-with-an-estimator"></a>추정기를 사용하여 학습
 
-[작업 영역](concept-azure-machine-learning-architecture.md#workspace)을 만들고 [개발 환경](how-to-configure-environment.md)을 설정하고 난 후, Azure Machine Learning에서 모델을 학습하려면 다음 단계를 수행해야 합니다.  
+[작업 영역](concept-workspace.md)을 만들고 [개발 환경](how-to-configure-environment.md)을 설정하고 난 후, Azure Machine Learning에서 모델을 학습하려면 다음 단계를 수행해야 합니다.  
 1. [원격 컴퓨팅 대상](how-to-set-up-training-targets.md) 만들기(컴퓨팅 대상으로 로컬 컴퓨터를 사용할 수도 있음)
 2. [학습 데이터](how-to-access-data.md)를 데이터 저장소에 업로드(선택 사항)
 3. [학습 스크립트](tutorial-train-models-with-aml.md#create-a-training-script) 만들기
@@ -119,6 +119,10 @@ estimator = Estimator(source_directory='./my-keras-proj',
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+
+원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
 
 ## <a name="examples"></a>예
 추정기 패턴의 기본 사항을 보여 주는 Notebook은 다음을 참조하세요.

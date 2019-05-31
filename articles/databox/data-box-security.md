@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095860"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799234"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -34,6 +34,8 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 
 ![Data Box 보안](media/data-box-security/data-box-security-2.png)
 
+데이터가 이러한 솔루션을 흐르면 이벤트가 로깅되고 로그가 생성됩니다. 자세한 내용을 보려면 [Azure Data Box의 추적 및 이벤트 로깅](data-box-logs.md)으로 이동하세요.
+
 ## <a name="security-features"></a>보안 기능
 
 Data Box는 인증된 엔터티만 데이터를 확인, 수정 또는 삭제할 수 있도록 하는 방식으로 데이터 보호용 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다. 
@@ -48,24 +50,25 @@ Data Box 디바이스는 다음 기능을 통해 보호됩니다.
 - Data Box용 소프트웨어만 실행 가능
 - 잠긴 상태로 부팅됨
 - 디바이스 잠금 해제 암호를 통해 디바이스 액세스 제어
-- 디바이스 내부에서/외부로 데이터를 복사하는 데 필요한 액세스 자격 증명
+- 디바이스 내부에서/외부로 데이터를 복사하는 데 필요한 액세스 자격 증명 Azure Portal의 **디바이스 자격 증명** 페이지에 대한 모든 액세스는 [활동 로그](data-box-logs.md#query-activity-logs-during-setup)에 로깅됩니다.
 
 ### <a name="data-box-data-protection"></a>Data Box 데이터 보호
 
 Data Box 내부에서/외부로 전송되는 데이터는 다음 기능을 통해 보호됩니다.
 
-- 미사용 데이터용 AES 256비트 암호화 
+- 미사용 데이터용 AES 256비트 암호화
 - 처리 중인 데이터에 암호화된 프로토콜 사용 가능
-- Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 NIST 800-88r1 표준을 따릅니다.
+- Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 NIST 800-88r1 표준을 따릅니다. 데이터 지우기 이벤트는 [주문 기록](data-box-logs.md#download-order-history)에 기록됩니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
 
 Data Box 서비스는 다음 기능을 통해 보호됩니다.
 
 - Data Box 서비스에 액세스하려면 조직에 Data Box를 포함하는 Azure 구독이 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다.
-- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다. 
-- Data Box 서비스는 서비스에서 디바이스를 잠금 해제하는 데 사용되는 잠금 해제 암호를 저장합니다. 
-- Data Box 서비스에는 주문 세부 정보 및 상태가 저장됩니다. 이 정보는 주문이 삭제될 때 삭제됩니다. 
+- Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다.
+- RBAC(역할 기반 액세스 제어) 역할을 사용하면 Data Box 주문에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [Data Box 주문의 액세스 제어 설정](data-box-logs.md#set-up-access-control-on-the-order)을 참조하세요.
+- Data Box 서비스는 서비스에서 디바이스를 잠금 해제하는 데 사용되는 잠금 해제 암호를 저장합니다.
+- Data Box 서비스에는 주문 세부 정보 및 상태가 저장됩니다. 이 정보는 주문이 삭제될 때 삭제됩니다.
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 

@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876207"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067615"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure Monitor의 동적 임계값을 사용한 메트릭 경고(공개 미리 보기)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor의 동적 임계값을 사용 하 여 메트릭 경고
 
 동적 임계값 검색을 사용하는 메트릭 경고는 고급 ML(기계 학습)을 사용하여 메트릭의 과거 동작을 학습하고, 가능한 서비스 문제를 나타내는 패턴과 변칙을 식별합니다. 이 기능은 사용자가 완전 자동화 방식으로 Azure Resource Manager API를 통해 경고 규칙을 구성할 수 있도록 하여 간단한 UI와 대규모 작업을 지원합니다.
 

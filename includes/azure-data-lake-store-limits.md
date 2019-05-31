@@ -9,11 +9,11 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553904"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238539"
 ---
 Azure Data Lake Storage Gen1은 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. 데이터 레이크 저장소 Gen1 작동 및 예비 분석을 위해 단일 위치에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처 하는데 사용할 수 있습니다. 데이터 레이크 저장소 Gen1 계정에 저장할 수 있는 데이터 양에 대 한 제한은 없습니다.
 

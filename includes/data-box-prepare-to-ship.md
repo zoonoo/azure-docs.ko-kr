@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737197"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150481"
 ---
 마지막 단계는 배송할 디바이스를 준비하는 것입니다. 이 단계에서는 모든 디바이스 공유가 오프라인 상태가 됩니다. 이 프로세스를 시작한 후에는 공유에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
 > 배송 준비는 Azure 명명 규칙을 준수하지 않는 데이터를 플래그 지정하기 때문에 필요합니다. 이 단계를 건너뛰면 부적합한 데이터로 인해 잠재적인 데이터 업로드 오류가 발생할 수 있습니다.
 
-1. **배송 준비**로 이동하여 **준비 시작**을 클릭합니다. 기본적으로 체크섬은 배송을 준비하는 동안 계산된 인라인입니다. 체크섬 컴퓨팅은 데이터의 크기에 따라 다소 시간이 걸릴 수 있습니다. 
+1. **배송 준비**로 이동하여 **준비 시작**을 클릭합니다. 기본적으로 데이터가 복사되는 동안 체크섬이 계산됩니다. 배송 준비는 체크섬 계산을 완료하고 파일(  -BOM 파일) 목록을 만듭니다. 체크섬 컴퓨팅은 데이터의 크기에 따라 다소 시간이 걸릴 수 있습니다. 
    
     ![배송 준비 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "59737197"
 
     이 단계에서 오류가 있는 경우 오류 로그를 다운로드하고 오류를 해결해야 합니다. 오류가 해결되면 **배송 준비**를 실행합니다.
 
-4. 배송 준비가 성공적으로 완료(오류 없음)된 후 이 프로세스에서 복사한 파일(매니페스트라고도 함)의 목록을 다운로드합니다. 나중에 이 목록을 사용하여 Azure에 업로드된 파일을 확인할 수 있습니다.
+4. 배송 준비가 성공적으로 완료(오류 없음)된 후 이 프로세스에서 복사한 파일(매니페스트라고도 함)의 목록을 다운로드합니다. 나중에 이 목록을 사용하여 Azure에 업로드된 파일을 확인할 수 있습니다. 자세한 내용은 [배송 준비 동안 BOM 파일 검사](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship)를 참조하세요.
         
     ![배송 준비 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

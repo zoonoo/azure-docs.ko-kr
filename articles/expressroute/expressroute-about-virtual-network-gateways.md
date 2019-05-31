@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367985"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991582"
 ---
-# <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute에 대한 가상 네트워크 게이트웨이 정보
-가상 네트워크 게이트웨이는 Azure 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 보내는 데 사용됩니다. ExpressRoute 트래픽 또는 VPN 트래픽에 가상 네트워크 게이트웨이를 사용할 수 있습니다. 이 문서에서는 ExpressRoute 가상 네트워크 게이트웨이에 중점을 두며 SKU에 대한 정보, SKU 및 게이트웨이 유형으로 예상되는 성능이 포함되어 있습니다.
+# <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute 가상 네트워크 게이트웨이 및 FastPath
+Azure virtual network 및 ExpressRoute 통해 온-프레미스 네트워크에 연결 하려면 가상 네트워크 게이트웨이 먼저 만들어야 합니다. 가상 네트워크 게이트웨이 두 가지 용도로 사용 됩니다: 네트워크 간의 네트워크 트래픽 라우팅 exchange IP 경로입니다. 이 문서에서는 게이트웨이 형식과 게이트웨이 Sku SKU에서 예상 되는 성능을 설명 합니다. 이 문서에서는 ExpressRoute 설명 [FastPath](#fastpath), 성능 향상을 위해 가상 네트워크 게이트웨이 사용 하지 않으려면 온-프레미스 네트워크에서 네트워크 트래픽을 사용 하도록 설정 하는 기능입니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,6 +59,15 @@ Azure Availability Zones에 ExpressRoute 게이트웨이를 배포할 수도 있
 
 새 게이트웨이 SKU는 사용자의 요구 사항에 가장 적합한 다른 배포 옵션도 지원합니다. 새 게이트웨이 SKU를 사용하여 가상 네트워크 게이트웨이를 만들 때 특정 영역에 게이트웨이를 배포하는 옵션도 제공됩니다. 이를 영역 게이트웨이라고 합니다. 영역 게이트웨이를 배포하면 게이트웨이의 모든 인스턴스가 동일한 가용성 영역에 배포됩니다.
 
+## <a name="fastpath"></a>FastPath
+ExpressRoute 가상 네트워크 게이트웨이 네트워크 라우팅을 교환 하 고 네트워크 트래픽을 전송 하도록 설계 되었습니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간에 데이터 경로 성능 향상을 위해 설계 되었습니다. 사용 하도록 설정 하면 FastPath 네트워크 트래픽을 보내는 가상 네트워크에서 가상 컴퓨터에 직접 게이트웨이 무시 합니다. 
+
+FastPath는 사용할 수 있습니다 [ExpressRoute 직접](expressroute-erdirect-about.md) 만 합니다. 경우에만이 기능을 설정할 수 있습니다. 즉, 있습니다 [가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) ExpressRoute 직접 포트에서 만든 ExpressRoute 회로에 있습니다. FastPath 가상 네트워크와 온-프레미스 네트워크 간의 경로 교환 하기 위해 가상 네트워크 게이트웨이 여전히 필요 합니다. Ultra Performance 또는 ErGw3AZ 가상 네트워크 게이트웨이 여야 합니다.
+
+FastPath는 다음과 같은 기능을 지원 하지 않습니다.
+* 게이트웨이 서브넷에서 UDR: 온-프레미스 네트워크에서 네트워크 트래픽을 가상 네트워크 게이트웨이 전송할 수 있도록 계속 합니다. 가상 네트워크의 게이트웨이 서브넷에 UDR을 적용 하는 경우.
+* VNet 피어 링: 있는 경우 다른 가상 네트워크가 피어 링 된 가상 네트워크를 전송할 수 있도록 다른 가상 네트워크 (즉, 소위 "스포크" Vnet)에 온-프레미스 네트워크에서 네트워크 트래픽을 계속 ExpressRoute에 연결 된 게이트웨이입니다. 이를 해결 하려면 모든 가상 네트워크를 ExpressRoute 회로 직접 연결 합니다.
+
 ## <a name="resources"></a>REST API 및 PowerShell cmdlet
 가상 네트워크 게이트웨이 구성을 위해 REST API와 PowerShell cmdlet을 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
@@ -73,3 +82,5 @@ Azure Availability Zones에 ExpressRoute 게이트웨이를 배포할 수도 있
 ExpressRoute 게이트웨이 생성에 대한 자세한 내용은 [ExpressRoute에 대해 가상 네트워크 게이트웨이 만들기](expressroute-howto-add-gateway-resource-manager.md)를 참조하세요.
 
 영역 중복 게이트웨이 구성에 대한 자세한 내용은 [영역 중복 가상 네트워크 게이트웨이 만들기](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md)를 참조하세요.
+
+참조 [ExpressRoute 가상 네트워크 링크](expressroute-howto-linkvnet-arm.md) FastPath를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 합니다. 

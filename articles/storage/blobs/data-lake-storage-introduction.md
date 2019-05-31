@@ -40,7 +40,7 @@ Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이�
 
 -   **Hadoop 호환 액세스**: Data Lake Storage Gen2를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)에서와 마찬가지로 데이터를 관리하고 액세스할 수 있습니다. 새 [ABFS 드라이버](data-lake-storage-abfs-driver.md)는 [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) 및 [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/)를 포함한 모든 Apache Hadoop 환경 내에서 Data Lake Storage Gen2에 저장된 데이터에 액세스하는 데 사용할 수 있습니다.
 
--   **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 Storage 탐색기 또는 프레임워크(예: Hive 및 Spark)를 통해 구성할 수 있습니다.
+-   **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 Storage Explorer 또는 프레임워크(예: Hive 및 Spark)를 통해 구성할 수 있습니다.
 
 -   **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라 청구 요금이 바뀌므로 [Azure Blob Storage 수명 주기](storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용이 최소한으로 유지됩니다.
 

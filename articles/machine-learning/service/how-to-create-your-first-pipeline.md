@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인 만들기, 실행 및 추적
 titleSuffix: Azure Machine Learning service
-description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인을 만들고 실행합니다. 파이프라인을 사용하여 ML(기계 학습) 단계를 연결하는 워크플로를 만들고 관리합니다. 이러한 단계에는 데이터 준비, 모델 학습, 모델 배포 및 추론이 포함됩니다.
+description: Python용 Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인을 만들고 실행합니다. 파이프라인을 사용하여 ML(기계 학습) 단계를 연결하는 워크플로를 만들고 관리합니다. 이러한 단계는 데이터 준비, 모델 학습, 모델 배포 및 유추/점수 매기기를 포함 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914885"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165870"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+이전 결과 다시 사용 (`allow_reuse`) 불필요 한 다시 실행 하지 않아도 민첩성을 제공 하므로 공동 환경에서 파이프라인을 사용 하는 경우에 키입니다. script_name, 입력 및 단계의 매개 변수를 동일 하 게 유지 하는 경우 이것이 기본 동작입니다. 단계의 출력은 다시 사용 될 때 작업 하는 컴퓨터에 전송 되지 않습니다, 그리고 대신 이전 실행의 결과 다음 단계 실행을 즉시 사용할 수 있습니다. 항상 파이프라인 실행 중이 단계에 대 한 새 실행을 false로 설정 생성 됩니다. 
+
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ pipeline_run1.wait_for_completion()
 
 자세한 내용은 참조는 [클래스를 실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) 참조 합니다.
 
+## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
+
+원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
+
 ## <a name="publish-a-pipeline"></a>파이프라인 게시
 
 파이프라인을 게시하여 나중에 다른 입력을 사용하여 실행할 수 있습니다. 이미 게시된 파이프라인의 REST 엔드포인트가 매개 변수를 허용하려면 파이프라인을 게시하기 전에 매개 변수화해야 합니다. 
@@ -373,11 +379,11 @@ response = requests.post(published_pipeline1.endpoint,
 ## <a name="caching--reuse"></a>캐싱 및 다시 사용  
 
 최적화 하 고 파이프라인의 동작을 사용자 지정 하기 위해 캐싱 관련 몇 가지 작업을 수행 하 고 재사용할 수 있습니다. 예를 들어를 선택할 수 있습니다.
-+ **출력 실행 단계의 기본 재사용 해제할** 설정 하 여 `allow_reuse=False` 하는 동안 [정의 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **출력 실행 단계의 기본 재사용 해제할** 설정 하 여 `allow_reuse=False` 하는 동안 [정의 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)합니다. 다시 사용할 수 있도록 불필요 한 실행 제거 민첩성을 제공 하므로 공동 환경에서 파이프라인을 사용 하는 경우 키입니다. 그러나이에서 옵트아웃할 수 있습니다.
 + **스크립트를 넘어 해시 확장**, 절대 경로 또는 상대 경로를 다른 파일 및 디렉터리를 사용 하 여 source_directory 포함 하도록 합니다 `hash_paths=['<file or directory']` 
 + **다시 실행의 모든 단계에 대 한 출력 생성** 사용 하 여 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-기본적으로 단계 다시 사용 하 여 사용 하도록 설정 하 고 기본 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계에 대 한 스크립트를 동일 하 게 유지 하는 경우 (`script_name`, 입력 및 매개 변수), 실행을 이전 단계의 결과 다시 사용, 작업을 하는 컴퓨터에 전송 되지 않습니다 및 이전 실행의 결과 대신 다음 단계를 즉시 사용할 수 있습니다 .  
+기본적으로 `allow-reuse` 단계 하도록 설정 되어 있고 기본 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계에 대 한 스크립트를 동일 하 게 유지 하는 경우 (`script_name`, 입력 및 매개 변수), 실행을 이전 단계의 결과 다시 사용, 작업을 하는 컴퓨터에 전송 되지 않습니다 및 이전 실행의 결과 대신 다음 단계를 즉시 사용할 수 있습니다 .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

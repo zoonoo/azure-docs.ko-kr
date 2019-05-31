@@ -119,7 +119,7 @@
               items:
                 - name: 개요
                   href: move-azure-blob.md
-                - name: Storage 탐색기 사용
+                - name: Storage Explorer 사용
                   href: move-data-to-azure-blob-using-azure-storage-explorer.md
                 - name: AzCopy 사용
                   href: move-data-to-azure-blob-using-azcopy.md

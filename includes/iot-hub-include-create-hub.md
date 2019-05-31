@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc83d94acd25914ee57473de53afbc018f310887
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346209"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117428"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **+ 리소스 만들기**, **사물 인터넷**을 차례로 선택합니다.
+2. +**리소스 만들기**를 선택한 후 *Marketplace에서* **IoT Hub**를 검색합니다.
 
-3. 오른쪽의 목록에서 **Iot Hub**를 클릭합니다. IoT 허브를 만들기 위한 첫 번째 화면이 표시됩니다.
+3. **IoT Hub**를 선택하고 **만들기** 단추를 클릭합니다. IoT 허브를 만들기 위한 첫 번째 화면이 표시됩니다.
 
    ![Azure Portal에서 허브 만들기](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 

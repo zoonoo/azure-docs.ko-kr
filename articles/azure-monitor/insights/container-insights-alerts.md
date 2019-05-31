@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494629"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072400"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 성능 문제에 대 한 경고를 설정 하는 방법
 컨테이너에 대 한 azure Monitor 관리 되는 Kubernetes 클러스터 호스트 되는 Azure Kubernetes Service (AKS)에서 또는 Azure Container Instances에 배포 되는 컨테이너 워크 로드의 성능을 모니터링 합니다.
 
 이 문서에서는 다음과 같은 경우에 대 한 경고를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-* 클러스터 노드에서 CPU 또는 메모리 사용률이 정의 된 임계값을 초과 하는 경우
-* CPU 또는 메모리 사용률을 컨트롤러 내의 모든 컨테이너에 해당 하는 리소스에 설정 된 한계를 비교 하 여 정의 된 임계값을 초과 하는 경우
-* *NotReady* 상태 노드 계산
-*  *실패*, *보류 중*, *알 수 없는*를 *실행*, 또는 *성공* pod 단계 수
+- 클러스터 노드에서 CPU 또는 메모리 사용률이 임계값을 초과 하는 경우
+- 컨트롤러 내의 모든 컨테이너에 CPU 또는 메모리 사용률이 임계값을 비교 하 여 해당 리소스에서 설정 된 제한을 초과 하는 경우
+- *NotReady* 상태 노드 계산
+- *실패*, *보류 중*, *알 수 없는*를 *실행*, 또는 *성공* pod 단계 수
+- 클러스터 노드에서 사용 가능한 디스크 공간이 임계값을 초과 하는 경우 
 
-높은 CPU 또는 클러스터 노드에서 메모리 사용률에 대 한 경고, 메트릭 경고를 만들거나 메트릭 측정 경고를 제공 하는 쿼리를 사용 합니다. 메트릭 경고의 로그 경고 보다 대기 시간이 낮은 경우 하지만 로그 경고 고급 쿼리 및 큰 정교함을 제공 합니다. 로그 쿼리를 사용 하 여 현재 날짜/시간을 비교 하는 경고는 *이제* 연산자 및 1을 다시 이동 합니다. (컨테이너에 대 한 azure Monitor 저장 모든 날짜 (UTC) 협정 세계시 형식으로 합니다.)
+높은 CPU 또는 메모리 사용률, 사용 가능한 디스크 공간 부족 클러스터 노드에 대 한 경고, 메트릭 경고를 만들거나 메트릭 측정 경고를 제공 하는 쿼리를 사용 합니다. 메트릭 경고의 로그 경고 보다 대기 시간이 낮은 경우 하지만 로그 경고 고급 쿼리 및 큰 정교함을 제공 합니다. 로그 쿼리를 사용 하 여 현재 날짜/시간을 비교 하는 경고는 *이제* 연산자 및 1을 다시 이동 합니다. (컨테이너에 대 한 azure Monitor 저장 모든 날짜 (UTC) 협정 세계시 형식으로 합니다.)
 
 Azure Monitor 경고를 사용 하 여 잘 모르는 경우 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 시작 하기 전에 합니다. 로그 쿼리를 사용 하는 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다. 메트릭 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)합니다.
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >와 같은 특정 pod 단계에서 경고를 발생 시 *보류 중인*, *실패*, 또는 *알 수 없는*, 쿼리의 마지막 줄을 수정 합니다. 에 대 한 경고를 예를 들어 *개의 작업이* 사용: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+다음 쿼리는 사용 가능한 공간을 90%를 초과 하는 클러스터 노드 디스크를 반환 합니다. 클러스터 ID를 가져오려면 먼저 다음 쿼리를 실행 하는 값을 복사 합니다 `ClusterId` 속성:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 앞서 제공한 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor의 로그 경고를 만들려면 다음이 단계를 수행 합니다.  
 
@@ -272,9 +300,9 @@ let endDateTime = now();
 8. 다음과 같이 경고를 구성 합니다.
 
     1. **기준** 드롭다운 목록에서 **미터법**을 선택합니다. 메트릭 측정 값이 지정한 임계값 보다 값이 있는 쿼리에서 각 개체에 대 한 경고를 만듭니다.
-    1. 에 대 한 **조건**를 선택 **보다 큰**를 입력 하 고 **75** 는 초기 기준선으로 **임계값**합니다. 또는 조건을 충족 하는 다른 값을 입력 합니다.
+    1. 에 대 한 **조건을**를 선택 **보다 큰**를 입력 하 고 **75** 는 초기 기준선으로 **임계값** CPU 및 메모리 사용률 경고에 대 한 . 부족 한 디스크 공간 경고에 대 한 입력 **90**합니다. 또는 조건을 충족 하는 다른 값을 입력 합니다.
     1. 에 **트리거 경고 기준** 섹션에서 **연속 위반**합니다. 드롭다운 목록에서 선택 **보다 큰**를 입력 하 고 **2**합니다.
-    1. 아래에 있는 컨테이너 CPU 또는 메모리 사용률에 대 한 경고를 구성 하려면 **집계**를 선택 **ContainerName**합니다. 
+    1. 아래에 있는 컨테이너 CPU 또는 메모리 사용률에 대 한 경고를 구성 하려면 **집계**를 선택 **ContainerName**합니다. 클러스터 노드 디스크 부족 경고를 구성 하려면 선택 **ClusterId**합니다.
     1. 에 **평가에 따라** 으로 설정 합니다 **기간** 값을 **60 분**합니다. 규칙은 5 분 마다 실행 되며 현재 시간에서 지난 1 시간 내에서 생성 된 레코드를 반환 합니다. 잠재적인 데이터 대기 시간에 대 한 와이드 창 계정에는 기간을 설정합니다. 또한 쿼리가 반환 하는 경고 하지 않습니다 발생 하는 거짓 부정 하지 않으려면 데이터는 확인 합니다.
 
 9. 선택 **수행** 경고 규칙을 완료 합니다.

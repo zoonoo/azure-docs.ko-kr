@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905893"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297931"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Terraform 상태를 Azure Storage에 저장
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 백 엔드를 사용하도록 Terraform을 구성하려면 Terraform 구성 내에서 *azurerm* 형식의 *백 엔드* 구성을 포함합니다. *storage_account_name*, *container_name* 및 *key* 값을 구성 블록에 추가합니다.
 
-다음 예제에서는 Terraform 백 엔드를 구성하고 Azure 리소스 그룹을 만듭니다. 해당 값을 사용자 환경의 값으로 바꿉니다.
+다음 예제는 Terraform 백 엔드를 구성 하 고 Azure 리소스 그룹을 만듭니다. 해당 값을 사용자 환경의 값으로 바꿉니다.
 
 ```json
 terraform {

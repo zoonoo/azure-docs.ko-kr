@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150425"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393103"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -39,14 +39,13 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
 1. Azure Media Services 코드
   
-   합니다 [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 샘플에서는 Media Services v3 사용 하 여 다중 DRM 시스템을 구현 하 고 또한 Media Services 라이선스/키 배달 서비스를 사용 하는 방법을 보여 줍니다. 여러 암호화 유형(AES-128, PlayReady, Widevine, FairPlay)을 사용하여 각 자산을 암호화할 수 있습니다. 결합에 적합한 것을 확인하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조합니다.
+   합니다 [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 샘플에서는.NET을 사용 하 여 Media Services v3 사용 하 여 다중 DRM 시스템을 구현 하는 방법을 보여 줍니다. 또한 Media Services 라이선스/키 배달 서비스를 사용 하는 방법을 보여 줍니다. 여러 암호화 유형(AES-128, PlayReady, Widevine, FairPlay)을 사용하여 각 자산을 암호화할 수 있습니다. 결합에 적합한 것을 확인하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조합니다.
   
    예제에서는 다음을 수행하는 방법을 보여 줍니다.
 
-   1. 만들기 및 구성 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)합니다.
+   1. 만들기 및 구성 된 [콘텐츠 키 정책](content-key-policy-concept.md)합니다. 만든를 **콘텐츠 키 정책** 최종 클라이언트에 (즉 자산에 대 한 보안 액세스 제공) 콘텐츠 키 배달 방법을 구성 합니다.    
 
       * JWT의 클레임에 따라 권한 부여 확인 논리를 지정하여 라이선스 전송 권한 부여를 정의합니다.
-      * 콘텐츠 키를 지정 하 여 DRM 암호화를 구성 합니다.
       * 구성 [PlayReady](playready-license-template-overview.md)하십시오 [Widevine](widevine-license-template-overview.md), 및/또는 [FairPlay](fairplay-license-overview.md) 라이선스. 이 템플릿을 사용하여 각 사용된 DRM에 대한 권한을 구성할 수 있습니다.
 
         ```
@@ -54,11 +53,11 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. 만들기는 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators) 하 여 암호화 된 자산을 스트리밍하려면 하도록 구성 됩니다. 
+   2. 만들기는 [스트리밍 로케이터](streaming-locators-concept.md) 하 여 암호화 된 자산을 스트리밍하려면 하도록 구성 됩니다. 
   
-      합니다 **스트리밍 로케이터** 연결에 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)합니다. 예제에서는 "Predefined_MultiDrmCencStreaming" 정책에 StreamingLocator.StreamingPolicyName 설정합니다. 이 정책에서는 원하는 두 가지 콘텐츠 키 (봉투 (envelope) 및 CENC)을 통해 생성 된 가져오기 및 설정에 대 한 로케이터에 나타냅니다. 따라서 봉투, PlayReady 및 Widevine 암호화가 적용됩니다(키가 구성된 DRM 라이선스에 따라 재생 클라이언트로 배달됨). 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다.
-    
-      비디오를 암호화 하려고 하므로 합니다 **콘텐츠 키 정책** 는 이전에 구성한도 연결 하는 경우를 **스트리밍 로케이터**합니다. 
+      합니다 **스트리밍 로케이터** 연결에 [스트리밍 정책](streaming-policy-concept.md)합니다. 예제에서는 "Predefined_MultiDrmCencStreaming" 정책에 StreamingLocator.StreamingPolicyName 설정합니다. PlayReady 및 Widevine 암호화 적용, 키를 구성된 하는 DRM 라이선스에 따라 재생 클라이언트에 전달 됩니다. 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다.
+      
+      스트리밍 로케이터를 사용 하 여 연결도 합니다 **콘텐츠 키 정책** 는 정의 된 합니다.
     
    3. 테스트 토큰을 만듭니다.
 
@@ -102,11 +101,11 @@ HLS 프로토콜 다음 컨테이너 형식 및 암호화 체계를 지원합니
 
 |컨테이너 형식|암호화 체계|URL 예제|
 |---|---|---|
-|모두|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC(PlayReady) ||
-|CMAF(fmp4) |CENC(PlayReady) ||
+|모두|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (HEVC를 포함 하 여 / 아닌 H.265) 다음 장치에서 지원 됩니다.
 
@@ -120,9 +119,9 @@ MPEG DASH 프로토콜 다음 컨테이너 형식 및 암호화 체계를 지원
 
 |컨테이너 형식|암호화 체계|URL 예
 |---|---|---|
-|모두|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC(Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC(Widevine + PlayReady)||
+|모두|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC(Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC(Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>부드러운 스트리밍
 
@@ -130,8 +129,8 @@ MPEG DASH 프로토콜 다음 컨테이너 형식 및 암호화 체계를 지원
 
 |프로토콜|컨테이너 형식|암호화 체계|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>브라우저
 
@@ -206,7 +205,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 로 끝나는 오류가 발생할 경우 `_NOT_SPECIFIED_IN_URL`를 확인 하는 암호화 형식을 URL에 지정 해야 합니다. 예: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` 참조 [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)합니다.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

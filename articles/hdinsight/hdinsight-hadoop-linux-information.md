@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707562"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859651"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -251,7 +251,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Azure CLI를 사용 하 여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 

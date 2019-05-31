@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430000"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66139831"
 ---
 우선 ID 공급자 사이트에서 앱을 등록한 다음 Mobile Apps 백 엔드에서 공급자가 생성한 자격 증명을 설정합니다.
 

@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202173"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019813"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
@@ -134,7 +134,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 **SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 - **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 1초입니다. 범위는 1에서 60입니다.
+- **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
 - **연결 제한 시간**:&nbsp;&nbsp;기본값은 15초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. 연결 제한 시간 = ConnectRetryCount * ConnectionRetryInterval

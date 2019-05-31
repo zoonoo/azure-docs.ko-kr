@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510625"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015284"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
-클라우드 기반 Notebook 서버를 만들고 사용합니다.  이 빠른 시작에서는 값을 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md)에 기록하는 Python 코드를 실행합니다. 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용하는 클라우드의 기본 블록입니다. 
+설치할 필요가 없습니다.  클라우드에서 관리형 Notebook 서버를 사용하여 Azure Machine Learning 서비스를 시작합니다. 대신에 자체 Python 환경에 SDK를 설치하려면 [빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-local-notebook.md)을 참조하세요.
 
-이 빠른 시작에서는 Azure Machine Learning을 실행하는 데 필요한 Python 환경으로 구성된 Azure Machine Learning 작업 영역에서 클라우드 리소스를 만드는 방법을 보여 줍니다. 대신 사용자 고유의 환경을 사용하려면 [빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-local-notebook.md)을 참조하세요.  
+이 빠른 시작은 [Azure Machine Learning 서비스 작업 영역](concept-azure-machine-learning-architecture.md)을 사용하여 기계 학습 실험을 추적하는 방법을 보여줍니다.  Jupyter Notebook 서버, JupyterLab 및 완전히 준비된 ML 환경을 제공하는 안전한 클라우드 기반 Azure 워크스테이션인 [Notebook VM(미리 보기)](how-to-configure-environment.md#notebookvm)을 만듭니다. 그런 다음, 이 VM에서 작업 영역에 값을 로깅하는 Python Notebook을 실행합니다.
 
 이 빠른 시작에서 수행하는 작업은 다음과 같습니다.
 
-* 작업 영역에서 새 클라우드 기반 Notebook 서버를 만듭니다.
+* 작업 영역 만들기
+* 작업 영역에서 Notebook VM을 만듭니다.
 * Jupyter 웹 인터페이스를 시작합니다.
 * pi를 추정하는 코드를 포함하고 각 반복에서 오류를 기록하는 Notebook을 엽니다.
 * Notebook을 실행합니다.
@@ -35,11 +36,11 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#create-a-cloud-based-notebook-server)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
+Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#create-notebook)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>클라우드 기반 Notebook 서버 만들기
+## <a name="create-notebook"></a>Notebook VM 만들기
 
  작업 영역에서 Juffyter Notebook을 사용하여 시작할 클라우드 리소스를 만듭니다. 이 리소스는 Azure Machine Learning Service를 실행하는 데 필요한 모든 것이 미리 구성된 클라우드 기반 플랫폼을 제공합니다.
 
@@ -59,6 +60,7 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#creat
     ![새 VM 만들기](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. 상태가 **실행 중**으로 변경될 때까지 약 4~5분을 기다립니다.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter 웹 인터페이스 시작
 
@@ -85,7 +87,7 @@ pi를 추정하고 오류를 작업 영역에 기록하는 Notebook을 실행합
 1. 첫 번째 코드 셀을 클릭하고 **실행**을 선택합니다.
 
     > [!NOTE]
-    > 코드 셀 앞에는 대괄호가 있습니다. 대괄호가 비어 있으면(__[  ]__) 코드가 실행되지 않았습니다. 코드가 실행 중이면 별표(__[*]__)가 표시되며, 코드가 완료되면 **[1]** 이라는 숫자가 표시됩니다.  이 숫자는 셀이 실행된 순서를 알려줍니다.
+    > 코드 셀 앞에는 대괄호가 있습니다. 대괄호가 비어 있으면( __[  ]__ ) 코드가 실행되지 않았습니다. 코드가 실행 중이면 별표( __[*]__ )가 표시되며, 코드가 완료되면 **[1]** 이라는 숫자가 표시됩니다.  이 숫자는 셀이 실행된 순서를 알려줍니다.
     >
     > 셀을 실행하는 바로 가기로 **Shift-Enter**를 사용하세요.
 
@@ -143,6 +145,7 @@ Pi 근삿값을 계산하는 코드에서 임의 값을 사용하므로 도면�
 
 이 빠른 시작에서 수행한 작업은 다음과 같습니다.
 
+* 작업 영역 만들기
 * Notebook VM을 만듭니다.
 * Jupyter 웹 인터페이스를 시작합니다.
 * pi를 추정하는 코드를 포함하고 각 반복에서 오류를 기록하는 Notebook을 엽니다.

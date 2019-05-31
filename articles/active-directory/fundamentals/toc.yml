@@ -29,6 +29,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: EU에 대한 ID 데이터 저장
       href: active-directory-data-storage-eu.md
+    - name: Microsoft 365 Government의 새로운 기능
+      href: whats-new-microsoft-365-government.md
 - name: 방법 가이드
   expanded: true
   items:

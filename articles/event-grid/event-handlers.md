@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345484"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305039"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -72,6 +72,28 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 | [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
+## <a name="service-bus-queue-preview"></a>Service Bus 큐 (미리 보기)
+
+엔터프라이즈 응용 프로그램에서 버퍼링 또는 명령 및 컨트롤 시나리오에서 사용 하기 위해 Service Bus 큐를 직접 Event Grid의 이벤트를 라우팅하는 이벤트 처리기로 Service Bus를 사용 합니다. 미리 보기 Service Bus 토픽 및 세션을 사용 하 여 작동 하지 않습니다 하지만 Service Bus 큐의 모든 계층을 사용 하 여 작동 합니다.
+
+참고 하는 동안 Service Bus 공개 미리 보기에서 처리기는 설치 해야 합니다 CLI 또는 PowerShell 확장 이벤트 구독을 만드는 것을 사용 하는 경우.
+
+### <a name="using-cli"></a>CLI 사용
+
+다음 예제에서는 Azure CLI에 대 한 구독을 연결 및 Service Bus 큐에 대 한 Event Grid 항목:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
 ## <a name="queue-storage"></a>Queue Storage
 
 Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응답 시간이 너무 오래 걸리는 장기 실행 프로세스가 있는 경우 Queue Storage를 사용할 수 있습니다. 이벤트를 Queue Storage를 보내면 앱이 자체 일정에 따라 프로세스를 끌어와서 처리할 수 있습니다.
@@ -80,7 +102,7 @@ Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응
 |---------|---------|
 | [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | Queue Storage에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
 
-## <a name="webhooks"></a>WebHook
+## <a name="webhooks"></a>웹후크
 
 이벤트에 응답하는 사용자 지정 가능한 엔드포인트에는 웹후크를 사용합니다.
 

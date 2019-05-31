@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821422"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151197"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -83,7 +83,7 @@ print(primary)
 
 관리 되는 id에 대 한 자세한 내용은 참조 하세요. [Azure 리소스에 대 한 id 관리](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| 리소스 | 권한 |
+| Resource | 권한 |
 | ----- | ----- |
 | 작업 영역 | 참가자 | 
 | Storage 계정 | Storage Blob 데이터 Contributor | 
@@ -101,7 +101,7 @@ Azure Machine Learning 서비스는 모든 작업 영역 지역에 대 한 구�
 
 Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리소스를 얻습니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 이러한 컴퓨팅 대상을 가상 네트워크 내에서 만들 수 있습니다. 예를 들어 Microsoft Data Science Virtual Machine을 사용하여 모델을 학습시킨 다음, AKS(Azure Kubernetes Service)에 모델을 배포할 수 있습니다.  
 
-자세한 내용은 [가상 네트워크에서 실험 및 추론을 실행 하는 방법을](how-to-enable-virtual-network.md)합니다.
+자세한 내용은 [가상 네트워크에서 실험 및 유추를 실행 하는 방법을](how-to-enable-virtual-network.md)합니다.
 
 ## <a name="data-encryption"></a>데이터 암호화.
 
@@ -154,7 +154,7 @@ SSH 암호 및 키 VM 및 HDI HDInsight와 같은 대상을 계산 하기 위해
 사용자가 지원 되는 Azure Machine Learning 서비스 클라이언트 (Python SDK, CLI, Azure portal) 중 하나에서 Azure AD에 로그인 하 고 적절 한 Azure Resource Manager 토큰을 요청 합니다.  사용자는 다음 영역을 Azure Resource Manager를 호출 합니다.  Azure Resource Manager 연락처를 Azure Machine Learning 작업 영역을 프로 비전 할 리소스 공급자 서비스입니다.  추가 리소스는 작업 영역을 만드는 동안 고객 구독에서 생성 됩니다.
 * KeyVault (암호 저장)를
 * Azure Storage 계정 Blob 및 파일 공유 등
-* Azure Container Registry (추론 및 실험에 대 한 docker 이미지를 저장)
+* Azure Container Registry (유추/점수 매기기 및 실험에 대 한 docker 이미지를 저장)
 * Application Insights (원격 분석을 저장)를
 
 작업 영역 (Azure Kubernetes Service, VM 등)에 연결 된 다른 계산도 프로 비전 할 수는 고객이 필요에 따라 합니다. 
@@ -172,7 +172,7 @@ Azure Machine Learning과 사용 하 여 연결 된 서비스 작업 영역 이�
 * Azure Machine Learning 서비스는 위에서 저장 코드 스냅숏에 대 한 스냅숏 ID를 사용 하 여 호출 됩니다.
 * ID (선택 사항) 및 Azure Machine Learning 서비스와 다시 통신할 계산 대상은 Machine Learning 계산/v M 등에서 나중에 사용 되는 Azure Machine Learning 서비스 토큰 서비스를 만들고 azure Machine Learning 실행
 * 관리 되는 계산 (예: 선택할 수 있습니다. Machine Learning Compute) 또는 관리 되지 않는 계산 (예: VM) 교육 작업을 실행 합니다. 데이터 흐름 모두 아래 시나리오에 대 한 설명:
-* (VM/HDInsight/로컬 – Key Vault에 SSH 자격 증명을 사용 하 여 Microsoft 구독에 액세스) Azure Machine Learning 서비스에서 실행 됩니다 관리 코드 계산 대상입니다.
+* (VM/HDInsight – Key Vault에 SSH 자격 증명을 사용 하 여 Microsoft 구독에 액세스) Azure Machine Learning 서비스에서 실행 됩니다 관리 코드 계산 대상입니다.
     1.  환경 준비 (참고: Docker는 VM/로컬에 대 한 옵션을 함께 합니다. 컴퓨터 학습 Compute 아래 docker 컨테이너의 작동 방법을 실행 중인 실험을 이해 하는 단계를 참조)
     2.  코드 다운로드
     3.  환경 변수/구성 설정
@@ -189,7 +189,7 @@ Azure Machine Learning과 사용 하 여 연결 된 서비스 작업 영역 이�
 ![작업 영역의 워크플로 만드는 보여 주는 스크린샷](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>웹 서비스 만들기
-다음 다이어그램은 모델을 웹 서비스로 배포 하는 추론 워크플로를 보여줍니다.
+다음 다이어그램에서는 유추 워크플로를 보여 줍니다. 모델 점수 매기기 또는 유추 하는 단계 프로덕션 데이터에 가장 일반적으로 예측에 대 한 배포 된 모델이 사용 되는 위치입니다.
 아래 세부 정보를 참조 하세요.
 * 사용자가 Azure ML SDK와 같은 클라이언트를 사용 하 여 모델 등록
 * 사용자 모델, 점수 매기기 파일 및 기타 모델 종속성을 사용 하 여 이미지를 만듭니다.

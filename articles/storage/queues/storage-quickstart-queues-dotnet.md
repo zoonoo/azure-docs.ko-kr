@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232604"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159809"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기
 
@@ -257,7 +257,9 @@ Azure Queues를 사용하는 .NET 개발에 대한 다음 추가 리소스를 �
 
 ### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
 
-- 최신 버전의 Azure Storage용 [.NET 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 NuGet 패키지를 다운로드하세요. 
+- 최신 버전의 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)에 대한 NuGet 패키지를 다운로드합니다.
+    - [일반](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [큐](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - GitHub에서 [.NET 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net)를 찾아보세요.
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플

@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384688"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113234"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>그룹에 대 한 액세스를 검토 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
 Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응용 프로그램에 대 한 액세스를 관리 방법과 검토 하는 Azure AD 액세스를 호출 하는 기능을 사용 하 여 다른 Microsoft Online Services 간소화 합니다.
 
 이 문서에서는 지정 된 검토자 그룹 또는 응용 프로그램에 대 한 액세스를 사용 하 여 사용자의 멤버에 대 한 액세스 검토를 수행 하는 방법을 설명 합니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+- Azure AD Premium P2
+
+자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
 
 ## <a name="open-the-access-review"></a>액세스 검토를 엽니다.
 
@@ -64,16 +70,16 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 두 가지는를 승인 하거나 액세스를 거부할 수 있습니다.
 
-- 승인 하거나 개별적으로 각 요청을 거부할 수 또는
+- 승인 하거나 하나 이상의 사용자에 대 한 액세스를 거부할 수 있습니다 또는
 - 가장 빠르고 가장 쉬운 방법인 시스템 권장 사항은 적용할 수 있습니다.
 
-### <a name="approve-or-deny-access-for-each-request"></a>각 요청에 대 한 액세스 승인 또는 거부
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>하나 이상의 사용자에 대 한 액세스 승인 또는 거부
 
 1. 가 계속된 액세스 승인 또는 거부 여부를 결정 하는 사용자의 목록을 검토 합니다.
 
-1. 를 승인 하거나 각 요청을 거부 하려면 창에서 수행할 동작을 지정 하려면 행을 클릭 합니다.
+1. 를 승인 하거나 단일 사용자에 대 한 액세스를 거부 하려면 창에서 수행할 동작을 지정 하려면 행을 클릭 합니다. 를 승인 하거나 여러 사용자에 대 한 액세스를 거부 하려면 사용자 옆의 확인 표시를 추가 하 고 클릭 합니다 **검토 X 사용자** 수행할 동작을 지정 하는 창을 여는 단추입니다.
 
-1. 클릭 **승인할** 하거나 **거부**합니다. 확실 하지 않은 경우 클릭 수 있습니다 **알지**합니다. 그렇게 하면 사용자가 자신의 액세스를 유지 하지만 선택 감사 로그에 반영 됩니다.
+1. 클릭 **승인할** 하거나 **거부**합니다. 확실 하지 않은 경우 클릭 수 있습니다 **알지**합니다. 그렇게 하면 사용자에 대 한 액세스를 유지 하지만 선택 감사 로그에 반영 됩니다.
 
     ![액세스 검토 수행](./media/perform-access-review/approve-deny.png)
 

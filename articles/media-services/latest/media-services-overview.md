@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414022"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602100"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 애플리케이션 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 장치 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 애플리케이션을 만들 수 있도록 도와줍니다. 
 
 > [!NOTE]
-> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용합니다.
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="what-can-i-do-with-media-services"></a>Media Services로 무엇을 할 수 있나요?
 
@@ -75,7 +75,6 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 
 * [계정 만들기 - CLI](create-account-cli-how-to.md)
 * [API 액세스 - CLI](access-api-cli-how-to.md)
-* [SDK를 사용하여 개발 시작](developers-guide.md)
 * [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
 * [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
 * [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 

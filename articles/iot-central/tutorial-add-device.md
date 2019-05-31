@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699363"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015226"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 장치 추가
 
@@ -348,7 +348,7 @@ Azure IoT Central 애플리케이션에 연결할 클라이언트 코드를 구�
 > * 클라이언트 코드가 애플리케이션에 매핑되는 방법 이해
 > * 실제 디바이스에 대한 클라이언트 코드 구성
 
-Azure IoT Central 애플리케이션에 실제 디바이스를 연결했으므로 제안된 다음 단계는 다음과 같습니다.
+Azure IoT Central 애플리케이션에 실제 디바이스를 연결했으므로 제안되는 몇 가지 다음 단계는 다음과 같습니다.
 
 운영자로서 방법을 알아볼 수 있습니다.
 

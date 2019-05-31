@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793560"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243948"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 패키지는 무엇입니까
 
@@ -36,7 +36,7 @@ HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스
 다른 경계 보안 계층은 VPN Gateway 서비스를 사용하여 이루어집니다. 게이트웨이는 HDInsight 클러스터에 들어오는 모든 요청에 대한 첫 번째 방어선의 역할을 합니다. 요청을 받아들이고, 유효성 검사를 수행한 다음, 요청을 클러스터의 다른 노드로 전달하도록 허용합니다. 이 방법으로 게이트웨이는 클러스터에서 다른 이름 및 데이터 노드에 대한 경계 보안을 제공합니다.
 
 ## <a name="authentication"></a>Authentication
-기업 관리자는 [가상 네트워크](https://azure.microsoft.com/services/virtual-network/)에서 ESP가 포함된 HDInsight 클러스터를 만들 수 있습니다. HDInsight 클러스터의 모든 노드는 기업에서 관리하는 도메인에 가입됩니다. 이 작업은 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 이루어집니다. 
+기업 관리자는 [가상 네트워크](https://azure.microsoft.com/services/virtual-network/)에서 ESP가 포함된 HDInsight 클러스터를 만들 수 있습니다. HDInsight 클러스터의 모든 노드는 기업에서 관리하는 도메인에 가입됩니다. 이 작업은 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)를 사용하여 이루어집니다. 
 
 이 설정을 사용 하면 기업 직원 수 로그인 클러스터 노드에 해당 도메인 자격 증명을 사용 하 여 합니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 엔드포인트로 인증할 수도 있습니다. 관리자는 이러한 엔드포인트를 통해 클러스터와 상호 작용하는 사용자의 수를 완벽히 제한합니다.
 

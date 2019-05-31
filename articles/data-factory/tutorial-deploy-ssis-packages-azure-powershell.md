@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cba8af369beac935834da8d2073510e0f997648b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123466"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -113,7 +113,7 @@ Catch [System.Data.SqlClient.SqlException]
 
 스크립트의 일부로 Azure SQL 데이터베이스를 만들려면 다음 예제를 참조하세요. 
 
-아직 정의하지 않은 변수의 값을 설정합니다. 예를 들면 다음과 같습니다. SSISDBServerName, FirewallIPAddress 
+아직 정의하지 않은 변수의 값을 설정합니다. 예:  SSISDBServerName, FirewallIPAddress 
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `

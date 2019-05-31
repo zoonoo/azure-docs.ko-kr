@@ -1,18 +1,17 @@
 ---
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 10/26/2018
+ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125518"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114667"
 ---
-저장소 에뮬레이터는 단일 고정 계정과 공유 키 인증에 대해 알려진 인증 키를 지원합니다. 저장소 에뮬레이터에서 사용할 수 있는 공유 키 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+저장소 에뮬레이터는 단일 고정 계정과 공유 키 인증에 대해 알려진 인증 키를 지원합니다. 저장소 에뮬레이터에서 사용할 수 있는 공유 키 자격 증명은 이 계정과 키뿐입니다. 구현되지 않은 것은 다음과 같습니다.
 
 ```
 Account name: devstoreaccount1

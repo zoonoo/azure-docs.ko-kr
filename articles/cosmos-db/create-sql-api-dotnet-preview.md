@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455771"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860900"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 ASP.NET 웹앱 빌드
 
@@ -37,7 +37,7 @@ Azure Cosmos DB는 전역적으로 배포된 고가용성의 Microsoft의 다중
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 워크로드를 사용하도록 설정해야 합니다.
+Visual Studio 2019가 아직 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발** 워크로드를 사용하도록 설정해야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-dotnet/keys.png)
 
-2. Visual Studio 2017에서 **web.config** 파일을 엽니다. 
+2. Visual Studio에서 **web.config** 파일을 엽니다. 
 
 3. 포털에서 URI 값을 복사(복사 단추 사용)한 후 이 값을 web.config에서 ``endpoint`` 키 값으로 만듭니다. 
 

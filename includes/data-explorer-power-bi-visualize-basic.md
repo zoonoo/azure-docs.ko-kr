@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858023"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120592"
 ---
 Power BI Desktop에 데이터가 있으므로 해당 데이터를 기준으로 보고서를 만들 수 있습니다. 주별 농작물 피해를 표시하는 세로 막대형 차트를 포함하는 간단한 보고서를 만듭니다.
 

@@ -11,17 +11,17 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823309"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393535"
 ---
 # <a name="sql-database-serverless-preview"></a>Azure SQL Database 서버리스(미리 보기)
 
-## <a name="what-is-the-serverless-compute-tier"></a>서버리스 컴퓨팅 계층이란?
+## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
 SQL Database 서버리스(미리 보기)는 단일 데이터베이스에서 사용하는 컴퓨팅에 대한 비용을 초 단위로 청구하는 컴퓨팅 계층입니다. 서버리스는 간헐적이고 예측 불가능한 사용 패턴이 있는 단일 데이터베이스에 최적화된 가격 대비 성능이며, 유휴 사용 기간 후 컴퓨팅 준비가 약간 지연될 수 있습니다.
 
@@ -66,14 +66,14 @@ SQL Database 서버리스(미리 보기)는 단일 데이터베이스에서 사�
 |**일반적인 사용량 시나리오**| 비활성 기간과 섞여 간헐적이고 예측 불가능한 사용량이 있는 데이터베이스가 있습니다. | 더 규칙적인 사용량이 있는 데이터베이스 또는 탄력적 풀이 있습니다.|
 | **성능 관리 작업** |더 적음|더 많음|
 |**컴퓨팅 크기 조정**|자동|수동|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 크기 조정
+## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -81,7 +81,22 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 ### <a name="memory-management"></a>메모리 관리
 
-서버리스 데이터베이스의 메모리는 프로비저닝된 데이터베이스보다 더 자주 회수됩니다. 이 동작은 서버리스에서 비용을 제어하는 데 중요합니다. 프로비저닝된 컴퓨팅과 달리 CPU 또는 캐시 사용률이 낮으면 서버리스 데이터베이스에서 SQL 캐시의 메모리를 회수합니다.
+서버 리스 데이터베이스에 대 한 메모리를 회수 하는 보다 더 자주 데이터베이스 프로 비전 된 계산 합니다. 이 서버 리스에 비용을 제어 해야 동작과 성능에 영향을 줄 수 있습니다.
+
+#### <a name="cache-reclamation"></a>캐시 확보
+
+프로 비전 된 계산 데이터베이스와 달리 SQL 캐시의 메모리는 CPU 또는 캐시 사용률 사용량이 적을 때 하지 않는 데이터베이스에서 회수 됩니다.
+
+- 최근에 대부분의 총 크기 기간에 대 한 캐시 항목 미만인 임계값을 사용 하는 경우에 캐시 사용률 낮은 간주 됩니다.
+- 캐시 확보 트리거되면 대상 캐시 크기를 증분 방식으로 이전 크기로의 일부분으로 줄어들고 사용량과 낮은 경우 계속만 회수 합니다.
+- 캐시 확보 되는 경우 캐시 엔트리를 제거할지를 선택 하기 위한 정책은 높은 메모리가 중 되 면 프로 비전 된 계산 데이터베이스와 동일한 선택 정책.
+- 캐시 크기 보다 되지 작아지는 최소 메모리를 구성할 수 있는 최소 vcore 수에 정의 된 대로 합니다.
+
+서버 리스 및 프로 비전 된 계산 데이터베이스, 캐시 사용 가능한 모든 메모리 사용 되는 경우 항목을 제거할 수 있습니다.
+
+#### <a name="cache-hydration"></a>캐시 하이드레이션
+
+SQL 캐시를 프로 비전 된 데이터베이스와 동일한 속도 동일한 방식으로 데이터 디스크에서 인출 되는 대로 증가 합니다. 데이터베이스 사용량이 많을 캐시는 최대 메모리 한도까지 무제한 증가 하도록 허용 됩니다.
 
 ## <a name="autopause-and-autoresume"></a>자동 일시 중지 및 자동 다시 시작
 
@@ -115,7 +130,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 ### <a name="connectivity"></a>연결
 
-서버리스 데이터베이스가 일시 중지되면 첫 번째 로그인에서 데이터베이스가 다시 시작되고 40613 오류 코드로 인해 데이터베이스를 사용할 수 없다는 오류가 반환됩니다. 데이터베이스가 다시 시작되면 연결을 설정하기 위해 로그인을 다시 시도해야 합니다. 연결 재시도 논리가 있는 데이터베이스 클라이언트는 수정할 필요가 없습니다.
+서버 리스 데이터베이스 일시 중지 되 면 그런 다음 처음 로그인 데이터베이스를 다시 시작 하 고 데이터베이스 40613 오류 코드로 사용할 수 없다는 내용의 오류가 반환 됩니다. 데이터베이스가 다시 시작되면 연결을 설정하기 위해 로그인을 다시 시도해야 합니다. 연결 재시도 논리가 있는 데이터베이스 클라이언트는 수정할 필요가 없습니다.
 
 ### <a name="latency"></a>대기 시간
 
@@ -130,7 +145,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 - SQL 데이터 동기화에 사용되는 동기화 데이터베이스
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>서버리스 컴퓨팅 계층으로 온보딩
+## <a name="onboarding-into-serverless-compute-tier"></a>서버 리스 계산 계층으로 온 보 딩
 
 새 데이터베이스를 만들거나 기존 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 경우 프로비저닝된 컴퓨팅 계층에서 새 데이터베이스를 만드는 것과 동일한 패턴을 따르면 다음 두 단계를 수행해야 합니다.
 
@@ -152,11 +167,11 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 > [!NOTE]
 > T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Azure Portal을 사용하여 새 데이터베이스 만들기
+### <a name="create-new-serverless-database-using-azure-portal"></a>Azure portal을 사용 하 여 새 서버 리스 데이터베이스 만들기
 
 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
-### <a name="create-new-database-using-powershell"></a>PowerShell을 사용하여 새 데이터베이스 만들기
+### <a name="create-new-serverless-database-using-powershell"></a>PowerShell을 사용 하 여 새 서버 리스 데이터베이스 만들기
 
 다음 예제에서는 최소 vCore 수 및 자동 일시 중지 지연에 대한 기본값을 사용하여 GP_S_Gen5_4라는 서비스 목표로 정의된 서버리스 컴퓨팅 계층에 새 데이터베이스를 만듭니다.
 
@@ -175,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>기존 데이터베이스를 서버리스 컴퓨팅 계층으로 이동
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>서버 리스 계산 계층에 프로 비전 된 계산 데이터베이스 이동
 
 다음 예제에서는 기존 단일 데이터베이스를 프로비저닝된 컴퓨팅 계층에서 서버리스 컴퓨팅 계층으로 이동시킵니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
@@ -192,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>데이터베이스를 서버리스 컴퓨팅 계층 외부로 이동
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>프로 비전 된 계산 계층으로 이동 하지 않는 데이터베이스
 
 서버리스 데이터베이스는 프로비저닝된 컴퓨팅 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 것과 동일한 방식으로 프로비저닝된 컴퓨팅 계층으로 이동할 수 있습니다.
 
-## <a name="modify-serverless-configuration-parameters"></a>서버리스 구성 매개 변수 수정
+## <a name="modifying-serverless-configuration"></a>서버 리스 구성 수정
 
 ### <a name="maximum-vcores"></a>최대 vCore 수
 
@@ -210,7 +225,7 @@ Set-AzSqlDatabase
 
 사용 하 여 수행 됩니다 autopause 지연 시간을 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `AutoPauseDelay` 인수입니다.
 
-## <a name="monitor-serverless-database"></a>서버리스 데이터베이스 모니터링
+## <a name="monitoring"></a>모니터링
 
 ### <a name="resources-used-and-billed"></a>리소스 사용 및 청구
 
@@ -222,7 +237,7 @@ Set-AzSqlDatabase
 
 #### <a name="user-resource-pool"></a>사용자 리소스 풀
 
-데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀은 DDL 쿼리(예: CREATE, ALTER 등) 및 DML 쿼리(예: SELECT, INSERT, UPDATE, DELETE 등)에서 생성된 사용자 워크로드에 대한 CPU 및 IO를 검색합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
+데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀 범위 CPU 및 IO 같은 CREATE 및 ALTER 및 DML 쿼리 같은 DDL 쿼리에 의해 생성 되는 사용자 워크 로드에 대 한 선택, 삽입, 업데이트 및 삭제 합니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
 
 ### <a name="metrics"></a>메트릭
 
@@ -264,10 +279,10 @@ Get-AzSqlDatabase `
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
 - **청구되는 리소스**: CPU 및 메모리
-- **청구 금액($)**: vCore 단가 * 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3) 
+- **청구 금액($)** : vCore 단가 * 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3) 
 - **청구 주기**: 초당
 
-vCore 단가(초당 vCore당 비용)입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
+초당 vCore 당 비용은 vCore 단위 가격입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
 
 요금이 청구되는 컴퓨팅 양은 다음 메트릭에서 공개됩니다.
 
@@ -277,25 +292,25 @@ vCore 단가(초당 vCore당 비용)입니다. 지정된 지역의 특정 단가
 
 이 수량은 초 단위로 계산되어 1분 동안 집계됩니다.
 
-1 분 vcore 및 최대 vcore 4 개를 사용 하 여 구성 서버 리스 데이터베이스가 있다고 가정 합니다.  약 3 GB min memory 및 max memory 12GB에 해당 합니다.  자동 일시 중지 지연 6 시간으로 설정 되어 있고 데이터베이스 워크 로드를 24 시간 기간의 첫 번째 2 시간 동안 활성 상태이 고 그렇지 않은 경우 비활성 가정 합니다.    
+1 분 vCore 및 최대 vcore 4 개를 사용 하 여 구성 서버 리스 데이터베이스가 있다고 가정 합니다.  약 3 GB min memory 및 max 12GB 메모리에 해당 합니다.  자동 일시 중지 지연 6 시간으로 설정 되어 있고 데이터베이스 워크 로드를 24 시간 기간의 첫 번째 2 시간 동안 활성 상태이 고 그렇지 않은 경우 비활성 가정 합니다.    
 
-이 경우 데이터베이스는 계산 및 저장소에 대 한 첫 번째 8 시간 동안 청구 됩니다.  데이터베이스를 후 2 시간이 지나면 비활성 시작 하는 경우에 데이터베이스가 온라인 상태일 때 프로 비전 하는 최소 계산에 따라 이후 6 시간에서 계산을 위해 계속 청구 됩니다.  데이터베이스 일시 중지 된 동안 남은 24 시간 기간 동안 저장소만 요금이 청구 됩니다.
+이 경우 데이터베이스는 계산 및 저장소에 대 한 첫 번째 8 시간 동안 청구 됩니다.  데이터베이스를 2 시간 후에 비활성 시작 하는 경우에 데이터베이스가 온라인 상태일 때 프로 비전 하는 최소 계산에 따라 이후 6 시간에서 계산을 위해 계속 청구 됩니다.  데이터베이스 일시 중지 된 동안 남은 24 시간 기간 동안 저장소만 요금이 청구 됩니다.
 
 보다 정확 하 게이 예에서 계산 청구서는 다음과 같이 계산 됩니다.
 
 |시간 간격|vcore 수 초당 사용|초당 사용 된 GB|차원 청구 계산|vCore 시간 간격 동안 청구 하는 시간 (초)|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vcore 수 사용|vcore 4 개 * 3600 초 = 14400 vCore 시간 (초)|
-|1:00-2:00|1|12|사용 된 메모리|12Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
-|2:00-8:00|0|0|프로 비전 하는 최소 메모리|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|1:00-2:00|1|12|사용 된 메모리|12 Gb * 1/3 * 3,600 초 = 14400 vCore 시간 (초)|
+|2:00-8:00|0|0|프로 비전 하는 최소 메모리|3 Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
 |8:00-24:00|0|0|계산이 일시 중지 된 동안 청구 없습니다|0 vCore 시간 (초)|
 |총 vCore 24 시간을 청구 하는 시간 (초)||||50400 vCore 시간 (초)|
 
-컴퓨팅 단가가 $0.000073/vCore/초라고 가정합니다.  이 24 시간 기간에 청구 계산 요금이 청구 계산 단위 가격 및 vcore 초를 곱한 값을: $0.000073/vCore/second * 50400 vCore 초 = $3.68
+컴퓨팅 단가가 $0.000073/vCore/초라고 가정합니다.  이 24 시간 기간에 대 한 청구 계산 요금이 청구 계산 단위 가격 및 vCore 초를 곱한 값을: $0.000073/vCore/second * 50400 vCore 초 = $3.68
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-서버리스 컴퓨팅 계층은 다음 지역을 제외한 모든 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 중국 동부, 중국 북부, 프랑스 남부, 독일 중부, 독일 북동부, 인도 서부, 한국 남부, 남아프리카 공화국 서부, 영국 북부, 영국 남부, 영국 서부 및 미국 중서부
+서버리스 컴퓨팅 계층은 다음 지역을 제외한 모든 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 중국 동부, 중국 북부, 프랑스 남부, 독일 중부, 독일 북동부, 인도 서 부, 한국 남부, 남아프리카 공화국 서 부, 영국 북부, 영국 남부, 영국 서 부 및 미국 서 부입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

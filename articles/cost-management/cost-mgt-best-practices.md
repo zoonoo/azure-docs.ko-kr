@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 493b71e503b6023eeea4a71e34d5405f84821e28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736884"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002035"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -175,7 +175,7 @@ VM 크기 조정은 전반적인 Azure 비용에 상당한 영향을 미칩니�
 
 Azure는 조직에서 비용을 절약하기 위해 활용할 수 있는 많은 할인 혜택을 제공합니다.
 
-#### <a name="azure-reservations"></a>Azure Reservations
+#### <a name="azure-reservations"></a>Reservations
 
 Azure Reservations를 통해 1년 또는 3년에 해당하는 가상 머신 비용 또는 SQL Database 컴퓨팅 용량을 선불로 결제할 수 있습니다. 선불로 결제하면 사용하는 리소스에 대해 할인 혜택을 받을 수 있습니다. Azure Reservations는 1년 또는 3년 사전 약정을 통해 가상 머신 또는 SQL 데이터베이스 컴퓨팅 비용을 종량제 가격의 최대 72%까지 절약할 수 있습니다. Reservations에는 청구 할인이 제공되며, 가상 머신이나 SQL 데이터베이스의 런타임 상태에 영향을 주지 않습니다.
 

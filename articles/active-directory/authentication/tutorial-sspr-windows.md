@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224654"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861524"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
-이 자습서에서는 사용자가 Windows 10 로그인 화면에서 암호를 재설정할 수 있도록 설정합니다. 새로운 Windows 10 2018년 4월 업데이트에서는 **Azure AD 조인 디바이스** 또는 **하이브리드 Azure AD 조인** 디바이스를 사용하는 사용자는 로그인 화면에서 "암호 재설정" 링크를 사용할 수 있습니다. 사용자가 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다.
+이 자습서에서는 사용자가 Windows 10 로그인 화면에서 암호를 재설정할 수 있도록 설정합니다. 새로운 Windows 10 2018년 4월 업데이트에서는 **Azure AD 조인 디바이스** 또는 **하이브리드 Azure AD 조인** 디바이스를 사용하는 사용자는 로그인 화면에서 "암호 재설정" 링크를 사용할 수 있습니다. 사용자가 이 링크를 클릭하면 익숙한 SSPR(셀프 서비스 암호 재설정) 환경으로 이동됩니다. 사용자가 잠겨 있는 경우 이 프로세스는 온-프레미스 Active Directory에서 계정의 잠금을 해제하지 않습니다.
 
 > [!div class="checklist"]
 > * Intune을 사용하여 암호 재설정 링크 구성
