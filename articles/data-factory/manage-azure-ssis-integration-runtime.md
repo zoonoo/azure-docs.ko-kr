@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152377"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 다시 구성
 이 문서는 기존 Azure-SSIS 통합 런타임을 다시 구성하는 방법을 설명합니다. Azure Data Factory에서 Azure-SSIS IR(통합 런타임) 만들려면 [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime.md)를 참조합니다.  

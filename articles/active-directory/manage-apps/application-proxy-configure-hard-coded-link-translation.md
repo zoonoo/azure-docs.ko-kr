@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825553"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956892"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -59,7 +59,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 이 기능을 사용하려면 사용자가 확장을 다운로드하고 로그인해야 합니다. 관리자 또는 사용자에게 필요한 다른 구성은 없습니다. 
 
-이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은를 참조 하십시오 합니다 [MyApps 브라우저 확장](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서.
+이 옵션을 구성 하는 방법을 비롯 한 자세한 내용은를 참조 하십시오 합니다 [MyApps 브라우저 확장](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) 설명서.
 
 ### <a name="option-3-link-translation-setting"></a>옵션 3: 링크 변환 설정 
 
@@ -102,7 +102,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 * meta
 * 개체
 * script
-* 원본(source)
+* source
 * 추적
 * 비디오
 

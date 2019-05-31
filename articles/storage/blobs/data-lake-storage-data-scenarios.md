@@ -39,12 +39,12 @@ Data Lake Storage Gen2 계정은 계층 구조 네임스페이스가 있는 스�
 
 |도구 | 지침 |
 |---|--|
-|Azure Storage 탐색기 | [Storage 탐색기를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
+|Azure Storage Explorer | [Storage 탐색기를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
 |AzCopy | [AzCopyV10을 사용하여 Blob 컨테이너 또는 파일 공유 만들기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
 |HDInsight가 포함된 HDFS(Hadoop File System) CLI(명령줄 인터페이스) |[HDInsight가 포함된 HDFS를 사용하여 파일 시스템 만들기](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Azure Databricks Notebook의 코드|[스토리지 계정 파일 시스템 만들기(Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [파일 시스템을 만들고 탑재(Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
-Storage 탐색기 또는 AzCopy를 사용하여 파일 시스템을 만드는 방법이 가장 쉽습니다. HDInsight 및 Databricks를 사용하여 파일 시스템을 만들려면 좀 더 많은 작업이 필요합니다. 하지만 HDInsight 또는 Databricks 클러스터를 사용하여 데이터를 처리할 계획이라면 클러스터를 먼저 만들고, HDFS CLI를 사용하여 파일 시스템을 만들어도 됩니다.  
+Storage Explorer 또는 AzCopy를 사용하여 파일 시스템을 만드는 방법이 가장 쉽습니다. HDInsight 및 Databricks를 사용하여 파일 시스템을 만들려면 좀 더 많은 작업이 필요합니다. 하지만 HDInsight 또는 Databricks 클러스터를 사용하여 데이터를 처리할 계획이라면 클러스터를 먼저 만들고, HDFS CLI를 사용하여 파일 시스템을 만들어도 됩니다.  
 
 ## <a name="grant-access-to-the-data"></a>데이터에 대한 액세스 권한 부여
 
@@ -68,7 +68,7 @@ Storage 탐색기 또는 AzCopy를 사용하여 파일 시스템을 만드는 �
 
 |도구 | 액세스 권한을 부여하려면 | 지침 |
 |---|--|---|
-|Storage 탐색기| 사용자 및 그룹에 역할 할당 | [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
+|Storage Explorer| 사용자 및 그룹에 역할 할당 | [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| 사용자 및 그룹에 역할 할당 <br>**or**<br> SAS 토큰 사용| [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[간편하게 Azure Storage 탐색기를 사용하여 Azure Storage에서 파일을 다운로드하는 SAS 만들기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| 사용자 할당 관리형 ID에 역할 할당<br>**or**<br> 서비스 주체에 역할 할당<br>**or**<br> 스토리지 계정 키 사용 | [연결된 서비스 속성](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |

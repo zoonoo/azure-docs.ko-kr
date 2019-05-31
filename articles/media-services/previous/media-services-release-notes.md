@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506638"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991909"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -44,6 +44,10 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="march-2019"></a>2019 년 3 월
+
+Azure Media Services의 Media Hyperlapse 미리 보기 기능 사용 되지 않았습니다.
 
 ## <a name="december-2018"></a>2018년 12월
 

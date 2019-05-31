@@ -1,20 +1,19 @@
 ---
 title: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성 - Azure
 description: Enterprise Security Package를 사용하여 Azure HDInsight에서 HBase용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117288"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926088"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성(미리 보기)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
 ESP(Enterprise Security Package) Apache HBase 클러스터용 Apache Ranger 정책을 구성하는 방법을 알아봅니다. ESP 클러스터는 도메인에 연결되므로 사용자가 도메인 자격 증명을 사용하여 인증할 수 있습니다. 이 자습서에서는 HBase 테이블의 여러 열 패밀리에 대한 액세스를 제한하는 Range 정책 두 개를 만듭니다.
 

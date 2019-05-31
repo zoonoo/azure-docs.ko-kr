@@ -219,7 +219,7 @@
               href: devtest-lab-upload-vhd-using-azcopy.md
             - name: PowerShell을 사용하여 VHD 업로드
               href: devtest-lab-upload-vhd-using-powershell.md
-            - name: Storage 탐색기를 사용하여 VHD 파일 업로드
+            - name: Storage Explorer를 사용하여 VHD 파일 업로드
               href: devtest-lab-upload-vhd-using-storage-explorer.md
         - name: 재사용 가능한 템플릿 관리
           items:

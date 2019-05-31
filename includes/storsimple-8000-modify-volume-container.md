@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60724726"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156098"
 ---
 > [!NOTE] 
 > 볼륨 컨테이너를 만든 후에는 볼륨 컨테이너와 연결된 암호화 설정과 저장소 계정 자격 증명을 수정할 수 없습니다.

@@ -168,7 +168,7 @@
       items:
         - name: .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=834925'
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/'
         - name: Node.js
           href: 'https://azure.github.io/azure-sdk-for-node/'

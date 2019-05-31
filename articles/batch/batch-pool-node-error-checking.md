@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791344"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357771"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -84,18 +84,27 @@ Batch가 풀의 노드를 성공적으로 할당하더라도 다양한 문제로
 
 노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성은 애플리케이션 패키지의 다운로드 및 압축 풀기 실패를 보고합니다. Batch는 노드 상태를 **unusable**로 설정합니다.
 
+### <a name="container-download-failure"></a>컨테이너 다운로드 실패
+
+풀에서 하나 이상의 컨테이너 참조를 지정할 수 있습니다. 각 노드에 지정된 된 컨테이너를 다운로드 하는 일괄 처리 합니다. 노드 [오류](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 컨테이너를 다운로드 하지 못함을 보고 하 고 노드 상태를 설정 하는 속성 **사용할 수 없는**합니다.
+
 ### <a name="node-in-unusable-state"></a>unusable 상태의 노드
 
 Azure Batch에서는 여러 가지 이유로 [노드 상태](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate)를 **unusable**로 설정할 수 있습니다. 노드 상태를 **unusable**로 설정하면 작업을 노드로 예약할 수 없지만 요금은 여전히 부과됩니다.
 
-Batch는 항상 사용할 수 없는 노드의 복구를 시도하지만 복구 가능 여부는 원인에 따라 달라집니다.
+노드를 **unsuable**, 없이 [오류](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 상태 일괄 처리는 VM과 통신할 수 없는 것을 의미 합니다. 이 경우 일괄 처리는 항상 VM 복구를 시도 합니다. 일괄 처리는 해당 상태 이더라도 응용 프로그램 패키지 또는 컨테이너를 설치 하지 못한 Vm 복구을 자동으로 시도 하지 것입니다 **사용할 수 없는**합니다.
 
 Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성이 그 원인을 보고합니다.
 
 노드가 **unusable** 상태로 설정되는 원인의 추가 예제는 다음과 같습니다.
 
 - 사용자 지정 VM 이미지를 올바르지 않습니다. 예를 들어, 제대로 준비되지 않은 이미지입니다.
+
 - VM이 인프라 오류 또는 하위 수준 업그레이드로 인해 이동됩니다. Batch가 노드를 복구합니다.
+
+- VM 이미지를 지원 하지 않는 하드웨어에 배포 되었습니다. 예를 들어 "HPC" VM 이미지로 HPC 이외의 하드웨어에서 실행 합니다. 예를 들어 CentOS HPC 이미지를 실행 하는 동안에 [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- Vm에는 [Azure 가상 네트워크](batch-virtual-network.md), 키 포트로 트래픽이 차단 되었습니다.
 
 ### <a name="node-agent-log-files"></a>노드 에이전트 로그 파일
 

@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse란? | Microsoft Docs
 description: 페타바이트 볼륨의 관계형 및 비관계형 데이터를 처리할 수 있는 엔터프라이즈급 분산 데이터베이스입니다. 몇 초 만에 확장, 축소 및 일시 중지가 가능한 업계 최초의 클라우드 데이터 웨어하우스입니다.
 services: sql-data-warehouse
-author: igorstanko
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: igorstan
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521638"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790845"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 

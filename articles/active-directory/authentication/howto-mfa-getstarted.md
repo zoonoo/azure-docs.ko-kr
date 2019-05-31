@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359350"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235546"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-factor Authentication을 계획합니다.
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Azure Multi-factor Authentication 클라우드 기반 배포 계획
 
 사람들이 점점 더 복잡 한 시나리오에서 회사 리소스에 연결 합니다. 사용자 조직 소유, 개인 및 공용 장치 스마트 폰, 태블릿, Pc 및 노트북을 자주 사용 하 여 여러 플랫폼에서 회사 네트워크 외부에서 연결 합니다. 이 항상 연결, 다중 장치 및 다중 플랫폼 분야에서 사용자 계정의 보안은 그 어느 때 보다 더 중요 합니다. 암호, 장치, 네트워크 및 플랫폼에서 사용 되는 복잡성에 관계 없이 사용자는 계정 암호를 다시 사용 하려고 하는 경우에 특히 사용자 계정의 보안을 유지 하려면 충분 하지 않습니다. 정교한 피싱 및 기타 소셜 엔지니어링 공격 사용자 이름 및 암호 게시 되 고 다크 웹에서 판매 된 발생할 수 있습니다.
 
@@ -57,25 +57,23 @@ Azure multi-factor Authentication 조건부 액세스 정책을 적용 하 여 �
 * 네트워크 위치 또는 지역에 위치한 IP 주소
 * 클라이언트 애플리케이션
 * 로그인 위험 (Id 보호에 필요)
-* 준수 디바이스
+* 규정 준수 디바이스
 * 하이브리드 Azure AD 조인 디바이스
 * 승인 된 클라이언트 응용 프로그램
- 
 
-[Multi-factor authentication 출시 자료]에서 사용자 지정 가능한 포스터 및 메일 템플릿의 사용 하 여 조직에 multi-factor authentication을 배포 합니다. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+사용자 지정 가능한 포스터를 사용 하 고 전자 메일에 템플릿을 [multi-factor authentication 출시 자료](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) 조직에 multi-factor authentication을 배포 합니다.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>조건부 액세스를 사용하여 Multi-Factor Authentication 사용
 
 조건부 액세스 정책은 등록, 등록 되지 않은 사용자가 첫 번째 로그인 시에 중요 한 보안 고려 사항 등록을 완료 하도록 적용 합니다.
 
-
 [Azure AD Id 보호](../identity-protection/howto-configure-risk-policies.md) 에 대 한 등록 정책을 Azure Multi-factor Authentication 스토리에 자동화 된 위험 검색 및 수정 정책을 적용 합니다. 정책 위협 손상 된 id의 경우 암호 변경 사항을 적용 하려면 만들어질 수도 있고 로그인 간주 하는 위험한 다음 경우 MFA를 요구할 [이벤트](../reports-monitoring/concept-risk-events.md):
 
-* 손실된 자격 증명
-* 익명 IP 주소에서의 로그인
-* 비정상적 위치 간 이동 불가능
-* 일반적이지 않은 위치에서의 로그인
-* 감염된 디바이스에서의 로그인
+* 유출된 자격 증명
+* 익명 IP 주소에서 로그인
+* 비정상적 위치로 불가능한 이동
+* 알 수 없는 위치에서 로그인
+* 감염된 디바이스에서 로그인
 * 의심 스러운 활동을 사용 하 여 IP 주소에서 로그인
 
 일부 Azure Active Directory Id 보호에서 검색 된 위험 이벤트를 실시간으로 발생 하 고 오프 라인 처리가 필요한 일부 키를 누릅니다. 관리자는 위험한 동작을 나타낼 및 수동으로 해결, 암호 변경 필요 하거나 multi-factor authentication 조건부 액세스 정책의 일부로 사용자를 차단 하도록 선택할 수 있습니다.
@@ -97,7 +95,7 @@ Azure multi-factor Authentication 조건부 액세스 정책을 적용 하 여 �
       2. IP 범위를 지정 합니다.
    2. 국가/지역을 사용 하는 경우
       1. 드롭다운 메뉴를 확장 하 고 국가 또는 지역이 명명 된 위치에 대 한 정의 선택 합니다.
-      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역으로 매핑할 수 없는 IP 주소입니다.
+      2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
 7. **만들기**
 
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
@@ -111,7 +109,7 @@ Azure multi-factor Authentication 조건부 액세스 정책을 적용 하 여 �
 > [!NOTE]
 > 조직에서는 직원 작업 또는 중국으로 이동 하는 **모바일 앱을 통한 알림** 메서드를 **Android 장치** 해당 국가에서 작동 하지 않습니다. 대체 메서드는 사용자 제공 이루어져야 합니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 
 Microsoft Authenticator 앱과 같은 모바일 앱을 30 초 마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 확인 코드를 입력합니다. 휴대폰에 데이터 또는 셀룰러 신호 여부 또는 모바일 앱 옵션을 사용할 수 있습니다.
 
@@ -145,13 +143,13 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 30 초 마다 새로운 O
 
 조직에 Azure Active Directory Id 보호를 사용 하는 경우 [MFA 등록 정책을 구성](../identity-protection/howto-mfa-policy.md) 사용자가 다음 대화형으로 로그인 할 때 등록을 요청 하도록 합니다.
 
-### <a name="registration-without-identity-protection"></a>Id 보호 없이 등록
+### <a name="registration-without-identity-protection"></a>Id 보호 하지 않고 등록
 
 조직 Id 보호를 사용 하는 라이선스에 없는 경우 사용자 MFA가 필요한 로그인 시 다음에 등록 하 라는 메시지가 표시 됩니다. MFA를 사용 하 여 보호 하는 응용 프로그램을 사용 하지 않는 경우 사용자가 MFA에 등록 하지 않을 수 있습니다. 모든 사용자를 믿지 못할 자는 사용자의 암호를 추측 없으며 대신 하 여 MFA에 등록 되도록 등록 계정의 제어권 효과적으로 두는 것이 반드시 합니다.
 
 #### <a name="enforcing-registration"></a>등록을 적용
 
-다음 단계를 사용 하 여 조건부 액세스 정책을 수 강제로 사용자가 Multi-factor Authentication에 등록 하려면
+다음 단계에 따라 조건부 액세스 정책 수 강제로 사용자가 Multi-factor Authentication에 등록 하려면
 
 1. 현재 등록 된 모든 사용자를 추가, 그룹을 만듭니다.
 2. 조건부 액세스를 사용 하 여 모든 리소스에 대 한 액세스에 대 한이 그룹에 대해 multi-factor authentication을 적용 합니다.
@@ -169,6 +167,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
+```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자별 MFA의 변환 사용자를 조건부 액세스에 따라 MFA
+
+사용자가 사용자별 활성화를 사용 하 여 사용 하도록 설정 된 및 강제 적용된 Azure Multi-factor Authentication 다음 PowerShell 수의 도움을 받아 조건부 액세스로 변환 하는 경우 Azure Multi-factor Authentication 기반 합니다.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
 ```
 
 ## <a name="plan-conditional-access-policies"></a>조건부 액세스 정책 계획
@@ -200,7 +264,7 @@ Azure AD 테 넌 트 실수로 잠기지를 방지 하는 것입니다. 부주�
 1. **정책 사용** 토글을 **켜기**로 설정합니다.
 1. **만들기**를 클릭합니다.
 
-![파일럿 그룹의 Azure Portal 사용자에게 MFA를 사용하도록 조건부 액세스 정책 만들기](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
+![Azure portal 사용자 파일럿 그룹에 대 한 MFA를 사용 하도록 설정 하려면 조건부 액세스 정책 만들기](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>온-프레미스 시스템과 통합 계획
 
@@ -210,7 +274,7 @@ Azure AD에 대해 직접 인증 하지 않는 일부 레거시 시스템 및 �
 * 온-프레미스 RADIUS 응용 NPS 서버를 사용 하 여 MFA 어댑터를 사용 해야 합니다.
 * 온-프레미스 AD FS 응용 프로그램을 AD FS 2016을 사용 하 여 MFA 어댑터를 사용 해야 합니다.
 
-Azure AD를 사용 하 여 직접 인증 하 고 최신 인증 (Ws-fed, SAML, OAuth, OpenID Connect)가 있는 응용 프로그램 가능 직접 조건부 액세스 정책을 사용 합니다.
+Azure AD를 사용 하 여 직접 인증 하 고 최신 인증 (Ws-fed, SAML, OAuth, OpenID Connect)가 있는 응용 프로그램의 조건부 액세스 사용 가능 정책을 직접.
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Azure MFA를 사용 합니다.
 
@@ -227,7 +291,7 @@ Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용�
 * CHAPv2 프로토콜을 사용 하 여 인증자 앱 푸시 알림 및 음성 통화만 지원 됩니다.
 * 조건부 액세스 정책은 적용할 수 없습니다.
 
-NPS 확장 보호 하기 위해 인증의 두 번째 요소를 제공할 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동 [VPN](howto-mfa-nps-extension-vpn.md)하십시오 [원격 데스크톱 게이트웨이 연결](howto-mfa-nps-extension-rdg.md), 또는 다른 RADIUS 지원 응용 프로그램입니다. 모든 인증 시도 대해이 환경에서 Azure MFA에 등록 됩니다 문제는 사용자가 조건부 액세스 정책 평균 MFA 부족이 항상 필요 합니다.
+NPS 확장 보호 하기 위해 인증의 두 번째 요소를 제공할 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동 [VPN](howto-mfa-nps-extension-vpn.md)하십시오 [원격 데스크톱 게이트웨이 연결](howto-mfa-nps-extension-rdg.md), 또는 다른 RADIUS 지원 응용 프로그램입니다. 조건부 액세스 정책이 없는 모든 인증 시도 대 한이 환경에서 Azure MFA에 등록 됩니다 문제는 사용자가 MFA는 항상 필요한 것을 의미 합니다.
 
 #### <a name="implementing-your-nps-server"></a>NPS 서버를 구현합니다.
 
@@ -237,7 +301,7 @@ NPS 인스턴스에 배포 된 경우에 사용 하 여 이미 참조할 [Azure 
 
 MFA를 사용 하 여 등록 되지 않은 사용자를 인증 하 려 할 때를 선택 합니다. 레지스트리 설정을 사용 하 여 `REQUIRE_USER_MATCH` 레지스트리 경로에 `HKLM\Software\Microsoft\AzureMFA` 기능 동작을 제어 합니다. 이 설정에 단일 구성 옵션이 있습니다.
 
-| 키 | Value | Default |
+| 키 | Value | 기본값 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -262,7 +326,7 @@ AD FS 2016을 사용 하 여 Azure MFA 및 대상 응용 프로그램을 사용 
 * 응용 프로그램은 신뢰 당사자를 AD FS 2016 및 관리 하거나 AD FS 2016을 사용 하 여 페더레이션 하는 경우 조건부 액세스를 사용할 수 없는 경우
 * 조건부 액세스도 사용할 수 없는 경우 AD FS 2016 기본 인증 방법으로 Azure MFA를 사용 하도록 구성 된 경우
 
-#### <a name="ad-fs-logging"></a>AD FS Logging
+#### <a name="ad-fs-logging"></a>AD FS 로깅
 
 표준 AD FS 2016 로그인 Windows 보안 로그 및 AD FS 관리자 로그를 모두 인증 요청 및 요청의 성공 또는 실패에 대 한 정보를 포함 합니다. 이러한 이벤트 내의 이벤트 로그 데이터는 Azure MFA 사용 되었는지 여부를 나타냅니다. 예를 들어 AD FS 감사 이벤트 ID 1200 포함 될 수 있습니다.
 
@@ -304,7 +368,7 @@ Azure MFA에 대 한 보고서
 
 Azure Multi-factor Authentication는 Azure portal 통해 보고서를 제공합니다.
 
-| 보고 | Location | 설명 |
+| 보고서 | Location | 설명 |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 

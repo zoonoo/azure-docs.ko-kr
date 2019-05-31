@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276493"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979303"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
-이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. 정책 정의는 리소스에 대해 다양한 규칙과 효과를 적용합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
+이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. Azure 정책 정의 리소스에 대해 다양 한 규칙 및 효과 적용합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
 
 규정 준수에 대한 내용은 [준수 데이터 가져오기](getting-compliance-data.md)를 참조하세요.
 
@@ -31,7 +31,7 @@ ms.locfileid: "59276493"
 
 1. Azure PowerShell 모듈을 최신 버전으로 업데이트합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 최신 버전에 대한 자세한 내용은 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 참조하세요.
 
-1. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 등록 작업을 실행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
+1. 구독의 리소스 공급자를 사용 하 여 작동 하는지 유효성을 검사 하려면 Azure PowerShell을 사용 하 여 Azure Policy Insights 리소스 공급자를 등록 합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 등록 작업을 실행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -148,7 +148,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
 
    이전 {subscriptionId}를 구독의 ID로 또는 {managementGroupId}를 [관리 그룹](../../management-groups/overview.md)의 ID로 바꿉니다.
 
-   쿼리 구조에 대한 자세한 내용은 [정책 정의 - 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdate) 및 [정책 정의 - 관리 그룹에서 만들기 또는 업데이트](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)를 참조하세요.
+   쿼리 구조에 대 한 자세한 내용은 참조 하세요. [Azure 정책 정의-Create 또는 Update](/rest/api/resources/policydefinitions/createorupdate) 고 [정책 정의-만들기 또는 업데이트에서 관리 그룹](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 다음 절차를 사용하여 정책 할당을 만들고 리소스 그룹 수준에서 정책 정의를 할당합니다.
 
@@ -230,7 +230,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
    - 구독 - `/subscriptions/{subID}`
    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-다음 명령으로 PowerShell을 사용하여 정책 정의 ID를 가져올 수 있습니다.
+다음 명령을 사용 하 여 PowerShell을 사용 하 여 Azure 정책 정의 ID를 가져올 수 있습니다.
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Azure CLI를 사용하여 리소스 정책을 관리하는 방법에 대한 자�
 - [Azure REST API 리소스](/rest/api/resources/)
 - [Azure PowerShell 모듈](/powershell/module/az.resources/#policies)
 - [Azure CLI 정책 명령](/cli/azure/policy?view=azure-cli-latest)
-- [Policy Insights 리소스 공급자 REST API 참조](/rest/api/policy-insights)
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)
+- [Azure Policy Insights 리소스 공급자 REST API 참조](/rest/api/policy-insights)
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.

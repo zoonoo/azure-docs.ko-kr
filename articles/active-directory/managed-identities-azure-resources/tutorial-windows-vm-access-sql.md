@@ -16,11 +16,11 @@ ms.date: 11/07/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236054"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 
@@ -73,7 +73,7 @@ SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사�
 4. **사용자 이름** 필드에 서버 관리자로 설정한 Azure AD 계정의 이름(예: helen@woodgroveonline.com)을 입력합니다.
 5. **옵션**을 클릭합니다.
 6. **연결할 데이터베이스** 필드에 구성하려면 비시스템 데이터베이스의 이름을 입력합니다.
-7. **Connect**를 클릭합니다. 로그인 프로세스를 완료합니다.
+7. **연결**을 클릭합니다. 로그인 프로세스를 완료합니다.
 8. **개체 탐색기**에서 **데이터베이스** 폴더를 확장합니다.
 9. 사용자 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
 10. 쿼리 창에서 다음 줄을 입력하고 도구 모음에서 **실행**을 클릭합니다.

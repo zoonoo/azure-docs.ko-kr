@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023741"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956281"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -26,13 +26,35 @@ Azure Container Instances에 Virtual Kubelet 공급자를 사용할 때 표준 K
 >
 > Virtual Kubelet은 실험적 오픈 소스 프로젝트이며 그렇게 사용해야 합니다. Virtual Kubelet에 참여하고, 문제를 파일링하고, 자세히 알아보려면 [Virtual Kubelet GitHub 프로젝트][vk-github]를 참조하세요.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 AKS 클러스터가 설치되어 있다고 가정합니다. AKS 클러스터가 필요한 경우 [AKS(Azure Kubernetes Service) 빠른 시작][aks-quick-start]을 참조하세요.
 
 또한 Azure CLI 버전 **2.0.33** 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 Virtual Kubelet을 설치하려면 [Helm](https://docs.helm.sh/using_helm/#installing-helm)도 필요합니다.
+
+### <a name="register-container-instances-feature-provider"></a>Container Instances 기능 공급자 등록
+
+컨테이너 인스턴스 ACI (Azure) 서비스에서 이전에 사용 하지 않은 경우 구독을 사용 하 여 서비스 공급자를 등록 합니다. 다음 예제에서와 같이 [az provider list] [az provider list] 명령을 사용 하 여 ACI 공급자 등록 상태를 확인할 수 있습니다.
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered*로 보고됩니다.
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+공급자로 표시 되 면 *NotRegistered*, 다음 예제에서와 같이 [az 공급자 등록]을 사용 하 여 [az provider register] 공급자를 등록 합니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
 
@@ -87,9 +109,9 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 | 인수: | 설명 | 필수 |
 |---|---|:---:|
-| `--connector-name` | ACI 커넥터의 이름입니다.| 예 |
-| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예 |
-| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예 |
+| `--connector-name` | ACI 커넥터의 이름입니다.| 예. |
+| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예. |
+| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예. |
 | `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값은 다음과 같습니다. 둘 다, Linux, Windows. Default: Linux. | 아닙니다. |
 | `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아닙니다. |
 | `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아닙니다. |

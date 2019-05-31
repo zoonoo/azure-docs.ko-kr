@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764658"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951005"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -47,7 +47,7 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 NameID (이름 식별자 값)을 편집 합니다.
 
 1. 엽니다는 **이름 식별자 값** 페이지입니다.
-1. 특성 또는 특성에 적용할 변환을 선택 합니다. 필요에 따라 원하는 형식을 그 할 NameID 클레임을 지정할 수 있습니다.
+1. 특성 또는 특성에 적용할 변환을 선택 합니다. 필요에 따라 할 NameID 클레임 형식을 지정할 수 있습니다.
 
    ![NameID (이름 식별자) 값 편집](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 

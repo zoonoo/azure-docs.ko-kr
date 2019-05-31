@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/15/2019
+ms.date: 05/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f14110cec0650927f74dfe3a38f06187c6df39de
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b8eebd7a7a8933d082741a3086ffcf03a58066f
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792656"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357717"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 호스트 하 고 SAP 워크 로드 시나리오를 실행 합니다.
 
@@ -36,15 +36,12 @@ SAP HANA에 대 한 Azure의 고유성 떨어져 있는 Azure를 설정 하는 �
 
 ## <a name="latest-changes"></a>최신 변경 내용
 
+- HANA 대규모 인스턴스용 ExpressRoute 빠른 경로 및 글로벌 환경 소개 [SAP HANA (큰 인스턴스) 네트워크 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) 및 관련 문서
 - 릴리스의 [Azure HANA Large Instances는 Azure portal을 통해 제어](hana-li-portal.md)
-
 - 릴리스의 [SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](high-availability-guide-suse-netapp-files.md)
-
 - 하는 바를 확실히 **Linux OS 매개 변수 net.ipv4.tcp_timestamps** 부하 분산 장치를 Azure와 함께에서 설정
 
-- 릴리스의 [Azure 가용성 영역을 사용 하 여 SAP 워크 로드 구성](sap-ha-availability-zones.md)
 
-- [SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)의 릴리스
 
 
 

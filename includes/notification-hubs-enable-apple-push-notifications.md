@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 39c016e7b4b70368eb1ca2bd517ed7f48d223e24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58125074"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140609"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>인증서 서명 요청 파일 생성
 
@@ -39,7 +39,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
 
-iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등록하고 푸시 알림도 등록해야 합니다.  
+iOS 앱으로 알림을 푸시하려면 Apple에 애플리케이션을 등록하고 푸시 알림도 등록합니다.  
 
 1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App ID**를 클릭한 다음, **+** 기호를 클릭하여 새 앱을 등록합니다.
 
@@ -47,9 +47,9 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등�
 
 2. 새 앱에 다음과 같은 세 개의 필드를 업데이트한 다음 **Continue**를 클릭합니다.
 
-   * **이름**: 앱에 대 한 설명이 포함 된 이름을 입력 합니다 **이름을** 필드를 **앱 ID 설명** 섹션입니다.
-   * **번들 식별자**: 아래는 **명시적 앱 ID** 섹션에서 입력을 **번들 식별자** 형태로 `<Organization Identifier>.<Product Name>` 에 설명 된 대로 [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용하는 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
-   * **푸시 알림**: 확인 합니다 **푸시 알림** 옵션을 **App Services** 섹션입니다.
+   * **이름**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
+   * **Bundle Identifier**: **Explicit App ID** 섹션에 [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 *NotificationHubs* 값이 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용하는 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+   * **Push Notifications**: **App Services** 섹션에서 **Push Notifications** 옵션을 선택합니다.
 
      ![새 앱 ID를 등록하는 양식](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
@@ -111,7 +111,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등�
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>앱용 프로비저닝 프로필 만들기
 
-1. [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Provisioning Profiles**과 **All**을 차례로 선택하고 **+**(더하기) 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
+1. [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Provisioning Profiles**과 **All**을 차례로 선택하고 **+** (더하기) 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
 
     ![프로비전 프로필 목록](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
@@ -136,3 +136,21 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등�
 7. 새 프로비전 프로필이 만들어질 때 다운로드를 클릭하고 Xcode 개발 컴퓨터에 설치합니다. **완료**를 클릭합니다.
 
     ![프로비전 프로필 다운로드](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+
+## <a name="create-a-notification-hub"></a>알림 허브 만들기
+이 섹션에서는 알림 허브를 만들고, APNS와 함께 이전에 만든 **.p12** 푸시 인증서를 사용하여 인증을 구성합니다. 이미 만든 알림 허브를 사용하려는 경우 5단계로 건너뛸 수 있습니다.
+
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+
+## <a name="configure-your-notification-hub-with-apns-information"></a>APNS 정보로 알림 허브 구성
+
+1. **Notification Services** 아래에서 **Apple(APNS)** 을 선택합니다.
+2. **인증서**를 선택합니다.
+3. **파일 아이콘**을 선택합니다.
+4. 이전에 내보낸 **.p12** 파일을 선택합니다.
+5. 올바른 **암호**를 지정합니다.
+6. **샌드박스** 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 **프로덕션** 모드를 사용합니다.
+
+    ![Azure Portal에서 APNS 인증 구성][7]
+
+이제 APNS를 사용하여 알림 허브를 구성했으며, 앱을 등록하고 푸시 알림을 보내기 위한 연결 문자열이 있습니다.

@@ -144,4 +144,4 @@ pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을
 ## <a name="dblink-and-postgresfdw"></a>dblink 및 postgres_fdw
 dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하면 모든 Azure IP가 허용 목록이 추가됩니다.
 
-현재 PostgreSQL 용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다, 다른 Azure Database for PostgreSQL 서버에 대 한 연결을 제외 하 고.
+다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외 하고, 현재 PostgreSQL 용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다.

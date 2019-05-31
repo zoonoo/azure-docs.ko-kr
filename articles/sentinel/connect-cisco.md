@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: 965fef42a398180475050a7273a0142a45a32305
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd04e380b0b5732db1e39ffc9b5aa6047c7ef777
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204418"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382996"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA 어플라이언스에서 연결 
 
@@ -45,7 +45,7 @@ Azure Sentinel 모든 Cisco ASA 어플라이언스에 연결할 수 있습니다
 1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다. 
 
 1. 아래 **Linux Syslog 에이전트 구성을**:
-   - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 되는 전용된 VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
+   - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 되는 전용된 VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 Vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
       1. 에 **사용자 지정 배포** 페이지에서 세부 정보 제공 및 사용자 이름 및 암호를 선택 하 고 사용 약관에 동의 하는 경우 VM을 구입 합니다.
       1. 연결 페이지에서 나열 된 설정을 사용 하 여 로그를 전송 하기 위해 어플라이언스를 구성 합니다. 제네릭 일반적인 이벤트 형식 커넥터에 대해 이러한 설정을 사용 합니다.
          - Protocol = UDP
@@ -99,24 +99,56 @@ Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도�
  
 ## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>2단계: Syslog 에이전트에 Cisco ASA 로그 전달
 
-Syslog 에이전트를 통해 Azure 작업 영역에 대 한 Syslog 메시지를 전달 하는 Cisco ASA를 구성 합니다.
+Cisco ASA Syslog 및 Azure Sentinel 에이전트 알고 CEF 로그 것 처럼 구문 분석 하는 방법으로 로그는 보내도록 CEF를 지원 하지 않습니다. Syslog 에이전트를 통해 Azure 작업 영역에 대 한 Syslog 메시지를 전달 하는 Cisco ASA를 구성 합니다.
 
 로 이동 [외부 Syslog 서버로 전송 된 Syslog 메시지](https://aka.ms/asi-syslog-cisco-forwarding), 연결을 설정 하는 지침을 따릅니다. 메시지가 표시 되 면 이러한 매개 변수를 사용 합니다.
 - 설정할 **포트** 514 또는 에이전트에서 설정 된 포트입니다.
 - 설정할 **syslog_ip** 에이전트의 IP 주소입니다.
 - 설정할 **로깅 기능** 에이전트에서 설정한 시설에 있습니다. 기본적으로 에이전트는 시설 4로 설정합니다.
 
+Log Analytics에서 관련 스키마를 사용 하 여 Cisco 이벤트를 검색 `CommonSecurityLog`합니다.
 
 ## <a name="step-3-validate-connectivity"></a>3단계: 연결 유효성 검사
 
 수준도 로그를 Log Analytics에 나타나기 시작 될 때까지 20 분 정도 걸릴 수 있습니다. 
 
-1. 오른쪽 포트 Syslog 에이전트에 로그를 가져오고 있는지 확인 합니다. 이 명령은 Syslog 에이전트 컴퓨터를 실행 합니다. `tcpdump -A -ni any  port 514 -vv` 이 명령은 Syslog 컴퓨터에 장치에서 스트림 로그를 보여 줍니다. 이 명령은 Syslog 컴퓨터에 장치에서 스트리밍하는 로그를 보여 줍니다. 로그 원본 어플라이언스 오른쪽 시설에 올바른 포트에서에서 수신 되는 있는지 확인 합니다.
-2. Syslog 디먼 및 에이전트 간의 통신 인지 확인 합니다. 이 명령은 Syslog 에이전트 컴퓨터를 실행 합니다. `tcpdump -A -ni any  port 25226 -vv` 이 명령은 Syslog 컴퓨터에 장치에서 스트림 로그를 보여 줍니다. 에이전트에서 로그도 수신 되는 있는지 확인 합니다.
-3. 성공적인 결과 제공 하는 모두 해당 명령의 경우에 Log Analytics 로그 도착 하는 경우 참조를 확인 합니다. 이러한 어플라이언스에서 스트리밍되는 모든 이벤트에서 Log Analytics에서 원시 형태로 나타나는 `CommonSecurityLog` 형식입니다.
-1. 확인 오류가 있는 경우 또는 로그 되지 도착 하는 경우를 확인 하려면 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. 에 Syslog 메시지 기본 크기는 2048 바이트 (2KB)로 제한 해야 합니다. 로그에 너무 긴 경우에이 명령을 사용 하 여 security_events.conf 업데이트: `message_length_limit 4096`
-6. Log Analytics에서 관련 스키마를 사용 하 여 Cisco 이벤트를 검색할 **CommonSecurityLog**합니다.
+1. 올바른 기능을 사용 해야 합니다. 시설 및 Azure Sentinel 어플라이언스에서에서 동일 해야 합니다. Azure Sentinel에서 사용 중이 고 파일의 수정 기능 파일을 확인할 수 있습니다 `security-config-omsagent.conf`합니다. 
+
+2. 오른쪽 포트 Syslog 에이전트에 로그를 가져오고 있는지 확인 합니다. Syslog 에이전트 컴퓨터에서이 명령을 실행 합니다. `tcpdump -A -ni any  port 514 -vv` 이 명령은 Syslog 컴퓨터에 장치에서 스트림 로그를 보여 줍니다. 로그 원본 어플라이언스 오른쪽 시설에 올바른 포트에서에서 수신 되는 있는지 확인 합니다.
+
+3. 보낼 로그를 준수 하는지 확인 [RFC 5424](https://tools.ietf.org/html/rfc542)합니다.
+
+4. 컴퓨터의 Syslog 에이전트를 실행 해야 이러한 포트 514, 25226 열고 명령을 사용 하 여 수신 `netstat -a -n:`합니다. 이 명령을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [netstat(8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/netstat)합니다. 제대로 수신 중인 경우이 표시 됩니다.
+
+   ![Azure Sentinel 포트](./media/connect-cef/ports.png) 
+
+5. 로그를 전송 하는 포트 514에서 수신 하도록 디먼을 설정 되어 있는지 확인 합니다.
+    - Rsyslog의 경우:<br>확인 파일 `/etc/rsyslog.conf` 이 구성을 포함 합니다.
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      자세한 내용은 참조 하세요. [imudp: UDP Syslog 입력 모듈](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) 고 [imtcp: TCP Syslog 입력 모듈](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - Syslog-ng:<br>확인 파일 `/etc/syslog-ng/syslog-ng.conf` 이 구성을 포함 합니다.
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     자세한 내용은 참조 하세요. [imudp: UDP Syslog 입력 모듈] (자세한 내용은 참조는 [syslog ng 오픈 소스 버전 3.16-관리 가이드](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)합니다.
+
+1. Syslog 디먼 및 에이전트 간의 통신 인지 확인 합니다. Syslog 에이전트 컴퓨터에서이 명령을 실행 합니다. `tcpdump -A -ni any  port 25226 -vv` 이 명령은 Syslog 컴퓨터에 장치에서 스트림 로그를 보여 줍니다. 에이전트에서 로그도 수신 되는 있는지 확인 합니다.
+
+6. 성공적인 결과 제공 하는 모두 해당 명령의 경우에 Log Analytics 로그 도착 하는 경우 참조를 확인 합니다. 이러한 어플라이언스에서 스트리밍되는 모든 이벤트에서 Log Analytics에서 원시 형태로 나타나는 `CommonSecurityLog` 형식입니다.
+
+7. 오류가 있는지 확인 하거나 로그 도착 하지 하는 경우 확인 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`합니다. 로그 형식 불일치 오류가 있는 경우으로 이동 `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` 파일 및 `security_events.conf`로그와이 파일에 나오는 regex 형식 일치 하는지 확인 합니다.
+
+8. 에 Syslog 메시지 기본 크기는 2048 바이트 (2KB)로 제한 해야 합니다. 로그에 너무 긴 경우에이 명령을 사용 하 여 security_events.conf 업데이트: `message_length_limit 4096`
 
 
 

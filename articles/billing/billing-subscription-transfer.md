@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826753"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236451"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -59,7 +59,7 @@ ms.locfileid: "65826753"
    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image4.png)
 
    ![두 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image5.png)
-1. 성공 구독이 이제 양도됩니다.
+1. 성공! 구독이 이제 양도됩니다.
 
 <a id="EA"></a>
 
@@ -102,7 +102,9 @@ ms.locfileid: "65826753"
 
 ### <a name="whoisaa"></a> 구독의 계정 관리자는 누구인가요?
 
-계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.azure.com/Subscriptions)에 액세스하고, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있는 권한이 있습니다. 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
+계정 관리자는 Azure 구독을 등록 또는 구입한 사람입니다. 이러한 사용자는 [계정 센터](https://account.azure.com/Subscriptions)에 액세스하고, 구독 만들기, 구독 취소, 구독에 대한 청구 변경 또는 서비스 관리자 변경 등의 다양한 관리 작업을 수행할 수 있는 권한이 있습니다. 관리자 역할 이해 및 권한에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory에서 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
 
 1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요.
 1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.

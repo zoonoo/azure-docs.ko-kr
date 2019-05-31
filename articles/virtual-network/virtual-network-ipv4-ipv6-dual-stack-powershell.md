@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130973"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001005"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure PowerShell (미리 보기)에서 IPv6 이중 스택 응용 프로그램 배포
 
@@ -151,7 +151,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-[New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 기본 Load Balancer를 만듭니다. 다음 예제에서는 공용 기본 부하 분산 장치를 명명 된 *myLoadBalancer* 에서 만든 규칙을 IPv4 및 IPv6 프런트 엔드 IP 구성, 백 엔드 풀, 상태 프로브, 부하 분산 규칙 및 NAT를 사용 하 여 이전 단계:
+[New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 기본 Load Balancer를 만듭니다. 다음 예제에서는 공용 기본 부하 분산 장치를 명명 된 *myLoadBalancer* IPv4 및 IPv6 프런트 엔드 IP를 사용 하 여 구성, 백 엔드 풀 및 이전 단계에서 만든 부하 분산 규칙:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `

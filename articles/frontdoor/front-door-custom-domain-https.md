@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050980"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520483"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -82,7 +82,6 @@ Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 �
 
 > [!WARNING]
 > </br> - Azure Front Door Service는 현재 Front Door 구성과 동일한 구독의 Key Vault 계정만 지원합니다. Front Door와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
-> </br> - Azure Front Door Service는 현재 비밀 섹션에 저장된 Key Vault 인증서만 지원합니다. 비밀 섹션 대신 인증서 섹션에 저장하면 인증서 가져오기가 실패합니다.
 > </br> - Azure Front Door Service는 현재 암호 **없이** PFX를 사용하여 업로드된 인증서만 지원합니다.
 
 #### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록

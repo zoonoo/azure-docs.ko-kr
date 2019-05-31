@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162102"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
@@ -39,13 +39,13 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 아래 표에서는 각 특성을 설명합니다.
 
-| 특성 | name | 필수 | 형식 | 설명 |
+| 특성 | Name | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- | --- |
-| roleId | 역할 정의 식별자 | 예 | 문자열 | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
-| objectId | 개체 식별자 | 예 | 문자열 | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | 개체 식별자 유형 | 예 | 문자열 | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
-| 경로 | 공간 경로 | 예 | 문자열 | `Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
-| tenantId | 테넌트 식별자 | 다름 | 문자열 | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+| roleId | 역할 정의 식별자 | 예. | String | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
+| objectId | 개체 식별자 | 예. | String | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | 개체 식별자 유형 | 예. | String | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
+| path | 공간 경로 | 예. | String | `Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
+| tenantId | 테넌트 식별자 | 다름 | String | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
 
 ### <a name="supported-role-definition-identifiers"></a>지원되는 역할 정의 식별자
 
@@ -165,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **매개 변수 값** | **필수** |  **형식** |  **설명** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True  | 문자열 |   UserId objectIdType의 objectId입니다. |
-| YOUR_PATH | True  | 문자열 |   액세스를 확인할 선택한 경로입니다. |
-| YOUR_ACCESS_TYPE |  True  | 문자열 |   확인할 액세스 형식입니다. |
-| YOUR_RESOURCE_TYPE | True  | 문자열 |  확인할 리소스입니다. |
+| YOUR_USER_ID |  True  | String |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | True  | String |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_ACCESS_TYPE |  True  | String |   확인할 액세스 형식입니다. |
+| YOUR_RESOURCE_TYPE | True  | String |  확인할 리소스입니다. |
 
 요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 

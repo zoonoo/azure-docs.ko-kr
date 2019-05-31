@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087162"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575811"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -25,7 +25,6 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
->
 > * Custom Vision을 사용하여 이미지 분류자 빌드
 > * 디바이스에서 Custom Vision 웹 서버를 쿼리하는 IoT Edge 모듈 개발
 > * IoT Hub에 이미지 분류자의 결과 전송
@@ -39,25 +38,19 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다. 
 
-* [Linux의 빠른 시작](quickstart-linux.md)에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 디바이스로 사용할 수 있습니다.
-* 현재 Custom Vision 모듈은 x64 아키텍처용 Linux 컨테이너로만 사용할 수 있습니다. 
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
+* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
+* Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
-클라우드 리소스:
-
-* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
-* 컨테이너 레지스트리 이 자습서에서는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)를 사용합니다. 
-* 컨테이너 레지스트리 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)에 대한 자격 증명을 알고 있습니다.
-
-개발 리소스:
+Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같은 추가 필수 구성 요소를 개발 머신에 설치합니다. 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Visual Studio Code에 대한 [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 확장
 * Visual Studio Code용 [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 확장
-* [Docker CE](https://docs.docker.com/install/)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Custom Vision을 사용하여 이미지 분류자 빌드
 
@@ -169,6 +162,22 @@ Azure IoT Edge 디바이스:
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-custom-vision/repository.png)
 
 Visual Studio Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다.
+
+### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
+
+환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+
+1. VS Code 탐색기에서 .env 파일을 엽니다.
+2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
+3. 이 파일을 저장합니다.
+
+### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
+
+현재, Visual Studio Code에서는 Linux AMD64 및 Linux ARM32v7 디바이스용 모듈을 개발할 수 있습니다. 컨테이너는 아키텍처 유형별로 다르게 빌드되고 실행되므로 각 솔루션에서 대상으로 지정할 대상 아키텍처를 선택해야 합니다. 기본값은 Linux AMD64입니다. 
+
+1. 명령 팔레트를 열고 **Azure IoT Edge: 에지 솔루션용 기본 대상 플랫폼 설정**을 검색하거나 창의 맨 아래에 있는 사이드바에서 바로 가기 아이콘을 선택합니다. 
+
+2. 명령 팔레트의 옵션 목록에서 대상 아키텍처를 선택합니다. 이 자습서에서는 Ubuntu 가상 머신을 IoT Edge 디바이스로 사용할 예정이므로 기본값인 **amd64**를 그대로 둡니다. 
 
 ### <a name="add-your-image-classifier"></a>이미지 분류자 추가
 
@@ -392,28 +401,6 @@ Visual Studio Code용 IoT Edge 확장은 배포 매니페스트를 만들 수 �
 
 7. **deployment.template.json** 파일을 저장합니다.
 
-### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
-
-이 자습서의 필수 구성 요소는 사용자가 만든 모듈에 대한 컨테이너 이미지를 저장하는 데 필요한 컨테이너 레지스트리를 나열했습니다. 두 위치(이미지를 레지스트리에 빌드 및 푸시할 수 있도록 Visual Studio Code와 IoT Edge 디바이스와 이미지를 끌어오고 배포할 수 있도록 배포 매니페스트에서)에서 레지스트리에 대한 액세스 자격 증명을 제공해야 합니다. 
-
-Azure Container Registry를 사용하는 경우 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)에 대한 사용자 이름, 로그인 서버 및 암호를 알고 있어야 합니다. 
-
-1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 통합 터미널을 엽니다. 
-
-2. 통합 터미널에서 다음 명령을 입력합니다. 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. 메시지가 표시되면 레지스트리 암호를 제공하고 **Enter** 키를 누릅니다.
-
-4. 솔루션 폴더에서 **.env** 파일을 엽니다. 이 파일은 git 무시되며 배포 템플릿 파일에 하드코딩할 필요가 없도록 레지스트리 자격 증명을 저장합니다. 
-
-5. 값 주변에 따옴표 없이 컨테이너 레지스트리에 대한 사용자 이름 및 암호를 제공합니다. 
-
-6. **.env** 파일을 저장합니다.
-
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드 및 배포
 
 모듈이 생성되고 배포 매니페스트 템플릿이 구성되면 컨테이너 이미지를 빌드하고 컨테이너 레지스트리에 푸시할 준비가 되었습니다. 
@@ -426,13 +413,7 @@ Azure Container Registry를 사용하는 경우 [관리자 계정](../container-
 2. 새 폴더가 솔루션, **config**에 추가되었습니다. 이 파일을 확장하고 **deployment.json** 파일을 엽니다.
 3. deployment.json 파일에서 정보를 검토합니다. 구성한 배포 템플릿 파일 및 .env 파일과 module.json 파일을 포함하는 솔루션의 정보를 기반으로 deployment.json 파일이 자동으로 생성됩니다(또는 업데이트됨). 
 
-다음으로 Visual Studio Code 내에서 IoT Hub에 대한 액세스를 설정합니다. 
-
-1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 선택합니다.
-2. 표시되는 메시지에 따라 Azure 계정에 로그인합니다. 
-3. 명령 팔레트에서 Azure 구독을 선택한 다음, IoT Hub를 선택합니다. 
-
-마지막으로 디바이스를 선택하고 솔루션을 배포합니다.
+다음으로 디바이스를 선택하고 솔루션을 배포합니다.
 
 1. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다. 
 2. 배포에서 대상으로 지정하려는 디바이스를 마우스 오른쪽 단추로 클릭하고, **단일 디바이스 배포 만들기**를 선택합니다. 
@@ -463,14 +444,11 @@ cameraCapture 모듈에서 메시지로 전송되는 Custom Vision 모듈의 결
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
-그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
+그렇지 않은 경우 요금이 발생하지 않도록 이 문서에서 사용한 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -482,4 +460,4 @@ cameraCapture 모듈에서 메시지로 전송되는 Custom Vision 모듈의 결
 Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics에서 부동 창을 사용하여 평균 찾기](tutorial-deploy-stream-analytics.md)
+> [SQL Server 데이터베이스로 에지에 데이터 저장](tutorial-store-data-sql-server.md)

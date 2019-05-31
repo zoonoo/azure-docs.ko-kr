@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556795"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161197"
 ---
 모든 장치 문제가 있는 경우에 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서 문제를 해결 하려면이 패키지를 사용 합니다. 지원 패키지를 만들려면 다음이 단계를 수행 합니다.
 

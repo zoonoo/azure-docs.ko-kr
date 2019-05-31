@@ -7,14 +7,14 @@ keywords: Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696105"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257775"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -26,7 +26,7 @@ ms.locfileid: "64696105"
 
 HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
-* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
+* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__ : 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
 * 생성 중 또는 생성 후에 Storm 클러스터에 대해 스크립트를 실행하여 손쉬운 사용자 지정을 지원합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -47,7 +47,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
 
-Storm 사용 시작을 참조 하세요 [HDInsight의 Apache Storm을 사용 하 여 시작][gettingstarted]합니다.
+Storm 사용 시작을 참조 하세요 [HDInsight의 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md)합니다.
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm의 작동 방식
 
@@ -177,10 +177,5 @@ Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여
 
 HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자세히 알아봅니다.
 
-* [HDInsight의 Apache Storm 시작][gettingstarted]
+* [HDInsight의 Apache Storm 시작](apache-storm-tutorial-get-started-linux.md)
 * [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

@@ -9,13 +9,13 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733745"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146234"
 ---
-| 리소스 | 기본 제한 | 최대 제한 |
+| Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 |  [구독](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> 지역당 합니다. |지역당 25,000 합니다. |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |20<sup>1</sup> 지역당 합니다. | 지원에 문의 |

@@ -9,11 +9,11 @@ ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448404"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143412"
 ---
 ## <a name="access-the-virtual-machine"></a>가상 머신에 액세스
 
@@ -23,7 +23,7 @@ ms.locfileid: "61448404"
 
 1. 솔루션 가속기 리소스를 포함하는 리소스 그룹의 콘텐츠를 나열합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az resource list -g contoso-simulation -o table
     ```
 
@@ -31,7 +31,7 @@ ms.locfileid: "61448404"
 
 1. SSH 액세스를 허용하도록 네트워크 보안 그룹을 업데이트합니다. 다음 명령에서는 네트워크 보안 그룹의 이름이 **contoso-simulation-nsg**라고 가정합니다. 이 값을 네트워크 보안 그룹의 이름으로 바꿉니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
@@ -39,13 +39,13 @@ ms.locfileid: "61448404"
 
 1. 가상 머신에서 **azureuser** 계정에 대한 암호를 아는 암호로 업데이트합니다. 다음 명령을 실행하는 경우 고유한 암호를 선택합니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
 1. 가상 머신의 공용 IP 주소를 찾습니다. 다음 명령에서는 가상 머신의 이름이 **vm-vikxv**라고 가정합니다. 이 값을 이전에 기록해 둔 가상 머신의 이름으로 바꿉니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025999"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131743"
 ---
 ## <a name="export-an-api-definition"></a>API 정의 내보내기
 [함수에 대한 OpenAPI 정의 만들기](../articles/azure-functions/functions-openapi-definition.md)를 통해 함수에 대한 OpenAPI 정의를 만들었습니다. 이 프로세스의 다음 단계는 PowerApps 및 Microsoft Flow가 해당 사용자 지정 API에서 사용할 수 있도록 API 정의를 내보내는 것입니다.

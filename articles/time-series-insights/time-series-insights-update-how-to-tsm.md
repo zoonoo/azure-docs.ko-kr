@@ -2,7 +2,7 @@
 title: Azure Time Series Insights 미리 보기의 데이터 모델링 | Microsoft Docs
 description: Azure Time Series Insights 미리 보기의 데이터 모델링을 이해합니다.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1c8886cada80c02e99782159099aa626da35fc50
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466868"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237558"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
@@ -23,7 +23,7 @@ ms.locfileid: "65466868"
 
 업데이트 사용 방법에 대한 자세한 내용은 [Azure Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 참조하세요.
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
 ### <a name="create-a-single-type"></a>단일 형식 만들기
 

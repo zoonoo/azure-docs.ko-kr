@@ -1,27 +1,27 @@
 ---
-title: 자습서 - URL을 기반으로 웹 트래픽 라우팅 - Azure CLI
-description: 이 자습서에서는 Azure CLI를 사용하여 URL을 기반으로 웹 트래픽을 확장 가능한 특정 서버 풀로 라우팅하는 방법을 알아봅니다.
+title: URL을 기준으로 웹 트래픽 라우팅 - Azure CLI
+description: 이 문서에서는 Azure CLI를 사용하여 URL을 기반으로 웹 트래픽을 확장 가능한 특정 서버 풀로 라우팅하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006481"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955565"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
-웹 트래픽을 관리하는 IT 관리자는 고객 또는 사용자가 필요한 정보를 최대한 신속하게 얻을 수 있기를 원합니다. 이들의 경험을 최적화하는 방법 중 하나는 여러 종류의 웹 트래픽을 서로 다른 서버 리소스에 라우팅하는 것입니다. 이 자습서에서는 Azure CLI를 사용하여 애플리케이션의 여러 트래픽 종류에 대한 Application Gateway 라우팅을 설정 및 구성하는 방법을 보여줍니다. 그런 다음, 라우팅을 통해 URL 기반의 여러 서버 풀에 트래픽을 전달합니다.
+웹 트래픽을 관리하는 IT 관리자는 고객 또는 사용자가 필요한 정보를 최대한 신속하게 얻을 수 있기를 원합니다. 이들의 경험을 최적화하는 방법 중 하나는 여러 종류의 웹 트래픽을 서로 다른 서버 리소스에 라우팅하는 것입니다. 이 문서에서는 Azure CLI를 사용하여 애플리케이션의 여러 트래픽 종류에 대한 Application Gateway 라우팅을 설정 및 구성하는 방법을 보여줍니다. 그런 다음, 라우팅을 통해 URL 기반의 여러 서버 풀에 트래픽을 전달합니다.
 
 ![URL 라우팅 예제](./media/tutorial-url-route-cli/scenario.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 필요한 네트워크 리소스에 대한 리소스 그룹 만들기
@@ -31,13 +31,13 @@ ms.locfileid: "58006481"
 > * 풀 크기를 자동으로 조정할 수 있도록 각 풀의 확장 집합 만들기
 > * 여러 종류의 트래픽이 올바른 풀로 이동하는지 확인하기 위한 테스트 실행
 
-원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하기로 선택할 경우 이 문서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>VM 확장 집합 만들기
 
-이 자습서에서는 사용자가 만든 세 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2*, *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+이 문서에서는 사용자가 만든 세 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2*, *myvmss3*입니다. 각 확장 집합에는 NGINX를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](./tutorial-url-redirect-cli.md)
+* [URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기](./tutorial-url-redirect-cli.md)

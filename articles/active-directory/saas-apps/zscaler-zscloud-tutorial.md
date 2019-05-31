@@ -4,58 +4,50 @@ description: Azure Active Directory와 Zscaler ZSCloud 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/10/2018
+ms.topic: tutorial
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb9c5e359065364a9bc67e5f235a294ea06c2b2f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 35886a65020d7cc5a77f9f413d2d65637cb18382
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846857"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>자습서: Azure Active Directory와 Zscaler ZSCloud 통합
 
 이 자습서에서는 Zscaler ZSCloud를 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다.
-
 Zscaler ZSCloud를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
-- Zscaler ZSCloud에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 자신의 Azure AD 계정으로 Zscaler ZSCloud에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* Zscaler ZSCloud에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 자신의 Azure AD 계정으로 Zscaler ZSCloud에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Zscaler ZSCloud와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독
-- Zscaler ZSCloud Single Sign-On이 설정된 구독
-
-> [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-
-이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
-
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Zscaler ZSCloud Single Sign-On이 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-1. 갤러리에서 Zscaler ZSCloud 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+* Zscaler ZSCloud는 **SP** 시작 SSO를 지원합니다.
+
+* Zscaler ZSCloud는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>갤러리에서 Zscaler ZSCloud 추가
 
@@ -63,93 +55,99 @@ Zscaler ZSCloud와 Azure AD의 통합을 구성하려면 갤러리의 Zscaler ZS
 
 **갤러리에서 Zscaler ZSCloud를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
-    ![Azure Active Directory 단추][1]
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추][3]
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
 4. 검색 상자에 **Zscaler ZSCloud**를 입력하고 결과 패널에서 **Zscaler ZSCloud**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![결과 목록의 Zscaler ZSCloud](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
+     ![결과 목록의 Zscaler ZSCloud](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-
-Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Zscaler ZSCloud 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Zscaler ZSCloud의 관련 사용자 간에 연결 관계가 형성되어야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Zscaler ZSCloud의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Zscaler ZSCloud 테스트 사용자 만들기](#creating-a-zscaler-zscloud-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Zscaler ZSCloud에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Zscaler ZSCloud Single Sign-On 구성](#configure-zscaler-zscloud-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Zscaler ZSCloud 테스트 사용자 만들기](#create-zscaler-zscloud-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Zscaler ZSCloud에 만듭니다.
+6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Zscaler ZSCloud 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-**Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Zscaler ZSCloud** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Zscaler ZSCloud** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
-    ![Single Sign-On 구성 링크][4]
+    ![Single Sign-On 구성 링크](common/select-sso.png)
 
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML** 모드에 대해 **선택**을 클릭하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-    ![Configure Single Sign-On](common/tutorial_general_301.png)
+    ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
 3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
-    ![Configure Single Sign-On](common/editconfigure.png)
+    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Zscaler ZSCloud 도메인 및 URL Single Sign-On 정보](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+    ![Zscaler ZSCloud 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
     **로그온 URL** 텍스트 상자에 사용자가 ZScaler ZSCloud 애플리케이션에 로그인하는 데 사용하는 URL을 입력합니다.
 
-    > [!NOTE] 
-    > 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이러한 값을 얻으려면 [Zscaler Two 클라이언트 지원 팀](https://help.zscaler.com/)에 문의하세요.
+    > [!NOTE]
+    > 이 값을 실제 로그인 URL로 업데이트해야 합니다. 이 값을 얻으려면 [Zscaler ZSCloud 클라이언트 지원 팀](https://help.zscaler.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Zscaler ZSCloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정 페이지**에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. Zscaler ZSCloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
 
-    ![특성 링크](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_attribute.png)
+    ![이미지](common/edit-attribute.png)
 
-6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
-
-    | 이름  | 원본 특성  |
+6. 위에서 언급한 특성 외에도, Zscaler ZSCloud 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
+    
+    | Name | 원본 특성 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](./common/new_save_attribute.png)
+    ![이미지](common/new-save-attribute.png)
+
+    ![이미지](common/new-attribute-details.png)
+
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+
+    다. **네임스페이스**를 비워 둡니다.
+
+    d. 원본을 **특성**으로 선택합니다.
+
+    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
     
-    ![이미지](./common/new_attribute_details.png)
-
-    b. **원본 특성** 목록에서 특성 값을 선택합니다.
-
-    다. **확인**을 클릭합니다.
-
-    d. **저장**을 클릭합니다.
+    f. **저장**을 클릭합니다.
 
     > [!NOTE]
     > [여기](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
 
-7. **SAML 서명 인증서** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하고 **인증서(Base64)** 다운로드한 다음, 컴퓨터에 인증서 파일을 저장합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 8. **Zscaler ZSCloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+
+    ![구성 URL 복사](common/copy-configuration-urls.png)
 
     a. 로그인 URL
 
@@ -157,11 +155,19 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     다. 로그아웃 URL
 
-    ![Zscaler ZSCloud 구성](common/configuresection.png)
+### <a name="configure-zscaler-zscloud-single-sign-on"></a>Zscaler ZSCloud Single Sign-On 구성
 
-9. 다른 웹 브라우저 창에서 Zscaler ZSCloud 회사 사이트에 관리자로 로그인합니다.
+1. Zscaler ZSCloud 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-10. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Zscaler ZSCloud 설정**을 클릭하면 Zscaler ZSCloud 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Zscaler ZSCloud에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![SSO 설정](common/setup-sso.png)
+
+3. Zscaler ZSCloud를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Zscaler ZSCloud 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+4. **관리 > 인증 > 인증 설정**으로 이동하고 다음 단계를 수행합니다.
    
     ![관리](./media/zscaler-zscloud-tutorial/ic800206.png "관리")
 
@@ -169,7 +175,7 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     b. **SAML 구성**을 클릭합니다.
 
-11. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
+5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
             
     ![사용자 및 인증 관리](./media/zscaler-zscloud-tutorial/ic800208.png "사용자 및 인증 관리")
     
@@ -187,9 +193,9 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     g. 부서 특성에 대해 SAML 자동 프로비전을 사용하도록 설정하려는 경우 **부서 이름 특성** 텍스트 상자에 **부서**를 입력합니다.
 
-    i. **저장**을 클릭합니다.
+    h. **저장**을 클릭합니다.
 
-12. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
+6. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     ![관리](./media/zscaler-zscloud-tutorial/ic800207.png)
 
@@ -202,17 +208,17 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 1. **Internet Explorer**를 시작합니다.
 
-1. **도구** 메뉴에서 **인터넷 옵션**을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
+2. **도구** 메뉴에서 **인터넷 옵션**을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
     
      ![인터넷 옵션](./media/zscaler-zscloud-tutorial/ic769492.png "인터넷 옵션")
 
-1. **연결** 탭을 클릭합니다.   
+3. **연결** 탭을 클릭합니다.   
   
      ![연결](./media/zscaler-zscloud-tutorial/ic769493.png "연결")
 
-1. **LAN 설정**을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
+4. **LAN 설정**을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 
-1. 프록시 서버 섹션에서 다음 단계를 수행합니다.   
+5. 프록시 서버 섹션에서 다음 단계를 수행합니다.   
    
     ![프록시 서버](./media/zscaler-zscloud-tutorial/ic769494.png "프록시 서버")
 
@@ -226,58 +232,51 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     e. **확인**을 클릭하여 **LAN(Local Area Network) 설정** 대화 상자를 닫습니다.
 
-1. **확인**을 클릭하여 **인터넷 옵션** 대화 상자를 닫습니다.
+6. **확인**을 클릭하여 **인터넷 옵션** 대화 상자를 닫습니다.
 
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
-    ![Azure AD 사용자 만들기][100]
+    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
 2. 화면 위쪽에서 **새 사용자**를 선택합니다.
 
-    ![Azure AD 테스트 사용자 만들기](common/create_aaduser_01.png) 
+    ![새 사용자 단추](common/new-user.png)
 
 3. 사용자 속성에서 다음 단계를 수행합니다.
 
-    ![Azure AD 테스트 사용자 만들기](common/create_aaduser_02.png)
+    ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
-    예를 들어 IPv4 주소를 사용하는 경우 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
+    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 선택합니다.
+    d. **만들기**를 클릭합니다.
 
-### <a name="creating-a-zscaler-zscloud-test-user"></a>Zscaler ZSCloud 테스트 사용자 만들기
-
-이 섹션은 Zscaler ZSCloud에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Zscaler ZSCloud는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Zscaler ZSCloud에 액세스하는 동안 만들어집니다.
->[!Note]
->사용자를 수동으로 만들어야 하는 경우  [Zscaler ZSCloud 지원 팀](https://help.zscaler.com/)에 문의하세요.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zscaler ZSCloud에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Zscaler ZSCloud**를 차례로 선택합니다.
 
-    ![사용자 할당][201]
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **Zscaler ZSCloud**를 선택합니다.
 
-    ![Configure Single Sign-On](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png)
+    ![애플리케이션 목록의 Zscaler ZSCloud 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][202]
+    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **할당 추가** 대화 상자에서 **추가** 단추를 클릭한 다음, **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][203]
+    ![할당 추가 창](common/add-assign-user.png)
 
 5. **사용자 및 그룹** 대화 상자의 목록에서 **Britta Simon** 등의 사용자를 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
 
@@ -291,27 +290,27 @@ Zscaler ZSCloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![이미지](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
 
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+    >[!NOTE]
+    >기본 액세스 역할은 프로비저닝을 중단하므로 지원되지 않으며, 따라서 사용자를 할당하는 동안 기본 역할을 선택할 수 없습니다.
+
+### <a name="create-zscaler-zscloud-test-user"></a>Zscaler ZSCloud 테스트 사용자 만들기
+
+이 섹션에서는 Zscaler ZSCloud에서 Britta Simon이라는 사용자를 만듭니다. Zscaler ZSCloud는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Zscaler ZSCloud에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+>[!Note]
+>사용자를 수동으로 만들어야 하는 경우 [Zscaler ZSCloud 지원 팀](https://help.zscaler.com/)에 문의하세요.
+
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Zscaler ZSCloud 타일을 클릭하면 Zscaler ZSCloud 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Zscaler ZSCloud 타일을 클릭하면 SSO를 설정한 Zscaler ZSCloud에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

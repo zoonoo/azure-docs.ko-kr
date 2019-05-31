@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: 17e298d88f83716063472ce7947ba95f24dba1d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342410"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132057"
 ---
 첫 번째 함수를 만들었으므로, Storage 큐에 메시지를 작성하는 함수에 출력 바인딩을 추가해 보겠습니다.
 

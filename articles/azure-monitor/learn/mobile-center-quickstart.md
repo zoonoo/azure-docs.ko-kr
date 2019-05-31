@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080728"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683422"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -87,7 +87,9 @@ Analytics.trackEvent("Video clicked")
 
 ## <a name="export-to-application-insights"></a>Application Insights로 내보내기
 
-맨 위 **Essentials** 섹션에 있는 **개요** 페이지의 새 Application Insights 리소스에 이 리소스에 대한 계측 키를 복사합니다.
+새 Application Insights 리소스의 **개요** 페이지입니다. 리소스에서 계측 키를 복사합니다.
+
+   ![Application Insights의 Analytics 단추](./media/mobile-center-quickstart/overview-01.png)
 
 앱에 대한 App Center 인스턴스:
 
@@ -108,7 +110,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
 
 1. **사용자 지정 이벤트 원격 분석을 쿼리합니다**. Application Insights **개요** 페이지에서 **Analytics**를 선택합니다. 
 
-   ![Application Insights의 Analytics 단추](./media/mobile-center-quickstart/analytics.png)
+   ![Application Insights의 Analytics 단추](./media/mobile-center-quickstart/analytics-001.png)
 
    사용자의 Application Insights 리소스와 연결된 Application Insights Analytics 포털이 열립니다. Analytics 포털을 통해 Log Analytics 로그 언어를 사용하여 데이터를 직접 쿼리할 수 있으므로, 앱과 해당 사용자에 대해 임의의 복잡한 질문을 할 수 있습니다.
    
@@ -121,7 +123,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics 포털](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Analytics 포털](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
    2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
@@ -131,17 +133,17 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
 
 2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.
 
-   ![사용자 도구 아이콘](./media/mobile-center-quickstart/users-icon.png)
+   ![사용자 도구 아이콘](./media/mobile-center-quickstart/users-icon-001.png)
 
    사용자 도구는 얼마나 많은 앱 사용자가 특정 단추를 클릭하고 특정 화면을 방문했거나, App Center SDK를 통해 이벤트로 추적하고 있는 기타 작업을 수행했는지 보여줍니다. App Center 이벤트를 분할하고 필터링하는 방법을 찾고 있다면 사용자 도구는 적합한 옵션입니다.
 
-   ![사용자 도구](./media/mobile-center-quickstart/users.png) 
+   ![사용자 도구](./media/mobile-center-quickstart/users-001.png) 
 
    예를 들어, **분할 기준** 드롭다운 메뉴에서 **국가 또는 지역**을 선택하여 지리별로 사용률을 분할할 수 있습니다.
 
 3. **앱에서 전환, 보존 및 탐색 패턴을 분석합니다.** Application Insights **개요** 페이지의 목차에서 **사용자 흐름**을 선택합니다.
 
-   ![사용자 흐름 도구](./media/mobile-center-quickstart/user-flows.png)
+   ![사용자 흐름 도구](./media/mobile-center-quickstart/user-flows-001.png)
 
    사용자 흐름 도구는 일부 시작 이벤트 후 사용자가 보낼 이벤트를 시각화합니다. 사용자가 앱을 통해 탐색하는 방법을 전반적으로 이해하는 데 유용하며, 많은 사용자가 앱에서 마음을 바꾸거나 같은 작업을 계속 반복하는 곳을 알아낼 수도 있습니다.
 

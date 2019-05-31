@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.topic: tutorial
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a13d1f843604025ee0f843c0770b3d11b53dd837
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730405"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762870"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 

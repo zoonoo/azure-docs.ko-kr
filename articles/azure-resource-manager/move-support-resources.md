@@ -4,14 +4,14 @@ description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794509"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872549"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 이동 작업을 지원하는 리소스 종류라도 해당 리소스를 이동할 수 없는 조건이 있을 수 있습니다. 이동 작업에 영향을 주는 조건에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
@@ -848,7 +848,7 @@ ms.locfileid: "65794509"
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | ----------- | ---------- |
-| deviceservices | 예. | 예. |
+| deviceservices | 아닙니다. | 아닙니다. |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | 리소스 종류 | 리소스 그룹 | 구독 |

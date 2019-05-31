@@ -146,7 +146,7 @@ Microsoft Genomics 서비스는 페어드 엔드 리드를 입력 파일로 기�
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Python 클라이언트를 사용하여 Microsoft Genomics 서비스를 통해 워크플로 실행 
 
 Microsoft Genomics 서비스를 통해 워크플로를 실행하려면 config.txt 파일을 편집하여 데이터에 대한 입력 및 출력 저장소 컨테이너를 지정합니다.
-Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage 탐색기에서 직접 이 정보를 찾을 수 있습니다.  
+Genomics 계정에서 다운로드한 config.txt 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 저장 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. 포털에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage Explorer에서 직접 이 정보를 찾을 수 있습니다.  
 
 
 ![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 구성")

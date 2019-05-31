@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395565"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399787"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
@@ -72,8 +72,8 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 | **서버 URL**   | Service Manager 웹앱의 URL을 입력합니다. Service Manager 웹앱에 대한 자세한 내용은 [여기](#create-and-deploy-service-manager-web-app-service)에 나와 있습니다.
 | **클라이언트 ID**   | 웹앱을 인증하기 위해 생성한 클라이언트 ID를 입력합니다(자동 스크립트 사용). 자동화된 스크립트에 대한 자세한 내용은 [여기](../../azure-monitor/platform/itsmc-service-manager-script.md)에 나와 있습니다.|
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
-| **데이터 동기화 범위**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:**  인시던트, 변경 요청.|
-| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **데이터 동기화**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:**  인시던트, 변경 요청.|
+| **데이터 동기화 범위** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 Log Analytics는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로(존재하지 않는 CI의 경우) 만듭니다. **기본**: 사용하지 않도록 설정됩니다. |
 
 ![서비스 관리자 연결](media/itsmc-connections/service-manager-connection.png)
@@ -185,11 +185,12 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 ### <a name="prerequisites"></a>필수 조건
 다음 필수 조건이 충족되는지 확인합니다.
 - ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow는 지원되는 버전: 런던, Kingston, Jakarta, Istanbul, Helsinki, Geneva
+- ServiceNow는 지원되는 버전: 마드리드, 런던, Kingston, Jakarta, Istanbul, Helsinki, Geneva
 
 **ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
 
+    - [마드리드에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [런던에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

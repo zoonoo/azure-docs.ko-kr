@@ -6,18 +6,38 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: e36e0813b7a50c659a2c3ae61350381e83a1823f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686189"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243443"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
 다음은 구성, 등록, 백업 및 복원하는 동안 발생할 수 있는 오류 해결 방법입니다.
+
+## <a name="basic-troubleshooting"></a>기본 문제 해결
+
+수행 하는 것이 좋습니다는 아래 유효성 검사를 시작 하기 전에 Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결:
+
+- [Microsoft Azure Recovery Services (MARS) 에이전트를 최신 상태로 유지](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
+- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AB-AA4dwtk)
+- [예약 백업은 실패하지만 수동 백업은 작동](https://aka.ms/ScheduledBackupFailManualWorks)
+- OS에 최신 업데이트가 설치되었는지 확인
+- [백업에서 지원 되지 않는 드라이브 및 지원 되지 않는 특성을 사용 하 여 파일을 제외 하십시오](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- 보호되는 시스템의 **시스템 클록**이 올바른 표준 시간대로 구성되었는지 확인 <br>
+- [서버에 적어도 .Net Framework 버전 4.5.2 이상이 설치되었는지 확인](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- 자격 증명 모음에 **서버를 다시 등록**하려는 경우: <br>
+  - 에이전트가 서버에서 제거되고 포털에서 삭제되었는지 확인 <br>
+  - 처음 서버 등록에 사용한 것과 동일한 암호 사용 <br>
+- 오프 라인 백업의 경우, 오프 라인 백업 작업을 시작 하기 전에 Azure PowerShell 버전 3.7.0 소스와 복사 컴퓨터에 설치 되어 있는지 확인
+- [Backup 에이전트가 Azure 가상 머신에서 실행 되 고 때 고려 사항](https://aka.ms/AB-AA4dwtr)
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
@@ -35,7 +55,8 @@ ms.locfileid: "64686189"
 
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
-| **오류** <br /><ol><li>*Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인하고 인터넷에 연결할 수 있는지 확인하세요.*<li>*(407) 프록시 인증 필요* |프록시가 연결을 차단 중 |  <ul><li>**IE** > **설정** > **인터넷 옵션** > **보안** > **인터넷**을 시작합니다. 그런 다음 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외시킵니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
+| **오류** <br /><ol><li>*Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인하고 인터넷에 연결할 수 있는지 확인하세요.*<li>*(407) 프록시 인증 필요* |프록시가 연결을 차단 중 |  <ul><li>**IE** > **설정** > **인터넷 옵션** > **보안** > **인터넷**을 시작합니다. 그런 다음 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<li> 컴퓨터에서 인터넷을 제한 한 경우 방화벽 설정을 컴퓨터 또는 프록시에이 허용 하는지 확인 [Url](backup-configure-vault.md#verify-internet-access) 하 고 [IP 주소](backup-configure-vault.md#verify-internet-access)합니다. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외시킵니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
+
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>안전한 백업을 위한 암호화 키를 설정하지 못했습니다.
@@ -48,13 +69,13 @@ ms.locfileid: "64686189"
 
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|**오류** <br /><ol>*정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.*     | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 다른 위치로 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 달하는 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [Azure Backup 에이전트에 대한 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)의 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.        |
+|**오류** <br />*정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 작업을 잠시 후에 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.*     | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 다른 위치로 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 달하는 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [Azure Backup 에이전트에 대한 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)의 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>암호화 암호가 올바르게 구성되지 않았습니다.
 
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|**오류** <br /><ol>*오류 34506. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다*.    | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 다른 위치로 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 달하는 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [Azure Backup 에이전트에 대한 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)의 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.         |
+|**오류** <br />*오류 34506. 이 컴퓨터에 저장된 암호화의 암호가 제대로 구성되어 있지 않습니다*.    | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 다른 위치로 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 달하는 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [Azure Backup 에이전트에 대한 질문](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup)의 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.         |
 
 
 ## <a name="backups-dont-run-according-to-the-schedule"></a>백업이 일정에 따라 실행되지 않음
@@ -99,7 +120,7 @@ ms.locfileid: "64686189"
 
     ![스토리지 컨트롤러가 강조 표시된 Azure Backup 디바이스 관리자의 스크린샷](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  **작업 관리자** > **서비스(로컬)** > **Microsoft iSCSI 초기자 서비스**로 이동합니다.
+7.  **작업 관리자** > **서비스(로컬)**  > **Microsoft iSCSI 초기자 서비스**로 이동합니다.
 
     ![서비스(로컬)가 강조 표시된 Azure Backup 작업 관리자의 스크린샷](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 

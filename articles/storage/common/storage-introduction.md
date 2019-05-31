@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1c82dbd0af8509910b13d17ff5a2e8512cef6fdd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794181"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258345"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -23,7 +23,7 @@ Azure Storage는 최신 데이터 스토리지 시나리오를 위한 Microsoft�
 - **보안** Azure Storage에 기록된 모든 데이터는 서비스에 의해 암호화됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
 - **확장성** Azure Storage는 오늘날의 응용 프로그램의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다. 
 - **관리** Microsoft Azure에서 하드웨어 유지 관리, 업데이트 및 중요한 문제를 처리합니다.
-- **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API 뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 및 기타 다양한 언어로 Azure Storage용 SDK를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage 탐색기는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
+- **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API 뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 및 기타 다양한 언어로 Azure Storage용 SDK를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
 ## <a name="azure-storage-services"></a>Azure Storage 서비스
 
@@ -73,7 +73,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-
 
 Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니다. 큐 메시지의 크기는 최대 64KB일 수 있고 큐에는 수 많은 메시지가 포함될 수 있습니다. 큐는 일반적으로 비동기적으로 처리될 메시지의 목록을 저장하는 데 사용됩니다.
 
-예를 들어 고객이 사진을 업로드하여 각 사진에 대한 썸네일을 만들려고 한다고 가정하겠습니다. 고객이 사진을 업로드하는 동안 썸네일을 만들 때까지 기다리게 할 수 있습니다. 대신 큐를 사용할 수 있습니다. 고객이 업로드를 완료하면 큐에 메시지를 작성합니다. 그런 다음 Azure Function에서는 큐의 메시지를 검색하고 썸네일을 만듭니다. 이 프로세스의 일부는 각각 별도로 확장될 수 있으며 사용하기 위해 조정하는 경우 더 세밀하게 조정할 수 있습니다.
+예를 들어 고객이 사진을 업로드하여 각 사진에 대한 썸네일을 만들려고 한다고 가정하겠습니다. 고객이 사진을 업로드하는 동안 썸네일을 만들 때까지 기다리게 할 수 있습니다. 대신 큐를 사용할 수 있습니다. 고객의 업로드가 완료 되 면 큐에 메시지를 기록 합니다. 그런 다음 Azure Function에서는 큐의 메시지를 검색하고 썸네일을 만듭니다. 이 프로세스의 일부는 각각 별도로 확장될 수 있으며 사용하기 위해 조정하는 경우 더 세밀하게 조정할 수 있습니다.
 
 Azure 큐에 대한 자세한 내용은 [큐 소개](../queues/storage-queues-introduction.md)를 참조하세요.
 
@@ -85,7 +85,9 @@ Table Storage에 대한 자세한 내용은 [Azure Table Storage 개요](../tabl
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [컴퓨팅 서비스 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
+Azure Managed Disk는 VHD(가상 하드 디스크)입니다. 온-프레미스 서버의 물리적 디스크처럼 생각할 수 있지만 가상화된 디스크입니다. Azure Managed Disks는 Azure의 무작위 IO 스토리지 개체인 페이지 Blob으로 저장됩니다. 관리 디스크를 ‘관리’로 부르는 것은 페이지 Blob, Blob 컨테이너 및 Azure Storage 계정에 대한 추상이기 때문입니다. 관리 디스크를 사용할 경우 디스크를 프로비저닝하기만 하면 Azure에서 나머지 작업을 처리합니다.
+
+Managed disks에 대 한 자세한 내용은 참조 하세요. [관리 디스크를 Azure 소개](../../virtual-machines/windows/managed-disks-overview.md)합니다.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 

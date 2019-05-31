@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Cosmos DB에서 서비스의 개발 및 �
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 3bb39fe99e612fb19f12fd049ebb8f600e48373e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9cb18b66def144b84de708351743832d1831fbf
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930220"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967270"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 개발 및 테스트 비용 최적화
 

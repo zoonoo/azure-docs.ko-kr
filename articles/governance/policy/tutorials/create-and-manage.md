@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283616"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979176"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
 회사 표준 및 서비스 수준 계약의 준수를 유지하는 데 있어 Azure에서 정책을 만들고 관리하는 방법을 이해하는 것이 중요합니다. 이 자습서에서는 Azure Policy를 사용하여 조직 전체에서 정책을 생성, 할당 및 관리하는 것과 관련된 보다 일반적인 작업 중 일부를 수행하는 방법에 대해 알아봅니다.
 
@@ -42,11 +42,11 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    ![할당 페이지에서 정책 정의 할당](../media/create-and-manage/select-assign-policy.png)
 
-1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다.  그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
+1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
 
    이 예제에서는 **Contoso** 구독을 사용합니다. 구독을 사용합니다.
 
-1. **범위**에 따라 리소스를 제외할 수 있습니다.  **제외**는 **범위** 수준보다 한 수준 아래에서 시작됩니다. **제외**는 원하는 경우에만 적용하면 되므로 지금은 비워 둡니다.
+1. **범위**에 따라 리소스를 제외할 수 있습니다. **제외**는 **범위** 수준보다 한 수준 아래에서 시작됩니다. **제외**는 원하는 경우에만 적용하면 되므로 지금은 비워 둡니다.
 
 1. **정책 정의** 줄임표를 선택하여 사용 가능한 정의 목록을 엽니다. 정책 정의 **유형**을 *기본 제공*으로 필터링하여 모든 정책을 살펴보고 설명을 읽을 수 있습니다.
 
@@ -54,9 +54,10 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
    ![검색 필터를 사용하여 정책 찾기](../media/create-and-manage/select-available-definition.png)
 
-1. 선택한 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예에서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.  **할당한 사람**은 로그인한 사용자를 기준으로 자동 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
+1. 선택한 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예에서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
+   **할당한 사람**은 로그인한 사용자를 기준으로 자동 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
-1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 [deployIfNotExists](../concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 ‘선택해야 합니다’. 이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 [deployIfNotExists](../concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 ‘선택해야 합니다’.  이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
 1. **할당**을 클릭합니다.
 
@@ -116,7 +117,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>REST API를 사용하여 정책 정의 만들기
 
-정책 정의에 대한 REST API를 사용하여 정책을 만들 수 있습니다. REST API를 사용하여 정책 정의를 만들고, 삭제하고, 기존 정의에 관한 정보를 가져올 수 있습니다. 정책 정의를 만들려면 다음 예제를 사용합니다.
+REST API를 사용하여 Azure Policy 정의에 대한 정책을 만들 수 있습니다. REST API를 사용하여 정책 정의를 만들고, 삭제하고, 기존 정의에 관한 정보를 가져올 수 있습니다. 정책 정의를 만들려면 다음 예제를 사용합니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ## <a name="create-a-policy-definition-with-powershell"></a>PowerShell을 사용하여 정책 정의 만들기
 
-PowerShell 예제를 진행하기 전에 최신 버전의 Azure PowerShell Az 모듈을 설치했는지 확인합니다. 
+PowerShell 예제를 진행하기 전에 최신 버전의 Azure PowerShell Az 모듈을 설치했는지 확인합니다.
 
 `New-AzPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다.
 
@@ -369,19 +370,20 @@ az policy definition list
 
    ![이니셔티브 정의 페이지에서 정의 할당](../media/create-and-manage/assign-definition.png)
 
-   또한 선택한 행을 마우스 오른쪽 단추로 클릭하거나 행 끝에 있는 줄임표(...)를 마우스 왼쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시할 수 있습니다.  그리고 **할당**을 선택합니다.
+   또한 선택한 행을 마우스 오른쪽 단추로 클릭하거나 행 끝에 있는 줄임표(...)를 마우스 왼쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시할 수 있습니다. 그리고 **할당**을 선택합니다.
 
    ![이니셔티브의 대체 옵션](../media/create-and-manage/select-right-click.png)
 
 1. 다음 예제 정보를 입력하여 **보안 강화: 이니셔티브 할당** 페이지를 채웁니다. 사용자 고유의 정보를 사용해도 됩니다.
 
-   - 범위: 이니셔티브를 저장한 관리 그룹 또는 구독이 기본값이 됩니다.  저장 위치 내의 리소스 그룹 또는 구독에 이니셔티브를 할당하도록 범위를 변경할 수 있습니다.
+   - 범위: 이니셔티브를 저장한 관리 그룹 또는 구독이 기본값이 됩니다.
+     저장 위치 내의 리소스 그룹 또는 구독에 이니셔티브를 할당하도록 범위를 변경할 수 있습니다.
    - 제외: 범위 내의 리소스에 이니셔티브 할당이 적용되지 않도록 리소스를 구성합니다.
    - 이니셔티브 정의 및 할당 이름: 보안 강화(할당되는 이니셔티브의 이름으로 미리 채워짐).
    - 설명: 이 이니셔티브 할당은 이 정책 정의 그룹을 적용하도록 조정됩니다.
    - 할당한 사람: 로그인한 사용자를 기준으로 자동 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
-1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 [deployIfNotExists](../concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 ‘선택해야 합니다’. 이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 할당 중인 정책이나 이니셔티브에 [deployIfNotExists](../concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 ‘선택해야 합니다’.  이 자습서에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
 1. **할당**을 클릭합니다.
 
@@ -389,7 +391,8 @@ az policy definition list
 
 1. Azure Policy 페이지의 왼쪽에서 **규정 준수**를 선택합니다.
 
-1. **원본 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다. 이니셔티브를 클릭하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
+1. **원본 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다. 
+   이니셔티브를 클릭하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
 
    ![이니셔티브 규정 준수 페이지 - 평가가 시작되지 않음](../media/create-and-manage/compliance-status-not-started.png)
 

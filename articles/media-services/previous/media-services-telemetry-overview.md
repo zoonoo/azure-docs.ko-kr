@@ -162,7 +162,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 메트릭 데이터는 고객의 저장소 계정의 여러 Azure 테이블에 저장됩니다. 이 데이터는 다음과 같은 도구로 사용할 수 있습니다.
 
 - AMS SDK
-- Microsoft Azure Storage 탐색기(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
+- Microsoft Azure Storage Explorer(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
 - REST API
 
 ### <a name="how-to-find-average-bandwidth-consumption"></a>평균 대역폭 소비량을 확인하는 방법

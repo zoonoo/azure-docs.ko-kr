@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806208"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243346"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -89,7 +89,7 @@ SaaS 제품의 경우, 게시자로 고려해 야 사용량 요금 Azure 인프�
 - 한 파트너는 **Marketplace 서비스 요금 감소** SaaS에 감소 거래 수수료는 월 2019 년 6 월 2020까지에서 제공 하는 데 나타납니다. 이 시나리오에서는 Microsoft $100.00 소프트웨어 라이선스에 대 한 청구 및 게시자에 매출 $90.00 초과 비용을 지불 합니다.
 
 > [!NOTE]
-> **Marketplace 서비스 요금을 감소**: 특정 SaaS는 상용 Marketplace에 게시에 Microsoft 줄어듭니다 해당 Marketplace 서비스 요금에서 20% (Microsoft 판매자 계약에 설명)으로 10%를 제공 합니다. 되려면 제품에 대 한 순서로 제품 중 하나 이상 지정 되어 있어야 microsoft IP 공동 판매 준비 또는 우선 순위를 지정 하는 IP 공동 판매도 합니다.  자격 달에이 감소 하는 Marketplace 서비스 요금을 받기 위해 각 월의 종료 되기 전에 영업일 최소 5 (5) 충족 되어야 합니다.  감소 Marketplace 서비스 요금 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 사용할 수 있는 다른 제품에 적용 되지 않습니다.  감소 Marketplace 서비스 요금 2019 년 5 월 31 일 사이의 2020 년 6 월 30 년 Microsoft에서 수집 하는 라이선스 비용에 대해 정규화 된 제품으로 제공 됩니다.  이 시간이 지난 후 Marketplace 서비스 요금 고 일반 크기와 돌아갈 것입니다. 
+> **Marketplace 서비스 요금을 감소**: 특정 SaaS는 상용 Marketplace에 게시에 Microsoft 줄어듭니다 해당 Marketplace 서비스 요금에서 20% (Microsoft 판매자 계약에 설명)으로 10%를 제공 합니다. 되려면 제품에 대 한 순서로 제품 중 하나 이상 지정 되어 있어야 microsoft IP 공동 판매 준비 또는 우선 순위를 지정 하는 IP 공동 판매도 합니다.  자격 달에이 감소 하는 Marketplace 서비스 요금을 받기 위해 각 월의 종료 되기 전에 영업일 최소 5 (5) 충족 되어야 합니다.  감소 Marketplace 서비스 요금 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 사용할 수 있는 다른 제품에 적용 되지 않습니다.  감소 Marketplace 서비스 요금 2019 년 5 월 1 일 사이의 2020 년 6 월 30 년 Microsoft에서 수집 하는 라이선스 비용에 대해 정규화 된 제품으로 제공 됩니다.  이 시간이 지난 후 Marketplace 서비스 요금 고 일반 크기와 돌아갈 것입니다. 
 
 |**Microsoft에 청구되는 요금**|**월 100 달러**|
 |:---|:---|
@@ -112,11 +112,15 @@ Marketplace 명단을 만들어 Microsoft 사용 하 여 비즈니스를 홍보 
 ##### <a name="get-it-now-free"></a>지금 가져오기 (무료)
 무료로 앱을 액세스할 수 있는 올바른 URL (http 또는 https로 시작)를 제공 하 여 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>무료 평가판
+##### <a name="free-trial"></a>평가판
 앱을 액세스할 수 있는 올바른 URL (http 또는 https로 시작)를 제공 하 여 무료 평가판으로 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/trial/saas-app`
 
-##### <a name="contact-me"></a>나에게 연락
+##### <a name="contact-me"></a>연락처
 고객 관계 관리 (CRM) 시스템을 연결 하 여 고객 연락처 정보를 수집 합니다. 고객은 해당 정보를 공유 하는 권한에 대 한 라는 메시지가 나타납니다. 제품 이름, ID 및 제품을 찾을 수 있는 marketplace 소스와 함께 이러한 고객 세부 정보를 구성한 경우 CRM 시스템에 전송 됩니다. CRM을 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Connect 잠재 고객 관리](#connect-lead-management)합니다. 
+
+## <a name="example-marketplace-offer-listing"></a>예제에서는 marketplace 제품 목록
+
+![예제에서는 marketplace 제품 정보를 사용 하 여 나열 합니다.](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>시험 사용을 사용하도록 설정
 
@@ -128,12 +132,12 @@ Marketplace 명단을 만들어 Microsoft 사용 하 여 비즈니스를 홍보 
 
 ### <a name="type-of-test-drive"></a>테스트 드라이브의 유형
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿. 이 시나리오에 맞는 제품에는 Azure 리소스에만 사용 합니다.
-- **[Dynamics 365 Business Central에 대 한](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft 호스트 하 고 시스템을 계획 하는 Business Central 엔터프라이즈 리소스에 대 한 프로 비전 및 배포 등 테스트 구동 서비스를 유지 관리 (재무, 작업, 공급망, CRM, 등.).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft를 호스트 하 고 고객 시스템 (sales, 서비스, 프로젝트 서비스, 현장 서비스 등)에 대 한 테스트 구동 서비스 프로 비전 및 배포 등을 유지 합니다.  
-- **[작업에 대 한 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft를 호스트 하 고 시스템 (finance, operations, 제조, 공급망 등) 계획 Finance and Operations enterprise 리소스에 대 한 테스트 구동 서비스 프로 비전 및 배포 등을 유지 합니다. 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: 모든 복잡 한 솔루션 아키텍처를 포함 하는 배포 템플릿. 사용자 지정 제품이이 유형의 테스트 드라이브를 사용 해야 합니다.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: 사용자 지정 빌드 대시보드에 포함 된 링크입니다. 제품은 대화형 Power BI 시각적 개체는이 유형의 테스트 드라이브를 사용 해야 하는 방식을 보여 주기 위해입니다. 포함된 Power BI URL만 업로드하면 됩니다.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿. 이 시나리오에 맞는 제품에는 Azure 리소스에만 사용 합니다.
+- **[Dynamics 365 Business Central에 대 한](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft 호스트 하 고 시스템을 계획 하는 Business Central 엔터프라이즈 리소스에 대 한 프로 비전 및 배포 등 테스트 구동 서비스를 유지 관리 (재무, 작업, 공급망, CRM, 등.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft를 호스트 하 고 고객 시스템 (sales, 서비스, 프로젝트 서비스, 현장 서비스 등)에 대 한 테스트 구동 서비스 프로 비전 및 배포 등을 유지 합니다.  
+- **[작업에 대 한 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft를 호스트 하 고 시스템 (finance, operations, 제조, 공급망 등) 계획 Finance and Operations enterprise 리소스에 대 한 테스트 구동 서비스 프로 비전 및 배포 등을 유지 합니다. 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : 모든 복잡 한 솔루션 아키텍처를 포함 하는 배포 템플릿. 사용자 지정 제품이이 유형의 테스트 드라이브를 사용 해야 합니다.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : 사용자 지정 빌드 대시보드에 포함 된 링크입니다. 제품은 대화형 Power BI 시각적 개체는이 유형의 테스트 드라이브를 사용 해야 하는 방식을 보여 주기 위해입니다. 포함된 Power BI URL만 업로드하면 됩니다.
 
 #### <a name="additional-test-drive-resources"></a>추가 테스트 드라이브 리소스
 - [테스트 기술 모범 사례를 이끄는](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -170,14 +174,15 @@ Marketplace 명단을 만들어 Microsoft 사용 하 여 비즈니스를 홍보 
 ### <a name="category"></a>Category
 최소의 1 개 및 최대 3 개의 적절 한 marketplace 검색 영역으로 제품을 그룹화 하는 데 사용 되는 범주를 선택 합니다. 제품 제품 설명에서 이러한 범주를 지원 하는 방법을 살펴봅니다. 
 
-### <a name="industry"></a>업종
+### <a name="industry"></a>산업
 적절 한 marketplace 검색 영역으로 제품을 그룹화 하는 데 최대 2 개의 산업을 선택 합니다. 제품 업계와 관련이 없는 경우 하나 선택 하지 마십시오. 제품이 제품 설명에서 선택한 산업을 지 원하는 방법을 호출 하세요. 
 
 ### <a name="app-version"></a>앱 버전
 AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 하는 선택적 필드입니다. 
 
 ### <a name="standard-contract"></a>표준 계약
-- **표준 계약 사용** 
+
+- **표준 계약 사용**
 
 고객에 대 한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기, Microsoft는 marketplace에서 트랜잭션을 용이 하 게 하기 위해 표준 계약 템플릿을 제공 합니다. 
 
@@ -185,7 +190,8 @@ AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 
 
 표준 계약을 확인할 수 있습니다: https://go.microsoft.com/fwlink/?linkid=2041178합니다.
 
-##### <a name="terms-of-use"></a>사용 약관
+#### <a name="terms-of-use"></a>사용 약관
+
 라이선스 사용 약관이 표준 계약에서 다른 경우에 고유한 사용 약관의 여기 입력 선택할 수 있습니다. 또한이 필드에 텍스트의 최대 10,000 개의 문자를 입력할 수 있습니다. 사용 약관 보다 자세한 설명에 필요한 경우 추가 사용 조건을 찾을 수 있는이 필드에 단일 URL 링크를 입력 합니다. 활성 링크도 고객에 게 표시 됩니다.
 
 고객은 이러한 사용 약관에 동의해야 앱을 사용할 수 있습니다. 
@@ -193,9 +199,11 @@ AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 
 해야 **저장할** 다음 섹션으로 이동 하기 전에!
 
 ## <a name="offer-listing"></a>제품 목록
+
 현재 나열 탭 표시 언어 (시장) 제품을 사용할 수 있는 제품을 영어 (미국) 사용할 수 있는 유일한 위치를입니다. 또한이 페이지는 언어별 목록 및 추가 된 날짜/시간의 상태를 표시 합니다. 각 언어에 대 한 marketplace 세부 정보 (이름, 설명, 검색어, 등 제공)를 정의 해야 시장 /입니다.
 
 ### <a name="offer-listings"></a>제품 목록
+
 Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할 세부 정보를 제공 합니다.
 
 - **이름** (필수): 여기에 정의 된 이름 목록에 선택한 marketplace(s) 제품의 제목으로 표시 됩니다. 이름을 기준으로 이전에 미리 채워져 **새 제품** 항목입니다.  이 상표 될 수 있습니다.  이 없어야 합니다. 공백,이 모 지 (상표 및 저작권 기호 아니면) 및 50 자로 제한 되어야 합니다.
@@ -235,7 +243,6 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 - [Marketplace에 대 한 모범 사례 목록은 제공](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
 ## <a name="preview"></a>미리 보기
 
 합니다 **미리 보기** 탭을 사용 하면 제한 된 정의할 수 있습니다 **미리 보기 대상** marketplace 사람이 라이브 제품을 게시 하기 전에 제품을 릴리스 합니다.
@@ -256,7 +263,7 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 - **방문 페이지 URL** (필수): Marketplace에서 제품을 가져오면를 고객에 게 될 URL 전달 하는 사이트를 정의 합니다. 이 URL은 Microsoft와의 거래를 용이하게 하기 위한 연결 API를 수신할 엔드포인트로도 사용됩니다.
 
-- **연결 웹 후크** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독에 잘못 된)를 완료 해야 연결 웹 후크를 제공할 수 있습니다. 가장 단순한 구성에 게시 되는 모든 이벤트에 대 한 수신 대기 하 고 다음 적절 하 게 처리 하는 HTTP 끝점 논리 앱은 현재 위치에서 웹 후크 시스템 없는 경우 (예: https://prod-1westus.logic.azure.com:443/work)합니다. 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
+- **연결 웹 후크** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독에 잘못 된)를 완료 해야 연결 웹 후크를 제공할 수 있습니다. 가장 단순한 구성에 게시 되는 모든 이벤트에 대 한 수신 대기 하 고 다음 적절 하 게 처리 하는 HTTP 끝점 논리 앱은 현재 위치에서 웹 후크 시스템 없는 경우 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
 - **Azure AD 테 넌 트 ID** (필수): Azure portal 내에서는 위해서는 있습니다 [Azure AD (Active Directory) 앱 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 뒤에 인증 된 통신은 두 서비스 간의 연결 검증할 수 있도록 합니다. 찾을 수는 [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory로 이동 및 선택 **속성**, 찾은 후에 대 한 합니다 **디렉터리 ID** 번호 (예: 나열 된 50c464d3-4930-494c-963c-1e951d15360e)입니다.
 
@@ -270,9 +277,10 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 를 만든 후 표시 됩니다에 계획 이름, Id, 가격 책정 모델, 가용성 (공용 또는 개인), 현재 상태 및 사용 가능한 모든 작업을 게시 합니다.
 
--   **작업** 에서 사용할 수 있는 합니다 **계획 개요** 계획의 현재 상태에 따라 다르며 포함 될 수 있습니다.
-  - 계획 상태가 **초안** – 초안 삭제
-  - 계획 상태가 **Live** – 계획 또는 동기화 개인 대상 중지 판매
+**작업** 에서 사용할 수 있는 합니다 **계획 개요** 계획의 현재 상태에 따라 다르며 포함 될 수 있습니다.
+
+- 계획 상태가 **초안** – 초안 삭제
+- 계획 상태가 **Live** – 계획 또는 동기화 개인 대상 중지 판매
 
 **새 계획을 만들** (Microsoft를 통해 판매를 선택 하는 사람에 게 하나의 계획 최소)
 
@@ -334,7 +342,7 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 
 선택한 대상에 특정 또는 모든 사용자에 게 표시 되도록 각 계획을 구성 하는 옵션이 있습니다. Azure AD 테 넌 트 Id를 사용 하 여이 제한 된 대상 그룹의 멤버 자격을 할당할 수 있습니다.
 
-#### <a name="privacy"></a>개인정보취급방침
+#### <a name="privacy"></a>개인 정보 보호
 
 - **이 비공개 계획** (확인란 선택 사항)
 
@@ -351,6 +359,9 @@ Marketplace에 제품 설명을 포함 하 여 및 마케팅 자산에 표시할
 > [!NOTE]
 > 개인 사용자 (또는 제한 된 대상) 미리 보기 대상에서 다릅니다. 에 **[미리 보기](#preview)** 탭 미리 보기 대상을 정의할 수 있습니다. 대상 그룹을 미리 보기 제품에 대 한 액세스를 허용 *이전* 라이브 marketplace에 게시 되는 제품입니다. 개인 사용자를 지정 하는 특정 계획에만 적용 됩니다, 미리 보기 대상을 모든 계획을 볼 수 (개인 여부), 계획을 테스트 하 고 유효성을 검사 하는 동안 제한 된 미리 보기 기간 중에 합니다.
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Marketplace 제품 내에서 계획의 예제 목록
+
+![예제에서는 marketplace 계획 정보를 사용 하 여 나열 합니다.](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>시험 사용
 
@@ -386,7 +397,7 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 
 - **최대 동시 시험** (필수): 한 번에 시험 사용할 수 있는 고객의 최대 수를 설정 합니다. 각 동시 사용자 최대 한도 세트를 지원 하기 위해 사용할 수 있는 충분 한 라이선스가 있는지 확인 해야 하므로 시험 활성화 된 동안 Dynamics 365 라이선스를 사용 합니다. 권장 값은 3~5입니다.
 
-- **시험 사용 기간** (필수): 시험 시간 수를 정의 하 여 유지 됩니다 하는 시간의 길이 입력 합니다. 이 많은 시간 후에도 세션 종료 되며 더 이상 라이선스 중 하나를 사용 합니다. 제품의 복잡성에 따라 2 ~ 24 시간을 사용 하는 것이 좋습니다. 이 기간 수만 bet 설정할 시간 정수 (예: "2" 시간 "1.5" 유효 하지 않습니다).  사용자는 시간이 부족 하며 시험에 다시 액세스 하려고 하는 경우 새 세션을 요청할 수 있습니다.
+- **시험 사용 기간** (필수): 시간을 정의 하 여 Test Drive 활성화 상태로 있는 시간의 길이 입력 합니다. 이 많은 시간 후에도 세션 종료 되며 더 이상 라이선스 중 하나를 사용 합니다. 제품의 복잡성에 따라 2 ~ 24 시간을 사용 하는 것이 좋습니다. 이 기간 수만 bet 설정할 시간 정수 (예: "2" 시간 "1.5" 유효 하지 않습니다).  사용자는 시간이 부족 하며 시험에 다시 액세스 하려고 하는 경우 새 세션을 요청할 수 있습니다.
 
 - **인스턴스 URL** (필수): 고객은 고객이 시험에 주소를 시작할 URL입니다. 일반적으로 설치 하는 샘플 데이터를 사용 하 여 앱을 실행 하 여 Dynamics 365 인스턴스 URL (예: https://testdrive.crm.dynamics.com)합니다.
 
@@ -443,7 +454,7 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 - **비디오: 비디오 추가** (선택 사항): 비디오를 YouTube 또는 Vimeo에 업로드 하 고 고객 설명은 성공적으로의 기능을 사용 하는 방법을 포함 하 여 테스트 드라이브를 더 잘 이해 하는 데 유용한 정보를 볼 수 있도록 링크 및 썸네일 이미지 (533 x 324 픽셀)를 사용 하 여 여기 참조 수에 제공 하 고 혜택을 강조 하는 시나리오를 이해 합니다.
   - **이름** (필수)
   - **URL (YouTube 또는 Vimeo만)** (필수)
-  - **미리 보기 (533 x 324px)**: 이미지 파일은 PNG 형식에서 이어야 합니다.
+  - **미리 보기 (533 x 324px)** : 이미지 파일은 PNG 형식에서 이어야 합니다.
 
 선택 **저장할** 이러한 필드를 완료 합니다.
 

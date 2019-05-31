@@ -1,81 +1,135 @@
 ---
-title: Azure HDInsight의 HBase에서 Apache Phoenix 및 SQLLine 사용
+title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - Apache Phoenix'
 description: HDInsight에서 Apache Phoenix를 사용하는 방법을 알아봅니다. 또한 컴퓨터에 SQLLine을 설치 및 설정하여 HDInsight의 HBase 클러스터에 연결하는 방법도 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/03/2018
+ms.topic: quickstart
+ms.date: 05/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722696"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596192"
 ---
-# <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용
-Azure HDInsight에서 [Apache Phoenix](https://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)을 참조하세요.
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>빠른 시작: Apache Phoenix를 사용하여 Azure HDInsight에서 Apache HBase 쿼리
 
-> [!NOTE]  
-> HDInsight에 대한 Phoenix 버전 정보는 [HDInsight에서 제공하는 Apache Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)을 참조하세요.
->
->
+이 빠른 시작에서는 Apache Phoenix를 사용하여 Azure HDInsight에서 HBase 쿼리를 실행하는 방법을 알아봅니다. Apache Phoenix는 Apache HBase용 SQL 쿼리 엔진입니다. JDBC 드라이버로 액세스되며 SQL을 사용하여 HBase 테이블을 쿼리하고 관리할 수 있도록 합니다. [SQLLine](http://sqlline.sourceforge.net/)은 SQL을 실행하는 명령줄 유틸리티입니다.
 
-## <a name="use-sqlline"></a>SQLLine 사용
-[SQLLine](http://sqlline.sourceforge.net/)은 SQL을 실행하는 명령줄 유틸리티입니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="prerequisites"></a>필수 조건
-SQLLine을 시작하려면 다음 항목이 있어야 합니다.
+## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight의 Apache HBase 클러스터**. 만들려면 [HDInsight에서 Apache HBase 시작](./apache-hbase-tutorial-get-started-linux.md)을 참조하세요.
+* Apache HBase 클러스터 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하여 HDInsight 클러스터를 만듭니다.  **HBase** 클러스터 유형을 선택해야 합니다.
 
-HBase 클러스터에 연결할 때 [Apache ZooKeeper](https://zookeeper.apache.org/) VM 중 하나에 연결해야 합니다. 각 HDInsight 클러스터마다 세 개의 ZooKeeper VM이 있습니다.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-**ZooKeeper 호스트 이름을 확인하려면**
+## <a name="identify-a-zookeeper-node"></a>ZooKeeper 노드 식별
 
-1. **https://\<cluster name\>.azurehdinsight.net**으로 이동하여 [Apache Ambari](https://ambari.apache.org/)를 엽니다.
-2. 로그인하려면 HTTP(클러스터) 사용자 이름 및 암호를 입력합니다.
-3. 왼쪽 메뉴에서 **ZooKeeper**를 선택합니다. 세 개의 **ZooKeeper Server** 인스턴스가 나열됩니다.
-4. **ZooKeeper Server** 인스턴스 중 하나를 선택합니다. **요약** 창에서 **호스트 이름**을 찾습니다. 이 이름은 *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*과 비슷합니다.
+HBase 클러스터에 연결할 때 Apache ZooKeeper 노드의 하나에 연결해야 합니다. 각 HDInsight 클러스터에는 세 개의 ZooKeeper 노드가 있습니다. ZooKeeper 노드를 신속하게 식별하는 데 curl을 사용할 수 있습니다. `PASSWORD` 및 `CLUSTERNAME`을 관련 값으로 바꿔서 아래 curl 명령을 편집한 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
-**SQLLine을 사용하려면**
+```cmd
+curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER
+```
 
-1. SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+출력의 일부는 다음과 유사합니다.
 
-2. SSH에서 다음 명령을 실행하여 SQLLine을 실행합니다.
+```output
+    {
+      "href" : "http://hn1-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net:8080/api/v1/clusters/myCluster/hosts/zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net/host_components/ZOOKEEPER_SERVER",
+      "HostRoles" : {
+        "cluster_name" : "myCluster",
+        "component_name" : "ZOOKEEPER_SERVER",
+        "host_name" : "zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net"
+      }
+```
 
-        cd /usr/hdp/current/phoenix-client/bin
-        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
-3. HBase 테이블을 만들고 일부 데이터를 삽입하려면 다음 명령을 실행합니다.
+나중에 사용할 수 있도록 `host_name`에 대한 값을 기록해 둡니다.
 
-        CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+## <a name="create-a-table-and-manipulate-data"></a>테이블을 만든 후 데이터 조작
 
-        !tables
+SSH를 사용하여 HBase 클러스터에 연결한 다음, Apache Phoenix를 사용하여 HBase 테이블을 만들고 데이터를 삽입하고 데이터를 쿼리할 수 있습니다.
 
-        UPSERT INTO Company VALUES(1, 'Microsoft');
+1. `ssh` 명령을 사용하여 HBase 클러스터에 연결합니다. `CLUSTERNAME`을 클러스터의 이름으로 대체하여 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
 
-        SELECT * FROM Company;
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-        !quit
+2. 디렉터리를 Phoenix 클라이언트로 변경합니다. 다음 명령을 입력합니다.
 
-자세한 내용은 [SQLLine 설명서(영문)](http://sqlline.sourceforge.net/#manual) 및 [Apache Phoenix 문법(영문)](https://phoenix.apache.org/language/index.html)을 참조하세요.
+    ```bash
+    cd /usr/hdp/current/phoenix-client/bin
+    ```
+
+3. [SQLLine](http://sqlline.sourceforge.net/)을 시작합니다. `ZOOKEEPER`를 이전에 식별한 ZooKeeper 노드로 바꾸어 아래 명령을 편집한 다음, 다음 명령을 입력합니다.
+
+    ```bash
+    ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
+    ```
+
+4. HBase 테이블을 만듭니다. 다음 명령을 입력합니다.
+
+    ```sql
+    CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
+    ```
+
+5. SQLLine `!tables` 명령을 사용하여 HBase에 모든 테이블을 나열합니다. 다음 명령을 입력합니다.
+
+    ```sqlline
+    !tables
+    ```
+
+6. 테이블에 값을 삽입합니다. 다음 명령을 입력합니다.
+
+    ```sql
+    UPSERT INTO Company VALUES(1, 'Microsoft');
+    UPSERT INTO Company VALUES(2, 'Apache');
+    ```
+
+7. 테이블을 쿼리합니다. 다음 명령을 입력합니다.
+
+    ```sql
+    SELECT * FROM Company;
+    ```
+
+8. 레코드를 삭제합니다. 다음 명령을 입력합니다.
+
+    ```sql
+    DELETE FROM Company WHERE COMPANY_ID=1;
+    ```
+
+9. 테이블을 삭제합니다. 다음 명령을 입력합니다.
+
+    ```hbase
+    DROP TABLE Company;
+    ```
+
+10. SQLLine `!quit`명령을 사용하여 SQLLine을 종료합니다. 다음 명령을 입력합니다.
+
+    ```sqlline
+    !quit
+    ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+빠른 시작을 완료한 후 클러스터를 삭제하는 것이 좋습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
+
+클러스터를 삭제하려면 [브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제](../hdinsight-delete-cluster.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]
-  Apache HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Apache Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-* [Azure Virtual Network에 Apache HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet].
-  가상 네트워크 통합을 사용하면 Apache HBase 클러스터를 애플리케이션과 동일한 가상 네트워크에 배포할 수 있으므로 애플리케이션에서 HBase와 직접 통신 할 수 있습니다.
-* [HDInsight에서 Apache HBase 복제 구성](apache-hbase-replication.md). 두 Azure 데이터 센터 간에 Apache HBase 복제를 설정하는 방법을 알아봅니다.
+이 빠른 시작에서는 Apache Phoenix를 사용하여 Azure HDInsight에서 HBase 쿼리를 실행하는 방법을 알아보았습니다. Apache Phoenix에 대해 자세히 알아보려면 다음 문서에 자세한 실험이 나와 있습니다.
 
+> [!div class="nextstepaction"]
+> [HDInsight의 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
 
-[azure-portal]: https://portal.azure.com
-[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
+## <a name="see-also"></a>참고 항목
 
-[hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
-[hdinsight-hbase-overview]:apache-hbase-overview.md
-
-
+* [SQLLine 설명서](http://sqlline.sourceforge.net/#manual).
+* [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html).
+* [15분 내의 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
+* [HDInsight HBase 개요](./apache-hbase-overview.md)

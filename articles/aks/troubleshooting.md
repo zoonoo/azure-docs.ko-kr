@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192286"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966387"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -118,3 +118,15 @@ AKS 클러스터 켜져 있지 않으면 다음 예와 같이 가상 머신 확�
 
 * AKS *MC_* 리소스 이름과 리소스 그룹 이름은 리소스 그룹 이름을 결합 합니다. 자동 생성 구문을 `MC_resourceGroupName_resourceName_AzureRegion` 80 자 보다 크지 않아야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름을의 길이 줄입니다.
 * 합니다 *dnsPrefix* 시작 하 고 영숫자 값을 사용 하 여 종료 해야 합니다. 유효한 문자에는 영숫자 값 및 하이픈 (-)이 포함 됩니다. 합니다 *dnsPrefix* 마침표 (.) 등의 특수 문자를 포함할 수 없습니다.
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>만들기, 업데이트, 확장, 삭제 또는 다른 작업이 진행에서 중 이므로 작업이 허용 되지 않는 클러스터를 업그레이드 하려고 할 때 오류가 발생 했습니다.
+
+*이 문제 해결 지원은 aka.ms/aks-보류 중인-연산에서 전달 됩니다.*
+
+이전 작업이 아직 진행에서 될 때 클러스터 작업이 제한 됩니다. 클러스터의 자세한 상태를 검색 하려면 사용 된 `az aks show -g myResourceGroup -n myAKSCluster -o table` 명령입니다. 필요에 따라 사용자 고유의 리소스 그룹 및 AKS 클러스터 이름을 사용 합니다.
+
+출력은 클러스터 상태를 기반으로 합니다.
+
+* 클러스터가 있는 경우 모든 프로 비전 상태가 아닌 다른 *Succeeded* 또는 *Failed*, 작업 될 때까지 기다립니다 (*업그레이드 / 업데이트 / 만들기 / 확장 / 삭제 / 마이그레이션*)를 종료 합니다. 이전 작업이 완료 되 면, 최신 클러스터 작업을 다시 시도 합니다.
+
+* 클러스터 업그레이드에 실패 한에 나온 단계를 따릅니다 [클러스터가 실패 상태에 있는 오류를 수신 고 업그레이드 또는 크기 조정 문제가 수정 될 때까지 작동 하지 것입니다](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)합니다.

@@ -44,7 +44,7 @@ ms.locfileid: "65149891"
 | [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
 | [log4net](https://www.nuget.org/packages/log4net/) | NetStandard  1.3의 2.0.8+, .NET 4.5+의 2.0.6+ |
 
-## <a name="java"></a>자바
+## <a name="java"></a>Java
 | 앱 서버 | 버전 |
 |-------------|----------|
 | [Tomcat](https://tomcat.apache.org/) | 7, 8 | 

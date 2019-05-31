@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394832"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356220"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 
@@ -84,7 +84,7 @@ A: 보기 및 설치된 솔루션 목록은 Azure Portal에서 사용할 수 있
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. 미국 중서부 지역에 작업 영역을 만들 수 없는 이유가 무엇인가요? 
 
-A: 이 지역은 임시 용량 한도에 도달했습니다. 이 한도 문제는 2019년 상반기에 해결될 예정입니다.
+A: 이 지역은 임시 용량 한도에 도달했습니다. 이 한도 2019 년 9 월의 끝에서 처리할 예정 되어 있습니다.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics는 Azure Security Center와 같은 에이전트를 사용합니까?

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233131"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833921"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>플랫폼-as a Service (PaaS) 서비스를 사용 하 여 Azure DevTest Labs에서
 PaaS 환경 기능을 통해 DevTest Labs에서 지원 됩니다. DevTest Labs에서 환경은 Git 리포지토리에서 미리 구성 된 Azure Resource Manager 템플릿에서 지원 됩니다. 환경에는 PaaS 및 IaaS 리소스를 모두 포함할 수 있습니다. 그러면 가상 머신, 데이터베이스, 가상 네트워크와 같은 Azure 리소스를 포함할 수 있는 복잡 한 시스템 및 공동 작업 사용자 지정 된 웹 앱을 만들 수 있습니다. 이러한 템플릿은 일관 된 배포 및 소스 코드 제어를 사용 하 여 환경의 향상 된 관리를 허용 합니다. 
@@ -53,7 +53,7 @@ DevTest Labs 리소스 공급자는 PaaS 리소스를 사용할 수 있도록 �
 [랩의 가상 네트워크에 연결 하는 환경](connect-environment-lab-virtual-network.md) 문서에 사용 하 여 Resource Manager 템플릿을 수정 하는 방법에 설명 합니다 `$(LabSubnetId)` 토큰입니다. Environment를 만들면를 `$(LabSubnetId)` 토큰 첫 번째 서브넷 표시로 바뀝니다. 여기서는 **가상 머신에서 사용 하도록 만들** 옵션을 설정 **true**합니다. 이전에 네트워크를 만든 환경을 사용할 수 있습니다. 스테이징 및 프로덕션으로 테스트에서 환경에서 동일한 Resource Manager 템플릿을 사용 하려는 경우 사용 하 여 `$(LabSubnetId)` Resource Manager 템플릿 매개 변수의 기본값으로 합니다. 
 
 #### <a name="environment-storage-account"></a>Storage 계정 환경
-DevTest Labs 사용을 지원 [중첩 된 Resource Manager 템플릿](../azure-resource-manager/resource-group-linked-templates.md)합니다. 합니다 [어떻게 Azure DevTest Labs에서 중첩 된 Resource Manager 템플릿 배포 테스트 환경 쉽게](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) 문서를 사용 하는 방법에 설명 `_artifactsLocation` 고 `_artifactsLocationSasToken` 토큰에서 Resource Manager 템플릿에 URI를 만듭니다 주 템플릿의 중첩 된 폴더 또는으로 동일한 폴더입니다. 이러한 두 토큰에 대 한 자세한 내용은 참조는 **배포 아티팩트** 부분 [모범 사례 가이드-Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)합니다.
+DevTest Labs 사용을 지원 [중첩 된 Resource Manager 템플릿](../azure-resource-manager/resource-group-linked-templates.md)합니다. [[테스트 환경에 대 한 중첩 된 Azure Resource Manager 템플릿 배포](deploy-nested-template-environments.md) 문서를 사용 하는 방법에 설명 `_artifactsLocation` 고 `_artifactsLocationSasToken` 토큰 같은 폴더 또는 중첩 된 Resource Manager 템플릿에 대 한 URI를 만들려면 주 템플릿의 폴더입니다. 이러한 두 토큰에 대 한 자세한 내용은 참조는 **배포 아티팩트** 부분 [모범 사례 가이드-Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)합니다.
 
 ## <a name="user-experience"></a>사용자 환경
 

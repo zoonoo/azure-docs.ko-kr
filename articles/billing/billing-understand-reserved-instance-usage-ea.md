@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789383"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126856"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업 계약 예약 비용 및 사용량 가져오기
 
@@ -42,9 +42,9 @@ Marketplace 요금 사용 현황 데이터에 통합 됩니다. 첫 번째 사�
 
 | Data | 실제 비용 데이터 집합 | 분할 상환된 비용 데이터 집합 |
 | --- | --- | --- |
-| 예약 구매 | 이 뷰에서 사용할 수 있습니다.<br>  이 데이터 필터 ChargeType에서 가져오려는 = &quot;구매&quot;합니다. <br> 예약에 대 한 요금은 알아야 ReservationID 또는 ReservationName를 참조 하십시오.  | 이 보기에는 적용 되지 않습니다. <br> 구매 비용 상환된 데이터에 제공 되지 않습니다. |
+| 예약 구매 | 이 뷰에서 사용할 수 있습니다.<br><br>  이 데이터 필터 ChargeType에서 가져오려는 = &quot;구매&quot;합니다. <br><br> 예약에 대 한 요금은 알아야 ReservationID 또는 ReservationName를 참조 하십시오.  | 이 보기에는 적용 되지 않습니다. <br><br> 구매 비용 상환된 데이터에 제공 되지 않습니다. |
 | EffectivePrice | 값이 0 사용량 가져옵니다 예약 할인에 대 한 합니다. | 값은 사용량에 예약 할인에 대 한 예약 비용이 시간당으로 계산 됩니다. |
-| 사용 되지 않는 예약 (예약 되지 않은 하루에 사용 되는 시간 및 통화 값의 낭비입니다 제공) | 이 보기에는 적용 되지 않습니다. | 이 뷰에서 사용할 수 있습니다.<br> 이 데이터를 가져오려면 ChargeType 필터링 = &quot;UnusedReservation&quot;합니다.<br>  예약 된 미달 사용 알아야 ReservationID 또는 ReservationName를 참조 하십시오. 예약의 크기를 낭비에 당일의입니다.  |
+| 사용 되지 않는 예약 (예약 되지 않은 하루에 사용 되는 시간 및 통화 값의 낭비입니다 제공) | 이 보기에는 적용 되지 않습니다. | 이 뷰에서 사용할 수 있습니다.<br><br> 이 데이터를 가져오려면 ChargeType 필터링 = &quot;UnusedReservation&quot;합니다.<br><br>  예약 된 미달 사용 알아야 ReservationID 또는 ReservationName를 참조 하십시오. 예약의 크기를 낭비에 당일의입니다.  |
 | UnitPrice (프로그램 가격표에서 리소스의 가격) | 사용 가능 | 사용 가능 |
 
 Azure 사용량 데이터에서 사용할 수 있는 다른 정보가 변경 되었습니다.
@@ -77,12 +77,12 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 | **API 데이터 형식** | API 호출 작업 |
 | --- | --- |
 | **모든 요금 (사용 및 구매)** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기 |
-| **예약 할인을 받은 사용** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br>{Filter} 바꿉니다: properties/reservationId%20ne%20 |
-| **예약 할인을 받지는 사용** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br>{Filter} 바꿉니다: properties/reservationId%20eq%20 |
+| **예약 할인을 받은 사용** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br><br>{Filter} 바꿉니다: properties/reservationId%20ne%20 |
+| **예약 할인을 가져오지 못한 사용** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br><br>{Filter} 바꿉니다: properties/reservationId%20eq%20 |
 | **분할 상환된 비용 (사용 및 구매)** | {0} 메트릭} AmortizedCost 대체 |
-| **사용 되지 않는 예약 보고서** | {0} 메트릭} AmortizedCost 대체<br>{Filter} 바꿉니다: properties/ChargeType%20eq%20'UnusedReservation' |
-| **예약 구매** | {0} 메트릭} ActualCostReplace {filter}를 사용 하 여 대체: properties/ChargeType%20eq%20'Purchase'  |
-| **환불** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br>{Filter} 바꿉니다: properties/ChargeType%20eq%20'Refund' |
+| **사용 되지 않는 예약 보고서** | {0} 메트릭} AmortizedCost 대체<br><br>{Filter} 바꿉니다: properties/ChargeType%20eq%20'UnusedReservation' |
+| **예약 구매** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br><br>{Filter} 바꿉니다: properties/ChargeType%20eq%20'Purchase'  |
+| **환불** | 실제 비용을 사용 하 여 {0} 메트릭} 바꾸기<br><br>{Filter} 바꿉니다: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>새 데이터를 사용 하 여 사용 현황 CSV 파일 다운로드
 
@@ -120,7 +120,7 @@ Azure portal로 이동 [Cost management + 청구](https://portal.azure.com/#blad
 
 - 리소스 (예: VM)
 - 리소스 그룹
-- Tags
+- 태그들
 - 구독
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>비용 청구에 대 한 혼합된 비율 가져오기

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003803"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969068"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
@@ -85,7 +85,7 @@ ms.locfileid: "61003803"
        - 일회성 요금
        - 지원
        - 사용 비용
-     - **고객**
+     - **Customer**
        - 특정 고객, 여러 고객 또는 모든 고객을 선택합니다.
      - **계정 이름**
        - 계정 또는 구독 이름입니다. Azure에서는 Azure 구독의 이름입니다.
@@ -105,7 +105,7 @@ ms.locfileid: "61003803"
        - 사용 중인 리소스의 종류입니다.
      - **하위 유형**
        - 하위 유형을 선택합니다.
-     - **작업**
+     - **연산**
        - 작업을 선택하거나 **모두 표시**를 선택합니다.
      - **가격 모델**
        - 전부 선불

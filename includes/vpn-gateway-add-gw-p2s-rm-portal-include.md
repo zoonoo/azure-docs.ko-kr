@@ -9,11 +9,11 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 2d84a905cba503119f1b6e0f0a1a7cbbf91b3a1f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444265"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157323"
 ---
 1. 포털의 왼쪽에서 **+ 리소스 만들기**를 클릭하고 검색에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 페이지의 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
 2. **가상 네트워크 게이트웨이 만들기** 페이지에서 가상 네트워크 게이트웨이의 값을 채웁니다.

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Spatial Anchors를 사용하는 HoloLens Unity 앱 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 Unity 지원 HoloLens 앱을 빌드하는 방법을 알아봅니다.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009245"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704128"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 HoloLens Unity 앱 만들기
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
-이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하는 HoloLens Unity 앱을 만듭니다. Spatial Anchors는 시간이 지나도 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 HoloLens 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
+이 빠른 시작에서는 [Azure Spatial Anchors](../overview.md)를 사용하는 Unity HoloLens 앱을 만듭니다. Spatial Anchors는 시간이 지나도 위치를 유지하는 개체를 사용하여 혼합 현실 환경을 만들 수 있는 플랫폼 간 개발자 서비스입니다. 완료되면, Unity 지원 HoloLens 앱이 있어 공간 앵커를 저장하고 회수할 수 있습니다.
 
 이 문서에서 배울 내용은 다음과 같습니다.
 

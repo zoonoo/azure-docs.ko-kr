@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 컨테이너를 만드는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3952ad98cf734de322741ace80c17029e282b94c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 7768f94051c6882f08dce360e35bf673c7b1103d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068709"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241013"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 

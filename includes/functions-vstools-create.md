@@ -5,16 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-origin.date: 03/05/2019
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 03/05/2019
+ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403865"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131821"
 ---
 Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하여 리소스를 관리, 배포 및 공유하기 위한 논리적 단위로 함수를 그룹화할 수 있습니다.
 
@@ -39,4 +38,3 @@ Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 �
     > **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준인 `Function`을 선택하면 함수 엔드포인트에 액세스하도록 요구하는 요청에 [함수 키](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)를 제공해야 합니다.
     
 4. **확인**을 선택하여 함수 프로젝트 및 HTTP 트리거 함수를 만듭니다.
-

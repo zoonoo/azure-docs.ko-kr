@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597132"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236485"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -50,7 +50,7 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 * JuliaPro - 인기 있는 과학 및 데이터 분석 라이브러리와 함께 Julia 언어의 큐레이트 배포
 * 독립 실행형 Spark 인스턴스 및 단일 노드 Hadoop(HDFS, Yarn)
 * JupyterHub - R, Python, PySpark, Julia 커널을 지원하는 다중 사용자 Jupyter Notebook 서버
-* Azure Storage 탐색기
+* Azure Storage Explorer
 * Azure 리소스 관리를 위한 Azure CLI(명령줄 인터페이스)
 * 기계 학습 도구
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
@@ -121,7 +121,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 1. 그래픽 세션에 대한 X2Go
 1. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
 
-또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)입니다.
+또한 Azure VM에서 Jupyter notebook을 실행 하 여 무료 서비스 계층의 제한 사항을 무시 하는 Notebook에는 데이터 과학 VM을 연결할 수 있습니다. 자세한 내용은 [관리 Notebook 프로젝트-계산 계층을 구성 하 고](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)입니다.
 
 ### <a name="ssh"></a>SSH
 
@@ -359,7 +359,7 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 다음 Azure 도구가 VM에 설치됩니다.
 
 * **Azure 명령줄 인터페이스**: Azure CLI를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 호출하려는 경우 **azure help**만 입력하면 됩니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage 탐색기는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. X2Go 클라이언트에서 로그인 하거나 X11 전달을 설정 설치한 있습니다.
+* **Microsoft Azure Storage 탐색기**: Microsoft Azure Storage Explorer는 Azure tmxhflwl 계정에 저장한 개체를 찾아보고, Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. X2Go 클라이언트에서 로그인 하거나 X11 전달을 설정 설치한 있습니다.
 * **Azure 라이브러리**: 아래에는 사전 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
   * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.

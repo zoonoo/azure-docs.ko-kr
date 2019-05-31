@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 2919e021d6b70ce82a6ff6b1d1972dd89de95104
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799479"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949477"
 ---
 # <a name="manage-multiple-tenants"></a>여러 테넌트 관리
 
@@ -68,7 +68,7 @@ ms.locfileid: "65799479"
 
 ## <a name="azure-subscription-per-tenant"></a>테넌트당 Azure 구독 사용 
 
-이 아키텍처를 사용하는 경우 각 테넌트에 고유한 Azure 구독이 있습니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
+이 아키텍처를 사용 하는 경우 각 테 넌 트에는 고유한 Azure 구독을 해야 합니다. 테넌트 구독에서 각 사용자에 대한 새 Video Indexer 계정을 만듭니다.
 
 ![테넌트당 Azure 구독 사용](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 838afe38cc3b2b98ddad358ddb23ab6b6727e867
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772436"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236848"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -100,7 +100,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
 이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
@@ -138,7 +138,7 @@ az vm nic add \
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="remove-a-nic-from-a-vm"></a>VM에서 NIC 제거
 기존 VM에사 NIC를 제거하려면 먼저 [az vm deallocate](/cli/azure/vm)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
@@ -183,7 +183,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [Resource Manager 템플릿을 사용하여 여러 NIC 만들기](../../virtual-network/template-samples.md)의 전체 예제를 읽어볼 수 있습니다.
 
-[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
+[여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for-multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>여러 NIC에 대한 게스트 OS 구성
 

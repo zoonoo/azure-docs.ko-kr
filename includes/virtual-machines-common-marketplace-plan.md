@@ -2,19 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines-windows, virtual-machines-linux
-author: rockboyfor
+author: dlepow
 ms.service: multiple
 ms.topic: include
-origin.date: 10/09/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/09/2018
+ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880560"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117312"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Marketplace 약관으로 이미지 배포
 
@@ -28,4 +27,3 @@ Azure Marketplace의 일부 VM 이미지를 프로그래밍 방식으로 배포�
 * 프로그래밍 방식으로 약관에 동의
 * 프로그래밍 방식으로 VM을 배포할 때 구매 계획 매개 변수 제공
 
-<!-- Update_Description: update meta properties, wording update -->

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456876"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160067"
 ---
 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/azure-monitor/platform/autoscale-overview.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/azure-monitor/platform/autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
@@ -47,7 +47,7 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
 
 ![자동 크기 조정 작업](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>공지
+### <a name="notifications"></a>알림
 
 [트리거를 설정](../articles/azure-monitor/platform/autoscale-webhook-email.md)하여 특정 웹 URL을 호출하거나 만든 자동 크기 조정 규칙에 따라 전자 메일을 보낼 수 있습니다. Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
 
 Azure PowerShell을 사용하면 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합 개체를 가져와야 합니다. 그런 다음, **sku.capacity** 속성을 원하는 VM 수로 설정하고 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)를 통해 확장 집합을 업데이트합니다. Azure CLI를 사용하면 [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale) 명령에 대한 **--new-capacity** 매개 변수를 통해 용량을 변경합니다.
 
-### <a name="vertical"></a>Vertical
+### <a name="vertical"></a>세로
 
 Azure Portal에서 확장 집합에 대한 크기 조정 화면에서 VM의 크기를 수동으로 변경할 수 있습니다. Azure PowerShell을 Get-AzVmss와 함께 사용하여 이미지 참조 SKU 속성을 설정한 다음, [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 및 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance)를 사용할 수 있습니다.
 

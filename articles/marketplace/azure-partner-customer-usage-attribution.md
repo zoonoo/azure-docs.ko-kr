@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800960"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296820"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -208,7 +208,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CP
 
 템플릿이 수정되고 테스트 배포가 실행되면 다음 PowerShell 스크립트를 사용하여 배포하고 태그를 지정한 리소스를 검색합니다.
 
-이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. Resource Manager API 배포에는 이 스크립트가 적용되지 않습니다.
+이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. 스크립트는 리소스 관리자 API 또는 Terraform 배포에 적용 되지 않습니다.
 
 Azure에 로그인합니다. 스크립트를 실행하기 전에 확인하려는 배포가 있는 구독을 선택합니다. 배포의 구독 컨텍스트 내에서 스크립트를 실행합니다.
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>보고
+## <a name="report"></a>보고서
 
 파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 표시 하려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서를 사용 하 여 문제가 발생 하거나 로그인 하는 경우에 Get 지원 섹션의 지침에 따라 지원 요청을 만듭니다.
 

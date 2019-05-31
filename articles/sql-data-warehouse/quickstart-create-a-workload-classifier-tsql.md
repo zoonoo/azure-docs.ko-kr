@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150378"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002907"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기
 
@@ -107,6 +107,6 @@ DROP USER [TheCEO]
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 작업 분류자가 생성되었습니다. TheCEO로 몇 가지 쿼리를 실행하여 어떻게 수행되는지 확인합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
-
-SQL Data Warehouse 워크로드 관리에 대한 자세한 내용은 [SQL Data Warehouse 워크로드 중요도](sql-data-warehouse-workload-importance.md)와 [SQL Data Warehouse 워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하세요.
+- 이제 작업 분류자가 생성되었습니다. TheCEO로 몇 가지 쿼리를 실행하여 어떻게 수행되는지 확인합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+- Azure SQL Data Warehouse 워크로드 관리에 대한 자세한 내용은 [워크로드 중요도](sql-data-warehouse-workload-importance.md)와 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 참조하세요.
+- [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.

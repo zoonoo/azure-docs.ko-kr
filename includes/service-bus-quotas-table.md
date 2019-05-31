@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171209"
 ---
 다음 표에 Azure Service Bus 메시징 관련 할당량 정보가 있습니다. 가격 책정에 대 한 정보 및 Service Bus에 대 한 다른 할당량 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)합니다.
 
-| 할당량 이름 | 범위 | 메모 | 값 |
+| 할당량 이름 | Scope | 메모 | 값 |
 | --- | --- | --- | --- |
 | Azure 구독 당 기본 또는 표준 네임 스페이스 최대 수 |네임스페이스 |Azure portal에서 기본 또는 표준 네임 스페이스를 추가 하기 위한 후속 요청이 거부 됩니다. |100|
 | Azure 구독 당 프리미엄 네임 스페이스의 최대 수 |네임스페이스 |추가 프리미엄 네임 스페이스에 대 한 후속 요청은 포털에서 거부 됩니다. |25 |
@@ -32,7 +32,7 @@ ms.locfileid: "60861900"
 | 메시지의 최대 크기 [세션 ID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | 엔터티 |- | 128 |
 | 큐, 토픽 또는 구독 엔터티의 메시지 크기 |엔터티 |이러한 할당량을 초과 하는 들어오는 메시지는 거부 되 고 호출 코드에서 예외가 수신 됩니다. |최대 메시지 크기: 경우 256KB [표준 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)에 대 한 1MB [프리미엄 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)합니다. <br /><br />시스템 오버헤드로 인해, 이 제한이 이러한 값보다 작습니다.<br /><br />최대 헤더 크기: 64KB입니다.<br /><br />Propertybag에 헤더 속성의 최대 수: **바이트/없는 정수 MaxValue**합니다.<br /><br />속성 모음의 최대 속성 크기: 명시적 제한은 없습니다. 최대 헤더 크기로 제한됩니다. |
 | 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | 예외 **SerializationException** 생성 됩니다. |각 속성에 대 한 최대 메시지 속성 크기는 32,000 합니다. 모든 속성의 누적 크기는 64,000를 초과할 수 없습니다. 전체 헤더에이 제한이 적용 됩니다는 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 있는 사용자 속성과 시스템 속성을 모두 같은 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [레이블](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), 및 [ MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid)합니다. |
-| 토픽당 구독 수 |엔터티 |토픽에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |표준 계층: 각 구독 할당량에 대해 계산을 1,000 엔터티, 큐, 토픽 및 네임 스페이스 당 구독 합니다. <br/> <br/> 프리미엄 계층: 2,000. |
+| 토픽당 구독 수 |엔터티 |토픽에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |표준 및 프리미엄 계층: 각 구독 할당량에 대해 계산을 1,000 엔터티, 큐, 토픽 및 네임 스페이스 당 구독 합니다. |
 | 토픽당 SQL 필터 수 |엔터티 |항목에서 추가 필터를 만들기 위한 후속 요청이 거부 되며 호출 코드에서 예외를 수신 하며 |2,000 |
 | 토픽당 상관 관계 필터 수 |엔터티 |항목에서 추가 필터를 만들기 위한 후속 요청이 거부 되며 호출 코드에서 예외를 수신 하며 |100,000 |
 | SQL 필터 또는 작업의 크기 |네임스페이스 |추가 필터를 만들기 위한 후속 요청이 거부 되며 호출 코드에서 예외를 수신 하며 |필터 조건 문자열의 최대 길이: 1,024 (1K)입니다.<br /><br />규칙 작업 문자열의 최대 길이: 1,024 (1K)입니다.<br /><br />규칙 작업당 식의 최대 수: 32. |

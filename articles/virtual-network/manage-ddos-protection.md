@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203515"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911260"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 
@@ -98,10 +98,10 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
     |설정                  |값                                                                                               |
     |---------                |---------                                                                                           |
-    |이름                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |구독             | 경고를 받으려는 공용 IP 주소가 포함된 구독을 선택합니다.        |
     |리소스 그룹           | 경고를 받으려는 공용 IP 주소가 포함된 리소스 그룹을 선택합니다.      |
-    |리소스                 | 경고를 받으려는 공용 IP 주소가 포함된 공용 IP 주소를 선택합니다. DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외하고 [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 나열된 Resource Manager(클래식이 아님)를 통해 배포된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.                   |
+    |Resource                 | 경고를 받으려는 공용 IP 주소가 포함된 공용 IP 주소를 선택합니다. DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외하고 [Azure 서비스에 대한 가상 네트워크](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 나열된 Resource Manager(클래식이 아님)를 통해 배포된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.                   |
     |메트릭                   | DDoS 공격 진행 여부                                                                            |
     |임계값                | 1 - **1**은 공격을 받고 있음을 나타냅니다. **0**은 공격을 받고 있지 않음을 나타냅니다.                         |
     |기간                   | 선택한 값을 선택합니다.                                                                   |
@@ -204,11 +204,24 @@ Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoin
 - DDoS 규정 준수 문서화
 - 네트워크 보안 팀을 교육합니다.
 
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Azure Security Center에서 DDoS protection 경고 보기
+
+Azure Security Center의 목록과 [보안 경고](/azure/security-center/security-center-managing-and-responding-alerts), 조사 및 문제를 해결 하는 데 대 한 정보를 사용 하 여 합니다. 이 기능을 통해 DDoS 공격 관련 경고 및 거의으로에서 공격을 완화 하기 위해 수행 하는 작업을 포함 하 여 경고의 통합된 보기를 표시 합니다.
+두 개의 특정 경고에 대 한 모든 DDoS를 볼 수 있습니다 공격 감지 및 완화는:
+
+- **공용 IP에 대 한 DDoS 공격이 감지**: DDoS protection 서비스 공용 IP 주소 중 하나는 DDoS 공격을 감지 하면이 경고가 생성 됩니다.
+- **공용 IP에 대 한 DDoS 공격 완화**: 이 경고는 공용 IP 주소에 대 한 공격 완화 되었습니다 때 생성 됩니다.
+경고를 확인 하려면 엽니다 **Security Center** Azure portal에서 합니다. 아래 **Threat Protection**를 선택 **보안 경고**합니다. 다음 스크린샷에서 DDoS 공격 경고의 예를 보여줍니다.
+
+![Azure Security Center에서 DDoS 경고](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+경고는 공격, 지역 및 위협 인텔리전스 정보를 재구성 단계 아래에 있는 공용 IP 주소에 대 한 일반 정보를 포함 합니다.
+
 ## <a name="permissions"></a>권한
 
 DDoS 보호 계획을 사용하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 액션(Action)                                            | 이름                                     |
+| 액션(Action)                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | DDoS 보호 계획 읽기              |
 | Microsoft.Network/ddosProtectionPlans/write       | DDoS 보호 계획 만들기 또는 업데이트  |

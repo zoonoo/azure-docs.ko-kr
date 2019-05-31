@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004587"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965724"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -54,16 +54,13 @@ Windows Virtual Desktop을 사용하면 다음과 같이 확장 가능하고 유
 
 Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이션에 사용자를 연결하려면 몇 가지 조건을 충족해야 합니다.
 
-Windows Virtual Desktop은 현재 다음 두 가지 OS만 지원합니다.
-- Windows 10 Enterprise 다중 세션
-- Windows Server 2016
-
 다음 OS에 대한 지원을 추가할 계획이므로 배포하려는 데스크톱 및 앱에 따라 사용자에게 [적절한 라이선스](https://azure.microsoft.com/pricing/details/virtual-desktop/)가 있는지 확인합니다.
 
 |OS|필수 라이선스|
 |---|---|
-
-|Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise | Microsoft E3, E5, A3, A5, 비즈니스<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, 비즈니스<br>Windows E3, E5, A3, A5| |Windows Server 2012 R2, 2016, 2019|Software assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
+|Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
@@ -76,9 +73,7 @@ Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들�
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
 * [표준 도메인에 조인](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) 또는 [하이브리드 AD에 조인](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). 가상 머신이 Azure AD에 조인되면 안 됩니다.
-* 지원되는 다음 OS 이미지 중 하나를 실행합니다.
-  * Windows 10 Enterprise 다중 세션
-  * Windows Server 2016
+* 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-image) 중 하나를 실행합니다.
 
 >[!NOTE]
 >Azure 구독이 필요한 분들은 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하시면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
@@ -88,8 +83,23 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 최적의 성능을 얻을 수 있도록 네트워크가 다음 요구 사항을 충족하는지 확인합니다.
 
 * 클라이언트의 네트워크와 호스트 풀이 배포된 Azure 지역 간의 RTT(왕복) 대기 시간이 150밀리초 미만이어야 합니다.
-* 데스크톱 및 앱을 호스트하는 VM이 관리 서비스에 연결할 때 네트워크 트래픽이 국가 경계 외부에서 흐를 수 있습니다.
+* 데스크톱 및 앱을 호스트하는 VM이 관리 서비스에 연결할 때 네트워크 트래픽이 국가/지역 경계 외부에서 흐를 수 있습니다.
 * 네트워크 성능을 최적화하기 위해 세션 호스트의 VM을 관리 서비스와 동일한 Azure 지역에 배치하는 것이 좋습니다.
+
+## <a name="supported-remote-desktop-clients"></a>지원되는 원격 데스크톱 클라이언트
+
+다음 원격 데스크톱 클라이언트는 Windows Virtual Desktop을 지원합니다.
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>지원되는 가상 머신 OS 이미지
+
+Windows Virtual Desktop은 다음 OS 이미지를 지원합니다.
+
+* Windows 10 Enterprise 다중 세션
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>피드백 제공
 

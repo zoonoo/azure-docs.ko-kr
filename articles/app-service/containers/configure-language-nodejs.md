@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919777"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956166"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Node.js 앱 구성
 
@@ -137,7 +137,7 @@ Azure 탐색기에서 디버깅 하 고 마우스 오른쪽 단추로 클릭 하
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서, 앱 코드 외부에서 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)을 지정할 수 있습니다. 그런 다음 표준 Node.js 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `NODE_ENV`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 Node.js 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `NODE_ENV`에 액세스하려면 다음 코드를 사용합니다.
 
 ```javascript
 process.env.NODE_ENV
@@ -178,7 +178,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 이 섹션에서는 실행 끝나는 `npm install --production`합니다. 필요한 도구를 실행 해야 하는 코드 섹션을 추가 *끝* 의 `Deployment` 섹션:
 
 - [Bower](#bower)
-- [Gulp](#gulp)
+- [gulp](#gulp)
 - [Grunt](#grunt)
 
 참조를 [MEAN.js 샘플에서 예제](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)배포 스크립트를 사용자 지정도 실행 되는 위치, `npm install` 명령입니다.
@@ -253,7 +253,7 @@ if (req.secure) {
     - 에 따라 프로그램 *package.json*, 프로덕션 모드에 대 한 서로 다른 패키지를 설치할 수 있습니다 (`dependencies` 비교 `devDependencies`).
     - 특정 웹 프레임 워크는 다르게 프로덕션 모드에서에서 정적 파일을 배포할 수 있습니다.
     - 프로덕션 모드에서 실행 하는 경우 특정 웹 프레임 워크에서 사용자 지정 시작 스크립트를 사용할 수 있습니다.
-- 개발 모드에서 App Service에서 앱을 실행 합니다. 예를 들어 [MEAN.js](https://meanjs.org/), 런타임에서에서 개발 모드에 앱을 설정할 수 있습니다 [설정 합니다 `NODE_ENV` 앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)합니다.
+- 개발 모드에서 App Service에서 앱을 실행 합니다. 예를 들어 [MEAN.js](https://meanjs.org/), 런타임에서에서 개발 모드에 앱을 설정할 수 있습니다 [설정 합니다 `NODE_ENV` 앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

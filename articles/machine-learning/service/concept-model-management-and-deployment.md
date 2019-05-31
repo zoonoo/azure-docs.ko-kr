@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 416bebc070cfcad52c6180e65f0066c46c826cbe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800862"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849640"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
@@ -72,7 +72,7 @@ pickle 형식으로 저장된 모델을 등록하는 예제는 [자습서: 이�
 
 ### <a name="iot-edge-devices"></a>IoT Edge 디바이스
 
-통해 IoT 장치를 사용 하 여 모델을 사용할 수 있습니다 **Azure IoT Edge 모듈**합니다. IoT Edge 모듈은 장치에 대 한 추론을 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
+통해 IoT 장치를 사용 하 여 모델을 사용할 수 있습니다 **Azure IoT Edge 모듈**합니다. IoT Edge 모듈은 유추 또는 장치에서 점수 매기기 모델을 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
 
 자세한 내용은 [모델을 배포할](how-to-deploy-and-where.md)합니다.
 

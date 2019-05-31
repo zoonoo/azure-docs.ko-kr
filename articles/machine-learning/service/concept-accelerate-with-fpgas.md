@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025246"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851020"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>현장에서 프로그래밍 FPGA (gate array) 란
 
@@ -39,7 +39,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 Azure에서 Fpga 실시간 AI 계산을 가속화 하는 데이터 과학자와 개발자가 사용 되는 Intel FPGA 장치를 기반으로 합니다. 이 FPGA 지원 아키텍처는 강력한 성능, 유연성 및 확장성을 제공하며 Azure에서 사용할 수 있습니다.
 
-FPGA를 사용하면 실시간 유추 요청을 위한 짧은 대기 시간을 달성할 수 있습니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 일괄 처리; 신경망 처리 단위 구현의 필요 하지 않습니다. 따라서 대기 시간이 낮은 횟수에 비해 수 있습니다 CPU 및 GPU 프로세서.
+Fpga를 사용 하면 실시간 유추 (또는 모델 점수 매기기)에 대 한 대기 시간이 짧은 요청 목표를 달성할 수 있습니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 일괄 처리; 신경망 처리 단위 구현의 필요 하지 않습니다. 따라서 대기 시간이 낮은 횟수에 비해 수 있습니다 CPU 및 GPU 프로세서.
 
 ### <a name="reconfigurable-power"></a>재구성 가능한 전원
 여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 애플리케이션을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.

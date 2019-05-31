@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143065"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864508"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
@@ -108,7 +108,7 @@ _HttpTrigger_라는 하위 폴더가 만들어지며, 이 폴더에는 다음 �
 
   각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook.md#trigger) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook.md#output) 형식입니다.
 
-* **__init__.py**: HTTP 트리거 함수인 스크립트 파일입니다. 이 스크립트를 검토하여 기본값 `main()`이 포함되어 있는지 확인할 수 있습니다. 트리거의 HTTP 데이터는 `req`라는 바인딩 매개 변수를 사용하여 이 함수에 전달됩니다. function.json에 정의되는 `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. 
+* **\_\_init\_\_.py**: HTTP 트리거 함수인 스크립트 파일입니다. 이 스크립트를 검토하여 기본값 `main()`이 포함되어 있는지 확인할 수 있습니다. 트리거의 HTTP 데이터는 `req`라는 바인딩 매개 변수를 사용하여 이 함수에 전달됩니다. function.json에 정의되는 `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. 
 
     function.json에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](functions-bindings-http-webhook.md)을 참조하세요.
 

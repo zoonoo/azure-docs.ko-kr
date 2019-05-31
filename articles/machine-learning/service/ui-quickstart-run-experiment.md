@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440942"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545086"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>빠른 시작: Azure Machine Learning에서 코드를 작성하지 않고 데이터 준비 및 시각화
 
@@ -99,13 +99,13 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
    
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 선택기 시작**을 선택합니다.
+1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 편집**을 선택합니다.
 
     **열 선택** 대화 상자에서 **모든 열**을 선택하고, **모든 기능**을 포함시킵니다. 대화 상자는 다음과 같습니다.
 
      ![열 선택기](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. 오른쪽 아래에서 확인 표시(확인) 단추를 선택하여 열 선택기를 닫습니다.
+1. 오른쪽 하단에서 **확인**을 선택하여 열 선택기를 닫습니다.
 
 ## <a name="run-the-experiment"></a>실험 실행
 
@@ -146,13 +146,13 @@ Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#start
 
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 선택기 시작**을 선택합니다.
+1. 캔버스의 오른쪽에 있는 **속성** 창에서 **열 편집**을 선택합니다.
 
     * **규칙 사용** 및 **모든 열**을 선택한 상태로 둡니다.
 
     * 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. **normalized-losses**를 입력합니다.
 
-    * 오른쪽 아래에서 확인 표시(확인) 단추를 선택하여 열 선택기를 닫습니다.
+    * 오른쪽 하단에서 **확인**을 선택하여 열 선택기를 닫습니다.
 
     ![열 제외](./media/ui-quickstart-run-experiment/exclude-column.png)
         

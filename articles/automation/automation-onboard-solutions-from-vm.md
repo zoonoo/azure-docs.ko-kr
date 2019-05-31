@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738934"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133116"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -22,7 +22,7 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-the-solutions"></a>솔루션을 사용하도록 설정
 
@@ -51,7 +51,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 선택한 작업 영역에 솔루션이 이미 있는 경우 솔루션은 다시 배포되지 않고 범위 구성이 추가되지 않습니다.
 
-이 구성 중 하나에서 줄임표(**...**)를 선택한 다음, **편집**을 선택합니다. **편집 범위 구성** 창에서 **컴퓨터 그룹 선택**을 선택합니다. **컴퓨터 그룹** 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다.
+이 구성 중 하나에서 줄임표( **...** )를 선택한 다음, **편집**을 선택합니다. **편집 범위 구성** 창에서 **컴퓨터 그룹 선택**을 선택합니다. **컴퓨터 그룹** 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다.
 
 ## <a name="saved-searches"></a>저장된 검색
 
@@ -104,6 +104,8 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
 * variables
+
+또는 수 연결을 끊을 수도 작업 영역이 Automation 계정에서 Log Analytics 작업 영역에서 합니다. 작업 영역 선택 **Automation 계정** 아래에서 **관련 된 리소스**합니다. Automation 계정 페이지에서 선택 **계정을 연결 해제**합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

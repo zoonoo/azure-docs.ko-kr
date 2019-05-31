@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse에 대한 개발 모범 사례 | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 09/04/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1682a26ba713db564484e8984010e9c12ce9d79e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76297be79fca62b1f2f777f9cba4a0a8fe134768
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61421429"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851629"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 개발 모범 사례
 이 문서에서는 데이터 웨어하우스 솔루션을 개발할 때 도움이 되는 지침 및 모범 사례에 대해 설명합니다. 

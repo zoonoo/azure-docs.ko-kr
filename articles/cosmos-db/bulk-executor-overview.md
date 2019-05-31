@@ -4,15 +4,15 @@ description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업�
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e0176af0ce77e9306f6f0031122f8ba8a7b27e61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894477"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257093"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  

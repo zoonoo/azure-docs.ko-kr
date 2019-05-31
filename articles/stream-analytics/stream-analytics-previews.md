@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561148"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393682"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -30,10 +30,6 @@ Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습�
 ### <a name="anomaly-detection"></a>이상 감지
 
 Azure Stream Analytics에는 양방향, 느린 긍정 및 느린 부정 추세 검색 외에도 *spike* 및 *dips* 검색을 지원하는 새로운 기계 학습 모델이 도입되었습니다. 자세한 내용은 [Azure Stream Analytics의 변칙 검색](stream-analytics-machine-learning-anomaly-detection.md)합니다.
-
-### <a name="sql-database-reference-data"></a>SQL Database 참조 데이터
-
-Azure Stream Analytics는 참조 데이터 입력 원본으로 Azure SQL Database를 지원합니다. Azure Portal 및 Stream Analytics 도구가 있는 Visual Studio에서 Stream Analytics 작업에 대한 참조 데이터로 SQL Database를 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
 

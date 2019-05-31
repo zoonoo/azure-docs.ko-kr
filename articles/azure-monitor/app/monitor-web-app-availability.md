@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205384"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977893"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -71,7 +71,7 @@ ms.locfileid: "65205384"
 
 * **경고 위치 임계값**: 최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 사이의 최적 관계는 **경고 위치 임계값** = **테스트 위치 수** - 2이고, 최소 테스트 위치 수는 5입니다.
 
-## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
+## <a name="multi-step-web-tests"></a>다단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
 
 > [!NOTE]
@@ -175,7 +175,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 서비스에 대한 유지 관리를 수행하는 동안 가용성 테스트 또는 관련된 경고 규칙을 사용하지 않도록 설정할 수 있습니다.
 
-![웹 테스트 사용 안 함](./media/monitor-web-app-availability/6disable.png)
+![웹 테스트를 사용 하지 않도록 설정](./media/monitor-web-app-availability/6disable.png)  
 ![테스트 편집](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>오류가 표시되는 경우

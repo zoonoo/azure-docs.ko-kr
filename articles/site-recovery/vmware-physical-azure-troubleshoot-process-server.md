@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
-ms.author: rayne
-ms.openlocfilehash: 0383226853ed86943b73d2b8740825967f3124c9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.author: raynew
+ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411520"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969359"
 ---
 # <a name="troubleshoot-the-process-server"></a>프로세스 서버 문제 해결
 
@@ -51,7 +51,7 @@ ms.locfileid: "65411520"
 
 **경고 유형** | **오류** | **문제 해결**
 --- | --- | --- 
-![정상][green] | 없음  | 프로세스 서버가 연결 되어 있고 정상입니다.
+![Healthy][green] | 없음  | 프로세스 서버가 연결 되어 있고 정상입니다.
 ![Warning][yellow] | 지정 된 서비스가 실행 되지 않습니다. | 1. 서비스가 실행 중인지 확인 합니다.<br/> 2. 서비스가 예상 대로 실행 되는 경우 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
 ![Warning][yellow]  | 지난 15 분 동안 CPU 사용률이 > 80%입니다. | 1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
 ![중요][red] |  지난 15 분 동안 CPU 사용률이 > 95%입니다. | 1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 4. 문제가 지속 되 면 실행 합니다 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제에 대 한 합니다.

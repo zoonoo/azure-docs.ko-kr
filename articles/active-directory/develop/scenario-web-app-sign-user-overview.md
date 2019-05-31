@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46df5e4ec8352b47f744a507fad702c37aa5fba
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075102"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833094"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자가 로그인 하는 웹 앱
+# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자가 로그인하는 웹앱
 
 하기만 하면 Microsoft id 플랫폼을 사용 하 여 로그인 사용자가 웹 앱 빌드에 대해 알아봅니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "65075102"
 ASP.NET을 사용 하 여 상태를 유지 하려는 경우 다음 자습서를 사용해 보세요.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: ASP.NET Core 웹 앱 로그인 사용자](quickstart-v2-aspnet-webapp.md)
+> [빠른 시작: ASP.NET 웹 앱 로그인 사용자](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>개요
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408824"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518997"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -63,6 +63,9 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     ```
 
     `.Watch` 메서드의 두 번째 매개 변수는 ASP.NET 클라이언트 라이브러리에서 앱 구성 저장소를 쿼리하는 폴링 간격입니다. 클라이언트 라이브러리에서 특정 구성 설정을 확인하여 변경되었는지 확인합니다.
+    
+    > [!NOTE]
+    > `Watch` 확장 메서드의 기본 폴링 간격은 지정하지 않을 경우 30초입니다.
 
 2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
 

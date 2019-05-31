@@ -365,7 +365,7 @@ $Encryptedpassword
 
 캡처 파일이 로컬에 저장된 경우 가상 머신에 로그인하여 캡처 파일을 검색합니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [저장소 탐색기](https://storageexplorer.com/)입니다.
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [Storage Explorer](https://storageexplorer.com/)입니다.
 
 캡처를 다운로드했으면 **.cap** 파일을 읽을 수 있는 도구를 사용하여 볼 수 있습니다. 다음은 이러한 두 도구에 대한 링크입니다.
 

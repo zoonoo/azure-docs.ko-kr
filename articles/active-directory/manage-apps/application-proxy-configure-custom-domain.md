@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825650"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956923"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -71,7 +71,9 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 ### <a name="certificate-format"></a>인증서 형식
 인증서 서명 메서드에 대한 제한은 없습니다. ECC(타원 곡선암호화), SAN(주체 대체 이름 ) 및 다른 일반적인 인증서 형식은 모두 지원됩니다. 
 
-와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다. 
+와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다.
+
+보안 고려 사항으로 인해 사용자 고유의 공개 키 인프라 (PKI)에서 발급 한 인증서를 사용할 수 없습니다.
 
 ### <a name="changing-the-domain"></a>도메인 변경
 모든 확인된 도메인은 애플리케이션에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 애플리케이션에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 

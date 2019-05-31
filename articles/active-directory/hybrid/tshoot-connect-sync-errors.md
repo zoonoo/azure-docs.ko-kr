@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381691"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298750"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -190,7 +190,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 #### <a name="example"></a>예
 1. Contoso.com 계정인 Bob Smith가 Active Directory에서 UserPrincipalName bob@contoso.com으로 새 사용자로 추가되었습니다.
-2. Bob이 Contoso.com에서 Fabrikam.com이라는 다른 부서로 옮겨졌고 UserPrincipalName이 bob@fabrikam.com으로 변경되었습니다.
+2. Bob Fabrikam.com 이라는 Contoso.com의 다른 부분에 이동 하 고 해당 UserPrincipalName로 변경 됩니다. bob@fabrikam.com
 3. Contoso.com과 fabrikam.com 도메인은 모두 Azure Active Directory와 페더레이션된 도메인입니다.
 4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
 
@@ -210,7 +210,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 * userCertificate
 * userSMIMECertificate
 * thumbnailPhoto
-* ProxyAddresses
+* proxyAddresses
 
 ### <a name="possible-scenarios"></a>가능한 시나리오
 1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다. userCertificate 특성에서 LargeObject 오류를 처리하는 방법에 대한 자세한 내용은 [userCertificate 특성으로 인한 LargeObject 오류 처리](tshoot-connect-largeobjecterror-usercertificate.md) 문서를 참조하세요.

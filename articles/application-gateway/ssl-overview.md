@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715240"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254313"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>SSL 종료 및 Application Gateway를 사용 하 여 종단 간 SSL 개요
 
@@ -36,7 +36,7 @@ SSL 종료를 구성 하려면 SSL 인증서를 SSL 프로토콜 사양에 따�
 SSL 연결이 작동 하려면 SSL 인증서는 다음 조건을 충족 하는지 확인 해야 합니다.
 
 - 현재 날짜 및 시간 유효"인증서"하는 유효"날짜 범위 이내 이며
-- 해당 인증서의 "" CN (일반 이름) 요청에 호스트 헤더와 일치 합니다. 예를 들어, 클라이언트 요청을 중이면 `https://www.contoso.com/`, CN 이어야 합니다. `www.contoso.com`합니다.
+- 인증서의 CN(일반 이름)이 요청의 호스트 헤더와 일치합니다. 예를 들어 클라이언트가 `https://www.contoso.com/`에 요청하는 경우 CN이 `www.contoso.com`이어야 합니다.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>인증서를 SSL 종료를 위한 지원
 
@@ -48,6 +48,9 @@ Application gateway는 다음과 같은 유형의 인증서를 지원 합니다.
 - 자체 서명 된 인증서: 클라이언트 브라우저는 이러한 인증서를 신뢰 하지 않는 및는 사용자에 게 경고 가상 서비스의 인증서 신뢰 체인의 일부가 아닙니다. 자체 서명 된 인증서는 테스트 또는 관리자가 클라이언트를 제어 하 고 브라우저의 보안 경고를 안전 하 게 무시할 수 있는 환경에 적합 합니다. 프로덕션 워크 로드는 자체 서명 된 인증서를 사용 하지 마십시오.
 
 자세한 내용은 [응용 프로그램 게이트웨이 사용 하 여 SSL 종료를 구성](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)합니다.
+
+### <a name="size-of-the-certificate"></a>인증서의 크기
+확인 합니다 [제한 Application Gateway](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) 최대 SSL 알아야 섹션 크기가 지원 되는 인증서입니다.
 
 ## <a name="end-to-end-ssl-encryption"></a>SSL 암호화를 종단 간
 

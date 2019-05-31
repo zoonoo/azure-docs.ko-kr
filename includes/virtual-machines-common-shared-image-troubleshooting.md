@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149648"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158695"
 ---
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. CLI로 **-debug** 스위치를 전달하고 PowerShell로 **-Debug** 스위치를 전달하여 디버그 모드가 활성화됩니다. 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 

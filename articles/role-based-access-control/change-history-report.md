@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308895"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242095"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기
 
@@ -43,7 +43,7 @@ ms.locfileid: "60308895"
 
 포털에서 활동 로그에는 몇 가지 필터가 있습니다. 다음은 RBAC 관련 필터입니다.
 
-|필터  |Value  |
+|Filter  |Value  |
 |---------|---------|
 |이벤트 범주     | <ul><li>관리</li></ul>         |
 |작업(Operation)     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
@@ -121,9 +121,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
 
-1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/collect-activity-logs.md#configuration)합니다.
+1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)합니다.
 
-1. [활동 로그를 봅니다](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Activity Log Analytics 솔루션 개요 페이지로 이동 하는 빠른 방법은 클릭 하는 것은 **Log Analytics** 옵션입니다.
+1. [활동 로그를 봅니다](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Activity Log Analytics 솔루션 개요 페이지로 이동 하는 빠른 방법은 클릭 하는 것은 **Log Analytics** 옵션입니다.
 
    ![포털에서 azure Monitor 로그 옵션](./media/change-history-report/azure-log-analytics-option.png)
 

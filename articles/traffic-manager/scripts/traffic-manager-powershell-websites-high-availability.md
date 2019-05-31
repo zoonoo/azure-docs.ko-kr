@@ -16,11 +16,11 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
 ms.openlocfilehash: db84de194832180b8e153cf6aa7e6c9fab5e6d61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147428"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅
 
@@ -52,7 +52,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 | 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | 앱 서비스 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [집합 AzResource](/powershell/module/az.resources/new-azresource) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [새 AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Azure Traffic Manager 프로필을 만듭니다. |

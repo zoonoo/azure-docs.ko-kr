@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361266"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765312"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>빠른 시작: Azure Dev Spaces(Visual Studio 2017)를 사용하여 Kubernetes에서 .NET Core로 개발
 
@@ -97,6 +97,8 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 위의 예제에서 공용 URL은 http://webfrontend.1234567890abcdef1234.eus.azds.io/입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 
+이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*][ingress-update]에서 수신 값을 업데이트할 수 있습니다.
+
 ## <a name="update-code"></a>코드 업데이트
 
 Visual Studio 2017이 개발 공간에 여전히 연결되어 있으면 중지 단추를 클릭합니다. `Controllers/HomeController.cs`의 20줄을 다음으로 변경합니다.
@@ -131,3 +133,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785388"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861537"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란?
 
-[Azure AD(Azure Active Directory) 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하여 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유("When this happens")에 대한 응답("Then do this")을 정의합니다. 
+[Azure AD(Azure Active Directory) 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하여 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유("When this happens")에 대한 응답("Then do this")을 정의합니다.
 
 ![이유 및 응답](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "65785388"
 ![조건부 액세스 정책](./media/conditions/61.png)
 
 
-조건부 액세스 정책에 구성하지 않은 조건은 적용되지 않습니다. 일부 조건은 환경에 조건부 액세스 정책을 적용하는 데 [필수적](best-practices.md)입니다. 
+조건부 액세스 정책에 구성하지 않은 조건은 적용되지 않습니다. 일부 조건은 환경에 조건부 액세스 정책을 적용하는 데 [필수적](best-practices.md)입니다.
 
 이 문서에서는 조건의 개요 및 조건부 액세스 정책에서 조건을 사용하는 방법을 설명합니다. 
 
@@ -73,7 +73,7 @@ ms.locfileid: "65785388"
 > [!NOTE]
 > 특정 앱을 정책에서 제외할 수 있습니다. 그러나 사용자가 액세스하는 서비스에 적용되는 정책이 계속 적용됩니다.
 
-**사용자 작업** 은 사용자가 수행할 수 있는 작업입니다. 현재 지원 되는 작업만 **보안 정보 (미리 보기)를 등록**, 조건부 액세스 정책이 사용자에 게 보안 정보 등록 하는 경우 적용할 수 있습니다.
+**사용자 작업** 은 사용자가 수행할 수 있는 작업입니다. 현재 지원 되는 작업만 **보안 정보 (미리 보기)를 등록**, 조건부 액세스 정책이 결합 된 등록에 대해 설정 된 사용자의 보안을 등록 하려고 하는 경우 적용할 수 있는 정보입니다. 자세한 내용은 문서에서 찾을 수 있습니다 [보안 정보 등록 (미리 보기)를 결합 하는 사용](../authentication/howto-registration-mfa-sspr-combined.md)합니다.
 
 ## <a name="sign-in-risk"></a>로그인 위험
 

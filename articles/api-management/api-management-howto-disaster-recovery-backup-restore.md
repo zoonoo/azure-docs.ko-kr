@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793801"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241713"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -76,7 +76,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
-9. **권한 부여**를 클릭합니다.
+9. **사용 권한 부여**를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -124,7 +124,7 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
-REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/apimanagementservice/restore)입니다.
+REST API는 [API Management 서비스 - 백업](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) 및 [API Management 서비스 - 복원](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)입니다.
 
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
@@ -140,7 +140,7 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-설명:
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 * `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 * `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-설명:
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 * `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 * `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
@@ -223,7 +223,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

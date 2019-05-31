@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: alkohli
 ms.openlocfilehash: f84655ecb31eed4cca1e3960e7e426a4eb653032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754655"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160974"
 ---
 다음은 디바이스에 액세스하는 클라이언트에 지원되는 프로토콜입니다.
 

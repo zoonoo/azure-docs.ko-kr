@@ -2,21 +2,21 @@
 title: Azure SQL Data Warehouse의 테이블 인덱싱 | Microsoft Azure
 description: Azure SQL Data Warehouse의 테이블 인덱싱을 사용하기 위한 권장 사항 및 예제입니다.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309806"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851659"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 인덱싱
 
@@ -54,7 +54,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 SQL Data Warehouse에서 데이터를 일시적으로 적재하는 경우, 힙 테이블을 사용하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 스테이징만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 저장소에 로드하는 것보다 빠릅니다.  
 
-6천만 행보다 적은 행이 있는 작은 조회 테이블은 종종 힙 테이블이 적합합니다. 클러스터 columnstore 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 달성하기 시작합니다.
+6천만 행보다 적은 행이 있는 작은 조회 테이블은 종종 힙 테이블이 적합합니다.  클러스터 columnstore 테이블은 6천만 개 이상의 행이 있으면 최적의 압축을 달성하기 시작합니다.
 
 힙 테이블을 만들려면 WITH 절에서 HEAP을 지정하면 됩니다.
 

@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886372"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864812"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
 ## <a name="introduction"></a>소개
 
-이 빠른 시작에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 애플리케이션을 만들고 Azure App Service에 배포하는 방법을 보여 줍니다. 샘플 애플리케이션은 Azure Cache for Redis에 연결되어 데이터를 저장하고 캐시에서 검색합니다. 빠른 시작을 완료한 후 Azure에서 호스트되며 Azure Cache for Redis에서 읽고 쓰는 실행 웹앱을 갖게 됩니다.
+이 빠른 시작에서는 Visual Studio 2019를 사용하여 ASP.NET 웹 애플리케이션을 만들고 Azure App Service에 배포하는 방법을 보여 줍니다. 샘플 애플리케이션은 Azure Cache for Redis에 연결되어 데이터를 저장하고 캐시에서 검색합니다. 빠른 시작을 완료한 후 Azure에서 호스트되며 Azure Cache for Redis에서 읽고 쓰는 실행 웹앱을 갖게 됩니다.
 
 ![간단한 테스트가 완료된 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "58886372"
 
 ## <a name="prerequisites"></a>필수 조건
 
-빠른 시작을 완료하려면 다음 환경과 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+빠른 시작을 완료하려면 다음 환경과 함께 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 * ASP.NET 및 웹 개발
 * Azure 개발
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263783"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237522"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
-Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 그룹](../../management-groups/overview.md)에 있는 리소스에 제공하는 정보 또는 컨트롤입니다. 이 컨트롤은 리소스가 잘못된 위치에 생성되거나, 일반적이고 일관된 태그 사용을 적용하거나, 적절한 구성 및 설정에 대한 기존 리소스를 감사하지 않도록 방지하는 다양한 방식으로 사용될 수 있습니다. 모든 경우에 환경의 준수 상태를 이해할 수 있도록 Policy에 의해 데이터가 생성됩니다.
+Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 그룹](../../management-groups/overview.md)에 있는 리소스에 제공하는 정보 또는 컨트롤입니다. 이 컨트롤은 리소스가 잘못된 위치에 생성되거나, 일반적이고 일관된 태그 사용을 적용하거나, 적절한 구성 및 설정에 대한 기존 리소스를 감사하지 않도록 방지하는 다양한 방식으로 사용될 수 있습니다. 모든 경우에 데이터는 사용자 환경의 준수 상태를 파악할 수 있도록 Azure 정책에 의해 생성 됩니다.
 
 정책 및 이니셔티브 할당에 의해 생성된 준수 정보에 액세스할 수 있는 여러 가지 방법이 있습니다.
 
@@ -33,7 +33,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
-완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Policy Insights REST API의 작업에 대한 자세한 내용은 [Policy Insights](/rest/api/policy-insights/)를 참조하세요.
+완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API의 작업에 대 한 자세한 내용은 참조 하세요. [Azure Policy Insights](/rest/api/policy-insights/)합니다.
 
 할당된 정책 및 이니셔티브의 평가는 다양한 이벤트의 결과로 발생합니다.
 
@@ -88,14 +88,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>준수 작동 방식
 
-할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다. 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
+할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다.
+다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
 | 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | True  | 비준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
+| 새 문자 | Audit, AuditIfNotExist\* | True  | 비준수 |
+| 새 문자 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
@@ -114,7 +115,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 - **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
 - **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
 
-정책은 정의의 **type** 및 **name** 필드를 사용하여 리소스가 정의와 일치하는지를 확인합니다. 리소스가 일치하는 경우 적용 가능하며 **준수** 또는 **비준수** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name**뿐이면 모든 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
+Azure Policy를 사용 합니다 **형식** 및 **이름** 리소스 일치 하는 항목 인지 확인 하려면 정의에 필드. 리소스가 일치하는 경우 적용 가능하며 **준수** 또는 **비준수** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name**뿐이면 모든 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
 
 **준수** 상태의 리소스를 _총 리소스 수_로 나누는 방법을 통해 규정 준수 비율이 결정됩니다.
 _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다. 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
@@ -123,23 +124,22 @@ _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소
 
 ## <a name="portal"></a>포털
 
-Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는 그래픽 환경을 보여줍니다. **정책** 페이지에서 **개요** 옵션은 정책 및 이니셔티브 모두에 사용할 수 있는 준수 범위에 대한 세부 정보를 제공합니다. 준수 상태 및 할당별 개수뿐만 아니라 지난 7일 동안의 준수를 표시하는 차트가 포함됩니다.
-**준수** 페이지에는 차트를 제외하고 이 동일한 정보 대부분이 포함되지만 추가 필터링 및 정렬 옵션을 제공합니다.
+Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는 그래픽 환경을 보여줍니다. **정책** 페이지에서 **개요** 옵션은 정책 및 이니셔티브 모두에 사용할 수 있는 준수 범위에 대한 세부 정보를 제공합니다. 준수 상태 및 할당별 개수뿐만 아니라 지난 7일 동안의 준수를 표시하는 차트가 포함됩니다. **준수** 페이지에는 차트를 제외하고 이 동일한 정보 대부분이 포함되지만 추가 필터링 및 정렬 옵션을 제공합니다.
 
-![준수 정책 페이지의 예](../media/getting-compliance-data/compliance-page.png)
+![Azure 정책 준수 페이지의 예](../media/getting-compliance-data/compliance-page.png)
 
 정책 또는 이니셔티브가 서로 다른 범위에 할당될 수 있으므로 테이블에는 각 할당의 범위 및 할당된 정의의 형식이 포함됩니다. 각 할당의 비준수 리소스 및 비준수 정책 수도 제공됩니다. 테이블에서 정책 또는 이니셔티브를 클릭하면 해당하는 특정 배포에 대한 준수를 자세히 살펴봅니다.
 
-![정책 준수 세부 정보 페이지의 예](../media/getting-compliance-data/compliance-details.png)
+![Azure 정책 준수 세부 정보 페이지의 예](../media/getting-compliance-data/compliance-details.png)
 
 **리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
 리소스 생성 요청에 의해 트리거되는 이벤트(추가, 감사, 거부, 배포)는 **이벤트** 탭에 표시됩니다.
 
-![정책 준수 이벤트의 예](../media/getting-compliance-data/compliance-events.png)
+![Azure 정책 준수 이벤트의 예](../media/getting-compliance-data/compliance-events.png)
 
 자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
-![정책 준수 활동 로그의 예](../media/getting-compliance-data/compliance-activitylog.png)
+![Azure Policy 준수 활동 로그의 예](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>호환 되지 않는 이해
 
@@ -149,7 +149,7 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 ## <a name="command-line"></a>명령 줄
 
-포털에 제공되는 동일한 정보를 REST API([ARMClient](https://github.com/projectkudu/ARMClient)에 포함) 또는 Azure PowerShell을 통해 검색할 수 있습니다. REST API에 대한 자세한 전체 내용은 [Policy Insights](/rest/api/policy-insights/) 참조를 참조하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
+포털에 제공되는 동일한 정보를 REST API([ARMClient](https://github.com/projectkudu/ARMClient)에 포함) 또는 Azure PowerShell을 통해 검색할 수 있습니다. REST API에 대 한 전체 내용은 참조는 [Azure Policy Insights](/rest/api/policy-insights/) 참조 합니다. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
 
 Azure PowerShell에서 다음 예제를 사용하려면 이 예제 코드를 사용하여 인증 토큰을 생성합니다. 그런 다음, 구문 분석할 수 있는 JSON 개체를 검색하는 예제에서 문자열로 $restUri를 바꿉니다.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>결과 요약
 
-REST API를 사용하여 컨테이너, 정의 또는 할당별로 요약을 수행할 수 있습니다. Policy Insight의 [구독에 대한 요약](/rest/api/policy-insights/policystates/summarizeforsubscription)을 사용하여 구독 수준에서 요약의 예제는 다음과 같습니다.
+REST API를 사용하여 컨테이너, 정의 또는 할당별로 요약을 수행할 수 있습니다. Azure 정책 Insight를 사용 하 여 구독 수준에서 요약의 예로 [구독에 대 한 요약](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [정책 이벤트](/rest/api/policy-insights/policyevents) 참조 문서를 참조합니다.
+정책 이벤트를 쿼리 하는 방법에 대 한 자세한 내용은 참조는 [Azure 정책 이벤트](/rest/api/policy-insights/policyevents) 참조 문서입니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Policy용 Azure PowerShell 모듈은 PowerShell 갤러리에서 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights)로 사용할 수 있습니다. PowerShellGet을 사용하면 `Install-Module -Name Az.PolicyInsights`(최신 [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있어야 함)를 사용하여 모듈을 설치할 수 있습니다.
+으로 PowerShell 갤러리에서 Azure Policy에 대 한 Azure PowerShell 모듈을 사용할 수 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights)합니다.
+PowerShellGet을 사용하면 `Install-Module -Name Az.PolicyInsights`(최신 [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있어야 함)를 사용하여 모듈을 설치할 수 있습니다.
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -415,15 +416,16 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-있는 경우는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 사용 하 여 `AzureActivity` 에서 합니다 [Activity Log Analytics 솔루션](../../../azure-monitor/platform/collect-activity-logs.md) 구독에 연결을 확인할 수도 있습니다 사용 하 여 평가 주기에서 호환 되지 않는 결과 간단한 Kusto 쿼리 및 `AzureActivity` 테이블입니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+있는 경우는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 사용 하 여 `AzureActivity` 에서 합니다 [Activity Log Analytics 솔루션](../../../azure-monitor/platform/activity-log-collect.md) 구독에 연결을 확인할 수도 있습니다 사용 하 여 평가 주기에서 호환 되지 않는 결과 간단한 Kusto 쿼리 및 `AzureActivity` 테이블입니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
-![Azure Monitor 로그를 사용한 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
+
+![Azure Monitor 로그를 사용 하 여 azure 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
-- [Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
+- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](programmatically-create.md)하는 방법을 이해합니다.
-- [비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
+- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
+- 설명 하는 방법 [비준수 리소스를 수정](remediate-resources.md)합니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

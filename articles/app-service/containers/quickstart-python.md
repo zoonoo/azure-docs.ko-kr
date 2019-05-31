@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607775"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919619"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
 이 빠른 시작에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
 
@@ -198,8 +197,6 @@ az webapp up -n <app-name> -l <location-name>
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
-
-Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)

@@ -3,8 +3,8 @@ title: 인증 및 권한 부여를 위해 Azure AD와 통합되는 .NET 웹 API 
 description: 인증 및 권한 부여를 위해 Azure AD와 통합되는 .NET MVC Web API를 빌드하는 방법입니다.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f87573e23f2c0f48e54b6f03289969aab930e15c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200601"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001099"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>빠른 시작: 인증 및 권한 부여를 위해 Azure AD와 통합되는 .NET 웹 API 빌드
 
@@ -58,12 +58,12 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
     * 계정에 하나의 Azure AD 테넌트만 있거나 이미 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
 
 3. 왼쪽 탐색 창에서 **Azure Active Directory**를 선택합니다.
-4. **앱 등록**을 선택하고 **추가**를 선택합니다.
-5. 프롬프트에 따라 새 **웹 애플리케이션 및/또는 Web API**를 만듭니다.
-    * **이름**은 사용자에게 애플리케이션을 설명합니다. **To Do List Service**를 입력합니다.
-    * **리디렉션 URI**는 Azure AD가 앱이 요청한 토큰을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 이 값으로 `https://localhost:44321/` 을 입력합니다.
-
-6. 응용 프로그램에 대한 **설정 > 속성** 페이지에서 앱 ID URI를 업데이트합니다. 테넌트별 식별자를 입력합니다. 예를 들어 `https://contoso.onmicrosoft.com/TodoListService`을 입력합니다.
+4. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
+5. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
+**지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+6. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44321/`(Azure AD가 토큰을 반환할 위치)로 설정합니다.
+7. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+6. **API 표시**를 선택한 다음, **설정**을 클릭하여 애플리케이션 ID URI를 업데이트합니다. 테넌트별 식별자를 입력합니다. 예를 들어 `https://contoso.onmicrosoft.com/TodoListService`을 입력합니다.
 7. 구성을 저장합니다. 잠시 후에 클라이언트 애플리케이션을 등록해야 하므로 포털을 열어둡니다.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2단계: OWIN 인증 파이프라인을 사용하도록 앱 설정
@@ -91,7 +91,11 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
     }
     ```
 
-4. `App_Start\Startup.Auth.cs` 파일을 열고 `ConfigureAuth(…)` 메서드를 구현합니다. `WindowsAzureActiveDirectoryBearerAuthenticationOptions`에 제공하는 매개 변수는 앱이 Azure AD와 통신하기 위한 좌표로 사용됩니다.
+4. `App_Start\Startup.Auth.cs` 파일을 열고 `ConfigureAuth(…)` 메서드를 구현합니다. `WindowsAzureActiveDirectoryBearerAuthenticationOptions`에 제공하는 매개 변수는 앱이 Azure AD와 통신하기 위한 좌표로 사용됩니다. 이를 사용하려면 `System.IdentityModel.Tokens` 네임스페이스의 클래스를 사용해야 합니다.
+
+    ```csharp
+    using System.IdentityModel.Tokens;
+    ```
 
     ```csharp
     public void ConfigureAuth(IAppBuilder app)
@@ -99,8 +103,11 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
             new WindowsAzureActiveDirectoryBearerAuthenticationOptions
             {
-                Audience = ConfigurationManager.AppSettings["ida:Audience"],
-                Tenant = ConfigurationManager.AppSettings["ida:Tenant"]
+                 Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
+                 TokenValidationParameters = new TokenValidationParameters
+                 {
+                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
+                 }
             });
     }
     ```
@@ -141,12 +148,9 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 To Do List Service가 작동하는 것을 보려면 먼저 Azure AD에서 토큰을 가져오고 서비스를 호출할 수 있도록 To Do List Client를 구성해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. Azure AD 테넌트에 새 애플리케이션을 만들고 결과 프롬프트에서 **네이티브 클라이언트 애플리케이션**을 선택합니다.
-    * **이름**은 사용자에게 애플리케이션을 설명합니다.
-    * **리디렉션 URI** 값으로 `http://TodoListClient/`를 입력합니다.
-
+1. Azure AD 테넌트에서 새 애플리케이션 등록을 만듭니다.  사용자에게 애플리케이션을 설명하는 **이름**을 입력하고, **리디렉션 URI** 값에 `http://TodoListClient/`를 입력하고, 드롭다운에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다.
 1. 등록을 완료한 후에는 Azure AD가 사용자 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 단계에서 필요하므로 애플리케이션 페이지에서 복사해 둡니다.
-1. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다. To Do List Service를 찾아서 선택하고 **위임된 사용 권한** 아래에 **TodoListService 액세스** 사용 권한을 추가한 다음, **완료**를 선택합니다.
+1. **API 사용 권한**, **사용 권한 추가**를 차례로 선택합니다.  To Do List Service를 찾아서 선택하고 **위임된 사용 권한** 아래에 **user_impersonation TodoListService 액세스** 사용 권한을 추가한 다음, **사용 권한 추가**를 선택합니다.
 1. Visual Studio의 TodoListClient 프로젝트에서 `App.config`를 열고 `<appSettings>` 섹션에 구성 값을 입력합니다.
 
     * `ida:Tenant`는 Azure AD 테넌트의 이름(예: contoso.onmicrosoft.com)입니다.

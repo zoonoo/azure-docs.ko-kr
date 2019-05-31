@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2019
+ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784323"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298787"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -44,10 +44,20 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
 ## <a name="13210"></a>1.3.21.0
+>[!IMPORTANT]
+>방법이 1.3.21.0를 Azure AD Connect 이전 버전에서 업그레이드의 알려진된 문제는 O365 포털 반영 하지 않습니다 업데이트 된 버전 하지만 Azure AD Connect를 업그레이드 했습니다.
+>
+> 가져와야 할이 문제를 해결 하는 **AdSync** 모듈과 다음 실행은`Set-ADSyncDirSyncConfiguration` Azure AD Connect 서버에서 powershell cmdlet.  다음 단계를 사용할 수 있습니다.
+>
+>1. 관리자 모드에서 Powershell 열기
+>2. `Import-Module "ADSync"` 실행
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` 실행
+ 
+
 
 ### <a name="release-status"></a>릴리스 상태 
 
-05/14/2019: TBD
+05/14/2019: 다운로드용으로 릴리스됨
 
 
 ### <a name="fixed-issues"></a>해결된 문제 
@@ -417,7 +427,7 @@ AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](h
 
 PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azure AD Connect 설치에서 만든 기존 AD DS 계정에 이러한 설정을 적용하려면 위에 제공된 링크에서 스크립트를 다운로드합니다.
 
-##### <a name="usage"></a>사용 현황:
+##### <a name="usage"></a>Usage:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
@@ -561,7 +571,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * AAD Connect를 사용하여 새 ADFS 팜을 설정할 때, ADFS 자격 증명을 묻는 페이지가 이동되어 이제 ADFS 및 WAP 서버를 제공하라는 메시지가 사용자에게 표시되기 전에 발생합니다.  따라서 AAD Connect에서 지정된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
 * AAD Connect를 업그레이드하는 동안 ADFS AAD 트러스트가 업데이트에 실패하는 경우 더 이상 업그레이드할 수 없습니다.  이렇게 되면 사용자에게 적절한 경고 메시지가 표시되며, AAD Connect 추가 작업을 통해 트러스트를 다시 설정하도록 진행해야 합니다.
 
-### <a name="seamless-single-sign-on"></a>원활한 Single Sign-On
+### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
 * [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
@@ -748,7 +758,7 @@ CBool(
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
   * 다음 특성이 MV 스키마에 추가되었습니다.
-    * 그룹: 계정 이름
+    * 그룹: AccountName
     * 그룹: domainNetBios
     * 그룹: domainFQDN
     * 사용자: distinguishedName
@@ -1018,7 +1028,7 @@ AD FS 관리
 
 * 사용자가 Azure AD Connect를 실행하기 전에 도메인을 확인하지 않았으면 사용자에게 그 사실을 알리고 확인할 수 있도록 도와줍니다.
 * [Microsoft Cloud 독일](reference-connect-instances.md#microsoft-cloud-germany)에 대한 지원을 추가했습니다.
-* 새 URL 요구 사항을 갖는 최신 [Microsoft Azure Government 클라우드](reference-connect-instances.md#microsoft-azure-government-cloud) 인프라에 대한 지원을 추가했습니다.
+* 새 URL 요구 사항을 갖는 최신 [Microsoft Azure Government 클라우드](reference-connect-instances.md#microsoft-azure-government) 인프라에 대한 지원을 추가했습니다.
 
 **수정된 문제 및 향상된 기능:**
 

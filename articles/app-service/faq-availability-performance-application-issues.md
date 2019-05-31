@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786384"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955758"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -161,7 +161,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 또한 64비트 환경에는 기본 또는 표준 서비스 계획이 필요합니다. 무료 및 공유 계획은 항상 32비트 환경에서 실행됩니다.
 
-자세한 내용은 [Azure App Service에서 웹앱 구성](web-sites-configure.md)을 참조하세요.
+자세한 내용은 [Azure App Service에서 웹앱 구성](configure-common.md)을 참조하세요.
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>230초 후 요청 시간이 초과되는 이유는 무엇인가요?
 

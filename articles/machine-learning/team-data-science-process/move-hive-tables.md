@@ -107,9 +107,9 @@ Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼�
 
 ![Hive 쿼리의 출력](./media/move-hive-tables/output-hive-results-2.png)
 
-Azure Storage 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
+Azure Storage Explorer를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
-![Hive 쿼리의 출력을 표시하는 Azure Storage 탐색기](./media/move-hive-tables/output-hive-results-3.png)
+![Hive 쿼리의 출력을 표시하는 Azure Storage Explorer](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
 폼의 URL을 입력 하 여 쿼리 콘솔 (Hive 편집기)를 사용할 수도 있습니다 *https:\//\<Hadoop 클러스터 이름 >.azurehdinsight.net/Home/HiveEditor* 웹 브라우저에 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.

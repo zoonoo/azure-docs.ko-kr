@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box 반송 | Microsoft Docs
+title: Azure Data Box 반송 자습서 | Microsoft Docs
 description: Azure Data Box를 Microsoft에 배송하는 방법 알아보기
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287165"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606235"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box 반송 및 Azure에 대한 데이터 업로드 확인
 
@@ -45,7 +45,7 @@ ms.locfileid: "58287165"
 2. 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 Microsoft 지원에 문의하세요. 고객 지원팀에서 제안하는 경우 Azure Portal에서 **개요 > 배송 레이블 다운로드**로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다. 
 3. 디바이스를 반송하는 경우 UPS로 픽업을 예약합니다. 픽업을 예약하려면 다음을 수행합니다.
 
-    - 로컬 UPS(국가별 무료 전화 번호)에 전화합니다.
+    - 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
     - 통화에서 E-ink 디스플레이 또는 인쇄된 레이블에서 표시한 대로 역방향 배송 추적 번호를 알려줍니다.
     - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
 
@@ -69,7 +69,7 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
 
     또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
 
-- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD가 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다. 
+- 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다. 
 
     - Azure에서 관리 디스크에 성공적으로 복사되면 Azure Portal의 **주문 세부 정보**로 이동하여 관리 디스크에 대해 지정된 리소스 그룹을 기록할 수 있습니다.
 

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230936"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954937"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
@@ -84,7 +84,7 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 1년("보존 기간") 동안 액세스되지 않은 데이터는 부실한 것으로 간주되고 Microsoft 클라우드에서 삭제할 수 있습니다. 보존 기간은 변경될 수 있지만 90일 이상입니다. 특정 Windows/응용 프로그램 설정이 유효하지 않을 수도 있고 사용자의 모든 설정이 유효하지 않을 수도 있습니다. 예를 들면 다음과 같습니다.
 
 * 특정 설정 컬렉션에 아무 장치도 액세스하지 않는 경우(예: 장치에서 애플리케이션이 제거되거나 "테마"와 같은 설정 그룹이 사용자의 모든 장치에 대해 비활성화되는 경우) 해당 컬렉션은 보존 기간이 끝난 후 부실하다고 취급되어 삭제될 수 있습니다. 
-* 사용자가 모든 디바이스에서 설정 동기화를 끄면 설정 데이터 전체가 액세스되지 않으며, 해당 사용자의 모든 설정 데이터는 보존 기간이 끝난 후 유효하지 않은 것으로 취급되어 삭제될 수 있습니다. 
+* 사용자가 모든 장치에서 설정 동기화를 끈 경우 설정 데이터는 액세스할 수, 하 고 해당 사용자에 대 한 모든 설정 데이터 유효 하지 않게 됩니다 보존 기간이 지나면 삭제 될 수 있습니다. 
 * Azure AD 디렉터리 관리자가 전체 디렉터리에 대해 엔터프라이즈 상태 로밍을 끄면 해당 디렉터리의 모든 사용자가 설정 동기화를 중지하게 되며, 모든 사용자의 모든 설정 데이터는 보존 기간이 끝난 후 유효하지 않은 것으로 취급되어 삭제될 수 있습니다. 
 
 ### <a name="deleted-data-recovery"></a>삭제된 데이터 복구

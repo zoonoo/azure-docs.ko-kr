@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Edge 물리적 디바이스 설치 자습서 | Microsoft Docs
+title: Azure Data Box Edge 물리적 디바이스를 설치 - 개봉하고, 랙에 탑재하고, 케이블로 연결하는 방법에 대한 자습서 | Microsoft Docs
 description: Azure Data Box Edge 설치에 대한 두 번째 자습서에서는 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결하는 방법을 설명합니다.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278482"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924534"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>자습서: Azure Data Box Edge 설치
 
@@ -145,7 +145,8 @@ ms.locfileid: "59278482"
 
 ### <a name="engage-and-release-the-slam-latch"></a>슬램 래치 연결 및 해제
 
-참고:  슬램 래치가 장착되지 않은 시스템의 경우 이 절차의 3단계에서 설명한 대로 나사를 사용하여 시스템을 고정하세요.
+> [!NOTE]
+> 슬램 래치가 장착되지 않은 시스템의 경우 이 절차의 3단계에서 설명한 대로 나사를 사용하여 시스템을 고정하세요.
 
 1. 전면을 본 상태에서 시스템 양쪽에 있는 슬램 래치를 찾습니다.
 2. 래치는 시스템이 랙과 맞물리면 자동으로 연결되며 래치를 위로 당기면 해제됩니다.

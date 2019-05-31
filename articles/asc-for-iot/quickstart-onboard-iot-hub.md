@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192482"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786170"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 서비스 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192482"
 이 문서에서는 IoT Hub에서 IoT용 Azure Security Center(ASC) 미리 보기 서비스를 사용하도록 설정하는 방법에 대해 설명합니다.  
 
 > [!NOTE]
-> IoT용 Azure Security Center는 현재 표준 계층 이상의 IoT Hub만 지원합니다.
+> IoT용 Azure Security Center는 현재 표준 계층 IoT Hub만 지원합니다.
 > IoT용 Azure Security Center는 단일 허브 솔루션입니다. 여러 개의 허브가 필요한 경우 여러 개의 솔루션도 필요합니다. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>서비스를 사용하도록 설정하기 위한 필수 구성 요소
@@ -38,8 +38,12 @@ ms.locfileid: "65192482"
 - Log Analytics 작업 영역
   - IoT용 ASC는 기본적으로 **보안 경고** 및  **추천 사항**이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다. 
   - 추가 정보 유형인 **원시 이벤트**의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트**를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다. 
-- IoT Hub(표준 계층 이상)
+- IoT Hub(표준 계층)
 - [서비스 필수 구성 요소](service-prerequisites.md) 모두 충족 
+- 지원되는 서비스 지역
+  - 미국 중부
+  - 북유럽
+  - 동남아시아
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>IoT Hub에서 IoT용 ASC를 사용하도록 설정 
 

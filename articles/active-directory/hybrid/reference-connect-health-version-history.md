@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572819"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298995"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -31,7 +31,14 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
-## <a name="april-2019"></a>2019 년 4 월
+
+## <a name="may-2019"></a>2019년 5월
+**에이전트 업데이트:** 
+* AD FS (3.1.51.0 버전)에 대 한 azure AD Connect Health agent 
+   1. 여러 구분할 수 있도록 버그 수정에는 동일한 클라이언트 요청 id를 공유 하는 로그인입니다.
+   2. 서버 지역화 하는 언어에 잘못 된 사용자 이름/암호 오류를 구문 분석 하는 버그 수정.   
+
+## <a name="april-2019"></a>2019년 4월
 **에이전트 업데이트:** 
 * AD FS (3.1.46.0 버전)에 대 한 azure AD Connect Health agent 
    1. ADFS에 대 한 중복 된 SPN 확인 경고 프로세스를 수정 합니다.

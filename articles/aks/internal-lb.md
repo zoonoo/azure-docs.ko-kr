@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465549"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956378"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -26,6 +26,8 @@ AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 �
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+
+AKS 클러스터 서비스 주체에 기존 서브넷 또는 리소스 그룹을 사용 하는 경우 네트워크 리소스를 관리할 수 있는 권한이 필요 합니다. 일반적으로 할당 합니다 *네트워크 참가자* 위임 된 리소스에 서비스 주체에 역할입니다. 사용 권한에 대 한 자세한 내용은 참조 하세요. [다른 Azure 리소스에 대 한 액세스를 대리자 AKS][aks-sp]합니다.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -151,3 +153,4 @@ spec:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

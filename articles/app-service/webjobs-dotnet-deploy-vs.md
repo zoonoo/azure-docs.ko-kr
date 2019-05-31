@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832412"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417093"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -27,7 +27,7 @@ ms.locfileid: "60832412"
 
 단일 웹 앱에 여러 WebJobs를 게시할 수 있습니다. 웹 앱에서 각 WebJob 이름이 고유 해야 합니다.
 
-버전 3.x를는 [Azure WebJobs SDK](webjobs-sdk-how-to.md) .NET Core 앱을 실행 하는 WebJobs를 개발 하면 while 2.x가 지 원하는.NET Framework 버전입니다. Webjob 프로젝트를 배포 하는 방법은 다양 한.NET Core 프로젝트와.NET Framework 것입니다.
+버전 3.x 합니다 [Azure WebJobs SDK](webjobs-sdk-how-to.md) 버전 2.x에서 지 원하는.NET Framework만 하는 동안 앱을.NET Framework 또는.NET Core 앱으로 실행 되는 WebJobs를 개발할 수 있습니다. Webjob 프로젝트를 배포 하는 방법 항목.NET Framework 및.NET Core 프로젝트에 대 한 것과 다릅니다.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>.NET Core 콘솔 앱으로 WebJobs
 
@@ -92,11 +92,11 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
-Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads)를 설치합니다.
+Visual Studio 2019를 사용 하는 경우 설치 합니다 [Azure 개발 워크 로드](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads)합니다.
 
 ### <a id="convert"></a>기존 콘솔 애플리케이션 프로젝트에 WebJobs 배포 사용
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+두 가지가 있습니다.
 
 * [웹 프로젝트를 사용하여 자동 배포 사용](#convertlink).
 

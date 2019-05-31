@@ -62,7 +62,7 @@ sections:
             href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
           - image:
               src: /azure/event-hubs/media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: /azure/event-hubs/event-hubs-java-get-started-send
           - image:
               src: /azure/event-hubs/media/index/logo_python.svg
@@ -132,7 +132,7 @@ sections:
             href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet'
           - image:
               src: /azure/event-hubs/media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: 'https://github.com/Azure/azure-event-hubs/tree/master/samples/Java'
           - image:
               src: /azure/event-hubs/media/index/logo_python.svg

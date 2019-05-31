@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149860"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226236"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
-Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
+Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 또는 원격 분석 모듈 및 이니셜라이저를 사용 하지 않도록 설정를 그 중 일부에 대 한 매개 변수를 설정 합니다.
 
 구성 파일의 이름은 애플리케이션 유형에 따라 `ApplicationInsights.config` 또는 `ApplicationInsights.xml`입니다. [대부분 버전의 SDK는 설치][start]할 때 프로젝트에 자동으로 추가됩니다. 또한 [IIS 서버의 상태 모니터][redfield]에 의해 또는 [Azure 웹 사이트 또는 VM에 대한 Application Insights 확장](azure-web-apps.md)을 선택하는 경우 웹앱에 추가됩니다.
 
@@ -30,10 +30,10 @@ Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [
 이 문서는 구성 파일에서 참조하는 섹션, SDK의 구성 요소를 제어하는 방법 및 해당 구성 요소를 로드하는 NuGet 패키지를 설명합니다.
 
 > [!NOTE]
-> ApplicationInsights.config 및 .xml 지침은 .NET Core SDK에 적용되지 않습니다. .NET Core 애플리케이션에 대한 변경의 경우 일반적으로 appsettings.json 파일을 사용합니다. 이 예제는 [스냅숏 디버거 설명서](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)에서 찾을 수 있습니다.
+> ApplicationInsights.config 및 .xml 지침은 .NET Core SDK에 적용되지 않습니다. .NET Core 응용 프로그램을 구성 하려면 다음을 따릅니다 [이](../../azure-monitor/app/asp-net-core.md) 가이드입니다.
 
 ## <a name="telemetry-modules-aspnet"></a>원격 분석 모듈(ASP.NET)
-각 원격 분석 모듈은 특정 형식의 데이터를 수집하고 코어 API를 사용하여 데이터를 전송합니다. 모듈은 다른 NuGet 패키지에 의해 설치되며 이는 .config 파일에 필요한 줄을 추가합니다.
+각 원격 분석 모듈은 특정 유형의 데이터를 수집 하 고 핵심 API를 사용 하 여 데이터를 보냅니다. 모듈은 다른 NuGet 패키지에 의해 설치되며 이는 .config 파일에 필요한 줄을 추가합니다.
 
 각 모듈에 대해 구성 파일에 노드가 있습니다. 모듈을 사용하지 않으려면 노드를 삭제하거나 주석으로 처리합니다.
 
@@ -52,10 +52,12 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet 패키지.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights 진단 원격 분석
-`DiagnosticsTelemetryModule`은 Application Insights instrumenation 코드 자체에 오류를 보고합니다. 예를 들어 코드가 성능 카운터에 액세스할 수 없는 경우 또는 `ITelemetryInitializer` 를 throw하는 경우는 예외입니다. 이 모듈에서 추적된 원격 분석 추적은 [진단 검색][diagnostic]에 표시됩니다. dc.services.vsallin.net에 진단 데이터를 보냅니다.
+`DiagnosticsTelemetryModule`은 Application Insights instrumenation 코드 자체에 오류를 보고합니다. 예를 들어 코드가 성능 카운터에 액세스할 수 없는 경우 또는 `ITelemetryInitializer` 를 throw하는 경우는 예외입니다. 이 모듈에서 추적된 원격 분석 추적은 [진단 검색][diagnostic]에 표시됩니다.
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 패키지를 설치하는 경우 ApplicationInsights.config 파일은 자동으로 만들어지지 않습니다.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>개발자 모드
 `DeveloperModeWithDebuggerAttachedTelemetryModule`이 Application Insights`TelemetryChannel`를 적용하여 디버거가 애플리케이션 프로세스에 연결될 때 한번에 원격 분석 항목을 하나씩 즉시 보냅니다. 애플리케이션이 원격 분석을 추적할 때와 Application insights 포털에 나타날 때의 간격의 시간차를 감소시킵니다. CPU 및 네트워크 대역폭에 상당한 오버 헤드가 발생합니다.
@@ -91,19 +93,19 @@ HTTP 요청의 [응답 시간 및 결과 코드](../../azure-monitor/app/asp-net
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx) 를 제공합니다. 다른 원격 분석 모듈은 이를 사용하고 사용자 또한 [사용자 고유의 원격 분석을 정의하는 데 사용](../../azure-monitor/app/api-custom-events-metrics.md)할 수 있습니다.
+Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.microsoft.com/library/mt420197.aspx) 를 제공합니다. 다른 원격 분석 모듈을 사용 하 여이 고 수도 있습니다 [사용자 고유의 원격 분석을 정의 하는 데 사용할](../../azure-monitor/app/api-custom-events-metrics.md)합니다.
 
 * ApplicationInsights.config에 항목이 없습니다.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 패키지. 이 NuGet을 설치하면 .config 파일이 생성되지 않습니다.
 
 ## <a name="telemetry-channel"></a>원격 분석 채널
-원격 분석 채널은 Application Insights 서비스에 대한 원격 분석의 버퍼링 및 전송을 관리합니다.
+합니다 [원격 분석 채널](telemetry-channels.md) Application Insights 서비스로 원격 분석의 버퍼링 및 전송을 관리 합니다.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 는 서비스에 대한 기본 채널입니다. 메모리에 데이터를 버퍼링합니다.
-* `Microsoft.ApplicationInsights.PersistenceChannel`는 콘솔 애플리케이션에 대한 대안입니다. 앱을 닫을 때 플러시되지 않은 데이터를 영구 저장소로 저장하고 앱이 다시 시작되면 전송합니다.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 웹 응용 프로그램에 대 한 기본 채널이입니다. 메모리에 데이터를 버퍼링 하 고 메커니즘 및 더 신뢰할 수 있는 원격 분석 배달에 대 한 로컬 디스크 저장소가 사용을 다시 시도 하세요.
+* `Microsoft.ApplicationInsights.InMemoryChannel` 다른 채널이 구성 된 경우 사용 되는 간단한 원격 분석 채널을 사용 하는 경우 
 
 ## <a name="telemetry-initializers-aspnet"></a>원격 분석 이니셜라이저(ASP.NET)
-원격 분석 이니셜라이저는 원격 분석의 모든 항목과 함께 전송되는 컨텍스트 속성을 설정합니다.
+원격 분석 이니셜라이저는 원격 분석의 모든 항목과 함께 전송 되는 컨텍스트 속성을 설정 합니다.
 
 [고유한 이니셜라이저를 작성](../../azure-monitor/app/api-filtering-sampling.md#add-properties) 하여 컨텍스트 속성을 설정할 수 있습니다.
 
@@ -129,17 +131,17 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 
     `<Filters>` 는 요청의 식별 속성을 설정합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
-* `WebTestTelemetryInitializer` 는 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)의 HTTP 요청에 대한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정합니다.
+* `WebTestTelemetryInitializer` HTTP 요청에서 제공 되는에 대 한 사용자 ID, 세션 ID 및 가상 원본 속성 설정 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
 
 Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 패키지를 포함할 수 있습니다. 이 패키지에는 Service Fabric 속성을 원격 분석 항목에 추가하는 `FabricTelemetryInitializer`가 포함되어 있습니다. 자세한 내용은 이 NuGet 패키지에 의해 추가된 속성에 대한 [GitHub 페이지](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요.
 
 ## <a name="telemetry-processors-aspnet"></a>원격 분석 프로세서(ASP.NET)
-원격 분석 프로세서는 각 원격 분석 항목을 SDK에서 포털에 보내기 전에 필터링하고 수정할 수 있습니다.
+원격 분석 프로세서를 필터링 하 고 SDK에서 포털로 전송 되기 직전에 각 원격 분석 항목을 수정할 수 있습니다.
 
-[고유한 원격 분석 프로세서를 작성](../../azure-monitor/app/api-filtering-sampling.md#filtering)할 수 있습니다.
+할 수 있습니다 [사용자 고유의 원격 분석 프로세서를 작성할](../../azure-monitor/app/api-filtering-sampling.md#filtering)합니다.
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>적응 샘플링 원격 분석 프로세서(2.0.0-beta3부터)
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>적응 샘플링 원격 분석 프로세서 (2.0.0-beta3)에서
 이 옵션은 기본적으로 사용하도록 설정되어 있습니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
 
 ```xml
@@ -156,8 +158,8 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 
 [샘플링에 대해 자세히 알아봅니다](../../azure-monitor/app/sampling.md).
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>고정 비율 샘플링 원격 분석 프로세서(2.0.0-beta1부터)
-또한 표준 [샘플링 원격 분석 프로세서](../../azure-monitor/app/api-filtering-sampling.md) 도 있습니다(2.0.1부터).
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>고정 비율 샘플링 원격 분석 프로세서 (2.0.0-beta1)에서
+표준 이기도 [샘플링 원격 분석 프로세서](../../azure-monitor/app/api-filtering-sampling.md) (2.0.1부터):
 
 ```XML
 
@@ -261,7 +263,7 @@ azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity
 
 키를 동적으로 설정하려는 경우, 예를 들어 애플리케이션의 결과를 다른 리소스로 보내려는 경우 구성 파일에서 키를 생략하고 대신 코드에 설정할 수 있습니다.
 
-표준 원격 분석 모듈을 비롯한 TelemetryClient의 모든 인스턴스에 대한 키를 설정하려면 TelemetryConfiguration.Active에 키를 설정합니다. ASP.NET 서비스의 global.aspx.cs와 같은 초기화 메서드에 키를 설정합니다.
+TelemetryClient의 모든 인스턴스에 대 한 키를 설정 하려면 표준 원격 분석 모듈을 포함 하려면 TelemetryConfiguration.Active에 키를 설정 합니다. ASP.NET 서비스의 global.aspx.cs와 같은 초기화 메서드에 키를 설정합니다.
 
 ```csharp
 

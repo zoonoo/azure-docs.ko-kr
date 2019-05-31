@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149910"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594154"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>자습서: QnA Maker 포털에서 기술 자료를 만듭니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "65149910"
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |해당 URL의 FAQ 콘텐츠는 질문 다음에 답변이 오는 형식으로 구성됩니다. QnA Maker는 이러한 형식을 해석하여 질문과 관련 답변을 추출할 수 있습니다.|
     |파일 |_이 자습서에서 사용되지 않음_|질문 및 답변 파일을 업로드합니다. |
-    |잡담 개성|친숙한|일반적인 질문 및 답변에 친숙하고 편안한 개성을 부여합니다. 나중에 이러한 질문 및 답변을 편집할 수 있습니다. |
+    |잡담 개성|친숙한|일반적인 질문 및 답변에 친숙하고 편안한 [개성](../Concepts/best-practices.md#chit-chat)을 부여합니다. 나중에 이러한 질문 및 답변을 편집할 수 있습니다. |
 
     ![KB 생성 프로세스 4단계](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

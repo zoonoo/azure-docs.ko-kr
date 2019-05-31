@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617417"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691763"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -35,7 +35,7 @@ ms.locfileid: "59617417"
 ## <a name="before-you-start"></a>시작하기 전에
 
 - [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md) 및 [물리적 서버](physical-azure-architecture.md) 재해 복구용 아키텍처를 검토합니다.
-- [VMware](vmware-azure-common-questions.md) 및 Hyper-V에 대한 일반적인 질문 보기(hyper-v-azure-common-questions.md)
+- [VMware](vmware-azure-common-questions.md) 및 [Hyper-V](hyper-v-azure-common-questions.md)에 대한 일반적인 질문 읽기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다. 그런 다음 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

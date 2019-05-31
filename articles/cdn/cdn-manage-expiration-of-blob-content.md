@@ -151,7 +151,7 @@ class Program
 
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>다른 방법을 사용하여 Cache-Control 헤더 설정
 
-### <a name="azure-storage-explorer"></a>Azure Storage 탐색기
+### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 *CacheControl* 속성 등의 속성을 비롯한 Blob Storage 리소스를 확인하고 편집할 수 있습니다. 
 
 Azure Storage Explorer에서 Blob의 *CacheControl* 속성을 업데이트하려면

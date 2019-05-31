@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965990"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156864"
 ---
 1. **Android Studio**의 메뉴에서 **도구**를 선택하고, **SDK Manager**를 선택합니다. 
 2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택하고, **패키지 정보 표시**를 선택합니다. 

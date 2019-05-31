@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545498"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121875"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데스크톱 앱
 
@@ -38,7 +38,7 @@ ms.locfileid: "65545498"
 
 ### <a name="exclusively-by-code"></a>코드에서 단독으로
 
-다음 코드는 공용 클라이언트 응용 프로그램을 회사 및 학교 계정 또는 개인 Microsoft 계정이 Microsoft Azure 공용 클라우드, 사용자 로그인을 인스턴스화합니다.
+다음 코드는 공용 클라이언트 응용 프로그램을 회사 및 학교 계정 또는 개인 Microsoft 계정을 사용 하 여 Microsoft Azure 공용 클라우드, 사용자 로그인을 인스턴스화합니다.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -50,8 +50,8 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>구성 파일을 사용 하 여
@@ -61,7 +61,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>더 상세 구성
@@ -71,6 +72,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -167,6 +169,7 @@ public class SampleConfiguration
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
            .Build();
 ```
 

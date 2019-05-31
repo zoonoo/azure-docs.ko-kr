@@ -1,5 +1,5 @@
 ---
-title: 탐색 하 고 (데이터 집합 클래스) 데이터를 준비 합니다.
+title: 탐색 하 고 (데이터 집합 클래스) 데이터를 변환 합니다.
 titleSuffix: Azure Machine Learning service
 description: 요약 통계를 사용 하 여 데이터를 탐색 하 고 데이터 정리, 변환 및 기능 엔지니어링을 통해 데이터를 준비 합니다.
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603148"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146288"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
-탐색 하 고 사용 하 여 데이터를 준비 하는 방법을 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 합니다 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스 (미리 보기)을 사용 하면 탐색 하 고 같은 함수를 제공 하 여 데이터를 준비할 수 있습니다: 샘플링, 요약 통계 및 지능형 변환 합니다. 변환 단계에 저장 됩니다 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 확장성이 뛰어난 방식으로 스키마가 서로 다른 여러 큰 파일을 처리 하는 기능을 사용 하 여 합니다.
+탐색에서 azureml 데이터 집합 패키지를 사용 하 여 데이터를 준비 하는 방법을 알아봅니다 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다. 합니다 [데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스 (미리 보기)을 사용 하면 탐색 하 고 같은 함수를 제공 하 여 데이터를 준비할 수 있습니다: 샘플링, 요약 통계 및 지능형 변환 합니다. 변환 단계에 저장 됩니다 [데이터 집합 정의](how-to-manage-dataset-definitions.md) 확장성이 뛰어난 방식으로 스키마가 서로 다른 여러 큰 파일을 처리 하는 기능을 사용 하 여 합니다.
 
 > [!Important]
 > 일부 데이터 집합 클래스 (미리 보기)에 종속 되어는 [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지 (GA). 변환 함수는 GA'ed를 사용 하 여 직접 수행할 수 있습니다 하는 동안 [데이터 준비 함수](how-to-transform-data.md), 새 솔루션을 빌드하는 경우이 문서에 설명 된 데이터 집합 패키지 래퍼 것이 좋습니다. Azure Machine Learning 데이터 집합 (미리 보기) 수 뿐만 아니라 데이터를 변환 하는 데 뿐만 [스냅숏 데이터](how-to-create-dataset-snapshots.md) 저장 하 고 [버전이 지정 된 데이터 집합 정의](how-to-manage-dataset-definitions.md)합니다. 데이터 집합에는 AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 하는 데이터 준비 SDK의 다음 버전입니다.
@@ -33,7 +33,7 @@ ms.locfileid: "65603148"
 
 * Azure Machine Learning 서비스 작업 영역. 참조 [Azure Machine Learning 서비스 작업 영역 만들기](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)합니다.
 
-* Python 용 Azure Machine Learning SDK (버전 1.0.21 이상). 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
+* Python 용 Azure Machine Learning SDK (버전 1.0.21 이상), azureml 데이터 집합 패키지를 포함 하는 합니다. 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
 
 * Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 데이터 준비 SDK 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
 
