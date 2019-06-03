@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145903"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249051"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -141,19 +141,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
-## <a name="uploading-to-a-managed-disk"></a>관리 디스크를 업로드합니다.
+**디스크 유형의 스냅숏을 지원 하나요?**
 
-**기존 관리 디스크에 데이터를 업로드할 수 있나요?**
-
-아니요, 업로드만 사용할 수 있는 새 빈 디스크를 만드는 동안 합니다 **ReadyToUpload** 상태입니다.
-
-**연결할 수 있나요 디스크를 VM에 업로드 상태에서 이지만?**
-
-아니요.
-
-**관리 디스크의 스냅숏을 업로드 상태를 가져올 수 있나요?**
-
-아니요.
+Premium SSD, 표준 SSD 및 표준 SSD 어떠한 크기 제한 없이 스냅숏을 지원합니다. 따라서 스냅숏 대용량 디스크 (최대 32 TiB) 수 있습니다. Ultra Ssd 스냅숏을 지원 하지 않습니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
@@ -237,7 +227,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-예.
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
@@ -274,7 +264,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-예.
+예
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 
@@ -353,7 +343,7 @@ P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 �
 
 **Azure Backup 및 Azure Site Recovery 서비스에서 지 원하는 최대 디스크 크기는 무엇입니까?**
 
-Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB 더 큰 디스크에 대 한 지원이 곧 추가 될 예정입니다.
+Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB 더 큰 디스크에 대 한 지원은 아직 사용할 수 없습니다.
 
 **더 큰 디스크 크기에 대 한 크기 권장 되는 VM은 무엇입니까 (> 4 TiB)를 달성 하려면 표준 SSD와 HDD를 표준 디스크 액세스에 최적화 된 디스크 IOPS 및 대역폭?**
 

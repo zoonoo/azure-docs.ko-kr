@@ -4,7 +4,7 @@ description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8b8d47b04d7d0b93bc699064ee414bf4429c4a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510186"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244105"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 

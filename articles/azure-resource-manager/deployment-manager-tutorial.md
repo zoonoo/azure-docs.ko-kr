@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466294"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238861"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
@@ -55,7 +55,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [Azure Resource Manager 템플릿](./resource-group-overview.md)을 개발한 경험이 있어야 합니다.
-* Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure Deployment Manager를 사용하여 등록하려면 [등록 시트](https://aka.ms/admsignup)를 채웁니다. 
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새로운 관리자 권한 PowerShell 창을 열고, 다음 명령을 사용합니다.
 
@@ -63,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Install-Module -Name Az.DeploymentManager
     ```
 
-* [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage Explorer는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
+* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage Explorer는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
@@ -106,18 +105,18 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 두 버전(1.0.0.0 및 1.0.0.1)은 [수정 버전 배포](#deploy-the-revision)에 해당하는 것입니다. 템플릿 아티팩트와 이진 아티팩트에 모두 두 버전이 있지만, 두 버전 간에는 이진 아티팩트만 다릅니다. 실제로 이진 아티팩트는 템플릿 아티팩트에 비해 더 자주 업데이트됩니다.
 
-1. 텍스트 편집기에서 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**을 엽니다. 저장소 계정을 만들기 위한 기본 템플릿입니다.  
-2. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**을 엽니다. 
+1. 텍스트 편집기에서 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**을 엽니다. 저장소 계정을 만들기 위한 기본 템플릿입니다.
+2. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**을 엽니다.
 
     ![Azure Deployment Manager 자습서에서는 웹 애플리케이션 템플릿을 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     템플릿에서 웹 애플리케이션의 파일이 포함된 배포 패키지를 호출합니다. 이 자습서에서 압축된 패키지에는 index.html 파일만 포함되어 있습니다.
-3. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**을 엽니다. 
+3. **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**을 엽니다.
 
     ![Azure Deployment Manager 자습서에서는 웹 애플리케이션 템플릿 매개 변수인 containerRoot를 만듭니다.](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     deployPackageUri의 값은 배포 패키지의 경로입니다. 매개 변수에는 **$containerRoot** 변수가 포함되어 있습니다. $containerRoot의 값은 아티팩트 소스 SAS 위치, 아티팩트 루트 및 deployPackageUri를 연결하여 [롤아웃 템플릿](#create-the-rollout-template)에 제공됩니다.
-4. **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**을 엽니다.  
+4. **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**을 엽니다.
 
     ```html
     <html>
@@ -138,7 +137,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 1. Azure 저장소 계정 만들기 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 2. Blob 컨테이너를 저장소 계정에 만듭니다.
-3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
+3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
 4. 다음 지침에 따라 컨테이너의 SAS 위치를 가져옵니다.
 
     1. Azure Storage Explorer에서 Blob 컨테이너로 이동합니다.
@@ -159,7 +158,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 만듭니다.
 3. 포털의 왼쪽 메뉴에서 **구독**을 선택한 다음, 구독을 선택합니다.
-4. **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다.
+4. **액세스 제어(IAM)** , **역할 할당 추가**를 차례로 선택합니다.
 5. 다음 값을 입력하거나 선택합니다.
 
     ![Azure Deployment Manager 자습서 - 사용자가 할당한 관리 ID 액세스 제어](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
@@ -257,7 +256,7 @@ variables 섹션에서는 리소스 이름을 정의합니다. 서비스 토폴�
 
 ![Azure Deployment Manager 자습서 - 롤아웃 템플릿 리소스 wait 단계](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. **PT1M**(반드시 대문자임)은 1분 대기의 예입니다. 
+duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. **PT1M**(반드시 대문자임)은 1분 대기의 예입니다.
 
 다음 스크린샷에서는 롤아웃 정의의 일부만 보여 줍니다.
 
@@ -292,13 +291,13 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
 
 ## <a name="deploy-the-templates"></a>템플릿 배포
 
-Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다. 
+Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 1. 스크립트를 실행하여 서비스 토폴로지를 배포합니다.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -429,7 +428,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
     * **&lt;namePrefix>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
     * **&lt;namePrefix>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
     * 사용자 정의 관리 ID에 대한 리소스 그룹
-3. 해당 리소스 그룹 이름을 선택합니다.  
+3. 해당 리소스 그룹 이름을 선택합니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
 5. 마지막 두 단계를 반복하여 이 자습서에서 만든 다른 리소스 그룹을 삭제합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 데이터 집합 정 및 azureml 데이터 집합을 사용 하 여 버전 관리
+title: 버전 azureml 데이터 집합을 사용 하 여 데이터 집합 정의 및 관리
 titleSuffix: Azure Machine Learning service
 description: 데이터 집합 정의 업데이트 하 고 정의의 수명 주기를 관리 하는 방법을 알아봅니다
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146216"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241873"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>업데이트 및 데이터 집합 정의의 수명 주기 관리
+# <a name="version-and-manage-your-dataset-definitions"></a>버전 및 데이터 집합 정의 관리 합니다.
 
 업데이트 하 고 Azure Machine Learning 데이터 집합 (미리 보기)를 사용 하 여 데이터 집합 정의 관리 하는 방법에 알아봅니다.
 
@@ -37,7 +37,7 @@ Azure 구독 및 작업 영역 데이터 집합 정의의 수명 주기를 관�
 
 이 문서의 예제에서 사용 되는 샘플 파일에서 제공 됩니다 [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv)합니다.
 
-## <a name="update-dataset-definitions"></a>데이터 집합 정의 업데이트 합니다.
+## <a name="create-and-update-definitions"></a>만들기 및 정의 업데이트
 
 먼저 만들고 작업 영역을 사용 하 여 데이터 집합을 등록 합니다.
 

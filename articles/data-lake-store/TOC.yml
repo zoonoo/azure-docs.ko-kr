@@ -158,7 +158,7 @@
       href: /powershell/module/az.datalakestore
     - name: .NET
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet'
-    - name: 자바
+    - name: Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable'
     - name: Node.js
       href: 'https://www.npmjs.com/package/azure-arm-datalake-store'

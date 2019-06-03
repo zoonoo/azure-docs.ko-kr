@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551398"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244191"
 ---
 # <a name="azure-portal-overview"></a>Azure 포털 개요
 
@@ -23,6 +23,8 @@ ms.locfileid: "60551398"
 ## <a name="what-is-the-azure-portal"></a>Azure 포털 이란 무엇입니까?
 
 Azure portal은 대안을 명령줄 도구를 제공 하는 웹 기반, 통합 콘솔. Azure portal을 사용 하 여 그래픽 사용자 인터페이스를 사용 하 여 Azure 구독을 관리할 수 있습니다. 있습니다 수 빌드, 관리 및 복잡 한 클라우드 배포에 간단한 웹 앱에서 모든 모니터링, 리소스의 구조화 된 보기에 대 한 사용자 지정 대시보드 만들기 및 최상의 환경을 위해 내게 필요한 옵션을 구성 합니다.
+
+Azure 포털은 복원 력 및 지속적인 가용성을 위해 설계 되었습니다. 존재 하므로 개별 데이터 센터 오류 복원 하므로 모든 Azure 데이터 센터에 하 고 사용자에 가까운 함으로써 네트워크 속도가 느려지는 방지 합니다. Azure portal 지속적으로 업데이트 및 유지 관리 작업에 대 한 가동 중지 시간 없이 필요 합니다.
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -66,7 +68,6 @@ Azure 포털 사이드바 및 페이지 머리글에 있는지 항상 전역 요
 
 > [!TIP]
 > 사용 하는 가장 빠른 방법은 리소스, 서비스 또는 설명서를 찾을 것 *검색* 전역 헤더에 있습니다. 이동 경로 탐색 링크를 사용 하 여 이전 페이지로 다시 이동 합니다.
->
 >
 
 ## <a name="next-steps"></a>다음 단계

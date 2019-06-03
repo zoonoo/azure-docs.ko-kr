@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3bdc8580749761242b1fc811b2182d73a2d46328
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66023223"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238231"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록 확장 되며 더 많은 서비스에 맞게 업데이트 합니다.
@@ -155,8 +155,6 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 
 ### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning 서비스 제한
 최신 Azure Machine Learning Compute 할당량 값에서 찾을 수 있습니다는 [Azure Machine Learning의 할당량 페이지](../articles/machine-learning/service/how-to-manage-quotas.md)
-
-[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>네트워킹 제한
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

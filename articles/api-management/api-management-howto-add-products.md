@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417296"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241807"
 ---
 # <a name="create-and-publish-a-product"></a>제품 만들기 및 게시  
 
@@ -36,8 +36,8 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 ## <a name="prerequisites"></a>필수 조건
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서를 완료합니다. [첫 번째 API 가져오기 및 게시](import-and-publish.md)
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 ## <a name="create-and-publish-a-product"></a>제품 만들기 및 게시
 
@@ -48,10 +48,10 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 
     제품을 추가하는 경우 다음 정보를 제공해야 합니다. 
 
-    | 이름                     | 설명                                                                                                                                                                                                                                                                                                             |
+    | Name                     | 설명                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 표시 이름             | **개발자 포털**에 표시하려는 이름입니다.                                                                                                                                                                                                                                                        |
-    | 이름                     | 제품에 대한 설명이 포함된 이름입니다.                                                                                                                                                                                                                                                                                      |
+    | Name                     | 제품에 대한 설명이 포함된 이름입니다.                                                                                                                                                                                                                                                                                      |
     | 설명              | **설명** 필드에서 용도, 제품을 통해 액세스할 수 있는 API, 기타 유용한 정보 등의 자세한 정보를 제공할 수 있습니다.                                                                                                                                               |
     | 시스템 상태                    | 제품을 게시하려는 경우 **게시됨**을 누릅니다. 제품의 API를 호출하려면 먼저 제품을 게시해야 합니다. 기본적으로 새 제품은 게시되지 않으며 **관리자** 그룹에만 표시됩니다.                                                                                      |
     | 구독 필요    | 사용자가 구독해야만 제품을 사용할 수 있게 하려면 **구독 필요**를 선택합니다.                                                                                                                                                                                                                                   |
@@ -86,7 +86,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 4. API를 선택하고 **선택**을 클릭합니다.
 
 > [!TIP]
-> [REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 *제품*으로 업데이트할 수 있습니다.
+> [REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 *제품*으로 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

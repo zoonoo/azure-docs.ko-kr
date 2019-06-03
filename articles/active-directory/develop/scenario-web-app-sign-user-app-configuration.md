@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406626"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254000"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>웹 앱 로그인 사용자-코드 구성
 
@@ -110,6 +110,9 @@ ASP.NET Core에서는 URL이 포함 된 다른 파일 (`applicationUrl`) 및 SSL
 
 응용 프로그램 초기화를 수행 하는 코드에 ASP.NET Core 웹 앱과 Web Api에는 `Startup.cs` 파일 및 Microsoft Id 플랫폼 (이전 Azure AD) v2.0 사용 하 여 인증을 추가 하려면 다음 코드를 추가 해야 합니다. 코드의 주석을 쉽게 이해할 수 있어야 합니다.
 
+  > [!NOTE]
+  > Visual studio 또는 사용 하 여 내에서 기본 ASP.NET core 웹 프로젝트를 사용 하 여 프로젝트를 시작 하는 경우 `dotnet new mvc` 메서드를 `AddAzureAD` 관련된 패키지를 자동으로 로드 되기 때문에 기본적으로 사용할 수 있습니다. 하지만 처음부터 프로젝트 작성 하 고 사용 하려는 경우를 아래 코드 제안 NuGet 패키지를 추가할 수 있습니다 **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** 있도록 프로젝트에는 `AddAzureAD` 메서드를 사용할 수 있습니다.
+  
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
          .AddAzureAD(options => configuration.Bind("AzureAd", options));

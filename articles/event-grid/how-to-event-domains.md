@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561785"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305023"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
-이 문서는 다음 방법을 안내합니다.
+이 아티클에서 방법.
 
 * Event Grid 도메인 만들기
 * Event Grid 토픽 구독
@@ -27,10 +27,6 @@ ms.locfileid: "60561785"
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>미리 보기 기능 설치
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>이벤트 도메인 만들기
 
 대규모 토픽 집합을 관리하려면 이벤트 도메인을 만듭니다.
@@ -38,10 +34,6 @@ ms.locfileid: "60561785"
 Azure CLI의 경우 
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -51,10 +43,6 @@ az eventgrid domain create \
 PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -203,6 +191,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 그런 다음, 선호하는 방법으로 HTTP POST를 만들어서 Event Grid 도메인에 이벤트를 게시합니다.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>항목 또는 구독 목록을 검색 합니다.
+
+검색 및 많은 수의 항목 또는 구독 관리를 확인 하기 위해 Event Grid의 Api 목록은 페이지 매김을 지원 합니다.
+
+### <a name="using-cli"></a>CLI 사용
+
+사용 하는 이상을 0.4.1 Azure CLI의 Event Grid 확장 버전을 사용 중인지 확인 합니다.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,8 +3,8 @@ title: Azure Active Directory로 로그인하고 로그아웃하기 위해 Angul
 description: 로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호된 API를 호출하는 AngularJS 단일 페이지 애플리케이션을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544943"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001202"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 
@@ -63,20 +63,15 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 여러 디렉터리에 로그인된 경우 올바른 디렉터리를 보고 있는지 확인해야 할 수 있습니다. 이렇게 하려면 위쪽 모음에서 계정을 클릭합니다. **디렉터리** 목록에서 애플리케이션을 등록할 Azure AD 테넌트를 선택합니다.
 1. 왼쪽 창에서 **모든 서비스**를 클릭한 다음, **Azure Active Directory**를 선택합니다.
-1. **앱 등록**을 클릭하고 **추가**를 선택합니다.
-1. 프롬프트에 따라 새 웹 애플리케이션 및/또는 Web API를 만듭니다.
-
-    * **이름**은 사용자에게 애플리케이션을 설명합니다.
-    * **로그온 URL**은 Azure AD가 토큰을 반환할 위치입니다. 이 샘플의 기본 위치는 `https://localhost:44326/`입니다.
-
-1. 등록을 완료한 후에는 Azure AD가 사용자 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 탭에서 복사해 둡니다.
-1. Adal.js는 OAuth 암시적 흐름을 사용하여 Azure AD와 통신합니다. 애플리케이션에 대한 암시적 흐름을 사용하도록 설정해야 합니다.
-
-    1. 애플리케이션을 클릭하고 **매니페스트**를 선택하여 인라인 매니페스트 편집기를 엽니다.
-    1. `oauth2AllowImplicitFlow` 속성을 찾습니다. 해당 값을 `true`로 설정합니다.
-    1. **저장**을 클릭하여 매니페스트를 저장합니다.
-
-1. 애플리케이션에 대해 테넌트 전체에서 권한을 부여합니다. **설정 > 필수 권한**으로 이동하고 위쪽 막대에서 **권한 부여** 단추를 선택합니다.
+1. **앱 등록**을 클릭한 다음, **새 등록**을 선택합니다.
+1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
+1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+1. **Redirect URI** 섹션에서 **웹** 플랫폼을 선택하고 값을 `https://localhost:44326/`(Azure AD가 토큰을 반환할 위치)으로 설정합니다.
+1. 작업을 마쳤으면 **등록**을 선택합니다. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+1. Adal.js는 OAuth 암시적 흐름을 사용하여 Azure AD와 통신합니다. 애플리케이션에 대한 암시적 흐름을 사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 탐색 창에서 **인증**을 선택합니다.
+1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 둘 다 사용하도록 설정합니다. 이 앱은 사용자를 로그인하고 API를 호출해야 하므로 ID 토큰 및 액세스 토큰이 필요합니다.
+1. **저장**을 선택합니다.
+1. 애플리케이션에 대해 테넌트 전체에서 권한을 부여합니다. **API 사용 권한**으로 이동하여 **동의 부여** 아래의 **관리자 동의 부여** 단추를 선택합니다.
 1. **예**를 선택하여 확인합니다.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2단계: ADAL을 설치하고 단일 페이지 앱 구성

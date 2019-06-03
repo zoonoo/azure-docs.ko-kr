@@ -275,7 +275,7 @@
       items:
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-ref'
-        - name: 자바
+        - name: Java
           href: 'https://aka.ms/ams-v3-java-ref'
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
@@ -310,7 +310,7 @@
           href: 'https://aka.ms/ams-v3-cli'
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'
-        - name: 자바
+        - name: Java
           href: 'https://aka.ms/ams-v3-java-sdk'
         - name: Python
           href: 'https://aka.ms/ams-v3-python-sdk'

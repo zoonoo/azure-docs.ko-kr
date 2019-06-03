@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615028"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257570"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -40,7 +40,7 @@ X.509 CA 인증서는 각 디바이스에 대한 인증서 체인 맨 위에 있
 
 시험적으로 사용하거나 폐쇄형 IoT 네트워크에서 사용하려는 경우에는 자체 서명된 X.509 CA를 만들 수도 있습니다.
 
-X.509 CA 인증서를 획득하는 방법에 관계없이, 항상 해당 개인 키를 비밀리에 유지하고 보호하도록 하세요.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다.
+X.509 CA 인증서를 가져올, 해당 해당 개인 키를 비밀로 유지 및 보호 하는 방법에 관계 없이 항상 합니다.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다.
 
 이 기능 설명 전체에서 시험적으로 사용할 수 있는 [자체 서명된 CA 인증서를 만드는](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아보세요.
 

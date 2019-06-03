@@ -222,6 +222,8 @@
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: 시나리오 가용성
           href: scenario-availability.md
+        - name: 애플리케이션 배송
+          href: ship-application.md
         - name: 릴리스 정보
           href: releasenotes.md
         - name: C++

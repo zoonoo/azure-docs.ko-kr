@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161916"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306908"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -48,7 +48,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
 > [!TIP]
-> 아니며 이제 더 쉽고 편리한 방식으로 사용 하 여 보조 인증서를 추가 하는 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 않아도 원래 만들기 및 사용 하는 경우 클러스터를 배포 하는 데 사용할 템플릿을 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> 매우 이제 더 쉽고 편리한 방법이 사용 하 여 보조 인증서를 추가 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. 이 섹션의 나머지 단계를 따를 필요가 없습니다.  또한 않아도 원래 만들기 및 사용 하는 경우 클러스터를 배포 하는 데 사용할 템플릿을 합니다 [추가 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
@@ -195,7 +195,7 @@ Resource Manager 템플릿 매개 변수 파일을 편집하고 secCertificateTh
 ### <a name="deploy-the-template-to-azure"></a>Azure에 템플릿 배포
 
 - 이제 Azure에 템플릿을 배포할 준비가 되었습니다. Azure PS 버전 1+ 명령 프롬프트를 엽니다.
-- Azure 계정에 로그인하고 특정 Azure 구독을 선택합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
+- Azure 계정에 로그인 하 고 특정 azure 구독을 선택 합니다. 이 단게는 둘 이상의 Azure 구독에 대해 액세스 권한이 있는 사용자들을 위한 중요한 단계입니다.
 
 ```powershell
 Connect-AzAccount

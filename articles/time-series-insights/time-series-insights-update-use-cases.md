@@ -2,7 +2,7 @@
 title: Azure Time Series Insights 미리 보기 사용 사례 | Microsoft Docs
 description: Azure Time Series Insights 미리 보기 사용 사례를 이해합니다.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508308"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389990"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -28,11 +28,11 @@ ms.locfileid: "65508308"
 * 에 대 한 Time Series Insights를 사용 하 여의 장점은 무엇입니까 [운영 분석 및 프로세스 효율성](#operational-analysis-and-driving-process-efficiency)?
 * 에 대 한 Time Series Insights를 사용 하 여의 장점은 무엇입니까 [고급 분석](#advanced-analytics)?
 
-시나리오를 사용 하는 이러한 개요 아래에 설명 되어 있습니다.
+시나리오를 사용 하는 이러한 개요는 다음 섹션에 설명 되어 있습니다.
 
 ## <a name="introduction"></a>소개
 
-Azure Time Series Insights는 종단 간 플랫폼-as a service 제품입니다. 수집, 처리, 저장, 분석 및 하면 항상, 시간 시리즈 최적화 된 IoT 규모 데이터를 쿼리 하는 것이 됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
+Azure Time Series Insights는 종단 간 플랫폼-as a service 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장, 분석 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 고유 하 게 확장할 수 있는, 사용자 지정 된 서비스는 충족 된 광범위 해야 산업 IoT 배포를 제공 합니다.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>데이터 탐색 및 시각적 변칙 검색
 
@@ -54,7 +54,7 @@ Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 �
 
     * 읽기를 [Time Series Insights JS 클라이언트 라이브러리](tutorial-explore-js-client-lib.md) 하며 [Time Series Insights 클라이언트](https://github.com/Microsoft/tsiclient) JavaScript SDK에 대 한 자세한 설명서.
 
-    * Url 및 새 UI를 검토 하 여 공유에 대해 자세히 알아보려면 [데이터 탐색기 미리 보기에서에서 시각화](time-series-insights-update-explorer.md)합니다.
+    * Url 및 새 UI를 검토 하 여 공유에 대해 자세히 알아보려면 [탐색기는 Azure Time Series Insights 미리 보기에서 데이터를 시각화](time-series-insights-update-explorer.md)합니다.
 
 - 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights와 같은 임시 연산자를가지고 `from`, `to`를 `first`, 및 `last`합니다. 같은 집계 및 변환을가지고 `average`, `min`, `max`, `split by`합니다 `order by`, 및 `DateHistogram`합니다. 필터링 연산자와 같은 있습니다 `has`, `in`, `and`, `or`를 `greater than`, 및 `REGEX`합니다. 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 연산자를 사용하여 자체 제작 시각화를 채우고 이상 현상을 발견할 수 있습니다.
 
@@ -97,7 +97,5 @@ Time Series Insights는 다음과 같은 간단하고 비용 효율적인 방법
 ## <a name="next-steps"></a>다음 단계
 
 - [Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)에 대해 자세히 알아보세요.
-
-- 환경을 계획하려면 [Time Series Insights 미리 보기 계획](./time-series-insights-update-plan.md)을 읽어보세요.
-
+- 읽기 [Time Series Insights 미리 보기 계획](./time-series-insights-update-plan.md) 사용자 환경을 계획 합니다.
 - [Time Series Insights 클라이언트](https://github.com/Microsoft/tsiclient) 설명서를 읽어보세요.

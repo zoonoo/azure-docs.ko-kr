@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190856"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823512"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>빠른 시작: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 액세스 토큰 획득
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 이 빠른 시작에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정과 회사 및 학교 계정에 로그인하고, Microsoft Graph API 또는 웹 API를 호출할 때 사용되는 액세스 토큰을 가져오는 방법을 보여주는 코드 샘플 사용 방법을 알아보겠습니다.
 
@@ -185,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (선택 사항) 인증 상태에 사용되는 브라우저 스토리지를 설정합니다. 기본값은 sessionStorage입니다.   |
 > |`storeAuthStateInCookie`  | (선택 사항) 라이브러리는 브라우저 쿠키에서 인증 흐름의 유효성을 검사하는 데 필요한 인증 요청 상태를 저장합니다. [알려진 특정 이슈](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)를 완화하기 위해 IE 및 Edge 브라우저에 대해 설정됩니다. |
 
- 구성 가능한 옵션에 대한 자세한 내용은 [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options)를 참조하세요.
+ 사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요.
 
 ### <a name="sign-in-users"></a>사용자 로그인
 
@@ -258,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > 이 빠른 시작에서는 사용된 브라우저가 Internet Explorer인 경우 Internet Explorer 브라우저의 팝업 창 처리와 관련하여 [알려진 이슈](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) 때문에 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용합니다.
 

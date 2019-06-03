@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764841"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235369"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -40,11 +40,11 @@ ms.locfileid: "65764841"
 
    ![앱 등록 선택](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. **새 애플리케이션 등록**을 선택합니다.
+1. **새 등록**을 선택합니다.
 
    ![앱 추가](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. [네이티브 애플리케이션](../manage-apps/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 후 **만들기**를 선택합니다.
+1. 응용 프로그램에 대 한 이름을 제공 합니다. 지원 되는 계정을 선택를 결정 하는 응용 프로그램을 사용할 수 있는 사용자를 입력 합니다. 아래 **리디렉션 URI**를 선택 **웹** 를 만들려는 응용 프로그램 유형에 대 한 합니다. 액세스 토큰에 전송 되는 URI를 입력 합니다.  [네이티브 애플리케이션](../manage-apps/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 다음 선택 **등록**합니다.
 
    ![애플리케이션 이름 지정](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -81,31 +81,41 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 ## <a name="get-values-for-signing-in"></a>로그인을 위한 값 가져오기
 
-### <a name="get-tenant-id"></a>테넌트 ID 가져오기
-
-프로그래밍 방식으로 로그인하는 경우 인증 요청과 함께 테넌트 ID를 전달해야 합니다.
+프로그래밍 방식으로 로그인하는 경우 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 또한 애플리케이션 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
 1. **Azure Active Directory**를 선택합니다.
-1. **속성**을 선택합니다.
-
-   ![Azure AD 속성 선택](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. **디렉터리 ID**를 복사하여 테넌트 ID를 가져옵니다.
-
-   ![테넌트 ID](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>애플리케이션 ID 및 인증 키 가져오기
-
-또한 애플리케이션 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
 1. Azure AD의 **앱 등록**에서 애플리케이션을 선택합니다.
 
    ![애플리케이션 선택](./media/howto-create-service-principal-portal/select-app.png)
 
+1. 디렉터리 (테 넌 트) ID를 복사 하 고 응용 프로그램 코드에 저장 합니다.
+
+    ![테넌트 ID](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다.
 
    ![클라이언트 ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## <a name="certificates-and-secrets"></a>인증서 및 암호
+데몬이 응용 프로그램이 Azure AD로 인증 하도록 두 가지 형태의 자격 증명을 사용할 수 있습니다: 인증서 및 응용 프로그램 비밀입니다.  인증서를 사용 하는 것이 좋습니다 하지만 새 응용 프로그램 비밀을 만들 수도 있습니다.
+
+### <a name="upload-a-certificate"></a>인증서 업로드
+
+있는 경우 기존 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 [New-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 컴퓨터에 사용자 인증서 저장소에 자체 서명 된 인증서를 만들려면 다음 매개 변수를 사용 하 여: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`합니다.  이 인증서를 사용 하 여 내보내기 합니다 [사용자 인증서 관리](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인에서 Windows 제어판에서 액세스할 수 있습니다.
+
+인증서를 업로드 합니다.
+1. 선택 **인증서 및 비밀**합니다.
+
+   ![설정 선택](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. 클릭할 **인증서 업로드** (기존 인증서 또는 자체 서명 된 인증서를 내보낸) 인증서를 선택 합니다.
+    ![인증서 업로드](./media/howto-create-service-principal-portal/upload-cert.png)
+1. **추가**를 클릭합니다.
+
+응용 프로그램 등록 포털에서 응용 프로그램을 사용 하 여 인증서를 등록 한 후 인증서를 사용 하도록 클라이언트 응용 프로그램 코드를 사용 하도록 설정 해야 합니다.
+
+### <a name="create-a-new-application-secret"></a>새 응용 프로그램 비밀 만들기
+인증서를 사용 하지 않으려는 경우에 새 응용 프로그램 비밀을 만들 수 있습니다.
 1. 선택 **인증서 및 비밀**합니다.
 
    ![설정 선택](./media/howto-create-service-principal-portal/select-certs-secrets.png)

@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: Batch 관리 포함 Azure AD
           href: batch-aad-auth-management.md
-    - name: 애플리케이션 패키지 만들기
+    - name: 애플리케이션 패키지 사용
       href: batch-application-packages.md
     - name: 풀 만들기 및 관리
       items:
@@ -168,7 +168,7 @@
       href: /powershell/module/az.batch
     - name: .NET
       href: /dotnet/api/overview/azure/batch
-    - name: 자바
+    - name: Java
       href: /java/api/overview/azure/batch
     - name: Node.js
       href: /javascript/api/overview/azure/batch

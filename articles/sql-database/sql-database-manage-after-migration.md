@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949912"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357322"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -29,6 +29,7 @@ ms.locfileid: "65949912"
 
 이 문서에서는 탄력적 풀에 풀링된 데이터베이스와 단일 데이터베이스로 작업할 때 쉽게 활용할 수 있는 플랫폼인 Azure SQL Database의 몇 가지 핵심 특징을 설명합니다. 다음과 같은 특성을 설명합니다.
 
+- Azure portal을 사용 하 여 데이터베이스를 모니터링 합니다.
 - 비즈니스 연속성 및 재해 복구(BCDR)
 - 보안 및 규정 준수
 - 지능형 데이터베이스 모니터링 및 유지 관리
@@ -36,6 +37,25 @@ ms.locfileid: "65949912"
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 배포 옵션인 단일 데이터베이스 및 탄력적 풀에 적용됩니다. SQL Database의 관리되는 인스턴스 배포 옵션에는 적용되지 않습니다.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
+
+에 [Azure portal](https://portal.azure.com/)를 클릭 하 여 데이터베이스를 선택 하는 개별 데이터베이스의 사용률을 모니터링할 수 있습니다는 **모니터링** 차트. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
+
+- CPU 비율
+- DTU 비율
+- 데이터 IO 비율
+- 데이터베이스 크기 비율
+
+이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
+
+![데이터베이스 성능의 서비스 계층 모니터링.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+성능 메트릭에 대한 경고를 구성할 수도 있습니다. **메트릭** 창에서 **경고 추가** 단추를 클릭합니다. 마법사를 따라 경고를 구성합니다. 메트릭이 특정 임계값을 초과하거나 메트릭이 특정 임계값보다 낮은 경우 경고하는 옵션이 있습니다.
+
+예를 들어 데이터베이스에 대한 워크로드가 확장될 것으로 예상되면 데이터베이스가 성능 메트릭의 80%에 도달할 때마다 이메일 경고를 보내도록 구성할 수 있습니다. 이 경고를 조기 경고로 사용하여 더 큰 다음 컴퓨팅 크기로 전환해야 하는 시기를 파악할 수 있습니다.
+
+또한 성능 메트릭을 사용하여 작은 컴퓨팅 크기로 다운그레이드할 수 있는지 여부를 판단할 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 작은 컴퓨팅 크기로 이동하도록 결정하기 전에 급증하거나 변동하는 워크로드에 주의해야 합니다.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>비즈니스 연속성 및 재해 복구(BCDR)
 

@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574268"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255635"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights의 분석
 Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다.
-앱 중 하나에 대해 Application Insights를 이미 구성한 경우 앱의 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.
+앱 중 하나에 대 한 Application Insights를 이미 구성한 경우 앱의 개요 블레이드에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.
 
 ![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/analytics/001.png)
 
 여러 샘플 데이터가 있는 무료 데모 환경인 [Analytics 실습](https://go.microsoft.com/fwlink/?linkid=859557)을 사용할 수도 있습니다.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Azure Monitor 로그와의 관계
 Application Insights 분석은 Azure Monitor 로그와 같은 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하며 [Kusto 쿼리 언어](/azure/kusto/query)도 사용합니다. Azure Monitor 로그와 동일한 [로그 분석 포털](../log-query/get-started-portal.md)을 사용하지만 데이터는 별도의 파티션에 저장됩니다.

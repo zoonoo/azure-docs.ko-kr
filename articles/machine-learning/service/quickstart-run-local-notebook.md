@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549138"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864374"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
-사용자 고유의 Notebook 서버를 사용하여 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md)에 값을 기록하는 코드를 실행합니다. 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용하는 클라우드의 기본 블록입니다.
+고유의 Python 환경과 Jupyter Notebook 서버를 사용하여 Azure Machine Learning 서비스를 시작합니다.  SDK 설치 없이 실행하려면 [빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
 
-이 빠른 시작에서는 사용자 고유의 Python 환경과 Jupyter Notebook 서버를 사용합니다. SDK 설치 없이 실행하려면 [빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요. 
+이 빠른 시작은 [Azure Machine Learning 서비스 작업 영역](concept-azure-machine-learning-architecture.md)을 사용하여 기계 학습 실험을 추척하는 방법을 보여줍니다. 값을 작업 영역에 기록하는 Python 코드를 실행합니다.
 
 이 빠른 시작의 비디오 버전을 보려면:
 
@@ -33,7 +33,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 * Azure Machine Learning SDK가 설치된 Python 3.6 Notebook 서버
 * Azure Machine Learning Service 작업 영역
-* 작업 영역 구성 파일(**.azureml/config.json**).
+* 작업 영역 구성 파일( **.azureml/config.json**).
 
 [Azure Machine Learning Service 작업 영역 만들기](setup-create-workspace.md#portal)에서 이러한 모든 필수 구성 요소를 가져옵니다.
 

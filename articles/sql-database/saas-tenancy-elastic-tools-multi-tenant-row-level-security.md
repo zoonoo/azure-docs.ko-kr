@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485489"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234120"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
@@ -228,7 +228,7 @@ RLS는 Transact-SQL에서 구현됩니다. 사용자 정의 함수에서 액세�
     - BLOCK 조건자는 행에서 필터가 INSERT 또는 UPDATE에 실패하는 것을 방지합니다.
     - SESSION\_CONTEXT가 설정되지 않은 경우 함수는 NULL을 반환하며 행이 표시되지 않거나 삽입할 수 없습니다.
 
-모든 분할 영역에서 RLS를 사용하려면 Visual Studio(SSDT), SSMS 또는 프로젝트에 포함된 PowerShell 스크립트를 사용하여 다음 T-SQL을 실행합니다. 또는 [Elastic Database 작업](sql-database-elastic-jobs-overview.md)을 사용 중인 경우 모든 분할 영역에서 이 T-SQL의 실행을 자동화할 수 있습니다.
+모든 분할 영역에서 RLS를 사용하려면 Visual Studio(SSDT), SSMS 또는 프로젝트에 포함된 PowerShell 스크립트를 사용하여 다음 T-SQL을 실행합니다. 또는 [Elastic Database 작업](elastic-jobs-overview.md)을 사용 중인 경우 모든 분할 영역에서 이 T-SQL의 실행을 자동화할 수 있습니다.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

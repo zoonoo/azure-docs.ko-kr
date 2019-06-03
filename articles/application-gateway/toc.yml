@@ -209,6 +209,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: 잘못된 게이트웨이(502) 오류
           href: application-gateway-troubleshooting-502.md
+    - name: v1에서 v2로 마이그레이션
+      href: migrate-v1-v2.md
 - name: 참고 자료
   items:
     - name: CRS 규칙
@@ -219,7 +221,7 @@
       href: /powershell/azure/overview
     - name: .NET
       href: /dotnet/api
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'

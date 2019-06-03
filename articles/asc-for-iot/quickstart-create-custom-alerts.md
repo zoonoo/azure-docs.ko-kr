@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192477"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786178"
 ---
 # <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
 
@@ -50,13 +50,12 @@ IoT Hub의 각 IoT 솔루션에는 기본적으로 **default**라는 하나의 �
 ## <a name="customize-an-alert"></a>경고 사용자 지정
 
 1. IoT Hub를 엽니다. 
-2. **보안**을 선택한 다음, **사용자 지정 경고**를 선택합니다. 
+2. **보안** 섹션에서 **사용자 지정 경고**를 클릭합니다. 
 3. 사용자 지정을 적용하려는 보안 그룹을 선택합니다. 
-4. **사용자 지정 경고 추가**를 클릭합니다.
-5. 경고 이름을 입력합니다(경고 이름은 만든 후에 변경할 수 없음). 
-6. 드롭다운 목록에서 사용자 지정 경고 동작을 선택합니다. 
-7. 필요한 속성을 편집하고 **확인**을 클릭합니다.
-8. **저장**을 클릭해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
+4. **사용자 지정 경고 추가**를 클릭합니다. 
+5. 드롭다운 목록에서 사용자 지정 경고 동작을 선택합니다. 
+6. 필요한 속성을 편집하고 **확인**을 클릭합니다.
+7. **저장**을 클릭해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
 
  
 ## <a name="alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 경고

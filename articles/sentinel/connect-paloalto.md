@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b899bcae473edfccbf587baece27089fc001ff4
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 40ee73b8cc9b95a4e2030ac38a6c322918dc878e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921860"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389090"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks 어플라이언스를 연결 합니다.
 
@@ -125,7 +125,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 CEF 형식의 Syslog 메시
 
 3. 보낼 로그를 준수 하는지 확인 [RFC 5424](https://tools.ietf.org/html/rfc542)합니다.
 
-4. 컴퓨터의 Syslog 에이전트를 실행 해야 이러한 포트 514, 25226 열고 명령을 사용 하 여 수신 `netstat -a -n:`합니다. 이 명령을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [netstat(8)-Linux 매뉴얼 페이지](https://linux.die.netman/8/netstat)합니다. 제대로 수신 중인 경우이 표시 됩니다.
+4. 컴퓨터의 Syslog 에이전트를 실행 해야 이러한 포트 514, 25226 열고 명령을 사용 하 여 수신 `netstat -a -n:`합니다. 이 명령을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [netstat(8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/netstat)합니다. 제대로 수신 중인 경우이 표시 됩니다.
 
    ![Azure Sentinel 포트](./media/connect-cef/ports.png) 
 

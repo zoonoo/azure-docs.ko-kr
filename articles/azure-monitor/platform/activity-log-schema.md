@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777392"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244947"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
+**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](activity-log-export.md)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
 
 ## <a name="administrative"></a>관리
 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 애플리케이션이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
@@ -126,7 +126,7 @@ ms.locfileid: "60777392"
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자 이름입니다. |
 | resourceType | 관리 이벤트에 영향을 받은 리소스의 형식입니다. |
-| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| ResourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
@@ -216,7 +216,7 @@ ms.locfileid: "60777392"
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ ms.locfileid: "60777392"
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ ms.locfileid: "60777392"
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -271,7 +271,7 @@ ms.locfileid: "60777392"
 | resourceGroupName |리소스를 포함하는 리소스 그룹의 이름 |
 | resourceProviderName |항상 “Microsoft.Resourcehealth/healthevent/action”. |
 | resourceType | 리소스 상태 이벤트에 영향을 받은 리소스 유형입니다. |
-| resourceId | 영향을 받는 리소스의 리소스 ID 이름입니다. |
+| ResourceId | 영향을 받는 리소스의 리소스 ID 이름입니다. |
 | status |상태 이벤트의 상태를 설명하는 문자열입니다. 값은 활성, 해결됨, 진행 중, 업데이트됨일 수 있습니다. |
 | subStatus | 경고의 경우 대개 null입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
@@ -362,7 +362,7 @@ ms.locfileid: "60777392"
 | level |이벤트의 수준입니다. 해당 값은 “Critical”, “Error”, “Warning” 및 “Informational” 중 하나입니다. |
 | resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 다른 경고 유형의 경우 경고 자체가 포함된 리소스 그룹의 이름입니다. |
 | resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 다른 경고 유형의 경우 경고 자체에 대한 리소스 공급자 이름입니다. |
-| resourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 다른 경고 유형의 경우 경고 리소스 자체의 리소스 ID입니다. |
+| ResourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 다른 경고 유형의 경우 경고 리소스 자체의 리소스 ID입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
@@ -471,7 +471,7 @@ ms.locfileid: "60777392"
 | level |이벤트의 수준입니다. 해당 값은 “Critical”, “Error”, “Warning” 및 “Informational” 중 하나입니다. |
 | resourceGroupName |자동 크기 조정 설정의 리소스 그룹 이름입니다. |
 | resourceProviderName |자동 크기 조정 설정의 리소스 공급자 이름입니다. |
-| resourceId |자동 크기 조정 설정의 리소스 ID입니다. |
+| ResourceId |자동 크기 조정 설정의 리소스 ID입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
@@ -563,7 +563,7 @@ ms.locfileid: "60777392"
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |Azure Security Center의 리소스 공급자 이름입니다. 항상 "Microsoft.Security"입니다. |
 | resourceType |보안 이벤트를 생성한 리소스 유형(예: "Microsoft.Security/locations/alerts")입니다. |
-| resourceId |보안 경고의 리소스 ID입니다. |
+| ResourceId |보안 경고의 리소스 ID입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. 이러한 속성은 보안 경고 유형에 따라 다릅니다. Security Center에서 제공되는 경고 유형에 대한 설명은 [이 페이지](../../security-center/security-center-alerts-type.md)를 참조하세요. |
@@ -644,7 +644,7 @@ ms.locfileid: "60777392"
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
 | resourceType |이 권장 사항이 적용되는 리소스의 리소스 종류 이름(예: "MICROSOFT.COMPUTE/virtualmachines") |
-| resourceId |권장 사항이 적용되는 리소스의 리소스 ID입니다. |
+| ResourceId |권장 사항이 적용되는 리소스의 리소스 ID입니다. |
 | status | 항상 "활성" |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
@@ -760,7 +760,7 @@ ms.locfileid: "60777392"
 | resourceGroupName | 평가된 리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName | 평가된 리소스의 리소스 공급자 이름입니다. |
 | resourceType | 새 리소스의 경우 평가되는 형식입니다. 기존 리소스의 경우 "Microsoft.Resources/checkPolicyCompliance"를 반환합니다. |
-| resourceId | 평가된 리소스의 리소스 ID입니다. |
+| ResourceId | 평가된 리소스의 리소스 ID입니다. |
 | status | Policy 평가 결과의 상태를 설명하는 문자열입니다. 대부분의 Policy 평가는 "Succeeded"를 반환하지만 거부 적용은 "Failed"를 반환합니다. auditIfNotExists 또는 deployIfNotExists의 오류도 "Failed"를 반환합니다. |
 | subStatus | Policy 이벤트에 대한 필드가 비어 있습니다. |
 | submissionTimestamp | 이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
@@ -777,8 +777,8 @@ Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 
 
 | 진단 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
 | --- | --- | --- |
-| time | eventTimestamp |  |
-| resourceId | resourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
+| 실시간 | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
 | operationName | operationName.value |  |
 | category | 작업 이름의 일부 | 작업 유형 분류 - “쓰기”/“삭제”/“작업” |
 | resultType | status.value | |
@@ -798,6 +798,6 @@ Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 
 
 
 ## <a name="next-steps"></a>다음 단계
-* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../../azure-monitor/platform/activity-logs-overview.md)
-* [Azure 활동 로그를 Event Hubs로 스트림](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [활동 로그에 대한 자세한 내용](activity-logs-overview.md)
+* [Azure Storage 또는 Event Hubs에 활동 로그 내보내기](activity-log-export.md)
 

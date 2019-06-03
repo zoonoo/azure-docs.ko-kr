@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142969"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356993"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -26,7 +26,7 @@ Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure Analysis 테이�
 
 유효한 Azure Active Directory (OAuth 2) 토큰을 사용 하 여 모든 호출을 인증 되어야 합니다.  이 문서의 예제에에서는 SPN (서비스 사용자)를 사용 하 여 Azure Analysis Services에 인증할 수 됩니다.
 
-서비스 주체 만들기에 대 한 자세한 내용은 참조 하세요.
+서비스 주체 만들기에 대 한 자세한 내용은 참조 하세요 [Azure portal을 사용 하 여 서비스 주체를 만들려면](../active-directory/develop/howto-create-service-principal-portal.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,7 +39,7 @@ Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure Analysis 테이�
 
 2. 검색 표시줄에서 검색 **SqlServer**합니다.
 
-    ![모듈 검색](./media/analysis-services-refresh-azure-automation/1.png)
+    ![검색 모듈](./media/analysis-services-refresh-azure-automation/1.png)
 
 3. Sql Server를 선택한 다음 클릭 **가져오기**합니다.
  
@@ -136,7 +136,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 
 3. Data Factory에서 구성 된 **웹 작업**
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
    ![예제 웹 작업](./media/analysis-services-refresh-azure-automation/19.png)
 
@@ -145,11 +145,11 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 합니다 **본문** 은 다음 속성을 포함 하는 JSON 문서:
 
 
-|자산  |값  |
+|자산  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름 <br/> 예제: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabaseRefreshType**     |새로 고침 수행을 형식입니다. <br/> 예제: 전체 검사         |
+|**DatabaseRefreshType**     |새로 고침 수행을 형식입니다. <br/> 예제: 전체         |
 
 예제 JSON 본문:
 

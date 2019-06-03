@@ -7,18 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779226"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393847"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight의 ML Services 란
-
-> [!NOTE]  
-> 2017년 9월 Microsoft R Server가 **Microsoft Machine Learning Server** 또는 ML Server라는 새로운 이름으로 릴리스되었습니다. 이 때문에 HDInsight의 R Server 클러스터를 이제 HDInsight의 **Machine Learning Services** 또는 **ML Services**라고 합니다. R Server 이름 변경에 대한 자세한 내용은 [Microsoft R Server가 이제 Microsoft Machine Learning Server임](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server)을 참조하세요.
 
 Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services**라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
 

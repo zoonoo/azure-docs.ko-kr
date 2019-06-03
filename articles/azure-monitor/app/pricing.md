@@ -3,22 +3,22 @@ title: Azure Application Insights의 사용량 및 비용 관리 | Microsoft Doc
 description: Application Insights에서 원격 분석을 관리하고 비용을 모니터링합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254526"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357272"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -35,12 +35,12 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 ### <a name="data-volume-details"></a>데이터 볼륨 세부 정보
 
 * 데이터 볼륨은 Application Insights에서 받은 원격 분석의 바이트 수입니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [Analytics로 가져온 표 형식 데이터](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.
-* 이제 2018년 4월부터 애플리케이션의 데이터 볼륨 요금이 **데이터 수집**이라는 새로운 청구 미터에 보고됩니다. 이 새 미터는 Applications Insights 및 Log Analytics와 같은 모니터링 기술 간에 공유되며, 현재 서비스 이름 **Log Analytics** 아래에 있습니다. 
+* 이제 2018년 4월부터 애플리케이션의 데이터 볼륨 요금이 **데이터 수집**이라는 새로운 청구 미터에 보고됩니다. 이 새 미터 모니터링 Application Insights 및 Log Analytics와 같은 기술을 공유할 이며 현재 서비스 이름으로 **Log Analytics**합니다. 
 * [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정][pricing]을 참조하세요.
 
-### <a name="multi-step-web-tests"></a>다단계 웹 테스트
+### <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
 [다중 단계 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다.
 
@@ -132,57 +132,56 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 보존된 각 레코드에서 `itemCount`은 나타내는 원래 레코드 수를 나타냅니다. 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 
-## <a name="automation"></a>Automation
-
-Azure Resource Management를 사용하여 가격 계획을 설정하는 스크립트를 작성할 수 있습니다. [방법을 알아보세요](powershell.md#price).
-
 ## <a name="limits-summary"></a>제한 요약
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="disable-daily-cap-e-mails"></a>일일 상한도 이메일을 사용하지 않도록 설정
 
-일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 일일 상한 볼륨과 관련된 모든 이메일을 사용하지 않도록 설정하려면 확인란 선택을 취소합니다.
+일일 볼륨 상한 이메일을 사용하지 않도록 설정하려면 Application Insights 리소스의 **구성** 섹션 아래에 있는 **사용량 및 예상 비용** 창에서 **일일 상한**을 선택합니다. 상한에 도달할 때, 그리고 조정 가능한 경고 수준에 도달할 때 이메일을 보내는 설정이 있습니다. 볼륨 관련 모든 일일 한도 사용 하지 않도록 설정 하려는 경우 전자 메일 상자 모두 선택 취소 합니다.
 
-## <a name="legacy-enterprise-pricing-plan"></a>레거시 엔터프라이즈 가격 책정 요금제
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>가격 책정 계층 레거시 Enterprise (노드)
 
-초기에 Azure Application Insights를 도입한 경우 Basic 및 Enterprise의 두 가지 가격 책정 요금제가 있습니다. Basic 가격 책정 요금제는 위에 설명한 것과 동일한 기본 요금제입니다. 여기에는 추가 비용 없이 모든 Enterprise 계획 기능이 포함됩니다. Basic 계획에서는 기본적으로 수집된 데이터의 볼륨에 따라 비용이 청구됩니다. 
+Azure Application Insights의 초기 도입자에 대 한 가지 여전히 두 가지 가능한 가격 책정 계층 Basic 및 Enterprise의 두 가지 가격 책정 요금제가 있습니다. 기본 가격 책정 계층 위에서 설명한 것 처럼 동일한 이며 기본 계층입니다. 추가 비용 없이 모든 Enterprise 계층 기능을 포함합니다. 주로 수집 된 데이터 양에 따라 기본 계층 청구 합니다. 
 
-Enterprise 계획에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. Enterprise 가격 책정 계획에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 Enterprise 계획을 선택해야 합니다. 
+> [!NOTE]
+> 이러한 레거시 가격 책정 계층 변경 되었습니다. 엔터프라이즈 가격 책정 계층 이라고 **노드당** 가격 책정 계층은 Basic 라고 하 고 **GB 당**합니다. 아래 및 Azure portal에서 이러한 새 이름은 사용 합니다.  
+
+노드 (이전의 Enterprise) 계층에는 노드당 요금을 하 고 각 노드는 일일 데이터 허용량을 받습니다. 노드당 가격 책정 계층에 포함된 된 허용량 이상으로 수집 된 데이터에 대 한 요금이 청구 됩니다. Operations Management Suite를 사용 하는 경우 노드당 계층을 선택 해야 합니다. 
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요.
 
 > [!NOTE]
 > 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), 사용 패턴에 따라 [이 모델로 전환하는 영향을 평가](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model)하는 방법 및 [새 모델을 옵트인하는 방법](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)에 대해 자세히 알아봅니다.
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>엔터프라이즈 계획 및 Operations Management Suite 구독 자격
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>노드 계층 및 Operations Management Suite 구독 자격
 
-[전에 발표](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)된 대로 Operations Management Suite E1 및 E2를 구매하는 고객은 추가 비용 없이 Application Insights Enterprise를 추가 구성 요소로 얻을 수 있습니다. 특히, Operations Management Suite E1 및 E2의 각 구매 단위에는 Application Insights Enterprise 계획의 노드 1개에 대한 자격이 포함됩니다. 각 Application Insights 노드에는 매일 수집되는 데이터가 200MB까지 포함되고(Log Analytics 데이터 수집과 별도) 데이터는 추가 비용 없이 90일 간 보존됩니다. 계획은 문서에서 나중에 자세히 설명되어 있습니다. 
+Operations Management Suite E1 및 E2를 구매 하는 고객으로 추가 비용 없이 추가 구성 요소로 노드당 Application Insights를 가져올 수 있습니다 [발표](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)합니다. 특히, Operations Management Suite E1 및 E2의 각 단위에는 Application Insights 당 노드 계층의 노드 하나에 대 한 자격이 포함 됩니다. 각 Application Insights 노드에는 매일 수집되는 데이터가 200MB까지 포함되고(Log Analytics 데이터 수집과 별도) 데이터는 추가 비용 없이 90일 간 보존됩니다. 계층은이 문서의 뒷부분에 자세히 설명 되어 있습니다. 
 
-이 계획은 Operations Management Suite 구독이 있는 고객에게만 적용 가능하므로 Operations Management Suite 구독이 없는 고객에게는 이 계획을 선택하는 옵션이 표시되지 않습니다.
+이 계층을 Operations Management Suite 구독이 있는 고객에만 적용 되므로, Operations Management Suite 구독이 없는 고객은이 계층을 선택 하는 옵션이 표시 되지 않습니다.
 
 > [!NOTE]
-> 이 자격을 얻으려면 Enterprise 가격 계획에 Application Insights 리소스가 있어야 합니다. 이 자격은 노드로만 적용됩니다. Basic 계획의 Application Insights 리소스에는 이점이 없습니다. 이 자격은 **사용량 및 예상 비용** 창에 표시된 예상 비용에서 볼 수 없습니다. 또한 구독을 2018년 4월의 새 Azure 모니터링 가격 책정 모델로 이동하는 경우 Basic 계획은 사용할 수 있는 유일한 계획입니다. Operations Management Suite 구독이 있는 경우 새 Azure 모니터링 가격 책정 모델로 구독을 이동하는 것을 권장하지 않습니다.
+> 이 자격은 표시 하도록 Application Insights 리소스 당 노드 가격 책정 계층에에서 있어야 합니다. 이 자격은 노드로만 적용됩니다. GB 당 계층에서 application Insights 리소스는 이점이 없습니다. 이 자격은 **사용량 및 예상 비용** 창에 표시된 예상 비용에서 볼 수 없습니다. 또한 새 azure 모니터링 2018 년 4 월 가격 책정 모델로 구독을 이동 하는 경우는 GB 당 계층은 사용 가능한 유일한 계층입니다. Operations Management Suite 구독이 있는 경우 새 Azure 모니터링 가격 책정 모델로 구독을 이동하는 것을 권장하지 않습니다.
 
-### <a name="how-the-enterprise-plan-works"></a>Enterprise 계획의 작동 방식
+### <a name="how-the-per-node-tier-works"></a>노드당 계층의 작동 원리
 
-* Enterprise 계획의 모든 앱에 대한 원격 분석을 보내는 노드당 비용을 지불해야 합니다.
+* 노드당 계층의 모든 앱에 대 한 원격 분석을 전송 하는 각 노드에 대 한 비용을 지불 합니다.
   * *노드*는 앱을 호스트하는 실제/가상 서버 컴퓨터 또는 PaaS(Platform-as-a-Service) 역할 인스턴스입니다.
   * 개발 컴퓨터, 클라이언트 브라우저 및 모바일 디바이스는 노드로 계산되지 않습니다.
   * 원격 분석을 보내는 여러 구성 요소(예: 웹 서비스 및 백 엔드 작업자)가 앱에 있는 경우 해당 구성 요소는 개별적으로 집계됩니다.
   * [라이브 메트릭 스트림](../../azure-monitor/app/live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다. 구독에서 요금은 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
 * 요금이 매월 견적되지만 노드에서 앱의 원격 분석을 보내는 모든 시간에 대해서만 부과됩니다. 시간당 요금은 견적된 월별 요금을 744(한 달이 31일일 때 시간 수)로 나눈 것입니다.
 * 시간별로 감지되는 각 노드에 대해 1일 200MB의 데이터 볼륨 할당이 제공됩니다. 사용되지 않은 데이터 할당은 다음 날로 이월되지 않습니다.
-  * Enterprise 가격 책정 계획을 선택하면 각 구독은 해당 구독의 Application Insights 리소스에 원격 분석을 보내는 노드 수에 따라 일일 데이터 허용량을 받습니다. 따라서 하루 종일 데이터를 전송하는 5개의 노드가 있는 경우 해당 구독의 모든 Application Insights 리소스에 풀링된 1GB 허용량이 적용됩니다. 모든 노드에서 포함된 데이터를 공유하기 때문에 특정 노드에서 다른 노드보다 더 많은 데이터를 보내는 것은 중요하지 않습니다. 지정된 날에 Application Insights 리소스에서 해당 구독의 일일 데이터 할당에 포함된 것보다 많은 데이터를 받으면 GB당 초과 데이터 요금이 적용됩니다. 
+  * 노드당 가격 책정 계층을 선택 하면 각 구독은 해당 구독의 Application Insights 리소스에 원격 분석을 보내는 노드 수에 따라 데이터의 일일 허용량을 받습니다. 따라서 하루 종일 데이터를 전송하는 5개의 노드가 있는 경우 해당 구독의 모든 Application Insights 리소스에 풀링된 1GB 허용량이 적용됩니다. 모든 노드에서 포함된 데이터를 공유하기 때문에 특정 노드에서 다른 노드보다 더 많은 데이터를 보내는 것은 중요하지 않습니다. 지정된 된 날에 Application Insights 리소스를 받을 경우이 구독에 대 한 일일 데이터 할당에 포함 된 것 보다 더 많은 데이터를 GB 당 초과분 데이터 요금이 적용 됩니다. 
   * 일일 데이터 허용량은 각 노드에서 원격 분석을 보내는 날의 시간 수(UTC 사용)를 24로 나눈 값에 200MB를 곱해 계산합니다. 따라서 하루 24시간 중 15시간 동안 원격 분석을 보내는 4개의 노드가 있는 경우 해당일의 포함된 데이터는 ((4 x 15) / 24) x 200MB = 500MB가 됩니다. 데이터 초과분의 가격 조건이 GB당 2.30 달러일 때 노드에서 해당일 1GB의 데이터를 보내는 경우 요금은 1.15달러입니다.
-  * Enterprise 계획 일일 허용량은 기본 계획을 선택한 애플리케이션과는 공유되지 않습니다. 사용하지 않는 허용량은 다음 날로 넘어가지 않습니다. 
+  * 노드당 계층 일일 허용량은 GB 당 계층은 선택한 응용 프로그램과 공유 되지 않습니다. 사용하지 않는 허용량은 다음 날로 넘어가지 않습니다. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>고유 노드 수를 결정하는 방법 예제
 
 | 시나리오                               | 일일 총 노드 수 |
 |:---------------------------------------|:----------------:|
 | 1개 애플리케이션에서 3개 Azure App Service 인스턴스 및 1개 가상 서버를 사용합니다. | 4 |
-| 2개 VM에서 실행되는 3개 애플리케이션 및 이러한 애플리케이션의 Application Insights 리소스는 동일한 구독 및 Enterprise 계획에 있습니다. | 2 | 
+| 2 개 Vm에서 실행 되는 3 개 응용 프로그램 이러한 응용 프로그램에 대 한 Application Insights 리소스가 동일한 구독에 노드당 계층 | 2 | 
 | 4개의 애플리케이션은 해당 Application Insights 리소스가 같은 구독에 있고 각 애플리케이션은 사용률이 낮은 16시간 동안 2개의 인스턴스를 실행하고, 사용률이 최대로 높은 8시간 동안 4개의 인스턴스를 실행합니다. | 13.33 | 
 | 1개 작업자 역할 및 1개 웹 역할이 부여된 클라우드 서비스에서 각 역할마다 2개 인스턴스를 실행합니다. | 4 | 
 | 5개 노드 Azure Service Fabric 클러스터에서 50개의 마이크로 서비스를 실행하며 각 마이크로 서비스에서 3개의 인스턴스를 실행합니다. | 5|
@@ -192,6 +191,11 @@ Enterprise 계획에는 노드별 청구가 사용되며 각 노드는 일일 �
   * 이전 버전의 SDK에서는 [웹 SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)가 최신 SDK 버전과 마찬가지로 작동하지만, [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)는 애플리케이션 호스트 수에 관계 없이 하나의 노드만 보고합니다. 
   * 애플리케이션에서 SDK를 사용하여 **roleInstance**를 사용자 지정 값으로 설정하는 경우 기본적으로 이 동일한 값이 노드 수를 결정하는 데 사용됩니다. 
   * 클라이언트 컴퓨터 또는 모바일 디바이스에서 실행되는 앱과 함께 새 SDK 버전을 사용하는 경우, 노드 계산 시 매우 큰 숫자가 반환될 수 있습니다(클라이언트 컴퓨터 또는 모바일 디바이스 수가 많으므로). 
+
+## <a name="automation"></a>Automation
+
+Azure 리소스 관리를 사용 하 여 가격 책정 계층을 설정 하는 스크립트를 작성할 수 있습니다. [방법을 알아보세요](powershell.md#price).
+
 
 ## <a name="next-steps"></a>다음 단계
 

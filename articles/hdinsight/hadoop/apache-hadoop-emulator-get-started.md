@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697415"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393144"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Apache Hadoop 샌드박스를 가상 컴퓨터에서 에뮬레이터를 사용 하 여 시작
 
@@ -24,19 +24,16 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 * [Oracle VirtualBox](https://www.virtualbox.org/) [여기](https://www.virtualbox.org/wiki/Downloads)에서 다운로드하여 설치합니다.
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>가상 컴퓨터 다운로드 및 설치
-1. [Hortonworks 다운로드](https://hortonworks.com/downloads/#sandbox)로 이동합니다.
+1. 로 이동 합니다 [Cloudera 다운로드](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html)합니다.
 
-2. **VIRTUALBOX용 다운로드**를 클릭하여 VM 기반 최신 Hortonworks 샌드박스를 다운로드합니다. 다운로드가 시작되기 전에 Hortonworks에 등록하라는 메시지가 표시됩니다. 네트워크 속도에 따라 다운로드하는 데 1 ~ 2 시간이 걸립니다.
+2. 클릭 **VIRTUALBOX** 아래에서 **설치 유형 선택** VM 기반 최신 Hortonworks 샌드박스를 다운로드 합니다. 에 로그인 하거나 제품 관련 양식을 작성 합니다.
 
-    ![VirtualBox에 대한 Hortonworks Sandbox를 다운로드용 링크 이미지](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. 동일한 웹 페이지에서 **Virtual Box에서 가져오기** 링크를 클릭하여 가상 머신에 대한 설치 지침이 포함된 PDF를 다운로드합니다.
+1. 단추를 클릭 **HDP 샌드박스 (최신)** 다운로드를 시작 합니다.
 
-이전 HDP 버전 샌드박스를 다운로드하려면 보관 저장소를 확장하세요.
+샌드박스 설정에 대 한 지침을 참조 하세요 [샌드박스 배포 및 설치 가이드](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/)합니다.
 
-![Hortonworks 샌드박스 보관](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+이전 HDP 버전 샌드박스를 다운로드 하려면 아래 링크를 참조 하세요 **이전 버전**합니다.
 
 ## <a name="start-the-virtual-machine"></a>가상 머신 시작합
 

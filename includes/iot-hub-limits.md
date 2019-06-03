@@ -5,15 +5,15 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150315"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238512"
 ---
 다음 표에서 각 서비스 계층 S1, S2, S3 및 F1와 관련 된 한도 나열 합니다. 각각의 비용에 대 한 자세한 *단위* 각 계층에서 참조 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)합니다.
 
-| 리소스 | S1 표준 | S2 표준 | S3 표준 | F1 무료 |
+| Resource | S1 표준 | S2 표준 | S3 표준 | F1 무료 |
 | --- | --- | --- | --- | --- |
 | 메시지 수/1일 |400,000 |6,000,000 |300,000,000 |8,000 |
 | 최대 단위 |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ ms.locfileid: "65150315"
 
 다음 표에서 IoT Hub 리소스에 적용 되는 제한을 나열 합니다.
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 | --- | --- |
 | Azure 구독당 최대 유료 IoT Hub |50 |
 | Azure 구독당 최대 무료 IoT Hub |1 |

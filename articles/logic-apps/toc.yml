@@ -25,6 +25,8 @@
   items:
     - name: Logic Apps용 커넥터
       href: ../connectors/apis-list.md
+    - name: 자동화된 반복 워크플로 예약
+      href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Azure와 함께 서버를 사용하지 않음
       href: logic-apps-serverless-overview.md
     - name: B2B 통합 & EDI 처리
@@ -179,6 +181,8 @@
           href: logic-apps-create-api-app.md
         - name: DB2
           href: ../connectors/connectors-create-api-db2.md
+        - name: 지연
+          href: ../connectors/connectors-native-delay.md
         - name: Dropbox
           href: ../connectors/connectors-create-api-dropbox.md
         - name: Dynamics 365 CRM Online
@@ -235,6 +239,8 @@
           href: ../connectors/connectors-create-api-outlook.md
         - name: Project Online
           href: ../connectors/connectors-create-api-projectonline.md
+        - name: 되풀이
+          href: ../connectors/connectors-native-recurrence.md
         - name: 요청/응답
           href: ../connectors/connectors-native-reqres.md
         - name: RSS
@@ -245,8 +251,6 @@
           href: logic-apps-using-sap-connector.md
         - name: SAP
           href: logic-apps-using-sap-connector-old.md
-        - name: 일정
-          href: ../connectors/connectors-native-recurrence.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
         - name: SFTP
@@ -257,6 +261,8 @@
           href: ../connectors/connectors-create-api-sharepoint.md
         - name: Slack
           href: ../connectors/connectors-create-api-slack.md
+        - name: 슬라이딩 윈도우
+          href: ../connectors/connectors-native-sliding-window.md
         - name: SMTP
           href: ../connectors/connectors-create-api-smtp.md
         - name: SQL Server

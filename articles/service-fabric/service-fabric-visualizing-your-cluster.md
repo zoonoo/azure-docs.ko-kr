@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 358ebfa601ff8e4d2fb6ae91e51516cb0a933af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716577"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306687"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -61,7 +61,7 @@ Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인�
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.
 
-보안 클러스터에 연결하려는 경우 클러스터의 구성에 따라 클라이언트 인증서를 제시하거나 AAD를 사용하여 로그인해야 합니다.
+보안 클러스터에 연결 하려고 하면 다음 클러스터의 구성에 따라 해야 클라이언트 인증서를 제시 하거나 AAD를 사용 하 여 로그인 합니다.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>서비스 패브릭 탐색기 레이아웃 이해
 왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.

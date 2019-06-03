@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920509"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418173"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 로그인 페이지에 대 한 홈 영역 검색
 
@@ -32,19 +32,19 @@ ms.locfileid: "64920509"
 
 이 작업의 또 다른 이점은 향상 된 오류 메시지입니다. Azure Active Directory 사용자만 지 원하는 응용 프로그램에 로그인 할 때 메시징 향상 된 오류의 몇 가지 예는 다음과 같습니다.
 
-1. 사용자를 잘못 입력 하거나 사용자 이름은 아직 Azure AD에 동기화 되지 않았습니다.
+- 사용자를 잘못 입력 하거나 사용자 이름은 아직 Azure AD에 동기화 되지 않았습니다.
   
     ![사용자 이름은 잘못 입력 되었거나 찾을 수 없음](./media/signin-realm-discovery/typo-username.png)
   
-2. 도메인 이름은 잘못 입력 됩니다.
+- 도메인 이름은 잘못 입력 됩니다.
   
     ![도메인 이름은 잘못 입력 되었거나 찾을 수 없음](./media/signin-realm-discovery/typo-domain.png)
   
-3. 사용자가 알려진된 소비자 도메인을 사용 하 여 로그인 하려고 합니다.
+- 사용자가 알려진된 소비자 도메인을 사용 하 여 로그인 하려고 합니다.
   
     ![알려진된 소비자 도메인으로 로그인](./media/signin-realm-discovery/consumer-domain.png)
   
-4. 암호를 잘못 입력 이지만 사용자 이름을 정확 하 게 합니다.  
+- 암호를 잘못 입력 이지만 사용자 이름을 정확 하 게 합니다.  
   
     ![암호는 적절 한 사용자 이름으로 잘못 입력](./media/signin-realm-discovery/incorrect-password.png)
   

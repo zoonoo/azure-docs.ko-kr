@@ -64,7 +64,7 @@ sections:
             href: Quickstarts/create-new-kb-go
           - image:
               src: media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: Quickstarts/create-new-kb-java
           - image:
               src: media/index/logo_nodejs.svg

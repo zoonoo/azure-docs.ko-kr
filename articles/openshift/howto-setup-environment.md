@@ -3,18 +3,18 @@ title: Azure Red Hat OpenShift 개발 환경 설정 | Microsoft Docs
 description: Microsoft Azure의 Red Hat OpenShift를 사용 하 여 작업에 대 한 필수 구성 요소는 다음과 같습니다.
 services: openshift
 keywords: red hat openshift 설정 설정
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962129"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306396"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -65,31 +65,43 @@ az --version
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Microsoft.ContainerService openshiftmanagedcluster 기능을 등록 합니다.
+1. Microsoft.ContainerService openshiftmanagedcluster 기능을 등록 합니다.
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
     ```
 
-3. Microsoft.Solutions 공급자를 등록 합니다.
+1. Microsoft.Storage 공급자를 등록 합니다.
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Microsoft.Compute 공급자를 등록 합니다.
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Microsoft.Solutions 공급자를 등록 합니다.
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Microsoft.Network 공급자를 등록 합니다.
+1. Microsoft.Network 공급자를 등록 합니다.
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Microsoft.KeyVault 공급자를 등록 합니다.
+1. Microsoft.KeyVault 공급자를 등록 합니다.
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
+1. Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

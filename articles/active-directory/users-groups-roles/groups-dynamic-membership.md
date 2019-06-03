@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192444"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397872"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 * 자산
 * 연산자
-* 값
+* Value
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
 
@@ -60,22 +60,22 @@ user.department -eq "Sales"
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-* Boolean
-* String
+* BOOLEAN
+* 문자열
 * 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
@@ -86,7 +86,7 @@ user.department -eq "Sales"
 | facsimileTelephoneNumber |임의의 문자열 값 또는 *null*입니다. |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
-| mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
+| 메일 |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -106,7 +106,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| properties | 허용되는 값 | 사용 현황 |
+| properties | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 | 다음으로 시작 안 함 |-notStartsWith |
 | 시작 |-startsWith |
 | 포함하지 않음 |-notContains |
-| contains |-contains |
+| 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
 | 그런 다음 | -in |
@@ -231,7 +231,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| properties | 값 | 사용 현황 |
+| properties | 값 | 사용 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -353,7 +353,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Company")
- domainName | 임의의 문자열 값입니다. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple 디바이스 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 * [새 그룹을 만들고 멤버 추가](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [그룹의 설정 관리](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 자격 관리](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [그룹의 사용자에 대한 동적 규칙 관리](groups-dynamic-membership.md)
+* [그룹의 사용자에 대한 동적 규칙 관리](groups-create-rule.md)

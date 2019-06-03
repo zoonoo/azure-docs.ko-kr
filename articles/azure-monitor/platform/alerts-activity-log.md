@@ -1,18 +1,18 @@
 ---
-title: Azure Monitor에서 활동 로그 경고 만들기, 보기 및 관리
-description: Azure Portal, 리소스 템플릿 및 PowerShell에서 활동 로그 경고를 만드는 방법.
+title: 만들고, Azure Monitor의 로그 경고 보기 및 관리 작업
+description: Azure portal는 Azure Resource Manager 템플릿 및 Azure PowerShell을 사용 하 여 활동 로그 경고를 만드는 방법입니다.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130136"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244949"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -59,9 +59,9 @@ ms.locfileid: "66130136"
      **경고 대상 샘플 보기**
      ![대상 선택](media/alerts-activity-log/select-target.png)
 
-   - **대상 조건** 아래에서 **조건 추가**를 클릭하면 **서비스 모니터링** 이름에 범주 이름이 추가된 다양한 범주의 **활동 로그** 신호를 비롯하여 대상에 사용할 수 있는 모든 신호가 표시됩니다.
+   - 아래 **대상 조건**, 클릭 **조건 추가** 대상에 대 한 모든 사용 가능한 신호의의 다양 한 범주를 포함 하 여 표시 됩니다 **활동 로그**; 범주 이름 추가 **Monitor 서비스** 이름입니다.
 
-   - **활동 로그** 유형에 대해 가능한 다양한 작업에 대해 표시된 목록에서 신호를 선택합니다.
+   - 형식에 대 한 가능한 다양 한 작업의 표시 된 목록에서 신호를 선택 **활동 로그**합니다.
 
      이 대상 신호에 대한 로그 기록 타임라인 및 해당 경고 논리를 선택할 수 있습니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "66130136"
     규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. 활동 로그 규칙 관리에 대해 자세히 알아보세요.
 
 
-활동 로그에 경고 규칙을 만들 수 있는 조건을 이해하기 위한 간단한 비유는 [Azure Portal의 Activity Log](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하거나 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 그런 다음, 위의 자습서에 설명된 대로 4단계를 수행합니다.
+또는 활동 로그 경고 규칙을 만들 수는 이해 조건에 대 한 간단한 비유를 탐색 하거나 이벤트를 통해 필터링 [Azure portal에서 활동 로그](activity-log-view.md#azure-portal)합니다. Azure Monitor-활동 로그의에서 하나 수 필터링 필요한 이벤트 찾기 및 사용 하 여 경고를 만든 합니다 **활동 로그 경고 추가** 단추; 다음 4 단계부터 위의 자습서에 명시 된 대로 합니다.
     
  ![ 활동 로그에서 경고 추가](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ ms.locfileid: "66130136"
 > 새로운 활동 로그 경고 규칙이 활성화되는 데에는 최대 5분이 걸릴 수 있습니다.
 
 ## <a name="rest-api"></a>REST API 
-[Azure Monitor - 활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
+[Azure Monitor-활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) REST API 및 Azure Resource Manager REST API와 완전히 호환 됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
 
 ## <a name="powershell"></a>PowerShell
 

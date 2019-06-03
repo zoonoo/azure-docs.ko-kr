@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921919"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389959"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -44,6 +44,8 @@ Azure Sentinel CEF 어플라이언스에서 사이의 연결에는 세 단계로
 2. Syslog 에이전트 데이터를 수집 및 안전 하 게 구문 분석 되 고 보강 한 Log Analytics로 보냅니다.
 3. 에이전트는 분석, 상관 관계 규칙 및 대시보드를 사용 하 여 필요에 따라 쿼리할 수 있도록 Log Analytics 작업 영역에서 데이터를 저장 합니다.
 
+> [!NOTE]
+> 에이전트가 여러 원본에서 로그를 수집할 수 있지만 전용된 프록시 컴퓨터에 설치 해야 합니다.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>1단계: CEF 어플라이언스를 통해 전용된 Azure VM에 연결
 
@@ -61,7 +63,7 @@ Azure Sentinel CEF 어플라이언스에서 사이의 연결에는 세 단계로
 1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다. 
 
 1. 아래 **Linux Syslog 에이전트 구성을**:
-   - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 되는 전용된 Linux VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 Vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
+   - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 된 전용된 Linux VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 Vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
       1. 에 **사용자 지정 배포** 페이지에서 세부 정보 제공 및 사용자 이름 및 암호를 선택 하 고 사용 약관에 동의 하는 경우 VM을 구입 합니다.
       1. 연결 페이지에서 나열 된 설정을 사용 하 여 로그를 전송 하기 위해 어플라이언스를 구성 합니다. 제네릭 일반적인 이벤트 형식 커넥터에 대해 이러한 설정을 사용 합니다.
          - Protocol = UDP
@@ -118,6 +120,13 @@ Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도�
   
  Log Analytics에서 관련 스키마를 사용 하 여 CEF 이벤트를 검색 `CommonSecurityLog`합니다.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>2단계: Syslog 에이전트에 이벤트 CEF (일반적인 형식) 로그 전달
+
+CEF 형식의 Syslog 에이전트 Syslog 메시지 보내기에 보안 솔루션을 설정 합니다. 에이전트 구성에서 나타나는 동일한 매개 변수를 사용 해야 합니다. 일반적으로 다음과 같습니다.
+
+- 포트 514
+- 시설 local4
+
 ## <a name="step-3-validate-connectivity"></a>3단계: 연결 유효성 검사
 
 수준도 로그를 Log Analytics에 나타나기 시작 될 때까지 20 분 정도 걸릴 수 있습니다. 
@@ -128,7 +137,7 @@ Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도�
 
 3. 보낼 로그를 준수 하는지 확인 [RFC 5424](https://tools.ietf.org/html/rfc542)합니다.
 
-4. 컴퓨터의 Syslog 에이전트를 실행 해야 이러한 포트 514, 25226 열고 명령을 사용 하 여 수신 `netstat -a -n:`합니다. 이 명령을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [netstat(8)-Linux 매뉴얼 페이지](https://linux.die.netman/8/netstat)합니다. 제대로 수신 중인 경우이 표시 됩니다.
+4. 컴퓨터의 Syslog 에이전트를 실행 해야 이러한 포트 514, 25226 열고 명령을 사용 하 여 수신 `netstat -a -n:`합니다. 이 명령을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [netstat(8)-Linux 매뉴얼 페이지](https://linux.die.net/man/8/netstat)합니다. 제대로 수신 중인 경우이 표시 됩니다.
 
    ![Azure Sentinel 포트](./media/connect-cef/ports.png) 
 

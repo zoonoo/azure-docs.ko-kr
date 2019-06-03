@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538328"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397848"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Azure Application Gateway 세션 선호도 문제 해결
 
@@ -86,7 +86,7 @@ Application gateway 세션 기반 선호도 쿠키를 사용 하 여 수행할 �
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 응용 프로그램 계속 회신 도달할 때까지 각 요청에 쿠키를 설정 하려고 시도 합니다.
 
@@ -96,7 +96,7 @@ Application gateway 세션 기반 선호도 쿠키를 사용 하 여 수행할 �
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결 하려면 FQDN을 사용 하 여 Application Gateway에 액세스 해야 합니다. 사용 예를 들어 [ http://website.com ](https://website.com/) 하거나 [ http://appgw.website.com ](http://appgw.website.com/) 합니다.
+이 이슈를 해결하려면 FQDN을 사용하여 Application Gateway에 액세스해야 합니다. 사용 예를 들어 [ http://website.com ](https://website.com/) 하거나 [ http://appgw.website.com ](http://appgw.website.com/) 합니다.
 
 ## <a name="additional-logs-to-troubleshoot"></a>문제를 해결 하려면 추가 로그
 
@@ -167,23 +167,23 @@ Azure Portal을 통한 로깅 사용
 
 2. 설치 실행 파일을 마우스 오른쪽 단추로 클릭 하 고 설치 하려면 관리자 권한으로 실행 합니다.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Fiddler를 열 때 자동으로 시작 (이때 왼쪽 아래 모서리에 있는 캡처) 트래픽 캡처. F12 키를 눌러 시작 또는 트래픽 캡처를 중지 합니다.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. 대부분의 경우 암호 해독 된 HTTPS 트래픽의 경우 관심이 해야 하 고 HTTPS 암호 해독을 선택 하 여 설정할 수 있습니다 **도구가** > **Fiddler 옵션**, 확인란을 선택 하 고 " **암호 해독 HTTPS 트래픽을**"입니다.
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. 클릭 하 여 문제를 재현 하기 전에 이전 관련이 없는 세션을 제거할 수 있습니다 **X** (아이콘) > **모두 제거** 따르는 스크린 샷: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. 선택 하 여 문제를 재현 한 후 저장 파일을 검토 **파일** > **저장** > **모든 세션...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. 확인 하 고 문제를 확인 하려면 세션 로그를 분석 합니다.
 
@@ -194,11 +194,11 @@ Azure Portal을 통한 로깅 사용
    > [!NOTE]
    > 이 ARRAffinity 값 쿠키 id이 고, 특정 백 엔드 서버에 보낼 클라이언트에 대 한 응용 프로그램 게이트웨이 설정 하는 경우
 
-    ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![troubleshoot-session-affinity-issues-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **예 2:** 다음 세션 로그를 이전 클라이언트는 ARRAAFFINITY 설정한 응용 프로그램 게이트웨이 다시 응답할 것 옵니다. ARRAffinity 쿠키 id를 일치 하는 경우 이전에 사용 했던 동일한 백 엔드 서버에 패킷을 전송 되어야 합니다. Http 통신 클라이언트의 ARRAffinity 쿠키 변경 되 고 있는지 여부를 확인 하려면 다음 몇 줄을 확인 합니다.
 
-    ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![troubleshoot-session-affinity-issues-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > 동일한 통신 세션에 대 한 쿠키를 변경 하지 않도록 해야 합니다. "쿠키" 탭을 선택 하는지 여부를 확인 클라이언트 쿠키를 사용 하 여 응용 프로그램 게이트웨이 다시 보내기, 오른쪽 맨 위에 있는 상자를 확인 합니다. 그러지 않으면 클라이언트 브라우저 유지 아니며 쿠키를 사용 하 여 대화에 대 한 합니다. 경우에 따라 클라이언트가 있을 수 있습니다.
