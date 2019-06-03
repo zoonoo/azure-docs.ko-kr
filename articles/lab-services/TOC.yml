@@ -205,6 +205,8 @@
               href: devtest-lab-announcements.md
             - name: 랩에 지원 정보 추가
               href: devtest-lab-internal-support-message.md
+            - name: Azure DevTest Labs에서 공유 이미지 갤러리 구성
+              href: configure-shared-image-gallery.md
         - name: 사용자 지정 이미지 또는 수식 선택
           href: devtest-lab-comparing-vm-base-image-types.md
         - name: 사용자 지정 이미지 관리

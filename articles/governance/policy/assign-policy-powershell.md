@@ -55,9 +55,9 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-이전 명령은 다음 정보를 사용합니다.
+이 명령은 다음 정보를 사용합니다.
 
-- **이름** - 할당의 실제 이름입니다. 이 예의 경우 *audit-vm-manageddisks*가 사용되었습니다.
+- **이름** - 할당의 실제 이름입니다. 이 예제에서는 *audit-vm-manageddisks*가 사용되었습니다.
 - **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다. 
 - **정의** – 할당을 만드는 데 기준으로 사용되는 정책 정의입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다. 
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 리소스 그룹의 이름으로 &lt;범위&gt;를 바꿉니다.

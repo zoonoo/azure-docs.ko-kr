@@ -1,7 +1,7 @@
 ---
-title: 이미지 형식 검색 - Computer Vision
+title: 이미지 유형 감지 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API의 이미지 형식 검색 기능과 관련된 개념입니다.
+description: Computer Vision API의 이미지 유형 감지 기능과 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57895450"

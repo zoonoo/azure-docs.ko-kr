@@ -30,7 +30,7 @@ LargePersonGroup과 LargeFaceList는 총괄하여 대규모 작업이라고 합�
 
 ## <a name="step-1-initialize-the-client-object"></a>1단계: 클라이언트 개체 초기화
 
-Face API 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+Face API 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예:
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
@@ -44,7 +44,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 
 ## <a name="step-2-code-migration"></a>2단계: 코드 마이그레이션
 
-이 섹션에서는 PersonGroup 또는 FaceList 구현을 LargePersonGroup 또는 LargeFaceList로 마이그레이션하는 방법에 중점을 둡니다. LargePersonGroup 또는 LargeFaceList는 디자인 및 내부 구현에서 PersonGroup 또는 FaceList와 다르지만, API 인터페이스가 이전 버전과의 호환성 측면에서 비슷합니다.
+이 섹션에서는 PersonGroup 또는 FaceList 구현을 LargePersonGroup 또는 LargeFaceList로 마이그레이션하는 방법에 중점을 둡니다. LargePersonGroup/LargeFaceList는 디자인 및 내부 구현에서 PersonGroup/FaceList와 다르지만 API 인터페이스는 이전 버전과의 호환성을 위해 유사합니다.
 
 데이터 마이그레이션은 지원되지 않습니다. 대신 LargePersonGroup 또는 LargeFaceList를 다시 만듭니다.
 

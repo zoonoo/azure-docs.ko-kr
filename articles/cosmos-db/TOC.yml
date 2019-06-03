@@ -210,6 +210,8 @@
         - name: 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
+        - name: 보안 특성
+          href: cosmos-db-security-attributes.md
     - name: 엔터프라이즈 준비
       items:
         - name: 온라인 백업 및 주문형 복원
