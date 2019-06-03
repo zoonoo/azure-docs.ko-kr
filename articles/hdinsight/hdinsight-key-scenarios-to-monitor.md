@@ -1,19 +1,19 @@
 ---
 title: 클러스터 성능 모니터링 - Azure HDInsight
 description: HDInsight 클러스터의 용량 및 성능을 모니터링하는 방법을 설명합니다.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.author: hrasheed
+ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799799"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393407"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 
@@ -29,9 +29,9 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 | 색 | 설명 |
 | --- | --- |
-| 빨간색 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | 주황색 | 호스트에서 적어도 하나의 보조 구성 요소는 중단 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
-| 노란색 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
+| 노랑 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
 | 녹색 | 정상적인 실행 상태입니다. |
 
 또한 각 호스트의 코어 수와 RAM 양, 디스크 사용량 및 로드 평균을 보여주는 열이 표시됩니다.

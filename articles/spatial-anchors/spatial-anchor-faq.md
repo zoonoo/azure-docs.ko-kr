@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964560"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304179"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -57,7 +57,7 @@ Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에서 다중 사
 
 Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) 및 [Microsoft 개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409)을 준수합니다.
 
-![환경 및 파생된 해당 스파스 지점 클라우드](./media/sparce-point-cloud.png)
+![환경 및 파생된 해당 스파스 지점 클라우드](./media/sparse-point-cloud.png)
 *그림 1: 환경 및 파생된 해당 스파스 지점 클라우드*
 
 

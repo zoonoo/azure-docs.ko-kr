@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794704"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299223"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 
@@ -60,12 +60,12 @@ ms.locfileid: "65794704"
 
    명령 출력은 다음과 같이 나타납니다.
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>`는 구독 ID입니다.
 
-    기능 이름이 표시 되지 않으면 `Microsoft.NetApp/publicPreviewADC`, 서비스에 대 한 액세스 권한이 없습니다. 이 단계에서 중지 합니다. 지침에 따라 [서비스에 액세스 하기 위한 대기 요청을 제출](#waitlist) 계속 하기 전에 서비스 액세스를 요청 합니다. 
+    기능 이름이 표시 되지 않으면 `Microsoft.NetApp/ANFGA`, 서비스에 대 한 액세스 권한이 없습니다. 이 단계에서 중지 합니다. 지침에 따라 [서비스에 액세스 하기 위한 대기 요청을 제출](#waitlist) 계속 하기 전에 서비스 액세스를 요청 합니다. 
 
 4. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자를 등록합니다. 
     

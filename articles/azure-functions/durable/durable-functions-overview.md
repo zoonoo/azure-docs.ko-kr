@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816099"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872802"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -43,13 +43,13 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 
 Durable Functions는 현재 다음 언어를 지원합니다.
 
-* **C#**: [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
-* **F#**: 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
+* **C#** : [미리 컴파일된 클래스 라이브러리](../functions-dotnet-class-library.md) 및 [C# 스크립트](../functions-reference-csharp.md) 모두
+* **F#** : 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
 
 Durable Functions는 모든 [Azure Functions 언어](../supported-languages.md)를 지원하는 것을 목표로 합니다. 추가 언어를 지원하기 위한 최신 작업 상태는 [Durable Functions 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)를 참조하세요.
 
-Azure Functions와 마찬가지로 [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) 및 [Azure Portal](durable-functions-create-portal.md)을 사용하여 Durable Functions를 개발하는 데 도움이 되는 템플릿이 있습니다.
+Azure Functions와 마찬가지로 [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md) 및 [Azure Portal](durable-functions-create-portal.md)을 사용하여 Durable Functions를 개발하는 데 도움이 되는 템플릿이 있습니다.
 
 ## <a name="billing"></a>결제
 
@@ -59,7 +59,7 @@ Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자
 
 다음 언어별 빠른 시작 자습서 중 하나를 완료하여 10분 이내에 Durable Functions를 시작할 수 있습니다.
 
-* [Visual Studio 2017을 사용하는 C#](durable-functions-create-first-csharp.md)
+* [Visual Studio 2019를 사용하는 C#](durable-functions-create-first-csharp.md)
 * [Visual Studio Code를 사용하는 JavaScript](quickstart-js-vscode.md)
 
 두 빠른 시작에서는 “hello world” 지속성 함수를 로컬에서 만들고 테스트합니다. 그런 후 함수 코드를 Azure에 게시합니다. 생성한 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다.

@@ -1,30 +1,30 @@
 ---
-title: '빠른 시작: Power BI에서 가져온 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화 '
-description: 이 빠른 시작에서는 Power BI에서 데이터를 시각화하기 위한 세 가지 옵션 중 하나인 Azure Data Explorer에서 쿼리를 가져오는 방법을 알아봅니다.
+title: 'Power BI에서 가져온 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화 '
+description: '이 문서에서는 Power BI에서 데이터를 시각화에 대 한 세 가지 옵션 중 하나를 사용 하는 방법을 알아봅니다: Azure 데이터 탐색기에서 쿼리를 가져올 수 있습니다.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050591"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399330"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>빠른 시작: Power BI로 가져온 쿼리를 사용하여 데이터 시각화
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Power BI로 가져온 쿼리를 사용하여 데이터 시각화
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다.
 
-Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 빠른 시작에서는 Power BI 보고서로 데이터를 가져온 후 시각화할 수 있도록 쿼리를 가져오는 방법을 보여 줍니다.
+Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 데이터를 가져와 Power BI 보고서에서 시각화 수 있도록 쿼리를 가져오는 방법을 보여 줍니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+이 문서를 완료 하려면 다음이 필요 합니다.
 
 * [Azure Data Explorer 도움말 클러스터](https://dataexplorer.azure.com/clusters/help/databases/samples)에 연결하기 위한 Active Directory 디렉터리의 구성원인 조직 이메일 계정
 
@@ -78,9 +78,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 보고서가 더 이상 필요하지 않은 경우 Power BI Desktop(.pbix) 파일을 삭제합니다.
+이 문서에 대해 작성 된 보고서를 더 이상 해야 하는 경우 Power BI Desktop (.pbix) 파일을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Power BI에서 가져온 쿼리를 사용하여 데이터 시각화](power-bi-sql-query.md)
+[Power BI에서 가져온된 쿼리를 사용 하 여 데이터 시각화](power-bi-sql-query.md)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236588"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245013"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portal을 사용 하 여 공유 이미지 갤러리 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "65236588"
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
-| 리소스 | 설명|
+| Resource | 설명|
 |----------|------------|
 | **관리되는 이미지** | 이는 단독으로 사용하거나 이미지 갤러리에 **이미지 버전**을 만드는 데 사용할 수 있는 기본 이미지입니다. 관리되는 이미지는 일반화된 VM에서 생성됩니다. 관리되는 이미지는 여러 VM을 만드는 데 사용할 수 있는 특수한 유형의 VHD로, 이제 공유 이미지 버전을 만드는 데 사용할 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
@@ -67,6 +67,7 @@ ms.locfileid: "65236588"
 1. 아래에 있는 VM에 원격 액세스를 허용 하려는 경우 **공용 인바운드 포트**, 선택 **선택한 포트를 허용** 선택한 후 **RDP (3389)** 드롭다운 목록에서. VM에 원격 액세스를 허용 하지 않으려는 경우 둡니다 **None** 에 대 한 선택한 **공용 인바운드 포트**합니다.
 1. 작업을 완료 하는 경우 선택 합니다 **검토 + 만들기** 페이지의 맨 위에 있는 단추입니다.
 1. VM이 유효성 검사를 통과 한 후 선택 **만들기** 배포를 시작 하려면 페이지 맨 아래에 있습니다.
+
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

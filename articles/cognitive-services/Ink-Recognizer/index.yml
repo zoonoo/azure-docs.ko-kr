@@ -44,7 +44,7 @@ sections:
             title: 'C#'
           - image:
               src: media/index/logo-java.svg
-            title: 자바
+            title: Java
           - image:
               src: media/index/logo-js.svg
             title: JavaScript

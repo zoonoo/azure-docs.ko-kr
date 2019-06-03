@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39b2e4f37abe77439410fa4a83e06a0ca7941787
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471522"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397989"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
 
@@ -30,8 +30,8 @@ ms.locfileid: "61471522"
 
 장애 조치(Failover) 및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 
-1. **보조 사이트로 장애 조치(failover)**: 주 사이트에서 보조 사이트로 머신을 장애 조치(failover)합니다.
-2. **보조 사이트에서 장애 복구(failback)**: VM을 보조 사이트에서 주 사이트로 복제하고, 예정된 장애 조치(failover)를 실행하여 장애 복구(failback)합니다.
+1. **보조 사이트로 장애 조치(failover)** : 주 사이트에서 보조 사이트로 머신을 장애 조치(failover)합니다.
+2. **보조 사이트에서 장애 복구(failback)** : VM을 보조 사이트에서 주 사이트로 복제하고, 예정된 장애 조치(failover)를 실행하여 장애 복구(failback)합니다.
 3. 예정된 장애 조치(Failover) 후에는 선택적으로 주 사이트에서 보조 사이트로 복제가 다시 시작됩니다.
 
 

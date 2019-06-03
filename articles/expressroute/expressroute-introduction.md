@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9b13c57728c43e02f7ebf9d7730d82d681f5fc1f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139557"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965868"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
 ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -59,8 +59,11 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 
 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft에 연결하는 경우 북유럽 및 서유럽에서 호스팅되는 모든 Microsoft Cloud Services에 액세스합니다. 지정학적 지역, 연관된 Microsoft 클라우드 지역 및 해당 ExpressRoute 피어링 위치에 대한 개요는 [ExpressRoute 파트너 및 피어링 위치](expressroute-locations.md) 문서를 참조하세요.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>ExpressRoute 프리미엄 추가 기능으로 전역 연결
-ExpressRoute 프리미엄 부가 기능을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 유럽 북부 및 유럽 서부 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
+### <a name="global-connectivity-with-expressroute-premium"></a>ExpressRoute 프리미엄을 통한 글로벌 연결
+[ExpressRoute 프리미엄](expressroute-faqs.md)을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 유럽 북부 및 유럽 서부 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
+
+### <a name="local-connectivity-with-expressroute-local"></a>ExpressRoute Local을 통한 로컬 연결
+원하는 Azure 지역 근처의 ExpressRoute 위치로 데이터를 가져올 수 있는 경우 [Local SKU](expressroute-faqs.md)를 활성화하여 효율적 비용으로 데이터를 전송할 수 있습니다. 로컬에서 데이터 전송은 ExpressRoute 포트 요금에 포함됩니다. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>ExpressRoute Global Reach를 사용한 온-프레미스 간 연결
 ExpressRoute Global Reach를 사용해 ExpressRoute 회로를 연결하면 온-프레미스 사이트 전체에서 데이터를 교환할 수 있습니다. 예를 들어 캘리포니아의 개인 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 개인 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 회로 2개를 통해 두 개인 데이터 센터를 연결할 수 있습니다. 데이터 센터 간 트래픽은 Microsoft 네트워크를 통해 전송됩니다.

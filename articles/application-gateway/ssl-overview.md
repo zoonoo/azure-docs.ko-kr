@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849817"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254313"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>SSL 종료 및 Application Gateway를 사용 하 여 종단 간 SSL 개요
 
@@ -50,7 +50,7 @@ Application gateway는 다음과 같은 유형의 인증서를 지원 합니다.
 자세한 내용은 [응용 프로그램 게이트웨이 사용 하 여 SSL 종료를 구성](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)합니다.
 
 ### <a name="size-of-the-certificate"></a>인증서의 크기
-SSL 인증서 정보를 사용 하 여 개인 정보 교환 (PFX) 파일 크기가 10KB 둘 수 없습니다.
+확인 합니다 [제한 Application Gateway](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) 최대 SSL 알아야 섹션 크기가 지원 되는 인증서입니다.
 
 ## <a name="end-to-end-ssl-encryption"></a>SSL 암호화를 종단 간
 

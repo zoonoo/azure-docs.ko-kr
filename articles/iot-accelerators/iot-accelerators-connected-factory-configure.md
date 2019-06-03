@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450026"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387111"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "61450026"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음을 포함합니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -269,7 +269,7 @@ ms.locfileid: "61450026"
 * Image
 * Location
 * Units
-* Visible
+* 표시
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
 
@@ -282,7 +282,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결된 팩터리는 https://www.oeefoundation.org에서 게시하는 대로 OEE 수식을 사용합니다.
+연결 된 공장에서 게시 하는 대로 OEE 수식을 사용 합니다 [ http://www.oeefoundation.org ](http://www.oeefoundation.org)합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 

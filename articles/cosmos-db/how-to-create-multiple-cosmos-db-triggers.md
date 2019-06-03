@@ -4,14 +4,14 @@ description: 여러 개의 독립적인 Azure Cosmos DB 트리거를 구성하�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 4/15/2019
+ms.date: 05/23/2019
 ms.author: maquaran
-ms.openlocfilehash: 7a47a928e97d52535a6d3baa808f1fcb81d9bb55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241942"
 ---
 # <a name="create-multiple-azure-cosmos-db-triggers"></a>여러 Azure Cosmos DB 트리거 만들기
 

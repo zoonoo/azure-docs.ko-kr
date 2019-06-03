@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285707"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145493"
 ---
 1. Visual Studio 2017을 시작합니다.
 
-1. Visual Studio의 메뉴 모음에서 **도구 > 도구 가져오기**를 선택하고 **.Net 데스크톱 개발** 워크로드를 사용할 수 있는지 확인합니다. 워크로드가 설치되지 않은 경우 확인란을 선택한 다음, **수정**을 클릭하여 설치를 시작합니다. 다운로드 및 설치하는 데 몇 분 정도 걸릴 수 있습니다.
+1. Visual Studio의 메뉴 모음에서 **도구 > 도구 가져오기**를 선택하고 **.NET 데스크톱 개발** 워크로드를 사용할 수 있는지 확인합니다. 워크로드가 설치되지 않은 경우 확인란을 선택한 다음, **수정**을 클릭하여 설치를 시작합니다. 다운로드 및 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
    **.NET 데스크톱 개발** 옆의 확인란을 선택하면 지금 대화 상자를 닫을 수 있습니다.
 

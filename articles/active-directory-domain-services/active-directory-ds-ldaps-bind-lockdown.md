@@ -3,7 +3,7 @@ title: Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDA
 description: 보안 LDAP(LDAPS)를 사용하여 Azure AD Domain Services 관리되는 도메인에 바인딩
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417041"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234865"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>보안 LDAP(LDAPS)를 사용하여 Azure AD Domain Services 관리되는 도메인에 바인딩
 
@@ -64,13 +64,13 @@ ms.locfileid: "60417041"
 
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
-* [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD Domain Services - 시작 가이드](create-instance.md)
+* [Azure AD Domain Services 도메인을 관리 합니다.](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)(LDAP 쿼리 기본 사항)
-* [Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Azure AD Domain Services에 대 한 그룹 정책 관리](manage-group-policy.md)
 * [네트워크 보안 그룹](../virtual-network/security-overview.md)
 * [네트워크 보안 그룹 만들기](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>다음 단계
-[관리되는 도메인에서 보안 LDAP 문제 해결](active-directory-ds-ldaps-troubleshoot.md)
+[관리되는 도메인에서 보안 LDAP 문제 해결](tshoot-ldaps.md)

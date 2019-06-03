@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b03197fb0d4d97756e5a3fe88de78c11a816b5ec
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951277"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258345"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -85,7 +85,9 @@ Table Storage에 대한 자세한 내용은 [Azure Table Storage 개요](../tabl
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [컴퓨팅 서비스 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
+Azure Managed Disk는 VHD(가상 하드 디스크)입니다. 온-프레미스 서버의 물리적 디스크처럼 생각할 수 있지만 가상화된 디스크입니다. Azure Managed Disks는 Azure의 무작위 IO 스토리지 개체인 페이지 Blob으로 저장됩니다. 관리 디스크를 ‘관리’로 부르는 것은 페이지 Blob, Blob 컨테이너 및 Azure Storage 계정에 대한 추상이기 때문입니다. 관리 디스크를 사용할 경우 디스크를 프로비저닝하기만 하면 Azure에서 나머지 작업을 처리합니다.
+
+Managed disks에 대 한 자세한 내용은 참조 하세요. [관리 디스크를 Azure 소개](../../virtual-machines/windows/managed-disks-overview.md)합니다.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 

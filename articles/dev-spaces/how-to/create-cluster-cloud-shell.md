@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: 아무것도 설치하지 않고 브라우저에서 바로, Azure Dev Spaces에 사용할 수 있는 Kubernetes 클러스터를 빠르게 만드는 방법을 알아보세요.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: c9dabc13e85295b88483f43b26ccf0b15406ad9b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861621"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391664"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "65861621"
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 
-먼저 리소스 그룹을 만듭니다는 [Azure 개발 공간을 지 원하는 지역을](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)합니다.
+먼저 리소스 그룹을 만듭니다는 [Azure 개발 공간을 지 원하는 지역을][supported-regions]합니다.
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -39,3 +39,6 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --g
 ## <a name="next-steps"></a>다음 단계
 
 전체 자습서에 대한 링크는 [Azure Dev Spaces](/azure/dev-spaces/)를 참조하세요.
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

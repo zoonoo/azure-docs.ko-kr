@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Time Series Insights API를 호출하는 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fb2802bfe9cc0a4d3297e6fa749e5b94008c616
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 9b6cd993e9f6c6dbf173c161de638c6c4a8b18d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472541"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237046"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -26,7 +26,7 @@ ms.locfileid: "65472541"
 > [!TIP]
 > 읽어보세요 [데이터 액세스 권한을 부여](./time-series-insights-data-access.md) Azure Active Directory에서 Time Series Insights 환경에 있습니다.
 
-## <a name="service-principal"></a>서비스 사용자
+## <a name="service-principal"></a>서비스 주체
 
 이 및 다음 섹션에는 응용 프로그램 대신 Time Series Insights API에 액세스 하는 응용 프로그램을 구성 하는 방법을 설명 합니다. 응용 프로그램 수를 쿼리 또는 사용자 자격 증명이 아니라 응용 프로그램 자격 증명을 사용 하 여 Time Series Insights 환경에서 참조 데이터를 게시 합니다.
 

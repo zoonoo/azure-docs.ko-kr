@@ -9,15 +9,15 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554144"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238581"
 ---
 다음 제한은 구독 당 Azure Log Analytics 리소스에 적용 합니다.
 
-| 리소스 | 기본 제한 | 설명
+| Resource | 기본 제한 | 설명
 | --- | --- | --- |
 | 구독당 무료 작업 영역의 수 | 10 | 이 제한을 늘릴 수 없습니다. |
 | 구독당 유료 작업 영역의 수 | N/A | 리소스 그룹 내 리소스 수가 구독 당 리소스 그룹의 수를 제한 하 고 있습니다. | 

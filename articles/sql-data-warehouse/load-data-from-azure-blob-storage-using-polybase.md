@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852080"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242973"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -590,7 +590,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
   
 1. **Azure Storage 계정에 대한 Polybase 연결:**
     
-   1. 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다 **IDENTITY ' 관리 서비스 Id ' =**:
+   1. 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다 **IDENTITY ' 관리 서비스 Id ' =** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 �
 > * 로드될 때 데이터의 진행 상태 확인
 > * 새로 로드한 데이터에 대한 통계 생성
 
-마이그레이션 개요를 계속 진행하여 기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법을 알아보세요.
+SQL Data Warehouse를 기존 데이터베이스를 마이그레이션하는 방법을 알아보려면 개발 개요로 이동 합니다.
 
 > [!div class="nextstepaction"]
->[기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법 알아보기](sql-data-warehouse-overview-migrate.md)
+>[기존 데이터베이스를 SQL Data Warehouse에 마이그레이션하려면 디자인 결정](sql-data-warehouse-overview-migrate.md)

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908009"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243722"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ ms.locfileid: "65908009"
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 .NET 클라이언트 애플리케이션에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 네이티브 애플리케이션에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Data Lake Storage Gen1로 애플리케이션을 **대화형으로** 인증할 수 있습니다. 다시 말해서, Azure 자격 증명을 입력하라는 메시지가 표시됩니다.
 
-사용 편의를 위해, 다음 코드 조각은 모든 Azure 구독에 유효한 클라이언트 ID 및 리디렉션 URI에 기본값을 사용합니다. 다음 코드 조각에서 테넌트 ID 값만 입력하면 됩니다. [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)에 제공된 지침에 따라 테넌트 ID를 검색할 수 있습니다.
+사용 편의를 위해, 다음 코드 조각은 모든 Azure 구독에 유효한 클라이언트 ID 및 리디렉션 URI에 기본값을 사용합니다. 다음 코드 조각에서 테넌트 ID 값만 입력하면 됩니다. [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)에 제공된 지침에 따라 테넌트 ID를 검색할 수 있습니다.
     
 - Main() 함수를 다음 코드로 바꿉니다.
 

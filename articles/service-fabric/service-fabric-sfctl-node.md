@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556783"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258739"
 ---
 # <a name="sfctl-node"></a>sfctl node
 클러스터를 형성하는 노드를 관리합니다.
@@ -180,6 +180,8 @@ Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다.
 
 해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오.
+
+시드 노드의 경우이 cmdlet을 사용 하려면 서비스 패브릭 6.5에서 시작 하세요 일반 (비-시드) 노드로 시드 노드를 변경 하 고 노드 상태를 제거 하려면이 cmdlet을 호출 합니다. 시드 노드가 다운 되 면 클러스터를 Azure에서 실행을 하는 경우 Service Fabric 비-시드 노드로 자동으로 변경 하려고 합니다. 이렇게 확인 있는지 주 노드 형식에서 비-시드 노드의 수를 시드 노드 아래로 개수 보다 작아서는 안 됩니다. 필요한 경우이 달성 하기 위해 주 노드 형식에 더 많은 노드를 추가 합니다. 독립 실행형 클러스터에 대 한 상태 그대로 돌아와서 아래쪽 시드 노드가 필요 하지 않습니다, 경우 클러스터에서 노드를 제거 하세요 참조 [Service Fabric 독립 실행형 클러스터에서 노드를 제거 합니다.](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>인수
 

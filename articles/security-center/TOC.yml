@@ -45,6 +45,8 @@
       href: security-center-onboarding.md
     - name: Windows Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
+    - name: IaaS를 위한 고급 데이터 보안
+      href: security-center-iaas-advanced-data.md
     - name: App Service 보호
       href: security-center-app-services.md
     - name: 보안 정책 작업
@@ -57,11 +59,11 @@
       href: security-center-powershell-onboarding.md
     - name: Security Center 설정
       href: security-center-policies-overview.md
+    - name: 파일 무결성 모니터링을 사용하는 기준 비교
+      href: security-center-file-integrity-monitoring-baselines.md
       items:
         - name: 데이터 수집
           href: security-center-enable-data-collection.md
-        - name: IaaS를 위한 고급 데이터 보안
-          href: security-center-iaas-advanced-data.md
         - name: 기본 제공 보안 정책
           href: security-center-policy-definitions.md
         - name: 전자 메일 알림

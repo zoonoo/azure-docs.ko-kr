@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485250"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242784"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "61485250"
 - 모든 테넌트에 대한 참조 데이터 업데이트를 배포합니다.
 - 참조 데이터가 포함된 테이블의 인덱스를 다시 빌드합니다.
 
-Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 기능은 테넌트 데이터베이스에서 이러한 작업을 실행하는 데 사용됩니다. 작업은 ‘템플릿’ 테넌트 데이터베이스에서도 작동합니다. Wingtip Tickets 샘플 앱에서 새 테넌트 데이터베이스를 프로비전하기 위해 이 템플릿 데이터베이스가 복사됩니다.
+Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테넌트 데이터베이스에서 이러한 작업을 실행하는 데 사용됩니다. 작업은 ‘템플릿’ 테넌트 데이터베이스에서도 작동합니다. Wingtip Tickets 샘플 앱에서 새 테넌트 데이터베이스를 프로비전하기 위해 이 템플릿 데이터베이스가 복사됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -57,7 +57,7 @@ Azure SQL Database의 [탄력적 작업](sql-database-elastic-jobs-overview.md) 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
-이 샘플에 사용된 공유 다중 테넌트 데이터베이스 모델을 사용하면 테넌트 데이터베이스에 하나 이상의 테넌트를 포함할 수 있습니다. 이 샘플은 다중 테넌트 및 단일 테넌트 데이터베이스의 혼합을 사용하여 *하이브리드* 테넌트 관리 모델을 사용할 수 있는지 확인합니다. 이러한 데이터베이스의 변경 사항을 관리하는 작업은 무척 복잡해질 수 있습니다. [탄력적 작업](sql-database-elastic-jobs-overview.md)을 사용하면 다량의 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 테 넌 트 데이터베이스 그룹에 대해 태스크와 같은 Transact-SQL 스크립트를 안전하고 안정적으로 실행할 수 있습니다. 태스크는 사용자 상호 작용 또는 입력과 별개입니다. 이 메서드는 애플리케이션의 모든 테넌트에서 스키마 및 일반 참조 데이터에 변경 내용을 배포하는 데 사용할 수 있습니다. 데이터베이스의 골든 템플릿 복사본을 유지하기 위해 탄력적 작업을 사용할 수도 있습니다. 템플릿은 새 테넌트를 만드는 데 사용되어, 항상 최신 스키마 및 참조 데이터가 사용되도록 합니다.
+이 샘플에 사용된 공유 다중 테넌트 데이터베이스 모델을 사용하면 테넌트 데이터베이스에 하나 이상의 테넌트를 포함할 수 있습니다. 이 샘플은 다중 테넌트 및 단일 테넌트 데이터베이스의 혼합을 사용하여 *하이브리드* 테넌트 관리 모델을 사용할 수 있는지 확인합니다. 이러한 데이터베이스의 변경 사항을 관리하는 작업은 무척 복잡해질 수 있습니다. [탄력적 작업](elastic-jobs-overview.md)을 사용하면 다량의 데이터베이스를 손쉽게 관리할 수 있습니다. 작업을 사용하면 테 넌 트 데이터베이스 그룹에 대해 태스크와 같은 Transact-SQL 스크립트를 안전하고 안정적으로 실행할 수 있습니다. 태스크는 사용자 상호 작용 또는 입력과 별개입니다. 이 메서드는 애플리케이션의 모든 테넌트에서 스키마 및 일반 참조 데이터에 변경 내용을 배포하는 데 사용할 수 있습니다. 데이터베이스의 골든 템플릿 복사본을 유지하기 위해 탄력적 작업을 사용할 수도 있습니다. 템플릿은 새 테넌트를 만드는 데 사용되어, 항상 최신 스키마 및 참조 데이터가 사용되도록 합니다.
 
 ![화면](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -161,8 +161,7 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)
-* [규모가 확장된 클라우드 데이터베이스 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)
+* [규모가 확장된 클라우드 데이터베이스 관리](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

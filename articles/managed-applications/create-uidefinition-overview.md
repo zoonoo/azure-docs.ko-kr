@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587753"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257557"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기
 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
@@ -48,6 +48,8 @@ CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다.
 
 `$schema`를 포함하는 것이 좋지만 선택 사항입니다. 지정하는 경우 `version`의 값은 `$schema` URI 내의 버전과 일치해야 합니다.
 
+JSON 편집기를 사용 하 여 UI 정의 만들려면 또는 UI 정의 샌드박스를 사용 하 여 만들고 UI 정의 미리 볼 수 있습니다. 샌드박스에 대 한 자세한 내용은 참조 하세요. [Azure Managed Applications에 대 한 포털 사용자 인터페이스 테스트](test-createuidefinition.md)합니다.
+
 ## <a name="basics"></a>기본 사항
 기본 단계는 항상 Azure Portal에서 파일을 구문 분석할 때 생성되는 마법사의 첫 번째 단계입니다. 포털에서는 `basics`에 지정된 요소를 표시할 뿐만 아니라 사용자가 배포에 대한 구독, 리소스 그룹 및 위치를 선택하기 위한 요소도 삽입합니다. 일반적으로 클러스터 또는 관리자 자격 증명의 이름과 같은 배포 전체 매개 변수를 쿼리하는 요소는 이 단계에서 진행해야 합니다.
 
@@ -59,7 +61,7 @@ steps 속성에는 하나 이상의 요소가 포함된 각 basics 뒤에 표시
 ## <a name="outputs"></a>outputs
 Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 요소를 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑합니다. 이 사전의 키는 템플릿 매개 변수의 이름이며, 값은 참조되는 요소에 있는 출력 개체의 속성입니다.
 
-관리되는 애플리케이션 리소스 이름을 설정하려면 출력 속성에 `applicationResourceName`이라는 값을 포함해야 합니다. 이 값을 설정하지 않으면 애플리케이션은 이름에 대해 GUID를 할당합니다. 사용자 이름을 요청하는 사용자 인터페이스에 텍스트 상자를 포함할 수 있습니다.
+관리되는 애플리케이션 리소스 이름을 설정하려면 출력 속성에 `applicationResourceName`이라는 값을 포함해야 합니다. 이 값을 설정 하지 않으면 응용 프로그램 이름에 대 한 GUID를 할당 합니다. 사용자 이름을 요청하는 사용자 인터페이스에 텍스트 상자를 포함할 수 있습니다.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 �
 ```
 
 ## <a name="functions"></a>Functions
-Azure Resource Manager의 템플릿 함수(구문과 기능 모두)와 마찬가지로, CreateUiDefinition은 요소의 입력 및 출력에서 사용하는 함수뿐만 아니라 조건부와 같은 기능도 제공합니다.
+템플릿 함수 (모두 구문 및 기능)의 Azure Resource Manager에서와 마찬가지로 CreateUiDefinition 함수 제공 요소의 입력 및 출력 및 조건부와 같은 기능을 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 createUiDefinition.json 파일 자체에는 간단한 스키마가 있습니다. 실제 수준의 모든 지원되는 요소와 기능을 통해 제공됩니다. 이러한 항목은 다음에 자세히 설명되어 있습니다.

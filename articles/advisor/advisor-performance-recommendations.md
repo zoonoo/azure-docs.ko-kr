@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920441"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254662"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 
@@ -93,6 +93,22 @@ Azure Advisor는 읽기 쓰기 서버에서 읽기 집약적인 워크 로드를
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Azure MySQL, PostgreSQL Azure 또는 Azure MariaDB 서버 연결 제약 조건을 방지 하기 위해 더 높은 SKU 크기 조정
 일부 메모리를 차지 하는 데이터베이스 서버에 각 새 연결 합니다. 때문에 실패 하는 서버에 연결 하는 경우 데이터베이스 서버의 성능이 저하 되는 [상한값](https://docs.microsoft.com/azure/postgresql/concepts-limits) 메모리에 있습니다. Azure Advisor는 많은 연결 실패를 사용 하 여 실행 하는 서버를 식별 하 고 업그레이드 하는 서버의 연결 제한은 계산 확장 하거나 메모리 액세스에 최적화 된 Sku는 코어당 더 많은 계산을 사용 하 여 서버에 더 많은 메모리를 제공 하는 것이 좋습니다.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>캐시를 개선 하기 위해 다른 크기로 캐시 또는 SKU 크기 조정 및 응용 프로그램 성능
+
+캐시 인스턴스 메모리가 매우 부족, 높은 서버 부하 또는 높은 네트워크 대역폭 응답 하지 않게, 데이터 손실이 발생 하거나 사용할 수 없게 발생할 수 있는 실행 되지 않을 때 가장 잘 수행 합니다. 관리자는 이러한 조건에서 캐시 인스턴스를 식별 하 고 메모리 부족, 서버 부하 또는 네트워크 대역폭을 줄이기 위해 모범 사례를 적용 하거나 더 많은 용량을 사용 하 여 다른 크기 또는 SKU 크기 조정 권장 합니다.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 트래픽을 사용 하 여 지역 추가
+
+관리자는 현재 구성 되지 않은 지역에서 트래픽이 있는 Azure Cosmos DB 계정을 감지 하 고 해당 영역을 추가 하는 것이 좋습니다. 이 해당 지역에서 발생 하는 요청에 대 한 대기 시간이 향상 됩니다 및 지역 가동 중단 발생 시 가용성을 보장 합니다. [Azure Cosmos DB를 사용 하 여 글로벌 데이터 배포에 자세히 알아보기](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Azure Cosmos DB를 구성 합니다. 포함 된 고객을 사용 하 여 인덱싱 정책 또는 경로 제외
+
+Azure Advisor는 워크 로드 패턴에 따라 사용자 지정 인덱싱 정책을에서 이점을 얻을 수 있지만 기본 인덱싱 정책을 사용 하는 Cosmos DB 컨테이너를 식별 합니다. 기본 인덱싱 정책을 모든 속성 인덱싱하지만 Ru 및 인덱싱에 사용 된 저장소를 쿼리 필터에 사용 되는 명시적으로 포함 되거나 제외 된 경로 사용 하 여 사용자 지정 인덱싱 정책을 사용 하 여 줄일 수 있습니다. [인덱스 정책 수정에 대해 자세히 알아보기](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기 (MaxItemCount)-1로 구성 
+
+Azure Advisor는 100의 쿼리 페이지 크기를 사용 하 고 빠르게 검색에 대 한-1의 페이지 크기를 사용 하는 것이 좋습니다 있는 Azure Cosmos DB 컨테이너를 식별 합니다. [최대 항목 수에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 

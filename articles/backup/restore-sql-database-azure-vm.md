@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781806"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242393"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -41,6 +41,7 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
     - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
 - 모든 시스템 데이터베이스 (모델, master, msdb)에 대 한 복원을 트리거하기 전에 SQL Server 에이전트 서비스를 중지 합니다.
 - 이러한 데이터베이스 중 하나에 대 한 연결을 수행 하려고 할 수 있습니다 하는 모든 응용 프로그램을 닫습니다.
+- 여러 인스턴스가 있는 경우 서버에서 실행 인스턴스의 모든 이어야 합니다 하 고 그렇지 않은 경우 서버를 실행 중인 데이터베이스를 복원 하는 데에 대 한 대상 서버의 목록에 표시 되지 않습니다.
 
 ## <a name="restore-a-database"></a>데이터베이스 복원
 
@@ -152,6 +153,13 @@ Azure Backup 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터�
 1. 복원 진행률을 추적 합니다 **알림을** 영역에서 선택 하 여 추적 또는 **복원 작업** 데이터베이스 메뉴에서.
 
     ![복원 작업 진행률](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>많은 수의 파일을 사용 하 여 데이터베이스 복원
+
+데이터베이스의 파일의 총 문자열 크기 보다 크면를 [특정 제한](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup 복원 하는 동안 대상 복원 경로 설정할 수 없습니다 있도록 다른 pit 구성 요소에서 데이터베이스 파일의 목록을 저장 작업입니다. 파일 대신 SQL 기본 경로에 복원 됩니다.
+
+  ![대용량 파일을 사용 하 여 데이터베이스 복원](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>다음 단계
 

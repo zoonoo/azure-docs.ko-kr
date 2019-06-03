@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447005"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399921"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
 
@@ -208,6 +208,6 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer 구성을 완료했
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
+* [Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
 
-[자습서: ](visualize-power-bi.md) Power BI에서 Azure Data Explorer의 데이터 시각화
+* [자습서: ](visualize-power-bi.md) Power BI에서 Azure Data Explorer의 데이터 시각화

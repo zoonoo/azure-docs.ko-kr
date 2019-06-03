@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546274"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357597"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -216,7 +216,7 @@ ms.locfileid: "59546274"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
+   `SubscriptionKeyCredential`은 구독 키를 사용하여 Azure Maps에 대한 HTTP 요청을 인증하는 `SubscriptionKeyCredentialPolicy`를 만듭니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
 
 2. 자격 증명 및 URL을 설정한 후 다음과 같은 JavaScript 코드를 추가하여 USHazmatClass2 등급 화물을 운반하는 트럭의 출발점~도착점 경로를 생성하고 결과를 표시합니다.
 
@@ -245,7 +245,7 @@ ms.locfileid: "59546274"
     });
     ```
 
-    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 또한 인덱스 0을 추가하여 데이터 원본의 다른 어떤 줄보다도 먼저 렌더링되도록 합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(멋진 파란색 음영의 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다.
+    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 또한 인덱스 0을 추가하여 데이터 원본의 다른 어떤 줄보다도 먼저 렌더링되도록 합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(멋진 파란색 음영의 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다.
 
 3. 다음 JavaScript 코드를 추가하여 승용차 경로를 생성하고 결과를 표시합니다.
 
@@ -265,7 +265,7 @@ ms.locfileid: "59546274"
     });
     ```
 
-    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 두 속성(보라색 음영의 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다.  
+    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 두 속성(보라색 음영의 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다.  
 
 4. **MapTruckRoute.html** 파일을 저장하고, 브라우저를 새로 고쳐 결과를 확인합니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
 

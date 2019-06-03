@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954121"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388473"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -550,13 +550,13 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **개체** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
-| **Null** | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
-| **Boolean** | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
-| **Number** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 |
-| **String** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 | 정의되지 않음 |
-| **개체** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** | 정의되지 않음 |
-| **Array** | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | 정의되지 않음 | **Ok** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **개체** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 와 같은 비교 연산자에 대 한 `>`, `>=`를 `!=`를 `<`, 및 `<=`, 비교 형식 간에 또는 두 개체 또는 배열을 생성 `Undefined`합니다.  
 
@@ -568,27 +568,27 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 **OR 연산자**
 
-| 또는 | True  | 거짓 | 정의되지 않음 |
+| 또는 | True  | 거짓 | Undefined |
 | --- | --- | --- | --- |
 | True  |True |True |True |
-| False |True |거짓 |정의되지 않음 |
-| 정의되지 않음 |True  |정의되지 않음 |정의되지 않음 |
+| False |True |거짓 |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
 **AND 연산자**
 
-| AND | True  | 거짓 | 정의되지 않음 |
+| AND | True  | 거짓 | Undefined |
 | --- | --- | --- | --- |
-| True  |True |거짓 |정의되지 않음 |
+| True  |True |거짓 |Undefined |
 | 거짓 |False |False |거짓 |
-| 정의되지 않음 |정의되지 않음 |거짓 |정의되지 않음 |
+| Undefined |Undefined |거짓 |Undefined |
 
 **NOT 연산자**
 
-| 아님 |  |
+| NOT |  |
 | --- | --- |
 | True  |False |
 | False |True  |
-| 정의되지 않음 |정의되지 않음 |
+| Undefined |Undefined |
 
 ## <a name="between-keyword"></a>BETWEEN 키워드
 
@@ -756,7 +756,7 @@ ANSI SQL 에서처럼 쿼리에 선택적 ORDER BY 절을 포함할 수 있습�
 
 ## <a id="OffsetLimitClause"></a>오프셋 LIMIT 절
 
-오프셋 제한은 건너뛸 하 고 일부 쿼리에서 값 개수를 수행 하는 선택적 절입니다. 오프셋 LIMIT 절 오프셋 수 및 수를 제한 해야 합니다.
+오프셋 제한은 건너뛸 하 고 일부 쿼리에서 값 개수를 수행 하는 선택적 절입니다. 오프셋 LIMIT 절 오프셋 수 및 수를 제한 해야 합니다. 현재이 절은 단일 파티션 내의 쿼리에 대 한 지원, 파티션 간 쿼리 아직 지원 하지 않습니다. 
 
 ORDER BY 절과 함께에서 오프셋 제한을 사용할 결과 집합 skip을 수행 하 여 생성 되 고 순서가 지정 된 값입니다. ORDER BY 절 없이 사용 하는 경우 값의 결정적인 순서 대로 발생 합니다.
 
@@ -1294,11 +1294,11 @@ SQL API는 다음과 같은 집계 함수를 지원합니다. 숫자 값에서 �
 
 | 함수 | 설명 |
 |-------|-------------|
-| 개수 | 식에서 항목 수를 반환합니다. |
+| COUNT | 식에서 항목 수를 반환합니다. |
 | 합계   | 식에서 모든 값의 합계를 반환합니다. |
-| 최소   | 식에서 최소값을 반환합니다. |
-| 최대   | 식에서 최대값을 반환합니다. |
-| AVG   | 식에서 평균값을 반환합니다. |
+| MIN   | 식에서 최소값을 반환합니다. |
+| MAX   | 식에서 최대값을 반환합니다. |
+| 평균   | 식에서 평균값을 반환합니다. |
 
 배열 반복의 결과 대해 집계할 수 있습니다. 자세한 내용은 참조는 [반복](#Iteration) 섹션입니다.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518648"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072842"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -65,7 +65,7 @@ Azure Container Instances는 Cpu, 메모리 같은 리소스를 할당 하 고 �
 
 * 할당을 **최소** 1의 CPU 및 1GB의 메모리로 컨테이너 그룹에 있습니다. 1 보다 작은 그룹 내의 개별 컨테이너 인스턴스를 프로 비전 할 수 CPU 및 메모리 1gb로 줄어듭니다. 
 
-* 에 대 한 합니다 **최대** 컨테이너 그룹에 리소스 참조 [리소스 가용성] [aci-지역-가용성] 배포 지역에 Azure Container Instances에 대 한 합니다.
+* 에 대 한 합니다 **최대** 컨테이너 그룹에 리소스를 참조 합니다 [리소스 가용성] [ region-availability] 배포 지역에 Azure Container Instances에 대 한 합니다.
 
 ## <a name="networking"></a>네트워킹
 

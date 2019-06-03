@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522489"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073020"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>상황에 맞는 하위 형식에 대 한 엔터티 역할
 
-역할 엔터티 하위 형식에는 명명 된를 허용 합니다. 역할, 미리 작성 된 또는 사용자 지정 엔터티 유형과 함께 사용할 하 고 예제 길이 발언 및 패턴에 사용 될 수 있습니다. 
+역할 엔터티 하위 형식에는 명명 된를 허용 합니다. 역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
@@ -35,10 +35,10 @@ buy a ticket from New York to London
 
 역할은 이러한 차이점에 대한 이름을 지정합니다.
 
-|엔터티 형식|엔터티 이름|역할|목적|
+|엔터티 유형|엔터티 이름|역할|목적|
 |--|--|--|--|
-|간단한|위치|원본|비행기가 출발하는 위치|
-|간단한|위치|destination|비행기가 도착하는 위치|
+|단순|Location|원본|비행기가 출발하는 위치|
+|단순|Location|대상|비행기가 도착하는 위치|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>역할의 컴퓨터 학습 엔터티 예
 
@@ -48,7 +48,7 @@ utterance에서 "9 8에서 회의 예약" 모두 숫자 번 나타내지만 때�
 Schedule the meeting from 8 to 9
 ```
 
-|엔터티 형식|역할 이름|값|
+|엔터티 유형|역할 이름|Value|
 |--|--|--|
 |미리 빌드된 datetimeV2|starttime|8|
 |미리 빌드된 datetimeV2|endtime|9|
@@ -79,12 +79,6 @@ utterance을 추출 하려고 하는 순서를 나타내도록 변경 하는 경
 |--|--|
 |에 대 한 자세한 내용은 학습 과정 **시애틀**|{Location}에 대 한 자세한 내용은 관심이|
 |뉴욕에 시애틀에서 비행기표를 구입|{0} 위치: 대상} {위치: 원본}에서 비행기표를 구입|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>역할은 계층적 엔터티 관련이 있습니까?
-
-역할 예제 표현 뿐만 아니라 이전 패턴 사용의 모든 엔터티에 대 한 사용할 수 있습니다. 것 이므로 사용할 수 있는 모든 곳에서 이러한 계층적 엔터티에 대 한 필요성을 대체 합니다. 계층적 엔터티를 사용 하는 대신 역할을 사용 하 여 새 엔터티를 만들어야 합니다. 
-
-계층적 엔터티는 결국 사용 중단 됩니다.
 
 ## <a name="how-are-roles-used-in-patterns"></a>패턴에서 역할이 사용되는 방식
 패턴의 템플릿 발화에서 역할은 발화 내에서 사용됩니다. 

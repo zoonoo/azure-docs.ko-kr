@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988280"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417706"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -23,13 +23,13 @@ ms.locfileid: "65988280"
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Azure SQL Data Warehouse 버전 확인
 
-새로운 기능은 모든 지역에 롤아웃 되는 대로 인스턴스 및 기능 가용성에 대 한 최신 Azure SQL DW 릴리스 배포 된 버전을 확인 하세요. Azure SQL DW 버전을 확인 하려면 SQL Server Management Studio (SSMS)를 통해 데이터 웨어하우스에 연결 하 고 실행 `SELECT @@VERSION AS 'SQL Data Warehouse';` Azure SQL DW의 현재 버전을 반환 합니다.
+새로운 기능은 모든 지역에 롤아웃 되는 대로 인스턴스 및 기능 가용성에 대 한 최신 Azure SQL DW 릴리스 배포 된 버전을 확인 합니다. Azure SQL DW 버전을 확인 하려면 SQL Server Management Studio (SSMS)를 통해 데이터 웨어하우스에 연결 하 고 실행 `SELECT @@VERSION AS 'SQL Data Warehouse';` Azure SQL DW의 현재 버전을 반환 합니다.
 
 예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
 
 릴리스는 것인지 확인 된 날짜를 사용 하 여 Azure SQL DW에 적용 되었습니다.
 
-## <a name="may-2019"></a>2019 년 5 월
+## <a name="may-2019"></a>2019년 5월
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
@@ -38,6 +38,7 @@ ms.locfileid: "65988280"
 |**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON 함수**|이제 비즈니스 분석가 쿼리하고 다음 새 JSON 함수를 사용 하 여 Azure Data Warehouse의 JSON 데이터로 서식이 지정 된 문서를 조작 하는 데 친숙 한 T-SQL 언어를 사용할 수 있습니다.:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱 비즈니스 분석가 용 이해에 시간을 줄이고 사용자가 보고 하는 동안 즉시 쿼리 응답 시간을 사용 하도록 설정 합니다. 자세한 내용은 다음을 참조하세요.</br> - [ALTER DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 옵션 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [집합 결과 집합 캐싱 (Transact SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (TRANSACT-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (TRANSACT-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**클러스터형된 columnstore 인덱스 (미리 보기)를 정렬합니다.**|Columnstore는 저장 하 고 많은 양의 데이터를 효율적으로 쿼리 키 조력자입니다. 각 테이블에 대해 나눕니다 들어오는 데이터 행 그룹과 행 그룹 폼의 각 열에는 디스크에 있는 세그먼트.  정렬 클러스터형된 columnstore 인덱스를 더 효율적인 세그먼트 제거를 사용 하 여 쿼리 실행을 최적화 합니다.   자세한 내용은 다음을 참조하세요.</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (TRANSACT-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest)합니다.|
 
 ## <a name="march-2019"></a>2019 년 3 월
 

@@ -4,24 +4,41 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: a5bde1a56bf6a1f5fca4b775c7c8e9bb7477eb6b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140657"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240263"
 ---
-1. Mac에서 [Azure Portal]을 방문합니다. **모든 서비스** > **App Services** > 방금 만든 백 엔드를 클릭합니다. 모바일 앱 설정에서 기본 언어를 선택합니다.
+1. Xcode를 사용 하 여 다운로드 한 클라이언트 프로젝트를 엽니다.
 
-   - Objective-C &ndash; **빠른 시작** > **iOS(Objective-C)**
-   - Swift &ndash; **빠른 시작** > **iOS(Swift)**
+2. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net합니다.
 
-     **3. 클라이언트 애플리케이션 구성** 아래에서 **다운로드**를 클릭합니다. 그러면 백 엔드에 연결하도록 사전 구성된 완전한 Xcode 프로젝트가 다운로드됩니다. Xcode를 사용하여 프로젝트를 엽니다.
+3. Swift 프로젝트 파일을 열고 `ToDoTableViewController.swift` ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController.swift-이 폴더에 있습니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
 
-1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 시뮬레이터에서 앱을 시작합니다.
+4. `viewDidLoad()` 메서드를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 매개 변수입니다.
 
-1. 앱에서 더하기 아이콘(**+**)을 클릭하고, 의미 있는 텍스트(예: *Complete the tutorial*)를 입력한 다음, 저장 단추를 클릭합니다. 그러면 이전에 배포한 Azure 백 엔드에 POST 요청을 보냅니다. 요청의 백 엔드 데이터가 TodoItem SQL 테이블로 삽입되고 새로 저장된 항목에 대한 정보를 모바일 앱으로 다시 반환합니다. 모바일 앱이 이 데이터를 목록에 표시합니다.
+    `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
+
+    됩니다.
+    
+    `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
+    
+5. Objective C 프로젝트 파일을 열고 `QSTodoService.m` ZUMOAPPNAME/ZUMOAPPNAME-이 폴더에 있습니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
+
+6. `init` 메서드를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 매개 변수입니다.
+
+    `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
+
+    됩니다.
+    
+    `self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];`
+
+7. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 시뮬레이터에서 앱을 시작합니다.
+
+8. 앱에서 더하기 아이콘( **+** )을 클릭하고, 의미 있는 텍스트(예: *Complete the tutorial*)를 입력한 다음, 저장 단추를 클릭합니다. 그러면 이전에 배포한 Azure 백 엔드에 POST 요청을 보냅니다. 요청의 백 엔드 데이터가 TodoItem SQL 테이블로 삽입되고 새로 저장된 항목에 대한 정보를 모바일 앱으로 다시 반환합니다. 모바일 앱이 이 데이터를 목록에 표시합니다.
 
    ![iOS에서 실행 중인 빠른 시작 앱](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

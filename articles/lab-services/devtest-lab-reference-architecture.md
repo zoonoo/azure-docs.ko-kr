@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 73a3d426e9040525b0c631db273e59c49a6a9eb0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1bfd1b5b4b7febd98499e338fcb62e339867aef4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705877"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244726"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈용 azure DevTest Labs 참조 아키텍처
 이 문서에서는 기업에서 Azure DevTest Labs를 기반으로 솔루션을 배포할 수 있도록 참조 아키텍처를 제공 합니다. 다음과 같습니다.
@@ -32,9 +32,9 @@ ms.locfileid: "64705877"
 ## <a name="architecture"></a>아키텍처
 다음은 참조 아키텍처의 핵심 요소입니다.
 
-- **Azure AD(Azure Active Directory)**: DevTest Labs에서 사용 하 여 [Azure AD 서비스 id 관리를 위한](../active-directory/fundamentals/active-directory-whatis.md)합니다. DevTest Labs에 따라 환경에 사용자 액세스 부여 하는 경우 이러한 두 가지 주요 측면을 고려 합니다.
+- **Azure AD(Azure Active Directory)** : DevTest Labs에서 사용 하 여 [Azure AD 서비스 id 관리를 위한](../active-directory/fundamentals/active-directory-whatis.md)합니다. DevTest Labs에 따라 환경에 사용자 액세스 부여 하는 경우 이러한 두 가지 주요 측면을 고려 합니다.
     - **리소스 관리**: 리소스를 관리 하려면 Azure portal에 대 한 액세스 제공 (가상 머신 만들기; 환경을 만들; 시작, 중지, 다시 시작, 삭제 및 아티팩트가 적용 및 등). 리소스 관리는 Azure에서 역할 기반 액세스 제어 (RBAC)를 사용 하 여 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
-    - **가상 컴퓨터 (네트워크 수준)**: 기본 구성으로 가상 컴퓨터 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 경우 ([Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)는 온-프레미스 도메인 또는 클라우드 기반 도메인), 컴퓨터를 도메인에 조인할 수 있습니다. 사용자의 도메인 기반 id 사용 하 여 Vm에 연결할 수 있습니다.
+    - **가상 컴퓨터 (네트워크 수준)** : 기본 구성으로 가상 컴퓨터 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 경우 ([Azure AD Domain Services](../active-directory-domain-services/overview.md)는 온-프레미스 도메인 또는 클라우드 기반 도메인), 컴퓨터를 도메인에 조인할 수 있습니다. 사용자의 도메인 기반 id 사용 하 여 Vm에 연결할 수 있습니다.
 - **온-프레미스 연결**: 이 아키텍처 다이어그램 [ExpressRoute](../expressroute/expressroute-introduction.md) 사용 됩니다. 하지만 사용할 수 있습니다는 [사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)합니다. ExpressRoute는 DevTest Labs에 대 한 필요 하지 않습니다, 하지만 일반적으로 기업에서 사용 됩니다. ExpressRoute는 회사 리소스에 액세스 해야 하는 경우에 필요 합니다. 일반적인 시나리오는:
     - 온-프레미스 데이터를 클라우드로 이동할 수 없는 경우
     - 랩의 virtual machines를 온-프레미스 도메인에 가입 하려고 했습니다.
@@ -43,15 +43,15 @@ ms.locfileid: "64705877"
 - **원격 데스크톱 게이트웨이**: 일반적으로 기업에서는 회사 방화벽에서 나가는 원격 데스크톱 연결을 차단합니다. 여러 가지 방법으로 응용 프로그램을 포함 하 여 DevTest labs에서 클라우드 기반 환경에 대 한 연결을 사용 하도록 설정 하려면:
   - 사용 된 [원격 데스크톱 게이트웨이](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture), 및 허용 목록에 추가 하는 게이트웨이의 고정 IP 주소 부하 분산 장치.
   - [모든 들어오는 트래픽을 RDP](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) ExpressRoute/사이트 및 사이트 간 VPN 연결을 통해. 이 기능은 일반적인 고려 사항 기업 DevTest Labs 배포를 계획 하는 경우입니다.
-- **네트워크 서비스 (가상 네트워크, 서브넷)**: 합니다 [Azure 네트워킹](../networking/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 핵심 요소입니다. 랩의 리소스 통신를 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어 합니다. 아키텍처 다이어그램 고객은 DevTest Labs를 사용 하는 가장 일반적인 방법은 다음과 같습니다. 통해 연결 된 모든 랩 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md) 사용 하 여를 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 온-프레미스 ExpressRoute/사이트 및 사이트 간 VPN 연결에 있습니다. 하지만 DevTest Lab에서는 Azure Virtual Network를 직접 사용 하도록 네트워킹 인프라를 설정 하는 방법에 대 한 제한은 없습니다.
+- **네트워크 서비스 (가상 네트워크, 서브넷)** : 합니다 [Azure 네트워킹](../networking/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 핵심 요소입니다. 랩의 리소스 통신를 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어 합니다. 아키텍처 다이어그램 고객은 DevTest Labs를 사용 하는 가장 일반적인 방법은 다음과 같습니다. 통해 연결 된 모든 랩 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md) 사용 하 여를 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 온-프레미스 ExpressRoute/사이트 및 사이트 간 VPN 연결에 있습니다. 하지만 DevTest Lab에서는 Azure Virtual Network를 직접 사용 하도록 네트워킹 인프라를 설정 하는 방법에 대 한 제한은 없습니다.
 - **DevTest Labs**:  DevTest Labs는 전체 아키텍처의 핵심 부분입니다. 서비스에 대 한 자세한 내용은 참조 하세요 [DevTest Labs에 대 한](devtest-lab-overview.md)합니다.
-- **가상 머신과 다른 리소스 (SaaS, PaaS, IaaS)**:  가상 머신은 다른 Azure 리소스와 함께 지 원하는 DevTest Labs는 주요 워크 로드입니다. DevTest Labs를 사용 하면 쉽고 빠르게 Azure 리소스 (Vm 및 기타 Azure 리소스 포함)에 대 한 액세스를 제공 하는 엔터프라이즈에 대 한 합니다. Azure에 대 한 액세스에 자세히 알아보려면 [개발자](devtest-lab-developer-lab.md) 하 고 [테스터](devtest-lab-test-env.md)합니다.
+- **가상 머신과 다른 리소스 (SaaS, PaaS, IaaS)** :  가상 머신은 다른 Azure 리소스와 함께 지 원하는 DevTest Labs는 주요 워크 로드입니다. DevTest Labs를 사용 하면 쉽고 빠르게 Azure 리소스 (Vm 및 기타 Azure 리소스 포함)에 대 한 액세스를 제공 하는 엔터프라이즈에 대 한 합니다. Azure에 대 한 액세스에 자세히 알아보려면 [개발자](devtest-lab-developer-lab.md) 하 고 [테스터](devtest-lab-test-env.md)합니다.
 
 ## <a name="scalability-considerations"></a>확장성 고려 사항
 랩의 일반적인 작업에 사용 되는 다른 Azure 리소스를 갖지 DevTest Labs가 없는 기본 제공 할당량 또는 제한이 있지만 [구독 수준 할당량](../azure-subscription-service-limits.md)합니다. 따라서 일반적인 엔터프라이즈 배포에서 DevTest Labs의 대규모 배포에 맞게 여러 Azure 구독이 필요 합니다. 기업에 가장 일반적으로 도달 하는 할당량은:
 
 - **리소스 그룹**: 기본 구성에서 DevTest Labs 모든 새 가상 컴퓨터에 대 한 리소스 그룹을 만들거나 사용자 서비스를 사용 하 여 환경을 만듭니다. 구독에 포함 될 수 있습니다 [리소스 그룹에 최대 980](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)합니다. 따라서 가상 컴퓨터 및 구독에 환경을 제한입니다. 가지 고려해 야 하는 다른 두 구성이 있습니다.
-    - **[모든 virtual machines는 동일한 리소스 그룹으로 이동](resource-group-control.md)**: 이 설정은 리소스 그룹 제한을 충족 하도록 도와줍니다, 있지만 리소스 그룹 당 리소스 유형 제한을 영향을 줍니다.
+    - **[모든 virtual machines는 동일한 리소스 그룹으로 이동](resource-group-control.md)** : 이 설정은 리소스 그룹 제한을 충족 하도록 도와줍니다, 있지만 리소스 그룹 당 리소스 유형 제한을 영향을 줍니다.
     - **공용 Ip를 공유를 사용 하 여**: 동일한 크기 및 지역의 모든 Vm은 동일한 리소스 그룹으로 이동합니다. 이 구성은 가상 머신에 공용 IP 주소를 보유 하도록 허용 된 경우 리소스 그룹 할당량 및 리소스 그룹 당 형식 리소스 할당량 간에 "중간 지점을"입니다.
 - **리소스 당 리소스 그룹 리소스 유형별**: 에 대 한 기본 제한이 [리소스 리소스 유형별 리소스 그룹당 800는](../azure-subscription-service-limits.md#resource-group-limits)합니다.  사용 하는 경우는 *모든 Vm이 동일한 리소스 그룹으로 이동* Vm 추가 디스크가 많은 경우에 특히이 구독에 훨씬 빠르게 제한 구성, 사용자 키를 누릅니다.
 - **Storage 계정**: DevTest Labs에서 랩 저장소 계정으로 제공 됩니다. 에 대 한 Azure 할당량이 [지역당 구독 당 저장소 계정 수는 250](../azure-subscription-service-limits.md#storage-limits)합니다. 동일한 지역에 DevTest Labs의 최대 250 이기도합니다.

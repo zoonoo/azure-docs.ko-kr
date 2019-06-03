@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977449"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387089"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
-모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
+모니터링 패턴은 워크플로의 유연한 되풀이  (예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "65977449"
 
 이 샘플에는 Weather Underground API를 사용하여 특정 위치의 현재 기상 조건을 확인하는 작업이 포함됩니다.
 
-가장 먼저 필요한 것은 Weather Underground 계정입니다. [https://www.wunderground.com/signup](https://www.wunderground.com/signup)에서 무료로 만들 수 있습니다. 계정이 있으면 API 키를 확보해야 합니다. [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api)에 방문하여 Key Settings(키 설정)를 선택하면 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
+가장 먼저 필요한 것은 Weather Underground 계정입니다. [https://www.wunderground.com/signup](https://www.wunderground.com/signup)에서 무료로 만들 수 있습니다. 계정이 있으면 API 키를 확보해야 합니다. [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)에 방문하여 Key Settings(키 설정)를 선택하면 합니다. Stratus Developer 계획은 무료이며 이 샘플을 실행하기에 충분합니다.
 
 API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
@@ -78,7 +78,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
+1. 모니터링할 위치  와 SMS 알림을 보낼 전화 번호  로 구성된 **MonitorRequest**를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.

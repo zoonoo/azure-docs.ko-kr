@@ -1,20 +1,20 @@
 ---
 title: Azure Red Hat OpenShift에 대 한 azure Active Directory 통합 | Microsoft Docs
 description: Microsoft Azure의 Red Hat OpenShift 클러스터에서 앱을 테스트 하는 것에 대 한 Azure AD 보안 그룹 및 사용자를 만드는 방법에 알아봅니다.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: f6b87748c33c1afd047ae25dfb7df3670a73e7c8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779689"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306465"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 azure Active Directory 통합
 

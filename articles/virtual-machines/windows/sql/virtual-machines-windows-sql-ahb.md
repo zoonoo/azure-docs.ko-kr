@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926243"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393182"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. 두 개의 SQL Server-종 량 제를 호스팅하는 가상 머신 (VM)에 대 한 모델 라이선스 및 라이선스 (BYOL). 이제 Azure portal, Azure CLI 또는 PowerShell을 사용 하 여 수정할 수 있습니다 SQL Server VM을 사용 하는 라이선스 모델을 
@@ -34,7 +34,7 @@ ms.locfileid: "64926243"
 ## <a name="remarks"></a>설명
 
 
- - CSP 고객은 먼저 종량제 VM을 배포한 후 사용자 라이선스 필요로 변환하여 AHB 혜택을 활용할 수 있습니다. 
+ - Azure 클라우드 솔루션 파트너 (CSP) 고객은 먼저 종 량 제 VM을 배포 하 고 다음--소유-라이선스로 변환 하 여 Azure Hybrid Benefit을 이용할 수 있습니다. 
  - SQL Server VM 이미지를 사용자 지정 리소스 공급자에 등록 하는 경우 'AHUB' = 라이선스 유형을 지정 합니다. 라이선스 종료 빈 값으로 입력 하거나 '종 량 제'를 지정 하면 등록이 실패 합니다. 
  - SQL Server VM 리소스를 삭제 하면 이동 하 게 다시 이미지의 하드 코드 된 라이선스 설정 합니다. 
  - SQL Server VM을 가용성 집합에 추가 VM을 다시 필요 합니다. 이러한 모든 vm을 가용성에 추가 집합은 기본 종 량 제 라이선스 형식 돌아가서 AHB 다시 사용 하도록 설정 해야 합니다. 
@@ -137,7 +137,7 @@ SQL Server VM을 SQL 리소스 공급자에 등록하려면 리소스 공급자�
 1. **구독**으로 이동하고 관심 있는 구독을 선택합니다.  
 1. **구독** 블레이드에서 **리소스 공급자**로 이동합니다. 
 1. 필터에 `sql`을 입력하여 SQL 관련 리소스 공급자를 표시합니다. 
-1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 ‘등록’, ‘다시 등록’ 또는 ‘등록 해제’를 선택합니다. 
+1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 ‘등록’, ‘다시 등록’ 또는 ‘등록 해제’를 선택합니다.    
 
    ![공급자 수정](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 

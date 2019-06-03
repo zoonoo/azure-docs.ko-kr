@@ -3,19 +3,19 @@ title: '빠른 시작: C#용 Bing Video Search SDK를 사용하여 비디오 검
 titleSuffix: Azure Cognitive Services
 description: C#용 Bing Video Search SDK로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867786"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798174"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>빠른 시작: C#용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 
@@ -23,10 +23,10 @@ C#용 Bing Video Search SDK를 통해 뉴스 검색을 시작하려면 이 빠�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
+* [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전.
 * [NuGet 패키지로](https://www.nuget.org/packages/Newtonsoft.Json/) 사용 가능한 Json.NET 프레임워크.
 
-Bing Video Search SDK를 프로젝트에 추가하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 패키지를 추가합니다.
+Bing Video Search SDK를 프로젝트에 추가하려면 Visual Studio의 **솔루션 탐색기**에서 **NuGet 패키지 관리**를 선택합니다. `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 패키지를 추가합니다.
 
 [[NuGet Video Search SDK 패키지]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0)를 설치하면 다음 종속성도 설치됩니다.
 

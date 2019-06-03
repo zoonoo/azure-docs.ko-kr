@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5f4c38ed6ee19beacc67e29d094a20f5576668d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 5574a7ba216eed42896d6fcb1890585f76561834
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833475"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258081"
 ---
 # <a name="publish-a-saas-application-offer"></a>SaaS 애플리케이션 제안 게시
 
@@ -20,6 +20,8 @@ ms.locfileid: "65833475"
 
 > [!IMPORTANT] 
 > SaaS로 마이그레이션되는 기능을 제공 합니다 [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory)합니다.  모든 새 게시자 새 SaaS 제품을 만들고 기존 제품을 관리 하기 위한 파트너 센터를 사용 해야 합니다.  SaaS 제공 서비스를 사용 하 여 현재 게시자 batchwise 마이그레이션될 클라우드 파트너 포털에서 파트너 센터에 있습니다.  클라우드 파트너 포털에는 특정 기존 제품 마이그레이션된 경우를 나타내기 위해 상태 메시지가 표시 됩니다.
+> 자세한 내용은 [새 SaaS 제품을 만드는](../../partner-center-portal/create-new-saas-offer.md)합니다.
+
 
 다음 다이어그램에서는 새 SaaS 애플리케이션 제안을 게시하는 대략적인 단계를 보여 줍니다.
 

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441058"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235954"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -69,7 +69,7 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>DSC의 요구 사항
 
-Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
+Azure에서 실행 되는 모든 Windows 노드에 대해 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 온 보 딩 하는 동안 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드에 대 한 [WinRM을 사용할](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)합니다.
 
 Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 온 보 딩 하는 동안 설치 됩니다.
 

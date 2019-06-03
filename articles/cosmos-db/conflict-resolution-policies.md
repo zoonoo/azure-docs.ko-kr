@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB의 충돌 범주 및 충돌 해
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892594"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236542"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>충돌 유형 및 해결 정책
 
@@ -30,7 +30,7 @@ ms.locfileid: "60892594"
 
 Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커니즘을 제공 합니다. Azure Cosmos 컨테이너에 두 가지 충돌 해결 정책에서 선택할 수 있습니다.
 
-- **LWW(마지막으로 성공한 쓰기)**: 기본적으로 이 해결 정책은 시스템에서 정의된 타임스탬프 속성을 사용하며, 시간 동기화 클록 프로토콜을 기반으로 합니다. SQL API를 사용 하는 경우에 충돌 해결에 사용할 다른 사용자 지정 숫자 속성 (예: 타임 스탬프의 고유한 개념)를 지정할 수 있습니다. 사용자 지정 숫자 속성은 라고도 합니다 *충돌 해결 방법이*합니다. 
+- **LWW(마지막으로 성공한 쓰기)** : 기본적으로 이 해결 정책은 시스템에서 정의된 타임스탬프 속성을 사용하며, 시간 동기화 클록 프로토콜을 기반으로 합니다. SQL API를 사용 하는 경우에 충돌 해결에 사용할 다른 사용자 지정 숫자 속성 (예: 타임 스탬프의 고유한 개념)를 지정할 수 있습니다. 사용자 지정 숫자 속성은 라고도 합니다 *충돌 해결 방법이*합니다. 
 
   두 개 이상 항목이 삽입 또는 대체 작업에서 충돌하는 경우 충돌 해결 경로에 대한 가장 높은 값이 포함된 항목이 선정됩니다. 여러 항목에 충돌 해결 경로에 대한 동일한 숫자 값이 있는 경우 시스템에서 선정 항목이 결정됩니다. 모든 지역은 단일 선정 항목으로 수렴되고 결국 동일한 버전의 커밋된 항목으로 끝나게 됩니다. 삭제 충돌이 포함되어 있으면 삭제된 버전이 항상 삽입 또는 대체 충돌에 비해 우선적으로 선정됩니다. 이 결과 충돌 해결 경로 값에 관계 없이 발생 합니다.
 

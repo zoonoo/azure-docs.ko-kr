@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969356"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244321"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -121,7 +121,7 @@ Deployment Planner의 최신 업데이트를 요약 되어 있습니다 [버전 
 
 ## <a name="version-history"></a>버전 기록
 최신 Site Recovery Deployment Planner 도구 버전은 2.4입니다.
-각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) 페이지를 참조하세요.
+각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Site Recovery Deployment Planner 실행](site-recovery-vmware-deployment-planner-run.md)

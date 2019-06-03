@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158534"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244421"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
 AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-search-concept-intro.md) Azure Search에서 문서 보강 사용 합니다. 이러한 알고리즘 비롯 한 Azure Cognitive Services 리소스에 기반한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 이미지 분석 및 OCR (광학 문자 인식) 및 [텍스트 분석](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 엔터티 인식에 대 한 핵심 구 추출 및 다른 강화 합니다. 내에서 알고리즘 래핑 문서 보강을 위해 Azure Search에서 사용을 *기술*에 배치는 *역량*에서 참조 되는 *인덱서* 중 인덱싱.
 
-제한된 수의 문서를 무료로 보강하거나 크고 빈번한 워크로드에 대해 유료 Cognitive Services 리소스를 연결할 수도 있습니다. 이 문서에서는 보강 하는 동안 문서에 cognitive 기술력을 사용 하 여 청구 가능한 Cognitive Services 리소스를 연결 하는 방법을 알아봅니다 [Azure Search 인덱싱](search-what-is-an-index.md)합니다.
+제한 된 수의 문서를 무료로 보강할 수 있습니다. 청구 가능한 Cognitive Services 리소스에 연결할 수 있습니다 또는 *역량* 크고 자주 워크 로드에 대 한 합니다. 이 문서에서는 Azure Search는 동안 문서를 보강 하는 청구 가능 Cognitive Services 리소스를 연결 하는 방법을 알아봅니다 [인덱싱](search-what-is-an-index.md)합니다.
 
 > [!NOTE]
 > 청구 가능한 이벤트는 Azure Search에서 문서 해독 단계의 일부분으로 Cognitive Services Api 및 이미지 추출에 대 한 호출을 포함합니다. Cognitive Services를 호출 하지 않는 기술을 또는 문서에서 텍스트 추출에 대 한 무료입니다.
@@ -30,7 +30,9 @@ AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-
 
 ## <a name="same-region-requirement"></a>동일한 지역 요구 사항
 
-동일한 지역 내에서 Azure Search 및 Azure Cognitive Services가 필요 합니다. 그렇지 않으면 런타임 시이 메시지를 받게 됩니다. `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 지역에서 서비스를 이동할 방법이 없습니다. 이 오류가 발생할 경우 동일한 지역에 새 서비스 만들기 및 그에 따라 인덱스를 다시 게시 됩니다.
+동일한 지역 내에서 Azure Search 및 Azure Cognitive Services가 필요 합니다. 그렇지 않으면 런타임 시이 메시지를 받게 됩니다. `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+지역에서 서비스를 이동할 방법이 없습니다. 이 오류가 발생할 경우 Azure Search와 동일한 지역에 새 Cognitive Services 리소스를 만들어야 합니다.
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 

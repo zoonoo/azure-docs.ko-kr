@@ -4,14 +4,14 @@ description: SQL 하위 쿼리 및 Azure Cosmos db에서의 일반적인 사용 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 48d0c7a022ff568582637aac36a377ca022a413c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.openlocfilehash: 68465f4ca195930ce08bb579e68d0227e9c18dd6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977348"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242856"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 SQL 하위 쿼리 예제
 
@@ -130,7 +130,7 @@ WHERE AvgNutritionValue > 80
 | ng       | Nanogram            | 1.00E-09       | 그램          |
 | µg       | Microgram           | 1.00E-06       | 그램          |
 | mg       | Milligram           | 1.00E-03       | 그램          |
-| G        | 그램                | 1.00E+00       | 그램          |
+| g        | 그램                | 1.00E+00       | 그램          |
 | kg       | Kilogram            | 1.00E+03       | 그램          |
 | Mg       | Megagram            | 1.00E+06       | 그램          |
 | Gg       | Gigagram            | 1.00E+09       | 그램          |
