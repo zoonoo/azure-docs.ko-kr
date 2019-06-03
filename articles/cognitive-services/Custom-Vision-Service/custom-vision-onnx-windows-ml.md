@@ -57,13 +57,13 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 사용자 고유의 모델을 사용하려면 다음 단계를 사용합니다.
 
-1. Custom Vision Service를 사용하여 분류자를 [만들고 학습](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)합니다. 모델을 내보내려면 **일반(컴팩트)** 같은 __컴팩트__ 도메인을 선택합니다. 기존 분류자를 내보내려면 오른쪽 위에서 기어 아이콘을 선택하여 도메인을 컴팩트로 변환합니다. __설정__에서 컴팩트 모델을 선택하고 저장한 다음, 프로젝트를 학습합니다.  
+1. Custom Vision Service를 사용하여 분류자를 [만들고 학습](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)합니다. 모델을 내보내려면 **일반(컴팩트)** 같은 __컴팩트__ 도메인을 선택합니다. 기존 분류자를 내보내려면 오른쪽 위에서 기어 아이콘을 선택하여 도메인을 컴팩트로 변환합니다. __설정__ 에서 컴팩트 모델을 선택하고 저장한 다음, 프로젝트를 학습합니다.  
 
 1. [성능] 탭으로 이동하여 [모델을 내보냅니다](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model). 컴팩트 도메인으로 교육한 반복을 선택하면 "내보내기" 단추가 표시됩니다. *내보내기*, *ONNX*, *ONNX1.2*를 차례로 선택한 다음, *내보내기*를 선택합니다. 파일이 준비되면 *다운로드* 단추를 선택합니다.
 
 1. ONNX 파일을 프로젝트의 __자산__ 폴더에 끌어 놓습니다. 
 
-1. 솔루션 탐색기에서 Assets 폴더를 마우스 오른쪽 단추로 클릭하고 __기존 항목 추가__를 선택합니다. ONNX 파일을 선택합니다.
+1. 솔루션 탐색기에서 Assets 폴더를 마우스 오른쪽 단추로 클릭하고 __기존 항목 추가__ 를 선택합니다. ONNX 파일을 선택합니다.
 
 1. 솔루션 탐색기에서 Assets 폴더의 ONNX 파일을 선택합니다. 파일의 다음 속성을 변경합니다.
 
