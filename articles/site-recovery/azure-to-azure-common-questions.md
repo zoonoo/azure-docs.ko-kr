@@ -171,7 +171,7 @@ Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 
 - 이 작업을 수행 하거나 복구 계획을 사용 하 여 자동화할 수 있습니다.
 - 설명 하는 방법 [장애 조치 후 공용 IP 주소 설정](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan)합니다.  
 
-### <a name="can-i-retain-a-private-ip-address-during-failover"></a>장애 조치(failover) 중 사설 IP 주소를 유지할 수 있나요?
+### <a name="can-i-retain-a-private-ip-address-during-failover"></a>장애 조치(failover) 중 개인 IP 주소를 유지할 수 있나요?
 예, 개인 IP 주소를 유지할 수 있습니다. 기본적으로 Azure VM에 재해 복구를 사용하도록 설정하면 Site Recovery는 원본 리소스 설정에 따라 대상 리소스를 만듭니다. -고정 IP 주소를 사용 하 여 구성 하는 Azure Vm에 대 한 Site Recovery를 사용 하 여에 없는 경우 대상 VM에 대 한 동일한 IP 주소를 프로 비전 하려고 합니다.
 에 대 한 자세한 [장애 조치 중 IP 주소를 유지](site-recovery-retain-ip-azure-vm-failover.md)합니다.
 

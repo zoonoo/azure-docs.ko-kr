@@ -69,7 +69,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](../../azure-monitor/app/data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 

@@ -45,7 +45,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 * [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Event Hubs 싱크에 Azure Diagnostics 연결
-기본적으로 Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일 경로에 저장됩니다.
+기본적으로 Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx** 파일 경로에 저장됩니다.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 이 예제에서 싱크는 로그에 적용되며 오류 수준 추적으로만 필터링됩니다.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Cloud Services 애플리케이션과 진단 구성 배포 및 업데이트
-Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx**입니다.  
+Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx**입니다.  
 
 이 시점에서 Visual Studio의 모든 배포 및 배포 업데이트 작업, Visual Studio Team System 및 MSBuild에 기반하고 **/t:publish** 대상을 사용하는 모든 명령 또는 스크립트에는 패키징 프로세스에 있는 *.wadcfgx* 가 포함됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure Diagnostics 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
 
@@ -313,7 +313,7 @@ namespace EventHubListener
     이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx** 의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
 * 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
 
-    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig** 가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
+    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
 * 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
 
     Azure Diagnostics 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블을 살펴보세요. (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  

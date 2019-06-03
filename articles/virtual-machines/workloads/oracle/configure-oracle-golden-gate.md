@@ -412,7 +412,7 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 
 6. PuTTY를 시작합니다. **범주** 창에서 **연결** > **SSH** > **인증**을 선택합니다. **인증에 대한 개인 키 파일** 상자에서 이전에 생성한 키를 찾아봅니다.
 
-   ![개인 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
+   ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 
 7. **범주** 창에서 **연결** > **SSH** > **X11**을 선택합니다. 그다음에 **X11 전달을 사용하도록 설정** 상자를 선택합니다.
 

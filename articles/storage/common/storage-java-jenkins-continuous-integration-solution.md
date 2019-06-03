@@ -33,7 +33,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
 * 빌드 아티팩트 및/또는 다운로드 가능 종속성의 고가용성
 * Jenkins CI 솔루션이 빌드 아티팩트를 업로드할 때의 성능
 * 고객 및 파트너가 빌드 아티팩트를 다운로드할 때의 성능
-* 익명 액세스, 만료 기반 공유 액세스 서명 액세스, 전용 액세스 중에서 선택하여 사용자 액세스 정책 제어
+* 익명 액세스, 만료 기반 공유 액세스 서명 액세스, 프라이빗 액세스 중에서 선택하여 사용자 액세스 정책 제어
 
 ## <a name="prerequisites"></a>필수 조건
 * Jenkins 연속 통합 솔루션
@@ -97,7 +97,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
     **팁**
    
     **Execute Windows batch command**의 스크립트를 입력한 **명령** 섹션 아래에는 Jenkins에 의해 인식되는 환경 변수에 대한 링크가 있습니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 선택합니다. **BUILD_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
-8. 이 예제에서는 **Make new container public by default**(기본적으로 새 컨테이너를 공용으로 지정)를 선택합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 문서에서 다루지 않습니다. [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
+8. 이 예제에서는 **Make new container public by default**(기본적으로 새 컨테이너를 공용으로 지정)를 선택합니다. (프라이빗 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 문서에서 다루지 않습니다. [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [선택 사항] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **업로드 전에 컨테이너 정리**를 선택합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **업로드할 아티팩트 목록**에 `text/*.txt`를 입력합니다.
 11. **Common virtual path for uploaded artifacts**(업로드된 아티팩트의 일반 가상 경로)에는 이 자습서에서 사용할 `${BUILD\_ID}/${BUILD\_NUMBER}`를 입력합니다.
@@ -118,7 +118,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 1. 작업 구성의 **빌드** 섹션에서 **빌드 단계 추가**를 선택한 후 **Azure Blob Storage에서 다운로드**를 선택합니다.
 2. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 3. **Container name**에서 다운로드할 Blob이 있는 컨테이너의 이름을 지정합니다. 환경 변수를 사용할 수 있습니다.
-4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **프로젝트\\*** 이름의 시작 하는 모든 blob를 지정 하는 **프로젝트**합니다.
+4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **프로젝트\\** * 이름의 시작 하는 모든 blob를 지정 하는 **프로젝트**합니다.
 5. [옵션] **Download path**에서 Azure Blob Storage로부터 파일을 다운로드할 Jenkins 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. ( **Download path**에 값을 제공하지 않으면 Azure Blob Storage의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.)
 
 Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.
@@ -137,7 +137,7 @@ Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 �
   
     위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 내의 엔드포인트를 사용하여 URL 엔드포인트를 확인합니다.)
   
-    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/**(영문)에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** (영문)에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

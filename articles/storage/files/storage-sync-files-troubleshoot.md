@@ -105,7 +105,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 <a id="server-endpoint-createjobfailed"></a>**다음 오류로 인해 서버 엔드포인트 생성 실패: “MgmtServerJobFailed”(오류 코드: -2134375898)**  
 이 문제는 서버 엔드포인트 경로가 시스템 볼륨에 있고 클라우드 계층화를 사용하도록 설정한 경우 발생합니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 엔드포인트를 만들려면 서버 엔드포인트를 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
 
-<a id="server-endpoint-deletejobexpired"></a>**다음 오류로 인해 서버 엔드포인트 삭제 실패: “MgmtServerJobExpired”**                
+<a id="server-endpoint-deletejobexpired"></a>**다음 오류로 인해 서버 엔드포인트 삭제 실패: “MgmtServerJobExpired”**                 
 이 문제는 서버가 오프라인 상태이거나 네트워크에 연결되어 있지 않은 경우 발생합니다. 서버를 더 이상 사용할 수 없는 경우 Azure Portal에서 서버의 등록을 취소하여 서버 엔드포인트를 삭제합니다. 서버 엔드포인트를 삭제하려면 [Azure 파일 동기화에서 서버 등록 취소](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)에 설명된 단계를 따릅니다.
 
 <a id="server-endpoint-provisioningfailed"></a>**서버 엔드포인트 속성 페이지를 열거나 클라우드 계층화 정책을 업데이트할 수 없습니다.**  
@@ -264,7 +264,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
 | 0x0000FDD0 - 0x0000FDEF(아라비아식 표현꼴-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF(specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 개인 사용 영역)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 프라이빗 사용 영역)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
@@ -734,7 +734,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.**  
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. 왼쪽 목차에서 **액세스 제어(IAM)** 를 클릭합니다.
-1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다.
+1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다. 
 1. 목록에 **읽기 권한자 및 데이터 액세스** 역할과 함께 **하이브리드 파일 동기화 서비스**가 표시되는지 확인합니다. 
 
     ![저장소 계정의 액세스 제어 탭에서 하이브리드 File Sync 서비스 서비스 주체의 스크린 샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)

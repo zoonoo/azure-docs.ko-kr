@@ -171,7 +171,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 6. **확인**을 선택하고 **다음**을 선택합니다.
 
-7. **인증 방법 구성** 창에서 기본 선택 사항(**Microsoft 암호화 인증 버전 2(MS-CHAPv2)**)을 그대로 적용하거나 다른 옵션을 선택하고 **다음**을 선택합니다.
+7. **인증 방법 구성** 창에서 기본 선택 사항(**Microsoft 암호화 인증 버전 2(MS-CHAPv2)** )을 그대로 적용하거나 다른 옵션을 선택하고 **다음**을 선택합니다.
 
     > [!NOTE]
     > EAP(Extensible Authentication Protocol)를 구성하는 경우 Microsoft CHAPv2(Challenge Handshake Authentication Protocol) 또는 PEAP(Protected Extensible Authentication Protocol)를 사용해야 합니다. 다른 EAP는 지원되지 않습니다.
@@ -363,7 +363,7 @@ NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고
 * 자체 서명된 인증서를 만듭니다.
 * 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 * 로컬 컴퓨터 저장소에 인증서를 저장합니다.
-* 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+* 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
 * NPS 서비스를 다시 시작합니다.
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.
