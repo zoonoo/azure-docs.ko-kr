@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241367"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>2단계: 응용 프로그램 ID, 인증 키 및 테 넌 트 ID 가져오기
 프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID가 필요합니다. 애플리케이션이 자체 자격 증명에서 실행되는 경우 인증 키도 필요합니다.
 
-* 애플리케이션에 대한 애플리케이션 ID 및 인증 키(클라이언트 비밀이라고도 함)를 검색하는 방법에 대한 지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+* 애플리케이션에 대한 애플리케이션 ID 및 인증 키(클라이언트 비밀이라고도 함)를 검색하는 방법에 대한 지침은 [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 
-* 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
+* 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>3단계: Azure 데이터 레이크 저장소 Gen1 계정 파일 또는 폴더를 Azure AD 응용 프로그램 할당
 

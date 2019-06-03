@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621465"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258657"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -258,6 +258,17 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 애플리케이�
    > *apiVersion*을 `"2017-07-01-preview"`로 설정해야 합니다. 클러스터가 이미 배포된 경우 이 템플릿을 클러스터와는 별도로 배포할 수도 있습니다.
 
 5. 배포합니다. 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric 리소스 공급자 응용 프로그램 리소스를 제거 합니다.
+다음 트리거할 수와 클러스터에서 되지 않은 ovisioned 앱 패키지 및 사용 된 디스크 공간이 정리:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+단순히 ARM 템플릿에서 Microsoft.ServiceFabric/clusters/application를 제거 하는 응용 프로그램 프로 비전 해제 하지 않습니다.
+
+>[!NOTE]
+> 제거가 완료 되 면 나타나지 않습니다 SFX 또는 ARM에 패키지 버전이 더 이상. 를 사용 하 여 응용 프로그램이 실행 되는 응용 프로그램 유형 버전 리소스를 삭제할 수 없습니다. ARM/SFRP이 방지 됩니다. 실행 중인 패키지를 프로 비전 해제 하려고 하면 SF 런타임 해당 하지 것입니다.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Resource Manager를 통해 기존 애플리케이션 관리
 

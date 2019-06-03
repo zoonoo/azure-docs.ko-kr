@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: acf1608257bc5416ff52ed9fbd4209008712f2d7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408701"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872982"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -29,7 +29,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [Visual Studio 2017](https://visualstudio.microsoft.com/vs) 및 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 이상을 설치합니다(아직 설치하지 않은 경우).
+이 빠른 시작을 수행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) 및 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 이상을 설치합니다(아직 설치하지 않은 경우).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
@@ -49,7 +49,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
-2. **새 프로젝트**에서 **설치됨** > **Visual C#** > **Windows 데스크톱**을 차례로 선택합니다. **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 입력합니다. **.NET Framework 4.7.1** 이상을 선택하고, **확인**을 선택합니다.
+2. **새 프로젝트**에서 **설치됨** > **Visual C#**  > **Windows 데스크톱**을 차례로 선택합니다. **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 입력합니다. **.NET Framework 4.7.1** 이상을 선택하고, **확인**을 선택합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869527"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356969"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -205,7 +205,7 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다. | 예 |
-| query | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조하세요. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
+| query | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 참조 하세요 [FetchXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)합니다. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
 
 >[!NOTE]
 >PK 열은 FetchXML 쿼리에서 구성한 열 프로젝트에 포함되지 않은 경우에도 항상 복사됩니다.
@@ -274,7 +274,7 @@ Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Dyn
 | ignoreNullValues | 쓰기 작업 중에 (키 필드를 제외한) 입력 데이터에서 null 값을 무시할지를 나타냅니다.<br/>허용되는 값은 **true** 및 **false**입니다.<br>- **True**: Upsert/업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert/업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
 
 >[!NOTE]
->Dynamics 싱크에 대해 싱크 "**writeBatchSize**" 및 복사 작업 "**[parallelCopies](copy-activity-performance.md#parallel-copy)**"의 기본값은 모두 10입니다. 따라서 100개 레코드가 Dynamics에 동시에 제출됩니다.
+>Dynamics 싱크에 대해 싱크 "**writeBatchSize**" 및 복사 작업 " **[parallelCopies](copy-activity-performance.md#parallel-copy)** "의 기본값은 모두 10입니다. 따라서 100개 레코드가 Dynamics에 동시에 제출됩니다.
 
 Dynamics 365 Online의 경우 [조직당 동시 일괄 처리 호출 2개](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations)라는 제한이 있습니다. 이 제한을 초과하면 첫 번째 요청이 실행되기도 전에 "서버 작업 중" 오류가 throw됩니다. "writeBatchSize"를 10 이하로 유지하면 이러한 동시 호출 수 제한을 피할 수 있습니다.
 

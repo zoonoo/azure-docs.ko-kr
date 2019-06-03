@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse 워크로드 중요도 (미리 보기) | Microsoft Docs
+title: Azure SQL Data Warehouse 워크 로드 중요도 | Microsoft Docs
 description: Azure SQL Data Warehouse의 쿼리에 대한 중요도를 설정하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002898"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233833"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse 워크 로드 중요도
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL Data Warehouse 워크 로드 중요도
 
 이 문서에서는 워크로드 중요도가 SQL Data Warehouse 요청에 대한 실행 순서에 영향을 줄 수 있는 방법을 설명합니다.
 
@@ -64,5 +64,5 @@ Q5가 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다.  
 - 분류자를 만드는 방법에 대 한 자세한 내용은 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  
 - SQL Data Warehouse 워크 로드 분류에 대 한 자세한 내용은 참조 하세요. [워크 로드 분류](sql-data-warehouse-workload-classification.md)합니다.  
 - 빠른 시작을 참조 하세요 [워크 로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md) 작업 분류자를 만드는 방법에 대 한 합니다.
-- 방법 문서를 참조 하세요 [워크 로드 구성 중요도](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법과 [관리 및 모니터링 워크 로드 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)합니다.
+- [워크로드 중요도 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 및 [워크로드 관리 모니터링 및 관리](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) 방법에 대한 문서를 참조하세요.
 - 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

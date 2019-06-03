@@ -19,7 +19,7 @@
           items:
             - name: C
               href: quick-create-simulated-device.md
-            - name: 자바
+            - name: Java
               href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
               href: quick-create-simulated-device-tpm-csharp.md
@@ -31,7 +31,7 @@
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
-            - name: 자바
+            - name: Java
               href: quick-create-simulated-device-x509-java.md
             - name: 'C#'
               href: quick-create-simulated-device-x509-csharp.md
@@ -47,7 +47,7 @@
       items:
         - name: TPM 증명
           items:
-            - name: 자바
+            - name: Java
               href: quick-enroll-device-tpm-java.md
             - name: 'C#'
               href: quick-enroll-device-tpm-csharp.md
@@ -57,7 +57,7 @@
               href: quick-enroll-device-tpm-python.md
         - name: X.509 증명
           items:
-            - name: 자바
+            - name: Java
               href: quick-enroll-device-x509-java.md
             - name: 'C#'
               href: quick-enroll-device-x509-csharp.md

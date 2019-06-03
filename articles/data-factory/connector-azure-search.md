@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245101"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -77,9 +77,9 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Azure Search 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure Search에 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Search로 데이터를 복사할에 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndex** | 예 |
 | indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |

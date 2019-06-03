@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 및 Azure CLI를 사용하여 비디오 파일 스트리밍 | Microsoft Docs
-description: 이 빠른 시작의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
+description: 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: Azure Media Services, 스트림
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205414"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550196"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>빠른 시작: 비디오 파일 스트리밍 - CLI
+# <a name="tutorial-stream-video-files---cli"></a>자습서: 비디오 파일 스트리밍 - CLI
 
-이 빠른 시작은 Azure Media Services 및 Azure CLI를 사용하여 다양한 브라우저 및 디바이스에서 비디오를 쉽게 인코딩하고 스트리밍하는 방법을 보여 줍니다. Azure Blob 스토리지에서 HTTPS 또는 SAS URL, 파일 경로를 사용하여 입력 콘텐츠를 지정할 수 있습니다.
+이 자습서는 Azure Media Services 및 Azure CLI를 사용하여 다양한 브라우저 및 디바이스에서 비디오를 쉽게 인코딩하고 스트리밍하는 방법을 보여줍니다. Azure Blob 스토리지에서 HTTPS 또는 SAS URL, 파일 경로를 사용하여 입력 콘텐츠를 지정할 수 있습니다.
 
 이 문서의 예제에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 Media Services v3는 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
-이 빠른 시작이 끝나면 비디오를 스트리밍할 수 있습니다.  
+이 자습서가 끝나면 비디오를 스트리밍할 수 있습니다.  
 
 ![비디오 재생](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 위해 만든 Media Services 및 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
+이 자습서를 위해 만든 Media Services 및 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다.
 
 다음 CLI 명령을 실행합니다.
 
@@ -350,10 +350,7 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>참고 항목
-
-[작업 오류 코드 ](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
 [Media Services 개요](media-services-overview.md)
+

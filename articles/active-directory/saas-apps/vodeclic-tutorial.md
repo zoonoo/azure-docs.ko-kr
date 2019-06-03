@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267075"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>자습서: Vodeclic과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Vodeclic을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 * 사용자가 자신의 Azure AD 계정으로 Vodeclic에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -191,7 +191,7 @@ Vodeclic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 이 섹션에서는 Vodeclic에서 Britta Simon이라는 사용자를 만듭니다. Vodeclic 플랫폼에 사용자를 추가하려면  [Vodeclic 지원 팀](mailto:hotline@vodeclic.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 > [!NOTE]
-> 애플리케이션 요구 사항에 따라 사용 중인 컴퓨터를 허용 목록에 포함해야 할 수 있습니다. 이 경우 공용 IP 주소를 [Vodeclic 지원 팀](mailto:hotline@vodeclic.com)과 공유해야 합니다.
+> 애플리케이션 요구 사항에 따라 머신을 허용 목록에 추가해야 할 수 있습니다. 이 경우 공용 IP 주소를 [Vodeclic 지원 팀](mailto:hotline@vodeclic.com)과 공유해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

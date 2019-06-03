@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111305"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306923"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
 
@@ -29,16 +29,16 @@ Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>자격 증명 관리
-크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 애플리케이션을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 세트에 액세스해야 합니다. 로그인하려면 [Azure CLI](https://github.com/azure/azure-cli)로 만든 [서비스 사용자](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 사용하면 됩니다.
+크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 애플리케이션을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 세트에 액세스해야 합니다. 로그인을 사용할 수 있습니다는 [서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) 사용 하 여 만든 합니다 [Azure CLI](https://github.com/azure/azure-cli)합니다.
 
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 
-1. 가상 머신 확장 집합에 액세스할 수 있는 사용자로 Azure CLI(`az login`)에 로그인합니다.
+1. Azure CLI에 로그인 (`az login`) 가상 머신 확장에 액세스할 수 있는 사용자로 설정
 2. `az ad sp create-for-rbac`을 사용하여 서비스 주체를 만듭니다.
     1. 나중에 사용할 수 있도록 appId(다른 곳에서는 'client ID'라고도 함), 이름, 암호, 테넌트를 기록해 둡니다.
     2. 구독 ID도 필요하며 `az account list`를 사용하여 확인할 수 있습니다.
 
-다음과 같이 자격 증명을 사용하여 Fluent 계산 라이브러리에 로그인할 수 있습니다(`IAzure`와 같은 핵심 Fluent Azure 형식은 [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 패키지에 있음).
+Fluent compute 라이브러리는 다음과 같이 이러한 자격 증명을 사용 하 여 로그인 할 수 있습니다 (참고와 같은 핵심 fluent Azure 형식은 `IAzure` 에 [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 패키지):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

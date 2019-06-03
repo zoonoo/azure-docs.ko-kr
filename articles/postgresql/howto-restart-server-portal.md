@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
-description: 이 문서에서는 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database를 다시 시작할 수는 방법을 설명 합니다.
+title: Azure portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 다시 시작
+description: 이 문서에서는 Azure portal을 사용하여 Azure Database for PostgreSQ - 단일 서버를 다시 시작하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65066832"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 다시 시작
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
@@ -28,9 +28,9 @@ ms.locfileid: "65066832"
 
 다음 단계에서는 PostgreSQL 서버를 다시 시작합니다.
 
-1. 에 [Azure portal](https://portal.azure.com/), Azure Database for PostgreSQL 서버를 선택 합니다.
+1. [Azure portal](https://portal.azure.com/)에서, Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
+2. 서버의 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
 
    ![Azure Database for PostgreSQL - 개요 - 다시 시작 단추](./media/howto-restart-server-portal/2-server.png)
 
@@ -48,4 +48,4 @@ ms.locfileid: "65066832"
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 [PostgreSQL 용 Azure Database에서 매개 변수를 설정 하는 방법](howto-configure-server-parameters-using-portal.md)
+[PostgreSQL용 Azure Database에서 매개 변수를 설정하는 방법](howto-configure-server-parameters-using-portal.md)에 대해 알아봅니다.

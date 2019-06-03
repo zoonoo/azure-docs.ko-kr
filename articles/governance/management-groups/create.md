@@ -3,19 +3,19 @@ title: 관리 그룹을 만들어 Azure 리소스 구성 - Azure Governance
 description: Azure 관리 그룹을 만들어 포털, Azure PowerShell 및 Azure CLI를 통해 여러 리소스를 관리하는 방법을 알아봅니다.
 author: rthorn17
 manager: rithorn
-ms.service: azure-resource-manager
+ms.service: governance
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e0a864019c2940ba7b5188ea43e9bbae484178d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165923"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241974"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 

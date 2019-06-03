@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938075"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257392"
 ---
 # <a name="virtual-machine-prerequisites"></a>가상 머신 필수 조건
 
@@ -36,7 +36,7 @@ VM(가상 머신) 솔루션을 게시하기 위한 기술적인 필수 조건은
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- 등록된 Cloud Marketplace 게시자여야 합니다.  아직 등록되지 않은 경우 [Cloud Marketplace 게시자 되기](../../become-publisher.md) 문서의 단계를 수행합니다.
+- 등록된 Cloud Marketplace 게시자여야 합니다.  아직 등록되지 않은 경우 [Cloud Marketplace 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher) 문서의 단계를 수행합니다.
 
     > [!NOTE]
     > 동일한 Microsoft 개발자 센터 등록 계정을 사용하여 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그온해야 합니다.

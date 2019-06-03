@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864855"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418233"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
-이 문서에서는 Visual Studio 2019를 사용 하 여 Azure WebJobs SDK 프로젝트를 만들고 로컬에서 실행 해도를 배포 하는 방법을 보여 줍니다 [Azure App Service](overview.md)합니다. 만든 프로젝트는 버전을 사용 하는.NET Core 콘솔 앱을 WebJobs sdk 3.x입니다. 버전에 관심이 있다면.NET Framework를 사용 하는 2.x를 참조 하세요 [개발 및 Visual Studio-Azure App Service를 사용 하 여 WebJobs를 배포](webjobs-dotnet-deploy-vs.md)합니다.
+이 문서에서는 Visual Studio 2019를 사용 하 여 Azure WebJobs SDK 프로젝트를 만들고 로컬에서 실행 해도를 배포 하는 방법을 보여 줍니다 [Azure App Service](overview.md)합니다. 버전 3.x WebJobs SDK의.NET Core와.NET Framework 콘솔 응용 프로그램을 지원 합니다. WebJobs SDK를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요 [이벤트 중심 백그라운드 처리를 위해 Azure WebJobs SDK를 사용 하는 방법을](webjobs-sdk-how-to.md)합니다.
 
-WebJobs SDK를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요 [이벤트 중심 백그라운드 처리를 위해 Azure WebJobs SDK를 사용 하는 방법을](webjobs-sdk-how-to.md)합니다.
+이 문서에서는.NET Core 콘솔 앱으로 WebJobs를 배포 하는 방법을 보여 줍니다. .NET 콘솔 앱으로 WebJobs를 배포 하려면 참조 [콘솔 앱을.net으로 WebJobs](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps)합니다. WebJobs SDK 버전에 관심이 있다면 2.x를 지 원하는.NET Framework는 참조 [개발 및 Visual Studio-Azure App Service를 사용 하 여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -217,7 +217,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
    ![Storage 계정 만들기](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. **서버 탐색기**의 **Storage** 노드 아래에서 새 Storage 계정을 선택합니다. **속성** 창에서 **연결 문자열** 값 필드의 오른쪽에 있는 줄임표(**...**)를 선택합니다.
+1. **서버 탐색기**의 **Storage** 노드 아래에서 새 Storage 계정을 선택합니다. **속성** 창에서 **연결 문자열** 값 필드의 오른쪽에 있는 줄임표( **...** )를 선택합니다.
 
    ![연결 문자열 줄임표](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -338,13 +338,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |Name  |연결 문자열  |데이터베이스 유형|
+   |이름  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |이름  |값  |
+   |이름  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 

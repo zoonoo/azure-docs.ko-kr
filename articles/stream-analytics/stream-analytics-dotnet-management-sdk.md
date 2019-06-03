@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480003"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303031"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
 관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 다른 Azure 스토리지 서비스와 마찬가지로, File Storage는 공유의 데이터에 액세스하기 위한 REST API를 제공합니다.
@@ -27,11 +27,11 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 > 이 문서의 샘플 코드를 Azure Stream Analytics Management .NET SDK v2.x 버전으로 업데이트했습니다. 레거시(1.x) SDK 버전을 사용하는 샘플 코드는 [Stream Analytics용 관리 .NET SDK v1.x](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서를 시작하기 전에 다음이 있어야 합니다.
+이 문서를 시작 하기 전에 다음 요구 사항이 있어야 합니다.
 
-* Visual Studio 2017 또는 2015를 설치합니다.
+* Visual Studio 2019 또는 2015를 설치 합니다.
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
-* 구독에서 Azure 리소스 그룹을 만듭니다. 다음은 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.  
+* 구독에서 Azure 리소스 그룹을 만듭니다. 다음 예제는 샘플 Azure PowerShell 스크립트입니다. Azure PowerShell 정보는 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 * 작업이 연결될 입력 원본 및 출력 대상을 설정합니다.
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
-.NET용 Stream Analytics API를 사용하여 분석 작업을 만들려면 먼저 프로젝트를 설정합니다.
+분석 작업을 만들려면 하려면 먼저 프로젝트를 설정 하는.NET 용 Stream Analytics API를 사용 합니다.
 
 1. Visual Studio C# .NET 콘솔 애플리케이션을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 Azure 클라이언트 인증에 대한 것입니다.
@@ -211,7 +211,7 @@ File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 만들기
-출력 대상 만들기는 Stream Analytics 입력 소스 만들기와 매우 유사합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
+출력 대상 만들기는 Stream Analytics 입력된 소스 만들기와 비슷합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
 다음 코드는 출력 대상(Azure SQL 데이터베이스)를 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
 
@@ -289,7 +289,7 @@ Stream Analytics 작업 및 해당 입력, 출력 및 변환을 만든 후, **St
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-.NET SDK를 사용하여 분석 작업을 만들고 실행하는 기본을 알아보았습니다. 자세한 알아보려면 다음을 참조하세요.
+.NET SDK를 사용하여 분석 작업을 만들고 실행하는 기본을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)

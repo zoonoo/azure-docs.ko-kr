@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002299"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237928"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="speech-devices-sdk-151"></a>Speech Devices SDK 1.5.1:
+
+*   포함 [대화 기록](conversation-transcription-service.md) 샘플 앱에서입니다.
+*   업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.5.1을 구성 합니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services Speech Devices SDK 1.5.0: 2019 월 릴리스
 

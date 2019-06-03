@@ -8,26 +8,27 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002304"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303985"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 나열 되는 정보를 사용 하 여 Azure Backup을 사용 하는 동안 발생 한 오류를 해결할 수 있습니다.
 
 ## <a name="backup"></a>Backup
+이 섹션에서는 Azure 가상 컴퓨터의 백업 작업에 실패 했습니다.
 
-### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-초과 하는 자격 증명 모음에서 데이터를 백업 복사
+## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-초과 하는 자격 증명 모음에서 데이터를 백업 복사
 
 오류 코드: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 오류 메시지: 데이터를 초과 하는 자격 증명 모음에서 백업 복사
 
 이 일시적인 저장소 오류 또는 부족 하 여 저장소 계정을 백업 서비스에 대 한 IOPS 제한 시간 내에 자격 증명 모음으로 데이터를 전송으로 인해 발생할 수 있습니다. 이 사용 하 여 VM 백업 구성 [모범 사례](backup-azure-vms-introduction.md#best-practices) 백업 작업을 다시 시도 하세요.
 
-### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM 아닙니다 백업 수 있는 상태입니다.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM 아닙니다 백업 수 있는 상태입니다.
 
 오류 코드: UserErrorVmNotInDesirableState <br/>
 오류 메시지: VM이 백업을 허용하는 상태가 아닙니다.<br/>
@@ -37,7 +38,7 @@ ms.locfileid: "66002304"
 * VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다.
 *  VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.
 
-### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed-하나 이상의 탑재 지점을 파일 시스템 일치 스냅숏을 만들려면 vm을 중지 하지 못했습니다.
+## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed-하나 이상의 탑재 지점을 파일 시스템 일치 스냅숏을 만들려면 vm을 중지 하지 못했습니다.
 
 오류 코드: UserErrorFsFreezeFailed <br/>
 오류 메시지: VM의 탑재 지점을 하나 이상을 동결하지 못하여 파일-시스템 일치 스냅숏을 만들지 못했습니다.
@@ -47,7 +48,7 @@ ms.locfileid: "66002304"
 * 이러한 장치에서 파일 시스템 일관성 검사를 사용 하 여 실행 합니다 **fsck** 명령입니다.
 * 장치를 다시 탑재 하 고 백업 작업을 다시 시도 합니다.</ol>
 
-### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM ExtensionInstallationFailedMDTC-확장 설치/작업으로 인해 실패 한 / COM + 오류
+## <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM ExtensionInstallationFailedMDTC-확장 설치/작업으로 인해 실패 한 / COM + 오류
 
 오류 코드: ExtensionSnapshotFailedCOM <br/>
 오류 메시지: COM+ 오류로 인해 스냅숏 작업이 실패했습니다.
@@ -55,7 +56,8 @@ ms.locfileid: "66002304"
 오류 코드: ExtensionInstallationFailedCOM  <br/>
 오류 메시지: COM + 오류로 인해 확장 설치/작업이 실패 했습니다.
 
-오류 코드: ExtensionInstallationFailedMDTC 오류 메시지: “COM+” 오류로 인해 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다.
+오류 코드: ExtensionInstallationFailedMDTC <br/>
+오류 메시지: “COM+” 오류로 인해 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. <br/>
 
 Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 시스템** 응용 프로그램입니다.  이 문제를 해결하려면 다음 단계를 따릅니다.
 
@@ -69,7 +71,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
     * MSDTC 서비스를 시작합니다.
 * **COM+ 시스템 애플리케이션** Windows 서비스를 시작합니다. **COM+ 시스템 애플리케이션**이 시작되면 Azure Portal에서 백업 작업을 트리거합니다.</ol>
 
-### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-스냅숏 작업이 VSS 기록기 상태가 잘못 되었기 때문에 실패 했습니다.
+## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-스냅숏 작업이 VSS 기록기 상태가 잘못 되었기 때문에 실패 했습니다.
 
 오류 코드: ExtensionFailedVssWriterInBadState <br/>
 오류 메시지: VSS 기록기가 잘못 된 상태에 있던 스냅숏 작업이 실패 했습니다.
@@ -79,7 +81,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
   * ```net stop serviceName```
   * ```net start serviceName```
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-백업 확장에 대 한 구성 분석이 실패 했습니다
+## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-백업 확장에 대 한 구성 분석이 실패 했습니다
 
 오류 코드: ExtensionConfigParsingFailure<br/>
 오류 메시지: 백업 확장에 대한 구성 분석이 실패했습니다.
@@ -108,7 +110,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
     * **개인** > **인증서**에서 **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
 3. VM 백업 작업을 트리거합니다.
 
-### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-확장 상태 백업 작업에 지원 됩니다.
+## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-확장 상태 백업 작업에 지원 됩니다.
 
 오류 코드: ExtensionStuckInDeletionState <br/>
 오류 메시지: 확장 상태는 백업 작업에 지원 되지 않습니다.
@@ -121,7 +123,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
 * 백업 확장을 삭제한 후 백업 작업을 다시 시도합니다.
 * 후속 백업 작업은 새 확장을 원하는 상태로 설치할 것입니다.
 
-### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>연결 된 디스크 중 일부에 대해 ExtensionFailedSnapshotLimitReachedError-스냅숏 작업이 실패 했습니다 스냅숏 제한 초과
+## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>연결 된 디스크 중 일부에 대해 ExtensionFailedSnapshotLimitReachedError-스냅숏 작업이 실패 했습니다 스냅숏 제한 초과
 
 오류 코드: ExtensionFailedSnapshotLimitReachedError  <br/>
 오류 메시지: 연결 된 디스크의 일부에 대 한 스냅숏 작업이 실패 했습니다 스냅숏 제한 초과
@@ -135,7 +137,7 @@ Windows 서비스 문제로 인해 백업 작업이 실패 했습니다 **COM + 
     * 값을 확인 하십시오 **isanysnapshotfailed** /etc/azure/vmbackup.conf에서 false로 설정 되어
     * 백업 작업이 충돌 하지 않도록 다른 시간에 Azure Site Recovery를 예약 합니다.
 
-### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-스냅숏 작업이 VM 리소스가 부족 하 여 실패 했습니다.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-스냅숏 작업이 VM 리소스가 부족 하 여 실패 했습니다.
 
 오류 코드: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 오류 메시지: VM 리소스 부족으로 인해 스냅숏 작업이 실패 했습니다.
@@ -157,9 +159,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **3단계**: 시도 [VM의 크기를 늘리면](https://azure.microsoft.com/blog/resize-virtual-machines/) 작업을 다시 시도
 
-### <a name="common-vm-backup-errors"></a>일반적인 VM 백업 오류
+## <a name="common-vm-backup-errors"></a>일반적인 VM 백업 오류
 
-| 오류 정보 | 해결 방법 |
+| 오류 세부 정보 | 해결 방법 |
 | ------ | --- |
 | 오류 코드: 320001<br/> 오류 메시지: VM이 더 이상 없으므로 작업을 수행할 수 없습니다. <br/> <br/> 오류 코드: 400094 <br/> 오류 메시지: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**or**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
 | VM이 실패한 프로비전 상태입니다. <br>VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인합니다. | 이 오류는 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태가 될 때 발생합니다. 확장 목록으로 이동하고, 실패한 확장이 있는지 확인하고, 제거한 후 가상 머신을 다시 시작해 봅니다. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
@@ -175,7 +177,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 ## <a name="jobs"></a>교육
 
-| 오류 정보 | 해결 방법 |
+| 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 취소는 이 작업 유형에 지원되지 않습니다. <br>작업이 완료될 때까지 기다립니다. |없음 |
 | 작업이 취소 가능한 상태에 있지 않습니다. <br>작업이 완료될 때까지 기다립니다. <br>**or**<br> 선택한 작업이 취소 가능한 상태에 있지 않습니다. <br>작업이 완료될 때까지 기다립니다. |작업이 거의 완료되는 것입니다. 작업이 완료될 때까지 기다립니다.|
@@ -239,7 +241,7 @@ Windows VM에서 VM 에이전트 버전을 확인합니다.
 ## <a name="troubleshoot-vm-snapshot-issues"></a>VM 스냅숏 문제 해결
 VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니다. 스토리지에 액세스할 수 없거나 스냅숏 작업 실행이 지연되는 경우 백업 작업이 실패할 수 있습니다. 다음 조건으로 인해 스냅숏 작업 오류가 발생할 수 있습니다.
 
-- **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. IP의 허용 목록을 사용하거나 프록시 서버를 통해 스토리지에 대한 [네트워크 액세스를 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity)하는 방법을 자세히 알아봅니다.
+- **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. 하는 방법에 자세히 알아보세요 [네트워크 액세스 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity) Ip 또는 프록시 서버를 통해 허용된 목록 중 하나를 사용 하 여 저장소에 있습니다.
 - **SQL Server 백업이 구성된 VM이 스냅숏 작업을 지연시킬 수 있습니다**. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 만듭니다. SQL Server 백업이 구성된 SQL Server를 실행하는 VM에서는 스냅숏 지연이 발생할 수 있습니다. 스냅숏 지연으로 인해 백업이 실패하는 경우 다음 레지스트리 키를 설정합니다.
 
    ```
@@ -262,8 +264,8 @@ VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니�
 
 이름 확인이 올바르게 완료된 후에는 Azure IP에 대한 액세스 권한을 부여해야 합니다. Azure 인프라에 대한 액세스 차단을 해제하려면 다음 단계 중 하나를 따르세요.
 
-- Azure 데이터 센터 IP 범위 허용 목록 만들기:
-   1. 허용 목록에 추가할 [Azure datacenter IP](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 가져옵니다.
+- Azure 데이터 센터 IP 범위 목록을 허용 합니다.
+   1. 목록을 가져옵니다 [Azure 데이터 센터 Ip](https://www.microsoft.com/download/details.aspx?id=41653) 있도록 수의 목록입니다.
    1. [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창을 통해 Azure VM 내에서 이 cmdlet을 실행합니다. 관리자 권한으로 실행합니다.
    1. IP에 대한 액세스를 허용하도록 NSG(있는 경우)에 규칙을 추가합니다.
 - HTTP 트래픽을 보내는 경로 만들기:

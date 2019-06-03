@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002375"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225420"
 ---
 # <a name="filters"></a>필터
 
-고객 (라이브 스트리밍 이벤트 또는 주문형 비디오) 콘텐츠를 제공 하는 경우 클라이언트의 기본 자산의 매니페스트 파일에 설명 된 것 보다 더 많은 유연성이 필요할 수 있습니다. Azure Media Services를 사용하면 콘텐츠에 사용할 계정 필터 및 자산 필터를 정의할 수 있습니다. 
+고객 (라이브 스트리밍 이벤트 또는 주문형 비디오) 콘텐츠를 제공 하는 경우 클라이언트의 기본 자산의 매니페스트 파일에 설명 된 것 보다 더 많은 유연성이 필요할 수 있습니다. Azure Media Services 제공 [동적 매니페스트](filters-dynamic-manifest-overview.md) 미리 정의 된 필터를 기반으로 합니다. 
 
 필터는 고객이 다음과 같은 작업을 수행할 수 있도록 하는 서버 쪽 규칙입니다. 
 
@@ -32,24 +32,16 @@ ms.locfileid: "66002375"
 - 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다(“변환 필터링”). 
 - 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다("프레젠테이션 창 조정").
 
-Media Services는 미리 정의된 필터에 따라 [동적 매니페스트](filters-dynamic-manifest-overview.md)를 제공합니다. 필터를 정의하고 나면 클라이언트가 스트리밍 URL에 필터를 사용할 수 있습니다. 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. Apple HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍
+Media Services를 사용 하면 만들 수 있습니다 **필터 계정** 하 고 **자산 필더** 콘텐츠에 대 한 합니다. 또한 사용 하 여 미리 작성된 된 필터를 연결할 수 있습니다는 **스트리밍 로케이터**합니다.
 
-다음 표에서는 필터가 있는 URL의 몇 가지 예제를 보여 줍니다.
+## <a name="defining-filters"></a>필터 정의
 
-|프로토콜|예|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 사용: `format=m3u8-aapl-v3`합니다.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|부드러운 스트리밍|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>필터 정의
-
-자산 필터에는 두 가지 유형이 있습니다. 
+필터는 다음과 같은 두 종류가 있습니다. 
 
 * [계정 필터](https://docs.microsoft.com/rest/api/media/accountfilters)(전역) - Azure Media Services 계정의 모든 자산에 적용 가능하며 계정의 수명 동안 보유합니다.
 * [자산 필터](https://docs.microsoft.com/rest/api/media/assetfilters)(로컬) -필터를 만들 때 연결된 자산에만 적용 가능하며 자산의 수명 동안 보유합니다. 
 
-[계정 필터](https://docs.microsoft.com/rest/api/media/accountfilters) 및 [자산 필터](https://docs.microsoft.com/rest/api/media/assetfilters) 유형은 필터를 정의/설명하기 위한 정확히 동일한 속성을 가집니다. **자산 필터**를 작성하는 경우 외에는 필터를 연결할 자산 이름을 지정해야 합니다.
+**필터 계정** 하 고 **자산 필더** 형식에 필터를 정의/설명 하기 위한 동일한 속성이 정확 하 게 합니다. **자산 필터**를 작성하는 경우 외에는 필터를 연결할 자산 이름을 지정해야 합니다.
 
 시나리오에 따라 더 적합한 필터 유형이 다릅니다(자산 필터 또는 계정 필터). 계정 필터는 일반적으로 디바이스 프로필에 적합(변환 필터링)한 반면, 자산 필터는 특정 자산을 트리밍하는 데 사용할 수 있습니다.
 
@@ -145,14 +137,22 @@ Media Services는 미리 정의된 필터에 따라 [동적 매니페스트](fil
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
+## <a name="associating-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
 
-목록을 지정할 수 있습니다 [자산 또는 계정 필터](filters-concept.md)에 적용 되는 것에 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다. 합니다 [동적 Packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
+목록을 지정할 수 있습니다 [자산 또는 계정 필터](filters-concept.md) 에 사용자 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다. 합니다 [동적 Packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 
 
 다음 예제를 참조하세요.
 
 * [스트리밍 로케이터-.NET을 사용 하 여 연결 필터](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [스트리밍 로케이터-CLI 사용 하 여 연결 필터](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>필터를 업데이트 하는 중
+ 
+**스트리밍 로케이터** 필터를 업데이트할 수 있습니다 하는 동안에 업데이트할 수 없습니다. 
+
+적극적으로 게시를 사용 하 여 연결 된 필터 정의 업데이트 하는 권장 되지 않습니다 **스트리밍 로케이터**CDN을 사용 하는 경우에 특히 합니다. 스트리밍 서버 및 Cdn 캐시 된 부실 데이터를 반환 될 수 있는 내부 캐시를 가질 수 있습니다. 
+
+필터 정의 변경 해야 하는 경우에 추가 하는 새 필터를 만드는 것이 좋습니다 합니다 **스트리밍 로케이터** URL 또는 새 게시 **스트리밍 로케이터** 필터를 직접 참조 하는 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

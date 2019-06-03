@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7f6108a5d1e8ee386641c6d1f7c09ea96e12458c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587603"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519029"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>빠른 시작: Java SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -34,8 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 또한 다음 항목도 필요합니다.
 
-* [JDK(Java Development Kit) 1.7+](https://aka.ms/azure-jdks)
-    * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
+* [JDK(Java Development Kit) 버전 8](https://aka.ms/azure-jdks)
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.

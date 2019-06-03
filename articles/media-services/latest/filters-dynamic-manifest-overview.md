@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002423"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225518"
 ---
-# <a name="dynamic-manifests"></a>동적 매니페스트
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>동적 Packager를 사용 하 여 매니페스트를 사전 필터링
 
-Media Services는 미리 정의된 필터에 따라 **동적 매니페스트**를 제공합니다. 필터를 정의하고 나면([필터 정의](filters-concept.md) 참조), 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. Apple HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍 
+적응 비트 전송률 스트리밍 장치로 콘텐츠를 제공 하는 경우 대상 특정 장치 기능에 사용 가능한 네트워크 대역폭 매니페스트의 여러 버전을 게시 해야 하는 경우가 많습니다. 합니다 [동적 Packager](dynamic-packaging-overview.md) 해상도, 오디오 및 비트 전송률을 조합에 즉석 복사본을 여러 개 만들 필요가 추적할 특정 코덱, 필터링 할 수 있는 필터를 지정할 수 있습니다. 대상 장치 (iOS, Android, SmartTV, 또는 브라우저) 및 네트워크 기능 (높은 대역폭, 모바일 또는 낮은 대역폭 시나리오)를 구성 하는 필터의 특정 집합을 사용 하 여 새 URL을 게시 해야 하는 하기만 하면 됩니다. 이 경우 쿼리 문자열을 통해 콘텐츠 스트리밍이 클라이언트를 조작할 수 있습니다 (사용할 수를 지정 하 여 [자산 필터 또는 계정 필터](filters-concept.md)) 필터를 사용 하 여 스트림의 특정 섹션을 스트림 합니다.
 
-다음 표에서는 필터가 있는 URL의 몇 가지 예제를 보여 줍니다.
+일부 배달 시나리오 아닌지 고객이 특정 추적에 액세스할 수 있도록 해야 합니다. 예를 들어, 특정 구독자 계층 HD 트랙을 포함 하는 매니페스트를 게시 하지 않을 수 있습니다. 또는 추가 추적에 활용할 수 있는 특정 장치에 배달 비용을 줄이기 위해 특정 적응 비트 전송률 (ABR) 트랙을 제거 하는 것이 좋습니다. 이 경우에 사용 하 여 미리 작성된 된 필터의 목록을 연결할 수 있습니다 하 [스트리밍 로케이터](streaming-locators-concept.md) 생성 합니다. 이 경우 클라이언트는 콘텐츠가 스트리밍됩니다 방법을 조작할 수 없습니다가 정의한 합니다 **스트리밍 로케이터**합니다.
 
-|프로토콜|예|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|부드러운 스트리밍|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+지정 하 여 필터링을 결합할 수 있습니다 [스트리밍 로케이터에 대 한 필터](filters-concept.md#associating-filters-with-streaming-locator) + 클라이언트 URL에 지정 하는 추가 장치 특정 필터입니다. 이 메타 데이터 또는 이벤트 스트림, 오디오 언어 또는 설명이 포함 된 오디오 트랙와 같은 추가 추적을 제한 해야 할 수 있습니다. 
+
+프로그램 스트림에서 다른 필터를 지정 하는이 기능을 제공 강력한 **동적 매니페스트** 조작 솔루션 대상 장치에 대해 여러 사용 사례 시나리오를 대상으로 합니다. 이 항목에서는 **동적 매니페스트**와 관련된 개념을 설명하고, 이 기능을 사용하는 것이 좋은 시나리오 예제를 제공합니다.
+
 > [!NOTE]
-> 동적 매니페스트는 자산 및 해당 자산의 기본 매니페스트를 변경하지 않습니다. 클라이언트는 필터와 관계 없이 스트림을 요청할 수 있습니다. 
+> 동적 매니페스트는 자산 및 해당 자산의 기본 매니페스트를 변경하지 않습니다. 
 > 
-
-이 항목에서는 **동적 매니페스트**와 관련된 개념을 설명하고, 이 기능을 사용하는 것이 좋은 시나리오 예제를 제공합니다.
 
 ## <a name="manifests-overview"></a>매니페스트 개요
 
@@ -55,6 +51,16 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 [Azure Media Player 데모 페이지](https://aka.ms/amp)를 사용하여 비디오 스트림의 비트 전송률을 모니터링할 수 있습니다. 데모 페이지의 **진단** 탭에 진단 정보가 표시됩니다.
 
 ![Azure Media Player 진단][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>예제: Url 쿼리 문자열에서 필터를 사용 하 여
+
+적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. HLS, MPEG-DASH 및 부드러운 스트리밍. 다음 표에서는 필터가 있는 URL의 몇 가지 예제를 보여 줍니다.
+
+|프로토콜|예|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|부드러운 스트리밍|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>변환 필터링
 
@@ -121,10 +127,6 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 최대 3개의 필터를 결합할 수 있습니다. 
 
 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 를 참조하세요.
-
-## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
-
-참조 [필터: 스트리밍 로케이터를 사용 하 여 연결](filters-concept.md#associate-filters-with-streaming-locator)합니다.
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 

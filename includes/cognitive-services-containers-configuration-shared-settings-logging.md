@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2019
 ms.openlocfilehash: d1c880ddc90ae3ce18dfde7e1983b45ac239de85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886840"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116675"
 ---
 `Logging` 설정은 컨테이너에 대한 ASP.NET Core 로깅 지원을 관리합니다. ASP.NET Core 애플리케이션에 사용하는 컨테이너에 대한 동일한 구성 설정 및 값을 사용할 수 있습니다. 
 
@@ -17,11 +17,11 @@ ms.locfileid: "58886840"
 
 |공급자|목적|
 |--|--|
-|[콘솔](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
+|[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
 |[디버그](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|ASP.NET Core `Debug` 로깅 공급자입니다. 이 로깅 공급자에 대한 모든 ASP.NET Core 구성 설정 및 기본값이 지원됩니다.|
 |[디스크](#disk-logging)|JSON 로깅 공급자입니다. 이 로깅 공급자는 출력 탑재에 로그 데이터를 씁니다.|
 
-다음 컨테이너 명령은 출력 탑재에 JSON 형식으로 로깅 정보를 저장합니다.
+이 컨테이너 명령은 출력 탑재에 대한 JSON 형식의 로깅 정보를 저장합니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -34,7 +34,7 @@ ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
 
-다음 컨테이너 명령은 컨테이너가 실행되는 동안 `dbug` 접두사로 디버깅 정보를 보여줍니다.
+이 컨테이너 명령은 컨테이너가 실행되는 동안 접두사가 `dbug`인 디버깅 정보를 보여줍니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 \

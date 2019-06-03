@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142633"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235764"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-만들기 및 Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀을 관리
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS)를 동일한 구성의 노드는으로 그룹화 
 이 문서에서는 AKS 클러스터에서 여러 노드 풀 만들기 및 관리 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 > [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 및 옵트인 합니다. 미리 보기는 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 그러나 Azure 기술 지원 서비스에서 지원 되지 않습니다 됩니다. 클러스터를 만들거나 기존 클러스터에 이러한 기능을 추가 하는 경우에 기능이 더 이상 미리 보기 상태 이며 일반 공급 (GA) 라는 될 때까지 해당 클러스터 지원 되지 않습니다.
+> AKS 미리 보기 기능은 셀프 서비스, 옵트인 합니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 미리 보기에서이 기능이 없는 프로덕션 사용 해야 합니다. 공개 미리 보기에서 기능 '최상의' 지원에 속합니다. AKS 기술 지원 팀의 지원 업무 시간은 태평양 표준 시간대 (PST)만 제공 됩니다. 추가 정보는 다음과 같은 지원 문서를 참조 하세요.
 >
-> 미리 보기 기능을 사용 하 여 문제가 발생 하면 [AKS GitHub 리포지토리에서 문제를 제기] [ aks-github] 버그 제목에 미리 보기 기능의 이름입니다.
+> * [AKS 지원 정책][aks-support-policies]
+> * [Azure 지원 FAQ][aks-faq]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -72,6 +73,7 @@ az provider register --namespace Microsoft.ContainerService
 * 여러 노드 풀 성공적으로 등록 한 후 만든 클러스터에만 사용할 수는 *MultiAgentpoolPreview* 하 고 *VMSSPreview* 구독에 대 한 기능입니다. 추가 하거나이 기능이 성공적으로 등록 된 이전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 관리할 수 없습니다.
 * 첫 번째 노드 풀을 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
+* 대부분의 작업에서와 마찬가지로 기존 Resource Manager 템플릿을 사용 하 여 추가/업데이트/삭제 노드 풀 수 없습니다. 대신 [별도 Resource Manager 템플릿을 사용 하 여](#manage-node-pools-using-a-resource-manager-template) AKS 클러스터에서 노드 풀을 변경 해야 합니다.
 
 이 기능은 미리 보기 상태인 동안에 다음 추가 제한 사항이 적용 됩니다.
 
@@ -264,7 +266,7 @@ aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.12.6
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
 * **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
-* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.
+* **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다. 
 
 사용 하는 방법에 대 한 자세한 내용은 고급 Kubernetes 예약 기능을 참조 [AKS에서 고급 스케줄러 기능에 대 한 유용한 정보][taints-tolerations]
 
@@ -328,6 +330,95 @@ Events:
 
 노드에 적용이 검은 있는 pod만 예약할 수 있습니다 *gpunodepool*합니다. 다른 pod를 예약할 수는 합니다 *nodepool1* 노드 풀 합니다. 추가 노드 풀을 만드는 경우 추가 taints 사용할 수 있으며 해당 노드 리소스에 대해 어떤 pod를 제한 하려면 tolerations를 예약할 수 있습니다.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용 하 여 노드 풀 관리
+
+Azure Resource Manager 템플릿 만들기를 사용 하는 경우 관리 되는 리소스 및 리소스를 업데이트 하는 서식 파일 및 재배포 설정은 일반적으로 업데이트할 수 있습니다. AKS에서 nodepools를 사용 하 여 AKS 클러스터를 만든 후에 초기 nodepool 프로필을 업데이트할 수 없습니다. 이 동작은 없습니다 기존 Resource Manager 템플릿을 업데이트, 노드 풀을 변경 하는 재배포를 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 에이전트 풀만 업데이트 하는 별도 Resource Manager 템플릿을 만들어야 합니다.
+
+같은 템플릿 만들기 `aks-agentpools.json` 다음 예제에서는 매니페스트를 붙여넣습니다. 이 예제에서는 서식 파일에 다음 설정을 구성합니다.
+
+* 업데이트를 *Linux* 이라는 에이전트 풀 *myagentpool* 노드가 3 개를 실행 합니다.
+* Kubernetes 버전을 실행 하는 노드 풀에서 노드를 설정 *1.12.8*합니다.
+* 노드 크기를 정의 *Standard_DS2_v2*합니다.
+
+업데이트를 추가 하거나 필요에 따라 노드 풀을 삭제 하는 대로이 값을 편집 합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+사용 하 여이 템플릿을 배포 합니다 [az 그룹 배포 만들기] [ az-group-deployment-create] 명령을 다음 예와에서 같이 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 나타납니다.
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+노드 풀 설정 및 Resource Manager 템플릿에서 정의 하는 작업에 따라 AKS 클러스터를 업데이트 하려면 몇 분 정도 걸릴 수 있습니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 삭제 하려는 합니다 *gpunodepool*, 또는 전체 AKS 클러스터.
@@ -351,7 +442,6 @@ az group delete --name myResourceGroup --yes --no-wait
 참조를 만들고 Windows Server 컨테이너 노드 풀을 사용 하려면 [AKS에 Windows Server 컨테이너를 만들고][aks-windows]합니다.
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500637"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992037"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>빠른 시작: Azure CLI를 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 Azure CLI 및 Service Bus Java 라이브러리를 사용하여 Service Bus에서 메시지를 보내고 받는 방법에 대해 설명합니다. 마지막으로, 더 많은 기술적 세부 정보에 관심이 있으면 샘플 코드의 주요 요소에 대한 [설명을 참조](#understand-the-sample-code)할 수 있습니다.
@@ -367,6 +367,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 }
 ```
 
+> [!NOTE]
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, 알림 허브 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 큐에서 메시지를 보내고 받는 데 필요한 Service Bus 네임스페이스 및 기타 리소스를 만들었습니다. 메시지를 보내고 받기 위한 코드 작성에 대해 자세히 알아보려면 **메시지 보내기 및 받기** 섹션의 자습서로 계속 진행하세요. 
@@ -374,7 +377,7 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 > [!div class="nextstepaction"]
 > [메시지 보내기 및 받기](service-bus-dotnet-get-started-with-queues.md)
 
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234920"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389571"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -26,7 +26,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 -   각 경고 유형에 대한 논리 앱을 만듭니다.
 
--   논리 앱에 해당 경고 유형에 대한 스키마를 가져옵니다.
+-   논리 앱에 해당 경고 유형에 대 한 샘플 페이로드를 가져옵니다.
 
 -   논리 앱 동작을 정의합니다.
 
@@ -58,7 +58,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
     ![샘플 페이로드를 사용](media/action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
 
-8.  다음과 같은 샘플 스키마를 복사하여 대화 상자에 붙여넣습니다.
+8.  복사 하 고 대화 상자에 다음 샘플 페이로드를 붙여 넣습니다.
 
     ```json
         {
@@ -140,7 +140,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8단계의 경우 HTTP 요청 트리거에 대한 다음 샘플 스키마를 사용합니다.
+- 8 단계에 대 한 HTTP 요청 트리거를 위한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 메트릭 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8단계의 경우 HTTP 요청 트리거에 대한 다음 샘플 스키마를 사용합니다.
+- 8 단계에 대 한 HTTP 요청 트리거를 위한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {

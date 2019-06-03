@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949567"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243604"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -26,9 +26,9 @@ Azure Data Lake 저장소 Gen2 Azure 역할 기반 액세스 제어 (RBAC)와 �
 
 RBAC 역할 할당을 사용 하 여 사용 권한 집합을 효과적으로 적용할 *보안 주체*합니다. A *보안 주체* 은 사용자, 그룹, 서비스 주체 또는에서 Azure AD (Active Directory) Azure 리소스에 대 한 액세스를 요청 하는 정의 된 관리 되는 id를 나타내는 개체입니다.
 
-최상위 리소스에 이러한 Azure 리소스는 제한 하는 일반적으로 (예: Azure Storage 계정)입니다. Azure Storage 및 이에 따른 Azure Data Lake Storage Gen2의 경우 이 메커니즘은 파일 시스템 리소스로 확장되었습니다.
+최상위 리소스에 이러한 Azure 리소스는 제한 하는 일반적으로 (예: Azure Storage 계정)입니다. Azure Storage 및 결과적으로 Azure Data Lake 저장소 Gen2 경우이 메커니즘에 컨테이너 (파일 시스템) 리소스 확장 되었습니다.
 
-저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 알아보려면 참조 [Authenticate 권한을 Azure blob 및 Azure Active Directory를 사용 하 여 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
+저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 알아보려면 참조 [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>파일 및 디렉터리 수준 액세스 제어 목록에서 역할 할당의 영향
 
@@ -77,8 +77,6 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
 
-액세스 ACL 및 기본 ACL의 구조는 모두 동일합니다.
-
 > [!NOTE]
 > 부모 항목에서 기본 ACL을 변경해도 이미 존재하는 자식 항목의 액세스 ACL 또는 기본 ACL에는 영향을 주지 않습니다.
 
@@ -91,6 +89,9 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 디렉터리의 내용을 나열하려면 **읽기** 및 **실행**이 필요합니다. |
 | **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 디렉터리에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
+
+> [!NOTE]
+> Acl (RBAC 없음)를 사용 하 여 권한을 부여 하는 경우 서비스 주체 읽기 또는 파일에 대 한 쓰기 액세스를 허용 하려면 서비스 주체를 지정 해야 **Execute** 권한 있는 각 폴더에 파일 시스템에는 파일에 이어지는 폴더의 계층입니다.
 
 #### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 

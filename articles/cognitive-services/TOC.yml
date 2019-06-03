@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 제품 사용자 의견 제공

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 953edcb98de6ea705721aef0922562d23e18f0f5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 971fea76a23859f32437a1698b6d3094113737a1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148257"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255090"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>상태 모니터 v2 API: 집합-ApplicationInsightsMonitoringConfig (v0.2.1 알파)
 
@@ -128,7 +128,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
  - [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
 - [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md) 문제 진단
 - [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
-- [대시보드를 만듭니다](../../azure-monitor/app/app-insights-dashboards.md).
+- [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
  
  원격 분석 더 추가:
  - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되도록 합니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471845"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299295"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -25,6 +25,16 @@ ms.locfileid: "65471845"
 
 * 동일한 부분이 일관되게 표시되는 경우 적응 [샘플링](../../azure-monitor/app/sampling.md)때문일 것입니다. 이러한 사항을 확인하려면 개요 블레이드에서 검색을 열고 요청 또는 다른 이벤트의 인스턴스를 확인합니다. 속성 섹션의 아래쪽에서 "..."를 클릭하여 전체 속성 세부 정보를 표시합니다. 요청 수가 1보다 크면 샘플링이 작동 중인 것입니다.
 * 그렇지 않은 경우 요금제의 [데이터 속도 제한](../../azure-monitor/app/pricing.md#limits-summary) 에 도달한 것일 수 있습니다. 이러한 제한은 분당으로 적용됩니다.
+
+*발생 했습니다. 데이터 손실을 임의로 합니다.*
+
+* 데이터 손실이 발생 하는 경우 확인 [원격 분석 채널](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* 원격 분석 채널의 알려진된 문제에 대 한 확인 [Github 리포지토리](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*앱 중지 되려고 할 때 웹 앱 또는 콘솔 앱에서 데이터 손실이 발생 했습니다.*
+
+* SDK 채널 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램이 종료 되는 경우를 명시적으로 호출 [flush ()](api-custom-events-metrics.md#flushing-data)합니다. 동작은 `Flush()` 실제에 따라 달라 집니다 [채널](telemetry-channels.md#built-in-telemetrychannels) 사용 합니다.
 
 ## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
 *웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
@@ -58,7 +68,6 @@ ms.locfileid: "65471845"
 * 올바른 Azure 계정의 로그인 자격 증명을 입력했는지 확인하세요.
 * 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
 * [Application Insights를 기존 프로젝트에 추가](../../azure-monitor/app/asp-net.md): 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
-* 여전히 작동하지 않는 경우 [수동 절차](../../azure-monitor/app/windows-services.md) 에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다.
 
 ## <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어댑터에 문제가 있을 수 있습니다.

@@ -1,24 +1,24 @@
 ---
 title: 개발 하 고 Visual Studio-Azure IoT Edge에서에서 모듈을 디버그 | Microsoft Docs
-description: Visual Studio 2017을 사용 하 여 개발 하 고 Azure IoT Edge 용 모듈 디버그
+description: Visual Studio 2019를 사용 하 여 개발 하 고 Azure IoT Edge 용 모듈 디버그
 services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/03/2019
+ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f2228726d4edc25efe46a660d25d398959c3ea59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60595912"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253053"
 ---
-# <a name="use-visual-studio-2017-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용 하 여 개발 하 고 Azure IoT Edge (미리 보기)에 대 한 모듈 디버그
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2019를 사용 하 여 개발 하 고 Azure IoT Edge (미리 보기)에 대 한 모듈 디버그
 
-비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 기본 도구와 Visual Studio 2017를 사용 하 여 개발 하 고 모듈을 디버그 하는 방법을 보여 줍니다.
+비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 기본 도구와 Visual Studio 2019를 사용 하 여 개발 하 고 모듈을 디버그 하는 방법을 보여 줍니다.
 
 Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합니다.
 
@@ -27,7 +27,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 - Azure IoT C에서 모듈을 코드 또는 C# Visual Studio 개발의 장점을 모두를 포함 하는 동안.
 - Azure IoT Edge 디바이스 및 모듈을 UI로 관리합니다.
 
-이 문서에서는 IoT Edge 모듈을 개발 하려면 Visual Studio 2017 용 Azure IoT Edge 도구를 사용 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다.
+이 문서에서는 IoT Edge 모듈을 개발 하려면 Visual Studio 2019에 대 한 Azure IoT Edge 도구를 사용 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다.
 
 > [!TIP]
 > Visual Studio에서 만든 IoT Edge 프로젝트 구조는 Visual Studio Code의 구조와는 다릅니다.
@@ -36,11 +36,14 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
 
-이 문서에서는 Visual Studio 2017을 기본 개발 도구로 사용하기 때문에 Visual Studio를 설치해야 합니다. 포함 되어 있는지 확인 합니다 **Azure 개발** 하 고 **를 사용한 데스크톱 개발 C++**  Visual Studio 2017 설치에서 워크 로드. 할 수 있습니다 [Visual Studio 2017 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) 필요한 워크 로드를 추가 합니다.
+이 문서에서는 Visual Studio 2019를 주 개발 도구로 때문에 Visual Studio를 설치 합니다. 포함 되어 있는지 확인 합니다 **Azure 개발** 하 고 **를 사용한 데스크톱 개발 C++**  Visual Studio 2019 설치에서 워크 로드. 할 수 있습니다 [Visual Studio 2019 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) 필요한 워크 로드를 추가 합니다.
 
-Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합니다.
+Visual Studio 2019에 준비 되 면 다음 도구와 구성 요소를도 필요 합니다.
 
-- Visual Studio 마켓플레이스에서 [Azure IoT Edge 확장(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)을 다운로드 및 설치하여 Visual Studio 2017에서 IoT Edge 프로젝트를 만듭니다.
+- 다운로드 및 설치 [Azure IoT Edge 도구 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) Visual Studio 2019에 IoT Edge 프로젝트를 만들려면 Visual Studio marketplace에서.
+
+> [!TIP]
+> Visual Studio 2017을 사용 하는 경우 plrease 다운로드 하 고 설치 [Azure IoT Edge 도구 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) Visual Studio marketplace에서 VS 2017 용
 
 - [Docker Community Edition](https://docs.docker.com/install/)을 개발 머신에 다운로드 및 설치하여 모듈 이미지를 빌드하고 실행합니다. Linux 컨테이너 모드 또는 Windows 컨테이너 모드에서 실행할 Docker CE를 설정해야 합니다.
 
@@ -74,7 +77,7 @@ Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합�
 
 1. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. **설치됨 > 도구**를 펼치면 **Azure IoT Edge**와 **Visual Studio용 클라우드 탐색기**가 보입니다.
 
-1. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools))의 최신 버전과 비교할 수 있습니다.
+1. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS2019), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools))의 최신 버전과 비교할 수 있습니다.
 
 1. Visual Studio Marketplace에서 제공되는 것보다 버전이 낮을 경우, 다음 섹션에 나오는 대로 Visual Studio에서 도구를 업데이트합니다.
 
@@ -92,18 +95,14 @@ Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합�
 
 Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure IoT Edge 디바이스에 배포할 수 있는 프로젝트를 만듭니다. 먼저 Azure IoT Edge 솔루션을 만들고 해당 솔루션의 첫 번째 모듈을 생성 합니다. 각 IoT Edge 솔루션에는 둘 이상의 모듈이 포함될 수 있습니다.
 
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
-
-1. 에 **새 프로젝트** 대화 상자에서 **설치 됨**를 선택 **Azure IoT**선택 **Azure IoT Edge**, 프로젝트의 이름을 입력 및 위치를 지정 하 고 선택한 **확인**합니다. 기본 프로젝트 이름은 **AzureIoTEdgeApp1**입니다.
-
-   ![새 프로젝트](./media/how-to-visual-studio-develop-csharp-module/create-new.jpg)
+1. Visual Studio 새 프로젝트 대화 상자에서 검색 하 고 선택 **Azure IoT Edge**, 프로젝트의 이름을 입력 하 고 위치를 지정 및 선택한 **확인**합니다. 기본 프로젝트 이름은 **AzureIoTEdgeApp1**입니다.
 
 1. 에 **IoT Edge 응용 프로그램 추가 및 모듈** 창에서 **Linux Amd64**를 **Windows Amd64**, 또는 응용 프로그램 플랫폼으로 서 둘 다. 모두 선택 하면 각 기본 코드 모듈을 참조 하는 두 개의 프로젝트를 사용 하 여 솔루션을 만듭니다.
 
    > [!TIP]
    > 현재 Visual Studio 용 Azure IoT Edge 확장 ARM 플랫폼에 대 한 프로젝트를 지원 하지 않습니다. 이 참조 하세요 [IoT 개발자 블로그](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) ARM32v7/armhf에 대 한 솔루션을 개발 하려면 Visual Studio Code를 사용 하는 예제에 대 한 합니다.
 
-1. 선택  **C# 모듈** 하거나 **C 모듈** 모듈 이름 및 모듈 이미지 리포지토리를 지정 합니다. Visual Studio는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 ***\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 **\<* 레지스트리 이름*\>.azurecr.io/*\<모듈 이름\>***과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸기만 하면 됩니다. 기본 모듈 이름은 **IoTEdgeModule1**입니다.
+1. 선택  **C# 모듈** 하거나 **C 모듈** 모듈 이름 및 모듈 이미지 리포지토리를 지정 합니다. Visual Studio는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 * **\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 * *\<* 레지스트리 이름 *\>.azurecr.io/* \<모듈 이름\>***과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸기만 하면 됩니다. 기본 모듈 이름은 **IoTEdgeModule1**입니다.
 
 1. 선택 **확인** 중 하나를 사용 하는 모듈을 사용 하 여 Azure IoT Edge 솔루션을 만들려면 C# 또는 3.
 
@@ -123,7 +122,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
    ![Edge 디바이스 연결 문자열 복사](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. **AzureIoTEdgeApp1** 프로젝트를 오른쪽 클릭한 다음, **Edge 디바이스 연결 문자열 설정**을 클릭하여 Azure IoT Edge 설정 창을 엽니다.
+1. 로 이동 **도구가** > **Azure IoT Edge 도구** > **설치 IoT Edge 시뮬레이터**pasten 연결 문자열을 클릭 **확인** .
 
    ![Edge 장치 연결 문자열 설정 창 열기](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
@@ -225,7 +224,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
 IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio 용 클라우드 탐색기를 사용하여 모듈을 배포할 수도 있습니다. 시나리오의 배포 매니페스트인 `deployment.json` 파일이 이미 있으므로 배포를 수신할 디바이스만 선택하면 됩니다.
 
-1. **보기** > **클라우드 탐색기**를 클릭하여 **클라우드 탐색기**를 엽니다. Visual Studio 2017에 로그인되었는지 확인합니다.
+1. **보기** > **클라우드 탐색기**를 클릭하여 **클라우드 탐색기**를 엽니다. Visual Studio 2019에 로그인 했는지 확인 합니다.
 
 1. **클라우드 탐색기**에서 구독을 펼쳐서 배포하려는 Azure IoT Hub 및 Azure IoT Edge 디바이스를 찾습니다.
 
@@ -238,9 +237,9 @@ IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 A
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-1. 특정 디바이스에 대한 D2C 메시지를 모니터링하려면, 목록에서 해당 디바이스를 선택한 다음, **작업** 창에서 **D2C 메시지 모니터링 시작**을 클릭합니다.
+1. 특정 장치에 대 한 D2C 메시지를 모니터링 하려면 목록에서 장치를 선택 하 고 클릭 **기본 제공 이벤트 끝점 모니터링을 시작** 에 **동작** 창입니다.
 
-1. 데이터 모니터링을 중지하려면, 목록에서 해당 디바이스를 선택한 다음, **작업** 창에서 **D2C 메시지 모니터링 중지**를 선택합니다.
+1. 데이터 모니터링을 중지 하려면 목록에서 장치를 선택 하 고 선택한 **기본 제공 이벤트 끝점 모니터링 중지** 에 **동작** 창.
 
 ## <a name="next-steps"></a>다음 단계
 

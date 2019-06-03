@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure SQL Data Warehouse 만들기 및 쿼리 - Azure Portal | Microsoft Docs'
 description: Azure Portal에서 Azure SQL Data Warehouse로 데이터 웨어하우스를 만들고 쿼리합니다.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732402"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169267"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리
 
@@ -194,7 +194,7 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
     ![리소스 정리](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **시작** 단추가 표시됩니다. 계산을 재개하려면 **시작**을 클릭합니다.
+2. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **다시 시작** 단추가 표시됩니다. 계산을 다시 시작하려면 **다시 시작**을 클릭합니다.
 
 3. 계산 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991601"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257974"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -288,7 +288,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ## <a name="expressroute-local"></a>ExpressRoute 로컬
 ### <a name="what-is-expressroute-local"></a>ExpressRoute 로컬 란?
-ExpressRoute 로컬 SKU의 ExpressRoute 회로입니다. 로컬의 주요 기능에는 피어 링 위치를 사용 하면 ExpressRoute에서 로컬 circit 또는 동일한 메트로 거의 같은 하나 이상의 Azure 지역에만 액세스할. 반면, 표준 회로에 액세스할 수는 지정 학적 영역 및 모든 Azure 지역에 Premium 회로에서 모든 Azure 지역 전역적으로 합니다. 
+ExpressRoute 로컬 SKU의 ExpressRoute 회로입니다. 로컬의 주요 기능에서 피어 링 위치를 사용 하면 ExpressRoute 회로 로컬에서 또는 동일한 메트로 거의 같은 하나 이상의 Azure 지역에만 액세스 하는 합니다. 반면, 표준 회로에 액세스할 수는 지정 학적 영역 및 모든 Azure 지역에 Premium 회로에서 모든 Azure 지역 전역적으로 합니다. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 로컬의 이점은 무엇 인가요?
 표준 또는 프리미엄 ExpressRoute 회로 대 한 송신 데이터 전송 요금을 지불 해야 하는 동안 지불 하지 않습니다 송신 데이터 전송 별도로 로컬 ExpressRoute 회로 대 한 합니다. 즉, ExpressRoute 로컬 가격은 데이터 전송 요금을 포함 합니다. ExpressRoute 로컬은 보다 경제적인 솔루션 엄청난 양의 데이터를 전송 하 고 원하는 Azure 지역에 가까운 ExpressRoute 피어 링 위치에 개인 연결을 통해 데이터를 가져올 수 있습니다. 

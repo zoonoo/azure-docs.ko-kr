@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005837"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832172"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Python)
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Python을 사용하여 작성되었습니다. 현재, Python용 Microsoft Azure IoT SDK는 각 플랫폼에 대해 특정 버전의 Python만 지원합니다. 자세한 내용은 [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)를 참조하세요.
 
-이 빠른 시작은 사용자가 Windows 개발 컴퓨터를 사용한다고 가정합니다. Windows 시스템의 경우 [Python 3.6.x](https://www.python.org/downloads/release/python-368/)만 지원됩니다. 선택한 Python 설치 관리자는 사용하는 시스템의 아키텍처를 기반으로 해야 합니다. 시스템 CPU 아키텍처가 32비트면 x86 설치 관리자를 다운로드하고, 64비트 아키텍처면 x86-64 설치 관리자를 다운로드합니다. 또한 아키텍처에 대해 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)가 설치되어 있는지 확인합니다(x86 또는 x64).
+이 빠른 시작은 사용자가 Windows 개발 컴퓨터를 사용한다고 가정합니다. Windows 시스템의 경우 [Python 3.6.x](https://www.python.org/downloads/release/python-368/)만 지원됩니다. 선택한 Python 설치 관리자는 사용하는 시스템의 아키텍처를 기반으로 해야 합니다. 시스템 CPU 아키텍처가 32비트면 x86 설치 관리자를 다운로드하고, 64비트 아키텍처면 x86-64 설치 관리자를 다운로드합니다. 또한 아키텍처에 대해 [Visual Studio 2015, 2017 및 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)가 설치되어 있는지 확인합니다(x86 또는 x64).
 
 [Python.org](https://www.python.org/downloads/)에서 다른 플랫폼용 Python을 다운로드할 수 있습니다.
 

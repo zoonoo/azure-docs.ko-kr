@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478898"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302894"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>프로그래밍 방식으로 Stream Analytics 작업 모니터 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "61478898"
 
 이 프로세스를 시작 하기 전에 다음 필수 조건이 있어야 합니다.
 
-* Visual Studio 2017 또는 2015
+* Visual Studio 2019 또는 2015
 * [Azure.NET SDK](https://azure.microsoft.com/downloads/) 다운로드 및 설치
 * 모니터링 설정이 필요한 기존 Stream Analytics 작업
 

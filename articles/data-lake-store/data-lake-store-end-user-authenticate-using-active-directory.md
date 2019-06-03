@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878253"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234066"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
   
     ![AAD 도메인 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
+* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
-이 인증 메커니즘은 최종 사용자가 Microsoft Azure Active Directory를 통해 애플리케이션에 로그인하기를 원하는 경우에 권장되는 방법입니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
+이 인증 메커니즘 최종 사용자가 Azure AD 통해 응용 프로그램에 로그인 하려는 경우 권장 됩니다. 애플리케이션은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 애플리케이션이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
 
-최종 사용자의 로그인으로 인해 애플리케이션에 액세스 토큰 및 새로 고침 토큰이 제공됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대한 각 요청에 연결되며, 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 두 가지 방법을 사용할 수 있습니다.
+최종 사용자 로그인의 결과는 응용 프로그램 액세스 토큰 및 새로 고침 토큰이 제공 됩니다. 액세스 토큰은 Data Lake Storage Gen1 또는 Data Lake Analytics에 대한 각 요청에 연결되며, 기본적으로 1시간 동안 유효합니다. 새로 고침 토큰은 새 액세스 토큰을 가져오는 데 사용할 수 있고 기본적으로 최대 2주 동안 유효합니다. 최종 사용자 로그인에 대 한 두 가지 방법을 사용할 수 있습니다.
 
 ### <a name="using-the-oauth-20-pop-up"></a>OAuth 2.0 팝업 사용
 애플리케이션은 최종 사용자가 자격 증명을 입력할 수 있는 OAuth 2.0 권한 부여 팝업을 트리거할 수 있습니다. 이 팝업은 필요한 경우 Azure AD 2단계 인증(2FA) 프로세스와도 작동합니다. 
@@ -82,7 +82,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 응용 프로그램 ID 및 리디렉션 URI 가져오기
 
-애플리케이션 ID를 검색하려면 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+애플리케이션 ID를 검색하려면 [애플리케이션 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 
 리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
 

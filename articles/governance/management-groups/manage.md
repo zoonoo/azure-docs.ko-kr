@@ -2,16 +2,16 @@
 title: 변경, 삭제 또는 관리 그룹-Azure 거 버 넌 스를 관리 하는 방법
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950339"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242942"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -128,7 +128,7 @@ az account management-group delete --name 'Contoso'
 
 1. 관리 그룹의 세부 정보를 보려면 관리 그룹의 제목 옆에 있는 **(세부 정보)** 링크를 선택합니다. 이 링크를 사용할 수 없으면 해당 관리 그룹을 볼 수 있는 권한이 없습니다.
 
-   ![메인](./media/main.png)
+   ![기본](./media/main.png)
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
@@ -206,10 +206,12 @@ az account management-group show --name 'Contoso' -e -r
 구독을 이동 하려면 다음 RBAC 사용 권한을 모두 true 여야 필요 합니다.
 
 - 자식 구독에 대한 "소유자" 역할
-- 대상 부모 관리 group.*에서 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할
-- 기존 부모 관리 group.*에서 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할
+- 대상 부모 관리 그룹에서 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할.
+- 기존 부모 관리 그룹에서 "소유자", "참가자" 또는 "관리 그룹 참가자" 역할.
 
-*: 대상 또는 기존 부모 하지 않는 한 관리 그룹은 루트 관리 그룹입니다. 루트 관리 그룹을 모든 새 관리 그룹 및 구독에 대 한 스폿 방문 기본값 이므로 사용자가 항목을 이동 하려면이에 대 한 권한이 필요 하지 않습니다.
+이면 대상 또는 기존 부모 관리 그룹에 루트 관리 그룹 사용 권한 요구 사항을 적용 되지 않습니다. 루트 관리 그룹을 모든 새 관리 그룹 및 구독에 대 한 스폿 방문 기본값 이므로에 사용 권한 항목을 이동할 필요가 없습니다.
+
+구독에 소유자 역할을 현재 관리 그룹에서 상속 하는 경우 이동 대상 제한 됩니다. 이동할 수 있습니다만 구독 다른 관리 그룹에 소유자 역할이 있는 경우. 이동할 수 없습니다 관리 그룹에 구독 소유권을 잃을 수 있으므로 참가자는 위치입니다. 직접 (관리 그룹에서 상속 안 함) 구독에 대 한 소유자 역할에 할당 하는 경우 이동할 수 있습니다이 관리 그룹에는 참가자의 경우.
 
 어떤 사용 권한이 있는 Azure portal 선택 그룹 및 선택한 관리 보려는 **IAM**합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.
 

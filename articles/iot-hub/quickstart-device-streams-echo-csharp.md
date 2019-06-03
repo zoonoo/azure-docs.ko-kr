@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 디바이스 스트림 C# 빠른 시작(미리 보기) | Microsoft Docs
+title: Azure IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신(미리 보기) | Microsoft Docs
 description: 이 빠른 시작에서는 IoT Hub를 통해 설정된 디바이스 스트림을 통해 통신하는 두 개의 샘플 C# 애플리케이션을 실행합니다.
 author: rezasherafat
 manager: briz
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8df57d3d36dcae851c9c0e23ea609e200a429605
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006867"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832882"
 ---
-# <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -31,14 +31,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+*  디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
-  - **미국 중부**
-  - **미국 중부 EUAP**
+   *  **미국 중부**
+
+   *  **미국 중부 EUAP**
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 컴퓨터에서 .NET Core SDK 2.1.0 이상이 필요합니다.
 
-[.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
+*  [.NET에서 여러 플랫폼에 대한 .NET Core SDK](https://www.microsoft.com/net/download/all)를 다운로드하세요.
 
 다음 명령을 사용하여 개발 컴퓨터에서 C#의 현재 버전을 확인할 수 있습니다.
 
@@ -46,17 +47,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 dotnet --version
 ```
 
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+*  다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에서 샘플 C# 다운로드하고 ZIP 보관 파일을 추출합니다. 디바이스 및 서비스 쪽 모두에서 필요합니다.
+* https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에서 샘플 C# 다운로드하고 ZIP 보관 파일을 추출합니다. 디바이스 및 서비스 쪽 모두에서 필요합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
@@ -86,7 +87,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-3. 또한 서비스 쪽 애플리케이션을 IoT Hub에 연결하고 디바이스 스트림을 설정하기 위해 IoT Hub에서 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
+3. 또한 서비스 쪽 애플리케이션을 IoT Hub에 연결하고 디바이스 스트림을 설정하기 위해 IoT Hub에서 *서비스 연결 문자열*이 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
@@ -99,6 +100,8 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>디바이스 스트림을 통해 디바이스와 서비스 간의 통신
+
+이 섹션에서는 디바이스 쪽 애플리케이션과 서비스 쪽 애플리케이션을 둘 다 실행하고 서로 통신합니다.
 
 ### <a name="run-the-service-side-application"></a>서비스 쪽 애플리케이션 실행
 
@@ -154,15 +157,17 @@ dotnet run <DeviceConnectionString>
 
 마지막 단계의 끝에서 서비스 쪽 프로그램은 디바이스에 대한 스트림을 시작하고 설정되면 스트림을 통해 문자열 버퍼를 서비스로 보냅니다. 이 샘플에서 서비스 쪽 프로그램은 디바이스에 동일한 데이터를 간단히 다시 에코하여 두 애플리케이션 간의 성공적인 양방향 통신을 보여줍니다. 아래 그림을 참조하세요.
 
-디바이스 쪽의 콘솔 출력: ![대체 텍스트](./media/quickstart-device-streams-echo-csharp/device-console-output.png "디바이스 쪽의 콘솔 출력")
+디바이스 쪽 콘솔 출력:
 
-서비스 쪽의 콘솔 출력: ![대체 텍스트](./media/quickstart-device-streams-echo-csharp/service-console-output.png "서비스 쪽의 콘솔 출력")
+![디바이스 쪽 콘솔 출력](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
-스트림을 통해 전송되는 트래픽은 직접 전송되는 것이 아니라 IoT Hub를 통해 터널링됩니다. [이러한 혜택](./iot-hub-device-streams-overview.md#benefits)을 제공합니다.
+서비스 쪽 콘솔 출력: ![서비스 쪽 콘솔 출력](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
+
+스트림을 통해 전송되는 트래픽은 직접 전송되는 것이 아니라 IoT Hub를 통해 터널링됩니다. 제공되는 이점은 [디바이스 스트림 이점](./iot-hub-device-streams-overview.md#benefits)에 자세히 나와 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS)에서 Windows Server 노드가 풀에 대 한 제한 사항
 description: 실행 하면 Windows Server 노드 풀과 응용 프로그램 워크 로드가 Azure Kubernetes Service (AKS)에서 알려진된 제한 사항에 알아봅니다
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956269"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304403"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>노드 풀을 Windows Server 및 Azure Kubernetes Service (AKS)에서 응용 프로그램 워크 로드에 대 한 현재 제한 사항
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS)를 게스트 OS로 노드에서 Windows Server를
 이 문서에서는 몇 가지 제한 사항 및 AKS에서 Windows Server 노드에 대 한 OS 개념을 설명 합니다. Windows Server에 대 한 노드 풀은 현재 미리 보기 중입니다.
 
 > [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 및 옵트인 합니다. 미리 보기는 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 그러나 Azure 기술 지원 서비스에서 지원 되지 않습니다 됩니다. 클러스터를 만들거나 기존 클러스터에 이러한 기능을 추가 하는 경우에 기능이 더 이상 미리 보기 상태 이며 일반 공급 (GA) 라는 될 때까지 해당 클러스터 지원 되지 않습니다.
+> AKS 미리 보기 기능은 셀프 서비스, 옵트인 합니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 미리 보기에서이 기능이 없는 프로덕션 사용 해야 합니다. 공개 미리 보기에서 기능 '최상의' 지원에 속합니다. AKS 기술 지원 팀의 지원 업무 시간은 태평양 표준 시간대 (PST)만 제공 됩니다. 추가 정보는 다음과 같은 지원 문서를 참조 하세요.
 >
-> 미리 보기 기능을 사용 하 여 문제가 발생 하면 [AKS GitHub 리포지토리에서 문제를 제기] [ aks-github] 버그 제목에 미리 보기 기능의 이름입니다.
+> * [AKS 지원 정책][aks-support-policies]
+> * [Azure 지원 FAQ][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Kubernetes의 Windows Server에 대 한 제한 사항
 
@@ -57,6 +58,8 @@ AKS에서 Windows Server 노드 풀 지원에 다음 추가 제한 사항이 적
 - Windows Server 노드에 대 한 네트워크 정책 및 클러스터 autoscaler 보증 되지 같은 AKS에서 미리 보기 기능입니다.
 - 수신 컨트롤러는 NodeSelector를 사용 하 여 Linux 노드에서 예약만 해야 합니다.
 - Azure 개발 공간 에서만 사용 가능 현재 Linux 기반 노드가 풀에 대 한 합니다.
+- 그룹 관리 서비스 계정 (gMSA) Windows 서버 노드에서 Active Directory 도메인에 가입 되지 경우 지원은 없습니다 AKS에서 현재 사용할 수 있습니다.
+    - 오픈 소스, 업스트림 [aks 엔진] [ aks-engine] 프로젝트는이 기능을 사용 하는 경우에 현재 gMSA 지원을 제공 합니다.
 
 ## <a name="os-concepts-that-are-different"></a>다른 OS 개념
 
@@ -74,11 +77,13 @@ AKS에서 Windows Server 컨테이너를 시작 하기 [AKS에 Windows Server를
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

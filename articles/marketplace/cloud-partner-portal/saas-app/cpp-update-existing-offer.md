@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 825170be5dc4d1b25980c7d5037d72779169b3cc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834207"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258061"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>기존 SaaS 애플리케이션 제품 업데이트
 
@@ -20,6 +20,7 @@ ms.locfileid: "65834207"
 
 > [!IMPORTANT] 
 > SaaS로 마이그레이션되는 기능을 제공 합니다 [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory)합니다.  모든 새 게시자 새 SaaS 제품을 만들고 기존 제품을 관리 하기 위한 파트너 센터를 사용 해야 합니다.  SaaS 제공 서비스를 사용 하 여 현재 게시자 batchwise 마이그레이션될 클라우드 파트너 포털에서 파트너 센터에 있습니다.  클라우드 파트너 포털에는 특정 기존 제품 마이그레이션된 경우를 나타내기 위해 상태 메시지가 표시 됩니다.
+> 자세한 내용은 [새 SaaS 제품을 만드는](../../partner-center-portal/create-new-saas-offer.md)합니다.
 
 다음과 같이 제품을 업데이트하는 여러 가지 이유가 있습니다.
 

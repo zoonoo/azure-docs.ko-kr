@@ -38,7 +38,7 @@ ms.locfileid: "65784933"
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 지원 되는 플랫폼은.NET Framework 및.NET Core 플랫폼 (UWP 없습니다, Xamarin.iOS 및 Xamarin.Android 플랫폼으로 하는 데 공용 클라이언트 응용 프로그램 빌드) |
 | ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 진행 중-공개 미리 보기에서 개발 |
-| ![자바](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발 |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 진행 중-공개 미리 보기에서 개발 |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 구성
 

@@ -450,7 +450,7 @@
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: 스냅숏 디버거
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: 자바
+                - name: Java
                   href: app/java-troubleshoot.md
                 - name: 사용 현황 분석
                   href: app/usage-troubleshoot.md
@@ -683,10 +683,8 @@
           items:
             - name: 로그 데이터 내보내기
               href: platform/powerbi.md
-            - name: 애플리케이션 데이터 내보내기
+            - name: 응용 프로그램 데이터 내보내기
               href: app/export-power-bi.md
-        - name: 대시보드
-          href: app/app-insights-dashboards.md
         - name: 데이터를 Grafana에 보내기
           href: platform/grafana-plugin.md
     - name: 데이터 분석
@@ -839,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: 논리 앱 작업 구현
                   href: platform/action-groups-logic-app.md
+                - name: 일반 경고 스키마를 Logic Apps와 통합
+                  href: platform/alerts-common-schema-integrations.md
             - name: 경고 관리 솔루션
               href: platform/alert-management-solution.md
             - name: 경고 사용자 인터페이스
@@ -1072,8 +1072,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: SDK 릴리스 정보
           href: app/release-notes.md
-        - name: 개발자 분석 도구에 대한 릴리스 정보
-          href: app/release-notes-vsix.md
     - name: Windows 분석
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: 국가별 가용성

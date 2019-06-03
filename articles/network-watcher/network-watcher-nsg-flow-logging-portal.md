@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467414"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523936"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -95,7 +95,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
     저장소 계정을 만들 때 몇 분이 걸릴 수 있습니다. 저장소 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 저장소 계정을 사용하는 경우 저장소 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 저장소 계정을 선택하도록 합니다.
     
     > [!NOTE]
-    > Microsoft.Insight 및 Microsoft.Network 공급자는 현재 Azure Storage를 지원하며, NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하려면 이 기능이 완전히 온보딩될 때까지 **모든 네트워크**를 선택해야 합니다. 
+    > Microsoft.Insight 및 Microsoft.Network 공급자는 현재 Azure Storage에 대해 신뢰할 수 있는 Microsoft Services로 지원되지만 NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하려면 이 기능이 완전히 온보딩될 때까지 **모든 네트워크**를 선택해야 합니다. 
 4. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 5. **로그**에서 다음 그림에 표시된 대로 **NSG 흐름 로그**를 선택합니다.
 

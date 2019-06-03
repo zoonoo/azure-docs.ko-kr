@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510694"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304951"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
 이 문서에서는 Azure CLI를 사용하여 Azure Database for MySQL 서비스의 마스터와 같은 Azure 지역 내에서 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다.
 
-> [!NOTE]
-> Azure CLI 마스터 서버에서 다른 지역에 만들 복제본을 아직 지원 하지 않습니다. 교차 지역 복제본을 만들려면 사용 합니다 [Azure portal]( howto-read-replicas-portal.md) 대신 합니다.
+> [!IMPORTANT]
+> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,8 +41,14 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
-| 이름 | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
+| name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제할 기존 마스터 서버의 이름 또는 ID입니다. |
+
+크로스 만들려는 지역 읽기 복제본을 사용 하 여는 `--location` 매개 변수입니다. 다음 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터와 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 마스터의 구성 값 이상으로 유지하는 것이 좋습니다.
@@ -63,7 +69,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 | 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |
+| name | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |
 
 ## <a name="delete-a-replica-server"></a>복제본 서버 삭제
 

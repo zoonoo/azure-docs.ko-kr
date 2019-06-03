@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979418"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237522"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -91,10 +91,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다.
 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
-| 리소스 상태 | 결과 | 정책 평가 | 준수 상태 |
+| 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
-| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
 | 새 문자 | Audit, AuditIfNotExist\* | True  | 비준수 |
 | 새 문자 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
 
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-있는 경우는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 사용 하 여 `AzureActivity` 에서 합니다 [Activity Log Analytics 솔루션](../../../azure-monitor/platform/collect-activity-logs.md) 구독에 연결을 확인할 수도 있습니다 사용 하 여 평가 주기에서 호환 되지 않는 결과 간단한 Kusto 쿼리 및 `AzureActivity` 테이블입니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+있는 경우는 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 사용 하 여 `AzureActivity` 에서 합니다 [Activity Log Analytics 솔루션](../../../azure-monitor/platform/activity-log-collect.md) 구독에 연결을 확인할 수도 있습니다 사용 하 여 평가 주기에서 호환 되지 않는 결과 간단한 Kusto 쿼리 및 `AzureActivity` 테이블입니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+
 
 ![Azure Monitor 로그를 사용 하 여 azure 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
 
@@ -427,4 +428,4 @@ Trent Baker
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
 - 설명 하는 방법 [비준수 리소스를 수정](remediate-resources.md)합니다.
-- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

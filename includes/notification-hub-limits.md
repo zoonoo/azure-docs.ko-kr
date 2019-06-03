@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: spelluru
 ms.openlocfilehash: 6efcd46b174d34670a01bb7d5c440559bf0f116a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554189"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238502"
 ---
-| 계층              | 무료         | Basic    | Standard   |
+| 계층              | 무료         | 기본    | Standard   |
 | ------------------ | ------------ | ---------- | ---------- |
 | 포함되는 푸시    | 1백만    | 1천만 | 1천만 |
 | 활성 장치     | 500          | 200,000    | 1천만 |

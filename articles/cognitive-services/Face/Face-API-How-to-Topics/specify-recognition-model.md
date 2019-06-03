@@ -38,12 +38,12 @@ AI 얼굴 감지 및 식별의 개념을 잘 알고 있어야 합니다. 그렇�
 
 인식 모델은 얼굴 특징을 추출할 때 사용되며, 감지 작업을 수행할때 모델 버전을 지정할 수 있습니다.
 
-사용 하는 경우는 [직면-검색] API 모델 버전을 할당 합니다 `recognitionModel` 매개 변수입니다. 사용 가능한 값은 다음과 같습니다.
+[Face-Detect]API를 사용하는 경우, `recognitionModel` 매개 변수를 사용하여 모델 버전을 할당합니다. 사용 가능한 값은 다음과 같습니다. 사용 가능한 값은 다음과 같습니다.
 
 * `recognition_01`
 * `recognition_02`
 
-선택적으로 지정할 수 있습니다는 _returnRecognitionModel_ 매개 변수 (기본 **false**)를 나타내는 여부를 _recognitionModel_ 응답에 반환 되어야 합니다. 따라서 요청 URL에 대 한를 [직면-검색] REST API는 다음과 같이 표시 됩니다.
+선택적으로, _recognitionModel_이 응답에서 반환되어야 할지 여부를 나타내는 _returnRecognitionModel_ 매개 변수(기본 **false**)를 지정할 수 있습니다 따라서 [Face-Detect] REST API에 대한 요청 URL은 다음과 같이 표시됩니다.
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
 &subscription-key=<Subscription key>`
@@ -60,7 +60,7 @@ var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true
 
 Face API는 이미지에서 얼굴 데이터를 추출하고 **Person** 개체(예를 들어, [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 호출을 통해)와 연결하고, 여러 **Person** 개체는 **PersonGroup**에 함께 저장할 수 있습니다. 그런 다음 새 얼굴을 **PersonGroup**([Face-Identify] 호출을 사용하여)과 비교할 수 있으며, 해당 그룹 내에서 일치하는 사람을 식별할 수 있습니다.
 
-**PersonGroup** 있어야 하나의 고유 인식 모델의 모든 합니다 **Person**가 지정할 수 있습니다 사용 하 여는 `recognitionModel` 그룹을 만들 때 매개 변수 ([PersonGroup - Create] 나 [LargePersonGroup - Create]). 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다.  그룹 인식 모델을 사용 하 여 생성 된 항상 사용 하 고 적용 합니다. 추가 될 때 새 면이이 모델에 연결 된 됩니다. 이 그룹을 만든 후 변경할 수 없습니다. 어떤 모델을 봅니다를 **PersonGroup** 구성를 사용 하 여는 [PersonGroup - Get] 사용 하 여 API를 _returnRecognitionModel_ 으로 매개 변수 설정 **true**.
+**PersonGroup**은 모든 **Person**을 위해 하나의 고유 인식 모델을 가져야 하며,  그룹을 만들 때([PersonGroup - Create] 나 [LargePersonGroup - Create]) `recognitionModel` 매개 변수를 사용하여 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 그룹은 항상 생성된 인식 모델을 사용하며 추가된 새 얼굴은 이 모델과 연관됩니다. 그룹을 만든 후에는 변경할 수 없습니다. **PersonGroup**이 구성된 모델을 보려면, [PersonGroup - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true**로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -72,13 +72,13 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 
 이 코드에서, `mypersongroupid` ID를 가진 **PersonGroup** 을 생성하고, 얼굴 특징을 추출하기 위해  _recognition_02_ 모델을 사용하도록 설정합니다.
 
-따라서, 얼굴을 감지할 때 **PersonGroup**([직면-검색] API를 통해)과 비교하기 위해  사용할 모델을 지정할 필요가 있습니다. 모델은 항상 **PersonGroup**의 구성에 일관되어야 합니다. 그렇지 않으면, 호환되지 않는 모델로 인해 작업이 실패하게 됩니다.
+따라서, 얼굴을 감지할 때 **PersonGroup**([Face-Detect] API를 통해)과 비교하기 위해  사용할 모델을 지정할 필요가 있습니다. 모델은 항상 **PersonGroup**의 구성에 일관되어야 합니다. 그렇지 않으면, 호환되지 않는 모델로 인해 작업이 실패하게 됩니다.
 
 [Face-Identify] API에서는 변경 사항이 없습니다. 감지에서만 모델 버전을 지정하면 됩니다.
 
 ## <a name="find-similar-faces-with-specified-model"></a>지정된 모델을 사용하여 유사한 얼굴 찾기
 
-또한 유사성 검색에 대해 인식 모델을 지정할 수 있습니다. [FaceList - Create] 또는 [LargeFaceList-Create] API를 사용하여 얼굴 목록을 만들 때 `recognitionModel`을 사용하여 모델 버전을 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다.  얼굴 목록은 항상 생성된 인식 모델을 사용합니다. 새 얼굴이 추가될 때 모델에 연결됩니다. 만든 후에는 변경할 수 없습니다. 얼굴 목록이 구성된 모델을 보려면 [FaceList - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true** 로 설정합니다.
+또한 유사성 검색에 대해 인식 모델을 지정할 수 있습니다. [FaceList - Create] 또는 [LargeFaceList-Create] API를 사용하여 얼굴 목록을 만들 때 `recognitionModel`을 사용하여 모델 버전을 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 원래의 `recognition_01` 모델이 사용됩니다. 얼굴 목록은 항상 생성된 인식 모델을 사용합니다. 새 얼굴이 추가될 때 모델에 연결됩니다. 만든 후에는 변경할 수 없습니다. 얼굴 목록이 구성된 모델을 보려면 [FaceList - Get] API를 사용하여 _returnRecognitionModel_ 매개 변수를 **true** 로 설정합니다.
 
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
@@ -86,7 +86,7 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-이 코드에서, `My face collection`이라는 얼굴 목록을 생성하며, 특징 추출을 위해 _recognition_02_ 모델을 사용합니다. 새 감지된 얼굴에 유사한 얼굴을 찾기 위해 얼굴 목록을 검색할 때 해당 얼굴은_recognition_02_ 모델을 사용하여 감지([직면-검색])됩니다. 이전 섹션과 같이 모델 일관성을 유지해야 합니다. 이전 섹션과 모델 일관성을 유지 해야 합니다.
+이 코드에서, `My face collection`이라는 얼굴 목록을 생성하며, 특징 추출을 위해 _recognition_02_ 모델을 사용합니다. 새 감지된 얼굴에 유사한 얼굴을 찾기 위해 얼굴 목록을 검색할 때 해당 얼굴은_recognition_02_ 모델을 사용하여 감지([Face-Detect])됩니다. 이전 섹션과 같이 모델 일관성을 유지해야 합니다. 이전 섹션과 모델 일관성을 유지 해야 합니다.
 
 [Face-Find Similar] API에서는 변경 사항이 없습니다. 감지에서 모델 버전만 지정하면 됩니다.
 
@@ -110,7 +110,7 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 
 * [이미지에서 얼굴 감지](../quickstarts/csharp-detect-sdk.md)
 
-[직면-검색]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
+[Face-Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face-Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [Face-Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
 [Face-Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162047"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304206"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
 
@@ -76,7 +76,10 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 ]
 ```
 
-이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB로 제한됩니다.
+이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 배열의 각 이벤트는 64KB (일반 공급) 또는 1 (mb) (미리 보기)로 제한 됩니다.
+
+> [!NOTE]
+> 최대 크기의 경우 64KB는 GA (일반 공급) 서비스 수준 계약 (SLA)을 설명 합니다. 최대 크기의 이벤트에 대 한 지원 1MB는 현재 미리 보기 상태입니다. 64KB를 초과 이벤트는 64KB 단위로 요금이 청구 됩니다. 
 
 예를 들어 올바른 이벤트 데이터 스키마는 다음과 같습니다.
 

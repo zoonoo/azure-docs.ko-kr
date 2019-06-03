@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332560"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955193"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench란?
 
@@ -41,13 +41,13 @@ Workbench는 이벤트를 Service Bus 및 Event Grid에 자동으로 전달하�
 
 Azure Blockchain Workbench는 Azure Resource Manager 솔루션 템플릿을 사용하여 컨소시엄 블록체인 네트워크 설정을 미리 구성된 솔루션으로 간소화합니다. 이 템플릿은 컨소시엄을 운영하는 데 필요한 모든 구성 요소를 배포하는 간소화된 배포를 제공합니다. Blockchain Workbench는 현재 Ethereum을 지원합니다.
 
-## <a name="use-active-directory-login"></a>Active Directory 로그인 사용
+## <a name="use-active-directory"></a>Active Directory 사용
 
 기존 블록체인 프로토콜을 사용하면 블록체인 ID가 네트워크의 주소로 표시됩니다. Azure Blockchain Workbench는 Active Directory ID와 연결하여 블록체인 ID를 추상화하므로, Active Directory ID를 사용하여 엔터프라이즈 애플리케이션을 더 쉽게 빌드할 수 있습니다.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>온 체인 데이터를 오프 체인 저장소와 동기화
 
-Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 체인 저장소에 자동으로 동기화하여 블록체인 이벤트와 데이터를 더 쉽게 분석할 수 있습니다. 블록체인에서 데이터를 직접 추출하는 대신 SQL Server와 같은 오프 체인 데이터베이스 시스템을 쿼리할 수 있습니다. 데이터 분석 작업을 수행하는 최종 사용자에게는 블록체인에 대한 특정 전문 지식이 필요하지 않습니다. 
+Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 체인 저장소에 자동으로 동기화하여 블록체인 이벤트와 데이터를 더 쉽게 분석할 수 있습니다. 블록체인에서 데이터를 직접 추출하는 대신 SQL Server와 같은 오프 체인 데이터베이스 시스템을 쿼리할 수 있습니다. 데이터 분석 작업을 수행하는 최종 사용자에게는 블록체인에 대한 전문 지식이 필요하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

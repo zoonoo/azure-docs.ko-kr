@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833540"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304276"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -103,16 +103,7 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 개별 컨테이너마다 서버 및 메모리 할당 요구 사항을 포함하여 각각 고유한 요구 사항이 있을 수 있습니다.
 
-## <a name="developer-samples"></a>개발자 샘플
-
-개발자 샘플은 [GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-containers-samples)에 있습니다.
-
-## <a name="view-webinar"></a>웹 세미나 보기 
-
-조인 합니다 [웨 비 나](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) 에 대해 자세히 알아보려면:
-
-* Docker를 사용 하 여 컴퓨터에 Cognitive Services를 배포 하는 방법
-* Cognitive Services AKS에 배포 하는 방법
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

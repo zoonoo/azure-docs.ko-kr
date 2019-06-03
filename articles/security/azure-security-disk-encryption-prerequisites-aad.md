@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118041"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234296"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -73,7 +73,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 **그룹 정책:**
  - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [bitlocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [사용자 저장소 구성의 BitLocker 복구 정보 허용 256 비트 복구 키->](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +246,7 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 1. [필요한 권한 확인](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 애플리케이션을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
-3. [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
+3. [애플리케이션 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 
      - 인증 키 클라이언트 암호 이며 집합 AzVMDiskEncryptionExtension는 AadClientSecret으로 사용 됩니다. 
         - 인증 키는 애플리케이션에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
      - 응용 프로그램 ID AzKeyVaultAccessPolicy 집합에 대 한 ServicePrincipalName AzVMDiskEncryptionExtension 집합에 대 한 AadClientId와 나중에 사용 됩니다. 

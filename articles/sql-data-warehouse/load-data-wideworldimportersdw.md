@@ -10,16 +10,16 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873770"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242918"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
-이 자습서에서는 PolyBase를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob Storage에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
+이 자습서에서는 PolyBase를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob Storage에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터 웨어하우스 만들기
@@ -37,7 +37,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -1121,7 +1120,7 @@ SQL Data Warehouse는 각 Compute 노드에 데이터를 캐시하여 테이블�
 > * 로드될 때 데이터의 진행 상태 확인
 > * 새로 로드한 데이터에 대한 통계 생성
 
-마이그레이션 개요를 계속 진행하여 기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법을 알아보세요.
+SQL Data Warehouse를 기존 데이터베이스를 마이그레이션하는 방법을 알아보려면 개발 개요로 이동 합니다.
 
 > [!div class="nextstepaction"]
->[기존 데이터베이스를 SQL Data Warehouse로 마이그레이션하는 방법 알아보기](sql-data-warehouse-overview-migrate.md)
+>[기존 데이터베이스를 SQL Data Warehouse에 마이그레이션하려면 디자인 결정](sql-data-warehouse-overview-develop.md)

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435232"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827672"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio의 연결된 서비스를 사용하여 Cognitive Services Face API에 연결
 
@@ -25,8 +25,8 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-- 설치된 **Visual Studio 2017 버전 15.7**과 **웹 개발** 워크로드. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+- **Web Development** 워크로드가 설치된 Visual Studio 2017 버전 15.7 이상. [여기에서 다운로드하세요](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -241,7 +241,7 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
 
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
 1. **리소스 그룹 삭제**를 선택합니다.
-1. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+1. **TYPE THE RESOURCE GROUP NAME:** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

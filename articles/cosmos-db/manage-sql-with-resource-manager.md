@@ -4,20 +4,23 @@ description: Azure Resource Manager 템플릿을 사용 하 여 만들기 및 Az
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
-ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968846"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242599"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스를 관리 합니다.
 
 ## Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기 <a id="create-resource"></a>
 
 Azure Resource Manager 템플릿을 사용 하는 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 RU/s 처리량을 공유 하는 두 개의 컨테이너를 사용 하 여 Azure Cosmos 계정이 만들어집니다. 서식 파일을 복사 하 고 아래와 같이 배포 하거나 방문 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) 및 Azure portal에서 배포 합니다. 있습니다 수 또한 템플릿을 로컬 컴퓨터에 다운로드 또는 새 템플릿 만들기 및 로컬 경로를 지정 합니다 `--template-file` 매개 변수입니다.
+
+> [!NOTE]
+> 현재 Resource Manager 템플릿을 사용 하 여 사용자 정의 Functions(UDFs), 저장된 프로시저 및 트리거를 배포할 수 없습니다. 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

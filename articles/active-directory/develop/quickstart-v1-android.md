@@ -3,9 +3,8 @@ title: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출 | Mi
 description: Android 앱에서 사용자를 로그인하고 Microsoft Graph API를 호출하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 05/21/2019
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9537748f8dd3ee027236c73e9587ff6b78ded7f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207588"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122006"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -86,18 +85,17 @@ mAuthResult.getAccessToken()
     - ***Azure Active Directory*** > ***앱 등록***을 선택합니다.
 
 2. 앱 만들기
-    - **새 애플리케이션 등록**을 선택합니다.
+    - **새 등록**을 선택합니다.
     - **이름** 필드에 앱 이름을 입력합니다.
-    - **애플리케이션 유형**에서 **네이티브**를 선택합니다.
-    - **리디렉션 URI**로 `http://localhost`를 입력합니다.
+    - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
+    - **리디렉션 URI**의 드롭다운에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택하고 `http://localhost`를 입력합니다.
+    - **등록**을 클릭합니다.
 
 3. Microsoft Graph 구성
-    - **설정 > 필요한 권한**을 선택합니다.
-    - **추가**를 선택하고, **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
-    - **로그인 및 사용자 프로필 읽기** 권한을 선택한 다음, **선택**을 눌러 저장합니다.
-        - 이 권한은 `User.Read` 범위에 매핑됩니다.
-    - 선택 사항: **필요한 권한 > Microsoft Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
-
+    - **API 사용 권한**을 선택합니다.
+    - **사용 권한 추가**를 선택하고 **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
+    - **위임된 권한**에서 사용 권한 **User.Read**를 선택한 다음, **추가**를 눌러 저장합니다.        
+    
 4. 축하합니다! 앱이 구성되었습니다. 그 다음 섹션에서는 다음 작업을 수행해야 합니다.
     - `Application ID`
     - `Redirect URI`
