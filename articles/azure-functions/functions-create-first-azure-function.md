@@ -12,23 +12,23 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4a49cb3de2dc36dcd933a0b31b6a55b838eb1336
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997806"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864704"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. 이 항목에서는 Azure Portal에서 함수를 사용하여 "hello world" 함수를 만드는 방법을 보여 줍니다.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. 이 문서에서는 Azure Portal에서 함수를 사용하여 "hello world" 함수를 만드는 방법을 보여 줍니다.
 
 ![Azure Portal에서 함수 앱 만들기](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> C# 개발자는 포털 대신 [Visual Studio 2017에서 첫 번째 함수를 만드는](functions-create-your-first-function-visual-studio.md) 방안을 생각해 보아야 합니다. 
+> C# 개발자는 포털 대신 [Visual Studio 2019에서 첫 번째 함수를 만드는](functions-create-your-first-function-visual-studio.md) 방안을 생각해 보아야 합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -46,7 +46,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 1. 새 함수 앱을 펼치고, **Functions** 옆에 있는 **+** 단추를 선택하고, **포털 내**를 선택한 다음, **계속**을 선택합니다.
 
-    ![Functions 빠른 시작 - 플랫폼 선택](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![플랫폼 선택을 위한 함수 빠른 시작.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. **웹후크 + API**를 선택한 다음, **만들기**를 선택합니다.
 

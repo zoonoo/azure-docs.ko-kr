@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595566"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256617"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -99,12 +99,10 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 
 포털에서 타일이나 차트를 클릭하여 자세한 정보를 확인합니다.
 
-[에서 Application Insights를 사용하는 방법에 대해 자세히 알아봅니다](../../azure-monitor/app/app-insights-dashboards.md).
-
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
 IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
-원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
+메트릭을 모니터링할 수 있습니다, Application Insights 포털에서 원격 분석 빌드를 원격 분석을 검색 합니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
 [Visual Studio](../../azure-monitor/app/visual-studio.md)에서 진단 검색 및 [추세](../../azure-monitor/app/visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
 
@@ -146,7 +144,6 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 ### <a name="analysis"></a>분석
 
 * **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.
-* **[Application Insights 포털 사용](../../azure-monitor/app/app-insights-dashboards.md)**<br/> 대시보드, 강력한 진단 및 분석 도구, 경고, 애플리케이션의 라이브 종속성 맵 및 원격 분석 내보내기에 대한 정보가 포함되어 있습니다.
 * **[분석](../../azure-monitor/log-query/get-started-portal.md)** - 강력한 쿼리 언어입니다.
 
 ### <a name="alerts"></a>경고

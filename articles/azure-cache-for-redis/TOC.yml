@@ -111,7 +111,7 @@
       href: /cli/azure/redis
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.redis._redis_cache
     - name: Redis 클라이언트
       href: 'https://redis.io/clients'

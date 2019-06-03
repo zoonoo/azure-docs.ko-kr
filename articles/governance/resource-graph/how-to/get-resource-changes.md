@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551550"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236500"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "65551550"
 - 구성 관리 데이터베이스를 유지, CMDB, 최신 라고 합니다. 모든 리소스 및 예약된 된 빈도로 해당 전체 속성 집합을 새로 고치거 나, 대신만 변경 내용을 가져옵니다.
 - 기타 속성 변경 되었거나 리소스 규정 준수 상태를 변경 하는 경우 이해 합니다. 이러한 추가 속성 평가 Azure 정책 정의 통해 관리 해야 하는 다른 속성에 대 한 정보를 제공할 수 있습니다.
 
-이 문서에서는 리소스 그래프의 SDK 통해이 정보를 수집 하는 방법을 보여 줍니다. Azure portal에서이 정보를 보려면 Azure Policy [변경 내용](../../policy/how-to/determine-non-compliance.md#change-history-preview) 또는 Azure 활동 로그 [변경 내용](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history)합니다.
+이 문서에서는 리소스 그래프의 SDK 통해이 정보를 수집 하는 방법을 보여 줍니다. Azure portal에서이 정보를 보려면 Azure Policy [변경 내용](../../policy/how-to/determine-non-compliance.md#change-history-preview) 또는 Azure 활동 로그 [변경 내용](../../../azure-monitor/platform/activity-log-view.md#azure-portal)합니다.
 
 > [!NOTE]
 > 리소스 관리자 속성에 대 한 리소스 그래프의 세부 정보 변경 됩니다. 가상 머신 내에서 변경 내용을 추적 하는 것에 대 한 Azure Automation의을 참조 하세요 [변경 내용 추적](../../../automation/automation-change-tracking.md) 또는 Azure Policy [Vm에 대 한 게스트 구성](../../policy/concepts/guest-configuration.md)합니다.

@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: f98f750c14666400f41a249b3d8379b423e6dee2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dff01f8bc4a4cf58d1ed503b69a29dadc367fecb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141118"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248798"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>TLS 핸드셰이크에서 APIM 프록시 서버가 SSL 인증서로 응답하는 방법
 
@@ -20,9 +20,9 @@ ms.locfileid: "66141118"
 고객이 [SNI](https://tools.ietf.org/html/rfc6066#section-3) 헤더를 보내지 않는 클라이언트를 사용하는 경우 APIM은 다음 논리에 따라 응답을 만듭니다.
 
 * 서비스에 프록시에 대해 구성된 하나의 사용자 지정 도메인이 있는 경우 기본 인증서는 프록시 사용자 지정 도메인에 발급된 인증서입니다.
-* 서비스가 프록시에 대해 여러 사용자 지정 도메인을 구성한 경우(**프리미엄** 계층에서만 지원됨) 고객은 기본 인증서이어야 하는 인증서를 지정할 수 있습니다. 기본 인증서를 설정하려면 [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/createorupdate#hostnameconfiguration) 속성은 true로 설정되어야 합니다("defaultSslBinding":"true"). 고객이 속성을 설정하지 않는 경우 기본 인증서는 *.azure api.net에서 호스팅되는 기본 프록시 도메인에 발급된 인증서입니다.
+* 서비스가 프록시에 대해 여러 사용자 지정 도메인을 구성한 경우(**프리미엄** 계층에서만 지원됨) 고객은 기본 인증서이어야 하는 인증서를 지정할 수 있습니다. 기본 인증서를 설정하려면 [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) 속성은 true로 설정되어야 합니다("defaultSslBinding":"true"). 고객이 속성을 설정하지 않는 경우 기본 인증서는 *.azure api.net에서 호스팅되는 기본 프록시 도메인에 발급된 인증서입니다.
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>대용량 페이로드를 사용하여 PUT/POST 요청에 대한 지원
 
-APIM 프록시 서버는 HTTPS에서 클라이언트 쪽 인증서를 사용하는 경우 대용량 페이로드를 사용하는 요청을 지원합니다(예: 페이로드 > 40KB). 서버의 요청을 중단되지 않도록 하기 위해 고객은 프록시 호스트 이름에서 속성 ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/CreateOrUpdate#hostnameconfiguration)를 설정할 수 있습니다. 속성이 true로 설정된 경우 모든 HTTP 요청 교환 전에 클라이언트 인증서가 SSL/TLS 연결 시 요청됩니다. 설정은 **프록시 호스트 이름** 수준에서 적용되므로 모든 연결 요청은 클라이언트 인증서를 요청합니다. 고객은 프록시에 대해 최대 20개의 사용자 지정 도메인을 구성하고(**프리미엄** 계층에서만 지원됨) 이 제한을 해결할 수 있습니다.
+APIM 프록시 서버는 HTTPS에서 클라이언트 쪽 인증서를 사용하는 경우 대용량 페이로드를 사용하는 요청을 지원합니다(예: 페이로드 > 40KB). 서버의 요청을 중단되지 않도록 하기 위해 고객은 프록시 호스트 이름에서 속성 ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration)를 설정할 수 있습니다. 속성이 true로 설정된 경우 모든 HTTP 요청 교환 전에 클라이언트 인증서가 SSL/TLS 연결 시 요청됩니다. 설정은 **프록시 호스트 이름** 수준에서 적용되므로 모든 연결 요청은 클라이언트 인증서를 요청합니다. 고객은 프록시에 대해 최대 20개의 사용자 지정 도메인을 구성하고(**프리미엄** 계층에서만 지원됨) 이 제한을 해결할 수 있습니다.
 

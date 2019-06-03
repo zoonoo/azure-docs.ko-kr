@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281236"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921356"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -117,7 +117,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 2. 함수를 테스트하려면 함수 코드에 중단점을 설정하고 F5 키를 눌러 함수 앱 프로젝트를 시작합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다. 처음으로 Durable Functions를 사용하는 경우 Durable Functions 확장이 설치되고 빌드하는 데 몇 초 정도 걸릴 수 있습니다.
 
     > [!NOTE]
-    > JavaScript Durable Functions에는 버전 **1.7.0** 이상의 **Microsoft.Azure.WebJobs.Extensions.DurableTask** 확장이 필요합니다. `extensions.csproj` 파일의 Durable Functions 확장 버전이 이 요구 사항을 충족하는지 확인합니다. 충족하지 않으면 함수 앱을 중지하고 버전을 변경한 다음, F5 키를 눌러 함수 앱을 다시 시작합니다.
+    > JavaScript Durable Functions에는 버전 **1.7.0** 이상의 **Microsoft.Azure.WebJobs.Extensions.DurableTask** 확장이 필요합니다. Azure Functions 앱의 루트 폴더에서 다음 명령을 실행하여 Durable Functions 확장 `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`을 설치합니다.
 
 3. **터미널** 패널에서 HTTP 트리거 함수의 URL 엔드포인트를 복사합니다.
 

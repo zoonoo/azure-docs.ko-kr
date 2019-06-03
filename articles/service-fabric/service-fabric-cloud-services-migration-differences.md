@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387628"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258646"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
 Microsoft Azure Service Fabric은 확장성이 뛰어난 매우 안정적인 분산된 애플리케이션을 위한 차세대 클라우드 애플리케이션 플랫폼입니다. 분산된 클라우드 애플리케이션을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
@@ -88,6 +88,24 @@ Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메
 서비스 패브릭에서 동일한 통신 모델을 사용할 수 있습니다. 기존 Cloud Services 애플리케이션을 Service Fabric에 마이그레이션하는 경우에 유용할 수 있습니다. 
 
 ![서비스 패브릭 직접 통신][8]
+
+## <a name="parity"></a>패리티
+[클라우드 서비스 제어 수준과 사용 편이성에서에서 Service Fabric에 비슷합니다. 하지만 이제는 레거시 서비스 이므로 Service Fabric은 새로운 개발에 권장 되는](https://docs.microsoft.com/azure/app-service/overview-compare); 다음은 API를 비교 하 여:
+
+
+| **Cloud Service API** | **Service Fabric API** | **참고 사항** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId 또는 합니다. NodeName | ID가 NodeName 속성 |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | NodeName 필터링 하 고 FD 속성 사용 |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | NodeName, 필터링 하 고 업그레이드 속성 사용 |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext 또는 (ResolveService) 이름 지정 | CodePackageActivationContext FabricRuntime.GetActivationContext와 중에 제공 된 ServiceInitializationParameters.CodePackageActivationContext 통해 복제본 내에서 제공 되는 합니다. 초기화 |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | 동일한 종류의 목록을 가져올 수 있습니다 유형별로 필터링을 수행 하려는 경우 클러스터에서 노드 형식 FabricClient.ClusterManager.GetClusterManifest 통해 매니페스트 및 여기에서 역할/노드 형식을 선택 합니다. |
+| RoleEnvironment.GetIsAvailable | 연결 WindowsFabricCluster 또는 특정 노드를 가리키는 fabricruntime에서 만들기 | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList 또는 ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext 또는 (ResolveService) 이름 지정 | * |
 
 ## <a name="next-steps"></a>다음 단계
 Cloud Services에서 Service Fabric으로 가장 간단한 마이그레이션 경로는 애플리케이션의 전체 아키텍처를 거의 동일하게 유지하여 Cloud Services 배포를 Service Fabric 애플리케이션으로 바꾸는 것입니다. 다음 문서는 웹 또는 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하는 데 도움이 되는 가이드를 제공합니다.

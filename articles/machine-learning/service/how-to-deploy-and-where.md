@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016411"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418055"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -96,7 +96,7 @@ ms.locfileid: "66016411"
 | ----- | ----- | ----- |
 | [로컬 웹 서비스](#local) | 테스트/디버그 | 제한 된 테스트 및 문제 해결에 적합 합니다.
 | [AKS(Azure Kubernetes Service)](#aks) | 실시간 유추 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
-| [ACI(Azure Container Instances)](#aci) | 테스트하는 중 | 낮은 등급, CPU 기반 워크 로드에 적합 합니다. |
+| [ACI(Azure Container Instances)](#aci) | 테스트 | 낮은 등급, CPU 기반 워크 로드에 적합 합니다. |
 | [Azure Machine Learning 컴퓨팅](how-to-run-batch-predictions.md) | (미리 보기) 일괄 처리 유추 | 서버 리스 계산에서 점수 매기기 일괄 처리를 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
 | [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | 배포 및 IoT 장치에서 기계 학습 모델을 제공 합니다. |
 
@@ -224,8 +224,8 @@ InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-
 
 | 계산 대상 | 배포 구성 예제 |
 | ----- | ----- |
-| 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
@@ -235,9 +235,6 @@ InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-
 ### <a id="local"></a> 로컬 배포
 
 로컬에 배포 하려면 해야 **Docker가 설치 되어** 로컬 컴퓨터에 있습니다.
-
-이 예제에서는 사용 섹션 [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), 모델 및 이미지 배포를 수행 하기 전에 등록 해야 합니다. 다른 배포 방법에 대 한 자세한 내용은 참조 하세요. [배포할](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) 하 고 [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)합니다.
-
 
 + **SDK를 사용 하 여**
 

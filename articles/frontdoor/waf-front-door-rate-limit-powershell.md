@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523631"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387344"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 속도 제한 규칙 구성
 Azure 웹 응용 프로그램 방화벽 (WAF) 속도 제한 규칙에 대 한 Azure 프런트 도어 1 분 기간 동안 단일 클라이언트 IP의 허용 된 요청의 수를 제어 합니다.
@@ -65,10 +65,10 @@ Install-Module -Name Az.FrontDoor
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>사용자 지정 속도로 제한 규칙 만들기
-사용 하 여 속도 제한 설정 [새로 만들기-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)합니다. 다음 예제에서는 제한은 1000으로 설정 됩니다. 1 분 동안 1000을 초과 프로 모션 페이지에 모든 클라이언트에서 요청은 다음 분에 시작 될 때까지 차단 됩니다.
+사용 하 여 속도 제한 설정 [새로 만들기-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)합니다. 다음 예제에서는 제한은 1000으로 설정 됩니다. 1 분 동안 1000을 초과 프로 모션 페이지에 모든 클라이언트에서 요청은 다음 분에 시작 될 때까지 차단 됩니다.
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `

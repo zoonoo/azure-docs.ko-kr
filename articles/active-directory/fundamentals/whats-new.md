@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74767e9d00f630efd2be026c3c3688c816c2ccee
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113352"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305538"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -39,7 +39,19 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ---
 
-## <a name="april-2019"></a>2019 년 4 월
+## <a name="april-2019"></a>2019년 4월
+
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>새 Azure AD 위협 인텔리전스 검색 새로 고침된의 Azure AD Id 보호에서 제공 됩니다.
+
+**유형:** 새 기능  
+**서비스 범주:** Azure AD Identity Protection  
+**제품 기능:** ID 보안 및 보호
+
+이제 azure AD 위협 인텔리전스 검색 새로 고침된 하는 Azure AD Id 보호에서 제공 됩니다. 이 새로운 기능 하는 특정 사용자에 대 한 일반적이 지 않습니다. 또는 Microsoft의 내부 및 외부 위협 인텔리전스를 기반으로 하는 알려진된 공격 패턴과 일치 하는 사용자 활동을 나타낼 수 있습니다.
+
+새로 고친된 버전의 Azure AD Id 보호에 대 한 자세한 내용은 참조는 [네 가지 주요 Azure AD Id 보호 기능이 공개 미리 보기로 제공 됩니다](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) 블로그 및 [Azure Active Directory 란 Id 보호 (새로 고침된)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 문서입니다. Azure AD 위협 인텔리전스 검색에 대 한 자세한 내용은 참조는 [Azure Active Directory Id 보호 위험 이벤트](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) 문서.
+
+---
 
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>이제 azure Active Directory (Azure AD) 권한 관리를 사용할 수 있습니다 (공개 미리 보기)
 
@@ -125,7 +137,7 @@ Azure AD 권한 관리, 이제 공개 미리 보기로 제공에서 하는 데 �
 **서비스 범주:** AD Sync  
 **제품 기능:** 플랫폼
 
-Azure AD Connect 잠재적으로 일부 고객은 새 전자 메일 보낸 사람으로 표시는 전자 메일 경고 시스템을 전환 하는 중입니다. 이 해결 하려면 추가 해야 `azure-noreply@microsoft.com` 조직의 허용 목록에 없게 계속 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 수신 합니다.
+Azure AD Connect 잠재적으로 일부 고객은 새 전자 메일 보낸 사람으로 표시는 전자 메일 경고 시스템을 전환 하는 중입니다. 이 해결 하려면 추가 해야 `azure-noreply@microsoft.com` 를 조직의 허용 목록 또는 계속 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 수신할 수 없습니다.
 
 ---
 
@@ -289,7 +301,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
-검토 및 모바일 장치에서 사용 약관에 동의 하는 방법을 개선 하기 위해 사용 하 여 환경의 기존 약관 업데이트 했습니다. 이제 확대 / 축소, 돌아가서, 정보를 다운로드 하 수 하이퍼링크를 선택 합니다. 업데이트 된 사용 약관에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)합니다.
+기존 약관 검토 및 모바일 장치에서 사용 약관에 동의 하는 방법을 개선 하기 위해 사용 하 여 환경을 업데이트 했습니다. 이제 확대 / 축소, 돌아가서, 정보를 다운로드 하 수 하이퍼링크를 선택 합니다. 업데이트 된 사용 약관에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)합니다.
 
 ---
 
@@ -658,40 +670,40 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ---
 
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>관리자는 각 디바이스에서 사용 약관에 동의하도록 사용자에게 요구할 수 있습니다.
+### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>관리자는 사용자가 각 장치에서 사용 약관을 수락 하도록 요구할 수 있습니다.
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
-이제 관리자는 **모든 디바이스에서 사용자 동의 요구** 옵션을 켜서 사용자가 테넌트에서 사용 중인 모든 디바이스에서 사용 약관에 동의하도록 요구할 수 있습니다.
+관리자 수 이제 설정 합니다 **사용자가 모든 장치에서 동의 하도록 요구** 사용자가 테 넌 트에서 사용 하 든 모든 장치에서 사용 약관에 동의 해야 하는 옵션입니다.
 
-자세한 내용은 [Azure Active Directory 사용 약관 기능의 디바이스별 사용 약관 섹션](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use)을 참조하세요.
+자세한 내용은 참조는 [장치별 약관은 Azure Active Directory 사용 약관 기능 사용 섹션](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use)합니다.
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>관리자는 되풀이 일정에 따라 만료되도록 사용 약관을 구성할 수 있습니다.
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>관리자의 되풀이 일정에 따라 만료를 사용 하 여 사용 약관을 구성할 수 있습니다.
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
 
-이제 관리자는 **콘텐츠 만료** 옵션을 켜서 지정된 되풀이 일정에 따라 모든 사용자에 대해 사용 약관이 만료되도록 설정할 수 있습니다. 일정은 매년, 6개월마다, 매분기 또는 매월일 수 있습니다. 사용 약관 만료 된 후 사용자가 다시 수락 해야 합니다.
+관리자 켤 수는 **동의 만료** 모든 지정 된 되풀이 일정에 따라 사용자에 대 한 만료 사용 약관을 확인 하는 옵션입니다. 일정은 매년, 6개월마다, 매분기 또는 매월일 수 있습니다. 사용 약관 만료 된 후 사용자가 다시 수락 해야 합니다.
 
-자세한 내용은 [Azure Active Directory 사용 약관 기능의 사용 약관 추가 섹션](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)을 참조하세요.
+자세한 내용은 참조는 [는 Azure Active Directory 사용 약관 기능 섹션 사용 약관을 추가](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)합니다.
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>관리자는 각 사용자의 일정에 따라 만료되도록 사용 약관을 구성할 수 있습니다.
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>관리자는 각 사용자의 일정에 따라 만료 사용 약관을 구성할 수 있습니다.
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
-이제 관리자는 사용자가 사용 약관에 다시 동의해야 하는 기간을 지정할 수 있습니다. 예를 들어 관리자는 사용자가 90일마다 사용 약관에 다시 동의해야 하도록 지정할 수 있습니다.
+기간을 지정 하는 사용자 사용 약관을 다시 수락 해야 합니다. 예를 들어 관리자는 사용자가 약관 90 일 마다 다시 수락 해야 합니다는 지정할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory 사용 약관 기능의 사용 약관 추가 섹션](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)을 참조하세요.
+자세한 내용은 참조는 [는 Azure Active Directory 사용 약관 기능 섹션 사용 약관을 추가](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)합니다.
  
 ---
 

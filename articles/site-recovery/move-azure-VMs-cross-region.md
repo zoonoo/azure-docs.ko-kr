@@ -34,23 +34,23 @@ ms.locfileid: "65793732"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 이동하려는 *원본* Azure 지역에 Azure VM이 있는지 확인합니다.
+- VM 이동을 시작하려는 *원본* Azure 지역에 Azure VM이 있는지 확인합니다.
 - 선택한 [원본 지역 - 대상 Azure 지역 조합이 지원되는지](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) 확인하여 대상 지역을 신중하게 결정합니다.
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - [제한 사항 및 요구 사항 지원](azure-to-azure-support-matrix.md)을 검토합니다.
-- 계정 권한을 확인합니다. Azure 체험 계정을 방금 만든 경우 *자신*이 구독에 대한 관리자입니다. 관리자가 아닌 경우에는 필요한 권한을 부여해 줄 것을 관리자에게 요청합니다.
+- 계정 권한을 확인합니다. Azure 체험 계정을 방금 만든 경우 *자신*이 구독에 대한 관리자입니다. 관리자가 아닌 경우에는 다음을 포함하는 필요한 권한을 부여해 줄 것을 관리자에게 요청합니다.
   -  VM에 대해 복제를 사용하도록 설정하고 Site Recovery를 사용하여 대상으로 데이터를 복사하려면 Azure 리소스에서 VM을 만들 수 있는 권한이 있어야 합니다. 기본 제공되는 Virtual Machine 참가자 역할에는 이러한 권한이 있습니다. 이 권한이 있으면 다음 작업을 수행할 수 있습니다.
         - 선택한 리소스 그룹에 VM 만들기
         - 선택한 가상 네트워크에 VM 만들기
         - 선택한 저장소 계정에 쓰기
 
-  - Site Recovery 작업을 관리할 수 있는 권한도 있어야 합니다. Site Recovery 참가자 역할에는 Azure Recovery Services 자격 증명 모음에서 Site Recovery 작업을 관리하는 데 필요한 모든 권한이 있습니다.
+  - Site Recovery 작업을 관리할 수 있는 권한도 있어야 합니다. Site Recovery 참가자 역할은 Azure Recovery Services 자격 증명 모음에서 Site Recovery 작업을 관리하는 데 필요한 모든 권한을 보유합니다.
 
 ## <a name="prepare-the-source-vms"></a>원본 VM 준비
 
 1. 이동하려는 Azure VM에 최신 루트 인증서가 있는지 확인합니다. 이 루트 인증서가 없으면 보안 제약으로 인해 대상 지역으로의 데이터 복사를 사용하도록 설정할 수 없습니다.
 
-    - Windows VM의 경우 최신 Windows 업데이트를 설치하여 신뢰할 수 있는 모든 루트 인증서가 컴퓨터에 있도록 합니다. 연결이 끊어진 환경에서 조직의 표준 Windows 업데이트 및 인증서 업데이트 프로세스를 따릅니다.
+    - Windows VM의 경우 최신 Windows 업데이트를 설치하여 신뢰할 수 있는 모든 루트 인증서가 컴퓨터에 있도록 합니다. 연결이 끊어진 환경에서는 조직의 표준 Windows 업데이트 및 인증서 업데이트 프로세스를 따릅니다.
     - Linux VM의 경우 Linux 배포자의 지침에 따라 신뢰할 수 있는 최신 루트 인증서 및 인증서 해지 목록을 가져옵니다.
 2. 이동하려는 VM의 네트워크 연결을 제어하기 위해 인증 프록시를 사용하지 않도록 합니다.
 3. 이동하려는 VM이 인터넷에 액세스할 수 없고 방화벽 프록시를 사용하여 아웃바운드 액세스를 제어하는 경우 [요구 사항](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)을 확인합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "65793732"
 
 ## <a name="prepare-the-target-region"></a>대상 Azure 지역 준비
 
-1. Azure 구독에서 재해 복구에 사용되는 대상 지역에 VM을 만들 수 있는지 확인합니다. 필요한 경우 지원 팀에 문의하여 필요한 할당량을 사용하도록 설정합니다.
+1. Azure 구독에서 재해 복구에 사용되는 대상 지역에 VM을 만들 수 있는지 확인합니다. 필요한 경우 지원팀에 문의하여 필요한 할당량을 사용하도록 설정합니다.
 
 2. 구독에 원본 VM을 지원할 수 있을 만큼 충분한 리소스가 있는지 확인합니다. Site Recovery를 사용하여 대상에 데이터를 복사하는 경우 동일한 크기 또는 사용 가능한 가장 비슷한 크기의 대상 VM을 선택합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "65793732"
 3. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. **ContosoRG** 리소스 그룹을 만듭니다.
 5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 책정 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 참조하세요.
-6. Recovery Services 자격 증명 모음에서 **개요** > **ConsotoVMVault** > **+복제**를 선택합니다.
+6. Recovery Services 자격 증명 모음에서 **개요** > **ConsotoVMVault** >  **+복제**를 선택합니다.
 7. **원본**에서 **Azure**를 선택합니다.
 8. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 9. Azure Resource Manager 배포 모델을 선택합니다. 그런 다음, **원본 구독** 및 **원본 리소스 그룹**을 선택합니다.

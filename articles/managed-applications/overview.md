@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402357"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001808"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 애플리케이션 개요
 
@@ -33,7 +33,7 @@ Azure 관리되는 애플리케이션을 사용하면 고객의 배포 및 운�
 
 IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션을 조직 내 사용자에게 제공할 수 있습니다. 이러한 솔루션은 조직을 표준을 준수합니다.
 
-관리형 애플리케이션은 현재 [Azure 리소스에 대한 관리형 ID](../active-directory/managed-identities-azure-resources/overview.md)를 지원하지 않습니다.
+관리형 애플리케이션은 [Azure 리소스에 대한 관리 ID](./publish-managed-identity.md)를 지원합니다.
 
 ## <a name="types-of-managed-applications"></a>관리되는 애플리케이션의 형식
 

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826506"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239410"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Azure Notification Hubs의 보안 모델
 
@@ -45,11 +45,11 @@ Windows 스토어 클라이언트 앱에 키 값을 포함하지 않는 것이 �
 
 | 클레임   | 설명                                          | 허용되는 연산 |
 | ------- | ---------------------------------------------------- | ------------------ |
-| 수신  | 단일 등록 만들기/업데이트, 읽기 및 삭제 | 등록 만들기/업데이트<br><br>등록 읽기<br><br>핸들에 대한 모든 등록 읽기<br><br>등록 삭제 |
+| 수신 대기  | 단일 등록 만들기/업데이트, 읽기 및 삭제 | 등록 만들기/업데이트<br><br>등록 읽기<br><br>핸들에 대한 모든 등록 읽기<br><br>등록 삭제 |
 | 보내기    | 알림 허브에 메시지 보내기                | 메시지 보내기 |
 | 관리  | Notification Hubs의 CRUD(PNS 자격 증명 및 보안 키 업데이트 포함) 및 태그 기준 등록 읽기 |알림 허브 만들기/업데이트/읽기/삭제<br><br>태그별 등록 읽기 |
 
-Notification Hubs는 Microsoft Azure Access Control 토큰 및 Notification Hubs에서 직접 구성하는 공유 키로 생성된 서명 토큰에서 부여한 클레임을 허용합니다.
+Notification Hubs 서명 토큰 생성을 허용 알림 허브에서 직접 구성 하는 키를 공유 합니다.
 
 둘 이상의 네임 스페이스에 알림을 보내도록 하는 것이 불가능 합니다. 네임 스페이스에 notification hubs에 대 한 논리적 컨테이너 이며 알림을 보내와 관련 되지 않은 합니다.
 네임 스페이스 수준 작업에 대 한 예를 들어 네임 스페이스 수준 액세스 정책 (자격 증명)를 사용할 수 있습니다: 등 notification hubs를 나열, 만들기, notification hubs를 삭제 합니다. 허브 수준 액세스 정책에만 알림을 보낼 수 할 수 있습니다.

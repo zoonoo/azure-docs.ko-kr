@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003223"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235547"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기본 정책: 블록 레거시 인증 (미리 보기)
 
 사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD(Active Directory)에서 레거시 인증을 포함한 다양한 인증 프로토콜을 지원합니다. 레거시 인증은 수행한 인증 요청을 나타내는 용어:
 
 * 최신 인증 (예: Office 2010 클라이언트)을 사용 하지 않는 이전 Office 클라이언트
-* IMAP/여 SMPT/POP3 등의 레거시 메일 프로토콜을 사용 하는 모든 클라이언트
+* IMAP/SMTP/POP3 등의 레거시 메일 프로토콜을 사용 하는 모든 클라이언트
 
 오늘날 대부분 모든 그대로 유지 하면서 로그인 시도의 레거시 인증에서 제공 됩니다. 레거시 인증 (MFA) multi-factor authentication을 지원 하지 않습니다. 디렉터리에서 사용 하도록 설정 하는 MFA 정책에 있는 경우에 악의적 행위자가 레거시 프로토콜을 사용 하 여 인증 하 고 MFA를 무시할 수 있습니다.
 
@@ -74,13 +74,13 @@ MacOS를 사용 하는 경우에 Office for Mac 2016 이상으로 업그레이�
 
 최신 인증을 사용 하도록 Windows 기반 Outlook 클라이언트, Exchange Online 여야 최신 인증도 사용 합니다. 최신 인증에 대 한 비활성화 된 경우 Exchange Online, Windows 기반 Outlook 클라이언트 최신 인증 (Outlook 2013 이상) 기본 인증을 사용 하 여 Exchange Online 사서함에 연결 하는 지원 합니다.
 
-SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 일 이후 생성 된 디렉터리에 대 한 최신 인증이 Exchange Online에서 기본적으로 사용 됩니다. 그러나 이전에 최신 인증을 비활성화 했습니다.이 날짜 이전에 만들어진 디렉터리를 사용 하 고, 단계를 수행 하려면 다음 문서의 [Exchange Online에서 최신 인증 사용](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)합니다.
+SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 일 이후 생성 된 디렉터리에 대 한 최신 인증이 Exchange Online에서 기본적으로 사용 됩니다. 그러나 이전에 최신 인증을 비활성화 했습니다.이 날짜 이전에 만들어진 디렉터리를 사용 하 고, 단계를 수행 하려면 다음 문서의 [Exchange Online에서 최신 인증 사용](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)합니다.
 
 ### <a name="step-4-skype-for-business"></a>4단계: 비즈니스용 Skype
 
 비즈니스용 Skype에서 레거시 인증 요청을 방지 하려면 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 데 필요한 됩니다. 2017 년 8 월 1 일 이후 생성 된 디렉터리에 대 한 비즈니스용 Skype에 대 한 최신 인증이 기본적으로 사용 됩니다.
 
-비즈니스용 Skype에 최신 인증을 사용 하려면 기본적으로 최신 인증을 지 원하는 Microsoft Teams 전환한을 것이 좋습니다. 그러나 없는 경우 tr 할 지금은, Skype 비즈니스 클라이언트에 대 한 최신 인증을 사용 하 여 시작 되도록 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 해야 합니다. 문서의 다음이 단계를 수행 [최신 인증을 사용 하 여 지원 되는 비즈니스 기술에 대 한 Skype](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 단계입니다.
+비즈니스용 Skype에 최신 인증을 사용 하려면 기본적으로 최신 인증을 지 원하는 Microsoft Teams 전환한을 것이 좋습니다. 그러나 없는 경우 tr 할 지금은, Skype 비즈니스 클라이언트에 대 한 최신 인증을 사용 하 여 시작 되도록 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 해야 합니다. 문서의 다음이 단계를 수행 [최신 인증을 사용 하 여 지원 되는 비즈니스 기술에 대 한 Skype](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 단계입니다.
 
 비즈니스 온라인 용 Skype에 대 한 최신 인증을 사용 하도록 설정 하는 것 외에도 최신 권장 비즈니스용 Skype에 대 한 최신 인증을 사용 하도록 설정할 때 Exchange Online에 대 한 인증을 사용 합니다. 이 프로세스는 온라인 Exchange Online 및 비즈니스용 Skype에 최신 인증의 상태를 동기화 하는 데 도움이 됩니다 하 고 비즈니스 클라이언트에 대 한 Skype에 대 한 여러 로그인 프롬프트 방지 됩니다.
 
@@ -105,7 +105,7 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 
 정책 **기준 정책: 블록 레거시 인증 (미리 보기)** 미리 구성 되어 및 Azure portal에서 조건부 액세스 블레이드로 이동 하면 위쪽에 표시 됩니다.
 
-이 정책을 사용 하도록 설정 및 관리자에 게 보호 합니다.
+에이 정책을 사용 하도록 설정 하 고 조직을 보호 합니다.
 
 1. 에 로그인 합니다 **Azure portal** 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자입니다.
 1. 이동할 **Azure Active Directory** > **조건부 액세스**합니다.

@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 84946083146517146ad9aeb48693230aaaaf7943
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701171"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236526"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL 데이터베이스에서 데이터 읽기 및 쓰기
 
-Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 연결한 다음, SQL 데이터베이스에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 애플리케이션을 만들고 동일한 작업을 수행할 수 있습니다. 
+Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 연결한 다음, SQL 데이터베이스에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 애플리케이션을 만들고 동일한 작업을 수행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 
 먼저 Spark 클러스터와 연결된 [Jupyter Notebook](https://jupyter.org/)을 만듭니다. 이 노트를 사용해서 이 문서에 사용된 코드 조각을 실행합니다. 
 
 1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다.
-1. 오른쪽에 있는 **클러스터 대시보드** 아래에서 **Jupyter Notebook**을 선택합니다.  **클러스터 대시보드**가 표시되지 않으면 블레이드의 왼쪽 메뉴에서 **개요**를 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. 오른쪽에 있는 **클러스터 대시보드** 아래에서 **Jupyter Notebook**을 선택합니다.  찾을 수 없으면 **클러스터 대시보드**를 선택 **개요** 왼쪽된 메뉴에서. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
     ![Spark의 Jupyter 노트북](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark의 Jupyter 노트북")
    
@@ -164,7 +164,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 
 
 1. 첫 번째 단계로, **hvactable**에 레코드가 없는지 확인합니다. SSMS를 사용하여 테이블에 대해 다음 쿼리를 실행합니다.
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. HDInsight Spark 클러스터에서 새 Jupyter 노트를 만듭니다. 빈 셀에서 다음 코드 조각을 붙여넣고 **Shift+Enter**를 누릅니다.
 
@@ -174,7 +174,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL 데이터베이스에 
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. **HVAC.csv**의 데이터를 hvactable로 스트리밍합니다. HVAC.csv 파일은 */HdiSamples/HdiSamples/SensorSampleData/HVAC/* 의 클러스터에서 사용할 수 있습니다. 다음 코드 조각에서는 먼저 스트리밍할 데이터의 스키마를 가져옵니다. 그런 다음 해당 스키마를 사용하여 스트리밍 데이터 프레임을 만듭니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
+1. **HVAC.csv**의 데이터를 hvactable로 스트리밍합니다. HVAC.csv 파일은 클러스터에 `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`입니다. 다음 코드 조각에서는 먼저 스트리밍할 데이터의 스키마를 가져옵니다. 그런 다음 해당 스키마를 사용하여 스트리밍 데이터 프레임을 만듭니다. 이 코드 조각을 코드 셀에 붙여 넣고 **Shift+Enter**를 눌러 실행합니다.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

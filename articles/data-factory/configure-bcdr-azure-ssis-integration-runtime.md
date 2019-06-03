@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66120426"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399232"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS Integration Runtime 구성
 
@@ -100,6 +100,59 @@ Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시�
     이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md) 참조
 
 3. IR을 다시 시작합니다.
+
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>시나리오 3-새 Azure SSIS IR을를 기존 SSISDB (SSIS 카탈로그)에 연결
+
+현재 지역에는 ADF 또는 AZURE-SSIS IR 재해가 발생 하면 새 지역에서 새 Azure SSIS IR을 사용 하 여 SSISDB 계속 할 수 있습니다.
+
+### <a name="prerequisites"></a>필수 조건
+
+- 현재 지역에서 가상 네트워크를 사용하는 경우 새 지역에서 다른 가상 네트워크를 사용하여 Azure SSIS 통합 런타임에 연결해야 합니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+
+- 사용자 지정 설정을 사용하는 경우 중단 시간 동안 계속 액세스할 수 있도록 사용자 지정 설정 스크립트 및 연결된 파일을 저장하는 Blob 컨테이너에 대한 다른 SAS URI를 준비해야 할 수 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임에서 사용자 지정 설정 구성](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
+
+### <a name="steps"></a>단계
+
+Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시작 하려면 다음 단계를 따릅니다.
+
+1. SSISDB에 연결할 수 있도록 저장된 프로시저를 실행할 **\<new_data_factory_name\>** 하거나  **\<new_integration_runtime_name\>** 합니다.
+   
+  ```SQL
+    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
+
+2. 라는 새 데이터 팩터리를 만듭니다 **\<new_data_factory_name\>** 새 지역에 있습니다. 자세한 내용은 데이터 팩터리 만들기를 참조 하세요.
+
+     ```powershell
+     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+     ```
+    이 PowerShell 명령에 대 한 자세한 내용은 참조 하세요. [PowerShell을 사용 하 여 Azure data factory 만들기](quickstart-create-data-factory-powershell.md)
+
+3. 명명 된 새 Azure SSIS IR을 만들 **\<new_integration_runtime_name\>** Azure PowerShell을 사용 하 여 새 지역에 있습니다.
+
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+    ```
+
+    이 PowerShell 명령에 대한 자세한 내용은 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md) 참조
+
+4. IR을 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

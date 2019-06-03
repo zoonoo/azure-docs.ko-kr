@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117747"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603469"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -109,7 +109,7 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
-Data Box는 서비스가 배포된 지역, 디바이스가 배송된 국가 및 데이터를 전송하는 대상 Azure Storage 계정에 따라 데이터를 전송할 수 있습니다. 
+Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다. 
 
 - **서비스 가용성** - 이 릴리스의 경우 Data Box 서비스는 다음과 같은 지역에서 사용할 수 있습니다.
     - 미국 내 모든 지역 - 미국 중서부, 미국 서부 2, 미국 서부, 미국 중남부, 미국 중부, 미국 중북부, 미국 동부 및 미국 동부 2.

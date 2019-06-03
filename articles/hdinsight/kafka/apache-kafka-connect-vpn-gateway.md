@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708827"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297058"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -85,7 +85,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 1. [지점 및 사이트 간 연결에 대한 자체 서명된 인증서로 작업](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서에 나오는 단계를 수행합니다. 이 문서는 게이트웨이에 필요한 인증서를 만듭니다.
 
-2. PowerShell 프롬프트를 열고 다음 코드를 사용하여 Azure 구독에 로그인합니다.
+2. PowerShell 프롬프트를 열고 다음 코드를 사용 하 여 Azure 구독에 로그인 합니다.
 
     ```powershell
     Connect-AzAccount
@@ -197,8 +197,10 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 기본적으로 Apache Zookeeper는 Kafka 브로커의 도메인 이름을 클라이언트에 반환합니다. 이 구성은 가상 네트워크의 엔터티에 대해 이름 확인을 사용할 수 없으므로 VPN 소프트웨어 클라이언트에 작동하지 않습니다. 이 구성의 경우, 다음 단계에 따라 도메인 이름 대신 IP 주소를 보급하도록 Kafka를 구성합니다.
 
-1. 웹 브라우저를 사용하여 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. __CLUSTERNAME__을 HDInsight 클러스터의 Kafka 이름으로 바꿉니다.
+1. 웹 브라우저를 사용하여 `https://CLUSTERNAME.azurehdinsight.net` 으로 이동합니다. 대체 `CLUSTERNAME` HDInsight 클러스터에서 Kafka의 이름입니다.
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
@@ -320,7 +322,9 @@ Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하
 
 2. 다음을 사용하여 [kafka-python](https://kafka-python.readthedocs.io/) 클라이언트를 설치합니다.
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Kafka로 데이터를 전송하려면 다음 Python 코드를 사용합니다.
 

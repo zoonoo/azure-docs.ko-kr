@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: getroyer
-ms.openlocfilehash: d4321fe60d47bf942e2c413ba81c2c9f54317fd1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597868"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234346"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines를 사용 합니다.
 
@@ -59,4 +59,4 @@ Azure portal에서 DSVM 페이지에서 이러한 값을 가져옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Dsvm에 대 한 자세히 알아보세요 [도입을 Azure 데이터 과학 Virtual Machines](/machine-learning/data-science-virtual-machine/overview)합니다.
+Dsvm에 대 한 자세히 알아보세요 [도입을 Azure 데이터 과학 Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview)합니다.

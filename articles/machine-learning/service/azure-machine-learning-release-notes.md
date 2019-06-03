@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989857"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298477"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -24,6 +24,21 @@ ms.locfileid: "65989857"
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning 데이터 준비 SDK v1.1.4
+
++ **새로운 기능**
+  + 이제 추출 하 고 새 열에 날짜/시간 값을 구문 분석 하는 다음 식 언어 기능을 사용할 수 있습니다.
+    + `RegEx.extract_record()` 새 열에 날짜/시간 요소를 추출합니다.
+    + `create_datetime()` 별도 날짜/시간 요소에서 datetime 개체를 만듭니다.
+  + 호출할 때 `get_profile()`, 이제는 변 위치 열 레이블이 표시 되어 (예상)으로 명확 하 게 값으로 어림 값을 볼 수 있습니다.
+  + 이제 사용할 수 있습니다 * * Azure Blob Storage에서 읽을 때 와일드 카드 사용 합니다.
+    + 예: `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **버그 수정**
+  + 원격 원본 (Azure Blob)에서 Parquet 파일 읽기와 관련 된 버그가 수정 되었습니다.
 
 ## <a name="2019-05-14"></a>2019-05-14
 

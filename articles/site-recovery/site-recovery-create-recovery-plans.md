@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035825"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399998"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
 
@@ -21,7 +21,7 @@ ms.locfileid: "61035825"
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 
-1. Recovery Services 자격 증명 모음에서 **복구 계획(Site Recovery)** > **+복구 계획**을 선택합니다.
+1. Recovery Services 자격 증명 모음에서 **복구 계획(Site Recovery)**  >  **+복구 계획**을 선택합니다.
 2. **복구 계획 만들기**에서 계획의 이름을 지정합니다.
 3. 계획의 머신을 기반으로 하여 원본 및 대상을 선택하고 배포 모델에 대한 **리소스 관리자**를 선택합니다. 원본 위치에는 장애 조치(failover) 및 복구를 사용하도록 설정한 머신이 있어야 합니다. 
 
@@ -70,13 +70,16 @@ ms.locfileid: "61035825"
     Azure에 Hyper-V 사이트 | Runbook | 해당 없음
     VMM에서 보조 VMM으로 | 스크립트 | 스크립트
 
-1. 복구 계획에서 작업을 추가해야 하는 단계를 클릭하고 작업이 발생해야 하는 시기를 지정합니다. 가. 장애 조치(failover) 후 그룹의 머신이 시작되기 전에 작업을 수행하려면 **사전 작업 추가**를 선택합니다.
-    나. 장애 조치(failover) 후 그룹의 머신이 시작된 후 작업을 수행하려면 **사후 작업 추가**를 선택합니다. 작업 위치를 이동하려면 **위로 이동** 및 **아래로 이동** 단추를 선택합니다.
+1. 복구 계획에서 단계는 작업을 추가 해야 하 고 동작을 실행 하는 경우 지정를 클릭 합니다.
+    1. 장애 조치(failover) 후 그룹의 머신이 시작되기 전에 작업을 수행하려면 **사전 작업 추가**를 선택합니다.
+    1. 장애 조치(failover) 후 그룹의 컴퓨터가 시작된 후 작업을 수행하려면 **사후 작업 추가**를 선택합니다. 작업 위치를 이동하려면 **위로 이동** 및 **아래로 이동** 단추를 선택합니다.
 2. **작업 삽입**에서 **스크립트** 또는 **수동 작업**을 선택합니다.
-3. 수동 작업을 추가하려면 다음을 수행합니다. 가. 작업 이름과 작업 지침을 입력합니다. 장애 조치(failover)를 실행하는 사용자에게 이러한 지침이 표시됩니다.
-    나. 모든 장애 조치(failover) 유형(테스트, 장애 조치(failover), 계획된 장애 조치(failover)(관련된 경우))에 대해 수동 작업을 추가할지 여부를 지정합니다. 그런 후 **OK**를 클릭합니다.
-4. 스크립트를 추가하려면 다음을 수행합니다. 가. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 예를 들어 공유가 \\<VMMServerName>\MSSCVMMLibrary\RPScripts에 있는 경우 경로를 다음과 같이 지정합니다. \RPScripts\RPScript.PS1.
-    나. Azure Automation Runbook을 추가하는 경우 Runbook이 위치한 **Azure Automation 계정**을 지정하고 적절한 **Azure Runbook 스크립트**를 선택합니다.
+3. 수동 작업을 추가 하려는 경우 다음을 수행 합니다.
+    1. 작업 이름과 작업 지침을 입력합니다. 장애 조치(failover)를 실행하는 사용자에게 이러한 지침이 표시됩니다.
+    1. 모든 장애 조치(failover) 유형(테스트, 장애 조치(failover), 계획된 장애 조치(failover)(관련된 경우))에 대해 수동 작업을 추가할지 여부를 지정합니다. 그런 후 **OK**를 클릭합니다.
+4. 스크립트를 추가 하려는 경우 다음을 수행 합니다.
+    1. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 예를 들어 공유 위치가 \\ \<v m m > \MSSCVMMLibrary\RPScripts에 경로 지정: \RPScripts\RPScript.PS1 합니다.
+    1. Azure Automation Runbook을 추가하는 경우 Runbook이 위치한 **Azure Automation 계정**을 지정하고 적절한 **Azure Runbook 스크립트**를 선택합니다.
 5. 복구 계획의 테스트 장애 조치(failover)를 실행하여 스크립트가 예상대로 작동하는지 확인합니다.
 
 ## <a name="watch-a-video"></a>비디오 보기

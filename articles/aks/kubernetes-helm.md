@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465039"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392133"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
@@ -24,7 +24,10 @@ ms.locfileid: "60465039"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 애플리케이션을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
+개발 시스템에서 실행 되는 클라이언트는 Helm CLI를 설치 해야 합니다. 시작, 중지 및 Helm 사용 하 여 응용 프로그램을 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
+
+> [!IMPORTANT]
+> Helm은 Linux 노드에서 실행 됩니다. Windows Server는 노드가 클러스터에 Helm pod Linux 노드에서 실행 되도록 예약 된만 있는지 확인 해야 합니다. 설치한 모든 Helm 차트는 올바른 노드에서 실행 되도록 예약도 있는지 확인 해야 합니다. 이 명령을 사용 하 여 문서 [노드 선택기] [ k8s-node-selector] pod의 올바른 노드 예정인 좋지만 일부 Helm 차트 노드 선택기를 노출할 수 있습니다. 같은 클러스터에 대 한 다른 옵션을 사용 하 여 할 수도 있습니다 [taints][taints]합니다.
 
 ## <a name="create-a-service-account"></a>서비스 계정 만들기
 
@@ -70,7 +73,7 @@ RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 �
 기본 Tiller를 AKS 클러스터에 배포하려면 [helm init][helm-init] 명령을 사용합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다. Tiller 및 Helm에 대한 TLS/SSL를 구성한 경우 이 기본 초기화 단계를 건너뛰고 대신 다음 예제와 같이 필수 `--tiller-tls-`를 제공합니다.
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 Helm과 Tiller 간에 TLS/SSL을 구성한 경우 다음 예제와 같이 `--tiller-tls-*` 매개 변수 및 고유한 인증서 이름을 제공합니다.
@@ -82,7 +85,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
@@ -141,78 +145,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Helm 차트 실행
 
-Helm을 사용하여 차트를 설치하려면 [helm install][helm-install] 명령을 사용하고 설치할 차트의 이름을 지정합니다. 실행 중인지 확인하려면 Helm 차트를 사용하여 기본 Wordpress 배포를 설치하겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+Helm을 사용하여 차트를 설치하려면 [helm install][helm-install] 명령을 사용하고 설치할 차트의 이름을 지정합니다. Helm 차트를 실행 중인 설치를 확인 하려면 Helm 차트를 사용 하 여 기본 nginx 배포를 설치 해 보겠습니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 다음 압축된 예제 출력에서는 Helm 차트에서 만든 Kubernetes 리소스의 배포 상태를 보여줍니다.
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-Wordpress 서비스의 *EXTERNAL-IP* 주소를 채우고 웹 브라우저를 사용하여 액세스할 수 있도록 하는 데 1~2분이 걸립니다.
+에 대 일 분 정도 걸리는 합니다 *EXTERNAL-IP* 채워지고 웹 브라우저를 사용 하 여 액세스할 수 있도록 nginx 수신 컨트롤러 서비스의 주소입니다.
 
 ## <a name="list-helm-releases"></a>Helm 릴리스 나열
 
-클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm-list] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 배포된 Wordpress 릴리스를 보여줍니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
+클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm-list] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 배포 된 nginx 수신 릴리스를 보여 줍니다. TLS/SSL을 구성한 경우 `--tls` 매개 변수를 추가하여 Helm 클라이언트 인증서를 사용합니다.
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제는 *wishful mastiff*라는 이름의 릴리스를 삭제합니다.
+Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이러한 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제에서는 명명 된 릴리스를 삭제 *flailing alpaca*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -239,3 +227,5 @@ Helm을 사용하여 Kubernetes 애플리케이션 배포를 관리하는 방법
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

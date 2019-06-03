@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683403"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399181"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
@@ -38,7 +38,7 @@ ms.locfileid: "64683403"
 
 문서에 설명 된 대로 [로그 경고에 대 한 용어](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), 구성에 명시 된 기간 동안 쿼리에 대 한 시간 범위를 지정 합니다. 쿼리는이 범위 내에서 생성 된 레코드만 반환 합니다. 
 
-기간 데이터 남용을 방지 하기 위해 로그 쿼리의 페치를 제한 하 고 모든 시간 명령을 우회 하기 (같은 **전**) 로그 쿼리를 사용 합니다. 예를 들어 기간이 60분으로 설정되고 오후 1시 15분에 쿼리를 실행하는 경우 오후 12시 15분부터 오후 1시 15분 사이에 생성된 레코드만 로그 쿼리에 사용됩니다. 로그 쿼리를 같은 시간 명령을 사용 하는 경우 **전 (1 일)**, 쿼리는 여전히 오후 12 시 15 1:15 PM 사이 데이터를 사용 기간 동안 해당 간격으로 설정 되어 있기 때문입니다.
+기간 데이터 남용을 방지 하기 위해 로그 쿼리의 페치를 제한 하 고 모든 시간 명령을 우회 하기 (같은 **전**) 로그 쿼리를 사용 합니다. 예를 들어 기간이 60분으로 설정되고 오후 1시 15분에 쿼리를 실행하는 경우 오후 12시 15분부터 오후 1시 15분 사이에 생성된 레코드만 로그 쿼리에 사용됩니다. 로그 쿼리를 같은 시간 명령을 사용 하는 경우 **전 (1 일)** , 쿼리는 여전히 오후 12 시 15 1:15 PM 사이 데이터를 사용 기간 동안 해당 간격으로 설정 되어 있기 때문입니다.
 
 구성에서 기간에 쿼리 일치 하는지 확인 합니다. 이전에 표시 된 예제에 대 한 로그 쿼리를 사용 하는 경우 **전 (1 일)** 의 녹색 마커로 기간은 24 시간 또는 하루 1,440 분 (빨간색으로 표시 됨)로 설정 해야 합니다. 이 설정은 쿼리 의도 한 대로 실행 되는지 확인 합니다.
 
@@ -181,6 +181,7 @@ Azure 활동 로그에서 다음 샘플 이벤트는 지속적인 오류로 인�
 Azure Monitor의 해당 구성의 일부로 만든 각 로그 경고 규칙 경고 서비스가 정기적으로 실행 되는 분석 쿼리가 지정 해야 합니다. 분석 쿼리 규칙 만들기 또는 업데이트 시 올바른 구문이 있을 수 있습니다. 하지만 경우에 따라 시간 동안 로그 경고 규칙에서 제공한 쿼리 구문 문제를 개발 및 수 규칙 실행이 실패 합니다. 로그 경고 규칙에서 제공 하는 analytics 쿼리 오류를 개발할 수 이유 몇 가지 일반적인 원인은 다음과 같습니다.
 
 - 쿼리를 쓸 [여러 리소스에서 실행](../log-query/cross-workspace-query.md)합니다. 및 지정된 된 리소스 중 하나 이상이 더 이상 존재 합니다.
+- [메트릭 측정 형식 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) 구성에 경고가 쿼리 구문은 표준에 부합 되지 않는 경우
 - 분석 플랫폼으로 데이터 흐름 없음 되었습니다. [쿼리 실행 오류가 발생 하면](https://dev.loganalytics.io/documentation/Using-the-API/Errors) 하므로 제공 된 쿼리에 대 한 데이터가 없습니다.
 - 변경 내용 [쿼리 언어](https://docs.microsoft.com/azure/kusto/query/) 명령 및 함수에 대 한 수정 된 형식을 포함 합니다. 따라서 경고 규칙의 앞부분에 있는 쿼리가 더 이상 유효 합니다.
 

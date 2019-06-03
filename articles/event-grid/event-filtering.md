@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187651"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305065"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -129,7 +129,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* 문자열
+* string
 * 부울
 * array
 
@@ -140,8 +140,6 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * 이벤트 그리드 구독당 5개의 고급 필터
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
-* 키에는 한 가지 수준의 중첩만을 있을 수 있습니다(예: data.key1).
-* 사용자 지정 이벤트 스키마는 최상위 필드에서만 필터링됩니다.
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 

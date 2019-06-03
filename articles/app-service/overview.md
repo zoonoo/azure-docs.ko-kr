@@ -16,11 +16,11 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423683"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60835348"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -42,7 +42,7 @@ App Service의 주요 기능은 다음과 같습니다.
 * **애플리케이션 템플릿** - [Azure Marketplace](https://azure.microsoft.com/marketplace/)(예: WordPress, Joomla 및 Drupal)의 광범위한 애플리케이션 템플릿 목록에서 선택합니다.
 * **Visual Studio 통합** - Visual Studio의 전용 도구는 생성, 배포, 디버깅 작업을 간소화합니다.
 * **API 및 모바일 기능** - App Service는 RESTful API 시나리오에 대한 턴키 방식 CORS 지원을 제공하며, 인증, 오프라인 데이터 동기화, 푸시 알림 등을 활성화하여 모바일 앱 시나리오를 간소화합니다.
-* **서버를 사용하지 않는 코드** - 인프라를 명시적으로 프로비전하거나 관리하지 않고도 요청 시에 코드 조각이나 스크립트를 실행하고, 코드에서 실제로 사용하는 계산 시간에 대해서만 비용을 지불합니다([Azure Functions](/azure/azure-functions/) 참조).
+* **서버리스 코드** - 인프라를 명시적으로 프로비전하거나 관리하지 않고도 요청 시에 코드 조각이나 스크립트를 실행하고, 코드에서 실제로 사용하는 컴퓨팅 시간에 대해서만 비용을 지불합니다([Azure Functions](/azure/azure-functions/) 참조).
 
 Azure는 App Service 뿐만 아니라 웹 사이트와 웹 애플리케이션 호스팅에 사용할 수 있는 다른 서비스를 제공합니다. 대부분의 시나리오의 경우 App Service를 사용하는 것이 좋습니다.  마이크로 서비스 아키텍처의 경우 [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)을 사용하는 것이 좋습니다. 코드가 실행되는 VM을 자세히 제어해야 하는 경우 [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)를 사용하는 것이 좋습니다. 이러한 Azure 서비스 중에서 하나를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Virtual Machines, 서비스 패브릭 및 Cloud Services 비교](overview-compare.md)를 참조하세요.
 

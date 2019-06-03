@@ -3,16 +3,16 @@ title: 진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하�
 description: 일반적인 문제, 해결 방법 및 Azure Functions를 사용 하 여 Azure Cosmos DB 트리거를 사용 하는 경우 진단 단계
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510539"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242525"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하는 경우 문제 해결
 

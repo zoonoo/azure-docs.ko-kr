@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081314"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145416"
 ---
 1. Visual Studio 2017을 시작합니다.
 
@@ -19,11 +19,11 @@ ms.locfileid: "65081314"
 
     그렇지 않으면 **.NET 플랫폼 간 개발** 옆의 상자를 선택하고 대화 상자 오른쪽 아래 모서리의 **수정**을 선택합니다. 새로운 기능을 설치하려면 잠시 시간이 걸립니다.
 
-1. 빈 Visual C# 유니버설 Windows 앱을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C#** > **Windows Universal**을 확장합니다. 그런 다음, **비어 있는 앱(유니버설 Windows)** 을 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
+1. 빈 Visual C# 유니버설 Windows 앱을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C#**  > **Windows Universal**을 확장합니다. 그런 다음, **비어 있는 앱(유니버설 Windows)** 을 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
 
     ![새 프로젝트 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Speed SDK를 사용하려면 애플리케이션이 Windows 10 Fall Creators Update 이상을 대상으로 빌드되어야 합니다. 팝업되는 **새 유니버설 Windows 플랫폼 프로젝트** 창에서 **Windows 10 Fall Creators Update(10.0; Build 16299)** 를 **최소 버전**으로 선택합니다. **대상 버전** 상자에서 이 이상 버전을 선택한 다음, **확인**을 클릭합니다.
+1. Speech SDK를 사용하려면 애플리케이션을 Windows 10 Fall Creators Update 이상용으로 빌드해야 합니다. 팝업되는 **새 유니버설 Windows 플랫폼 프로젝트** 창에서 **Windows 10 Fall Creators Update(10.0; Build 16299)** 를 **최소 버전**으로 선택합니다. **대상 버전** 상자에서 이 이상 버전을 선택한 다음, **확인**을 클릭합니다.
 
     ![새 유니버설 Windows 플랫폼 프로젝트 창의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

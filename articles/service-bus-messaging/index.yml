@@ -39,7 +39,7 @@ sections:
             href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues
           - image:
               src: /azure/service-bus-messaging/media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
           - image:
               src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
@@ -76,7 +76,7 @@ sections:
             href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
           - image:
               src: /azure/service-bus-messaging/media/index/logo_java.svg
-            text: 자바
+            text: Java
             href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
           - image:
               src: /azure/service-bus-messaging/media/index/logo_nodejs.svg

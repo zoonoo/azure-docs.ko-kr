@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015451"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388153"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -623,7 +623,7 @@ Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어
 * ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>시작
+### <a name="getting-started"></a>시작하기
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
 #### <a name="to-create-a-sample-scim-endpoint"></a>샘플 SCIM 엔드포인트를 만들려면
@@ -1330,7 +1330,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | jobTitle |title |
 | 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
-| 관리자 |manager |
+| manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
@@ -1348,9 +1348,9 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | displayName |externalId |
 | 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 구성원 |구성원 |
+| members |members |
 | objectId |ID |
-| ProxyAddresses |emails[type eq "other"].Value |
+| proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>IP 허용 SCIM 요청을 Azure AD 프로 비전 서비스에서 사용 되는 주소
 특정 앱에는 해당 앱에 인바운드 트래픽을 허용합니다. 예상 대로 작동 하려면 Azure AD 프로 비전 서비스에 대 한 순서를 사용 하는 IP 주소를 허용 합니다. 각 서비스 태그/지역에 대 한 IP 주소의 목록을 JSON 파일을 참조 하세요 [Azure IP 범위 및 서비스 태그와 공용 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)합니다. 다운로드 하 고 필요에 따라 이러한 Ip 방화벽으로 프로그래밍할 수 있습니다. Azure AD 프로 비전에 대 한 예약 된 IP 범위 "AzureActiveDirectoryDomainServices."에서 찾을 수 있습니다.

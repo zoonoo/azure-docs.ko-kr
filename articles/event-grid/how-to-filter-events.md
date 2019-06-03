@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119643"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304222"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 
@@ -184,8 +184,6 @@ az eventgrid event-subscription create \
 ## <a name="filter-by-operators-and-data"></a>연산자 및 데이터별 필터링
 
 보다 유연한 필터링을 원한다면 연산자 및 데이터 속성을 사용하여 이벤트를 필터링하면 됩니다.
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>고급 필터가 포함된 구독
 

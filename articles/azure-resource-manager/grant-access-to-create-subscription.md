@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: 81f3edcfcffad1b9b6d0ab4b49769601196049ad
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179852"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238051"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "66179852"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="grant-access"></a>액세스 허용
+## <a name="grant-access"></a>액세스 권한 부여
 
 하 [등록 계정으로 구독을 만들](programmatically-create-subscription.md), 사용자에 게 있어야 합니다 [RBAC 소유자 역할](../role-based-access-control/built-in-roles.md#owner) 해당 계정에 합니다. 부여할 수 있습니다 사용자나 사용자 그룹을 등록 계정에 대해 RBAC 소유자 역할에서 다음 단계를 수행:
 

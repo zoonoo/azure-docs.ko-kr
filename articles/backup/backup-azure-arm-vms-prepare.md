@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 98934216c0860c79575874df26603b1187e35978
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647635"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239324"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
-이 문서에서는 Recovery Services 자격 증명 모음에 Azure Vm을 백업 하는 방법을 설명를 사용 하는 [Azure Backup](backup-overview.md) 서비스입니다. 
+이 문서에서는 Recovery Services 자격 증명 모음에 Azure Vm을 백업 하는 방법을 설명를 사용 하는 [Azure Backup](backup-overview.md) 서비스입니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -47,29 +47,29 @@ ms.locfileid: "60647635"
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
- 자격 증명 모음은 백업과 시간 경과에 따라 생성된 복구 지점을 저장하고 백업된 머신과 연결된 백업 정책을 저장합니다. 다음과 같이 자격 증명 모음을 만듭니다.    
+ 자격 증명 모음은 백업과 시간 경과에 따라 생성된 복구 지점을 저장하고 백업된 머신과 연결된 백업 정책을 저장합니다. 다음과 같이 자격 증명 모음을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.    
-2. 검색에서 입력 **Recovery Services**합니다. 아래 **Services**, 클릭 **Recovery Services 자격 증명 모음**합니다.   
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 검색에서 입력 **Recovery Services**합니다. 아래 **Services**, 클릭 **Recovery Services 자격 증명 모음**합니다.
 
-     ![Recovery Services 자격 증명 모음에 대 한 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+     ![Recovery Services 자격 증명 모음에 대 한 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-3. **Recovery Services 자격 증명 모음** 메뉴에서 클릭 **+ 추가**합니다.    
+3. **Recovery Services 자격 증명 모음** 메뉴에서 클릭 **+ 추가**합니다.
 
-     ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+     ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-4. **Recovery Services 자격 증명 모음**, 자격 증명 모음을 식별 하는 친숙 한 이름 입력 합니다.   
-    - 이름은 Azure 구독에 대해 고유해야 합니다.   
-    - 2~50자를 포함할 수 있습니다.    
-    - 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.   
-5. Azure 구독, 리소스 그룹 및 자격 증명 모음을 만들 지역을 선택 합니다. 그런 다음, **만들기**를 클릭합니다.    
-    - 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다.  
-    - 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.   
+4. **Recovery Services 자격 증명 모음**, 자격 증명 모음을 식별 하는 친숙 한 이름 입력 합니다.
+    - 이름은 Azure 구독에 대해 고유해야 합니다.
+    - 2~50자를 포함할 수 있습니다.
+    - 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
+5. Azure 구독, 리소스 그룹 및 자격 증명 모음을 만들 지역을 선택 합니다. 그런 다음, **만들기**를 클릭합니다.
+    - 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다.
+    - 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.
 
 
  자격 증명 모음을 만든 후 Recovery Services 자격 증명 모음 목록에 나타납니다. 자격 증명 모음이 표시되지 않으면 **새로 고침**을 선택합니다.
- 
-![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 ### <a name="modify-storage-replication"></a>저장소 복제를 수정 합니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "60647635"
 
       ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 > [!NOTE]
-   > 자격 증명 모음 설정 되 고 백업 항목을 포함 한 후에 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우에 자격 증명 모음을 다시 해야 합니다. 
+   > 자격 증명 모음 설정 되 고 백업 항목을 포함 한 후에 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우에 자격 증명 모음을 다시 해야 합니다.
 
 ## <a name="apply-a-backup-policy"></a>백업 정책 적용
 
@@ -101,7 +101,7 @@ ms.locfileid: "60647635"
 
    ![백업 및 백업 목표 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. **백업 정책**에서 자격 증명 모음과 연결하려는 정책을 선택합니다. 
+3. **백업 정책**에서 자격 증명 모음과 연결하려는 정책을 선택합니다.
     - 기본 정책 하루에 한 번 VM을 백업합니다. 일별 백업 30 일 동안 유지 됩니다. 인스턴트 복구 스냅숏은 2 일 동안 보존 됩니다.
     - 기본 정책을 사용 하지 않으려는 경우 선택 **새로 만들기**, 다음 절차에 설명 된 대로 사용자 지정 정책을 만듭니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "60647635"
      !["가상 머신 선택" 창](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. **백업**, 클릭 **백업 사용**합니다. 이렇게 하면 자격 증명 모음과 VM에 정책을 배포하고 Azure VM에서 실행되는 VM 에이전트에 백업 확장을 설치합니다.
-     
+
      !["백업 사용" 단추](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 백업 사용 단추를 클릭한 후 다음을 수행합니다.
@@ -126,7 +126,7 @@ ms.locfileid: "60647635"
 - 백업을 실행 하는 경우는 note:
     - 실행 중인 VM을 캡처하는 응용 프로그램 일치 복구 지점에 대 한 가장 큰 기회를 경우
     - 그러나 VM를 해제 하는 경우에 백업 합니다. 이러한 VM은 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일치 됩니다.
-    
+
 
 ### <a name="create-a-custom-policy"></a>사용자 지정 정책 만들기
 
@@ -138,7 +138,7 @@ ms.locfileid: "60647635"
     - 를 복원 하면 백업 vm 디스크는 저장소에서 복사를 네트워크에서 복구 저장소 위치를 통해. 즉시 복원을 사용 하 여 로컬로 저장 된 스냅숏을 백업 작업을 하는 동안 백업 데이터를 자격 증명 모음으로 전송 될 때까지 기다리지 않고를 활용할 수 있습니다.
     - 1-5 일 사이 대 한 인스턴트 복원에 대 한 스냅숏을 유지할 수 있습니다. 2 일에는 기본 설정입니다.
 3. **보존 범위**, 매일 또는 매주 백업 지점을 유지 하려는 기간을 지정 합니다.
-4. **월간 백업 지점 보존**, 월간 일별 또는 주별 백업의 백업 보관 것인지 여부를 지정 합니다. 
+4. **월간 백업 지점 보존**, 월간 일별 또는 주별 백업의 백업 보관 것인지 여부를 지정 합니다.
 5. **확인** 을 클릭하여 정책을 저장합니다.
 
     ![새 백업 정책](./media/backup-azure-arm-vms-prepare/new-policy.png)
@@ -156,6 +156,34 @@ ms.locfileid: "60647635"
 4. **지금 백업**을 클릭합니다.
 5. **지금 Backup**, 달력 컨트롤을 사용 하 여 복구 지점을 유지 되어야 하는 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
+
+## <a name="verify-backup-job-status"></a>Backup 작업 상태를 확인 합니다.
+
+2 단계의 각 VM 백업 구성에 대 한 백업 작업 세부 정보를 **스냅숏** 뒤에 단계를 **자격 증명 모음에 데이터를 전송** 단계입니다.<br/>
+에 대 한 디스크와 함께 저장 하는 복구 지점의 가용성을 보장 하는 스냅숏 단계가 **인스턴트 복원** 되며, 최대 사용자가 구성한 스냅숏 보존에 따라 5 일 동안 사용할 수 있습니다. 자격 증명 모음에 데이터를 전송 하는 장기 보존에 대 한 자격 증명 모음에서 복구 지점을 만듭니다. 스냅숏 단계가 완료 된 후 시작만 자격 증명 모음에 데이터를 전송 합니다.
+
+  ![백업 작업 상태](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
+
+두 개의 **하위 작업** 에서 확인할 수 있습니다는 프런트 엔드 백업 작업에 대 한 백 엔드에서 실행 되는 **백업 작업** 세부 정보 블레이드에서 지정 된 대로 아래:
+
+  ![백업 작업 상태](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+합니다 **자격 증명 모음에 데이터를 전송** 단계는 디스크의 크기에 따라 완료, 디스크 및 기타 여러 가지 요인 변동률에 며칠이 걸릴 수 있습니다.
+
+작업 상태는 다음과 같은 시나리오에 따라 달라질 수 있습니다.
+
+**스냅숏** | **자격 증명 모음에 데이터를 전송 합니다.** | **작업 상태**
+--- | --- | ---
+Completed | 진행 중 | 진행 중
+Completed | 생략 | Completed
+Completed | Completed | Completed
+Completed | 실패 | 경고와 함께 완료
+실패 | 실패 | 실패
+
+
+이제이 기능을 사용 하 여 동일한 VM에 대해 두 개의 백업을 동시에 실행할 수, 하지만 두 단계 (스냅숏, 자격 증명 모음에 데이터 전송)에서 하나의 하위 태스크를 실행할 수 있습니다. 시나리오 진행 중인 백업 작업 실패에 대 한 다음 날의 백업에서 발생 한 것을 방지할 수이 기능을 분리 합니다. 스냅숏 수 이후 날짜의 백업을 완료 하는 동안 **자격 증명 모음에 데이터를 전송** 를 이전 날짜의 백업 작업이 진행 중 상태에서 이면 건너뜁니다.
+자격 증명 모음에서 만든 증분 복구 지점이 자격 증명 모음에서 만든 마지막 복구 지점에서 모든 이탈을 캡처합니다. 사용자에 비용 영향을 주지 않습니다.
+
 
 ## <a name="optional-steps-install-agentallow-outbound"></a>선택적 단계 (에이전트/아웃 바운드 허용 설치)
 ### <a name="install-the-vm-agent"></a>VM 에이전트 설치
@@ -175,8 +203,8 @@ VM에서 실행 중인 백업 확장이 Azure 공용 IP 주소에 아웃 바운�
 - 오류를 표시 하는 경우 또는 실행 문제가 vm에 연결 **ExtensionSnapshotFailedNoNetwork** 연결을 시도할 때 명시적으로 허용 해야 액세스 백업 확장이 Azure 공용 IP와 통신할 수 있도록 백업 트래픽에 대 한 주소입니다. 액세스 메서드는 다음 표에 요약 되어 있습니다.
 
 
-**옵션** | **작업** | **세부 정보** 
---- | --- | --- 
+**옵션** | **작업** | **세부 정보**
+--- | --- | ---
 **NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다.<br/><br/> 허용 및 모든 주소 범위 관리를 대신 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다는 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)합니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그 액세스 관리를 간소화 하 고 추가 비용이 발생 하지 않습니다.
 **프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 저장소뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
 **Azure Firewall 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에서 설정 하는 Azure 방화벽이 있는 경우 사용 하기 간편 합니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에 Fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm 디스크를 관리 하는 경우 추가 열어야 할 수 있습니다 (8443) 방화벽에서 포트입니다.
@@ -200,7 +228,7 @@ NSG가 VM 액세스를 관리 하는 경우 필요한 범위 및 포트에 백�
     - 관리형 VM: 8443
 7. **프로토콜**에서 **TCP**를 선택합니다.
 8. **우선 순위**에서 모든 거부 규칙보다 더 작은 우선 순위 값을 지정합니다.
-   
+
    에 대 한 액세스를 거부 하는 규칙이 있는 경우 새 규칙 높아야 허용 합니다. 예를 들어 우선 순위 1000에서 **Deny_All** 규칙이 있는 경우 새 규칙은 1000 미만으로 설정해야 합니다.
 9. 이름 및 규칙에 대 한 설명을 제공 하 고 선택 **확인**합니다.
 
@@ -254,7 +282,7 @@ NSG가 VM 액세스를 관리 하는 경우 필요한 범위 및 포트에 백�
    - 유형을 설정 **TCP**합니다.
    - 설정할 **로컬 포트** 하 **특정 포트**합니다.
    - 설정할 **원격 포트** 하 **모든 포트**합니다.
-  
+
 6. 마법사를 끝내고 규칙 이름을 지정합니다.
 
 ###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>NSG에 프록시에 대한 예외 규칙 추가
@@ -282,4 +310,3 @@ Azure backup 네트워크 트래픽에 대 한 아웃 바운드 액세스를 허
 
 - 문제를 해결 [Azure VM 에이전트](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) 하거나 [Azure VM 백업](backup-azure-vms-troubleshoot.md)합니다.
 - [복원](backup-azure-arm-restore-vms.md) Azure Vm입니다.
-

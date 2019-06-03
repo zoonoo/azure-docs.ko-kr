@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289025"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307068"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>게스트 사용자를 초대 하 고 PIM에서 Azure 리소스 역할 할당
 
@@ -127,7 +127,7 @@ PIM을 사용 하 여 게스트를 초대할 수 있으며 멤버 사용자와 �
 
     ![권한 검토](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. 사용 약관에 동의하고 로그인 상태를 유지할 것인지 지정하라는 메시지가 표시될 수 있습니다.
+1. 사용 약관을 동의 하 고 로그인 상태를 유지할 것인지 여부를 지정 하 라는 메시지가 표시 될 수 있습니다.
 
     Azure Portal이 열립니다. 역할에 대한 자격만 갖춘 경우 리소스에 액세스할 수 없습니다.
 

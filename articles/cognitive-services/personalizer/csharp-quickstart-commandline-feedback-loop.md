@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442077"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521381"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>빠른 시작: C#을 사용하여 콘텐츠 개인 설정 
 
@@ -36,7 +36,7 @@ Personalizer를 시작하는 단계는 다음과 같습니다.
 
 * 구독 키 및 엔드포인트 서비스 URL을 가져오려면 [Personalizer 서비스](how-to-settings.md)가 필요합니다. 
 * [Visual Studio 2015 또는 2017](https://visualstudio.microsoft.com/downloads/)
-* Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet 패키지. 설치 지침은 아래에 제공됩니다.
+* [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet 패키지. 설치 지침은 아래에 제공됩니다.
 
 ## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
