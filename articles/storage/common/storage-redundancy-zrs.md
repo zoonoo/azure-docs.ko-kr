@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961431"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237998"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -49,7 +49,7 @@ ZRS는 여러 영역에 영구적인 영향을 주는 지역 재해로부터 데
 ## <a name="converting-to-zrs-replication"></a>ZRS 복제로 변환
 LRS, GRS 및 RA-GRS 간에 마이그레이션하는 것은 간단합니다. Azure Portal 또는 Storage 리소스 공급자 API를 사용하여 계정의 중복 유형을 변경합니다. 그런 다음, Azure에서는 데이터를 적절하게 복제합니다. 
 
-ZRS 간에 데이터를 마이그레이션하려면 다른 전략이 필요합니다. ZRS 마이그레이션에는 단일 스토리지 스탬프에서 지역 내의 여러 스탬프로 데이터의 실제 이동이 포함됩니다.
+ZRS로 데이터 마이그레이션 다른 전략이 필요 합니다. ZRS 마이그레이션에는 단일 스토리지 스탬프에서 지역 내의 여러 스탬프로 데이터의 실제 이동이 포함됩니다.
 
 가지 ZRS로의 마이그레이션 위한 두 가지 기본 옵션이 있습니다. 
 

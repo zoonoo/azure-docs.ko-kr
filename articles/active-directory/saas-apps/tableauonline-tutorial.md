@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617309"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>자습서: Tableau Online과 Azure Active Directory 통합
 
@@ -188,7 +188,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예: BrittaSimon\@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -229,7 +229,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
   
     ![Azure AD 테스트 사용자 만들기](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. **(SAML) 인증에 대한 사용자 추가**를 선택합니다. **이메일 주소 입력** 텍스트 상자에 britta.simon@contoso.com을 추가합니다.
+2. **(SAML) 인증에 대한 사용자 추가**를 선택합니다. **이메일 주소 입력** 텍스트 상자에 britta.simon\@contoso.com을 추가합니다.
   
     ![Azure AD 테스트 사용자 만들기](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 

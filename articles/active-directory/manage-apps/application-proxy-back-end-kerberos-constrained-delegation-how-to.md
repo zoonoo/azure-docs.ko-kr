@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783944"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236262"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -182,4 +182,4 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 - 다중 홉 인증은 일반적으로 SQL Server Reporting Services와 같이 둘 다 인증이 필요한 백 엔드 및 프런트 엔드를 사용하여 애플리케이션이 계층화된 시나리오에서 사용됩니다. 다중 홉 시나리오를 구성하려면 지원 문서 [다중 홉 시나리오에서 Kerberos 제한된 위임에 프로토콜 전환이 필요할 수 있음](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[관리되는 도메인에서 KCD를 구성](../../active-directory-domain-services/active-directory-ds-enable-kcd.md)합니다.
+[관리되는 도메인에서 KCD를 구성](../../active-directory-domain-services/deploy-kcd.md)합니다.

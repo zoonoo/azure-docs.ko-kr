@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825567"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233758"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
-이 문서에는 내부 인지 외부 인지에 따라 다를 수 있습니다 하는 사용자 지정 홈 페이지에 사용자를 보내기 위해 앱을 구성 하는 방법을 설명 합니다. 응용 프로그램 프록시를 사용 하 여 앱을 게시할 때 내부 URL을 설정 하면 사용할 수 있지만 때로는 사용자가 처음 보게 되는 페이지입니다. 사용자 지정 홈페이지 설정 사용자 앱에 액세스할 때 오른쪽 페이지를 가져옵니다. 사용자는 사용자 지정 홈 페이지를 보려면 설정 하는, Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 앱에 액세스 하는지 여부에 관계 없이 합니다.
+이 문서에는 사용자 안내 하는 사용자 지정 홈 페이지에 앱을 구성 하는 방법을 설명 합니다. 응용 프로그램 프록시를 사용 하 여 앱을 게시할 때 내부 URL을 설정 하면 사용할 수 있지만 때로는 사용자가 처음 보게 되는 페이지입니다. 사용자 지정 홈페이지 설정 사용자 앱에 액세스할 때 오른쪽 페이지를 가져옵니다. 사용자는 사용자 지정 홈 페이지를 보려면 설정 하는, Azure Active Directory 액세스 패널 또는 Office 365 앱 시작 관리자에서 앱에 액세스 하는지 여부에 관계 없이 합니다.
 
 사용자 앱이 시작 될 때 기본적으로 게시 된 앱의 루트 도메인 URL로 이동 됩니다. 방문 페이지는 일반적으로 홈페이지 URL로 설정됩니다. 앱 내 특정 페이지에 앱 사용자를 하려는 경우 사용자 지정 홈페이지 URL을 정의 하려면 Azure AD PowerShell 모듈을 사용 합니다.
 
-여기의 한 가지 시나리오 설명 하는 회사는 사용자 지정 홈 페이지를 설정 하는 이유 및 이유는 것이 사용자의 유형에 따라 달라 집니다.
+회사는 사용자 지정 홈 페이지를 설정 하는 이유를 설명 하는 한 가지 시나리오는 다음과 같습니다.
 
+- 사용자가 회사 네트워크 내부에 `https://ExpenseApp/login/login.aspx` 에 로그인 하 여 앱에 액세스 합니다.
 - 사용 하 여 앱을 게시 하면 응용 프로그램 프록시가 폴더 구조의 최상위 수준에서 액세스 해야 하는 기타 자산 (예: 이미지) 했으므로 `https://ExpenseApp` 내부 URL로 합니다.
-- 그러나 회사 네트워크 내에서 사용자가 `https://ExpenseApp/login/login.aspx` 에 로그인 하 여 앱에 액세스 합니다.
 - 기본 외부 URL은 `https://ExpenseApp-contoso.msappproxy.net`에 로그인 페이지에 외부 사용자를 사용 하지 않습니다.
-- 설정 하려는 `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` 외부 홈페이지 URL로 대신 따라서 외부 사용자 페이지가 표시 됩니다 로그인 먼저 합니다.
+- 설정 하려는 `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` 홈페이지 URL로 대신 따라서 외부 사용자 페이지가 표시 됩니다 로그인 먼저 합니다.
 
 >[!NOTE]
 >사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md) 및 [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)에 앱이 표시됩니다.
@@ -49,21 +49,21 @@ ms.locfileid: "65825567"
 
 - 게시된 앱을 변경하는 경우 이로 인해 홈페이지 URL 값을 다시 설정할 수 있습니다. 나중에 앱을 업데이트할 경우 홈페이지 URL을 다시 확인하고 필요한 경우 업데이트해야 합니다.
 
-Azure portal을 통해 또는 PowerShell을 사용 하 여 외부 또는 내부 홈 페이지를 변경할 수 있습니다.
+Azure portal을 통해 또는 PowerShell을 사용 하 여 홈 페이지 URL을 설정할 수 있습니다.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Azure Portal에서 홈페이지 변경
 
-Azure AD 포털을 통해 앱의 외부 및 내부 홈 페이지를 변경 하려면 다음이 단계를 수행 합니다.
+Azure AD 포털을 통해 앱의 홈 페이지 URL을 변경 하려면 다음이 단계를 수행 합니다.
 
-1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/)합니다. Azure Active Directory 관리 센터의 대시보드가 나타납니다.
-2. 선택 보충에서 **Azure Active Directory**합니다. Azure AD 개요 페이지가 표시 됩니다.
-3. 선택 개요 보충에서 **앱 등록**합니다. 등록 된 앱 목록이 표시 됩니다.
-4. 목록에서 앱을 선택 합니다. 등록된 된 앱의 세부 정보를 보여 주는 페이지가 나타납니다.
-5. 아래의 링크를 선택 **리디렉션 Uri**, 웹 및 공용 클라이언트 형식에 대 한 리디렉션 Uri의 수를 표시 하는 합니다. 등록된 된 앱에 대 한 인증 페이지가 표시 됩니다.
-6. 마지막 행에는 **리디렉션 Uri** 테이블에서 설정 합니다 **형식** 열을 **공용 클라이언트 (모바일 및 데스크톱)**, 및는 **리디렉션 URI**열을 사용 하려면 내부 URL을 입력 합니다. 새 빈 행을 수정한 행 아래에 나타납니다.
-7. 새 행을 설정 합니다 **형식** 열을 **웹**, 및를 **리디렉션 URI** 열을 사용 하려는 외부 URL을 입력 합니다.
-8. 기존 리디렉션 URI 행을 삭제 하려는 경우 선택 합니다 **삭제** 원치 않는 각 행 옆의 아이콘 (휴지통).
-9. **저장**을 선택합니다.
+1. 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 선택 **Azure Active Directory**를 차례로 **앱 등록**합니다. 등록 된 앱 목록이 표시 됩니다.
+3. 목록에서 앱을 선택 합니다. 등록된 된 앱의 세부 정보를 보여 주는 페이지가 나타납니다.
+4. 아래 **관리**를 선택 **브랜드**합니다.
+5. 업데이트를 **홈페이지 URL** 새 경로 사용 하 여 합니다.
+
+   ![홈페이지 URL 필드를 표시 하는 등록 된 앱에 대 한 브랜딩 페이지](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. **저장**을 선택합니다.
 
 ## <a name="change-the-home-page-with-powershell"></a>PowerShell을 사용하여 홈페이지 변경
 

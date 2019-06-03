@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604450"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240140"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
 
-이 문서는 Azure Data Box 및 Azure Data Box Disk에 적용되며, 두 제품 모두 Azure Data Box 서비스를 통해 관리됩니다. Azure Data Box 서비스에 문제가 발생하는 경우 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
+이 문서에서는 Azure Data Box, Azure 데이터 많은 상자 및 Azure Data Box 서비스에 의해 관리 되는 모든 Azure Data Box 디스크에 적용 됩니다. Azure Data Box 서비스에 문제가 발생하는 경우 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
 
 * 지원 요청을 만드는 방법
 * 포털 내에서 지원 요청 주기를 관리하는 방법
@@ -34,7 +34,7 @@ ms.locfileid: "65604450"
     
     1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
     2. **구독**을 선택합니다.
-    3. **서비스** 아래에서 **모든 서비스**를 선택합니다. 드롭다운 목록에서 **Data Box - 미리 보기**를 선택합니다. 
+    3. **서비스** 아래에서 **모든 서비스**를 선택합니다. 드롭다운 목록에서 선택 **Data Box**합니다. 
     4. **지원 계획**을 지정합니다.
     5. **다음**을 클릭합니다.
 
@@ -84,3 +84,5 @@ ms.locfileid: "65604450"
 ## <a name="next-steps"></a>다음 단계
 
 [Data Box Disk 관련 문제 해결 방법](data-box-disk-troubleshoot.md)을 알아봅니다.
+설명 하는 방법 [Data Box와 관련 된 문제를 해결](data-box-troubleshoot.md)합니다.
+설명 하는 방법 [데이터 상자 Blob 저장소와 관련 된 문제를 해결](data-box-troubleshoot-rest.md)합니다.

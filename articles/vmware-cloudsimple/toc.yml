@@ -6,7 +6,7 @@
         - name: CloudSimple의 VMware 솔루션이란?
           href: cloudsimple-vmware-solutions-overview.md
         - name: 관리를 위한 주요 개념
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: 빠른 시작
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: 개념
       items:
         - name: 서비스
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: 노드
           href: cloudsimple-node.md
         - name: 사설 클라우드
@@ -45,13 +45,13 @@
         - name: 사설 클라우드의 VMware
           href: vmware-components.md
         - name: 보안 개요
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: 노드 할당량
           href: node-quota.md
         - name: 유지 관리 및 업데이트
           href: cloudsimple-maintenance-updates.md
         - name: FAQ
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: 자습서
       items:
         - name: 리소스 공급자 사용

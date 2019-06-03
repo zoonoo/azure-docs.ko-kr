@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585461"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241862"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database를 사용하여 규모 확장
 **Elastic Database** 도구를 사용하여 Azure SQL 데이터베이스의 규모를 쉽게 확장할 수 있습니다. 이러한 도구와 기능을 사용하면 **Azure SQL Database**의 데이터베이스 리소스를 사용하여 트랜잭션 워크로드에 대한 솔루션, 특히 SaaS(Software as a Service) 애플리케이션을 만들 수 있습니다. Elastic Database 기능은 다음으로 구성됩니다.
 
 * [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 클라이언트 라이브러리는 분할된 데이터베이스를 만들고 유지 관리할 수 있도록 해주는 기능입니다.  [Elastic Database 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
 * [Elastic Database 분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md): 분할된 데이터베이스 간에 데이터를 이동합니다. 이 도구는 데이터를 다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스로 또는 그 반대로 이동하는 데 유용합니다. [탄력적 데이터베이스 분할-병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
-* [Elastic Database 작업](sql-database-elastic-jobs-overview.md)(미리 보기): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 컬렉션 등의 관리 작업을 쉽게 수행합니다.
+* [Elastic Database 작업](elastic-jobs-overview.md): 작업을 사용하여 많은 수의 Azure SQL 데이터베이스를 관리합니다. 작업을 사용하여 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 컬렉션 등의 관리 작업을 쉽게 수행합니다.
 * [Elastic Database 쿼리](sql-database-elastic-query-overview.md)(미리 보기): 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다. 이렇게 하면 Excel, Power BI, Tableau 등과 같은 보고 도구에 연결할 수 있습니다.
 * [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md): 이 기능을 사용하면 Azure SQL Database의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 애플리케이션에서 사용할 수 있고 [System.Transaction 클래스](https://msdn.microsoft.com/library/system.transactions.aspx)를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다.
 

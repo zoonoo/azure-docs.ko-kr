@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531830"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357069"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -38,12 +38,16 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
-
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    
+       
+     > [!NOTE]
+     > Microsoft.web 리소스 공급자 사용 되는 위의 예제에서 참조 하는 앱 서비스 인스턴스. 마찬가지로 다른 리소스 공급자를 사용 하 고 범위 URI를 빌드할 수 있습니다. 이해 하기 위해 자세한 내용은를 참조 하십시오 [Azure 리소스 공급자 및 종류](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 지원 되 [Azure RM 리소스 공급자 작업](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations)합니다.  
+     
 1. *{filter}* 를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
 
     | Filter | 설명 |
@@ -77,11 +81,11 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
     
 1. URI 내에서 *{scope}* 를 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
 
@@ -105,11 +109,11 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. *{roleAssignmentName}* 을 역할 할당의 GUID 식별자로 바꿉니다.
 

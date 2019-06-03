@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245069"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -55,7 +55,7 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터**: Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터**: Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
-Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/activity-logs-overview.md)가 기록됩니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
+Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  [활동 로그](platform/activity-logs-overview.md) 리소스가 생성 되거나 수정 된 때를 기록 합니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
 [진단을 사용하도록 설정](platform/diagnostic-logs-overview.md)하고 계산 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 

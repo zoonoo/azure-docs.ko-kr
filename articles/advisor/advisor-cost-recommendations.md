@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467939"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254716"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
@@ -44,6 +44,13 @@ Advisor는 지난 30일 동안 가상 머신 사용량을 검토하고Azure 예�
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>비용을 절약 하려면 연결 되지 않은 공용 IP 주소를 삭제 합니다.
 
 Advisor는 부하 분산 장치 또는 Vm과 같은 Azure 리소스에 현재 연결 되어 있지 않은 공용 IP 주소를 식별 합니다. 이러한 공용 IP 주소는 명목 요금이 부과 함께 제공 합니다. 비용 절감 사용 하지 않으려는 경우 삭제 될 수 있습니다.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>실패 하는 Azure Data Factory 파이프라인을 삭제 합니다.
+
+Azure Advisor는 반복적으로 실패 하 고 문제를 해결 하거나 더 이상 필요 없는 경우 실패 한 파이프라인을 삭제 하는 것이 좋습니다는 Azure Data Factory 파이프라인을 검색 합니다. 하지만 하지 서비스를 제공 하면 실패 하는 동안 하는 경우에 이러한 파이프라인에 대 한 청구 됩니다. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Managed Disks에 대 한 표준 스냅숏을 사용 하 여
+60%의 비용을 절약 하기 위해 스냅숏이 부모 디스크의 저장소 유형에 관계 없이 표준 저장소에 저장 하는 것이 좋습니다. Managed Disks 스냅숏에 대 한 기본 옵션입니다. Azure Advisor는 Premium Storage 및 Premium에서 Standard Storage에 스냅숏을 권장 되는 저장 된 스냅숏을 식별 합니다. [관리 디스크 가격 책정에 대해 자세히 알아보기](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

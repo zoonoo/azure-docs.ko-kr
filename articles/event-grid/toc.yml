@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: 이벤트 처리기
       href: event-handlers.md
+    - name: 지역 재해 복구
+      href: geo-disaster-recovery.md
 - name: 방법 가이드
   items:
     - name: 사용자 지정 항목에 게시

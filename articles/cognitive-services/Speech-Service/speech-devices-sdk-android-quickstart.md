@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026771"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234512"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 음성 장치 SDK 샘플 앱 실행
 
-이 빠른 시작에서는 음성 지원 제품을 만들고이를 Android 용 음성 장치 SDK를 사용 하는 방법에 알아봅니다.
+이 빠른 시작에서는 Android 용 음성 장치 SDK를 사용 하 여 음성 지원 제품을 작성 하거나로 사용 하는 방법을 알아봅니다를 [대화 기록](conversation-transcription-service.md) 장치입니다.
 
 이 가이드에서는 [Azure Cognitive Services](get-started.md) 음성 서비스 리소스를 사용 하 여 계정. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
@@ -33,9 +33,11 @@ ms.locfileid: "65026771"
 
 * 최신 버전을 다운로드 합니다 [음성 장치 SDK](https://aka.ms/sdsdk-download), 작업 디렉터리에.zip을 추출 하 고 합니다.
    > [!NOTE]
-   > Android 샘플 앱을 포함 하는.zip 파일입니다.
+   > 이 빠른 시작 앱 C:\SDSDK\Android-Sample-Release에 추출 되는 가정 및 Android 샘플 앱을 포함 하는 Android-샘플-Release.zip 파일
 
 * 가져오려는 [음성 서비스에 대 한 Azure 구독 키](get-started.md)
+
+* 대화 기록 사용 하려는 경우 사용 해야는 [순환 마이크 장치](get-speech-devices-sdk.md) 및 현재 서비스는 "EN-US" 및에 "ZH-CN" 지역, "centralus" 및 "eastasia"에서 사용할 수만 있습니다. 음성 키 대화 기록 사용 하려면 해당 지역 중 하나에 있어야 합니다.
 
 * 음성 서비스를 사용 하 여 사용자 표현에서 인 텐트 (또는 작업)를 식별 하려는 경우는 [Service LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독 합니다. LUIS 및 의도 인식 하는 방법에 대 한 자세한 내용은 참조 하세요 [LUIS 사용 하 여 음성 의도 인식 C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)합니다.
 
@@ -80,18 +82,25 @@ ms.locfileid: "65026771"
 
 1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
-1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다.
+1. 소스 코드에 음성 구독 키를 추가 합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
 
-   키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
+   음성 및 LUIS 정보 MainActivity.java를 살펴봅니다.
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    대화 기록을 사용 하는 경우 음성 키 및 지역 정보 conversation.java에도 필요 합니다.
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. 기본 절전 모드 해제 단어(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 절전 모드 해제 단어 중 하나를 시도할 수도 있습니다. 이러한 대체 절전 모드 해제 단어에 대한 리소스 파일은 Speech Devices SDK의 keyword 폴더에 있습니다. 예를 들어 C:\SDSDK\Android-Sample-Release\keyword\Computer에는 "Computer" 절전 모드 해제 단어에 사용되는 파일이 들어 있습니다.
 
@@ -135,6 +144,10 @@ ms.locfileid: "65026771"
 1. Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
 
    ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
+
+1. 새로 추가 하는 것은 대화 기록 데모입니다. 세션 시작 '을 사용 하 여 복사를 시작 합니다. 기본적으로 모든 사용자는 게스트를 장치에는 파일 /video/participants.properties에 입력할 수 참가자의 음성 서명이 있는 경우 이러한입니다. 음성 시그니처 확인을 생성 하려면 [촬영할 대화 (SDK)](how-to-use-conversation-transcription-service.md)합니다.
+
+   ![데모 대화 기록 응용 프로그램](media/speech-devices-sdk/qsg-15.png)
 
 1. 실험!
 

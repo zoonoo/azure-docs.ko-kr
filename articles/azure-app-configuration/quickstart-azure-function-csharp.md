@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408647"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864785"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>빠른 시작: App Configuration으로 Azure 함수 만들기
 
@@ -31,7 +31,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [Visual Studio 2017](https://visualstudio.microsoft.com/vs)을 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다. [최신 Azure Functions 도구](../azure-functions/functions-develop-vs.md#check-your-tools-version)도 설치합니다.
+이 빠른 시작을 수행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)를 설치합니다. **Azure 개발** 워크로드도 설치되어 있어야 합니다. [최신 Azure Functions 도구](../azure-functions/functions-develop-vs.md#check-your-tools-version)도 설치합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|

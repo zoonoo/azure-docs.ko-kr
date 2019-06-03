@@ -58,7 +58,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 > [!NOTE]
 > 애플리케이션이 여전히 개발 중이고 Single Sign-On 또는 사용자 프로비저닝에 아직 배포되지 않은 경우, 가장 쉬운 해결 방법은 Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 애플리케이션 항목을 삭제하고 **애플리케이션 만들기 > 비갤러리** 옵션을 사용하여 애플리케이션의 새 항목을 추가하면 됩니다. 이는 아래 절차 실행의 대안입니다.
  
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1.  https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
 3. 기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
 4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
@@ -98,7 +98,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 예. 수정 이전에 존재했던 이전 동작에 애플리케이션을 코딩한 경우 새 인스턴스를 배포해야 하면 아래 절차를 따릅니다. 이 절차에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용하여 이전 동작을 표시하는 SCIM 프로비저닝 작업을 작성하는 방법에 대해 설명합니다.
  
-1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1.  https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.
 3. 새 사용자 지정 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
 4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.

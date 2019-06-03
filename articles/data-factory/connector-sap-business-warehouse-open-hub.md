@@ -3,22 +3,21 @@ title: Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Wareho
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848897"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256902"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
@@ -135,7 +134,7 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Salesforce 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP BW Open Hub 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
 SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
@@ -173,7 +172,7 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub(원본)
 
-SAP BW Open Hub에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapOpenHubSource**로 설정합니다. 복사 작업 **source** 섹션에는 추가 형식별 속성이 필요하지 않습니다.
+SAP BW Open Hub에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapOpenHubSource**로 설정합니다. 복사 작업에 필요한 추가적인 형식별 속성이 없는 **원본** 섹션입니다.
 
 **예제:**
 

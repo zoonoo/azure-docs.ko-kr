@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726675"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298740"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 계산
 
@@ -176,7 +176,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure portal의 애플리케이션 패키지 추가 블레이드][8]
 
-여기서 볼 수 있듯이 필드가 **새 애플리케이션** 창의 필드와 일치하지만 **애플리케이션 ID** 상자는 비활성화되어 있습니다. 새 애플리케이션에서 수행한 대로 새 패키지의 **버전**을 지정하고, **애플리케이션 패키지** .zip 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
+필드와 일치 하는 알 수 있듯이 합니다 **새 응용 프로그램** 창 하지만 **응용 프로그램 ID** 상자는 비활성화 됩니다. 새 애플리케이션에서 수행한 대로 새 패키지의 **버전**을 지정하고, **애플리케이션 패키지** .zip 파일을 찾은 다음 **확인**을 클릭하여 패키지를 업로드합니다.
 
 ### <a name="update-or-delete-an-application-package"></a>애플리케이션 패키지 업데이트 또는 삭제
 기존 애플리케이션 패키지를 업데이트하거나 삭제하려면 해당 애플리케이션의 세부 정보를 연 다음, **패키지**를 클릭하고, 수정할 애플리케이션 패키지 행에서 **...(줄임표)** 를 클릭하여 수행할 작업을 선택합니다.
@@ -189,7 +189,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure portal의 패키지 업데이트 블레이드][11]
 
-**삭제**
+**Delete**
 
 **삭제**를 클릭하면 패키지 버전을 삭제할 것인지 묻는 메시지가 나타나고, Batch가 Azure Storage에서 패키지를 삭제합니다. 애플리케이션의 기본 버전을 삭제하면 해당 애플리케이션의 **기본 버전** 설정이 제거됩니다.
 

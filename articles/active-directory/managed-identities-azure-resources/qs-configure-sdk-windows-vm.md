@@ -41,7 +41,7 @@ Azure는 일련의 [Azure SDK](https://azure.microsoft.com/downloads)를 통해 
 | SDK) | 샘플 |
 | --- | ------ | 
 | .NET   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 리소스 관리](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| 자바   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 저장소 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Java   | [Azure 리소스에 대한 관리 ID가 설정된 VM에서 저장소 관리](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [시스템 할당 관리 ID가 설정된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [시스템 할당 관리 ID가 설정된 VM 만들기](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [시스템 할당 ID가 설정된 Azure VM 만들기](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |

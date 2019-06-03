@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280539"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257339"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)는 [LUIS(Language Understanding) 서비스](https://www.luis.ai/home)와 통합되어 **의도를 인식**합니다. 의도란 항공권 예약, 날씨 확인, 호출 등 사용자가 수행하려는 것을 말합니다. 사용자는 편한 용어를 사용할 수 있습니다. 기계 학습을 사용하면 LUIS는 사용자 요청을 개발자가 정의한 의도에 매핑합니다.
 

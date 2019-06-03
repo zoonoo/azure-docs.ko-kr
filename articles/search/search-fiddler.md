@@ -1,39 +1,32 @@
 ---
-title: '빠른 시작: Postman에서 REST API 검색 - Azure Search'
-description: Postman을 사용하여 HTTP 요청 및 REST API 호출을 Azure Search에 발급하는 방법입니다.
+title: '빠른 시작: Postman 및 REST API - Azure Search'
+description: Postman 및 샘플 데이터와 정의를 사용하여 Azure Search REST API를 호출하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024804"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793534"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>빠른 시작: Postman을 사용하여 Azure Search REST API 검색
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)를 검색하는 가장 쉬운 방법 중 하나는 Postman 또는 다른 웹 테스트 도구를 사용하여 HTTP 요청을 작성하고 응답을 검사하는 것입니다. 적절한 도구와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 전송하고 응답을 볼 수 있습니다.
-
-> [!div class="checklist"]
-> * 웹 API 테스트 도구 다운로드
-> * 검색 서비스에 대한 키 및 URL 가져오기
-> * Azure Search에 연결
-> * 인덱스 만들기
-> * 인덱스 로드
-> * 인덱스 검색
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 다음 [Azure Search에 등록](search-create-service-portal.md)하십시오.
 
@@ -41,9 +34,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 사용되는 서비스와 도구는 다음과 같습니다. 
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-[Postman 데스크톱 앱](https://www.getpostman.com/) 또는 [Telerik Fiddler](https://www.telerik.com/fiddler)는 요청을 Azure Search에 보내는 데 사용됩니다.
++ [Postman 데스크톱 앱](https://www.getpostman.com/) 또는 [Telerik Fiddler](https://www.telerik.com/fiddler)는 요청을 Azure Search에 보내는 데 사용됩니다.
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
@@ -61,15 +54,15 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 이 섹션에서는 선택한 웹 도구를 사용하여 Azure Search에 대한 연결을 설정합니다. 각 도구는 세션에 대한 요청 헤더 정보를 유지하므로 api-key 및 Content-Type을 한 번만 입력하면 됩니다.
 
-두 도구 중 하나에서 명령(GET, POST, PUT 등)을 선택하고 URL 엔드포인트를 제공하며, 일부 작업의 경우 요청 본문에 JSON을 제공해야 합니다. 전체 URL은 다음과 비슷합니다.
+두 도구 중 하나에서 명령(GET, POST, PUT 등)을 선택하고 URL 엔드포인트를 제공하며, 일부 작업의 경우 요청 본문에 JSON을 제공해야 합니다. 검색 서비스 이름(YOUR-SEARCH-SERVICE-NAME)을 유효한 값으로 바꿉니다. 
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
 
 HTTPS 접두사, 서비스 이름, 개체 이름(이 경우 인덱스 컬렉션) 및 [api-version](search-api-versions.md)을 확인합니다. api-version은 현재 버전에 대해 `?api-version=2019-05-06`로 지정된 필수 소문자 문자열입니다. API 버전은 정기적으로 업데이트됩니다. 각 요청에 api-version을 포함시키면 어느 것이 사용되는지를 완전히 제어할 수 있습니다.  
 
-요청 헤더 구성에는 콘텐츠 형식 및 Azure Search에 인증하는 데 사용되는 api-key의 두 가지 요소가 포함됩니다.
+요청 헤더 구성에는 콘텐츠 형식 및 Azure Search에 인증하는 데 사용되는 api-key의 두 가지 요소가 포함됩니다. 관리 API 키(YOUR-ADMIN-API-KEY)를 유효한 값으로 바꿉니다. 
 
-    api-key: <placeholder-api-key-for-your-service>
+    api-key: <YOUR-ADMIN-API-KEY>
     Content-Type: application/json
 
 Postman에서 다음 스크린샷과 같은 요청을 작성합니다. 동사로 **GET**을 선택하고, URL을 제공하고, **보내기**를 클릭합니다. 이 명령은 Azure Search에 연결하여 인덱스 컬렉션을 읽고, 성공적으로 연결되면 200 HTTP 상태 코드를 반환합니다. 서비스에 이미 인덱스가 있으면 응답에 인덱스 정의도 포함됩니다.
@@ -84,10 +77,13 @@ URL은 `hotel` 인덱스 이름을 포함하도록 확장됩니다.
 
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
-1. 동사를 **PUT**으로 변경
-2. 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`에 복사
-3. 아래에 표시된 인덱스 정의를 요청 본문에 제공
-4. 페이지 맨 아래에 있는 **보내기**
+1. 동사를 **PUT**으로 변경합니다.
+
+2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`)에 복사합니다.
+
+3. 아래에 표시된 인덱스 정의를 요청 본문에 지정합니다.
+
+4. **보내기**를 클릭합니다.
 
 ![Postman 요청 본문][8]
 
@@ -128,10 +124,13 @@ URL은 `docs` 컬렉션 및 `index` 작업을 포함하도록 확장됩니다.
 
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
-1. 동사를 **POST**로 변경
-2. 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`에 복사
-3. 아래에 표시된 JSON 문서를 요청 본문에 제공
-4. 페이지 맨 아래에 있는 **보내기**
+1. 동사를 **POST**로 변경합니다.
+
+2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`)에 복사합니다.
+
+3. 아래에 표시된 JSON 문서를 요청 본문에 지정합니다.
+
+4. **보내기**를 클릭합니다.
 
 ![Postman 요청 페이로드][10]
 
@@ -218,9 +217,11 @@ URL은 검색 연산자를 사용하여 지정된 쿼리 문자열을 포함하�
 
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
-+ 동사를 **GET**으로 변경
-+ 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`에 복사
-+ 페이지 맨 아래에 있는 **보내기**
+1. 동사를 **GET**으로 변경합니다.
+
+2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`)에 복사합니다.
+
+3. **보내기**를 클릭합니다.
 
 이 쿼리는 "motel"이라는 용어를 검색하고 검색 결과에 문서의 수를 반환합니다. **보내기**를 클릭한 후 요청 및 응답은 Postman의 다음 스크린샷과 유사합니다. 상태 코드는 200이어야 합니다.
 
@@ -228,7 +229,7 @@ Postman에서 이렇게 하려면 다음을 수행합니다.
 
 
 ## <a name="get-index-properties"></a>인덱스 속성 가져오기
-시스템을 쿼리하여 문서 수와 저장소 사용량을 가져올 수도 있습니다. `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+시스템을 쿼리하여 문서 수와 저장소 사용량을 가져올 수도 있습니다. `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 Postman에서 요청은 다음과 유사하며 응답에는 문서 수와 사용된 공간(바이트 단위)이 포함됩니다.
 
@@ -236,7 +237,7 @@ Postman에서 요청은 다음과 유사하며 응답에는 문서 수와 사용
 
 api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를 사용하여 api-version을 추가합니다. `?`는 쿼리 문자열에서 URL 경로를 구분하고 &는 쿼리 문자열에서 각 '이름=값' 쌍을 구분합니다. 이 쿼리에서 api-version은 쿼리 문자열의 처음이자 유일한 항목입니다.
 
-이 API에 대한 자세한 내용은 [인덱스 통계 가져오기(REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)를 참조하세요.
+이 API에 대한 자세한 내용은 [인덱스 통계 가져오기 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)를 참조하세요.
 
 
 ## <a name="use-fiddler"></a>Fiddler 사용
@@ -247,7 +248,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 다음 스크린샷과 같은 요청을 작성합니다. 동사로 **GET**을 선택합니다. Fiddler가 `User-Agent=Fiddler`를 추가합니다. 두 개의 추가 요청 헤더를 그 아래 새 줄에 붙여넣을 수 있습니다. 서비스에 대한 관리자 액세스 키를 사용하여 서비스의 content-type 및 api-key를 포함시킵니다.
 
-대상에 대해 `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06` URL의 수정된 버전을 복사합니다.
+대상에 대해 `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06` URL의 수정된 버전을 복사합니다.
 
 ![Fiddler 요청 헤더][1]
 
@@ -256,7 +257,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 ### <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-동사를 **PUT**으로 변경합니다. `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06` URL의 수정된 버전을 복사하여 붙여넣습니다. 위에 제공된 인덱스 정의를 요청 본문에 복사합니다. 이 페이지는 다음 스크린샷과 비슷합니다. 완성된 요청을 보내려면 오른쪽 위에 있는 **실행**을 클릭합니다.
+동사를 **PUT**으로 변경합니다. `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06` URL의 수정된 버전을 복사하여 붙여넣습니다. 위에 제공된 인덱스 정의를 요청 본문에 복사합니다. 이 페이지는 다음 스크린샷과 비슷합니다. 완성된 요청을 보내려면 오른쪽 위에 있는 **실행**을 클릭합니다.
 
 ![Fiddler 요청 본문][7]
 
@@ -268,7 +269,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Fiddler에서 샘플 쿼리를 실행하는 팁
 
-다음 예제 쿼리는 [검색 인덱스 작업(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 문서에서 가져온 것입니다. 이 문의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
+다음 예제 쿼리는 [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 문서에서 가져온 것입니다. 이 문의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
 **공백이 교체되기 전(lastRenovationDate desc):**
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790153"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258638"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -86,7 +86,7 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 고객 데이터
 
 SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 규정 준수 상태를 유지할 수 있도록 지원합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-threat-protection"></a>고급 위협 보호
 
 Advanced Threat Protection은 비정상적인 동작 및 데이터베이스를 액세스 하거나 악용 잠재적으로 해로운 시도 검색 하 여 SQL Server 로그를 분석 합니다. SQL 주입, 잠재적인 데이터 침입 및 brute force 공격 또는 액세스에서 문제에 대 한 패턴 권한 에스컬레이션 및 위반 된 자격 증명을 사용 하 여 같은 의심 스러운 활동에 대 한 경고를 만듭니다. 경고에서 표시 되는 [Azure Security Center](https://azure.microsoft.com/services/security-center/), 여기서 의심 스러운 활동의 세부 정보 제공 되 고 권장 사항에 대 한 추가 조사 위협을 완화 하기 위해 작업을 함께 지정 합니다. 서버당 추가 요금에 대 한 advanced Threat Protection은 사용할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection을 사용 하 여 시작](sql-database-threat-detection.md)합니다.
 
@@ -150,6 +150,10 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 ### <a name="compliance"></a>준수
 
 Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
+
+### <a name="feature-restrictions"></a>기능 제한 사항
+
+기능 제한 사항 일부 형태의 SQL 삽입은 성공 하는 경우에 데이터베이스에 대 한 정보를 누출 되지 않도록 SQL 주입 공격을 방지 합니다. 자세한 내용은 [Azure SQL Database 기능 제한 사항](sql-database-feature-restrictions.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

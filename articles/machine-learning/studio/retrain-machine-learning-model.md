@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245087"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
@@ -59,7 +59,7 @@ ms.locfileid: "64709013"
 
 다음 단계에 따라 재학습 API를 호출합니다.
 
-1. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**.
+1. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)** .
 1. Machine Learning Web Service 포털에 로그인합니다.
 1. 현재 작업 중인 웹 서비스를 클릭합니다.
 1. **사용**을 클릭합니다.
@@ -89,7 +89,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 1. 저장소 계정 목록에서 하나를 선택하여 재학습된 모델을 저장합니다.
 1. 왼쪽 탐색 열에서 **선택키**를 클릭합니다.
 1. **기본 선택키**를 복사하고 저장합니다.
-1. 왼쪽 탐색 열에서 **컨테이너**를 클릭합니다.
+1. 왼쪽된 탐색 열에서 클릭 **Blob**합니다.
 1. 기존 컨테이너를 선택하거나 새 컨테이너를 만들어 이름을 저장합니다.
 
 *StorageAccountName*, *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 포털에서 저장한 값을 업데이트합니다.

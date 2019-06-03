@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805349"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595746"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -26,7 +26,7 @@ Azure Application Insights를 사용하면 웹 애플리케이션의 가용성, 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+- 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
-1. Visual Studio 2017에서 프로젝트를 엽니다.
+1. Visual Studio 2019에서 프로젝트를 엽니다.
 2. 프로젝트 메뉴에서 **Application Insights 구성**을 선택합니다. Visual Studio는 애플리케이션에 Application Insights SDK를 추가합니다.
 
     > [!IMPORTANT]

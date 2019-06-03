@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954212"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389461"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>데이터베이스, 컨테이너 및 Azure Cosmos DB에서 항목을 사용 하 여 작동 합니다.
 
@@ -28,7 +28,7 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 | Azure Cosmos 엔터티 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 데이터베이스 | 데이터베이스 | 키스페이스 | 데이터베이스 | 데이터베이스 | 해당 없음 |
+|Azure Cosmos 데이터베이스 | 데이터베이스 | Keyspace | 데이터베이스 | 데이터베이스 | 해당 없음 |
 
 > [!NOTE]
 > Table API 계정으로 첫 번째 테이블을 만들 때 기본 데이터베이스를 자동으로 만들어집니다 Azure Cosmos 계정의.
@@ -39,10 +39,10 @@ Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성�
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-|모든 데이터베이스 열거| 예. | 예. | 예(데이터베이스가 keyspace에 매핑됨) | 예. | 해당 없음 | 해당 없음 |
-|데이터베이스 읽기| 예. | 예. | 예(데이터베이스가 keyspace에 매핑됨) | 예. | 해당 없음 | 해당 없음 |
-|새 데이터베이스 만들기| 예. | 예. | 예(데이터베이스가 keyspace에 매핑됨) | 예. | 해당 없음 | 해당 없음 |
-|데이터베이스 업데이트| 예. | 예. | 예(데이터베이스가 keyspace에 매핑됨) | 예. | 해당 없음 | 해당 없음 |
+|모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|새 데이터베이스 만들기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
+|데이터베이스 업데이트| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
@@ -54,6 +54,9 @@ Azure Cosmos 컨테이너를 만들면 다음 모드 중 하나에서 처리량�
 * **전용된 프로 비전 된 처리량 모드**: 컨테이너에서 프로 비전 된 처리량은 해당 컨테이너에 대 한 단독으로 예약 되었습니다 및 Sla에서 지원 됩니다. 자세한 내용은 참조 하세요 [Azure Cosmos 컨테이너에 대 한 처리량을 프로 비전 하는 방법을](how-to-provision-container-throughput.md)합니다.
 
 * **공유 프로 비전 된 처리량 모드**: 이러한 컨테이너는 동일한 데이터베이스 (전용된 프로 비전 된 처리량을 사용 하 여 구성 된 컨테이너 제외)의 다른 컨테이너를 사용 하 여 프로 비전된 된 처리량을 공유 합니다. 즉, 데이터베이스에서 프로 비전된 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세한 내용은 참조 하세요 [Azure Cosmos 데이터베이스에서 처리량을 프로 비전 하는 방법을](how-to-provision-database-throughput.md)합니다.
+
+> [!NOTE]
+> 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 컨테이너를 만든 후 공유 처리량 모드 (또는 그 반대로) 전용된 처리량 모드에서 전환 하려면 새 컨테이너를 만들고 새 컨테이너에 데이터를 마이그레이션할 해야 합니다. Azure Cosmos DB 변경 피드 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
 
 Azure Cosmos 컨테이너를 전용 또는 공유 프로 비전 된 처리량 모드를 사용 하 여 컨테이너를 만들어도 탄력적으로 확장할 수 있습니다.
 
@@ -79,15 +82,15 @@ Azure Cosmos 컨테이너를 시스템에 정의 된 속성 집합이 있습니�
 
 | 시스템 정의 속성 | 시스템에서 생성 된 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | 컨테이너의 고유 식별자 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_Etag | System-generated | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_ts | System-generated | 컨테이너의 마지막 업데이트 타임스탬프 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_자체 | System-generated | 컨테이너의 주소 지정 가능 URI | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|id | User-configurable | 컨테이너의 사용자 정의 고유 이름 | 예. | 예 | 예 | 예 | 예. |
-|indexingPolicy | User-configurable | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예. | 아니오 | 아니요 | 아니요 | 예. |
-|TimeToLive | User-configurable | 일정된 시간이 지나면 자동으로 컨테이너에서 항목을 삭제 하는 기능을 제공 합니다. 자세한 내용은 참조 하세요 [Time to Live](time-to-live.md)합니다. | 예. | 아니오 | 아니요 | 아니요 | 예. |
-|changeFeedPolicy | User-configurable | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 참조 하세요 [변경 피드](change-feed.md)합니다. | 예. | 아니오 | 아니요 | 아니요 | 예. |
-|uniqueKeyPolicy | User-configurable | 하나 이상의 논리 파티션의 값의 고유성을 보장 하는 데 사용 합니다. 자세한 내용은 [고유 키 제약 조건이](unique-keys.md)합니다. | 예. | 아니오 | 아니요 | 아니요 | 예. |
+|\_id | System-generated | 컨테이너의 고유 식별자 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_Etag | System-generated | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_ts | System-generated | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_자체 | System-generated | 컨테이너의 주소 지정 가능 URI | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|id | User-configurable | 컨테이너의 사용자 정의 고유 이름 | 예 | 예 | 예 | 예 | 예 |
+|indexingPolicy | User-configurable | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 아니오 | 아니요 | 아니요 | 예 |
+|TimeToLive | User-configurable | 일정된 시간이 지나면 자동으로 컨테이너에서 항목을 삭제 하는 기능을 제공 합니다. 자세한 내용은 참조 하세요 [Time to Live](time-to-live.md)합니다. | 예 | 아니오 | 아니요 | 아니요 | 예 |
+|changeFeedPolicy | User-configurable | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 참조 하세요 [변경 피드](change-feed.md)합니다. | 예 | 아니오 | 아니요 | 아니요 | 예 |
+|uniqueKeyPolicy | User-configurable | 하나 이상의 논리 파티션의 값의 고유성을 보장 하는 데 사용 합니다. 자세한 내용은 [고유 키 제약 조건이](unique-keys.md)합니다. | 예 | 아니오 | 아니요 | 아니요 | 예 |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 작업
 
@@ -95,11 +98,11 @@ Azure Cosmos 컨테이너를 Azure Cosmos api를 사용 하는 경우 다음 작
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 데이터베이스에 컨테이너 열거 | 예. | 예 | 예 | 예. | 해당 없음 | 해당 없음 |
-| 컨테이너 읽기 | 예. | 예 | 예 | 예. | 해당 없음 | 해당 없음 |
-| 새 컨테이너 만들기 | 예. | 예 | 예 | 예. | 해당 없음 | 해당 없음 |
-| 컨테이너를 업데이트 합니다. | 예. | 예 | 예 | 예. | 해당 없음 | 해당 없음 |
-| 컨테이너 삭제 | 예. | 예 | 예 | 예. | 해당 없음 | 해당 없음 |
+| 데이터베이스에 컨테이너 열거 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너 읽기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 새 컨테이너 만들기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너를 업데이트 합니다. | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너 삭제 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 항목
 
@@ -115,12 +118,12 @@ Azure Cosmos 컨테이너를 Azure Cosmos api를 사용 하는 경우 다음 작
 
 | 시스템 정의 속성 | 시스템에서 생성 된 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | 항목의 고유 식별자 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_Etag | System-generated | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_ts | System-generated | 항목의 마지막 업데이트의 타임 스탬프 | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|\_자체 | System-generated | 항목의 주소 지정 가능 URI | 예. | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|id | 모두 | 사용자 정의 고유 이름 논리적 분할입니다. 사용자 ID를 지정 하지 않으면 시스템이 자동으로 생성 합니다. | 예. | 예 | 예 | 예 | 예. |
-|임의의 사용자 정의 속성 | 사용자 정의 | API-네이티브 표현 (JSON, BSON을 CQL 등)으로 표시 하는 사용자 정의 속성 | 예. | 예 | 예 | 예 | 예. |
+|\_id | System-generated | 항목의 고유 식별자 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_Etag | System-generated | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_ts | System-generated | 항목의 마지막 업데이트의 타임 스탬프 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|\_자체 | System-generated | 항목의 주소 지정 가능 URI | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|id | 모두 | 사용자 정의 고유 이름 논리적 분할입니다. 사용자 ID를 지정 하지 않으면 시스템이 자동으로 생성 합니다. | 예 | 예 | 예 | 예 | 예 |
+|임의의 사용자 정의 속성 | 사용자 정의 | API-네이티브 표현 (JSON, BSON을 CQL 등)으로 표시 하는 사용자 정의 속성 | 예 | 예 | 예 | 예 | 예 |
 
 ### <a name="operations-on-items"></a>항목에 대한 작업
 

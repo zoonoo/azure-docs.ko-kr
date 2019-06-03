@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371481"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255731"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -37,7 +37,7 @@ ms.locfileid: "60371481"
    
     ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 5. [API를 사용](../../azure-monitor/app/api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
-6. 앱을 실행하고 Azure Portal에서 만든 리소스의 원격 분석을 참조하세요.
+6. 앱을 실행 하 고 Azure portal에서 만든 리소스를 원격 분석을 확인 합니다.
 
 ## <a name="telemetry"></a>예제 코드
 ```csharp
@@ -77,7 +77,7 @@ ms.locfileid: "60371481"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [대시보드 만들기](../../azure-monitor/app/app-insights-dashboards.md)
+* [대시보드 만들기](../../azure-monitor/app/overview-dashboard.md)
 * [진단 검색](../../azure-monitor/app/diagnostic-search.md)
 * [메트릭 탐색](../../azure-monitor/app/metrics-explorer.md)
 * [분석 쿼리 작성](../../azure-monitor/app/analytics.md)

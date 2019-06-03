@@ -18,6 +18,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 표준 부하 분산 장치 만들기 - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 표준 Load Balancer 만들기 - Azure Resource Manager 템플릿
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산
@@ -153,7 +156,7 @@
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.network
     - name: Node.js
       href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'

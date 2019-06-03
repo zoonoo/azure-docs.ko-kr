@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: be579b631fd910c56f2c360d6aace5b8d35c22e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412779"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235967"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Azure 백 엔드를 사용하여 Windows 앱 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "65412779"
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Windows 10.
-* [Visual Studio Community].
+* Visual Studio Community 2017.
 * UWP 앱 개발 경험. [UWP 자습서](https://docs.microsoft.com/windows/uwp/)를 방문하여 UWP 앱을 빌드하기 위한 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) 방법을 알아보세요.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>새 Azure 모바일 앱 백 엔드 만들기
@@ -48,42 +48,29 @@ ms.locfileid: "65412779"
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-이제 모바일 클라이언트 애플리케이션에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
-
-## <a name="configure-the-server-project"></a>서버 프로젝트 구성
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트와 서버 프로젝트 구성
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-client-project"></a>클라이언트 프로젝트 다운로드 및 실행
+## <a name="run-the-client-project"></a>클라이언트 프로젝트를 실행 합니다.
 
-모바일 앱 백 엔드를 구성하면 새 클라이언트 앱을 만들거나 Azure에 연결할 기존 앱을 수정할 수 있습니다. 이 섹션에서는 모바일 앱 백 엔드에 연결하도록 사용자 지정된 UWP 샘플 앱 프로젝트를 다운로드합니다.
+1. UWP 프로젝트를 엽니다.
 
-1. 모바일 앱 백 엔드에 대한 **빠른 시작** 블레이드로 돌아가서 **새 앱 만들기** > **다운로드**를 클릭한 다음 로컬 컴퓨터에 압축된 프로젝트 파일을 추출합니다.
+2. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net합니다.
 
-    ![Windows 빠른 시작 프로젝트 다운로드](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
+3. 파일을 열고 `App.xaml.cs` 이 폴더-windows-uwp-cs/ZUMOAPPNAME/입니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
 
-2. UWP 프로젝트를 열고 F5 키를 눌러 앱을 배포하고 실행합니다.
-3. 앱에서 **할 일 항목 삽입** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+4. `App` 클래스를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 매개 변수입니다.
+
+    `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
+
+    됩니다.
+    
+    `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
+
+5. 배포 하 고 앱을 실행 하려면 F5 키를 누릅니다.
+
+6. 앱에서 **할 일 항목 삽입** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
     ![Windows 빠른 시작 완료 데스크톱](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다.
-
-> [!TIP]
-> .NET 백 엔드를 사용하는 경우 서버 프로젝트와 동일한 솔루션에 UWP 앱 프로젝트를 추가할 수 있습니다. 이렇게 하면 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다. 백 엔드 솔루션에 UWP 앱 프로젝트를 추가 하려면 Visual Studio 2017 이상을 사용 해야 합니다.
-
-## <a name="next-steps"></a>다음 단계
-
-* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-   ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
-* [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-   앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
-* [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
-
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
-[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portal]: https://portal.azure.com/
-[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

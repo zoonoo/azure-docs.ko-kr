@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190265"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243857"
 ---
 # <a name="what-is-conversation-transcription"></a>대화 기록 란?
 
@@ -67,6 +67,11 @@ ms.locfileid: "65190265"
 > 사양 및 디자인 세부 정보를 참조 하세요 [Microsoft 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)합니다. 자세히 알아보거나 개발 키트 구매를 참조 하세요 [Microsoft 음성 장치 SDK 가져오기](https://aka.ms/cts/getsdk)합니다.
 
 음성 장치 SDK를 사용 하 여 대화 기록을 사용 하는 방법에 알아보려면 참조 [conversation 기록을 사용 하는 방법을](https://aka.ms/cts/howto)합니다.
+
+
+## <a name="quick-start-with-a-sample-app"></a>샘플 앱을 사용한 빠른 시작
+
+Microsoft 음성 장치 SDK에 빠른 시작 샘플 앱을 모든 장치 관련 샘플입니다. 대화 기록 하 중 하나입니다. 찾을 수 있습니다 [음성 장치 SDK android 빠른 시작](https://aka.ms/sdsdk-quickstart) 샘플 앱 및 해당 소스 코드에 대 한 참조를 사용 하 여 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

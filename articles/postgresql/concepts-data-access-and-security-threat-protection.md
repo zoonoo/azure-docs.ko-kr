@@ -1,19 +1,19 @@
 ---
-title: Advanced Threat Protection - Azure Database for PostgreSQL
+title: 고급 위협 보호-Azure Database for PostgreSQL-단일 서버
 description: Advanced Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 5/6/2019
+ms.openlocfilehash: 81f42183276f95ddfb24fbdc388fef59acbe680e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560068"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073531"
 ---
-# <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Azure Database for PostgreSQL Advanced Threat Protection
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Azure 데이터베이스의 PostgreSQL-단일 서버에 대 한 advanced Threat Protection
 
 Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 감지합니다.
 
@@ -33,7 +33,7 @@ Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적인 �
 
 ## <a name="advanced-threat-protection-alerts"></a>Advanced Threat Protection 경고 
 Azure Database for PostgreSQL용 Advanced Threat Protection은 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 감지하며, 다음 경고를 트리거할 수 있습니다.
-- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 Azure Database for PostgreSQL 서버에 로그온하여 해당 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 감지하기도 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다.
+- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 Azure Database for PostgreSQL 서버에 로그온하여 해당 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다.
 - **비정상적인 Azure 데이터 센터에서 액세스**: 최근 Azure Database for PostgreSQL 서버에 표시된 비정상적인 Azure 데이터 센터에서 누군가가 해당 서버에 로그온하여 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 경고가 Azure, Power BI, Azure Database for PostgreSQL Query Editor의 새 애플리케이션이 수행하는 합법적 작업을 감지하는 경우도 있습니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 감지합니다.
 - **알 수 없는 보안 주체에서 액세스**: 비정상적인 보안 주체(Azure Database for PostgreSQL 사용자)를 사용해 누군가가 Azure Database for PostgreSQL 서버에 로그온하여 해당 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 감지하기도 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다. 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다.
 - **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 감지합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하는 공격을 감지합니다.

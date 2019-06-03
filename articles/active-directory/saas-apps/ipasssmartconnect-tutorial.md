@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264865"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>자습서: iPass SmartConnect와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ iPass SmartConnect와 Azure AD를 통합하면 다음과 같은 이점이 있습
 * 사용자가 해당 Azure AD 계정으로 iPass SmartConnect에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -180,7 +180,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -215,7 +215,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 ### <a name="create-ipass-smartconnect-test-user"></a>iPass SmartConnect 테스트 사용자 만들기
 
-이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다.  [iPass SmartConnect 지원 팀](mailto:help@ipass.com) 과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다.  [iPass SmartConnect 지원 팀](mailto:help@ipass.com) 과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 추가해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

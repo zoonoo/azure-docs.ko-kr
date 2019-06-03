@@ -18,18 +18,18 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571097"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305769"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란?
 
 [Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다.
 
-![제어](./media/controls/10.png)
+![컨트롤](./media/controls/10.png)
 
 조건부 액세스의 컨텍스트에서,
 
@@ -39,7 +39,7 @@ ms.locfileid: "64571097"
 
 조건 문과 제어 문의 조합은 조건부 액세스 정책을 나타냅니다.
 
-![제어](./media/controls/61.png)
+![컨트롤](./media/controls/61.png)
 
 각 컨트롤은 로그인하는 사용자 또는 시스템에 의해 충족되어야 하는 요구 사항 또는 사용자가 로그인한 후 수행할 수 있는 작업에 대한 제한입니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "64571097"
 - 충족되도록 선택한 모든 컨트롤(*AND*)
 - 충족되도록 선택한 하나의 컨트롤(*OR*)
 
-![제어](./media/controls/18.png)
+![컨트롤](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -144,11 +144,11 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 사용자 지정 컨트롤을 만드는 옵션은 **조건부 액세스** 페이지의 **관리** 섹션에 있습니다.
 
-![제어](./media/controls/82.png)
+![컨트롤](./media/controls/82.png)
 
 **새 사용자 지정 컨트롤**을 클릭하면 컨트롤의 JSON 데이터에 대한 텍스트 상자가 있는 블레이드가 열립니다.  
 
-![제어](./media/controls/81.png)
+![컨트롤](./media/controls/81.png)
 
 ### <a name="deleting-custom-controls"></a>사용자 지정 컨트롤 삭제
 
@@ -168,7 +168,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 세션 컨트롤은 클라우드 앱 내에서 제한된 환경을 활성화합니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
 
-![제어](./media/controls/31.png)
+![컨트롤](./media/controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>앱에서 적용된 제한 사항 사용
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806478"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243964"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>SQL Server 2008 및 Azure 사용 하 여 SQL Server 2008 R2에 대 한 지원 확장
 
@@ -40,7 +40,7 @@ Marketplace를 통해 배포 된 이미지는 SQL IaaS 확장을 미리 설치 �
   > [!NOTE]
   > SQL server `Create` 하 고 `Manage` 블레이드에서 Azure portal에서 SQL Server 2008 r2 이미지를 사용 하 여 작동, 다음 기능은 _지원 되지 않습니다_: 자동 백업, Azure Key Vault 통합, R Services 및 저장소 구성 합니다.
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 종 량 제 SQL Server 2008R2 배포 변환할 수 있습니다 [Azure 하이브리드 혜택 (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/)합니다.
 
 SQL VM을 사용 하 여 등록 해야 고객은 SA (Software Assurance) 기반 라이선스에 종 량 제를 변환할 [리소스 공급자](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)합니다. SQL VM 리소스 공급자에 등록 되 면 SQL 라이선스 유형을 AHB 및 종 량 제 간에 서로 바꿔 사용할 수 됩니다. 
@@ -58,7 +58,7 @@ SQL Server 복구를 보장 하기 위해 응용 프로그램에 일관 된 Azur
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-합니다 [Database Migration Service](/dms/dms-overview) 고객에 대 한 옵션은 SQL Server SQL Server 2012로 업그레이드 하 여 Azure VM에 온-프레미스에서 마이그레이션 및 큰 경우.
+합니다 [Database Migration Service](/azure/dms/dms-overview) 고객에 대 한 옵션은 SQL Server SQL Server 2012로 업그레이드 하 여 Azure VM에 온-프레미스에서 마이그레이션 및 큰 경우.
 
 ## <a name="disaster-recovery"></a>재해 복구
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002486"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389104"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -71,7 +71,8 @@ Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 �
 | Microsoft.OperationsManagement/solutions/write | 리소스 그룹 |
 | Microsoft.OperationalInsights/workspaces/* | 리소스 그룹 |
 | Microsoft.Insights/diagnosticSettings/write | 리소스 그룹 |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/Write | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/read | 리소스 그룹 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 |
 
@@ -305,7 +306,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
 |CorrelationId | Runbook 작업의 상관 관계 ID인 GUID입니다.|
-|JobID | Runbook 작업의 ID인 GUID입니다.|
+|JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
@@ -325,7 +326,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
-|JobID | Runbook 작업의 ID인 GUID입니다.|
+|JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
 |ResourceId | Azure의 리소스 ID를 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540448"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235289"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -45,7 +45,7 @@ ms.locfileid: "65540448"
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
 
-기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. [Azure Portal][AZURE-portal]에 있는 응용 프로그램 등록의 **속성** 창에서 **다중 테넌트** 스위치를 찾아 **예**로 설정하여 등록을 다중 테넌트에 지정할 수 있습니다.
+기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. 검색 하 여 다중 테 넌 트에 등록을 만들 수 있습니다 합니다 **지원 되는 계정 유형** 스위치에 **인증** 창에서 응용 프로그램 등록의는 [Azure portal] [ AZURE-portal] 로 설정 하 고 **조직 디렉터리의 계정**합니다.
 
 응용 프로그램을 다중 테넌트에 지정하려면 먼저 Azure AD에 고유한 글로벌 응용 프로그램의 앱 ID URI가 있어야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다.
 

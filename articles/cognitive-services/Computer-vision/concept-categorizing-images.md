@@ -18,13 +18,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59995577"
 ---
-# <a name="categorize-images-by-subject-matter"></a>실무 하 여 이미지 분류
+# <a name="categorize-images-by-subject-matter"></a>주제로 이미지 분류
 
 Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 분류 기반 범주를 반환합니다. 태그와 달리, 범주는 부모/자식 계층으로 구성되고 개수가 더 적습니다(태그는 수천 개인 반면 86개). 모든 범주 이름은 영어입니다. 범주는 단독으로 또는 최신 태그 모델과 함께 수행될 수 있습니다.
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-컴퓨터 비전 분류할 수 이미지로 광범위 하 게 또는 구체적으로 86 범주 목록 다음 다이어그램에 사용 합니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+컴퓨터 비전은 다음 다이어그램의 86개 범주 목록을 사용하여 광범위하게 또는 구체적으로 이미지를 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 
@@ -53,7 +53,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 다음 표에서는 각 이미지에 대해 Computer Vision에서 반환된 일반적인 이미지 집합 및 범주를 보여줍니다.
 
-| 이미지 | Category |
+| 이미지 | 범주 |
 |-------|----------|
 | ![가족으로 함께 포즈를 취한 4명의 사람](./Images/family_photo.png) | people_group |
 | ![잔디밭에 앉아 있는 강아지](./Images/cute_dog.png) | animal_dog |

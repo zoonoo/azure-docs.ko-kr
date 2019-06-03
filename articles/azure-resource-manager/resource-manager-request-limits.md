@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791368"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399706"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
 각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
 
-요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독 내의 리소스 그룹 검색과 같이 구독 ID가 전달되는 요청입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
+요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독의 리소스 그룹을 검색 하는 등, 구독 ID 전달을 포함 하는입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
 
 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 

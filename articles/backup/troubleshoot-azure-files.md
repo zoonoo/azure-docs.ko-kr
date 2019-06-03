@@ -8,19 +8,18 @@ ms.author: raynew
 ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ee0eccced5757c91fca1ba7f77750839bc017f3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: eec30ec8ff85f2d9a2ba78da2872b081e90c9e33
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492728"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240156"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure 파일 공유 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure 파일 공유 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
 Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용 v1 및 범용 v2 저장소 계정 둘 다에서 Azure 파일 공유가 지원됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
-- 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
 - Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
 - Azure Backup을 사용하여 Azure Files를 보호할 수 있는 CLI가 없습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
@@ -28,8 +27,6 @@ Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용
 - 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
 - Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 - Azure Backup으로 보호되는 파일 공유는 삭제하지 마세요. 현재 솔루션은 파일 공유가 삭제되면 Azure Backup에서 만든 모든 스냅숏을 삭제하므로 모든 복원 지점이 손실됩니다.
-
-\*RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제 기능을 GRS로 사용하고 GRS 가격이 청구되는 저장소 계정의 Azure 파일 공유.
 
 ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복제 기능을 지원하는 저장소 계정의 Azure 파일 공유 백업은 현재 CUS(미국 중부), EUS(미국 동부), EUS2(미국 동부2), NE(북유럽), SEA(동남아시아), WE(서유럽) 및 WUS2(미국 서부 2)에서만 사용할 수 있습니다.
 

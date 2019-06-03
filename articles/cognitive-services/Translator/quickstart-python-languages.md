@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b006f3860c1b00dc8ef0b0fa4d77e1fd9034a17
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 74577b0a589ed0b717f8685704b92672f108939b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922268"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606325"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 지원되는 언어 목록 가져오기
 
@@ -96,7 +96,7 @@ python get-languages.py
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 이 샘플은 결과 조각을 표시하도록 잘렸습니다.
 

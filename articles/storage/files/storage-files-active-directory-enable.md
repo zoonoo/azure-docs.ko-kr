@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237784"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB(미리 보기)를 통해 Azure Active Directory 인증 사용
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Azure Files에 대한 SMB를 통한 Azure AD를 사용하도록 설정하기 전
 
 2.  **Azure AD 테넌트에서 Azure AD Domain Services를 사용하도록 설정합니다.**
 
-    Azure AD 자격 증명을 사용한 인증을 지원하려면 Azure AD 테넌트에 대해 Azure AD Domain Services를 사용하도록 설정해야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/active-directory-ds-getting-started.md)를 위한 단계별 지침을 따르세요.
+    Azure AD 자격 증명을 사용한 인증을 지원하려면 Azure AD 테넌트에 대해 Azure AD Domain Services를 사용하도록 설정해야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/create-instance.md)를 위한 단계별 지침을 따르세요.
 
     일반적으로는 Azure AD Domain Services 배포를 완료하려면 15분 정도 걸립니다. 다음 단계로 진행하기 전에 Azure AD Domain Services의 상태가 **실행 중**으로 표시되고 암호 해시 동기화가 사용하도록 설정되어 있는지 확인합니다.
 
 3.  **Azure VM을 Azure AD Domain Services에 도메인 조인합니다.**
 
-    VM에서 Azure AD 자격 증명을 사용하여 파일 공유에 액세스하려면 VM을 Azure AD Domain Services에 도메인 조인해야 합니다. VM을 도메인 조인하는 방법에 대한 자세한 내용은 [Windows Server 가상 머신을 관리되는 도메인에 조인](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md)을 참조하세요.
+    VM에서 Azure AD 자격 증명을 사용하여 파일 공유에 액세스하려면 VM을 Azure AD Domain Services에 도메인 조인해야 합니다. VM을 도메인 조인하는 방법에 대한 자세한 내용은 [Windows Server 가상 머신을 관리되는 도메인에 조인](../../active-directory-domain-services/join-windows-vm.md)을 참조하세요.
 
     > [!NOTE]
     > Azure Files용 SMB를 통한 Azure AD 인증은 Windows 7 또는 Windows Server 2008 R2 이상의 OS 버전에서 실행 중인 Azure VM에서만 지원됩니다.

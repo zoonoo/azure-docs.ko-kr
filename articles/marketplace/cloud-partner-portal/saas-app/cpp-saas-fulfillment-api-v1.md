@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943130"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257511"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment Api 버전 1 (사용 되지 않음)
 
 이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. REST 메서드 및 끝점 구성된 Api는 선택한 Azure를 통해 판매 하는 경우 SaaS 제품에 대 한 구독을 허용 하는 데 필요 합니다.  
+
+> [!IMPORTANT] 
+> SaaS로 마이그레이션된 기능을 제공 합니다 [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory)합니다.  모든 새 게시자 새 SaaS 제품을 만들고 기존 제품을 관리 하기 위한 파트너 센터를 사용 해야 합니다.  SaaS 제공 서비스를 사용 하 여 현재 게시자 batchwise 마이그레이션될 클라우드 파트너 포털에서 파트너 센터에 있습니다.  클라우드 파트너 포털에는 특정 기존 제품 마이그레이션된 경우를 나타내기 위해 상태 메시지가 표시 됩니다.
+> 자세한 내용은 [새 SaaS 제품을 만드는](../../partner-center-portal/create-new-saas-offer.md)합니다.
 
 > [!WARNING]
 > 이 초기 버전의 SaaS Fulfillment API는 사용 되지 않습니다. 대신 [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md)합니다.  이 API는 기존 게시자를 사용 하기 위해서만 유지 되 고 현재 됩니다. 
@@ -88,7 +92,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | id                 | String        | SaaS 구독의 ID입니다.          |
 | subscriptionName| String| SaaS 서비스를 구독하는 동안 Azure의 사용자가 설정한 SaaS 구독의 이름입니다.|
 | OfferId            | String        | 사용자가 구독한 제안 ID입니다. |
-| planId             | String        | 사용자가 구독한 요금제 ID입니다.  |
+| planId             | 문자열        | 사용자가 구독한 요금제 ID입니다.  |
 |  |  |  |
 
 
@@ -121,7 +125,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -250,7 +254,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -331,7 +335,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 | **매개 변수 이름** | **데이터 형식** | **설명**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | 작업의 ID입니다.                                                                      |
+| id                 | 문자열        | 작업의 ID입니다.                                                                      |
 | status             | 열거형          | 작업 상태로, `In Progress`, `Succeeded` 또는 `Failed` 중 하나입니다.          |
 | resourceLocation   | String        | 만들었거나 수정한 구독에 대한 링크입니다. 이 링크는 클라이언트가 업데이트된 상태 게시 작업을 가져오는 데 도움이 됩니다. `Unsubscribe` 작업에 대해서는 이 값이 설정되지 않습니다. |
 | created            | DateTime      | 작업 생성 시간(UTC)입니다.                                                           |
@@ -368,7 +372,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
@@ -405,7 +409,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | offerId                | String        | 사용자가 구독한 제안 ID입니다.         |
 | planId                 | String        | 사용자가 구독한 요금제 ID입니다.          |
 | saasSubscriptionName   | String        | SaaS 구독의 이름입니다.                |
-| saasSubscriptionStatus | 열거형          | 작업 상태입니다.  다음 중 하나  <br/> - `Subscribed`: 구독이 활성화되어 있습니다.  <br/> - `Pending`: 사용자가 리소스를 만들지만, ISV에서 활성화하지 않았습니다.   <br/> - `Unsubscribed`: 사용자가 구독을 취소했습니다.   <br/> - `Suspended`: 사용자가 구독을 일시 중단했습니다.   <br/> - `Deactivated`:  Azure 구독이 일시 중단되었습니다.  |
+| saasSubscriptionStatus | 열거형          | 작업 상태입니다.  다음 중 하나일 수 있습니다.  <br/> - `Subscribed`: 구독이 활성화되어 있습니다.  <br/> - `Pending`: 사용자가 리소스를 만들지만, ISV에서 활성화하지 않았습니다.   <br/> - `Unsubscribed`: 사용자가 구독을 취소했습니다.   <br/> - `Suspended`: 사용자가 구독을 일시 중단했습니다.   <br/> - `Deactivated`:  Azure 구독이 일시 중단되었습니다.  |
 | created                | DateTime      | 구독 생성 타임스탬프 값(UTC)입니다. |
 | lastModified           | DateTime      | 구독 수정 타임스탬프 값(UTC)입니다. |
 |  |  |  |
@@ -473,11 +477,11 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 | **매개 변수 이름**     | **데이터 형식** | **설명**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | Azure에서 SaaS 구독 리소스의 ID입니다.    |
+| id                     | 문자열        | Azure에서 SaaS 구독 리소스의 ID입니다.    |
 | offerId                | String        | 사용자가 구독한 제안 ID입니다.         |
 | planId                 | String        | 사용자가 구독한 요금제 ID입니다.          |
-| saasSubscriptionName   | String        | SaaS 구독의 이름입니다.                |
-| saasSubscriptionStatus | 열거형          | 작업 상태입니다.  다음 중 하나  <br/> - `Subscribed`: 구독이 활성화되어 있습니다.  <br/> - `Pending`: 사용자가 리소스를 만들지만, ISV에서 활성화하지 않았습니다.   <br/> - `Unsubscribed`: 사용자가 구독을 취소했습니다.   <br/> - `Suspended`: 사용자가 구독을 일시 중단했습니다.   <br/> - `Deactivated`:  Azure 구독이 일시 중단되었습니다.  |
+| saasSubscriptionName   | 문자열        | SaaS 구독의 이름입니다.                |
+| saasSubscriptionStatus | 열거형          | 작업 상태입니다.  다음 중 하나일 수 있습니다.  <br/> - `Subscribed`: 구독이 활성화되어 있습니다.  <br/> - `Pending`: 사용자가 리소스를 만들지만, ISV에서 활성화하지 않았습니다.   <br/> - `Unsubscribed`: 사용자가 구독을 취소했습니다.   <br/> - `Suspended`: 사용자가 구독을 일시 중단했습니다.   <br/> - `Deactivated`:  Azure 구독이 일시 중단되었습니다.  |
 | created                | DateTime      | 구독 생성 타임스탬프 값(UTC)입니다. |
 | lastModified           | DateTime      | 구독 수정 타임스탬프 값(UTC)입니다. |
 |  |  |  |
@@ -526,7 +530,7 @@ SaaS 웹후크는 SaaS 서비스에 변경 내용을 미리 알리는 데 사용
 | id  | String       | 트리거된 작업의 고유 ID입니다.                |
 | activityId   | String        | 서비스의 요청을 추적하기 위한 고유한 문자열 값입니다. 모든 조정에 사용됩니다.               |
 | subscriptionId                     | String        | Azure에서 SaaS 구독 리소스의 ID입니다.    |
-| offerId                | String        | 사용자가 구독한 제안 ID입니다. “업데이트” 작업에만 제공됩니다.        |
+| offerId                | 문자열        | 사용자가 구독한 제안 ID입니다. “업데이트” 작업에만 제공됩니다.        |
 | publisherId                | String        | SaaS 제안의 게시자 ID입니다.         |
 | planId                 | String        | 사용자가 구독한 요금제 ID입니다. “업데이트” 작업에만 제공됩니다.          |
 | action                 | String        | 이 알림을 트리거하는 작업입니다. 가능한 값 - 활성화, 삭제, 일시 중단, 복구, 업데이트          |

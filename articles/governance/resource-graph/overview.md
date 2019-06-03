@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137773"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162071"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -43,7 +43,7 @@ Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 ## <a name="how-resource-graph-is-kept-current"></a>Resource Graph가 최신 상태를 유지하는 방식
 
 Azure 리소스가 업데이트되면 Resource Graph는 Resource Manager로부터 변경 알림을 받습니다.
-그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_을 수행합니다. 이 검사는 알림을 놓치거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
+그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_을 수행합니다. 이 검사는 놓친 알림이 있거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
 
 ## <a name="the-query-language"></a>쿼리 언어
 
@@ -63,9 +63,15 @@ Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 
 
 ## <a name="throttling"></a>제한
 
-무료 서비스로서, Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응답 시간을 제공하도록 제한됩니다. 자주 수행되는 대규모 쿼리에 Resource Graph API를 사용하려는 조직은 Resource Graph 페이지의 ‘피드백’ 포털을 사용하세요. 비즈니스 사례를 제공하고, 연락을 받을 수 있도록 '피드백과 관련하여 Microsoft에서 이메일을 보내도 좋습니다' 확인란을 선택해야 합니다.
+무료 서비스로서, Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응답 시간을 제공하도록 제한됩니다. 자주 수행되는 대규모 쿼리에 Resource Graph API를 사용하려는 조직은 [Resource Graph 포털 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph)의 ‘피드백’ 포털을 사용하세요.
+비즈니스 사례를 제공하고, 연락을 받을 수 있도록 '피드백과 관련하여 Microsoft에서 이메일을 보내도 좋습니다' 확인란을 선택하세요.
 
-Resource Graph는 테넌트 수준에서 제한합니다. 서비스는 테넌트 내에서 사용자가 사용할 수 있는 나머지 쿼리를 나타내기 위해 `x-ms-ratelimit-remaining-tenant-reads` 응답 헤더를 재정의하고 설정합니다. Resource Graph는 매시간이 아닌 5초마다 할당량을 다시 설정합니다. 자세한 내용은 [Resource Manager 요청 제한](../../azure-resource-manager/resource-manager-request-limits.md)을 참조하세요.
+Resource Graph는 사용자 수준에서 쿼리를 제한합니다. 서비스 응답은 다음 HTTP 헤더를 포함합니다.
+
+- `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
+- `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 재설정될 때까지 남은 기간
+
+자세한 내용은 [Resource Manager 요청 제한](../../azure-resource-manager/resource-manager-request-limits.md)을 참조하세요.
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 

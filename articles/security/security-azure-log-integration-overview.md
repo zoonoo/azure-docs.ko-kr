@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65e256b476c1e459ae937d9f6cbb43e0020fd9fe
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478317"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298126"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure Log Integration 소개
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure 로그 통합 기능을 06/15/2019 지원이 중지 될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 Azure Log Integration을 통해 Azure 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템과 통합하는 작업을 간소화할 수 있습니다.
 

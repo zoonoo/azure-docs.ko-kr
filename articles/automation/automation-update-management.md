@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991631"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397648"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -232,7 +232,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 |운영 체제| Linux 또는or Windows|
 | 업데이트 그룹 |Azure 컴퓨터에 대 한 배포에 포함 하려면 Azure Vm의 동적 그룹을 만들려는 구독, 리소스 그룹, 위치 및 태그의 조합을 기준으로 쿼리를 정의 합니다. </br></br>비 Azure 컴퓨터에 대 한 기존 저장 된 배포에 포함 하는 비 Azure 컴퓨터의 그룹을 선택 하려면 검색을 선택 합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
-|분류 업데이트|필요한 모든 업데이트 분류를 선택합니다.|
+|업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
 | 사전 스크립트 + 사후 스크립트|배포 전후에 실행할 스크립트를 선택합니다.|
@@ -262,13 +262,13 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ## <a name="view-update-deployments"></a>업데이트 배포 보기
 
-**업데이트 배포** 탭을 선택하여 기존 업데이트 배포의 목록을 볼 수 있습니다. 테이블에서 업데이트 배포 중 하나를 선택하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다.
+**업데이트 배포** 탭을 선택하여 기존 업데이트 배포의 목록을 볼 수 있습니다. 테이블에서 업데이트 배포 중 하나를 선택하면 해당 업데이트 배포에 대한 **업데이트 배포 실행** 페이지가 열립니다. 작업 로그는 최대 30일 동안 저장됩니다.
 
 ![업데이트 배포 결과의 개요](./media/automation-update-management/update-deployment-run.png)
 
 REST API에서 업데이트 배포를 보려면 [소프트웨어 업데이트 구성 실행](/rest/api/automation/softwareupdateconfigurationruns)을 참조하세요.
 
-## <a name="update-classifications"></a>분류 업데이트
+## <a name="update-classifications"></a>업데이트 분류
 
 다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
 

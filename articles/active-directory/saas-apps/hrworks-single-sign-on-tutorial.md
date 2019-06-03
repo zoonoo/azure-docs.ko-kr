@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000490"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>자습서: HRworks Single Sign-On과 Azure Active Directory 통합
 
@@ -130,7 +130,7 @@ HRworks Single Sign-On에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 2. 메뉴 모음의 왼쪽에서 **관리자** > **기본** > **보안** > **Single Sign-On**을 클릭하고 다음 단계를 수행합니다.
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Single Sign-On 구성](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. **Single Sign-On 사용** 확인란을 선택합니다.
 

@@ -110,7 +110,7 @@ Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 �
 Azure Storage는 다음 프로그래밍 언어에서 Azure SDK를 사용하여 액세스할 수 있습니다.
 
 * .NET
-* 자바
+* Java
 * Node.js
 * PHP
 * Python

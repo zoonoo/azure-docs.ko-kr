@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957852"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417935"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -253,10 +253,11 @@ ACR 지원 [사용자 지정 역할](container-registry-roles.md) 다양 한 수
 - [새 사용자 권한 아닐 효과적인 업데이트 한 후 즉시](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [인증 정보 직접 REST API 호출에 올바른 형식으로 제공 되지 않습니다.](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [왜 Azure 포털을 나열 하지 않습니다 모든 리포지토리 또는 태그?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Windows에서 http 추적을 어떻게 수집 하나요?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>오류와 함께 docker 풀 실패: net/http: (Client.Timeout 헤더를 기다리는 동안 초과) 연결을 기다리는 동안 요청이 취소
 
- - 이 오류는 일시적인 문제 이면 다시 시도 성공 합니다. 
+ - 이 오류는 일시적인 문제 이면 다시 시도 성공 합니다.
  - 경우 `docker pull` docker 데몬과 문제가 있을 수 있습니다 지속적으로 실패 합니다. 문제는 일반적으로 docker 디먼을 다시 시작 하 여 완화할 수 있습니다. 
  - Docker 디먼을 다시 시작 후이 문제를 확인 합니다. 계속 하면이 문제는 컴퓨터와 일부 네트워크 연결 문제를 수 있습니다. 일반 네트워크 컴퓨터에서 정상 상태 인지를 확인 하려면 명령을 같은 사용해 `ping www.bing.com`합니다.
  - 모든 docker 클라이언트 작업에 다시 시도 메커니즘을 항상 있어야 합니다.
@@ -386,7 +387,29 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>왜 Azure 포털을 나열 하지 않습니다 모든 리포지토리 또는 태그? 
 
-Edge 브라우저를 사용 하는 경우에 최대 100 리포지토리 또는 나열 된 태그를 볼 수 있습니다. 레지스트리의 리포지토리 또는 태그를 100 개 있으면 모두 나열 하려면 Firefox 또는 Chrome 브라우저를 사용 하는 것이 좋습니다.
+Microsoft Edge 브라우저를 사용 하는 경우에 최대 100 리포지토리 또는 나열 된 태그를 볼 수 있습니다. 레지스트리의 리포지토리 또는 태그를 100 개 있으면 모두 나열 하려면 Firefox 또는 Chrome 브라우저를 사용 하는 것이 좋습니다.
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 어떻게 수집 하나요?
+
+#### <a name="prerequisites"></a>필수 조건
+
+- Fiddler에서 암호 해독 https를 사용 합니다.  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Docker ui 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정 합니다. <https://docs.docker.com/docker-for-windows/#proxies>
+- 완료 되 면 revert를 사용 해야 합니다.  Docker 사용이 작동 하지 않습니다 및 fiddler 실행 되지 않습니다.
+
+#### <a name="windows-containers"></a>Windows 컨테이너
+
+127.0.0.1: 8888 Docker 프록시 구성
+
+#### <a name="linux-containers"></a>Linux 컨테이너
+
+Docker의 ip를 vm 가상 스위치 찾기:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+이전 명령에서 포트 8888 (예를 들어 10.0.75.1:8888)을 출력 하도록 Docker 프록시 구성
 
 ## <a name="tasks"></a>태스크
 

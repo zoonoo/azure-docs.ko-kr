@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038518"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237316"
 ---
 # <a name="networking"></a>네트워킹
 
@@ -71,6 +71,8 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 * Windows 컨테이너 워크로드를 실행하려는 경우 [오픈 네트워킹 모드](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)를 사용하면 서비스 간 통신을 더 쉽게 수행할 수 있습니다.
 
 * [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 또는 [Service Fabric 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 등의 역방향 프록시를 사용하여 80, 443 등의 일반적인 애플리케이션 포트를 표시합니다.
+
+* Azure 클라우드 저장소에서 기본 계층을 가져올 수 없습니다. air gapped 컴퓨터에 호스트 된 Windows 컨테이너를 사용 하 여 외래 계층 동작을 재정의 대 한 합니다 [-허용-nondistributable-아티팩트](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) Docker 디먼 플래그입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

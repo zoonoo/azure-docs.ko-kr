@@ -3,22 +3,21 @@ title: Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사 | Micro
 description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128120"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243915"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 
@@ -33,6 +32,9 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 - SAP NetWeaver 7.0 버전 이상의 SAP ECC에서 데이터를 복사합니다. 
 - SAP ECC OData 서비스(예: SAP 테이블/뷰, BAPI, 데이터 추출기 등)에서 공개된 모든 개체의 데이터 또는 상대 어댑터를 통해 OData로 받을 수 있는 SAP PI로 전송된 데이터/IDOC를 복사합니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
+
+>[!TIP]
+>SAP 테이블/뷰를 통해 SAP ECC에서 데이터 복사를 사용할 수 있습니다 [SAP 테이블](connector-sap-table.md) 성능이 향상 됩니다 하는 커넥터 및 확장 가능 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

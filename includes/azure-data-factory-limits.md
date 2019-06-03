@@ -9,17 +9,17 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733773"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238525"
 ---
 Azure Data Factory는 다른 사용자의 워크 로드에서 고객 구독이 보호 되도록 되어에서 다음과 같은 기본 제한이 있는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 한도 발생 시키려면 지원에 문의 합니다.
 
 ### <a name="version-2"></a>버전 2
 
-| 리소스 | 기본 제한 | 최대 제한 |
+| Resource | 기본 제한 | 최대 제한 |
 | -------- | ------------- | ------------- |
 | Azure 구독의 데이터 팩터리 | 50 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 총 파이프라인, 데이터 집합, 트리거, 연결 된 서비스 및 데이터 팩터리 내의 통합 런타임 등의 엔터티 수 | 5,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -67,8 +67,8 @@ Azure Data Factory는 다른 사용자의 워크 로드에서 고객 구독이 �
 | **리소스** | **기본 하한값** | **최소 제한** |
 | --- | --- | --- |
 | 일정 간격 |15분 |15분 |
-| 재시도 간의 간격 |1초 |1초 |
-| 재시도 시간 제한 값 |1초 |1초 |
+| 재시도 간의 간격 |1 초 |1 초 |
+| 재시도 시간 제한 값 |1 초 |1 초 |
 
 #### <a name="web-service-call-limits"></a>웹 서비스 호출 제한
 Azure Resource Manager에는 API 호출 제한이 있습니다. [Azure 리소스 관리자 API 제한](../articles/azure-subscription-service-limits.md#resource-group-limits)범위 안의 속도로 API 호출을 수행할 수 있습니다.

@@ -73,7 +73,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 | 언어 | 라이브러리 |
 | --- | --- |
-| 자바 |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
+| Java |Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |

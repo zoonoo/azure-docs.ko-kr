@@ -35,9 +35,9 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * 빈 셀은 인증 옵션이 지원되지 않는다는 의미입니다.
 
 
-|다음에서 이 인증 옵션 사용...                   |.NET         |자바     |PowerShell |Azure CLI | Python   |REST (영문)     |
+|다음에서 이 인증 옵션 사용...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST (영문)     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(사용되지 않음)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)** (사용되지 않음)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |최종 사용자(MFA 사용)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |서비스 간(클라이언트 키 사용)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |서비스 간(클라이언트 인증서 사용) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |

@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 498a4471d1ba6803d68e0b497c7c8352f19ff743
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153456"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271587"
 ---
 | Category | 데이터 저장소 |
 |:--- |:--- |
@@ -50,6 +50,7 @@ ms.locfileid: "66153456"
 | &nbsp; |[SAP Business Warehouse 개방형 허브](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[MDX를 통한 SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
+| &nbsp; |[SAP 테이블](../articles/data-factory/connector-sap-table.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -67,7 +68,7 @@ ms.locfileid: "66153456"
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스(미리 보기)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
+| &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX(미리 보기)](../articles/data-factory/connector-dynamics-ax.md) |

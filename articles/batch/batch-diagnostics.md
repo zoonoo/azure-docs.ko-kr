@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550293"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242628"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -109,7 +109,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 
     ![일괄 처리 진단](media/batch-diagnostics/diagnostics-portal.png)
 
-로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../azure-monitor/platform/diagnostic-logs-stream-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)을 참조하세요.
+로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../azure-monitor/platform/diagnostic-logs-stream-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md)을 참조하세요.
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>스토리지에서 진단 로그에 액세스

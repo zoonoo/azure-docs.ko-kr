@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761915"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416698"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -48,13 +48,13 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
-| RHEL | 7.6 | OS 및 데이터 디스크* |
-| RHEL | 7.5 | OS 및 데이터 디스크* |
-| RHEL | 7.4 | OS 및 데이터 디스크* |
-| RHEL | 7.3 | OS 및 데이터 디스크* |
-| RHEL | 7.2 | OS 및 데이터 디스크* |
-| RHEL | 6.8 | 데이터 디스크* |
-| RHEL | 6.7 | 데이터 디스크* |
+| RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.3 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
 | CentOS | 7.5 | OS 및 데이터 디스크 |
 | CentOS | 7.4 | OS 및 데이터 디스크 |
 | CentOS | 7.3 | OS 및 데이터 디스크 |
@@ -65,7 +65,7 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 | SLES | 12-SP3 | 데이터 디스크 |
 
 > [!NOTE]
-> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 하세요 합니다 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 문서. _ _
+> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 내용은 합니다.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 

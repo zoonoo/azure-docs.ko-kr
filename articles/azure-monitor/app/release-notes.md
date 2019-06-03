@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0dd55a3b0e27c87f9ab5d4aa4a3ce89446ee0519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad8aa9f5e37ab4d3df730cbb58fec0994bcbd509
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373337"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255958"
 ---
 # <a name="sdk-release-notes---application-insights"></a>SDK 릴리스 정보 - Application Insights
 자세한 릴리스 정보 및 SDK에 대한 업데이트 지침은 다음과 같습니다.
@@ -28,7 +28,6 @@ ms.locfileid: "60373337"
 * [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Visual Studio Tools](release-notes-vsix.md)
 * [기타 플랫폼](https://github.com/Microsoft/ApplicationInsights-Home)
 
 또한 전체적으로 Application Insights 서비스의 주요 개선 사항을 요약하는 [블로그](https://azure.microsoft.com/blog/tag/application-insights/) 및 [서비스 업데이트](https://azure.microsoft.com/updates/?service=application-insights)를 참조하세요.

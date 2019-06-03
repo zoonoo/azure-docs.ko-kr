@@ -3,22 +3,22 @@ author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.topic: include
-ms.date: 10/26/2018
-ms.openlocfilehash: 57a5de4c590ff98429aa1d4a0b96cebed6084a0f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146471"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248943"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
 
-소비자 그룹은 애플리케이션에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. 이 자습서에서는 예정된 Azure 서비스에서 IoT Hub의 데이터를 읽는 데 사용할 소비자 그룹을 만듭니다.
+[소비자 그룹](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) 앱 및 Azure 서비스의 동일한 이벤트 허브 끝점에서 데이터를 독립적으로 사용할 수 있도록 하는 이벤트 스트림으로 독립적 보기를 제공 합니다. 이 섹션에서는 IoT hub의 끝점에서 데이터를 끌어오는이 자습서의 뒷부분에서 사용 되는 기본 제공 끝점에 소비자 그룹을 추가 합니다.
 
 IoT Hub에 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub를 엽니다.
 
-2. 왼쪽 창에서 **기본 제공 엔드포인트**를 클릭하고, 위쪽 창에서 **이벤트**를 선택하고, 오른쪽 창의 **소비자 그룹** 아래에서 이름을 입력합니다. **기본 TTL** 값을 변경한 후에 **저장**을 클릭하고, 다시 원래 값으로 되돌립니다.
+2. 왼쪽된 창에서 선택 **기본 제공 끝점**를 선택 **이벤트** 오른쪽 창에서 아래에서 이름을 입력 하 고 **소비자 그룹**합니다. **저장**을 선택합니다.
 
    ![IoT Hub에서 소비자 그룹 만들기](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)

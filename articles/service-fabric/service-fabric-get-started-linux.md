@@ -177,7 +177,7 @@ sudo yum install servicefabricsdkcommon
 
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
- | | DotNetCore | 자바 | Python | NodeJS | 
+ | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
 RHEL | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
@@ -277,7 +277,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 
-3. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse**을 입력합니다.
+3. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse** 을 입력합니다.
 
 4. **추가**를 선택합니다.
 

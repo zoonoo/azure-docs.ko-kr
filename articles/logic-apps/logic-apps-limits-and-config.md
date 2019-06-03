@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/10/2019
-ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 05/23/2019
+ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990208"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244524"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "65990208"
 
 다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
-| Name | 제한 | 메모 |
+| 이름 | 제한 | 메모 |
 | ---- | ----- | ----- |
 | 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
 | 작업에 허용되는 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
@@ -52,7 +52,7 @@ ms.locfileid: "65990208"
 |------|--------------------|---------------------------------------|-------|
 | 실행 기간 | 90일 | 365일 | 기본 제한을 변경 하려면 [변경 실행 지속 시간](#change-duration)합니다. |
 | 저장소 보존 | 실행 시작 시간부터 90일 | 365일 | 기본 제한을 변경 하려면 [저장소 보존 변경](#change-retention)합니다. |
-| 최소 되풀이 간격 | 1초 | 1초 ||
+| 최소 되풀이 간격 | 1 초 | 1 초 ||
 | 최대 되풀이 간격 | 500일 | 500일 ||
 |||||
 
@@ -105,7 +105,7 @@ ms.locfileid: "65990208"
 
 ### <a name="integration-service-environment-ise"></a>통합 서비스 환경 (ISE)
 
-| Name | 제한 | 메모 |
+| 이름 | 제한 | 메모 |
 |------|-------|-------|
 | 기본 단위 실행 제한 | 인프라 용량 80%에 도달 하면 시스템 제한 | 월 ~ 160 백만 작업 실행 되는 분당 ~ 4000 작업 실행을 제공 합니다. | |
 | 배율 단위 실행 제한 | 인프라 용량 80%에 도달 하면 시스템 제한 | 각 배율 단위는 ~ 80 백만 분당 ~ 2,000 추가 작업 실행 매월 자세한 작업 실행을 제공할 수 있습니다. | |
@@ -132,7 +132,7 @@ ms.locfileid: "65990208"
 
 #### <a name="message-size"></a>메시지 크기
 
-| Name | 다중 테 넌 트 제한 | 통합 서비스 환경 제한 | 메모 |
+| 이름 | 다중 테 넌 트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100 MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
 | 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. <p>통합 서비스 환경에 대해 Logic Apps 엔진은이 한도를 지원 하지만 커넥터 자체 청크 제한 엔진 제한의 예를 들어까지 참조 하세요 [Azure Blob Storage 커넥터](/connectors/azureblob/)합니다. 자세한 내용은 청크를 참조 하세요 [청크로 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)합니다. |
@@ -143,7 +143,7 @@ ms.locfileid: "65990208"
 
 | 이름 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 재시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
+| 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최소 지연 시간 | 5초 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 ||||
@@ -184,11 +184,11 @@ ms.locfileid: "65990208"
 
 | 아티팩트 | 무료 | 기본 | Standard |
 |----------|------|-------|----------|
-| EDI 거래 계약 | 10 | 1 | 500 |
-| EDI 거래 업체 | 25 | 2 | 500 |
+| EDI 거래 계약 | 10 | 1 | 1,000 |
+| EDI 거래 업체 | 25 | 2 | 1,000 |
 | 지도 | 25 | 500 | 1,000 |
 | 스키마 | 25 | 500 | 1,000 |
-| 어셈블리 | 10 | 25 | 50 |
+| 어셈블리 | 10 | 25 | 1,000 |
 | 인증서 | 25 | 2 | 500 |
 | 일괄 처리 구성 | 5 | 1 | 50 |
 ||||

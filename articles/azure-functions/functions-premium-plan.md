@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544739"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242299"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 계획 (미리 보기)
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>사용 가능한 인스턴스 Sku
 
-확장성 계획을 만들 때 세 가지 인스턴스 크기를 선택할 수 있습니다.  총 코어 수 및 사용 된 초당 메모리에 대 한 청구 됩니다.  앱에 자동으로 규모를 확장할 수 여러 인스턴스가 필요에 따라 합니다.  
+만들거나 계획 크기 조정 하는 경우 세 인스턴스 크기를 선택할 수 있습니다.  총 코어 수 및 사용 된 초당 메모리에 대 한 청구 됩니다.  앱에 자동으로 규모를 확장할 수 여러 인스턴스가 필요에 따라 합니다.  
 
 |SKU|코어 수|메모리|Storage|
 |--|--|--|--|
@@ -115,7 +115,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |일본 서부|
 |한국 중부|
 |미국 중북부|
-|유럽 북부|
+|북유럽|
 |미국 중남부|
 |인도 남부|
 |동남아시아|
