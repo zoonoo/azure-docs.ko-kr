@@ -21,7 +21,7 @@ ms.locfileid: "60003108"
 
 브랜드 감지는 수천 개의 글로벌 로고에 대한 데이터베이스를 사용하여 이미지 또는 비디오에서 상용 브랜드를 식별하는 [개체 감지](concept-object-detection.md)의 특수 모드입니다. 예를 들어 이 기능을 사용하여 소셜 미디어에서 가장 인기 있거나 미디어 제품 배치에서 가장 일반적인 브랜드를 발견할 수 있습니다.
 
-Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는지 여부를 검색합니다. 이 경우 브랜드 이름, 신뢰도 점수 및 로고 주변의 경계 상자 좌표를 반환합니다.
+Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는지 여부를 감지합니다. 이 경우 브랜드 이름, 신뢰도 점수 및 로고 주변의 경계 상자 좌표를 반환합니다.
 
 기본 제공 로고 데이터베이스는 가전제품, 의류 등의 인기 있는 브랜드를 포함하고 있습니다. 찾고 있는 브랜드가 Computer Vision 서비스에서 감지되지 않는 경우 [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 서비스를 사용하여 사용자 고유의 로고 감지기를 만들고 학습시키는 것이 더 좋을 수 있습니다.
 
@@ -92,7 +92,7 @@ Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는�
 
 ## <a name="use-the-api"></a>API 사용
 
-브랜드 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 포함 `Brands` 에 **visualFeatures** 매개 변수를 쿼리 합니다. 그런 다음 전체 JSON 응답을 얻을 때 단순히 문자열을 구문 분석의 콘텐츠에 대해는 `"brands"` 섹션입니다.
+브랜드 감지 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에서 `Brands`를 포함합니다. 그런 다음, 전체 JSON 응답을 얻을 때 간단하게 `"brands"` 섹션의 콘텐츠에 대한 문자열을 구문 분석합니다.
 
 * [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)
