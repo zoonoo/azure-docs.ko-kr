@@ -71,7 +71,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 | 키 | 값 |
 | --- | ----- |
 | username | leadiocl@outlook.com |
-| 암호 | Passxword1 |
+| password | Passxword1 |
 | grant_type | 암호 |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
