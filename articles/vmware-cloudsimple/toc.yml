@@ -15,7 +15,7 @@
         - name: 프라이빗 클라우드 환경 구성
           href: quickstart-create-private-cloud.md
         - name: 프라이빗 클라우드에 VMware VM 만들기
-          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Azure에서 VMware VM 사용
           href: quickstart-create-vmware-virtual-machine.md
     - name: 개념

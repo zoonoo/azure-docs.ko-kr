@@ -45,7 +45,7 @@ Computer Vision는 이미지에 표시되는 인쇄 또는 필기 텍스트를 �
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR(광학 문자 인식) API
 
-Computer Vision OCR (광학 문자 인식) API는 읽기 API와 유사한 있지만 동기적으로 실행 하 고 큰 문서에 대 한 최적화 되지 않은 것입니다. 작동 하지만 이전 인식 모델을 사용 하 여 추가 언어; 참조 [언어 지원](language-support.md#text-recognition) 지원 되는 언어의 전체 목록입니다.
+Computer Vision의 OCR(광학 문자 인식) API는 읽기 API와 유사하지만 동기적으로 실행되고 큰 문서에 대해 최적화되지 않습니다. 이전 인식 모델을 사용하지만 더 많은 언어를 인식합니다. 지원되는 언어의 전체 목록에 대해서는 [언어 지원](language-support.md#text-recognition)을 확인합니다.
 
 필요한 경우, OCR은 가로 이미지 축을 중심으로 회전 오프셋(도)을 반환하여 인식된 텍스트의 회전을 정정합니다. OCR는 또한 다음 그림에 표시된 대로 각 단어의 프레임 좌표를 제공합니다.
 
@@ -58,7 +58,7 @@ Computer Vision OCR (광학 문자 인식) API는 읽기 API와 유사한 있지
 OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니다.
 
 * 이미지를 JPEG, PNG, GIF 또는 BMP 형식으로 제공 해야 합니다.
-* 입력된 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
+* 이미지의 크기는 50 x 50와 4200 x 4200 픽셀 사이여야 합니다.
 * 90도의 배수에 최대 40도의 작은 각도를 더한 값만큼 이미지의 텍스트를 회전할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
