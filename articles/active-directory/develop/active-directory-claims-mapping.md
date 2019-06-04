@@ -158,7 +158,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | request_nonce |
 | resource |
 | role |
-| roles |
+| role |
 | scope |
 | scp |
 | sid |
@@ -267,7 +267,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 **Value:** Value 요소는 클레임에 내보내질 데이터로 정적 값을 정의합니다.
 
-**Source/ID 쌍:**: Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
+**Source/ID 쌍:** : Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
 
 Source 요소는 다음 중 하나로 설정합니다. 
 
@@ -380,7 +380,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ### <a name="exceptions-and-restrictions"></a>예외 및 제한 사항
 
-**SAML NameID 및 UPN:**: NameID 및 UPN 값이 제공되는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
+**SAML NameID 및 UPN:** : NameID 및 UPN 값이 제공되는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 

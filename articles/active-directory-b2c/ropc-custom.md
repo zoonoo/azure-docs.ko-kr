@@ -271,7 +271,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
-| grant_type | 암호 |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |
