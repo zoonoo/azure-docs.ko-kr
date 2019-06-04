@@ -21,7 +21,7 @@ ms.locfileid: "60585511"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 
-분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다.  [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
+분할-병합 도구를 사용하면 분할된 데이터베이스 간에 데이터를 이동할 수 있습니다. [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>분할-병합 패키지 다운로드
 1. [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget)에서 최신 NuGet 버전을 다운로드합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "60585511"
     -sv MyCert.pvk MyCert.cer
    ```
 
-개인 키를 보호 하기 위해 암호를 입력하라는 메시지가 표시됩니다. 강력한 암호를 입력하고 이를 확인합니다. 이후에 사용할 암호를 한 번 더 입력하라는 메시지가 표시됩니다. 마지막에 **예** 를 클릭하여 신뢰할 수 있는 인증 기관 루트 저장소로 인증서를 가져옵니다.
+프라이빗 키를 보호 하기 위해 암호를 입력하라는 메시지가 표시됩니다. 강력한 암호를 입력하고 이를 확인합니다. 이후에 사용할 암호를 한 번 더 입력하라는 메시지가 표시됩니다. 마지막에 **예** 를 클릭하여 신뢰할 수 있는 인증 기관 루트 저장소로 인증서를 가져옵니다.
 
 ### <a name="create-a-pfx-file"></a>PFX 파일 만들기
 makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증서를 만드는 데 사용한 동일한 암호를 사용합니다.

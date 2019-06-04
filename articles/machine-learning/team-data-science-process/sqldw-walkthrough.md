@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61045410"
@@ -310,14 +310,14 @@ Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key V
 저장소 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
 
 > [!NOTE]
-> Azure CLI에서 SMB를 사용하여 Linux VM에 Azure File 스토리지를 탑재하는 방법
+> 프라이빗 Blob 스토리지 계정의 지리적 위치에 따라 공용 Blob에서 프라이빗 스토리지 계정으로 데이터를 복사하는 프로세스는 약 15분 또는 더 오래 걸릴 수 있으며, 스토리지 계정에서 Azure SQL DW로 데이터를 로드하는 프로세스는 20분 이상 걸릴 수 있습니다.
 >
 >
 
 중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 > [!NOTE]
-> 공용 Blob Storage에서 개인 Blob Storage 계정으로 복사할 .csv 파일이 개인 Blob Storage 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
+> 공용 Blob Storage에서 프라이빗 Blob 스토리지 계정으로 복사할 .csv 파일이 개인 Blob Storage 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
 >
 >
 

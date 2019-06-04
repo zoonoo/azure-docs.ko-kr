@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66249051"
@@ -79,7 +79,7 @@ Managed Disks를 사용하는 가용성 집합이 위치한 지역에 따라 지
 
 **진단을 위한 표준 저장소 계정은 어떤 방식으로 설정되나요?**
 
-VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다.
+VM 진단을 위한 프라이빗 스토리지 계정을 설정할 수 있습니다.
 
 **어떤 종류의 역할 기반 Access Control 지원을 Managed Disks에 사용할 수 있나요?**
 
@@ -91,7 +91,7 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 **개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
-관리 디스크에 대한 읽기 전용 SAS(공유 액세스 서명) URI를 생성한 후 이를 사용하여 개인 저장소 계정 또는 온-프레미스 저장소에 콘텐츠를 복사할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)에서 SAS URI를 사용할 수 있습니다.
+관리 디스크에 대한 읽기 전용 SAS(공유 액세스 서명) URI를 생성한 후 이를 사용하여 프라이빗 스토리지 계정 또는 온-프레미스 스토리지에 콘텐츠를 복사할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)에서 SAS URI를 사용할 수 있습니다.
 
 **내 관리 디스크의 복사본을 만들 수 있나요?**
 
@@ -179,7 +179,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
 
 **기존 디스크를 표준 SSD로 변환할 수 있나요?**
- 예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
+예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
