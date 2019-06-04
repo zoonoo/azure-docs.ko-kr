@@ -281,7 +281,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅숏
+    - 스냅샷
     - 배포자
   - SSIS 작업 단계는 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
