@@ -19,7 +19,7 @@ ms.locfileid: "60006423"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 감지 컨테이너 배포
 
-언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 개인 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다. 
+언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

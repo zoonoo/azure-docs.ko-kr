@@ -36,7 +36,7 @@ Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데�
 - 보안 기능 사용
 
 > [!NOTE]
-> 관리되는 인스턴스의 Azure SQL 데이터베이스는 [Azure SQL 데이터베이스 관리되는 인스턴스](sql-database-managed-instance-index.yml) 및 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에서 설명한 대로 네트워크 보안 규칙 및 사설 엔드포인트를 사용하여 보호됩니다.
+> 관리형 인스턴스의 Azure SQL 데이터베이스는 [Azure SQL 데이터베이스 관리되는 인스턴스](sql-database-managed-instance-index.yml) 및 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에서 설명한 대로 네트워크 보안 규칙 및 프라이빗 엔드포인트를 사용하여 보호됩니다.
 
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](sql-database-security-overview.md) 문서를 참조하세요.
 

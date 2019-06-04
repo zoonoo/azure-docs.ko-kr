@@ -55,7 +55,7 @@ steps: # A collection of image or container actions.
 
 ### <a name="supported-task-filename-extensions"></a>지원되는 작업 파일 이름 확장명
 
-ACR 작업에는 `.yaml`을 포함하여 몇 가지 파일 이름 확장명이 예약되어 있으며, 작업 파일로 처리됩니다. 다음 목록에 ‘없는’ 확장명은 ACR 작업에서 Dockerfile로 간주됩니다. .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua
+ACR 작업에는 `.yaml`을 포함하여 몇 가지 파일 이름 확장명이 예약되어 있으며, 작업 파일로 처리됩니다. 다음 목록에 ‘없는’ 확장명은 ACR 작업에서 Dockerfile로 간주됩니다. .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua 
 
 YAML은 현재 ACR 작업에서 지원되는 유일한 파일 형식입니다. 다른 파일 이름 확장명은 향후 지원을 위해 예약되었습니다.
 
@@ -117,7 +117,7 @@ ACR 작업은 세 가지 단계 유형을 지원합니다. 각 단계 유형은 
 | 단계 유형 | 설명 |
 | --------- | ----------- |
 | [`build`](#build) | 익숙한 `docker build` 구문을 사용하여 컨테이너 이미지를 빌드합니다. |
-| [`push`](#push) | 새로 빌드되었거나 태그가 변경된 이미지를 컨테이너 레지스트리로 `docker push`하는 작업을 실행합니다. Azure Container Registry, 기타 개인 레지스트리 및 공용 Docker 허브가 지원됩니다. |
+| [`push`](#push) | 새로 빌드되었거나 태그가 변경된 이미지를 컨테이너 레지스트리로 `docker push`하는 작업을 실행합니다. Azure Container Registry, 기타 프라이빗 레지스트리 및 공용 Docker 허브가 지원됩니다. |
 | [`cmd`](#cmd) | 컨테이너의 `[ENTRYPOINT]`에 전달된 매개 변수를 사용하여 컨테이너를 명령으로 실행합니다. `cmd` 단계 형식 같은 매개 변수를 지 원하는 `env`, `detach`, 및 다른 친숙 한 `docker run` 명령 옵션, 단위 및 동시 컨테이너 실행을 사용 하 여 기능 테스트를 사용 하도록 설정 합니다. |
 
 ## <a name="build"></a>build
@@ -189,7 +189,7 @@ steps:
 
 ## <a name="push"></a>push
 
-빌드되었거나 태그가 변경된 하나 이상의 이미지를 컨테이너 레지스트리로 푸시합니다. Azure Container Registry 등의 개인 레지스트리 또는 공용 Docker 허브로 푸시할 수 있습니다.
+빌드되었거나 태그가 변경된 하나 이상의 이미지를 컨테이너 레지스트리로 푸시합니다. Azure Container Registry 등의 프라이빗 레지스트리 또는 공용 Docker 허브로 푸시할 수 있습니다.
 
 ### <a name="syntax-push"></a>구문: push
 

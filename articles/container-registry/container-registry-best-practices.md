@@ -16,13 +16,13 @@ ms.locfileid: "60787367"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
-다음 모범 사례를 따르면 Azure에서 개인 Docker 레지스트리 사용의 성능 및 비용 효과적 측면을 극대화하는 데 도움이 될 수 있습니다.
+다음 모범 사례를 따르면 Azure에서 프라이빗 Docker 레지스트리 사용의 성능 및 비용 효과적 측면을 극대화하는 데 도움이 될 수 있습니다.
 
 ## <a name="network-close-deployment"></a>네트워크가 가까운 배포
 
 컨테이너를 배포하는 동일한 Azure 지역에 컨테이너 레지스트리를 만듭니다. 네트워크가 컨테이너 호스트와 가까운 지역에 레지스트리를 배치하면 대기 시간 및 비용을 낮추는 데 도움이 될 수 있습니다.
 
-네트워크와 가까운 배포는 개인 컨테이너 레지스트리를 사용하는 주요 이유 중 하나입니다. Docker 이미지에는 증분 배포를 허용하는 효율적인 [계층 구성](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/)이 있습니다. 그러나 새 노드는 지정된 이미지에 필요한 모든 계층을 끌어와야 합니다. 이 초기 `docker pull`은 수기가바이트까지 빠르게 추가할 수 있습니다. 개인 레지스트리를 배포와 가깝게 유지하면 네트워크 대기 시간이 최소화됩니다.
+네트워크와 가까운 배포는 프라이빗 컨테이너 레지스트리를 사용하는 주요 이유 중 하나입니다. Docker 이미지에는 증분 배포를 허용하는 효율적인 [계층 구성](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/)이 있습니다. 그러나 새 노드는 지정된 이미지에 필요한 모든 계층을 끌어와야 합니다. 이 초기 `docker pull`은 수기가바이트까지 빠르게 추가할 수 있습니다. 프라이빗 레지스트리를 배포와 가깝게 유지하면 네트워크 대기 시간이 최소화됩니다.
 또한 Azure가 포함하는 모든 공용 클라우드는 네트워크 송신 비용을 초래합니다. 데이터 센터 간에 이미지를 끌어오면 대기 시간 외에도 네트워크 송신 비용이 추가로 발생합니다.
 
 ## <a name="geo-replicate-multi-region-deployments"></a>다중 지역 배포 지리적 복제
@@ -54,7 +54,7 @@ Azure Container Instances와 같은 특정 호스트 유형으로 시험해 볼 
 
 Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉 개별 인증과 서비스(또는 "헤드리스") 인증이 있습니다. 다음 표에서는 이러한 시나리오와 각 시나리오의 권장 인증 방법에 대해 간략하게 설명합니다.
 
-| Type | 예제 시나리오  | 권장 방법 |
+| Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
 | 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |

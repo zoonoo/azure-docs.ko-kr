@@ -105,7 +105,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 
 ![Business One을 포함하는 허브 및 스포크 구성](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-사용자가 Azure에 대한 개인 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
+사용자가 Azure에 대한 프라이빗 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
 
 ### <a name="business-one-database-server"></a>Business One 데이터베이스 서버
 데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS에 관계없이, [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)(SAP 워크로드에 대한 Azure Virtual Machines DBMS 배포의 고려 사항) 문서를 읽고 Azure VM의 DBMS 배포와 관련 네트워킹 및 저장소 항목을 전반적으로 이해해야 합니다.

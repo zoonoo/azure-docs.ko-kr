@@ -185,7 +185,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-개인 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
+프라이빗 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 
 ## <a name="editor-prelude"></a>Editor Prelude
 F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 예를 들면 다음과 같습니다.

@@ -46,7 +46,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    </cert>
    ```
 8. 메모장에서 *profileinfo.txt*를 엽니다. 개인 키를 가져오려면 텍스트를 선택 합니다. (포함 및 사이) "---BEGIN PRIVATE KEY---" 및 "---END PRIVATE KEY---" 복사 합니다.
-9. 메모장의 vpnconfig.ovpn 파일로 돌아가서 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 개인 키를 붙여넣습니다.
+9. 메모장의 vpnconfig.ovpn 파일로 돌아가서 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 프라이빗 키를 붙여넣습니다.
 
    ```
    # P2S client root certificate private key
@@ -65,7 +65,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.
-5. base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법에 대한 자세한 내용은 [개인 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
+5. base64에서 P2S 클라이언트 인증서 프라이빗 키를 사용하여 프라이빗 키 섹션을 채웁니다. 프라이빗 키를 추출하는 방법에 대한 자세한 내용은 [프라이빗 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.
 6. 다른 필드는 변경하지 마세요. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
 7. 프로필 파일을 두 번 클릭하여 tunnelblik에서 프로필을 만듭니다.
 8. 애플리케이션 폴더에서 Tunnelblik를 시작합니다.
@@ -87,7 +87,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    ```
 3. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭에서 이 작업을 수행할 수 있습니다.
 4. 만들고 게이트웨이의 P2S 구성에 업로드한 P2S 클라이언트 인증서를 [내보냅니다](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport). 
-5. .pfx에서 개인 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 컴퓨터에서 OpenSSL을 사용하는 것이 하나의 방법입니다.
+5. .pfx에서 프라이빗 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 컴퓨터에서 OpenSSL을 사용하는 것이 하나의 방법입니다.
 
     ```
     openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
@@ -107,7 +107,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    ```
 8. 텍스트 편집기에서 profileinfo.txt를 엽니다. 개인 키를 가져오려면 "---BEGIN PRIVATE KEY---" 간 및 포함 하 여 텍스트를 선택 하 고 "---END PRIVATE KEY---" 복사 합니다.
 
-9. 텍스트 편집기에서 vpnconfig.ovpn 파일을 열고 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 개인 키를 붙여넣습니다.
+9. 텍스트 편집기에서 vpnconfig.ovpn 파일을 열고 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 프라이빗 키를 붙여넣습니다.
 
    ```
    # P2S client root certificate private key

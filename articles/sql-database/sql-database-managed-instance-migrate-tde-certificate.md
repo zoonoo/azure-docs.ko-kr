@@ -77,7 +77,7 @@ ms.locfileid: "64706105"
 
    ![TDE 인증서 목록](./media/sql-database-managed-instance-migrate-tde-certificate/onprem-certificate-list.png)
 
-3. 다음 스크립트를 실행하여 공개 키 및 개인 키 정보를 유지하면서 인증서를 파일 쌍(.cer 및 .pvk)으로 내보냅니다.
+3. 다음 스크립트를 실행하여 공개 키 및 프라이빗 키 정보를 유지하면서 인증서를 파일 쌍(.cer 및 .pvk)으로 내보냅니다.
 
    ```sql
    USE master
@@ -112,7 +112,7 @@ ms.locfileid: "64706105"
 
 3. 인증서를 마우스 오른쪽 단추로 클릭하고 내보내기...를 클릭합니다.
 
-4. 마법사를 따라 인증서 및 개인 키를 개인 정보 교환 형식으로 내보냅니다.
+4. 마법사를 따라 인증서 및 프라이빗 키를 개인 정보 교환 형식으로 내보냅니다.
 
 ## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet을 사용하여 Azure SQL Database Managed Instance에 인증서 업로드
 

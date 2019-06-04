@@ -68,8 +68,8 @@ az account list
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>선택 사항: Azure DNS 사설 영역 기능(공개 미리 보기)을 설치/사용하려면
-Azure DNS 사설 영역 기능은 Azure CLI 확장을 통해 공개 미리 보기로 출시되었습니다. “dns” Azure CLI 확장 설치 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>선택 사항: Azure DNS Private Zones 기능(공개 미리 보기)을 설치/사용하려면
+Azure DNS Private Zone 기능은 Azure CLI 확장을 통해 공개 미리 보기로 출시되었습니다. “dns” Azure CLI 확장 설치 
 ```
 az extension add --name dns
 ``` 

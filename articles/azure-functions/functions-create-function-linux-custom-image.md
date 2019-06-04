@@ -149,7 +149,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ![함수 앱을 로컬로 테스트](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-필요에 따라 이번에는 로컬 컨테이너에서 다음 URL을 사용하여 다시 함수를 테스트할 수 있습니다. 
+필요에 따라 이번에는 로컬 컨테이너에서 다음 URL을 사용하여 다시 함수를 테스트할 수 있습니다.
 
 `http://localhost:8080/api/myhttptrigger?name=<yourname>`
 
@@ -157,7 +157,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>사용자 지정 이미지를 Docker 허브에 푸시
 
-레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 개인 리포지토리를 호스팅할 수 있습니다.
+레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
 
 이미지를 푸시하려면 먼저 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. `<docker-id>`를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다. 다른 Docker 허브 암호 옵션은 [docker login 명령 설명서](https://docs.docker.com/engine/reference/commandline/login/)를 참조하세요.
 
@@ -230,7 +230,7 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 응용 프로그램 설정을 환경 변수로 대신 설정해야 합니다.
+함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
 
 이 경우 `<storage_name>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 응용 프로그램 설정을 추가합니다.
 
@@ -246,7 +246,7 @@ AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]
-> 컨테이너가 비공개인 경우 다음 애플리케이션 설정도 설정해야 합니다.  
+> 컨테이너가 프라이빗인 경우 다음 애플리케이션 설정도 설정해야 합니다.  
 > - DOCKER_REGISTRY_SERVER_USERNAME  
 > - DOCKER_REGISTRY_SERVER_PASSWORD  
 >
@@ -278,7 +278,7 @@ az functionapp deployment container config --enable-cd \
 
 이 명령은 연속 배포를 사용하도록 설정한 후 배포 웹후크 URL을 반환합니다. [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) 명령을 사용하여 이 URL을 반환할 수도 있습니다. 
 
-배포 URL을 복사하고 DockerHub 리포지토리로 이동한 후 **웹후크** 탭을 선택하고 웹후크의 **웹후크 이름**을 입력하고 **웹후크 URL**에 URL을 붙여넣은 후 더하기 기호(**+**)를 선택합니다.
+배포 URL을 복사하고 DockerHub 리포지토리로 이동한 후 **웹후크** 탭을 선택하고 웹후크의 **웹후크 이름**을 입력하고 **웹후크 URL**에 URL을 붙여넣은 후 더하기 기호( **+** )를 선택합니다.
 
 ![DockerHub 리포지토리에서 웹후크 추가](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

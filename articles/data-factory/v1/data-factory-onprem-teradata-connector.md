@@ -297,7 +297,7 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| 정수  |Int32 |
+| 정수 |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |

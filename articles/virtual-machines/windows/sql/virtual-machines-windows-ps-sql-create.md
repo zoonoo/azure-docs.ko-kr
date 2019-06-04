@@ -187,7 +187,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 이제 가상 네트워크를 정의했으므로 가상 머신에 연결하기 위해 IP 주소를 구성해야 합니다. 이 자습서에서는 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) cmdlet을 사용하여 새 리소스 그룹에 공용 IP 주소를 만듭니다. 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블에 대해 이전에 초기화한 변수를 지정합니다.
 
 > [!NOTE]
-> 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 개인 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
+> 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 프라이빗 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
 
 다음 cmdlet을 실행하여 공용 IP 주소를 만듭니다.
 

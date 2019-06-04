@@ -45,7 +45,7 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>클러스터의 SSH 키는 어떻게 만드나요?
 
-클러스터의 Linux 가상 머신에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 개인 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
+클러스터의 Linux 가상 머신에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 프라이빗 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
 [Azure CLI 명령](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
 

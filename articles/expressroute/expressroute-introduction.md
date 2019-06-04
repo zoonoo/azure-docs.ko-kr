@@ -1,6 +1,6 @@
 ---
-title: '개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 - ExpressRoute 개요: Azure | Microsoft Docs'
-description: ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
+title: '프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장 - ExpressRoute 개요: Azure | Microsoft Docs'
+description: ExpressRoute 기술 개요에서는 프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 services: expressroute
 author: mialdrid
 ms.service: expressroute
@@ -16,7 +16,7 @@ ms.lasthandoff: 05/21/2019
 ms.locfileid: "65965868"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
-ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
 
 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. ExpressRoute를 사용하여 네트워크를 Microsoft에 연결하는 방법에 대한 내용은 [ExpressRoute 연결 모델](expressroute-connectivity-models.md)을 참조하세요.
 
@@ -66,7 +66,7 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 원하는 Azure 지역 근처의 ExpressRoute 위치로 데이터를 가져올 수 있는 경우 [Local SKU](expressroute-faqs.md)를 활성화하여 효율적 비용으로 데이터를 전송할 수 있습니다. 로컬에서 데이터 전송은 ExpressRoute 포트 요금에 포함됩니다. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>ExpressRoute Global Reach를 사용한 온-프레미스 간 연결
-ExpressRoute Global Reach를 사용해 ExpressRoute 회로를 연결하면 온-프레미스 사이트 전체에서 데이터를 교환할 수 있습니다. 예를 들어 캘리포니아의 개인 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 개인 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 회로 2개를 통해 두 개인 데이터 센터를 연결할 수 있습니다. 데이터 센터 간 트래픽은 Microsoft 네트워크를 통해 전송됩니다.
+ExpressRoute Global Reach를 사용해 ExpressRoute 회로를 연결하면 온-프레미스 사이트 전체에서 데이터를 교환할 수 있습니다. 예를 들어 캘리포니아의 프라이빗 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 프라이빗 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 회로 2개를 통해 두 프라이빗 데이터 센터를 연결할 수 있습니다. 데이터 센터 간 트래픽은 Microsoft 네트워크를 통해 전송됩니다.
 
 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
 ### <a name="rich-connectivity-partner-ecosystem"></a>다양한 연결 파트너 에코시스템
@@ -107,7 +107,7 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 * **무제한 데이터**입니다. 월별 요금으로 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다.
 * **데이터 요금**입니다. 월별 요금으로 청구되며 모든 인바운드 데이터 전송은 무료입니다. 아웃 바운드 데이터 전송은 데이터 전송량 GB 당 요금이 부과됩니다. 데이터 전송 속도는 지역에 따라 다릅니다.
 * **ExpressRoute 프리미엄 추가 기능**입니다. ExpressRoute 프리미엄은 ExpressRoute 회로의 추가 기능입니다. ExpressRoute 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다. 
-  * Azure 공용 및 Azure 개인 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
+  * Azure 공용 및 Azure 프라이빗 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
   * 서비스에 대한 전역 연결입니다. 모든 지역에서 만든 ExpressRoute 회로(국가별 클라우드 제외)는 전세계의 다른 지역에 걸쳐 리소스에 액세스합니다. 예를 들어 서유럽에서 만든 가상 네트워크는 실리콘밸리에 프로비전된 ExpressRoute 회로를 통해 액세스될 수 있습니다.
   * ExpressRoute 회로 당 VNet 링크의 횟수는 회로의 대역폭에 따라 10에서 큰 제한으로 증가합니다.
 

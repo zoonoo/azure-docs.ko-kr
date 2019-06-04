@@ -46,7 +46,7 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 
 - **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.
 
-- **SQL SA 계정(선택 사항)**: SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.
+- **SQL SA 계정(선택 사항)** : SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect 설치
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
@@ -76,8 +76,8 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 | 사용 권한 | 용도 |
 | --- | --- |
 | <li>디렉터리 변경 내용 복제</li><li>모든 디렉터리 변경 내용 복제 |암호 해시 동기화 |
-| 모든 속성 사용자 읽기/쓰기  |가져오기 및 Exchange 하이브리드 |
-| 모든 속성 iNetOrgPerson 읽기/쓰기  |가져오기 및 Exchange 하이브리드 |
+| 모든 속성 사용자 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
+| 모든 속성 iNetOrgPerson 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
 | 모든 속성 그룹 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
 | 모든 속성 연락처 읽기/쓰기 |가져오기 및 Exchange 하이브리드 |
 | 암호 재설정 |비밀번호 쓰기 저장을 사용하기 위한 준비 |
@@ -221,7 +221,7 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 
 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다.
 
-이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 개인 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다.
+이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 프라이빗 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다.
 
 전체 SQL Server를 사용하는 경우 서비스 계정은 동기화 엔진에 대해 만든 데이터베이스의 DBO입니다. 서비스는 다른 사용 권한이 의도한 대로 작동하지 않습니다. SQL 로그인도 생성됩니다.
 

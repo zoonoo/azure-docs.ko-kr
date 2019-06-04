@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667381"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302450"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
@@ -44,7 +44,7 @@ ms.locfileid: "58667381"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드
@@ -86,7 +86,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 사용해서는 안 됩니다.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
+**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 대해서는 사용하지 마세요.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
 
 ![클러스터 만들기](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

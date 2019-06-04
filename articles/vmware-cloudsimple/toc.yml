@@ -12,9 +12,9 @@
       items:
         - name: 용량 초기화 및 구매
           href: quickstart-create-cloudsimple-service.md
-        - name: 사설 클라우드 환경 구성
+        - name: 프라이빗 클라우드 환경 구성
           href: quickstart-create-private-cloud.md
-        - name: 사설 클라우드에 VMware VM 만들기
+        - name: 프라이빗 클라우드에 VMware VM 만들기
           href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
         - name: Azure에서 VMware VM 사용
           href: quickstart-create-vmware-virtual-machine.md
@@ -24,7 +24,7 @@
           href: cloudsimple-service.md
         - name: 노드
           href: cloudsimple-node.md
-        - name: 사설 클라우드
+        - name: 프라이빗 클라우드
           href: cloudsimple-private-cloud.md
         - name: 가상 머신
           href: cloudsimple-virtual-machines.md
@@ -42,7 +42,7 @@
           href: cloudsimple-account.md
         - name: 작업 관리
           href: cloudsimple-activity.md
-        - name: 사설 클라우드의 VMware
+        - name: 프라이빗 클라우드의 VMware
           href: vmware-components.md
         - name: 보안 개요
           href: cloudsimple-security.md
@@ -64,17 +64,17 @@
           items:
             - name: 노드 구매
               href: create-nodes.md
-        - name: 사설 클라우드 리소스 관리
+        - name: 프라이빗 클라우드 리소스 관리
           items:
-            - name: 사설 클라우드 만들기
+            - name: 프라이빗 클라우드 만들기
               href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
-            - name: 사설 클라우드 관리
+            - name: 프라이빗 클라우드 관리
               href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
-            - name: 사설 클라우드 확장
+            - name: 프라이빗 클라우드 확장
               href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
-            - name: 사설 클라우드 축소
+            - name: 프라이빗 클라우드 축소
               href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
-            - name: 사설 클라우드 랙 목록 보기
+            - name: 프라이빗 클라우드 랙 목록 보기
               href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
             - name: Azure 구독 매핑
               href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
@@ -82,7 +82,7 @@
               href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
         - name: CloudSimple 작업 모니터링
           href: 'https://docs.azure.cloudsimple.com/activity/'
-        - name: 사설 클라우드 네트워킹 설정
+        - name: 프라이빗 클라우드 네트워킹 설정
           items:
             - name: VLAN 및 서브넷 만들기 및 관리
               href: 'https://docs.azure.cloudsimple.com/create-vlan-subnet/'
@@ -104,11 +104,11 @@
               href: 'https://docs.azure.cloudsimple.com/users/'
             - name: 사용량 로그 보기
               href: 'https://docs.azure.cloudsimple.com/usage/'
-            - name: 사설 클라우드에 가상 네트워크 연결 설정
+            - name: 프라이빗 클라우드에 가상 네트워크 연결 설정
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: 사용자 프로필 편집
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
-        - name: 사설 클라우드에 대한 VMware 가상 머신 설정
+        - name: 프라이빗 클라우드에 대한 VMware 가상 머신 설정
           items:
             - name: Azure에서 VM 만들기
               href: 'https://docs.azure.cloudsimple.com/azure-create-vm/'
@@ -116,15 +116,15 @@
       items:
         - name: 환경 보호
           href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
-        - name: 사설 클라우드 관리
+        - name: 프라이빗 클라우드 관리
           items:
             - name: 워크로드 DNS 및 DHCP 설정
               href: 'https://docs.azure.cloudsimple.com/dns-dhcp-setup/'
             - name: 마이그레이션을 위한 NSX 레이어 2 VPN
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
-        - name: 사설 클라우드 네트워킹
+        - name: 프라이빗 클라우드 네트워킹
           items:
-            - name: 온-프레미스와 사설 클라우드 간의 VPN 연결
+            - name: 온-프레미스와 프라이빗 클라우드 간의 VPN 연결
               href: 'https://docs.azure.cloudsimple.com/set-up-vpn/'
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
               href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
@@ -132,15 +132,15 @@
               href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
         - name: VMware 플랫폼
           items:
-            - name: 사설 클라우드 권한 모델 알아보기
+            - name: 프라이빗 클라우드 권한 모델 알아보기
               href: 'https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/'
             - name: vCenter ID 소스
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: VMware VM을 사용하는 Azure Application Gateway
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: 사설 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
+            - name: 프라이빗 클라우드 vCenter 서버를 vRealize 자동화 엔드포인트로 구성
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
-            - name: 워크로드 VM을 사설 클라우드로 마이그레이션
+            - name: 워크로드 VM을 프라이빗 클라우드로 마이그레이션
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Azure의 VMware에서 애플리케이션 고가용성 확보
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
@@ -150,13 +150,13 @@
               href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: VMware Horizon 솔루션 가이드
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
-            - name: 사설 클라우드에 대한 vSAN 암호화 구성
+            - name: 프라이빗 클라우드에 대한 vSAN 암호화 구성
               href: 'https://docs.azure.cloudsimple.com/vsan-encryption/'
-            - name: CloudSimple 사설 클라우드에 Oracle RAC 배포
+            - name: CloudSimple 프라이빗 클라우드에 Oracle RAC 배포
               href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
         - name: Azure 코어 통합
           items:
-            - name: 사설 클라우드 vCenter의 Azure AD ID 소스
+            - name: 프라이빗 클라우드 vCenter의 Azure AD ID 소스
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: ExpressRoute를 통해 온-프레미스 네트워크 연결
               href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'

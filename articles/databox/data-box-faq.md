@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150453"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236288"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -184,7 +184,7 @@ a. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있�
 a. Data Box 서비스에서는 Microsoft가 Azure 데이터 센터로의 배송을 처리합니다. 사용자 고유의 배송 업체를 사용하려면 Azure Import/Export 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure Import/Export service 란?](../storage/common/storage-import-export-service.md)을 참조하세요.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. 배송 중에 내 Data Box 디바이스가 국가 경계를 넘을 수 있나요?
-a. 모든 Data Box 디바이스는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.
+a. 모든 Data Box 디바이스는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다. Data Box와 Data Box Heavy 디바이스에 모두 적용됩니다.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. E 잉크 표시가 반송 레이블에 없습니다. 어떻게 해야 하나요?
 a. 반송 레이블에 E 잉크가 표시되지 않으면 다음 단계를 수행합니다.
@@ -230,7 +230,7 @@ a.  Azure로 데이터 복사가 완료되면 Data Box 디스크의 데이터는
 
 ## <a name="audit-report"></a>감사 보고서
 
-### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Azure Data Box 서비스가 고객 관리 연속성 절차에 어떻게 도움이 되나요? 
+### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Azure Data Box 서비스가 고객 관리 연속성 절차에 어떻게 도움이 되나요?
 a.  Azure Data Box 서비스는 기본적으로 관리 연속성 문서에 사용할 수 있는 보고서를 제공합니다. 이 감사 및 복사 로그는 Azure의 스토리지 계정에서 제공되며, 주문이 완료되면 Azure Portal에서 [주문 기록을 다운로드](data-box-portal-admin.md#download-order-history)할 수 있습니다.
 
 
@@ -239,7 +239,7 @@ a.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 
 - UPS로부터의 물류 운송
 - 전원 켜기 및 사용자 공유 액세스 로깅
-- Data Box에 성공적으로 수집된 각 파일에 대 한 64비트 CRC-64(순환 중복 검사) 또는 체크섬이 적용된 매니페스트 파일 
+- Data Box에 성공적으로 수집된 각 파일에 대 한 64비트 CRC-64(순환 중복 검사) 또는 체크섬이 적용된 매니페스트 파일
 - Azure Storage 계정에 업로드하지 못한 파일 보고
 - 데이터가 Azure Storage 계정에 복사된 후 Data Box 디바이스 삭제(NIST 800 88R1 표준에 따라)
 

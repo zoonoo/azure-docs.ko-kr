@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 63169423e757f3e1e73a95a1523d74c8fc59b2b2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: dcf15130b1b720277fcb6f551f1e19229a6c5e7c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835118"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239716"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C IoT Edge 모듈 개발
 
@@ -83,7 +83,7 @@ C에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
 
 1. VS Code 탐색기에서 .env 파일을 엽니다.
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
@@ -149,7 +149,7 @@ C에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를
    }
    ```
 
-   else 문에서 코드의 새 줄은 메시지를 경고로 레이블을 지정하는 메시지에 새 속성을 추가합니다. 이 코드는 모든 메시지를 경고로 레이블을 지정하는데, 높은 온도를 보고할 경우에만 IoT Hub로 메시지를 보내는 기능을 추가하기 때문입니다. 
+   else 문의 새로운 코드 줄은 메시지에 경고 레이블을 지정하는 메시지에 새 속성을 추가합니다. 이 코드는 모든 메시지를 경고로 레이블을 지정하는데, 높은 온도를 보고할 경우에만 IoT Hub로 메시지를 보내는 기능을 추가하기 때문입니다. 
 
 1. `InputQueue1Callback` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 실제 메시지 필터를 구현합니다. 메시지가 수신되면 보고된 온도가 임계값을 초과하는지 여부를 확인합니다. 그렇다면 해당 출력 큐를 통해 메시지를 전달합니다. 그렇지 않은 경우에는 메시지가 무시됩니다. 
 
@@ -314,7 +314,7 @@ IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이
 
 Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 IoT Edge 디바이스 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 상세 정보를 확장합니다.
 
-1. Visual Studio Code 탐색기에서 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. Visual Studio Code 탐색기에서 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
 2. IoT Hub에 메시지가 들어오는 것을 확인합니다. IoT Edge 디바이스가 새 배포를 수신하고 모든 모듈을 시작해야 하기 때문에 메시지가 도착하는 데 시간이 걸릴 수 있습니다. 그런 다음, CModule 코드를 변경할 경우 머신 온도가 25도에 도달할 때까지 기다렸다가 메시지를 보냅니다. 또한 온도 임계값에 도달하는 모든 메시지에 메시지 유형 **경고**를 추가합니다. 
 

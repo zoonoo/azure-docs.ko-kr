@@ -79,9 +79,9 @@ using Microsoft.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
-### <a name="add-private-properties"></a>개인 속성 추가
+### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 개인 속성을 추가합니다.
+VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 프라이빗 속성을 추가합니다.
 
 표시된 위치에서 이러한 속성의 예제 값을 바꿉니다.
 

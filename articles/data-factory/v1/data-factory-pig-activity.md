@@ -211,7 +211,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
       }
     }
     ```
-* Pig 스크립트에서 다음 예와 같이 '**$parameterName**'을 사용하여 매개 변수를 참조합니다.
+* Pig 스크립트에서 다음 예와 같이 ' **$parameterName**'을 사용하여 매개 변수를 참조합니다.
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

@@ -13,9 +13,9 @@ ms.locfileid: "66125154"
 ---
 ## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>Docker CLI를 사용하여 프라이빗 컨테이너 레지스트리 인증
 
-Cognitive Services 컨테이너용 개인 컨테이너 레지스트리를 사용하여 인증하는 몇 가지 방법이 있지만, 명령줄에서 권장되는 방법은 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)를 사용하는 것입니다.
+Cognitive Services 컨테이너용 프라이빗 컨테이너 레지스트리를 사용하여 인증하는 몇 가지 방법이 있지만, 명령줄에서 권장되는 방법은 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)를 사용하는 것입니다.
 
-다음 예제와 같이 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Cognitive Services 컨테이너용 개인 컨테이너 레지스트리인 `containerpreview.azurecr.io`에 로그인합니다. *\<username\>* 과 *\<password\>* 를 각각 Azure Cognitive Services 팀에서 받은 자격 증명에 제공된 사용자 이름과 암호로 바꿉니다.
+다음 예제와 같이 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Cognitive Services 컨테이너용 프라이빗 컨테이너 레지스트리인 `containerpreview.azurecr.io`에 로그인합니다. *\<username\>* 과 *\<password\>* 를 각각 Azure Cognitive Services 팀에서 받은 자격 증명에 제공된 사용자 이름과 암호로 바꿉니다.
 
 ```
 docker login containerpreview.azurecr.io -u <username> -p <password>

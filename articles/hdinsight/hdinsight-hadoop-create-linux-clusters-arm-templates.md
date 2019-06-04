@@ -54,11 +54,11 @@ Azure Portal을 사용하여 Resource Manager 템플릿을 배포할 수 있습�
 
 ## <a name="deploy-using-powershell"></a>PowerShell을 사용하여 배포
 
-Azure PowerShell을 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 개인 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-powershell-sas-token.md)를 참조하세요.
+Azure PowerShell을 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-powershell-sas-token.md)를 참조하세요.
 
 ## <a name="deploy-using-azure-cli"></a>Azure CLI를 사용하여 배포
 
-클래식 CLI를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 개인 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-cli-sas-token.md)를 참조하세요.
+클래식 CLI를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 프라이빗 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-cli-sas-token.md)를 참조하세요.
 
 ## <a name="deploy-using-the-rest-api"></a>REST API를 사용하여 배포
 REST API를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)를 참조하세요.

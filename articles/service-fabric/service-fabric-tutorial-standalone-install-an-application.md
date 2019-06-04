@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670314"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302433"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>자습서: Service Fabric 독립 실행형 클러스터에 애플리케이션 배포
 
-Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 응용 프로그램을 배포합니다.
+Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 배포합니다.
 
-이 자습서는 시리즈의 3부입니다.  Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric을 사용하여 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서에서는 이 독립 실행형 클러스터를 호스트하는 데 필요한 AWS 인프라를 만드는 방법을 보여 줍니다.
+이 자습서는 시리즈의 3부입니다.  Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric을 사용하여 “모든 OS 및 모든 클라우드” 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서에서는 이 독립 실행형 클러스터를 호스트하는 데 필요한 AWS 인프라를 만드는 방법을 보여 줍니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 이 자습서를 시작하기 전에:
 
-* [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드

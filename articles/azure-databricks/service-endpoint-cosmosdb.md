@@ -41,7 +41,7 @@ ms.locfileid: "60012852"
 
 ## <a name="create-a-cosmos-db-service-endpoint"></a>Cosmos DB 서비스 엔드포인트 만들기
 
-1. Azure Databricks 작업 영역이 가상 네트워크에 배포되면 [Azure Portal](https://portal.azure.com)에서 가상 네트워크로 이동합니다. Databricks 배포를 통해 만들어진 공용 및 사설 서브넷을 확인합니다.
+1. Azure Databricks 작업 영역이 가상 네트워크에 배포되면 [Azure Portal](https://portal.azure.com)에서 가상 네트워크로 이동합니다. Databricks 배포를 통해 만들어진 공용 및 프라이빗 서브넷을 확인합니다.
 
    ![가상 네트워크 서브넷](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
 

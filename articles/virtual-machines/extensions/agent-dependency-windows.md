@@ -132,7 +132,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzVMExtension` 명령 종속성 에이전트 가상 머신 확장을 기존 가상 컴퓨터에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
+`Set-AzVMExtension` 명령 종속성 에이전트 가상 머신 확장을 기존 가상 컴퓨터에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 프라이빗 구성을 PowerShell 해시 테이블에 저장해야 합니다. 
 
 ```powershell
 

@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - Azure CLI
-description: Azure CLI를 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
+title: 빠른 시작 - Azure에서 프라이빗 Docker 레지스트리 만들기 - Azure CLI
+description: Azure CLI를 사용한 프라이빗 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678703"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
 
-Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
+Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 관리되는 Docker 컨테이너 레지스트리 서비스입니다. 이 가이드에서는 Azure CLI를 사용하여 Azure Container Registry 인스턴스 만들기에 대해 자세히 설명합니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
 이 빠른 시작을 수행하려면 Azure CLI를 실행해야 합니다(버전 2.0.55 이상 권장). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 

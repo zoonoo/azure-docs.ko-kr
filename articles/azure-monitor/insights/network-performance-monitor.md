@@ -69,7 +69,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 * **서비스 연결 모니터**: 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
 
-* **ExpressRoute 모니터**: Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 개인 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
+* **ExpressRoute 모니터**: Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 프라이빗 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>모니터링을 위한 Log Analytics 에이전트 구성 
 

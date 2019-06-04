@@ -128,7 +128,7 @@ ms.locfileid: "64925571"
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>WMI(Windows Management Instrumentation) 구성 확인(오류 코드: 95103)
 
-파일 및 프린터 서비스를 확인한 후에는 방화벽을 통해 개인, 공용 및 도메인 프로필에 대한 WMI 서비스를 사용하도록 설정합니다. 이 설정은 원본 머신에서 원격 실행을 완료하는 데 필요합니다. 사용하도록 설정하려면 다음을 수행합니다.
+파일 및 프린터 서비스를 확인한 후에는 방화벽을 통해 프라이빗, 공용 및 도메인 프로필에 대한 WMI 서비스를 사용하도록 설정합니다. 이 설정은 원본 머신에서 원격 실행을 완료하는 데 필요합니다. 사용하도록 설정하려면 다음을 수행합니다.
 
 * 제어판으로 이동하여 보안을 클릭한 다음, Windows 방화벽을 클릭합니다.
 * 설정 변경을 클릭한 다음, 예외 탭을 클릭합니다.
@@ -143,7 +143,7 @@ ms.locfileid: "64925571"
 
 ## <a name="unsupported-operating-systems"></a>지원되지 않는 운영 체제
 
-실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다. 개인 패치를 사용하지 마세요.
+실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다. 프라이빗 패치를 사용하지 마세요.
 Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는지 알아보려면 [지원 매트릭스 문서](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
 
 ## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>지원되지 않는 부팅 디스크 구성(ErrorID: 95309, 95310, 95311)

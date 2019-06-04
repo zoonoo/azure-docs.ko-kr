@@ -58,7 +58,7 @@ ms.locfileid: "61257208"
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
-| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 프라이빗 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
@@ -117,14 +117,14 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 사용자 이름 |SFTP 서버에 액세스하는 사용자 |예 |
-| privateKeyPath | 게이트웨이에서 액세스할 수 있는 개인 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
-| privateKeyContent | 개인 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 개인 키 파일을 읽고 개인 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
-| passPhrase | 키 파일이 암호문으로 보호되는 경우 개인 키를 해독하는 암호문/암호를 지정합니다. | 개인 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
+| privateKeyPath | 게이트웨이에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| privateKeyContent | 프라이빗 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 프라이빗 키 파일을 읽고 프라이빗 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
+| passPhrase | 키 파일이 암호문으로 보호되는 경우 프라이빗 키를 해독하는 암호문/암호를 지정합니다. | 프라이빗 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
 
 > [!NOTE]
-> SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 개인 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다.
+> SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 프라이빗 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예제: 개인 키 filePath를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예제: 프라이빗 키 filePath를 사용한 SshPublicKey 인증
 
 ```json
 {
@@ -145,7 +145,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예제: 개인 키 콘텐츠를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예제: 프라이빗 키 콘텐츠를 사용한 SshPublicKey 인증
 
 ```json
 {
@@ -244,7 +244,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 
 이 예에서는 일반 텍스트의 사용자 이름과 암호를 기본 인증으로 사용합니다. 다음 방법 중 하나를 사용할 수도 있습니다.
 
-* 암호화된 자격 증명으로 기본 인증 
+* 암호화된 자격 증명으로 기본 인증
 * SSH 공개 키 인증
 
 사용할 수 있는 다른 유형의 인증은 [FTP 연결 서비스](#linked-service-properties) 섹션을 참조하세요.

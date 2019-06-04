@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `vision/v2.0` 라우팅을 끝점 URI에 추가해야 합니다. <br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
-## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
+## <a name="request-access-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 대한 액세스 요청
 
 [!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 

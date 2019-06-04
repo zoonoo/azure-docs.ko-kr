@@ -53,16 +53,16 @@ ARP 테이블은 계층 2 구성의 유효성을 검사하고 기본적인 계�
 ## <a name="prerequisites-for-using-arp-tables"></a>ARP 테이블을 사용하기 위한 필수 조건
 계속하기 전에 다음이 있는지 확인합니다.
 
-* 1개 이상 피어링으로 구성된 유효한 ExpressRoute 회로 연결 공급자가 완벽히 구성한 회로여야 합니다. 사용자(또는 연결 공급자)는 이 회로에서 하나 이상의 피어링을 구성했어야 합니다(Azure 개인, Azure 공용 또는 Microsoft).
-* 피어링(Azure 개인, Azure 공용 및 Microsoft) 구성에 사용한 IP 주소 범위 IP 주소 할당 예제를 검토 합니다 [ExpressRoute 라우팅 요구 사항 페이지](expressroute-routing.md) 쪽에서 및 ExpressRoute 측에서 인터페이스에 IP 주소가 매핑되는 방법을 이해 하려면. [ExpressRoute 피어링 구성 페이지](expressroute-howto-routing-classic.md)를 검토하면 피어링 구성에 관한 정보를 얻을 수 있습니다.
+* 1개 이상 피어링으로 구성된 유효한 ExpressRoute 회로 연결 공급자가 완벽히 구성한 회로여야 합니다. 사용자(또는 연결 공급자)는 이 회로에서 하나 이상의 피어링을 구성했어야 합니다(Azure 프라이빗, Azure 공용 또는 Microsoft).
+* 피어링(Azure 프라이빗, Azure 공용 및 Microsoft) 구성에 사용한 IP 주소 범위. IP 주소 할당 예제를 검토 합니다 [ExpressRoute 라우팅 요구 사항 페이지](expressroute-routing.md) 쪽에서 및 ExpressRoute 측에서 인터페이스에 IP 주소가 매핑되는 방법을 이해 하려면. [ExpressRoute 피어링 구성 페이지](expressroute-howto-routing-classic.md)를 검토하면 피어링 구성에 관한 정보를 얻을 수 있습니다.
 * 해당 IP 주소와 함께 사용되는 인터페이스의 MAC 주소에 대한 네트워킹 팀 또는 연결 공급자가 제공한 정보
 * Azure용 최신 Windows PowerShell 모듈(1.50 이상)
 
 ## <a name="arp-tables-for-your-expressroute-circuit"></a>ExpressRoute 회로에 대한 ARP 테이블
 이 섹션에서는 PowerShell을 사용하여 피어링의 각 형식에 대한 ARP 테이블을 표시하는 방법에 대한 지침을 제공합니다. 계속하기 전에 연결 공급자가 또는 피어링을 구성해야 합니다. 각 회로는 두 가지 경로(기본 및 보조)가 있습니다. 각 경로의 ARP 테이블을 독립적으로 확인할 수 있습니다.
 
-### <a name="arp-tables-for-azure-private-peering"></a>Azure 개인 피어링용 ARP 테이블
-다음 cmdlet은 Azure 개인 피어링용 ARP 테이블을 제공합니다.
+### <a name="arp-tables-for-azure-private-peering"></a>Azure 프라이빗 피어링용 ARP 테이블
+다음 cmdlet은 Azure 프라이빗 피어링용 ARP 테이블을 제공합니다.
 
         # Required variables
         $ckt = "<your Service Key here>

@@ -135,7 +135,7 @@ code azuredeploy.json
 }
 ```
 
-개인 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구성은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
+프라이빗 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구성은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
 
 ```JSON
 "imageRegistryCredentials": [

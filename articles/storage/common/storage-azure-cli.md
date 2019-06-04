@@ -243,7 +243,7 @@ az storage container create --name <container_name>
 
 선택적인 `--public-access` 인수를 지정하면 새 컨테이너에 대한 읽기 액세스의 다음 세 가지 수준 중 하나를 설정할 수 있습니다.
 
-* `off`(기본값): 컨테이너 데이터가 계정 소유자 전용입니다.
+* `off`(기본값): 컨테이너 데이터가 계정 소유자 프라이빗입니다.
 * `blob`: Blob에 대한 공용 읽기 액세스입니다.
 * `container`: 전체 컨테이너에 대한 공용 읽기 및 목록 액세스입니다.
 

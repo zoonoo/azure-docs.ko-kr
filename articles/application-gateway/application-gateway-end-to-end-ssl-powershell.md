@@ -42,7 +42,7 @@ Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 개인 키를 내보낼 수 있습니다.
+Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 프라이빗 키를 내보낼 수 있습니다.
 
 엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 백 엔드 서버의 공용 인증서를 Application Gateway에 업로드합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
 
@@ -125,7 +125,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-2. 프런트 엔드 IP 구성을 만듭니다. 이 설정은 개인 또는 공용 IP 주소를 Application Gateway의 프런트 엔드에 매핑합니다. 다음 단계는 이전 단계의 공용 IP 주소를 프런트 엔드 IP 구성과 연결합니다.
+2. 프런트 엔드 IP 구성을 만듭니다. 이 설정은 프라이빗 또는 공용 IP 주소를 Application Gateway의 프런트 엔드에 매핑합니다. 다음 단계는 이전 단계의 공용 IP 주소를 프런트 엔드 IP 구성과 연결합니다.
 
    ```powershell
    $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip

@@ -178,7 +178,7 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>5단계: 패키지 메타데이터 만들기 및 유지 관리
 
 패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 nuspec이 필요합니다.
-해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 개인 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
+해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 프라이빗 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
 
 ## <a name="step-6-tying-it-all-together"></a>6단계: 모든 항목 요약
 

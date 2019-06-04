@@ -2198,7 +2198,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Azure로 전용 사설 네트워크 파이버 연결</p>
+                                                    <p>Azure로 전용 프라이빗 네트워크 파이버 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2236,7 +2236,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Network</h3>
-                                                    <p>사설 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결</p>
+                                                    <p>프라이빗 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4573,7 +4573,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Bus</h3>
-                                                    <p>사설 및 공용 클라우드 환경 간 연결</p>
+                                                    <p>프라이빗 및 공용 클라우드 환경 간 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5339,7 +5339,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5900,7 +5900,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>

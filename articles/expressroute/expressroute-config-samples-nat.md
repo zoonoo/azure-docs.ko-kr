@@ -24,7 +24,7 @@ ms.locfileid: "60367611"
 > 
 > 
 
-* 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 개인 피어링의 경우 NAT를 구성하면 안 됩니다. 자세한 내용은 [ExpressRoute 피어링](expressroute-circuit-peerings.md) 및 [ExpressRoute NAT 요구 사항](expressroute-nat.md)을 검토하세요.
+* 아래의 라우터 구성 샘플은 Azure 공용 및 Microsoft 피어링에 적용됩니다. Azure 프라이빗 피어링의 경우 NAT를 구성하면 안 됩니다. 자세한 내용은 [ExpressRoute 피어링](expressroute-circuit-peerings.md) 및 [ExpressRoute NAT 요구 사항](expressroute-nat.md)을 검토하세요.
 
 * 인터넷 및 ExpressRoute에 대한 연결은 별도의 NAT IP 풀을 사용해야 합니다. 인터넷 및 ExpressRoute에서 동일한 NAT IP 풀을 사용하면 비대칭 라우팅 및 연결 손실이 발생합니다.
 

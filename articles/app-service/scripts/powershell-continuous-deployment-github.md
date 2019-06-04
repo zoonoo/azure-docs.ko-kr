@@ -29,7 +29,7 @@ ms.locfileid: "66136492"
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 또한 다음 사항을 확인합니다.
 
 - `az login` 명령을 사용하여 Azure와 연결했습니다.
-- 애플리케이션 코드는 사용자가 소유한 공용 또는 개인 GitHub 리포지토리에 있습니다.
+- 애플리케이션 코드는 사용자가 소유한 공용 또는 프라이빗 GitHub 리포지토리에 있습니다.
 - [GitHub 계정에서 액세스 토큰을 만들](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)었습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트

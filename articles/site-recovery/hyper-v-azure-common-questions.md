@@ -147,7 +147,7 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
 
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?

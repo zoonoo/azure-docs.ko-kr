@@ -60,7 +60,7 @@ ExpressRoute 회로의 **allowClassicOperations** 매개 변수를 설정하여 
 
 그렇지만 **allowClassicOperations**를 TRUE로 설정하면 다음 클래식 작업을 수행할 수 없습니다.
 
-* Azure 개인, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
+* Azure 프라이빗, Azure 공용 및 Microsoft 피어링에 대한 BGP(Border Gateway Protocol) 피어링 만들기/업데이트/가져오기/삭제
 * ExpressRoute 회로 삭제
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>클래식과 리소스 관리자 배포 모델 간의 통신

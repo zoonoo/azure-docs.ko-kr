@@ -19,7 +19,7 @@ ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
 ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65190497"
@@ -144,7 +144,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 | 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 | 1709 릴리스 | 현재 비공개 미리 보기로 제공되고 있습니다. Azure AD SSPR이 지원되지 않음 |
+| 라우팅 가능 | 관리 | 1709 릴리스 | 현재 프라이빗 미리 보기로 제공되고 있습니다. Azure AD SSPR이 지원되지 않음 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 관리 | 지원되지 않음 | |
 

@@ -29,7 +29,7 @@ B2B 통신을 기밀로 유지해야 할 경우 통합 계정에 인증서를 �
 
 * [공용 인증서](https://en.wikipedia.org/wiki/Public_key_certificate): 공용 인터넷 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)에서 구입해야 하지만 키가 필요하지 않습니다. 
 
-* 개인 인증서 또는 [*자체 서명 된 인증서*](https://en.wikipedia.org/wiki/Self-signed_certificate): 직접 만들고 발급하며 개인 키도 필요합니다. 
+* 프라이빗 인증서 또는 [*자체 서명된 인증서*](https://en.wikipedia.org/wiki/Self-signed_certificate): 직접 만들고 발급하며 프라이빗 키도 필요합니다. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,9 +60,9 @@ B2B 기능이 포함된 논리 앱에서 *공용 인증서*를 사용하려면 �
 
    ![Azure에서 새 인증서 표시](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
-## <a name="upload-a-private-certificate"></a>개인 인증서 업로드
+## <a name="upload-a-private-certificate"></a>프라이빗 인증서 업로드
 
-B2B 기능이 포함된 논리 앱에서 *개인 인증서*를 사용하려면 먼저 통합 계정에 인증서를 업로드해야 합니다. 먼저 [Azure Key Vault](../key-vault/key-vault-get-started.md)에 추가할 개인 키가 있어야 합니다. 
+B2B 기능이 포함된 논리 앱에서 *프라이빗 인증서*를 사용하려면 먼저 통합 계정에 인증서를 업로드해야 합니다. 먼저 [Azure Key Vault](../key-vault/key-vault-get-started.md)에 추가할 프라이빗 키가 있어야 합니다. 
 
 사용자가 만드는 [규약](logic-apps-enterprise-integration-agreements.md)에서 해당 속성을 정의한 후에 인증서를 사용하여 B2B 메시지를 안전하게 보호할 수 있습니다.
 

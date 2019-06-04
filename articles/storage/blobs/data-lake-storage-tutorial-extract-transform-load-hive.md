@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다.
 
-   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`
+   공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 프라이빗 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. 명령 프롬프트에서 다음 명령을 입력합니다.
 

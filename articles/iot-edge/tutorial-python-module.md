@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 82da44409c4500ff097805efec33cec8cf6bbedd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575626"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303824"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
 
@@ -40,7 +40,7 @@ Visual Studio Code를 사용하여 C 코드를 개발하고 Azure IoT Edge를 �
 
 다음 표에서 Python 모듈을 개발하고 Linux에 배포하기 위한 옵션을 확인할 수 있습니다. 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Linux AMD64에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Linux ARM32에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
@@ -102,7 +102,7 @@ Python에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요�
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-환경 파일은 컨테이너 리포지토리에 대한 자격 증명을 저장하고 IoT Edge 런타임과 이를 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. 
+환경 파일은 컨테이너 리포지토리에 대한 자격 증명을 저장하고 IoT Edge 런타임과 이를 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. 
 
 1. VS Code 탐색기에서 **.env** 파일을 엽니다. 
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다. 
@@ -242,7 +242,7 @@ IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이
 
 Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 IoT Edge 디바이스 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 상세 정보를 확장합니다.
 
-1. Visual Studio Code 탐색기에서 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. Visual Studio Code 탐색기에서 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
 2. IoT Hub에 메시지가 들어오는 것을 확인합니다. IoT Edge 디바이스가 새 배포를 수신하고 모든 모듈을 시작해야 하기 때문에 메시지가 도착하는 데 시간이 걸릴 수 있습니다. 그런 다음, PythonModule 코드를 변경할 경우 머신 온도가 25도에 도달할 때까지 기다렸다가 메시지를 보냅니다. 또한 온도 임계값에 도달하는 모든 메시지에 메시지 유형 **경고**를 추가합니다. 
 
@@ -260,7 +260,7 @@ Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 I
 
 5. 모듈 쌍 편집 창의 아무 곳이나 마우스 오른쪽 단추로 클릭하고 **모듈 쌍 업데이트**를 선택합니다. 
 
-5. 들어오는 디바이스-클라우드 메시지를 모니터링합니다. 새 온도 임계값에 도달할 때까지 메시지가 중지되어야 합니다. 
+6. 들어오는 디바이스-클라우드 메시지를 모니터링합니다. 새 온도 임계값에 도달할 때까지 메시지가 중지되어야 합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
@@ -269,7 +269,6 @@ Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 I
 그렇지 않은 경우 요금이 발생하지 않도록 이 문서에서 사용한 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 

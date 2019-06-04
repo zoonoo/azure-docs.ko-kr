@@ -167,7 +167,7 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>“로그인 세션이 만료되었습니다. 다시 로그인하려면 여기를 클릭하세요.” 메시지를 계속해서 받는 이유는 무엇입니까?
 
-로그아웃하고 다시 로그인했는데도 이 오류 메시지가 계속 표시되는 경우 비공개 브라우징 세션으로 다시 시도해 보세요.
+로그아웃하고 다시 로그인했는데도 이 오류 메시지가 계속 표시되는 경우 프라이빗 브라우징 세션으로 다시 시도해 보세요.
 
 ### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>보유한 각 구독에 대해 서로 다른 카드를 사용하려면 어떻게 할까요?
 

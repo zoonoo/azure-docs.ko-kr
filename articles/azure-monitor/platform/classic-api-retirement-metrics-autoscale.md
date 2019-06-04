@@ -16,7 +16,7 @@ ms.locfileid: "60709986"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
-Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래식 VM 및 클래식 Cloud Services에 대한 자동 크기 조정 설정을 만들고 관리하며 해당 메트릭을 사용하는 기능을 제공합니다. 클래식 배포 모델 기반 API의 원래 세트는 모든 지역의 모든 Azure 공용 및 사설 클라우드에서 **2019년 6월 30일 이후로 사용 중지**됩니다.   
+Azure Monitor(이전에 처음 출시될 때는 Azure Insights)는 현재 클래식 VM 및 클래식 Cloud Services에 대한 자동 크기 조정 설정을 만들고 관리하며 해당 메트릭을 사용하는 기능을 제공합니다. 클래식 배포 모델 기반 API의 원래 세트는 모든 지역의 모든 Azure 공용 및 프라이빗 클라우드에서 **2019년 6월 30일 이후로 사용 중지**됩니다.   
 
 1년여 동안 Azure Resource Manager 기반 API 세트를 통해 동일한 작업이 지원되었습니다. Azure Portal은 자동 크기 조정 및 메트릭 둘 다에 새로운 REST API를 사용합니다. 이러한 Resource Manager API를 기반으로 하는 새로운 SDK, PowerShell 및 CLI도 사용할 수 있습니다. 모니터링 파트너 서비스는 Azure Monitor의 새로운 Resource Manager 기반 REST API를 사용합니다.  
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156190"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257690"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 부하 분산 장치 만들기
 
@@ -146,7 +146,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ```
 ### <a name="create-nics"></a>NIC 만들기
 
-[az network nic create](/cli/azure/network/nic#az-network-nic-create) 명령을 사용하여 3개의 네트워크 인터페이스를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 
+[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 2개의 네트워크 인터페이스를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -164,7 +164,7 @@ done
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
-이 예제에서는 부하 분산 장치의 백 엔드 서버로 사용될 세 개의 가상 머신을 만듭니다. 또한 부하 분산 장치가 성공적으로 만들어졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다.
+이 예제에서는 부하 분산 장치에 대한 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 또한 부하 분산 장치가 성공적으로 만들어졌는지 확인하기 위해 가상 머신에 NGINX를 설치합니다.
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 

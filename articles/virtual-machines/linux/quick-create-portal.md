@@ -39,7 +39,7 @@ Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여
 ssh-keygen -t rsa -b 2048
 ```
 
-위의 명령은 `~/.ssh directory`에서 기본 이름 `id_rsa`로 공용 및 개인 키와 키를 생성합니다. 명령이 공개 키의 전체 경로를 반환합니다. 공개 키의 전체 경로를 사용하여 `cat` 및 해당 콘텐츠를 표시합니다.
+위의 명령은 `~/.ssh directory`에서 기본 이름 `id_rsa`로 공용 및 프라이빗 키를 생성합니다. 명령이 공개 키의 전체 경로를 반환합니다. 공개 키의 전체 경로를 사용하여 `cat` 및 해당 콘텐츠를 표시합니다.
 
 ```bash 
 cat ~/.ssh/id_rsa.pub

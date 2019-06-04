@@ -34,7 +34,7 @@ Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충
 |Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대 한 기본적인 이해를 해야합니다. 기본 기술 자료를 제공 해야 `docker` 명령입니다.| 
 |Azure `Cognitive Services` 리소스 |컨테이너를 사용 하려면 다음이 있어야 합니다.<br><br>Azure Cognitive Services 리소스 및 연결된 된 청구 키 및 청구 끝점 URI입니다. 값이 모두에서 사용할 수는 **개요** 하 고 **키** 리소스 페이지. 컨테이너를 시작 해야 합니다. 추가 된 `face/v1.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할: <br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제 `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
+## <a name="request-access-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 대한 액세스 요청
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 

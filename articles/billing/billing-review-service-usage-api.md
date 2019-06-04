@@ -27,7 +27,7 @@ Azure Cost Management API를 통해 Azure 리소스의 소비를 검토하고 �
 이 아티클에서는 시간당 사용량 정보를 사용하여 쉼표로 구분된 값 문서를 생성하는 일별 보고서를 만드는 방법 및 Azure 리소스 그룹의 가상 머신, 데이터베이스 및 태그된 리소스 사용을 쿼리할 수 있도록 필터를 사용하여 보고서를 사용자 지정하는 방법을 알아봅니다.
 
 >[!NOTE]
-> Cost Management API는 현재 비공개 미리 보기 상태입니다.
+> Cost Management API는 현재 프라이빗 미리 보기 상태입니다.
 
 ## <a name="create-a-basic-cost-management-report"></a>기본 비용 관리 보고서 만들기
 

@@ -65,7 +65,7 @@ Azure Database Migration Service를 지 원하는 마이그레이션 시나리�
 |   | Oracle |  |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
-|   | Oracle | ✔ | 비공개 미리 보기 |
+|   | Oracle | ✔ | 프라이빗 미리 보기 |
 | **Azure SQL VM** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | 공개 미리 보기 |
@@ -73,7 +73,7 @@ Azure Database Migration Service를 지 원하는 마이그레이션 시나리�
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | 비공개 미리 보기 |
+|   | Oracle | ✔ | 프라이빗 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Database Migration Service 및 국가별 가용성 개요를 문서 참조 [Azure Database Migration Service 란](dms-overview.md)합니다.

@@ -1,5 +1,5 @@
 ---
-title: 도메인 특정 콘텐츠 검색 - Computer Vision
+title: 도메인 특정 콘텐츠 감지 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: 이미지에 대한 보다 자세한 정보를 반환하기 위해 이미지 범주화 도메인을 지정하는 방법에 대해 알아봅니다.
 services: cognitive-services
