@@ -223,6 +223,6 @@ Azure Machine Learning Studio에서 제공되는 또 다른 흥미로운 기능�
  
 
 ## <a name="appendix"></a>부록
-![이탈 프로토타입에 대한 프레젠테이션 스냅숏](./media/azure-ml-customer-churn-scenario/churn-10.png)
+![이탈 프로토타입에 대한 프레젠테이션 스냅샷](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
-*그림 12: 이탈 프로토타입에 대한 프레젠테이션 스냅숏*
+*그림 12: 이탈 프로토타입에 대한 프레젠테이션 스냅샷*

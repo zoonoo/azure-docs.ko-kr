@@ -82,7 +82,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 
 시스템 준비 도구 (Sysprep)에 의존 하는 경우 설치 된 Windows 10 1803에서에서 만든 있는지 이미지를 확인 하거나 이전 구성 되지 않은 하이브리드 Azure AD 조인에 대 한 합니다.
 
-VM(Virtual Machine) 스냅숏을 사용하여 추가 VM을 만드는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 VM 스냅숏을 사용해야 합니다.
+VM(Virtual Machine) 스냅샷을 사용하여 추가 VM을 만드는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 VM 스냅샷을 사용해야 합니다.
 
 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인:
 

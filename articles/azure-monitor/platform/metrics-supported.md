@@ -1041,7 +1041,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |TotalThroughput|총 처리량|MBps|평균|초당 모든 처리량의 합계(메가바이트)|차원 없음|
 |VolumeAllocatedSize|할당된 볼륨 크기|바이트|평균|볼륨의 할당된 크기(실제 사용되는 바이트가 아님)|차원 없음|
 |VolumeLogicalSize|볼륨 논리적 크기|바이트|평균|볼륨의 논리적 크기(사용되는 바이트)|차원 없음|
-|VolumeSnapshotSize|볼륨 스냅숏 크기|바이트|평균|볼륨의 모든 스냅숏 크기|차원 없음|
+|VolumeSnapshotSize|볼륨 스냅샷 크기|바이트|평균|볼륨의 모든 스냅샷 크기|차원 없음|
 |WriteIops|쓰기 IOPS|operations/second|평균|초당 쓰기 입력/출력 작업|차원 없음|
 |WriteThroughput|쓰기 처리량|MBps|평균|초당 쓰기 처리량(메가바이트)|차원 없음|
 
@@ -1052,7 +1052,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |VolumePoolAllocatedSize|할당된 볼륨 풀 크기|바이트|평균|풀의 할당된 크기(실제 사용되는 바이트가 아님)|차원 없음|
 |VolumePoolAllocatedUsed|할당된 사용되는 볼륨 풀|바이트|평균|풀의 사용되는 할당된 크기|차원 없음|
 |VolumePoolTotalLogicalSize|볼륨 풀 총 논리적 크기|바이트|평균|풀에 속한 모든 볼륨의 논리적 크기의 합계|차원 없음|
-|VolumePoolTotalSnapshotSize|볼륨 풀 총 스냅숏 크기|바이트|평균|풀의 모든 스냅숏의 합계|차원 없음|
+|VolumePoolTotalSnapshotSize|볼륨 풀 총 스냅샷 크기|바이트|평균|풀의 모든 스냅샷의 합계|차원 없음|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 

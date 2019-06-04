@@ -44,7 +44,7 @@ ms.locfileid: "64715955"
 
 4. **Azure 파일 공유를 원하는 대로 사용합니다**. 공유 이름과 스토리지 계정 키를 사용자 이름과 암호로 대체하면 해당 공유가 탑재됩니다. 일반적으로 파일 공유로 파일 끌어 놓기를 포함하여 로컬 폴더/파일 공유를 사용하는 것처럼 사용할 수 있습니다.
 
-    ![탑재된 Azure 파일 공유의 스냅숏](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
+    ![탑재된 Azure 파일 공유의 스냅샷](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>터미널을 통해 Azure 파일 공유 탑재
 1.  `<storage-account-name>` 을 스토리지 계정 이름으로 바꿉니다. 메시지가 표시되면 Storage 계정 키를 암호로 제공합니다. 
@@ -55,7 +55,7 @@ ms.locfileid: "64715955"
 
 2. **Azure 파일 공유를 원하는 대로 사용합니다**. Azure 파일 공유는 이전 명령으로 지정된 탑재 지점에 탑재됩니다.  
 
-    ![탑재된 Azure 파일 공유의 스냅숏](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
+    ![탑재된 Azure 파일 공유의 스냅샷](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.

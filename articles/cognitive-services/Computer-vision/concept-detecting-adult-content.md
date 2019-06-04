@@ -1,7 +1,7 @@
 ---
 title: 성인 및 외설 콘텐츠 설명 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지에서 성인 및 외설 콘텐츠를 검색하는 데 관련된 개념입니다.
+description: Computer Vision API를 사용하여 이미지에서 성인 및 외설 콘텐츠를 감지하는 데 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -18,9 +18,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56312541"
 ---
-# <a name="detect-adult-and-racy-content"></a>성인 및 외설 콘텐츠 검색
+# <a name="detect-adult-and-racy-content"></a>성인 및 외설 콘텐츠 감지
 
-Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표시를 제한할 수 있도록 이미지의 성인 자료를 검색할 수 있습니다. 콘텐츠 플래그는 0과 1 사이의 점수로 적용되므로 개발자가 고유한 기본 설정에 따라 결과를 해석할 수 있습니다. 
+Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표시를 제한할 수 있도록 이미지의 성인 자료를 감지할 수 있습니다. 콘텐츠 플래그는 0과 1 사이의 점수로 적용되므로 개발자가 고유한 기본 설정에 따라 결과를 해석할 수 있습니다. 
 
 > [!NOTE]
 > 이 기능은 [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) 서비스를 통해서도 제공됩니다. 텍스트 조정, 사용자 검토 워크플로 등의 좀 더 엄격한 콘텐츠 조정 시나리오에 대한 솔루션으로 이 대안을 참조하세요.
@@ -39,4 +39,4 @@ Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표
 
 ## <a name="next-steps"></a>다음 단계
 
-[도메인별 콘텐츠 검색](concept-detecting-domain-content.md) 및 [얼굴 감지](concept-detecting-faces.md)에 대한 개념을 알아봅니다.
+[도메인 특정 콘텐츠 감지](concept-detecting-domain-content.md) 및 [얼굴 감지](concept-detecting-faces.md)에 대한 개념을 알아봅니다.

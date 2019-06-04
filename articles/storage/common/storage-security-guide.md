@@ -385,16 +385,16 @@ $Logs 컨테이너 아래에는 각 서비스에 대한 폴더가 있으며 년/
 
 ![로그 파일 보기](./media/storage-security-guide/image1.png)
 
-Azure Storage에 대한 모든 요청이 기록됩니다. 다음은 처음 몇 개의 필드를 보여 주는 로그 파일의 스냅숏입니다.
+Azure Storage에 대한 모든 요청이 기록됩니다. 다음은 처음 몇 개의 필드를 보여 주는 로그 파일의 스냅샷입니다.
 
-![로그 파일 스냅숏](./media/storage-security-guide/image2.png)
+![로그 파일 스냅샷](./media/storage-security-guide/image2.png)
 
 이 스냅숏을 보면 로그를 사용하여 스토리지 계정에 대한 모든 종류의 호출을 추적할 수 있다는 것을 알 수 있습니다.
 
 #### <a name="what-are-all-of-those-fields-for"></a>이러한 모든 필드의 용도는 무엇인가요?
 아래의 리소스에 나열되는 문서는 로그의 많은 필드와 해당 용도를 목록으로 제공합니다. 필드 목록을 순서대로 나타내면 다음과 같습니다.
 
-![로그 파일의 필드 스냅숏](./media/storage-security-guide/image3.png)
+![로그 파일의 필드 스냅샷](./media/storage-security-guide/image3.png)
 
 GetBlob에 대한 항목과 권한 부여 방법에 관심이 있으므로 operation-type이 “Get-Blob”인 항목을 찾은 다음, request-status(4번째</sup> 열) 및 authorization-type(8번째</sup> 열)을 확인해야 합니다.
 

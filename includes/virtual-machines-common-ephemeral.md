@@ -163,7 +163,7 @@ A: 예, REST, 템플릿, PowerShell 및 CLI를 사용 하 여 사용 후 삭제 
 
 A: 사용 후 삭제 디스크를 지원 하지 않습니다.
 - VM 이미지 캡처
-- 디스크 스냅숏 
+- 디스크 스냅샷 
 - Azure 디스크 암호화 
 - Azure Backup
 - Azure Site Recovery  

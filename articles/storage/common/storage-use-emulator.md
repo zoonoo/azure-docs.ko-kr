@@ -191,8 +191,8 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 * 저장소 에뮬레이터는 blob 크기를 최대 2GB까지만 지원합니다.
 * 스토리지 에뮬레이터에서 blob 이름의 최대 길이는 256자인 반면, Azure Storage에서 blob 이름의 최대 길이는 1024자입니다.
-* 증분 복사를 사용하면 덮어쓴 Blob의 스냅숏을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
-* Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅숏 간에는 작동하지 않습니다.
+* 증분 복사를 사용하면 덮어쓴 Blob의 스냅샷을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
+* Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅샷 간에는 작동하지 않습니다.
 * 임대 ID가 요청에 지정되어 있지 않은 경우에도 Put Blob 작업은 저장소 에뮬레이터에 있으며 활성 임대가 있는 blob에 대해 성공할 수 있습니다.
 * 추가 Blob 작업은 에뮬레이터에서 지원되지 않습니다. 추가 Blob에 대한 작업을 시도하면 FeatureNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
 

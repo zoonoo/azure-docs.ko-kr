@@ -182,7 +182,7 @@
           href: manage-backup.md
         - name: 백업 복원
           href: web-sites-restore.md
-        - name: 스냅숏 복원
+        - name: 스냅샷 복원
           href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md

@@ -17,7 +17,7 @@ ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59787949"
@@ -173,9 +173,9 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell을 사용하여 스냅숏에서 이미지 만들기
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell을 사용하여 스냅샷에서 이미지 만들기
 
-다음 단계를 수행하면 일반화된 VM의 스냅숏에서 관리되는 이미지를 만들 수 있습니다.
+다음 단계를 수행하면 일반화된 VM의 스냅샷에서 관리되는 이미지를 만들 수 있습니다.
 
     
 1. 일부 변수를 만듭니다. 
@@ -187,7 +187,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     $imageName = "myImage"
     ```
 
-2. 스냅숏을 가져옵니다.
+2. 스냅샷을 가져옵니다.
 
    ```azurepowershell-interactive
    $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName

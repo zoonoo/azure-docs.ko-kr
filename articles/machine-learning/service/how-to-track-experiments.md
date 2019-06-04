@@ -272,7 +272,7 @@ ms.locfileid: "66297486"
 
   ![Azure Portal의 실행 세부 정보](./media/how-to-track-experiments/run-details-page-web.PNG)
 
-또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅숏을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
+또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
 
 ### <a name="viewing-charts-in-run-details"></a>실행 세부 정보에서 차트 보기
 
@@ -394,7 +394,7 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>예측 대 True 
+#### <a name="predicted-vs-true"></a>예측 대 True
 
 예측 대 실제는 회귀 문제에 대한 예측된 값과 상호 연관된 실제 값 사이의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
 

@@ -53,7 +53,7 @@ ms.locfileid: "64926208"
 
 지원:
 
-- Azure SQL Database의 SQL Server 온-프레미스 및 관리형 인스턴스의 트랜잭션 및 스냅숏 복제 조합.
+- Azure SQL Database의 SQL Server 온-프레미스 및 관리형 인스턴스의 트랜잭션 및 스냅샷 복제 조합.
 - 구독자는 온-프레미스 SQL Server 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 탄력적 풀에 풀링된 데이터베이스에 대 한 단일 데이터베이스/관리 되는 인스턴스 수 있습니다.
 - 단방향 또는 양방향 복제.
 

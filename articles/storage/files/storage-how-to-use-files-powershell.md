@@ -168,34 +168,34 @@ Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myD
 
 `Start-AzStorageFileCopy` cmdlet은 Azure 파일 공유와 Azure Blob Storage 컨테이너 간에 임시 파일 이동에 편리하지만(이동되는 파일의 수 또는 크기 측면에서) 대규모 이동에 AzCopy를 사용하는 것이 좋습니다. [Windows용 AzCopy](../common/storage-use-azcopy.md) 및 [Linux용 AzCopy](../common/storage-use-azcopy-linux.md)에 대해 자세히 알아봅니다. AzCopy를 로컬로 설치해야 합니다. Cloud Shell에서 사용할 수 없습니다. 
 
-## <a name="create-and-manage-share-snapshots"></a>공유 스냅숏 만들기 및 관리
-Azure 파일 공유를 사용하여 수행할 수 있는 유용한 한 가지 추가 작업은 공유 스냅숏을 만드는 것입니다. 스냅숏은 Azure 파일 공유의 지정 시간을 유지합니다. 공유 스냅숏은 이미 익숙한 다음과 같은 운영 시스템 기술과 유사합니다.
+## <a name="create-and-manage-share-snapshots"></a>공유 스냅샷 만들기 및 관리
+Azure 파일 공유로 수행할 수 있는 유용한 한 가지 추가 작업은 공유 스냅샷을 만드는 것입니다. 스냅샷은 Azure 파일 공유의 지정 시간을 유지합니다. 공유 스냅샷은 이미 익숙한 다음과 같은 운영 시스템 기술과 유사합니다.
 - NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅숏
 - macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅숏 
- 파일 공유에 대한 PowerShell 개체에서 `Snapshot` 메서드를 사용하여 공유에 대한 공유 스냅숏을 만들 수 있습니다. 이 항목은 [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare) cmdlet을 사용하여 검색됩니다. 
+ 파일 공유에 대한 PowerShell 개체에서 `Snapshot` 메서드를 사용하여 공유에 대한 공유 스냅샷을 만들 수 있습니다. 이 항목은 [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare) cmdlet을 사용하여 검색됩니다. 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
 $snapshot = $share.Snapshot()
 ```
 
-### <a name="browse-share-snapshots"></a>공유 스냅숏 찾아보기
+### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
 `Get-AzStorageFile` cmdlet의 `-Share` 매개 변수에 스냅숏 참조(`$snapshot`)를 전달하여 공유 스냅숏의 콘텐츠를 찾아볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Share $snapshot
 ```
 
-### <a name="list-share-snapshots"></a>공유 스냅숏 나열
-다음 명령을 사용하여 공유에 만든 스냅숏의 목록을 볼 수 있습니다.
+### <a name="list-share-snapshots"></a>공유 스냅샷 나열
+다음 명령을 사용하여 공유에 만든 스냅샷의 목록을 볼 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
 ```
 
-### <a name="restore-from-a-share-snapshot"></a>공유 스냅숏에서 복원
-이전에 사용한 `Start-AzStorageFileCopy` 명령을 사용하여 파일을 복원할 수 있습니다. 이 빠른 시작의 목적상 스냅숏에서 복원할 수 있도록 먼저 이전에 업로드한 `SampleUpload.txt` 파일을 삭제합니다.
+### <a name="restore-from-a-share-snapshot"></a>공유 스냅샷에서 복원
+이전에 사용한 `Start-AzStorageFileCopy` 명령을 사용하여 파일을 복원할 수 있습니다. 이 빠른 시작의 목적상 스냅샷에서 복원할 수 있도록 먼저 이전에 업로드한 `SampleUpload.txt` 파일을 삭제합니다.
 
 ```azurepowershell-interactive
 # Delete SampleUpload.txt
@@ -212,7 +212,7 @@ Start-AzStorageFileCopy `
     -DestFilePath "myDirectory\SampleUpload.txt"
 ```
 
-### <a name="delete-a-share-snapshot"></a>공유 스냅숏 삭제
+### <a name="delete-a-share-snapshot"></a>공유 스냅샷 삭제
 `-Share` 매개 변수에 대한 `$snapshot` 참조를 포함하는 변수와 함께 [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) cmdlet을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive

@@ -45,7 +45,7 @@ Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 �
 | Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
 | 사용자 지정 스크립트 확장 | IaaS Diagnostics | VM Access For Linux |
 | Custom Script for Linux | Linux Chef Client | VM Access For Linux |
-| Datadog Linux Agent | Linux Diagnostic | VM Snapshot |
+| Datadog Linux Agent | Linux Diagnostic | VM 스냅샷 |
 
 ## <a name="export-the-resource-group"></a>리소스 그룹 내보내기
 

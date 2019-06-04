@@ -75,7 +75,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     | project $table, timestamp, name, customDimensions 
     ```
 * *메모리 내 및 전송 중 데이터*: Application Insights는 예외, 요청, 종속성 호출 및 추적을 추적합니다. 프라이빗 데이터는 자주 코드 및 HTTP 호출 수준에서 수집될 수 있습니다. 이러한 데이터를 식별하려면 예외, 요청, 종속성 및 추적 테이블을 검토합니다. 이 데이터를 난독 처리할 수 있는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)를 사용합니다.
-* *스냅숏 디버거 캡처*: Application Insights의 [스냅숏 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅숏을 수집할 수 있습니다. 스냅숏은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅숏 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅숏 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
+* *스냅숏 디버거 캡처*: Application Insights의 [스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 기능을 사용하면 애플리케이션의 프로덕션 인스턴스에서 예외가 catch될 때마다 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외 및 스택의 모든 단계에서 로컬 변수에 대한 값으로 이끄는 전체 스택 추적을 공개합니다. 그러나 이 기능은 맞춤 지점의 선택적 삭제 또는 스냅샷 내에서 데이터에 프로그래밍 방식의 액세스를 허용하지 않습니다. 따라서 기본 스냅샷 보존 속도가 규정 준수 요구 사항을 충족하지 못하는 경우 기능을 해제하는 것이 좋습니다.
 
 ## <a name="how-to-export-and-delete-private-data"></a>프라이빗 데이터를 내보내고 삭제하는 방법
 
