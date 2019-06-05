@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205934"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357414"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -91,7 +91,7 @@ ms.locfileid: "65205934"
 > [!NOTE]
 > 중첩된 템플릿의 경우, 중첩된 템플릿 내에 정의된 매개 변수 또는 변수를 사용할 수 없습니다. 주 템플릿의 매개 변수 및 변수를 사용할 수 있습니다. 앞의 예제에서 `[variables('storageName')]`은 중첩된 템플릿이 아닌 주 템플릿에서 값을 검색합니다. 이러한 제한은 외부 템플릿에 적용되지 않습니다.
 >
-> 내에 정의 된 두 개의 리소스에 대 한 다른에 따라 달라 집니다 중첩 템플릿 및 리소스, 종속성의 값이 단순히 이러한 종속된 리소스의 이름:
+> 내에 정의 된 두 개의 리소스에 대 한 중첩 된 템플릿 및 리소스를 다른, 종속성의 값은 단순히 종속 리소스의 이름:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
@@ -484,7 +484,7 @@ done
 
 ## <a name="securing-an-external-template"></a>외부 템플릿 보호
 
-연결된 템플릿은 외부에서 사용할 수 있어야 하지만 일반에 공개할 필요는 없습니다. 저장소 계정 소유자만 액세스할 수 있는 개인 저장소 계정에 템플릿을 추가할 수 있습니다. 그런 다음 배포하는 동안 액세스할 수 있도록 공유 액세스 서명(SAS) 토큰을 만듭니다. 링크된 템플릿 URI에 SAS 토큰을 추가합니다. 토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
+연결된 템플릿은 외부에서 사용할 수 있어야 하지만 일반에 공개할 필요는 없습니다. 스토리지 계정 소유자만 액세스할 수 있는 프라이빗 스토리지 계정에 템플릿을 추가할 수 있습니다. 그런 다음 배포하는 동안 액세스할 수 있도록 공유 액세스 서명(SAS) 토큰을 만듭니다. 링크된 템플릿 URI에 SAS 토큰을 추가합니다. 토큰이 보안 문자열로 전달되었지만 SAS 토큰을 포함한 링크된 템플릿 URI가 배포 작업에 로그됩니다. 노출을 최소화하려면 토큰에 만료 날짜를 설정합니다.
 
 매개 변수 파일은 SAS 토큰으로 액세스를 제한할 수 있습니다.
 

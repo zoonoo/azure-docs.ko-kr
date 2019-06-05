@@ -338,7 +338,7 @@ ms.locfileid: "64713000"
 | restorePointCollections/restorePoints | 아닙니다. | 
 | sharedVMImages | 예 | 
 | sharedVMImages/versions | 예 | 
-| snapshots | 예 | 
+| 스냅샷 | 예 | 
 | virtualMachines | 예 | 
 | virtualMachines/diagnosticSettings | 아닙니다. | 
 | virtualMachines/extensions | 예 | 

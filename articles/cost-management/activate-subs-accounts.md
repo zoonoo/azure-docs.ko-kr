@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: efc012e496045d3d5d12d6fe756b62e4ae19cc2a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9999518b81d264cb1e46f3c03ec65379d35aa603
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002138"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242432"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
@@ -64,7 +64,7 @@ Azure 구독에서 CloudynCollector 애플리케이션을 할당하려면 계정
     2. Azure Portal에서 **Azure Active Directory**를 선택합니다.
     3. 테넌트 ID를 가져오려면 Azure AD 테넌트에 대한 **속성**을 선택합니다.
     4. 디렉터리 ID GUID를 복사합니다. 이 값은 테넌트 ID입니다.
-    자세한 내용은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
+    자세한 내용은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)를 참조하세요.
 3. 필요한 경우 요율 ID를 선택합니다. 요율 ID를 모를 경우 다음 단계를 사용하여 찾습니다.
     1. Azure Portal의 오른쪽 위에서 사용자 정보를 클릭한 다음 **내 청구서 보기**를 클릭합니다.
     2. **대금 청구 계정** 아래에서 **구독**을 클릭합니다.

@@ -22,7 +22,7 @@
               href: Quickstarts/create-new-kb-csharp.md
             - name: Go
               href: Quickstarts/create-new-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
               href: Quickstarts/create-new-kb-nodejs.md
@@ -34,7 +34,7 @@
               href: Quickstarts/publish-kb-csharp.md
             - name: Go
               href: Quickstarts/publish-kb-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
               href: Quickstarts/publish-kb-nodejs.md
@@ -46,7 +46,7 @@
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
             - name: Go
               href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: 자바
+            - name: Java
               href: Quickstarts/get-answer-from-knowledge-base-java.md
             - name: Node.js
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
@@ -96,9 +96,9 @@
         - name: 기술 자료 만들기 및 게시
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: 답변 구하기
+        - name: 메타데이터를 사용하여 응답 가져오기
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: 기술 자료를 사용하는 봇 만들기
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 다른 언어로 된 기술 자료 만들기
@@ -133,7 +133,7 @@
       items:
         - name: 'C#'
           href: Quickstarts/csharp.md
-        - name: 자바
+        - name: Java
           href: Quickstarts/java.md
         - name: Node.js
           href: Quickstarts/nodejs.md

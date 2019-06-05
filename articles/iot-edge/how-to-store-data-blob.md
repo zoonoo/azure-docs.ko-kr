@@ -198,7 +198,7 @@ Blob 저장소 IoT Edge의 동일한 Azure Storage Sdk를 사용 하 여 모듈�
 지원되지 않음:
 
 - Blob 임대
-- Blob 스냅숏
+- Blob 스냅샷
 - Blob 복사 및 중단
 - Blob 삭제 취소
 - Blob 계층 설정

@@ -1,6 +1,6 @@
 ---
 title: ISE(통합 서비스 환경)를 통해 Azure Logic Apps에서 Azure 가상 네트워크에 연결
-description: 논리 앱 및 통합 계정이 공용이나 “글로벌” Azure에서 격리된 비공개 상태를 유지하면서 Azure VNET(가상 네트워크)에 액세스할 수 있도록 ISE(통합 서비스 환경) 만들기
+description: 논리 앱 및 통합 계정이 공용이나 "글로벌" Azure에서 격리된 프라이빗 상태를 유지하면서 Azure VNET(가상 네트워크)에 액세스할 수 있도록 ISE(통합 서비스 환경) 만들기
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -161,7 +161,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    1. **서브넷 추가** 창에서 이 정보를 제공합니다.
 
       * **이름**: 서브넷의 이름
-      * **주소 범위(CIDR 블록)**: 가상 네트워크 및 CIDR 형식의 서브넷 범위
+      * **주소 범위(CIDR 블록)** : 가상 네트워크 및 CIDR 형식의 서브넷 범위
 
       ![서브넷 세부 정보 추가](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 

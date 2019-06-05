@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467730"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254678"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 
@@ -60,7 +60,7 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>실수로 데이터를 덮어쓰거나 삭제한 후에 데이터를 저장하고 복구할 수 있도록 Azure Storage 계정에 대해 일시 삭제 기능 사용
 
-삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅숏이 생성됩니다. 일시 삭제 기능을 사용하면 실수로 삭제하거나 덮어쓰는 경우 복구할 수 있습니다. Advisor는 일시 삭제 기능이 사용하도록 설정되지 않은 Azure Storage 계정을 식별하여 해당 기능을 사용하도록 제안합니다.
+삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제 기능을 사용하면 실수로 삭제하거나 덮어쓰는 경우 복구할 수 있습니다. Advisor는 일시 삭제 기능이 사용하도록 설정되지 않은 Azure Storage 계정을 식별하여 해당 기능을 사용하도록 제안합니다.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
 
@@ -69,6 +69,30 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 ## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>프로덕션 VPN gateway를 사용 하 여 프로덕션 워크 로드를 실행 합니다.
 
 Azure Advisor는 기본 SKU가 있는 모든 VPN gateway에 대 한 확인 하 고 대신 프로덕션 SKU를 사용 하는 것이 좋습니다. 기본 SKU는 개발 및 테스트 목적으로 설계 되었습니다. 프로덕션 Sku 수가 높을수록 터널, BGP 지원, 활성-활성 구성 옵션, 사용자 지정 Ipsec/IKE 정책 및 높은 안정성 및 가용성을 제공합니다.
+
+## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙을 복구
+
+Azure Advisor는 해당 조건 섹션에 지정 된 잘못 된 쿼리를 포함 하는 경고 규칙을 검색 합니다. 로그 경고 규칙 Azure Monitor에서 생성 되 고 지정 된 간격에 분석 쿼리를 실행 하는 데 사용 됩니다. 쿼리 결과 경고를 트리거할 수 해야 하는지 여부를 결정 합니다. Analytics 쿼리 참조 된 리소스, 테이블 또는 명령에 대 한 변경으로 인해 잘못 된 초과 될 수 있습니다. 관리자 가져오기 자동 함에서 사용 되지 않도록 하 고 Azure에서 리소스의 모니터링 검사를 확인 하도록 경고 규칙에서 쿼리를 해결 하는 것이 좋습니다. [경고 규칙 문제를 해결 하는 방법에 대 한 자세한 정보](https://aka.ms/aa_logalerts_queryrepair)
+
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB 컬렉션에서 일관성 인덱싱 모드 구성
+
+지연 인덱싱 모드를 사용 하 여 구성 된 azure Cosmos DB 컨테이너의 쿼리 결과 새로 고침에 영향을 줄 수 있습니다. Advisor는 컨테이너에는이 방식으로 구성 된 감지 하 고 일관 된 모드로 전환 하는 것이 좋습니다. [인덱싱 정책에서 Cosmos DB에 자세히 알아보기](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>파티션 키를 사용 하 여 Azure Cosmos DB 컨테이너 구성
+
+Azure Advisor는 프로 비전 된 저장소 할당량 한도 도달 하는 Azure Cosmos DB 분할 되지 않은 컬렉션을 식별 합니다. 이러한 자동으로 확장할 수 있습니다 서비스에서 이러한 컬렉션 파티션 키 정의 사용 하 여 새 컬렉션으로 마이그레이션 하는 것이 좋습니다. [파티션 키를 선택 하는 방법에 대 한 자세한 정보](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Azure Cosmos DB.NET SDK를 Nuget에서 최신 버전으로 업그레이드
+
+Azure Advisor는 이전 버전의.NET SDK를 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Nuget에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB.NET SDK에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK를 Maven에서 최신 버전으로 업그레이드
+
+Azure Advisor는 이전 버전의 Java SDK를 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Maven에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB Java SDK에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark 커넥터를 Maven에서 최신 버전으로 업그레이드
+
+Azure Advisor는 Cosmos DB Spark 커넥터의 이전 버전을 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Maven에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB Spark 커넥터에 자세히 알아보기](https://aka.ms/cosmosdb/spark-connector)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 

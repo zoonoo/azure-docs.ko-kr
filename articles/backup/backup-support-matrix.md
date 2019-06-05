@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236636"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400169"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure Backup 지원 매트릭스
 
@@ -27,7 +27,7 @@ ms.locfileid: "60236636"
 
 ## <a name="vault-support"></a>자격 증명 모음 지원
 
-Azure Backup을 조율하 고 관리할 백업 Recovery Services 자격 증명 모음을 사용 합니다. 또한 백업 데이터를 저장할 자격 증명 모음을 사용 합니다. 
+Azure Backup을 조율하 고 관리할 백업 Recovery Services 자격 증명 모음을 사용 합니다. 또한 백업 데이터를 저장할 자격 증명 모음을 사용 합니다.
 
 다음 표에서 Recovery Services 자격 증명의 기능을 설명 합니다.
 
@@ -36,8 +36,8 @@ Azure Backup을 조율하 고 관리할 백업 Recovery Services 자격 증명 �
 **구독의 자격 증명 모음 수** | 단일 구독에서 최대 500개의 Recovery Services 자격 증명 모음입니다.
 **자격 증명 모음의 머신 수** | 단일 자격 증명 모음에서 최대 1,000 개의 Azure Vm입니다.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
 **자격 증명 모음 스토리지의 데이터 원본 수** | 최대 54,400GB 합니다. Azure VM 백업에는 제한이 없습니다.
-**자격 증명 모음에 대한 백업 횟수** | **Azure Vm의 경우:** 하루에 한 번입니다.<br/><br/>**DPM/MABS에서 보호 되는 컴퓨터:** 하루에 두 번입니다.<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번입니다. 
-**자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다. 
+**자격 증명 모음에 대한 백업 횟수** | **Azure Vm의 경우:** 하루에 한 번입니다.<br/><br/>**DPM/MABS에서 보호 되는 컴퓨터:** 하루에 두 번입니다.<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번입니다.
+**자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
 **자격 증명 모음 이동** | 할 수 있습니다 [자격 증명 모음 이동](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) 구독의 간이나 동일한 구독에 리소스 그룹입니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간에 백업 데이터 이동이 지원 되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 전에 백업이 저장 되는 자격 증명 모음에 대 한 저장소 복제 유형 (지역 중복 저장소 또는 로컬 중복 저장소)를 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
@@ -50,8 +50,8 @@ Azure Backup을 조율하 고 관리할 백업 Recovery Services 자격 증명 �
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 3 번 백업<br/><br/> 응용 프로그램 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
-**DPM 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업됩니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅숏<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
-**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업됩니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅숏<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
+**DPM 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업됩니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
+**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업됩니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
 
 ## <a name="azure-vm-backup-support"></a>Azure VM 백업 지원
 
@@ -69,7 +69,7 @@ Azure Vm 백업 하려는 경우 지원 되는 다음과 같습니다.
 **머신** | **백업 항목** | **위치**: | **기능**
 --- | --- | --- | ---
 **VM 확장을 사용 하 여 azure VM 백업** | 전체 VM | 자격 증명 모음에 백업 합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업 합니다.<br/><br/> Windows Vm에 대 한 응용 프로그램 인식 백업 Linux Vm의 파일 일치 백업 합니다. 사용자 지정 스크립트를 사용 하 여 Linux 컴퓨터에 대 한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원 합니다.<br/><br/> 온-프레미스 위치에 VM을 Azure에 백업할 수 없습니다.
-**MARS 에이전트를 사용 하 여 azure VM 백업** | 파일, 폴더 | 자격 증명 모음에 백업 합니다. | 하루에 3 번을 백업 합니다.<br/><br/> 전체 VM 대신 특정 파일 또는 폴더를 백업 하려는 경우 MARS 에이전트 VM 확장을 함께 실행할 수 있습니다.
+**MARS 에이전트를 사용 하 여 azure VM 백업** | 파일, 폴더, 시스템 상태 | 자격 증명 모음에 백업 합니다. | 하루에 3 번을 백업 합니다.<br/><br/> 전체 VM 대신 특정 파일 또는 폴더를 백업 하려는 경우 MARS 에이전트 VM 확장을 함께 실행할 수 있습니다.
 **Azure VM(DPM 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | DPM을 실행 하는 Azure VM의 로컬 저장소에 백업 합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅숏입니다.<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
 **Azure VM(MABS 사용)** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS를 실행 하는 Azure VM의 로컬 저장소에 백업 합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅숏입니다.<br/><br/> 백업 및 복구에 대한 전체 세분성<br/><br/> Linux는 VM(Hyper-V/VMware)에 지원됨<br/><br/> Oracle은 지원되지 않음
 
@@ -117,10 +117,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS 없이 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
-**Azure VM** | ![예.][green] | ![예.][green]
-**DPM 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
-**MABS 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
+**DPM/MABS 없이 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
+**Azure VM** | ![예][green] | ![예][green]
+**DPM 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
+**MABS 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -133,7 +133,7 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 --- | --- | ---
 **온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![예][green]
 **VM 확장을 사용 하 여 Azure Vm의 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용 하 여 Azure 온-프레미스/컴퓨터에 백업** | ![예.][green] | ![예][green]
+**MABS/DPM을 사용 하 여 Azure 온-프레미스/컴퓨터에 백업** | ![예][green] | ![예][green]
 
 ## <a name="retention-limits"></a>보존 제한
 

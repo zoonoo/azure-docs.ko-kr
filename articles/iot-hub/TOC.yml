@@ -14,7 +14,7 @@
           href: quickstart-send-telemetry-node.md
         - name: .NET
           href: quickstart-send-telemetry-dotnet.md
-        - name: 자바
+        - name: Java
           href: quickstart-send-telemetry-java.md
         - name: Python
           href: quickstart-send-telemetry-python.md
@@ -28,7 +28,7 @@
           href: quickstart-control-device-node.md
         - name: .NET
           href: quickstart-control-device-dotnet.md
-        - name: 자바
+        - name: Java
           href: quickstart-control-device-java.md
         - name: Python
           href: quickstart-control-device-python.md
@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: 2부 - 메시지 라우팅 결과 보기
           href: tutorial-routing-view-message-routing-results.md
+    - name: 메시지 보강
+      href: tutorial-message-enrichments.md
     - name: 메트릭 및 진단 로그 사용
       href: tutorial-use-metrics-and-diags.md
     - name: 수동 장애 조치(failover) 수행
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: 개념
   items:
+    - name: 메시지 보강 개요
+      href: iot-hub-message-enrichments-overview.md
     - name: 디바이스 관리 개요
       href: iot-hub-device-management-overview.md
     - name: IoT Hub와 Event Hubs 비교
@@ -203,7 +207,7 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-c2d.md
             - name: Node.js
               href: iot-hub-node-node-c2d.md
@@ -215,7 +219,7 @@
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-file-upload.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-file-upload.md
             - name: Node.js
               href: iot-hub-node-node-file-upload.md
@@ -227,7 +231,7 @@
               href: iot-hub-node-node-twin-getstarted.md
             - name: .NET
               href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-twin-getstarted.md
             - name: Python
               href: iot-hub-python-twin-getstarted.md
@@ -249,7 +253,7 @@
               href: iot-hub-node-node-device-management-get-started.md
             - name: .NET
               href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-device-management-getstarted.md
             - name: Python
               href: iot-hub-python-python-device-management-get-started.md
@@ -259,7 +263,7 @@
               href: iot-hub-node-node-schedule-jobs.md
             - name: .NET
               href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: 자바
+            - name: Java
               href: iot-hub-java-java-schedule-jobs.md
             - name: Python
               href: iot-hub-python-python-schedule-jobs.md
@@ -343,7 +347,7 @@
               href: iot-hub-visual-studio-cloud-device-messaging.md
             - name: Power BI에서 데이터 시각화
               href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: Web Apps를 사용하여 데이터 시각화
+            - name: 웹앱에서 데이터 시각화
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: Azure Machine Learning을 사용하여 날씨 예측
               href: iot-hub-weather-forecast-machine-learning.md
@@ -415,11 +419,11 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Microsoft Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
-        - name: IoT 장치 SDK
+        - name: IoT 디바이스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:

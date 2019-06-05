@@ -47,7 +47,7 @@ ms.locfileid: "65799940"
 | **설명\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
 | **이 SKU 숨기기\*** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
 | **클라우드 가용성\*** | SKU를 사용할 수 있는 클라우드를 결정합니다.  기본값은 Azure의 공개 버전입니다.  Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족 정부 및 해당 인증 파트너에 대한 액세스를 제어하는 정부-커뮤니티 클라우드입니다.  정부 클라우드에 대한 자세한 내용은 [Azure Government 시작](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. |
-| **이 개인 SKU는 무엇입니까?\*** | SKU가 비공개 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 비공개 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
+| **이 개인 SKU는 무엇입니까?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
 | **국가/지역 가용성\*** | SKU를 구입할 수 있는 국가 또는 세계 지역을 결정합니다. 하나 이상의 지역/국가를 선택합니다. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *가격*   |  |
 | **라이선스 모델\***| 사용할 표준화된 청구 모델입니다.  **사용량 기반 월별 청구 SKU**를 선택하면 코어당 가격 책정의 세부 정보와 체험 평가판 기간을 제공할지 여부를 지정할 수 있는 접이식 섹션이 열립니다.  이 섹션에서는 이 가격 책정 일정을 Excel로 내보내고 가져올 수도 있습니다. 자세한 내용은 [Azure Marketplace의 청구 옵션](../../billing-options-azure-marketplace.md)을 참조하세요. | 

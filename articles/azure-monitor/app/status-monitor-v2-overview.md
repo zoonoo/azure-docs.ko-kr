@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 976545f588895421e7c2be7e18b844d7994bc1ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779986"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255851"
 ---
 # <a name="status-monitor-v2"></a>상태 모니터 v2
 
@@ -74,7 +74,7 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 * [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
 * [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md) 문제 진단
 * [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
-* [대시보드를 만듭니다](../../azure-monitor/app/app-insights-dashboards.md).
+* [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
 
 원격 분석 더 추가:
 

@@ -58,8 +58,8 @@ Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnect
 
   Microsoft Visual Studio용 Azure Tools를 사용하여 애플리케이션을 개발하는 경우 속성 페이지를 사용하여 이 값을 설정할 수 있습니다.
 
-## <a name="exported-certificate-does-not-include-private-key"></a>내보낸 인증서는 개인 키를 포함하지 않습니다.
-SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **개인 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
+## <a name="exported-certificate-does-not-include-private-key"></a>내보낸 인증서는 프라이빗 키를 포함하지 않습니다.
+SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 프라이빗 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **개인 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.

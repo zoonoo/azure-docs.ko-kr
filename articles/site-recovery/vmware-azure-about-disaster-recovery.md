@@ -5,14 +5,14 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/18/2019
+ms.date: 5/30/2019
 ms.author: raynew
-ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61272696"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417786"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -97,7 +97,7 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
 4. **대상 환경**: 대상 Azure 환경 여 설정한 Azure 구독 및 네트워크 설정을 지정 합니다.
-5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅숏을 만들지 여부가 설정됩니다.
+5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
 6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 
 *도움이 더 필요하세요?*

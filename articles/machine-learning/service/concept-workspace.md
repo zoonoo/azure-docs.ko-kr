@@ -1,7 +1,7 @@
 ---
 title: 작업 영역 이란
 titleSuffix: Azure Machine Learning service
-description: 에 대해 알아봅니다는 영역은 무엇 이며 왜 필요 Azure Machine Learning 서비스에 대 한 합니다.
+description: 작업 영역은 Azure Machine Learning 서비스의 최상위 리소스입니다. 로그, 메트릭, 출력 및 스크립트의 스냅숏을 포함 한 모든 학습 실행의 기록을 유지 합니다. 이 정보를 사용 하 여 최상의 모델을 생성 하는 교육 실행 하는 확인 하려면
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989825"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388963"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역을 란?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>서비스 작업 영역을 Azure Machine Learning 이란?
 
-작업 영역은 Azure Machine Learning 서비스의 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 경우 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 위치를 제공합니다.
+작업 영역은 Azure Machine Learning 서비스를 사용할 때 만든 모든 아티팩트를 작업할 수 있는 중앙된 위치를 제공 하는 Azure Machine Learning 서비스에 대 한 최상위 리소스입니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 포함 한 모든 학습 실행의 기록을 유지 합니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
 
-작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 포함 하는 교육 실행의 기록을 유지 합니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
-
-원하는 모델을 만든 후 작업 영역에 등록 합니다. 프로그래밍할 수 필드 FPGA (gate array)는 REST 기반 HTTP 끝점으로 또는 Azure Kubernetes Service를 Azure Container Instances에 배포 하 고 등록 된 모델 점수 매기기 스크립트를 사용 합니다. 또한 Azure IoT Edge 장치에 모듈로 모델을 배포할 수 있습니다.
+원하는 모델을 만든 후 작업 영역에 등록 합니다. 사용 하 여 등록 된 모델 및 점수 매기기 스크립트를 프로그래밍할 수 필드 FPGA (gate array)는 REST 기반 HTTP 끝점으로 또는 Azure Kubernetes Service를 Azure Container Instances에 배포. 또한 Azure IoT Edge 장치에 모듈로 모델을 배포할 수 있습니다.
 
 ## <a name="taxonomy"></a>분류 
 
@@ -50,7 +48,7 @@ ms.locfileid: "65989825"
 다음과 같은 방법으로 작업 영역을 조작할 수 있습니다.
 
 + 웹:
-    + [Azure Portal](https://azure.portal.com)
+    + [Azure Portal](https://portal.azure.com)
     + [시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)
 + Python에서 Azure Machine Learning을 사용 하 여 [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Azure Machine Learning을 사용 하 여 명령줄에서 [CLI 확장](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

@@ -114,7 +114,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 3. 코드에 프로비전 서비스 및 X.509 ID 정보를 입력합니다. 디바이스를 등록하기 전에 시뮬레이션된 디바이스의 증명을 위해 자동 프로비전하는 동안 사용됩니다.
 
-   - 앞에서 설명한 대로 _ID 범위_ 및 _프로비전 서비스 글로벌 엔드포인트_를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 파일을 편집합니다. 또한 이전 섹션에서 설명한 대로 _클라이언트 인증서_ 및 _클라이언트 인증서 개인 키_도 포함합니다.
+   - 앞에서 설명한 대로 _ID 범위_ 및 _프로비전 서비스 글로벌 엔드포인트_를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 파일을 편집합니다. 또한 이전 섹션에서 설명한 대로 _클라이언트 인증서_ 및 _클라이언트 인증서 프라이빗 키_도 포함합니다.
 
       ```java
       private static final String idScope = "[Your ID scope here]";
@@ -124,7 +124,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
       private static final String leafPrivateKey = "<Your Private PEM Key here>";
       ```
 
-   - 인증서 및 개인 키를 복사/붙여넣을 때 다음 형식을 사용합니다.
+   - 인증서 및 프라이빗 키를 복사/붙여넣을 때 다음 형식을 사용합니다.
         
       ```java
       private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +

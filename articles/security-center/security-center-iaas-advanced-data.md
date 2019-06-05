@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968575"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400153"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS의 SQL server에 대 한 고급 데이터 보안
-IaaS의 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다.
+Azure Virtual Machines에서 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다. 
 
-IaaS SQL server에 대 한 제공이 보안은에 사용 된 동일한 기본 기술을 기반으로 합니다 [Azure SQL Database 고급 데이터 보안 패키지](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)합니다.
+Azure Vm SQL server에 대 한 제공이 보안은에 사용 된 동일한 기본 기술을 기반으로 합니다 [Azure SQL Database 고급 데이터 보안 패키지](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)합니다.
 
 
 ## <a name="overview"></a>개요
 
-고급 데이터 보안 (ADS)의 취약점으로 인 한 평가 및 Advanced Threat Protection 구성 된 고급 SQL 보안 기능을 제공 합니다.
+고급 데이터 보안 취약성 평가 및 Advanced Threat Protection 구성 된 고급 SQL 보안 기능을 제공 합니다.
 
 * [취약성 평가](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 상태에 대 한 가시성을 제공 하 고 보안 문제를 해결 하 고 사용자 데이터베이스 요새를 향상 하는 단계를 포함 합니다.
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) 를 액세스 하거나 SQL server를 악용 하려는 비정상적이 고 잠재적으로 해로운 시도 나타내는 비정상적인 활동을 감지 합니다. 지속적으로 의심 스러운 활동에 대 한 데이터베이스를 모니터링 하 고 비정상적인 데이터베이스 액세스 패턴에 작업 지향 보안 경고를 제공 합니다. 이러한 경고는 의심 스러운 활동 세부 정보를 제공 하 고 조사 하 고 위협을 완화 하는 작업을 권장 합니다.
 
-## <a name="get-started-with-ads-for-iaas"></a>IaaS에 대 한 광고를 사용 하 여 시작
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Azure Vm에서 SQL 용 고급 데이터 보안을 사용 하 여 시작
 
-다음 단계를 가져올 IaaS에 대 한 광고를 시작 합니다.
+다음 단계를 Azure Vm에서 SQL에 대 한 고급 데이터 보안을 사용 하 여 시작할 수를 가져옵니다.
 
-### <a name="set-up-ads-for-iaas"></a>IaaS에 대 한 광고를 설정 합니다.
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Azure Vm에서 SQL 용 고급 데이터 보안을 설정 합니다.
 
 **시작 하기 전에**: 분석 되 고 보안 로그를 저장할 Log Analytics 작업 영역을 해야 합니다. 있지 않은, 경우에 설명 된 대로 쉽게 만들 수 있습니다 [Azure portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)합니다.
 
@@ -102,7 +102,7 @@ ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록�
 1. **설정을** 메뉴 **전자 메일 알림**합니다. 
 1. 에 **전자 메일 주소** 텍스트 상자에 알림을 수신 하도록 전자 메일 주소를 입력 합니다. 쉼표 (,)를 사용 하 여 전자 메일 주소를 구분 하 여 둘 이상의 전자 메일 주소를 입력할 수 있습니다.  예를 들어 admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![전자 메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. 에 **전자 메일 알림** 설정을 다음 옵션을 설정 합니다.
   
@@ -120,7 +120,7 @@ ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록�
 
 취약성 평가 결과 및 Log Analytics에서 직접 보고서를 볼 수 있습니다.
 
-1. ADS 솔루션을 사용 하 여 Log Analytics 작업 영역으로 이동 합니다.
+1. 고급 데이터 보안 솔루션을 사용 하 여 Log Analytics 작업 영역으로 이동 합니다.
 1. 이동할 **솔루션** 선택 합니다 **SQL Vulnerability Assessment** 솔루션입니다.
 1. 에 **요약** 창 클릭 **요약 보기** 선택 하 고 프로그램 **SQL 취약성 평가 보고서**합니다.
 
@@ -142,7 +142,7 @@ ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록�
 
 1. 취약성 평가 결과 데이터를 조각화 및 필요에 따라 데이터를 분석에 Log Analytics 쿼리를 실행할 수 있습니다.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>IaaS 경고에 SQL Server에 대 한 위협 보호를 고급
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Azure Vm 경고에 SQL Server에 대 한 위협 보호를 고급
 경고는 비정상적이 고 잠재적으로 해로운 시도를 액세스 하거나 SQL Server를 악용 하 여 생성 됩니다. 이러한 이벤트는 다음과 같은 경고를 트리거할 수 있습니다.
 
 ### <a name="anomalous-access-pattern-alerts"></a>비정상적인 액세스 패턴 경고

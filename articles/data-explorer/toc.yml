@@ -7,48 +7,16 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 클러스터 및 데이터베이스 만들기
-      items:
-        - name: Azure portal
-          href: create-cluster-database-portal.md
-        - name: Azure CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: 데이터 수집
-      items:
-        - name: 데이터 스트리밍 - 이벤트 허브
-          href: ingest-data-event-hub.md
-        - name: 데이터 스트리밍 - Event Grid
-          href: ingest-data-event-grid.md
-        - name: 스트리밍 데이터 - Kafka
-          href: ingest-data-kafka.md
-        - name: 데이터 일괄 처리 - Python
-          href: python-ingest-data.md
-        - name: 데이터 일괄 처리 - Node SDK
-          href: node-ingest-data.md
-        - name: 데이터 일괄 처리 - .NET Standard SDK
-          href: net-standard-ingest-data.md
-        - name: 데이터 일괄 처리 - Logstash
-          href: ingest-data-logstash.md
+    - name: 클러스터 및 데이터베이스 만들기 - Azure Portal
+      href: create-cluster-database-portal.md
+    - name: 샘플 데이터 수집
+      href: ingest-sample-data.md
     - name: 쿼리 데이터
       items:
         - name: 웹 UI
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: 데이터 가상화
-      items:
-        - name: Power BI - 커넥터
-          href: power-bi-connector.md
-        - name: Power BI - 가져온 쿼리
-          href: power-bi-imported-query.md
-        - name: Power BI - SQL 쿼리
-          href: power-bi-sql-query.md
 - name: 자습서
   items:
     - name: 코드를 사용하지 않고 데이터 수집
@@ -60,12 +28,38 @@
     - name: 데이터 수집 개요
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: 데이터 시각화 개요
+      href: viz-overview.md
 - name: 방법 가이드
   items:
-    - name: 시작
+    - name: 클러스터 및 데이터베이스 만들기
       items:
-        - name: 샘플 데이터 수집
-          href: ingest-sample-data.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: 데이터 수집
+      items:
+        - name: 이벤트 허브
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: Node SDK
+          href: node-ingest-data.md
+        - name: .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Azure Data Factory를 사용하여 데이터 복사
+          href: data-factory-load-data.md
     - name: 배포
       items:
         - name: DevOps 작업
@@ -80,6 +74,24 @@
           href: anomaly-detection.md
         - name: Machine Learning
           href: machine-learning-clustering.md
+    - name: 데이터 가상화
+      items:
+        - name: Power BI
+          items:
+            - name: 커넥터
+              href: power-bi-connector.md
+            - name: 가져온 쿼리
+              href: power-bi-imported-query.md
+            - name: SQL 쿼리
+              href: power-bi-sql-query.md
+        - name: ODBC 커넥터
+          href: connect-odbc.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: 관리
       items:
         - name: 데이터베이스 권한 관리
@@ -94,11 +106,11 @@
           href: delete-data.md
         - name: 중복 데이터 처리
           href: dealing-with-duplicates.md
-    - name: 모니터링
+    - name: 모니터
       items:
         - name: 메트릭을 사용하여 클러스터 상태 모니터링
           href: using-metrics.md
-    - name: 다른 도구와 함께 작동
+    - name: 다른 도구와 통합
       items:
         - name: Apache Spark 커넥터
           href: spark-connector.md
@@ -106,12 +118,6 @@
           href: connect-from-databricks.md
         - name: Jupyter Notebook 및 Kqlmagic에서 데이터 분석
           href: kqlmagic.md
-        - name: Azure Data Factory를 사용하여 데이터 복사
-          href: data-factory-load-data.md
-        - name: Grafana의 데이터 시각화
-          href: grafana.md
-        - name: ODBC로 연결
-          href: connect-odbc.md
     - name: 문제 해결
       items:
         - name: 클러스터 만들기

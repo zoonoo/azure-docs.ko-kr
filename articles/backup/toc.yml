@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: VM 백업 - CLI
       href: quick-backup-vm-cli.md
+    - name: VM 백업 - Resource Manager 템플릿
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: 자습서
   items:
     - name: 대규모 Azure VM 백업
@@ -219,18 +222,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Windows Server 시스템 상태 복원
           href: backup-azure-restore-system-state.md
-        - name: Recovery Services 자격 증명 모음 모니터링 및 관리
-          href: backup-azure-manage-windows-server.md
     - name: Recovery Services 자격 증명 모음
       items:
         - name: Recovery Services 자격 증명 모음 개요
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Recovery Services 자격 증명 모음 만들기
+          href: backup-create-rs-vault.md
         - name: Recovery Services 자격 증명 모음 삭제
           href: backup-azure-delete-vault.md
         - name: Recovery Services 자격 증명 모음 이동
           href: backup-azure-move-recovery-services-vault.md
+        - name: Recovery Services 자격 증명 모음 모니터링 및 관리
+          href: backup-azure-manage-windows-server.md
     - name: 문제 해결
       items:
         - name: Azure VM
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: 시스템 상태
+          href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup 워크로드 모니터링
       items:
         - name: Azure Portal 사용

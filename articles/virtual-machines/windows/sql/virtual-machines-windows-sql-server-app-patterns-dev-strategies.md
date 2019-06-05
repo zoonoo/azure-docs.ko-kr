@@ -104,7 +104,7 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 애플리케이션 �
 > 
 > 
 
-## <a name="2-tier-and-3-tier-with-presentation-tier-scale-out"></a>프레젠테이션 계층 확장이 있는 2계층 및 3계층 
+## <a name="2-tier-and-3-tier-with-presentation-tier-scale-out"></a>프레젠테이션 계층 확장이 있는 2계층 및 3계층
 이 애플리케이션 패턴에서는 서로 다른 Virtual Machines에 각각의 애플리케이션 계층을 배치하여 Azure Virtual Machines에서 2계층 또는 3계층 데이터베이스 애플리케이션을 배포합니다. 또한 들어오는 클라이언트 요청 규모 증대에 따라 프레젠테이션 계층을 확장할 수 있습니다.
 
 이 애플리케이션 패턴은 다음과 같은 경우에 유용합니다.
@@ -128,9 +128,9 @@ Azure 환경에서 SQL Server에 사용할 하나 이상의 애플리케이션 �
 
 Azure의 부하 분산 장치는 온-프레미스 환경의 부하 분산 장치와 유사하게 작동합니다. 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-또한 Azure Virtual Network를 사용하여 가상 머신에 대한 개인용 네트워크를 설정하는 것이 좋습니다. 이렇게 하면 개인 IP 주소를 통해 가상 컴퓨터 간에 통신할 수 있습니다. 자세한 내용은 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
+또한 Azure Virtual Network를 사용하여 가상 머신에 대한 프라이빗 네트워크를 설정하는 것이 좋습니다. 이렇게 하면 개인 IP 주소를 통해 가상 머신 간에 통신할 수 있습니다. 자세한 내용은 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-## <a name="2-tier-and-3-tier-with-business-tier-scale-out"></a>비즈니스 계층 확장이 있는 2계층 및 3계층 
+## <a name="2-tier-and-3-tier-with-business-tier-scale-out"></a>비즈니스 계층 확장이 있는 2계층 및 3계층
 이 애플리케이션 패턴에서는 서로 다른 Virtual Machines에 각각의 애플리케이션 계층을 배치하여 Azure Virtual Machines에서 2계층 또는 3계층 데이터베이스 애플리케이션을 배포합니다. 또한 애플리케이션의 복잡성 때문에 여러 가상 머신에 애플리케이션 서버 구성 요소를 배포하고자 할 수 있습니다.
 
 이 애플리케이션 패턴은 다음과 같은 경우에 유용합니다.
@@ -170,7 +170,7 @@ Azure에서 프러덕션 코드를 실행하는 대부분의 고객은 Azure에 
 
 고가용성 및 재해 복구 기술에 대한 종합 정보 및 자습서는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
-## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Azure VM 및 Cloud Services를 사용하는 2계층 및 3계층 
+## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Azure VM 및 Cloud Services를 사용하는 2계층 및 3계층
 이 애플리케이션 패턴에서는 [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md)(웹 및 작업자 역할 - PaaS, 서비스 형태의 플랫폼)와 [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(IaaS, 인프라 형태의 플랫폼)을 모두 사용하여 Azure에 2계층 또는 3계층 애플리케이션을 배포합니다. 프레젠테이션 계층/비즈니스 계층에 [Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)를, 데이터 계층에 [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 SQL Server를 사용하면 Azure에서 실행되는 대부분의 애플리케이션에 유용합니다. Cloud Services에서 실행되는 컴퓨팅 인스턴스가 있으면 관리, 배포, 모니터링 및 확장이 용이하기 때문입니다.
 
 Cloud Services에서는 Azure가 인프라를 자동으로 유지 관리합니다. 즉, 정기 유지 관리를 수행하고 운영 체제를 패치하고 서비스 및 하드웨어 오류의 복구를 시도합니다. 애플리케이션 확장이 필요할 경우 애플리케이션에서 사용하는 가상 머신이나 인스턴스의 수를 늘이거나 줄여 클라우드 서비스 프로젝트에 대해 자동 및 수동 확장 옵션을 사용할 수 있습니다. 또한 온-프레미스 Visual Studio를 사용하여 Azure의 클라우드 서비스 프로젝트에 애플리케이션을 배포할 수 있습니다.
@@ -241,7 +241,7 @@ n계층 하이브리드 애플리케이션 패턴에서는 다음 워크플로�
 3. 온-프레미스의 회사 네트워크와 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)간의 네트워크 연결을 설정합니다. 온-프레미스 회사 네트워크와 Azure의 가상 머신 간에 연결을 설정하려면 다음 두 방법 중 하나를 사용합니다.
    
    1. Azure의 가상 머신에 있는 공용 끝점을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법은 설정이 간단하며 SQL Server 인증을 가상 머신에서 사용할 수 있습니다. 또한 VM에 대한 공용 트래픽을 제어하도록 네트워크 보안 그룹 규칙을 설정합니다. 자세한 내용은 [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
-   2. Azure 가상 사설망(VPN) 터널을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법을 사용하면 도메인 정책을 Azure의 가상 머신까지 확대할 수 있습니다. 또한 방화벽 규칙을 설정하고 가상 컴퓨터에서 Windows 인증을 사용할 수 있습니다. 현재 Azure는 사이트 간 및 지점-사이트 간 보안 VPN 연결을 지원합니다.
+   2. Azure VPN(가상 사설망) 터널을 통해 온-프레미스와 Azure 간의 연결을 설정합니다. 이 방법을 사용하면 도메인 정책을 Azure의 가상 머신까지 확대할 수 있습니다. 또한 방화벽 규칙을 설정하고 가상 컴퓨터에서 Windows 인증을 사용할 수 있습니다. 현재 Azure는 사이트 간 및 지점-사이트 간 보안 VPN 연결을 지원합니다.
       
       * 사이트 간 보안 연결을 통해 온-프레미스 네트워크와 Azure의 가상 네트워크 간에 네트워크 연결을 설정할 수 있습니다. 온-프레미스 데이터 센터 환경을 Azure에 연결하는 것이 좋습니다.
       * 안전한 지점-사이트 간 연결을 통해 Azure의 가상 네트워크와, 다른 어딘가에서 실행되는 개별 컴퓨터 간에 네트워크 연결을 설정할 수 있습니다. 주로 개발 및 테스트용으로 사용하는 것이 좋습니다.

@@ -41,7 +41,7 @@ StorSimple 물리적 디바이스를 다른 물리적 디바이스로 장애 조
 
 대상 StorSimple Cloud Appliance에 디바이스를 복원하려면 다음 단계를 수행합니다.
 
-1.  장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있는지 확인합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
+1.  장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅샷이 있는지 확인합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
 2. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스**를 클릭합니다. **디바이스** 블레이드에서 서비스와 연결된 디바이스 목록으로 이동합니다.
     ![디바이스 선택](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. 원본 디바이스를 선택하고 클릭합니다. 원본 디바이스에는 장애 조치(failover)하려는 볼륨 컨테이너가 있습니다. **설정 > 볼륨 컨테이너**로 이동합니다.

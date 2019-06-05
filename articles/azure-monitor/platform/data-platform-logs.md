@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809117"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244849"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -79,7 +79,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 | Data | 설명 |
 |:---|:---|
 | Azure Active Directory 감사 로그 | 각 디렉터리에 대 한 진단 설정을 통해 구성 됩니다. 참조 [Azure Monitor 로그를 사용 하 여 Azure AD 통합 로그](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)합니다.  |
-| 활동 로그 | 기본적으로 개별적으로 저장 하 고 근 실시간 경고에 사용할 수 있습니다. Log Analytics 작업 영역에 쓸 Activity Log Analytics 솔루션을 설치 합니다. 참조 [Log Analytics에서 Azure 활동 로그 수집 및 분석](collect-activity-logs.md)합니다. |
+| 활동 로그 | 기본적으로 개별적으로 저장 하 고 근 실시간 경고에 사용할 수 있습니다. 활동 로그에 Log Analytics 작업 영역을 쓸 분석 솔루션을 설치 합니다. 참조 [Log Analytics에서 Azure 활동 로그 수집 및 분석](activity-log-collect.md)합니다. |
 
 ### <a name="azure-resources"></a>Azure 리소스
 

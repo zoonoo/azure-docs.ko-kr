@@ -1,26 +1,26 @@
 ---
-title: Azure Logic Apps를 사용한 엔터프라이즈 통합 | Microsoft Docs
-description: 이 개요에서는 기업 및 조직의 앱, 데이터, 서비스, 시스템을 통합하는 작업, 워크플로 및 비즈니스 프로세스를 자동화하여 엔터프라이즈 통합 솔루션을 빌드하는 방법을 설명합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
+title: Azure Logic Apps를 사용한 엔터프라이즈 통합
+description: 기업 및 조직의 앱, 데이터, 서비스, 시스템을 통합하는 작업, 워크플로 및 비즈니스 프로세스를 자동화 및 오케스트레이션하여 엔터프라이즈 통합 솔루션을 빌드하는 것에 관한 개요입니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065274"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299122"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps는 클라우드, 온-프레미스 또는 둘 모두 중 어디에 있든 간에 앱 [통합](https://azure.microsoft.com/product-categories/integration/), 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 설계하고 구축하는 방법을 간소화합니다.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스 및 [워크플로](#logic-app-concepts)를 예약, 자동화 및 오케스트레이션하는 데 유용한 클라우드 서비스입니다. Logic Apps는 클라우드, 온-프레미스 또는 둘 모두 중 어디에 있든 간에 앱 [통합](https://azure.microsoft.com/product-categories/integration/), 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 설계하고 구축하는 방법을 간소화합니다.
 
 예를 들어 다음은 논리 앱으로 자동화할 수 있는 몇 가지 워크로드의 예입니다.
 
@@ -35,7 +35,7 @@ Azure Logic Apps을 사용하여 엔터프라이즈 통합 솔루션을 빌드�
 
 ## <a name="how-does-logic-apps-work"></a>Logic Apps의 작동 원리 
 
-모든 논리 앱 워크플로는 특정 이벤트가 발생하거나 사용 가능한 새 데이터가 특정 기준을 충족할 때 실행되는 트리거를 통해 시작됩니다. 워크로드가 주기적으로 실행되는 빈도를 사용자가 지정할 수 있도록 많은 트리거가 기본적인 일정 예약 기능을 제공합니다. 더 많은 사용자 지정 일정 예약 시나리오를 보려면 일정 트리거를 사용하여 워크플로를 시작하세요. [일정 기반 워크플로를 빌드하는 방법](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)을 알아보세요.
+모든 논리 앱 워크플로는 특정 이벤트가 발생하거나 사용 가능한 새 데이터가 특정 기준을 충족할 때 실행되는 트리거를 통해 시작됩니다. Logic Apps의 커넥터에서 제공되는 많은 트리거에는 워크로드가 주기적으로 실행되는 빈도를 사용자가 지정할 수 있는 기본적인 일정 예약 기능이 포함됩니다. 더 복잡한 일정 예약 또는 고급 되풀이의 경우 되풀이 트리거를 모든 워크플로에서 첫 번째 단계로 사용할 수 있습니다. [일정 기반 워크플로](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)에 대해 자세히 알아보세요.
 
 트리거가 실행될 때마다 Logic Apps 엔진은 워크플로의 작업을 실행하는 논리 앱 인스턴스를 만듭니다. 또한 이러한 작업에는 조건부 명령문, 전환 명령문, 루프, 분기 등의 데이터 변환 및 흐름 컨트롤이 포함될 수 있습니다. 예를 들어 이 논리 앱은 "레코드가 업데이트되는 경우"라고 하는 기본 제공 기준을 사용하는 Dynamics 365 트리거를 통해 시작됩니다. 트리거가 이 조건과 일치하는 이벤트를 발견하면 트리거가 실행되고 워크플로의 작업을 실행합니다. 여기서, 이러한 작업에는 XML 변환, 데이터 업데이트, 분기, 의사 결정 분기 및 이메일 알림이 포함됩니다.
 
@@ -132,14 +132,9 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 ## <a name="get-started"></a>시작하기 
 
-Logic Apps는 Microsoft Azure에 호스팅되는 여러 서비스 중 하나입니다. 따라서 시작하려면 Azure 구독이 필요합니다. 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다. 
+Logic Apps는 Microsoft Azure에 호스팅되는 여러 서비스 중 하나입니다. 따라서 시작하려면 Azure 구독이 필요합니다. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 Azure 구독이 있는 경우 이 빠른 시작의 지침에 따라 RSS 피드를 통해 웹 사이트의 새 콘텐츠를 모니터링하다가 새 콘텐츠가 나타나면 이메일을 보내는 [첫 번째 논리 앱을 만들어 봅니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-## <a name="support-and-feedback"></a>지원 및 피드백
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

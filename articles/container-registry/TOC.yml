@@ -115,7 +115,7 @@
       href: /dotnet/api/overview/azure/containerregistry
     - name: Python
       href: /python/api/overview/azure/container-registry
-    - name: 자바
+    - name: Java
       href: /java/api/overview/azure/containerregistry
     - name: Node.js
       href: /javascript/api/overview/azure/container-registry

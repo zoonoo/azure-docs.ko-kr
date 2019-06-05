@@ -39,5 +39,5 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
 
     * 클라이언트 인증서:
 
-      * 개인 키를 만들 때에는 길이를 4096으로 지정합니다.
+      * 프라이빗 키를 만들 때에는 길이를 4096으로 지정합니다.
       * 인증서를 만들 때에는 *-extensions* 매개 변수에 대해 *usr_cert*를 지정합니다.

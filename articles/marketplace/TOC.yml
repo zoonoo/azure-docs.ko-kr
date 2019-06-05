@@ -8,15 +8,6 @@
     - name: Azure Marketplace 및 AppSource 개요 및 이점
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Marketplace에서 게시자 되기
-          href: ./become-publisher.md
-          items:
-            - name: Microsoft 계정 만들기
-              href: ./guidelines.md
-            - name: Dev Center에 등록
-              href: ./register-dev-center.md
-            - name: Azure 파트너 고객 사용량 특성
-              href: ./azure-partner-customer-usage-attribution.md
         - name: '하나의 Marketplace, 두 개의 상점'
           href: ./comparing-appsource-azure-marketplace.md
         - name: 옵션 및 고려 사항 게시
@@ -26,10 +17,12 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Azure Marketplace에서 거래
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-            - name: 전용 제품
+            - name: 프라이빗 제품
               href: ./private-offers.md
             - name: 표준 계약
               href: ./standard-contract.md
+            - name: Azure 파트너 고객 사용량 특성
+              href: ./azure-partner-customer-usage-attribution.md
         - name: 제품 형식별 게시 가이드
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -115,7 +108,7 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
         - name: GDPR 규정 준수
           href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
-        - name: 비공개 SKU
+        - name: 프라이빗 SKU
           href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
         - name: 잠재 고객 관리
           items:
@@ -477,10 +470,23 @@
           href: ./partner-center-portal/manage-account.md
         - name: 회사 작업 계정 찾기 또는 만들기
           href: ./partner-center-portal/company-work-accounts.md
+        - name: 계정을 CPP에서 파트너 센터로 마이그레이션
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: 새 제안 만들기
       items:
+        - name: 제안 만들기 검사 목록
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: SaaS 제품 만들기
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS 처리 API
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: SaaS 애플리케이션 등록
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS 처리 API v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS 처리 API v1(사용되지 않음)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: 게시 상태
       href: ./partner-center-portal/publishing-status.md
     - name: 기존 제품 업데이트

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726259"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -37,7 +37,7 @@ Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-speci
 
 이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 저장소 계정을 사용해야 하는 레거시 배포가 있는 경우 [저장소 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
@@ -132,7 +132,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>VHD에서 관리 디스크를 만들려면
 
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*을 원본 VHD의 URI로 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 을 원본 VHD의 URI로 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 
@@ -156,12 +156,12 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>옵션 3: 기존 Azure VM 복사
 
-VM의 스냅숏을 만든 다음, 이 스냅숏을 사용하여 새 관리 디스크 및 새 VM을 만드는 방식으로 관리 디스크를 사용하는 VM의 복사본을 만들 수 있습니다.
+VM의 스냅샷을 만든 다음, 이 스냅샷을 사용하여 새 관리 디스크 및 새 VM을 만드는 방식으로 관리 디스크를 사용하는 VM의 복사본을 만들 수 있습니다.
 
 
-### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅숏 만들기
+### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 만들기
 
-전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅숏을 만들 수 있습니다. 다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅숏을 만드는 방법을 보여 줍니다. 
+전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅샷을 만들 수 있습니다. 다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅샷을 만드는 방법을 보여 줍니다. 
 
 먼저 일부 매개 변수를 설정합니다. 
 
@@ -185,7 +185,7 @@ $disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
-스냅숏 구성을 만듭니다. 
+스냅샷 구성을 만듭니다. 
 
  ```powershell
 $snapshotConfig =  New-AzSnapshotConfig `
@@ -195,7 +195,7 @@ $snapshotConfig =  New-AzSnapshotConfig `
    -Location $location 
 ```
 
-스냅숏을 만듭니다.
+스냅샷을 만듭니다.
 
 ```powershell
 $snapShot = New-AzSnapshot `
@@ -205,9 +205,9 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용 하 여 고성능 되어야 하는 VM 만들기, 추가 매개 변수 `-AccountType Premium_LRS` 새 AzSnapshotConfig 명령입니다. 이 매개 변수는 스냅숏을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용 하 여 고성능 되어야 하는 VM 만들기, 추가 매개 변수 `-AccountType Premium_LRS` 새 AzSnapshotConfig 명령입니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
-### <a name="create-a-new-disk-from-the-snapshot"></a>스냅숏에서 새 디스크 만들기
+### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 
 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅숏에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
 

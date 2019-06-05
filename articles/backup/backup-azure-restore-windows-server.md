@@ -22,7 +22,7 @@ ms.locfileid: "60238482"
 * 백업을 수행한 동일한 컴퓨터에 데이터를 복원합니다.
 * 다른 컴퓨터에 데이터를 복원합니다.
 
-인스턴트 복원 기능을 사용하여 쓰기 가능한 복구 지점 스냅숏을 복구 볼륨으로 탑재합니다. 그런 다음, 복구 볼륨을 탐색하고 파일을 로컬 컴퓨터에 복사하여 파일을 선택적으로 복원할 수 있습니다.
+인스턴트 복원 기능을 사용하여 쓰기 가능한 복구 지점 스냅샷을 복구 볼륨으로 탑재합니다. 그런 다음, 복구 볼륨을 탐색하고 파일을 로컬 컴퓨터에 복사하여 파일을 선택적으로 복원할 수 있습니다.
 
 > [!NOTE]
 > 즉시 복원을 사용하여 데이터를 복원하려면 [2017년 1월 Azure Backup 업데이트](https://support.microsoft.com/en-us/help/3216528?preview)가 필요합니다. 또한 백업 데이터는 지원 문서에 나열된 로캘의 자격 증명 모음에서 보호되어야 합니다. 즉시 복원을 지원하는 최신 로캘 목록은 [2017년 1월 Azure Backup 업데이트](https://support.microsoft.com/en-us/help/3216528?preview)를 참조하세요.
@@ -44,7 +44,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구를 강조 표시한 Azure Backup 스크린샷](./media/backup-azure-restore-windows-server/recover.png)
 
-3. **시작** 페이지에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)** > **다음**을 선택합니다.
+3. **시작** 페이지에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)**  > **다음**을 선택합니다.
 
     ![데이터 복구 마법사 시작 페이지 스크린샷](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 

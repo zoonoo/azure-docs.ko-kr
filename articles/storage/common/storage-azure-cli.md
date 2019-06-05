@@ -243,7 +243,7 @@ az storage container create --name <container_name>
 
 선택적인 `--public-access` 인수를 지정하면 새 컨테이너에 대한 읽기 액세스의 다음 세 가지 수준 중 하나를 설정할 수 있습니다.
 
-* `off`(기본값): 컨테이너 데이터가 계정 소유자 전용입니다.
+* `off`(기본값): 컨테이너 데이터가 계정 소유자 프라이빗입니다.
 * `blob`: Blob에 대한 공용 읽기 액세스입니다.
 * `container`: 전체 컨테이너에 대한 공용 읽기 및 목록 액세스입니다.
 
@@ -382,7 +382,7 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
-## <a name="create-share-snapshot"></a>공유 스냅숏 만들기
+## <a name="create-share-snapshot"></a>공유 스냅샷 만들기
 `az storage share snapshot` 명령을 사용하면 공유 스냅숏을 만들 수 있습니다.
 
 ```cli
@@ -403,7 +403,7 @@ az storage share snapshot -n <share name>
 }
 ```
 
-### <a name="list-share-snapshots"></a>공유 스냅숏 나열
+### <a name="list-share-snapshots"></a>공유 스냅샷 나열
 
 `az storage share list --include-snapshots`를 사용하여 특정 공유의 공유 스냅숏을 나열할 수 있습니다.
 
@@ -447,7 +447,7 @@ az storage share list --include-snapshots
 ]
 ```
 
-### <a name="browse-share-snapshots"></a>공유 스냅숏 찾아보기
+### <a name="browse-share-snapshots"></a>공유 스냅샷 찾아보기
 `az storage file list`를 사용하여 특정 공유 스냅숏을 찾아서 해당 내용을 볼 수도 있습니다. 공유 이름 `--share-name <snare name>` 및 타임스탬프 `--snapshot '2017-10-04T19:45:18.0000000Z'`를 지정해야 합니다.
 
 ```azurecli-interactive
@@ -468,7 +468,7 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-### <a name="restore-from-share-snapshots"></a>공유 스냅숏에서 복원
+### <a name="restore-from-share-snapshots"></a>공유 스냅샷에서 복원
 
 `az storage file download` 명령을 사용하여 공유 스냅숏에서 파일을 복사 또는 다운로드하여 파일을 복원할 수 있습니다.
 
@@ -505,7 +505,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
   }
 }
 ```
-## <a name="delete-share-snapshot"></a>공유 스냅숏 삭제
+## <a name="delete-share-snapshot"></a>공유 스냅샷 삭제
 `--snapshot` 매개 변수에 공유 스냅숏 타임스탬프를 제공하면 `az storage share delete` 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다.
 
 ```cli

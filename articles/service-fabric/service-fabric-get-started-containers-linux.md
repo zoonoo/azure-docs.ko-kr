@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 9e8f209f1448119ed2e3dfd5d38d42699a4be01c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947920"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302268"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -141,9 +141,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
 Docker에서 애플리케이션이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-[레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용하여 컨테이너 레지스트리에 로그인하려면 `docker login`을 실행합니다.
+실행 `docker login` 를 사용 하 여 컨테이너 레지스트리에 로그인 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)합니다.
 
-다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
+다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -179,7 +179,7 @@ Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
- 컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
+ 컨테이너가 프라이빗 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
 
 ```xml
    <ServiceManifestImport>
@@ -231,7 +231,12 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)를 
 
 
 ## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
-v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다. 
+
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
+
+Docker HEALTHCHECK 평가 오류로 보고 해야를 지정 하는 옵션 v6.4의 최신 새로 고침 릴리스를 시작 해야 합니다. 이 옵션을 사용 하는 경우는 **확인** 상태 보고서가 표시 되는 경우 *이면* 됩니다 *정상* 고 **오류** 때 나타납니다 *이면* 됩니다 *비정상*합니다.
+
+컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
 ![HealthCheckHealthy][1]
 
@@ -246,12 +251,18 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+              RestartContainerOnUnhealthyDockerHealthStatus="false" 
+              TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport*는 **true**로 설정되고, *RestartContainerOnUnhealthyDockerHealthStatus*는 **false**로 설정됩니다. *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 로 설정 됩니다 **true**하십시오 *RestartContainerOnUnhealthyDockerHealthStatus* 로 설정 된  **false**, 및 *TreatContainerUnhealthyStatusAsError* 로 설정 되어 **false**합니다. 
+
+*RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
+
+경우 *TreatContainerUnhealthyStatusAsError* 로 설정 되어 **true**하십시오 **오류** 상태 보고서 때 나타납니다 컨테이너의 *이면*됩니다 *비정상*합니다.
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 

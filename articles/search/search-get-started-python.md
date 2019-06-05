@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python 및 Azure Search REST Api'
 description: 만들기, 로드 및 Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117332"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244783"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>빠른 시작: Jupyter Python 노트북을 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), 제공 Python 3.x 및 Jupyter Notebooks 합니다.
 
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에 대 한 무료 계층을 사용할 수 있습니다. 
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
@@ -52,7 +52,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="connect-to-azure-search"></a>Azure Search에 연결
 
-Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 로컬 워크스테이션에서 연결을 확인 합니다. Anaconda3 사용 하 여 Windows, Anaconda 탐색기 notebook에 사용할 수 있습니다.
+이 태스크에서는 Jupyter 노트북을 시작 하 고 Azure Search에 연결할 수 있는지 확인 합니다. 서비스에서 인덱스 목록을 요청 하 여이 작업을 합니다. Anaconda3 사용 하 여 Windows, Anaconda 탐색기 notebook에 사용할 수 있습니다.
 
 1. 새 Python3 notebook을 만듭니다.
 
@@ -73,7 +73,7 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. 세 번째 셀에서 요청을 작성 합니다. GET 요청이 search 서비스의 인덱스 컬렉션을 대상으로 하 고 name 속성을 선택 합니다.
+1. 세 번째 셀에서 요청을 작성 합니다. GET 요청이 search 서비스의 인덱스 컬렉션을 대상으로 하 고 기존 인덱스의 name 속성을 선택 합니다.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
    pprint(index_list)
    ```
 
-1. 각 단계를 실행 합니다. 인덱스가 존재 하는 경우 응답 인덱스 목록을 포함 합니다. 아래 스크린샷에서 서비스 azureblob-인덱스 및 realestate-us-샘플 인덱스를 포함합니다.
+1. 각 단계를 실행 합니다. 인덱스가 존재 하는 경우 응답 인덱스 이름 목록을 포함 합니다. 아래 스크린샷에서 서비스 이미 azureblob-인덱스 된 realestate-us-샘플 인덱스입니다.
 
    ![Azure Search에 HTTP 사용 하 여 Jupyter notebook에서 Python 스크립트 요청](media/search-get-started-python/connect-azure-search.png "Azure Search에 HTTP 사용 하 여 Jupyter notebook에서 Python 스크립트 요청")
 
-   빈 인덱스 컬렉션을이 응답을 반환합니다. `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   반면, 빈 인덱스 컬렉션을이 응답을 반환 합니다. `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > 무료 서비스에 대해 3 개의 인덱스, 인덱서 및 데이터 원본 제한 됩니다. 이 빠른 시작의 각 파일을 만듭니다. 계속 진행 하기 전에 새 개체를 만들 공간이 있는지 확인 합니다.
 
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-포털을 사용 하지 않는 데이터를 로드 하려면 먼저 인덱스 서비스에 있어야 합니다. 이 단계에서는 합니다 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 인덱스 스키마를 서비스에 푸시
+포털을 사용 하지 않는 데이터를 로드 하려면 먼저 인덱스 서비스에 있어야 합니다. 이 단계에서는 합니다 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 인덱스 스키마를 서비스에 적용할 합니다.
 
-구조를 정의 하는 필드 컬렉션을 *문서*합니다. 인덱스의 필수 요소에는 이름과 필드 컬렉션이 포함 됩니다. 각 필드에는 이름, 형식 및 사용 하는 방식을 결정 하는 특성 (예를 들어 인지 전체 텍스트 검색 가능, 필터링 가능, 검색 결과에서 검색 가능). 형식의 필드를 인덱스 `Edm.String` 로 지정 해야 합니다 *키* 문서 id에 대 한 합니다.
+인덱스의 필수 요소는 이름, 필드 컬렉션 및 키를 포함 합니다. 구조를 정의 하는 필드 컬렉션을 *문서*합니다. 각 필드에 이름, 형식 및 필드가 사용 되는 방법을 결정 하는 특성 (예를 들어 인지 전체 텍스트 검색 가능, 필터링 가능, 검색 결과에서 검색 가능). 형식의 필드를 인덱스 `Edm.String` 로 지정 해야 합니다 *키* 문서 id에 대 한 합니다.
 
 이 인덱스 "호텔 py" 라는 있고 아래 표시 된 필드 정의 합니다. 보다 넓은 범위의 일부입니다 [호텔 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) 다른 연습에서 사용 합니다. 이 빠른 시작에서는 간단한 설명을 위해 잘립니다 했습니다.
 
@@ -127,7 +127,7 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
     }
     ```
 
-2. 다른 셀에서 요청을 작성 합니다. 이 PUT 요청 검색 서비스의 인덱스 컬렉션을 대상으로 하 고 이전 단계에서 제공한 인덱스 스키마를 기반으로 인덱스를 만듭니다.
+2. 다른 셀에서 요청을 작성 합니다. 이 PUT 요청 검색 서비스의 인덱스 컬렉션을 대상으로 하 고 이전 셀에서 제공 하는 인덱스 스키마에 따라 인덱스를 만듭니다.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
 
 3. 각 단계를 실행 합니다.
 
-   응답은 스키마의 JSON 표현을 포함합니다. 다음 스크린 샷에서 응답의 자세히 볼 수 있도록 인덱스 스키마의 일부를 삭제 합니다.
+   응답은 스키마의 JSON 표현을 포함합니다. 다음 스크린 샷에서 응답의 일부만을 표시 됩니다.
 
     ![인덱스를 만들려면 요청](media/search-get-started-python/create-index.png "인덱스를 만들려면 요청")
 
 > [!Tip]
-> 확인을 위해 수 또한 포털에서 인덱스 목록을 확인 또는 서비스 연결 요청을 다시 실행 합니다 *호텔 py* 인덱스 인덱스 컬렉션에 표시 합니다.
+> 인덱스 생성을 확인 하는 다른 방법은 포털에서 인덱스 목록을 확인 하려면 것입니다.
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. 다른 셀에서 요청을 작성 합니다. 이 POST 요청 py 호텔 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 제공 하는 문서를 푸시합니다.
 
@@ -246,26 +247,7 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
 
 3. Search 서비스에서 인덱스에 문서를 푸시 하려면 각 단계를 실행 합니다. 결과 다음 예와 유사 합니다. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![인덱스에 문서를 보낼](media/search-get-started-python/load-index.png "인덱스 문서 보내기")
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
@@ -278,7 +260,7 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. 요청을 작성 합니다. 이 GET 요청 py 호텔 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 지정 된 쿼리를 연결 합니다.
+2. 다른 셀에서 요청을 작성 합니다. 이 GET 요청 py 호텔 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 지정 된 쿼리를 연결 합니다.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ Jupyter 노트북을 열고 서비스에서 인덱스 목록을 요청 하 여 �
    pprint(query)
    ```
 
-   결과 다음 출력과 유사 합니다. 결과 순위가 지정 되지 않습니다. (search.score = 1.0) 하므로 일치 시킬 조건을 제공 하지 않았습니다.
+3. 각 단계를 실행 합니다. 결과 다음 출력과 유사 합니다. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![인덱스 검색](media/search-get-started-python/search-index.png "인덱스 검색")
+
+4. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 다음 예제에서는 searchstring 바꿉니다 수 있으며 다음 검색 요청을 다시 실행 하십시오. 
+
+   필터를 적용 합니다. 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 필터를 적용 하 고, 맨 위의 두 결과 하 하거나, 특정 필드를 기준으로 정렬 수 있습니다.
+   상위 두 결과 수행 합니다.
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    특정 필드를 기준으로 정렬 합니다.
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>정리 
 

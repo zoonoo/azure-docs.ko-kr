@@ -13,7 +13,7 @@ ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60334882"
@@ -55,7 +55,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 ## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>팁 4: 내부적으로 보강된 문서 살펴보기 
 보강된 문서는 보강 중에 만들어진 임시 구조체로, 프로세싱이 완료되면 삭제됩니다.
 
-인덱싱 중에 만들어진 보강된 문서의 스냅숏을 캡처하려면 ```enriched```라는 필드를 인덱스에 추가합니다. 인덱서는 해당 문서의 모든 보강 문자열 표현에 대한 필드에 자동으로 덤프됩니다.
+인덱싱 중에 만들어진 보강된 문서의 스냅샷을 캡처하려면 ```enriched```라는 필드를 인덱스에 추가합니다. 인덱서는 해당 문서의 모든 보강 문자열 표현에 대한 필드에 자동으로 덤프됩니다.
 
 ```enriched``` 필드는 JSON으로 보강된 메모리 내 문서의 논리적 표현인 문자열을 포함하게 됩니다.  그러나 필드 값은 유효한 JSON 문서입니다. 따옴표가 이스케이프되므로 문서를 JSON 형식으로 보려면 `\"`를 `"`로 바꿔야 합니다. 
 

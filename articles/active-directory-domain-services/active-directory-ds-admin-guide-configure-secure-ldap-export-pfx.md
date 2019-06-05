@@ -1,9 +1,9 @@
 ---
-title: Azure AD Domain Services 관리 도메인에 대한 보안 LDAP 인증서 만들기 | Microsoft Docs
+title: 만들기는 합니다. Azure AD Domain Services 도메인에 대 한 보안 LDAP (LDAPS) 인증서를 사용 하 여 PFX 파일
 description: Azure AD Domain Services 관리 도메인에 대한 보안 LDAP 인증서를 만듭니다.
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418560"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235034"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>관리되는 도메인에 대한 보안 LDAP(LDAPS) 인증서가 있는 .PFX 파일 만들기
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)를 수행합니다.
 
+[작업 1: 보안 LDAP를 위한 인증서 가져오기](configure-ldaps.md)를 수행합니다.
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>작업 2: 보안 LDAP 인증서를 .PFX 파일로 내보내기
+
 이 작업을 시작하기 전에 공용 인증 기관에서 보안 LDAP 인증서를 가져오거나 자체 서명된 인증서를 만듭니다.
 
 LDAPS 인증서를 .PFX 파일로 내보내려면 다음을 수행합니다.
@@ -64,10 +65,10 @@ LDAPS 인증서를 .PFX 파일로 내보내려면 다음을 수행합니다.
     ![인증서 내보내기 마법사](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
 12. **개인 키 내보내기** 페이지에서 **예, 개인 키를 내보냅니다.** 를 선택하고 **다음**을 클릭합니다.
 
-    ![인증서 개인 키 내보내기](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
+    ![인증서 프라이빗 키 내보내기](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
     > [!WARNING]
-    > 인증서와 함께 개인 키를 내보내야 합니다. 인증서에 대한 개인 키가 없는 PFX를 제공하면 관리되는 도메인에 대한 보안 LDAP 설정에 실패합니다.
+    > 인증서와 함께 프라이빗 키를 내보내야 합니다. 인증서에 대한 프라이빗 키가 없는 PFX를 제공하면 관리되는 도메인에 대한 보안 LDAP 설정에 실패합니다.
     >
     >
 
@@ -96,6 +97,6 @@ LDAPS 인증서를 .PFX 파일로 내보내려면 다음을 수행합니다.
 
     ![인증서 내보내기 완료](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>다음 단계
+
 [작업 3: 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

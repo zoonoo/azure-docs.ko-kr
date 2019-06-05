@@ -15,7 +15,7 @@
               href: QuickStarts/curl-analyze.md
             - name: Go
               href: QuickStarts/go-analyze.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/java-analyze.md
             - name: JavaScript
               href: QuickStarts/javascript-analyze.md
@@ -41,7 +41,7 @@
               href: QuickStarts/curl-thumb.md
             - name: Go
               href: QuickStarts/go-thumb.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/java-thumb.md
             - name: JavaScript
               href: QuickStarts/javascript-thumb.md
@@ -61,7 +61,7 @@
               href: QuickStarts/curl-print-text.md
             - name: Go
               href: QuickStarts/go-print-text.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/java-print-text.md
             - name: JavaScript
               href: QuickStarts/javascript-print-text.md
@@ -77,7 +77,7 @@
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-hand-text.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/java-hand-text.md
             - name: JavaScript
               href: QuickStarts/javascript-hand-text.md
@@ -133,7 +133,7 @@
   items:
     - name: Computer Vision 사용
       items:
-        - name: 자바
+        - name: Java
           href: Tutorials/java-tutorial.md
         - name: JavaScript
           href: Tutorials/javascript-tutorial.md

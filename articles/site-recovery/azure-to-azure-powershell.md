@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: f09a186ee5626718c7b5e1085dd75d8857e44bb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705165"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258794"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>자격 증명 모음 컨텍스트 설정
 
-> [!TIP]
-> 대부분의 cmdlet에 대 한 편리한 별칭을 사용 하 여 Azure Site Recovery PowerShell 모듈 (Az.RecoveryServices 모듈)에 제공 됩니다. 모듈의 cmdlet 형태가  *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 형식의 별칭이 고  *\< 작업 >-**ASR**\<개체 >* 합니다. 이 문서에서는 읽기 쉽도록 cmdlet 별칭을 사용합니다.
 
-PowerShell 세션에 사용할 자격 증명 모음 컨텍스트를 설정합니다. 이를 수행하려면 자격 증명 모음 설정 파일을 다운로드하고 다운로드한 파일을 PowerShell 세션으로 가져와서 자격 증명 모음 컨텍스트를 설정합니다.
-
-설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
+PowerShell 세션에 사용할 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```

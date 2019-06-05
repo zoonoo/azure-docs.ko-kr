@@ -57,7 +57,7 @@
           href: active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: sql-database-connect-query-go.md
-        - name: 자바
+        - name: Java
           href: sql-database-connect-query-java.md
         - name: Node.js
           href: sql-database-connect-query-nodejs.md
@@ -101,7 +101,7 @@
       href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
-        - name: R에서 예측 모델 빌드 및 배포
+        - name: R에서 예측 모델 빌드
           items:
             - name: 1 - 데이터 준비
               href: sql-database-tutorial-predictive-model-prepare-data.md
@@ -109,6 +109,14 @@
               href: sql-database-tutorial-predictive-model-build-compare.md
             - name: 3 - 모델 배포
               href: sql-database-tutorial-predictive-model-deploy.md
+        - name: R에서 클러스터링 모델 빌드
+          items:
+            - name: 1 - 데이터 준비
+              href: sql-database-tutorial-clustering-model-prepare-data.md
+            - name: 2 - 모델 만들기
+              href: sql-database-tutorial-clustering-model-build.md
+            - name: 3 - 모델 배포
+              href: sql-database-tutorial-clustering-model-deploy.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -296,6 +304,8 @@
               href: transparent-data-encryption-byok-azure-sql.md
         - name: 보안 특성
           href: sql-database-security-attributes.md
+        - name: 기능 제한 사항
+          href: sql-database-feature-restrictions.md
     - name: 확장성
       items:
         - name: 확장성 개요
@@ -368,12 +378,20 @@
           href: sql-database-temporal-tables.md
         - name: 작업 자동화
           href: sql-database-job-automation-overview.md
+        - name: 연결된 서버
+          href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json'
+        - name: Service Broker
+          href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json'
+        - name: 데이터베이스 메일
+          href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json'
         - name: Machine Learning Services
           items:
             - name: 개요
               href: sql-database-machine-learning-services-overview.md
             - name: 주요 차이점
               href: sql-database-machine-learning-services-differences.md
+        - name: 서버 쪽 CLR/.NET 통합
+          href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json'
 - name: 방법 가이드
   items:
     - name: 개요
@@ -592,7 +610,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-        - name: 자바
+        - name: Java
           items:
             - name: Spring Data JDBC 사용
               href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
@@ -684,7 +702,7 @@
       href: /cli/azure/sql
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.sql.models
-    - name: 자바
+    - name: Java
       href: /java/api/com.microsoft.azure.management.sql
     - name: Node.js
       href: /sql/connect/node-js/node-js-driver-for-sql-server

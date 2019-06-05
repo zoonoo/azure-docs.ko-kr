@@ -23,7 +23,7 @@ ms.locfileid: "60011246"
 이 가이드에서는 REST를 사용하여 Computer Vision API를 호출하는 방법을 보여 줍니다. 샘플은 Computer Vision API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST/GET 호출로 작성됩니다. 다음을 집중적으로 살펴보겠습니다.
 
 - “태그”, “설명” 및 “범주”를 가져오는 방법
-- “도메인별” 정보(유명인)를 가져오는 방법
+- “도메인 특정” 정보(유명인)를 가져오는 방법
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -174,7 +174,7 @@ description.tags[] |    `string`    | 태그 목록.  캡션을 생성하는 기
 description.captions[].text | `string`  | 이미지를 설명하는 구.
 description.captions[].confidence   | `number`  | 구의 신뢰도.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인별 모델의 JSON 출력 검색 및 이해
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인 특정 모델의 JSON 출력 검색 및 이해
 
 **옵션 1:** 범위 분석 - 제공된 모델만 분석
 

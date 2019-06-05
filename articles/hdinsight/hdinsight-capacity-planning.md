@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713994"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237147"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -104,9 +104,9 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 대상 클러스터 VM 크기, 확장 및 유형을 결정했으면 구독의 현재 할당량 용량 제한을 확인합니다. 할당량 제한에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장하지 못할 수 있습니다. 유일한 할당량 제한은 각 구독에 대한 지역 수준에서 존재하는 CPU 코어 할당량입니다. 예를 들어 구독에는 미국 동부 지역에서 30 코어 제한이 있을 수 있습니다. 할당량 증가를 요청해야 하는 경우 다음 단계를 수행합니다.
 
-1. Azure Portal로 이동
-1. 페이지 맨 아래 왼쪽에서 **도움말 및 지원**을 클릭합니다.
-1. **새 지원 요청**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 선택 **도움말 + 지원** 페이지의 맨 아래 왼쪽에 있습니다.
+1. 선택 **새 지원 요청**합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
    - **문제 유형**: **서비스 및 구독 제한(할당량)**
    - **구독**: 수정하려는 구독
@@ -114,13 +114,13 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
     
      ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. **다음**을 클릭합니다.
-1. **세부 정보** 페이지에서 문제에 대한 설명을 입력하고, 해당 문제의 심각도를 선택하고, 기본 연락 방법을 선택합니다.
-1. **다음: 리뷰 + 만들기**를 클릭합니다.
-1. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.
+1. 완료되면 **다음: 솔루션 >>** 합니다.
+1. 에 **세부 정보** 페이지, 문제에 대 한 설명을 입력 하 고, 문제, 기본 연락 방법 및 다른 필수 필드의 심각도 선택 합니다.
+1. 완료되면 **다음: 검토 + 만들기 >>** 합니다.
+1. 에 **검토 + 만들기** 탭을 선택 **만들기**합니다.
 
 > [!NOTE]  
-> 개인 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).
+> 프라이빗 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).
 
 [지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.
 

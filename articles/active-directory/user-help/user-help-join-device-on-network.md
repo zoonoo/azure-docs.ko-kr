@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474542"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243267"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -116,3 +116,4 @@ ms.locfileid: "60474542"
 
 - 조직이 휴대폰과 같은 개인 디바이스를 등록하도록 요구할 경우 [조직의 네트워크에 개인 디바이스 등록](user-help-register-device-on-network.md)을 참조하세요.
 
+- 조직의 관리 되는 Microsoft Intune을 사용 하 여 등록 하는 방법에 대 한 질문이 있는 로그인 또는 모든 기타 Intune 관련 문제를 참조 하십시오 합니다 [Intune 사용자 도움말 콘텐츠](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)합니다.

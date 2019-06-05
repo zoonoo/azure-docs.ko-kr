@@ -1,21 +1,21 @@
 ---
-title: Azure CLI를 사용하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트 및 규칙 만들기 및 관리
-description: 이 문서에서는 Azure CLI 명령줄을 사용하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트 및 규칙을 만들고 관리하는 방법을 설명합니다.
+title: 만들기 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에 대 한 VNet 서비스 끝점 및 규칙 관리
+description: 이 문서에 만들고 Azure CLI 명령줄을 사용 하 여 PostgreSQL 용 Azure Database에 대 한 VNet 서비스 끝점 및 규칙을 관리 하는 방법을 설명 합니다.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 7dc5a49e8b27d1a4e4126bef1cce638373e056fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: df2af0240852b23203e504d8233de4af48475438
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420933"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067561"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트 만들기 및 관리
-VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 개인 주소 공간을 Azure Database for PostgreSQL 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for PostgreSQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>만들기 및 PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 Azure Database에 대 한 VNet 서비스 끝점 관리
+VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 프라이빗 주소 공간을 Azure Database for PostgreSQL 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for PostgreSQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.

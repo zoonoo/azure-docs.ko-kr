@@ -217,7 +217,7 @@
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/'
         - name: 연결성을 위한 네트워크 인프라 발전
           href: 'https://go.microsoft.com/fwlink/p/?LinkId=615124'
-        - name: 회로에 대해 개인 피어링을 설정하는 방법
+        - name: 회로에 대해 프라이빗 피어링을 설정하는 방법
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/'
         - name: '하이브리드 파트너십: 온-프레미스 시나리오 사용'
           href: 'https://go.microsoft.com/fwlink/p/?LinkId=615125'

@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f77069592fb34caf409b387f5c8452159f55e296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a1685622c44666eed6dac328772f6dba1418371
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553337"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398242"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V와 Azure 간에 Hyper-V 가상 머신을 복제, 장애 조치 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
 
-Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) 사설 클라우드에서 관리할 수 있습니다.
+Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) 프라이빗 클라우드에서 관리할 수 있습니다.
 
 
 
@@ -29,7 +29,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-**Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크  | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 워크로드 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
+**Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크 | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 워크로드 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **Hyper-V** | Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Azure Site Recovery 공급자와 Recovery Services 에이전트를 각 독립 실행형 Hyper-V 호스트 또는 각 Hyper-V 클러스터 노드에 설치합니다. | 공급자는 인터넷을 통한 사이트 복구로 복제를 오케스트레이션합니다. Recovery Services 에이전트는 데이터 복제를 처리합니다.<br/><br/> 공급자 및 에이전트로부터의 통신은 모두 보호 및 암호화됩니다. Azure 저장소에 복제된 데이터도 암호화됩니다.
 **Hyper-V VM** | Hyper-V에서 실행 중인 하나 이상의 VM. | 명시적으로 VM에 설치해야 하는 것은 없습니다.
 
@@ -46,7 +46,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-**Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크  | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
+**Azure** | Azure 구독, Azure Storage 계정 및 Azure 네트워크 | 온-프레미스 VM 워크로드에서 복제된 데이터는 저장소 계정에 저장됩니다. 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **VMM 서버** | VMM 서버에는 Hyper-V 호스트를 포함하는 하나 이상의 클라우드가 있습니다. | VMM 서버에 복제를 Site Recovery와 오케스트레이션하는 Site Recovery 공급자를 설치하고 Recovery Services 자격 증명 모음에 서버를 등록합니다.
 **Hyper-V 호스트** | VMM에서 관리되는 하나 이상의 Hyper-V 호스트/클러스터. |  각 Hyper-V 호스트 또는 클러스터 노드에서 Recovery Services 에이전트를 설치합니다.
 **Hyper-V VM** | Hyper-V 호스트 서버에서 실행되는 하나 이상의 VM. | 명시적으로 VM에 설치해야 하는 것은 없습니다.
@@ -75,10 +75,10 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제
 
-1. 초기 복제가 트리거되면 [Hyper-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx)이 생성됩니다.
+1. 초기 복제가 트리거되면 [Hyper-V VM 스냅샷](https://technet.microsoft.com/library/dd560637.aspx)이 생성됩니다.
 2. VM의 가상 하드 디스크는 모두 Azure에 복사될 때까지 하나씩 복제됩니다. 이 작업은 VM 크기 및 네트워크 대역폭에 따라 시간이 오래 걸릴 수 있습니다. 네트워크 대역폭을 높이는 [한 방법을 알아봅니다](https://support.microsoft.com/kb/3056159).
-3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
-4. 초기 복제가 완료되면 VM 스냅숏은 삭제됩니다.
+3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
+4. 초기 복제가 완료되면 VM 스냅샷은 삭제됩니다.
 5. 로그의 델타 디스크 변경 내용이 동기화되고 부모 디스크로 병합합니다.
 
 

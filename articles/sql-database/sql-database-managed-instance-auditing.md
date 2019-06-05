@@ -48,7 +48,7 @@ ms.locfileid: "60702867"
 
       ![Blob 컨테이너 만들기 아이콘](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   1. 컨테이너 **이름**을 지정하고 공용 액세스 수준을 **개인**으로 설정한 다음, **확인**을 클릭합니다.
+   1. 컨테이너 **이름**을 지정하고 공용 액세스 수준을 **프라이빗**으로 설정한 다음, **확인**을 클릭합니다.
 
       ![Blob 컨테이너 구성 만들기](./media/sql-managed-instance-auditing/3_create_container_config.png)
 

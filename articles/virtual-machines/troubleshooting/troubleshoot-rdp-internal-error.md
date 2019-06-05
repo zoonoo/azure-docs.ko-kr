@@ -45,7 +45,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 

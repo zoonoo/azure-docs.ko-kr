@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 5/7/2019
+ms.date: 5/28/2019
 ms.author: borisb
-ms.openlocfilehash: 7909ee1dc3980a5a4ff2418d4d6790361a66a65e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e950a92925e77fa05708d2af3e04e7991243f613
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410729"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357742"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -123,7 +123,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
     a. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
 
-    b. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
+    b. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅샷을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 
 1. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 내의 VM에 제한됩니다.
 
@@ -131,96 +131,22 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
 ### <a name="infrastructure-update"></a>인프라 업데이트
 
-2016년 9월에는 업데이트된 Azure RHUI를 배포했습니다. 2017년 4월에는 이전 Azure RHUI를 종료했습니다. 2016년 9월부터 RHEL PAYG 이미지(또는 해당 스냅숏)를 사용한 경우 새 Azure RHUI에 자동으로 연결됩니다. 그러나 VM에 이전 스냅숏이 설치되어 있다면 해당 구성은 다음 섹션에 설명한 대로 Azure RHUI에 액세스하도록 수동으로 업데이트되어야 합니다.
+2016년 9월에는 업데이트된 Azure RHUI를 배포했습니다. 2017년 4월에는 이전 Azure RHUI를 종료했습니다. 2016년 9월부터 RHEL PAYG 이미지(또는 해당 스냅샷)를 사용한 경우 새 Azure RHUI에 자동으로 연결됩니다. 그러나 VM에 이전 스냅샷이 설치되어 있다면 해당 구성은 다음 섹션에 설명한 대로 Azure RHUI에 액세스하도록 수동으로 업데이트되어야 합니다.
 
 새로운 Azure RHUI 서버가 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)와 함께 배포됩니다. Traffic Manager에서는 모든 VM에서 하위 지역에 관계없이 단일 엔드포인트(rhui-1.micrsoft.com)를 사용할 수 있습니다.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Azure RHUI 서버를 사용하기 위한 수동 업데이트 절차
 이 절차는 참조용으로만 제공됩니다. RHEL PAYG 이미지에 Azure RHUI에 연결하기 위한 올바른 구성이 이미 있습니다. Azure RHUI 서버를 사용하도록 구성을 수동으로 업데이트하려면 다음 단계를 따릅니다.
 
-1. curl을 통해 공개 키 서명을 다운로드합니다.
-
-   ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
-   ```
-
-1. 다운로드한 키의 유효성을 확인합니다.
-
-   ```bash
-   gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. 출력을 확인한 후 `keyid` 및 `user ID packet`을 확인합니다.
-
-   ```bash
-   Version: GnuPG v1.4.7 (GNU/Linux)
-   :public key packet:
-           version 4, algo 1, created 1446074508, expires 0
-           pkey[0]: [2048 bits]
-           pkey[1]: [17 bits]
-           keyid: EB3E94ADBE1229CF
-   :user ID packet: "Microsoft (Release signing) <gpgsecurity@microsoft.com>"
-   :signature packet: algo 1, keyid EB3E94ADBE1229CF
-           version 4, created 1446074508, md5len 0, sigclass 0x13
-           digest algo 2, begin of digest 1a 9b
-           hashed subpkt 2 len 4 (sig created 2015-10-28)
-           hashed subpkt 27 len 1 (key flags: 03)
-           hashed subpkt 11 len 5 (pref-sym-algos: 9 8 7 3 2)
-           hashed subpkt 21 len 3 (pref-hash-algos: 2 8 3)
-           hashed subpkt 22 len 2 (pref-zip-algos: 2 1)
-           hashed subpkt 30 len 1 (features: 01)
-           hashed subpkt 23 len 1 (key server preferences: 80)
-           subpkt 16 len 8 (issuer key ID EB3E94ADBE1229CF)
-           data: [2047 bits]
-   ```
-
-1. 공개 키를 설치합니다.
-
-   ```bash
-   sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
-   sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. 클라이언트 RPM 패키지 관리자(RPM)를 다운로드, 확인 및 설치합니다.
-
-    >[!NOTE]
-    >패키지 버전이 변경됩니다. Azure RHUI에 수동으로 연결하는 경우 갤러리에서 최신 이미지를 프로비전하여 각 RHEL 제품군에 대한 최신 버전의 클라이언트 패키지를 찾을 수 있습니다.
-
-   a. 다운로드
-
-    - RHEL 6의 경우:
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/Packages/r/rhui-azure-rhel6-2.2-74.noarch.rpm
-        ```
-
-    - RHEL 7의 경우:
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/Packages/r/rhui-azure-rhel7-2.2-74.noarch.rpm
-        ```
-
-   b. 확인
-
-   ```bash
-   rpm -Kv azureclient.rpm
-   ```
-
-   c. 출력을 확인하여 패키지의 서명이 정상인지 확인합니다.
-
-   ```bash
-   azureclient.rpm:
-       Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
-       V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
-   ```
-
-   d. RPM 설치
-
-    ```bash
-    sudo rpm -U azureclient.rpm
-    ```
-
-1. 완료되면 VM에서 Azure RHUI에 액세스할 수 있는지 확인합니다.
+- RHEL 6의 경우:
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel6.config' install 'rhui-azure-rhel6'
+  ```
+        
+- RHEL 7의 경우:
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Marketplace PAYG 이미지에서 Red Hat Enterprise Linux VM을 만들고 Azure 호스티드 RHUI를 활용하려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)로 이동합니다.

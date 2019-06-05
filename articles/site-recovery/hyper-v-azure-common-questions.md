@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251197"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399455"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -127,10 +127,10 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="whats-the-replication-process"></a>복제 프로세스란?
 
-1. 초기 복제가 트리거될 때 Hyper-V VM 스냅숏이 만들어집니다.
+1. 초기 복제가 트리거될 때 Hyper-V VM 스냅샷이 만들어집니다.
 2. VM의 가상 하드 디스크는 모두 Azure에 복사될 때까지 하나씩 복제됩니다. 이 작업은 VM 크기 및 네트워크 대역폭에 따라 시간이 오래 걸릴 수 있습니다. 네트워크 대역폭을 높이는 방법을 알아봅니다.
-3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
-4. 초기 복제가 완료되면 VM 스냅숏은 삭제됩니다.
+3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 저장소로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
+4. 초기 복제가 완료되면 VM 스냅샷은 삭제됩니다.
 5. 로그의 디스크 변경 내용이 동기화되고 부모 디스크로 병합합니다.
 6. 초기 복제를 마친 후에는 가상 머신에 대한 보호 완료 작업이 실행됩니다. 네트워크 및 기타 사후 설정을 구성하므로 VM이 보호됩니다.
 7. 이 단계에서 VM 설정이 장애 조치에 대비하고 있는지 확인할 수 있습니다. VM에 대한 재해 복구 훈련(장애 조치 테스트)을 실행하여 장애 조치가 기대한 대로 작동하는지 확인할 수 있습니다.
@@ -147,7 +147,7 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
 
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?

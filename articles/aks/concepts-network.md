@@ -9,7 +9,7 @@ ms.date: 02/28/2019
 ms.author: iainfou
 ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
 ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65074058"
@@ -55,7 +55,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 부하 분산 장치 및 서비스에 대한 IP 주소는 동적으로 할당하거나 사용할 기존 고정 IP 주소를 지정할 수 있습니다. 내부 및 외부 고정 IP 주소를 모두 할당할 수 있습니다. 이 기존 고정 IP 주소는 종종 DNS 항목에 연결됩니다.
 
-*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치에는 사설 IP 주소만 할당되므로 인터넷에서 액세스할 수 없습니다.
+*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치에는 개인 IP 주소만 할당되므로 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="azure-virtual-networks"></a>Azure 가상 네트워크
 

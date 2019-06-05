@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ### <a name="required-network-resources"></a>필요한 네트워크 리소스 
 
-Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다.  애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.  Application Gateway에 대한 새 서브넷을 만들거나 기존 서브넷을 사용할 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 사용 사례에 따라 Application Gateway의 프런트 엔드 IP를 공용 또는 개인 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
+Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다.  애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.  Application Gateway에 대한 새 서브넷을 만들거나 기존 서브넷을 사용할 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 사용 사례에 따라 Application Gateway의 프런트 엔드 IP를 공용 또는 프라이빗 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
 
 가상 네트워크 및 서브넷을 만들려면 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용합니다. [az network public-ip create](/cli/azure/network/public-ip)를 실행하여 공용 IP 주소를 만듭니다.
 
@@ -137,7 +137,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, SKU, HTTP 설정 등의 구성 정보를 지정합니다. 그러면 Azure가 네트워크 인터페이스의 사설 IP 주소를 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가합니다.
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, SKU, HTTP 설정 등의 구성 정보를 지정합니다. 그러면 Azure가 네트워크 인터페이스의 개인 IP 주소를 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가합니다.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

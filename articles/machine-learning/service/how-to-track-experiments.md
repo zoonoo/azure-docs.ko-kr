@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820905"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297486"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
 
@@ -67,7 +67,7 @@ ms.locfileid: "60820905"
 
 1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge
@@ -272,7 +272,7 @@ ms.locfileid: "60820905"
 
   ![Azure Portal의 실행 세부 정보](./media/how-to-track-experiments/run-details-page-web.PNG)
 
-또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅숏을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
+또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
 
 ### <a name="viewing-charts-in-run-details"></a>실행 세부 정보에서 차트 보기
 
@@ -394,7 +394,7 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>예측 대 True 
+#### <a name="predicted-vs-true"></a>예측 대 True
 
 예측 대 실제는 회귀 문제에 대한 예측된 값과 상호 연관된 실제 값 사이의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
 

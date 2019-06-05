@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581125"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072979"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -56,7 +56,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>샘플 구현: AKS(Azure Kubernetes Service)에 대한 가상 노드
 
-[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 현재 미리 보기에서 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
+[Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
 
 가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) 또는 [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545)을 사용하여 가상 노드를 시작합니다.
 

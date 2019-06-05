@@ -104,7 +104,7 @@
       href: sap-hana-backup-guide.md
     - name: SAP HANA 파일 수준 백업
       href: sap-hana-backup-file-level.md
-    - name: SAP HANA 스토리지 스냅숏 백업
+    - name: SAP HANA 스토리지 스냅샷 백업
       href: sap-hana-backup-storage-snapshots.md
 - name: Azure Virtual Machines의 SAP NetWeaver 및 Business One
   items:

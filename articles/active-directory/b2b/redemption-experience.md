@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785410"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304523"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory) B2B 협업을 통해 파트너 조직의 사용
 
 ## <a name="terms-of-use"></a>사용 약관
 
-Azure AD 사용 약관 기능을 사용하여 초기 상환 프로세스 동안 게스트 사용자에게 사용 약관을 제공할 수 있습니다. Azure Active Directory의 **관리** > **조직 관계** > **사용 약관** 또는 **보안** > **조건부 액세스** > **사용 약관**에서 이 기능에 액세스할 수 있습니다. 자세한 내용은 [Azure AD 사용 약관 기능](../conditional-access/terms-of-use.md)을 참조하세요.
+사용 약관을를 Azure AD 사용 약관 기능을 사용 하 여 초기 상환 프로세스 동안 게스트 사용자에 게 제공할 수 있습니다. Azure Active Directory의 **관리** > **조직 관계** > **사용 약관** 또는 **보안** > **조건부 액세스** > **사용 약관**에서 이 기능에 액세스할 수 있습니다. 자세한 내용은 참조 하세요 [Azure AD 사용 약관 기능](../conditional-access/terms-of-use.md)합니다.
 
 ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

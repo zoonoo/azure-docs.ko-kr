@@ -7,17 +7,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/24/2019
+ms.openlocfilehash: 0bdcc253a57fb55d610d67acd9b6a50182a699e3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704953"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257841"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
-이 자습서에서는 [Apache Spark](https://spark.apache.org/) 스트리밍 애플리케이션을 만들어 Azure 이벤트 허브로 트윗을 보내고, 다른 애플리케이션을 만들어 이벤트 허브에서 트윗을 읽는 방법을 알아봅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
+이 자습서를 만드는 방법을 알아봅니다는 [Apache Spark](https://spark.apache.org/) 스트리밍 응용 프로그램 이벤트 허브에서 트 윗을 읽을 수 있는 다른 응용 프로그램을 만들고 Azure 이벤트 허브에 트 윗을 보냅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -28,7 +28,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **문서, [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)** 을 완료합니다.
+* HDInsight의 Apache Spark 클러스터입니다. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
+
+* HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [데이터를 로드 하 고 HDInsight에서 Apache Spark를 사용 하 여 쿼리를 실행](./apache-spark-load-data-run-query.md)합니다.
+
+* A [Twitter 계정](https://twitter.com/i/flow/signup)합니다.
 
 ## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
@@ -40,10 +44,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 값을 제공합니다.
 
-    - 이름: 애플리케이션 이름을 제공합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.
-    - 설명: 애플리케이션에 대한 간단한 설명을 제공합니다. 이 자습서에 사용되는 값은 **간단한 HDInsight Spark 스트리밍 애플리케이션**입니다.
-    - 웹 사이트: 애플리케이션의 웹 사이트를 제공합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 **http://www.contoso.com**입니다.
-    - 콜백 URL: 비워 둘 수 있습니다.
+    |자산 |값 |
+    |---|---|
+    |이름|응용 프로그램 이름을 제공 합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.|
+    |설명|응용 프로그램에 대 한 간단한 설명을 제공 합니다. 이 자습서에 사용되는 값은 **간단한 HDInsight Spark 스트리밍 애플리케이션**입니다.|
+    |웹 사이트|응용 프로그램의 웹 사이트를 제공 합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 **http://www.contoso.com** 입니다.|
+    |콜백 URL|비워 둘 수 있습니다.|
 
 1. **예, Twitter 개발자 계약을 읽고 동의합니다**를 선택한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
 
@@ -64,30 +70,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.  
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.  
 
-1. **사물 인터넷** 아래에서 **Event Hubs**를 선택합니다. 
+3. **사물 인터넷** 아래에서 **Event Hubs**를 선택합니다. 
 
     ![Spark 스트리밍 예제에 대한 이벤트 허브 만들기](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 만들기")
 
-4. **+추가**를 선택합니다.
+4. 선택 **+ 추가**합니다.
+
 5. 새 Event Hubs 네임스페이스에 다음 값을 입력합니다.
 
-    - **이름**: 이벤트 허브의 이름을 입력합니다.  이 자습서에 사용되는 값은 **myeventhubns20180403**입니다.
+    |자산 |값 |
+    |---|---|
+    |이름|이벤트 허브의 이름을 입력합니다.  이 자습서에 사용되는 값은 **myeventhubns20180403**입니다.|
+    |가격 책정 계층 |**표준**을 선택합니다.|
+    |구독|내게 적합한 구독을 선택합니다.|
+    |리소스 그룹|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
+    |Location|대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치**를 선택합니다.|
+    |자동 확장 사용 (선택 사항) |자동 팽창 트래픽에 할당 된 처리량 단위의 용량을 초과 하는 경우에 Event Hubs Namespace에 할당 된 처리량 단위 수가 자동으로 조정 합니다.  |
+    |(선택 사항) 최대 처리량 단위 자동 확장|확인 하는 경우에이 슬라이더 나타납니다 **사용 자동 팽창**합니다.  |
 
-    - **가격 책정 계층**: **표준**을 선택합니다.
+    ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
 
-    - **구독**: 내게 적합한 구독을 선택합니다.
-
-    - **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.
-
-    - **Location**: 대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치**를 선택합니다.
-
-    - **자동 팽창 사용**: (선택 사항) 자동 팽창은 트래픽이 Event Hubs 네임스페이스에 할당된 처리량 단위의 용량을 초과할 때 Event Hubs 네임스페이스에 할당된 처리량 단위의 수를 자동으로 조절합니다.  
-
-    - **자동 팽창 최대 처리량 단위**: (선택 사항) 슬라이더는 **자동 팽창 사용**을 선택한 경우에만 나타납니다.  
-
-      ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
 6. **만들기**를 선택하여 네임스페이스를 만듭니다.  몇 분 안에 배포가 완료됩니다.
 
 ## <a name="create-an-azure-event-hub"></a>Azure 이벤트 허브 만들기
@@ -134,9 +138,9 @@ Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. 다음 코드를 실행하여 이벤트 허브에 트윗을 보냅니다.
+2. 대체 하 여 아래 코드를 편집할 `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`를 `<ACCESS TOKEN>`, 및 `<TOKEN SECRET>` 적절 한 값을 사용 하 여 합니다. 이벤트 허브에 트 윗 보내기 편집한 코드를 실행 합니다.
 
-    ```
+    ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
@@ -215,15 +219,16 @@ Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
     ```
-2. 다음 코드를 실행하여 이벤트 허브에서 트윗을 읽습니다.
 
-    ```
+2. 대체 하 여 아래 코드를 편집할 `<Event hub name>`, 및 `<Event hub namespace connection string>` 적절 한 값을 사용 하 여 합니다. 이벤트 허브에서 트 윗을 읽습니다 편집된 코드를 실행 합니다.
+
+    ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
     // Replace values below with yours        
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
     
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -253,12 +258,7 @@ Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-* 이벤트 허브에서 메시지를 읽습니다.
-기계 학습 애플리케이션을 만들 수 있는지 보려면 다음 문서를 진행합니다. 
+이 자습서에서는 Apache Spark 스트리밍 응용 프로그램을 Azure 이벤트 허브에 트 윗 보내기을 만드는 방법을 학습 하 고 이벤트 허브에서 트 윗을 읽을 수 있는 다른 응용 프로그램을 생성 합니다.  기계 학습 애플리케이션을 만들 수 있는지 보려면 다음 문서를 진행합니다.
 
 > [!div class="nextstepaction"]
 > [기계 학습 애플리케이션 만들기](./apache-spark-ipython-notebook-machine-learning.md)
-
-

@@ -17,7 +17,7 @@ ms.locfileid: "66115707"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
-이 문서를 사용하면 ExpressRoute 개인 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. Microsoft 피어링을 사용하여 선택한 온-프레미스 네트워크와 Azure VNet 간에 사이트 간 IPsec/IKE VPN 터널을 설정할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
+이 문서를 사용하면 ExpressRoute 프라이빗 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. Microsoft 피어링을 사용하여 선택한 온-프레미스 네트워크와 Azure VNet 간에 사이트 간 IPsec/IKE VPN 터널을 설정할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
 
 >[!NOTE]
 >Microsoft 피어링을 통해 사이트 간 VPN을 설정하면 VPN Gateway 및 VPN 송신에 대한 요금이 청구됩니다. 자세한 내용은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
@@ -39,7 +39,7 @@ ms.locfileid: "66115707"
 VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 적절한 NVA(네트워크 가상 어플라이언스)를 사용하여 Microsoft 피어링을 통한 VPN 터널을 종료할 수 있습니다. 기본 Microsoft 피어링에 경로 교환을 노출하지 않고 암호화된 터널을 통해 경로를 정적으로 또는 동적으로 교환할 수 있습니다. 이 문서의 예제에서는 BGP(Microsoft 피어링을 만드는 데 사용되는 BGP 세션과 다름)를 사용하여 암호화된 터널을 통해 동적으로 접두사를 교환합니다.
 
 >[!IMPORTANT]
->온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 개인 피어링은 핵심 네트워크 영역에서 종료됩니다. 두 영역은 방화벽을 사용하여 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급되는 주요 공용 IP만을 필터링해야 합니다.
+>온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 프라이빗 피어링은 핵심 네트워크 영역에서 종료됩니다. 두 영역은 방화벽을 사용하여 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급되는 주요 공용 IP만을 필터링해야 합니다.
 >
 >
 
@@ -120,7 +120,7 @@ Get-AzBgpServiceCommunity
 
   ![VPN 터널](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
 
-IPsec 터널 쌍을 통해 개인 네트워크 경로를 교환하도록 eBGP 세션이 설정됩니다. 다음 다이어그램에서는 IPsec 터널 쌍을 통해 설정된 eBGP 세션을 보여줍니다.
+IPsec 터널 쌍을 통해 프라이빗 네트워크 경로를 교환하도록 eBGP 세션이 설정됩니다. 다음 다이어그램에서는 IPsec 터널 쌍을 통해 설정된 eBGP 세션을 보여줍니다.
 
   ![터널 쌍을 통한 eBGP 세션](./media/site-to-site-vpn-over-microsoft-peering/TunnelBGP.png)
 
@@ -268,7 +268,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 
 * **"RouteBased"** VpnType을 사용하여 VPN Gateway를 만듭니다. 이 설정은 VPN Gateway와 VPN 온-프레미스 간에 BGP 라우팅을 사용하도록 설정하려는 경우에 필수입니다.
 * 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 디바이스 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
-* VPN 터널 간에 eBGP 세션을 구성하려면 양쪽에 두 개의 다른 ASN을 지정해야 합니다. 개인 ASN 번호를 지정하는 것이 좋습니다. 자세한 내용은 [BGP 및 Azure VPN Gateway 개요](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
+* VPN 터널 간에 eBGP 세션을 구성하려면 양쪽에 두 개의 다른 ASN을 지정해야 합니다. 프라이빗 ASN 번호를 지정하는 것이 좋습니다. 자세한 내용은 [BGP 및 Azure VPN Gateway 개요](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ```json
 {

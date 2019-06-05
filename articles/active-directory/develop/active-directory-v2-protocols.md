@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546108"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417661"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 
@@ -48,7 +48,7 @@ Identity-as a service 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0�
 모두 개인 및 회사 또는 학교 계정에 적용 하려는 모든 앱을 통해 등록 되어야 합니다는 **앱 등록** 환경을 합니다 [Azure portal](https://aka.ms/appregistrations) OAuth 2.0을 사용 하 여 이러한 사용자를 로그인 할 수 전에 또는 OpenID Connect입니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
 * 앱을 고유하게 식별하는 **애플리케이션 ID**
-* 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**
+* A **리디렉션 URI** (선택 사항) 사용할 수 있는 앱에 응답을 다시 보내기 위해
 * 다른 몇 가지 시나리오 관련 값.
 
 자세한 내용은 [앱 등록](quickstart-register-app.md)방법을 참조하세요.
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| 값 | 설명 |
+| Value | 설명 |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

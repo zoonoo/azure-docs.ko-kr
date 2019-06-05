@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565894"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417717"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -296,8 +296,8 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
 * 복구 후 Windows Server 2008 R2 도메인 컨트롤러가 시작되지 않습니다.
 * 오프라인 동기화가 예상대로 작동하지 않습니다.
 * VM 장애 조치 후에 구성 서버 콘솔에서 오랫동안 복제 쌍 삭제가 진행되지 않습니다. 사용자가 장애 복구를 완료하거나 작업을 다시 시작할 수 없습니다.
-* 일관성 작업에 의한 전체 스냅숏 작업이 최적화되어 SQL Server 클라이언트와 같은 애플리케이션의 연결 해제를 줄일 수 있습니다.
-* 일관성 도구(VACP.exe) 성능이 향상되었습니다. Windows에서 스냅숏을 만드는 데 필요한 메모리 사용량이 줄었습니다.
+* 일관성 작업에 의한 전체 스냅샷 작업이 최적화되어 SQL Server 클라이언트와 같은 애플리케이션의 연결 해제를 줄일 수 있습니다.
+* 일관성 도구(VACP.exe) 성능이 향상되었습니다. Windows에서 스냅샷을 만드는 데 필요한 메모리 사용량이 줄었습니다.
 * 암호가 16자를 초과하면 푸시 설치 서비스가 충돌합니다.
 * 자격 증명이 수정되면 vContinuum에서 새 vCenter 자격 증명을 확인하고 요청하지 않습니다.
 * Linux에서 마스터 대상 캐시 관리자(cachemgr)는 프로세스 서버에서 파일을 다운로드하지 않습니다. 복제 쌍 제한이 발생합니다.

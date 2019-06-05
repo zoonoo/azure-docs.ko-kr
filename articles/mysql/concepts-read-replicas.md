@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510919"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225371"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -34,7 +34,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 읽기 복제본 기능은 MySQL 비동기 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 마스터와 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
 
-읽기 복제본 재해 복구 계획을 향상 시킬 수 있습니다. 지역 재해가 발생 하는 경우 마스터 서버를 사용할 수 없는 경우 다른 지역의 복제본으로 워크 로드를 보낼 수 있습니다. 이렇게 하려면 먼저 중지 복제 함수를 사용 하 여 쓰기 허용 복제본 수 있습니다. 그런 다음 연결 문자열을 업데이트 하 여 응용 프로그램을 리디렉션할 수 있습니다. 자세한 내용은 합니다 [복제를 중지](#stop-replication) 섹션.
+읽기 복제본은 재해 복구 계획을 향상 시킬 수 있습니다. 지역 재해가 발생할 때 마스터 서버를 사용할 수 없는 경우 다른 지역의 복제본으로 워크로드를 보낼 수 있습니다. 이렇게 하려면 먼저 중지 복제 함수를 사용 하 여 쓰기 허용 복제본 수 있습니다. 그런 다음 연결 문자열을 업데이트하여 응용 프로그램을 리디렉션할 수 있습니다. 자세한 내용은 [복제 중지](#stop-replication) 섹션을 확인합니다.
 
 ## <a name="create-a-replica"></a>복제본 만들기
 
@@ -42,8 +42,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 복제본 만들기 워크플로를 시작하면, 빈 Azure Database for MySQL 서버가 생성됩니다. 새 서버는 마스터 서버에 있는 데이터로 채워집니다. 생성 시간은 마스터의 데이터 양과 지난 주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
 
-> [!NOTE]
-> 서버에 스토리지 경고가 설정되어 있지 않은 경우 스토리지 경고를 설정하는 것이 좋습니다. 이 경고는 서버가 스토리지 용량 한도에 도달하면 이를 알려주며 복제에 영향을 미칩니다.
+저장소에 대 한 모든 복제본 사용 가능 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)합니다. 자동 증가 기능은, 복제 되는 데이터를 계속 확인 하 고 부족 저장소 오류 인해 복제의 중단을 방지 하는 복제본입니다.
 
 [Azure Portal에서 읽기 복제본을 만드는 방법](howto-read-replicas-portal.md)을 알아봅니다.
 

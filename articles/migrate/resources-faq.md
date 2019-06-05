@@ -21,7 +21,7 @@ ms.locfileid: "61292989"
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure Migrate가 VMware 워크로드의 평가만 지원하나요?
 
-예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. 지원 미리 보기에서 Hyper-v에 등록 하세요 [여기](https://aka.ms/migratefuture) 미리 보기에 대 한 액세스를 가져오려고 합니다. 물리적 서버에 대 한 지원은 나중에 사용 됩니다.
+예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. Hyper-V 지원은 미리 보기로 제공됩니다. 미리 보기에 접근하기 위해서는 [여기](https://aka.ms/migratefuture)에서 가입합니다. 물리적 서버에 대한 지원은 나중에 가능합니다.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
 
@@ -42,7 +42,7 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware에서 Azure로의 마이그레이션**: 온-프레미스 워크로드를 Azure로 마이그레이션하려는 경우 마이그레이션 계획에 Azure Migrate를 사용합니다. Azure Migrate는 온-프레미스 워크로드를 평가하고 Azure로 마이그레이션하는 데 유용한 지침, 통찰력 및 메커니즘을 제공합니다. 마이그레이션 계획이 준비되면 Azure Site Recovery 및 Azure Database Migration Service 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 
-**Hyper-V에서 Azure로의 마이그레이션**: 현재 Azure Migrate의 일반 공급 버전 Azure로의 마이그레이션을 위해 VMware virtual machines의 평가 지원합니다. 지원 Hyper-v는 현재 프로덕션 지원 미리 보기에 대 한 합니다. 미리 보기 사용해 보려는 경우 등록 하세요 [여기](https://aka.ms/migratefuture)합니다.
+**Hyper-V에서 Azure로의 마이그레이션**: 현재 일반적으로 제공되는 Azure Migrate 버전에서는 Azure로 마이그레이션하기 위한 VMware 가상 머신의 평가를 지원합니다. Hyper-V의 지원은 현재 상용에서도 지원되며 프리뷰 단계입니다. 프리뷰를 사용해 보려면 [여기](https://aka.ms/migratefuture)에서 등록합니다.
 
 **VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
@@ -204,7 +204,7 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>MMA(Microsoft Monitoring Agent) 및 종속성 에이전트 설치를 자동화하려면 어떻게 해야 하나요?
 
-종속성 에이전트 설치에 사용할 수 있는 스크립트는 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)에 나와 있습니다. [여기](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)에는 명령줄 또는 자동화된 방법을 사용하여 MMA를 설치하는 방법에 대한 지침이 있습니다. MMA의 경우 Technet의 [여기](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)에서 제공하는 스크립트를 활용할 수도 있습니다.
+종속성 에이전트 설치에 사용할 수 있는 스크립트는 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)에 나와 있습니다. [여기](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)에는 명령줄 또는 자동화된 방법을 사용하여 MMA를 설치하는 방법에 대한 지침이 있습니다. MMA의 경우 [Technet](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)에서 제공하는 스크립트를 활용할 수도 있습니다.
 
 스크립트 외에도 SCCM(System Center Configuration Manager), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 등의 배포 도구를 활용하여 에이전트를 배포할 수도 있습니다.
 
@@ -219,7 +219,7 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해 Azure Migrate의 종속성을 시각화할 수 있나요?
-아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 하지만 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)하려면 Azure Monitor 로그를 사용할 수 있습니다.
+아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 하지만 더 긴 기간의 [종속성 데이터 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)는 Azure Monitor 로그를 사용할 수 있습니다.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>종속성 시각화가 10대를 초과하는 VM을 사용하는 그룹에 지원되나요?
 최대 10개의 VM이 있는 [그룹에 대한 종속성을 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)할 수 있습니다. VM이 10개보다 많은 그룹이 있는 경우 더 작은 그룹으로 분할하여 종속성을 시각화하는 것이 좋습니다.

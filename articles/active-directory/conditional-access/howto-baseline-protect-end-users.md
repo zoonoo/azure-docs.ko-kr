@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003163"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235497"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>기본 정책: 최종 사용자 보호 (미리 보기)
 
@@ -75,7 +75,7 @@ Azure AD Premium 라이선스가 할당 된 사용자가 디렉터리에서 기�
 
 정책 **기준 정책: 최종 사용자 보호 (미리 보기)** 미리 구성 되어 및 Azure portal에서 조건부 액세스 블레이드로 이동 하면 위쪽에 표시 됩니다.
 
-이 정책을 사용 하도록 설정 및 관리자에 게 보호 합니다.
+이 정책을 사용 하도록 설정 및 사용자를 보호 합니다.
 
 1. 에 로그인 합니다 **Azure portal** 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자입니다.
 1. 이동할 **Azure Active Directory** > **조건부 액세스**합니다.

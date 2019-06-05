@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6afe54d269d273c6a93e6431e9f1c1af7b18cc0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720906"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237725"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
@@ -108,7 +108,7 @@ Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복�
 ### <a name="azcopy"></a>AzCopy
 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다. AzCopy 사용은 간단합니다.
 
-1. [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
+1. [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 2. 명령줄에서 `azcopy`를 사용하여 데이터를 Azure 파일 공유로 이동합니다. Windows의 구문은 다음과 같습니다. 
 
     ```

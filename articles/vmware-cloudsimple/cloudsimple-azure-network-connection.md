@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8ea98d6493b824bfa232ef8193388e93b97c506b
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/26/2019
 ms.locfileid: "64577002"
@@ -40,7 +40,7 @@ Azure 네트워크 연결을 사용 하면 수 있습니다.
 이 메서드는 두 환경 간의 연결을 설정 합니다.
 
 * 보안
-* 개인
+* 프라이빗
 * 높은 대역폭
 * 짧은 대기 시간
 

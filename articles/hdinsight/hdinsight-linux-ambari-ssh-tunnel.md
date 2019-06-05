@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682547"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299362"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>SSH 터널링을 사용하여 Apache Ambari Web UI, JobHistory, NameNode, Apache Oozie 및 기타 웹 UI에 액세스
 
@@ -42,7 +42,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* SSH 클라이언트. 대부분의 운영 체제가 `ssh` 명령을 통해 SSH 클라이언트를 제공합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * SOCKS5 프록시를 사용하도록 구성할 수 있는 웹 브라우저입니다.
 
@@ -56,9 +56,9 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 
 ## <a name="usessh"></a>SSH 명령을 사용하여 터널 만들기
 
-`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. **sshuser**를 HDInsight 클러스터의 SSH 사용자로 바꾸고, **clustername**을 HDInsight 클러스터의 이름으로 바꿉니다.
+`ssh` 명령을 사용하여 SSH 터널을 만들려면 다음 명령을 사용합니다. 바꿉니다 `sshuser` 바꾸고 서버 HDInsight 클러스터의 SSH 사용자를 사용 하 여 `clustername` HDInsight 클러스터의 이름:
 
-```bash
+```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
@@ -81,19 +81,20 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 ### <a name="create-or-load-a-session"></a>세션 만들기 또는 로드
 
-1. PuTTY를 열고 왼쪽 메뉴에서 **세션**이 선택되어 있는지 확인합니다. 세션을 이미 저장한 경우 **저장된 세션** 목록에서 세션 이름을 선택하고 **로드**를 클릭합니다.
+1. PuTTY를 열고 왼쪽 메뉴에서 **세션**이 선택되어 있는지 확인합니다. 가 이미를 저장 한 경우 세션에서 세션 이름을 선택 합니다 **저장 된 세션** 나열 하 고 선택 **부하**합니다.
 
 1. 저장된 세션이 없는 경우 연결 정보를 입력합니다.
     * **호스트 이름(또는 IP 주소)** - HDInsight 클러스터의 SSH 주소입니다. 예: **mycluster-ssh.azurehdinsight.net**
     * **포트** - 22
     * **연결 형식** - SSH
-1. 페이지 맨 아래에 있는 **저장**
+
+1. **저장**을 선택합니다.
 
     ![SSH 세션 만들기](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-2. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+1. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
-3. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
+1. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
    
    * **Source port** - 전달하려는 클라이언트의 포트입니다. 예를 들면 **9876**과 같습니다.
 
@@ -103,9 +104,9 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
      
      ![터널링 옵션 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. **Add**를 클릭하여 설정을 추가한 다음 **Open**을 클릭하여 SSH 연결을 엽니다.
+1. 선택 **추가** 설정을 추가 하 고 클릭 한 다음 **엽니다** 를 SSH 연결을 엽니다.
 
-5. 메시지가 표시되면 서버에 로그인합니다.
+1. 메시지가 표시 되 면 서버에 로그인 합니다.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>브라우저에서 터널 사용
 
@@ -125,10 +126,10 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 클러스터를 설정한 후에 Ambari 웹에서 서비스 웹 UI에 액세스할 수 있는지 확인하려면 다음 단계를 따릅니다.
 
-1. 브라우저에서 http\://headnodehost:8080으로 이동합니다. `headnodehost` 주소는 터널을 통해 클러스터로 전송되며 Ambari가 실행 중인 헤드 노드를 확인합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름(관리자) 및 암호를 입력합니다. Ambari 웹 UI에서 두 번째로 메시지가 표시될 수 있습니다. 이러한 경우 정보를 다시 입력합니다.
+1. 브라우저에서 `http://headnodehost:8080`으로 이동합니다. `headnodehost` 주소는 터널을 통해 클러스터로 전송되며 Ambari가 실행 중인 헤드 노드를 확인합니다. 메시지가 표시되면 클러스터의 관리자 사용자 이름(관리자) 및 암호를 입력합니다. Ambari 웹 UI에서 두 번째로 메시지가 표시될 수 있습니다. 이러한 경우 정보를 다시 입력합니다.
 
    > [!NOTE]  
-   > http\://headnodehost:8080 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용하여 인터넷을 통해 연결하려면 https\://clustername.azurehdinsight.net을 사용합니다. 여기서 **clustername**은 클러스터의 이름입니다.
+   > `http://headnodehost:8080` 주소를 사용하여 클러스터에 연결할 경우 터널을 통해 연결됩니다. 통신 보안은 HTTPS가 아닌 SSH 터널을 사용하여 유지됩니다. HTTPS를 사용 하 여 인터넷을 통해 연결 하려면 `https://clustername.azurehdinsight.net`여기서 `clustername` 클러스터의 이름입니다.
 
 2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 HDFS를 선택합니다.
 
@@ -138,23 +139,20 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
     ![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
-   > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
-   >
-   > **빠른 링크** 메뉴의 일부 항목이 화면 오른쪽에서 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
+    > [!NOTE]  
+    > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
+    >
+    > **빠른 링크** 메뉴의 일부 항목이 화면 오른쪽에서 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
 
 4. 다음 이미지와 유사한 페이지가 표시됩니다.
 
     ![NameNode UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]  
-   > 이 페이지의 URL에 유의하세요. **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**와 유사해야 합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
+    > [!NOTE]  
+    > 이 페이지에 대 한 url 와 유사 해야 `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 SSH 터널을 만들고 사용하는 방법을 배웠으므로 다음 문서에서 Ambari를 사용하는 다른 방법을 참조하세요.
 
 * [Apache Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-
-HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-

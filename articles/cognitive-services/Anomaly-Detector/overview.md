@@ -1,5 +1,5 @@
 ---
-title: 비정상 탐지기 API 란 무엇 인가요? | Microsoft Docs
+title: Anomaly Detector API란? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: 시계열 데이터에서 변칙을 식별 하는 비정상 탐지기 API의 고급 알고리즘을 사용 합니다.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473442"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415820"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>비정상 탐지기 API 란 무엇 인가요?
+# <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
 비정상 탐지기 API를 사용 하면 모니터링 및 기계 학습을 사용 하 여 시계열 데이터에서 변칙을 수 있습니다. 비정상 탐지기 API는 자동으로 식별 하 고 산업, 시나리오 또는 데이터 볼륨에 관계 없이 데이터에 가장 적합 한 모델을 적용 하 여 조정 됩니다. 시계열 데이터를 사용 하는 API 변칙 검색에 예상 값에 대 한 경계를 확인 하 고 데이터 요소가 잘못 된 부분을 수행 하는.
 
@@ -56,7 +56,7 @@ ms.locfileid: "58473442"
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
-등록 후:
+가입 후:
 
 1. 시계열 데이터를 가져오고 유효한 JSON 형식으로 변환 합니다. 사용 하 여 [모범 사례](concepts/anomaly-detection-best-practices.md) 최상의 결과 얻으려면 데이터를 준비 하는 경우.
 1. 데이터를 사용 하 여 비정상 탐지기 API에 요청을 보냅니다.

@@ -74,13 +74,13 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **OnPremisesPostgreSql** |예 |
-| 서버 |PostgreSQL 서버의 이름입니다. |예 |
-| 데이터베이스 |PostgreSQL 데이터베이스의 이름입니다. |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesPostgreSql** |예 |
+| server |PostgreSQL 서버의 이름입니다. |예 |
+| database |PostgreSQL 데이터베이스의 이름입니다. |예 |
 | schema |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |아닙니다. |
 | authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 다음과 같습니다. 익명, 기본 및 Windows입니다. |예 |
-| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
+| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성

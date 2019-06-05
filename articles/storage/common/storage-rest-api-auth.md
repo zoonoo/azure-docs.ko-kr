@@ -9,22 +9,22 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 19272e93739d98962ab6818e1c2626ac9e0ac6d9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204436"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306655"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
 
-이 문서에서는 Blob Storage Service REST API를 사용하는 방법 및 서비스에 대한 호출을 인증하는 방법을 보여 줍니다. 개발자이긴 하지만 REST에 대해 아무 것도 모르고 REST를 호출하는 방법조차 모르는 사람들의 관점에서 작성되었습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
+이 문서에서는 Blob Storage Service REST API를 사용하는 방법 및 서비스에 대한 호출을 인증하는 방법을 보여 줍니다. 아무런 REST 및 모릅니다 하는 방법에 대 한 REST 호출을 수행 하는 방법을 개발자의 관점에서 작성 되었습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 
 응용 프로그램이 스토리지 계정에 대한 Blob Storage의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)을 설치합니다.
+* 설치할 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) 다음 워크 로드를 사용 하 여:
     - Azure 개발
 
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -49,9 +49,9 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 REST는 *Representational State Transfer*를 말합니다. 구체적인 정의는 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
 
-기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 어떤 일이 발생하든, REST 호출을 보내거나 받을 때 어떤 소프트웨어가 사용되든 아무 관계 없습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 애플리케이션을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
+기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 발생 하는 독립적 이며 호출 나머지를 받거나 보낼 때 어떤 소프트웨어가 사용 됩니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 애플리케이션을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
 
-REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 새 기능은 대부분 REST 인터페이스를 통해 액세스할 수 있지만, 아직 **모든** 저장소 클라이언트 라이브러리 또는 UI(예: Azure Portal)를 통해 표시된 적은 없습니다. 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 스토리지 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
+REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 대부분의 경우 새 기능은 REST 인터페이스를 통해 액세스할 수 있습니다. 기능을 통해 표시 하지 않은 하지만 경우에 따라 **모든** 저장소 클라이언트 라이브러리 또는 UI (예: Azure portal). 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 스토리지 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
 
 ## <a name="about-the-sample-application"></a>샘플 애플리케이션 정보
 
@@ -61,7 +61,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 
 ## <a name="rest-api-reference-list-containers-api"></a>REST API 참조: 컨테이너 나열 API
 
-[ListContainers](/rest/api/storageservices/List-Containers2) 작업에 대한 REST API 참조의 페이지를 살펴보면 다음 섹션에서 코드를 사용하여 일부 필드가 요청 및 응답의 어디에서 오는지 이해할 수 있습니다.
+에 대 한 REST API 참조 페이지에 살펴보겠습니다 합니다 [ListContainers](/rest/api/storageservices/List-Containers2) 작업 합니다. 이 정보는 일부 필드 출처에서 요청 및 응답에서 이해 하는 데 도움이 됩니다.
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
@@ -77,21 +77,21 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers)**:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id*를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 스토리지 분석 로그에 기록됩니다.
+[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers) **:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id*를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 스토리지 분석 로그에 기록됩니다.
 
-[요청 본문](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers에 대한 요청 본문이 없습니다. 요청 본문은 BLOB을 업로드할 때 모든 PUT 작업에 사용되며, 적용하려는 저장된 액세스 정책 XML 목록을 보낼 수 있는 SetContainerAccessPolicy에도 사용됩니다. 저장된 액세스 정책은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 문서에서 다룹니다.
+[요청 본문](/rest/api/storageservices/List-Containers2#request-body) **:** ListContainers에 대한 요청 본문이 없습니다. 요청 본문은 BLOB을 업로드할 때 모든 PUT 작업에 사용되며, 적용하려는 저장된 액세스 정책 XML 목록을 보낼 수 있는 SetContainerAccessPolicy에도 사용됩니다. 저장된 액세스 정책은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 문서에서 다룹니다.
 
-[응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code)**:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
+[응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code) **:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
 
-[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers)**:** 여기에는 ‘콘텐츠 형식’, *x-ms-request-id*(해당하는 경우 개발자가 전달한 요청 ID), *x-ms-version*(사용되는 Blob service 버전을 나타냄) 및 ‘날짜’(UTC, 요청이 수행된 시간을 알려줌)가 포함됩니다.
+[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers) **:** 여기에 포함 됩니다 *Content-type*; *x-ms-요청-id*에서 전달 된 요청 id는 *x-ms-버전*를 사용 하는 Blob service의 버전을 나타내는 및 *날짜*, utc에서 이며 요청 시간과 지시 했습니다.
 
 [응답 본문](/rest/api/storageservices/List-Containers2#response-body): 이 필드는 요청한 데이터를 제공하는 XML 구조입니다. 이 예제에서 응답은 컨테이너 및 해당 속성의 목록입니다.
 
 ## <a name="creating-the-rest-request"></a>REST 요청 만들기
 
-시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](https://www.telerik.com/fiddler) 또는 유사한 애플리케이션을 다운로드합니다. Visual Studio 솔루션에서 저장소 계정 이름과 키는 클래스에 하드 코딩되고, ListContainersAsyncREST 메서드는 저장소 계정 이름과 저장소 계정 키를 다양한 REST 요청 구성 요소를 만드는 데 사용되는 메서드에 전달합니다. 실제 애플리케이션에서 스토리지 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
+시작하기 전에 주의할 사항이 있습니다. 프로덕션 환경에서 실행하는 경우 보안을 위해 항상 HTTP 대신 HTTPS를 사용해야 합니다. 이 연습에서는 목적을 달성하기 위해 HTTP를 사용할 것이므로 요청 및 응답 데이터를 볼 수 있습니다. 실제 REST 호출에서 요청 및 응답 정보를 보려면 [Fiddler](https://www.telerik.com/fiddler) 또는 유사한 애플리케이션을 다운로드합니다. Visual Studio에서 솔루션, 저장소 계정 이름과 키 클래스에 하드 코딩 됩니다. ListContainersAsyncREST 메서드 REST 요청의 다양 한 구성 요소를 만드는 데 사용 되는 메서드를 저장소 계정 이름과 저장소 계정 키를 전달 합니다. 실제 애플리케이션에서 스토리지 계정 이름과 키는 구성 파일이나 환경 변수에 상주하거나 Azure Key Vault에서 검색할 수 있습니다.
 
-우리가 사용하는 샘플 프로젝트의 경우 개발자가 클래스 전체를 가져와서 솔루션에 "있는 그대로" 추가할 수 있다는 생각으로 인증 헤더를 만드는 코드가 별도의 클래스에 있습니다. 인증 헤더 코드는 Azure Storage에 대한 대부분의 REST API 호출에 사용할 수 있습니다.
+샘플 프로젝트에서 인증 헤더 만들기에 대 한 코드는 별도 클래스입니다. 개념은 있습니다 수 클래스 전체를 가져와서 및 사용자 고유의 솔루션에 추가 사용 하는 "있는 그대로"입니다. 인증 헤더 코드는 Azure Storage에 대한 대부분의 REST API 호출에 사용할 수 있습니다.
 
 HttpRequestMessage 개체인 요청을 만들려면 Program.cs에서 ListContainersAsyncREST로 이동합니다. 요청을 작성하는 단계: 
 
@@ -205,7 +205,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**응답 본문(XML)**: ListContainers의 경우 컨테이너 및 해당 속성 목록을 표시합니다.
+**응답 본문(XML)** : ListContainers의 경우 컨테이너 및 해당 속성 목록을 표시합니다.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -301,7 +301,7 @@ StringToSign = VERB + "\n" +
 
 대부분의 이러한 필드는 거의 사용되지 않습니다. Blob Storage의 경우 VERB, md5, 콘텐츠 길이, 정식화 헤더 및 정식화 리소스를 지정합니다. 다른 항목은 비워 두어도 됩니다(하지만 비어 있다는 것을 알 수 있도록 `\n` 삽입).
 
-CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정규화에 대한 Wikipedia의 설명에 대한 Wikipedia의 설명](https://en.wikipedia.org/wiki/Canonicalization)은 다음과 같습니다. ‘컴퓨터 공학에서 말하는 정규화(경우에 따라 표준화 또는 일반화라고 부르기도 함)는 둘 이상의 가능한 표현이 있는 데이터를 하나의 “표준”, “일반” 또는 정규 양식으로 변환하는 프로세스를 의미합니다.’ 다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
+CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정규화에 대한 Wikipedia의 설명에 대한 Wikipedia의 설명](https://en.wikipedia.org/wiki/Canonicalization)은 다음과 같습니다. ‘컴퓨터 공학에서 말하는 정규화(경우에 따라 표준화 또는 일반화라고 부르기도 함)는 둘 이상의 가능한 표현이 있는 데이터를 하나의 “표준”, “일반” 또는 정규 양식으로 변환하는 프로세스를 의미합니다.’  다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
 
 인증 헤더를 만드는 데 필요한 두 정식화 필드부터 알아보겠습니다.
 
@@ -358,7 +358,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 /contosorest/\ncomp:list
 ```
 
-쿼리 매개 변수가 있으면 그 역시 포함됩니다. 다음은 값이 여러 개인 추가 쿼리 매개 변수 및 쿼리 매개 변수를 처리하는 코드입니다. 모든 REST API에 대해 작동하는 코드를 만드는 것이 목적이므로, ListContainers 메서드에 필요하지 않더라도 모든 가능성을 포함해야 합니다.
+쿼리 매개 변수를 사용 하는 경우이 예제는 해당 매개 변수를 포함 합니다. 다음은 값이 여러 개인 추가 쿼리 매개 변수 및 쿼리 매개 변수를 처리하는 코드입니다. 모든 REST Api에 대해 작동 하도록이 코드를 작성 하는 것을 기억 합니다. 모든 ListContainers 메서드에 필요 하지 않더라도 모든 가능성을 포함 하려고 합니다.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -414,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-이 코드를 실행하면 그 결과로 MessageSignature가 다음과 같이 표시됩니다.
+이 코드를 실행 하면 그 결과로 messagesignature가이 예제와 비슷합니다.
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
@@ -428,11 +428,11 @@ SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 
 AuthorizationHeader는 응답을 게시하기 전에 요청 헤더에 배치되는 마지막 헤더입니다.
 
-이 헤더는 코드와 함께 Storage Services REST API 호출에 사용되는 요청을 만드는 데 사용할 수 있는 클래스를 준비하기 위해 개발자가 알아야 하는 모든 내용을 다룹니다.
+Storage 서비스 REST Api를 호출 하는 요청을 만들 수 있는 클래스를 준비 하기 위해 알아야 할 모든 내용을 다룹니다.
 
 ## <a name="how-about-another-example"></a>다른 예를 살펴볼까요? 
 
-*container-1* 컨테이너에 대한 ListBlobs를 호출하도록 코드를 변경하는 방법을 살펴보겠습니다. 컨테이너를 나열하는 코드와 거의 동일하며, URI라는 점 그리고 응답을 구문 분석하는 방법만 다릅니다. 
+*container-1* 컨테이너에 대한 ListBlobs를 호출하도록 코드를 변경하는 방법을 살펴보겠습니다. 이 코드는 컨테이너, URI 및 응답을 구문 분석 하는 방법만 차이점을 나열 하기 위한 코드와 거의 동일 합니다. 
 
 [ListBlobs](/rest/api/storageservices/List-Blobs)에 대한 참조 설명서를 보시면 메서드는 *GET*이고 RequestURI는 다음과 같습니다.
 
@@ -515,7 +515,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**응답 본문(XML)**: 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다. 
+**응답 본문(XML)** : 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -564,7 +564,7 @@ Content-Length: 1135
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 컨테이너 목록 또는 컨테이너의 BLOB 목록을 검색하는 Blob Storage REST API에 대한 요청을 만드는 방법을 배웠습니다. REST API 호출에 대한 권한 부여 서명을 만들고 REST 요청에 사용하는 방법과 응답을 검사하는 방법도 배웠습니다.
+이 문서에서는 blob storage REST API 요청을 수행 하는 방법을 알아보았습니다. 요청을 사용 하 여 컨테이너의 blob 목록 또는 컨테이너 목록을 검색할 수 있습니다. REST API 호출에 대 한 권한 부여 서명을 만드는 방법과 REST 요청에서 사용 하는 방법을 배웠습니다. 마지막으로 응답을 검사 하는 방법을 알아보았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

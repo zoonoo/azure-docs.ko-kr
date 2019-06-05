@@ -19,6 +19,16 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: Node.js 앱 만들기
       href: app-service-web-get-started-nodejs.md
+    - name: Visual Studio Code를 사용하여 Node.js 앱 만들기
+      items:
+        - name: 시작
+          href: tutorial-javascript-vscode-get-started.md
+        - name: 애플리케이션 만들기
+          href: tutorial-javascript-vscode-create-app.md
+        - name: 웹 사이트 배포
+          href: tutorial-javascript-vscode-deploy-app.md
+        - name: 로그 보기
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: PHP 앱 만들기
       href: app-service-web-get-started-php.md
     - name: Java 앱 만들기
@@ -78,8 +88,12 @@
           href: overview-patch-os-runtime.md
         - name: 보안 특성
           href: app-service-security-attributes.md
+    - name: 네트워킹 기능
+      href: networking-features.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
+    - name: 가상 네트워크 통합
+      href: web-sites-integrate-with-vnet.md
     - name: 하이브리드 연결
       href: app-service-hybrid-connections.md
     - name: Traffic Manager 통합
@@ -98,8 +112,6 @@
           href: web-sites-php-configure.md
         - name: Java 구성
           href: configure-language-java.md
-        - name: 온-프레미스 리소스에 연결
-          href: web-sites-integrate-with-vnet.md
     - name: Deploy to Azure
       items:
         - name: 앱 배포
@@ -182,7 +194,7 @@
           href: manage-backup.md
         - name: 백업 복원
           href: web-sites-restore.md
-        - name: 스냅숏 복원
+        - name: 스냅샷 복원
           href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md

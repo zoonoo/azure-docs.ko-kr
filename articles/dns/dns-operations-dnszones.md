@@ -30,7 +30,7 @@ ms.locfileid: "61293633"
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
 
-이 가이드에서는 특히 공용 DNS 영역을 다룹니다. Azure PowerShell을 사용하여 Azure DNS에서 사설 영역 관리에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure DNS Private Zones 시작](private-dns-getstarted-powershell.md)을 참조하세요.
+이 가이드에서는 특히 공용 DNS 영역을 다룹니다. Azure PowerShell을 사용하여 Azure DNS에서 프라이빗 영역 관리에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure DNS Private Zones 시작](private-dns-getstarted-powershell.md)을 참조하세요.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -53,7 +53,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다.  사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
+Azure DNS는 이제 프라이빗 DNS 영역(현재는 공개 미리 보기)도 지원합니다.  프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법은 [PowerShell을 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-powershell.md)을 참조하세요.
 
 ## <a name="get-a-dns-zone"></a>DNS 영역 가져오기
 

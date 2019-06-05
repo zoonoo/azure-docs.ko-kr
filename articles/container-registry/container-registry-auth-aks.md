@@ -1,6 +1,6 @@
 ---
 title: Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
-description: Azure Active Directory 서비스 주체를 사용하여 Azure Kubernetes Service에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
+description: Azure Active Directory 서비스 주체를 사용하여 Azure Kubernetes Service에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-service
 author: dlepow
 ms.service: container-service

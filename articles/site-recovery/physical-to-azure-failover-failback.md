@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14fa5822c575f2d2d60a956263cf916ee8f9bb4d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036350"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400029"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -24,9 +24,9 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 장애 조치(Failover) 및 장애 복구(Failback)는 다음 4단계로 진행됩니다.
 
-1. **Azure로 장애 조치(failover)**: 머신을 온-프레미스 사이트에서 Azure로 장애 조치합니다.
+1. **Azure로 장애 조치(failover)** : 머신을 온-프레미스 사이트에서 Azure로 장애 조치합니다.
 2. **Azure VM 다시 보호**: 온-프레미스 VMware VM으로 복제를 다시 시작하도록 Azure VM을 다시 보호합니다.
-3. **온-프레미스로 장애 조치(failover)**: Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
+3. **온-프레미스로 장애 조치(failover)** : Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
 4. **온-프레미스 VM 다시 보호**: 데이터를 장애 복구한 후에 Azure로 복제를 시작하도록 장애 복구한 온-프레미스 VMware VM을 다시 보호합니다.
 
 ## <a name="verify-server-properties"></a>서버 속성 확인
@@ -106,7 +106,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 - 정책 값은 다음과 같습니다.
     - RPO 임계값 = 15분
     - 복구 지점 보존 기간 = 24시간
-    - 앱 일치 스냅숏 빈도 = 60분
+    - 앱 일치 스냅샷 빈도 = 60분
 
 다음과 같이 장애 조치(Failover)를 실행합니다.
 

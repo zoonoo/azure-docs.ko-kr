@@ -48,6 +48,8 @@
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
       href: host-pool-load-balancing.md
+    - name: FSLogix 프로필 컨테이너 및 Azure Files
+      href: fslogix-containers-azure-files.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
@@ -62,6 +64,8 @@
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
+    - name: 그래픽 성능 문제 진단
+      href: remotefx-graphics-performance-counters.md
 - name: 참고 자료
   items:
     - name: PowerShell

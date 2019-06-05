@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949912"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357322"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -29,6 +29,7 @@ ms.locfileid: "65949912"
 
 이 문서에서는 탄력적 풀에 풀링된 데이터베이스와 단일 데이터베이스로 작업할 때 쉽게 활용할 수 있는 플랫폼인 Azure SQL Database의 몇 가지 핵심 특징을 설명합니다. 다음과 같은 특성을 설명합니다.
 
+- Azure portal을 사용 하 여 데이터베이스를 모니터링 합니다.
 - 비즈니스 연속성 및 재해 복구(BCDR)
 - 보안 및 규정 준수
 - 지능형 데이터베이스 모니터링 및 유지 관리
@@ -36,6 +37,25 @@ ms.locfileid: "65949912"
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database의 배포 옵션인 단일 데이터베이스 및 탄력적 풀에 적용됩니다. SQL Database의 관리되는 인스턴스 배포 옵션에는 적용되지 않습니다.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
+
+에 [Azure portal](https://portal.azure.com/)를 클릭 하 여 데이터베이스를 선택 하는 개별 데이터베이스의 사용률을 모니터링할 수 있습니다는 **모니터링** 차트. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
+
+- CPU 비율
+- DTU 비율
+- 데이터 IO 비율
+- 데이터베이스 크기 비율
+
+이러한 메트릭을 추가한 후 **메트릭** 창의 세부 정보가 포함된 **모니터링** 차트에서 메트릭을 계속 볼 수 있습니다. 네 가지 메트릭 모두 데이터베이스의 **DTU** 를 기준으로 평균 사용률 비율을 표시합니다. 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서를 참조하세요.  
+
+![데이터베이스 성능의 서비스 계층 모니터링.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+성능 메트릭에 대한 경고를 구성할 수도 있습니다. **메트릭** 창에서 **경고 추가** 단추를 클릭합니다. 마법사를 따라 경고를 구성합니다. 메트릭이 특정 임계값을 초과하거나 메트릭이 특정 임계값보다 낮은 경우 경고하는 옵션이 있습니다.
+
+예를 들어 데이터베이스에 대한 워크로드가 확장될 것으로 예상되면 데이터베이스가 성능 메트릭의 80%에 도달할 때마다 이메일 경고를 보내도록 구성할 수 있습니다. 이 경고를 조기 경고로 사용하여 더 큰 다음 컴퓨팅 크기로 전환해야 하는 시기를 파악할 수 있습니다.
+
+또한 성능 메트릭을 사용하여 작은 컴퓨팅 크기로 다운그레이드할 수 있는지 여부를 판단할 수도 있습니다. 표준 S2 데이터베이스를 사용하고 있는데 모든 성능 메트릭에서 지정한 시기에 데이터베이스가 평균적으로 10% 이하를 사용하는 것으로 나타난다고 가정합니다. 데이터베이스가 표준 S1에서 잘 작동할 가능성이 있습니다. 그러나 더 작은 컴퓨팅 크기로 이동하도록 결정하기 전에 급증하거나 변동하는 워크로드에 주의해야 합니다.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>비즈니스 연속성 및 재해 복구(BCDR)
 
@@ -117,7 +137,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 기본적으로 SQL 데이터베이스는 "Azure 서비스의 서버 액세스 허용"으로 구성되며, 이는 Azure의 모든 가상 머신에서 데이터베이스에 연결하려고 시도한다는 것을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP에서 데이터베이스에 액세스하지 않도록 하려면 "Azure 서비스의 서버 액세스 허용"을 사용하지 않도록 설정할 수 있습니다. 또한 [VNet 서비스 엔드포인트](sql-database-vnet-service-endpoint-rule-overview.md)를 구성할 수 있습니다.
 
-서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
+서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 프라이빗 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
 
 ![VNet 서비스 엔드포인트](./media/sql-database-manage-after-migration/vnet-service-endpoints.png)
 
@@ -193,7 +213,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>조직과 SQL Database 간의 트래픽을 어떻게 최적화 및 보호할 수 있나요?
 
-조직과 SQL Database 간의 네트워크 트래픽은 일반적으로 공용 네트워크를 통해 경로 설정됩니다. 그러나 이 경로를 최적화하도록 선택하고 더 안전하게 만들면 Express Route를 확인할 수 있습니다. 기본적으로 Express 경로를 사용하면 회사 네트워크를 개인 연결의 Azure 플랫폼으로 확장할 수 있습니다. 그렇게 하면 공용 인터넷을 통해 이동하지 않게 됩니다. 또한 더 높은 보안, 신뢰성 및 경로 설정 최적화를 얻게 되므로 공용 인터넷 네트워크를 통한 일반적인 환경보다 대기 시간이 감소하고 속도가 훨씬 더 빠릅니다. 조직과 Azure 간에 중요 데이터 청크를 전송하도록 계획하는 경우 Express Route를 사용하면 비용 면에서 유리할 수 있습니다. 조직에서 Azure로 연결하기 위한 세 가지 연결 모델 중에서 선택할 수 있습니다.
+조직과 SQL Database 간의 네트워크 트래픽은 일반적으로 공용 네트워크를 통해 경로 설정됩니다. 그러나 이 경로를 최적화하도록 선택하고 더 안전하게 만들면 Express Route를 확인할 수 있습니다. 기본적으로 Express 경로를 사용하면 회사 네트워크를 프라이빗 연결의 Azure 플랫폼으로 확장할 수 있습니다. 그렇게 하면 공용 인터넷을 통해 이동하지 않게 됩니다. 또한 더 높은 보안, 신뢰성 및 경로 설정 최적화를 얻게 되므로 공용 인터넷 네트워크를 통한 일반적인 환경보다 대기 시간이 감소하고 속도가 훨씬 더 빠릅니다. 조직과 Azure 간에 중요 데이터 청크를 전송하도록 계획하는 경우 Express Route를 사용하면 비용 면에서 유리할 수 있습니다. 조직에서 Azure로 연결하기 위한 세 가지 연결 모델 중에서 선택할 수 있습니다.
 
 - [클라우드 교환 공동 배치](../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [보편적 연결(Any-to-Any)](../expressroute/expressroute-connectivity-models.md#IPVPN)

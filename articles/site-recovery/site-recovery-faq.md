@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413917"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396494"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
 이 문서에서는 Azure Site Recovery에 대 한 질문과 대답을 요약 합니다.</br>
@@ -161,8 +161,8 @@ Riverbed, 파트너, Azure Site Recovery를 사용 하 여 작업에 대 한 자
 
 - Azure Site Recovery는 공용 끝점을 통해 Azure Storage로 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다.
 - Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다.
-- 가상 머신이 Azure Virtual Network에 장애 조치 된 후 Azure Virtual Network로 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering) 설정을 사용하여 액세스할 수 있습니다.
-- 개인 피어링에는 복제가 지원되지 않습니다.
+- 가상 머신이 Azure Virtual Network에 장애 조치된 후 Azure Virtual Network로 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering) 설정을 사용하여 액세스할 수 있습니다.
+- 프라이빗 피어링에는 복제가 지원되지 않습니다.
 - VMware 컴퓨터 또는 물리적 컴퓨터를 보호 하는 경우 구성 서버를 준수 하는지 있는지 확인 [네트워킹 요구 사항](vmware-azure-configuration-server-requirements.md#network-requirements) 복제 합니다. 
 
 
@@ -215,7 +215,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 
 * [자세한](site-recovery-create-recovery-plans.md) 복구 계획을 알아봅니다.
 * [자세히 알아보기](site-recovery-failover.md) .
-* [자세히 알아보기](site-recovery-failback-azure-to-vmware.md) 
+* [자세히 알아보기](site-recovery-failback-azure-to-vmware.md)
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>다른 호스트로 다시 내 온-프레미스 호스트가 응답 하지 않거나 충돌 없는 경우를 조치할 수 있나요?
 예, 대체 위치 복구를 사용하여 Azure에서 다른 호스트로 장애 복구(failback)를 수행할 수 있습니다.
@@ -239,5 +239,5 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 [에 대해 알아봅니다](site-recovery-whats-new.md) 최신 업데이트에 대 하 고 [롤업 정보를 가져올](service-updates-how-to.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Site Recovery 개요](site-recovery-overview.md)
+* [Site Recovery 개요](site-recovery-overview.md)
 

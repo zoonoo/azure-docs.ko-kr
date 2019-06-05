@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453075"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243431"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 
@@ -27,12 +27,12 @@ Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세
 ### <a name="monitoring-reader"></a>Monitoring Reader
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
-* 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
-* [Azure 경고](../../azure-monitor/platform/alerts-overview.md)에 정의된 경고 규칙 보기
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md) 또는 [플랫폼 간 CLI](../../azure-monitor/platform/cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
+* 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
+* [Azure 경고](alerts-overview.md)에 정의된 경고 규칙 보기
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md) 또는 [플랫폼 간 CLI](cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
-* 리소스에 대한 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 을 확인합니다.
-* 구독에 대한 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 을 봅니다.
+* 리소스에 대한 [진단 설정](diagnostic-logs-overview.md#diagnostic-settings) 을 확인합니다.
+* 구독에 대한 [로그 프로필](activity-log-export.md) 을 봅니다.
 * 자동 크기 조정 설정을 봅니다.
 * 경고 활동 및 설정을 봅니다.
 * Application Insights 데이터에 액세스하고 AI Analytics에서 데이터를 봅니다.
@@ -52,9 +52,9 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
-* 설정할 [진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 리소스에 대 한 합니다.\*
-* 설정 된 [로그 프로필](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 구독에 대 한 합니다.\*
-* [Azure 경고](../../azure-monitor/platform/alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
+* 설정할 [진단 설정](diagnostic-logs-overview.md#diagnostic-settings) 리소스에 대 한 합니다.\*
+* 설정 된 [로그 프로필](activity-log-export.md) 구독에 대 한 합니다.\*
+* [Azure 경고](alerts-overview.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
 * Log Analytics 작업 영역에서 모니터링 팩을 사용 하지 않도록 설정 하거나 사용 합니다.

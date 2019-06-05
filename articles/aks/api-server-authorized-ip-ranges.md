@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956484"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243574"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>미리 보기-통해 API 서버에 대 한 보안 액세스 권한이 Azure Kubernetes Service (AKS)에서 IP 주소 범위
 
@@ -21,9 +21,10 @@ Kubernetes API 서버는 리소스 만들기 또는 노드 수를 조정 하려�
 이 문서에서는 API 권한이 부여 된 서버의 IP 주소 범위를 사용 하 여 제어 평면에 대 한 요청을 제한 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 > [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 및 옵트인 합니다. 미리 보기는 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 그러나 Azure 기술 지원 서비스에서 지원 되지 않습니다 됩니다. 클러스터를 만들거나 기존 클러스터에 이러한 기능을 추가 하는 경우에 기능이 더 이상 미리 보기 상태 이며 일반 공급 (GA) 라는 될 때까지 해당 클러스터 지원 되지 않습니다.
+> AKS 미리 보기 기능은 셀프 서비스, 옵트인 합니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 미리 보기에서이 기능이 없는 프로덕션 사용 해야 합니다. 공개 미리 보기에서 기능 '최상의' 지원에 속합니다. AKS 기술 지원 팀의 지원 업무 시간은 태평양 표준 시간대 (PST)만 제공 됩니다. 추가 정보는 다음과 같은 지원 문서를 참조 하세요.
 >
-> 미리 보기 기능을 사용 하 여 문제가 발생 하면 [AKS GitHub 리포지토리에서 문제를 제기] [ aks-github] 버그 제목에 미리 보기 기능의 이름입니다.
+> * [AKS 지원 정책][aks-support-policies]
+> * [Azure 지원 FAQ][aks-faq]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -242,7 +243,6 @@ az aks update \
 자세한 내용은 [응용 프로그램 및 AKS 클러스터에 대 한 보안 개념] [ concepts-security] 하 고 [클러스터 보안 및 AKS에서 업그레이드에 대 한 유용한] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ az aks update \
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

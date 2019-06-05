@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700967"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416429"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -53,7 +53,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
 > * "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 대신 개별 IP 주소 규칙을 사용하여 이러한 범위를 구성합니다.
-> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 개인 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크로 시작 하는 주소를 포함할 **10.**, **172.16 31**, 및 **192.168.** 합니다. 
+> * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크로 시작 하는 주소를 포함할 **10.** , **172.16 31**, 및 **192.168.** 합니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 
 ## <a name="trusted-services"></a>신뢰할 수 있는 서비스
@@ -68,7 +68,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Backup|Azure Virtual Machines를 백업하는 동안 [Azure Backup](../backup/backup-introduction-to-azure-backup.md)을 사용하여 관련 키 및 비밀의 백업 및 복원을 허용합니다.|
 |Exchange Online 및 SharePoint Online|[고객 키](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
 |Azure Information Protection|[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
-|Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../data-lake-store/data-lake-store-encryption.md).|

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787922"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306768"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
+* 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
   - **Azure 개발**
 
   ![Azure Development(웹 및 클라우드 아래)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    | **배포 모델** | 리소스 관리자  | 리소스 관리자에는 최신 기능이 포함되어 있습니다.|
    | **계정 종류** | StorageV2 | 계정 유형에 대한 세부 정보는 [저장소 계정 유형](../common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **성능** | Standard | Standard는 샘플 시나리오에 충분합니다. |
+   | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 이 설정은 샘플 작동에 필요합니다. |
+   |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **복제**| RA-GRS(읽기 액세스 지역 중복 저장소) | 샘플 작동에 필요합니다. |
    |**구독** | 사용자의 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |
    |**ResourceGroup** | myResourceGroup |유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
@@ -139,7 +141,7 @@ Azure Portal에서 저장소 계정으로 이동합니다. 저장소 계정의 *
 export storageconnectionstring=<yourconnectionstring>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx storageconnectionstring "<yourconnectionstring>"
@@ -158,7 +160,7 @@ export accountname=<youraccountname>
 export accountkey=<youraccountkey>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx accountname "<youraccountname>"
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 스토리지 계정으로 이동하여 **설정** 섹션에서 **액세스 키**를 선택하면 Azure Portal에서 이 정보를 찾을 수 있습니다.
 
-필요한 종속성도 설치해야 합니다. 이렇게 하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `npm install`을 입력합니다.
+필수 종속성을 설치합니다. 이렇게 하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `npm install`을 입력합니다.
 
 ---
 
@@ -232,10 +234,10 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
 이 샘플에서는 기본 디렉터리에 테스트 파일을 만듭니다. Windows 사용자의 경우 이 디렉터리는 **AppData\Local\Temp**입니다. 그러면 샘플은 입력할 수 있는 다음 명령 옵션을 제공합니다.
 
 - put blob 작업을 실행하려면 **P**를 입력합니다. 그러면 임시 파일이 스토리지 계정에 업로드됩니다.
-- list blob 작업을 실행하려면 **L**를 입력합니다. 그러면 현재 컨테이너에 있는 blob을 나열합니다.
+- list blob 작업을 실행하려면 **L**을 입력합니다. 그러면 현재 컨테이너에 있는 blob을 나열합니다.
 - get blob 작업을 실행하려면 **G**를 입력합니다. 그러면 스토리지 계정에서 로컬 머신으로 파일을 다운로드합니다.
 - delete blob 작업을 실행하려면 **D**를 입력합니다. 그러면 스토리지 계정에서 blob을 삭제합니다.
-- 샘플을 닫으려면 **E**를 입력합니다. 샘플에서 생성된 모든 리소스도 삭제합니다.
+- 샘플을 닫으려면 **E**를 입력합니다. 그러면 샘플에서 생성된 모든 리소스도 삭제합니다.
 
 이 예제는 Windows에서 애플리케이션을 실행할 때의 출력을 보여줍니다.
 

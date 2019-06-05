@@ -55,7 +55,7 @@ Azure Portal 및 Powershell을 포함하는 여러 가지 방법을 사용하여
    
     이 값은 구독에 대한 Blob, 큐 또는 테이블 리소스의 주소를 지정하는 데 사용되는 URI 내의 호스트 이름이 됩니다. Blob Storage의 컨테이너 리소스 주소를 지정하려면 다음 형식의 URI를 사용합니다.
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
 
     여기서 *&lt;StorageAccountLabel&gt;* 은 **이름** 상자에 입력한 값을 나타냅니다.
    
@@ -98,7 +98,7 @@ Azure Portal 및 Powershell을 포함하는 여러 가지 방법을 사용하여
     | -------- | ----- |
     | **CDN 프로필** | **새로 만들기**를 선택하고 프로필 이름에 *my-cdn-profile-123*을 입력합니다. 이 이름은 전역적으로 고유해야 합니다.  |
     | **가격 책정 계층** | 드롭다운 목록에서 **Standard Verizon**을 선택합니다. |
-    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름(예: *my-endpoint-123*)을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이 이름은 _&lt;엔드포인트 이름&gt;_.azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다. |
+    | **CDN 엔드포인트 이름** | 엔드포인트 호스트 이름(예: *my-endpoint-123*)을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이 이름은 _&lt;엔드포인트 이름&gt;_ .azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다. |
     | **원본 호스트 이름** | 기본적으로 새 CDN 엔드포인트는 저장소 계정의 호스트 이름을 원본 서버로 사용합니다. |
 
 3. **만들기**를 선택합니다. 만든 엔드포인트는 엔드포인트 목록에 나타납니다.
@@ -112,7 +112,7 @@ Azure Portal 및 Powershell을 포함하는 여러 가지 방법을 사용하여
 ![저장소 CDN 엔드포인트 구성](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
 
 ## <a name="enable-sas"></a>SAS 사용
-개인 저장소 컨테이너에 제한된 액세스를 부여하려는 경우 Azure 저장소 계정의 SAS(공유 액세스 서명) 기능을 사용할 수 있습니다. SAS는 계정 키를 노출하지 않고 Azure Storage 리소스에 대한 제한된 액세스 권한을 부여하는 URI입니다. 자세한 내용은 [SAS에 Azure CDN 사용](cdn-sas-storage-support.md)을 참조하세요.
+프라이빗 스토리지 컨테이너에 제한된 액세스를 부여하려는 경우 Azure 스토리지 계정의 SAS(공유 액세스 서명) 기능을 사용할 수 있습니다. SAS는 계정 키를 노출하지 않고 Azure Storage 리소스에 대한 제한된 액세스 권한을 부여하는 URI입니다. 자세한 내용은 [SAS에 Azure CDN 사용](cdn-sas-storage-support.md)을 참조하세요.
 
 ## <a name="access-cdn-content"></a>CDN 콘텐츠 액세스
 CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 사용합니다. 캐시된 Blob에 대한 주소는 다음 형식을 갖습니다.
@@ -125,7 +125,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="remove-content-from-azure-cdn"></a>Azure CDN에서 콘텐츠 제거
 더 이상 Azure CDN에 개체를 캐시하지 않으려면 다음 단계 중 하나를 수행할 수 있습니다.
 
-* 컨테이너를 공용 대신 전용으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+* 컨테이너를 공용 대신 프라이빗으로 설정합니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
 * Azure Portal을 사용하여 CDN 엔드포인트를 사용하지 않도록 설정하거나 삭제합니다.
 * 더 이상 개체 요청에 응답하지 않도록 호스티드 서비스를 수정합니다.
 

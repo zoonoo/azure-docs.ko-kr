@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852139"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258602"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -27,6 +27,7 @@ ms.locfileid: "65852139"
 - [보안](#security) 차이 포함 [감사](#auditing), [인증서](#certificates)를 [자격 증명](#credential), [암호화 공급자](#cryptographic-providers)하십시오 [로그인 및 사용자](#logins-and-users), 및 [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)합니다.
 - [Configuration](#configuration) 의 차이도 포함 됩니다 [버퍼 풀 확장](#buffer-pool-extension), [데이터 정렬을](#collation)를 [호환성 수준](#compatibility-levels), [데이터베이스 미러링 ](#database-mirroring), [데이터베이스 옵션](#database-options)합니다 [SQL Server 에이전트](#sql-server-agent), 및 [테이블 옵션](#tables)합니다.
 - [기능](#functionalities) 포함 [대량 삽입/OPENROWSET](#bulk-insert--openrowset)를 [CLR](#clr)를 [DBCC](#dbcc)를 [분산 트랜잭션](#distributed-transactions), [확장 이벤트](#extended-events), [외부 라이브러리](#external-libraries), [filestream 및 FileTable](#filestream-and-filetable)하십시오 [전체 텍스트 의미 체계 검색](#full-text-semantic-search), [연결 된 서버](#linked-servers), [PolyBase](#polybase), [복제](#replication)합니다 [복원](#restore-statement), [Service Broker](#service-broker)를 [저장 프로시저, 함수 및 트리거](#stored-procedures-functions-and-triggers)합니다.
+- [환경 설정을](#Environment) Vnet 및 서브넷 구성 등입니다.
 - [관리 되는 인스턴스 기능 서로 다른 동작을](#Changes)입니다.
 - [임시 제한 사항 및 알려진된 문제](#Issues)합니다.
 
@@ -59,7 +60,7 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
   - 테이프 옵션: `REWIND`, `NOREWIND`를 `UNLOAD`, 및 `NOUNLOAD` 지원 되지 않습니다.
   - 로그 관련 옵션: `NORECOVERY`, `STANDBY`, 및 `NO_TRUNCATE` 지원 되지 않습니다.
 
- 제한 사항: 
+제한 사항: 
 
 - 관리 되는 인스턴스를 사용 하 여 백업할 수 있습니다 인스턴스에 데이터베이스를 데이터베이스에 있는 최대 32 개의 스트라이프가 있는 백업으로 백업 압축을 사용 하는 경우 최대 4TB입니다.
 - 사용 하 여 최대 백업 스트라이프 크기는 `BACKUP` 명령은 관리 되는 인스턴스에서 195GB(최대 blob 크기는 합니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
@@ -103,7 +104,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 다음과 같은 제약 조건을 적용 하므로 관리 되는 인스턴스는 파일 공유 및 Windows 폴더에 액세스할 수 없습니다.
 
 - 합니다 `CREATE FROM` / `BACKUP TO` 인증서에 대 한 파일 지원 되지 않습니다.
-- 합니다 `CREATE` / `BACKUP` 에서 인증서 `FILE` / `ASSEMBLY` 지원 되지 않습니다. 개인 키 파일은 사용할 수 없습니다. 
+- 합니다 `CREATE` / `BACKUP` 에서 인증서 `FILE` / `ASSEMBLY` 지원 되지 않습니다. 프라이빗 키 파일은 사용할 수 없습니다. 
 
 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
@@ -280,7 +281,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅숏
+    - 스냅샷
     - 배포자
   - SSIS 작업 단계는 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
@@ -426,7 +427,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - 모든 기존 메모리 최적화 파일 그룹은 XTP로 이름이 변경 됩니다. 
 - `SINGLE_USER` 및 `RESTRICTED_USER` 옵션으로 변환 됩니다 `MULTI_USER`합니다.
 
- 제한 사항: 
+제한 사항: 
 
 - `.BAK` 여러 백업 세트를 포함 하는 파일을 복원할 수 없습니다. 
 - `.BAK` 여러 로그 파일을 포함 하는 파일을 복원할 수 없습니다.
@@ -454,6 +455,19 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - `xp_cmdshell`은 지원되지 않습니다. [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
 - `Extended stored procedures` 지원 되지 않으며, 이때 `sp_addextendedproc`  및 `sp_dropextendedproc`합니다. 참조 [확장 저장된 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)합니다.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
+
+## <a name="Environment"></a>Environmet 제약 조건
+
+### <a name="subnet"></a>서브넷
+- 관리 되는 인스턴스에 대 한 예약 된 서브넷에서 다른 리소스 (예: 가상 머신)을 배치할 수 없습니다. 이러한 리소스는 다른 사용자에 배치할 서브넷입니다.
+- 서브넷의 사용 가능한 충분 한 수 있어야 합니다. [IP 주소](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 최소 16 이며 서브넷에서 IP 주소를 최소한 32가 권장 됩니다.
+- [서비스 끝점을 관리 되는 인스턴스의 서브넷과 연결할 수 없습니다](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션은 사용 되지 않음을 확인 합니다.
+- 서브넷에 배치할 수 있는 인스턴스의 종류와 수는 일부의 [제약 조건 및 제한](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- 몇 가지 [서브넷에 적용 해야 하는 보안 규칙](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다.
+
+### <a name="vnet"></a>VNET
+- 리소스 모델을 사용 하 여 VNet을 배포할 수 있습니다-VNet에 대 한 클래식 모델이 지원 되지 않습니다.
+- App Service Environment, Logic apps 및 관리 되는 인스턴스 (연결 된 서버 또는 지역에서 복제, 트랜잭션 복제에 사용 됨)와 같은 일부 서비스가 Vnet 를사용하여연결된경우다른지역에관리되는인스턴스를액세스할수없습니다[전역 피어 링](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)합니다. VNet 대 VNet을 통해 VNet 게이트웨이 또는 ExpressRoute를 통해 이러한 리소스에 연결할 수 있습니다.
 
 ## <a name="Changes"></a> 동작 변경
 

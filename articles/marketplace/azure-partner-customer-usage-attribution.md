@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800960"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296820"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -20,7 +20,7 @@ Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하
 
 Microsoft는 이제 파트너가 Azure에 자사 소프트웨어를 배포한 고객의 Azure 사용량을 더 효율적으로 추적할 수 있는 유용한 방법을 제공합니다. 이 새 방법에서는 Azure Resource Manager를 사용하여 Azure 서비스의 배포를 오케스트레이션합니다.
 
-Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 개인 GitHub 리포지토리 및 일대일 고객 참여를 통해 연결을 구성할 수 있습니다. 고객 사용량 attribution 세 가지 배포 옵션을 지원합니다.
+Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 프라이빗 GitHub 리포지토리 및 일 대 일 고객 참여를 통해 연결을 구성할 수 있습니다. 고객 사용량 attribution 세 가지 배포 옵션을 지원합니다.
 
 - Azure Resource Manager 템플릿: 파트너는 파트너의 소프트웨어 실행을 위해 Azure 서비스를 배포 하려면 Resource Manager 템플릿을 사용 수 있습니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다.
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다.
@@ -208,7 +208,7 @@ GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CP
 
 템플릿이 수정되고 테스트 배포가 실행되면 다음 PowerShell 스크립트를 사용하여 배포하고 태그를 지정한 리소스를 검색합니다.
 
-이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. Resource Manager API 배포에는 이 스크립트가 적용되지 않습니다.
+이 스크립트를 사용하여 GUID가 Resource Manager 템플릿에 성공적으로 추가되었는지 확인할 수 있습니다. 스크립트는 리소스 관리자 API 또는 Terraform 배포에 적용 되지 않습니다.
 
 Azure에 로그인합니다. 스크립트를 실행하기 전에 확인하려는 배포가 있는 구독을 선택합니다. 배포의 구독 컨텍스트 내에서 스크립트를 실행합니다.
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>보고
+## <a name="report"></a>보고서
 
 파트너 센터 분석 대시보드에서 고객 사용량 특성에 대 한 보고서를 찾을 수 있습니다. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 보고서를 표시 하려면 파트너 센터 자격 증명을 사용 하 여 로그인 해야 합니다. 보고서를 사용 하 여 문제가 발생 하거나 로그인 하는 경우에 Get 지원 섹션의 지침에 따라 지원 요청을 만듭니다.
 

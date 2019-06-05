@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/13/2019
 ms.author: edjez
-ms.openlocfilehash: 536aad0fac4e833cd9a30bad2cfd10e25b0f1300
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607024"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244245"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
-보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse)가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다.
+보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response)가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다.
 
 Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다. 
 

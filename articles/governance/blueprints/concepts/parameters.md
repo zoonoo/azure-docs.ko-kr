@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711806"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356976"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -44,7 +44,8 @@ Blueprint 할당을 사용 하는 경우는 **관리 시스템 할당 id**, Key 
 
 Blueprint 할당을 사용 하는 경우는 **사용자 할당 관리 id**, Key Vault 참조 _수 있습니다_ 중앙 집중화 된 구독에 존재 합니다. 관리 되는 id blueprint 할당 하기 전에 Key Vault에 적절 한 권한이 부여 되어야 합니다.
 
-두 경우 모두에 Key Vault가 있어야 합니다 **Azure Resource Manager 템플릿 배포에 대 한 액세스를 사용 하도록 설정** 에서 구성 합니다 **액세스 정책** 페이지입니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
+> [!IMPORTANT]
+> 두 경우 모두에 Key Vault가 있어야 합니다 **Azure Resource Manager 템플릿 배포에 대 한 액세스를 사용 하도록 설정** 에서 구성 합니다 **액세스 정책** 페이지입니다. 이 기능을 사용하는 방법에 대한 지침은 [Key Vault - 템플릿 배포 사용](../../../managed-applications/key-vault-access.md#enable-template-deployment)을 참조하세요.
 
 Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-vault/key-vault-overview.md)를 참조하세요.
 

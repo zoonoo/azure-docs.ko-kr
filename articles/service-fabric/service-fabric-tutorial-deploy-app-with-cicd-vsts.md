@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/02/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ba0975486039546d5be0f704fb617beb1a9e0908
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668843"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306904"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
@@ -46,8 +46,8 @@ ms.locfileid: "58668843"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 * 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
 * [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다. 이렇게 하면 Azure DevOps에서 프로젝트를 만들고 Azure Pipelines를 사용할 수 있습니다.
@@ -134,7 +134,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 **추가**를 클릭하여 클러스터 연결을 저장합니다.
 
-다음으로 릴리스 파이프라인이 빌드에서 출력을 찾을 수 있도록 파이프라인에 빌드 아티팩트를 추가합니다. **파이프라인** 및 **아티팩트**->**+추가**를 선택합니다.  **원본(빌드 정의)** 에서 이전에 만든 빌드 파이프라인을 선택합니다.  **추가**를 클릭하여 빌드 아티팩트를 저장합니다.
+다음으로 릴리스 파이프라인이 빌드에서 출력을 찾을 수 있도록 파이프라인에 빌드 아티팩트를 추가합니다. **파이프라인** 및 **아티팩트**-> **+추가**를 선택합니다.  **원본(빌드 정의)** 에서 이전에 만든 빌드 파이프라인을 선택합니다.  **추가**를 클릭하여 빌드 아티팩트를 저장합니다.
 
 ![아티팩트 추가][add-artifact]
 
@@ -191,6 +191,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 > * 애플리케이션 자동 배포 및 업그레이드
 
 다음 자습서를 진행합니다.
+> [!div class="nextstepaction"]
 > [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->

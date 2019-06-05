@@ -33,7 +33,7 @@
               href: tutorial-csharp-module.md
             - name: 'Windows 디바이스용 C# 모듈'
               href: tutorial-csharp-module-windows.md
-        - name: 자바
+        - name: Java
           href: tutorial-java-module.md
         - name: Node.js
           href: tutorial-node-module.md
@@ -43,7 +43,7 @@
       items:
         - name: Azure Functions를 사용하여 데이터 필터링
           href: tutorial-deploy-function.md
-        - name: ASA를 사용하여 평균 찾기
+        - name: Azure Stream Analytics를 사용하여 평균 찾기
           href: tutorial-deploy-stream-analytics.md
         - name: Azure Machine Learning Service를 사용하여 데이터 채점
           href: tutorial-deploy-machine-learning.md
@@ -123,11 +123,11 @@
       items:
         - name: Linux
           href: how-to-auto-provision-simulated-device-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: how-to-auto-provision-simulated-device-windows.md
     - name: 사용자 지정 모듈 개발 및 디버그
       items:
-        - name: Visual Studio 2017
+        - name: Visual Studio 2019
           href: how-to-visual-studio-develop-module.md
         - name: Visual Studio Code
           href: how-to-vs-code-develop-module.md

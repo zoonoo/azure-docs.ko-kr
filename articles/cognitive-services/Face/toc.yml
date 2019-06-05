@@ -25,7 +25,7 @@
               href: QuickStarts/curl.md
             - name: Go
               href: QuickStarts/go.md
-            - name: 자바
+            - name: Java
               href: QuickStarts/Java.md
             - name: JavaScript
               href: QuickStarts/JavaScript.md

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162622"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271518"
 ---
 [메시지 라우팅](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)을 사용하면 원격 분석 데이터를 IoT 디바이스에서 기본 제공된 Event Hub 호환 엔드포인트 또는 Blob Storage, Service Bus 큐, Service Bus 항목 및 Event Hubs와 같은 사용자 지정 엔드포인트에 전송할 수 있습니다. 사용자 지정 메시지 라우팅을 구성하려면 특정 조건에 일치하는 경로를 사용자 지정하는 [라우팅 쿼리](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md)를 만듭니다. 한 번 설정하면 들어오는 데이터가 자동으로 IoT Hub에 의해 엔드포인트로 라우팅됩니다. 메시지는 정의된 모든 라우팅 쿼리와 일치하지 않으면 기본 엔드포인트로 라우팅됩니다.
 
 2부분으로 구성된 자습서에서는 IoT Hub로 사용자 지정 라우팅 쿼리를 설정하고 사용하는 방법을 알아봅니다. IoT 디바이스에서 Blob Storage 및 Service Bus 큐를 포함한 여러 엔드포인트 중 하나로 메시지를 라우팅합니다. Service Bus 큐로 보내는 메시지는 Logic App에서 선택되며 이메일을 통해 전송됩니다. 사용자 지정 메시지 라우팅이 정의되지 않은 메시지는 기본 엔드포인트로 전송된 다음, Azure Stream Analytics에서 선택되어 Power BI 시각화에서 표시됩니다.
 
- 이 자습서의 1부와 2부를 완료하려면 다음 작업을 수행합니다.
+이 자습서의 1부와 2부를 완료하기 위해 다음 작업을 수행했습니다.
 
 **1부: 리소스 만들기, 메시지 라우팅 설정**
 > [!div class="checklist"]

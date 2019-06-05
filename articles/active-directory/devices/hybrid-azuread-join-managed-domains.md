@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962197"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235218"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -178,7 +178,7 @@ Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으�
 
 ### <a name="configure-seamless-sso"></a>Seamless SSO 구성
 
-Azure AD 클라우드 인증 방법으로 PTA(통과 인증) 또는 PHS(암호 해시 동기화)를 사용 중인 관리되는 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하려면 [Seamless SSO도 구성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)해야 합니다. Seamless SSO를 구성하는 데 문제가 있는 경우 [Azure Active Directory Seamless Single Sign-On 문제 해결](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso)을 참조하세요.
+Azure AD 클라우드 인증 방법으로 PTA(통과 인증) 또는 PHS(암호 해시 동기화)를 사용 중인 관리되는 도메인에서 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하려면 [Seamless SSO도 구성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)해야 합니다. Seamless SSO를 구성하는 데 문제가 있는 경우 [Azure Active Directory Seamless Single Sign-On 문제 해결](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso)을 참조하세요.
 
 
 ### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 

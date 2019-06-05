@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937284"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305495"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -483,7 +483,7 @@ Azure AD Connect의 최신 릴리스에는 다음이 포함되어 있습니다.
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>ToU(사용 약관) 최종 사용자 UI 업데이트
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>최종 사용자 UI를 사용 하 여 약관에 대 한 업데이트
 
 **유형:** 변경된 기능  
 **서비스 범주:** 사용 약관  
@@ -641,25 +641,25 @@ Azure AD 암호 보호에 대한 자세한 내용은 [조직에서 잘못된 암
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>ToU(사용 약관)를 만드는 동안 "모든 게스트" 조건부 액세스 정책 템플릿이 새로 만들어집니다.
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>새 "모든 게스트" 조건부 액세스 정책 템플릿 만들기 사용 약관 중에 생성
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
-ToU(사용 약관)를 만드는 동안 "모든 게스트"와 "모드 앱"에 대한 조건부 액세스 정책 템플릿이 새로 만들어집니다. 새로운 정책 템플릿은 새로 만들어진 ToU를 적용하며 게스트에 대한 생성 및 적용 프로세스를 간소화합니다.
+사용 약관을 만드는 동안 새 조건부 액세스 정책 템플릿으로가 만들어집니다 "모든 게스트" 및 "모든 앱"에 대 한 합니다. 새로운 정책 템플릿은 새로 만들어진 ToU를 적용하며 게스트에 대한 생성 및 적용 프로세스를 간소화합니다.
 
 자세한 내용은 [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)을 참조하세요.
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>ToU(사용 약관)를 만드는 동안 "사용자 지정" 조건부 액세스 정책 템플릿이 새로 만들어집니다.
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>용어를 사용 하 여 생성 중에 만들어진 새 "custom" 조건부 액세스 정책 템플릿
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
-ToU(사용 약관)를 만드는 동안 "사용자 지정" 조건부 액세스 정책 템플릿도 새로 만들어집니다. 새 정책 템플릿을 사용하면 ToU를 만든 다음, 수동으로 포털을 탐색할 필요 없이 조건부 액세스 정책 생성 블레이드로 즉시 이동할 수 있습니다.
+사용 약관을 만드는 동안 새 "custom" 조건부 액세스 정책 템플릿으로가 만들어집니다. 새 정책 템플릿을 사용하면 ToU를 만든 다음, 수동으로 포털을 탐색할 필요 없이 조건부 액세스 정책 생성 블레이드로 즉시 이동할 수 있습니다.
 
 자세한 내용은 [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)을 참조하세요.
 
@@ -711,7 +711,7 @@ MFA 배포 가이드를 보려면 GitHub의 [Identity Deployment Guides](https:/
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 플랫폼  
 
-Azure AD(Azure Active Directory)와 같은 서비스 제공으로 소프트웨어는 ExpressRoute 또는 다른 개인 VPN 터널의 필요 없이 인터넷을 통해 직접 이동하여 가장 잘 작동하도록 설계됩니다. 이로 인해 **2018년 8월 1일**에 Azure 공용 피어링 및 Microsoft 피어링의 Microsoft 커뮤니티를 사용하여 Azure AD 서비스에 대한 ExpressRoute 지원을 중지합니다. 이러한 변경 내용의 영향을 받는 모든 서비스는 Azure AD 트래픽이 ExpressRoute에서 인터넷으로 점차적으로 이동하는 것을 확인할 수 있습니다.
+Azure AD(Azure Active Directory)와 같은 서비스 제공으로 소프트웨어는 ExpressRoute 또는 다른 프라이빗 VPN 터널의 필요 없이 인터넷을 통해 직접 이동하여 가장 잘 작동하도록 설계됩니다. 이로 인해 **2018년 8월 1일**에 Azure 공용 피어링 및 Microsoft 피어링의 Microsoft 커뮤니티를 사용하여 Azure AD 서비스에 대한 ExpressRoute 지원을 중지합니다. 이러한 변경 내용의 영향을 받는 모든 서비스는 Azure AD 트래픽이 ExpressRoute에서 인터넷으로 점차적으로 이동하는 것을 확인할 수 있습니다.
 
 지원을 변경하는 동안 인증 트래픽에 대해 전용 회로 집합을 사용해야 할 수 있는 상황이 여전히 있다는 것을 알고 있습니다. 이로 인해 Azure AD는 ExpressRoute 및 "기타 Office 365 온라인 서비스" 커뮤니티와 함께 Microsoft 피어링에 이미 있는 서비스를 사용하여 테넌트당 IP 범위 제한을 계속해서 지원할 예정입니다. 서비스가 영향을 받지만 ExpressRoute가 필요한 경우 다음을 수행해야 합니다.
 
@@ -729,7 +729,7 @@ Azure AD(Azure Active Directory)와 같은 서비스 제공으로 소프트웨�
 **서비스 범주:** 사용 약관  
 **제품 기능:** 개발자 환경
  
-Azure AD 사용 약관의 관리 작업에 대한 Microsoft Graph API가 추가되었습니다. 사용 약관 개체를 만들고, 업데이트하고, 삭제할 수 있습니다.
+Azure AD 사용 약관의 관리 작업에 대 한 Microsoft Graph Api를 추가 했습니다. 하면 만들기, 업데이트, 사용 하 여 개체의 용어를 삭제할 수 있습니다.
 
 ---
 
@@ -914,7 +914,7 @@ SAML 기반 SSO 애플리케이션을 구성하는 경우 구성 페이지에서
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>이제 Azure AD 사용 약관에는 사용자별 보고가 적용됩니다.
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD 사용 약관 이제는 사용자 당
 
 **유형:** 새 기능  
 **서비스 범주:** 사용 약관  
@@ -963,7 +963,7 @@ Enterprise 애플리케이션 페이지에서 관리자는 SAML 메타데이터 
 **제품 기능:** 준수
  
 
-Azure AD 사용 약관은 공개 미리 보기에서 일반 공급으로 이동했습니다.
+일반 공급을 공개 미리 보기에서 azure AD 사용 약관을 옮겼습니다.
 
 자세한 내용은 [Azure AD 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)을 참조하세요.
 
@@ -1463,7 +1463,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>모바일 환경에 대한 사용 약관 업데이트 
+### <a name="terms-of-use-update-to-mobile-experience"></a>모바일 환경에 update 사용 약관 
 
 **유형:** 변경된 기능  
 **서비스 범주:** 사용 약관  

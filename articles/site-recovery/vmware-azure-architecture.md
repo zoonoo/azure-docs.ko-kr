@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 4500f4c53ed2731e9f96add97018b16d83f9d304
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f1fdbd143093beb9736e86b24b76843ad82b89f2
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955120"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418363"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
@@ -43,7 +43,7 @@ ms.locfileid: "65955120"
     - 복제 정책 설정이 적용됩니다.
         - **RPO 임계값**: 이 설정은 복제에 영향을 주지 않습니다. 모니터링에 도움이 됩니다. 현재 RPO가 지정 임계값 한도를 초과하는 경우 이벤트가 발생하고 선택적으로 메일이 전송됩니다.
         - **복구 지점 보존**: 이 설정은 중단이 발생하는 경우 얼마나 오래전으로 되돌아갈지 지정합니다. Premium Storage의 최대 보존 기간은 24시간입니다. 표준 저장소의 경우는 72시간입니다. 
-        - **앱 일치 스냅숏**: 앱의 요구 사항에 따라 1시간에서 12시간마다 앱 일치 스냅숏을 만들 수 있습니다. 스냅숏은 표준 Azure Blob 스냅숏입니다. VM에서 실행되는 모바일 에이전트는 이 설정에 따라 VSS 스냅숏을 요청하며 이 특정 시점을 복제 스트림의 애플리케이션 일치 지점으로 북마크합니다.
+        - **앱 일치 스냅숏**: 앱의 요구 사항에 따라 1시간에서 12시간마다 앱 일치 스냅샷을 만들 수 있습니다. 스냅샷은 표준 Azure Blob 스냅샷입니다. VM에서 실행되는 모바일 에이전트는 이 설정에 따라 VSS 스냅샷을 요청하며 이 특정 시점을 복제 스트림의 애플리케이션 일치 지점으로 북마크합니다.
 
 2. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. 또는 사용 하 여 Azure ExpressRoute를 사용할 수 있습니다 [Microsoft 피어 링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)합니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
 3. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. 머신의 추적된 변경 내용이 프로세스 서버로 전송됩니다.
@@ -85,7 +85,7 @@ ms.locfileid: "65955120"
  
 **Azure로부터 VMware 장애 복구**
 
-![장애 복구(failback)](./media/vmware-azure-architecture/enhanced-failback.png)
+![장애 복구](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>다음 단계

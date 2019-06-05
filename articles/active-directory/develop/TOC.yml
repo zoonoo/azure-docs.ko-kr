@@ -235,10 +235,12 @@
               href: msal-js-sso.md
             - name: 프롬프트 동작(JS)
               href: msal-js-prompt-behavior.md
-            - name: 사용자의 HttpClient 제공(.NET)
-              href: msal-net-provide-httpclient.md
             - name: Azure AD B2C와 통합
-              href: msal-b2c-overview.md
+              items:
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
             - name: 고려 사항 및 알려진 문제
               items:
                 - name: MSAL.NET
@@ -253,8 +255,6 @@
                       href: msal-net-xamarin-ios-considerations.md
                     - name: 범용 Windows 플랫폼
                       href: msal-net-uwp-considerations.md
-                    - name: AAD B2C 정책 적용
-                      href: msal-net-aad-b2c-considerations.md
                 - name: MSAL.js
                   items:
                     - name: IE를 사용한 고려 사항
@@ -295,6 +295,8 @@
           items:
             - name: 애플리케이션 및 서비스 주체
               href: app-objects-and-service-principals.md
+            - name: 앱을 Azure AD에 추가하는 방법 및 이유
+              href: active-directory-how-applications-are-added.md
             - name: 단일 테넌트 및 다중 테넌트 앱
               href: single-and-multi-tenant-apps.md
         - name: 권한 및 동의
@@ -360,6 +362,14 @@
                   href: msal-net-instantiate-confidential-client-config-options.md
                 - name: 여러 리소스에 대한 동의 얻기
                   href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: 사용자의 HttpClient 제공
+                  href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: 페이지 다시 로드 방지
+                  href: msal-js-avoid-page-reloads.md
+                - name: 인증 요청에 사용자 지정 상태 전달
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Visual Studio 작업
           items:
             - name: Active Directory 연결된 서비스 사용
@@ -418,7 +428,7 @@
           items:
             - name: ASP .NET
               href: quickstart-v1-aspnet-webapp.md
-            - name: 자바
+            - name: Java
               href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
             - name: NodeJS
               href: 'https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS'

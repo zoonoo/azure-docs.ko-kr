@@ -122,7 +122,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
     </PerformanceCounters>
 ```
 
-마지막으로, 개인 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
+마지막으로, 프라이빗 구성에서 *Azure Monitor 계정* 섹션을 추가합니다. 앞에서 만든 서비스 주체 클라이언트 ID와 비밀을 입력합니다. 
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 

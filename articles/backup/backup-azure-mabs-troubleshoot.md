@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: kasinh
-ms.openlocfilehash: aa039680be1e88d74cad63eba17d7f3aa89ea49f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000417"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304332"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -39,17 +39,17 @@ ms.locfileid: "66000417"
 | --- | --- | --- |
 | 자격 증명 모음에 등록 | 잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. | 권장 작업: <br> <ul><li> 자격 증명 모음에서 최신 자격 증명 파일을 다운로드하고 다시 시도합니다. <br>또는</li> <li> 위의 작업이 효과가 없으면 자격 증명을 다른 로컬 디렉터리에 다운로드하거나 새 자격 증명 모음을 만듭니다. <br>또는</li> <li> [이 블로그](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)에 설명된 대로 날짜 및 시간 설정을 업데이트해 봅니다. <br>또는</li> <li> \windows\temp에 있는 파일 수가 65,000개를 초과하는지 확인합니다. 오래된 파일을 다른 위치에 이동하거나 임시 폴더의 항목을 삭제합니다. <br>또는</li> <li> 인증서의 상태를 확인합니다. <br> a. 제어판에서 **컴퓨터 인증서 관리**를 엽니다. <br> b. **개인** 노드 및 해당 자식 노드 **인증서**를 확장합니다.<br> c.  인증서 **Microsoft Azure Tools**를 제거합니다. <br> d. Azure Backup 클라이언트에서 등록을 다시 시도합니다. <br> 또는 </li> <li> 그룹 정책이 구현되어 있는지 확인합니다. </li></ul> |
 
-## <a name="replica-is-inconsistent"></a>복제본이 일치하지 않습니다.
+## <a name="replica-is-inconsistent"></a>복제본이 불일치
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제본 불일치의 원인 및 관련 제안 사항에 대한 자세한 내용은 Microsoft TechNet 문서 [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx)(복제본이 불일치)를 참조하세요.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 사용할 수 없는 상태이면 수동으로 시작하도록 설정합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
+| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제본 불일치 내용과 관련 제안 사항은의 원인에 대 한 자세한 내용은 문서를 참조 하세요 [복제본이 일치 하지](https://technet.microsoft.com/library/cc161593.aspx)합니다.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호된 서버에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 저장소 풀에서 공간 관련 문제를 확인하고 필요에 따라 저장소를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 사용할 수 없는 상태이면 수동으로 시작하도록 설정합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
 
-## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점을 만들지 못했습니다.
+## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점 생성 실패
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Backup | 온라인 복구 지점을 만들지 못했습니다. | **오류 메시지**: Microsoft Azure Backup 에이전트가 선택한 볼륨의 스냅숏을 만들 수 없습니다. <br> **해결 방법**: 복제본 및 복구 지점 볼륨의 공간을 늘립니다.<br> <br> **오류 메시지**: Microsoft Azure Backup 에이전트가 OBEngine 서비스에 연결할 수 없습니다. <br> **해결 방법**: 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 “net start OBEngine” 명령을 사용하여 OBEngine 서비스를 시작합니다. <br> <br> **오류 메시지**: 이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화에 사용할 암호를 구성하세요. <br> **해결 방법**: 암호화에 사용할 암호를 구성합니다. 실패하면 다음 단계를 수행합니다. <br> <ol><li>스크래치 위치가 있는지 확인합니다. 레지스트리 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**에 언급된 위치에 **ScratchLocation** 이름이 있어야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록합니다. *암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관합니다.*</li><ol>|
+| Backup | 온라인 복구 지점 생성 실패 | **오류 메시지**: Microsoft Azure Backup 에이전트가 선택한 볼륨의 스냅샷을 만들 수 없습니다. <br> **해결 방법**: 복제본 및 복구 지점 볼륨의 공간을 늘립니다.<br> <br> **오류 메시지**: Microsoft Azure Backup 에이전트가 OBEngine 서비스에 연결할 수 없습니다. <br> **해결 방법**: 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 “net start OBEngine” 명령을 사용하여 OBEngine 서비스를 시작합니다. <br> <br> **오류 메시지**: 이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화에 사용할 암호를 구성하세요. <br> **해결 방법**: 암호화에 사용할 암호를 구성합니다. 실패하면 다음 단계를 수행합니다. <br> <ol><li>스크래치 위치가 있는지 확인합니다. 레지스트리 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**에 언급된 위치에 **ScratchLocation** 이름이 있어야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록합니다. *암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관합니다.*</li><ol>|
 
 ## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>제공한 자격 증명 모음이 이 서버가 등록된 자격 증명 모음과 다름
 
@@ -82,7 +82,7 @@ ms.locfileid: "66000417"
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
 | 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
-| Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 **psexec -i -s "c:\Program Files\InternetExplorer\iexplore.exe** 명령을 실행합니다. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다. <br/> 3. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다. <br/> 4. Internet Explorer를 닫습니다.|
+| Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 **psexec -i -s "c:\Program Files\InternetExplorer\iexplore.exe** 명령을 실행합니다. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다. <br/> 3. 프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<br/> 4. 컴퓨터에서 인터넷을 제한 한 경우 방화벽 설정을 컴퓨터 또는 프록시에이 허용 하는지 확인 [Url](backup-configure-vault.md#verify-internet-access) 하 고 [IP 주소](backup-configure-vault.md#verify-internet-access)합니다.|
 | Azure Backup Agent 설치 실패 | Microsoft Azure Recovery Services 설치에 실패했습니다. 시스템에 Microsoft Azure Recovery Services 설치로 인한 모든 변경 사항은 롤백되었습니다. (ID: 4024) | Azure 에이전트를 수동으로 설치합니다.
 
 

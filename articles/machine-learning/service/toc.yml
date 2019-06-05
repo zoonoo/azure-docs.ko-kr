@@ -78,6 +78,9 @@
         - name: 이탈 예측
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+    - name: Azure Open Datasets
+      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
+      maintainContext: true
 - name: 개념
   items:
     - name: 작업 영역
@@ -130,6 +133,9 @@
         - name: 로깅 사용
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
+        - name: 입력 및 출력 디렉터리 설정
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
         - name: VS Code 확장 사용
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
@@ -144,7 +150,7 @@
         - name: 데이터 정의 버전 관리 및 관리
           displayName: 'data, etl, dataset, data preparation, dataprep, version'
           href: how-to-manage-dataset-definitions.md
-        - name: 데이터 스냅숏 만들기
+        - name: 데이터 스냅샷 만들기
           displayName: 'snapshots, profile, summary statistics, data copy'
           href: how-to-create-dataset-snapshots.md
         - name: 데이터 저장소에서 데이터 가져오기
@@ -170,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: PyTorch 사용
           href: how-to-train-pytorch.md
-        - name: TensorFlow 및 Keras 사용
+        - name: TensorFlow 사용
           href: how-to-train-tensorflow.md
         - name: hyperparameters 조정
           displayName: parameter

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158205"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306805"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -125,7 +125,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 [Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates)에서는 API Management 보안을 구성합니다. API Management는 서비스 검색을 위해 클러스터에 대한 액세스 권한이 있는 클라이언트 인증서를 사용하여 Service Fabric 클러스터에 인증해야 합니다. 이 문서에서는 기본적으로 클러스터 액세스에 사용할 수 있는 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)를 만들 때 이전에 지정된 것과 동일한 인증서를 사용합니다.
 
-이 문서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 개인 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
+이 문서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 프라이빗 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
@@ -197,7 +197,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 사용자 배포의 *cluster.parameters.json*에 다음의 빈 매개 변수를 입력합니다.
 
-|매개 변수|값|
+|매개 변수|Value|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -288,7 +288,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. 리소스 그룹 및 사용 하 여 모든 클러스터 리소스를 삭제 합니다 [제거 AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. 리소스 그룹 및 사용 하 여 모든 클러스터 리소스를 삭제 합니다 [제거 AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup)합니다.
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

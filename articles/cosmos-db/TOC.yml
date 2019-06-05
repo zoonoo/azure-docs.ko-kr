@@ -210,13 +210,15 @@
         - name: 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
+        - name: 보안 특성
+          href: cosmos-db-security-attributes.md
     - name: 엔터프라이즈 준비
       items:
         - name: 온라인 백업 및 주문형 복원
           href: online-backup-and-restore.md
         - name: 규정 준수
           href: compliance.md
-    - name: 제한
+    - name: 리소스 한계
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true
@@ -598,6 +600,8 @@
       items:
         - name: 성능 팁
           items:
+            - name: 쿼리 실행 메트릭 가져오기
+              href: profile-sql-api-query.md
             - name: 쿼리 성능 조정
               href: sql-api-query-metrics.md
             - name: .NET SDK용 성능 팁

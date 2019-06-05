@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554272"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238451"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | 프리미엄(v2) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ ms.locfileid: "57554272"
 | 앱당 사용자 지정 도메인</a> |0(azurewebsites.net 하위 도메인 전용)|500 |500 |500 |500 |500 |
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |지원 되지 않음, 와일드 카드 인증서에 대 한 *. azurewebsites.net 기본적으로 사용 가능|지원 되지 않음, 와일드 카드 인증서에 대 한 *. azurewebsites.net 기본적으로 사용 가능|무제한 SNI SSL 연결 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함|
 | 통합 된 부하 분산 장치 | |X |X |X |X |X<sup>9</sup> |
-| [무중단](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [무중단](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [예약 된 백업](../articles/app-service/manage-backup.md) | | | | 예약 된 백업 2 시간 마다 최대 12 개의 백업 (수동 + 예약) 하루 | 예약 된 백업 시간에는 최대 50 개의 백업 (수동 + 예약) 하루 | 예약 된 백업 시간에는 최대 50 개의 백업 (수동 + 예약) 하루 |
 | [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

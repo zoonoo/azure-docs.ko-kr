@@ -24,7 +24,7 @@ ms.locfileid: "64730477"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI를 사용하여 고정 공용 IP 주소로 가상 머신 만들기
 
-고정 공용 IP 주소를 사용하여 가상 머신을 만들 수 있습니다. 공용 IP 주소를 사용하면 인터넷에서 가상 머신과 통신할 수 있습니다. 동적 주소 대신 고정 공용 IP 주소를 할당하여 주소가 변경되지 않도록 합니다. [고정 공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#allocation-method)에 대해 자세히 알아봅니다. 기존 가상 머신에 할당된 공용 IP 주소를 동적에서 고정으로 변경하거나 사설 IP 주소를 사용하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소에는 [명목 요금](https://azure.microsoft.com/pricing/details/ip-addresses)이 부과되며, 구독당 사용할 수 있는 공용 IP 주소의 수에 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)이 있습니다.
+고정 공용 IP 주소를 사용하여 가상 머신을 만들 수 있습니다. 공용 IP 주소를 사용하면 인터넷에서 가상 머신과 통신할 수 있습니다. 동적 주소 대신 고정 공용 IP 주소를 할당하여 주소가 변경되지 않도록 합니다. [고정 공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#allocation-method)에 대해 자세히 알아봅니다. 기존 가상 머신에 할당된 공용 IP 주소를 동적에서 고정으로 변경하거나 개인 IP 주소를 사용하려면 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소에는 [명목 요금](https://azure.microsoft.com/pricing/details/ip-addresses)이 부과되며, 구독당 사용할 수 있는 공용 IP 주소의 수에 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)이 있습니다.
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
@@ -65,7 +65,7 @@ ms.locfileid: "64730477"
    Azure는 가상 머신을 만든 지역에서 사용되는 주소에서 공용 IP 주소를 할당했습니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
 
 > [!WARNING]
-> 가상 머신의 운영 체제 내에서 IP 주소 설정을 수정하지 마십시오. 운영 체제는 Azure 공용 IP 주소를 인식하지 않습니다. 운영 체제에 사설 IP 주소 설정을 추가할 수 있지만 필요하지 않는 한 그리고 [운영 체제에 사설 IP 주소 추가](virtual-network-network-interface-addresses.md#private)를 읽기 전까지 추가하지 않는 것이 좋습니다.
+> 가상 머신의 운영 체제 내에서 IP 주소 설정을 수정하지 마십시오. 운영 체제는 Azure 공용 IP 주소를 인식하지 않습니다. 운영 체제에 개인 IP 주소 설정을 추가할 수 있지만 필요하지 않는 한 그리고 [운영 체제에 개인 IP 주소 추가](virtual-network-network-interface-addresses.md#private)를 읽기 전까지 추가하지 않는 것이 좋습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

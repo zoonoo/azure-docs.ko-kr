@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161072"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388988"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure 데이터 탐색기에 대 한 azure DevOps 작업
 
@@ -44,7 +44,7 @@ ms.locfileid: "65161072"
 > [!TIP]
 > 사용자 고유의 워크플로 만들 때에 사용자 코드 멱 등 원이 되도록 하는 것이 좋습니다. 사용 예를 들어 [속하지만 병합 테이블](/azure/kusto/management/tables#create-merge-tables) of [속하지만 테이블](/azure/kusto/management/tables#create-table)를 사용 하 여 [속하지만 또는 alter](/azure/kusto/management/functions#create-or-alter-function) 함수 대신 [속하지만](/azure/kusto/management/functions#create-function) 함수입니다.
 
-## <a name="create-a-release-pipeline"></a>릴리스 파이프라인 만들기
+## <a name="create-a-release-pipeline"></a>릴리스 파이프라인을 만들려면
 
 1. 에 로그인 하 여 [Azure DevOps 조직](https://dev.azure.com/)합니다.
 1. 선택 **파이프라인** > **릴리스** 왼쪽 메뉴에서 선택 **새 파이프라인**합니다.
@@ -67,7 +67,7 @@ ms.locfileid: "65161072"
 
     ![변수 만들기](media/devops/create-variable.png)
 
-    Endpoint_URL의 개요 페이지에 찾으려는 사용자 **Azure 데이터 탐색기 클러스터** azure에서 포털 Azure 데이터 탐색기 클러스터 URI를 포함 합니다. 다음 형식의 URI를 생성 `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`합니다.  예를 들어 https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Endpoint_URL의 개요 페이지에 찾으려는 사용자 **Azure 데이터 탐색기 클러스터** azure에서 포털 Azure 데이터 탐색기 클러스터 URI를 포함 합니다. 다음 형식의 URI를 생성 `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`합니다.  예를 들어, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure 데이터 탐색기 클러스터 URI](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "65161072"
 
 1. 클릭할 **Kusto 명령** 왼쪽에 다음 정보를 사용 하 여 작업 업데이트:
     * **표시 이름**: 태스크의 이름
-    * **파일 경로**: 에 **테이블** 작업을 지정 */Tables/*.csl 테이블 만들기 파일이 있으므로 합니다 *테이블* 폴더.
+    * **파일 경로**: 에 **테이블** 작업을 지정 */Tables/* .csl 테이블 만들기 파일이 있으므로 합니다 *테이블* 폴더.
     * **끝점 URL**: 입력 된 `EndPoint URL`이전 단계에서 만든 변수입니다.
     * 선택 **사용 하 여 서비스 끝점** 선택한 **+ 새로 만들기**합니다.
 

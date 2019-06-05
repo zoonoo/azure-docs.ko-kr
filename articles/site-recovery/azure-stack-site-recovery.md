@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124716"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399590"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -215,7 +215,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 5. **앱 일치 스냅숏 빈도**에서 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
 
     - 앱 일치 스냅숏은 VM 내에서 앱 데이터의 시간에서 스냅숏입니다.
-    - VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
+    - VSS(볼륨 섀도 복사본 서비스)는 스냅샷을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
 6. **확인**을 선택하여 정책을 만듭니다.
 
 

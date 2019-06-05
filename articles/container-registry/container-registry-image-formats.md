@@ -17,7 +17,7 @@ ms.locfileid: "60827462"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
-Azure Container Registry에서 개인 리포지토리를 사용하여 다음 콘텐츠 서식 중 하나를 관리합니다. 
+Azure Container Registry에서 프라이빗 리포지토리를 사용하여 다음 콘텐츠 서식 중 하나를 관리합니다. 
 
 ## <a name="docker-compatible-container-images"></a>Docker 호환 컨테이너 이미지
 

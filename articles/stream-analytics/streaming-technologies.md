@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805908"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242702"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>실시간 분석 및 스트리밍 Azure에서 처리 기술 선택
 
@@ -25,7 +25,7 @@ Azure Stream Analytics는 Azure의 stream analytics에 대 한 권장 되는 서
 * 데이터 시각화에 대 한 대시보드
 * 실시간 [경고](stream-analytics-set-up-alerts.md) temporal 및 공간 패턴 또는 비정상 상태에서
 * ETL(추출, 변환, 로드)
-* [이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing.md)
+* [이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 Azure Stream Analytics는 추가 응용 프로그램에 작업은 가장 빠른 방법은 분석을 스트리밍하려면 하 고 SQL 언어를 사용 하 여 Azure에서 실행 이미 알고 있습니다. Azure Stream Analytics 작업 서비스 이므로 클러스터를 관리 하는 시간을 투자 하지 않아도 및 작업 수준에서 99.9 %SLA 사용 하 여 가동 중지 시간에 걱정할 필요가 없습니다. 청구도 (192 스트리밍 단위)까지 확장 가능 하지만 (하나의 스트리밍 단위)를 시작 비용을 낮게 만들기 작업 수준에서 수행 됩니다. 것이 훨씬 더 비용 효율적으로 실행 하 고 클러스터를 유지 관리 하는 것 보다 몇 가지 Stream Analytics 작업을 실행 합니다.

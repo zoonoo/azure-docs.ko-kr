@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486498"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240878"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
  
@@ -44,7 +44,7 @@ ms.locfileid: "61486498"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 잠재적으로 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하고 트랜잭션 데이터에 대한 분석 쿼리의 영향을 최소화하는 한 가지 방법은 데이터를 목적이 있는 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다.  분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.  Wingtip Tickets의 경우 다음과 같습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "61486498"
 
 각 테넌트가 서비스를 사용하는 방법에 대해 이해하면 테넌트가 더 성공적인 성과를 거둘 수 있도록 지원하기 위한 서비스 수익화 및 서비스 개선에 대한 옵션을 알아볼 수 있습니다. 이 자습서에서는 테넌트 데이터로부터 창출할 수 있는 기본적인 정보를 다양하게 살펴볼 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -175,7 +175,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **연결**을 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -227,7 +227,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기
@@ -241,5 +241,5 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [탄력적 작업](sql-database-elastic-jobs-overview.md).
+- [탄력적 작업](elastic-jobs-overview.md).
 - [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](saas-multitenantdb-tenant-analytics.md)

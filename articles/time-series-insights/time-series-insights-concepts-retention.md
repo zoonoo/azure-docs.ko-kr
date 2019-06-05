@@ -4,19 +4,19 @@ description: 이 아티클에서는 Azure Time Series Insights 환경의 데이�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790420"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237004"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights 데이터 보존 기간 이해
 
@@ -42,7 +42,7 @@ ms.locfileid: "65790420"
 
 데이터 보존 동작 비교:
 
-## <a name="purge-old-data"></a>이전 데이터 제거
+## <a name="purge-old-data"></a>이전 데이터 삭제
 
 - 이 동작은 Time Series Insights 환경에 대 한 기본 동작에 설명 합니다.  
 - 이 동작은 기본 사용자가 항상 표시 하려는 경우 해당 *가장 최근의 데이터* Time Series Insights 환경에서.

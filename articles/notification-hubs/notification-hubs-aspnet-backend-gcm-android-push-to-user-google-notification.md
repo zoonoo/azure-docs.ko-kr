@@ -261,7 +261,7 @@ ms.locfileid: "65232757"
     ```
 
     이 구성 요소는 푸시 알림을 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 구현합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)를 로컬로 저장합니다. 이 구성 요소는 **로그인** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
-4. 클래스에서 `NotificationHub`에 대한 전용 필드를 제거하거나 주석 처리하고 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 끝점으로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
+4. 클래스에서 `NotificationHub`에 대한 프라이빗 필드를 제거하거나 주석 처리하고 `RegisterClient` 클래스에 대한 필드 및 ASP.NET 백 엔드의 엔드포인트에 대한 문자열을 추가합니다. `<Enter Your Backend Endpoint>`를 이전에 얻은 실제 백 엔드 끝점으로 바꿔야 합니다. 예: `http://mybackend.azurewebsites.net`
 
     ```java
     //private NotificationHub hub;

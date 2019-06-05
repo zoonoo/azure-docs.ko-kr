@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713008"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244397"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -255,7 +255,7 @@ foreach($labVM in $labVMs)
 ## <a name="environments"></a>환경 
 
 ### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>DevTest Labs 환경 내에서 Resource Manager 템플릿을 사용하려면 어떻게 해야 하나요?
-에 설명 된 단계를 사용 하 여 DevTest Labs 환경에 Resource Manager 템플릿을 배포 합니다 [DevTest Labs에서 환경 기능](devtest-lab-test-env.md) 문서. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 개인 리포지토리](devtest-lab-test-env.md)를 추가합니다. 이 시나리오는 DevTest Labs를 사용 하 여 개발 컴퓨터를 호스트 하는 경우에 유용할 수 있습니다 하지만 프로덕션을 대표 하는 경우 준비 환경을 빌드하는 경우에 유용할 수 있습니다.
+에 설명 된 단계를 사용 하 여 DevTest Labs 환경에 Resource Manager 템플릿을 배포 합니다 [DevTest Labs에서 환경 기능](devtest-lab-test-env.md) 문서. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 프라이빗 리포지토리](devtest-lab-test-env.md)를 추가합니다. 이 시나리오는 DevTest Labs를 사용 하 여 개발 컴퓨터를 호스트 하는 경우에 유용할 수 있습니다 하지만 프로덕션을 대표 하는 경우 준비 환경을 빌드하는 경우에 유용할 수 있습니다.
 
 사용자 옵션 또는 랩 당 가상 머신의 수에만 고유 하 게 만들고 자체는 랩에서 모든 환경 (Resource Manager 템플릿)가 아닌 컴퓨터 수가 제한 주목할 만한 이기도 합니다.
 
@@ -280,7 +280,7 @@ foreach($labVM in $labVMs)
 
 사용자 지정 이미지를 만들도록 VHD 파일 업로드를 자동화하기 위해 두 가지 옵션이 있습니다.
 
-- [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage)를 사용하여 랩과 연결된 저장소 계정에 VHD 파일을 복사 또는 업로드할 수 있습니다.
+- [AzCopy](../storage/common/storage-use-azcopy-v10.md)를 사용하여 랩과 연결된 저장소 계정에 VHD 파일을 복사 또는 업로드할 수 있습니다.
 - [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용합니다. Storage Explorer는 Windows, OS X 및 Linux에서 실행되는 독립 실행형 앱입니다.
 
 랩과 연결된 대상 저장소 계정을 찾으려면:
@@ -312,12 +312,12 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 ### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>VM 생성 도중 아티팩트가 실패했습니다. 어떻게 해결합니까?
 실패한 아티팩트에 대한 로그를 얻는 방법을 알아보려면 [DevTest Labs에서 아티팩트 실패를 진단하는 방법](devtest-lab-troubleshoot-artifact-failure.md)을 참조하세요.
 
-### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>조직은 DevTest Labs에서 개인 아티팩트 리포지토리와 공용 아티팩트 리포지토리 중에서 어떤 것을 사용해야 하나요?
-[공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)는 가장 일반적으로 사용되는 초기 소프트웨어 패키지 집합을 제공합니다. 이것은 일반적인 개발자 도구와 추가 기능을 재현하는 데 시간을 들일 필요 없이 빠르게 배포하는 데 도움이 됩니다. 사용자 고유의 개인 리포지토리를 배포하도록 선택할 수 있습니다. 공용 리포지토리와 개인 리포지토리를 함께 사용할 수 있습니다. 공용 리포지토리를 사용하지 않도록 설정할 수도 있습니다. 개인 리포지토리 배포 기준을 다음 질문 및 고려 사항에 따라 결정하는 것이 좋습니다.
+### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>조직은 DevTest Labs에서 프라이빗 아티팩트 리포지토리와 공용 아티팩트 리포지토리 중에서 어떤 것을 사용해야 하나요?
+[공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)는 가장 일반적으로 사용되는 초기 소프트웨어 패키지 집합을 제공합니다. 이것은 일반적인 개발자 도구와 추가 기능을 재현하는 데 시간을 들일 필요 없이 빠르게 배포하는 데 도움이 됩니다. 사용자 고유의 프라이빗 리포지토리를 배포하도록 선택할 수 있습니다. 공용 리포지토리와 프라이빗 리포지토리를 함께 사용할 수 있습니다. 공용 리포지토리를 사용하지 않도록 설정할 수도 있습니다. 프라이빗 리포지토리 배포 기준을 다음 질문 및 고려 사항에 따라 결정하는 것이 좋습니다.
 
-- 조직이 해당 DevTest Labs 제안의 일부로 회사용 라이선스 소프트웨어를 보유해야 하나요? 대답이 예인 경우 개인 리포지토리를 생성해야 합니다.
-- 조직이 전체 프로비전 프로세스의 일부로 필요한 특정 작업을 제공하는 사용자 지정 소프트웨어를 개발하고 있나요? 대답이 예인 경우 개인 리포지토리를 배포해야 합니다.
-- 조직의 거 버 넌 스 정책을 격리가 조직에서 직접 구성 관리에 있지 않으며 외부 리포지토리를 개인 아티팩트 리포지토리에 배포 되어야 합니다. 이 프로세스의 일부로, 공용 리포지토리의 초기 복사본을 복사하고 개인 리포지토리에 통합할 수 있습니다. 그런 다음, 조직의 누구도 더 이상 액세스할 수 없도록 공용 저장소를 사용하지 않도록 설정할 수 있습니다. 이 방법은 조직 내의 모든 사용자가 조직이 승인한 단일 리포지토리만을 강제로 보유하게 하고 구성 드리프트를 최소화합니다.
+- 조직이 해당 DevTest Labs 제안의 일부로 회사용 라이선스 소프트웨어를 보유해야 하나요? 대답이 예인 경우 프라이빗 리포지토리를 생성해야 합니다.
+- 조직이 전체 프로비전 프로세스의 일부로 필요한 특정 작업을 제공하는 사용자 지정 소프트웨어를 개발하고 있나요? 대답이 예인 경우 프라이빗 리포지토리를 배포해야 합니다.
+- 조직의 거 버 넌 스 정책을 격리가 조직에서 직접 구성 관리에 있지 않으며 외부 리포지토리를 개인 아티팩트 리포지토리에 배포 되어야 합니다. 이 프로세스의 일부로, 공용 리포지토리의 초기 복사본을 복사하고 프라이빗 리포지토리에 통합할 수 있습니다. 그런 다음, 조직의 누구도 더 이상 액세스할 수 없도록 공용 저장소를 사용하지 않도록 설정할 수 있습니다. 이 방법은 조직 내의 모든 사용자가 조직이 승인한 단일 리포지토리만을 강제로 보유하게 하고 구성 드리프트를 최소화합니다.
 
 
 ### <a name="should-an-organization-plan-for-a-single-repository-or-allow-multiple-repositories"></a>조직은 단일 리포지토리를 계획해야 하나요 아니면 여러 리포지토리를 허용해야 하나요?

@@ -126,7 +126,7 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
     </PerformanceCounters>
     ```
 
-1. 개인 구성에서 Azure Monitor 계정을 정의합니다. 그런 다음, 메트릭을 내보내는 데 사용할 서비스 주체 정보를 추가합니다.
+1. 프라이빗 구성에서 Azure Monitor 계정을 정의합니다. 그런 다음, 메트릭을 내보내는 데 사용할 서비스 주체 정보를 추가합니다.
 
     ```xml
     <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">

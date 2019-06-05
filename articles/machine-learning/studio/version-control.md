@@ -24,21 +24,21 @@ Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 �
 ## <a name="versioning-experiment"></a>실험 버전 관리
 실험의 버전을 관리하는 두 가지 권장 방법이 있습니다. 기본 제공 실행 기록에 의존하거나 외부에서 관리하도록 JSON 형식으로 실험을 내보낼 수 있습니다. 각 접근 방식에는 장단점이 있습니다.
 
-### <a name="experiment-snapshots-using-run-history"></a>실행 기록을 사용하는 실험 스냅숏
-Azure Machine Learning Studio 학습 실험의 실행 모델에서 실험 편집기의 **실행**을 클릭할 때마다 변경할 수 없는 실험의 스냅숏이 작업 스케줄러에 전송됩니다. 이 스냅숏 목록을 보려면 실험 편집기 보기의 명령 모음에서 **실행 기록**을 클릭합니다.
+### <a name="experiment-snapshots-using-run-history"></a>실행 기록을 사용하는 실험 스냅샷
+Azure Machine Learning Studio 학습 실험의 실행 모델에서 실험 편집기의 **실행**을 클릭할 때마다 변경할 수 없는 실험의 스냅샷이 작업 스케줄러에 전송됩니다. 이 스냅샷 목록을 보려면 실험 편집기 보기의 명령 모음에서 **실행 기록**을 클릭합니다.
 
 ![실행 기록 단추](./media/version-control/runhistory.png)
 
-실험이 실행되기 위해 제출되고 스냅숏이 만들어진 시점에서 실험의 이름을 클릭하여 잠금 모드로 스냅숏을 열 수 있습니다. 현재 실험을 나타내는 목록에서 첫 번째 항목만이 편집 가능한 상태입니다. 또한 각 스냅숏은 완료(부분 실행), 실패, 실패(부분 실행) 또는 초안을 비롯한 다양한 상태라는 점을 기억합니다.
+실험이 실행되기 위해 제출되고 스냅샷이 만들어진 시점에서 실험의 이름을 클릭하여 잠금 모드로 스냅샷을 열 수 있습니다. 현재 실험을 나타내는 목록에서 첫 번째 항목만이 편집 가능한 상태입니다. 또한 각 스냅샷은 완료(부분 실행), 실패, 실패(부분 실행) 또는 초안을 비롯한 다양한 상태라는 점을 기억합니다.
 
 ![실행 기록 목록](./media/version-control/runhistorylist.png)
 
-목록이 열리면 스냅숏 실험을 새 실험으로 저장하고 수정할 수 있습니다. 실험 스냅숏에 업데이트된 버전인 학습된 모델, 변환, 데이터 세트 등과 같은 자산이 포함된 경우 스냅숏은 해당 스냅숏을 만든 원래 버전에 대한 참조를 유지합니다. 잠긴 스냅숏을 새 실험으로 저장하면 Azure Machine Learning Studio는 이러한 자산의 최신 버전이 있는지 검색하고 새 실험에서 자동으로 업데이트합니다.
+목록이 열리면 스냅샷 실험을 새 실험으로 저장하고 수정할 수 있습니다. 실험 스냅샷에 업데이트된 버전인 학습된 모델, 변환, 데이터 세트 등과 같은 자산이 포함된 경우 스냅샷은 해당 스냅샷을 만든 원래 버전에 대한 참조를 유지합니다. 잠긴 스냅샷을 새 실험으로 저장하면 Azure Machine Learning Studio는 이러한 자산의 최신 버전이 있는지 검색하고 새 실험에서 자동으로 업데이트합니다.
 
-또한 실험을 삭제하면 해당 실험의 모든 스냅숏이 삭제됩니다.
+또한 실험을 삭제하면 해당 실험의 모든 스냅샷이 삭제됩니다.
 
 ### <a name="exportimport-experiment-in-json-format"></a>JSON 형식으로 실험 내보내기/가져오기
-실행 기록 스냅숏은 실행을 위해 제출될 때마다 Azure Machine Learning Studio에서 변경할 수 없는 실험 버전을 유지합니다. 실험의 로컬 복사본을 저장한 후 Team Foundation Server와 같은 즐겨 찾는 소스 제어 시스템에 체크 인하거나 나중에 해당 로컬 파일에서 실험을 다시 만들 수도 있습니다. 이를 위해 [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlet인 [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 및 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph)를 사용할 수 있습니다.
+실행 기록 스냅샷은 실행을 위해 제출될 때마다 Azure Machine Learning Studio에서 변경할 수 없는 실험 버전을 유지합니다. 실험의 로컬 복사본을 저장한 후 Team Foundation Server와 같은 즐겨 찾는 소스 제어 시스템에 체크 인하거나 나중에 해당 로컬 파일에서 실험을 다시 만들 수도 있습니다. 이를 위해 [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlet인 [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 및 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph)를 사용할 수 있습니다.
 
 JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 세트 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 

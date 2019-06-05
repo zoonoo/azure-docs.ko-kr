@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787271"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389444"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
-Azure Container Registry는 Docker 허브에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 개인 Docker 컨테이너 이미지를 저장하고 관리합니다. 에 대 한 리포지토리를 호스트할 수도 있습니다 [Helm 차트](container-registry-helm-repos.md) (미리 보기)는 패키징 형식을 Kubernetes에 응용 프로그램을 배포 합니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다.
+Azure Container Registry는 Docker Hub에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 Docker 컨테이너 이미지를 저장하고 관리합니다. 에 대 한 리포지토리를 호스트할 수도 있습니다 [Helm 차트](container-registry-helm-repos.md) (미리 보기)는 패키징 형식을 Kubernetes에 응용 프로그램을 배포 합니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다. 사용 하 여는 [지역에서 복제 된](container-registry-geo-replication.md) 레지스트리를 특정 지역 복제본에 대 한 이벤트에 응답 하도록 각 웹 후크 구성 합니다.
 
 Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)를 참조하세요.
 
@@ -33,14 +33,15 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 1. 웹후크 도구 모음에서 **추가**를 선택합니다.
 1. 다음 정보로 *웹후크 만들기* 양식을 완성합니다.
 
-| 값 | Description |
+| Value | 설명 |
 |---|---|
-| 이름 | 웹후크에 지정하려는 이름입니다. 문자 및 숫자만 포함할 수 있으며 길이 5-50 자 여야 합니다. |
+| 웹 후크 이름 | 웹후크에 지정하려는 이름입니다. 문자 및 숫자만 포함할 수 있으며 길이 5-50 자 여야 합니다. |
+| Location | 에 대 한는 [지역에서 복제 된](container-registry-geo-replication.md) 레지스트리에 레지스트리 복제본의 Azure 지역을 지정 합니다. 
 | 서비스 URI | 웹후크가 POST 알림을 보내야 하는 URI입니다. |
 | 사용자 지정 헤더 | POST 요청과 함께 전달하려는 헤더입니다. "키: 값" 형식이어야 합니다. |
 | 트리거 동작 | 웹후크를 트리거하는 동작입니다. 작업에 포함 이미지 푸시, 이미지 삭제, Helm 차트 푸시, Helm 차트 삭제 이미지 격리 됩니다. 웹 후크 트리거를 하나 이상의 작업을 선택할 수 있습니다. |
 | 상태 | 웹후크가 만들어진 후의 상태입니다. 기본적으로 사용하도록 설정되어 있습니다. |
-| 범위 | 웹후크가 작동하는 범위입니다. 지정 하지 않으면 범위는 레지스트리의 모든 이벤트입니다. "리포지토리: 태그" 형식을 사용 하 여 리포지토리 또는 태그를 지정할 수 있습니다 또는 "리포지토리: *" 저장소에서 모든 태그에 대 한 합니다. |
+| Scope | 웹후크가 작동하는 범위입니다. 지정 하지 않으면 범위는 레지스트리의 모든 이벤트입니다. "리포지토리: 태그" 형식을 사용 하 여 리포지토리 또는 태그를 지정할 수 있습니다 또는 "리포지토리: *" 저장소에서 모든 태그에 대 한 합니다. |
 
 웹후크 양식 예제:
 

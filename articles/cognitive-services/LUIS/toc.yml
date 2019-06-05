@@ -5,6 +5,8 @@
   items:
     - name: Language Understanding이란?
       href: what-is-luis.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 미리 빌드된 도메인 앱 빌드
@@ -29,7 +31,7 @@
               href: luis-get-started-cs-get-intent.md
             - name: Go
               href: luis-get-started-go-get-intent.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-get-intent.md
             - name: Node.js
               href: luis-get-started-node-get-intent.md
@@ -41,7 +43,7 @@
               href: luis-get-started-cs-add-utterance.md
             - name: Go
               href: luis-get-started-go-add-utterance.md
-            - name: 자바
+            - name: Java
               href: luis-get-started-java-add-utterance.md
             - name: Node.js
               href: luis-get-started-node-add-utterance.md
@@ -83,7 +85,7 @@
           displayName: roles
         - name: 자유 형식 데이터 추출
           href: luis-tutorial-pattern-any.md
-    - name: 봇 사용
+    - name: V4 Bot Framework 사용
       items:
         - name: 'C# 사용'
           href: luis-csharp-tutorial-bf-v4.md
@@ -197,7 +199,8 @@
         - name: Bing Spell Check v7 사용
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
-          href: luis-tutorial-speech-to-intent.md
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
         - name: 봇 사용
           items:
             - name: 웹앱 봇
@@ -279,6 +282,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: 경계
       href: luis-boundaries.md
+    - name: 애플리케이션 설정
+      href: luis-reference-application-settings.md
     - name: 미리 작성된 엔터티 참조
       items:
         - name: 문화권별 엔터티
@@ -350,7 +355,7 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
             - name: 참고 자료
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-        - name: 자바
+        - name: Java
           items:
             - name: Maven - 제작
               href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'

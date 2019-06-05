@@ -71,7 +71,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원하나요?**
 
-예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 애플리케이션을 변경 또는 추가할 수 있습니다.
+예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 프라이빗 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 애플리케이션을 변경 또는 추가할 수 있습니다.
 
 **스테이징 환경이 지원되나요?**
 
@@ -134,7 +134,7 @@ const io = require('socket.io')(server,{
 
 **개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
-개인 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용합니다.
+프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). `docker-custom-image-name`을 설정하려면 [`az` 명령줄 도구](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 

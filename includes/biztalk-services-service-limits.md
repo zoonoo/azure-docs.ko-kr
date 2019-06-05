@@ -9,13 +9,13 @@ ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
 ms.openlocfilehash: 2697a7d14141682ee8208d8cbe954e6e1679e3b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553901"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238465"
 ---
-| 리소스 | Free(Preview) | Developer | Basic | 표준 | Premium |
+| Resource | Free(Preview) | Developer | Basic | 표준 | Premium |
 | --- | --- | --- | --- | --- | --- |
 | 확장 |N/A |N/A |1 Basic 장치씩 확장함 |1 표준 장치씩 확장함 |1 프리미엄 장치씩 확장함 |
 | 확장 제한 |N/A |N/A |최대 단위 8개 |최대 단위 8개 |최대 단위 8개 |

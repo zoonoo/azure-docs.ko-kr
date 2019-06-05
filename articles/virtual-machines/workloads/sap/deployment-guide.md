@@ -312,7 +312,7 @@ ms.locfileid: "66153997"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 스토리지 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 애플리케이션 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 애플리케이션의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 스토리지 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 애플리케이션 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 애플리케이션의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 프라이빗 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
 이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 머신)에 SAP 애플리케이션을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
 
@@ -532,7 +532,7 @@ Azure에서 VM을 배포한 후 온-프레미스 환경에서와 동일한 지�
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포
 
 다른 버전의 운영 체제 또는 DBMS는 패치 요구 사항이 다르므로 Azure Marketplace에서 찾을 수 있는 이미지가 요구에 맞지 않을 수 있습니다. 그 대신에 나중에 다시 배포할 수 있는 고유한 OS/DBMS VM 이미지를 사용하여 VM을 만드는 것이 좋습니다.
-Linux에 대한 개인 이미지를 만들려면 Windows에 대해 개인 이미지를 만드는 방법과 다른 단계를 사용합니다.
+Linux에 대한 프라이빗 이미지를 만들려면 Windows에 대해 프라이빗 이미지를 만드는 방법과 다른 단계를 사용합니다.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -550,7 +550,7 @@ Linux에 대한 개인 이미지를 만들려면 Windows에 대해 개인 이미
 
 다음 순서도는 사용자 지정 이미지에서 VM을 배포하기 위한 SAP 관련 단계 순서를 보여 줍니다.
 
-![개인 Marketplace에서 VM 이미지를 사용하여 SAP 시스템용 VM 배포 순서도][deployment-guide-figure-300]
+![프라이빗 Marketplace에서 VM 이미지를 사용하여 SAP 시스템용 VM 배포 순서도][deployment-guide-figure-300]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 만들기
 
@@ -594,7 +594,7 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>템플릿을 사용하여 가상 컴퓨터 만들기
 
-Azure Portal에서 개인 OS 이미지를 사용하여 배포를 만들려면 다음 SAP 템플릿 중 하나를 사용합니다. 이러한 템플릿은 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시되어 있습니다. 또한 [PowerShell][virtual-machines-upload-image-windows-resource-manager]을 사용하여 가상 머신을 수동으로 만들 수도 있습니다.
+Azure Portal에서 프라이빗 OS 이미지를 사용하여 배포를 만들려면 다음 SAP 템플릿 중 하나를 사용합니다. 이러한 템플릿은 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시되어 있습니다. 또한 [PowerShell][virtual-machines-upload-image-windows-resource-manager]을 사용하여 가상 머신을 수동으로 만들 수도 있습니다.
 
 * [**2계층 구성(단일 가상 컴퓨터) 템플릿**(sap-2-tier-user-image)][sap-templates-2-tier-user-image]
 
@@ -695,7 +695,7 @@ Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조�
 
 #### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-Azure Portal을 통해 개인 OS 디스크를 사용하여 배포를 만들려면 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시된 SAP 템플릿을 사용합니다. 또한 PowerShell을 사용하여 가상 머신을 직접 만들 수도 있습니다.
+Azure Portal을 통해 프라이빗 OS 디스크를 사용하여 배포를 만들려면 [azure-quickstart-templates GitHub 리포지토리][azure-quickstart-templates-github]에 게시된 SAP 템플릿을 사용합니다. 또한 PowerShell을 사용하여 가상 머신을 직접 만들 수도 있습니다.
 
 * [**2계층 구성(단일 가상 컴퓨터) 템플릿**(sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 
@@ -1088,7 +1088,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
    b. `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error` 실행
 
-   **예상 결과**: 오류가 **없는** 한 줄을 반환합니다(예: **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**).
+   **예상 결과**: 오류가 **없는** 한 줄을 반환합니다(예: **3;config;Error;;0;0;none;0;1456416792;tst-servercs;** ).
 
    다. `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord` 실행
 

@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160473"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236630"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
 Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-target)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
-Azure Machine Learning SDK, Azure Portal 또는 Azure CLI를 사용하여 컴퓨팅 대상을 만들고 관리할 수 있습니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
+수 만들고 Azure portal, Azure CLI 또는 Azure Machine Learning VS Code 확장에는 Azure Machine Learning SDK를 사용 하 여 계산 대상을 관리 합니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
  
 이 문서에서는 모델 학습에 다양한 컴퓨팅 대상을 사용하는 방법을 알아봅니다.  모든 컴퓨팅 대상에 대한 단계는 동일한 워크플로를 따릅니다.
 1. 컴퓨팅 대상이 이미 없는 경우 __만듭니다__.
@@ -38,7 +38,7 @@ Azure Machine Learning SDK, Azure Portal 또는 Azure CLI를 사용하여 컴퓨
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 
-|학습용 컴퓨팅 대상| GPU 가속 | 자동화됨<br/> 하이퍼 매개 변수 튜닝 | 자동화됨<br/> Machine Learning | Azure Machine Learning 파이프라인 |
+|학습용 컴퓨팅 대상| GPU 가속 | 자동<br/> 하이퍼 매개 변수 튜닝 | 자동<br/> Machine Learning | Azure Machine Learning 파이프라인 |
 |----|:----:|:----:|:----:|:----:|
 |[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning 컴퓨팅](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -235,7 +235,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 HDInsight 클러스터를 연결할 수 있습니다 
+   또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 HDInsight 클러스터를 연결할 수 있습니다
 
 1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
 
@@ -377,6 +377,10 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 자세한 내용은 [리소스 관리](reference-azure-machine-learning-cli.md#resource-management)를 참조하세요.
 
+## <a name="set-up-compute-with-vs-code"></a>VS Code를 사용 하 여 계산을 설정
+
+액세스, 작성, 사용 하 여 작업 영역에 연관 된 계산 대상을 관리 합니다 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) Azure Machine Learning 서비스에 대 한 합니다.
+
 ## <a id="submit"></a>학습 실행 제출
 
 실행 구성을 만든 후 실행 구성을 사용하여 해당 실험을 실행합니다.  학습 실행을 제출하는 코드 패턴은 모든 유형의 컴퓨팅 대상에서 동일합니다.
@@ -390,7 +394,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 >
 > 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
 > 
-> 자세한 내용은 [스냅숏](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
+> 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
 
 ### <a name="create-an-experiment"></a>실험 만들기
 
@@ -416,8 +420,9 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 또는
 
-* [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다. 
+* [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
 * [CLI 확장을 사용하여](reference-azure-machine-learning-cli.md#experiments) 실험을 제출합니다.
+* 통해 실험을 제출 합니다 [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)합니다.
 
 ## <a name="github-tracking-and-integration"></a>GitHub 추적과 통합
 

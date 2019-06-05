@@ -4,21 +4,21 @@ description: 이 문서에서는 백업에서 Azure Cosmos DB 데이터를 복�
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059641"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241042"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Azure Cosmos DB의 백업에서 데이터 복원 
 
 데이터베이스 또는 컨테이너를 실수로 삭제한 경우, [지원 티켓을 제출]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하거나 [Azure 지원에 문의]( https://azure.microsoft.com/support/options/)하여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원만 제공 됩니다 선택한 계획에 대 한 같은 **표준**, **개발자**, 및 해당 이상 계획 합니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요. 
 
-백업의 특정 스냅숏을 복원하려면 Azure Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
+백업의 특정 스냅샷을 복원하려면 Azure Cosmos DB에서 해당 스냅샷의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 
 ## <a name="request-a-restore"></a>복원 요청
 

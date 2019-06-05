@@ -15,7 +15,7 @@
           href: quickstarts/csharp.md
         - name: Go
           href: quickstarts/go.md
-        - name: 자바
+        - name: Java
           href: quickstarts/java.md
         - name: Node.js
           href: quickstarts/nodejs.md
@@ -29,7 +29,7 @@
       items:
         - name: 'C#'
           href: web-search-sdk-quickstart.md
-        - name: 자바
+        - name: Java
           href: web-sdk-java-quickstart.md
         - name: Node.js
           href: web-search-sdk-node-quickstart.md
@@ -70,9 +70,9 @@
 - name: 참고 자료
   items:
     - name: Bing Web Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference'
     - name: Bing Web Search API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference'
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
@@ -81,7 +81,7 @@
       items:
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet'
-        - name: 자바
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python'

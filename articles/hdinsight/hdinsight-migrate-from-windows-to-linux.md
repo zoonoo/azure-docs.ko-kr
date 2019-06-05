@@ -124,7 +124,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 노드에 원격 액세스�
 
 클러스터를 생성하는 동안 인증을 위해 SSH 사용자와 더불어 **암호** 또는 **공개 키 인증서** 중 하나를 제공해야 합니다.
 
-암호보다는 공개 키 인증서가 더 안전하므로 공개 키 인증서를 사용하는 것이 좋습니다. 서명된 공개/개인 키 쌍을 생성한 후 클러스터를 생성할 때 공개 키를 제공하면 인증서 인증이 이루어집니다. SSH를 사용하여 서버에 연결할 때 클라이언트의 개인 키는 연결을 위한 인증을 제공합니다.
+암호보다는 공개 키 인증서가 더 안전하므로 공개 키 인증서를 사용하는 것이 좋습니다. 서명된 공개/개인 키 쌍을 생성한 후 클러스터를 생성할 때 공개 키를 제공하면 인증서 인증이 이루어집니다. SSH를 사용하여 서버에 연결할 때 클라이언트의 프라이빗 키는 연결을 위한 인증을 제공합니다.
 
 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -249,7 +249,7 @@ Spark 클러스터는 미리 보기 중 Windows 클러스터에서 사용 가능
 
 Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight 클러스터에서 지원되지 않습니다. 대신 ADF 파이프라인의 일부로 사용자 지정 작업을 구현하기 위해서는 다음 방법 중 하나를 사용해야 합니다.
 
-* Azure Batch 풀에서 .NET 작업을 실행합니다.  [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Azure Batch 풀에서 .NET 작업을 실행합니다. [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](../data-factory/transform-data-using-dotnet-custom-activity.md)
 * MapReduce 작업으로 작업을 구현합니다. 자세한 내용은 [데이터 팩터리에서 MapReduce 프로그램 호출](../data-factory/transform-data-using-hadoop-map-reduce.md)을 참조하세요.
 
 ### <a name="line-endings"></a>줄 끝

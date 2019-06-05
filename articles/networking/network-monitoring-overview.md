@@ -59,7 +59,7 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
-ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
+ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
 
 * 구독에 연결된 ER 회로의 자동 검색
 * 온-프레미스에서 클라우드 애플리케이션까지 네트워크 토폴로지 검색

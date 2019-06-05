@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610907"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234248"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -69,7 +69,7 @@ ms.locfileid: "60610907"
 | [Azure&nbsp;역할&nbsp;기반&nbsp;액세스 제어](../active-directory/role-based-access-control-configure.md)|사용자가 조직 내 역할을 기반으로 액세스하는 데 필요한 리소스에만 액세스하도록 허용하는 액세스 제어 기능입니다.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Azure 내에서 다중 테넌트, 클라우드 기반 디렉터리 및 여러 ID 관리 서비스를 지원하는 클라우드 기반 인증 리포지토리입니다.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Azure 애플리케이션을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 제어할 수 있도록 해주는 ID 관리 서비스입니다.   |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Active Directory Domain Services의 클라우드 기반 및 관리되는 버전입니다. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| Active Directory Domain Services의 클라우드 기반 및 관리되는 버전입니다. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| 보안 정보 액세스를 허용하기 전에 여러 가지 형식의 인증 및 확인을 사용하는 보안 프로비전입니다. |
 
 ## <a name="backup-and-disaster-recovery"></a>백업 및 재해 복구
@@ -91,4 +91,4 @@ ms.locfileid: "60610907"
 | [Azure 애플리케이션 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
 |[Azure Firewall](../firewall/overview.md)|Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.|
 |[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
-|[Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 사설 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|
+|[Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 프라이빗 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|

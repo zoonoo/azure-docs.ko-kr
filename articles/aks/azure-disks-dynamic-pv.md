@@ -152,7 +152,7 @@ Events:
 
 ## <a name="back-up-a-persistent-volume"></a>영구적 볼륨 백업
 
-영구적 볼륨에 데이터를 백업하려면 볼륨에 대한 관리 디스크의 스냅숏을 만듭니다. 그런 다음, 이 스냅숏을 사용하여 복원된 디스크를 만들고 데이터를 복원하는 수단으로 Pod에 연결할 수 있습니다.
+영구적 볼륨에 데이터를 백업하려면 볼륨에 대한 관리 디스크의 스냅샷을 만듭니다. 그런 다음, 이 스냅샷을 사용하여 복원된 디스크를 만들고 데이터를 복원하는 수단으로 Pod에 연결할 수 있습니다.
 
 먼저 *azure-managed-disk*라는 PVC의 경우처럼 `kubectl get pvc` 명령을 사용하여 볼륨 이름을 가져옵니다.
 
@@ -171,7 +171,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-디스크 ID를 사용하여 [az snapshot create][az-snapshot-create]를 통해 스냅숏 디스크를 만듭니다. 다음 예에서는 AKS 클러스터와 동일한 리소스 그룹에서 *pvcSnapshot*이라는 스냅숏을 만듭니다(*MC_myResourceGroup_myAKSCluster_eastus*). AKS 클러스터가 액세스 권한이 없는 리소스 그룹에서 스냅숏을 만들고 디스크를 복원하는 경우 사용 권한 문제가 발생할 수 있습니다.
+디스크 ID를 사용하여 [az snapshot create][az-snapshot-create]를 통해 스냅샷 디스크를 만듭니다. 다음 예에서는 AKS 클러스터와 동일한 리소스 그룹에서 *pvcSnapshot*이라는 스냅샷을 만듭니다(*MC_myResourceGroup_myAKSCluster_eastus*). AKS 클러스터가 액세스 권한이 없는 리소스 그룹에서 스냅샷을 만들고 디스크를 복원하는 경우 사용 권한 문제가 발생할 수 있습니다.
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -180,11 +180,11 @@ $ az snapshot create \
     --source /subscriptions/<guid>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-디스크의 데이터 양에 따라 스냅숏을 만드는 데 몇 분 정도 걸릴 수 있습니다.
+디스크의 데이터 양에 따라 스냅샷을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="restore-and-use-a-snapshot"></a>스냅숏 복원 및 사용
+## <a name="restore-and-use-a-snapshot"></a>스냅샷 복원 및 사용
 
-디스크를 복원하고 Kubernetes Pod와 함께 사용하려면 [az disk create][az-disk-create]로 디스크를 만들 경우 스냅숏을 원본으로 사용합니다. 원래 데이터 스냅숏에 액세스해야 할 경우 이 작업은 원래 리소스를 보존합니다. 다음 예제에서는 *pvcSnapshot*이라는 스냅숏에서 *pvcRestored*라는 디스크를 만듭니다.
+디스크를 복원하고 Kubernetes Pod와 함께 사용하려면 [az disk create][az-disk-create]로 디스크를 만들 경우 스냅샷을 원본으로 사용합니다. 원래 데이터 스냅샷에 액세스해야 할 경우 이 작업은 원래 리소스를 보존합니다. 다음 예제에서는 *pvcSnapshot*이라는 스냅샷에서 *pvcRestored*라는 디스크를 만듭니다.
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot

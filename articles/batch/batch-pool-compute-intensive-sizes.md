@@ -124,7 +124,7 @@ Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 CUDA Too
 1. Ubuntu 16.04 LTS를 실행하는 Azure NC 시리즈 VM을 배포합니다. 예를 들어, 미국 중남부 지역에서 VM을 만듭니다. 
 2. Azure Portal, Azure 구독에 연결하는 클라이언트 컴퓨터 또는 Azure Cloud Shell을 사용하여 [NVIDIA GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-gpu-linux.md
 )을 VM에 추가합니다. 또는 VM에 연결하고 [CUDA 드라이버를 수동으로 설치](../virtual-machines/linux/n-series-driver-setup.md)하는 다음 단계를 수행합니다.
-3. 다음 단계에 따라 Batch에 대한 [스냅숏 및 사용자 지정 Linux VM 이미지](batch-custom-images.md)를 만듭니다.
+3. 다음 단계에 따라 Batch에 대한 [스냅샷 및 사용자 지정 Linux VM 이미지](batch-custom-images.md)를 만듭니다.
 4. NC VM을 지원하는 영역에서 Batch 계정을 만듭니다.
 5. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 [사용자 지정 이미지](batch-custom-images.md)를 사용하는 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.
 
@@ -144,7 +144,7 @@ Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면
 )을 실행하거나 Azure Cloud Shell을 사용하여 VM에 HpcVmDrivers 확장을 추가합니다. 
 1. VM에 대한 원격 데스크톱 연결을 만듭니다.
 1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](https://www.microsoft.com/download/details.aspx?id=57467)(MSMpiSetup.exe)를 다운로드하고 Microsoft MPI를 설치합니다.
-1. 다음 단계에 따라 Batch에 대한 [스냅숏 및 사용자 지정 Windows VM 이미지](batch-custom-images.md)를 만듭니다.
+1. 다음 단계에 따라 Batch에 대한 [스냅샷 및 사용자 지정 Windows VM 이미지](batch-custom-images.md)를 만듭니다.
 1. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 [사용자 지정 이미지](batch-custom-images.md)를 사용하는 풀을 만듭니다. 다음 표에서는 이미지의 샘플 풀 설정을 보여줍니다.
 
 | 설정 | 값 |

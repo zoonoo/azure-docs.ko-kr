@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785766"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237947"
 ---
 # <a name="prepare-data-for-custom-speech"></a>사용자 지정 음성에 대 한 데이터 준비
 
@@ -52,7 +52,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 이 표를 사용 하 여 사용자 지정 음성 사용에 대 한 오디오 파일이 올바르게 서식이 확인 하려면:
 
-| 자산 | 값 |
+| 자산 | Value |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
 | 샘플 속도 | 8,000 Hz 또는 16,000 Hz |
@@ -64,16 +64,16 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 오디오는 이러한 속성을 충족 하지 못하는 경우를 확인 하려면, 하는 경우 다운로드 하는 것이 좋습니다 [sox](http://sox.sourceforge.net) 을 확인 하거나 오디오를 변환 합니다. 다음은 명령줄을 통해 이러한 각 활동 수 수행 하는 방법의 몇 가지 예:
 
-| 작업 | 설명 | Sox 명령 |
+| activities | 설명 | Sox 명령 |
 |----------|-------------|-------------|
-| 오디오 형식 확인 | 이 명령을 사용 하 여 오디오 파일 형식을 확인 합니다. | `soxi <filename>.wav` |
-| 오디오 형식으로 변환 | 이 명령을 사용 하 여 오디오 파일을 단일 채널을 16 비트가 고, 변환할 48 KHz입니다. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| 오디오 형식 확인 | 이 명령을 사용 하 여 오디오 파일 형식을 확인 합니다. | `sox --i <filename>` |
+| 오디오 형식으로 변환 | 이 명령을 사용 하 여 오디오 파일을 단일 채널을 16 비트가 고, 변환할 16 KHz입니다. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>테스트/학습에 대 한 오디오 + 사람이 레이블이 지정 된 기록 데이터
 
 오디오 파일을 처리 하는 동안 Microsoft의 음성-텍스트 정확도의 정확도 측정할 비교에 대 한 사람이 레이블이 지정 된 기록 (word에서 word)를 제공 해야 합니다. 기록 사람이 레이블이 지정 된 시간이 오래 걸리는 경우가, 것 정확도 평가 하 고 사용 사례에 대 한 모델을 학습 하는 데 필요한 합니다. 유의 하십시오 인식의 향상 된 기능만 제공 되는 데이터를 찾아낼 수 있습니다. 따라서 것이 중요 대 본만 고품질 업로드 됩니다.  
 
-| 자산 | 값 |
+| 자산 | Value |
 |----------|-------|
 | 파일 형식 | RIFF(WAV) |
 | 샘플 속도 | 8,000 Hz 또는 16,000 Hz |
@@ -117,7 +117,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 이 표를 사용 하 여 표현에 대 한 관련된 데이터 파일 형식이 확인:
 
-| 자산 | 값 |
+| 자산 | Value |
 |----------|-------|
 | 텍스트 인코딩 | UTF-8 BOM |
 | 줄당 발언의 # | 1 |
@@ -155,7 +155,7 @@ Microsoft 음성 인식 정확도를 테스트 하는 여부 되었거나 고유
 
 이 표를 사용 하 여 발음에 대 한 관련된 데이터 파일 형식이 확인 합니다. 발음 파일은 작은 및 몇 Kb를 초과 하지 않아야 합니다.
 
-| 자산 | 값 |
+| 자산 | Value |
 |----------|-------|
 | 텍스트 인코딩 | Utf-8 BOM (영어에 대 한 ANSI 사용할) |
 | 줄당 발음 횟수 | 1 |

@@ -27,9 +27,9 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 새로운 프리미엄 계층은 모든 표준 계층 기능과 추가 기능(예: 성능 향상, 더 큰 작업, 재해 복구, 가져오기/내보내기 및 강화된 보안)이 포함된 엔터프라이즈급 계층입니다. 프리미엄 캐시 계층의 추가 기능에 대해 자세히 알아보려면 계속 읽습니다.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>표준 또는 기본 계층에 비해 향상된 성능
-**표준 또는 기본 계층에 대해 향상된 성능.**  프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
+**표준 또는 기본 계층에 대해 향상된 성능.** 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다. 
 
-**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.**  예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
+**동일한 크기의 캐시에 대한 처리량이 표준 계층에 비해 프리미엄에서 더 높습니다.** 예를 들어 53GB P4(프리미엄) 캐시의 처리량은 초당 250K의 요청인 반면 C6(표준)은 150K입니다.
 
 프리미엄 캐시의 크기, 처리량 및 대역폭에 대한 자세한 내용은 [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
 
@@ -51,7 +51,7 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 ## <a name="importexport"></a>Import/Export
-가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 이를 통해 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 이를 통해 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스 중에는 Azure Cache for Redis에서 RDB 파일을 Azure Storage에서 메모리로 로드한 다음, 키를 캐시에 삽입합니다.
 

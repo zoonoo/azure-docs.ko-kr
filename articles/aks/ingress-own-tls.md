@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: e20f881d740c5d5b73c23c933ceb3d6f19e78ef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 4ba38ee0a4c26a99b7cbddc46eef35cfc39a511d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073832"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392560"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -31,11 +31,13 @@ ms.locfileid: "65073832"
 
 이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. Helm의 최신 릴리스를 사용 중이어야 합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
 
-이 문서에서는 Azure CLI 버전 2.0.61 중인지 필요 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 문서에서는 Azure CLI 버전 2.0.64 중인지 필요 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
 수신 컨트롤러를 만들려면 `Helm`을 사용하여 *nginx-ingress*를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+
+수신 컨트롤러는 또한 Linux 노드에서 예약 해야 합니다. (현재 AKS에서 미리 보기)는에서 Windows 서버 노드에서 수신 컨트롤러를 실행 해서는 안 됩니다. 노드 선택기를 사용 하 여 지정 된 `--set nodeSelector` Kubernetes 스케줄러에서 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행 하도록 지시 하려면 매개 변수입니다.
 
 > [!TIP]
 > 다음 예제에서는 명명 된 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다 *수신 basic*합니다. 필요에 따라 사용자 고유의 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터 RBAC를 사용할 수 없는 경우 추가 `--set rbac.create=false` Helm 명령입니다.
@@ -45,7 +47,11 @@ ms.locfileid: "65073832"
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 설치하는 동안 Azure 공용 IP 주소가 수신 컨트롤러에 대해 생성됩니다. 이 공용 IP 주소는 수신 컨트롤러의 수명 동안만 고정됩니다. 수신 컨트롤러를 삭제하면 공용 IP 주소 할당이 손실됩니다. 추가 수신 컨트롤러를 만들면 새 공용 IP 주소가 할당됩니다. 공용 IP 주소를 계속 사용하려는 경우에는 대신 [고정 공용 IP 주소로 수신 컨트롤러를 만들][aks-ingress-static-tls] 수 있습니다.
@@ -66,9 +72,9 @@ virulent-seal-nginx-ingress-default-backend   ClusterIP      10.0.50.5     <none
 
 ## <a name="generate-tls-certificates"></a>TLS 인증서 생성
 
-이 문서에서는`openssl`을 사용하여 자체 서명된 인증서를 생성해 보겠습니다. 프로덕션 사용의 경우 공급자 또는 고유의 CA(인증 기관)를 통해 신뢰할 수 있는 서명된 인증서를 요청해야 합니다. 다음 단계에서는 TLS 인증서와 OpenSSL에서 생성한 개인 키를 사용하여 Kubernetes *비밀*을 생성합니다.
+이 문서에서는`openssl`을 사용하여 자체 서명된 인증서를 생성해 보겠습니다. 프로덕션 사용의 경우 공급자 또는 고유의 CA(인증 기관)를 통해 신뢰할 수 있는 서명된 인증서를 요청해야 합니다. 다음 단계에서는 TLS 인증서와 OpenSSL에서 생성한 프라이빗 키를 사용하여 Kubernetes *비밀*을 생성합니다.
 
-다음 예제에서는 *aks-ingress-tls.crt*라는 365일 동안 유효한 2048비트 RSA X509 인증서를 생성합니다. 개인 키 파일 이름은 *aks-ingress-tls.key*입니다. Kubernetes TLS 비밀에는 이러한 두 파일이 모두 필요합니다.
+다음 예제에서는 *aks-ingress-tls.crt*라는 365일 동안 유효한 2048비트 RSA X509 인증서를 생성합니다. 프라이빗 키 파일 이름은 *aks-ingress-tls.key*입니다. Kubernetes TLS 비밀에는 이러한 두 파일이 모두 필요합니다.
 
 이 문서는 *demo.azure.com* 주체 일반 이름에 작동하며 변경할 필요가 없습니다. 프로덕션 사용을 위해서는 `-subj` 매개 변수에 대해 고유한 조직 값을 지정합니다.
 
@@ -81,7 +87,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 ## <a name="create-kubernetes-secret-for-the-tls-certificate"></a>TLS 인증서에 대한 Kubernetes 비밀 만들기
 
-Kubernetes에서 수신 컨트롤러에 대해 TLS 인증서와 개인 키를 사용할 수 있도록 하려면 비밀을 만들어 사용합니다. 이 비밀은 한 번 정의되며, 이전 단계에서 만든 인증서와 키 파일을 사용합니다. 이제 수신 경로를 정의할 때 이 비밀을 참조합니다.
+Kubernetes에서 수신 컨트롤러에 대해 TLS 인증서와 프라이빗 키를 사용할 수 있도록 하려면 비밀을 만들어 사용합니다. 이 비밀은 한 번 정의되며, 이전 단계에서 만든 인증서와 키 파일을 사용합니다. 이제 수신 경로를 정의할 때 이 비밀을 참조합니다.
 
 다음 예제에서는 비밀 이름 *aks-ingress-tls*를 만듭니다.
 
@@ -138,7 +144,7 @@ metadata:
   namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -148,14 +154,14 @@ spec:
   - host: demo.azure.com
     http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 `kubectl apply -f hello-world-ingress.yaml` 명령을 사용하여 수신 리소스를 만듭니다.

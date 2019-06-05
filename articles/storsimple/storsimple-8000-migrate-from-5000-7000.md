@@ -83,7 +83,7 @@ ms.locfileid: "60631681"
     * 정상 작동하는 디바이스에서 v2.1.1.518 이상 버전을 실행하고 있지 않는 경우 시스템을 최소 필수 버전으로 업그레이드하세요. 자세한 지침은 [v2.1.1.518 버전으로 시스템 업그레이드](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518)를 참조하세요.
     * v2.1.1.518을 실행 중인 경우 웹 UI로 이동하여 레지스트리 복원 실패에 대한 알림이 있는지 확인합니다. 레지스트리 복원이 실패했으면 레지스트리 복원을 실행합니다. 자세한 내용은 [레지스트리 복원 실행](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry)을 참조하세요.
     * v2.1.1.518을 실행하지 않는 다운된 디바이스가 있으면 v2.1.1.518을 실행하는 대체 디바이스로 장애 조치(failover)를 수행합니다. 자세한 지침은 5000/7000 시리즈 StorSimple 디바이스의 DR을 참조하세요.
-    * 클라우드 스냅숏을 만들어서 디바이스 데이터를 백업합니다.
+    * 클라우드 스냅샷을 만들어서 디바이스 데이터를 백업합니다.
     * 소스 디바이스에서 실행 중인 다른 활성 백업 작업이 있는지 확인합니다. 여기에는 StorSimple 데이터 보호 콘솔 호스트의 작업이 포함됩니다. 현재 작업이 완료될 때까지 기다립니다.
 
 

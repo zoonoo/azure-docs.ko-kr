@@ -87,7 +87,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 ### <a name="really-large-datasets"></a>매우 큰 데이터 세트
 용량이 수 테라바이트에 달하는 데이터 세트를 업로드하는 경우 위에서 설명한 방법을 사용하면 속도가 느리고 비용이 많이 들 수 있습니다. 이러한 경우 아래의 옵션을 사용할 수 있습니다.
 
-* **Azure ExpressRoute 사용**. Azure ExpressRoute를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 개인 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure ExpressRoute 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
+* **Azure ExpressRoute 사용**. Azure ExpressRoute를 사용하면 온-프레미스의 인프라와 Azure 데이터 센터 사이에 프라이빗 연결을 만들 수 있습니다. 이렇게 하면 대용량 데이터를 안전하게 전송할 수 있습니다. 자세한 내용은 [Azure ExpressRoute 설명서](../expressroute/expressroute-introduction.md)를 참조하세요.
 * **데이터를 "오프라인"으로 업로드**. Azure ExpressRoute를 사용할 수 없는 경우 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용하여 데이터가 들어 있는 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그러면 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 데이터를 Azure Storage Blob에서 Data Lake Store Gen1으로 복사할 수 있습니다.
 
   > [!NOTE]

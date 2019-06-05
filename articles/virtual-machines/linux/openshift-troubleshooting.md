@@ -86,16 +86,16 @@ Failure summary:
 
 설치 중에 발생하는 가장 일반적인 오류는 다음과 같습니다.
 
-1. 개인 키에 암호가 있음
-2. 개인 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
+1. 프라이빗 키에 암호가 있음
+2. 프라이빗 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
 3. 서비스 주체 자격 증명이 잘못 입력됨
 4. 서비스 주체에는 리소스 그룹에 대한 contributor 권한이 없음
 
-### <a name="private-key-has-a-passphrase"></a>개인 키에 암호가 있음
+### <a name="private-key-has-a-passphrase"></a>프라이빗 키에 암호가 있음
 
 권한이 거부 된에 대 한 ssh 오류가 표시 됩니다. ssh 개인 키에 대 한 암호를 확인 하 고 ansible 플레이 북 호스트로 합니다.
 
-### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>개인 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>프라이빗 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
 
 개인 키 ansible 플레이 북 호스트-~/.ssh/id_rsa에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
 

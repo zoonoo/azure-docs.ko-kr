@@ -218,7 +218,7 @@ Linux 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 �
    IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛸 하 수 작업 디렉터리에 경로 사용 합니다.
 
    * 디바이스 CA 인증서 - `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
-   * 디바이스 CA 개인 키 - `<WRKDIR>\private\new-edge-device.key.pem`
+   * 디바이스 CA 프라이빗 키 - `<WRKDIR>\private\new-edge-device.key.pem`
    * 소유자 CA - `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 2. IoT Edge 보안 디먼 구성 파일을 엽니다. 

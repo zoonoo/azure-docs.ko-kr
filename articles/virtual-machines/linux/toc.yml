@@ -165,7 +165,7 @@
           items:
             - name: Linux 또는 macOS
               href: mac-create-ssh-keys.md
-            - name: 'Windows '
+            - name: Windows
               href: ssh-from-windows.md
             - name: 자세한 단계
               href: create-ssh-keys-detailed.md
@@ -443,7 +443,7 @@
           href: using-managed-disks-template-deployments.md
         - name: 디스크 크기 조정
           href: expand-disks.md
-        - name: 디스크 스냅숏
+        - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
@@ -555,7 +555,7 @@
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'

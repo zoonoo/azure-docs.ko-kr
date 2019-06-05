@@ -46,9 +46,9 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 | **개인** | 동일한 가상 네트워크의 SQL Server에 연결 |
 | **로컬** | 동일한 가상 머신의 SQL Server에 로컬로 연결 | 
 
-다음 섹션은 **공용** 및 **개인** 옵션을 자세히 설명합니다.
+다음 섹션은 **공용** 및 **프라이빗** 옵션을 자세히 설명합니다.
 
-## <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결 
+## <a name="connect-to-sql-server-over-the-internet"></a>인터넷을 통해 SQL Server에 연결
 
 인터넷에서 SQL Server 데이터베이스 엔진에 연결하려는 경우 프로비전하는 동안 포털에서 **SQL 연결** 형식에 대해 **공용**을 선택합니다. 포털에서 다음 단계를 자동으로 수행합니다.
 
@@ -77,12 +77,12 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>가상 네트워크 내에서 SQL Server에 연결
 
-포털에서 **SQL 연결** 형식에 대해 **개인**을 선택하는 경우 Azure는 대부분의 설정을 **공용**과 동일하게 구성합니다. 한 가지 차이점은 SQL Server 포트(기본값 1433)에서 외부 트래픽을 허용하는 네트워크 보안 그룹 규칙이 없다는 점입니다.
+포털에서 **SQL 연결** 형식에 대해 **프라이빗**을 선택하는 경우 Azure는 대부분의 설정을 **공용**과 동일하게 구성합니다. 한 가지 차이점은 SQL Server 포트(기본값 1433)에서 외부 트래픽을 허용하는 네트워크 보안 그룹 규칙이 없다는 점입니다.
 
 > [!IMPORTANT]
 > SQL Server Developer 및 Express 버전용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
 
-개인 연결은 종종 여러 가지 시나리오를 활성화하는 [Virtual Network](../../../virtual-network/virtual-networks-overview.md)와 함께 사용됩니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
+프라이빗 연결은 종종 여러 가지 시나리오를 활성화하는 [Virtual Network](../../../virtual-network/virtual-networks-overview.md)와 함께 사용됩니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
 
 가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 이것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
 

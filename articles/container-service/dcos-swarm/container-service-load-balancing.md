@@ -20,7 +20,7 @@ ms.locfileid: "66148877"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 애플리케이션 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
+이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 애플리케이션을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 애플리케이션 컨테이너를 프라이빗 클러스터에 배치하여 공용 및 프라이빗 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
 > * Marathon Load Balancer 구성
@@ -97,7 +97,7 @@ az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].f
 }
 ```
 
-DC/OS CLI를 사용하여 애플리케이션을 실행합니다. 기본적으로 Marathon은 개인 클러스터에 애플리케이션을 배포합니다. 다시 말해서 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있으며, 이는 일반적으로 고객이 원하는 동작입니다.
+DC/OS CLI를 사용하여 애플리케이션을 실행합니다. 기본적으로 Marathon은 프라이빗 클러스터에 애플리케이션을 배포합니다. 다시 말해서 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있으며, 이는 일반적으로 고객이 원하는 동작입니다.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

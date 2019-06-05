@@ -3,18 +3,18 @@ title: 진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
 description: 클라이언트 쪽 로깅 및 식별, 진단 및.NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 해결 하려면 다른 타사 도구 등의 기능을 사용.
 author: j82w
 ms.service: cosmos-db
-ms.date: 01/19/2019
+ms.date: 05/28/2019
 ms.author: jawilley
 ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7f969ab6059140ec32c9c5bf5045c546602a3c15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e48809537acc21edbcf12d299a333df486c258f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404715"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257147"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>진단 및 Azure Cosmos DB.NET SDK를 사용 하는 경우 문제 해결
 이 문서에서는 일반적인 문제, 해결, 진단 단계 및 도구 사용 하는 경우는 [.NET SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB SQL API 계정으로 합니다.
@@ -67,7 +67,7 @@ RequestTimeout 직접/t c P를 사용 하는 경우 일반적으로 발생 하�
 
 공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
 
- Azure SNAT 포트는 VM에 사설 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
+ Azure SNAT 포트는 VM에 개인 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
 
 * Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 참조하세요. 
 

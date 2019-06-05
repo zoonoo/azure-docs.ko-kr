@@ -423,7 +423,7 @@
       items:
         - name: HDInsight 가상 네트워크 아키텍처
           href: ../hdinsight-virtual-network-architecture.md
-        - name: 아웃 바운드 트래픽을 제한하는 HDInsight
+        - name: 아웃바운드 트래픽을 제한하는 방화벽 사용
           href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet의 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md

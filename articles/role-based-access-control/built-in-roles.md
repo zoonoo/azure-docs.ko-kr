@@ -48,7 +48,7 @@ ms.locfileid: "65977756"
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 |
 | [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
-| [Application Insights 스냅숏 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅숏 디버거를 사용하여 수집한 디버그 스냅숏을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
+| [Application Insights 스냅숏 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
 | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
@@ -384,11 +384,11 @@ ms.locfileid: "65977756"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
-## <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅숏 디버거
+## <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅샷 디버거
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Application Insights 스냅숏 디버거를 사용하여 수집한 디버그 스냅숏을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
+> | **설명** | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |

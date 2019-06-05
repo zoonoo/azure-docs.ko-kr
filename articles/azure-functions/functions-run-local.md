@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131436"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241168"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -186,8 +186,8 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
   },
   "Host": {
     "LocalHttpPort": 7071,
-    "CORS": "*"
-    "CORSCredentials": true
+    "CORS": "*",
+    "CORSCredentials": false
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -314,7 +314,7 @@ func host start
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 실행 전에 현재 프로젝트를 빌드하지 않도록 합니다. dotnet 프로젝트에만 해당합니다. 기본값은 false로 설정하는 것입니다. 버전 2.x 전용입니다. |
-| **`--cert`** | 개인 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--cert`** | 프라이빗 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
 | **`--cors-credentials`** | 원본 간 인증된 요청(즉, 쿠키 및 인증 헤더)을 허용하며, 버전 2.x 전용입니다. |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
 | **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |

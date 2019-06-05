@@ -63,9 +63,9 @@ az webapp log config -n sname -g rgname --web-server-logging filesystem
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 ```
 
-## <a name="using-docker-images-from-a-private-registry"></a>개인 레지스트리의 Docker 이미지 사용
+## <a name="using-docker-images-from-a-private-registry"></a>프라이빗 레지스트리의 Docker 이미지 사용
 
-개인 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
+프라이빗 레지스트리의 이미지를 사용하도록 앱을 구성할 수 있습니다. 레지스트리, 사용자 이름 및 암호에 대한 URL을 제공해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>

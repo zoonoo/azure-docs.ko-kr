@@ -29,7 +29,7 @@ ms.locfileid: "60881371"
 
 Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 존재할 것으로 예상합니다. 클러스터 인증서, 클라이언트 인증서 등의 경우에 그렇습니다. 경우에 따라 인증서에 대해 *var/lib/sfcerts* 폴더 이외의 위치를 지정할 수 있습니다. 예를 들어 Service Fabric Java SDK를 사용하여 빌드된 Reliable Services를 사용하면 일부 애플리케이션 특정 인증서에 대한 구성 패키지(Settings.xml)를 통해 다른 위치를 지정할 수 있습니다. 자세히 알아보려면 [구성 패키지(Settings.xml)에서 참조되는 인증서](#certificates-referenced-in-the-configuration-package-settingsxml)를 참조하세요.
 
-Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 개인 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 개인 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
+Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 프라이빗 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 프라이빗 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 
 [Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
 
@@ -98,7 +98,7 @@ Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지
 ```
 
 > [!NOTE]
-> 인증서는 이전 XML에서 .crt 파일로 지정됩니다. 이는 동일한 위치에 개인 키를 포함하는 .key 파일도 있음을 의미합니다.
+> 인증서는 이전 XML에서 .crt 파일로 지정됩니다. 이는 동일한 위치에 프라이빗 키를 포함하는 .key 파일도 있음을 의미합니다.
 
 ## <a name="configure-a-reliable-services-app-to-run-on-linux-clusters"></a>Linux 클러스터에서 실행하도록 Reliable Services 앱 구성
 

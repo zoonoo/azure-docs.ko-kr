@@ -39,7 +39,7 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 ## <a name="abstract"></a>요약
 
-Microsoft 공용 클라우드 서비스는 대규모 서비스와 인프라, 엔터프라이즈급 기능 및 여러 하이브리드 연결 옵션을 제공합니다. 사용자는 인터넷이나, 사설 네트워크 연결을 제공하는 Azure ExpressRoute를 통해 이러한 서비스에 액세스할 수 있습니다. 사용자는 Microsoft Azure 플랫폼을 통해 인프라를 클라우드로 자연스럽게 확장하고 다중 계층 아키텍처를 빌드할 수 있습니다. 또한 타사 보안 서비스 및 가상 어플라이언스를 통해 향상된 기능을 구현할 수 있습니다.
+Microsoft 공용 클라우드 서비스는 대규모 서비스와 인프라, 엔터프라이즈급 기능 및 여러 하이브리드 연결 옵션을 제공합니다. 사용자는 인터넷이나, 프라이빗 네트워크 연결을 제공하는 Azure ExpressRoute를 통해 이러한 서비스에 액세스할 수 있습니다. 사용자는 Microsoft Azure 플랫폼을 통해 인프라를 클라우드로 자연스럽게 확장하고 다중 계층 아키텍처를 빌드할 수 있습니다. 또한 타사 보안 서비스 및 가상 어플라이언스를 통해 향상된 기능을 구현할 수 있습니다.
 
 Azure의 네트워크 서비스는 기본적으로 유연성, 가용성, 탄력성, 보안 및 무결성을 최대화합니다. 이 백서는 Azure의 네트워킹 기능과 고객이 Azure의 네이티브 보안 기능을 사용하여 정보 자산을 보호하는 방법에 대한 자세한 내용을 제공합니다.
 
@@ -125,7 +125,7 @@ Azure는 VNet에 연결되는 VM 및 [Cloud Services](https://azure.microsoft.co
 
 각 Azure [구독](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 Azure [지역](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
--   공용 및 개인(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스를 사용자가 할당한 주소 공간의 개인 IP 주소에 할당합니다.
+-   공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스를 사용자가 할당한 주소 공간의 개인 IP 주소에 할당합니다.
 
 -   VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 
@@ -157,7 +157,7 @@ VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로
 
 **온-프레미스 연결**
 
-VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는 인터넷의 사이트 간 VPN 연결을 통해 [온-프레미스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 네트워크에 연결할 수 있습니다.
+VNet을 네트워크와 Azure 간의 프라이빗 네트워크 연결을 통해 또는 인터넷의 사이트 간 VPN 연결을 통해 [온-프레미스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 네트워크에 연결할 수 있습니다.
 
 다음 옵션을 조합하여 온-프레미스 네트워크를 VNet에 연결할 수 있습니다.
 
@@ -165,7 +165,7 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 - **사이트 간 VPN:** VPN 디바이스와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형을 사용하면 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 디바이스와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
-- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 사용자 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
+- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 사용자 네트워크와 Azure 간에 설정됩니다. 이 연결은 프라이빗 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
 
 **트래픽 필터링**
 
@@ -232,7 +232,7 @@ P2S 연결에는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습
 > VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)를 참조하세요.
 
 #### <a name="dedicated-wan-link"></a>전용 WAN 링크
-Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장할 수 있습니다.
+Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 전용 프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장할 수 있습니다.
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
@@ -284,9 +284,9 @@ NSG는 알고 있어야 하는 몇 가지 기본 제공 규칙을 제공합니�
 
 -   **특정 가상 네트워크 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 서로 통신할 수 있습니다.
 
--   **인바운드에 대한 Azure 부하 분산 허용:** 이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
+-   **인바운드에 대한 Azure 부하 분산 허용:**  이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
 
--   **모든 인바운드 거부:** 이 규칙은 명시적으로 허용되는 인터넷에서 수신되는 모든 트래픽을 차단합니다.
+-   **모든 인바운드 거부:**  이 규칙은 명시적으로 허용되는 인터넷에서 수신되는 모든 트래픽을 차단합니다.
 
 -   **모든 인터넷 아웃바운드 트래픽 허용:** 이 규칙을 사용하면 VM이 인터넷에 연결을 시작할 수 있습니다. 이러한 연결을 시작하지 않으려면 해당 연결을 차단하거나 강제 터널링을 적용하는 규칙을 만들어야 합니다.
 

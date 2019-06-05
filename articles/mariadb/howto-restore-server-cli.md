@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 41e75a946f51f67b2b77a36dc0525cd4ff5fcd64
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543124"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66171381"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
@@ -36,7 +36,7 @@ Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능�
 서버를 만들 때 로컬 중복 백업 또는 지역 중복 백업을 위한 서버 구성 중에서 선택할 수 있습니다.
 
 > [!NOTE]
-> 서버가 만들어지면 지리적으로 중복되거나 로컬로 중복된 중복 형식은 전환할 수 없습니다.
+> 서버가 만들어지면 지역 중복과 로컬 중복의 유형 간 전환할 수 없습니다.
 >
 
 `az mariadb server create` 명령을 통해 서버를 만드는 동안 `--geo-redundant-backup` 매개 변수는 백업 중복성 옵션을 결정합니다. `Enabled`인 경우 지역 중복 백업이 수행됩니다. 또는 `Disabled`인 경우 로컬 중복 백업이 수행됩니다.

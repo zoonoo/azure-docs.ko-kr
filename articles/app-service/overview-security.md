@@ -105,7 +105,7 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 
-애플리케이션 비밀(예: 데이터베이스 자격 증명, API 토큰 및 개인 키)을 코드 또는 구성 파일에 저장하지 않습니다. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. App Service에서 환경 변수를 정의하는 방법은 [앱 설정](configure-common.md#configure-app-settings)(특히 .NET 애플리케이션의 경우 [연결 문자열](configure-common.md#configure-connection-strings))을 통해 이루어집니다. 앱 설정과 연결 문자열은 Azure에서 암호화되어 저장되며, 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 해독됩니다. 암호화 키는 정기적으로 회전합니다.
+애플리케이션 비밀(예: 데이터베이스 자격 증명, API 토큰 및 프라이빗 키)을 코드 또는 구성 파일에 저장하지 않습니다. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. App Service에서 환경 변수를 정의하는 방법은 [앱 설정](configure-common.md#configure-app-settings)(특히 .NET 애플리케이션의 경우 [연결 문자열](configure-common.md#configure-connection-strings))을 통해 이루어집니다. 앱 설정과 연결 문자열은 Azure에서 암호화되어 저장되며, 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 해독됩니다. 암호화 키는 정기적으로 회전합니다.
 
 또는 고급 비밀 관리를 위해 App Service 앱을 [Azure Key Vault](/azure/key-vault/)와 통합할 수 있습니다. [관리 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 
 - [네트워크 보안 그룹](../virtual-network/virtual-networks-dmz-nsg.md)사용하여 네트워크 액세스를 제한합니다. 
 - 전용 프런트 엔드를 사용하여 전용 공용 엔드포인트를 통해 앱을 제공합니다.
-- ILB(내부 부하 분산 장치)를 사용하여 내부 애플리케이션을 제공합니다. 이렇게 하면 Azure Virtual Network 내에서만 해당 애플리케이션을 액세스할 수 있습니다. ILB에는 인터넷으로부터 응용 프로그램을 완전히 격리하는 개인 서브넷의 IP 주소가 있습니다.
+- ILB(내부 부하 분산 장치)를 사용하여 내부 애플리케이션을 제공합니다. 이렇게 하면 Azure Virtual Network 내에서만 해당 애플리케이션을 액세스할 수 있습니다. ILB에는 인터넷으로부터 응용 프로그램을 완전히 격리하는 프라이빗 서브넷의 IP 주소가 있습니다.
 - [WAF(웹 애플리케이션 방화벽) 뒤에서 ILB를 사용합니다](environment/integrate-with-application-gateway.md). WAF는 공용 애플리케이션에 대한 엔터프라이즈 수준의 보호(예: DDoS 보호, URI 필터링 및 SQL 삽입 방지)를 제공합니다.
 
 자세한 내용은 [Azure App Service Environment 소개](environment/intro.md)를 참조하세요. 

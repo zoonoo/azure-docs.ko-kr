@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833540"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304276"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -82,7 +82,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 제공되며, Microsoft Container Registry 또는 Docker 허브에서 Docker 컨테이너 이미지를 가져올 수 있습니다. [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 적절한 레지스트리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 입력 하 고, 회사 및 컨테이너를 구현 하려면 사용 사례에 대 한 질문을 사용 하 여 설문지를 제출 하는 다음 컨테이너에 액세스 하는 등록 프로세스를 완료 해야 합니다. 액세스 권한과 자격 증명을 받은 후에는 Azure Container Registry에서 호스트하는 개인 컨테이너 레지스트리에서 Face 및 텍스트 인식 컨테이너에 대한 컨테이너 이미지를 가져올 수 있습니다.
+> 현재 입력 하 고, 회사 및 컨테이너를 구현 하려면 사용 사례에 대 한 질문을 사용 하 여 설문지를 제출 하는 다음 컨테이너에 액세스 하는 등록 프로세스를 완료 해야 합니다. 액세스 권한과 자격 증명을 받은 후에는 Azure Container Registry에서 호스트하는 프라이빗 컨테이너 레지스트리에서 Face 및 텍스트 인식 컨테이너에 대한 컨테이너 이미지를 가져올 수 있습니다.
 > * [변칙 dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [폼 인식기](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
@@ -103,16 +103,7 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 개별 컨테이너마다 서버 및 메모리 할당 요구 사항을 포함하여 각각 고유한 요구 사항이 있을 수 있습니다.
 
-## <a name="developer-samples"></a>개발자 샘플
-
-개발자 샘플은 [GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-containers-samples)에 있습니다.
-
-## <a name="view-webinar"></a>웹 세미나 보기 
-
-조인 합니다 [웨 비 나](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) 에 대해 자세히 알아보려면:
-
-* Docker를 사용 하 여 컴퓨터에 Cognitive Services를 배포 하는 방법
-* Cognitive Services AKS에 배포 하는 방법
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

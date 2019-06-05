@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124336"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306620"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -36,7 +36,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md#export-app-for-containers) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `luis/v2.0` 라우팅을 끝점 URI에 추가해야 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. LUIS 패키지 된 앱에서 발생 하는 경우는 [Api를 작성](#authoring-apis-for-package-file), 해야 하 _제작 키_합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**: 이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APPLICATION_ID}**: 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{ENDPOINT_KEY}**: 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 Azure portal의 _Cognitive Services_ 리소스의 키 목록입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{BILLING_ENDPOINT}**: 예는 `https://westus.api.cognitive.microsoft.com/luis/v2.0`입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
+|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md#export-app-for-containers) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `luis/v2.0` 라우팅을 끝점 URI에 추가해야 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. LUIS 패키지 된 앱에서 발생 하는 경우는 [Api를 작성](#authoring-apis-for-package-file), 해야 하 _제작 키_합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}** : 이 키는 클라우드에서 LUIS 서비스에서 패키징된 앱을 가져오는 데 사용되고 클라우드로 다시 쿼리 로그를 업로드하는 데 사용됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APPLICATION_ID}** : 이 ID는 앱을 선택하는 데 사용됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{ENDPOINT_KEY}** : 이 키는 컨테이너를 시작하는 데 사용됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 Azure portal의 _Cognitive Services_ 리소스의 키 목록입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{BILLING_ENDPOINT}** : 예는 `https://westus.api.cognitive.microsoft.com/luis/v2.0`입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
 ### <a name="authoring-apis-for-package-file"></a>패키지 파일에 대 한 Api를 작성
 
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | 값 |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 게시된 LUIS 앱의 애플리케이션 ID입니다. |
 |{APPLICATION_ENVIRONMENT} | 게시된 LUIS 앱의 환경입니다. 다음 값 중 하나를 사용합니다.<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | 값 |
+| Placeholder | Value |
 |-------------|-------|
 |{APPLICATION_ID} | 학습된 LUIS 애플리케이션의 애플리케이션 ID입니다. |
 |{APPLICATION_VERSION} | 학습된 LUIS 애플리케이션의 애플리케이션 버전입니다. |
@@ -218,25 +218,29 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLIC
 
 [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-| Placeholder | 값 |
+| Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | 이 키는 컨테이너를 시작하는 데 사용됩니다. 시작 키를 사용하지 마세요. |
 |{BILLING_ENDPOINT} | 청구 끝점 값은 Azure portal에서 사용할 수 있는 `Cognitive Services` 개요 페이지. 추가 해야 합니다 `luis/v2.0` 다음 예제에서와 같이 끝점 URI로 라우팅할: `https://westus.api.cognitive.microsoft.com/luis/v2.0`합니다.|
 
-다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다.
+다음 예제 `docker run` 명령에서 해당 매개 변수를 사용자 고유의 값으로 바꿉니다. Windows 콘솔에서 명령을 실행 합니다.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> 이전 명령은 `c:` 드라이브 디렉터리를 사용하여 Windows에서 권한이 충돌하는 것을 방지합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 이전 Docker 명령은 줄 연속 문자로 백 슬래시, `\`를 사용합니다. [호스트 컴퓨터](#the-host-computer) 운영 체제 요구 사항에서 이 기준을 바꾸거나 제거합니다. Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
+* 이 예제에서는 디렉터리를 사용 하 여 해제 된 `c:` 드라이브에 Windows 권한이 충돌을 방지 하기. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
+* Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
+* 다른 운영 체제를 사용 하는 경우 바 운 트 및 시스템에 대 한 줄 연속 문자에 대 한 올바른 콘솔/터미널을 폴더 구문을 사용 합니다. 이 예제에서는 줄 연속 문자를 사용 하는 Windows 콘솔 가정 `^`합니다. 컨테이너는 Linux 운영 체제 이기 때문에 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
+
 
 
 이 명령은 다음을 수행합니다.
@@ -363,6 +367,10 @@ LUIS 앱 종속성 지원 되지 않는 경우 할 수 없습니다 [컨테이�
 |영어(en-US) 문화권에 지원되지 않는 엔터티|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 미리 빌드된 엔터티|
 |음성 초기화|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 |정서 분석|컨테이너에서 외부 종속성은 지원되지 않습니다.|
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 

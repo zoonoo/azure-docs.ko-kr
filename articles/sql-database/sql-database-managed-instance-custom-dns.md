@@ -21,10 +21,10 @@ ms.locfileid: "60700426"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 사용자 지정 DNS 구성
 
-Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database Managed Instance를 배포해야 합니다. 개인 호스트 이름이 Managed Instance에서 확인되어야 하는 몇 가지 시나리오(예: db 메일, 클라우드 또는 하이브리드 환경의 다른 SQL 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. Managed Instance가 내부 작업에서 동일한 DNS를 사용하므로 가상 네트워크 DNS 구성은 Managed Instance와 호환되어야 합니다.
+Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database Managed Instance를 배포해야 합니다. 프라이빗 호스트 이름이 Managed Instance에서 확인되어야 하는 몇 가지 시나리오(예: db 메일, 클라우드 또는 하이브리드 환경의 다른 SQL 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. Managed Instance가 내부 작업에서 동일한 DNS를 사용하므로 가상 네트워크 DNS 구성은 Managed Instance와 호환되어야 합니다.
 
    > [!IMPORTANT]
-   > 메일 서버, SQL Server 및 기타 서비스가 사설 DNS 영역에 있는 경우에도 항상 FQDN(정규화된 도메인 이름)을 사용합니다. 예를 들어 단순 `smtp`가 제대로 확인되지 않으므로 메일 서버에 `smtp.contoso.com`을 사용합니다.
+   > 메일 서버, SQL Server 및 기타 서비스가 프라이빗 DNS 영역에 있는 경우에도 항상 FQDN(정규화된 도메인 이름)을 사용합니다. 예를 들어 단순 `smtp`가 제대로 확인되지 않으므로 메일 서버에 `smtp.contoso.com`을 사용합니다.
 
 사용자 지정 DNS 구성이 Managed Instance와 호환되도록 하려면 다음을 수행해야 합니다.
 

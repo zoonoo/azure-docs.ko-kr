@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783472"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236258"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -72,7 +72,7 @@ Azure AD 테 넌 트에 등록 하는 경우 테 넌 트의 지역 지정할 국
 각 네트워크 연결을 최적화하여 종단 간 트래픽의 대기 시간을 최소화할 수 있습니다. 각 연결은 다음을 통해 최적화할 수 있습니다.
 
 * 홉의 두 끝 사이의 거리 줄이기
-* 트래버스하기 적합한 네트워크 선택. 예를 들어 공용 인터넷보다 개인 네트워크를 트래버스하는 것이 전용 링크가 있으므로 더 빠를 수 있습니다.
+* 트래버스하기 적합한 네트워크 선택. 예를 들어 공용 인터넷보다 프라이빗 네트워크를 트래버스하는 것이 전용 링크가 있으므로 더 빠를 수 있습니다.
 
 Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 경우 다음을 사용하는 것이 좋습니다.
 
@@ -90,9 +90,9 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 Microsoft 피어링이 있는 ExpressRoute를 설정한 경우 애플리케이션 프록시와 커넥터 간 트래픽에 대해 더 빨라진 ExpressRoute 연결을 사용할 수 있습니다. 커넥터는 여전히 네트워크에서 앱에 가까운 위치를 유지합니다.
 
-### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>패턴 3: 개인 피어링이 있는 ExpressRoute 활용
+### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>패턴 3: 프라이빗 피어링이 있는 ExpressRoute 활용
 
-Azure 및 회사 네트워크 간에 개인 피어링이 있는 전용 VPN 또는 ExpressRoute를 설정한 경우 다른 옵션이 있습니다. 이 구성에서는 일반적으로 Azure의 가상 네트워크가 회사 네트워크의 확장으로 간주됩니다. 따라서 Azure 데이터 센터에 커넥터를 설치할 수 있으며, 커넥터-앱 연결에 낮은 대기 시간 요구 사항을 계속해서 충족할 수 있습니다.
+Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN 또는 ExpressRoute를 설정한 경우 다른 옵션이 있습니다. 이 구성에서는 일반적으로 Azure의 가상 네트워크가 회사 네트워크의 확장으로 간주됩니다. 따라서 Azure 데이터 센터에 커넥터를 설치할 수 있으며, 커넥터-앱 연결에 낮은 대기 시간 요구 사항을 계속해서 충족할 수 있습니다.
 
 트래픽은 전용 연결을 통해 전송되므로 대기 시간에 나쁜 영향을 주지 않습니다. 또한 커넥터가 Azure AD 테넌트 위치와 가까운 Azure 데이터 센터에 설치되어 있으므로 애플리케이션 프록시 서비스와 커넥터 간 대기 시간이 단축됩니다.
 
@@ -102,7 +102,7 @@ Azure 및 회사 네트워크 간에 개인 피어링이 있는 전용 VPN 또�
 
 이 문서에서는 커넥터 배치를 집중적으로 설명하지만 대기 시간을 개선하기 위해 애플리케이션의 배치를 변경할 수도 있습니다.
 
-조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 애플리케이션 위치에 적용할 수 있습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
+조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 애플리케이션 위치에 적용할 수 있습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../../active-directory-domain-services/overview.md)를 참조하세요.
 
 또한 다른 위치 및 네트워크에 있는 대상 앱에 [커넥터 그룹](application-proxy-connector-groups.md)을 사용하여 커넥터를 구성하는 것이 좋습니다. 
 
@@ -150,13 +150,13 @@ ExpressRoute 링크가 Microsoft 피어링을 사용하는 경우 프록시와 �
 
 ### <a name="use-case-4"></a>사용 사례 4
 
-**시나리오:** 앱은 미국에 있는 조직의 네트워크에 있습니다. 개인 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
+**시나리오:** 앱은 미국에 있는 조직의 네트워크에 있습니다. 프라이빗 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
 
 **권장 사항**: 이전 섹션에서 설명한 패턴 3을 따릅니다.
 
-ExpressRoute 개인 피어링을 통해 회사 네트워크에 연결된 Azure 데이터 센터에 커넥터를 배치합니다. 
+ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 Azure 데이터 센터에 커넥터를 배치합니다. 
 
-커넥터를 Azure 데이터 센터에 배치할 수 있습니다. 커넥터가 개인 네트워크를 통해 애플리케이션 및 데이터 센터에 대한 가시권을 계속 확보하므로 홉 3은 최적화된 상태로 유지됩니다. 또한 홉 2는 더욱 최적화됩니다.
+커넥터를 Azure 데이터 센터에 배치할 수 있습니다. 커넥터가 프라이빗 네트워크를 통해 애플리케이션 및 데이터 센터에 대한 가시권을 계속 확보하므로 홉 3은 최적화된 상태로 유지됩니다. 또한 홉 2는 더욱 최적화됩니다.
 
 ![Azure 데이터 센터의 커넥터, 커넥터와 앱 간 ExpressRoute를 보여 주는 다이어그램](./media/application-proxy-network-topology/application-proxy-pattern4.png)
 

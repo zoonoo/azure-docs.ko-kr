@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258779"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236359"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -55,6 +55,9 @@ a.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성]
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
 a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. 배송 중에 내 Data Box Disk가 국가 경계를 넘을 수 있나요?
+a. 모든 Data Box Disk는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디스크가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 a. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)하세요.

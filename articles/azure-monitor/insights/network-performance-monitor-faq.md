@@ -174,7 +174,7 @@ HopLatencyValues은 끝점에는 소스입니다.
 A에서 B로의 네트워크 경로는 B에서 A로의 네트워크 경로와 다를 수 있으므로 손실 및 대기 시간에 대해 서로 다른 값이 관찰될 수 있습니다.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>나의 ExpressRoute 회로 및 피어링 연결 중 일부가 검색되지 않는 이유는 무엇인가요?
-NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 개인 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
+NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이는 무엇을 의미하나요?
 

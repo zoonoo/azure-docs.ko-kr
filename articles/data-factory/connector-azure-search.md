@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245101"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -46,7 +46,7 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 | type | type 속성을 다음으로 설정해야 합니다. **AzureSearch** | 예 |
 | url | Azure Search 서비스의 URL입니다. | 예 |
 | key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 > [!IMPORTANT]
 > 연결 된 서비스, 클라우드 데이터 저장소에서 Azure Search에서 Azure Search 인덱스로 데이터를 복사 하는 경우 Azure Integration Runtime connactVia의 명시적 영역으로 참조 해야 합니다. Azure Search가 있는 지역을 설정합니다. [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)에서 자세히 알아봅니다.
@@ -77,9 +77,9 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Azure Search 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure Search에 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Search로 데이터를 복사할에 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndex** | 예 |
 | indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |

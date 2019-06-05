@@ -17,11 +17,11 @@ ms.locfileid: "60366303"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute 회로 피어링 다시 설정
 
-이 문서에서는 PowerShell을 사용하여 ExpressRoute 회로의 피어링을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 피어링을 사용하지 않도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 종료됩니다. 이 피어링을 통한 Microsoft와의 연결이 손실됩니다. 피어링을 사용하도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 설정됩니다. 이 피어링을 통한 Microsoft와의 연결이 다시 설정됩니다. ExpressRoute 회로에서 Microsoft 피어링 및 Azure 개인 피어링을 별도로 사용 및 사용하지 않도록 설정할 수 있습니다. ExpressRoute 회로에서 피어링을 처음 구성할 때는 피어링이 기본적으로 사용되도록 설정됩니다.
+이 문서에서는 PowerShell을 사용하여 ExpressRoute 회로의 피어링을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 피어링을 사용하지 않도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 종료됩니다. 이 피어링을 통한 Microsoft와의 연결이 손실됩니다. 피어링을 사용하도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 설정됩니다. 이 피어링을 통한 Microsoft와의 연결이 다시 설정됩니다. ExpressRoute 회로에서 Microsoft 피어링 및 Azure 프라이빗 피어링을 별도로 사용 및 사용하지 않도록 설정할 수 있습니다. ExpressRoute 회로에서 피어링을 처음 구성할 때는 피어링이 기본적으로 사용되도록 설정됩니다.
 
 ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지 시나리오가 있습니다.
 * 재해 복구 디자인 및 구현을 테스트합니다. 예를 들어 두 개의 ExpressRoute 회로가 있습니다. 한 회로의 피어링은 사용하지 않도록 설정하고 네트워크 트래픽을 다른 회로로 강제로 장애 조치(Failover)할 수 있습니다.
-* ExpressRoute 회로의 Azure 개인 피어링에서 BFD(양방향 전달 검색)를 사용하도록 설정합니다. BFD는 ExpressRoute 회로가 2018년 8월 1일 이후에 만들어진 경우 기본적으로 사용되도록 설정됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. BFD는 Azure 개인 피어링에서만 지원됩니다.
+* ExpressRoute 회로의 Azure 프라이빗 피어링에서 BFD(양방향 전달 검색)를 사용하도록 설정합니다. BFD는 ExpressRoute 회로가 2018년 8월 1일 이후에 만들어진 경우 기본적으로 사용되도록 설정됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. BFD는 Azure 프라이빗 피어링에서만 지원됩니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -51,7 +51,7 @@ ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링*은 배열입니다. 다음 예제에서 피어링[0]은 Azure 개인 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
+5. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링*은 배열입니다. 다음 예제에서 피어링[0]은 Azure 프라이빗 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
 
    ```azurepowershell-interactive
    Name                             : ExpressRouteARMCircuit

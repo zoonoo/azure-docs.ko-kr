@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415475"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240187"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -31,13 +31,13 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 >
 > 클러스터 스토리지가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 
-ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/active-directory-ds-getting-started.md)를 참조하세요. 
+ESP로 HDInsight 클러스터를 만들려면 먼저 Azure AD-DS를 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/create-instance.md)를 참조하세요. 
 
 Azure AD-DS를 사용하도록 설정하는 경우 모든 사용자 및 개체는 기본적으로 AAD(Azure Active Directory)에서 Azure AD-DS로 동기화를 시작합니다. 동기화 작업의 길이는 Azure AD의 개체 수에 따라 달라집니다. 수십만 개의 개체에 대한 동기화는 며칠이 걸릴 수 있습니다. 
 
-HDInsight 클러스터에 액세스 해야 하는 그룹에만 동기화 하도록 선택할 수 있습니다. 특정 그룹만 동기화하는 이 옵션은 *범위가 지정된 동기화*라고 합니다. 지침은 [Azure AD부터 관리 도메인까지로 범위가 지정된 동기화 구성](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md)을 참조하세요.
+HDInsight 클러스터에 액세스 해야 하는 그룹에만 동기화 하도록 선택할 수 있습니다. 특정 그룹만 동기화하는 이 옵션은 *범위가 지정된 동기화*라고 합니다. 지침은 [Azure AD부터 관리 도메인까지로 범위가 지정된 동기화 구성](../../active-directory-domain-services/scoped-synchronization.md)을 참조하세요.
 
-보안 LDAP를 사용하도록 설정하는 경우 주체 이름에 도메인 이름을, 인증서에 주체 대체 이름을 입력합니다. 예를 들어 도메인 이름이 *contoso100.onmicrosoft.com*인 경우 인증서 주체 이름 또는 주체 대체 이름이 정확해야 합니다. 자세한 내용은 [Azure AD-DS 관리되는 도메인에 대해 보안 LDAP 구성](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)을 참조하세요. 아래는 자체 서명된 인증서를 만들고 주체 이름과 DnsName(주체 대체 이름)에 도메인 이름(*contoso100.onmicrosoft.com*)을 사용하는 예입니다.
+보안 LDAP를 사용하도록 설정하는 경우 주체 이름에 도메인 이름을, 인증서에 주체 대체 이름을 입력합니다. 예를 들어 도메인 이름이 *contoso100.onmicrosoft.com*인 경우 인증서 주체 이름 또는 주체 대체 이름이 정확해야 합니다. 자세한 내용은 [Azure AD-DS 관리되는 도메인에 대해 보안 LDAP 구성](../../active-directory-domain-services/configure-ldaps.md)을 참조하세요. 아래는 자체 서명된 인증서를 만들고 주체 이름과 DnsName(주체 대체 이름)에 도메인 이름(*contoso100.onmicrosoft.com*)을 사용하는 예입니다.
 
 ```powershell
 $lifetime=Get-Date
@@ -80,7 +80,7 @@ Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비�
 
 Azure AD-DS 인스턴스와 HDInsight 클러스터를 동일한 Azure Virtual Network에 배치하는 것이 더 쉽습니다. 다른 VNET을 사용할 계획인 경우 HDI VM이 도메인 컨트롤러를 인식할 수 있도록 해당 가상 네트워크를 피어링해야 합니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 개인 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 "contoso.com"인 경우 이 단계를 완료하고 "contoso.com"을 ping하면 올바른 Azure AD-DS IP로 확인되어야 합니다. 
+VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 "contoso.com"인 경우 이 단계를 완료하고 "contoso.com"을 ping하면 올바른 Azure AD-DS IP로 확인되어야 합니다. 
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 

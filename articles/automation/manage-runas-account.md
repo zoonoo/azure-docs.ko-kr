@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002501"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240802"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -26,12 +26,12 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 * **Azure 실행 계정** -관리 데이 계정을 [Resource Manager 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
   * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 개인 키를 보유합니다.
+  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
 * **Azure 클래식 실행 계정** -관리 데이 계정을 [클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
   * 구독에 관리 인증서를 만듭니다.
-  * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 개인 키를 보유합니다.
+  * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 구독 이름, subscriptionId 및 인증서 자산 이름을 보유합니다.
   * 만들거나 갱신 구독에 공동 관리자 여야 합니다.
   
@@ -54,7 +54,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 |Automation 인증서 생성 또는 제거|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | 리소스 그룹의 기여자         |Automation 계정 리소스 그룹|
 |Automation 연결 생성 또는 제거|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|리소스 그룹의 기여자 |Automation 계정 리소스 그룹|
 
-<sup>1</sup> Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)할 수 있습니다. 앱 등록 설정이로 설정 되어 있으면 **No**,이 작업을 수행 하는 사용자 여야 합니다를 **전역 관리자** Azure AD에서.
+<sup>1</sup> Azure AD 테넌트의 **사용자 설정** 페이지에 있는 **사용자가 애플리케이션을 등록할 수 있음** 옵션이 **예**로 설정된 경우, Azure AD 테넌트의 관리자가 아닌 사용자가 [AD 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)할 수 있습니다. 앱 등록 설정이로 설정 되어 있으면 **No**,이 작업을 수행 하는 사용자는 앞의 표에 정의 된 것 이어야 합니다.
 
 에 추가 하기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우는 **전역 관리자** 역할에 게스트로 추가 하는 구독입니다. 이 경우에는 **Automation 계정 추가** 페이지에 `You do not have permissions to create…` 경고가 표시됩니다. 에 추가 된 사용자는 **전역 관리자** 역할 먼저 구독의 Active Directory 인스턴스에서 제거 되어 Active Directory의 완전 한 사용자 확인에 다시 추가 합니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
@@ -321,7 +321,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 스크립트가 성공적으로 실행된 후에 다음을 적어둡니다.
 
-* 자체 서명된 공용 인증서(.cer 파일)를 사용하여 클래식 실행 계정을 만든 경우 스크립트는 해당 계정을 만들고 PowerShell 세션을 실행하는 데 사용된 사용자 프로필(*%USERPROFILE%\AppData\Local\Temp*)의 컴퓨터에 있는 임시 파일 폴더에 저장합니다.
+* 자체 서명된 공용 인증서(.cer 파일)를 사용하여 클래식 실행 계정을 만든 경우 스크립트는 해당 계정을 만들고 PowerShell 세션을 실행하는 데 사용된 사용자 프로필( *%USERPROFILE%\AppData\Local\Temp*)의 컴퓨터에 있는 임시 파일 폴더에 저장합니다.
 
 * 엔터프라이즈 공용 인증서(.cer 파일)를 사용하여 클래식 실행 계정을 만든 경우 이 인증서를 사용합니다. [관리 API 인증서를 Azure Portal에 업로드](../azure-api-management-certs.md)하는 지침을 따르세요.
 
@@ -372,7 +372,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 Azure Automation의 리소스에 대한 자동화의 대상 지정을 제어하기 위해 실행 계정에는 기본적으로 구독에 대한 참가자 권한이 부여됩니다. RunAs 서비스 주체가 수행할 수 있는 작업을 제한해야 하는 경우, 해당 계정을 참가자 역할에서 구독으로 제거하고 지정하려는 리소스 그룹에 참가자로 추가할 수 있습니다.
 
-Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 선택합니다. **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 선택합니다. Azure Automation의 서비스 주체(예: \<AutomationAccountName\>_고유 식별자)를 검색합니다. 계정을 선택하고 **제거**를 클릭하여 구독에서 제거합니다.
+Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 선택합니다. **액세스 제어(IAM)** , **역할 할당** 탭을 차례로 선택합니다. Azure Automation의 서비스 주체(예: \<AutomationAccountName\>_고유 식별자)를 검색합니다. 계정을 선택하고 **제거**를 클릭하여 구독에서 제거합니다.
 
 ![구독 참가자](media/manage-runas-account/automation-account-remove-subscription.png)
 

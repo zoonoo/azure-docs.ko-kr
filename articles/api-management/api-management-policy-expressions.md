@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834538"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304370"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 C# 7 정책 식 구문에 대해 설명합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.
@@ -210,26 +210,26 @@ ms.locfileid: "65834538"
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|context|Api: IApi<br /><br /> 배포<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> lastError<br /><br /> 작업(Operation)<br /><br /> 제품<br /><br /> 요청<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> response<br /><br /> 구독<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> 사용자<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
-|context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |
-|context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
-|context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
-|context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|context.Request|본문: IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|
-|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 요청 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
-|context.Response|본문: IMessageBody<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
-|string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 응답 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
-|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
-|context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
-|IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
-|IGroup|Id: string<br /><br /> Name: string|
-|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
-|IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> 쿼리: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
-|IUserIdentity|Id: string<br /><br /> Provider: string|
-|ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
-|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 쿼리 매개 변수 값 또는 `defaultValue`(매개 변수가 없는 경우)를 반환합니다.|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> `T` 형식으로 캐스팅되는 변수 값 또는 `defaultValue`(변수가 없는 경우)를 반환합니다.<br /><br /> 이 메서드는 지정된 형식이 반환된 변수의 실제 형식과 일치하지 않는 경우 예외를 발생시킵니다.|
+|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> 타임스탬프: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [변수](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
+|<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
+|<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
+|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[가 IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>context.Request|본문: [IMessageBody](#ref-imessagebody)<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [헤더](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> Url: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>문자열 컨텍스트입니다. Request.Headers.GetValueOrDefault (headerName: 문자열, defaultValue: 문자열)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 요청 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
+|<a id="ref-context-response"></a>context.Response|본문: [IMessageBody](#ref-imessagebody)<br /><br /> [헤더](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
+|<a id="ref-context-response-headers"></a>문자열 컨텍스트입니다. Response.Headers.GetValueOrDefault (headerName: 문자열, defaultValue: 문자열)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 응답 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
+|<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [쿼리](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
+|<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
+|<a id="ref-iurl-query"></a>IUrl.Query.GetValueOrDefault 문자열 (queryParameterName: 문자열, defaultValue: 문자열)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 쿼리 매개 변수 값 또는 `defaultValue`(매개 변수가 없는 경우)를 반환합니다.|
+|<a id="ref-context-variables"></a>T 컨텍스트입니다. Variables.GetValueOrDefault < T\>(variableName: 문자열, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> `T` 형식으로 캐스팅되는 변수 값 또는 `defaultValue`(변수가 없는 경우)를 반환합니다.<br /><br /> 이 메서드는 지정된 형식이 반환된 변수의 실제 형식과 일치하지 않는 경우 예외를 발생시킵니다.|
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> 입력 매개 변수에 유효한 HTTP 기본 인증 권한 부여 요청 헤더 값이 포함된 경우 메서드는 `BasicAuthCredentials` 형식의 개체를 반환하고 그렇지 않은 경우 null을 반환합니다.|
 |bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> 입력 매개 변수가 요청 헤더에 유효한 HTTP 기본 인증 권한 부여 값을 포함하는 경우 메서드는 `true`를 반환하고 결과 매개 변수는 `BasicAuthCredentials` 형식의 값을 포함합니다. 그렇지 않은 경우 메서드는 `false`를 반환합니다.|
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|

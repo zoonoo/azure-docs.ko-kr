@@ -302,7 +302,7 @@ Activity Error section:
 
 > [!IMPORTANT]
 > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다.
-> - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다.
+> - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 프라이빗 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 애플리케이션 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다.
 
 ## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
 

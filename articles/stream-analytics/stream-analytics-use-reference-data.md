@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573630"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393130"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 
@@ -72,15 +72,15 @@ Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요�
 3. 참조 데이터 Blob은 Blob의 “마지막 수정” 시간 순서가 **아니라** {date} 및 {time}을 대체하여 Blob 이름에 지정한 날짜와 시간으로만 순서가 지정됩니다.
 3. 많은 수의 BLOB을 표시하지 않으려면 더 이상 처리 작업이 수행되지 않는 아주 오래된 BLOB을 삭제합니다. 재시작 같은 일부 시나리오에서는 ASA가 소량을 다시 처리해야 할 수도 있습니다.
 
-## <a name="azure-sql-database-preview"></a>Azure SQL Database(미리 보기)
+## <a name="azure-sql-database"></a>Azure SQL Database
 
-Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되고 처리를 위해 메모리에 스냅숏으로 저장됩니다. 또한 참조 데이터의 스냅숏은 구성 설정에서 지정하는 스토리지 계정의 컨테이너에 저장됩니다. 컨테이너는 작업을 시작할 때 자동 생성됩니다. 작업이 중지되거나 실패 상태가 되면, 작업을 다시 시작할 때 자동 생성된 컨테이너가 삭제됩니다.  
+Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되고 처리를 위해 메모리에 스냅샷으로 저장됩니다. 또한 참조 데이터의 스냅샷은 구성 설정에서 지정하는 스토리지 계정의 컨테이너에 저장됩니다. 컨테이너는 작업을 시작할 때 자동 생성됩니다. 작업이 중지되거나 실패 상태가 되면, 작업을 다시 시작할 때 자동 생성된 컨테이너가 삭제됩니다.  
 
-참조 데이터가 느리게 변화하는 데이터 세트인 경우 작업에서 사용되는 스냅숏을 정기적으로 새로 고쳐야 합니다. Stream Analytics를 사용하면 Azure SQL Database 입력 연결을 구성할 때 새로 고침 빈도를 설정할 수 있습니다. Stream Analytics 런타임은 새로 고침 빈도에서 지정된 간격으로 Azure SQL Database를 쿼리합니다. 지원되는 가장 빠른 새로 고침 빈도는 1분에 한 번씩입니다. 각 새로 고침의 경우 Stream Analytics는 제공된 스토리지 계정에 새 스냅숏을 저장합니다.
+참조 데이터가 느리게 변화하는 데이터 세트인 경우 작업에서 사용되는 스냅샷을 정기적으로 새로 고쳐야 합니다. Stream Analytics를 사용하면 Azure SQL Database 입력 연결을 구성할 때 새로 고침 빈도를 설정할 수 있습니다. Stream Analytics 런타임은 새로 고침 빈도에서 지정된 간격으로 Azure SQL Database를 쿼리합니다. 지원되는 가장 빠른 새로 고침 빈도는 1분에 한 번씩입니다. 각 새로 고침의 경우 Stream Analytics는 제공된 스토리지 계정에 새 스냅샷을 저장합니다.
 
-Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션을 제공합니다. 스냅숏 쿼리는 필수이며 각 작업에 포함되어야 합니다. Stream Analytics는 새로 고침 간격에 따라 주기적으로 스냅숏 쿼리를 실행하고 쿼리의 결과(스냅숏)를 참조 데이터 세트로 사용합니다. 스냅숏 쿼리는 대부분의 시나리오에 적합해야 하지만, 데이터 세트가 크고 새로 고침 주기가 빠른 성능 문제가 발생하는 경우 델타 쿼리 옵션을 사용할 수 있습니다. 참조 데이터 집합을 반환할 60 초 이상 걸리는 쿼리 시간 초과가 발생 합니다.
+Stream Analytics는 Azure SQL Database를 쿼리하기 위한 두 가지 옵션을 제공합니다. 스냅샷 쿼리는 필수이며 각 작업에 포함되어야 합니다. Stream Analytics는 새로 고침 간격에 따라 주기적으로 스냅샷 쿼리를 실행하고 쿼리의 결과(스냅샷)를 참조 데이터 세트로 사용합니다. 스냅샷 쿼리는 대부분의 시나리오에 적합해야 하지만, 데이터 세트가 크고 새로 고침 주기가 빠른 성능 문제가 발생하는 경우 델타 쿼리 옵션을 사용할 수 있습니다. 참조 데이터 집합을 반환할 60 초 이상 걸리는 쿼리 시간 초과가 발생 합니다.
 
-델타 쿼리 옵션을 사용하면 Stream Analytics는 초기에 스냅숏 쿼리를 실행하여 기본 참조 데이터 세트를 가져옵니다. 그 후에 Stream Analytics는 새로 고침 간격에 따라 주기적으로 델타 쿼리를 실행하여 증분 변경 내용을 검색합니다. 이러한 증분 변경 내용은 지속적으로 참조 데이터 세트에 적용되어 업데이트를 최신으로 유지합니다. 델타 쿼리를 사용하면 스토리지 비용 및 네트워크 I/O 작업을 줄이는 데 도움이 될 수 있습니다.
+델타 쿼리 옵션을 사용하면 Stream Analytics는 초기에 스냅샷 쿼리를 실행하여 기본 참조 데이터 세트를 가져옵니다. 그 후에 Stream Analytics는 새로 고침 간격에 따라 주기적으로 델타 쿼리를 실행하여 증분 변경 내용을 검색합니다. 이러한 증분 변경 내용은 지속적으로 참조 데이터 세트에 적용되어 업데이트를 최신으로 유지합니다. 델타 쿼리를 사용하면 스토리지 비용 및 네트워크 I/O 작업을 줄이는 데 도움이 될 수 있습니다.
 
 ### <a name="configure-sql-database-reference"></a>SQL Database 참조 구성
 
@@ -94,7 +94,7 @@ SQL Database 참조 데이터를 구성하려면 먼저 **참조 데이터** 입
 |사용자 이름|Azure SQL Database와 연결된 사용자 이름입니다.|
 |암호|Azure SQL Database와 연결된 암호입니다.|
 |주기적으로 새로 고침|이 옵션을 사용하면 새로 고침 빈도를 선택할 수 있습니다. “On”을 선택하면 DD:HH:MM 형식으로 새로 고침 빈도를 지정할 수 있습니다.|
-|스냅숏 쿼리|이는 SQL Database에서 참조 데이터를 검색하는 기본 쿼리 옵션입니다.|
+|스냅샷 쿼리|이는 SQL Database에서 참조 데이터를 검색하는 기본 쿼리 옵션입니다.|
 |델타 쿼리|데이터 세트가 크고 새로 고침 빈도가 짧은 고급 시나리오의 경우 델타 쿼리를 추가하도록 선택합니다.|
 
 ## <a name="size-limitation"></a>크기 제한

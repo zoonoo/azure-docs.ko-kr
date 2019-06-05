@@ -183,7 +183,7 @@ Azure AD를 Service Fabric 클러스터로 구성하는 데 관련된 단계를 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Azure AD 애플리케이션 만들기 및 역할에 사용자 할당
 두 개의 Azure AD 애플리케이션(웹 애플리케이션 및 네이티브 애플리케이션)을 만들어 클러스터에 대한 액세스를 제어합니다. 클러스터를 나타내는 애플리케이션이 만들어지면 사용자를 [Service Fabric에서 지원하는 역할](service-fabric-cluster-security-roles.md)(읽기 전용 및 관리자)에 할당합니다.
 
-`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다. 사용자에 대한 사용자 이름과 암호를 지정합니다. 예: 
+`SetupApplications.ps1`을 실행하고 테넌트 ID, 클러스터 이름 및 웹 애플리케이션 회신 URL을 매개 변수로 제공합니다. 사용자에 대한 사용자 이름과 암호를 지정합니다. 예:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -260,7 +260,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정에 로그인하�
 }
 ```
 
-매개 변수 값을 [azuredeploy.parameters.json][parameters] 매개 변수 파일에 추가합니다. 예: 
+매개 변수 값을 [azuredeploy.parameters.json][parameters] 매개 변수 파일에 추가합니다. 예:
 
 ```json
 "aadTenantId": {
@@ -408,7 +408,7 @@ EventStore 서비스는 Service Fabric의 모니터링 옵션입니다. EventSto
 
 * 개발 또는 테스트의 문제 또는 모니터링 파이프라인을 사용할 위치의 문제 진단
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
-* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 “스냅숏” 가져오기
+* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 "스냅샷" 가져오기
 
 
 

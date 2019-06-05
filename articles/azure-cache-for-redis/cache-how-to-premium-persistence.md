@@ -27,11 +27,11 @@ Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지�
 다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## <a name="what-is-data-persistence"></a>데이터 지속성이란?
-[Redis 지속성](https://redis.io/topics/persistence)을 사용하면 Redis에 저장된 데이터를 유지할 수 있습니다. 또한 스냅숏을 만들고, 하드웨어 오류 시 로드할 수 있게 데이터를 백업할 수 있습니다. 기본 또는 표준 계층보다 훨씬 큰 이러한 혜택은 모든 데이터가 메모리에 저장되기 때문에 가능하며 캐시 노드 다운 시 데이터 손실 가능성이 있습니다. 
+[Redis 지속성](https://redis.io/topics/persistence)을 사용하면 Redis에 저장된 데이터를 유지할 수 있습니다. 또한 스냅샷을 만들고, 하드웨어 오류 시 로드할 수 있게 데이터를 백업할 수 있습니다. 기본 또는 표준 계층보다 훨씬 큰 이러한 혜택은 모든 데이터가 메모리에 저장되기 때문에 가능하며 캐시 노드 다운 시 데이터 손실 가능성이 있습니다. 
 
 Azure Cache for Redis에서 Redis 지속성을 제공하는 데 사용하는 모델은 다음과 같습니다.
 
-* **RDB 지속성** - RDB(Redis 데이터베이스) 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅숏을 Redis 이진 형식으로 디스크에 유지합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅숏을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
+* **RDB 지속성** - RDB(Redis 데이터베이스) 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅숏을 Redis 이진 형식으로 디스크에 유지합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
 * **AOF 지속성** - AOF(Append only file) 지속성이 구성되면 Azure Cache for Redis에서 모든 쓰기 작업을 Azure Storage 계정에 초당 1회 이상 저장되는 로그에 저장합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 저장된 쓰기 작업을 사용하여 캐시를 재구성합니다. AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
 
 지속성은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에서 구성하거나 기존 프리미엄 캐시에 대한 **리소스 메뉴**에서 구성합니다.

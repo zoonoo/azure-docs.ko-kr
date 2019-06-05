@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485154"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304147"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
 
@@ -25,9 +25,9 @@ ms.locfileid: "61485154"
 
 독립형 애플리케이션 패턴 또는 테넌트별 앱 패턴은 각 테넌트에 대해 애플리케이션 인스턴스를 배포합니다.  각 애플리케이션은 특정 테넌트에 대해 구성되고 별도 Azure 리소스 그룹에 배포됩니다. 다중 테넌트 솔루션을 제공하기 위해 애플리케이션의 여러 인스턴스를 프로비전합니다. 이 패턴은 테넌트 격리가 최우선인 테넌트 수가 더 작은 경우에 가장 적합합니다. Azure에는 테넌트를 대신하여 서비스 공급자가 리소스를 테넌트 구독에 배포하고 관리하도록 허용하는 파트너 프로그램이 있습니다. 
 
-이 자습서에서는 3개의 테넌트에 대한 3개의 독립형 애플리케이션을 Azure 구독에 배포합니다.  개별 애플리케이션 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
+이 자습서에서는 Azure 구독에 세 명의 테 넌 트에 대 한 세 개의 독립 실행형 응용 프로그램을 배포할 수 있습니다.  개별 애플리케이션 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
 
-애플리케이션 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 애플리케이션은 Visual Studio 2015를 사용하여 만들어졌으며, 업데이트하지 않고는 Visual Studio 2017에서 성공적으로 열리고 컴파일되지 않습니다.
+애플리케이션 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램 Visual Studio 2015를 사용 하 여 만든 하지 성공적으로 열고 업데이트 하지 않고 Visual Studio 2019에서 컴파일합니다.
 
 
 이 자습서에서는 다음에 대해 알아봅니다.
@@ -37,7 +37,7 @@ ms.locfileid: "61485154"
 > * 애플리케이션 소스 코드 및 관리 스크립트를 가져올 위치.
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 
-추가 자습서가 제공될 예정입니다. 이러한 자습서를 통해 이 애플리케이션 패턴을 기준으로 다양한 관리 시나리오를 탐색할 수 있습니다.   
+추가 자습서가 제공될 예정입니다. 이 응용 프로그램 패턴에 따라 관리 시나리오 범위를 탐색할 수 있게 될 것 있습니다.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip 티켓 SaaS 독립형 애플리케이션 배포
 
@@ -55,8 +55,8 @@ ms.locfileid: "61485154"
     > [!IMPORTANT]
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
-    리소스 이름에는 소문자, 숫자 및 하이픈만 사용하는 것이 가장 좋습니다.
-    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 장소 이름을 공백 없이 대체합니다. \<user\>의 경우 아래의 사용자 값을 대체합니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
+    리소스 이름에 소문자, 숫자 및 하이픈을 사용 하는 것이 좋습니다.
+    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  에 대 한 \<venueName\>, 장소 이름을 공백 없이 대체 합니다. 에 대 한 \<사용자\>, 아래에서 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
     * 드롭다운 목록에서 **위치**를 선택합니다.
 
     * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1*).
@@ -107,7 +107,7 @@ ms.locfileid: "61485154"
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
@@ -126,6 +126,6 @@ ms.locfileid: "61485154"
 > * 앱을 구성하는 서버 및 데이터베이스 정보.
 > * 샘플 리소스를 삭제하여 관련 결제를 중지하는 방법
 
-다음 단계로 [프로비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서를 참고하여 스키마 관리, 테넌트 분석과 같은 다양한 교차 테넌트 시나리오를 지원하는 테넌트 카탈로그의 용도를 살펴보세요.
+다음 단계로 합니다 [프로 비전 및 카탈로그](saas-standaloneapp-provision-and-catalog.md) 자습서는 다양 한 스키마 관리 및 테 넌 트 분석과 같은 교차 테 넌 트 시나리오를 사용 하도록 설정 하는 테 넌 트 카탈로그 사용 살펴봅니다.
  
 
