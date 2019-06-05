@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ce7e7aa471017fba7632018db116f7855a50d32e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357567"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497058"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1374,6 +1374,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <p>Blockchain Workbench</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/azure-app-configuration/">
+                                                <img src="media/index/azure-appconf.svg" alt="" />
+                                                <p>앱 구성</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>사물 인터넷</h3>
                                     <ul>
@@ -2198,7 +2204,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Azure로 전용 프라이빗 네트워크 파이버 연결</p>
+                                                    <p>Azure로 전용 사설 네트워크 파이버 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2236,7 +2242,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Virtual Network</h3>
-                                                    <p>프라이빗 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결</p>
+                                                    <p>사설 네트워크 프로비전, 온-프레미스 데이터 센터에 선택적으로 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4573,7 +4579,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Bus</h3>
-                                                    <p>프라이빗 및 공용 클라우드 환경 간 연결</p>
+                                                    <p>사설 및 공용 클라우드 환경 간 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5303,6 +5309,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-app-configuration/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-appconf.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>앱 구성</h3>
+                                                    <p>앱 구성을 위한 빠르고 확장성 있는 매개 변수 스토리지</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5339,7 +5364,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5900,7 +5925,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>프라이빗 클라우드의 보호 및 복구 오케스트레이션</p>
+                                                    <p>사설 클라우드의 보호 및 복구 오케스트레이션</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -600,6 +600,8 @@
       items:
         - name: 성능 팁
           items:
+            - name: 쿼리 실행 메트릭 가져오기
+              href: profile-sql-api-query.md
             - name: 쿼리 성능 조정
               href: sql-api-query-metrics.md
             - name: .NET SDK용 성능 팁

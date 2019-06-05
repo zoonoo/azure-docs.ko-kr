@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: 회사 작업 계정 찾기 또는 만들기
           href: ./partner-center-portal/company-work-accounts.md
+        - name: 계정을 CPP에서 파트너 센터로 마이그레이션
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: 새 제안 만들기
       items:
+        - name: 제안 만들기 검사 목록
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: SaaS 제품 만들기
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: SaaS 처리 API

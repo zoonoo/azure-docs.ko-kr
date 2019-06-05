@@ -94,4 +94,4 @@ OCR API는 다음 요구 사항을 충족 하는 이미지에서 작동 합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-수행 합니다 [인쇄 된 텍스트 (OCR)를 추출](./quickstarts/csharp-print-text.md) 간단한 텍스트 인식 구현 하는 빠른 시작 C# 앱.
+간단한 C# 앱에서 텍스트 인식을 구현하기 위해서는 [인쇄된 텍스트 추출(OCR)](./quickstarts/csharp-print-text.md) 빠른 시작을 수행합니다.

@@ -36,7 +36,7 @@
           items:
             - name: 보안 지침 읽기
               href: data-box-safety.md
-            - name: 추적 및 로깅
+            - name: 추적 및 로깅 검토
               href: data-box-logs.md
             - name: 요구 사항 검토
               items:
@@ -111,6 +111,8 @@
           items:
             - name: Azure 포털을 통해 관리
               href: data-box-portal-ui-admin.md
+            - name: Blob 계층으로 데이터 이동
+              href: data-box-how-to-set-data-tier.md
             - name: Data Box Heavy 문제 해결
               href: data-box-disk-troubleshoot.md
             - name: 지원에 문의
@@ -135,6 +137,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: 개념
           items:
+            - name: 추적 및 로깅 검토
+              href: data-box-logs.md
             - name: 요구 사항 검토
               href: data-box-heavy-system-requirements.md
             - name: 제한 이해
@@ -143,10 +147,16 @@
           items:
             - name: Azure 포털을 통해 관리
               href: data-box-portal-admin.md
+            - name: 로컬 웹 UI를 통해 관리
+              href: data-box-local-web-ui-admin.md
             - name: 디바이스 문제 해결
               href: data-box-troubleshoot.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md
+            - name: 마이그레이션
+              items:
+                - name: Azure 파일 동기화로
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: 리소스
       items:
         - name: Data Box 제품
