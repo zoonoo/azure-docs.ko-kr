@@ -123,6 +123,10 @@
           items:
             - name: Data Box Heavy란?
               href: data-box-heavy-overview.md
+        - name: 빠른 시작
+          items:
+            - name: 설정 - Azure Portal
+              href: data-box-heavy-quickstart-portal.md
         - name: 자습서
           items:
             - name: 1 - 주문

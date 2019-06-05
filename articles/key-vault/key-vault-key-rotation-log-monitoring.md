@@ -1,5 +1,5 @@
 ---
-title: 종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
+title: 엔드투엔드 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
 description: 키 회전을 설정 하 고 key vault 로그를 모니터링할 수 있도록이 방법 가이드를 사용 합니다.
 services: key-vault
 author: barclayn

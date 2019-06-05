@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway에서 종단 간 SSL 구성
+title: Azure Application Gateway에서 엔드투엔드 SSL 구성
 description: 이 문서에서는 PowerShell을 사용하여 Azure Application Gateway로 엔드투엔드 SSL을 구성하는 방법에 대해 설명합니다.
 services: application-gateway
 author: vhorne
@@ -44,7 +44,7 @@ Application Gateway가 사용자 지정 SSL 옵션 정의를 지원합니다. �
 
 Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게이트웨이에 사용할 인증서와 백 엔드 서버에 사용할 인증서가 필요합니다. 게이트웨이 인증서는 SSL 프로토콜 사양에 따라 대칭 키를 파생하는 데 사용됩니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. 게이트웨이 인증서는 개인 정보 교환(PFX) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 프라이빗 키를 내보낼 수 있습니다.
 
-엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 백 엔드 서버의 공용 인증서를 Application Gateway에 업로드합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 종단 간 통신의 보안이 유지됩니다.
+엔드투엔드 SSL 암호화의 경우 백 엔드가 Application Gateway를 통해 허용 목록에 추가되어야 합니다. 백 엔드 서버의 공용 인증서를 Application Gateway에 업로드합니다. 인증서를 추가하면 Application Gateway가 알려진 백 엔드 인스턴스하고만 통신하게 됩니다. 그러면 엔드투엔드 통신의 보안이 유지됩니다.
 
 구성 프로세스는 다음 섹션에 설명되어 있습니다.
 

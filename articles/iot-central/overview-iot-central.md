@@ -36,7 +36,7 @@ Azure IoT Central이 일반 IoT 프로젝트와 다른 점:
 - 운영 비용 및 오버헤드 경감
 - 애플리케이션을 쉽게 사용자 지정하는 동시에 다음과 같은 장점 활용
   - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)와 같은 업계 최고의 기술.
-  - 종단 간 암호화와 같은 엔터프라이즈급 보안 기능.
+  - 엔드투엔드 암호화와 같은 엔터프라이즈급 보안 기능.
 
 다음 비디오는 Azure IoT Central의 개요를 보여 줍니다.
 

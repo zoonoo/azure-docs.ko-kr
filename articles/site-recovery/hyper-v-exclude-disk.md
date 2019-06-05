@@ -54,7 +54,7 @@ ms.locfileid: "60773938"
 > * 애플리케이션 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 애플리케이션이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
 > * Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 Azure에서 다시 Hyper-V로 장애 복구됩니다. 장애 복구 또는 Hyper-V에서 Azure로 역방향 복제에서 수동으로 만든 디스크를 포함할 수 없습니다.
 
-## <a name="end-to-end-scenarios-of-exclude-disks"></a>디스크 제외의 종단 간 시나리오
+## <a name="end-to-end-scenarios-of-exclude-disks"></a>디스크 제외의 엔드투엔드 시나리오
 디스크 제외 기능의 이해를 위해 두 가지 시나리오를 살펴보겠습니다.
 
 - SQL Server tempdb 디스크

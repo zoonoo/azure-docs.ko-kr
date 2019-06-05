@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: c46ffe2076d4b1491a3b27958dfbf5ed09115eaa
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "60708314"
@@ -21,7 +21,7 @@ ms.locfileid: "60708314"
 
 Conversation Learner를 통해 예제 상호 작용에서 배운 대화형 인터페이스를 빌드하고 학습할 수 있습니다. 
 
-기존 방법과 달리 Conversation Learner는 대화의 종단 간 컨텍스트를 고려하여 응답을 개선하고 보다 매력적인 사용자 경험을 제공합니다. Conversation Learner는 광범위한 작업 지향 사용 사례에서 Machine Learning을 백그라운드로 적용하여 봇과 지능형 에이전트가 사용자 불만 및 추가적인 고객 서비스 비용을 초래할 가능성을 줄이고 더욱 직관적인 상호 작용을 지원합니다.
+기존 방법과 달리 Conversation Learner는 대화의 엔드투엔드 컨텍스트를 고려하여 응답을 개선하고 보다 매력적인 사용자 경험을 제공합니다. Conversation Learner는 광범위한 작업 지향 사용 사례에서 Machine Learning을 백그라운드로 적용하여 봇과 지능형 에이전트가 사용자 불만 및 추가적인 고객 서비스 비용을 초래할 가능성을 줄이고 더욱 직관적인 상호 작용을 지원합니다.
 
 개발자가 모방하려는 모범 대화를 입력하는 것으로 시작합니다. 모델은 더 많은 대화가 입력되면서 학습됩니다. 모델이 제대로 작동하면 최종 사용자에게 봇을 배포할 수 있습니다. Conversation Learner가 사용자와의 대화를 기록하고, 개발자는 대화를 검토할 수 있습니다. 실수가 발견될 경우 개발자가 즉석에서 수정할 수 있으며, 모델이 다시 학습되고 즉시 사용할 수 있게 됩니다.
 
@@ -33,7 +33,7 @@ Conversation Learner를 사용하면 개발자가 Microsoft Bot Framework를 통
 
 - Conversation Learner는 작업 중심 봇을 빌드하기 위한 AI 우선 방법입니다.
 
-- 종단 간 반복 신경망(LSTM)을 사용하며 대화의 다중 턴 예제를 통해 직접 학습합니다. 
+- 엔드투엔드 반복 신경망(LSTM)을 사용하며 대화의 다중 턴 예제를 통해 직접 학습합니다. 
 
 - 설계자, 개발자, 비즈니스 사용자 및 콜 센터 작업자가 봇을 빌드하고 유지 관리할 수 있게 합니다. 
 

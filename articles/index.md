@@ -4341,7 +4341,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
+                                                    <p>실험 및 모델 관리를 갖춘 엔드투엔드, 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6661,7 +6661,7 @@ Azure Dev 공간 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
@@ -6677,7 +6677,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 아키텍처 센터</h3>
-                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
+                                                    <p>Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -15,16 +15,6 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: 함수 만들기 - Visual Studio Code
       href: functions-create-first-function-vs-code.md
-    - name: 함수 만들기 - Visual Studio Code를 사용하여 Node.js 앱 만들기
-      items:
-        - name: 시작
-          href: tutorial-javascript-vscode-get-started.md
-        - name: 애플리케이션 만들기
-          href: tutorial-javascript-vscode-create-app.md
-        - name: 로컬로 앱 실행 및 테스트
-          href: tutorial-javascript-vscode-run-app.md
-        - name: 웹 사이트 배포
-          href: tutorial-javascript-vscode-deploy-app.md
     - name: 함수 만들기 - Java/Maven
       href: functions-create-first-java-maven.md
     - name: 함수 만들기 - Python

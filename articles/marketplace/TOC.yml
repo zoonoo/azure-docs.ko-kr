@@ -58,8 +58,6 @@
         - name: Marketplace 혜택
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: Microsoft를 통한 비즈니스 홍보
-              href: ./gtm-promote-your-business.md
             - name: 기본 설정 솔루션
               href: ./preferred-solutions.md
             - name: 통합된 솔루션

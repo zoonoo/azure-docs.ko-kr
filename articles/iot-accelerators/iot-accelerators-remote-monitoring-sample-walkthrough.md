@@ -55,7 +55,7 @@ ms.locfileid: "61442550"
 
 ### <a name="device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스
 
-솔루션에는 솔루션 포털에서 시뮬레이션된 디바이스 풀을 관리하여 솔루션의 종단 간 흐름을 테스트할 수 있게 하는 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)가 포함됩니다. 시뮬레이션된 디바이스의 특징:
+솔루션에는 솔루션 포털에서 시뮬레이션된 디바이스 풀을 관리하여 솔루션의 엔드투엔드 흐름을 테스트할 수 있게 하는 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)가 포함됩니다. 시뮬레이션된 디바이스의 특징:
 
 * 디바이스-클라우드 원격 분석을 생성합니다.
 * IoT Hub의 클라우드-장치 메서드 호출에 응답합니다.

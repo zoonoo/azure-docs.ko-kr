@@ -19,16 +19,6 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: Node.js 앱 만들기
       href: app-service-web-get-started-nodejs.md
-    - name: Visual Studio Code를 사용하여 Node.js 앱 만들기
-      items:
-        - name: 시작
-          href: tutorial-javascript-vscode-get-started.md
-        - name: 애플리케이션 만들기
-          href: tutorial-javascript-vscode-create-app.md
-        - name: 웹 사이트 배포
-          href: tutorial-javascript-vscode-deploy-app.md
-        - name: 로그 보기
-          href: tutorial-javascript-vscode-tail-logs.md
     - name: PHP 앱 만들기
       href: app-service-web-get-started-php.md
     - name: Java 앱 만들기

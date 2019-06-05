@@ -53,10 +53,10 @@ ms.locfileid: "61450011"
 
 [경고의 임계값 기반 규칙을 구성합니다](iot-accelerators-connected-factory-configure.md).
 
-## <a name="end-to-end-security"></a>통합형 보안
+## <a name="end-to-end-security"></a>엔드투엔드 보안
 
 - RBAC(역할 기반 Access Control)를 사용하여 사용자에 대한 보안 권한을 구성합니다.
-- OPC UA 인증(X.509 인증서 사용) 및 보안 토큰을 사용하여 통합형 암호화를 구현합니다.
+- OPC UA 인증(X.509 인증서 사용) 및 보안 토큰을 사용하여 엔드투엔드 암호화를 구현합니다.
 
 ## <a name="customizability"></a>사용자 지정 가능
 

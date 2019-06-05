@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
-description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 종단 간 연결 및 성능을 모니터링할 수 있습니다.
+description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
