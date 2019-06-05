@@ -20,7 +20,7 @@ ms.locfileid: "57895450"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 유형 감지
 
-[분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용하여, Computer Vision을 이미지가 클립아트 또는 선 그리기 인지 여부를 나타내는 이미지의 콘텐츠 형식을 분석할 수 있습니다. 
+[분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용하여, Computer Vision은 이미지가 클립 아트인지 또는 선 그리기인지 여부를 나타내는 이미지의 콘텐츠 형식을 분석할 수 있습니다. 
 
 ## <a name="detecting-clip-art"></a>클립 아트 감지
 
@@ -115,4 +115,4 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 참조 설명서를 참조하여 이미지 유형을 감지 하는 방법에 대해 자세히 알아봅니다.
+[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 참조 설명서를 참조하여 이미지 유형을 감지하는 방법에 대해 자세히 알아봅니다.
