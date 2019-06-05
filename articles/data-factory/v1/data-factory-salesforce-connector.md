@@ -36,7 +36,7 @@ ms.locfileid: "60309174"
 이 커넥터에서 지원하는 Salesforce 버전은 다음과 같습니다. Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition. 그리고 Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인에서 복사를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* API 권한을 사용하도록 설정해야 합니다.  [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+* API 권한을 사용하도록 설정해야 합니다. [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Salesforce에서 온-프레미스 데이터 저장소로 데이터를 복사하려면 온-프레미스 환경에 데이터 관리 게이트웨이 2.0이 설치되어 있어야 합니다.
 
 ## <a name="salesforce-request-limits"></a>Salesforce 요청 제한
@@ -128,8 +128,8 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 
 시나리오를 구현하도록 만들어야 하는 데이터 팩터리 아티팩트는 다음과 같습니다. 목록 다음에 나오는 섹션에서는 이러한 단계에 대한 세부 정보를 제공합니다.
 
-*  [Salesforce](#linked-service-properties)
-*  [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+* [Salesforce](#linked-service-properties)
+* [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 * [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
 * [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
 * [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
