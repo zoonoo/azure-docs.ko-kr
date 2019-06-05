@@ -90,5 +90,5 @@ ms.locfileid: "65550502"
 - 연결이 설정된 후에 MariaDB 서버 인스턴스가 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [가격 책정 ](concepts-pricing-tiers.md)
+- [각 서비스 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md)
 - [지원되는 MariaDB 데이터베이스 버전](concepts-supported-versions.md)
