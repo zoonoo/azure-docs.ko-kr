@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ms.openlocfilehash: 87ed31836fcda922b085ec951eb6d9d14542db6a
 ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65467546"
