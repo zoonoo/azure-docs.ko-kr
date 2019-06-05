@@ -1,7 +1,7 @@
 ---
 title: 성인 및 외설 콘텐츠 설명 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지에서 성인 및 외설 콘텐츠를 감지하는데 관련된 개념입니다.
+description: Computer Vision API를 사용하여 이미지에서 성인 및 외설 콘텐츠를 감지하는 데 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
