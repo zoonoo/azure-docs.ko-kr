@@ -1,6 +1,6 @@
 ---
-title: 관리되지 않는 Azure Linux VM 디스크의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs
-description: 증분 스냅숏을 사용하여 Azure Linux 가상 머신 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다.
+title: 관리되지 않는 Azure Linux VM 디스크의 백업 및 복구에 대해 증분 스냅샷 사용 | Microsoft Docs
+description: 증분 스냅샷을 사용하여 Azure Linux 가상 머신 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다.
 services: virtual-machines-linux
 documentationcenter: na
 author: aungoo-msft

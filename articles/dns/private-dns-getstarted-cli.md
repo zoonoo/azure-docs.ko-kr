@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure DNS 사설 영역 만들기
-description: 이 자습서에서는 Azure DNS에 사설 DNS 영역 및 레코드를 만들고 테스트합니다. Azure CLI를 사용하여 첫 번째 사설 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
+title: Azure CLI를 사용하여 Azure DNS 프라이빗 영역 만들기
+description: 이 자습서에서는 Azure DNS에 프라이빗 DNS 영역 및 레코드를 만들고 테스트합니다. Azure CLI를 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
 author: vhorne
 ms.service: dns
@@ -14,21 +14,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "65916047"
 ---
-# <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS 사설 영역 만들기
+# <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS 프라이빗 영역 만들기
 
-이 자습서에서는 Azure CLI를 사용하여 첫 번째 사설 DNS 영역 및 레코드를 만드는 단계를 설명합니다.
+이 자습서에서는 Azure CLI를 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만드는 단계를 설명합니다.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 가상 네트워크에 사설 DNS 영역에 게시하려면 영역 내에서 레코드를 확인하도록 허용된 가상 네트워크 목록을 지정합니다.  이것을 *확인 가상 네트워크*라고 합니다. 또한 VM이 생성되고, IP가 변경되고, 삭제될 때마다 Azure DNS가 호스트 이름 레코드를 유지 관리하게 되는 가상 네트워크를 지정할 수 있습니다.  이것을 *등록 가상 네트워크*라고 합니다.
+DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 가상 네트워크에 프라이빗 DNS 영역에 게시하려면 영역 내에서 레코드를 확인하도록 허용된 가상 네트워크 목록을 지정합니다.  이것을 *확인 가상 네트워크*라고 합니다. 또한 VM이 생성되고, IP가 변경되고, 삭제될 때마다 Azure DNS가 호스트 이름 레코드를 유지 관리하게 되는 가상 네트워크를 지정할 수 있습니다.  이것을 *등록 가상 네트워크*라고 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * DNS 사설 영역 만들기
+> * DNS 프라이빗 영역 만들기
 > * 테스트 가상 머신 만들기
 > * 추가 DNS 레코드 만들기
-> * 개인 영역 테스트
+> * 프라이빗 영역 테스트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 az group create --name MyAzureResourceGroup --location "East US"
 ```
 
-## <a name="create-a-dns-private-zone"></a>DNS 사설 영역 만들기
+## <a name="create-a-dns-private-zone"></a>DNS 프라이빗 영역 만들기
 
 DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `az network dns zone create` 명령을 사용하여 만듭니다. 다음 예제에서는 **private.contoso.com**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
 
@@ -71,7 +71,7 @@ az network dns zone create -g MyAzureResourceGroup \
 > [!NOTE]
 > 자동으로 만들어진 호스트 이름 레코드를 볼 수 없습니다. 하지만 나중에 존재하는지 테스트합니다.
 
-### <a name="list-dns-private-zones"></a>DNS 사설 영역 나열
+### <a name="list-dns-private-zones"></a>DNS 프라이빗 영역 나열
 
 DNS 영역을 열거하려면 `az network dns zone list`를 사용합니다. 도움말을 보려면 `az network dns zone list --help`을 참조하세요.
 
@@ -90,7 +90,7 @@ az network dns zone list
 
 ## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
 
-이제 사설 DNS 영역을 테스트할 수 있도록 두 대의 가상 머신을 만듭니다.
+이제 프라이빗 DNS 영역을 테스트할 수 있도록 두 대의 가상 머신을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -139,9 +139,9 @@ az network dns record-set list \
 ```
 두 대의 테스트 가상 머신에 대해 자동으로 생성된 A 레코드가 표시되지 않습니다.
 
-## <a name="test-the-private-zone"></a>개인 영역 테스트
+## <a name="test-the-private-zone"></a>프라이빗 영역 테스트
 
-이제 **private.contoso.com** 사설 영역에 대한 이름 확인을 테스트할 수 있습니다.
+이제 **private.contoso.com** 프라이빗 영역에 대한 이름 확인을 테스트할 수 있습니다.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>인바운드 ICMP를 허용하도록 VM 구성
 
@@ -209,8 +209,8 @@ az group delete --name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 사설 DNS 영역을 배포하고, DNS 레코드를 만들고, 영역을 테스트했습니다.
-다음으로, 사설 DNS 영역에 대해 자세히 알아봅니다.
+이 자습서에서는 프라이빗 DNS 영역을 배포하고, DNS 레코드를 만들고, 영역을 테스트했습니다.
+다음으로, 프라이빗 DNS 영역에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [개인 도메인에 Azure DNS 사용](private-dns-overview.md)

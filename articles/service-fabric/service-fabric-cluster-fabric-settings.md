@@ -627,7 +627,7 @@ ms.locfileid: "65606984"
 |AADTokenEndpointFormat|string, 기본값: ""|공용|AAD 토큰 끝점에 Azure 상용 기본 Azure Government와 같은 기본이 아닌 환경에 지정 된 "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, 기본값: ""|동적|모든 가능한 클레임은 관리자 클라이언트에서 예상되는 모든 가능한 클레임이며, ClientClaims와 동일한 형식입니다. 이 목록은 ClientClaims에 내부적으로 추가되므로 ClientClaims에 동일한 항목을 추가할 필요가 없습니다. |
 |AdminClientIdentities|string, 기본값: ""|동적|관리자 역할의 패브릭 클라이언트에 대한 Windows ID이며, 권한 있는 패브릭 작업에 대한 권한을 부여하는 데 사용됩니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. 편의상 fabric.exe를 실행하는 계정에 관리자 역할이 자동으로 할당됩니다. ServiceFabricAdministrators 그룹도 마찬가지입니다. |
-|AppRunAsAccountGroupX509Folder|string, 기본값: /home/sfuser/sfusercerts |공용|AppRunAsAccountGroup X509 인증서와 개인 키가 있는 폴더 |
+|AppRunAsAccountGroupX509Folder|string, 기본값: /home/sfuser/sfusercerts |공용|AppRunAsAccountGroup X509 인증서와 프라이빗 키가 있는 폴더 |
 |CertificateExpirySafetyMargin|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(43200)|공용|시간 간격은 초 단위로 지정합니다. 인증서 만료에 대한 여유 제한입니다. 만료가 이 값보다 더 가까울 경우 인증서 상태 보고서 상태가 확인에서 경고로 변경됩니다. 기본값: 30일 |
 |CertificateHealthReportingInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600 * 8)|공용|시간 간격은 초 단위로 지정합니다. 인증서 상태 보고 간격을 지정하며, 기본값은 8시간입니다. 0으로 설정하면 인증서 상태 보고가 사용되지 않습니다. |
 |ClientCertThumbprints|string, 기본값: ""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클러스터에서 이 지문을 사용하여 들어오는 연결에 대한 권한을 부여합니다. 쉼표로 구분된 이름 목록입니다. |
@@ -643,7 +643,7 @@ ms.locfileid: "65606984"
 |CrlDisablePeriod|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(15)|동적|시간 간격은 초 단위로 지정합니다. CRL 오프라인 오류를 무시할 수 있는 경우 오프라인 오류가 발생한 후에 지정된 인증서에 대한 CRL 확인이 사용되지 않는 기간입니다. |
 |CrlOfflineHealthReportTtl|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(1440)|동적|시간 간격은 초 단위로 지정합니다. |
 |DisableFirewallRuleForDomainProfile| bool, 기본값: TRUE |공용| 도메인 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. |
-|DisableFirewallRuleForPrivateProfile| bool, 기본값: TRUE |공용| 개인 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. | 
+|DisableFirewallRuleForPrivateProfile| bool, 기본값: TRUE |공용| 프라이빗 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. | 
 |DisableFirewallRuleForPublicProfile| bool, 기본값: TRUE | 공용|공용 프로필에 대해 방화벽 규칙이 사용되지 않아야 하는지 여부를 나타냅니다. |
 |FabricHostSpn| string, 기본값: "" |공용| 패브릭이 단일 도메인 사용자(gMSA/도메인 사용자 계정)로 실행되고 FabricHost가 컴퓨터 계정에서 실행되는 경우 FabricHost의 서비스 사용자 이름입니다. FabricHost에 대한 IPC 수신기의 SPN입니다. FabricHost는 컴퓨터 계정에서 실행되므로 기본적으로 비워 두어야 합니다. |
 |IgnoreCrlOfflineError|bool, 기본값: FALSE|동적|서버 쪽에서 들어오는 클라이언트 인증서를 확인할 때 CRL 오프라인 오류를 무시할지 여부 |
@@ -652,7 +652,7 @@ ms.locfileid: "65606984"
 |ServerCertThumbprints|string, 기본값: ""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클라이언트에서 이 지문을 사용하여 클러스터를 인증합니다. 쉼표로 구분된 이름 목록입니다. |
 |SettingsX509StoreName| string, 기본값: "MY"| 동적|패브릭에서 구성을 보호하는 데 사용하는 X509 인증서 저장소 |
 |UseClusterCertForIpcServerTlsSecurity|bool, 기본값: FALSE|공용|클러스터 인증서를 사용하여 IPC 서버 TLS 전송 단위의 보안을 유지하는지 여부 |
-|X509Folder|string, 기본값: /var/lib/waagent|공용|X509 인증서와 개인 키가 있는 폴더 |
+|X509Folder|string, 기본값: /var/lib/waagent|공용|X509 인증서와 프라이빗 키가 있는 폴더 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 

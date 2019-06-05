@@ -176,9 +176,9 @@ az disk create \
 
 Azure에서 사용자 지정 VM을 만든 다음, OS 디스크를 복사하고 새 VM에 연결하여 다른 복사본을 만들 수도 있습니다. 테스트에는 적합하지만, 기존 Azure VM을 여러 개의 새 VM에 대한 모델로 사용하려는 경우 *이미지*를 대신 만듭니다. 기존 Azure VM에서 이미지를 만드는 방법에 대한 자세한 내용은 [CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)를 참조하세요.
 
-### <a name="create-a-snapshot"></a>스냅숏 만들기
+### <a name="create-a-snapshot"></a>스냅샷 만들기
 
-이 예에서는 *myResourceGroup*이라는 리소스 그룹에 *myVM*이라는 VM의 스냅숏을 만들고 *osDiskSnapshot*이라는 스냅숏을 만듭니다.
+이 예에서는 *myResourceGroup*이라는 리소스 그룹에 *myVM*이라는 VM의 스냅샷을 만들고 *osDiskSnapshot*이라는 스냅샷을 만듭니다.
 
 ```azure-cli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -189,15 +189,15 @@ az snapshot create \
 ```
 ###  <a name="create-the-managed-disk"></a>관리 디스크 만들기
 
-스냅숏에서 새 관리 디스크를 만듭니다.
+스냅샷에서 새 관리 디스크를 만듭니다.
 
-스냅숏의 ID를 가져옵니다. 이 예제에서 스냅숏 이름은 *osDiskSnapshot*이며 *myResourceGroup* 리소스 그룹에 있습니다.
+스냅샷의 ID를 가져옵니다. 이 예제에서 스냅샷 이름은 *osDiskSnapshot*이며 *myResourceGroup* 리소스 그룹에 있습니다.
 
 ```azure-cli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
-관리 디스크를 만듭니다. 이 예제에서는 스냅숏에서 *myManagedDisk*라는 관리 디스크를 만듭니다. 이 디스크는 표준 저장소에 있으며 크기는 128GB입니다.
+관리 디스크를 만듭니다. 이 예제에서는 스냅샷에서 *myManagedDisk*라는 관리 디스크를 만듭니다. 이 디스크는 표준 저장소에 있으며 크기는 128GB입니다.
 
 ```azure-cli
 az disk create \

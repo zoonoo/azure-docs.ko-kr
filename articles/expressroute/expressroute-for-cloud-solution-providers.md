@@ -16,7 +16,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60367594"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
-Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 개인 통신 링크입니다. 
+Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. ExpressRoute는 Azure에서 고속의 프라이빗 통신 링크입니다. 
 
 ExpressRoute는 단일 고객 구독에 연결되고 여러 고객이 공유할 수 없는 고가용성을 위한 한 쌍의 회로로 구성됩니다. 각 회로는 고가용성을 유지하기 위해 다른 라우터에서 종료해야 합니다.
 
@@ -38,7 +38,7 @@ Microsoft는 CSP에게 사용자 고유의 서비스 관리 시스템과 프로�
 
 Connect-through 모델에서 CSP는 데이터 센터 및 고객의 Azure 구독 간 직접 연결을 만듭니다. 직접 연결은 ExpressRoute를 사용하여 이루어지며 Azure와 함께 네트워크에 연결됩니다. 그런 다음 고객이 네트워크에 연결됩니다. 이 시나리오에서는 고객이 Azure 서비스에 액세스하려면 CSP 네트워크를 통과해야 합니다. 
 
-고객에게 관리하지 않는 다른 Azure 구독이 있는 경우 공용 인터넷 또는 고유의 개인 연결을 사용하여 비CSP 구독으로 프로비전된 해당 서비스에 연결합니다. 
+고객에게 관리하지 않는 다른 Azure 구독이 있는 경우 공용 인터넷 또는 고유의 프라이빗 연결을 사용하여 비CSP 구독으로 프로비전된 해당 서비스에 연결합니다. 
 
 Azure 서비스를 관리하는 CSP의 경우, CSP에는 CSP 구독 관리를 위해 AOBO(Administrate-On-Behalf-Of)를 통해 Azure Active Directory에 복제될 이전에 설정한 고객 ID 저장소가 있다고 가정합니다. 이 시나리오의 핵심 추진력은 지정된 파트너 또는 서비스 공급자가 고객과의 관계를 설정한 경우가 포함되며 고객은 현재 공급자 서비스를 사용 중이고 파트너는 공급자 호스팅 및 Azure 호스팅 솔루션의 조합을 제공하여 유연성을 제공하고 CSP만으로는 해결할 수 없는 고객 과제를 해결하기를 원합니다. 이 모델은 아래 **그림**에 설명되어 있습니다.
 
@@ -75,7 +75,7 @@ ExpressRoute는 50Mb/s ~ 10Gb/s까지 네트워크 속도를 지원합니다. �
 ExpressRoute는 고속 연결을 효율적으로 활용하기 위해 여러 vNet에서 단일 ExpressRoute 회로로의 연결을 지원합니다. 동일한 고객을 소유 하는 여러 Azure 구독 중에서 단일 ExpressRoute 회로를 공유할 수 있습니다.
 
 ## <a name="configuring-expressroute"></a>ExpressRoute 구성
-단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#expressroute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 개인 피어링으로 분리됩니다. ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 사설 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
+단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#expressroute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 프라이빗 피어링으로 분리됩니다. ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 프라이빗 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
 
 ### <a name="connect-through-model"></a>Connect-through 모델
 connect-through 구성에서는 고객 데이터 센터 리소스를 Azure에서 호스트된 구독으로 연결하기 위한 모든 네트워킹 기초를 사용자가 담당합니다. Azure 기능을 사용하려는 각 고객은 고유한 ExpressRoute 연결이 필요하며 이는 사용자가 관리합니다. 사용자는 ExpressRoute 회로를 확보하는 데 고객이 사용하는 것과 동일한 방법을 사용합니다. 회로 프로비전 및 회로 상태에 대한 [ExpressRoute 워크플로](expressroute-workflows.md) 문서에 설명된 동일한 단계를 따릅니다. 그런 다음 온-프레미스 네트워크와 Azure vNet 간의 트래픽 흐름을 제어하기 위해 BGP(Border Gateway Protocol) 경로를 구성합니다.
@@ -86,7 +86,7 @@ connect-to 구성에서 고객은 Azure에 대한 기존 연결을 보유하거�
 데이터 센터의 리소스가 데이터 센터의 클라이언트 리소스 또는 Azure에서 호스트된 리소스와 통신하도록 연결 설정 및 경로 구성을 지원할 수 있습니다.
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 라우팅 도메인
-ExpressRoute는 공용, 개인 및 Microsoft 피어링의 세 가지 라우팅 도메인을 제공합니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 구성에서 동일한 라우터로 구성됩니다. ExpressRoute 라우팅 도메인에 대한 자세한 내용은 [여기](expressroute-circuit-peerings.md)를 확인하세요.
+ExpressRoute는 공용, 프라이빗 및 Microsoft 피어링의 세 가지 라우팅 도메인을 제공합니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 구성에서 동일한 라우터로 구성됩니다. ExpressRoute 라우팅 도메인에 대한 자세한 내용은 [여기](expressroute-circuit-peerings.md)를 확인하세요.
 
 허용 또는 필요한 경로만 허용하도록 사용자 지정 경로 필터를 정의할 수 있습니다. 자세한 내용 또는 이러한 변경을 수행하는 방법을 보려면 다음 문서를 참조하세요. 라우팅 필터에 대한 자세한 내용은 [PowerShell을 사용하여 ExpressRoute 회로에 대한 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)을 참조하세요.
 
@@ -115,7 +115,7 @@ Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트�
 사용자 정의 경로를 사용하여 가상 네트워크의 할당된 서브넷에서 다른 서브넷으로 또는 기타 미리 정의된 게이트웨이 중 하나를 통한 트래픽 아웃바운드를 제어할 수 있습니다(ExpressRoute, 인터넷 또는 VPN). 기본 시스템 라우팅 테이블을 기본 라우팅 테이블을 사용자 지정 경로로 대체하는 사용자 정의 라우팅 테이블로 대체할 수 있습니다. 사용자 정의 라우팅을 사용하면 고객은 방화벽, 침입 탐지 어플라이언스와 같은 어플라이언스로 특정 경로를 만들거나 사용자 정의 경로를 호스팅하는 서브넷에서 특정 서브넷으로 액세스를 차단할 수 있습니다. 사용자 정의 경로에 대한 개요는 [여기](../virtual-network/virtual-networks-udr-overview.md)에서 확인하세요. 
 
 ## <a name="security"></a>보안
-사용 중인 모델(Connect-To 또는 Connect-Through)에 따라 고객은 vNet에 보안 정책을 정의하고 CSP에 vNet에 대해 정의할 보안 정책 요구 사항을 제공합니다.  다음 보안 기준을 정의할 수 있습니다.
+사용 중인 모델(Connect-To 또는 Connect-Through)에 따라 고객은 vNet에 보안 정책을 정의하고 CSP에 vNet에 대해 정의할 보안 정책 요구 사항을 제공합니다. 다음 보안 기준을 정의할 수 있습니다.
 
 1. **고객 격리** - Azure 플랫폼은 안전한 데이터베이스에 GRE 터널에서 각 고객의 트래픽을 캡슐화하는 데 사용되는 고객 ID 및 vNet 정보를 저장하여 고객 격리를 제공합니다.
 2. **NSG(네트워크 보안 그룹)** 규칙은 Azure의 vNet 내에서 서브넷 내부 및 외부로 허용된 트래픽을 정의하기 위한 것입니다. 기본적으로 NSG에는 인터넷에서 vNet으로 트래픽을 차단하는 차단 규칙과 vNet 내의 트래픽에 대한 허용 규칙이 포함됩니다. 네트워크 보안 그룹에 대한 자세한 내용은 [여기](https://azure.microsoft.com/blog/network-security-groups/)를 확인하세요.

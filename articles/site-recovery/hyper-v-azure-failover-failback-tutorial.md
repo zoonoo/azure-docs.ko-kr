@@ -35,7 +35,7 @@ ms.locfileid: "58314861"
 
 ## <a name="prepare-for-failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback) 준비
 
-VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM이 꺼져 있는지 확인해야 합니다. 이렇게 하면 복제 중 데이터 일관성을 보장할 수 있습니다. 장애 복구(failback) 시 온-프레미스 VM을 켜지 마십시오. 
+VM에서 스냅샷이 없으며 장애 복구(failback) 시 온-프레미스 VM이 꺼져 있는지 확인해야 합니다. 이렇게 하면 복제 중 데이터 일관성을 보장할 수 있습니다. 장애 복구(failback) 시 온-프레미스 VM을 켜지 마십시오. 
 
 장애 조치(failover)및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 

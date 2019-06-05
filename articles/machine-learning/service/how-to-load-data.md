@@ -264,7 +264,7 @@ az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
 
-이 명령은 인증서 파일에 대한 경로 및 `appId`를 내보냅니다(일반적으로 홈 폴더에서). .crt 파일은 공용 인증서와 개인 키를 PEM 형식으로 모두 포함합니다.
+이 명령은 인증서 파일에 대한 경로 및 `appId`를 내보냅니다(일반적으로 홈 폴더에서). .crt 파일은 공용 인증서와 프라이빗 키를 PEM 형식으로 모두 포함합니다.
 
 ```
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint

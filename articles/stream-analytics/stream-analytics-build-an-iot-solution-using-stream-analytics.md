@@ -89,7 +89,7 @@ ms.locfileid: "60201513"
 | LicensePlate |차량 번호판 번호 |
 
 ### <a name="commercial-vehicle-registration-data"></a>화물 차량 등록 데이터
-이 솔루션에서는 화물 차량 등록 데이터베이스의 정적 스냅숏을 사용합니다. 이 데이터는 샘플에 포함된 Azure Blob Storage에 JSON 파일로 저장됩니다.
+이 솔루션에서는 화물 차량 등록 데이터베이스의 정적 스냅샷을 사용합니다. 이 데이터는 샘플에 포함된 Azure Blob Storage에 JSON 파일로 저장됩니다.
 
 | LicensePlate | RegistrationId | 만료됨 |
 | --- | --- | --- |
@@ -249,7 +249,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>등록이 만료된 차량 보고
-Azure Stream Analytics는 참조 데이터의 고정 스냅숏을 사용하여 임시(temporal) 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다. 등록 입력은 라이선스 태그의 만료를 나열하는 고정 Blob json 파일입니다. 번호판에 조인하여 요금소를 통과하는 각 자동차에 참조 데이터를 비교합니다.
+Azure Stream Analytics는 참조 데이터의 고정 스냅샷을 사용하여 임시 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다. 등록 입력은 라이선스 태그의 만료를 나열하는 고정 Blob json 파일입니다. 번호판에 조인하여 요금소를 통과하는 각 자동차에 참조 데이터를 비교합니다.
 
 화물 차량이 요금 회사에 등록된 경우 검사받기 위해 정차하지 않고 요금 창구를 통과할 수 있습니다. 등록 조회 표를 사용하여 등록 기간이 만료된 모든 화물 차량을 식별합니다.
 

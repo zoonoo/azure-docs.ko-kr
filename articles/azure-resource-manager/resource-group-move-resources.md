@@ -235,7 +235,7 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 ### <a name="app-service-certificate-limitations"></a>App Service Certificate 제한 사항
 
-App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 개인 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 개인 인증서만 삭제하면 됩니다.
+App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 프라이빗 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 프라이빗 인증서만 삭제하면 됩니다.
 
 ### <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 
@@ -363,7 +363,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
    (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
    ```
 
-   Azure CLI의 경우 
+   Azure CLI의 경우
 
    ```azurecli-interactive
    az account show --subscription <your-source-subscription> --query tenantId

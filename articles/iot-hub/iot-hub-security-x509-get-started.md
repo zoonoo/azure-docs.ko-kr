@@ -64,7 +64,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
    ![인증서 확인](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-8. 이제 서명을 생성하는 X.509 CA 인증서와 연결된 개인 키로 이 *확인 코드*에 서명해야 합니다. 이 서명 프로세스를 수행하는 데 사용할 수 있는 도구(예: OpenSSL)가 있습니다. 이것을 [소유 증명](https://tools.ietf.org/html/rfc5280#section-3.1)이라고 합니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 3단계는 확인 코드를 생성합니다.
+8. 이제 서명을 생성하는 X.509 CA 인증서와 연결된 프라이빗 키로 이 *확인 코드*에 서명해야 합니다. 이 서명 프로세스를 수행하는 데 사용할 수 있는 도구(예: OpenSSL)가 있습니다. 이것을 [소유 증명](https://tools.ietf.org/html/rfc5280#section-3.1)이라고 합니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 3단계는 확인 코드를 생성합니다.
 
 9. 위의 8단계에서 생성된 서명을 포털의 IoT Hub에 업로드합니다. Azure Portal의 **인증서 세부 정보** 블레이드에서 **확인 인증서 .pem 또는 .cer 파일입니다.** 로 이동하여 서명을 선택합니다. 예를 들어 옆에 있는 _파일 탐색기_ 아이콘을 사용하여 샘플 PowerShell 명령으로 생성된 *VerifyCert4.cer*을 선택합니다.
 

@@ -16,7 +16,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "66117854"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
-이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
+이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
 
 -   고객 네트워크
 -   공급자 네트워크
@@ -165,7 +165,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
 >
 
 ## <a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
-서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 개인 피어링(Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
+서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 프라이빗 피어링(Azure에서 프라이빗 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
 
 ### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 
@@ -178,7 +178,7 @@ Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴�
 
 ![5][5]
 
-앞의 예제에서 명시한 대로 Azure 개인 피어링 라우팅 컨텍스트는 사용할 수 있지만, Azure 공용 피어링 및 Microsoft 피어링 라우팅 컨텍스트는 사용할 수 없습니다. 또한 성공적으로 사용되는 피어링 컨텍스트에는 기본 및 보조 지점 간(BGP에 필수) 서브넷이 나열되어 있습니다. /30 서브넷은 MSEE 및 PE-MSEE의 인터페이스 IP 주소에 사용됩니다. 
+앞의 예제에서 명시한 대로 Azure 프라이빗 피어링 라우팅 컨텍스트는 사용할 수 있지만, Azure 공용 피어링 및 Microsoft 피어링 라우팅 컨텍스트는 사용할 수 없습니다. 또한 성공적으로 사용되는 피어링 컨텍스트에는 기본 및 보조 지점 간(BGP에 필수) 서브넷이 나열되어 있습니다. /30 서브넷은 MSEE 및 PE-MSEE의 인터페이스 IP 주소에 사용됩니다. 
 
 > [!NOTE]
 > 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 PE-MSEE의 구성과 일치하는지 확인합니다. 그렇지 않은 경우 MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
@@ -186,12 +186,12 @@ Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴�
 >
 
 ### <a name="verification-via-powershell"></a>PowerShell을 통한 확인
-Azure 개인 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
+Azure 프라이빗 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
 
     $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-성공적으로 구성된 개인 피어링에 대한 샘플 응답은 다음과 같습니다.
+성공적으로 구성된 프라이빗 피어링에 대한 샘플 응답은 다음과 같습니다.
 
     Name                       : AzurePrivatePeering
     Id                         : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt/peerings/AzurePrivatePeering
@@ -236,11 +236,11 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 ### <a name="verification-via-powershell-classic"></a>PowerShell(클래식)을 통한 확인
-Azure 개인 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
+Azure 프라이빗 피어링 구성 세부 정보를 가져오려면 다음 명령을 사용합니다.
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
-성공적으로 구성된 개인 피어링에 대한 샘플 응답은 다음과 같습니다.
+성공적으로 구성된 프라이빗 피어링에 대한 샘플 응답은 다음과 같습니다.
 
     AdvertisedPublicPrefixes       : 
     AdvertisedPublicPrefixesState  : Configured
@@ -283,7 +283,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 >
 
-개인 피어링을 위해 기본 MSEE 라우터에서 ARP 테이블을 가져오려면 다음 명령을 사용합니다.
+프라이빗 피어링을 위해 기본 MSEE 라우터에서 ARP 테이블을 가져오려면 다음 명령을 사용합니다.
 
     Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -295,7 +295,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-마찬가지로 *개인*/*공용*/*Microsoft* 피어링의 *기본*/*보조* 경로에 있는 MSEE에서 ARP 테이블을 확인할 수 있습니다.
+마찬가지로 *프라이빗*/*공용*/*Microsoft* 피어링의 *기본*/*보조* 경로에 있는 MSEE에서 ARP 테이블을 확인할 수 있습니다.
 
 다음 예제에서는 피어링에 대한 명령의 응답이 없음을 보여 줍니다.
 
@@ -339,7 +339,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 >
 
-특정 *개인* 라우팅 컨텍스트의 *기본* 경로에 있는 MSEE에서 전체 라우팅 테이블을 가져오려면 다음 명령을 사용합니다.
+특정 *프라이빗* 라우팅 컨텍스트의 *기본* 경로에 있는 MSEE에서 전체 라우팅 테이블을 가져오려면 다음 명령을 사용합니다.
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -352,7 +352,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-마찬가지로 *개인*/*공용*/*Microsoft* 피어링 컨텍스트의 *기본*/*보조* 경로에 있는 MSEE에서 라우팅 테이블을 확인할 수 있습니다.
+마찬가지로 *프라이빗*/*공용*/*Microsoft* 피어링 컨텍스트의 *기본*/*보조* 경로에 있는 MSEE에서 라우팅 테이블을 확인할 수 있습니다.
 
 다음 예제에서는 피어링에 대한 명령의 응답이 없음을 보여 줍니다.
 

@@ -124,7 +124,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 | 컴퓨팅 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다. |
 | 컴퓨팅 | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |
 | 컴퓨팅 | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 Virtual Machines에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
-| 컴퓨팅 | 백업 또는 스냅숏 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)의 지침에 따라 마이그레이션 전에 생성된 백업을 유지할 수 있습니다.  |
+| 컴퓨팅 | 백업 또는 스냅샷 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)의 지침에 따라 마이그레이션 전에 생성된 백업을 유지할 수 있습니다.  |
 | 네트워크 |가상 머신과 웹/작업자 역할이 포함된 가상 네트워크 |현재는 지원되지 않습니다. 마이그레이션하기 전에 웹/작업자 역할을 자체 Virtual Network로 이동하세요. 클래식 Virtual Network가 마이그레이션되면 마이그레이션된 Azure Resource Manager Virtual Network가 이전과 비슷한 구성을 얻기 위해 클래식 Virtual Network와 페어링될 수 있습니다.|
 | 네트워크 | 클래식 ExpressRoute 회로 |현재는 지원되지 않습니다. 이러한 회로는 IaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.|
 | Azure App Service |App Service 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |

@@ -208,7 +208,7 @@ ms.locfileid: "66306791"
     </Certificates>
     ```
 
-2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
+2. 이 클러스터에 애플리케이션을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 프라이빗 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 프라이빗 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
     openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

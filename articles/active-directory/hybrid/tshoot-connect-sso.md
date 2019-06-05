@@ -31,7 +31,7 @@ ms.locfileid: "60381895"
 - Microsoft Edge 브라우저는 지원되지 않습니다.
 - Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec)가 작동하지 않습니다.
 - 버전 16.0.8730.xxxx 이상의 Office 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
-- Firefox의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
+- Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
 - 사용자가 Active Directory에 있는 여러 그룹의 일부인 경우 사용자의 Kerberos 티켓은 처리하기에 너무 크기 때문에 원활한 SSO에 실패하게 됩니다. Azure AD HTTPS 요청에는 최대 50KB 크기인 헤더가 포함될 수 있습니다. Kerberos 티켓은 쿠키 등 다른 Azure AD 아티팩트(일반적으로 2~5KB)를 수용하는 제한보다 작아야 합니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도하는 것이 좋습니다.

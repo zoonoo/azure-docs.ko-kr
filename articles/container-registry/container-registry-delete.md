@@ -22,7 +22,7 @@ Azure Container Registry의 크기를 유지하려면 오래된 이미지 데이
 
 ## <a name="registry"></a>레지스트리
 
-컨테이너 *레지스트리*는 컨테이너 이미지를 저장하고 배포하는 서비스입니다. Docker 허브는 공용 Docker 컨테이너 레지스트리이지만 Azure Container Registry는 Azure의 개인 Docker 컨테이너 레지스트리입니다.
+컨테이너 *레지스트리*는 컨테이너 이미지를 저장하고 배포하는 서비스입니다. Docker 허브는 공용 Docker 컨테이너 레지스트리이지만 Azure Container Registry는 Azure의 프라이빗 Docker 컨테이너 레지스트리입니다.
 
 ## <a name="repository"></a>리포지토리
 
@@ -54,7 +54,7 @@ product-returns/legacy-integrator:20180715
 
 리포지토리(또는 리포지토리 및 네임스페이스)와 태그는 이미지의 이름을 정의합니다. 밀어넣기 및 끌어오기 작업에서 해당 이름을 지정하여 이미지를 밀어넣고 끌어올 수 있습니다.
 
-Azure Container Registry 같은 개인 레지스트리에서 이미지 이름에는 레지스트리 호스트의 정규화된 이름도 포함됩니다. ACR 이미지 레지스트리 호스트가 형식에서 *acrname.azurecr.io* (모두 소문자). 예를 들어, 이전 섹션에서 "marketing" 네임 스페이스의 첫 번째 이미지의 전체 이름을 다음과 같습니다.
+Azure Container Registry 같은 프라이빗 레지스트리에서 이미지 이름에는 레지스트리 호스트의 정규화된 이름도 포함됩니다. ACR 이미지 레지스트리 호스트가 형식에서 *acrname.azurecr.io* (모두 소문자). 예를 들어, 이전 섹션에서 "marketing" 네임 스페이스의 첫 번째 이미지의 전체 이름을 다음과 같습니다.
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2

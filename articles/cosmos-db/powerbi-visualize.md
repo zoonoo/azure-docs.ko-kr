@@ -36,7 +36,7 @@ ms.locfileid: "65979003"
 
    * **원본 매개 변수** 
 
-       * **가져올 위치:**: JSON 파일
+       * **가져올 위치:** : JSON 파일
 
    * **대상 매개 변수** 
 
@@ -72,7 +72,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 1. Power BI Desktop을 실행합니다.
 
-2. 시작 화면에서 직접 **데이터를 가져오고**, **최근 원본** 또는 **다른 보고서를 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
+2. 시작 화면에서 직접 **데이터 가져오기**, **최근 원본** 또는 **다른 보고서 열기**를 선택할 수 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
    
    ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 
@@ -96,7 +96,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 10. 이제 검색할 데이터포를 함하는 컬렉션을 선택하고 **volcano1**(컬렉션 이름은 다를 수 있음)을 선택합니다.
     
-    미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드**입니다.
+    미리 보기 창에는 **Record** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **Record** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **Record**입니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 탐색기 창](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
 12. **편집**을 클릭하여 새 창에서 쿼리 편집기를 시작해 데이터를 변환합니다.
@@ -110,11 +110,13 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 3. 가운데 창에는 선택한 필드와 함께 결과의 미리 보기가 표시됩니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 결과 평면화](./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png)
-4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다.  보이는 것처럼 위치는 Power BI 데스크톱에서 **레코드** 형식으로 나타납니다.  
+
+4. 이 예제에서 위치 속성은 문서의 GeoJSON 블록입니다. 보이는 것처럼 위치는 Power BI 데스크톱에서 **Record** 형식으로 나타납니다.  
 5. Document.Location 열 헤더의 오른쪽에 있는 확장 아이콘을 클릭합니다.  유형 및 좌표 필드가 있는 상황에 맞는 메뉴가 표시됩니다.  좌표 필드를 선택하고, **원래 열 이름을 접두사로 사용**의 선택을 취소하고, **확인**을 클릭합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 위치 레코드](./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png)
-6. 이제 가운데 창에는 **목록** 유형의 좌표 열이 표시됩니다.  자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
+6. 이제 가운데 창에는 **List** 유형의 좌표 열이 표시됩니다. 자습서의 시작 부분에서 본 것처럼 이 자습서의 GeoJSON 데이터는 지점 유형으로, 위도와 경도 값이 좌표 배열에 기록됩니다.
+
    
     좌표 [0] 요소는 경도를, 좌표 [1]은 위도를 나타냅니다.
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 좌표 목록](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
@@ -122,7 +124,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 8. LatLong 등, 새 열에 대한 이름을 입력합니다.
 9. 다음으로 새 열에 사용자 지정 수식을 지정합니다.  이 예에서는 `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`수식을 사용하여 쉼표로 구분하여 위도와 경도 값을 연결합니다. **확인**을 클릭합니다.
    
-    자세한 내용은에서 데이터 분석 식 (DAX) DAX 함수를 포함 하 여 참조 하세요 [Power BI Desktop의 DAX 기본 사항](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)합니다.
+    DAX 함수를 포함하여 DAX(Data Analysis Expressions)에 대한 자세한 내용은 [Power BI Desktop의 DAX 기본 사항](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)을 확인합니다.
    
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 사용자 지정 열 추가](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
@@ -136,7 +138,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
     
     단계가 다른 경우 추가 단계를 삭제하고 사용자 지정 열을 다시 추가해 보십시오. 
 
-11. **닫고 적용** 을 클릭하여 데이터 모델을 저장합니다.
+11. **닫기 및 적용**을 클릭하여 데이터 모델을 저장합니다.
     
     ![Azure Cosmos DB Power BI Connector에 대한 Power BI 자습서 - 닫기 및 적용](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 

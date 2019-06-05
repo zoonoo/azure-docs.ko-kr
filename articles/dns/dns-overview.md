@@ -49,11 +49,11 @@ DNS 요금 청구는 Azure에서 호스팅되는 DNS 영역의 수와 수신되�
 
 도메인과 레코드는 Azure Portal, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 사용하여 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 사용하여 서비스와 통합할 수 있습니다.
 
-## <a name="customizable-virtual-networks-with-private-domains"></a>개인 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
+## <a name="customizable-virtual-networks-with-private-domains"></a>프라이빗 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
 
-Azure DNS는 개인 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 개인 가상 네트워크에 사용할 수 있습니다.
+Azure DNS는 프라이빗 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 프라이빗 가상 네트워크에 사용할 수 있습니다.
 
-자세한 내용은 [개인 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
+자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
 
 ## <a name="alias-records"></a>별칭 레코드
 

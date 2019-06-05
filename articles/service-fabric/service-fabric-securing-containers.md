@@ -23,7 +23,7 @@ ms.locfileid: "60837694"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 
-인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 인증서는 클러스터의 모든 노드에서 LocalMachine 아래 인증서 저장소에 설치해야 합니다. 인증서에 해당하는 개인 키는 사용이 가능하고, 액세스가 가능하며 Windows에서 내보낼 수 있어야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
+인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 인증서는 클러스터의 모든 노드에서 LocalMachine 아래 인증서 저장소에 설치해야 합니다. 인증서에 해당하는 프라이빗 키는 사용이 가능하고, 액세스가 가능하며 Windows에서 내보낼 수 있어야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ ms.locfileid: "60837694"
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Windows 클러스터의 경우 애플리케이션을 시작할 때 런타임은 참조된 각 인증서와 해당 개인 키를 임의로 생성된 암호로 보호되는 PFX 파일로 내보냅니다. PFX 및 암호 파일은 각각 다음 환경 변수를 사용하여 컨테이너 내부에 액세스할 수 있습니다. 
+Windows 클러스터의 경우 애플리케이션을 시작할 때 런타임은 참조된 각 인증서와 해당 프라이빗 키를 임의로 생성된 암호로 보호되는 PFX 파일로 내보냅니다. PFX 및 암호 파일은 각각 다음 환경 변수를 사용하여 컨테이너 내부에 액세스할 수 있습니다. 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

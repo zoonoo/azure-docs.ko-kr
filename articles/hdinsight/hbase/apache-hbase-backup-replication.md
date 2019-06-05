@@ -22,7 +22,7 @@ Apache HBase는 데이터 손실을 방지하기 위한 몇 가지 방법을 지
 * `hbase` 폴더 복사
 * 내보낸 후 가져오기
 * 테이블 복사
-* 스냅숏
+* 스냅샷
 * 복제
 
 > [!NOTE]  
@@ -153,15 +153,15 @@ curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, 
 
     <destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure
 
-## <a name="snapshots"></a>스냅숏
+## <a name="snapshots"></a>스냅샷
 
-스냅숏을 사용하면 HBase 데이터 저장소에서 데이터에 대한 특정 시점 백업을 수행할 수 있습니다. 스냅숏 작업은 실질적으로 해당 시점에서 저장소에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅숏은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅숏이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅숏은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅숏은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
+스냅샷을 사용하면 HBase 데이터 저장소에서 데이터에 대한 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 저장소에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
 
-스냅숏을 만들려면 HDInsight HBase 클러스터의 헤드 노드에 SSH를 연결하고 `hbase` 셸을 시작합니다.
+스냅샷을 만들려면 HDInsight HBase 클러스터의 헤드 노드에 SSH를 연결하고 `hbase` 셸을 시작합니다.
 
     hbase shell
 
-hbase 셸 내에서 테이블 및 이 스냅숏의 이름이 포함된 snapshot 명령을 사용합니다.
+hbase 셸 내에서 테이블 및 이 스냅샷의 이름이 포함된 snapshot 명령을 사용합니다.
 
     snapshot '<tableName>', '<snapshotName>'
 
@@ -171,11 +171,11 @@ hbase 셸 내에서 테이블 및 이 스냅숏의 이름이 포함된 snapshot 
     restore_snapshot '<snapshotName>'
     enable '<tableName>'
 
-스냅숏을 새 테이블에 복원하려면 clone_snapshot을 사용합니다.
+스냅샷을 새 테이블에 복원하려면 clone_snapshot을 사용합니다.
 
     clone_snapshot '<snapshotName>', '<newTableName>'
 
-다른 클러스터에서 사용할 수 있도록 스냅숏을 HDFS로 내보내려면, 먼저 앞에서 설명한 대로 스냅숏을 만든 다음, ExportSnapshot 유틸리티를 사용합니다. 이 유틸리티는 SSH 세션 내에서 `hbase` 셸이 아닌 헤드 노드로 실행합니다.
+다른 클러스터에서 사용할 수 있도록 스냅샷을 HDFS로 내보내려면, 먼저 앞에서 설명한 대로 스냅샷을 만든 다음, ExportSnapshot 유틸리티를 사용합니다. 이 유틸리티는 SSH 세션 내에서 `hbase` 셸이 아닌 헤드 노드로 실행합니다.
 
      hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
 
@@ -183,9 +183,9 @@ hbase 셸 내에서 테이블 및 이 스냅숏의 이름이 포함된 snapshot 
 
     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 
-스냅숏을 내보낸 후 SSH를 대상 클러스터의 헤드 노드에 연결하고, 앞에서 설명한 대로 restore_snapshot 명령을 사용하여 스냅숏을 복원합니다.
+스냅샷을 내보낸 후 SSH를 대상 클러스터의 헤드 노드에 연결하고, 앞에서 설명한 대로 restore_snapshot 명령을 사용하여 스냅샷을 복원합니다.
 
-스냅숏은 `snapshot` 명령을 실행할 때 테이블의 전체 백업을 제공합니다. 스냅숏은 시간 범위에 따라 증분 스냅숏을 수행하거나 스냅숏에 포함할 열 패밀리의 하위 집합을 지정하는 기능을 제공하지 않습니다.
+스냅샷은 `snapshot` 명령을 실행할 때 테이블의 전체 백업을 제공합니다. 스냅샷은 시간 범위에 따라 증분 스냅샷을 수행하거나 스냅샷에 포함할 열 패밀리의 하위 집합을 지정하는 기능을 제공하지 않습니다.
 
 ## <a name="replication"></a>복제
 

@@ -26,10 +26,10 @@ Site Recovery를 사용하면 Azure VM 데이터를 Azure에 복제하여 Azure 
 - Azure VM이 관리 디스크를 사용하지 않는 경우 VM 데이터는 Azure 저장소 계정에 복제됩니다.
 - 복제 엔드포인트는 공용이지만 Azure VM에 대한 복제 트래픽은 인터넷을 벗어나지 않습니다.
 
-ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft Azure 클라우드로 확장할 수 있습니다. ExpressRoute를 구성한 경우 다음과 같이 Site Recovery와 통합합니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft Azure 클라우드로 확장할 수 있습니다. ExpressRoute를 구성한 경우 다음과 같이 Site Recovery와 통합합니다.
 
 - **Azure 지역 간에 복제하는 동안**: Azure VM 재해 복구에 대한 복제 트래픽이 Azure 내에만 있으며 ExpressRoute는 복제에 필요하지 않거나 사용되지 않습니다. 그러나 온-프레미스 사이트에서 기본 Azure 사이트의 Azure VM에 연결하는 경우 해당 Azure VM에 대해 재해 복구를 설정할 때 주의해야 할 여러 가지 문제가 있습니다.
-- **Azure 지역 간 장애 조치(failover)**: 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
+- **Azure 지역 간 장애 조치(failover)** : 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -95,7 +95,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
   - 서브넷 간 통신은 모두 이 허브를 통해 이루어집니다.
     - **허브 vNet 서브넷**합니다. 허브 vNet에는 두 개의 서브넷에 있습니다.
     - **NVA 서브넷**: 10.10.10.0/25. 이 서브넷은 NVA(10.10.10.10)를 포함합니다.
-    - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 개인 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
+    - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 프라이빗 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
 - 온-프레미스 데이터 센터에는 홍콩의 파트너 에지를 통해 ExpressRoute 회로에 연결됩니다.
 - 모든 라우팅은 Azure 경로 테이블(UDR)을 통해 제어됩니다.
 - vNet 간 또는 온-프레미스 데이터 센터에 대한 모든 아웃바운드 트래픽은 NVA를 통해 라우팅됩니다.
@@ -136,7 +136,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>ExpressRoute를 사용할 때 Azure VM 장애 조치
 
-Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 조치한 후 ExpressRoute [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 이들에 액세스할 수 있습니다.
+Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 조치한 후 ExpressRoute [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 이들에 액세스할 수 있습니다.
 
 - 새 연결을 사용하여 대상 vNet에 ExpressRoute를 연결해야 합니다. 기존 ExpressRoute 연결은 자동으로 전송되지 않습니다.
 - 대상 vNet에 ExpressRoute 연결을 설정하는 방법은 ExpressRoute 토폴로지에 따라 달라집니다.
@@ -181,7 +181,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 이 예제에서는 다음과 같은 토폴로지를 사용합니다.
 
 - 서로 다른 두 피어링 위치에 서로 다른 두 개의 ExpressRoute 피어링 회로.
-- 장애 조치 후 Azure VM에 대해 사설 IP 주소 유지.
+- 장애 조치 후 Azure VM에 대해 개인 IP 주소 유지.
 - 대상 복구 하위 지역은 Azure 동남아시아입니다.
 - 보조 ExpressRoute 회로 연결은 싱가포르의 파트너 에지를 통해 설정됩니다.
 

@@ -51,7 +51,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
 - **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
-- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 개인 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
+- **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지�
 Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios"></a>하이브리드 시나리오
-하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
+하이브리드 시나리오에서는 자체 호스팅 통합 런타임을 온-프레미스 네트워크, 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 자체 호스팅 통합 런타임에서 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임을 만들고 구성하는 방법](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)을 참조하세요. 
 
 ![자체 호스팅 통합 런타임 채널](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -131,14 +131,14 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 
 또한 [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) 또는 [Azure ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하여 온-프레미스 네트워크와 Azure 사이의 통신 채널을 더욱 안전하게 보호할 수 있습니다.
 
-Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 ExpressRoute(비공개 피어링)를 설정하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수 있습니다.    
+Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 ExpressRoute(프라이빗 피어링)를 설정하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수 있습니다.    
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 자체 호스팅 통합 런타임 구성 권장 사항을 요약한 것입니다.
 
 | 원본      | 대상                              | 네트워크 구성                    | 통합 런타임 설정                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
 | 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute (Microsoft 피어 링)            | 자체 호스팅된 integration runtime에서 온-프레미스 설치 수 또는 Azure 가상 컴퓨터에 있습니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.

@@ -57,7 +57,7 @@ SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용되는 값은 **true**, **false**(기본값)입니다.  | 아닙니다. |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | “skipHostKeyValidation”이 false로 설정된 경우 예  |
 | authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
@@ -103,14 +103,14 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | SFTP 서버에 액세스하는 사용자 |예 |
-| privateKeyPath | Integration Runtime에서 액세스할 수 있는 개인 키 파일의 절대 경로를 지정합니다. 자체 호스팅된 유형의 Integration Runtime이 “connectVia”에 지정된 경우에만 적용됩니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다.  |
-| privateKeyContent | Base64 인코딩된 SSH 개인 키 콘텐츠입니다. SSH 개인 키가 OpenSSH 형식이어야 합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
-| passPhrase | 키 파일이 암호문으로 보호되는 경우 개인 키를 해독하는 암호문/암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 개인 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
+| privateKeyPath | Integration Runtime에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. 자체 호스팅된 유형의 Integration Runtime이 “connectVia”에 지정된 경우에만 적용됩니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다.  |
+| privateKeyContent | Base64 인코딩된 SSH 프라이빗 키 콘텐츠입니다. SSH 프라이빗 키가 OpenSSH 형식이어야 합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
+| passPhrase | 키 파일이 암호문으로 보호되는 경우 프라이빗 키를 해독하는 암호문/암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 프라이빗 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
 
 > [!NOTE]
-> SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 개인 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다. 
+> SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 프라이빗 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다. 
 
-**예제 1: 개인 키 filePath를 사용한 SshPublicKey 인증**
+**예제 1: 프라이빗 키 filePath를 사용한 SshPublicKey 인증**
 
 ```json
 {
@@ -138,7 +138,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 }
 ```
 
-**예제 2: 개인 키 콘텐츠를 사용한 SshPublicKey 인증**
+**예제 2: 프라이빗 키 콘텐츠를 사용한 SshPublicKey 인증**
 
 ```json
 {

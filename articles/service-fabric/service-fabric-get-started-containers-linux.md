@@ -179,7 +179,7 @@ Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
- 컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
+ 컨테이너가 프라이빗 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
 
 ```xml
    <ServiceManifestImport>

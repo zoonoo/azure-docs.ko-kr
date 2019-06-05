@@ -33,7 +33,7 @@ SQL Data Warehouse용 PolyBase ELT을 구현하는 기본적인 단계는 다음
 1. 원본 데이터를 텍스트 파일로 추출합니다.
 2. Azure Blob Storage 또는 Azure Data Lake Store에 데이터를 둡니다.
 3. 로드할 데이터를 준비합니다.
-4. PolyBase를 사용하여 데이터를 SQL Data Warehouse 스테이징 테이블로 로드합니다.  
+4. PolyBase를 사용하여 데이터를 SQL Data Warehouse 스테이징 테이블로 로드합니다. 
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
@@ -82,7 +82,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../storage/blo
 
 데이터를 Azure Storage로 이동하는 데 사용할 수 있는 도구와 서비스는 다음과 같습니다.
 
-- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 서비스는 네트워크 처리량, 성능 및 예측 가능성을 개선합니다. ExpressRoute는 Azure에 대한 전용 비공개 연결을 통해 데이터를 라우팅하는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 통해 데이터를 라우팅하지 않습니다. 이 연결은 공용 인터넷을 통한 일반적인 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 서비스는 네트워크 처리량, 성능 및 예측 가능성을 개선합니다. ExpressRoute는 Azure에 대한 전용 프라이빗 연결을 통해 데이터를 라우팅하는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 통해 데이터를 라우팅하지 않습니다. 이 연결은 공용 인터넷을 통한 일반적인 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 - [AZCopy 유틸리티](../storage/common/storage-moving-data.md)는 공용 인터넷을 통해 Azure Storage로 데이터를 이동합니다. 이는 데이터 크기가 10TB 미만인 경우에 작동합니다. AZCopy를 사용하여 정기적으로 로드를 수행하려면 네트워크 속도를 테스트하여 가능한지 확인하세요. 
 - [ADF(Azure Data Factory)](../data-factory/introduction.md)에는 로컬 서버에 설치할 수 있는 게이트웨이가 있습니다. 그런 다음 파이프라인을 만들어 로컬 서버에서 Azure Storage로 데이터를 이동할 수 있습니다. SQL Data Warehouse에 데이터 팩터리를 사용하려면 [SQL Data Warehouse로 데이터 로드](/azure/data-factory/load-azure-sql-data-warehouse)를 참조하세요.
 
@@ -139,7 +139,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 
 INSERT INTO ... SELECT 문은 스테이징 테이블에서 영구 테이블로 데이터를 이동합니다. 
 
-ETL 프로세스를 설계할 때 작은 테스트 샘플에서 프로세스를 실행해 보세요. 테이블에서 파일로 1000개 행을 추출하여 Azure로 이동한 다음 스테이징 테이블에 로드해 보세요.  
+ETL 프로세스를 설계할 때 작은 테스트 샘플에서 프로세스를 실행해 보세요. 테이블에서 파일로 1000개 행을 추출하여 Azure로 이동한 다음 스테이징 테이블에 로드해 보세요. 
 
 
 ## <a name="partner-loading-solutions"></a>파트너 로드 솔루션

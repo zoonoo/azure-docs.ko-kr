@@ -40,7 +40,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
 이 문제를 해결하려면 직렬 컨트롤을 사용하여 일반 모드로 부팅하도록 VM을 구성하거나 복구 VM을 사용하여 [오프라인으로 VM 복구](#repair-the-vm-offline)를 수행합니다.
 

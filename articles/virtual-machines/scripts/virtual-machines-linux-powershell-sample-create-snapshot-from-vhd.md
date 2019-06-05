@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - VHD에서 스냅숏을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - VHD에서 스냅숏을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
+title: Azure PowerShell 스크립트 샘플 - VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/02/2019
 ms.locfileid: "57249824"
 ---
-# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>PowerShell을 사용하여 VHD에서 스냅숏을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
+# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>PowerShell을 사용하여 VHD에서 스냅샷을 만들어 약간의 시간 동안 같은 관리 디스크 여러 개 만들기
 
-이 스크립트는 같은 구독 또는 다른 구독의 저장소 계정에 VHD 파일의 스냅숏을 만듭니다. 이 스크립트를 사용하여 특수화된(일반화되지 않은/sysprep을 실행하지 않은) VHD를 스냅숏으로 가져온 다음 스냅숏을 사용하여 약간의 시간 동안 같은 관리 디스크를 여러 개 만듭니다. 또한 이 스크립트를 사용하여 데이터 VHD를 스냅숏으로 가져온 다음 스냅숏을 사용하여 약간의 시간 동안 관리 디스크를 여러 개 만듭니다.
+이 스크립트는 같은 구독 또는 다른 구독의 저장소 계정에 VHD 파일의 스냅샷을 만듭니다. 이 스크립트를 사용하여 특수화된(일반화되지 않은/sysprep을 실행하지 않은) VHD를 스냅샷으로 가져온 다음, 스냅샷을 사용하여 약간의 시간 동안 같은 관리 디스크를 여러 개 만듭니다. 또한 이 스크립트를 사용하여 데이터 VHD를 스냅샷으로 가져온 다음, 스냅샷을 사용하여 약간의 시간 동안 관리 디스크를 여러 개 만듭니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

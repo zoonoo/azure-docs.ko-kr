@@ -113,7 +113,7 @@ Service Fabric Explorer는 클러스터 내에서 노드, 애플리케이션 및
 >
 
 ## <a name="event-store"></a>EventStore
-EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅숏 보기를 볼 수 있습니다. 또한 EventStore에 대한 자세한 내용은 [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 참조할 수 있습니다.   
+EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅샷 보기를 볼 수 있습니다. 또한 EventStore에 대한 자세한 내용은 [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 참조할 수 있습니다.   
 
 ![EventStore][sfx-eventstore]
 

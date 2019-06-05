@@ -25,9 +25,9 @@ ms.locfileid: "60414888"
 
 Azure Multi-Factor Authentication 소프트웨어 개발 키트(SDK)를 사용하면 Azure AD 테넌트에 애플리케이션의 로그인 또는 트랜잭션 프로세스로 직접 2단계 검증을 빌드할 수 있습니다.
 
-Multi-Factor Authentication SDK는 C#, Visual Basic(.NET), Java, Perl, PHP 및 Ruby에 사용할 수 있습니다. SDK는 2단계 검증에 대한 씬 래퍼를 제공합니다. 주석 처리된 소스 코드 파일, 예제 파일 및 자세한 추가 정보 파일을 포함하여 코드를 작성하는 데 필요한 모든 것이 포함됩니다. 또한 각 SDK에는 Multi-Factor Authentication 공급자에 고유한 트랜잭션을 암호화하기 위한 인증서와 개인 키가 포함됩니다. 공급자가 있으면 필요에 따라 많은 언어와 형식에서 SDK를 다운로드할 수 있습니다.
+Multi-Factor Authentication SDK는 C#, Visual Basic(.NET), Java, Perl, PHP 및 Ruby에 사용할 수 있습니다. SDK는 2단계 검증에 대한 씬 래퍼를 제공합니다. 주석 처리된 소스 코드 파일, 예제 파일 및 자세한 추가 정보 파일을 포함하여 코드를 작성하는 데 필요한 모든 것이 포함됩니다. 또한 각 SDK에는 Multi-Factor Authentication 공급자에 고유한 트랜잭션을 암호화하기 위한 인증서와 프라이빗 키가 포함됩니다. 공급자가 있으면 필요에 따라 많은 언어와 형식에서 SDK를 다운로드할 수 있습니다.
 
-Multi-Factor Authentication SDK의 API 구조는 간단합니다. 유효성을 검사할 PIN 번호나 전화번호와 같은 사용자 데이터 및 확인 모드와 같은 다단계 옵션 매개 변수를 사용하여 API에 단일 함수를 호출합니다. API는 클라우드 기반 Azure Multi-Factor Authentication 서비스에 대한 웹 서비스 요청으로 함수 호출을 변환합니다. 모든 호출은 모든 SDK에 포함된 개인 인증서에 대한 참조를 포함해야 합니다.
+Multi-Factor Authentication SDK의 API 구조는 간단합니다. 유효성을 검사할 PIN 번호나 전화번호와 같은 사용자 데이터 및 확인 모드와 같은 다단계 옵션 매개 변수를 사용하여 API에 단일 함수를 호출합니다. API는 클라우드 기반 Azure Multi-Factor Authentication 서비스에 대한 웹 서비스 요청으로 함수 호출을 변환합니다. 모든 호출은 모든 SDK에 포함된 프라이빗 인증서에 대한 참조를 포함해야 합니다.
 
 Azure Active Directory에 등록된 사용자에 대한 액세스 권한이 API에 없기 때문에 사용자 정보를 파일이나 데이터베이스에 제공해야 합니다. 또한 API는 등록 또는 사용자 관리 기능을 제공하지 않으므로, 애플리케이션으로 이 프로세스를 빌드해야 합니다.
 
@@ -43,13 +43,13 @@ SDK에는 다음 항목이 포함되어 있습니다.
 
 * **README**. 기존 또는 새 애플리케이션에서 Multi-Factor Authentication API를 사용하는 방법을 설명합니다.
 * Multi-Factor Authentication의 **소스 파일**
-* **클라이언트 인증서** 
-* **개인 키** 
-* **결과를 호출합니다.**  호출 결과 코드의 목록입니다. 이 파일을 열려면 텍스트 워드패드와 같은 서식에 애플리케이션을 사용합니다. 호출 결과 코드를 사용하여 애플리케이션의 Multi-Factor Authentication 구현을 테스트하고 문제를 해결합니다. 상태 코드를 인증하지 않습니다.
-* **예제.**  Multi-Factor Authentication의 기본 작업 구현에 대한 샘플 코드입니다.
+* **클라이언트 인증서**
+* **개인 키**
+* **결과를 호출합니다.** 호출 결과 코드의 목록입니다. 이 파일을 열려면 텍스트 워드패드와 같은 서식에 애플리케이션을 사용합니다. 호출 결과 코드를 사용하여 애플리케이션의 Multi-Factor Authentication 구현을 테스트하고 문제를 해결합니다. 상태 코드를 인증하지 않습니다.
+* **예제.** Multi-Factor Authentication의 기본 작업 구현에 대한 샘플 코드입니다.
 
 > [!WARNING]
-> 클라이언트 인증서는 특히 사용자에 대해 생성된 고유한 개인 인증서입니다. 이 파일을 손실하거나 공유하지 마세요. Multi-Factor Authentication 서비스와의 통신 보안을 유지할 키입니다.
+> 클라이언트 인증서는 특히 사용자에 대해 생성된 고유한 프라이빗 인증서입니다. 이 파일을 손실하거나 공유하지 마세요. Multi-Factor Authentication 서비스와의 통신 보안을 유지할 키입니다.
 
 ## <a name="code-sample"></a>코드 샘플
 이 코드 예제에서는 Azure Multi-Factor Authentication SDK의 API를 사용하여 표준 모드 음성 통화 확인을 애플리케이션에 추가하는 방법을 보여줍니다. 표준 모드는 사용자가 # 키를 눌러 응답하는 전화 통화입니다.

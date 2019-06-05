@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662553"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306777"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 레지스트리 이름의 자리 표시자로 "acrName"을 사용합니다. 이 값을 적어 두세요.
 
-## <a name="log-in-to-your-container-registry"></a>컨테이너 레지스트리에 로그인
+## <a name="sign-in-to-your-container-registry"></a>컨테이너 레지스트리에 로그인
 
-이미지를 밀어넣기 전에 먼저 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
+이미지를 푸시하기 전에 먼저 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
 ```bash
 az acr login --name <acrName>
@@ -204,7 +204,7 @@ Result
 azure-vote-front
 ```
 
-자습서를 완료하면 개인 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장됩니다. 이후 자습서에서 이 이미지는 ACR에서 Service Fabric 클러스터로 배포됩니다.
+자습서를 완료하면 프라이빗 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장됩니다. 이후 자습서에서 이 이미지는 ACR에서 Service Fabric 클러스터로 배포됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

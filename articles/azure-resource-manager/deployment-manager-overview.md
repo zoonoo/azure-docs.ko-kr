@@ -14,7 +14,7 @@ ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
 ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2019
 ms.locfileid: "65595793"
@@ -25,7 +25,7 @@ ms.locfileid: "65595793"
 
 배포 관리자는 Resource Manager의 기능입니다. 배포 중에 기능이 확장됩니다. 여러 영역에 배포해야 하는 복합 서비스가 있는 경우 배포 관리자를 사용합니다. 서비스의 출시를 준비하여 모든 지역에 배포되기 전에 잠재적인 문제를 찾을 수 있습니다. 단계적 롤아웃에 대해 추가 주의 사항이 필요하지 않은 경우 Resource Manager의 표준 [배포 옵션](resource-group-template-deploy-portal.md)을 사용합니다. 배포 관리자는 CI/CD(지속적인 통합 및 지속적인 업데이트) 제안과 같이 Resource Manager 배포를 지원하는 기존의 모든 타사 도구와 원활하게 통합됩니다. 
 
-Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure 배포 관리자를 사용하려면 [등록 양식](https://aka.ms/admsignup)을 작성합니다. [사용자 의견](https://aka.ms/admfeedback)을 제공하여 기능을 개선하는 데 도움을 주세요.
+Azure Deployment Manager가 프라이빗 미리 보기로 제공됩니다. Azure 배포 관리자를 사용하려면 [등록 양식](https://aka.ms/admsignup)을 작성합니다. [사용자 의견](https://aka.ms/admfeedback)을 제공하여 기능을 개선하는 데 도움을 주세요.
 
 배포 관리자를 사용하려면 다음 4개의 파일을 만들어야 합니다.
 
@@ -265,7 +265,7 @@ ID 개체는 배포 작업을 수행하는 [사용자가 할당한 관리 ID](#i
 
 자세한 내용은 [롤아웃 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/rollouts)를 참조하세요.
 
-## <a name="parameter-file"></a>매개 변수 파일 
+## <a name="parameter-file"></a>매개 변수 파일
 
 두 개의 매개 변수 파일을 만듭니다. 매개 변수 파일 1개는 서비스 토폴로지를 배포할 때 사용되고, 나머지 1개는 롤아웃 배포에 사용됩니다. 두 매개 변수 파일에서 동일하게 유지해야 하는 몇 개의 값이 있습니다.  
 

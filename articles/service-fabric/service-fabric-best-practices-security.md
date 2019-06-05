@@ -33,10 +33,10 @@ ms.locfileid: "66386723"
 
 ## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>인증 기관에서 발급한 Service Fabric 인증서 만들기
 
-Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 개인 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
+Azure Key Vault 인증서는 만들거나 Key Vault로 가져올 수 있습니다. Key Vault 인증서가 만들어지면 프라이빗 키가 Key Vault 내에 만들어지며 인증서 소유자에게 공개되지 않습니다. Key Vault에 인증서를 만드는 방법은 다음과 같습니다.
 
 - 자체 서명된 인증서를 만들어 공개-개인 키 쌍을 만들고 이를 인증서와 연결합니다. 인증서는 자체 키에 의해 서명됩니다. 
-- 새 인증서를 수동으로 만들어 공개-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 개인 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
+- 새 인증서를 수동으로 만들어 공개-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 프라이빗 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다. 
 
 자세한 내용은 [Azure Key Vault 인증서를 만드는 방법](https://docs.microsoft.com/azure/key-vault/create-certificate)을 검토하세요.
 

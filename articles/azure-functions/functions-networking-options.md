@@ -89,7 +89,7 @@ Azure Functions를 사용 하는 대로 각 하이브리드 연결은 단일 TCP
 
 자세한 내용은 참조는 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md), App Service 계획에서 함수를 지 합니다.
 
-## <a name="private-site-access"></a>개인 사이트 액세스
+## <a name="private-site-access"></a>프라이빗 사이트 액세스
 
 개인 사이트 액세스 로부터 개인 네트워크와 같은 Azure virtual network 내 에서만에서 액세스할 수 있는 앱을 만드는 가리킵니다. 
 * 개인 사이트 액세스는 프리미엄 및 App Service에서 사용할 수 있는 시점을 계획 **서비스 끝점** 구성 됩니다. 자세한 내용은 참조 하세요. [virtual network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)

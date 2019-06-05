@@ -33,7 +33,7 @@ ms.locfileid: "64917094"
 
 ### <a name="release-changes-in-january-2019"></a>2019년 1월 릴리스 변경 내용
 
-* 여러 구독 간 데이터 마이그레이션 기능을 지원하는 스냅숏 기능([스냅숏](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get))이 추가되었습니다. 자세한 내용은 [얼굴 데이터 다른 얼굴 구독으로 마이그레이션하는 방법](Face-API-How-to-Topics/how-to-migrate-face-data.md)합니다.
+* 여러 구독 간 데이터 마이그레이션 기능을 지원하는 스냅샷을 추가합니다. 기능([스냅숏](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get))이 추가되었습니다. 자세한 내용은 [얼굴 데이터 다른 얼굴 구독으로 마이그레이션하는 방법](Face-API-How-to-Topics/how-to-migrate-face-data.md)합니다.
 
 ### <a name="release-changes-in-october-2018"></a>2018년 10월 릴리스 변경 내용
 

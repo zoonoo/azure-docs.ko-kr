@@ -79,23 +79,23 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 워크로드에 대기 시간이 짧은 고성능 디스크 지원이 필요한 경우 Premium Storage를 사용하는 것이 좋습니다. Premium Storage의 이점을 자세히 알아보려면 [고성능 Premium Storage 및 Azure VM 디스크](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
 
-## <a name="snapshots-and-copy-blob"></a>스냅숏 및 Blob 복사
+## <a name="snapshots-and-copy-blob"></a>스냅샷 및 Blob 복사
 
-Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의 스냅숏을 만들어서 다른 위치(예: 다른 저장소 계정)에 복사할 수 있습니다.
+Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의 스냅샷을 만들어서 다른 위치(예: 다른 저장소 계정)에 복사할 수 있습니다.
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 
-관리되지 않는 표준 디스크에 대한 [증분 스냅숏](../articles/virtual-machines/windows/incremental-snapshots.md)은 Standard Storage에서 스냅숏을 사용하는 것과 같은 방식으로 만들 수 있습니다. 원본 디스크가 로컬 중복 저장소에 있는 경우 스냅숏을 만든 후 이 스냅숏을 지역 중복 표준 저장소 계정에 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
+관리되지 않는 표준 디스크에 대한 [증분 스냅샷](../articles/virtual-machines/windows/incremental-snapshots.md)은 Standard Storage에서 스냅샷을 사용하는 것과 같은 방식으로 만들 수 있습니다. 원본 디스크가 로컬 중복 저장소에 있는 경우 스냅샷을 만든 후 이 스냅샷을 지역 중복 표준 저장소 계정에 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
 
-디스크가 VM에 연결되어 있으면 특정 API 작업이 디스크에 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 한 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신, 먼저 [Blob 스냅숏 생성](/rest/api/storageservices/Snapshot-Blob) REST API 메서드를 사용하여 해당 Blob의 스냅숏을 만든 후 스냅숏의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
+디스크가 VM에 연결되어 있으면 특정 API 작업이 디스크에 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 한 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신, 먼저 [Blob 스냅샷 생성](/rest/api/storageservices/Snapshot-Blob) REST API 메서드를 사용하여 해당 Blob의 스냅샷을 만든 후 스냅샷의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
 
-스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 지역 중복 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
+스냅샷의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 지역 중복 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅샷을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
 표준 스토리지 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 ### <a name="managed-disks"></a>관리 디스크
 
-관리 디스크에 대한 스냅숏은 관리 디스크의 읽기 전용 복사본이며 표준 관리 디스크로 저장됩니다. 증분 스냅숏은 현재 Managed Disks에 지원되지 않지만 향후 지원될 예정입니다.
+관리 디스크에 대한 스냅샷은 관리 디스크의 읽기 전용 복사본이며 표준 관리 디스크로 저장됩니다. 증분 스냅샷은 현재 Managed Disks에 지원되지 않지만 향후 지원될 예정입니다.
 
 관리 디스크가 VM에 연결되어 있으면 특정 API 작업이 디스크에 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 동안 공유 액세스 서명(SAS)을 생성하여 복사 작업을 수행할 수 없습니다. 대신 디스크 스냅숏을 먼저 만든 다음 스냅샷 복사를 수행합니다. 또는 디스크를 분리한 다음 공유 액세스 서명(SAS)을 생성하여 복사 작업을 수행할 수 있습니다.
 
@@ -105,7 +105,7 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 
 * 표준 저장소 관리되지 않는 디스크/데이터 크기
 * 표준 관리 디스크
-* 표준 저장소 스냅숏
+* 표준 저장소 스냅샷
 * 아웃바운드 데이터 전송
 * 트랜잭션
 
@@ -120,7 +120,7 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 | 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,385GiB(16TiB) | 32,767GiB(32TiB) |
 
 
-**스냅숏**: 표준 디스크 스냅숏의 경우 스냅숏에 사용되는 추가 용량에 해당하는 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
+**스냅숏**: 표준 디스크 스냅샷의 경우 스냅샷에 사용되는 추가 용량에 해당하는 요금이 청구됩니다. 스냅샷에 대한 자세한 내용은 [Blob의 스냅샷 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
 **아웃바운드 데이터 전송**:  [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용량에 대한 요금이 청구됩니다.
 

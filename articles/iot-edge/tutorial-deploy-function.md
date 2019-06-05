@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575932"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239647"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -79,7 +79,7 @@ Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
 
 1. VS Code 탐색기에서 .env 파일을 엽니다.
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
@@ -222,12 +222,11 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 시작**을 실행하여 IoT Hub에 도착한 모든 메시지를 볼 수 있습니다.
+명령 팔레트에서 **Azure IoT Hub: 기본 제공 이벤트 엔드포인트 모니터링 시작**을 실행하여 IoT Hub에 도달한 모든 메시지를 볼 수 있습니다.
 
-특정 디바이스에서 IoT Hub에 도달한 모든 메시지를 보려면 보기를 필터링할 수도 있습니다. **Azure IoT Hub 디바이스** 섹션에서 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+특정 디바이스에서 IoT Hub에 도달한 모든 메시지를 보려면 보기를 필터링할 수도 있습니다. **Azure IoT Hub 디바이스** 섹션에서 디바이스를 마우스 오른쪽 단추로 클릭하고 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
-메시지 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 중지** 명령을 실행합니다. 
-
+메시지 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: 기본 제공 이벤트 엔드포인트 모니터링 시작**을 실행합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -245,4 +244,3 @@ Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 �
 
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics에서 부동 창을 사용하여 평균 찾기](tutorial-deploy-stream-analytics.md)
-

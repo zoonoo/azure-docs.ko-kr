@@ -1,5 +1,5 @@
 ---
-title: VM(클래식)에 대한 사설 IP 주소 구성 - Azure 클래식 CLI
+title: VM(클래식)에 대한 개인 IP 주소 구성 - Azure 클래식 CLI
 titlesuffix: Azure Virtual Network
 description: Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
@@ -64,10 +64,10 @@ ms.locfileid: "62107981"
         info:    OK
         info:    vm create command OK
    
-   * **-l(또는 --location)**. VM을 만들 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
-   * **-n(또는 --vm-name)**. 만들 VM의 이름입니다.
-   * **-w(또는 --virtual-network-name)**. VM이 만들어지는 VNet의 이름입니다. 
-   * **-S(또는 --static-ip)**. VM에 대한 정적 개인 IP 주소입니다.
+   * **-l(또는 --location)** . VM을 만들 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
+   * **-n(또는 --vm-name)** . 만들 VM의 이름입니다.
+   * **-w(또는 --virtual-network-name)** . VM이 만들어지는 VNet의 이름입니다. 
+   * **-S(또는 --static-ip)** . VM에 대한 정적 개인 IP 주소입니다.
    * **TestService**. VM이 만들어지는 클라우드 서비스의 이름입니다.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
    * **adminuser**. Windows VM에 대한 로컬 관리자입니다.
@@ -98,8 +98,8 @@ ms.locfileid: "62107981"
     info:    Updating network configuration
     info:    vm static-ip remove command OK
 
-## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>기존 VM에 정적 개인 IP를 추가하는 방법
-위의 스크립트를 사용하여 만든 VM에 정적 사설 IP 주소를 추가하려면 다음 명령을 실행합니다.
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>기존 VM에 정적 프라이빗 IP를 추가하는 방법
+위의 스크립트를 사용하여 만든 VM에 정적 개인 IP 주소를 추가하려면 다음 명령을 실행합니다.
 
     azure vm static-ip set DNS01 192.168.1.101
 
@@ -114,7 +114,7 @@ ms.locfileid: "62107981"
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>운영 체제 내에서 IP 주소 설정
 
-반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure Virtual Machine에 할당된 개인 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure VM에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
+반드시 필요한 경우가 아니면, VM의 운영 체제 내에서 Azure 가상 머신에 할당된 프라이빗 IP를 고정적으로 할당하는 것은 바람직하지 않습니다. 운영 체제 내에서 개인 IP 주소를 수동으로 설정하는 경우 Azure VM에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. 가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.

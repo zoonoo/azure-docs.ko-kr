@@ -43,7 +43,7 @@ sections:
             html: <p>최신 버전의 SQL Server 데이터베이스 엔진과 거의 100% SQL 기능 호환성을 갖습니다.</p>
           - title: VNet 통합
             href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
-            html: <p>보안 서비스는 사설 IP 주소를 사용하여 개인 Azure VNet에 배치됩니다.</p>
+            html: <p>보안 서비스는 개인 IP 주소를 사용하여 프라이빗 Azure VNet에 배치됩니다.</p>
           - title: 간편한 마이그레이션
             href: /azure/sql-database/sql-database-managed-instance-get-started-restore
             html: <p>네이티브 복원을 사용하여 Azure 클라우드로 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>

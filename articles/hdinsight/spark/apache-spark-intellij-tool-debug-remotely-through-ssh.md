@@ -75,7 +75,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 ### <a name="scenario-2-perform-local-run"></a>시나리오 2: 로컬 실행 수행
 1. **SparkCore_wasbloTest** 스크립트를 열고 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **'[Spark 작업] XXX' 실행** 옵션을 선택하여 로컬 실행을 수행합니다.
-1. 로컬 실행이 완료되면 현재 프로젝트 탐색기 **data** > **__default__** 에 저장된 출력 파일을 볼 수 있습니다.
+1. 로컬 실행이 완료되면 현재 프로젝트 탐색기 **data** >  **__default__** 에 저장된 출력 파일을 볼 수 있습니다.
 
     ![로컬 실행 결과](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
 1. 해당 도구는 로컬 실행 및 로컬 디버그를 수행하면 기본 로컬 실행 구성을 자동으로 설정합니다. 구성을 열고 **[HDInsight에서 Spark] XXX** 오른쪽 위 모서리에서 볼 수 있습니다 합니다 **[HDInsight에서 Spark] XXX** 아래에 이미 만들어진 **HDInsight에서 Apache Spark**합니다. **로컬로 실행** 탭으로 전환합니다.
@@ -84,7 +84,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
     - [환경 변수](#prerequisite-for-windows): 시스템 환경 변수 **HADOOP_HOME**을 **C:\WinUtils**로 이미 설정한 경우 자동으로 검색되므로 수동으로 추가할 필요가 없습니다.
     - [WinUtils.exe 위치](#prerequisite-for-windows): 시스템 환경 변수를 설정하지 않은 경우 해당 단추를 클릭하여 위치를 찾을 수 있습니다.
     - 두 옵션 중 하나를 선택하면 됩니다. 단, MacOS 및 Linux에서는 필요하지 않습니다.
-1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호(**+**)를 선택합니다. 다음을 선택 합니다 **HDInsight에서 Apache Spark** 옵션입니다. 저장할 **이름**, **주 클래스 이름**에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
+1. 또한 로컬 실행 및 로컬 디버그를 수행하기 전에 수동으로 구성을 설정할 수 있습니다. 이전 스크린샷에서 더하기 기호( **+** )를 선택합니다. 다음을 선택 합니다 **HDInsight에서 Apache Spark** 옵션입니다. 저장할 **이름**, **주 클래스 이름**에 대한 정보를 입력하고 로컬 실행 단추를 클릭합니다.
 
 ### <a name="scenario-3-perform-local-debugging"></a>시나리오 3: 로컬 디버깅 수행
 1. **SparkCore_wasbloTest** 스크립트를 열고 중단점을 설정합니다.
@@ -99,14 +99,14 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
    ![구성 편집](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 다음을 선택 합니다 **HDInsight에서 Apache Spark** 옵션입니다.
+1. **실행/디버깅 구성** 대화 상자에서 더하기 기호( **+** )를 선택합니다. 다음을 선택 합니다 **HDInsight에서 Apache Spark** 옵션입니다.
 
    ![새 구성 추가](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 1. **클러스터에서 원격으로 실행** 탭으로 전환합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름**에 정보를 입력합니다. 누른 **고급 구성 (원격 디버깅)** 합니다. 이 도구는 **실행기**를 사용하여 디버그를 지원합니다. **numExectors**의 기본값은 5입니다. 3보다 큰 값을 설정하지 않는 것이 좋습니다.
 
    ![디버그 구성 실행](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. 에 **고급 구성 (원격 디버깅)** 파트 선택 **Spark 원격 디버그 설정**합니다. SSH 사용자 이름을 입력하고 암호를 입력하거나 개인 키 파일을 사용합니다. 원격 디버그를 수행하려는 경우 설정해야 합니다. 원격 실행만 사용하려는 경우는 설정할 필요가 없습니다.
+1. 에 **고급 구성 (원격 디버깅)** 파트 선택 **Spark 원격 디버그 설정**합니다. SSH 사용자 이름을 입력하고 암호를 입력하거나 프라이빗 키 파일을 사용합니다. 원격 디버그를 수행하려는 경우 설정해야 합니다. 원격 실행만 사용하려는 경우는 설정할 필요가 없습니다.
 
    ![Spark 원격 디버그 설정](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 

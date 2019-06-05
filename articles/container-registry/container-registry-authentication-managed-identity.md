@@ -1,6 +1,6 @@
 ---
 title: 관리 ID로 Azure Container Registry 인증
-description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 개인 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
+description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -39,7 +39,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 * *시스템 관리 ID*는 단일 가상 머신과 같은 특정 리소스에 고유하며 해당 리소스의 수명만큼 지속됩니다.
 
-관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 개인 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. (전체 레지스트리 역할 목록은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.) 하나 이상의 리소스에는 ID 액세스 권한을 제공할 수 있습니다.
+관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. (전체 레지스트리 역할 목록은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.) 하나 이상의 리소스에는 ID 액세스 권한을 제공할 수 있습니다.
 
 그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다.
 
@@ -51,7 +51,7 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 자세한 단계는 [빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
+Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 자세한 단계는 [빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
 
 이 문서에서는 레지스트리에 `aci-helloworld:v1` 컨테이너 이미지가 저장되어 있다고 가정합니다. 이 예제에서는 *myContainerRegistry*라는 레지스트리 이름을 사용합니다. 이후 단계에서 사용자 고유의 레지스트리 및 이미지 이름으로 바꿉니다.
 

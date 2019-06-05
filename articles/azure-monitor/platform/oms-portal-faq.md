@@ -111,7 +111,7 @@ OMS 포털에서는 솔루션 갤러리에서 관리 솔루션을 설치하고 *
 Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](../../azure-monitor/platform/alerts-metric.md)에서 관리됩니다. Azure Portal에서 경고 구성 및 사용에 대한 자세한 내용은 [Log Analytics에서 Azure Alerts로 경고를 확장하는 방법](../../azure-monitor/platform/alerts-extend-tool.md)을 참조하세요.
 
 ## <a name="how-do-i-access-my-dashboards"></a>내 대시보드에 액세스하려면 어떻게 해야 하나요?
-Log Analytics의 **내 대시보드** 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../learn/tutorial-logs-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
+Log Analytics의 **내 대시보드** 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 프라이빗 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../learn/tutorial-logs-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
 
 ## <a name="how-do-i-check-my-usage"></a>내 사용량은 어떻게 확인할 수 있나요?
 이제 작업 영역의 **사용량 및 예상 비용**을 선택하면 Log Analytics의 내 사용량 및 비용을 쉽게 보고 관리할 수 있습니다.

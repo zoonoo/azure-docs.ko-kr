@@ -14,7 +14,7 @@ ms.date: 05/21/2019
 ms.author: mbullwin
 ms.openlocfilehash: c4e924d1e3012bc5e49c89f51026cd651398f4c5
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66242874"
@@ -440,10 +440,10 @@ East US
 | 포털 | gateway.azureserviceprofiler.net | 동적 | 443
 | Storage | *.core.windows.net | 동적 | 443
 
-## <a name="snapshot-debugger"></a>스냅숏 디버거
+## <a name="snapshot-debugger"></a>스냅샷 디버거
 
 > [!NOTE]
-> 프로파일러 및 스냅숏 디버거는 동일한 IP 주소 집합을 공유합니다.
+> 프로파일러 및 스냅샷 디버거는 동일한 IP 주소 집합을 공유합니다.
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |

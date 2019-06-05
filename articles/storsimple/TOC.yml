@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: 릴리스 정보
       items:
-        - name: 업데이트 1.1 - 현재
+        - name: 업데이트 1.2
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: 업데이트 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: 업데이트 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: 업데이트 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: 보관
           items:
+            - name: 업데이트 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: 업데이트 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: 업데이트 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: 업데이트 0.2 및 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple 8000 시리즈(Azure Portal)
+- name: StorSimple 8000 시리즈
   items:
     - name: 개요
       items:
@@ -151,7 +153,7 @@
               href: storsimple-8000-deployment-walkthrough-gov-u2.md
             - name: Azure에서 클라우드 어플라이언스
               href: storsimple-8000-cloud-appliance-u2.md
-            - name: StorSimple 스냅숏 관리자
+            - name: StorSimple Snapshot Manager
               href: storsimple-snapshot-manager-deployment.md
             - name: SharePoint용 StorSimple 어댑터
               href: storsimple-adapter-for-sharepoint.md
@@ -226,7 +228,7 @@
             - name: StorSimple Snapshot Manager 사용
               href: storsimple-snapshot-manager-admin.md
               items:
-                - name: StorSimple 스냅숏 관리자란?
+                - name: StorSimple 스냅샷 관리자란?
                   href: storsimple-what-is-snapshot-manager.md
                 - name: StorSimple Snapshot Manager 인터페이스 정보
                   href: storsimple-use-snapshot-manager.md

@@ -41,7 +41,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](boot-diagnostics.md)에
 ## <a name="solution"></a>해결 방법 
 
 Windows는 디스크 검사 프로세스가 완료된 후 정상적으로 부팅됩니다. VM의 디스크 검사 프로세스가 중단되면 오프라인에서 VM에 대해 디스크 검사를 실행합니다.
-1.  영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+1.  영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 2.  [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md).  
 3.  복구 VM에서 연결된 OS 디스크에 대해 디스크 검사를 실행합니다. 다음 샘플에서는 연결된 OS 디스크의 드라이브 문자가 E:입니다. 
         

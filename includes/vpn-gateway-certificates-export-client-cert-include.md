@@ -25,7 +25,7 @@ ms.locfileid: "66150308"
    ![다음](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
 3. **예, 개인 키를 내보냅니다.** 를 선택하고 **다음**을 클릭합니다.
 
-   ![개인 키 내보내기](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
+   ![프라이빗 키 내보내기](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
 4. **파일 내보내기 형식** 페이지에서 선택된 기본값을 유지합니다. **가능하면 인증 경로에 있는 인증서 모두 포함**을 선택했는지 확인합니다. 이 설정은 성공적인 클라이언트 인증에 필요한 루트 인증서 정보를 추가로 내보냅니다. 이를 사용하지 않으면 클라이언트에 신뢰할 수 있는 루트 인증서가 없어 클라이언트 인증에 실패합니다. 그런 후 **다음**을 클릭합니다.
 
    ![내보내기 파일 형식](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)

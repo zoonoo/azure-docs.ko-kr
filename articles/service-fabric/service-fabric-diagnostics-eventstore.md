@@ -32,7 +32,7 @@ ms.locfileid: "64683738"
 
 * 개발 또는 테스트의 문제 또는 모니터링 파이프라인을 사용할 위치의 문제 진단
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
-* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 “스냅숏” 가져오기
+* Service Fabric이 특정 엔터티와 상호 작용하는 방법의 "스냅샷" 가져오기
 
 ![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 

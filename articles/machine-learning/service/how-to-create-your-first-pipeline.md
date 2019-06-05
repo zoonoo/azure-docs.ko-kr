@@ -291,12 +291,12 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
-파이프라인을 제출하면 Azure Machine Learning Service는 각 단계에 대한 종속성을 확인하고 지정된 소스 디렉터리의 스냅숏을 업로드합니다. 소스 디렉터리를 지정하지 않으면 현재 로컬 디렉터리가 업로드됩니다. 스냅숏은 작업 영역에서 실험의 일부로 저장 됩니다.
+파이프라인을 제출하면 Azure Machine Learning Service는 각 단계에 대한 종속성을 확인하고 지정된 소스 디렉터리의 스냅샷을 업로드합니다. 소스 디렉터리를 지정하지 않으면 현재 로컬 디렉터리가 업로드됩니다. 스냅숏은 작업 영역에서 실험의 일부로 저장 됩니다.
 
 > [!IMPORTANT]
 > 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
 >
-> 자세한 내용은 [스냅숏](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
+> 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
 
 ```python
 # Submit the pipeline to be run
@@ -306,7 +306,7 @@ pipeline_run1.wait_for_completion()
 
 파이프라인을 처음 실행하는 경우 Azure Machine Learning은 다음을 수행합니다.
 
-* 작업 영역과 연결된 Blob Storage에서 컴퓨팅 대상으로 프로젝트 스냅숏을 다운로드합니다.
+* 작업 영역과 연결된 Blob Storage에서 컴퓨팅 대상으로 프로젝트 스냅샷을 다운로드합니다.
 * 파이프라인의 각 단계에 해당하는 Docker 이미지를 빌드합니다.
 * 컨테이너 레지스트리에서 컴퓨팅 대상으로 각 단계의 Docker 이미지를 다운로드합니다.
 * 한 단계에서 `DataReference` 개체가 지정되면 데이터 저장소를 탑재합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.

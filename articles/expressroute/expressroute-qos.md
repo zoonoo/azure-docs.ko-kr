@@ -21,7 +21,7 @@ ms.locfileid: "64712319"
 ![](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 개인 피어링에서 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다. 
+> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 프라이빗 피어링에서 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다. 
 > 
 > 
 

@@ -26,7 +26,7 @@ ms.locfileid: "65767985"
 ## <a name="prerequisites"></a>필수 조건
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
-- 개인 키가 포함된 인증서 .pfx 파일에 액세스할 수 있는지 확인합니다. 자체 서명된 인증서를 생성하고 Azure AD B2C에 업로드할 수 있습니다. Azure AD B2C는 이 인증서를 사용하여 SAML ID 공급자에 보낸 SAML 요청에 서명합니다.
+- 프라이빗 키가 포함된 인증서 .pfx 파일에 액세스할 수 있는지 확인합니다. 자체 서명된 인증서를 생성하고 Azure AD B2C에 업로드할 수 있습니다. Azure AD B2C는 이 인증서를 사용하여 SAML ID 공급자에 보낸 SAML 요청에 서명합니다.
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -39,7 +39,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
 7. 정책 키의 **이름**을 입력합니다. 예: `SamlCert`. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-8. 개인 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
+8. 프라이빗 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 9. **만들기**를 클릭합니다.
 
 ## <a name="add-a-claims-provider"></a>클레임 공급자 추가

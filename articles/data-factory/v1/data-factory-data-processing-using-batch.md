@@ -126,7 +126,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 #### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 [Azure Storage 탐색기 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
-1. 개인 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
+1. 프라이빗 액세스로 **mycontainer**라는 컨테이너를 만듭니다(익명 액세스 없음).
 
 1. CloudXplorer를 사용하는 경우 다음과 같은 구조의 폴더와 하위 폴더를 만듭니다.
 

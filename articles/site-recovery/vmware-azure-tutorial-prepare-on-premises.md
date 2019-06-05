@@ -94,7 +94,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 - **인터넷 액세스**. 장애 조치(failover) 전에 온-프레미스 VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
 - **사이트 간 VPN 액세스**:
     - 장애 조치(failover) 전에 온-프레미스 컴퓨터에서 RDP를 활성화합니다.
-    - RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다.
+    - RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 프라이빗** 네트워크에 대해 허용되어야 합니다.
     - 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).
 - 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
 - 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.

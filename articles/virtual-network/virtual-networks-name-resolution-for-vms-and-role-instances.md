@@ -1,7 +1,7 @@
 ---
 title: Azure 가상 네트워크에서 리소스에 대한 이름 확인
 titlesuffix: Azure Virtual Network
-description: 'Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오 '
+description: Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오
 services: virtual-network
 documentationcenter: na
 author: rohinkoul
@@ -31,7 +31,7 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 어떤 방법으로 이름을 확인할지는 사용하는 리소스가 서로 어떻게 통신해야 하는지에 따라 다릅니다. 다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.
 
 > [!NOTE]
-> 시나리오에 따라, 현재 공개 미리 보기 상태인 Azure DNS 개인 영역 기능을 사용할 수도 있습니다. 자세한 내용은 [사설 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
+> 시나리오에 따라, 현재 공개 미리 보기 상태인 Azure DNS 프라이빗 영역 기능을 사용할 수도 있습니다. 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
 >
 
 | **시나리오** | **해결 방법** | **접미사** |
@@ -80,7 +80,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 
 이 섹션에서는 클라이언트 쪽 캐싱 및 클라이언트 쪽 재시도에 대해 설명합니다.
 
-### <a name="client-side-caching"></a>클라이언트 쪽 캐싱 
+### <a name="client-side-caching"></a>클라이언트 쪽 캐싱
 
 모든 DNS 쿼리를 네트워크를 통해 전송해야 하는 것은 아닙니다. 클라이언트 쪽 캐싱을 사용하면 대기 시간을 줄이고 로컬 캐시에서 되풀이되는 DNS 쿼리를 확인하여 네트워크 블립에 대한 복원력을 개선하는 데 도움이 됩니다. DNS 레코드는 레코드 새로 고침에 영향을 주지 않으면서 캐시가 가능한 오랫동안 레코드를 저장할 수 있도록 하는 TTL(Time-To-Live) 메커니즘을 포함합니다. 따라서 클라이언트 쪽 캐싱은 대부분의 상황에 적합합니다.
 
@@ -88,15 +88,15 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 
 사용할 수 있는 다양한 DNS 캐싱 패키지가 있습니다(예: dnsmasq). 다음은 가장 일반적인 배포판에 dnsmasq를 설치하는 방법입니다.
 
-* **Ubuntu(resolvconf 사용)**:
+* **Ubuntu(resolvconf 사용)** :
   * `sudo apt-get install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
-* **SUSE(netconf 사용)**:
+* **SUSE(netconf 사용)** :
   * `sudo zypper install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다. 
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다. 
   * **/etc/sysconfig/network/config**를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq*로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf를 `netconfig update`로 업데이트합니다.
-* **CentOS (NetworkManager 사용)**:
+* **CentOS (NetworkManager 사용)** :
   * `sudo yum install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다.
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다.
@@ -154,7 +154,7 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 ![가상 네트워크 간의 DNS 다이어그램](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Configuration Protocol)는 각 VM에 내부 DNS 접미사(**. internal.cloudapp.net**)를 제공합니다. 호스트 이름 레코드가 **internal.cloudapp.net** 영역에 있으므로 이 접미사를 통해 호스트 이름 확인을 수행할 수 있습니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다(예: 도메인 가입 시나리오). 대신 작동하지 않는 자리 표시자(*reddog.microsoft.com*)가 제공됩니다.
+Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Configuration Protocol)는 각 VM에 내부 DNS 접미사( **. internal.cloudapp.net**)를 제공합니다. 호스트 이름 레코드가 **internal.cloudapp.net** 영역에 있으므로 이 접미사를 통해 호스트 이름 확인을 수행할 수 있습니다. 자체 이름 확인 솔루션을 사용하는 경우 이 접미사는 다른 DNS 아키텍처에 방해가 되기 때문에 VM에 제공되지 않습니다(예: 도메인 가입 시나리오). 대신 작동하지 않는 자리 표시자(*reddog.microsoft.com*)가 제공됩니다.
 
 필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 

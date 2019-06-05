@@ -21,8 +21,8 @@ ms.locfileid: "66119512"
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Azure 정책 기반 VPN 게이트웨이에 BGP를 사용할 수 있나요?
 아니요. BGP는 경로 기반 VPN 게이트웨이에서만 지원됩니다.
 
-### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>개인 ASN(자치 시스템 번호)을 사용할 수 있나요?
-예. 온-프레미스 네트워크와 Azure 가상 네트워크 모두에 자체 공용 ASN 또는 개인 ASN을 사용할 수 있습니다.
+### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>프라이빗 ASN(자치 시스템 번호)을 사용할 수 있나요?
+예. 온-프레미스 네트워크와 Azure 가상 네트워크 모두에 자체 공용 ASN 또는 프라이빗 ASN을 사용할 수 있습니다.
 
 ### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>32비트 ASN(자치 시스템 번호)을 사용할 수 있나요?
 아니요. Azure VPN Gateway는 현재 16비트 ASN을 지원합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "66119512"
 예. 다음 ASN은 내부 및 외부 피어링에 대해 Azure에서 예약되어 있습니다.
 
 * 공용 ASN: 8074, 8075, 12076
-* 개인 ASN: 65515, 65517, 65518, 65519, 65520
+* 프라이빗 ASN: 65515, 65517, 65518, 65519, 65520
 
 Azure VPN 게이트웨이에 연결할 때 온-프레미스 VPN 디바이스에 대해 이러한 ASN을 지정할 수 없습니다.
 
@@ -71,7 +71,7 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 디바이스에 다음 경로�
 예. BGP와 비 BGP 연결을 동일한 Azure VPN 게이트웨이에 혼합 사용할 수 있습니다.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Azure VPN 게이트웨이가 BGP 전송 라우팅을 지원하나요?
-예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다.  자세한 내용은 [BGP 정보](../articles/vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
+예. BGP 전송 라우팅이 지원됩니다. 단 Azure VPN 게이트웨이가 기본 경로를 타 BGP 피어에 알리지 **않는다**는 점이 다릅니다. 여러 Azure VPN 게이트웨이 간 전송 라우팅을 활성화하려면 모든 중간 VNet-VNet 연결에서 BGP를 활성화해야 합니다. 자세한 내용은 [BGP 정보](../articles/vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 터널이 여러 개 있을 수 있나요?
 예, Azure VPN 게이트웨이와 내 온-프레미스 네트워크 간에 S2S VPN 터널을 여러 개 구축할 수 있습니다. 이러한 모든 터널은 Azure VPN 게이트웨이의 총 터널 수와 비교하여 계산되며 두 터널 모두에서 BGP를 활성화해야 합니다.

@@ -26,7 +26,7 @@ ms.locfileid: "62127330"
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 
-이 Azure 보안 및 규정 준수 청사진은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 앱 서비스 환경에서 호스팅됩니다. 이 환경에서는 Azure에서 관리되는 VM(가상 머신) 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 NSG(네트워크 보안 그룹), Azure Application Gateway, Azure DNS 및 Azure Load Balancer도 포함됩니다.
+이 Azure 보안 및 규정 준수 청사진은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 프라이빗 전용 환경인 격리된 앱 서비스 환경에서 호스팅됩니다. 이 환경에서는 Azure에서 관리되는 VM(가상 머신) 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 NSG(네트워크 보안 그룹), Azure Application Gateway, Azure DNS 및 Azure Load Balancer도 포함됩니다.
 
 향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure SQL Database는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
@@ -100,7 +100,7 @@ App Service Environment는 단일 애플리케이션만 실행할 수 있도록 
 - [Azure SQL Database 트래픽](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) 허용
 
 ### <a name="virtual-network"></a>가상 네트워크
-아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
+아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
 **네트워크 보안 그룹**: [Nsg](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 가상 네트워크 내에서 트래픽을 허용 하거나 거부 하는 액세스 제어 목록을 포함 합니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다. 다음과 같은 NSG가 있습니다.
 - Application Gateway용 NSG 1개
@@ -114,7 +114,7 @@ App Service Environment는 단일 애플리케이션만 실행할 수 있도록 
 
 **서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
-**Azure DNS**: 도메인 이름 시스템 (DNS)는 변환 합니다 (또는 확인)를 웹 사이트 또는 서비스 이름을 해당 IP 주소로 합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 통한 이름 확인 기능을 제공하는 DNS 도메인용 호스팅 서비스입니다. Azure에서 도메인을 호스팅하는 사용자는 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구 방식을 사용하여 DNS 레코드를 관리할 수 있습니다. 또한 Azure DNS는 사설 DNS 도메인도 지원합니다.
+**Azure DNS**: 도메인 이름 시스템 (DNS)는 변환 합니다 (또는 확인)를 웹 사이트 또는 서비스 이름을 해당 IP 주소로 합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 통한 이름 확인 기능을 제공하는 DNS 도메인용 호스팅 서비스입니다. Azure에서 도메인을 호스팅하는 사용자는 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구 방식을 사용하여 DNS 레코드를 관리할 수 있습니다. Azure DNS는 프라이빗 DNS 도메인도 지원합니다.
 
 **Azure Load Balancer**: [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 응용 프로그램을 확장 하 여 서비스에 대 한 고가용성을 만들 고객이 사용할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니다. 또한 Load Balancer를 사용하면 대기 시간은 짧아지고 처리량은 높아지며, 모든 TCP 및 UDP 애플리케이션을 강화하여 흐름을 수백만 개로 늘릴 수 있습니다.
 
@@ -208,7 +208,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
 이 PaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
 
-Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
+Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 프라이빗 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
 
 VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 통과하므로 Microsoft는 훨씬 더 안전한 또 다른 연결 옵션을 제공합니다. ExpressRoute는 Azure 및 온-프레미스 위치 또는 Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. ExpressRoute 연결은 고객이 사용하는 통신 서비스 공급자에 직접 연결됩니다. 그러므로 데이터가 인터넷을 통해 전송되지 않으며 인터넷에 노출되지 않습니다. 이러한 연결은 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 

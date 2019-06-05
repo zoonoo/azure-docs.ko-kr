@@ -56,7 +56,7 @@ ms.locfileid: "58882058"
 
 ## <a name="limiting-access-to-your-managed-instance"></a>관리되는 인스턴스에 대한 액세스 제한
 
-관리되는 인스턴스는 사설 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게 연결을 설정하려면 애플리케이션 또는 사용자가 관리형 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
+관리형 인스턴스는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게 연결을 설정하려면 애플리케이션 또는 사용자가 관리형 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
 
 > [!NOTE] 
 > 관리되는 인스턴스는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. 관리되는 인스턴스는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.

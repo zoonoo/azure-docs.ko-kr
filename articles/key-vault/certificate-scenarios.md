@@ -11,7 +11,7 @@ ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64725708"
@@ -87,7 +87,7 @@ ms.locfileid: "64725708"
 
  PEM 형식에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)의 인증서 섹션을 참조하세요.  
 
- 인증서 가져오기 – 디스크에 PEM 또는 PFX가 있어야 하며 개인 키가 필요합니다. 
+ 인증서 가져오기 – 디스크에 PEM 또는 PFX가 있어야 하며 프라이빗 키가 필요합니다. 
 -   자격 증명 모음 이름 및 인증서 이름을 지정해야 합니다(정책은 선택 사항).
 
 -   PEM / PFX 파일은 KV에서 구문 분석하고 인증서 정책을 채우는 데 사용할 수 있는 특성을 포함합니다. 인증서 정책이 이미 지정된 경우 KV는 PFX / PEM 파일에서 데이터를 일치시키려고 합니다.  

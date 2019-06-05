@@ -65,10 +65,10 @@ LDAPS 인증서를 .PFX 파일로 내보내려면 다음을 수행합니다.
     ![인증서 내보내기 마법사](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
 12. **개인 키 내보내기** 페이지에서 **예, 개인 키를 내보냅니다.** 를 선택하고 **다음**을 클릭합니다.
 
-    ![인증서 개인 키 내보내기](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
+    ![인증서 프라이빗 키 내보내기](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
     > [!WARNING]
-    > 인증서와 함께 개인 키를 내보내야 합니다. 인증서에 대한 개인 키가 없는 PFX를 제공하면 관리되는 도메인에 대한 보안 LDAP 설정에 실패합니다.
+    > 인증서와 함께 프라이빗 키를 내보내야 합니다. 인증서에 대한 프라이빗 키가 없는 PFX를 제공하면 관리되는 도메인에 대한 보안 LDAP 설정에 실패합니다.
     >
     >
 

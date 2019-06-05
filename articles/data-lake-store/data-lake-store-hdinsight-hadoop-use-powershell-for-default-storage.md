@@ -33,7 +33,7 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 
 * 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5 및 3.6에서 사용할 수 있습니다.
 
-* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’.
+* 기본 스토리지인 Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 ‘사용할 수 없습니다’. 
 
 PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 
@@ -45,7 +45,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1을 사용하도록 HDInsight�
 
 * **Azure 구독**: [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 이동합니다.
 * **Azure PowerShell 1.0 이상**: [PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
-* **Windows SDK(소프트웨어 개발 키트)**: Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/downloads)로 이동합니다. 보안 인증서를 만드는 데 SDK가 사용됩니다.
+* **Windows SDK(소프트웨어 개발 키트)** : Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/downloads)로 이동합니다. 보안 인증서를 만드는 데 SDK가 사용됩니다.
 * **Azure Active Directory 서비스 주체**: 이 자습서에서는 Azure AD(Azure Active Directory)에서 서비스 주체를 만드는 방법을 설명합니다. 그러나 서비스 주체를 만들려면 Azure AD 관리자여야 합니다. 관리자인 경우 이 필수 요소를 건너뛰고 자습서를 진행할 수 있습니다.
 
     >[!NOTE]
@@ -125,19 +125,19 @@ Data Lake Storage Gen1의 Active Directory 인증을 설정하려면 다음 두 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서를 만든 *C:\mycertdir*과 같은 디렉터리를 만들었어야 합니다.
 
-1. PowerShell 창에서 Windows SDK를 설치한 위치로 이동(일반적으로 *C:\Program Files (x86)\Windows Kits\10\bin\x86*)하고 [MakeCert][makecert] 유틸리티를 사용하여 자체 서명된 인증서와 개인 키를 만듭니다. 다음 명령을 사용합니다.
+1. PowerShell 창에서 Windows SDK를 설치한 위치로 이동(일반적으로 *C:\Program Files (x86)\Windows Kits\10\bin\x86*)하고 [MakeCert][makecert] 유틸리티를 사용하여 자체 서명된 인증서와 프라이빗 키를 만듭니다. 다음 명령을 사용합니다.
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
 
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
-    개인 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
+    프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후에 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
 2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령 실행:
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    메시지가 표시되면 이전에 지정한 개인 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx**를 확인해야 합니다.
+    메시지가 표시되면 이전에 지정한 프라이빗 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx**를 확인해야 합니다.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Azure AD 및 서비스 주체 만들기
 이 섹션에서는 Azure AD 애플리케이션에 대한 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증합니다. Azure AD에서 애플리케이션을 만들려면 다음과 같은 명령을 실행합니다.

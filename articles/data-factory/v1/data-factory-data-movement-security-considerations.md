@@ -74,7 +74,7 @@ Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으
 Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요.
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC(가상 사설 클라우드) 내에서 Amazon S3를 지원하지 않습니다.
+Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC(가상 프라이빗 클라우드) 내에서 Amazon S3를 지원하지 않습니다.
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC 내에서 Amazon Redshift를 지원하지 않습니다. 
@@ -83,7 +83,7 @@ Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지�
 Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>하이브리드 시나리오(데이터 관리 게이트웨이 사용)
-하이브리드 시나리오에서는 데이터 관리 게이트웨이를 온-프레미스 네트워크 또는 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 게이트웨이는 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 
+하이브리드 시나리오에서는 데이터 관리 게이트웨이를 온-프레미스 네트워크 또는 가상 네트워크(Azure) 또는 가상 프라이빗 클라우드(Amazon) 내부에 설치해야 합니다. 게이트웨이는 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 
 
 ![데이터 관리 게이트웨이 채널](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -123,14 +123,14 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
  
 또한 [IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) 또는 [ExpressRoute](../../expressroute/expressroute-introduction.md)를 사용하여 온-프레미스 네트워크와 Azure 사이의 통신 채널을 더욱 안전하게 보호할 수 있습니다.
 
-가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 Express Route(비공개 피어링)를 설정하여 온-프레미스 네트워크를 Azure 가상 네트워크(VNet)에 연결할 수 있습니다.     
+가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 Express Route(프라이빗 피어링)를 설정하여 온-프레미스 네트워크를 Azure 가상 네트워크(VNet)에 연결할 수 있습니다.     
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 게이트웨이 구성 권장 사항을 요약한 것입니다.
 
 | 원본 | 대상 | 네트워크 구성 | 게이트웨이 설치 |
 | ------ | ----------- | --------------------- | ------------- | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 게이트웨이는 Vnet의 온-프레미스 또는 Azure 가상 머신(VM)에 설치할 수 있습니다. | 
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링) | 게이트웨이는 VNet의 Azure VM 또는 온-프레미스 환경에 설치할 수 있습니다. | 
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링) | 게이트웨이는 VNet의 Azure VM 또는 온-프레미스 환경에 설치할 수 있습니다. | 
 | 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링) | 게이트웨이를 온-프레미스에 설치해야 합니다. | 
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스간에 데이터를 이동시키기 위한 데이터 관리 게이트웨이의 사용법을 보여 줍니다.

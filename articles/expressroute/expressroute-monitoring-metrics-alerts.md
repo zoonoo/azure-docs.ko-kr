@@ -31,7 +31,7 @@ ms.locfileid: "60364710"
 
 ## <a name="metrics-per-peering"></a>피어링당 메트릭
 
-개인, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
+프라이빗, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
 
 ![피어링당 메트릭](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 

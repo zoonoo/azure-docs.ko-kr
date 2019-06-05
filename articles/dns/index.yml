@@ -40,7 +40,7 @@ sections:
   - title: 단계별 자습서
     items:
       - type: paragraph
-        text: 'Azure DNS에서 도메인을 호스트하고, Azure DNS를 사용하여 웹앱에 대한 사용자 지정 DNS 레코드를 만들고, 개인 DNS 영역 및 레코드를 만드는 방법을 알아봅니다.'
+        text: 'Azure DNS에서 도메인을 호스트하고, Azure DNS를 사용하여 웹앱에 대한 사용자 지정 DNS 레코드를 만들고, 프라이빗 DNS 영역 및 레코드를 만드는 방법을 알아봅니다.'
       - type: list
         style: unordered
         items:

@@ -112,7 +112,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |예외 속도 |초당 발생한 예외입니다. |
 | `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |애플리케이션 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
 | `performanceCounter.percentage_processor_total.value` |프로세서 시간 |프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다. |
-| `performanceCounter.process_private_bytes.value` |프로세스 전용 바이트 |모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다. |
+| `performanceCounter.process_private_bytes.value` |프로세스 프라이빗 바이트 |모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다. |
 | `performanceCounter.request_execution_time.value` |ASP.NET 요청 실행 시간 |가장 최근 요청의 실행 시간입니다. |
 | `performanceCounter.requests_in_application_queue.value` |실행 큐의 ASP.NET 요청 |애플리케이션 요청 큐의 길이입니다. |
 | `performanceCounter.requests_per_sec.value` |ASP.NET 요청 속도 |ASP.NET에서 애플리케이션에 전송된 모든 요청의 속도(초)입니다. |

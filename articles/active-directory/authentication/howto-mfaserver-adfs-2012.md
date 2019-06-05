@@ -97,7 +97,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 
 1. 인증 기관에서 웹 서비스 SDK를 실행하는 서버에 대한 클라이언트 인증서를 가져옵니다. [클라이언트 인증서를 가져오는](https://technet.microsoft.com/library/cc770328.aspx)방법을 알아봅니다.  
 2. 웹 서비스 SDK를 실행하는 서버의 로컬 컴퓨터 개인 인증서 저장소로 클라이언트 인증서를 가져옵니다. 신뢰할 수 있는 루트 인증서 인증서 저장소에 인증 기관의 공용 인증서가 있는지 확인합니다.  
-3. 클라이언트 인증서의 공개 키 및 개인 키를 .pfx 파일로 내보냅니다.  
+3. 클라이언트 인증서의 공개 키 및 프라이빗 키를 .pfx 파일로 내보냅니다.  
 4. Base64 형식인 공개 키를 .cer 파일로 내보냅니다.  
 5. Server Manager에서 Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication 기능이 설치되어 있는지 확인합니다. 이 기능이 설치되어 있지 않은 경우 **역할 및 기능 추가** 를 선택하여 이 기능을 추가합니다.  
 6. IIS Manager에서 Web Service SDK 가상 디렉터리가 포함된 웹 사이트의 **구성 편집기** 를 두 번 클릭합니다. 가상 디렉터리가 아니라 웹 사이트를 선택하는 것이 중요합니다.  
@@ -105,7 +105,7 @@ Web Service SDK를 구성하는 데는 두 가지 옵션이 있습니다. 첫 �
 8. 사용을 **true**로 설정합니다.  
 9. oneToOneCertificateMappingsEnabled를 **true**로 설정합니다.  
 10. oneToOneMappings 옆에 있는 **...** 단추를 클릭한 다음 **추가** 링크를 클릭합니다.  
-11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
+11. 앞에서 내보낸 Base64 .cer 파일을 엽니다. *-----BEGIN CERTIFICATE-----* , *-----END CERTIFICATE-----* 및 줄바꿈을 제거합니다. 결과 문자열을 복사합니다.  
 12. 인증서를 이전 단계에서 복사한 문자열로 설정합니다.  
 13. 사용을 **true**로 설정합니다.  
 14. userName을 PhoneFactor Admins 보안 그룹의 구성원인 계정으로 설정합니다. &lt;도메인&gt;&#92;&lt;사용자 이름&gt; 형식을 사용합니다.  

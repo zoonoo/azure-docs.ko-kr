@@ -130,7 +130,7 @@ Azure 네트워크 보안 어플라이언스는 네트워크 수준 제어에서
 하이브리드 IT 시나리오에서는 경우 일반적으로 일종의 크로스-프레미스 연결 크로스-프레미스 연결을 사용하면 회사가 온-프레미스 네트워크를 Azure 가상 네트워크에 연결할 수 있습니다. 다음과 같은 두 가지 크로스-프레미스 연결 솔루션이 제공됩니다.
 
 * [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)합니다. 신뢰할 수 있고 안정적이며 인정된 기술이지만 연결이 인터넷을 통해 이루어집니다. 대역폭은 최대 약 1.25 Gbps로 제한 됩니다. 사이트 간 VPN에는 일부 시나리오에서는 바람직한 옵션입니다.
-* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용 하 여 Azure, Office 365 및 Dynamics 365 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. ExpressRoute WAN는 Microsoft Exchange 호스팅 공급자 또는 온-프레미스 위치 간에 링크입니다. Telco 연결 이기 때문에 데이터 않으므로 인터넷 통신의 잠재적 위험에 노출 되지 않습니다 인터넷을 통해 이동 하지 않습니다.
+* **Azure ExpressRoute**. 크로스-프레미스 연결에 대해[ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하는 것이 좋습니다. ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용 하 여 Azure, Office 365 및 Dynamics 365 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. ExpressRoute WAN는 Microsoft Exchange 호스팅 공급자 또는 온-프레미스 위치 간에 링크입니다. Telco 연결 이기 때문에 데이터 않으므로 인터넷 통신의 잠재적 위험에 노출 되지 않습니다 인터넷을 통해 이동 하지 않습니다.
 
 ExpressRoute 연결의 위치 방화벽 용량, 확장성, 안정성 및 네트워크 트래픽 표시에 영향을 줄 수 있습니다. 기존 (온-프레미스) 네트워크에서 ExpressRoute를 종료 하는 위치를 식별 해야 합니다. 다음을 수행할 수 있습니다.
 
@@ -195,7 +195,7 @@ ExpressRoute 연결의 위치 방화벽 용량, 확장성, 안정성 및 네트�
 - 전용 WAN 링크가 일반적으로 더 안정적이고 성능이 뛰어납니다.
 
 ## <a name="secure-your-critical-azure-service-resources-to-only-your-virtual-networks"></a>가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호합니다.
-가상 네트워크 서비스 엔드포인트를 사용하여 직접 연결을 통해 가상 네트워크 개인 주소 공간 및 Azure 서비스에 대한 가상 네트워크의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다.
+가상 네트워크 서비스 엔드포인트를 사용하여 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 Azure 서비스에 대한 가상 네트워크의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다.
 
 서비스 엔드포인트는 다음과 같은 이점을 제공합니다.
 

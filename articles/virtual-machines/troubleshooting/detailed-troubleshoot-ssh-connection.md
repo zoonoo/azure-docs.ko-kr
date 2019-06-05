@@ -73,7 +73,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 * Chmod 700 ~/.ssh
 * Chmod 644 ~/.ssh/\*.pub
-* Chmod 600 ~/.ssh/id_rsa(또는 개인 키가 저장되어 있는 기타 파일)
+* Chmod 600 ~/.ssh/id_rsa(또는 프라이빗 키가 저장되어 있는 기타 파일)
 * Chmod 644 ~/.ssh/known_hosts(SSH를 통해 연결한 호스트 포함)
 
 ## <a name="source-2-organization-edge-device"></a>원본 2: 조직 에지 디바이스
@@ -103,10 +103,10 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 동일한 가상 네트워크에 있는 VM과 SSH의 연결을 만들 수 있는 경우 다음 영역을 확인합니다.
 
-* **대상 VM의 SSH 트래픽에 대한 엔드포인트 구성.** 엔드포인트의 개인 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트와 일치해야 합니다. 기본 포트는 22입니다. **가상 머신** > *VM 이름* > **설정** > **끝점**을 선택하여 Azure Portal에서 SSH TCP 포트 번호를 확인합니다.
-* **대상 가상 머신의 SSH 트래픽 엔드포인트에 대한 ACL.**  ACL을 통해 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정할 수 있습니다. ACL이 잘못 구성될 경우 엔드포인트에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../../virtual-network/virtual-networks-acl.md)를 참조하세요.
+* **대상 VM의 SSH 트래픽에 대한 엔드포인트 구성.** 엔드포인트의 프라이빗 TCP 포트는 VM에서 SSH 서비스가 수신 대기 중인 TCP 포트와 일치해야 합니다. 기본 포트는 22입니다. **가상 머신** > *VM 이름* > **설정** > **끝점**을 선택하여 Azure Portal에서 SSH TCP 포트 번호를 확인합니다.
+* **대상 가상 머신의 SSH 트래픽 엔드포인트에 대한 ACL.** ACL을 통해 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정할 수 있습니다. ACL이 잘못 구성될 경우 엔드포인트에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 확인하고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../../virtual-network/virtual-networks-acl.md)를 참조하세요.
 
-문제의 발생지인 엔드포인트를 제거하려면 현재 엔드포인트를 제거하고 다른 엔드포인트를 만든 다음 SSH 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 엔드포인트 설정](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+문제의 발생지인 엔드포인트를 제거하려면 현재 엔드포인트를 제거하고 다른 엔드포인트를 만든 다음 SSH 이름(공용 및 프라이빗 포트 번호에 TCP 포트 22)을 지정합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 엔드포인트 설정](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 <a id="nsg"></a>
 

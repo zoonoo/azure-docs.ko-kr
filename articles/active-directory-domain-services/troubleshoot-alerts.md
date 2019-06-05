@@ -39,10 +39,10 @@ ms.locfileid: "66246706"
 | AADDS105 | *애플리케이션 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.* | [암호 동기화 애플리케이션이 만료됨](alert-service-principal.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS106 | *관리되는 도메인에 연결된 Azure 구독이 삭제되었습니다.  제대로 계속 작동하려면 Azure AD Domain Services에 활성 구독이 있어야 합니다.* | [Azure 구독을 찾을 수 없음](#aadds106-your-azure-subscription-is-not-found) |
 | AADDS107 | *관리되는 도메인에 연결된 Azure 구독이 활성화되지 않았습니다.  제대로 계속 작동하려면 Azure AD Domain Services에 활성 구독이 있어야 합니다.* | [Azure 구독이 비활성화됨](#aadds107-your-azure-subscription-is-disabled) |
-| AADDS108 |  *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
+| AADDS108 | *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
 | AADDS109 | *관리되는 도메인에 사용되는 리소스가 삭제되었습니다. 이 리소스는 Azure AD Domain Services가 제대로 작동하기 위해 필요합니다.* | [리소스가 삭제됨](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Azure AD Domain Services의 배포에 선택된 서브넷이 꽉 차서 만들어야 하는 추가 도메인 컨트롤러에 사용할 수 있는 공간이 없습니다.* | [서브넷이 꽉 참](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 |  *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.* | [권한 없는 서비스 주체](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.* | [권한 없는 서비스 주체](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *이 도메인에서 가상 네트워크의 서브넷에 충분한 IP 주소가 없을 수도 있음을 확인했습니다. Azure AD Domain Services에는 두 개의 이상의 사용 가능한 IP 주소가 활성화된 서브넷 내에 있어야 합니다. 최소 3-5개 예비 IP 주소가 서브넷 내에 있는 것이 좋습니다. 이는 다른 가상 머신이 서브넷 내에 배포되어 사용 가능한 IP 주소 수가 소진되거나 서브넷에서 사용 가능한 IP 주소 수가 제한되는 경우에 발생할 수 있습니다.* | [IP 주소가 부족함](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Azure AD Domain Services에서 사용되는 리소스가 예기치 않은 상태로 발견되었으며 복구할 수 없습니다.* | [리소스를 복구할 수 없음](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | *Azure AD Domain Services의 배포를 위해 선택한 서브넷이 유효하지 않아 사용할 수 없습니다.* | [잘못된 서브넷](#aadds114-subnet-invalid) |
@@ -94,7 +94,7 @@ ms.locfileid: "66246706"
 > [!NOTE]
 > 이 문제를 해결하기 위해 기존의 관리되는 도메인을 삭제하고, 개인 IP 주소 범위를 사용하여 가상 네트워크에 다시 만들어야 합니다. 이 프로세스는 중단됩니다.
 
-시작하기 전에 [이 문서](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)의 **개인 IP V4 주소 공간** 섹션을 읽습니다.
+시작하기 전에 [이 문서](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)의 **프라이빗 IP v4 주소 공간** 섹션을 읽습니다.
 
 가상 네트워크 내에서 컴퓨터는 서브넷에 대해 구성된 것과 동일한 IP 주소 범위에 있는 Azure 리소스를 요청할 수 있습니다. 그러나 가상 네트워크가 이 범위에서 구성되므로 해당 요청은 가상 네트워크 내에서 라우팅되고 의도한 웹 리소스에 도달하지 않습니다. 이 구성으로 인해 Azure AD Domain Services에서 예측할 수 없는 오류가 발생할 수 있습니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "66246706"
    1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
    2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.
    3. 설정 아래의 **주소 공간**을 클릭합니다.
-   4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 새 주소 범위가 개인 IP 범위에 있는지 확인합니다. 변경 내용을 저장합니다.
+   4. 기존 주소 범위를 클릭하고 편집하거나 다른 주소 범위를 추가하여 주소 범위를 업데이트합니다. 새 주소 범위가 프라이빗 IP 범위에 있는지 확인합니다. 변경 내용을 저장합니다.
    5. 왼쪽 탐색 창에서 **서브넷**을 클릭합니다.
    6. 테이블에서 편집하려는 서브넷을 클릭합니다.
    7. 주소 범위를 업데이트하고 변경 내용을 저장합니다.
@@ -144,7 +144,7 @@ Azure AD Domain Services는 함수에 대한 구독이 필요하며 다른 구�
 
 **경고 메시지:**
 
- *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.*
+*Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.*
 
 **해결 방법:**
 
@@ -183,7 +183,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 **경고 메시지:**
 
- *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.*
+*Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다.*
 
 **해결 방법:**
 

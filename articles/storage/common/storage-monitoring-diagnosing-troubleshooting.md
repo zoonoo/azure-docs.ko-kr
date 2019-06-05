@@ -20,7 +20,7 @@ ms.locfileid: "65912446"
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>개요
-클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 장치 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 응용 프로그램의 네트워크 트래픽은 공용 네트워크와 개인 네트워크를 트래버스할 수 있으며 응용 프로그램은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
+클라우드 환경에서 호스트된 분산 애플리케이션의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 장치 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 일반적으로 애플리케이션의 네트워크 트래픽은 공용 네트워크와 프라이빗 네트워크를 트래버스할 수 있으며 애플리케이션은 Microsoft Azure Storage 테이블, Blob, 큐 또는 파일과 같은 여러 스토리지 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
 
 이러한 애플리케이션은 올바르게 관리하려면 미리 모니터링하여 애플리케이션과 종속 기술의 모든 측면을 진단하고 문제를 해결하는 방법을 파악해야 합니다. Azure Storage 서비스 사용자는 애플리케이션이 사용하는 Storage 서비스를 지속적으로 모니터링하여 정상적인 응답 시간보다 속도가 느려지는 등 예기치 않은 동작 변경을 파악해야 하며, 로깅을 사용하여 보다 자세한 데이터를 수집하고 문제를 자세하게 분석해야 합니다. 모니터링 및 로깅을 통해 얻은 진단 정로를 토대로 애플리케이션에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위해 수행할 수 있는 적절한 단계를 결정할 수 있습니다. Azure Storage는 핵심 Azure 서비스이며 고객이 Azure 인프라에 배포하는 대부분의 솔루션에서 중요한 역할을 합니다. Azure Storage에는 클라우드 기반 응용 프로그램의 스토리지 문제 모니터링, 진단 및 해결 과정을 간소화하는 기능이 포함되어 있습니다.
 
@@ -139,7 +139,7 @@ Azure 애플리케이션을 지속적으로 모니터링한 후 다음을 수행
 Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대한 도움말은 [Azure Storage 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) 블로그 게시물을 참조하세요.
 
 ### <a name="monitoring-availability"></a>가용성 모니터링
-시간 또는 분 메트릭 테이블(**$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 저장소 계정의 저장소 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
+시간 또는 분 메트릭 테이블( **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 저장소 계정의 저장소 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.
 
 값이 100%보다 작으면 일부 저장소 요청이 실패함을 나타냅니다. 메트릭 데이터에서 **ServerTimeoutError**와 같이 오류 유형이 다른 요청 수를 표시하는 기타 열을 검사하여 해당 요청이 실패하는 이유를 확인할 수 있습니다. 서비스가 요청을 보다 효율적으로 부하 분산하기 위해 파티션을 이동하는 동안 일시적으로 서버 시간이 초과되는 등의 경우에는 **가용성**이 잠시 동안 100%보다 낮아질 수 있습니다. 클라이언트 애플리케이션의 다시 시도 논리가 이와 같은 일시적인 상황을 처리해야 합니다. [스토리지 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/azure/hh343260.aspx) 문서에는 Storage 메트릭이 해당 **가용성** 계산에 포함하는 트랜잭션 형식이 나와 있습니다.
 

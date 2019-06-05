@@ -35,7 +35,7 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 애플리케
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 > * 디스크 크기 조정
-> * 디스크 스냅숏
+> * 디스크 스냅샷
 
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
@@ -179,13 +179,13 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-## <a name="take-a-disk-snapshot"></a>디스크 스냅숏 만들기
+## <a name="take-a-disk-snapshot"></a>디스크 스냅샷 만들기
 
-디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅숏을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 애플리케이션 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
+디스크 스냅샷을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅샷은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅샷을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅샷은 다른 디스크의 스냅샷과 독립적으로 생성됩니다. 애플리케이션 일치 백업을 만들려면 디스크 스냅샷을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
 
-### <a name="create-snapshot"></a>스냅숏 만들기
+### <a name="create-snapshot"></a>스냅샷 만들기
 
-가상 머신 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az-vm-show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
+가상 머신 디스크 스냅샷을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az-vm-show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -195,7 +195,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-이제 가상 머신의 ID를 알고 있으므로 다음 명령을 실행하여 디스크 스냅숏을 만듭니다.
+이제 가상 머신의 ID를 알고 있으므로 다음 명령을 실행하여 디스크 스냅샷을 만듭니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -204,9 +204,9 @@ az snapshot create \
     --name osDisk-backup
 ```
 
-### <a name="create-disk-from-snapshot"></a>스냅숏에서 디스크 만들기
+### <a name="create-disk-from-snapshot"></a>스냅샷에서 디스크 만들기
 
-그런 다음 스냅숏을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
+그런 다음, 스냅샷을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
 az disk create \
@@ -215,7 +215,7 @@ az disk create \
    --source osDisk-backup
 ```
 
-### <a name="restore-virtual-machine-from-snapshot"></a>스냅숏에서 가상 머신 복원
+### <a name="restore-virtual-machine-from-snapshot"></a>스냅샷에서 가상 머신 복원
 
 가상 머신 복구를 보여 주기 위해 기존 가상 머신을 삭제합니다.
 
@@ -225,7 +225,7 @@ az vm delete \
 --name myVM
 ```
 
-스냅숏 디스크에서 새 가상 머신을 만듭니다.
+스냅샷 디스크에서 새 가상 머신을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -268,7 +268,7 @@ az vm disk attach \
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 > * 디스크 크기 조정
-> * 디스크 스냅숏
+> * 디스크 스냅샷
 
 VM 구성 자동화에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
 

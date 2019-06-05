@@ -95,13 +95,13 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 
 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다. 그러나 구독당 가상 네트워크 수에는 [제한](../azure-subscription-service-limits.md)이 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
 
-## <a name="shared-public-or-private-ip"></a>공유, 공용 또는 개인 IP
+## <a name="shared-public-or-private-ip"></a>공유, 공용 또는 프라이빗 IP
 
 ### <a name="question"></a>질문
-공유 IP, 공용 IP, 개인 IP는 각각 어떠한 경우에 사용해야 하나요?
+공유 IP, 공용 IP, 프라이빗 IP는 각각 어떠한 경우에 사용해야 하나요?
 
 ### <a name="answer"></a>응답
-사이트 간 VPN 또는 Express 경로를 사용하는 경우에는 내부 네트워크에서만 컴퓨터에 액세스할 수 있고 공용 인터넷을 통해서는 액세스할 수 없도록 개인 IP 사용을 고려합니다.
+사이트 간 VPN 또는 Express 경로를 사용하는 경우에는 내부 네트워크에서만 머신에 액세스할 수 있고 공용 인터넷을 통해서는 액세스할 수 없도록 프라이빗 IP 사용을 고려합니다.
 
 > [!NOTE]
 > 랩 소유자는 사용자가 자신의 VM에 대해 공용 IP 주소를 실수로 만들지 못하도록 이 서브넷 정책을 변경할 수 있습니다. 구독 소유자는 공용 IP 만들기를 금지하는 구독 정책을 만들어야 합니다.
@@ -126,7 +126,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 DevTest Labs 환경 내에서 Resource Manager 템플릿을 사용하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>응답
-[DevTest 랩의 환경 기능](devtest-lab-test-env.md) 문서에서 설명하는 단계에 따라 Resource Manager 템플릿을 DevTest 랩 환경에 배포합니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 개인 리포지토리](devtest-lab-test-env.md)를 추가합니다.
+[DevTest 랩의 환경 기능](devtest-lab-test-env.md) 문서에서 설명하는 단계에 따라 Resource Manager 템플릿을 DevTest 랩 환경에 배포합니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 프라이빗 리포지토리](devtest-lab-test-env.md)를 추가합니다.
 
 이 시나리오는 DevTest Labs를 사용하여 개발 컴퓨터를 호스트하는 경우에는 유용하지 않을 수 있지만, 프로덕션 환경을 대표하는 스테이징 환경을 구축하는 경우에는 유용할 수 있습니다.
 

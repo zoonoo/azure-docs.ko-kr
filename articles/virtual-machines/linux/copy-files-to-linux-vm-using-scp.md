@@ -27,7 +27,7 @@ ms.locfileid: "60328768"
 
 이 문서에서는 보안 복사본(SCP)를 사용하여 워크스테이션에서 Azure Linux VM으로 또는 Azure Linux VM에서 워크스테이션으로 파일을 이동하는 방법을 보여 줍니다. 워크스테이션과 Linux VM 간에 신속하고 안전하게 파일을 이동하는 것은 Azure 인프라 관리의 중요한 부분입니다. 
 
-이 문서의 경우 [SSH 공개 및 개인 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
+이 문서의 경우 [SSH 공개 및 프라이빗 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Azure에 Linux VM이 배포되어 있어야 합니다. 또한 로컬 컴퓨터에 SCP 클라이언트가 필요합니다. SSH 위에 구축되었고 대부분의 Linux 및 Mac 컴퓨터 기본 Bash 셸과 일부 Windows 셸에 포함되어 있습니다.
 
 ## <a name="quick-commands"></a>빠른 명령
 
@@ -49,7 +49,7 @@ scp azureuser@azurehost:directory/file targetfile
 
 ## <a name="ssh-key-pair-authentication"></a>SSH 키 쌍 인증
 
-SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트에서 인증을 처리하고 SSH와 함께 기본적으로 제공되는 암호화된 터널에서 파일을 이동합니다. SSH 인증에는 사용자 이름 및 암호를 사용할 수 있습니다. 그러나 SSH 공개 및 개인 키 인증이 보안 모범 사례로 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사를 시작합니다. 적절히 구성된 `~/.ssh/config`와 SSH 공개 및 개인 키를 사용하면 서버 이름(또는 IP 주소)만 사용해서 SCP 연결을 설정할 수 있습니다. SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 VM에 로그인하는 데 기본적으로 사용합니다.
+SCP는 전송 계층에 대해 SSH를 사용합니다. SSH는 대상 호스트에서 인증을 처리하고 SSH와 함께 기본적으로 제공되는 암호화된 터널에서 파일을 이동합니다. SSH 인증에는 사용자 이름 및 암호를 사용할 수 있습니다. 그러나 SSH 공개 및 프라이빗 키 인증이 보안 모범 사례로 권장됩니다. SSH에서 연결을 인증하면 SCP는 파일 복사를 시작합니다. 적절히 구성된 `~/.ssh/config`와 SSH 공개 및 프라이빗 키를 사용하면 서버 이름(또는 IP 주소)만 사용해서 SCP 연결을 설정할 수 있습니다. SSH 키가 하나만 있는 경우 SCP는 `~/.ssh/` 디렉터리에서 이 키를 찾은 후 VM에 로그인하는 데 기본적으로 사용합니다.
 
 `~/.ssh/config`와 SSH 공개 및 개인 키 구성에 대한 자세한 내용은 [SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
