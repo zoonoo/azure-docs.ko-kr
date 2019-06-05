@@ -13,7 +13,7 @@ ms.date: 05/15/2019
 ms.author: diberry
 ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66225868"
@@ -175,7 +175,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>내가 앱에 할당한 것보다 더 많은 엔드포인트 키가 있는 이유는 무엇인가요?
 각 LUIS 앱에는 편의상 엔드포인트 목록에 작성/시작 키가 있습니다. 이 키는 LUIS 테스트를 위해 몇 개의 엔드포인트 적중 항목이 있습니다.  
 
-앱이 LUIS GA(일반 제공) 전에 생성되었다면 구독에서 LUIS 엔드포인트 키가 자동으로 할당됩니다. GA 마이그레이션을 좀 더 쉽게 진행하기 위해 이렇게 구현되었습니다. Azure Portal의 새 LUIS 엔드포인트는 LUIS에 자동으로 _할당되지 않습니다_. 
+앱이 LUIS GA(일반 제공) 전에 생성되었다면 구독에서 LUIS 엔드포인트 키가 자동으로 할당됩니다. GA 마이그레이션을 좀 더 쉽게 진행하기 위해 이렇게 구현되었습니다. Azure Portal의 새 LUIS 엔드포인트는 LUIS에 자동으로 _할당되지 않습니다_.
 
 ## <a name="key-management"></a>키 관리
 
@@ -278,7 +278,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 ## <a name="luis-service"></a>LUIS 서비스
 
-### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS(Language Understanding)를 사용할 수 있나요?
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 프라이빗 클라우드에서 LUIS(Language Understanding)를 사용할 수 있나요?
 
 예, 사용량을 산정하는 데 필요한 연결이 있는 경우 이러한 시나리오에 LUIS [컨테이너](luis-container-howto.md)를 사용할 수 있습니다. 
 

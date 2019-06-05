@@ -19,9 +19,9 @@ ms.locfileid: "66257974"
 
 ## <a name="what-is-expressroute"></a>ExpressRoute란?
 
-ExpressRoute는 온-프레미스 또는 공동 장소 환경의 Microsoft 데이터 센터와 인프라 사이에 개인 연결을 만들 수 있게 해 주는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
+ExpressRoute는 온-프레미스 또는 공동 장소 환경의 Microsoft 데이터 센터와 인프라 사이에 프라이빗 연결을 만들 수 있게 해 주는 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>ExpressRoute 및 개인 네트워크 연결을 사용할 경우 이점은 무엇인가요?
+### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>ExpressRoute 및 프라이빗 네트워크 연결을 사용할 경우 이점은 무엇인가요?
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인터넷을 통한 일반적인 연결보다 더 짧고 일관된 대기 시간으로 더 높은 보안, 안정성 및 속도를 제공합니다. 경우에 따라 온-프레미스 디바이스와 Azure 간 데이터 전송에 ExpressRoute 연결을 사용하면 상당한 비용 혜택을 얻을 수 있습니다.
 
@@ -45,9 +45,9 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이 오랜된 기간에 대 한 되지 않으며 보장 되지 않습니다. 
 
-### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 개인 네트워크 연결을 동시에 사용할 수 있나요?
+### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 프라이빗 네트워크 연결을 동시에 사용할 수 있나요?
 
-예. ExpressRoute 회로는 일단 설정되면 가상 네트워크 내 서비스와 다른 Azure 서비스에 동시에 액세스할 수 있습니다. 개인 피어링 경로를 통해 가상 네트워크에 연결하고, Microsoft 피어링 경로를 통해 다른 서비스에 연결합니다.
+예. ExpressRoute 회로는 일단 설정되면 가상 네트워크 내 서비스와 다른 Azure 서비스에 동시에 액세스할 수 있습니다. 프라이빗 피어링 경로를 통해 가상 네트워크에 연결하고, Microsoft 피어링 경로를 통해 다른 서비스에 연결합니다.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute는 SLA(서비스 수준 약정)를 제공하나요?
 
@@ -57,7 +57,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md)을 지원합니다.
 
-### <a name="private-peering"></a>개인 피어링
+### <a name="private-peering"></a>프라이빗 피어링
 
 * 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
@@ -218,11 +218,11 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>보급할 수 있는 경로의 수에 제한이 있나요?
 
-예. 개인 피어링에 대해 최대 4000개의 경로 접두사를 허용하고, Microsoft 피어링에 대해 200개의 경로 접두사를 허용합니다. ExpressRoute 프리미엄 기능을 사용하도록 설정하면 개인 피어링에 대해 10,000개의 경로까지 늘릴 수 있습니다.
+예. 프라이빗 피어링에 대해 최대 4000개의 경로 접두사를 허용하고, Microsoft 피어링에 대해 200개의 경로 접두사를 허용합니다. ExpressRoute 프리미엄 기능을 사용하도록 설정하면 프라이빗 피어링에 대해 10,000개의 경로까지 늘릴 수 있습니다.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
 
-Microsoft 피어링 BGP 세션에 대해 개인 접두사(RFC1918)는 허용하지 않습니다. 모든 접두사 크기 (최대/32) Microsoft 및 개인 피어 링을 모두 수락합니다.
+Microsoft 피어링 BGP 세션에 대해 프라이빗 접두사(RFC1918)는 허용하지 않습니다. 모든 접두사 크기 (최대/32) Microsoft 및 개인 피어 링을 모두 수락합니다.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>BGP 제한을 초과하면 어떻게 되나요?
 
@@ -250,7 +250,7 @@ REST API 및 PowerShell cmdlet을 사용하여 ExpressRoute 회로의 대역폭�
 
 ExpressRoute Premium은 다음 기능의 모음입니다.
 
-* 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
+* 증가된 라우팅 테이블은 프라이빗 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
 * ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
 * Office 365 및 Dynamics 365에 연결합니다.
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>

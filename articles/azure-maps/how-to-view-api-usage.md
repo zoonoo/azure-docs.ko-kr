@@ -19,7 +19,7 @@ ms.locfileid: "65957262"
 
 이 문서에서는 [포털](https://portal.azure.com)에서 Azure Maps 계정에 대한 API 사용량 메트릭을 보는 방법에 대해 설명합니다. 메트릭은 사용자 지정 가능한 기간에 따라 편리한 그래프 형식으로 표시됩니다.
 
-## <a name="view-metric-snapshot"></a>메트릭 스냅숏 보기
+## <a name="view-metric-snapshot"></a>메트릭 스냅샷 보기
 
 Maps 계정의 **개요** 페이지에서 몇 가지 일반적인 메트릭을 볼 수 있습니다. 현재 선택할 수 있는 기간 동안의 *총 요청 수*, *총 오류 수* 및 *가용성*이 표시됩니다.
 

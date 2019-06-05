@@ -42,7 +42,7 @@ Amazon S3 커넥터는 다음 작업에 대 한 지원 됩니다.
 
 Amazon S3에서 데이터를 복사하려면 다음과 같은 권한이 부여되어 있는지 확인합니다.
 
-- **복사 작업 실행의 경우:**: Amazon S3 개체 작업에 대한 `s3:GetObject` 및 `s3:GetObjectVersion`
+- **복사 작업 실행의 경우:** : Amazon S3 개체 작업에 대한 `s3:GetObject` 및 `s3:GetObjectVersion`
 - **Data Factory GUI 작성의 경우**: Amazon S3 버킷 작업 권한에 대한 `s3:ListAllMyBuckets` 및 `s3:ListBucket`/`s3:GetBucketLocation`은 연결 테스트 및 파일 경로 찾아보기/탐색 등의 작업에 추가적으로 필요합니다. 이러한 권한을 부여하지 않으려면 연결된 서비스 만들기 페이지에서 테스트 연결을 건너뛰고 데이터 세트 설정에서 직접 경로를 지정합니다.
 
 Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)을 참조하세요.
@@ -63,7 +63,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 공식 Amazon S3 서비스가 아닌 S3 호환 스토리지 공급 기업의 데이터를 복사하는 경우 사용자 지정 S3 엔드포인트를 지정합니다. 예를 들어 Google Cloud Storage에서 데이터를 복사하려면 `https://storage.googleapis.com`을 지정합니다. | 아닙니다. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 >[!TIP]
 >공식 Amazon S3 서비스가 아닌 S3 호환 스토리지의 데이터를 복사하는 경우 사용자 지정 S3 서비스 URL을 지정합니다.

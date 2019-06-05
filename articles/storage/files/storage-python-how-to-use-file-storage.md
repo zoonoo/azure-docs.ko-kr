@@ -125,7 +125,7 @@ file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## <a name="create-share-snapshot"></a>공유 스냅숏 만들기
+## <a name="create-share-snapshot"></a>공유 스냅샷 만들기
 전체 파일 공유의 특정 시점 복사본을 만들 수 있습니다.
 
 ```python
@@ -140,37 +140,37 @@ metadata = {"foo": "bar"}
 snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 ```
 
-## <a name="list-shares-and-snapshots"></a>공유 및 스냅숏 나열 
-특정 공유에 대한 모든 스냅숏을 나열할 수 있습니다.
+## <a name="list-shares-and-snapshots"></a>공유 및 스냅샷 나열 
+특정 공유에 대한 모든 스냅샷을 나열할 수 있습니다.
 
 ```python
 shares = list(file_service.list_shares(include_snapshots=True))
 ```
 
-## <a name="browse-share-snapshot"></a>공유 스냅숏 찾아보기
-각 공유 스냅숏의 내용을 찾아보고 특정 시점에서 파일 및 디렉터리를 검색할 수 있습니다.
+## <a name="browse-share-snapshot"></a>공유 스냅샷 찾아보기
+각 공유 스냅샷의 내용을 찾아보고 특정 시점에서 파일 및 디렉터리를 검색할 수 있습니다.
 
 ```python
 directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
-## <a name="get-file-from-share-snapshot"></a>공유 스냅숏에서 파일 가져오기
-복원 시나리오에 대한 공유 스냅숏에서 파일을 다운로드할 수 있습니다.
+## <a name="get-file-from-share-snapshot"></a>공유 스냅샷에서 파일 가져오기
+복원 시나리오에 대한 공유 스냅샷에서 파일을 다운로드할 수 있습니다.
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
     file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
-## <a name="delete-a-single-share-snapshot"></a>단일 공유 스냅숏 삭제  
-단일 공유 스냅숏을 삭제할 수 있습니다.
+## <a name="delete-a-single-share-snapshot"></a>단일 공유 스냅샷 삭제  
+단일 공유 스냅샷을 삭제할 수 있습니다.
 
 ```python
 file_service.delete_share(share_name, snapshot=snapshot_id)
 ```
 
-## <a name="delete-share-when-share-snapshots-exist"></a>공유 스냅숏이 존재하는 경우 공유 삭제
-모든 스냅숏을 먼저 삭제해야만 스냅숏을 포함한 공유를 삭제할 수 있습니다.
+## <a name="delete-share-when-share-snapshots-exist"></a>공유 스냅샷이 존재하는 경우 공유 삭제
+모든 스냅샷을 먼저 삭제해야만 스냅샷을 포함한 공유를 삭제할 수 있습니다.
 
 ```python
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)

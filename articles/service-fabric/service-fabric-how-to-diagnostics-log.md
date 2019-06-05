@@ -3,8 +3,8 @@ title: Azure 또는 독립 실행형 클러스터의 .NET Service Fabric 앱에�
 description: Azure 클러스터 또는 독립 실행형 클러스터에 호스트된 .NET Service Fabric 애플리케이션에 로깅을 추가하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: srrengar
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,8 +12,9 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2018
-ms.author: srrengar
+origin.date: 03/27/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
@@ -107,28 +108,28 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 
 1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](https://docs.microsoft.com/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
 2. **Microsoft.Extensions.Logging**에 대한 **using** 지시문을 서비스 파일에 추가합니다.
-3. 서비스 클래스 내에 private 변수를 정의합니다.
+3. 서비스 클래스 내에 프라이빗 변수를 정의합니다.
 
-   ```csharp
-   private ILogger _logger = null;
-   ```
+    ```csharp
+    private ILogger _logger = null;
+    ```
 
 4. 서비스 클래스의 생성자에서 다음 코드를 추가합니다.
 
-   ```csharp
-   _logger = new LoggerFactory().CreateLogger<Stateless>();
-   ```
+    ```csharp
+    _logger = new LoggerFactory().CreateLogger<Stateless>();
+    ```
 
 5. 메서드에서 코드 계측을 시작합니다. 다음은 몇 가지 샘플입니다.
 
-   ```csharp
-   _logger.LogDebug("Debug-level event from Microsoft.Logging");
-   _logger.LogInformation("Informational-level event from Microsoft.Logging");
+    ```csharp
+    _logger.LogDebug("Debug-level event from Microsoft.Logging");
+    _logger.LogInformation("Informational-level event from Microsoft.Logging");
 
-   // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
-   // Later in the article, we discuss why this step is useful.
-   _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
-   ```
+    // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
+    // Later in the article, we discuss why this step is useful.
+    _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
+    ```
 
 ### <a name="using-other-logging-providers"></a>다른 로깅 공급자 사용
 
@@ -137,22 +138,22 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 1. **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate** 및 **Serilog.Sinks.Observable** NuGet 패키지를 프로젝트에 추가합니다. 
 2. `LoggerConfiguration` 및 로거 인스턴스를 만듭니다.
 
-   ```csharp
-   Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
-   ```
+    ```csharp
+    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
+    ```
 
 3. `Serilog.ILogger` 인수를 서비스 생성자에 추가하고 새로 만든 로거를 전달합니다.
 
-   ```csharp
-   ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
-   ```
+    ```csharp
+    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
+    ```
 
 4. 서비스 생성자에서 **ServiceTypeName**, **ServiceName**, **PartitionId** 및 **InstanceId**에 대한 속성 보강자를 만듭니다.
 
-   ```csharp
-   public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
+    ```csharp
+    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
        : base(context)
-   {
+    {
        PropertyEnricher[] properties = new PropertyEnricher[]
        {
            new PropertyEnricher("ServiceTypeName", context.ServiceTypeName),
@@ -164,25 +165,17 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
        serilog.ForContext(properties);
 
        _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
-   }
-   ```
+    }
+    ```
 
 5. Serilog 없이 ASP.NET Core를 사용하는 경우와 동일한 코드를 계측합니다.
 
-   >[!NOTE]
-   >앞의 예제와 함께 정적 `Log.Logger`를 사용하지 *않는* 것이 좋습니다. Service Fabric은 단일 프로세스 내에서 동일한 서비스 유형의 여러 인스턴스를 호스팅할 수 있습니다. 정적 `Log.Logger`를 사용하는 경우 속성 보강자의 마지막 기록기는 실행 중인 모든 인스턴스의 값을 표시합니다. _logger 변수가 서비스 클래스의 private 멤버 변수가 되는 한 가지 이유입니다. 또한 서비스 전체에서 사용할 수 있는 일반 코드에서 `_logger`를 사용할 수 있도록 해야 합니다.
+    >[!NOTE]
+    >앞의 예제와 함께 정적 `Log.Logger`를 사용하지 *않는* 것이 좋습니다. Service Fabric은 단일 프로세스 내에서 동일한 서비스 유형의 여러 인스턴스를 호스팅할 수 있습니다. 정적 `Log.Logger`를 사용하는 경우 속성 보강자의 마지막 기록기는 실행 중인 모든 인스턴스의 값을 표시합니다. _logger 변수가 서비스 클래스의 프라이빗 멤버 변수가 되는 한 가지 이유입니다. 또한 서비스 전체에서 사용할 수 있는 일반 코드에서 `_logger`를 사용할 수 있도록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Service Fabric의 애플리케이션 모니터링](service-fabric-diagnostics-event-generation-app.md)에 대해 자세히 알아봅니다.
 - [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)를 사용하는 로깅에 대해 알아봅니다.
 
-
-
-
-
-
-
-
-
-
+<!-- Update_Description: update meta properties, wording update -->

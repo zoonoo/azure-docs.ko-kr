@@ -128,7 +128,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 [Microsoft Azure Storage Explorer](https://storageexplorer.com) 를 확인하고 해당 *newcontainer* 가 스토리지 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
 
 ## <a name="set-container-permissions"></a>컨테이너 사용 권한 설정
-기본적으로 컨테이너의 사용 권한은 **개인** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
+기본적으로 컨테이너의 사용 권한은 **프라이빗** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
 
 * **개인**: 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
 * **Blob**: 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
@@ -218,11 +218,11 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 * **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 저장소 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
 * **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   * _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
-  * _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅숏을 나열합니다.
+  * _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.
   * _AZSBlobListingDetailsMetadata_: 목록에 반환된 각 Blob에 대한 Blob 메타데이터를 검색합니다.
   * _AZSBlobListingDetailsUncommittedBlobs_: 커밋 및 커밋되지 않은 Blob을 나열합니다.
   * _AZSBlobListingDetailsCopy_: 목록에 복사 속성을 포함합니다.
-  * _AZSBlobListingDetailsAll_: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅숏을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
+  * _AZSBlobListingDetailsAll_: 사용 가능한 모든 커밋된 Blob, 커밋되지 않은 Blob 및 스냅샷을 나열하고 모든 메타데이터와 해당 Blob에 대한 복사 상태를 반환합니다.
 * **maxResults** - 이 작업에 대해 반환할 결과의 최대 수입니다. 제한을 설정하지 않으려면 -1을 사용합니다.
 * **completionHandler** - 나열 작업의 결과와 함께 실행할 코드 블록입니다.
 

@@ -45,7 +45,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 | 값  | 설명  |
 |---------|---------|
 | **`1`**  | Windows에서 실행 되는 함수 앱에 대 한 것이 좋습니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 그렇지 않은 경우 [zip를 사용 하 여 배포 배포](#integration-with-zip-deployment)에서이 옵션을 사용 하려면 라는 파일을 폴더 `packagename.txt`합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
-|**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 개인 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다.         |
+|**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 프라이빗 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다.         |
 
 > [!CAUTION]
 > Windows에서 함수 앱을 실행 하는 경우 외부 URL 옵션을 콜드 시작 성능에 심각한 문제를 생성 합니다. 함수 앱에 Windows를 배포할 때 설정 해야 `WEBSITE_RUN_FROM_PACKAGE` 에 `1` zip 배포를 사용 하 여 게시 합니다.

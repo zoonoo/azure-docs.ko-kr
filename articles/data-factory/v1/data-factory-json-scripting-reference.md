@@ -102,12 +102,12 @@ ms.locfileid: "66156528"
 
 | 자산 | 허용된 값 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| concurrency |정수  <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
+| concurrency |정수 <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
-| retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
+| retry |정수<br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
 | timeout 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
 | delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
-| longRetry |정수 <br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
+| longRetry |정수<br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
 | longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
 
 ### <a name="typeproperties-section"></a>typeProperties 섹션
@@ -600,7 +600,7 @@ Azure Data Lake Store 연결된 서비스를 정의하려면 연결된 서비스
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. | 예(서비스 주체 인증의 경우) |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예(서비스 주체 인증의 경우) |
 | 권한 부여 | **Data Factory 편집기**에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예(사용자 자격 증명 인증의 경우)|
-| sessionid | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며  이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예(사용자 자격 증명 인증의 경우) |
+| sessionid | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예(사용자 자격 증명 인증의 경우) |
 
 #### <a name="example-using-service-principal-authentication"></a>예제: 서비스 주체 인증 사용
 ```json
@@ -886,7 +886,7 @@ Azure Cosmos DB에 데이터를 복사하는 경우 복사 작업의 **sink type
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`는 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
-| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Azure Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |정수  |아니요(기본값: 5) |
+| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Azure Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |정수 |아니요(기본값: 5) |
 | writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: “00:30:00”(30분) |아닙니다. |
 
 #### <a name="example"></a>예
@@ -1226,7 +1226,7 @@ Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아닙니다. |
-| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다.** |True  <br/>False(기본값) |아닙니다. |
+| allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다.** |True <br/>False(기본값) |아닙니다. |
 | polyBaseSettings |**allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |아니오 |
 | rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](https://msdn.microsoft.com/library/dn935021.aspx) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. |0(기본값), 1, 2, … |아닙니다. |
 | rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |아닙니다. |
@@ -1538,7 +1538,7 @@ Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink 
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |문자열 값 |아닙니다. |
 | azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. |열 이름 |아닙니다. |
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |열 이름 |아닙니다. |
-| azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br>  이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |아닙니다. |
+| azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |아닙니다. |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
 | writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |timespan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
@@ -3328,8 +3328,8 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 | 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 세트 정의의 folderPath |
 | --- | --- | --- |
-| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더:  <br/><br/>예제: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
-| 원격 공유 폴더:  <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
+| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더: <br/><br/>예제: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
+| 원격 공유 폴더: <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>예제: 일반 텍스트에 사용자 이름 및 암호 사용
@@ -3872,7 +3872,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
-| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 프라이빗 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
 #### <a name="example-using-basic-authentication"></a>예제: 기본 인증 사용
 
@@ -3930,9 +3930,9 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 사용자 이름 |SFTP 서버에 액세스하는 사용자 |예 |
-| privateKeyPath | 게이트웨이에서 액세스할 수 있는 개인 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
-| privateKeyContent | 개인 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 개인 키 파일을 읽고 개인 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
-| passPhrase | 키 파일이 암호문으로 보호되는 경우 개인 키를 해독하는 암호문/암호를 지정합니다. | 개인 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
+| privateKeyPath | 게이트웨이에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| privateKeyContent | 프라이빗 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 프라이빗 키 파일을 읽고 프라이빗 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
+| passPhrase | 키 파일이 암호문으로 보호되는 경우 프라이빗 키를 해독하는 암호문/암호를 지정합니다. | 프라이빗 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
 
 ```json
 {
@@ -4116,7 +4116,7 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 1. MMC(Microsoft Management Console)를 시작합니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
 2. **인증서**, **개인**을 확장하고 **인증서**를 클릭합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**->**개인 키 관리...** 를 선택합니다.
+3. 개별 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**->**프라이빗 키 관리...** 를 선택합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 데이터 관리 게이트웨이 호스트 서비스를 실행 중인 사용자 계정을 추가합니다.
 
 **예제: 클라이언트 인증서 사용:** 이 연결된 서비스는 데이터 팩터리를 온-프레미스 HTTP 웹 서버에 연결합니다. 데이터 관리 게이트웨이가 설치된 컴퓨터에 설치된 클라이언트 인증서를 사용합니다.
@@ -4843,7 +4843,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 | timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. |예 |
 | 버전 |HDInsight 클러스터의 버전입니다. 자세한 내용은 [Azure Data Factory에서 지원되는 HDInsight 버전](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)을 참조하세요. |아닙니다. |
 | linkedServiceName |데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. <p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다.</p>  | 예 |
-| additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  |아닙니다. |
+| additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. |아닙니다. |
 | osType |운영 체제 유형입니다. 허용되는 값은 다음과 같습니다. Windows(기본값) 및 Linux |아닙니다. |
 | hcatalogLinkedServiceName |HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 metastore로 사용하여 만들어집니다. |아닙니다. |
 
@@ -4975,7 +4975,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 | 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
 | subscriptionId |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | resourceGroupName |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
-| sessionid |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며  Data Factory 편집기를 사용하면 이 ID가 자동으로 생성됩니다. |예 |
+| sessionid |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 Data Factory 편집기를 사용하면 이 ID가 자동으로 생성됩니다. |예 |
 
 
 #### <a name="json-example"></a>JSON 예제
@@ -5228,7 +5228,7 @@ MapReduce 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | jarLinkedService | JAR 파일이 포함된 Azure Storage에 대한 연결된 서비스의 이름입니다. | 예 |
-| jarFilePath  | Azure Storage의 JAR 파일에 대한 경로입니다. | 예 |
+| jarFilePath | Azure Storage의 JAR 파일에 대한 경로입니다. | 예 |
 | className | JAR 파일의 주 클래스 이름입니다. | 예 |
 | arguments | MapReduce 프로그램에 대해 쉼표로 구분된 인수 목록입니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수로 사용자 인수를 구분하려면 다음 예제와 같이 인수로 옵션과 값을 모두 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임). | 아닙니다. |
 

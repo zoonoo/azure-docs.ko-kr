@@ -277,7 +277,7 @@ Add-AzIotHubRoute `
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스가 설정되고 메시지 경로가 구성되었으면, 다음 자습서로 진행하여 IoT 허브에 메시지를 보내서, 다른 대상으로 라우팅되는 것을 확인하는 방법을 살펴보세요. 
+리소스가 설정되고 메시지 경로가 구성되었으면 다음 자습서로 진행하여, IoT 허브에 메시지를 보낸 후 다른 대상으로 라우팅되는 과정을 확인하는 방법을 살펴보세요. 
 
 > [!div class="nextstepaction"]
 > [2부 - 메시지 라우팅 결과 보기](tutorial-routing-view-message-routing-results.md)

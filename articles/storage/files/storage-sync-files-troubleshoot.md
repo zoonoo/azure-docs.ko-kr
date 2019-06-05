@@ -105,7 +105,7 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 <a id="server-endpoint-createjobfailed"></a>**다음 오류로 인해 서버 엔드포인트 생성 실패: “MgmtServerJobFailed”(오류 코드: -2134375898)**  
 이 문제는 서버 엔드포인트 경로가 시스템 볼륨에 있고 클라우드 계층화를 사용하도록 설정한 경우 발생합니다. 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 엔드포인트를 만들려면 서버 엔드포인트를 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
 
-<a id="server-endpoint-deletejobexpired"></a>**다음 오류로 인해 서버 엔드포인트 삭제 실패: “MgmtServerJobExpired”**                
+<a id="server-endpoint-deletejobexpired"></a>**다음 오류로 인해 서버 엔드포인트 삭제 실패: “MgmtServerJobExpired”**                 
 이 문제는 서버가 오프라인 상태이거나 네트워크에 연결되어 있지 않은 경우 발생합니다. 서버를 더 이상 사용할 수 없는 경우 Azure Portal에서 서버의 등록을 취소하여 서버 엔드포인트를 삭제합니다. 서버 엔드포인트를 삭제하려면 [Azure 파일 동기화에서 서버 등록 취소](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)에 설명된 단계를 따릅니다.
 
 <a id="server-endpoint-provisioningfailed"></a>**서버 엔드포인트 속성 페이지를 열거나 클라우드 계층화 정책을 업데이트할 수 없습니다.**  
@@ -247,7 +247,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 종속 폴더가 아직 동기화되지 않아 파일 또는 디렉터리 변경 내용을 동기화할 수 없습니다. 이 항목은 종속 변경 내용이 동기화된 후 동기화됩니다. | 필요한 조치가 없습니다. |
 | 0x7b | 123 | ERROR_INVALID_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅숏을 만듭니다. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅샷을 만듭니다. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 필요한 조치가 없습니다. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다. | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) 섹션을 참조하세요. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | 이 오류는 다음과 같은 이유로 발생할 수 있습니다. (예: NTFS EFS) 지원 되지 않는 솔루션으로 파일은 암호화, 파일이 삭제 보류 중 상태 또는 파일은 Dfs-r 읽기 전용 복제 폴더에 있습니다 | 파일은 지원 되지 않는 솔루션으로 암호화 하는 경우 파일의 암호 해독 및 지원 되는 암호화 솔루션을 사용 합니다. 지원 솔루션의 목록은 계획 가이드의 [암호화 솔루션](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)을 참조하세요. 파일이 삭제 보류 중 상태인 경우 열린 파일 핸들이 모두 닫히면 파일이 삭제됩니다. 파일을를 Dfs-r 읽기 전용 복제 폴더에 있는 경우에 Azure File Sync는 Dfs-r 읽기 전용 복제 폴더에 서버 끝점을 지원 하지 않습니다. 참조 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) 자세한 내용은 합니다.
@@ -264,7 +264,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
 | 0x0000FDD0 - 0x0000FDEF(아라비아식 표현꼴-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF(specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 개인 사용 영역)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 프라이빗 사용 영역)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
@@ -277,7 +277,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **오류 문자열** | ERROR_CANCELLED |
 | **재구성 필요** | 아닙니다. |
 
-서버 다시 시작 또는 업데이트 중, VSS 스냅숏 등의 다양한 이유로 동기화 세션이 실패할 수 있습니다. 이 오류는 후속 조치가 필요한 것처럼 보이지만, 여러 시간 동안 유지되지 않는 이상 무시해도 됩니다.
+서버 다시 시작 또는 업데이트 중, VSS 스냅샷 등의 다양한 이유로 동기화 세션이 실패할 수 있습니다. 이 오류는 후속 조치가 필요한 것처럼 보이지만, 여러 시간 동안 유지되지 않는 이상 무시해도 됩니다.
 
 <a id="-2147012889"></a>**서비스와 연결할 수 없습니다.**    
 
@@ -566,7 +566,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 파일별 동기화 오류가 많은 경우 동기화 세션이 시작되지 않을 수 있습니다. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
-> Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅숏을 만듭니다.
+> Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅샷을 만듭니다.
 
 <a id="-2134376423"></a>**서버 엔드포인트 경로에 문제가 있어 동기화가 실패했습니다.**  
 
@@ -734,7 +734,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.**  
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 1. 왼쪽 목차에서 **액세스 제어(IAM)** 를 클릭합니다.
-1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다.
+1. **역할 할당** 탭을 클릭하여 스토리지 계정에 액세스할 수 있는 사용자 및 애플리케이션(‘서비스 주체’)을 나열합니다. 
 1. 목록에 **읽기 권한자 및 데이터 액세스** 역할과 함께 **하이브리드 파일 동기화 서비스**가 표시되는지 확인합니다. 
 
     ![저장소 계정의 액세스 제어 탭에서 하이브리드 File Sync 서비스 서비스 주체의 스크린 샷](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)

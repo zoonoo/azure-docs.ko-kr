@@ -159,7 +159,9 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
 1.  Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2.  **메트릭**을 선택합니다. **메트릭** 창에서 **Max Lag Across Replicas**를 선택합니다.
+
+2. **메트릭**을 선택합니다. **메트릭** 창에서 **Max Lag Across Replicas**를 선택합니다.
+
 
     ![복제본 간 최대 지연 시간 모니터링](./media/howto-read-replicas-portal/select-max-lag.png)
  

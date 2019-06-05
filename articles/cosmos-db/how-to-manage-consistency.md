@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 68a1a757b5c5e4ce63d7f12a8502d57942d4ec42
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925325"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240910"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -61,7 +61,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure portal
 
-기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장**을 선택합니다.
+기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장**을 선택합니다. 또한 Azure Portal은 음악 메모와 함께 다양한 일관성 수준의 시각화를 제공합니다. 
 
 ![Azure Portal의 일관성 메뉴](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **강력하게 일관된 워크로드 기반 읽기 확률(PBS 참조)** 이라는 그래프를 살펴봅니다.
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)** ](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **강력하게 일관된 워크로드 기반 읽기 확률(PBS 참조)** 이라는 그래프를 살펴봅니다.
 
 ![Azure Portal의 PBS 그래프](./media/how-to-manage-consistency/pbs-metric.png)
 

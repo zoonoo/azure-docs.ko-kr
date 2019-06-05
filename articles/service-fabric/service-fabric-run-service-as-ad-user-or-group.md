@@ -28,7 +28,7 @@ Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용�
 
 다음 예제는 *TestUser*라는 Active Directory 사용자와 *MyCert*라는 인증서를 사용하여 암호화된 도메인 암호를 보여 줍니다. `Invoke-ServiceFabricEncryptText` PowerShell 명령을 사용하여 암호 텍스트를 만들 수 있습니다. 자세한 내용은 [Service Fabric 애플리케이션의 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
-암호 해독을 위한 인증서의 개인 키는 대역 외 메서드를 사용하여(Azure에서는 Azure Resource Manager를 통해) 로컬 컴퓨터에 배포해야 합니다. 그런 다음 Service Fabric이 컴퓨터에 서비스 패키지를 배포할 때 사용자 이름과 함께 암호를 해독하고 이 자격 증명으로 실행하도록 Active Directory로 인증할 수 있습니다.
+암호 해독을 위한 인증서의 프라이빗 키는 대역 외 메서드를 사용하여(Azure에서는 Azure Resource Manager를 통해) 로컬 머신에 배포해야 합니다. 그런 다음 Service Fabric이 컴퓨터에 서비스 패키지를 배포할 때 사용자 이름과 함께 암호를 해독하고 이 자격 증명으로 실행하도록 Active Directory로 인증할 수 있습니다.
 
 ```xml
 <Principals>

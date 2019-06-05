@@ -22,7 +22,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60723450"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
-Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
+Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(프라이빗 또는 Azure).
 
 서비스 패브릭 보고자는 식별된 관심 조건을 모니터링합니다. 보고자는 각자 로컬 보기를 기반으로 이러한 조건에 대한 정보를 보고합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 엔터티가 전체적으로 정상인지를 판단하기 위하여 모든 보고자가 보낸 상태 데이터를 수집합니다. 모델은 다양하고 유연하며 사용이 쉽도록 계획됩니다. 상태 보고서의 품질은 클러스터 상태 보기의 정확성을 결정합니다. 비정상 이슈를 잘못 표시하는 거짓 긍정은 상태 데이터를 사용하는 업그레이드 또는 기타 서비스에 부정적인 영향을 미칠 수 있습니다. 이러한 서비스의 예로는 복구 서비스 및 경고 메커니즘이 있습니다. 따라서 최선의 방식으로 관심 조건을 포착하는 보고서를 제공하기 위해서는 몇 가지를 고려해야 합니다.
 
@@ -81,7 +81,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-`HealthReportSendInterval`을 30초로 설정하는 기본 패브릭 클라이언트 설정을 유지하는 것이 좋습니다.  이 설정은 일괄 처리 때문에 최적 성능을 보장합니다. 가능한 즉시 내보내야 하는 중요 보고서의 경우 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API에서 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 일괄 처리 간격을 무시합니다. 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다.  패브릭 클라이언트를 닫을 때(예: 프로세스에서 잘못된 상태를 확인했고 부작용을 막기 위해 종료해야 하는 경우)도 즉시 보내기가 도움이 됩니다. 누적 보고서는 최적의 보내기 작업입니다. 한 보고서에 Immediate 플래그가 추가되면 상태 클라이언트가 지난 번 전송 이후 모든 누적된 보고서를 일괄 처리합니다.
+`HealthReportSendInterval`을 30초로 설정하는 기본 패브릭 클라이언트 설정을 유지하는 것이 좋습니다. 이 설정은 일괄 처리 때문에 최적 성능을 보장합니다. 가능한 즉시 내보내야 하는 중요 보고서의 경우 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API에서 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 일괄 처리 간격을 무시합니다. 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다. 패브릭 클라이언트를 닫을 때(예: 프로세스에서 잘못된 상태를 확인했고 부작용을 막기 위해 종료해야 하는 경우)도 즉시 보내기가 도움이 됩니다. 누적 보고서는 최적의 보내기 작업입니다. 한 보고서에 Immediate 플래그가 추가되면 상태 클라이언트가 지난 번 전송 이후 모든 누적된 보고서를 일괄 처리합니다.
 
 PowerShell을 통해 클러스터에 대한 연결을 생성할 때 동일한 매개 변수를 지정할 수 있습니다. 다음 예제에서는 로컬 클러스터에 대한 연결을 시작합니다.
 
@@ -111,9 +111,9 @@ GatewayInformation   : {
                        }
 ```
 
-API와 마찬가지로 `HealthReportSendInterval` 값에 관계없이 `-Immediate` 스위치를 사용하여 보고서를 즉시 보낼 수 있습니다. 
+API와 마찬가지로 `HealthReportSendInterval` 값에 관계없이 `-Immediate` 스위치를 사용하여 보고서를 즉시 보낼 수 있습니다.
 
-REST의 경우 보고서를 내부 패브릭 클라이언트가 있는 Service Fabric 게이트웨이로 보냅니다. 기본적으로 이 클라이언트는 30초마다 일괄 처리된 보고서를 보내도록 구성됩니다. `HttpGateway`에서 클러스터 구성 설정 `HttpGatewayHealthReportSendInterval`을 사용하여 일괄 처리 간격을 변경할 수 있습니다.  설명한 것처럼 `Immediate` true로 보고서를 보내는 옵션이 더 낫습니다. 
+REST의 경우 보고서를 내부 패브릭 클라이언트가 있는 Service Fabric 게이트웨이로 보냅니다. 기본적으로 이 클라이언트는 30초마다 일괄 처리된 보고서를 보내도록 구성됩니다. `HttpGateway`에서 클러스터 구성 설정 `HttpGatewayHealthReportSendInterval`을 사용하여 일괄 처리 간격을 변경할 수 있습니다. 설명한 것처럼 `Immediate` true로 보고서를 보내는 옵션이 더 낫습니다. 
 
 > [!NOTE]
 > 권한이 없는 서비스가 클러스터 내의 엔터티에 대한 상태를 보고할 수 없도록 하려면 보안이 확인된 클라이언트에서 보내는 요청만을 받아들이도록 서버를 구성합니다. 보고에 사용되는 `FabricClient` 는 클러스터와 통신할 수 있도록 보안이 활성화되어야 합니다(예: Kerberos 또는 인증서 인증). [클러스터 보안](service-fabric-cluster-security.md)에 대해 자세히 알아봅니다.
@@ -135,7 +135,7 @@ Service Fabric 서비스에 클러스터에 대한 관리 액세스 권한이 �
 > 
 > 
 
-`Partition` 및 `CodePackageActivationContext` 상태 API를 통해 보고서를 보낼 때 `HealthReportSendOptions`를 지정할 수 있습니다. 가능한 빨리 전송되어야 하는 중요 보고서의 경우 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 내부 상태 클라이언트의 일괄 처리 간격을 무시합니다. 앞서 설명한 것처럼 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다. 
+`Partition` 및 `CodePackageActivationContext` 상태 API를 통해 보고서를 보낼 때 `HealthReportSendOptions`를 지정할 수 있습니다. 가능한 빨리 전송되어야 하는 중요 보고서의 경우 Immediate `true`와 함께 `HealthReportSendOptions`를 사용합니다. 즉시 보고서는 내부 상태 클라이언트의 일괄 처리 간격을 무시합니다. 앞서 설명한 것처럼 가능할 때마다 상태 클라이언트 일괄 처리의 장점을 활용하고자 하므로 이 플래그는 주의하여 사용합니다.
 
 ## <a name="design-health-reporting"></a>상태 보고 설계
 고품질 보고서를 생성하는 첫 단계는 서비스 상태에 영향을 미칠 수 있는 조건을 파악하는 것입니다. 문제가 시작될 때 또는 가장 이상적으로 문제가 발생하기 전에 서비스 또는 클러스터의 문제를 플래깅하는 데 도움이 되는 모든 조건을 파악하면 잠재적으로 수십억 달러를 절약할 수 있습니다. 그러면 중지 시간을 줄이고, 문제 조사와 복구에 소요되는 야간 시간을 절약하고, 고객 만족도를 높일 수 있습니다.

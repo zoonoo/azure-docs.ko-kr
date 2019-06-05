@@ -43,7 +43,7 @@
   items:
     - name: 키-값 저장소
       href: concept-key-value.md
-    - name: 지정 시간 스냅숏
+    - name: 지정 시간 스냅샷
       href: concept-point-time-snapshot.md
     - name: 기능 관리
       href: concept-feature-management.md

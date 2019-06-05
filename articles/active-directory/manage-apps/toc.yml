@@ -74,7 +74,11 @@
         - name: SAML 토큰 암호화 구성(미리 보기)
           href: howto-saml-token-encryption.md
     - name: SSO(Single sign-on)
-      href: what-is-single-sign-on.md
+      items:
+        - name: Single Sign-On이란?
+          href: what-is-single-sign-on.md
+        - name: Single Sign-On 배포 계획
+          href: plan-sso-deployment.md
     - name: 최종 사용자 포털
       href: end-user-experiences.md
 - name: 방법 가이드
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: 커넥터 등록 - 자동 설치
           href: application-proxy-register-connector-powershell.md
-        - name: 네이티브 클라이언트 앱 구성
+        - name: 온-프레미스 API에 대한 모바일 및 데스크톱 앱 액세스 권한 부여
+          href: application-proxy-secure-api-access.md
+        - name: 모바일 및 데스크톱 클라이언트 앱 구성
           href: application-proxy-configure-native-client-application.md
         - name: 사용자 지정 홈페이지 구성
           href: application-proxy-configure-custom-home-page.md
@@ -287,6 +293,8 @@
               href: application-proxy-connector-installation-problem.md
             - name: 로그인 문제
               href: application-sign-in-problem-on-premises-application-proxy.md
+            - name: 애플리케이션 프록시의 CORS 문제
+              href: application-proxy-understand-cors-issues.md
 - name: 참고 자료
   items:
     - name: 응용 프로그램 프록시 버전 내역

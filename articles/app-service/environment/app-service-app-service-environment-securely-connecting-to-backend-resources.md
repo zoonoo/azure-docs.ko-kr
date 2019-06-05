@@ -24,13 +24,13 @@ ms.locfileid: "62130707"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>App Service Environment에서 백 엔드 리소스에 안전하게 연결
 ## <a name="overview"></a>개요
-App Service 환경은 **항상** Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 App Service 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
+App Service 환경은 **항상** Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 App Service 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
 
 예를 들어 잠긴 포트 1433을 통해 가상 머신의 클러스터에서 실행되는 SQL Server가 있을 수 있습니다.  엔드포인트는 동일한 가상 네트워크에 있는 다른 리소스의 액세스만 허용하도록 ACL에 포함될 수 있습니다.  
 
 또 다른 예로, 중요한 엔드포인트는 온-프레미스에서 실행되고 [사이트 간][SiteToSite] 또는 [Azure ExpressRoute][ExpressRoute] 연결을 통해 Azure에 연결될 수 있습니다.  따라서 사이트 간 또는 ExpressRoute 터널에 연결된 가상 네트워크의 리소스만 온-프레미스 엔드포인트에 액세스할 수 있습니다.
 
-이 모든 시나리오에 대해 App Service Environment에서 실행되는 앱은 다양한 서버 및 리소스에 안전하게 연결할 수 있습니다.  App Service Environment에서 실행되는 앱에서 동일한 가상 네트워크에 있는(또는 동일한 가상 네트워크에 연결된) 개인 엔드포인트로의 아웃바운드 트래픽은 가상 네트워크를 통해서만 이동합니다.  개인 엔드포인트로의 아웃바운드 트래픽은 공용 인터넷을 통해 이동하지 않습니다.
+이 모든 시나리오에 대해 App Service Environment에서 실행되는 앱은 다양한 서버 및 리소스에 안전하게 연결할 수 있습니다.  App Service Environment에서 실행되는 앱에서 동일한 가상 네트워크에 있는(또는 동일한 가상 네트워크에 연결된) 프라이빗 엔드포인트로의 아웃바운드 트래픽은 가상 네트워크를 통해서만 이동합니다.  프라이빗 엔드포인트로의 아웃바운드 트래픽은 공용 인터넷을 통해 이동하지 않습니다.
 
 한 가지 주의 사항은 App Service Environment와 가상 네트워크 내 엔드포인트 간의 아웃바운드 트래픽에 적용됩니다.  App Service Environment는 App Service Environment와 **동일한** 서브넷에 있는 가상 머신의 엔드포인트에 연결할 수 없습니다.  이는 App Service Environment가 App Service Environment 전용으로 예약된 서브넷에 배포된 경우에는 일반적으로 문제가 되지 않습니다.
 

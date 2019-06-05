@@ -59,7 +59,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
    * **내부**: 내부 부하 분산 장치를 통해 가상 네트워크 내에서만 API Management 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 게이트웨이에서 가상 네트워크 내의 리소스에 액세스할 수 있습니다.
 
-     ![개인 피어링][api-management-vnet-private]
+     ![프라이빗 피어링][api-management-vnet-private]
 
      이제 API Management 서비스가 프로비전되는 모든 지역 목록이 보입니다. VNET 및 모든 지역에 대한 서브넷을 선택합니다. 이 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
 

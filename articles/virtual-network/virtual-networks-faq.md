@@ -29,7 +29,7 @@ Azure VNet(Virtual Network)은 클라우드의 사용자 네트워크를 나타�
 
 VNet을 다음에 사용합니다.
 
-* 전용 사설 클라우드 전용 VNet을 만듭니다. 경우에 따라 솔루션에 대해 프레미스간 구성이 필요하지 않을 수 있습니다. VNet을 만들 때 VNet 내의 서비스 및 VM은 클라우드 내에서 안전하게 직접 서로 통신할 수 있습니다. 솔루션의 일부로 인터넷 통신이 필요한 VM 및 서비스에 대한 엔드포인트 연결을 계속 구성할 수 있습니다.
+* 전용 프라이빗 클라우드 전용 VNet을 만듭니다. 경우에 따라 솔루션에 대해 프레미스간 구성이 필요하지 않을 수 있습니다. VNet을 만들 때 VNet 내의 서비스 및 VM은 클라우드 내에서 안전하게 직접 서로 통신할 수 있습니다. 솔루션의 일부로 인터넷 통신이 필요한 VM 및 서비스에 대한 엔드포인트 연결을 계속 구성할 수 있습니다.
 * 데이터 센터를 안전하게 확장합니다. VNet을 사용하여 기존의 사이트 간(S2S) VPN을 빌드하여 데이터 센터 용량을 안전하게 확장할 수 있습니다. S2S VPN은 IPSEC를 사용하여 회사 VPN Gateway와 Azure 간의 보안 연결을 제공합니다.
 * 하이브리드 클라우드 시나리오가 가능하도록 합니다. VNet은 다양한 하이브리드 클라우드 시나리오를 지원할 수 있는 유연성을 제공합니다. 메인프레임 및 Unix 시스템과 같은 모든 형식의 온-프레미스 시스템에 클라우드 기반 애플리케이션을 안전하게 연결할 수 있습니다.
 
@@ -153,17 +153,17 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 
 * **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
 
-### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있습니까?
+### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있나요?
 아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
 
-### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet에서 VM에 대한 개인 IP 주소가 변경됩니까?
+### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet에서 VM에 대한 개인 IP 주소가 변경되나요?
 경우에 따라 다릅니다. Resource Manager를 통해 VM이 배포된 경우 IP 주소가 정적 할당 메서드로 할당되었는지 또는 동적 할당 메서드로 할당되었는지에 관계없이 변경되지 않습니다. 클래식 배포 모델을 통해 VM을 배포한 경우 동적 IP 주소는 VM이 중지된(할당 취소됨) 상태에서 시작될 때 변경될 수 있습니다. 이 주소는 VM을 삭제할 때 두 배포 모델 중 하나를 통해 배포된 VM에서 해제됩니다
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>VM 운영 체제 내에서 IP 주소를 NIC에 수동으로 할당할 수 있습니까?
 예. 하지만 가상 머신에 여러 IP 주소를 할당하는 경우와 같이 필요한 경우가 아니면 권장하지 않습니다. 자세한 내용은 [가상 머신에 여러 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. VM에 연결된 Azure NIC에 할당된 IP 주소가 변경되고 VM 운영 체제 내의 IP 주소가 다르면, VM에 대한 연결이 끊어집니다.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>클라우드 서비스 배포 슬롯을 중지하거나 운영 체제 내에서 VM을 종료하는 경우 IP 주소는 어떻게 됩니까?
-아무 일도 일어나지 않습니다. IP 주소(공용 VIP, 공용 및 개인)는 클라우드 서비스 배포 슬롯 또는 VM에 할당된 상태로 유지됩니다.
+아무 일도 일어나지 않습니다. IP 주소(공용 VIP, 공용 및 프라이빗)는 클라우드 서비스 배포 슬롯 또는 VM에 할당된 상태로 유지됩니다.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>VM을 다시 배포하지 않고 VNet에서 하나의 서브넷에서 다른 서브넷으로 이동할 수 있습니까?
 예. [다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법](virtual-networks-move-vm-role-to-subnet.md) 문서에서 자세한 정보를 확인할 수 있습니다.
@@ -273,7 +273,7 @@ VNet 피어링 연결이 연결 끊김 상태에 있는 경우 만들어진 링�
 VNet 피어링 연결을 만드는 데는 비용이 없습니다. 피어링 연결 간의 데이터 전송에는 요금이 청구됩니다. [여기](https://azure.microsoft.com/pricing/details/virtual-network/)를 참조하세요.
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>VNet 피어링 트래픽은 암호화되나요?
-아니요. 피어로 연결된 VNet의 리소스 간 트래픽은 비공개이며 격리됩니다. Microsoft 백본에 그대로 남아 있습니다.
+아니요. 피어로 연결된 VNet의 리소스 간 트래픽은 프라이빗이며 격리됩니다. Microsoft 백본에 그대로 남아 있습니다.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>내 피어링 연결이 끊어진 상태인 이유는 무엇인가요?
 VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태가 됩니다. 다시 피어링 연결에 성공하려면 두 링크를 모두 삭제해야 합니다.
@@ -321,7 +321,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 >[!NOTE]
 > 위에서 설명한 작업을 둘 다 완료해야 허용된 VNet 및 서브넷에 대한 Azure 서비스 액세스를 제한할 수 있습니다. 네트워크 쪽에서만 Azure 서비스에 대한 서비스 엔드포인트를 켜면 제한된 액세스가 제공되지 않습니다. Azure 서비스 쪽에서도 VNet ACL을 설정해야 합니다.
 
-특정 서비스(예: SQL 및 CosmosDB)는 **IgnoreMissingVnetServiceEndpoint** 플래그를 통해 위의 시퀀스에 대한 예외를 허용합니다. 플래그를 **True**로 설정하면 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정할 수 있습니다. Azure 서비스는 Azure 서비스에 특정 IP 방화벽이 구성된 경우 고객을 지원하기 위해 이 플래그를 제공하며, 네트워크 쪽에서 서비스 엔드포인트를 켜면 원본 IP가 공용 IPv4 주소에서 개인 주소로 변경되어 연결이 삭제될 수 있습니다. 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정하면 연결 삭제를 방지할 수 있습니다.
+특정 서비스(예: SQL 및 CosmosDB)는 **IgnoreMissingVnetServiceEndpoint** 플래그를 통해 위의 시퀀스에 대한 예외를 허용합니다. 플래그를 **True**로 설정하면 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정할 수 있습니다. Azure 서비스는 Azure 서비스에 특정 IP 방화벽이 구성된 경우 고객을 지원하기 위해 이 플래그를 제공하며, 네트워크 쪽에서 서비스 엔드포인트를 켜면 원본 IP가 공용 IPv4 주소에서 프라이빗 주소로 변경되어 연결이 삭제될 수 있습니다. 네트워크 쪽에서 서비스 엔드포인트를 설정하기 전에 Azure 서비스 쪽에서 VNet ACL을 설정하면 연결 삭제를 방지할 수 있습니다.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>모든 Azure 서비스가 고객이 제공하는 Azure 가상 네트워크에 상주하나요? VNet 서비스 엔드포인트가 Azure 서비스에서 어떻게 작동하나요?
 

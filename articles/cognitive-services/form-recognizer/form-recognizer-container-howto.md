@@ -292,7 +292,7 @@ Form Recognizer 컨테이너는 Azure 계정의 _Form Recognizer_ 리소스를 �
 이 문서에서는 Form Recognizer 컨테이너의 다운로드, 설치 및 실행에 대한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * Form Recognizer는 하나의 Docker용 Linux 컨테이너를 제공합니다.
-* 컨테이너 이미지는 Azure의 개인 컨테이너 레지스트리에서 다운로드됩니다.
+* 컨테이너 이미지는 Azure의 프라이빗 컨테이너 레지스트리에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * REST API 또는 SDK를 통해 컨테이너의 호스트 URI를 지정하여 Form Recognizer 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.

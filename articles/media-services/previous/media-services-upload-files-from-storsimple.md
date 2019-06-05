@@ -27,7 +27,7 @@ ms.locfileid: "64868308"
 > Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 >
 > 
-> 현재 Azure StorSimple 데이터 관리자는 비공개 미리 보기 상태입니다. 
+> 현재 Azure StorSimple 데이터 관리자는 프라이빗 미리 보기 상태입니다. 
 > 
 
 ## <a name="overview"></a>개요

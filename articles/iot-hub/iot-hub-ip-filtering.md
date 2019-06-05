@@ -22,7 +22,7 @@ ms.locfileid: "60399012"
 
 특정 IP 주소에 대해 IoT Hub 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
-* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
+* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 프라이빗 연결을 만드는 경우입니다.
 
 * IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 

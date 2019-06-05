@@ -22,7 +22,7 @@ ms.locfileid: "65209549"
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-private-cloud"></a>사설 클라우드 만들기
+## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
 
 1. **모든 서비스**를 선택합니다.
 2. 검색할 **CloudSimple 서비스**합니다.

@@ -26,7 +26,7 @@ ms.locfileid: "60632142"
 
 - 로그인하지 않을 경우 Notebook을 만들고 실행할 수 있지만 프로젝트의 일부로 Notebook 또는 데이터 파일을 유지할 수는 없습니다. 예를 들어 Azure Notebook에 대한 링크를 받은 사람은 로그인하지 않고 Notebook을 사용할 수 있습니다.
 - 로그인하면 Azure Notebooks가 모든 프로젝트를 계정과 함께 유지합니다. 또한 로그인한 사용자는 사용자 ID를 통해 프로젝트 및 Notebook을 다른 사용자와 공유할 수 있습니다.
-  - Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 개인용 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
+  - Azure Notebooks에 사용되는 계정을 Azure 구독과 연결하면 보다 강력한 서버에서 Notebook을 실행하고, 프라이빗 Notebook을 만들고, 개별 사용자에 대한 권한을 노트북에 부여하는 등의 추가 혜택을 누릴 수 있습니다.
 
 Azure Notebooks에 로그인하려면 Microsoft 계정 또는 "회사 또는 학교" 계정이 필요합니다. Notebook 페이지의 오른쪽 위에서 **로그인** 명령을 선택하면 계정을 입력하라는 메시지가 표시됩니다.
 

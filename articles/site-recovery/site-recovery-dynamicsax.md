@@ -53,7 +53,7 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 애플리케이션 보호
 완전한 애플리케이션 복제 및 복구가 가능하려면 Dynamics AX의 각 구성 요소를 보호해야 합니다.
 
-### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory 및 DNS 복제 설정 
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory 및 DNS 복제 설정
 
 Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Active Directory가 필요합니다. 다음은 고객의 온-프레미스 환경의 복잡도에 따라 권장되는 두 가지 옵션입니다.
 
@@ -77,7 +77,7 @@ VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-rec
 > 크래시 일관성 주기를 15분으로 구성하는 것이 좋습니다.
 >
 
-다음 스냅숏에서는 VMware 사이트-Azure 보호 시나리오에서 Dynamics 구성 요소 VM의 보호 상태를 보여 줍니다.
+다음 스냅샷에서는 VMware 사이트-Azure 보호 시나리오에서 Dynamics 구성 요소 VM의 보호 상태를 보여 줍니다.
 
 ![보호된 항목](./media/site-recovery-dynamics-ax/protecteditems.png)
 
@@ -86,7 +86,7 @@ VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-rec
 
 Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Recovery에서 네트워크 설정을 구성하여 장애 조치 후에 VM 네트워크가 올바른 재해 복구 네트워크에 연결되도록 합니다. 이러한 계층에 대한 재해 복구 네트워크가 SQL 계층으로 라우팅할 수 있는지 확인합니다.
 
-다음 스냅숏에 나온 것처럼 복제된 항목에서 VM을 선택하여 네트워크 설정을 구성할 수 있습니다.
+다음 스냅샷에 나온 것처럼 복제된 항목에서 VM을 선택하여 네트워크 설정을 구성할 수 있습니다.
 
 * Application Object Server 서버의 경우 정확한 가용성 집합을 선택합니다.
 
@@ -115,7 +115,7 @@ Site Recovery에서 복구 계획을 만들어 장애 조치 프로세스를 자
 
     ![복구 계획 세부 정보](./media/site-recovery-dynamics-ax/recoveryplan.png)
 
-다음 단계를 추가하여 Dynamics AX 애플리케이션에 대한 복구 계획을 사용자 지정할 수 있습니다. 앞의 스냅숏은 단계를 모두 추가한 후 전체 복구 계획을 보여 줍니다.
+다음 단계를 추가하여 Dynamics AX 애플리케이션에 대한 복구 계획을 사용자 지정할 수 있습니다. 앞의 스냅샷은 단계를 모두 추가한 후 전체 복구 계획을 보여 줍니다.
 
 
 * **SQL Server 장애 조치(failover) 단계**: SQL Server 관련 복구 단계에 대한 자세한 내용은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.

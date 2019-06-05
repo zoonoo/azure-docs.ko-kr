@@ -91,4 +91,4 @@ ms.locfileid: "66234248"
 | [Azure 애플리케이션 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
 |[Azure Firewall](../firewall/overview.md)|Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.|
 |[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
-|[Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 사설 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|
+|[Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 프라이빗 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|

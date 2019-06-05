@@ -73,7 +73,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 * ***spam*** 은 메일이 스팸으로 간주되는지 여부를 나타냅니다(1 = 스팸, 0 = 스팸이 아님).
 
 ## <a name="explore-the-dataset-with-microsoft-r-open"></a>Microsoft R Open을 사용하여 데이터 세트 탐색
-R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning을 수행해 보겠습니다. 데이터 과학 VM은 [Microsoft R Open](https://mran.revolutionanalytics.com/open/)이 미리 설치된 상태로 제공됩니다. 이 R 버전의 다중 스레드 수학 라이브러리는 다양한 단일 스레드 버전보다 더 나은 성능을 제공합니다. Microsoft R Open은 CRAN 패키지 리포지토리의 스냅숏을 사용하여 재현 가능성을 제공합니다.
+R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning을 수행해 보겠습니다. 데이터 과학 VM은 [Microsoft R Open](https://mran.revolutionanalytics.com/open/)이 미리 설치된 상태로 제공됩니다. 이 R 버전의 다중 스레드 수학 라이브러리는 다양한 단일 스레드 버전보다 더 나은 성능을 제공합니다. Microsoft R Open은 CRAN 패키지 리포지토리의 스냅샷을 사용하여 재현 가능성을 제공합니다.
 
 이 연습에서 사용하는 코드 샘플의 복사본을 얻으려면 git를 사용하여 VM에 미리 설치된 **Azure-Machine-Learning-Data-Science** 리포지토리를 복제합니다. Git 명령줄 도구에서 다음을 실행합니다.
 
@@ -405,7 +405,7 @@ Rattle은 클러스터 분석을 수행할 수도 있습니다. 출력을 더 �
 
 **클러스터** 탭으로 돌아가서 **KMeans**를 선택하고 *클러스터 수*를 4로 설정합니다. 그런 다음 **실행**을 클릭합니다. 결과가 출력 창에 표시됩니다. 한 클러스터가 "george" 및 "hp"의 빈도가 높고 아마도 합법적인 비즈니스 메일입니다.
 
-간단한 의사 결정 트리 기계 학습 모델을 빌드하려면, 
+간단한 의사 결정 트리 기계 학습 모델을 빌드하려면,
 
 * **모델** 탭을 선택합니다.
 * **트리**를 **형식**으로 선택합니다.

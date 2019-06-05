@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540891"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299025"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -86,7 +86,7 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 엔드투�
 | 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [감정 분석 기술](cognitive-search-skill-sentiment.md) |
 | 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 애플리케이션 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서](search-indexer-overview.md)를 참조하세요. |
 | 셰이핑 | 추가적인 다운스트림 처리를 위해 텍스트 조각을 더 큰 구조에 통합하거나 반대로 큰 텍스트 청크를 처리할 수 있는 크기로 분해합니다. | [쉐이퍼 기술](cognitive-search-skill-shaper.md), [텍스트 병합기 기술](cognitive-search-skill-textmerger.md), [텍스트 분할 기술](cognitive-search-skill-textsplit.md) |
-| 보강된 문서 | 코드로 직접 액세스할 수 없는 일시적인 내부 구조입니다. 처리 중에 보강된 문서가 생성되지만 최종 출력만 검색 인덱스에 유지됩니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. | [보강된 문서에 액세스](cognitive-search-tutorial-blob.md#access-enriched-document)를 참조하세요. |
+| 보강된 문서 | 검색 인덱스에 반영된 최종 출력을 사용하여 처리하는 동안 생성된 일시적인 내부 구조입니다. 기술 세트는 어떤 보강이 수행되는지 결정합니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. 선택적으로, Storage Explorer, Power BI 또는 Azure Blob Storage에 연결되는 다른 도구를 사용하여 보강된 문서를 유지하고 살펴보기 위한 기술 저장소를 만들 수 있습니다. | [기술 저장소(미리 보기)](knowledge-store-concept-intro.md)를 참조하세요. |
 | 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. Cognitive Search 보강을 위해 인덱서는 기술 집합을 호출하고 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. | [인덱서](search-indexer-overview.md) |
 | 데이터 원본  | Azure에서 지원되는 유형의 외부 데이터 소스에 연결할 때 인덱서에 사용되는 개체입니다. | [인덱서](search-indexer-overview.md)를 참조하세요. |
 | 인덱스 | 필드 구조와 사용법을 정의하는 인덱스 스키마로 작성된 Azure Search의 지속형 검색 인덱스입니다. | [Azure Search의 인덱스](search-what-is-an-index.md) | 

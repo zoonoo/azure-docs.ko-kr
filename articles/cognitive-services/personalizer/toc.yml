@@ -27,6 +27,9 @@
         - name: 기능 작업 및 컨텍스트
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 능동적 학습
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: 보상
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: Personalizer 만들기 및 구성
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: 분석
       items:
         - name: 오프라인 평가

@@ -68,7 +68,7 @@ Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage
 
 | 총 계정 용량 | 로컬 중복 Storage 계정의 총 대역폭 |
 |:--- |:--- |
-| 디스크 용량: 35TB<br />스냅숏 용량: 10TB |인바운드+아웃바운드에 대해 초당 최대 50기가비트 |
+| 디스크 용량: 35TB<br />스냅샷 용량: 10TB |인바운드+아웃바운드에 대해 초당 최대 50기가비트 |
 
 Premium Storage 사양에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-performance-storage-account-scale-limits)를 참조하세요.
 
@@ -124,7 +124,7 @@ Azure VM을 만들 때 특정 VM 설정을 구성해야 합니다. 나중에 다
 여러 일반 Azure VM 인스턴스를 만드는데 사용할 VHD를 업로드하는 경우 , sysprep 유틸리티를 사용하여 VHD를 먼저 일반화해야 합니다. 온-프레미스 또는 클라우드에 있는 VHD에 적용됩니다. Sysprep는 VHD에서 모든 컴퓨터의 특정 정보를 제거합니다.
 
 > [!IMPORTANT]
-> 스냅숏을 찍거나 VM을 백업하기 전에 일반화합니다. 실행 중인 sysprep가 중지되고 VM 인스턴스의 할당이 취소됩니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 머신 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)를 참조하세요.
+> 스냅샷을 찍거나 VM을 백업하기 전에 일반화합니다. 실행 중인 sysprep가 중지되고 VM 인스턴스의 할당이 취소됩니다. Windows 운영 체제 VHD를 sysprep 하려면 아래 단계를 따르세요. Sysprep 명령을 가상 머신 종료를 해야한다는 것을 참고하세요. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://technet.microsoft.com/library/hh825209.aspx) 또는 [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)를 참조하세요.
 >
 >
 
@@ -180,11 +180,11 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 
     AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
 
-   * **/Source: *&lt;source&gt;:*** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** 원본 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Dest: *&lt;destination&gt;:*** VHD를 복사할 스토리지 컨테이너 URL입니다.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** 대상 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Pattern: *&lt;file-name&gt;:*** 복사할 VHD의 파일 이름을 지정합니다.
+   * **/Source: *&lt;source&gt;:* ** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** 원본 스토리지 계정의 스토리지 계정 키입니다.
+   * **/Dest: *&lt;destination&gt;:* ** VHD를 복사할 스토리지 컨테이너 URL입니다.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** 대상 스토리지 계정의 스토리지 계정 키입니다.
+   * **/Pattern: *&lt;file-name&gt;:* ** 복사할 VHD의 파일 이름을 지정합니다.
 
 AzCopy 도구 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 
@@ -277,12 +277,12 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 
     AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
 
-   * **/Source: *&lt;source&gt;:*** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** 원본 스토리지 계정의 스토리지 계정 키입니다.
-   * **/Dest: *&lt;destination&gt;:*** VHD를 복사할 스토리지 컨테이너 URL입니다.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** 대상 스토리지 계정의 스토리지 계정 키입니다.
+   * **/Source: *&lt;source&gt;:* ** VHD를 포함하는 폴더 또는 스토리지 컨테이너 URL의 위치입니다.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** 원본 스토리지 계정의 스토리지 계정 키입니다.
+   * **/Dest: *&lt;destination&gt;:* ** VHD를 복사할 스토리지 컨테이너 URL입니다.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** 대상 스토리지 계정의 스토리지 계정 키입니다.
    * **/BlobType: page:** 대상을 페이지 Blob으로 지정합니다.
-   * **/Pattern: *&lt;file-name&gt;:*** 복사할 VHD의 파일 이름을 지정합니다.
+   * **/Pattern: *&lt;file-name&gt;:* ** 복사할 VHD의 파일 이름을 지정합니다.
 
 AzCopy 도구 사용에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.
 

@@ -163,7 +163,7 @@ Azure Disk Encryption을 사용하는 모범 사례는 다음과 같습니다.
 **모범 사례**: 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키) 사용 KEK를 키 자격 증명 모음에 추가합니다.   
 **세부 정보**: 사용 된 [추가 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) key vault에 키 암호화 키를 만드는 cmdlet입니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
 
-**모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅숏](../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업 수행 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
+**모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅샷](../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업 수행. 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
 **세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업 설정 되 면 사용할 수는 **집합 AzVMDiskEncryptionExtension** 지정 하 여 관리 되는 디스크를 암호화 하는 cmdlet를 *-skipVmBackup* 매개 변수입니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
 
 **모범 사례**: 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서는 키 자격 증명 모음과 VM을 동일한 지역에 배치해야 함   

@@ -47,7 +47,7 @@ ms.locfileid: "60370426"
 
 ## <a name="configuration-designs"></a>구성 디자인
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>사이트 간 VPN을 ExpressRoute에 대한 장애 조치(failover) 경로로 구성
-ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. Azure 개인 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. 공용 Azure 및 Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치 솔루션은 없습니다. ExpressRoute 회로는 항상 기본 링크입니다. ExpressRoute 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 
+ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 있습니다. Azure 프라이빗 피어링 경로에 연결된 가상 네트워크에만 적용됩니다. 공용 Azure 및 Microsoft 피어링을 통해 액세스할 수 있는 서비스에 대한 VPN 기반 장애 조치 솔루션은 없습니다. ExpressRoute 회로는 항상 기본 링크입니다. ExpressRoute 회로가 실패하면 데이터는 사이트 간 VPN 경로를 통해 전송됩니다. 
 
 > [!NOTE]
 > 두 경로가 동일한 경우 사이트 간 VPN보다 ExpressRoute 회로가 사용되며, Azure는 가장 긴 접두사 일치 항목을 사용하여 패킷의 대상에 대한 경로를 선택합니다.

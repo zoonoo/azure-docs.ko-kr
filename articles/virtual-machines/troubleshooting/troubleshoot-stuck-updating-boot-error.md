@@ -45,7 +45,7 @@ ms.locfileid: "60443775"
 
 ### <a name="remove-the-update-that-causes-the-problem"></a>문제의 원인이 된 업데이트를 제거합니다.
 
-1. 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요. 
+1. 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요. 
 2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
 3. OS 디스크가 복구 VM에 연결되면 **diskmgmt.msc**를 실행하여 디스크 관리를 열고 연결된 디스크가 **ONLINE** 상태인지 확인합니다. \Windows 폴더를 유지하는 연결된 OS 디스크에 할당된 드라이브 문자를 기록해 둡니다. 디스크 암호화된 경우 이 문서의 다음 단계를 진행하기 전에 디스크를 암호 해독합니다.
 

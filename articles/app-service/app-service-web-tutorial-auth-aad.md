@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.
+로컬 터미널 창  으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -218,7 +218,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -253,7 +253,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 - 코드의 토큰 사용
 
 > [!TIP]
-> 오류가 발생하여 앱의 인증/권한 부여 설정을 다시 구성하면 토큰 저장소의 토큰이 새 설정에서 다시 생성되지 않을 수 있습니다. 토큰이 다시 생성되도록 하려면 앱에서 로그아웃하고 다시 로그인해야 합니다. 이 작업을 수행하는 쉬운 방법은 브라우저를 비공개 모드로 사용하여 앱의 설정을 변경한 후 비공개 모드로 브라우저를 닫았다가 다시 여는 것입니다.
+> 오류가 발생하여 앱의 인증/권한 부여 설정을 다시 구성하면 토큰 저장소의 토큰이 새 설정에서 다시 생성되지 않을 수 있습니다. 토큰이 다시 생성되도록 하려면 앱에서 로그아웃하고 다시 로그인해야 합니다. 이 작업을 수행하는 쉬운 방법은 브라우저를 개인 모드로 사용하여 앱의 설정을 변경한 후 개인 모드로 브라우저를 닫았다가 다시 여는 것입니다.
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
@@ -267,7 +267,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 **API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
 
-**_&lt;AD\_application\_name>에 액세스_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
+** _&lt;AD\_application\_name>에 액세스_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
@@ -279,7 +279,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-왼쪽 브라우저에서 **구독** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** > **_\<front\_end\_app\_name>_** > **구성** > **authsettings**를 클릭합니다.
+왼쪽 브라우저에서 **구독** > ** _&lt;your\_subscription>_ ** > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** >  ** _\<front\_end\_app\_name>_ ** > **구성** > **authsettings**를 클릭합니다.
 
 **authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 

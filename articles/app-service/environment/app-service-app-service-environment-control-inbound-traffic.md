@@ -24,7 +24,7 @@ ms.locfileid: "62130792"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
-App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  앱 서비스 환경을 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
+App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  앱 서비스 환경을 만드는 방법에 대한 자세한 내용은 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
 
 App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서브넷은 특정 업스트림 IP 주소의 HTTP 및 HTTPS 트래픽만 허용되도록 업스트림 디바이스 및 서비스 뒤의 인바운드 트래픽을 잠그는 데 사용할 수 있는 네트워크 경계를 제공하기 때문입니다.
 

@@ -343,7 +343,7 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 ![네트워킹 격리](./media/azure-isolation/azure-isolation-fig13.png)
 
-**트래픽 격리:** [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 Azure 플랫폼의 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 비공개 상태를 유지하는 데 있어 중요한 속성입니다.
+**트래픽 격리:** [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)는 Azure 플랫폼의 트래픽 격리 경계입니다. 두 Virtual Network를 같은 고객이 만들었다 하더라도, 한 Virtual Network의 VM(가상 머신)은 다른 가상 네트워크의 VM과 직접 통신할 수 없습니다. 격리는 고객 VM과 통신이 가상 네트워크 안에서 프라이빗 상태를 유지하는 데 있어 중요한 속성입니다.
 
 [서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)은 IP 범위를 기반으로 하는 가상 네트워크에서 추가 격리 계층을 제공합니다. 가상 네트워크의 IP 주소를 사용하면 조직과 보안을 위해 가상 네트워크를 여러 서브넷으로 분할할 수 있습니다. VNet 내부의 서브넷(같은 또는 다른)에 배포된 VM 및 PaaS 역할 인스턴스는 추가 구성 없이 서로 통신할 수 있습니다. 또한 NSG의 ACL(액세스 제어 목록)에 구성된 규칙을 기반으로 하여 VM 인스턴스에 대한 네트워크 트래픽을 허용하거나 거부하도록 [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 구성할 수도 있습니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다.
 

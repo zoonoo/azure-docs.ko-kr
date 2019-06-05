@@ -118,7 +118,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 고정 IP 주소를 사용하는 경우에는 가상 머신에 부여할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **계산 및 네트워크 설정** > **네트워크 인터페이스 카드**로 이동합니다.
 
-![Site Recovery 네트워크 인터페이스 카드 창에서 사설 IP 주소를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-sap/sap-static-ip.png)
+![Site Recovery 네트워크 인터페이스 카드 창에서 개인 IP 주소를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-sap/sap-static-ip.png)
 
 
 ## <a name="creating-a-recovery-plan"></a>복구 계획 만들기

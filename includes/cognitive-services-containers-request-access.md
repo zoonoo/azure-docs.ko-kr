@@ -18,7 +18,7 @@ ms.locfileid: "66124577"
 
 요청이 승인 되 면 자격 증명을 가져오는 개인 컨테이너 레지스트리에 액세스 하는 방법을 설명 하는 지침을 사용 하 여 전자 메일을 수신 합니다.
 
-## <a name="log-in-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 로그인
+## <a name="log-in-to-the-private-container-registry"></a>프라이빗 컨테이너 레지스트리에 로그인
 
 Cognitive Services 컨테이너에 대 한 개인 컨테이너 레지스트리로 인증 하는 방법은 여러 가지가 있습니다. 사용 하 여 명령줄 메서드를 사용 하는 것이 좋습니다 합니다 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)합니다.
 

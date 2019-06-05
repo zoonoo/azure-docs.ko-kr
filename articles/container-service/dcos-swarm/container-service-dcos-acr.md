@@ -73,11 +73,11 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 az acr credential show --name myContainerRegistry23489
 ```
 
-Azure Container Registry에 대한 자세한 내용은 [개인 Docker 컨테이너 레지스트리 소개](../../container-registry/container-registry-intro.md)를 참조하세요. 
+Azure Container Registry에 대한 자세한 내용은 [프라이빗 Docker 컨테이너 레지스트리 소개](../../container-registry/container-registry-intro.md)를 참조하세요. 
 
 ## <a name="manage-acr-authentication"></a>ACR 인증 관리
 
-개인 레지스트리에서 이미지를 밀어넣고 끌어오는 일반적인 방법은 먼저 레지스트리를 인증하는 것입니다. 이렇게 하려면 개인 레지스트리에 액세스해야 하는 모든 클라이언트에서 `docker login` 명령을 사용합니다. DC/OS 클러스터는 모두 ACR에 인증되어야 하는 많은 노드를 포함할 수 있으므로 각 노드에서 이 프로세스를 자동화하면 유용합니다. 
+프라이빗 레지스트리에서 이미지를 밀어넣고 끌어오는 일반적인 방법은 먼저 레지스트리를 인증하는 것입니다. 이렇게 하려면 프라이빗 레지스트리에 액세스해야 하는 모든 클라이언트에서 `docker login` 명령을 사용합니다. DC/OS 클러스터는 모두 ACR에 인증되어야 하는 많은 노드를 포함할 수 있으므로 각 노드에서 이 프로세스를 자동화하면 유용합니다. 
 
 ### <a name="create-shared-storage"></a>공유 저장소 만들기
 

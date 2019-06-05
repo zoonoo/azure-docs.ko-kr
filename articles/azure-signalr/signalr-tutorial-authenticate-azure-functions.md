@@ -15,7 +15,7 @@ ms.locfileid: "59278839"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
-Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 및 개인 메시징이 포함된 대화방을 작성하는 단계별 자습서입니다.
+Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 및 프라이빗 메시징이 포함된 대화방을 작성하는 단계별 자습서입니다.
 
 ## <a name="introduction"></a>소개
 
@@ -45,7 +45,7 @@ Azure Functions, App Service 인증 및 SignalR Service를 사용하여 인증 �
 
 Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미리 만들어야 하는 Azure의 SignalR Service 인스턴스에 액세스합니다.
 
-1. 새 Azure 리소스를 만들려면 **리소스 만들기**(**+**) 단추를 클릭합니다.
+1. 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
 1. **SignalR Service**를 검색하여 선택합니다. **만들기**를 클릭합니다.
 
@@ -295,7 +295,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Azure에 배포 및 인증을 사용하도록 설정
 
-함수 앱 및 채팅 애플리케이션을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 애플리케이션에서 인증 및 개인 메시징을 사용하도록 설정합니다.
+함수 앱 및 채팅 애플리케이션을 로컬로 실행했습니다. 이제 이러한 앱을 Azure에 배포하고 애플리케이션에서 인증 및 프라이빗 메시징을 사용하도록 설정합니다.
 
 ### <a name="log-into-azure-with-vs-code"></a>VS Code를 사용하여 Azure에 로그인
 
@@ -309,7 +309,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니다. Azure Storage의 정적 웹 사이트 기능을 사용하여 채팅 UI용 웹 페이지도 호스팅합니다.
 
-1. Azure Portal에서 새 Azure 리소스를 만들려면 **리소스 만들기**(**+**) 단추를 클릭합니다.
+1. Azure Portal에서 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
 1. **스토리지** 범주를 선택한 다음, **스토리지 계정**을 선택합니다.
 
@@ -483,7 +483,7 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 1. 기본 채팅 상자에 공개 메시지를 입력하여 보냅니다.
 
-1. 채팅 기록에서 사용자 이름을 클릭하여 개인 메시지를 보냅니다. 선택한 받는 사람만 이러한 메시지를 받습니다.
+1. 채팅 기록에서 사용자 이름을 클릭하여 프라이빗 메시지를 보냅니다. 선택한 받는 사람만 이러한 메시지를 받습니다.
 
 축하합니다! 실시간 서버리스 채팅 앱을 배포했습니다!
 

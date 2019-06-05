@@ -18,7 +18,7 @@ ms.locfileid: "62109854"
 
 Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경우 [오픈 소스 Helm 패키지 관리자][helm]를 사용할 수 있습니다. Helm 사용 시 애플리케이션은 Helm 차트 리포지토리에 저장되는 *차트*로 정의됩니다. 이러한 차트는 구성 및 종속성을 정의하며, 애플리케이션의 전체 수명 주기에 걸쳐 차트의 버전을 관리할 수 있습니다. Helm 차트 리포지토리용 호스트로 Azure Container Registry를 사용할 수 있습니다.
 
-Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 기타 Azure 서비스와 통합할 수 있는 비공개 보안 Helm 차트 리포지토리가 제공됩니다. Azure Container Registry의 Helm 차트 리포지토리에는 차트를 배포한 응용 프로그램과 가까운 위치에 보관하고 중복성을 유지하기 위한 지역 복제 기능이 포함되어 있습니다. 차트는 모든 Azure Container Registry 기준 가격에서 사용 가능하며, 차트에서 사용한 저장소 양만큼만 요금을 결제하면 됩니다.
+Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 기타 Azure 서비스와 통합할 수 있는 프라이빗 보안 Helm 차트 리포지토리가 제공됩니다. Azure Container Registry의 Helm 차트 리포지토리에는 차트를 배포한 응용 프로그램과 가까운 위치에 보관하고 중복성을 유지하기 위한 지역 복제 기능이 포함되어 있습니다. 차트는 모든 Azure Container Registry 기준 가격에서 사용 가능하며, 차트에서 사용한 저장소 양만큼만 요금을 결제하면 됩니다.
 
 이 문서에서는 Azure Container Registry에 저장된 Helm 차트 리포지토리를 사용하는 방법을 설명합니다.
 
@@ -59,7 +59,7 @@ az acr helm repo add
 
 ## <a name="add-a-chart-to-the-repository"></a>리포지토리에 차트 추가
 
-이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 애플리케이션 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 개인 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. Helm 차트를 직접 작성하는 방법에 대한 자세한 내용은 [Helm 차트 개발][develop-helm-charts]을 참조하세요.
+이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 애플리케이션 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 프라이빗 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. Helm 차트를 직접 작성하는 방법에 대한 자세한 내용은 [Helm 차트 개발][develop-helm-charts]을 참조하세요.
 
 먼저 *~/acr-helm*에 디렉터리를 만든 다음 기존 *stable/wordpress* 차트를 다운로드합니다.
 

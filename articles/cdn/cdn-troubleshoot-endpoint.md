@@ -49,7 +49,7 @@ CDN 프로필 및 끝점을 만들었지만 콘텐츠를 CDN에서 사용할 수
 > 
 
 ### <a name="check-the-origin-file"></a>원본 파일 확인
-먼저 캐시할 파일을 원본 서버에서 사용할 수 있고 인터넷에서 공개적으로 액세스할 수 있는지 확인합니다. 이 작업을 수행하는 가장 빠른 방법은 private(개인) 또는 Incognito(시크릿) 세션에서 브라우저를 열고 해당 파일을 직접 찾아보는 것입니다. 주소 상자에 URL을 입력하거나 붙여넣고 예상하는 파일이 나오는지 확인합니다. 예를 들어 Azure Storage 계정에 https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt에서 액세스할 수 있는 파일이 있다고 가정합니다. 이 파일의 콘텐츠를 성공적으로 로드할 수 있으면 테스트를 통과한 것입니다.
+먼저 캐시할 파일을 원본 서버에서 사용할 수 있고 인터넷에서 공개적으로 액세스할 수 있는지 확인합니다. 이 작업을 수행하는 가장 빠른 방법은 프라이빗 또는 Incognito(시크릿) 세션에서 브라우저를 열고 해당 파일을 직접 찾아보는 것입니다. 주소 상자에 URL을 입력하거나 붙여넣고 예상하는 파일이 나오는지 확인합니다. 예를 들어 Azure Storage 계정에 https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt에서 액세스할 수 있는 파일이 있다고 가정합니다. 이 파일의 콘텐츠를 성공적으로 로드할 수 있으면 테스트를 통과한 것입니다.
 
 ![성공!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 

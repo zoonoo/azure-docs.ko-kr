@@ -155,7 +155,7 @@ ms.locfileid: "65204930"
 
 
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, 스토리지 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산, 스토리지 및 네트워크 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 SAP NetWeaver 기반 ABAP, Java 및 ABAP+Java 스택과 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 프라이빗 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
 이 문서에서는 Azure Resource Manager 배포 모델을 사용하여 Azure에서 고가용성 SAP 시스템을 배포하기 위한 단계를 설명합니다. 다음과 같은 주요 작업을 진행하게 됩니다.
 
@@ -268,7 +268,7 @@ _**그림 1:** Azure에서 SAP ASCS/SCS에 대한 Windows Server 장애 조치(F
 * 클라이언트에서 클러스터에 연결하는 데 사용하는 공용 네트워크
 
 ## <a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Azure의 Windows Server 장애 조치 클러스터링
-운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. 공유 클러스터 디스크를 만들려면 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
+운영 체제 미설치 또는 프라이빗 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. 공유 클러스터 디스크를 만들려면 SAP ASCS/SCS 인스턴스에 대해 여러 개의 IP 주소 및 가상 호스트 이름을 설정해야 합니다.
 
 이 문서에서는 Azure에서 SAP 고가용성 중앙 서비스 클러스터를 구축하는 데 필요한 핵심 개념 및 추가 단계에 대해 설명합니다. 타사 도구 SIOS DataKeeper를 설정하고 Azure 내부 부하 분산 장치를 구성하는 방법을 보여 줍니다. 이러한 도구와 Azure에서 파일 공유 감시를 사용하여 Windows 장애 조치 클러스터를 만들 수 있습니다.
 
@@ -333,7 +333,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머�
 _**그림 5:** 고가용성 SAP ASCS/SCS 인스턴스_
 
 #### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Azure에서 Windows Server 장애 조치 클러스터링을 사용한 SAP ASCS/SCS 인스턴스 고가용성
-운영 체제 미설치 또는 사설 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. Windows 장애 조치 클러스터를 구축하려면 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 공유 클러스터 디스크, 일부 IP 주소, 가상 호스트 이름 및 Azure 내부 부하 분산 장치가 필요합니다. 이 내용은 문서 뒷부분에서 좀 더 자세히 설명합니다.
+운영 체제 미설치 또는 프라이빗 클라우드 배포에 비해, Azure Virtual Machines는 Windows Server 장애 조치 클러스터링을 구성하기 위한 추가 단계가 필요합니다. Windows 장애 조치 클러스터를 구축하려면 SAP ASCS/SCS 인스턴스를 클러스터링하기 위한 공유 클러스터 디스크, 일부 IP 주소, 가상 호스트 이름 및 Azure 내부 부하 분산 장치가 필요합니다. 이 내용은 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
 ![그림 6: SIOS DataKeeper를 사용하는 Azure의 SAP ASCS/SCS용 Windows Server 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 
@@ -901,7 +901,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터
 
    _**그림 30:** 클러스터 이름 개체의 공유를 위한 권한 할당_
 
-   클러스터 이름 개체(예제의 **pr1-ascs-vir$**)에 대한 공유에서 데이터를 변경할 수 있는 권한이 포함되는지 확인합니다.
+   클러스터 이름 개체(예제의 **pr1-ascs-vir$** )에 대한 공유에서 데이터를 변경할 수 있는 권한이 포함되는지 확인합니다.
 
 3. 목록에 클러스터 이름 개체를 추가하려면 **추가**를 선택합니다. 그림 31에서 보여 주는 방법 외에도 필터를 변경하여 컴퓨터 개체를 확인합니다.
 
@@ -1133,7 +1133,7 @@ Azure에서 여러 다른 DBMS 서비스가 이러한 종류의 클러스터형 
 1. Windows DNS 관리자에서 ASCS/SCS 인스턴스의 가상 호스트 이름에 대한 DNS 항목을 만듭니다.
 
    > [!IMPORTANT]
-   > ASCS/SCS 인스턴스의 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소(**<*SID*>-lb-ascs**)와 동일해야 합니다.  
+   > ASCS/SCS 인스턴스의 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소( **<*SID*>-lb-ascs**)와 동일해야 합니다.  
    >
    >
 

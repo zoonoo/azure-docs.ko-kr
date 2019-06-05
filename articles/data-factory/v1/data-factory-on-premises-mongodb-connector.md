@@ -67,11 +67,11 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesMongoDb** |예 |
-| 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
-| 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
+| server |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
+| port |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
 | authenticationType |Basic 또는 Anonymous입니다. |예 |
-| 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| 암호 |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
+| username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
+| password |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
 | gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |예 |
@@ -95,7 +95,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
+| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
 
 

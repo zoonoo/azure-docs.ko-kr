@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files에 대한 리소스 제한 | Microsoft Docs
-description: NetApp 계정, 용량 풀, 볼륨, 스냅숏 및 위임된 서브넷에 대한 제한 사항을 포함하여 Azure NetApp Files 리소스에 대한 제한 사항을 설명합니다.
+description: NetApp 계정, 용량 풀, 볼륨, 스냅샷 및 위임된 서브넷에 대한 제한 사항을 포함하여 Azure NetApp Files 리소스에 대한 제한 사항을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

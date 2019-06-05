@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 Azure Database for MySQL로 MySQL 온라인 마이그레이션 수행 | Microsoft Docs'
-description: Azure Database Migration Service를 사용하여 온라인 마이그레이션을 MySQL 온-프레미스에서 Azure Database for MySQL로 수행하는 방법을 알아봅니다.
+title: '자습서: Azure Database Migration Service를 사용하여 MySQL에서 Azure Database for MySQL로 온라인 마이그레이션 | Microsoft Docs'
+description: Azure Database Migration Service를 사용하여 MySQL 온-프레미스에서 Azure Database for MySQL로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 409fa3a501b80e225fff299980f374f73f0dbf13
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 5a35df5b72f51f4ef725b3d764e7dc2c80c19ec2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415723"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240759"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
@@ -24,8 +24,9 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
+>
 > * mysqldump 유틸리티를 사용하여 샘플 스키마를 마이그레이션합니다.
-> * Azure Database Migration Service의 인스턴스를 만듭니다.
+> * Azure Database Migration Service 인스턴스를 만듭니다.
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
@@ -34,7 +35,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
 
 > [!IMPORTANT]
-> 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
+> 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,7 +43,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 * [MySQL 커뮤니티 버전](https://dev.mysql.com/downloads/mysql/) 5.6 또는 5.7을 다운로드하여 설치합니다. 온-프레미스 MySQL 버전은 Azure Database for MySQL 버전과 일치해야 합니다. 예를 들어 MySQL 5.6은 Azure Database for MySQL 5.6으로만 마이그레이션할 수 있고, 5.7로는 업그레이드할 수 없습니다.
 * [Azure Database for MySQL에 인스턴스를 만듭니다](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Azure Portal을 사용하여 데이터베이스를 연결하고 만드는 방법에 대한 자세한 내용은 [MySQL Workbench를 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-workbench) 문서를 참조하세요.  
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNET(Virtual Network)을 만듭니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
     > [!NOTE]
     > VNet을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
@@ -54,9 +55,9 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 * VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
 * [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
-* Azure Database Migration Service에서 기본적으로 3306 TCP 포트인 원본 MySQL 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
-* 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for MySQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNET의 서브넷 범위를 제공합니다.
+* Azure Database Migration Service가 기본적으로 3306 TCP 포트인 원본 MySQL Server에 액세스할 수 있도록 Windows 방화벽을 엽니다.
+* 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
+* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for MySQL에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 입력합니다.
 * 원본 MySQL은 지원되는 MySQL 커뮤니티 버전에 있어야 합니다. MySQL 유틸리티 또는 MySQL Workbench에서 MySQL 인스턴스의 버전을 확인하려면 다음 명령을 실행합니다.
 
     ```
@@ -67,20 +68,18 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 * 다음 구성을 사용하여 원본 데이터베이스의 my.ini(Windows) 또는 my.cnf(Unix) 파일에서 이진 로깅을 사용하도록 설정합니다.
 
-    * **server_id** = 1 이상(MySQL 5.6에만 해당)
-    * **log-bin** =\<path>(MySQL 5.6에만 해당)
-
-        예: log-bin = E:\MySQL_logs\BinLog
-    * **binlog_format** = row
-    * **Expire_logs_days** = 5(0은 사용하지 않는 것이 좋음, MySQL 5.6에만 해당)
-    * **Binlog_row_image** = full(MySQL 5.6에만 해당)
-    * **log_slave_updates** = 1
+  * **server_id** = 1 이상(MySQL 5.6에만 해당)
+  * **log-bin** =\<path> (MySQL 5.6에만 해당)    예: log-bin = E:\MySQL_logs\BinLog
+  * **binlog_format** = row
+  * **Expire_logs_days** = 5(0은 사용하지 않는 것이 좋음, MySQL 5.6에만 해당)
+  * **Binlog_row_image** = full(MySQL 5.6에만 해당)
+  * **log_slave_updates** = 1
 
 * 다음 권한이 있는 ReplicationAdmin 역할이 사용자에게 있어야 합니다.
 
-    * **REPLICATION CLIENT** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
-    * **REPLICATION REPLICA** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
-    * **SUPER** - MySQL 5.6.6 이전 버전에서만 필요합니다.
+  * **REPLICATION CLIENT** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
+  * **REPLICATION REPLICA** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
+  * **SUPER** - MySQL 5.6.6 이전 버전에서만 필요합니다.
 
 ## <a name="migrate-the-sample-schema"></a>샘플 스키마 마이그레이션
 
@@ -92,7 +91,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-예: 
+예:
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -104,7 +103,7 @@ mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\emplo
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-예: 
+예:
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -149,7 +148,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
    ![포털 구독 표시](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
 
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자**를 선택합니다.
+2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자**를 선택합니다.
 
     ![리소스 공급자 보기](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
@@ -220,7 +219,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 2. **저장**을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
-    대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 대상 데이터베이스를 선택합니다.
+    대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 이 대상 데이터베이스를 선택합니다.
 
     ![대상 데이터베이스에 매핑](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 

@@ -23,7 +23,7 @@ ms.locfileid: "60783503"
 
 에 ASP.NET 또는 ASP.NET core Azure App Service에서 응용 프로그램 실행을 하는 경우 아래 지침에 따라 사용할 수도 있습니다. 응용 프로그램을 사용자 지정 된 스냅숏 디버거 구성이 필요로 하지 않는 한 것이 좋습니다 [스냅숏 디버거를 사용 하도록 설정 된 Application Insights 포털 페이지를 통해](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)합니다. 응용 프로그램이 Azure Service Fabric, 클라우드 서비스, Virtual Machines에서 실행 하거나 온-프레미스 컴퓨터를 하는 경우 다음 지침을 사용 해야 합니다. 
     
-## <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 애플리케이션에 대한 스냅숏 컬렉션 구성
+## <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET 애플리케이션에 대한 스냅샷 컬렉션 구성
 
 1. 이 작업을 아직 수행하지 않은 경우 [웹앱에서 Application Insights를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다.
 
@@ -63,10 +63,10 @@ ms.locfileid: "60783503"
     </TelemetryProcessors>
     ```
 
-4. 스냅숏은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 경우에 따라(예: 이전 버전의 .NET 플랫폼) 포털에서 스냅숏 예외를 보려면 [예외 컬렉션을 구성](../../azure-monitor/app/asp-net-exceptions.md#exceptions)해야 할 수 있습니다.
+4. 스냅샷은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 경우에 따라(예: 이전 버전의 .NET 플랫폼) 포털에서 스냅샷 예외를 보려면 [예외 컬렉션을 구성](../../azure-monitor/app/asp-net-exceptions.md#exceptions)해야 할 수 있습니다.
 
 
-## <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>ASP.NET Core 2.0 애플리케이션에 대한 스냅숏 컬렉션 구성
+## <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>ASP.NET Core 2.0 애플리케이션에 대한 스냅샷 컬렉션 구성
 
 1. 이 작업을 아직 수행하지 않은 경우 [ASP.NET Core 웹앱에서 Application Insights를 사용하도록 설정](../../azure-monitor/app/asp-net-core.md)합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "60783503"
 
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
-3. 애플리케이션의 `Startup` 클래스를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가하고 구성합니다.
+3. 애플리케이션의 `Startup` 클래스를 수정하여 스냅샷 수집기의 원격 분석 프로세서를 추가하고 구성합니다.
 
     명령문을 사용하여 다음 항목을 `Startup.cs`에 추가합니다.
 
@@ -143,13 +143,13 @@ ms.locfileid: "60783503"
    }
    ```
 
-## <a name="configure-snapshot-collection-for-other-net-applications"></a>다른 .NET 애플리케이션에 대한 스냅숏 컬렉션 구성
+## <a name="configure-snapshot-collection-for-other-net-applications"></a>다른 .NET 애플리케이션에 대한 스냅샷 컬렉션 구성
 
 1. 애플리케이션이 아직 Application Insights로 계측되지 않는 경우 먼저 [Application Insights를 사용하도록 설정하고 계측 키를 설정](../../azure-monitor/app/windows-desktop.md)합니다.
 
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 추가합니다.
 
-3. 스냅숏은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 예외를 보고하도록 코드를 수정해야 할 수도 있습니다. 예외 처리 코드는 애플리케이션의 구조에 따라 달라집니다. 예제는 다음과 같습니다.
+3. 스냅샷은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 예외를 보고하도록 코드를 수정해야 할 수도 있습니다. 예외 처리 코드는 애플리케이션의 구조에 따라 달라집니다. 예제는 다음과 같습니다.
     ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 

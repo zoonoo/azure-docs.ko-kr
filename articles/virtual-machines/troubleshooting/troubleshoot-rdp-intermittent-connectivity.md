@@ -37,7 +37,7 @@ RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. �
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 수행하기 전에 영향을 받는 VM의 [OS 디스크 스냅숏을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 
+다음 단계를 수행하기 전에 영향을 받는 VM의 [OS 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 
 
 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 

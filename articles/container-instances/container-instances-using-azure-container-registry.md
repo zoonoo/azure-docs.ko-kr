@@ -85,7 +85,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
 ## <a name="deploy-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 프라이빗 레지스트리에 액세스할 수 있습니다.
 
 먼저 [az acr show][az-acr-show] 명령을 사용하여 레지스트리의 로그인 서버 이름을 가져옵니다. 로그인 서버 이름은 모두 소문자이며 `myregistry.azurecr.io`와 유사합니다.
 

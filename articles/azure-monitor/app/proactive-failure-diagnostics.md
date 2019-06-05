@@ -131,7 +131,7 @@ ms.locfileid: "61299110"
 
 *그렇다면, 내 데이터를 확인하고 있습니까?*
 
-* 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](../../azure-monitor/app/data-retention-privacy.md)입니다.
+* 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 
 *이 경고를 구독해야 하나요?*
 

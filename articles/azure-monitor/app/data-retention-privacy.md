@@ -132,7 +132,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 로컬 저장소를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-이 지속 된 데이터를 로컬로 암호화 되지 않습니다. 중요 한 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [개인 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) 참조)
+이 지속 된 데이터를 로컬로 암호화 되지 않습니다. 중요 한 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조하세요.)
 
 고객이 특정 보안 요구 사항으로 이 디렉터리를 구성해야 하는 경우 프레임워크별로 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
 
@@ -243,8 +243,8 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
 | [IIS에서 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
 | [Java 웹앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
-| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext  <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
-| [기본 속성 정의][apiproperties] |**속성**  |
+| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
+| [기본 속성 정의][apiproperties] |**속성** |
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
@@ -258,7 +258,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | --- | --- |
 | **속성** |**임의 데이터 - 코드에 의해 결정됨** |
 | DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
-| ClientContext  |OS, 로캘, 언어, 네트워크, 창 해상도 |
+| ClientContext |OS, 로캘, 언어, 네트워크, 창 해상도 |
 | 세션 |세션 ID |
 | ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
@@ -272,7 +272,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | **예외** |유형, **메시지**, 호출 스택, 원본 파일 및 줄 번호, 스레드 ID |
 | 충돌 |프로세스 ID, 부모 프로세스 ID, 충돌 스레드 ID; 애플리케이션 패치, ID, 빌드; 예외 유형, 주소, 이유; 난독 처리된 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, CPU 종류 |
 | 추적 |**메시지** 및 심각도 수준 |
-| 성능 카운터 |프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 전용 바이트, IO 속도, 요청 기간, 요청 큐 길이 |
+| 성능 카운터 |프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 프라이빗 바이트, IO 속도, 요청 기간, 요청 큐 길이 |
 | 가용성 |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |
 | SDK 진단 |추적 메시지 또는 예외 |
 

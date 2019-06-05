@@ -20,7 +20,7 @@ ms.locfileid: "66111344"
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
-Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
+Azure DNS는 이제 프라이빗 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -82,7 +82,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예: 
+   예:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

@@ -146,7 +146,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 공용 Microsoft 이미지를 사용하여 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 개인 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
+이 빠른 시작에서는 공용 Microsoft 이미지를 사용하여 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 프라이빗 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)

@@ -12,7 +12,7 @@ ms.date: 05/28/2019
 ms.author: diberry
 ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
 ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/29/2019
 ms.locfileid: "66306548"
@@ -291,7 +291,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 이 문서에서는 개념 및 다운로드, 설치 및 음성 컨테이너 실행에 대 한 워크플로 알아보았습니다. 요약하면 다음과 같습니다.
 
 * 음성 제공 두 개의 Linux 컨테이너 Docker 음성 텍스트와 텍스트를 음성에 캡슐화 합니다.
-* 컨테이너 이미지는 Azure의 개인 컨테이너 레지스트리에서 다운로드됩니다.
+* 컨테이너 이미지는 Azure의 프라이빗 컨테이너 레지스트리에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * 호스트 컨테이너의 URI를 지정 하 여 음성 컨테이너에서 작업을 호출 하려면 REST API 또는 SDK 중 하나를 사용할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.

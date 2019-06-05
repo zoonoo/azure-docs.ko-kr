@@ -19,7 +19,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "62103564"
 ---
 # <a name="creating-continuous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Docker, Kubernetes 및 Python Flask 애플리케이션을 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
-AI 애플리케이션의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 애플리케이션을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 애플리케이션을 위한 CI(연속 통합)/CD(연속 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 애플리케이션은 미리 학습된 ML(Machine Learning) 모델이 포함된 애플리케이션 코드의 조합입니다. 이 문서의 경우 개인 Azure Blob Storage 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 애플리케이션을 사용합니다.
+AI 애플리케이션의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 애플리케이션을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 애플리케이션을 위한 CI(연속 통합)/CD(연속 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 애플리케이션은 미리 학습된 ML(Machine Learning) 모델이 포함된 애플리케이션 코드의 조합입니다. 이 문서의 경우 프라이빗 Azure Blob Storage 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 애플리케이션을 사용합니다.
 
 > [!NOTE]
 > 이는 CI/CD를 수행할 수 있는 몇 가지 방법 중 하나입니다. 아래에 언급된 도구 및 기타 필수 구성 요소에 대한 대안들이 있습니다. 추가 콘텐츠를 개발하는 대로 게시할 예정입니다.
@@ -54,7 +54,7 @@ AI 애플리케이션의 경우 대개 Machine Learning 모델을 빌드하는 �
 4. 만족스러우면 모델을 모델 리포지토리에 게시합니다. 이 경우 Blob Storage 계정을 사용합니다. 
 5. 빌드가 GitHub의 커밋에 따라 Azure DevOps에서 시작됩니다.
 6. Azure DevOps 빌드 파이프라인은 Blob 컨테이너에서 최신 모델을 끌어와 컨테이너를 만듭니다.
-7. Azure DevOps는 이미지를 Azure Container Registry의 개인 이미지 리포지토리에 푸시합니다.
+7. Azure DevOps는 이미지를 Azure Container Registry의 프라이빗 이미지 리포지토리에 푸시합니다.
 8. 지정된 일정(야간)에 따라 릴리스 파이프라인이 시작됩니다.
 9. ACR에서 최신 이미지를 끌어오고 ACS에서 Kubernetes 클러스터 전체에 배포합니다.
 10. 앱에 대한 사용자 요청은 DNS 서버를 통해 이동합니다.

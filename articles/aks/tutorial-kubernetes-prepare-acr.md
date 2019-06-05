@@ -17,7 +17,7 @@ ms.locfileid: "66304422"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
-ACR(Azure Container Registry)은 컨테이너 이미지를 위한 비공개 레지스트리입니다. 개인 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
+ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 레지스트리입니다. 프라이빗 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * ACR(Azure Container Registry) 인스턴스 만들기
@@ -138,7 +138,7 @@ Result
 v1
 ```
 
-이제 개인 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장되었습니다. 그 다음 자습서에서 이 이미지는 ACR에서 Kubernetes 클러스터로 배포됩니다.
+이제 프라이빗 Azure Container Registry 인스턴스에 컨테이너 이미지가 저장되었습니다. 그 다음 자습서에서 이 이미지는 ACR에서 Kubernetes 클러스터로 배포됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

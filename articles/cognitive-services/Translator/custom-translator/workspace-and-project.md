@@ -12,7 +12,7 @@ ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: dc45847f3dc2e11af9b7cf566fdd6780ec2b9dac
 ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57762163"
@@ -21,7 +21,7 @@ ms.locfileid: "57762163"
 
 작업 영역이란 사용자 지정 번역 시스템을 구성하고 빌드하기 위한 작업 구축에 대 한 작업 공간입니다. 적업 영역은 여러 프로젝트, 모델 및 문서를 포함할 수 있습니다. Custom Translator에서 수행하는 모든 작업은 특정 작업 영역 내부에 있습니다.
 
-작업 영역은 사용자 및 사용자 작업 영역에 초대한 사람에게만 공개됩니다. 초대받지 않은 사람은 사용자 작업 영역의 콘텐츠에 액세스할 수 없습니다. 원하는 만큼의 사람들을 작업 영역으로 초대하고 언제든지 해당 사용자의 액세스를 수정하거나 제거할 수 있습니다. 또한 새 작업 영역을 만들 수도 있습니다. 기본적으로 작업 영역은 다른 작업 영역 내에 있는 프로젝트 또는 문서를 포함하지 않습니다.
+작업 영역은 사용자 및 사용자 작업 영역에 초대한 사람에게만 프라이빗됩니다. 초대받지 않은 사람은 사용자 작업 영역의 콘텐츠에 액세스할 수 없습니다. 원하는 만큼의 사람들을 작업 영역으로 초대하고 언제든지 해당 사용자의 액세스를 수정하거나 제거할 수 있습니다. 또한 새 작업 영역을 만들 수도 있습니다. 기본적으로 작업 영역은 다른 작업 영역 내에 있는 프로젝트 또는 문서를 포함하지 않습니다.
 
 ## <a name="what-is-a-custom-translator-project"></a>Custom Translator 프로젝트란?
 

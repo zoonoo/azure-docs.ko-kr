@@ -282,7 +282,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     import android.widget.Toast;
     import android.content.Intent;
     ```
-5. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
+5. 클래스의 맨 위에 다음과 같은 프라이빗 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
 
     ```java
     public static MainActivity mainActivity;

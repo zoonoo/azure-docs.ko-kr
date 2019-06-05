@@ -18,7 +18,7 @@ ms.locfileid: "66242024"
 
 AKS(Azure Kubernetes Service) 클러스터의 수명 주기 내내 AKS 노드에 액세스해야 합니다. 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 이 액세스를 사용할 수 있습니다. (현재 AKS에서 미리 보기)는에서 Windows 서버 노드를 포함 하 여 SSH를 사용 하 여 AKS 노드에 액세스할 수 있습니다. 할 수도 있습니다 [원격 데스크톱 프로토콜 (RDP) 연결을 사용 하 여 Windows 서버 노드에 연결할][aks-windows-rdp]합니다. 보안을 위해 AKS 노드는 인터넷에 노출되지 않습니다.
 
-이 아티클에서는 사설 IP 주소를 사용하여 AKS 노드와 SSH를 연결하는 방법을 보여줍니다.
+이 문서에서는 개인 IP 주소를 사용하여 AKS 노드와 SSH를 연결하는 방법을 보여줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -110,7 +110,7 @@ SSH 키에는 가상 머신 확장 집합의 일부인 Linux AKS 노드를 추�
 
 ## <a name="get-the-aks-node-address"></a>AKS 노드 주소 가져오기
 
-AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드에 SSH하려면 사설 IP 주소를 사용합니다. 다음 단계에서 만든 도우미 pod 수 있는 AKS 클러스터의 SSH 노드의이 개인 IP 주소. AKS 노드의 개인 IP 주소를 가져오는 단계는 실행 하면 AKS 클러스터의 유형에 따라 다릅니다.
+AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드에 SSH하려면 개인 IP 주소를 사용합니다. 다음 단계에서 만든 도우미 pod 수 있는 AKS 클러스터의 SSH 노드의이 개인 IP 주소. AKS 노드의 개인 IP 주소를 가져오는 단계는 실행 하면 AKS 클러스터의 유형에 따라 다릅니다.
 
 * 대부분의 AKS 클러스터의 경우 다음 단계에 따라 [일반 AKS 클러스터에 대 한 IP 주소를 가져올](#ssh-to-regular-aks-clusters)합니다.
 * 여러 노드 풀 또는 Windows Server 컨테이너 지원 기능 등의 가상 머신 확장 집합을 사용 하는 AKS에서 미리 보기 기능을 사용 하는 경우 [가상 머신 확장 집합 기반 AKS 클러스터에 대 한 단계](#ssh-to-virtual-machine-scale-set-based-aks-clusters)합니다.
@@ -123,7 +123,7 @@ AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-다음 예제 출력에서는 AKS 노드의 사설 IP 주소를 보여줍니다.
+다음 예제 출력에서는 AKS 노드의 개인 IP 주소를 보여줍니다.
 
 ```
 VirtualMachine            PrivateIPAddresses
@@ -181,15 +181,15 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
 
-1. 이 아티클의 첫 번째 단계에서는 AKS 노드에 공용 SSH 키를 추가했습니다. 이제 Pod에 개인 SSH 키를 복사합니다. 이 개인 키를 사용하여 AKS 노드에 SSH를 만듭니다.
+1. 이 아티클의 첫 번째 단계에서는 AKS 노드에 공용 SSH 키를 추가했습니다. 이제 Pod에 프라이빗 SSH 키를 복사합니다. 이 프라이빗 키를 사용하여 AKS 노드에 SSH를 만듭니다.
 
-    이전 단계에서 가져온 고유한 *aks-ssh* Pod 이름을 입력합니다. 필요에 따라 *~/.ssh/id_rsa*를 개인 SSH 키의 위치로 변경합니다.
+    이전 단계에서 가져온 고유한 *aks-ssh* Pod 이름을 입력합니다. 필요에 따라 *~/.ssh/id_rsa*를 프라이빗 SSH 키의 위치로 변경합니다.
 
     ```console
     kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
     ```
 
-1. 컨테이너에 대한 터미널 세션으로 다시 돌아가서 사용자 읽기 전용이 되도록 복사된 `id_rsa` 개인 SSH 키에 대한 사용 권한을 업데이트합니다.
+1. 컨테이너에 대한 터미널 세션으로 다시 돌아가서 사용자 읽기 전용이 되도록 복사된 `id_rsa` 프라이빗 SSH 키에 대한 사용 권한을 업데이트합니다.
 
     ```console
     chmod 0600 id_rsa

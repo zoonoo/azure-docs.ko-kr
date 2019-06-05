@@ -17,7 +17,7 @@ ms.locfileid: "57533667"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
-Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 개인 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
+Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 있는 Azure에 배포된 프라이빗 Docker 레지스트리입니다. 3부로 구성된 이 자습서에서는 지리적 복제를 사용하여 Linux 컨테이너에서 실행되는 ASP.NET Core 웹 애플리케이션을 두 개의 [Web Apps for Containers](../app-service/containers/index.yml) 인스턴스에 배포하는 방법을 알아봅니다. Azure에서 가장 가까운 지리적 복제 리포지토리의 각 웹앱 인스턴스에 이미지를 자동으로 배포하는 방법을 확인할 수 있습니다.
 
 총 3부 중 1부인 이 자습서에서는 다음을 수행합니다.
 
@@ -27,7 +27,7 @@ Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 �
 > * 애플리케이션 원본에서 Docker 컨테이너 이미지 만들기
 > * 컨테이너 이미지를 레지스트리에 푸시하기
 
-후속 자습서에서는 개인 레지스트리의 컨테이너를 두 개의 Azure 지역에서 실행되는 웹앱에 배포합니다. 그런 다음, 애플리케이션에서 코드를 업데이트하고 레지스트리에 대한 단일 `docker push`로 두 개의 웹앱 인스턴스를 업데이트합니다.
+후속 자습서에서는 프라이빗 레지스트리의 컨테이너를 두 개의 Azure 지역에서 실행되는 웹앱에 배포합니다. 그런 다음, 애플리케이션에서 코드를 업데이트하고 레지스트리에 대한 단일 `docker push`로 두 개의 웹앱 인스턴스를 업데이트합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -168,7 +168,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 
 ## <a name="build-container-image"></a>컨테이너 이미지 만들기
 
-Dockerfile을 레지스트리 로그인 서버의 FQDN으로 업데이트했으니 이제 `docker build`를 사용하여 컨테이너 이미지를 만들 수 있습니다. 다음 명령을 실행하여 이미지를 작성하고 개인 레지스트리의 URL로 태그를 지정합니다. 다시 `<acrName>`을 레지스트리 이름으로 바꿉니다.
+Dockerfile을 레지스트리 로그인 서버의 FQDN으로 업데이트했으니 이제 `docker build`를 사용하여 컨테이너 이미지를 만들 수 있습니다. 다음 명령을 실행하여 이미지를 작성하고 프라이빗 레지스트리의 URL로 태그를 지정합니다. 다시 `<acrName>`을 레지스트리 이름으로 바꿉니다.
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -226,7 +226,7 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 개인 지리적 복제 컨테이너 레지스트리를 작성하고 컨테이너 이미지를 빌드한 다음 해당 이미지를 레지스트리로 푸시했습니다.
+이 자습서에서는 프라이빗 지리적 복제 컨테이너 레지스트리를 작성하고 컨테이너 이미지를 빌드한 다음, 해당 이미지를 레지스트리로 푸시했습니다.
 
 지역에서 복제를 사용하여 여러 Web App for Containers 인스턴스에 컨테이너를 배포하여 이미지를 로컬로 제공하는 다음 자습서로 이동합니다.
 

@@ -29,7 +29,7 @@ ms.locfileid: "62130673"
 다음 시나리오에서 App Service Environment를 만들 수 있습니다.
 - Azure Resource Manager 가상 네트워크.
 - 클래식 배포 모델 가상 네트워크.
-- 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소)을 사용하는 가상 네트워크. 
+- 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소)을 사용하는 가상 네트워크. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -81,7 +81,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선 적용되도록 구체적이어야 합니다. 다음 섹션에 설명된 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 이 범위는 더 구체적인 주소 범위를 사용하는 경로 보급으로 의도치 않게 재정의될 수 있습니다.
 > 
-> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 세트에 대해 Microsoft에서 경로 보급을 받습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 App Service Environment에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 교차 보급 경로를 중지합니다.
+> 공용 피어링 경로에서 프라이빗 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 세트에 대해 Microsoft에서 경로 보급을 받습니다. 프라이빗 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 강제 터널링됩니다. 이 네트워크 흐름은 현재 App Service Environment에서 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 프라이빗 피어링 경로로 교차 보급 경로를 중지합니다.
 > 
 > 
 

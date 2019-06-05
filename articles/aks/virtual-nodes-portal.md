@@ -72,7 +72,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -218,7 +218,7 @@ $ curl -L 10.241.0.4
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 노드에서 Pod를 예약하고 비공개 내부 IP 주소를 할당했습니다. 그 대신 서비스 배포를 만들고 부하 분산 장치 또는 수신 컨트롤러를 통해 Pod로 트래픽을 라우팅할 수도 있습니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][aks-basic-ingress]를 참조하세요.
+이 문서에서는 가상 노드에서 Pod를 예약하고 프라이빗 내부 IP 주소를 할당했습니다. 그 대신 서비스 배포를 만들고 부하 분산 장치 또는 수신 컨트롤러를 통해 Pod로 트래픽을 라우팅할 수도 있습니다. 자세한 내용은 [AKS에서 기본 수신 컨트롤러 만들기][aks-basic-ingress]를 참조하세요.
 
 가상 노드는 AKS에서 크기 조정 솔루션의 구성 요소 중 하나입니다. 크기 조정 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 

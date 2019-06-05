@@ -39,7 +39,7 @@ VM을 이동하려면 아래 예를 템플릿으로 사용하여 Set-AzureSubnet
     | Set-AzureSubnet –SubnetNames Subnet-2 `
     | Update-AzureVM
 
-VM에 대한 고정 내부 개인 IP를 지정한 경우 먼저 해당 설정을 제거해야 새 서브넷으로 VM을 이동할 수 있습니다. 이 경우 다음을 사용합니다.
+VM에 대한 고정 내부 프라이빗 IP를 지정한 경우 먼저 해당 설정을 제거해야 새 서브넷으로 VM을 이동할 수 있습니다. 이 경우 다음을 사용합니다.
 
     Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
     | Remove-AzureStaticVNetIP `

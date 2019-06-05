@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/16/2019
-ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.openlocfilehash: c876c012c48298268f682b5ee428ec0f27979b84
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794087"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298951"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 
@@ -25,7 +25,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 >
-> * Azure Database Migration Service의 인스턴스를 만듭니다.
+> * Azure Database Migration Service 인스턴스를 만듭니다.
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
@@ -38,7 +38,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 * 처리량 추정, 파티션 키 선택 및 인덱싱 정책과 같은 [사전 마이그레이션 완료](../cosmos-db/mongodb-pre-migration.md) 단계.
 * [Azure Cosmos DB의 API for MongoDB 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNET(Virtual Network)을 만듭니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
     > [!NOTE]
     > VNet을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
@@ -49,9 +49,9 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+* VNet NSG(네트워크 보안 그룹) 규칙이 53, 443, 445, 9354 및 10000-20000 통신 포트를 차단하지 않는지 확인합니다. Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
-* 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
+* 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
@@ -79,7 +79,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
   
 3. **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
-4. Azure Database Migration Service의 인스턴스를 만들 위치를 선택합니다. 
+4. Azure Database Migration Service 인스턴스를 만들 위치를 선택합니다. 
 
 5. 기존 VNet을 선택하거나 새로 만듭니다.
 
@@ -103,7 +103,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
       ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
-2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색하고 인스턴스를 선택합니다.
+2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색한 다음, 인스턴스를 선택합니다.
 
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 
@@ -152,7 +152,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 1. **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
-    대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 대상 데이터베이스를 선택합니다.
+    대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 이 대상 데이터베이스를 선택합니다.
 
     **만들기** 문자열이 데이터베이스 이름 옆에 나타나는 경우 Azure Database Migration Service가 대상 데이터베이스를 찾을 수 없으므로 해당 서비스가 데이터베이스를 만든다는 것을 나타냅니다.
 
@@ -166,6 +166,9 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
     Azure Database Migration Service는 대상 Azure Cosmos DB 계정에 존재하지 않는 원본 MongoDB 인스턴스에 존재하는 모든 컬렉션을 자동으로 선택합니다. 이미 데이터를 포함하는 컬렉션을 다시 마이그레이션하려면 이 블레이드에서 컬렉션을 명시적으로 선택해야 합니다.
 
     컬렉션에서 사용할 RU의 수량을 지정할 수 있습니다. Azure Database Migration Service는 컬렉션 크기에 따라 스마트 기본값을 제공합니다.
+
+    > [!NOTE]
+    > 필요에 따라 Azure Database Migration Service 인스턴스를 여러 개 사용하여 데이터베이스 마이그레이션 및 컬렉션을 병렬로 수행하여 속도를 높일 수 있습니다.
 
     확장성을 최적화하기 위해 [Azure Cosmos DB에서 분할](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview)을 활용하도록 분할된 데이터베이스 키를 지정할 수도 있습니다. [분할된 데이터베이스/파티션 키를 선택하는 모범 사례](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)를 검토해야 합니다.
 
@@ -202,7 +205,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="post-migration-optimization"></a>마이그레이션 후 최적화
 
-MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화, 기본 일관성 수준 업데이트 또는 Azure Cosmos DB 계정에 대한 글로벌 배포 구성과 같은 다른 마이그레이션 후 최적화 단계를 수행할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md) 문서를 참조하세요. 
+MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화와 같은 다른 마이그레이션 후 최적화 단계를 수행하거나, 기본 일관성 수준을 업데이트하거나, Azure Cosmos DB 계정에 대한 글로벌 배포를 구성할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md) 문서를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -164,6 +164,8 @@
       items:
         - name: 지도 컨트롤
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: 그리기 도구
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: 서비스 모듈
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Resource Manager 템플릿

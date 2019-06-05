@@ -43,7 +43,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 ## <a name="solution"></a>해결 방법
 
-다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
 문제를 해결하려면 [원격 도구를 사용하여 Azure VM 문제 해결](remote-tools-troubleshoot-azure-vm-issues.md)의 방법 중 하나를 사용하여 VM에 원격으로 연결한 다음, RDP 트래픽을 **허용**하도록 게스트 운영 체제 방화벽 규칙을 편집합니다.
 

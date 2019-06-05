@@ -13,7 +13,7 @@ ms.date: 01/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66236630"
@@ -235,7 +235,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 HDInsight 클러스터를 연결할 수 있습니다 
+   또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 HDInsight 클러스터를 연결할 수 있습니다
 
 1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
 
@@ -394,7 +394,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 >
 > 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
 > 
-> 자세한 내용은 [스냅숏](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
+> 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
 
 ### <a name="create-an-experiment"></a>실험 만들기
 

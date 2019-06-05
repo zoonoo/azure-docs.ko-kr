@@ -24,7 +24,7 @@ ms.locfileid: "60800066"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
-Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 개인 키를 실수로 삭제했습니다. 데이터 센터를 사용할 때는 이러한 경우 데이터 센터로 직접 가서 KVM을 열어 서버 콘솔에 액세스해야 했습니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
+Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux VM의 루트 암호를 재설정했거나 SSH 프라이빗 키를 실수로 삭제했습니다. 데이터 센터를 사용할 때는 이러한 경우 데이터 센터로 직접 가서 KVM을 열어 서버 콘솔에 액세스해야 했습니다. Azure VMAccess 확장을 콘솔에 액세스하여 Linux에 대한 액세스 권한을 재설정하거나 디스크 수준 유지 관리를 수행할 수 있는 이 KVM 스위치로 생각하세요.
 
 이 문서에서는 Azure VM 액세스 확장을 사용하여 Azure Resource Manager 가상 머신으로 실행되는 Linux에서 디스크를 검사 또는 복구하거나, 사용자 액세스를 다시 설정하거나, 관리 사용자 계정을 관리하거나, SSH 구성을 업데이트하는 방법에 대해 설명합니다. 클래식 가상 머신을 관리해야 하는 경우 [클래식 VM 설명서](../linux/classic/reset-access-classic.md)에 있는 지침을 따르면 됩니다. 
  

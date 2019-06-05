@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 389d467bd9672743d4a086e8a1c505fb0366dba7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410944"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237098"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>설정 하 고 Azure Lab Services의 랩에 Linux 가상 머신에 대 한 원격 데스크톱 사용
 이 문서에서는 다음 태스크를 수행 하는 방법을 보여 줍니다.
@@ -31,6 +31,10 @@ ms.locfileid: "65410944"
 랩 만들기 중 교사 설정할 수 있습니다 **원격 데스크톱 연결** 에 대 한 **Linux** 이미지입니다. 합니다 **원격 데스크톱 연결 사용** 템플릿에 대 한 Linux 이미지를 선택 하면 옵션이 표시 됩니다. 이 옵션을 사용 하는 경우 VM 및 RDP (원격 데스크톱)를 통해 학생 Vm 템플릿에 교사에 게 연결할 수 있습니다. 
 
 ![Linux 이미지에 대 한 원격 데스크톱 연결 사용](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+
+에 **원격 데스크톱 연결 사용** 메시지 상자에서 **원격 데스크톱을 사용 하 여 계속**합니다. 
+
+![Linux 이미지에 대 한 원격 데스크톱 연결 사용](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
 > 사용 하도록 설정 **원격 데스크톱 연결** 만 열립니다 합니다 **RDP** Linux 컴퓨터에서 포트입니다. 강사로 서 하는 처음으로 SSH를 사용 하 여 Linux 컴퓨터에 연결 하 고 나중에 RDP를 사용 하 여 Linux 컴퓨터에 연결할 수 있도록 RDP 및 GUI 패키지를 설치 합니다. 그런 다음, **게시** 이미지 학생 학생 Linux Vm의 RDP 수 있도록 합니다. 
@@ -54,27 +58,32 @@ ms.locfileid: "65410944"
 
 ![랩을 만든 후 RDP 통해 템플릿에 연결](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-선택 하는 경우는 **RDP** 옵션, RDP 파일을 다운로드 합니다. Linux 컴퓨터에 연결할 열 있습니다. 
+RDP 또는 SSH를 사용 하 여 VM에 연결 하는 방법에 대 한 자세한 내용은 [RDP]((#connect-using-ssh-or-rdp) 또는 SSH를 사용 하 여 연결을 참조 하세요. 합니다. 
 
 ## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>학생 VM에 연결 하는 교사 RDP를 사용 하 여
-랩 소유자 (교사/교수)를 사용 하는 학생 VM에 연결할 수으로 전환 하 여는 **Virtual Machines** 보기 및 선택 하는 **연결** 아이콘. 그 전에 교사 해야 **게시** RDP 및 GUI 패키지 설치를 사용 하 여 템플릿 이미지입니다. 
+교사/교수 학생 VM에 연결할 수로 전환 하 여는 **Virtual Machines** 보기 및 선택 하는 **연결** 아이콘. 그 전에 교사 해야 **게시** RDP 및 GUI 패키지 설치를 사용 하 여 템플릿 이미지입니다. 
 
 ![교사 학생 VM에 연결](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+
+RDP 또는 SSH를 사용 하 여 VM에 연결 하는 방법에 대 한 자세한 내용은 [RDP]((#connect-using-ssh-or-rdp) 또는 SSH를 사용 하 여 연결을 참조 하세요. 합니다. 
 
 ## <a name="students-connecting-to-the-student-vm"></a>학생 학생 VM에 연결
 학생 랩 소유자 (교사/교수) 후에 Linux Vm에 RDP 수 **게시** 템플릿을 RDP 및 GUI 패키지를 사용 하 여 VM 컴퓨터에 설치 합니다. 단계는 다음과 같습니다. 
 
 1. 학생 로그인 경우 Labs 포털로 직접 (`https://labs.azure.com`) 또는 등록 링크를 사용 하 여 (`https://labs.azure.com/register/<registrationCode>`), 타일 학생이 각 랩에 대 한 액세스에 대 한 표시 됩니다. 
 2. 타일을 선택 **시작** VM이 중지 하는 경우. 
-3. **연결**을 선택합니다. 이 작업에는 컴퓨터에 RDP 파일을 다운로드합니다. 저장 하 고 RDP 통해 Linux 컴퓨터에 연결을 엽니다. 
+3. **연결**을 선택합니다. VM에 연결할 두 옵션이 표시 됩니다. **SSH** 하 고 **원격 데스크톱**합니다.
 
-    ![VM-학생 RDP 다운로드](../media/how-to-enable-remote-desktop-linux/student-rdp-download.png)
+    ![학생 VM-연결 옵션](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-    SSH를 사용 하 여 Linux VM에 계속 연결할 수 있습니다. 선택 **... (줄임표)**  SSH 옵션을 확인 합니다. 
-    
-    ![Student VM - SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
+## <a name="connect-using-ssh-or-rdp"></a>RDP 또는 SSH를 사용 하 여 연결
+선택 하는 경우는 **SSH** 옵션을 다음과 같이 표시 **가상 머신에 연결할** 대화 상자:  
 
-    복사 하 여 SSH 연결 문자열에 저장 합니다 **가상 머신에 연결할** 대화 상자. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 문자열을 사용하여 가상 머신에 연결합니다. 
+![SSH 연결 문자열](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
+
+선택 된 **복사** 클립보드로 복사 하려면 텍스트 상자 옆에 있는 단추입니다. SSH 연결 문자열을 저장 합니다. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 문자열을 사용하여 가상 머신에 연결합니다.
+
+선택 하는 경우는 **RDP** 옵션, RDP 파일을 컴퓨터에 다운로드 됩니다. 저장 하 고 컴퓨터에 연결을 엽니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

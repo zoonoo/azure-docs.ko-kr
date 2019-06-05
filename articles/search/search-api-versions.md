@@ -26,8 +26,8 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Search SDK는 버
 > [!NOTE]
 > Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 
-## <a name="snapshot-of-current-versions"></a>현재 버전의 스냅숏
-아래는 Azure Search에 대한 모든 프로그래밍 인터페이스의 현재 버전의 스냅숏입니다.
+## <a name="snapshot-of-current-versions"></a>현재 버전의 스냅샷
+아래는 Azure Search에 대한 모든 프로그래밍 인터페이스의 현재 버전의 스냅샷입니다.
 
 
 | 인터페이스 | 가장 최근의 주 버전 | 상태 |

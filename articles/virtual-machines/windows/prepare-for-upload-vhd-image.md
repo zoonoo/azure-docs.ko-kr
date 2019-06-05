@@ -214,7 +214,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
    ```
 
-2. PowerShell에서 다음 명령을 실행하여 세 개의 방화벽 프로필(도메인, 개인 및 공용)을 통한 WinRM을 허용하고 PowerShell 원격 서비스를 사용하도록 설정합니다.
+2. PowerShell에서 다음 명령을 실행하여 세 개의 방화벽 프로필(도메인, 프라이빗 및 공용)을 통한 WinRM을 허용하고 PowerShell 원격 서비스를 사용하도록 설정합니다.
    
    ```PowerShell
     Enable-PSRemoting -force

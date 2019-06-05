@@ -141,14 +141,14 @@ StorSimple Cloud Appliance를 만들려면 다음 단계를 수행합니다.
 
 자세한 단계를 보려면 [디바이스에 CHAP 구성](storsimple-8000-configure-chap.md#bidirectional-or-mutual-authentication)으로 이동합니다.
 
-#### <a name="configure-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅숏 관리자 암호 구성
+#### <a name="configure-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅샷 관리자 암호 구성
 
-StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
+StorSimple Snapshot Manager 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅샷의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
 
 > [!NOTE]
 > 클라우드 어플라이언스의 경우, Windows 호스트는 Azure 가상 머신입니다.
 
-StorSimple Snapshot Manager에서 디바이스를 구성하면, StorSimple 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)으로 이동합니다.
+StorSimple Snapshot Manager에서 디바이스를 구성하면, StorSimple 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅샷 관리자 암호 구성](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)으로 이동합니다.
 
 #### <a name="change-the-device-administrator-password"></a>디바이스 관리자 암호 구성
 
@@ -185,7 +185,7 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 
 가상 네트워크의 공용 엔드포인트의 수를 최소화하기 때문에 동일한 가상 네트워크 내 다른 가상 머신에서 연결하는 것이 좋습니다. 이 경우, 원격 데스크톱 세션을 통해 연결한 다음 로컬 네트워크의 다른 Windows 클라이언트와 같이 가상 머신을 사용하도록 구성하면 됩니다. 포트를 이미 알 수 있으므로 공용 포트 번호를 추가할 필요가 없습니다.
 
-## <a name="get-private-ip-for-the-cloud-appliance"></a>클라우드 어플라이언스에 대한 개인 IP 가져오기
+## <a name="get-private-ip-for-the-cloud-appliance"></a>클라우드 어플라이언스에 대한 프라이빗 IP 가져오기
 
 동일한 가상 네트워크에서 호스트 서버에 연결하는 클라우드 어플라이언스의 경우 클라우드 어플라이언스의 내부 또는 개인 IP 주소가 필요합니다. 다음 단계를 수행하여 클라우드 어플라이언스의 개인 IP 주소를 가져오기
 
@@ -225,7 +225,7 @@ Storage 계정은 StorSimple 디바이스 관리자 서비스, 클라우드 어�
 * 클라우드 어플라이언스가 제거됩니다.
 * OS 디스크 및 클라우드 어플라이언스에 대해 만든 데이터 디스크가 제거됩니다.
 * 프로비전 중 호스티드 서비스 및 가상 네트워크가 유지됩니다. 사용하지 않는 경우 수동으로 삭제해야 합니다.
-* 클라우드 어플라이언스에 대해 생성된 클라우드 스냅숏이 보존됩니다.
+* 클라우드 어플라이언스에 대해 생성된 클라우드 스냅샷이 보존됩니다.
 
 단계별 절차는 [StorSimple 디바이스 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
 
@@ -248,7 +248,7 @@ DR의 필수 조건은 다음과 같습니다.
 
 * 클라우드 어플라이언스가 만들어 구성되어야 합니다.
 * 볼륨 컨테이너 내의 모든 볼륨이 오프라인 상태여야 합니다.
-* 장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있어야 합니다.
+* 장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅샷이 있어야 합니다.
 
 > [!NOTE]
 > * DR에 대한 보조 디바이스로 클라우드 어플라이언스를 사용하는 경우에는 8010에 30TB의 Standard Storage가 있고 8020에 64TB의 Premium Storage가 있다는 것을 기억합니다. 높은 용량의 8020 클라우드 어플라이언스가 DR 시나리오에 보다 적합할 수 있습니다.

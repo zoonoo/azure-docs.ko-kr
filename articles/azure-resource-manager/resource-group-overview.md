@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269302"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225910"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
@@ -174,7 +174,21 @@ Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설�
 
 복잡한 서비스를 Azure에 배포할 때 여러 지역에 서비스를 배포하고, 다음 단계를 진행하기 전에 해당 상태를 확인해야 합니다. [Azure 배포 관리자](deployment-manager-overview.md)를 사용하여 서비스의 단계적 출시를 조정합니다. 서비스의 출시를 준비하여 모든 지역에 배포되기 전에 잠재적인 문제를 찾을 수 있습니다. 이러한 예방 조치가 필요하지 않은 경우 이전 섹션의 배포 작업이 더 나은 옵션입니다.
 
-배포 관리자는 현재 비공개 미리 보기로 제공됩니다.
+배포 관리자는 현재 공개 미리 보기로 제공됩니다.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
+
+Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위해 설계되었습니다. REST API의 Resource Manager 및 제어 평면 작업(management.azure.com에 전송된 요청)은 다음과 같습니다.
+
+* 하위 지역에 분산됩니다. 일부 서비스는 지역적입니다.
+
+* 여러 가용성 영역이 있는 위치에서 가용성 영역(지역도 포함)으로 분산됩니다.
+
+* 단일 논리 데이터 센터에 종속되지 않습니다.
+
+* 유지 관리 작업을 위해 다운되지 않습니다.
+
+이 복원력은 Resource Manager를 통해 요청을 수신하는 서비스에 적용됩니다. 예를 들어 Key Vault는 이 복원력의 이점을 사용합니다.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

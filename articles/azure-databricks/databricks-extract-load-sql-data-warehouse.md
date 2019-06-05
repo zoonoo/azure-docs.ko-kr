@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/17/2019
 ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/04/2019
 ms.locfileid: "65966435"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
@@ -207,7 +207,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
    ```
 
-   * `file-system-name` 자리 표시자 값을 Storage 탐색기의 파일 시스템에 설정한 이름으로 바꿉니다.
+   * `file-system-name` 자리 표시자 값을 Storage Explorer의 파일 시스템에 설정한 이름으로 바꿉니다.
 
    * `storage-account-name` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 

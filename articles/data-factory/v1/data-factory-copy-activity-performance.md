@@ -275,7 +275,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 ## <a name="considerations-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 고려 사항
 **게이트웨이 설정**: 전용 머신을 사용하여 데이터 관리 게이트웨이를 호스팅하는 것이 좋습니다. [데이터 관리 게이트웨이에 대한 고려 사항](data-factory-data-management-gateway.md#considerations-for-using-gateway)을 참조하세요.
 
-**게이트웨이 모니터링 및 강화/확장**: 하나 이상의 게이트웨이 노드를 사용하는 단일 논리 게이트웨이는 동시에 한 번에 여러 개의 복사 작업 실행을 사용할 수 있습니다. Azure Portal에서 제한 대비 실행 중인 동시 작업 수뿐만 아니라, 게이트웨이 컴퓨터에서 리소스 사용률(CPU, 메모리, 네트워크(내부/외부) 등)의 스냅숏을 거의 실시간으로 확인할 수 있습니다. [포털에서 게이트웨이 모니터링](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)을 참조하세요. 동시 복사 작업 실행 수가 많거나 복사할 데이터 양이 많은 하이브리드 데이터 이동이 절실한 경우 리소스를 더 효율적으로 활용하거나, 복사를 지원하도록 더 많은 리소스를 프로비전할 수 있도록 [게이트웨이 강화 또는 확장](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)을 고려해 보세요.
+**게이트웨이 모니터링 및 강화/확장**: 하나 이상의 게이트웨이 노드를 사용하는 단일 논리 게이트웨이는 동시에 한 번에 여러 개의 복사 작업 실행을 사용할 수 있습니다. Azure Portal에서 제한 대비 실행 중인 동시 작업 수뿐만 아니라, 게이트웨이 컴퓨터에서 리소스 사용률(CPU, 메모리, 네트워크(내부/외부) 등)의 스냅샷을 거의 실시간으로 확인할 수 있습니다. [포털에서 게이트웨이 모니터링](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)을 참조하세요. 동시 복사 작업 실행 수가 많거나 복사할 데이터 양이 많은 하이브리드 데이터 이동이 절실한 경우 리소스를 더 효율적으로 활용하거나, 복사를 지원하도록 더 많은 리소스를 프로비전할 수 있도록 [게이트웨이 강화 또는 확장](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)을 고려해 보세요.
 
 ## <a name="considerations-for-the-source"></a>원본에 대한 고려 사항
 ### <a name="general"></a>일반

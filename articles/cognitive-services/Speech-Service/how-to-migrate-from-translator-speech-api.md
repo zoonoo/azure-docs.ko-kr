@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 05/31/2019
 ms.locfileid: "65785671"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech Service로 마이그레이션

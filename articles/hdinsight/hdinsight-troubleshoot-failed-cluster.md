@@ -109,7 +109,7 @@ HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 �
 
 다음 섹션에서는 각 노드 및 전체 클러스터의 상태를 확인하는 방법을 설명합니다.
 
-### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ambari UI 대시보드를 사용하여 클러스터 상태 스냅숏 가져오기
+### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ambari UI 대시보드를 사용하여 클러스터 상태 스냅샷 가져오기
 
 [Ambari UI 대시보드](#view-cluster-configuration-settings-with-the-ambari-ui)(`https://<clustername>.azurehdinsight.net`)는 가동 시간, 메모리, 네트워크 및 CPU 사용량, HDFS 디스크 사용량 등 클러스터 상태에 대한 개요를 제공합니다. Ambari의 호스트 섹션을 사용하여 호스트 수준에서 리소스를 볼 수 있습니다. 서비스를 중지하고 다시 시작할 수도 있습니다.
 
@@ -240,7 +240,7 @@ HDInsight 클러스터는 Azure 테이블 및 Azure Blob Storage에 기록된 �
 
 ### <a name="review-heap-dumps"></a>힙 덤프 검토
 
-힙 덤프는 애플리케이션의 메모리 스냅숏과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
+힙 덤프는 애플리케이션의 메모리 스냅샷과 해당 시점의 변수 값을 포함하고 있으며, 이 정보는 런타임에 발생하는 문제를 진단하는 데 유용합니다. 자세한 내용은 [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)을 참조하세요.
 
 ## <a name="step-6-check-configuration-settings"></a>6단계: 구성 설정 확인
 

@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 93910fd0baeace9da474073960dbdb83251a1a63
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576140"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303867"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C IoT Edge 모듈 개발
 
@@ -23,7 +23,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
 
 > [!div class="checklist"]
-> * Visual Studio를 사용하여 .NET Core 2.1 SDK를 기반으로 하는 IoT Edge 모듈을 만듭니다.
+> * Visual Studio를 사용하여 C SDK를 기반으로 하는 IoT Edge 모듈을 만듭니다.
 > * Visual Studio 및 Docker를 사용하여 Docker 이미지를 만들어 레지스트리에 게시합니다.
 > * 모듈을 IoT Edge 디바이스에 배포합니다.
 > * 생성된 데이터를 봅니다.
@@ -34,11 +34,11 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 
 ## <a name="solution-scope"></a>솔루션 범위
 
-이 자습서에서는 **Visual Studio 2017**을 사용하여 **C**에서 모듈을 개발하는 방법과 **Windows 디바이스**에 배포하는 방법을 보여줍니다. Linux 디바이스용 모듈을 개발하는 경우에는 [Linux 디바이스용 C IoT Edge 모듈 개발](tutorial-c-module.md)로 이동합니다. 
+이 자습서에서는 **Visual Studio 2019**를 사용하여 **C**에서 모듈을 개발하는 방법과 **Windows 디바이스**에 배포하는 방법을 설명합니다. Linux 디바이스용 모듈을 개발하는 경우에는 [Linux 디바이스용 C IoT Edge 모듈 개발](tutorial-c-module.md)로 이동합니다. 
 
 다음 표에서 C 모듈을 개발하고 Windows에 배포하기 위한 옵션을 확인할 수 있습니다. 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
+| C | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Visual Studio의 WinAMD64용 C 모듈 개발](./media/tutorial-c-module/green-check.png) |
 
@@ -49,31 +49,35 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * [Azure IoT Edge를 실행하는 Windows 디바이스](quickstart.md)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
-* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 확장이 구성되어 있는 [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) 버전 15.7 이상
+* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
 * Windows 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 * C용 Azure IoT SDK 
 
+> [!TIP]
+> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
+
 ## <a name="create-a-module-project"></a>모듈 프로젝트 만들기
 
-다음 단계에서는 Visual Studio 및 Azure IoT Edge Tools 확장을 사용하여 .NET Core 2.0 SDK를 기반으로 하는 IoT Edge 모듈 프로젝트를 만듭니다. 프로젝트 템플릿을 만든 후, 모듈이 보고된 속성을 기준으로 메시지를 필터링하도록 새 코드를 추가합니다. 
+다음 단계에서는 Visual Studio 및 Azure IoT Edge Tools 확장을 사용하여 C SDK를 기반으로 하는 IoT Edge 모듈 프로젝트를 만듭니다. 프로젝트 템플릿을 만든 후, 모듈이 보고된 속성을 기준으로 메시지를 필터링하도록 새 코드를 추가합니다. 
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
 고유의 코드로 사용자 지정할 수 있는 C 솔루션 템플릿을 만듭니다.
 
-1. Visual Studio를 관리자 권한으로 실행합니다.
+1. Visual Studio 2019를 시작하고 **새 프로젝트 만들기**를 선택합니다.
 
-2. **파일** > **새로 만들기** > **프로젝트**를 선택합니다. 
-
-3. 새 프로젝트 창에서 **Azure IoT** 프로젝트 형식을 선택하고 **Azure IoT Edge** 프로젝트를 선택합니다. 프로젝트 및 솔루션의 이름을 설명이 포함된 이름(예: **CTutorialApp**)으로 바꿉니다. **확인**을 선택하여 프로젝트를 만듭니다. 
+2. 새 프로젝트 창에서 **IoT Edge** 프로젝트를 검색하고, **Azure IoT Edge(Windows amd64)** 프로젝트를 선택합니다. **다음**을 클릭합니다. 
 
    ![새 Azure IoT Edge 프로젝트 만들기](./media/tutorial-c-module-windows/new-project.png)
+
+3. 새 프로젝트 구성 창에서 프로젝트 및 솔루션의 이름을 구체적인 이름(예: **CTutorialApp**)으로 바꿉니다. **만들기**를 클릭하여 프로젝트를 만듭니다. 
+
+   ![새 Azure IoT Edge 프로젝트 구성](./media/tutorial-c-module-windows/configure-project.png)
 
 4. IoT Edge 애플리케이션 및 모듈 창에서 다음 값을 사용하여 프로젝트를 구성합니다. 
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 애플리케이션 플랫폼 | **Linux Amd64**를 선택 해제하고 **WindowsAmd64**를 선택합니다. |
    | 템플릿 선택 | **C 모듈**을 선택합니다. | 
    | 모듈 프로젝트 이름 | 모듈 이름을 **CModule**로 지정합니다. | 
    | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/cmodule과 같습니다. |
@@ -84,7 +88,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-배포 매니페스트는 컨테이너 레지스트리의 자격 증명을 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. Azure Container Registry의 **액세스 키** 섹션에서 자격 증명을 사용합니다. 
+배포 매니페스트는 컨테이너 레지스트리의 자격 증명을 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. Azure Container Registry의 **액세스 키** 섹션에서 자격 증명을 사용합니다. 
 
 1. Visual Studio 솔루션 탐색기에서 **deployment.template.json** 파일을 엽니다. 
 
@@ -134,7 +138,7 @@ The default module code receives messages on an input queue and passes them alon
     static double temperatureThreshold = 25;
     ```
 
-3. `CreateMessageInstance` 함수를 main.c에서 찾습니다. 내부 if-else 문을 기능의 몇 개 줄을 추가하는 다음 코드로 바꿉니다. 
+3. main.c에서 `CreateMessageInstance` 함수를 찾습니다. 내부 if-else 문을 기능의 몇 개 줄을 추가하는 다음 코드로 바꿉니다. 
 
    ```c
    if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -326,7 +330,7 @@ IoT Edge Tools 확장을 사용하여 IoT Hub에 도착하는 메시지를 볼 �
 
 1. Visual Studio 클라우드 탐색기에서 IoT Edge 디바이스의 이름을 선택합니다. 
 
-2. **동작** 목록에서 **D2C 메시지 모니터링 시작**을 선택합니다. 
+2. **동작** 목록에서 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 
 
 3. IoT Hub에 메시지가 들어오는 것을 확인합니다. IoT Edge 디바이스가 새 배포를 수신하고 모든 모듈을 시작해야 하기 때문에 메시지가 도착하는 데 시간이 걸릴 수 있습니다. 그런 다음, CModule 코드를 변경할 경우 머신 온도가 25도에 도달할 때까지 기다렸다가 메시지를 보냅니다. 또한 온도 임계값에 도달하는 모든 메시지에 메시지 유형 **경고**를 추가합니다. 
 
