@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: HT
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306548"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388681"
 ---
 # <a name="install-and-run-speech-service-containers"></a>설치 하 고 음성 서비스 컨테이너를 실행 합니다.
 
-음성 컨테이너는 고객이 강력한 클라우드 기능 및에 지 위치에 활용 하기 위해 최적화 된 하나의 음성 응용 프로그램 아키텍처를 구축 하를 사용 합니다. 이제 지원 두 음성 컨테이너가 **음성-텍스트** 하 고 **text to speech**합니다. 
+음성 컨테이너는 고객이 강력한 클라우드 기능 및에 지 위치에 활용 하기 위해 최적화 된 하나의 음성 응용 프로그램 아키텍처를 구축 하를 사용 합니다. 
 
 두 음성 컨테이너가 **음성-텍스트** 하 고 **text to speech**합니다. 
 
 |함수|기능|최신|
 |-|-|--|
-|음성 텍스트 변환| <li>연속적인 실시간 음성을 텍스트로 변환합니다.<li>오디오 녹음에서 음성으로 일괄 처리로 변환할 수 있습니다. <li>중간 결과, 음성 종료 감지, 자동 텍스트 서식 및 불경한 언어 마스킹을 지원합니다. <li>[Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)(LUIS)을 사용하여 음성에서 사용자 의도를 추출할 수 있습니다.\*|1.1.1|
-|텍스트 음성 변환| <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. <li>지원되는 많은 언어에 대해 여러 성별 및/또는 방언을 제공합니다. <li>일반 텍스트 입력 또는 SSML(Speech Synthesis Markup Language)을 지원합니다. |1.1.0|
+|음성 텍스트 변환| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화 중간 결과 사용 하 여 텍스트로 transcribes 합니다.|1.1.1|
+|텍스트 음성 변환| <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. 일반 텍스트 입력 또는 Speech Synthesis Markup Language (SSML). |1.1.0|
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

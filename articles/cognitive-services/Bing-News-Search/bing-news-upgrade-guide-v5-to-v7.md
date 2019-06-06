@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 235cc1c74c099a71d289d38369ebc10132564825
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878445"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383289"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
 
@@ -70,24 +70,24 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>개체 변경 사항
 
-- `contractualRules` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `contractualRules` 필드에는 사용자가 따라야 하는 규칙의 목록이 포함됩니다(예: article 특성). `provider` 대신 `contractualRules`에 제공된 특성을 적용해야 합니다. 아티클은 [Web Search API](../bing-web-search/search-the-web.md) 응답에 News 답변이 포함된 경우에만 `contractualRules`를 포함합니다.
+- `contractualRules` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `contractualRules` 필드에는 사용자가 따라야 하는 규칙의 목록이 포함됩니다(예: article 특성). `provider` 대신 `contractualRules`에 제공된 특성을 적용해야 합니다. 아티클은 [Web Search API](../bing-web-search/search-the-web.md) 응답에 News 답변이 포함된 경우에만 `contractualRules`를 포함합니다.
 
 ## <a name="non-breaking-changes"></a>호환성이 손상되지 않는 변경
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- [범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)를 참조하세요.
+- [범주](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)를 참조하세요.
 
-- 가장 최근에 첫 번째로 날짜별 정렬된 추세 항목을 반환하는 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) 쿼리 매개 변수가 추가되었습니다.
+- 가장 최근에 첫 번째로 날짜별 정렬된 추세 항목을 반환하는 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) 쿼리 매개 변수가 추가되었습니다.
 
-- 지정된 Unix Epoch 타임스탬프에서 Bing으로 검색된 추세 항목을 반환하는 [Since](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) 쿼리 매개 변수가 추가되었습니다.
+- 지정된 Unix Epoch 타임스탬프에서 Bing으로 검색된 추세 항목을 반환하는 [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) 쿼리 매개 변수가 추가되었습니다.
 
 ### <a name="object-changes"></a>개체 변경 사항
 
-- `mentions` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `mentions` 필드는 아티클에서 찾은 엔터티(사용자 또는 위치)의 목록을 포함합니다.
+- `mentions` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `mentions` 필드는 아티클에서 찾은 엔터티(사용자 또는 위치)의 목록을 포함합니다.
 
-- `video` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 사용자가 포함할 수 있는 \<iframe\> 또는 동작 썸네일 중 하나입니다.
+- `video` 필드가 [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) 개체에 추가되었습니다. `video` 필드는 뉴스 아티클과 관련된 비디오를 포함합니다. 비디오는 사용자가 포함할 수 있는 \<iframe\> 또는 동작 썸네일 중 하나입니다.
 
-- `sort` 필드가 [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.
+- `sort` 필드가 [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) 개체에 추가되었습니다. `sort` 필드는 아티클의 정렬 순서를 보여 줍니다. 예를 들어 아티클이 관련성(기본값) 또는 날짜별로 정렬됩니다.
 
-- 정렬 순서를 정의하는 [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) 개체가 추가되었습니다. `isSelected` 필드는 응답이 정렬 순서를 사용했는지 여부를 나타냅니다. **true**이면 응답이 정렬 순서를 사용한 것입니다. `isSelected`가 **false**이면 `url` 필드에서 URL을 사용하여 다른 정렬 순서를 요청할 수 있습니다.
+- 정렬 순서를 정의하는 [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) 개체가 추가되었습니다. `isSelected` 필드는 응답이 정렬 순서를 사용했는지 여부를 나타냅니다. **true**이면 응답이 정렬 순서를 사용한 것입니다. `isSelected`가 **false**이면 `url` 필드에서 URL을 사용하여 다른 정렬 순서를 요청할 수 있습니다.
