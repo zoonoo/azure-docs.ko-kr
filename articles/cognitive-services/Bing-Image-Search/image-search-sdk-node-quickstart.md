@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0858ebdd283ea6696f145eabe2ef923d98f73601
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 43de847452c5318fd66ae883301ba1667e6a4f05
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508068"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384350"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -104,4 +104,4 @@ ms.locfileid: "65508068"
 * [Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Azure Cognitive Services SDK에 대한 Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
