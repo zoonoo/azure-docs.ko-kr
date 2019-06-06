@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: 클래식 경고
           href: platform/alerts-classic.overview.md
-        - name: 스마트 그룹
-          href: platform/alerts-smartgroups-overview.md
-        - name: 자동 크기 조정
-          href: platform/autoscale-overview.md
         - name: 메트릭 경고
           href: platform/alerts-metric-overview.md
         - name: 로그 경고
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: 작업 규칙
           href: platform/alerts-action-rules.md
+        - name: 스마트 그룹
+          href: platform/alerts-smartgroups-overview.md
+        - name: 자동 크기 조정
+          href: platform/autoscale-overview.md
         - name: 변경 분석
           href: app/change-analysis.md
     - name: 데이터 가상화
