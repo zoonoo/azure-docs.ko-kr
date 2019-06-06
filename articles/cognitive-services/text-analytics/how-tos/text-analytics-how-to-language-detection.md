@@ -23,11 +23,11 @@ ms.locfileid: "60002275"
 이 기능은 알 수 없는 언어로 된 임의의 텍스트를 수집하는 콘텐츠 저장소에 유용합니다. 이 분석의 결과를 구문 분석하여 입력 문서에서 사용된 언어를 판별할 수 있습니다. 또한 응답에서는 모델의 신뢰도가 반영된 점수(0과 1 사이의 값)를 반환합니다.
 
 > [!TIP]
-> Text Analytics는 언어 검색을 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
+> Text Analytics는 언어 감지를 위한 Linux 기반 Docker 컨테이너 이미지도 제공하므로 데이터와 가까이 [Text Analytics 컨테이너를 설치하고 실행](text-analytics-how-to-install-containers.md)할 수 있습니다.
 
 ## <a name="preparation"></a>준비
 
-다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트
+다음 형식의 JSON 문서가 있어야 합니다. ID, text
 
 문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 언어 감지를 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "60002275"
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [언어 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 검토합니다.
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 검색을 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 감지를 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
@@ -207,7 +207,7 @@ ms.locfileid: "60002275"
 이 문서에서는 Cognitive Services의 Text Analytics를 사용하여 언어 감지에 대한 개념과 워크플로를 알아보았습니다. 앞에서 설명하고 시연한 주요 요점에 대해 간략히 살펴보려면 다음과 같습니다.
 
 + [언어 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)는 120개 언어로 사용할 수 있습니다.
-+ 요청 본문의 JSON 문서에는 ID와 텍스트가 포함됩니다.
++ 요청 본문의 JSON 문서에는 ID와 text가 포함됩니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/languages` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대한 언어 식별자로 구성된 응답 출력은 Excel 및 Power BI를 포함하여 JSON을 허용하는 모든 앱으로 스트림할 수 있습니다.
 
