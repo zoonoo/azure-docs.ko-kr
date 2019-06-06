@@ -207,7 +207,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _별칭_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
+Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
