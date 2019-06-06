@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f54003f4e1c60b80b500f49bb83d4b7adf2bc12a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340578"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389422"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 웹에서 이미지 가져오기
 
@@ -45,7 +45,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
+> `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
 
 다음 예제에서는 Bing이 지난 주에 발견한 ContosoSailing.com에서 작은 이미지를 가져오는 방법을 보여줍니다.  
 
@@ -62,19 +62,19 @@ Host: api.cognitive.microsoft.com
 
  기본적으로 Images Search API는 쿼리와 관련된 모든 이미지를 반환합니다. Bing에서 반환하는 이미지를 필터링하는 경우(예: 투명한 배경의 이미지 또는 특정 크기의 이미지만을 반환하기 위해) 다음 쿼리 매개 변수를 사용합니다.
 
-* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect) — 가로 세로 비율로 이미지를 필터링합니다(예: 표준 또는 넓은 화면 이미지).
-* [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color) — 기준 컬러 또는 흑백을 기준으로 이미지를 필터링합니다.
-* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness) — 기간을 기준으로 이미지를 필터링합니다(예: 지난 주에 Bing에서 검색된 이미지).
-* [height](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [width](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width) — 너비와 높이를 기준으로 이미지를 필터링합니다.
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent) — 콘텐츠를 기준으로 이미지를 필터링합니다(예: 사람의 얼굴만 보여주는 이미지).
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) — 형식을 기준으로 이미지를 필터링합니다(예: 클립 아트, 애니메이션 GIF 또는 투명한 배경).
-* [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license) — 사이트와 연결된 라이선스의 유형을 기준으로 이미지를 필터링합니다.
-* [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size) — 최대 200x200 픽셀의 작은 이미지 같이 크기를 기준으로 이미지를 필터링합니다.
+* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect) — 가로 세로 비율로 이미지를 필터링합니다(예: 표준 또는 넓은 화면 이미지).
+* [color](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color) — 기준 컬러 또는 흑백을 기준으로 이미지를 필터링합니다.
+* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness) — 기간을 기준으로 이미지를 필터링합니다(예: 지난 주에 Bing에서 검색된 이미지).
+* [height](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height), [width](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width) — 너비와 높이를 기준으로 이미지를 필터링합니다.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent) — 콘텐츠를 기준으로 이미지를 필터링합니다(예: 사람의 얼굴만 보여주는 이미지).
+* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) — 형식을 기준으로 이미지를 필터링합니다(예: 클립 아트, 애니메이션 GIF 또는 투명한 배경).
+* [license](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) — 사이트와 연결된 라이선스의 유형을 기준으로 이미지를 필터링합니다.
+* [size](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size) — 최대 200x200 픽셀의 작은 이미지 같이 크기를 기준으로 이미지를 필터링합니다.
 
 특정 도메인에서 이미지를 가져오려면 [사이트:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
  > [!NOTE]
- > `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
+ > `site:` 연산자를 사용하는 쿼리에 대한 응답은 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 설정과 관계없이 성인 콘텐츠를 포함할 수 있습니다. 도메인의 콘텐츠를 인식하는 경우에만 `site:`를 사용합니다.
 
 다음 예제에서는 Bing이 지난 주에 발견한 ContosoSailing.com의 작은 이미지를 가져오는 방법을 보여줍니다.  
 
@@ -89,7 +89,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="bing-image-search-response-format"></a>Bing Image Search 응답 형식
 
-Bing의 응답 메시지에는 Cognitive Services에서 쿼리와 관련되도록 결정한 이미지 목록을 포함하는 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 대답이 포함됩니다. 목록에서 각 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) 개체에는 이미지에 대한 URL, 크기, 차원, 인코딩 형식, 이미지 썸네일에 대한 URL 및 썸네일의 차원과 같은 정보가 포함됩니다.
+Bing의 응답 메시지에는 Cognitive Services에서 쿼리와 관련되도록 결정한 이미지 목록을 포함하는 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 대답이 포함됩니다. 목록에서 각 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 개체에는 이미지에 대한 URL, 크기, 차원, 인코딩 형식, 이미지 썸네일에 대한 URL 및 썸네일의 차원과 같은 정보가 포함됩니다.
 
 ```json
 {

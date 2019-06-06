@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496081"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473689"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -41,15 +41,6 @@ PIM은 기본적으로 사용자가 관심 있는 리소스에 대해 누가, �
 - 권한 있는 역할이 활성화되면 **알림** 가져오기
 - **액세스 검토**를 수행하여 사용자에게 여전히 역할이 필요한지 확인
 - 내부 또는 외부 감사를 위해 **감사 기록** 다운로드
-
-## <a name="prerequisites"></a>필수 조건
-
-PIM을 사용하려면 다음과 같은 유료 또는 평가판 라이선스 중 하나가 있어야 합니다. 자세한 내용은 [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)을 참조하세요.
-
-- Azure AD Premium P2
-- EMS(Enterprise Mobility + Security) E5
-
-사용자의 라이선스에 대한 자세한 내용은 [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 ## <a name="terminology"></a>용어
 
@@ -104,6 +95,12 @@ PIM은 다음과 같은 시나리오를 지원합니다.
 - 승인이 필요한 역할의 활성화 요청
 - 활성화 요청 상태 보기
 - 활성화가 승인되면 Azure AD에서 작업 수행
+
+## <a name="license-requirements"></a>라이선스 요구 사항
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+사용자의 라이선스에 대한 자세한 내용은 [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
