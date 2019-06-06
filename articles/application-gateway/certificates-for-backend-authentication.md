@@ -45,7 +45,7 @@ SSL 인증서를에서 공개 키.cer 파일 (개인 키 아님)를 내보냅니
 
 3. **아니요, 개인 키를 내보내지 않습니다.** 를 선택한 후 **다음**을 클릭합니다.
 
-   ![아니요, 개인 키를 내보내지 않습니다](./media/certificates-for-backend-authentication/notprivatekey.png)
+   ![아니요, 프라이빗 키를 내보내지 않습니다](./media/certificates-for-backend-authentication/notprivatekey.png)
 
 4. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)** 를 선택한 후 **다음**을 클릭합니다.
 

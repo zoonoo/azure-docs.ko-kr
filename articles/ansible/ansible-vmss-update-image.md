@@ -21,7 +21,7 @@ ms.locfileid: "65230857"
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-VM이 배포된 후에는 앱에 필요한 소프트웨어를 사용하여 VM을 구성합니다. 각 VM에 대해 이 구성 작업을 수행하는 대신, 사용자 지정 이미지를 만들 수 있습니다. 사용자 지정 이미지는 설치된 모든 소프트웨어를 포함하는 기존 VM의 스냅숏입니다. [확장 집합을 구성](./ansible-create-configure-vmss.md)할 때 해당 확장 집합의 VM에 사용할 이미지를 지정합니다. 사용자 지정 이미지를 사용하면 각 VM 인스턴스가 앱에 대해 동일하게 구성됩니다. 경우에 따라 확장 집합의 사용자 지정 이미지를 업데이트해야 할 수 있습니다. 이 작업이 자습서의 핵심 부분입니다.
+VM이 배포된 후에는 앱에 필요한 소프트웨어를 사용하여 VM을 구성합니다. 각 VM에 대해 이 구성 작업을 수행하는 대신, 사용자 지정 이미지를 만들 수 있습니다. 사용자 지정 이미지는 설치된 모든 소프트웨어를 포함하는 기존 VM의 스냅샷입니다. [확장 집합을 구성](./ansible-create-configure-vmss.md)할 때 해당 확장 집합의 VM에 사용할 이미지를 지정합니다. 사용자 지정 이미지를 사용하면 각 VM 인스턴스가 앱에 대해 동일하게 구성됩니다. 경우에 따라 확장 집합의 사용자 지정 이미지를 업데이트해야 할 수 있습니다. 이 작업이 자습서의 핵심 부분입니다.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 

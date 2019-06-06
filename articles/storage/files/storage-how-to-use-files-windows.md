@@ -207,21 +207,21 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 7. Azure 파일 공유를 분리할 준비가 되면 파일 탐색기의 **네트워크 위치** 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 **연결 해제**를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다.
 
-### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅숏에 액세스
-Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅숏을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅숏을 만들 수 있습니다.
+### <a name="accessing-share-snapshots-from-windows"></a>Windows에서 공유 스냅샷에 액세스
+Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 자동으로 공유 스냅샷을 만든 경우 Windows의 파일 공유에서 이전 버전의 공유, 디렉터리 또는 특정 파일을 볼 수 있습니다. [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) 및 [Azure CLI](storage-how-to-use-files-cli.md)에서 공유 스냅숏을 만들 수 있습니다.
 
 #### <a name="list-previous-versions"></a>이전 버전 나열
 복원해야 하는 항목 또는 부모 항목을 찾습니다. 해당 항목을 두 번 클릭하여 원하는 디렉터리로 이동합니다. 마우스 오른쪽 단추로 클릭하고 메뉴에서 **속성**을 선택합니다.
 
 ![선택한 디렉터리를 마우스 오른쪽 단추로 클릭하여 표시된 메뉴](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
 
-**이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅숏의 목록을 봅니다. 네트워크 속도 및 디렉터리의 공유 스냅숏 수에 따라 목록이 표시되는 데 수 초 정도 걸릴 수 있습니다.
+**이전 버전**을 선택하여 이 디렉터리에 대한 공유 스냅숏의 목록을 봅니다. 네트워크 속도 및 디렉터리의 공유 스냅샷 수에 따라 목록이 표시되는 데 수 초 정도 걸릴 수 있습니다.
 
 ![이전 버전 탭](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
 **열기**를 선택하여 특정 스냅숏을 열 수 있습니다. 
 
-![열린 스냅숏](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+![열린 스냅샷](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
 #### <a name="restore-from-a-previous-version"></a>이전 버전에서 복원
 **복원**을 선택하여 공유 스냅숏을 만들 때의 전체 디렉터리의 내용을 원래 위치에 재귀적으로 복사합니다.

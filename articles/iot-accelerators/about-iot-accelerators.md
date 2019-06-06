@@ -1,6 +1,6 @@
 ---
 title: IoT 솔루션 가속기 소개 - Azure | Microsoft Docs
-description: Azure IoT 솔루션 가속기에 대해 알아봅니다. IoT 솔루션 가속기는 완전한 종단 간 장치이며 IoT 솔루션을 배포할 준비가 되었습니다.
+description: Azure IoT 솔루션 가속기에 대해 알아봅니다. IoT 솔루션 가속기는 완전한 엔드투엔드이며 IoT 솔루션을 배포할 준비가 되었습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/09/2019

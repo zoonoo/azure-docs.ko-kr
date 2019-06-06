@@ -62,7 +62,7 @@ ms.locfileid: "65799390"
 
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
-## <a name="embedding-private-content"></a>개인 콘텐츠 포함
+## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
 **공용** 비디오에 대해서만 포함 팝업에서 포함 코드(이전 섹션 참조)를 가져올 수 있습니다. 
 

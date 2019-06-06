@@ -36,8 +36,8 @@ ms.locfileid: "66168467"
 ## <a name="overview"></a>개요
 데이터 통합 솔루션에서 초기 데이터로드 후 데이터 증분을 로드하는 것은 널리 사용되는 시나리오입니다. 경우에 따라 원본 데이터 저장소에서 특정 기간 내에 변경된 데이터를 쉽게 조각낼 수 있습니다(예: LastModifyTime, CreationTime). 데이터를 마지막으로 처리한 이후 델타 데이터를 식별하는 명시적인 방법이 없는 경우가 있습니다. 변경 내용 추적 기술은 Azure SQL Database와 같은 데이터 저장소 기술에 의해 지원되며 SQL Server는 델타 데이터를 파악하는 데 사용될 수 있습니다.  이 자습서는 SQL 변경 내용 추적 기술을 통해 Azure Data Factory를 사용하여 Azure SQL Database에서 Azure Blob Storage로 델타 데이터를 증분 로드하는 방법을 설명합니다.  SQL 변경 내용 추적 기술에 대한 구체적인 정보는 [SQL Server에서 변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 참조하세요. 
 
-## <a name="end-to-end-workflow"></a>종단 간 워크플로
-다음은 변경 내용 추적 기술을 사용하여 데이터 증분을 로드하는 일반적인 종단 간 워크플로 단계입니다.
+## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
+다음은 변경 내용 추적 기술을 사용하여 데이터 증분을 로드하는 일반적인 엔드투엔드 워크플로 단계입니다.
 
 > [!NOTE]
 > Azure SQL Database와 SQL Server 모두 변경 내용 추적 기술을 지원합니다. 이 자습서는 Azure SQL Database를 원본 데이터 저장소로 사용합니다. 온-프레미스 SQL Server를 사용할 수도 있습니다. 
@@ -229,7 +229,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-a-dataset-to-represent-source-data"></a>원본 데이터를 나타내는 데이터 세트 만들기 
 이 단계에서는 원본 데이터를 나타내는 데이터 세트를 만듭니다. 
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다. 
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
@@ -248,7 +248,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사된 데이터를 나타내는 데이터 세트 만들기 
 이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 세트를 만듭니다. 필수 구성 요소의 일부로 adftutorial 컨테이너를 Azure Blob Storage에 만들었습니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다. 
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
@@ -268,7 +268,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-a-dataset-to-represent-change-tracking-data"></a>변경 내용 추적 데이터를 나타내는 데이터 세트 만들기 
 이 단계에서는 변경 내용 추적 버전을 저장하기 위한 데이터 세트를 만듭니다.  필수 구성 요소의 일부로 table_store_ChangeTracking_version 테이블을 만들었습니다.
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)** , **데이터 세트**를 차례로 클릭합니다. 
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 세트의 이름을 **ChangeTrackingDataset**로 변경합니다.
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
@@ -279,7 +279,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="create-a-pipeline-for-the-full-copy"></a>전체 복사본에 대한 파이프라인 만들기
 이 단계에서는 원본 데이터 저장소(Azure SQL Database)에서 대상 데이터 저장소(Azure Blob Storage)로 전체 데이터를 복사하는 복사 작업이 있는 파이프라인을 만듭니다.
 
-1. 왼쪽 창에서 **+(더하기)**, **파이프라인**을 차례로 클릭합니다. 
+1. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다. 
 
     ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **FullCopyPipeline**으로 변경합니다.
@@ -356,7 +356,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>델타 복사를 위한 파이프라인 만들기
 이 단계에서는 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다. **조회 작업**은 Azure SQL Database에서 SYS_CHANGE_VERSION의 기존 및 새 값을 가져와서 만들어서 복사 작업에 전달합니다. **복사 작업**은 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사합니다. **저장 프로시저 작업**은 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트합니다.
 
-1. Data Factory UI에서 **편집** 탭으로 전환합니다. 왼쪽 창에서 **+(더하기)**, **파이프라인**을 차례로 클릭합니다. 
+1. Data Factory UI에서 **편집** 탭으로 전환합니다. 왼쪽 창에서 **+(더하기)** , **파이프라인**을 차례로 클릭합니다. 
 
     ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **IncrementalCopyPipeline**으로 변경합니다.

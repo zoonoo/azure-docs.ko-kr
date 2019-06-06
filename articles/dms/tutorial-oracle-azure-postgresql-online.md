@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: b73249a9f72e4616f6d36e16f110913278f04590
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415615"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243793"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS를 사용하여 Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션(미리 보기)
 
@@ -24,6 +24,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
+>
 > * ora2pg 도구를 사용하여 마이그레이션 작업을 평가합니다.
 > * ora2pg 도구를 사용하여 샘플 스키마를 마이그레이션합니다.
 > * Azure Database Migration Service 인스턴스를 만듭니다.
@@ -204,7 +205,7 @@ ora2pg를 실행하여 각 데이터베이스 개체를 .sql 파일로 내보낼
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-예: 
+예:
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database

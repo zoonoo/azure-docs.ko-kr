@@ -17,7 +17,7 @@ ms.locfileid: "65957161"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
-Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
+Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다. 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
 
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
@@ -790,8 +790,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |QuotaExceededErrors|할당량 초과 오류.|카운트|합계|Microsoft.EventHub에 대한 할당량 초과 오류.|EntityName, |
 |ThrottledRequests|제한된 요청.|카운트|합계|Microsoft.EventHub에 대한 제한된 요청.|EntityName, |
 |IncomingRequests|들어오는 요청|카운트|합계|Microsoft.EventHub에 대한 들어오는 요청.|EntityName|
-|IncomingMessages|들어오는 메시지 |카운트|합계|Microsoft.EventHub에 대한 들어오는 메시지.|EntityName|
-|OutgoingMessages|보내는 메시지 |카운트|합계|Microsoft.EventHub에 대한 보내는 메시지.|EntityName|
+|IncomingMessages|들어오는 메시지|카운트|합계|Microsoft.EventHub에 대한 들어오는 메시지.|EntityName|
+|OutgoingMessages|보내는 메시지|카운트|합계|Microsoft.EventHub에 대한 보내는 메시지.|EntityName|
 |IncomingBytes|들어오는 바이트|바이트|합계|Microsoft.EventHub에 대한 들어오는 바이트.|EntityName|
 |OutgoingBytes|보내는 바이트|바이트|합계|Microsoft.EventHub에 대한 보내는 바이트.|EntityName|
 |ActiveConnections|ActiveConnections|카운트|평균|Microsoft.EventHub에 대한 총 활성 연결.|차원 없음|
@@ -886,7 +886,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |performanceCounters/processCpuPercentage|CPU 프로세스|백분율|평균|모든 프로세스 스레드가 명령을 실행하기 위해 프로세서를 사용한 경과된 시간의 백분율입니다. 0~100 사이로 달라질 수 있습니다. 이 메트릭은 w3wp 프로세스만의 성능을 나타냅니다.|cloud/roleInstance|
 |performanceCounters/processorCpuPercentage|프로세서 시간|백분율|평균|프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|사용 가능한 메모리|바이트|평균|프로세스에 할당하거나 시스템에서 사용할 수 있는 실제 메모리입니다.|cloud/roleInstance|
-|performanceCounters/processPrivateBytes|프로세스 전용 바이트|바이트|평균|모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|프로세스 프라이빗 바이트|바이트|평균|모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
 |requests/duration|서버 응답 시간|밀리초|평균|HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/count|서버 요청|카운트|카운트|완료된 HTTP 요청 수입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/failed|실패한 요청|카운트|카운트|실패한 것으로 표시된 HTTP 요청 수입니다. 대부분의 경우 응답 코드가 >= 400이고 401과 같지 않은 요청입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
@@ -933,8 +933,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |RunsSucceeded|실행 성공함|카운트|합계|실행 성공한 워크플로 수|차원 없음|
 |RunsFailed|실행 실패함|카운트|합계|실행 실패한 워크플로 수|차원 없음|
 |RunsCancelled|실행 취소 됨|카운트|합계|취소 실행 워크플로의 수입니다.|차원 없음|
-|RunLatency|실행 대기 시간|초|평균|완료된 워크플로 실행 대기 시간 |차원 없음|
-|RunSuccessLatency|실행 성공 대기 시간|초|평균|성공한 워크플로 실행 대기 시간 |차원 없음|
+|RunLatency|실행 대기 시간|초|평균|완료된 워크플로 실행 대기 시간|차원 없음|
+|RunSuccessLatency|실행 성공 대기 시간|초|평균|성공한 워크플로 실행 대기 시간|차원 없음|
 |RunThrottledEvents|실행 제한 이벤트|카운트|합계|워크플로 작업 또는 트리거 제한 이벤트 수|차원 없음|
 |RunFailurePercentage|실행 오류 비율|백분율|합계|실행 실패한 워크플로 비율.|차원 없음|
 |ActionsStarted|작업 시작됨 |카운트|합계|시작된 워크플로 작업 수|차원 없음|
@@ -942,8 +942,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ActionsSucceeded|작업 성공함 |카운트|합계|성공한 워크플로 작업 수|차원 없음|
 |ActionsFailed|작업 실패함|카운트|합계|실패한 워크플로 작업 수|차원 없음|
 |ActionsSkipped|작업 생략됨 |카운트|합계|생략한 워크플로 작업 수|차원 없음|
-|ActionLatency|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간 |차원 없음|
-|ActionSuccessLatency|작업 성공 대기 시간 |초|평균|성공한 워크플로 작업 대기 시간 |차원 없음|
+|ActionLatency|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간|차원 없음|
+|ActionSuccessLatency|작업 성공 대기 시간 |초|평균|성공한 워크플로 작업 대기 시간|차원 없음|
 |ActionThrottledEvents|작업 제한 이벤트|카운트|합계|워크플로 작업 제한 이벤트 수|차원 없음|
 |TriggersStarted|트리거 시작됨 |카운트|합계|시작된 워크플로 트리거 수|차원 없음|
 |TriggersCompleted|트리거 완료됨 |카운트|합계|완료된 워크플로 트리거 수|차원 없음|
@@ -951,7 +951,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |TriggersFailed|트리거 실패함 |카운트|합계|실패한 워크플로 트리거 수|차원 없음|
 |TriggersSkipped|트리거 생략함|카운트|합계|생략한 워크플로 트리거 수|차원 없음|
 |TriggersFired|트리거 실행됨 |카운트|합계|실행한 워크플로 트리거 수|차원 없음|
-|TriggerLatency|트리거 대기 시간 |초|평균|완료된 워크플로 트리거 대기 시간 |차원 없음|
+|TriggerLatency|트리거 대기 시간 |초|평균|완료된 워크플로 트리거 대기 시간|차원 없음|
 |TriggerFireLatency|트리거 실행 대기 시간 |초|평균|실행한 워크플로 트리거 대기 시간|차원 없음|
 |TriggerSuccessLatency|트리거 성공 대기 시간 |초|평균|성공한 워크플로 트리거 대기 시간|차원 없음|
 |TriggerThrottledEvents|트리거 제한 이벤트|카운트|합계|워크플로 트리거 제한 이벤트 수|차원 없음|
@@ -974,8 +974,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |RunsSucceeded|실행 성공함|카운트|합계|실행 성공한 워크플로 수|차원 없음|
 |RunsFailed|실행 실패함|카운트|합계|실행 실패한 워크플로 수|차원 없음|
 |RunsCancelled|실행 취소 됨|카운트|합계|취소 실행 워크플로의 수입니다.|차원 없음|
-|RunLatency|실행 대기 시간|초|평균|완료된 워크플로 실행 대기 시간 |차원 없음|
-|RunSuccessLatency|실행 성공 대기 시간|초|평균|성공한 워크플로 실행 대기 시간 |차원 없음|
+|RunLatency|실행 대기 시간|초|평균|완료된 워크플로 실행 대기 시간|차원 없음|
+|RunSuccessLatency|실행 성공 대기 시간|초|평균|성공한 워크플로 실행 대기 시간|차원 없음|
 |RunThrottledEvents|실행 제한 이벤트|카운트|합계|워크플로 작업 또는 트리거 제한 이벤트 수|차원 없음|
 |RunStartThrottledEvents|실행 시작 제한 이벤트|카운트|합계|워크플로 실행 시작 제한 이벤트의 수입니다.|차원 없음|
 |RunFailurePercentage|실행 오류 비율|백분율|합계|실행 실패한 워크플로 비율.|차원 없음|
@@ -984,8 +984,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ActionsSucceeded|작업 성공함 |카운트|합계|성공한 워크플로 작업 수|차원 없음|
 |ActionsFailed|작업 실패함 |카운트|합계|실패한 워크플로 작업 수|차원 없음|
 |ActionsSkipped|작업 생략됨 |카운트|합계|생략한 워크플로 작업 수|차원 없음|
-|ActionLatency|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간 |차원 없음|
-|ActionSuccessLatency|작업 성공 대기 시간 |초|평균|성공한 워크플로 작업 대기 시간 |차원 없음|
+|ActionLatency|작업 대기 시간 |초|평균|완료된 워크플로 작업 대기 시간|차원 없음|
+|ActionSuccessLatency|작업 성공 대기 시간 |초|평균|성공한 워크플로 작업 대기 시간|차원 없음|
 |ActionThrottledEvents|작업 제한 이벤트|카운트|합계|워크플로 작업 제한 이벤트 수|차원 없음|
 |TriggersStarted|트리거 시작됨 |카운트|합계|시작된 워크플로 트리거 수|차원 없음|
 |TriggersCompleted|트리거 완료됨 |카운트|합계|완료된 워크플로 트리거 수|차원 없음|
@@ -993,7 +993,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |TriggersFailed|트리거 실패함 |카운트|합계|실패한 워크플로 트리거 수|차원 없음|
 |TriggersSkipped|트리거 생략함|카운트|합계|생략한 워크플로 트리거 수|차원 없음|
 |TriggersFired|트리거 실행됨 |카운트|합계|실행한 워크플로 트리거 수|차원 없음|
-|TriggerLatency|트리거 대기 시간 |초|평균|완료된 워크플로 트리거 대기 시간 |차원 없음|
+|TriggerLatency|트리거 대기 시간 |초|평균|완료된 워크플로 트리거 대기 시간|차원 없음|
 |TriggerFireLatency|트리거 실행 대기 시간 |초|평균|실행한 워크플로 트리거 대기 시간|차원 없음|
 |TriggerSuccessLatency|트리거 성공 대기 시간 |초|평균|성공한 워크플로 트리거 대기 시간|차원 없음|
 |TriggerThrottledEvents|트리거 제한 이벤트|카운트|합계|워크플로 트리거 제한 이벤트 수|차원 없음|
@@ -1041,7 +1041,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |TotalThroughput|총 처리량|MBps|평균|초당 모든 처리량의 합계(메가바이트)|차원 없음|
 |VolumeAllocatedSize|할당된 볼륨 크기|바이트|평균|볼륨의 할당된 크기(실제 사용되는 바이트가 아님)|차원 없음|
 |VolumeLogicalSize|볼륨 논리적 크기|바이트|평균|볼륨의 논리적 크기(사용되는 바이트)|차원 없음|
-|VolumeSnapshotSize|볼륨 스냅숏 크기|바이트|평균|볼륨의 모든 스냅숏 크기|차원 없음|
+|VolumeSnapshotSize|볼륨 스냅샷 크기|바이트|평균|볼륨의 모든 스냅샷 크기|차원 없음|
 |WriteIops|쓰기 IOPS|operations/second|평균|초당 쓰기 입력/출력 작업|차원 없음|
 |WriteThroughput|쓰기 처리량|MBps|평균|초당 쓰기 처리량(메가바이트)|차원 없음|
 
@@ -1052,7 +1052,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |VolumePoolAllocatedSize|할당된 볼륨 풀 크기|바이트|평균|풀의 할당된 크기(실제 사용되는 바이트가 아님)|차원 없음|
 |VolumePoolAllocatedUsed|할당된 사용되는 볼륨 풀|바이트|평균|풀의 사용되는 할당된 크기|차원 없음|
 |VolumePoolTotalLogicalSize|볼륨 풀 총 논리적 크기|바이트|평균|풀에 속한 모든 볼륨의 논리적 크기의 합계|차원 없음|
-|VolumePoolTotalSnapshotSize|볼륨 풀 총 스냅숏 크기|바이트|평균|풀의 모든 스냅숏의 합계|차원 없음|
+|VolumePoolTotalSnapshotSize|볼륨 풀 총 스냅샷 크기|바이트|평균|풀의 모든 스냅샷의 합계|차원 없음|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
@@ -1207,7 +1207,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |registration.update|등록 업데이트 작업|카운트|합계|성공한 모든 등록 업데이트의 수입니다.|차원 없음|
 |registration.get|등록 읽기 작업|카운트|합계|성공한 모든 등록 쿼리의 수입니다.|차원 없음|
 |registration.delete|등록 삭제 작업|카운트|합계|성공한 모든 등록 삭제의 수입니다.|차원 없음|
-|incoming|들어오는 메시지 |카운트|합계|성공한 모든 API 호출 전송의 수입니다. |차원 없음|
+|incoming|들어오는 메시지|카운트|합계|성공한 모든 API 호출 전송의 수입니다. |차원 없음|
 |incoming.scheduled|전송된 예약된 푸시 알림|카운트|합계|예약 된 푸시 알림 취소|차원 없음|
 |incoming.scheduled.cancel|예약 된 푸시 알림 취소|카운트|합계|예약 된 푸시 알림 취소|차원 없음|
 |scheduled.pending|보류 중인 예약된 알림|카운트|합계|보류 중인 예약된 알림|차원 없음|
@@ -1273,8 +1273,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Average_% Free Space|% 사용 가능한 공간|카운트|평균|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Used Inodes|% 사용된 Inodes|카운트|평균|Average_% Used Inodes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Used Space|% 사용된 공간|카운트|평균|Average_% Used Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Read Bytes/sec|디스크 읽기 바이트/초 |카운트|평균|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Reads/sec|디스크 읽기/초 |카운트|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Read Bytes/sec|디스크 읽기 바이트/초|카운트|평균|Average_Disk Read Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|디스크 읽기/초|카운트|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|디스크 전송/초|카운트|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Write Bytes/sec|디스크 쓰기 바이트/초|개수|평균|Average_Disk Write Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Writes/sec|디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1325,7 +1325,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Average_Avg. 디스크 초/읽기|평균 디스크 초/읽기|카운트|평균|Average_Avg. 디스크 초/읽기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Avg. 디스크 초/쓰기|평균 디스크 초/쓰기|카운트|평균|Average_Avg. 디스크 초/쓰기|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Current Disk Queue Length|현재 디스크 큐 길이|카운트|평균|Average_Current Disk Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Reads/sec|디스크 읽기/초 |카운트|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|디스크 읽기/초|카운트|평균|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Transfers/sec|디스크 전송/초|카운트|평균|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Disk Writes/sec|디스크 쓰기/초|개수|평균|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Free Megabytes|사용 가능한 메가바이트|카운트|평균|Average_Free Megabytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1500,7 +1500,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
 |가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -1515,7 +1515,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
 |가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
@@ -1529,7 +1529,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
 |가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
@@ -1543,7 +1543,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
 |가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
@@ -1557,7 +1557,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |수신|수신|바이트|합계|수신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다.|GeoType, ApiName, Authentication|
 |송신|송신|바이트|합계|송신 데이터 양(바이트)입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|성공 서버 대기 시간|밀리초|평균|Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 대기 시간(밀리초)입니다. 이 값은 AverageE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|성공 E2E 대기 시간|밀리초|평균|스토리지 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 엔드투엔드 대기 시간(밀리초)입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다.|GeoType, ApiName, Authentication|
 |가용성|가용성|백분율|평균|저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 TotalBillableRequests 값을 적용 가능한 요청 수로 나누어서 계산합니다(예기치 않은 오류를 발생시킨 요청 포함). 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
@@ -1678,7 +1678,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AppConnections|연결|카운트|평균|연결|인스턴스|
 |핸들|핸들 개수|카운트|평균|핸들 개수|인스턴스|
 |스레드|스레드 개수|카운트|평균|스레드 개수|인스턴스|
-|PrivateBytes|프로세스 바이트|바이트|평균|프로세스 바이트|인스턴스|
+|PrivateBytes|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
 |IoReadBytesPerSecond|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
 |IoWriteBytesPerSecond|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
 |IoOtherBytesPerSecond|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|
@@ -1704,7 +1704,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
 |FunctionExecutionUnits|함수 실행 단위|MB / 시간 (밀리초)|합계|[함수 실행 단위](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|인스턴스|
 |FunctionExecutionCount|함수 실행 횟수|카운트|합계|함수 실행 횟수|인스턴스|
-|PrivateBytes|프로세스 바이트|바이트|평균|프로세스 바이트|인스턴스|
+|PrivateBytes|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
 |IoReadBytesPerSecond|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
 |IoWriteBytesPerSecond|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
 |IoOtherBytesPerSecond|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|
@@ -1744,7 +1744,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AppConnections|연결|카운트|평균|연결|인스턴스|
 |핸들|핸들 개수|카운트|평균|핸들 개수|인스턴스|
 |스레드|스레드 개수|카운트|평균|스레드 개수|인스턴스|
-|PrivateBytes|프로세스 바이트|바이트|평균|프로세스 바이트|인스턴스|
+|PrivateBytes|프라이빗 바이트|바이트|평균|프라이빗 바이트|인스턴스|
 |IoReadBytesPerSecond|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|
 |IoWriteBytesPerSecond|초당 IO 쓰기 바이트 수|초당 바이트 수|합계|초당 IO 쓰기 바이트 수|인스턴스|
 |IoOtherBytesPerSecond|초당 IO 기타 바이트 수|초당 바이트 수|합계|초당 IO 기타 바이트 수|인스턴스|

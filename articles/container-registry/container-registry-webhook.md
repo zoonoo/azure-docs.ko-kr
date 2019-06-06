@@ -16,7 +16,7 @@ ms.locfileid: "66389444"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
-Azure Container Registry는 Docker 허브에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 개인 Docker 컨테이너 이미지를 저장하고 관리합니다. 에 대 한 리포지토리를 호스트할 수도 있습니다 [Helm 차트](container-registry-helm-repos.md) (미리 보기)는 패키징 형식을 Kubernetes에 응용 프로그램을 배포 합니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다. 사용 하 여는 [지역에서 복제 된](container-registry-geo-replication.md) 레지스트리를 특정 지역 복제본에 대 한 이벤트에 응답 하도록 각 웹 후크 구성 합니다.
+Azure Container Registry는 Docker Hub에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 Docker 컨테이너 이미지를 저장하고 관리합니다. 에 대 한 리포지토리를 호스트할 수도 있습니다 [Helm 차트](container-registry-helm-repos.md) (미리 보기)는 패키징 형식을 Kubernetes에 응용 프로그램을 배포 합니다. 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거할 수 있습니다. 웹후크는 레지스트리 수준에서 이벤트에 응답하거나 특정 리포지토리 태그로 범위를 줄일 수 있습니다. 사용 하 여는 [지역에서 복제 된](container-registry-geo-replication.md) 레지스트리를 특정 지역 복제본에 대 한 이벤트에 응답 하도록 각 웹 후크 구성 합니다.
 
 Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)를 참조하세요.
 

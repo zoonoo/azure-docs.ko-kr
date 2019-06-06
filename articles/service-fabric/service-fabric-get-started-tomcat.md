@@ -211,7 +211,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
 
    설치 스크립트가 실행되면 브라우저를 열고 Service Fabric Explorer로 이동합니다.
     
-   * 로컬 클러스터에서 `http://localhost:19080/Explorer`를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 사설 IP로 바꿉니다).
+   * 로컬 클러스터에서 `http://localhost:19080/Explorer`를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 프라이빗 IP로 바꿉니다).
    * 보안 Azure 클러스터에서 `https://PublicIPorFQDN:19080/Explorer`를 사용합니다. 
     
    **애플리케이션** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 애플리케이션이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.

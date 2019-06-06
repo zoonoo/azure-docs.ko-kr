@@ -93,20 +93,20 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 * Virtual Machines 인스턴스의 경우 [리소스 확장 나열](https://msdn.microsoft.com/library/dn495441.aspx) 작업을 사용할 수 있습니다. 사용 가능한 확장의 버전을 나열하려면 [리소스 확장 버전 나열](https://msdn.microsoft.com/library/dn495440.aspx)을 사용할 수 있습니다.
 
 ## <a name="add-update-or-disable-extensions"></a>확장 추가, 업데이트 또는 비활성화
-확장은 인스턴스를 만들 때 추가하거나, 실행 중인 인스턴스에 추가할 수 있습니다. 확장은 업데이트, 비활성화 또는 제거할 수 있습니다. Azure PowerShell cmdlet 또는 서비스 관리 REST API 작업을 사용하여 이러한 작업을 수행할 수 있습니다. 일부 확장의 설치 및 설정에는 매개 변수가 필요합니다. 확장에는 공용 및 개인 매개 변수가 지원됩니다.
+확장은 인스턴스를 만들 때 추가하거나, 실행 중인 인스턴스에 추가할 수 있습니다. 확장은 업데이트, 비활성화 또는 제거할 수 있습니다. Azure PowerShell cmdlet 또는 서비스 관리 REST API 작업을 사용하여 이러한 작업을 수행할 수 있습니다. 일부 확장의 설치 및 설정에는 매개 변수가 필요합니다. 확장에는 공용 및 프라이빗 매개 변수가 지원됩니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell cmdlet을 사용하면 가장 쉽게 확장을 추가 및 업데이트할 수 있습니다. 확장 cmdlet을 사용하면 대부분의 확장 구성이 수행됩니다. 때때로 프로그래밍 방식으로 확장을 추가해야 할 수 있습니다. 이 작업이 필요할 때는 확장의 구성을 제공해야 합니다.
 
-확장에서 공용 또는 개인 매개 변수 구성의 필요 여부를 파악하기 위해 다음 cmdlet을 사용할 수 있습니다.
+확장에서 공용 또는 프라이빗 매개 변수 구성의 필요 여부를 파악하기 위해 다음 cmdlet을 사용할 수 있습니다.
 
 * 웹 역할 또는 작업자 역할 인스턴스의 경우 **Get-AzureServiceAvailableExtension** cmdlet을 사용할 수 있습니다.
 * Virtual Machines의 경우 **Get-AzureVMAvailableExtension** cmdlet을 사용할 수 있습니다.
 
 ### <a name="service-management-rest-apis"></a>서비스 관리 REST API
-REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 확장이 어떻게 구성될 것인가에 대한 정보를 받게 됩니다. 반환되는 정보는 공용 스키마와 개인 스키마에서 제시하는 매개 변수 정보를 나타낼 수 있습니다. 공용 매개 변수 값은 인스턴스에 대한 쿼리에서 반환됩니다. 개인 매개 변수 값은 반환되지 않습니다.
+REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 확장이 어떻게 구성될 것인가에 대한 정보를 받게 됩니다. 반환되는 정보는 공용 스키마와 프라이빗 스키마에서 제시하는 매개 변수 정보를 나타낼 수 있습니다. 공용 매개 변수 값은 인스턴스에 대한 쿼리에서 반환됩니다. 프라이빗 매개 변수 값은 반환되지 않습니다.
 
-확장에서 공용 또는 개인 매개 변수 구성의 필요 여부를 파악하기 위해 다음 REST API를 사용할 수 있습니다.
+확장에서 공용 또는 프라이빗 매개 변수 구성의 필요 여부를 파악하기 위해 다음 REST API를 사용할 수 있습니다.
 
 * 웹 역할 또는 작업자 역할 인스턴스의 경우 **PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn169559.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.
 * Virtual Machines 인스턴스의 경우 **PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn495441.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.

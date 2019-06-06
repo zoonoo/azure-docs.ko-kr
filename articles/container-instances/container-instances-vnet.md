@@ -142,14 +142,14 @@ az container create \
 az container show --resource-group myResourceGroup --name appcontainer --query ipAddress.ip --output tsv
 ```
 
-출력에는 개인 서브넷의 컨테이너 그룹 IP 주소가 표시됩니다.
+출력에는 프라이빗 서브넷의 컨테이너 그룹 IP 주소가 표시됩니다.
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontainer --query ipAddress.ip --output tsv
 10.0.0.4
 ```
 
-이제 `CONTAINER_GROUP_IP`를 `az container show` 명령으로 검색한 IP로 설정하고 다음 `az container create` 명령을 실행합니다. 두 번째 컨테이너인 *commchecker*는 Alpine Linux 기반 이미지를 실행하며 첫 번째 컨테이너 그룹의 개인 서브넷 IP 주소에 대해 `wget`을 실행합니다.
+이제 `CONTAINER_GROUP_IP`를 `az container show` 명령으로 검색한 IP로 설정하고 다음 `az container create` 명령을 실행합니다. 두 번째 컨테이너인 *commchecker*는 Alpine Linux 기반 이미지를 실행하며 첫 번째 컨테이너 그룹의 프라이빗 서브넷 IP 주소에 대해 `wget`을 실행합니다.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-here>

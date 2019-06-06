@@ -15,7 +15,7 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
 ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64919733"
@@ -169,7 +169,7 @@ wordpress:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)

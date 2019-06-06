@@ -97,7 +97,7 @@ Azure Media Service의 SLA가 Video Indexer에 적용되며, [SLA](https://azure
 
 ### <a name="who-has-access-to-my-video-and-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Video Indexer를 통해 인덱싱 및 저장된 내 비디오 및 오디오 파일과 추출된 메타데이터 및 인사이트에 누가 액세스할 수 있나요?
 
-개인 정보가 공개로 설정된 비디오 또는 오디오 콘텐츠는 비디오 또는 오디오 콘텐츠와 해당 인사이트에 대한 링크가 있는 모든 사용자가 액세스할 수 있습니다. 개인 정보가 비공개로 설정된 비디오 또는 오디오 콘텐츠는 비디오 또는 오디오 콘텐츠의 계정으로 초대된 사용자만 액세스할 수 있습니다. 콘텐츠의 개인 정보 설정은 Video Indexer가 추출하는 메타데이터 및 인사이트에도 적용됩니다. 비디오 또는 오디오 파일을 업로드할 때 개인 정보 설정을 할당합니다. 인덱싱한 후에 개인 정보 설정을 변경할 수도 있습니다.
+개인 정보가 공개로 설정된 비디오 또는 오디오 콘텐츠는 비디오 또는 오디오 콘텐츠와 해당 인사이트에 대한 링크가 있는 모든 사용자가 액세스할 수 있습니다. 개인 정보가 프라이빗으로 설정된 비디오 또는 오디오 콘텐츠는 비디오 또는 오디오 콘텐츠의 계정으로 초대된 사용자만 액세스할 수 있습니다. 콘텐츠의 개인 정보 설정은 Video Indexer가 추출하는 메타데이터 및 인사이트에도 적용됩니다. 비디오 또는 오디오 파일을 업로드할 때 개인 정보 설정을 할당합니다. 인덱싱한 후에 개인 정보 설정을 변경할 수도 있습니다.
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Video Indexer를 통해 인덱싱 및 저장된 내 비디오 및 오디오 파일과 추출된 메타데이터 및 인사이트에 대해 Microsoft는 어떤 액세스 권한을 가지나요?
 

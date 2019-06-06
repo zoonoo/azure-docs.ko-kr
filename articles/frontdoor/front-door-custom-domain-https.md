@@ -162,7 +162,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 ![WHOIS 레코드](./media/front-door-custom-domain-https/whois-record.png)
 
-또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 비공개인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
+또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 프라이빗인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  

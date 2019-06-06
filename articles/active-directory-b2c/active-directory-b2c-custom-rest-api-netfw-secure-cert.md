@@ -35,7 +35,7 @@ ms.locfileid: "64699008"
 
 ## <a name="prerequisites"></a>필수 조건
 * [REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서의 단계 완료
-* 유효한 인증서(개인 키를 포함한 .pfx 파일) 가져오기
+* 유효한 인증서(프라이빗 키를 포함한 .pfx 파일) 가져오기.
 
 ## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>1단계: 클라이언트 인증서 인증을 위한 웹앱 구성
 **Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이 변경 내용을 적용하려면 Azure Portal에서 웹앱 페이지를 엽니다. 왼쪽 탐색 메뉴의 **설정** 아래에서 **SSL 설정**을 선택합니다. **클라이언트 인증서** 섹션에서 **들어오는 클라이언트 인증서** 옵션을 설정합니다.

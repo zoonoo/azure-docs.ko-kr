@@ -23,7 +23,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60542348"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
-가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
+가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
 
 - **내보내기** - Azure Cache for Redis RDB 스냅숏을 페이지 Blob으로 내보낼 수 있습니다.
 - **가져오기** - Azure Cache for Redis RDB 스냅숏을 페이지 Blob 또는 블록 Blob에서 가져올 수 있습니다.
@@ -142,7 +142,7 @@ Azure Cache for Redis는 RDB 버전 7을 통해 RDB 가져오기를 지원합니
   - 내보낸 데이타가 새 계층의 제한을 초과하는 데이타베이스의 데이타를 포함한 경우, 더 높은 데이타베이스의 데이타는 들여오기되지 않습니다.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Import/Export가 Redis 지속성과 어떻게 다른가요?
-Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 Azure Storage에 유지할 수 있습니다. 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅숏을 Redis 이진 형식으로 디스크에 유지합니다. 주 캐시 및 복제본 캐시의 기능을 무력화하는 재해가 발생하면, 캐시 데이터는 최신 스냅숏을 사용하여 자동으로 복원됩니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 Azure Storage에 유지할 수 있습니다. 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅샷을 Redis 이진 형식으로 디스크에 유지합니다. 주 캐시 및 복제본 캐시의 기능을 무력화하는 재해가 발생하면, 캐시 데이터는 최신 스냅샷을 사용하여 자동으로 복원됩니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 
 가져오기/내보내기를 사용하면 Azure Cache for Redis에서 데이터를 가져오거나 내보낼 수 있습니다. Redis 지속성을 사용하여 백업 및 복원을 구성하지 않습니다.
 

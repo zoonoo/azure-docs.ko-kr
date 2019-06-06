@@ -69,7 +69,7 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 구성이 리포지토리에 저장된 후 해당 구성을 복제할 수 있습니다.
 
-REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅숏 커밋](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot)을 참조하세요.
+REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사용하여 구성 스냅샷 커밋](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot)을 참조하세요.
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>로컬 컴퓨터에 리포지토리 복제
 

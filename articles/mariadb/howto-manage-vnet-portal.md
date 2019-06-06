@@ -15,7 +15,7 @@ ms.locfileid: "60745919"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
-VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의 개인 주소 공간을 Azure Database for MariaDB 서버로 확장합니다. 제한을 포함하여 Azure Database for MariaDB VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MariaDB 서버 VNet 서비스 엔드포인트](concepts-data-access-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MariaDB에 대해 지원되는 모든 지역에서 사용할 수 있습니다.
+VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의 프라이빗 주소 공간을 Azure Database for MariaDB 서버로 확장합니다. 제한을 포함하여 Azure Database for MariaDB VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MariaDB 서버 VNet 서비스 엔드포인트](concepts-data-access-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MariaDB에 대해 지원되는 모든 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
@@ -24,10 +24,10 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다.
 
-2. Azure 서비스 컨트롤에 액세스 허용으로 설정 되어 있는지 확인 하십시오 **OFF**합니다.
+2. Azure 서비스 액세스 허용 컨트롤이 **해제**되어 있는지 확인합니다.
 
 > [!Important]
-> ON으로 설정한 경우 Azure MariaDB 데이터베이스 서버는 모든 서브넷 으로부터의 통신을 허용 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. 함께 협력 하 여 가상 네트워크 규칙 기능을 사용 하 여 Azure database for MariaDB, Microsoft Azure Virtual Network 서비스 엔드포인트 기능, 보안 영역을 줄일 수 있습니다.
+> 컨트롤이 설정으로 되어 있으면 Azure MariaDB 데이터베이스 서버는 모든 서브넷으로부터의 통신을 허용합니다. 컨트롤을 설정으로 두게 되면 보안 관점에서 과도하게 액세스할 수도 있습니다. Azure database for MariaDB의 가상 네트워크 규칙 기능과 협력하여 Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 함께 사용하여 보안 영역을 줄일 수 있습니다.
 
 3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md)
 

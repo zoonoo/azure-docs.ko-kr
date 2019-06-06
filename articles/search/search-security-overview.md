@@ -18,13 +18,13 @@ ms.locfileid: "65024510"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search의 보안 및 데이터 프라이버시
 
-개인 콘텐츠를 안전하게 보호하기 위해 포괄적인 보안 기능 및 액세스 제어가 Azure Search에 기본적으로 제공됩니다. 이 문서에서는 Azure Search에 내장된 보안 기능 및 표준 규정 준수를 설명합니다.
+프라이빗 콘텐츠를 안전하게 보호하기 위해 포괄적인 보안 기능 및 액세스 제어가 Azure Search에 기본적으로 제공됩니다. 이 문서에서는 Azure Search에 내장된 보안 기능 및 표준 규정 준수를 설명합니다.
 
 Azure Search 보안 아키텍처는 물리적 보안, 암호화된 전송, 암호화된 저장소 및 플랫폼 전체 표준 준수를 모두 제공합니다. 운영상 Azure Search는 인증된 요청을 허용합니다. 필요에 따라 보안 필터를 통해 콘텐츠에 사용자당 액세스 제어를 추가할 수 있습니다. 이 문서에서는 각 계층의 보안에 대해 다루지만 주로 Azure Search에서 데이터 및 작업을 보호하는 방법을 중점적으로 설명합니다.
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>표준 준수: ISO 27001, SOC 2, HIPAA
 
-Azure Search는 [2018년 6월에 발표](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)된 것과 같이 다음 표준에 대한 인증을 받았습니다. 
+Azure Search는 [2018년 6월에 발표](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/)된 것과 같이 다음 표준에 대한 인증을 받았습니다.
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 준수](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 전체 보고서를 보려면 [Azure - 및 Azure Government SOC 2 Type II 보고서](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)로 이동하세요. 

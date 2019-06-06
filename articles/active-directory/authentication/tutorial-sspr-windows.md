@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861524"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253079"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "65861524"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Windows 10, 2018년 4월 업데이트 이상의 버전을 사용 중이고 디바이스 상태는 다음 중 하나여야 합니다.
+* Windows 10, 2018년 4월 업데이트(v1803) 이상의 버전을 사용 중이고 디바이스 상태는 다음 중 하나여야 합니다.
    * [Azure AD 조인](../device-management-azure-portal.md) 또는
    * [하이브리드 Azure AD 조인](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정해야 합니다.

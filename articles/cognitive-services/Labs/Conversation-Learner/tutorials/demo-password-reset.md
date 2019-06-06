@@ -3,19 +3,19 @@ title: 데모 Conversation Learner 모델, 암호 재설정 - Microsoft Cognitiv
 titleSuffix: Azure
 description: 데모 Conversation Learner 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227338"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389868"
 ---
 # <a name="demo-password-reset"></a>데모: 암호 재설정
 이 자습서에서는 Conversation Learner에서 제공하는 암호 재설정을 사용하여 유용할 수 있는 간단한 기술 지원 봇을 보여줍니다. 봇의 모델은 도메인 외부 클래스를 포함하여 특수한 대화 흐름, 다중 턴 시퀀스를 학습할 수 있습니다. 코드 또는 엔터티 없이 작업을 수행할 수 있습니다.

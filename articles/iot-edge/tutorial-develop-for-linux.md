@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146687"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303859"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -42,18 +42,18 @@ Visual Studio Code를 사용하여 IoT Edge를 실행하는 코드를 개발하�
 
 IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배치할 대상 IoT Edge 디바이스 간의 차이를 이해하는 것이 중요합니다. 모듈 코드를 포함하기 위해 빌드하는 컨테이너는 *대상 디바이스*의 OS(운영 체제)와 일치해야 합니다. 예를 들어, 가장 일반적인 시나리오는 Windows 머신에서 IoT Edge를 실행하는 Linux 디바이스 대상의 모듈을 개발하는 경우입니다. 이 경우 컨테이너 운영 체제는 Linux일 것입니다. 이 자습서를 진행할 때는 *개발 머신 OS*와 *컨테이너 OS* 간의 차이점에 유의해야 합니다.
 
-이 자습서는 IoT Edge를 실행하는 Linux 디바이스를 대상으로 합니다. 개발 머신에서 Linux 컨테이너를 실행할 수 있다면 선호하는 개발 머신 운영 체제를 사용할 수 있습니다. 이 자습서에서는 Visual Studio Code를 사용할 예정이므로 이 도구로 Linux 디바이스용 개발을 진행하는 것이 좋습니다. 지원 차이점이 있지만 Visual Studio 2017을 사용할 수도 있습니다.
+이 자습서는 IoT Edge를 실행하는 Linux 디바이스를 대상으로 합니다. 개발 머신에서 Linux 컨테이너를 실행할 수 있다면 선호하는 개발 머신 운영 체제를 사용할 수 있습니다. 이 자습서에서는 Visual Studio Code를 사용할 예정이므로 이 도구로 Linux 디바이스용 개발을 진행하는 것이 좋습니다. 두 도구 간에 지원 차이가 있긴 하지만, Visual Studio를 사용할 수도 있습니다.
 
-다음 표에는 Visual Studio Code 및 Visual Studio 2017의 **Linux 컨테이너**에 대해 지원되는 개발 시나리오가 나와 있습니다.
+다음 표에는 Visual Studio Code 및 Visual Studio의 **Linux 컨테이너**에 대해 지원되는 개발 시나리오가 나와 있습니다.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux 디바이스 아키텍처** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure 서비스** | Azure 기능 <br> Azure Stream Analytics <br> Azure Machine Learning |   |
-| **언어** | C <br> C# <br> 자바 <br> Node.js <br> Python | C <br> C# |
-| **자세한 정보** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **언어** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
+| **자세한 정보** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Visual Studio 2017용 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Visual Studio 2019용 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-이 자습서에서는 Visual Studio Code에 대한 개발 단계를 설명합니다. Visual Studio 2017을 사용하는 경우는 [Visual Studio 2017을 사용하여 Azure IoT Edge용 모듈 개발 및 디버그](how-to-visual-studio-develop-module.md)의 지침을 참조하세요.
+이 자습서에서는 Visual Studio Code에 대한 개발 단계를 설명합니다. Visual Studio를 사용하는 경우는 [Visual Studio 2019를 사용한 Azure IoT Edge용 모듈 개발 및 디버그](how-to-visual-studio-develop-module.md)의 지침을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -284,7 +284,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 SampleModule 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. 배포 매니페스트는 tempSensor에서 SampleModule로 메시지를 제공한 후 SampleModule에서 IoT Hub로 메시지를 전달하는 경로를 선언했습니다. Azure IoT Tools for Visual Studio Code를 사용하여 개별 디바이스에서 IoT Hub에 도착하는 메시지를 볼 수 있습니다. 
 
-1. Visual Studio Code 탐색기에서 모니터링하려는 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다. 
+1. Visual Studio Code 탐색기에서 모니터링하려는 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭한 다음, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 
 
 2. Visual Studio Code의 출력 창에서 IoT Hub에 메시지가 도착하는 것을 확인합니다. 
 

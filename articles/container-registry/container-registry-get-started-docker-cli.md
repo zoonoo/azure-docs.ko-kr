@@ -1,6 +1,6 @@
 ---
-title: Docker 이미지를 개인 Azure 컨테이너 레지스트리에 푸시
-description: Docker CLI를 사용하여 Azure의 개인 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
+title: Docker 이미지를 프라이빗 Azure 컨테이너 레지스트리에 푸시
+description: Docker CLI를 사용하여 Azure의 프라이빗 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
 services: container-registry
 author: dlepow
 manager: jeconnoc
@@ -16,11 +16,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60828774"
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 프라이빗 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
-Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 개인 [Docker](https://hub.docker.com) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
+Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 [Docker](https://hub.docker.com) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
 
-다음 단계에서는 공개 Docker Hub 레지스트리에서 공식 [Nginx 이미지](https://store.docker.com/images/nginx)를 다운로드하고 개인 Azure 컨테이너 레지스트리용으로 태그를 지정하고, 레지스트리에 푸시한 다음 레지스트리에서 풀합니다.
+다음 단계에서는 공개 Docker Hub 레지스트리에서 공식 [Nginx 이미지](https://store.docker.com/images/nginx)를 다운로드하고 프라이빗 Azure 컨테이너 레지스트리용으로 태그를 지정하고, 레지스트리에 푸시한 다음, 레지스트리에서 풀합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,7 +29,7 @@ Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 D
 
 ## <a name="log-in-to-a-registry"></a>레지스트리에 로그인
 
-개인 컨테이너 레지스트리에 대해 [몇 가지 방법으로 인증](container-registry-authentication.md)할 수 있습니다. 명령줄에서 작업할 때 권장되는 방법은 Azure CLI 명령 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)입니다. 예를 들어 이름이 *myregistry*인 레지스트리에 로그인하려면
+프라이빗 컨테이너 레지스트리에 대해 [몇 가지 방법으로 인증](container-registry-authentication.md)할 수 있습니다. 명령줄에서 작업할 때 권장되는 방법은 Azure CLI 명령 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)입니다. 예를 들어 이름이 *myregistry*인 레지스트리에 로그인하려면
 
 ```azurecli
 az acr login --name myregistry
@@ -44,7 +44,7 @@ docker login myregistry.azurecr.io
 두 명령 모두 완료되면 `Login Succeeded`를 반환합니다.
 
 > [!TIP]
-> `docker login`을 사용하고 레지스트리에 푸시하기 위해 이미지에 태그할 때는 항상 정규화된 레지스트리 이름(전체 소문자)를 지정합니다.  이 문서의 예제에서 정규화된 이름은 *myregistry.azurecr.io*입니다.
+> `docker login`을 사용하고 레지스트리에 푸시하기 위해 이미지에 태그할 때는 항상 정규화된 레지스트리 이름(전체 소문자)를 지정합니다. 이 문서의 예제에서 정규화된 이름은 *myregistry.azurecr.io*입니다.
 
 ## <a name="pull-the-official-nginx-image"></a>공식 Nginx 이미지 풀하기
 
@@ -70,7 +70,7 @@ docker run -it --rm -p 8080:80 nginx
 
 컨테이너를 중지하고 제거하려면 `Control`+`C`를 누릅니다.
 
-## <a name="create-an-alias-of-the-image"></a>이미지의 별칭 만들기 
+## <a name="create-an-alias-of-the-image"></a>이미지의 별칭 만들기
 
 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)를 사용하여 레지스트리에 대한 정규화된 경로를 통한 이미지의 별칭을 만듭니다. 이 예제는 레지스트리의 루트에서 혼잡을 방지하기 위해 `samples` 네임스페이스를 지정합니다.
 
@@ -82,7 +82,7 @@ docker tag nginx myregistry.azurecr.io/samples/nginx
 
 ## <a name="push-the-image-to-your-registry"></a>레지스트리에 이미지 푸시하기
 
-이제 개인 레지스트리에 대한 정규화된 경로로 이미지에 태그를 지정했으므로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)로 레지스트리에 푸시할 수 있습니다.
+이제 프라이빗 레지스트리에 대한 정규화된 경로로 이미지에 태그를 지정했으므로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)로 레지스트리에 푸시할 수 있습니다.
 
 ```
 docker push myregistry.azurecr.io/samples/nginx

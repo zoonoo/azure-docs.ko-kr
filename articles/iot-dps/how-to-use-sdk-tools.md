@@ -43,7 +43,7 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>DICE 에뮬레이터와 함께 X.509 인증서 생성기 사용
 SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator)에 위치하는 DICE 에뮬레이터와 함께 X.509 인증서 생성기를 제공합니다.  이 생성자는 플랫폼 간에 작동합니다.  다른 언어로 개발을 위해 생성된 인증서를 사용할 수 있습니다.
 
-반면 현재 DICE 에뮬레이터는 루트 인증서, 중간 인증서, 리프 인증서 및 연결된 개인 키를 출력합니다.  그러나 루트 인증서 또는 중간 인증서는 별도 리프 인증서를 서명하는 데 사용할 수 없습니다.  서명 인증서를 여러 디바이스의 리프 인증서 서명에 사용하는 그룹 등록 시나리오를 테스트하는 경우 인증서 체인을 생성하기 위해 OpenSSL을 사용할 수 있습니다.
+반면 현재 DICE 에뮬레이터는 루트 인증서, 중간 인증서, 리프 인증서 및 연결된 프라이빗 키를 출력합니다.  그러나 루트 인증서 또는 중간 인증서는 별도 리프 인증서를 서명하는 데 사용할 수 없습니다.  서명 인증서를 여러 디바이스의 리프 인증서 서명에 사용하는 그룹 등록 시나리오를 테스트하는 경우 인증서 체인을 생성하기 위해 OpenSSL을 사용할 수 있습니다.
 
 이 생성자를 사용하여 X.509 인증서를 생성하려면:
 1. [개발 환경을 준비](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java)하고 GitHub 리포지토리를 복제합니다.
@@ -60,7 +60,7 @@ SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provis
    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
    ```
 7. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
-8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
+8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
 
 **클라이언트 인증서**는 디바이스에 대한 리프 인증서입니다.  **클라이언트 인증서** 및 연결된 **클라이언트 인증서 개인 키**는 디바이스 클라이언트에 필요합니다. 선택한 언어에 따라 클라이언트 애플리케이션에 이를 배치하는 메커니즘은 달라질 수 있습니다.  자세한 내용은 X.509를 사용하여 시뮬레이션된 디바이스 만들기에서 [빠른 시작](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)을 참조하세요.
 

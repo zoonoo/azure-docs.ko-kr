@@ -44,9 +44,9 @@ Azure Log Analytics의 원격 분석을 포함하여, 모든 Azure 리소스에�
 
 대시보드를 만들려면 현재 대시보드 이름 옆에 있는 **새 대시보드** 단추를 선택합니다.<br> ![Azure Portal에서 새 대시보드 만들기](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-이 작업은 새 비어 있는 개인 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다. 대시보드 이름을 편집하고 이 자습서에 대해 *샘플 대시보드*를 지정한 후 **사용자 지정 완료**를 선택합니다.<br><br> ![사용자 지정된 Azure 대시보드 저장](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+이 작업은 새 비어 있는 프라이빗 대시보드를 만들고 대시보드의 이름을 지정하고 타일을 추가하거나 다시 정렬할 수 있는 사용자 지정 모드를 설정합니다. 대시보드 이름을 편집하고 이 자습서에 대해 *샘플 대시보드*를 지정한 후 **사용자 지정 완료**를 선택합니다.<br><br> ![사용자 지정된 Azure 대시보드 저장](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
-대시보드를 만들 때 기본적으로 비공개입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다. 다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.<br> ![Azure Portal에서 새 대시보드 공유](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
+대시보드를 만들 때 기본적으로 프라이빗입니다. 즉, 볼 수 있는 유일한 사람은 사용자입니다. 다른 사람이 볼 수 있도록 하려면 다른 대시보드 명령 옆에 나타나는 **공유** 단추를 사용합니다.<br> ![Azure Portal에서 새 대시보드 공유](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
 게시하려는 대시보드에 대한 구독 및 리소스 그룹을 선택하라는 메시지가 표시됩니다. 편의를 위해 포털의 게시 환경에서는 **대시보드**라는 리소스 그룹에 대시보드를 배치한 위치의 패턴을 안내합니다.  선택한 구독을 확인한 후 **게시**를 클릭합니다.  대시보드에 표시되는 정보에 대한 액세스는 [Azure 리소스 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)로 제어합니다.   
 

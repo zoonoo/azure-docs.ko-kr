@@ -3,19 +3,19 @@ title: Conversation Learner 지원되는 언어 - Microsoft Cognitive Services |
 titleSuffix: Azure
 description: ''
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ef3d50a9d31f86f646ccaea1edaaf46171f174a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: nitinme
+ms.openlocfilehash: cecf7185a46abc0d37118f6045da585824ac2aaf
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781870"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385409"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 

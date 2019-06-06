@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864374"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237806"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
@@ -35,12 +35,27 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 * Azure Machine Learning Service 작업 영역
 * 작업 영역 구성 파일( **.azureml/config.json**).
 
-[Azure Machine Learning Service 작업 영역 만들기](setup-create-workspace.md#portal)에서 이러한 모든 필수 구성 요소를 가져옵니다.
+[Azure Machine Learning Service 작업 영역 만들기](setup-create-workspace.md#sdk)에서 이러한 모든 필수 구성 요소를 가져옵니다.
+
 
 
 ## <a name="use-the-workspace"></a>작업 영역 사용
 
-스크립트를 만들거나 작업 영역 구성 파일과 동일한 디렉터리에서 Notebook을 시작합니다. SDK의 기본 API를 사용하여 실험 실행을 추적하는 이 코드를 실행합니다.
+스크립트를 만들거나 작업 영역 구성 파일( **.azureml/config.json**)과 동일한 디렉터리에서 Notebook을 시작합니다.
+
+### <a name="attach-to-workspace"></a>작업 영역에 연결
+
+이 코드는 구성 파일에서 정보를 읽어 작업 영역에 연결합니다.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>로그 값
+
+SDK의 기본 API를 사용하여 실험 실행을 추적하는 이 코드를 실행합니다.
 
 1. 작업 영역에서 실험을 만듭니다.
 1. 단일 값을 실험에 기록합니다.

@@ -148,7 +148,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 ### <a name="add-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth 또는 기타 보안 추가
 
-논리 앱에 다른 권한 부여 프로토콜을 추가하려면 [Azure API Management](https://azure.microsoft.com/services/api-management/)를 사용하는 것이 좋습니다. 이 서비스는 엔드포인트에 다양한 모니터링, 보안, 정책 및 모든 설명서를 제공하고 논리 앱을 API로 제공하는 기능을 제공합니다. API Management는 논리 앱에 대한 공용 또는 개인 엔드포인트를 노출할 수 있으며 이러한 엔드포인트는 Azure Active Directory, OAuth, 인증서 또는 기타 보안 표준을 사용할 수 있습니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. API Management에서만 논리 앱을 트리거하도록 하려면 논리 앱의 들어오는 IP 범위 설정을 사용할 수 있습니다. 
+논리 앱에 다른 권한 부여 프로토콜을 추가하려면 [Azure API Management](https://azure.microsoft.com/services/api-management/)를 사용하는 것이 좋습니다. 이 서비스는 엔드포인트에 다양한 모니터링, 보안, 정책 및 모든 설명서를 제공하고 논리 앱을 API로 제공하는 기능을 제공합니다. API Management는 논리 앱에 대한 공용 또는 프라이빗 엔드포인트를 노출할 수 있으며 이러한 엔드포인트는 Azure Active Directory, OAuth, 인증서 또는 기타 보안 표준을 사용할 수 있습니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. API Management에서만 논리 앱을 트리거하도록 하려면 논리 앱의 들어오는 IP 범위 설정을 사용할 수 있습니다. 
 
 <a name="secure-operations"></a>
 

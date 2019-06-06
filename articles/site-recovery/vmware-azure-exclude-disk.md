@@ -61,7 +61,7 @@ ms.locfileid: "60922124"
 >
 
 
-## <a name="end-to-end-scenarios-of-exclude-disks"></a>디스크 제외의 종단 간 시나리오
+## <a name="end-to-end-scenarios-of-exclude-disks"></a>디스크 제외의 엔드투엔드 시나리오
 디스크 제외 기능의 이해를 위해 두 가지 시나리오를 살펴보겠습니다.
 
 - SQL Server tempdb 디스크

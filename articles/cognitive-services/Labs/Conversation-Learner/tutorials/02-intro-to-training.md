@@ -3,19 +3,19 @@ title: Conversation Learner 모델 학습 방법 소개 - Microsoft Cognitive Se
 titleSuffix: Azure
 description: Conversation Learner를 통해 이전 학습의 편집 및 분기를 포함하여 모델을 학습하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 1e6dea521207ec00efe948a879c705bd28a75d57
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 0bf5b71a4b0f51a586febbdaeaf8caba03c5b25a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213197"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387926"
 ---
 # <a name="introduction-to-training"></a>학습 소개
 
@@ -80,7 +80,7 @@ ms.locfileid: "55213197"
 7. "+ 작업" 단추를 클릭하여 
     - 봇이 응답할 새 작업을 만들 수 있습니다.
 8. 봇의 응답에 "걱정할 필요가 없습니다. 좋은 하루 보내세요!"를 입력합니다.
-9. 만들기 클릭 
+9. 만들기 클릭
 10. 봇이 즉시 응답하는지 확인합니다.
 11. "저장" 단추를 클릭합니다.
 

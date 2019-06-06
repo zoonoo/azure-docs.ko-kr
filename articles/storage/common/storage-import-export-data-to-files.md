@@ -115,7 +115,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기 
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
-1. https://portal.azure.com/에 로그온합니다.
+1. [https://portal.azure.com/](https://portal.azure.com/) 에 로그온합니다.
 2. **모든 서비스 > 저장소 > 작업 가져오기/내보내기**로 차례로 이동합니다. 
 
     ![가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

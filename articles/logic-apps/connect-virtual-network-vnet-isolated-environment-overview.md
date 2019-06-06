@@ -20,7 +20,7 @@ ms.locfileid: "65546413"
 
 때로는 통합 계정과 논리 앱 해야 가상 컴퓨터 (Vm)와 같은 보안된 리소스를 다른 시스템 또는 내에 있는 서비스에 대 한 액세스는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)합니다. 이 액세스를 설정 하려면 [만들기를 *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 논리 앱을 실행 하 고 통합을 만들 수 있는 계정입니다.
 
-ISE를 만들면 Azure 개인 및 격리 된 인스턴스를 Logic Apps 서비스의 Azure 가상 네트워크에 배포 합니다. 이 비공개 인스턴스는 스토리지 등의 전용 리소스를 사용하며, 공용 “글로벌” Logic Apps 서비스와는 별도로 실행됩니다. 다른 Azure 테 넌 트 수 라고도 하는 앱의 성능에 미치는 영향을 줄일 수 있습니다도 격리 된 개인 인스턴스와 공용 전역 인스턴스를 구분 하는 ["시끄러운 이웃" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)합니다.
+ISE를 만들면 Azure 개인 및 격리 된 인스턴스를 Logic Apps 서비스의 Azure 가상 네트워크에 배포 합니다. 이 프라이빗 인스턴스는 스토리지 등의 전용 리소스를 사용하며, 공용 "글로벌" Logic Apps 서비스와는 별도로 실행됩니다. 다른 Azure 테 넌 트 수 라고도 하는 앱의 성능에 미치는 영향을 줄일 수 있습니다도 격리 된 개인 인스턴스와 공용 전역 인스턴스를 구분 하는 ["시끄러운 이웃" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)합니다.
 
 프로그램 ISE를 만든 후 논리 앱 또는 통합 계정을 만들 하려고 할 때으로 선택할 수 있습니다 프로그램 ISE를 논리 앱 또는 통합 계정 위치:
 

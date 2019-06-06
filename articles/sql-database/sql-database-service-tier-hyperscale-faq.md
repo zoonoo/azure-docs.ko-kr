@@ -65,8 +65,8 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 하이퍼스케일 서비스 계층은 주로 대규모 온-프레미스 SQL Server 데이터베이스를 보유하고 있으며 클라우드로 전환하여 애플리케이션을 최신화하려는 고객 또는 Azure SQL Database를 이미 사용하고 있으며 데이터 증가에 대한 잠재력을 상당히 확대시키려는 고객에게 적합합니다. 하이퍼스케일은 고성능과 고가용성을 모두 원하는 고객에게도 적합합니다. 하이퍼스케일을 통해 얻을 수 있는 사항:
 
 - 최대 100TB의 데이터베이스 크기 지원
-- 데이터베이스 크기에 관계없이 빠른 데이터베이스 백업(백업은 파일 스냅숏을 기반으로 함)
-- 데이터베이스 크기에 관계없이 빠른 데이터베이스 복원(파일 스냅숏을 통해 복원이 수행됨)
+- 데이터베이스 크기에 관계없이 빠른 데이터베이스 백업(백업은 파일 스냅샷을 기반으로 함)
+- 데이터베이스 크기에 관계없이 빠른 데이터베이스 복원(파일 스냅샷을 통해 복원이 수행됨)
 - 데이터베이스 크기에 관계없이 로그 처리량이 높아서 트랜잭션 커밋 시간이 빨라짐
 - 읽기 규모가 하나 이상의 읽기 전용 노드로 확장되어 읽기 워크로드가 감소되고 상시 대기가 가능합니다.
 - 일정 시간에 계산 규모가 신속하게 확장되어, 강력한 기능으로 과도한 워크로드를 수용하고 일정 시간에 규모를 축소할 수 있습니다. 이것은 P6과 P11 사이의 강화 및 축소와 유사하지만 데이터 작업의 규모가 아니므로 훨씬 빠릅니다.
@@ -100,7 +100,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>단일 논리 서버에서 단일 데이터베이스 및 대규모를 혼합할 수 있나요
 
- 예, 할 수 있습니다.
+예, 할 수 있습니다.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>하이퍼스케일에서 내 애플리케이션 프로그래밍 모델을 변경해야 하나요?
 
@@ -108,7 +108,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 ### <a name="what-transaction-isolation-levels-are-going-to-be-default-on-sql-database-hyperscale-database"></a>SQL Database 하이퍼스케일 데이터베이스에 어떤 트랜잭션 격리 수준이 기본값이 되나요?
 
-주 노드의 트랜잭션 격리 수준은 RCSI(Read Committed 스냅숏 격리)입니다. 읽기 확장 보조 노드의 격리 수준은 스냅숏입니다.
+주 노드의 트랜잭션 격리 수준은 RCSI(Read Committed 스냅샷 격리)입니다. 읽기 확장 보조 노드의 격리 수준은 스냅샷입니다.
 
 ### <a name="can-i-bring-my-on-premises-or-iaas-sql-server-license-to-sql-database-hyperscale"></a>SQL Database 하이퍼스케일에 온-프레미스 또는 IaaS SQL Server 라이선스를 가져올 수 있나요?
 
@@ -261,7 +261,7 @@ SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 
 
 ### <a name="how-often-are-the-database-backups-taken"></a>데이터베이스 백업이 얼마나 자주 수행되나요?
 
-SQL Database 하이퍼스케일 데이터베이스에는 기존의 전체, 차등 및 로그 백업이 없습니다. 대신 데이터 파일의 일반 스냅숏이 생성되며 생성된 로그는 구성했거나 제공되는 보존 기간 동안 그대로 보존됩니다.
+SQL Database 하이퍼스케일 데이터베이스에는 기존의 전체, 차등 및 로그 백업이 없습니다. 대신 데이터 파일의 일반 스냅샷이 생성되며 생성된 로그는 구성했거나 제공되는 보존 기간 동안 그대로 보존됩니다.
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>SQL Database 하이퍼스케일에서 지정 시간 복원을 지원하나요?
 
@@ -273,7 +273,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>큰 데이터베이스를 백업하면 주 노드의 계산 성능에 영향을 주나요?
 
-아니요. 백업은 저장소 하위 시스템에 의해 관리되며 파일 스냅숏이 활용됩니다. 주 노드의 사용자 워크로드에 영향을 주지 않습니다.
+아니요. 백업은 저장소 하위 시스템에 의해 관리되며 파일 스냅샷이 활용됩니다. 주 노드의 사용자 워크로드에 영향을 주지 않습니다.
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>SQL Database 하이퍼스케일 데이터베이스로 지역 복원을 수행할 수 있나요?
 

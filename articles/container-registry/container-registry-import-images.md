@@ -24,7 +24,7 @@ Azure Container Registry는 기존 레지스트리에서 이미지를 복사하�
 
 * 동일한 Azure 구독이나 다른 Azure 구독의 다른 Azure Container Registry에서 가져오기
 
-* 비 Azure 개인 컨테이너 레지스트리에서 가져오기
+* 비 Azure 프라이빗 컨테이너 레지스트리에서 가져오기
 
 Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지를 가져오는 경우 다음과 같은 이점이 있습니다.
 
@@ -40,7 +40,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 자세한 단계는 [빠른 시작: Azure CLI를 사용하여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
+Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 자세한 단계는 [빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
 
 이미지를 Azure Container Registry로 가져오려면 ID에 대상 레지스트리에 대한 contributor 역할 이상의 쓰기 권한이 있어야 합니다. [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요. 
 
@@ -112,9 +112,9 @@ Active Directory 권한을 사용하여 액세스할 수 없는 레지스트리�
 az acr import --name myregistry --source sourceregistry.azurecr.io/sourcerepo/sourceimage:tag --image targetimage:tag --username <SP_App_ID> –-password <SP_Passwd>
 ```
 
-## <a name="import-from-a-non-azure-private-container-registry"></a>비 Azure 개인 컨테이너 레지스트리에서 가져오기
+## <a name="import-from-a-non-azure-private-container-registry"></a>비 Azure 프라이빗 컨테이너 레지스트리에서 가져오기
 
-레지스트리에 대한 끌어오기 액세스를 허용하는 자격 증명을 지정하여 개인 레지스트리에서 이미지를 가져옵니다. 예를 들어 개인 Docker 레지스트리에서 이미지를 끌어옵니다. 
+레지스트리에 대한 끌어오기 액세스를 허용하는 자격 증명을 지정하여 프라이빗 레지스트리에서 이미지를 가져옵니다. 예를 들어 프라이빗 Docker 레지스트리에서 이미지를 끌어옵니다. 
 
 ```azurecli
 az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --image sourceimage:tag --username <username> --password <password>
@@ -122,7 +122,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 공용 레지스트리 또는 다른 개인 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. 추가 이미지 가져오기 옵션은 [az acr import][az-acr-import] 명령 참조를 참조하세요. 
+이 문서에서는 공용 레지스트리 또는 다른 프라이빗 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. 추가 이미지 가져오기 옵션은 [az acr import][az-acr-import] 명령 참조를 참조하세요. 
 
 
 <!-- LINKS - Internal -->

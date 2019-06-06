@@ -48,7 +48,7 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 
    ![NTP 네트워크 규칙 추가][3]
 
-1. 인터넷의 다음 홉을 사용하여 [App Service Environment 관리 주소]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)의 관리 주소가 있는 경로 테이블을 만듭니다. 경로 테이블 항목은 비대칭 라우팅 문제를 방지하는 데 필요합니다. 인터넷의 다음 홉을 사용하여 IP 주소 종속성 아래에 명시된 IP 주소 종속성에 대한 경로를 추가합니다. Azure Firewall 사설 IP 주소인 다음 홉을 사용하여 0.0.0.0/0에 대한 경로 테이블에 Virtual Appliance 경로를 추가합니다 
+1. 인터넷의 다음 홉을 사용하여 [App Service Environment 관리 주소]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)의 관리 주소가 있는 경로 테이블을 만듭니다. 경로 테이블 항목은 비대칭 라우팅 문제를 방지하는 데 필요합니다. 인터넷의 다음 홉을 사용하여 IP 주소 종속성 아래에 명시된 IP 주소 종속성에 대한 경로를 추가합니다. Azure Firewall 개인 IP 주소인 다음 홉을 사용하여 0.0.0.0/0에 대한 경로 테이블에 Virtual Appliance 경로를 추가합니다. 
 
    ![경로 테이블 만들기][4]
    

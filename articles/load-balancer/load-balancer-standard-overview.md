@@ -40,7 +40,7 @@ Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프
 Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않으며 용량은 항상 사용 가능하고, 고려해야 할 시작 또는 확장 지연도 없습니다. 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.  TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요.  전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요.  필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다.  TLS 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요.  전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요.  필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 ## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
@@ -117,7 +117,7 @@ HA 포트 부하 분산 규칙을 사용하여 네트워크 가상 어플라이�
 
 ### <a name="securebydefault"></a>기본적으로 보안 적용
 
-표준 Load Balancer는 가상 네트워크에 완벽하게 온보딩됩니다.  가상 네트워크는 닫혀 있는 개인 네트워크입니다.  표준 Load Balancer 및 표준 공용 IP 주소는 이 가상 네트워크를 가상 네트워크 외부에서 액세스할 수 있도록 디자인되어 있으므로, 이제 이러한 리소스는 열지 않으면 기본적으로 닫혀 있습니다. 즉, 이제 NSG(네트워크 보안 그룹)를 사용하여 트래픽을 명시적으로 허용합니다.  전체 가상 데이터 센터를 만들고, NSG를 통해 사용 가능한 항목 및 시기를 결정할 수 있습니다.  서브넷에 NSG가 없거나 가상 머신 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용되지 않습니다.
+표준 Load Balancer는 가상 네트워크에 완벽하게 온보딩됩니다.  가상 네트워크는 닫혀 있는 프라이빗 네트워크입니다.  표준 Load Balancer 및 표준 공용 IP 주소는 이 가상 네트워크를 가상 네트워크 외부에서 액세스할 수 있도록 디자인되어 있으므로, 이제 이러한 리소스는 열지 않으면 기본적으로 닫혀 있습니다. 즉, 이제 NSG(네트워크 보안 그룹)를 사용하여 트래픽을 명시적으로 허용합니다.  전체 가상 데이터 센터를 만들고, NSG를 통해 사용 가능한 항목 및 시기를 결정할 수 있습니다.  서브넷에 NSG가 없거나 가상 머신 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용되지 않습니다.
 
 NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 
@@ -144,7 +144,7 @@ Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니�
 특정 프런트 엔드 IP 주소에서만 시작되도록 아웃바운드 연결을 제한하려는 경우, 필요에 따라 아웃바운드 매핑을 나타내는 규칙에서 아웃바운드 SNAT를 사용하지 않도록 설정할 수 있습니다.
 
 #### <a name="control-outbound-connectivity"></a>아웃바운드 연결 제어
-표준 Load Balancer는 가상 네트워크의 컨텍스트 내에 존재합니다.  가상 네트워크는 격리된 개인 네트워크입니다.  공용 IP 주소와의 연결이 없으면 공용 연결이 허용되지 않습니다.  [VNet 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 가상 네트워크의 내부 및 로컬에 있으므로 연결 가능합니다.  가상 네트워크 외부의 대상에 대해 아웃바운드 연결을 설정하려는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
+표준 Load Balancer는 가상 네트워크의 컨텍스트 내에 존재합니다.  가상 네트워크는 격리된 프라이빗 네트워크입니다.  공용 IP 주소와의 연결이 없으면 공용 연결이 허용되지 않습니다.  [VNet 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 가상 네트워크의 내부 및 로컬에 있으므로 연결 가능합니다.  가상 네트워크 외부의 대상에 대해 아웃바운드 연결을 설정하려는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
 - 표준 SKU 공용 IP 주소를 가상 머신 리소스에 대한 인스턴스 수준 공용 IP 주소로 할당 또는
 - 가상 머신 리소스를 공용 표준 Load Balancer의 백 엔드 풀에 배치
 

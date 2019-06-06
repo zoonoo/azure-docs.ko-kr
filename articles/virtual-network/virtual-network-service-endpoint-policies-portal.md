@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-service-endpoint-policy"></a>서비스 엔드포인트 정책 만들기
 
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - 구독: 구독을 선택합니다. 정책은 VNet과 동일한 구독에 있어야 합니다.     
    - 리소스 그룹: **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.     
    - 위치: 미국 중서부     
-   - 서브넷 이름: 개인     
+   - 서브넷 이름   : 프라이빗     
    - 주소 범위: 10.0.0.0/24
      
 4. 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myVirtualNetwork*를 입력하기 시작합니다. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.

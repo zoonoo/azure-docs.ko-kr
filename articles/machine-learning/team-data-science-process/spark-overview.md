@@ -78,7 +78,7 @@ ms.locfileid: "60256388"
 <!-- -->
 
 > [!NOTE]
-> Python이 아닌 Scala를 사용하여 종단 간 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure에서 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요.
+> Python이 아닌 Scala를 사용하여 엔드투엔드 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure에서 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요.
 >
 >
 

@@ -41,7 +41,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 
 1. Azure Files는 현재 5TB/공유로 제한됩니다. 이 제한은 여러 Azure 파일 공유에 분산된 데이터와 함께 Azure 파일 동기화를 사용하여 해결할 수 있습니다. 자세한 내용은 [Azure Files 배포에 대한 데이터 증가 패턴](https://docs.microsoft.com/azure/storage/files/storage-files-planning)을 검토하세요.
 2. 이 마이그레이션은 온-프레미스 디바이스에서 데이터 복사가 수행될 때 전체 주 데이터 집합을 온-프레미스 디바이스로 다운로드합니다. 이 전송을 수용할 수 있을 만큼 충분한 대역폭이 있는지 확인합니다.
-3. 이 프로세스는 이미 만들어져 있는 스냅숏을 보존하지 않습니다. 기본 데이터만 마이그레이션합니다. 또한 이 프로세스는 관련 대역폭 템플릿 또는 백업 정책을 보존하지 않습니다. 데이터가 Azure 파일 공유에서 마이그레이션되면 [Azure Backup을 사용](https://docs.microsoft.com/azure/backup/backup-azure-files)하여 백업 정책을 설정합니다.
+3. 이 프로세스는 이미 만들어져 있는 스냅샷을 보존하지 않습니다. 기본 데이터만 마이그레이션합니다. 또한 이 프로세스는 관련 대역폭 템플릿 또는 백업 정책을 보존하지 않습니다. 데이터가 Azure 파일 공유에서 마이그레이션되면 [Azure Backup을 사용](https://docs.microsoft.com/azure/backup/backup-azure-files)하여 백업 정책을 설정합니다.
 4. StorSimple은 자체 하드웨어를 제공합니다. 그러나 Azure Files/Azure 파일 동기화를 사용하면 사용자 고유의 로컬 Windows Server 하드웨어를 로컬 캐시로 사용할 수 있습니다. 선택한 데이터 집합을 로컬로 유지할 수 있을 만큼 충분한 저장소 용량이 있는지 확인해야 합니다. 계층화 및 필요한 사용 가능 공간 목표 설정에 대한 자세한 내용은 [Azure 파일 동기화 배포 시 서버 엔드포인트를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)을 검토하세요. 
 5. StorSimple과 다른 [Azure 파일 동기화의 가격](https://azure.microsoft.com/pricing/details/storage/files/)을 검토합니다. AFS에는 StorSimple과 같은 중복 제거 및 압축 기능이 없습니다.
 

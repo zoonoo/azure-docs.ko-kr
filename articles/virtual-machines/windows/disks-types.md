@@ -22,6 +22,6 @@ Ultra Ssd를 사용 하 여 시작 하려는 경우 주제에 문서를 참조 �
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
-스냅숏에 대한 자세한 내용은 [관리형 디스크 개요](managed-disks-overview.md)의 스냅숏 섹션을 참조하세요.
+스냅샷에 대한 자세한 내용은 [관리형 디스크 개요](managed-disks-overview.md)의 스냅샷 섹션을 참조하세요.
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]

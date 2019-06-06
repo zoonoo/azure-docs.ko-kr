@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715808"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233881"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 가상 머신 간의 네트워크 통신 모니터링
 
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | 인증 유형                   | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
 | 3 | 리소스 그룹                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
-| 6 | 확장                            | **Linux용 네트워크 에이전트**                                             |
+| 6 | 확장                            | **Linux용 Network Watcher 에이전트**                                             |
 
 VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기 전에 VM이 배포를 완료하도록 기다립니다.
 

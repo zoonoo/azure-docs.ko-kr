@@ -29,7 +29,7 @@ ms.locfileid: "60425643"
 
 [![1]][1]
 
-VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 개인 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. MSEE는 피어이므로 ExpressRoute 피어링을 구성할 때 피어 ASN으로 **12076**을 사용합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 ExpressRoute 경로 테이블을 볼 때 VNet의 접두사에 대해 VNet의 ExpressRoute 게이트웨이 ASN이 표시됩니다. 
+VNet의 Azure ExpressRoute 게이트웨이의 ASN이 Microsoft MSEE(Microsoft Enterprise Edge Router)의 ASN과 다른 것을 알 수 있습니다. ExpressRoute 게이트웨이는 프라이빗 ASN(**65515**의 값)을 사용하며 MSEE는 공용 ASN(**12076**의 값)을 전역적으로 사용합니다. MSEE는 피어이므로 ExpressRoute 피어링을 구성할 때 피어 ASN으로 **12076**을 사용합니다. Azure 쪽의 경우 MSEE는 ExpressRoute 게이트웨이를 사용하여 eBGP 피어링을 설정합니다. MSEE가 각 ExpressRoute 피어링에 대해 설정하는 이중 eBGP 피어링은 제어 평면 수준에서 투명합니다. 따라서 ExpressRoute 경로 테이블을 볼 때 VNet의 접두사에 대해 VNet의 ExpressRoute 게이트웨이 ASN이 표시됩니다. 
 
 다음 그림에는 예제 ExpressRoute 경로 테이블을 보여줍니다. 
 
@@ -51,7 +51,7 @@ Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으�
 
 ## <a name="on-premises-location-2-perspective"></a>온-프레미스 위치 2 관점
 
-온-프레미스 위치 2는 ExpressRoute 2의 개인 피어링을 통해 허브 VNet에 연결됩니다. 
+온-프레미스 위치 2는 ExpressRoute 2의 프라이빗 피어링을 통해 허브 VNet에 연결됩니다. 
 
 [![4]][4]
 
@@ -61,7 +61,7 @@ Azure 내에서 ASN은 피어링 관점에서만 중요합니다. 기본적으�
 
 ExpressRoute Microsoft 피어링을 사용하여 온-프레미스 네트워크와 Azure VNet 간에 개인적으로 데이터를 교환하도록 사이트 간 VPN을 구성할 수 있습니다. 이 구성을 사용하면 비밀성, 신뢰성 및 무결성을 유지하며 데이터를 교환할 수 있습니다. 데이터 교환은 재생 방지이기도 합니다. ExpressRoute Microsoft 피어링을 사용하여 터널 모드에서 사이트 간 IPsec VPN을 구성하는 방법에 대한 자세한 내용은 [ExpressRoute Microsoft 피어링을 통한 사이트 간 VPN][S2S-Over-ExR]을 참조하세요. 
 
-Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 개인 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
+Microsoft 피어링을 사용하는 사이트 간 VPN 구성에 대한 기본 제한은 처리량입니다. IPsec 터널을 통한 처리량은 VPN Gateway 용량에 의해 제한됩니다. VPN Gateway 처리량은 ExpressRoute 처리량보다 낮습니다. 이 시나리오에서 매우 안전한 트래픽의 경우 IPsec 터널 및 모든 다른 트래픽의 경우 프라이빗 피어링을 사용하면 ExpressRoute 대역폭 사용량을 최적화하는 데 도움이 될 수 있습니다.
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>ExpressRoute에 대한 안전한 장애 조치(failover) 경로인 사이트 간 VPN
 

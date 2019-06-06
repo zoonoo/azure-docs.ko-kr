@@ -241,7 +241,7 @@ VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 
 SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 
 - 두 가상 NIC 설치: 하나의 NIC는 관리 서브넷에 연결되고 다른 NIC는 온-프레미스 네트워크나 다른 네트워크에서 Azure VM의 SAP HANA 인스턴스에 연결됩니다.
-- 두 가상 NIC에 대해 배포된 고정 개인 IP 주소
+- 두 가상 NIC에 대해 배포된 고정 개인 IP 주소.
 
 > [!NOTE]
 > Azure 평균을 통해 고정 IP 주소를 개별 vNIC에 할당해야 합니다. 게스트 OS 내에서 고정 IP 주소를 vNIC에 할당하지 않아야 합니다. Azure Backup 서비스와 같은 일부 Azure 서비스는 최소한 기본 vNIC가 고정 IP 주소가 아닌 DHCP로 설정된다는 사실에 의존합니다. [Azure 가상 머신 백업 문제 해결](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking) 문서도 참조하세요. VM에 여러 고정 IP 주소를 할당해야 하는 경우 VM에 여러 vNIC를 할당해야 합니다.

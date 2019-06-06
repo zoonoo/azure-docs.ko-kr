@@ -1,6 +1,6 @@
 ---
 title: AKS(Azure Kubernetes Service)에 내부 네트워크용 수신 컨트롤러 만들기
-description: AKS(Azure Kubernetes Service) 클러스터에서 내부 개인 네트워크용 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
+description: AKS(Azure Kubernetes Service) 클러스터에서 내부 프라이빗 네트워크용 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -9,7 +9,7 @@ ms.date: 05/24/2019
 ms.author: iainfou
 ms.openlocfilehash: 27d93f963003cfb30b8827d45c0472405b0ed0a6
 ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/30/2019
 ms.locfileid: "66392672"
@@ -18,7 +18,7 @@ ms.locfileid: "66392672"
 
 수신 컨트롤러는 역방향 프록시, 구성 가능한 트래픽 라우팅, Kubernetes 서비스에 대한 TLS 종료를 제공하는 소프트웨어입니다. Kubernetes 수신 리소스는 개별 Kubernetes 서비스에 대한 수신 규칙 및 라우팅을 구성하는 데 사용됩니다. 수신 컨트롤러 및 수신 규칙을 사용하면 단일 IP 주소를 사용하여 Kubernetes 클러스터의 여러 서비스에 트래픽을 라우팅할 수 있습니다.
 
-이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 수신 컨트롤러는 내부 개인 가상 네트워크 및 IP 주소에 구성됩니다. 외부 액세스가 허용되지 않습니다. 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
+이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 수신 컨트롤러는 내부 프라이빗 가상 네트워크 및 IP 주소에 구성됩니다. 외부 액세스가 허용되지 않습니다. 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
 또한 다음을 수행할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "66392672"
 
 ## <a name="create-an-ingress-controller"></a>수신 컨트롤러 만들기
 
-기본적으로는 동적 공용 IP 주소 할당을 통해 NGINX 수신 컨트롤러를 만듭니다. 일반적인 구성 요구 사항은 내부 개인 네트워크 및 IP 주소를 사용하는 것입니다. 이 접근 방식을 사용하면 외부 액세스 없이 서비스 액세스를 내부 사용자로 제한할 수 있습니다.
+기본적으로는 동적 공용 IP 주소 할당을 통해 NGINX 수신 컨트롤러를 만듭니다. 일반적인 구성 요구 사항은 내부 프라이빗 네트워크 및 IP 주소를 사용하는 것입니다. 이 접근 방식을 사용하면 외부 액세스 없이 서비스 액세스를 내부 사용자로 제한할 수 있습니다.
 
 다음 예제 매니페스트 파일을 사용하여 *internal-ingress.yaml* 파일을 만듭니다. 이 예제에서는 *loadBalancerIP* 리소스에 *10.240.0.42*를 할당합니다. 수신 컨트롤러와 함께 사용할 고유한 내부 IP 주소를 제공합니다. 가상 네트워크 내에서 이 IP 주소가 이미 사용되고 있지 않은지 확인합니다.
 

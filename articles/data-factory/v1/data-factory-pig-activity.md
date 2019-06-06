@@ -85,14 +85,14 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 |작업의 이름 |예 |
+| name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아닙니다. |
-| 형식 |HDinsightPig |예 |
+| type |HDinsightPig |예 |
 | inputs |Pig 활동에서 사용하는 하나 이상의 입력 |아닙니다. |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
 | script |Pig 스크립트 인라인 지정 |아닙니다. |
-| script path |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
+| scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
 | defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아닙니다. |
 
 ## <a name="example"></a>예
@@ -211,7 +211,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
       }
     }
     ```
-* Pig 스크립트에서 다음 예와 같이 '**$parameterName**'을 사용하여 매개 변수를 참조합니다.
+* Pig 스크립트에서 다음 예와 같이 ' **$parameterName**'을 사용하여 매개 변수를 참조합니다.
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

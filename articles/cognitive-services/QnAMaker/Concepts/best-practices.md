@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792669"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693225"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 [기술 자료 개발 수명 주기](../Concepts/development-lifecycle-knowledge-base.md)에서는 KB를 종합적으로 관리하는 방법을 안내합니다. 모범 사례를 사용하여 기술 자료를 개선하고 애플리케이션/챗봇 최종 사용자에게 보다 나은 결과를 제공할 수 있습니다.
@@ -59,11 +59,11 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 
 잡담 QnA를 구체적으로 만드는 것이 좋습니다.
 
-* 누구십니까?
+* 당신은 누구인가요?
 * 어떻게 해야 합니까?
 * 나이가 어떻게 되세요?
 * 만든 사람은 누구인가요?
-* 안녕하세요?
+* Hello
    
 
 ## <a name="rankingscoring"></a>순위 지정/채점
@@ -71,6 +71,9 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 
 ### <a name="choosing-a-threshold"></a>임계값 선택
 임계값으로 사용되는 기본 신뢰성 점수는 50이지만 필요에 따라 KB에 대해 변경할 수 있습니다. 모든 KB가 다르므로 KB에 가장 적합한 임계값을 에 테스트하고 선택해야 합니다. [신뢰성 점수](../Concepts/confidence-score.md)에 대해 자세히 알아봅니다. 
+
+### <a name="choosing-ranker-type"></a>우선 순위 형식 선택
+기본적으로 QnA Maker 질문 및 답변을 통해 검색합니다. 질문만 검색 하려는 경우 생성 하려면 답변을 사용 합니다 `RankerType=QuestionOnly` GenerateAnswer 요청 POST 본문에 있습니다.
 
 ### <a name="add-alternate-questions"></a>대체 질문 추가
 [대체 질문](../How-To/edit-knowledge-base.md)은 사용자 쿼리와 일치할 가능성을 높입니다. 대체 질문은 같은 질문을 여러 가지 방식으로 받을 수 있는 경우에 유용합니다. 여기에는 문장 구조 및 단어 스타일 변경이 포함됩니다.
@@ -103,14 +106,14 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 |주차 *위치*는 어디인가요|
 |ATM *위치*는 어디인가요|
 
-이러한 두 QnA가 매우 유사한 단어로 구성되었으므로 이 유사성은 *"`<x>`위치는 어디인가요"* 와 같이 구성된 사용자 쿼리에 대해 유사한 점수가 발생할 수 있습니다. 대신, KB의 많은 질문에 포함된 “위치”와 같은 단어를 방지하여 “주차장은 어디인가요” 및 “ATM은 어디인가요”와 같은 쿼리로 명확하게 구분하려고 합니다. 
+이러한 두 QnA가 매우 유사한 단어로 구성되었으므로 이 유사성은 *"`<x>`위치는 어디인가요"* 와 같이 구성된 사용자 쿼리에 대해 유사한 점수가 발생할 수 있습니다. 대신, KB의 많은 질문에 포함된 “위치”와 같은 단어를 방지하여 “주차장은 어디인가요” 및 “ATM은 어디인가요”와 같은 쿼리로 명확하게 구분하려고 합니다.   
 
 ## <a name="collaborate"></a>공동 작업
 QnA Maker를 통해 사용자들이 기술 자료를 [공동으로 작업](../How-to/collaborate-knowledge-base.md)할 수 있습니다. 사용자는 기술 자료에 액세스하기 위해 Azure QnA Maker 리소스 그룹에 대한 액세스 권한이 필요합니다. 기술 자료 편집 및 유지 관리를 아웃소싱하려는 조직도 있을 것이며, 이 경우에도 여전히 Azure 리소스에 대한 액세스를 보호할 수 있습니다. 이 편집자-승인자 모델은 서로 다른 구독에 최대 2개의 동일한 [QnA Maker 서비스](../How-to/set-up-qnamaker-service-azure.md)를 설정하고 하나를 편집-테스트 주기용으로 지정하여 수행할 수 있습니다. 테스트가 완료되면 [가져오기-내보내기](../Tutorials/migrate-knowledge-base.md) 프로세스를 사용하여 최종적으로 기술 자료를 게시하고 엔드포인트를 업데이트하는 승인자의 QnA Maker 서비스로 기술 자료 콘텐츠를 전송할 수 있습니다.
 
-## <a name="active-learning"></a>활성 학습
+## <a name="active-learning"></a>능동적 학습
 
-[활성 학습](../How-to/improve-knowledge-base.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. 질문 QnA Maker 포털에서 제안 된를 수행할 수 있습니다 **[제안으로 필터링](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** 다음 검토 및 적용 또는 이러한 제안 취소 합니다. 
+[활성 학습](../How-to/improve-knowledge-base.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. 질문 QnA Maker 포털에서 제안 된를 수행할 수 있습니다 **[제안으로 필터링](../How-To/improve-knowledge-base.md)** 다음 검토 및 적용 또는 이러한 제안 취소 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

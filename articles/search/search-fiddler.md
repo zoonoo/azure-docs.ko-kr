@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793534"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471567"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>빠른 시작: Postman을 사용하여 Azure Search REST API 검색
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ Postman에서 다음 스크린샷과 같은 요청을 작성합니다. 동사로
 
 Azure Search에서는 일반적으로 데이터를 로드하기 전에 인덱스를 만듭니다. 이 작업에는 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API가 사용됩니다. 
 
-URL은 `hotel` 인덱스 이름을 포함하도록 확장됩니다.
+URL은 `hotels` 인덱스 이름을 포함하도록 확장됩니다.
 
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
 1. 동사를 **PUT**으로 변경합니다.
 
-2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`)에 복사합니다.
+2. 이 URL(`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`)에 복사합니다.
 
 3. 아래에 표시된 인덱스 정의를 요청 본문에 지정합니다.
 
@@ -257,7 +257,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 ### <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-동사를 **PUT**으로 변경합니다. `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06` URL의 수정된 버전을 복사하여 붙여넣습니다. 위에 제공된 인덱스 정의를 요청 본문에 복사합니다. 이 페이지는 다음 스크린샷과 비슷합니다. 완성된 요청을 보내려면 오른쪽 위에 있는 **실행**을 클릭합니다.
+동사를 **PUT**으로 변경합니다. `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06` URL의 수정된 버전을 복사하여 붙여넣습니다. 위에 제공된 인덱스 정의를 요청 본문에 복사합니다. 이 페이지는 다음 스크린샷과 비슷합니다. 완성된 요청을 보내려면 오른쪽 위에 있는 **실행**을 클릭합니다.
 
 ![Fiddler 요청 본문][7]
 

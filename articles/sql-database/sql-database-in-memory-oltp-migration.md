@@ -134,7 +134,7 @@ CREATE PROCEDURE schemaname.procedurename
         END;
 ```
 
-* TRANSACTION_ISOLATION_LEVEL의 경우 스냅숏은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
+* TRANSACTION_ISOLATION_LEVEL의 경우 스냅샷은 고유하게 컴파일된 저장 프로시저에 대한 가장 일반적인 값입니다. 그러나 다른 값의 하위 집합에서도 지원됩니다.
   
   * 반복 가능한 읽기
   * 직렬화 가능

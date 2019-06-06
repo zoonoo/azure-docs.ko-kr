@@ -39,7 +39,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>운영 체제에 기본적으로 있는 소프트웨어 iSCSI 초기자만 지원됩니다. 하드웨어 iSCSI 초기자는 지원되지 않습니다.<br></br>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>운영 체제에 기본적으로 있는 소프트웨어 iSCSI 초기자만 지원됩니다. 하드웨어 iSCSI 초기자는 지원되지 않습니다.<br></br>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅샷 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. |
 | VMware ESX |5.5 및 6.0 |iSCSI 클라이언트로 VMware vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 디바이스에서 VMware vSphere와 함께 지원됩니다. |
 | Linux RHEL/CentOS |5, 6 및 7 |Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux |SUSE Linux 11 | |
@@ -50,11 +50,11 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 ## <a name="software-requirements-for-optional-components"></a>선택적 구성 요소에 대한 소프트웨어 요구 사항
 
-다음 소프트웨어 요구 사항은 선택적 StorSimple 구성 요소(StorSimple 스냅숏 관리자 및 SharePoint용 StorSimple 어댑터)에 대한 것입니다.
+다음 소프트웨어 요구 사항은 선택적 StorSimple 구성 요소(StorSimple 스냅샷 관리자 및 SharePoint용 StorSimple 어댑터)에 대한 것입니다.
 
 | 구성 요소 | 호스트 플랫폼 | 추가 요구 사항/메모 |
 | --- | --- | --- |
-| StorSimple 스냅숏 관리자 |Windows Server 2008 R2 SP1, 2012, 2012 R2 |Windows Server에서 StorSimple Snapshot Manager 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 애플리케이션에 일관된 백업에 필요합니다.<br> StorSimple Snapshot Manager는 Windows Server 2008 R2 SP1(64비트), Windows Server 2012 R2 및 Windows Server 2012에서만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
+| StorSimple Snapshot Manager |Windows Server 2008 R2 SP1, 2012, 2012 R2 |Windows Server에서 StorSimple Snapshot Manager 사용은 미러링한 동적 디스크의 백업/복원에 필요하며 애플리케이션에 일관된 백업에 필요합니다.<br> StorSimple Snapshot Manager는 Windows Server 2008 R2 SP1(64비트), Windows Server 2012 R2 및 Windows Server 2012에서만 지원됩니다.<ul><li>Window Server 2012를 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 .NET 3.5–4.5를 설치해야 합니다.</li><li>Windows Server 2008 R2 SP1을 사용하는 경우 StorSimple Snapshot Manager를 설치하기 전에 Windows Management Framework 3.0을 설치해야 합니다.</li></ul> |
 | SharePoint용 StorSimple 어댑터 |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>SharePoint용 StorSimple 어댑터는 SharePoint 2010 및 SharePoint 2013에서만 지원됩니다.</li><li>RBS는 SQL Server Enterprise Edition 2008 R2 또는 2012 버전이 필요합니다.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 네트워킹 요구 사항
@@ -69,7 +69,7 @@ StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
 | TCP 9354 |아웃 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
 | 3260(iSCSI) |그런 다음 |LAN |아닙니다. |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
-| 5985 |그런 다음 |LAN |아닙니다. |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅숏 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5985 |그런 다음 |LAN |아닙니다. |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
 | 5986 |그런 다음 |LAN |아닙니다. |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
@@ -222,7 +222,7 @@ StorSimple 디바이스에는 미러링된 공간을 사용하여 보호되는 S
 * 언제든지 시스템에서 하나 이상의 SSD 또는 HDD를 제거하지 마십시오.
   특정 유형의 2개 이상의 디스크(HDD, SDD) 오류 또는 단시간 프레임 내의 연속된 오류는 시스템 오작동 및 잠재적 데이터 손실을 야기할 수 있습니다. 이 경우 지원을 위해 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md) 합니다.
 * 교체하는 동안 SSD 및 HDD에서 드라이브의 **하드웨어 상태** 블레이드에서 **공유 구성 요소**를 모니터링합니다. 녹색 확인 상태는 디스크가 정상 또는 확인 상태인지 나타내며, 빨간색 느낌표는 오류가 있는 SDD 또는 HDD를 나타냅니다.
-* 시스템 오류가 있는 경우 보호가 필요한 모든 볼륨에 대한 클라우드 스냅숏을 구성하는 것이 좋습니다.
+* 시스템 오류가 있는 경우 보호가 필요한 모든 볼륨에 대한 클라우드 스냅샷을 구성하는 것이 좋습니다.
 
 #### <a name="ebod-enclosure"></a>EBOD 인클로저
 

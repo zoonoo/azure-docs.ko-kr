@@ -13,7 +13,7 @@ ms.date: 05/29/2019
 ms.author: juliako
 ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
 ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/30/2019
 ms.locfileid: "66385156"
@@ -177,7 +177,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 다음과 같은 라이브 인코딩 업데이트가 도입되었습니다.
 
-- 라이브에 대한 짧은 대기 시간(종단간 10초)
+- 라이브에 대한 짧은 대기 시간(엔드투엔드 10초).
 - RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
 - RTMPS 보안 수집
 

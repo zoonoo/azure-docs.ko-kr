@@ -182,7 +182,7 @@ workflow AddPublicIPAndNSG {
     }
     ```
 
-각 복구 계획마다 개별 변수를 만들어 스크립트를 다시 사용할 수 있도록 합니다. 복구 계획 이름을 사용하여 접두사를 추가합니다. 이 시나리오에 대한 종단 간 전체 스크립트는 [Site Recovery 복구 계획의 테스트 장애 조치 중에 VM에 공용 IP 및 NSG 추가](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)를 참조하세요.
+각 복구 계획마다 개별 변수를 만들어 스크립트를 다시 사용할 수 있도록 합니다. 복구 계획 이름을 사용하여 접두사를 추가합니다. 이 시나리오에 대한 엔드투엔드 전체 스크립트는 [Site Recovery 복구 계획의 테스트 장애 조치 중에 VM에 공용 IP 및 NSG 추가](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)를 참조하세요.
 
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>복합 변수를 사용하여 자세한 정보 저장

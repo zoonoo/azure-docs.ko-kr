@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984786"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728593"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -36,9 +36,9 @@ ms.locfileid: "55984786"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
+| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 5630 |
 | [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1,440 |
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |
+| [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 64 |
 | [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 64 |

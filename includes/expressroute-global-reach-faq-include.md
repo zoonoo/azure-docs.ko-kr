@@ -17,7 +17,7 @@ ms.locfileid: "66170718"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global Reach란?
 
-ExpressRoute Global Reach는 Microsoft의 글로벌 네트워크를 통해 ExpressRoute 서비스를 통해 온-프레미스 네트워크를 연결하는 Azure 서비스입니다. 예를 들어 캘리포니아의 개인 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 개인 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 연결 2개를 통해 개인 데이터 센터를 연결할 수 있으며 데이터 센터 간 트래픽은 Microsoft의 네트워크 백본을 통해 트래버스됩니다.
+ExpressRoute Global Reach는 Microsoft의 글로벌 네트워크를 통해 ExpressRoute 서비스를 통해 온-프레미스 네트워크를 연결하는 Azure 서비스입니다. 예를 들어 캘리포니아의 프라이빗 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 프라이빗 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 연결 2개를 통해 프라이빗 데이터 센터를 연결할 수 있으며 데이터 센터 간 트래픽은 Microsoft의 네트워크 백본을 통해 트래버스됩니다.
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>ExpressRoute Global Reach를 활성화 또는 비활성화하려면 어떻게 할까요?
 
@@ -53,7 +53,7 @@ ExpressRoute Global Reach로 설정된 온-프레미스 네트워크 간의 네�
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>ExpressRoute Global Reach를 사용할 경우 보급할 수 있는 경로 수와 수신하는 경로 수는 몇 개로 제한되나요?
 
-Azure 개인 피어링에 대해 Microsoft로 보급할 수 있는 경로 수는 Standard 회로에서는 4000개, Premium 회로에서는 10,000개로 유지됩니다. Azure 개인 피어링에 대해 Microsoft로부터 수신하는 경로 수는 Azure Virtual Network의 경로와 ExpressRoute Global Reach를 통해 연결된 다른 온-프레미스 네트워크의 경로 수를 합한 것입니다. 온-프레미스 라우터에서 적절한 최대 접두사 제한을 설정해야 합니다. 
+Azure 프라이빗 피어링에 대해 Microsoft로 보급할 수 있는 경로 수는 Standard 회로에서는 4000개, Premium 회로에서는 10,000개로 유지됩니다. Azure 프라이빗 피어링에 대해 Microsoft로부터 수신하는 경로 수는 Azure Virtual Network의 경로와 ExpressRoute Global Reach를 통해 연결된 다른 온-프레미스 네트워크의 경로 수를 합한 것입니다. 온-프레미스 라우터에서 적절한 최대 접두사 제한을 설정해야 합니다. 
 
 ### <a name="what-is-the-sla-for-expressroute-global-reach"></a>ExpressRoute Global Reach에 대한 SLA란 무엇인가요?
 

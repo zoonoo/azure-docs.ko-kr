@@ -49,7 +49,7 @@ Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만�
 | VM에 데이터 디스크 추가 | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | VM에서 데이터 디스크 제거 | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | 디스크 크기 조정 | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
-| 디스크 스냅숏 | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
+| 디스크 스냅샷 | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
 | VM 이미지 만들기 | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
 | 이미지에서 VM 만들기 | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 

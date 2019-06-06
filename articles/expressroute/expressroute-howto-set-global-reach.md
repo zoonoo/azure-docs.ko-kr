@@ -1,6 +1,6 @@
 ---
 title: 'Global Reach 구성 - ExpressRoute: Azure | Microsoft Docs'
-description: 이 문서는 온-프레미스 네트워크 간의 사설 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
+description: 이 문서는 온-프레미스 네트워크 간의 프라이빗 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -56,9 +56,9 @@ ms.locfileid: "64572747"
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
    $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
    ```
-2. 회로 1에서 다음 명령을 실행하고 회로 2의 개인 피어링 ID를 전달합니다. 이 명령을 실행할 때 다음에 유의합니다.
+2. 회로 1에서 다음 명령을 실행하고 회로 2의 프라이빗 피어링 ID를 전달합니다. 이 명령을 실행할 때 다음에 유의합니다.
 
-   * 개인 피어링 ID는 다음 예제와 비슷합니다. 
+   * 프라이빗 피어링 ID는 다음 예제와 비슷합니다. 
 
      ```
      /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
@@ -88,8 +88,8 @@ ms.locfileid: "64572747"
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
    ```
 
-   회로 2의 개인 피어링 ID와 권한 부여 키를 기록해 둡니다.
-2. 회로 1에서 다음 명령을 실행합니다. 회로 2의 개인 피어링 ID와 권한 부여 키를 제공합니다.
+   회로 2의 프라이빗 피어링 ID와 권한 부여 키를 기록해 둡니다.
+2. 회로 1에서 다음 명령을 실행합니다. 회로 2의 프라이빗 피어링 ID와 권한 부여 키를 제공합니다.
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'

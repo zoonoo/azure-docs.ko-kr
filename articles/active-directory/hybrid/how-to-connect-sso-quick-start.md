@@ -197,7 +197,7 @@ Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통�
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
+Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 
@@ -208,11 +208,11 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](##step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/` 에 로그인합니다.
+   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/`에 로그인합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com` 에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
-   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com` 에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
+   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com`에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
+   - 새 프라이빗 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com`에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 

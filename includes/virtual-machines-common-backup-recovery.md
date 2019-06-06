@@ -32,11 +32,11 @@ Azure Site Recovery는 주요 자연 재해 또는 광범위한 서비스 중단
 
 [가상 머신을 복제](https://aka.ms/a2a-getting-started)하여 시작할 수 있습니다. 
 
-## <a name="managed-snapshots"></a>관리되는 스냅숏 
+## <a name="managed-snapshots"></a>관리되는 스냅샷 
 
-개발 및 테스트 환경에서 스냅숏은 Managed Disks를 사용하는 VM을 백업하기 위한 빠르고 간단한 옵션을 제공합니다. 관리되는 스냅숏은 관리 디스크에 대한 읽기 전용 전체 복사본입니다. 스냅숏은 원본 디스크와 별도로 존재하며, 새 관리 디스크를 만들어 VM을 다시 작성하는 데 사용될 수 있습니다. 디스크에서 사용되는 양에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅숏을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅숏 요금이 청구됩니다.  
+개발 및 테스트 환경에서 스냅샷은 Managed Disks를 사용하는 VM을 백업하기 위한 빠르고 간단한 옵션을 제공합니다. 관리되는 스냅샷은 관리 디스크에 대한 읽기 전용 전체 복사본입니다. 스냅샷은 원본 디스크와 별도로 존재하며, 새 관리 디스크를 만들어 VM을 다시 작성하는 데 사용될 수 있습니다. 디스크에서 사용되는 양에 따라 요금이 청구됩니다. 예를 들어 프로비전된 용량이 64GB이고 실제 사용된 데이터 크기가 10GB인 Managed Disks의 스냅샷을 만들 경우 사용된 10GB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다.  
 
-스냅숏 만들기에 대한 자세한 내용은 다음을 참조하세요.
+스냅샷 만들기에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796901"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514649"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text에 대한 요청 제한
 
@@ -31,14 +31,14 @@ ms.locfileid: "65796901"
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| 검색 | 10000 | 100 |   50,000 |
+| Detect | 10000 | 100 |   50,000 |
 | BreakSentence | 10000    | 100 | 5,0000 |
 | 사전 조회| 100 |  10  | 1,000 |
 | 사전 예제 | 텍스트 및 변환 (총 200)에 대 한 100 100| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
-시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 시간별 할당량 시간 전체에서 균등 하 게 사용 해야 합니다. 도달 이러한 제한을 초과할 하거나 짧은 기간에 너무 큰 할당량의 일부를 보낼 경우 할당량 응답의 부족 가능성이 받게 됩니다. 
+시간당 문자 제한은 Translator Text 구독 계층을 기반으로 합니다. 시간별 할당량 시간 전체에서 균등 하 게 사용 해야 합니다. 도달 이러한 제한을 초과할 하거나 짧은 기간에 너무 큰 할당량의 일부를 보낼 경우 할당량 응답의 부족 가능성이 받게 됩니다.
 
 | 계층 | 문자 제한 |
 |------|-----------------|

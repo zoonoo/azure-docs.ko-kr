@@ -3,19 +3,19 @@ title: 언어 지원 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 지원하는 자연 언어 목록입니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690140"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514992"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -23,7 +23,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Translation
+## <a name="translation"></a>변환
 
 **V2 Translator API**
 
@@ -35,7 +35,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 * 기본 인공신경망: 인공신경망은 기본 번역 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
 * 인공신경망 전용: 인공신경망 번역만 사용할 수 있습니다.
 
-**V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다. 
+**V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
 > 현재 신경망 언어 하위 집합 사용자 지정 변환기에 제공 되며 추가 점진적으로 추가 됩니다. [사용자 지정 변환기에서 현재 사용할 수 있는 언어를 보려면](#customization)합니다.
@@ -213,6 +213,7 @@ Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모�
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
 | 중국어 간체      | `zh-Hans`          |
+|중국어 번체|   `zh-Hant`   |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
 | 덴마크어      | `da`          |

@@ -28,7 +28,7 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 
 **뛰어난 내구성 및 가용성**: 표준 SSD는 동일한 Azure Disks 플랫폼에 구축되어 고가용성과 내구성을 일관성 있게 디스크에 제공합니다. Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 모든 Managed Disks와 마찬가지로, 표준 SSD도 LRS(로컬 중복 저장소)를 제공합니다. LRS가 탑재된 이 플랫폼은 업계 최고의 0% 연간 실패율로 IaaS 디스크에 엔터프라이즈급 내구성을 일관되게 제공하고 있습니다.
 
-**스냅숏**: 모든 Managed Disks와 마찬가지로 표준 SSD도 스냅숏 만들기를 지원합니다. 스냅숏 유형은 표준(HDD) 또는 프리미엄(SSD)일 수 있습니다. 비용 절감을 위해 모든 Azure 디스크 유형에 표준(HDD) 스냅숏 유형을 권장합니다. 스냅숏으로 관리 디스크를 만들 때는 항상 표준 SSD 또는 프리미엄 SSD와 같은 상위 계층을 선택할 수 있기 때문입니다.
+**스냅숏**: 모든 Managed Disks와 마찬가지로 표준 SSD도 스냅샷 만들기를 지원합니다. 스냅샷 유형은 표준(HDD) 또는 프리미엄(SSD)일 수 있습니다. 비용 절감을 위해 모든 Azure 디스크 유형에 표준(HDD) 스냅샷 유형을 권장합니다. 스냅샷으로 관리 디스크를 만들 때는 항상 표준 SSD 또는 프리미엄 SSD와 같은 상위 계층을 선택할 수 있기 때문입니다.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
@@ -59,13 +59,13 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 표준 SSD를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
 - Managed Disks 크기
-- 스냅숏
+- 스냅샷
 - 아웃바운드 데이터 전송
 - 트랜잭션
 
 **Managed Disks 크기**: Managed Disks의 요금은 프로비전되는 크기에 따라 청구됩니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 디스크 크기 옵션에 매핑합니다. 제공되는 디스크 크기에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 200GiB 표준 SSD를 프로비전한 경우 E15(256GiB)의 디스크 크기 옵션에 매핑됩니다. 프로비전된 디스크에 대한 청구는 Premium Storage 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 E10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 E10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양에 관계없이 적용됩니다.
 
-**스냅숏**: Managed Disks 스냅숏의 요금은 대상과 원본(있는 경우)의 스냅숏에서 사용하는 용량에 따라 청구됩니다. 스냅숏에 대한 자세한 내용은 [Managed Disks 스냅숏](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots)을 참조하세요.
+**스냅숏**: Managed Disks 스냅샷의 요금은 대상과 원본(있는 경우)의 스냅샷에서 사용하는 용량에 따라 청구됩니다. 스냅샷에 대한 자세한 내용은 [Managed Disks 스냅샷](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots)을 참조하세요.
 
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 

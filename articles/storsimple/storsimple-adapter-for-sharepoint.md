@@ -45,9 +45,9 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 
 * 별도 서버로 BLOB 콘텐츠를 이동하여 SQL Server에 쿼리 로드를 줄일 수 있고 이는 SQL Server 응답성을 향상시킬 수 있습니다. 
 * Azure StorSimple는 중복 제거 및 압축을 사용하여 데이터 크기를 줄입니다.
-* Azure StorSimple는 로컬 및 클라우드 스냅숏 형식으로 데이터 보호를 제공합니다. 또한 StorSimple 디바이스에 데이터베이스 자체를 배치하는 경우 충돌 일관성이 있는 방식으로 콘텐츠 데이터베이스 및 BLOB를 함께 백업할 수 있습니다. (콘텐츠 데이터베이스를 디바이스로 이동하면 StorSimple 8000 시리즈 디바이스만을 지원합니다. 이 기능은 5000 또는 7000 시리즈를 지원하지 않습니다.)
+* Azure StorSimple는 로컬 및 클라우드 스냅샷 형식으로 데이터 보호를 제공합니다. 또한 StorSimple 디바이스에 데이터베이스 자체를 배치하는 경우 충돌 일관성이 있는 방식으로 콘텐츠 데이터베이스 및 BLOB를 함께 백업할 수 있습니다. (콘텐츠 데이터베이스를 디바이스로 이동하면 StorSimple 8000 시리즈 디바이스만을 지원합니다. 이 기능은 5000 또는 7000 시리즈를 지원하지 않습니다.)
 * Azure StorSimple는 장애 조치, 파일 및 볼륨 복구(테스트 복구 포함)를 포함하는 재해 복구 기능과 신속한 데이터 복원을 포함합니다.
-* BLOB 데이터의 StorSimple 스냅숏으로 Kroll Ontrack PowerControls와 같은 데이터 복구 소프트웨어를 사용하여 SharePoint 콘텐츠의 항목 수준 복구를 수행합니다. (이 데이터 복구 소프트웨어는 별도 구매입니다.)
+* BLOB 데이터의 StorSimple 스냅샷으로 Kroll Ontrack PowerControls와 같은 데이터 복구 소프트웨어를 사용하여 SharePoint 콘텐츠의 항목 수준 복구를 수행합니다. (이 데이터 복구 소프트웨어는 별도 구매입니다.)
 * SharePoint 용 StorSimple 어댑터를 SharePoint 중앙 관리 포털에 연결하면 전체 SharePoint 솔루션을 중앙 위치에서 관리할 수 있습니다.
 
 파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절감 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 저장소에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint 서버 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 저장소 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
@@ -120,10 +120,10 @@ StorSimple 디바이스를 제대로 구성하고 SharePoint 배포를 지원하
 > 어댑터를 설치하고 구성한 후에 모든 BLOB 표면화는 StorSimple 디바이스를 통해 이동해야 합니다.(디바이스는 볼륨을 SQL Server에 표시하고 저장소 계층을 관리합니다.) BLOB 표면화에 다른 대상을 사용할 수 없습니다.
 
 
-StorSimple Snapshot Manager를 사용하여 BLOB 및 데이터베이스 데이터의 스냅숏을 만드는 경우 데이터베이스 서버에 StorSimple Snapshot Manager를 설치하므로 SQL 기록기 서비스를 사용하여 Windows VSS(볼륨 섀도 복사본 서비스)를 구현할 수 있습니다.
+StorSimple 스냅샷 관리자를 사용하여 BLOB 및 데이터베이스 데이터의 스냅샷을 만드는 경우 데이터베이스 서버에 StorSimple 스냅샷 관리자를 설치하므로 SQL 기록기 서비스를 사용하여 Windows 볼륨 섀도 복사본 서비스(VSS)를 구현할 수 있습니다.
 
 > [!IMPORTANT]
-> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 애플리케이션이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다.
+> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 애플리케이션이 일관된 SharePoint 데이터의 스냅샷을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다.
 
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>SharePoint 팜 필수 구성 요소

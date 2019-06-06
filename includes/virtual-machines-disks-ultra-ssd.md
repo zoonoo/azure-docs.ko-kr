@@ -96,6 +96,6 @@ VM 디스크가 ultra 호환 여부를 나타내는 VM에서 기능을 도입 �
 - 데이터 디스크로만 사용 가능하며 4k 물리적 섹터 크기만 지원함  
 - 빈 디스크로만 만들 수 있음  
 - 현재 Resource Manager 템플릿, CLI 및 Python SDK만을 사용하여 배포할 수 있습니다.
-- 디스크 스냅숏, VM 이미지, 가용성 집합, Virtual Machine Scale Sets 및 Azure Disk Encryption을 (아직) 지원하지 않습니다.
+- 디스크 스냅샷, VM 이미지, 가용성 집합, Virtual Machine Scale Sets 및 Azure Disk Encryption을 (아직) 지원하지 않습니다.
 - Azure Backup 또는 Azure Site Recovery와의 통합을 (아직) 지원하지 않습니다.
 -  [대부분의 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)와 마찬가지로, 이 기능은 GA(일반 공금) 전에는 프로덕션 워크로드에 사용할 수 없습니다.

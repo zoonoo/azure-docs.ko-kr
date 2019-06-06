@@ -19,7 +19,7 @@ ms.locfileid: "61441018"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
-![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
+![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 

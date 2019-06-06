@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Storage Explorer를 사용하여 개체 스토리지에 Blob 만들기'
-description: 이 빠른 시작에서는 Azure Storage Explorer를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Storage Explorer를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.custom: mvc
@@ -17,7 +17,7 @@ ms.locfileid: "59994472"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage Explorer를 사용하여 개체 스토리지에 Blob 만들기
 
-이 빠른 시작에서는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
+이 빠른 시작에서는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,9 +75,9 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 **Azure Storage 탐색기**에서 Blob을 선택하여 Blob을 다운로드하려면 리본에서 **다운로드**를 선택합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장**을 선택하면 로컬 위치에 Blob 다운로드가 시작됩니다.
 
-## <a name="manage-snapshots"></a>스냅숏 관리
+## <a name="manage-snapshots"></a>스냅샷 관리
 
-Azure Storage Explorer는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅숏을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 만들기**를 선택합니다. Blob의 스냅숏을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 관리**를 선택합니다. Blob의 스냅숏 목록이 현재 탭에 표시됩니다.
+Azure Storage Explorer는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅샷을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 만들기**를 선택합니다. Blob의 스냅샷을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅샷 관리**를 선택합니다. Blob의 스냅샷 목록이 현재 탭에 표시됩니다.
 
 ![Microsoft Azure Storage Explorer - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

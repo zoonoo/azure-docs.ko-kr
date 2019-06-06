@@ -164,7 +164,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 - 자체 서명된 인증서를 만듭니다.
 - 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
 - 로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
-- 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+- 네트워크 사용자에게 인증서의 프라이빗 키에 대한 액세스 권한을 부여합니다.
 - NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에 확장을 설치하는 경우 각각 자체 인증서가 있어야 합니다.
@@ -221,7 +221,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>클라이언트 인증서가 예상대로 설치되었는지 어떻게 확인합니까?
 
-설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 개인 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
+설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 프라이빗 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
 
 생성 한 자체 서명 된 인증서를 *AzureMfaNpsExtnConfigSetup.ps1* 스크립트는 유효 기간이 2 년의 수도 있습니다. 인증서가 설치를 확인 하는 경우 인증서가 만료 되지 않았는지 확인 해야 합니다.
 
@@ -237,7 +237,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
-이 명령은 PowerShell 세션에서 NPS 확장의 인스턴스와 테넌트를 연결하는 인증서를 모든 출력합니다. 클라이언트 인증서를 개인 키 없이 "Base-64 encoded X.509(.cer)" 파일로 내보내 인증서를 찾고 PowerShell의 목록과 비교합니다.
+이 명령은 PowerShell 세션에서 NPS 확장의 인스턴스와 테넌트를 연결하는 인증서를 모든 출력합니다. 클라이언트 인증서를 프라이빗 키 없이 "Base-64 encoded X.509(.cer)" 파일로 내보내 인증서를 찾고 PowerShell의 목록과 비교합니다.
 
 다음 명령을 "C:" 드라이브에 .cer 형식의 "npscertificate" 파일을 만듭니다.
 

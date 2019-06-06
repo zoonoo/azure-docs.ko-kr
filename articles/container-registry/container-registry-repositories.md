@@ -10,7 +10,7 @@ ms.date: 01/05/2018
 ms.author: cristyg
 ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60427103"
@@ -35,7 +35,7 @@ Azure Portal에서 이미지 태그뿐만 아니라 이미지를 호스트하는
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
- Azure Container Registry는 이러한 다단계 리포지토리 네임스페이스를 지원하므로 특정 앱 또는 앱 컬렉션과 관련된 이미지 모음을 다른 개발 또는 운영 팀으로 확장할 수 있습니다. 컨테이너 레지스트리의 리포지토리에 대한 자세한 내용은 [Azure의 개인 Docker 컨테이너 레지스트리](container-registry-intro.md)를 참조하세요.
+ Azure Container Registry는 이러한 다단계 리포지토리 네임스페이스를 지원하므로 특정 앱 또는 앱 컬렉션과 관련된 이미지 모음을 다른 개발 또는 운영 팀으로 확장할 수 있습니다. 컨테이너 레지스트리의 리포지토리에 대한 자세한 내용은 [Azure의 프라이빗 Docker 컨테이너 레지스트리](container-registry-intro.md)를 참조하세요.
 
 리포지토리를 보려면
 

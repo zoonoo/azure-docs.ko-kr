@@ -60,7 +60,7 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
   - 테이프 옵션: `REWIND`, `NOREWIND`를 `UNLOAD`, 및 `NOUNLOAD` 지원 되지 않습니다.
   - 로그 관련 옵션: `NORECOVERY`, `STANDBY`, 및 `NO_TRUNCATE` 지원 되지 않습니다.
 
- 제한 사항: 
+제한 사항: 
 
 - 관리 되는 인스턴스를 사용 하 여 백업할 수 있습니다 인스턴스에 데이터베이스를 데이터베이스에 있는 최대 32 개의 스트라이프가 있는 백업으로 백업 압축을 사용 하는 경우 최대 4TB입니다.
 - 사용 하 여 최대 백업 스트라이프 크기는 `BACKUP` 명령은 관리 되는 인스턴스에서 195GB(최대 blob 크기는 합니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
@@ -104,7 +104,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 다음과 같은 제약 조건을 적용 하므로 관리 되는 인스턴스는 파일 공유 및 Windows 폴더에 액세스할 수 없습니다.
 
 - 합니다 `CREATE FROM` / `BACKUP TO` 인증서에 대 한 파일 지원 되지 않습니다.
-- 합니다 `CREATE` / `BACKUP` 에서 인증서 `FILE` / `ASSEMBLY` 지원 되지 않습니다. 개인 키 파일은 사용할 수 없습니다. 
+- 합니다 `CREATE` / `BACKUP` 에서 인증서 `FILE` / `ASSEMBLY` 지원 되지 않습니다. 프라이빗 키 파일은 사용할 수 없습니다. 
 
 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
@@ -281,7 +281,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
-    - 스냅숏
+    - 스냅샷
     - 배포자
   - SSIS 작업 단계는 지원 됩니다.
   - 다른 유형의 작업 단계는 현재 지원 되지 않습니다.
@@ -427,7 +427,7 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - 모든 기존 메모리 최적화 파일 그룹은 XTP로 이름이 변경 됩니다. 
 - `SINGLE_USER` 및 `RESTRICTED_USER` 옵션으로 변환 됩니다 `MULTI_USER`합니다.
 
- 제한 사항: 
+제한 사항: 
 
 - `.BAK` 여러 백업 세트를 포함 하는 파일을 복원할 수 없습니다. 
 - `.BAK` 여러 로그 파일을 포함 하는 파일을 복원할 수 없습니다.

@@ -18,7 +18,7 @@ ms.locfileid: "60686644"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure Dev Spaces 공유
 
-Azure Dev Spaces를 사용하여 팀의 다른 사용자와 개발 공간을 공유할 수 있습니다. 각 개발자는 다른 사용자를 중단시킬 걱정 없이 자체 공간에서 작업할 수 있습니다. 또한 하나의 공간에서 함께 작업하면 모의 개체를 만들거나 종속성을 시뮬레이션할 필요 없이 종단 간 코드를 테스트할 수 있습니다. 자세한 내용은 [팀 개발 알아보기](../team-development-nodejs.md) 가이드를 참조하세요.
+Azure Dev Spaces를 사용하여 팀의 다른 사용자와 개발 공간을 공유할 수 있습니다. 각 개발자는 다른 사용자를 중단시킬 걱정 없이 자체 공간에서 작업할 수 있습니다. 또한 하나의 공간에서 함께 작업하면 모의 개체를 만들거나 종속성을 시뮬레이션할 필요 없이 엔드투엔드 코드를 테스트할 수 있습니다. 자세한 내용은 [팀 개발 알아보기](../team-development-nodejs.md) 가이드를 참조하세요.
 
 ## <a name="set-up-a-dev-space-for-multiple-developers"></a>여러 개발자를 위한 개발 공간 설정
 

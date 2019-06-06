@@ -33,7 +33,9 @@
               href: storage-quickstart-blobs-nodejs-v10.md
             - name: Python
               href: storage-quickstart-blobs-python.md
-            - name: JS/HTML
+            - name: JS/HTML용 v10 SDK 사용
+              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+            - name: JS/HTML용 v2 SDK 사용
               href: storage-quickstart-blobs-javascript-client-libraries.md
             - name: Go
               href: storage-quickstart-blobs-go.md
@@ -275,6 +277,8 @@
           href: storage-blob-event-overview.md
         - name: 페이지 Blob 기능
           href: storage-blob-pageblob-overview.md
+        - name: 정적 웹 사이트
+          href: storage-blob-static-website.md
     - name: 방법
       items:
         - name: 저장소 계정 만들기 및 관리
@@ -353,7 +357,7 @@
         - name: 속성 및 메타데이터 설정 및 검색
           href: storage-properties-metadata.md
         - name: 정적 웹 사이트 호스트
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: HTTPS를 통해 액세스할 수 있도록 Azure CDN을 사용자 지정 도메인에 매핑
           href: storage-https-custom-domain-cdn.md
         - name: 사용자 지정 도메인 구성

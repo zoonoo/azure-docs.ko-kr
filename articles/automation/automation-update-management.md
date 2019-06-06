@@ -99,7 +99,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 #### <a name="linux"></a>Linux
 
-Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 사설 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
+Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
 
 Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 정보를 참조 하세요 [Linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)합니다. Windows Log Analytics 에이전트를 설치 하는 방법에 대 한 정보를 참조 하세요 [Microsoft 모니터링 에이전트에 대 한 Windows](../log-analytics/log-analytics-windows-agent.md)합니다.
 

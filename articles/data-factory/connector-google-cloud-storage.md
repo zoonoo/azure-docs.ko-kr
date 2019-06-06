@@ -38,7 +38,7 @@ ms.locfileid: "65228283"
 
 Google Cloud Storage에서 데이터를 복사하려면 다음과 같은 권한이 부여되어 있는지 확인합니다.
 
-- **복사 작업 실행의 경우:**: 개체 작업에 대한 `s3:GetObject` 및 `s3:GetObjectVersion`
+- **복사 작업 실행의 경우:** : 개체 작업에 대한 `s3:GetObject` 및 `s3:GetObjectVersion`
 - **Data Factory GUI 작성의 경우**: 버킷 작업 권한에 대한 `s3:ListAllMyBuckets` 및 `s3:ListBucket`/`s3:GetBucketLocation`은 연결 테스트 및 파일 경로 찾아보기/탐색 등의 작업에 추가적으로 필요합니다. 이러한 권한을 부여하지 않으려면 연결된 서비스 만들기 페이지에서 테스트 연결을 건너뛰고 데이터 세트 설정에서 직접 경로를 지정합니다.
 
 ## <a name="getting-started"></a>시작
@@ -57,7 +57,7 @@ Google Cloud Storage 연결된 서비스에 다음 속성이 지원됩니다.
 | accessKeyId | 비밀 액세스 키의 ID입니다. 액세스 키 및 비밀을 찾으려면 **Google Cloud Storage** > **설정** > **상호 운용성**으로 이동합니다. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 S3 엔드포인트를 **`https://storage.googleapis.com`** 으로 지정합니다. | 예. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 다음은 예제입니다.
 

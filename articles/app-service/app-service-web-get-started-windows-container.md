@@ -108,7 +108,7 @@ Docker 허브 계정 자격 증명을 입력하고 **저장**을 클릭합니다
 
     ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
-    웹 애플리케이션에 대한 사용자 지정 이미지가 [Azure Container Registry](/azure/container-registry/) 또는 다른 개인 리포지토리와 같이 다른 곳에 있는 경우 여기에서 구성할 수 있습니다.
+    웹 애플리케이션에 대한 사용자 지정 이미지가 [Azure Container Registry](/azure/container-registry/) 또는 다른 프라이빗 리포지토리와 같이 다른 곳에 있는 경우 여기에서 구성할 수 있습니다.
 
 6. **만들기**를 클릭하고, Azure를 수신 대기하여 필수 리소스를 만듭니다.
 

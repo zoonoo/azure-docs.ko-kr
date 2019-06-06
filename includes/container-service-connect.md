@@ -21,7 +21,7 @@ DC/OS 및 Docker Swarm의 경우 로컬 컴퓨터에서 클러스터 관리 시�
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure Container Service에 배포된](../articles/container-service/dcos-swarm/container-service-deployment.md) Kubernetes, DC/OS 또는 Docker Swarm 클러스터.
-* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH RSA 개인 키 파일. 이러한 명령은 개인 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [macOS 및 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)해야 합니다.
+* 배포 중에 클러스터에 추가된 공개 키에 해당하는 SSH RSA 프라이빗 키 파일. 이러한 명령은 프라이빗 SSH 키가 사용자의 컴퓨터의 `$HOME/.ssh/id_rsa`에 있다고 가정합니다. 자세한 내용은 [macOS 및 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md)에 대한 다음 지침을 참조하세요. SSH 연결이 작동하지 않는 경우 [SSH 키를 재설정](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)해야 합니다.
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 
@@ -175,7 +175,7 @@ Windows에서 SSH 터널을 만드는 방법은 여러 가지가 있습니다. W
 
     ![PuTTY 구성 1](./media/container-service-connect/putty1.png)
 
-4. **SSH > 인증**을 선택합니다. 인증을 위한 개인 키 파일(.ppk 형식)에 경로를 추가합니다. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)과 같은 도구를 사용하여 클러스터를 만드는 데 사용되는 SSH 키에서 이 파일을 생성할 수 있습니다.
+4. **SSH > 인증**을 선택합니다. 인증을 위한 프라이빗 키 파일(.ppk 형식)에 경로를 추가합니다. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)과 같은 도구를 사용하여 클러스터를 만드는 데 사용되는 SSH 키에서 이 파일을 생성할 수 있습니다.
 
     ![PuTTY 구성 2](./media/container-service-connect/putty2.png)
 
