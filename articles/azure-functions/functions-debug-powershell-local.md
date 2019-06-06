@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230082"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476680"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure Functions를 로컬로 디버그
 
@@ -95,15 +95,28 @@ if($name) {
 
 ## <a name="debug-in-visual-studio-code"></a>Visual Studio Code에서 디버깅
 
-Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 Visual Studio Code에 대 한 다음 확장 해야 합니다.
+Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설치 되어 있어야 합니다.
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [Visual Studio Code 용 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
+* [Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md)
+* [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell#powershell-core)
 
-PowerShell 및 Azure Functions 확장을 설치한 후 기존 함수 앱 프로젝트를 로드 합니다. 할 수도 있습니다 [Functions 프로젝트 만들기](functions-create-first-function-vs-code.md)합니다.
+이러한 종속성을 설치한 후 기존 PowerShell Functions 프로젝트를 로드 하거나 [첫 번째 PowerShell 함수 프로젝트를 만들](functions-create-first-function-powershell.md)합니다.
 
 >[!NOTE]
 > 프로젝트가 없어야 필요한 구성 파일을 추가할 표시 됩니다.
+
+### <a name="set-the-powershell-version"></a>PowerShell 버전 설정
+
+PowerShell Core는 Windows PowerShell와 함께 설치 됩니다. PowerShell Core Visual Studio Code에 대 한 PowerShell 확장을 사용 하는 PowerShell 버전으로 설정 합니다.
+
+1. 명령 팔레트를 표시 한 다음 검색 F1 키를 눌러 `Session`합니다.
+
+1. 선택 **PowerShell: 세션 메뉴 표시**합니다.
+
+1. 경우에 **현재 세션** 되지 **PowerShell Core 6**, 선택 **전환: PowerShell Core 6**합니다.
+
+PowerShell 파일이 열려 있으면 창의 오른쪽 맨 아래에서 녹색으로 표시 되는 버전을 표시 됩니다. 세션 메뉴를 표시도이 텍스트를 선택 합니다. 자세한 내용은 참조는 [확장을 사용 하는 데 powershell 버전 선택](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension)합니다.
 
 ### <a name="start-the-function-app"></a>함수 앱 시작
 
@@ -140,7 +153,7 @@ Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 * PowerShell 콘솔을 수행 하는 `Invoke-RestMethod` 결과 반환 했습니다
 * Visual Studio Code에서 PowerShell 통합 콘솔을 실행 하는 스크립트를 기다리는 중입니다.
 
-동일한 기능을 확장 한 후 오른쪽 중단 하는 PowerShell에서 디버거를 호출 하는 경우 이후 시간을 `Wait-Debugger`입니다.
+나중에 바로 뒤 중단 PowerShell 확장에서 디버거 같은 함수를 호출 하는 경우는 `Wait-Debugger`합니다.
 
 ## <a name="debugging-in-a-powershell-console"></a>PowerShell 콘솔에서 디버깅
 

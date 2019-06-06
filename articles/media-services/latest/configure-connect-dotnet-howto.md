@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736142"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428493"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>.NET으로 Media Services v3 API에 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "60736142"
 ## <a name="prerequisites"></a>필수 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) Media Services 계정 이름과 리소스 그룹 이름을 기억해 두어야
-- .NET 개발에 사용 하려는 하는 도구를 설치 합니다. 이 문서의 단계를 사용 하는 방법을 보여 줍니다 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)합니다. Visual Studio Code를 사용 하 여 참조 하세요 [사용 C# ](https://code.visualstudio.com/docs/languages/csharp)합니다. 또는 다른 코드 편집기를 사용할 수 있습니다.
+- .NET 개발에 사용 하려는 하는 도구를 설치 합니다. 이 문서의 단계를 사용 하는 방법을 보여 줍니다 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)합니다. Visual Studio Code를 사용 하 여 참조 하세요 [사용 C# ](https://code.visualstudio.com/docs/languages/csharp)합니다. 또는 다른 코드 편집기를 사용할 수 있습니다.
 
 ## <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143416"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427573"
 ---
 # <a name="deploy-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 배포
 
@@ -88,13 +88,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 컨테이너의 기존 디바이스 모델 파일을 새 위치로 복사합니다. 먼저, 디바이스 시뮬레이션 컨테이너에 대한 컨테이너 ID를 찾습니다.
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     그런 후 디바이스 모델 파일을 가상 머신의 **tmp** 폴더에 복사합니다. 다음 명령은 컨테이너 ID가 c378d6878407이라고 가정합니다. 이 값을 디바이스 시뮬레이션 컨테이너 ID로 바꿉니다.
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     **bash** 창에서 SSH 세션을 열린 상태로 둡니다.
@@ -116,13 +117,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     실행 중인 Docker 컨테이너의 상태 및 해당 컨테이너 ID를 확인하려는 경우 다음 명령을 사용합니다.
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     디바이스 시뮬레이션 컨테이너에서 로그를 확인하려는 경우 다음 명령을 실행합니다. 컨테이너 ID를 디바이스 시뮬레이션 컨테이너의 ID로 바꿉니다.
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>시뮬레이션 실행

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: HT
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232419"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427143"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -114,11 +114,11 @@ IR 위치는 해당 백 엔드 계산의 위치, 즉 기본적으로 데이터 �
 ### <a name="azure-ir-location"></a>Azure IR 위치
 Azure IR의 특정 위치를 설정할 수 있으며, 데이터 이동 또는 작업 디스패치는 이 특정 영역에서 발생합니다. 
 
-기본값인 Azure IR 자동 확인을 사용하도록 선택할 경우 
+사용 하려는 경우는 **자동으로 해결 Azure IR** 기본값, 
 
 - 복사 작업에서는 ADF가 자동으로 싱크 및 원본 데이터 저장소를 검색하여 동일한 영역에서 최적의 위치를 선택하고(사용 가능한 경우), 데이터 팩터리 영역을 사용할 대안을 검색할 수 없는 경우에는 동일한 지리에서 가장 가까운 위치를 선택하기 위해 노력합니다.
 
-- 조회/GetMetadata 작업 실행 및 변환 작업 디스패치에서는 ADF가 데이터 팩토리 영역에서 IR을 사용합니다.
+- 조회/GetMetadata/삭제 작업 실행 (파이프라인 활동), 변환 작업 디스패치 (라고도 외부 활동) 및 작업 (연결 테스트, 찾아보기 폴더 목록 및 테이블 목록에서 데이터 미리 보기) 제작에 대 한 ADF 데이터 팩터리 영역이에 IR을 사용 합니다.
 
 - 데이터 흐름에 대 한 ADF 데이터 팩토리 영역에 IR을 사용 합니다. 
 

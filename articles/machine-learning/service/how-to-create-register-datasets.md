@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 021b9035b10ad5a08bca1842e8d0714b33c84271
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165891"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492432"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>만들기 및 Azure Machine Learning에서 데이터 집합 (미리 보기)에 액세스
 
@@ -40,7 +40,7 @@ ms.locfileid: "66165891"
 
 * Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
-* [Azure Machine Learning 서비스 작업 영역의 Azure Machine Learning 서비스 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* [Azure Machine learning 서비스](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
 * 합니다 [설치 된 Python에 대 한 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), azureml 데이터 집합 패키지를 포함 하는 합니다.
 

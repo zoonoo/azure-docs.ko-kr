@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect 동기화: Office 365에서 Multi-Geo 기능에 대한 기본 설정 데이터 위치 구성 | Microsoft Docs'
+title: 'Azure AD Connect: Office 365 리소스에 대한 기본 설정 데이터 위치 구성'
 description: Azure Active Directory Connect 동기화를 사용하여 Office 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348252"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473030"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -49,7 +49,7 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 | 프랑스 | FRA |
 | 인도 | IND |
 | 일본 | JPN |
-| 대한민국 | KOR |
+| 한국 | KOR |
 | 영국 | GBR |
 | 미국 | NAM |
 
@@ -124,9 +124,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | Value | 세부 정보 |
+    | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | Name | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
+    | 이름 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
     | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -153,9 +153,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 3. **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | Value | 세부 정보 |
+    | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | Name | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
+    | 이름 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *Azure AD 커넥터에 선택* ||
     | 연결된 시스템 개체 유형 | **User** ||
@@ -165,10 +165,10 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
 5. **범위 지정 필터** 탭으로 이동하여 다음 두 절이 있는 단일 범위 지정 필터 그룹을 추가합니다.
 
-    | 특성 | 연산자 | Value |
+    | 특성 | 연산자 | 값 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
     범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예에서는 "Out to AD - User Identity" OOB(out-of-box) 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 **User** 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 

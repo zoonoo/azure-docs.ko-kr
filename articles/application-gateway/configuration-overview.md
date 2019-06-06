@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431307"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -57,7 +57,7 @@ Azure 내부 사용을 위해 각 서브넷에서 5 개의 IP 주소를 예약 �
 
 - 트래픽 합니다 **AzureLoadBalancer** 태그를 허용 해야 합니다.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>몇 가지 원본 Ip에 대 한 허용 목록에 추가 Application Gateway 액세스
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>몇 가지 원본 Ip에 대 한 Application Gateway 액세스를 허용 합니다.
 
 이 시나리오에 대 한 Application Gateway 서브넷에서 Nsg를 사용 합니다. 다음과 같은 제한 사항이 우선 순위에 따라이 서브넷에 적용 합니다.
 
@@ -118,7 +118,7 @@ V2 SKU에 대 한 다중 사이트 수신기는 기본 수신기 보다 먼저 �
 
 프런트 엔드 포트를 선택 합니다. 기존 포트를 선택 하거나 새로 만듭니다. 값을 선택 합니다 [허용 되는 포트의 범위](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports)합니다. 80 및 443 같은 잘 알려진 포트 뿐 아니라 적합 한 모든 허용 되는 사용자 지정 포트를 사용할 수 있습니다. 공용 또는 개인 연결 수신기에 대 한 포트를 사용할 수 있습니다.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>프로토콜
 
 HTTP 또는 HTTPS를 선택 합니다.
 
@@ -215,7 +215,7 @@ V2 SKU에 대 한 정확한 일치 하는 경우 URL 경로 맵의 경로 순서
 
 #### <a name="redirection-type"></a>리디렉션 유형
 
-필요한 의도치 않은 리디렉션의 유형을 선택 합니다. *Permanent(301)*, *Temporary(307)* 를 *Found(302)*, 또는 *other(303) 참조*합니다.
+필요한 의도치 않은 리디렉션의 유형을 선택 합니다. *Permanent(301)* , *Temporary(307)* 를 *Found(302)* , 또는 *other(303) 참조*합니다.
 
 #### <a name="redirection-target"></a>리디렉션 대상
 
@@ -259,7 +259,7 @@ Application gateway는 여기서 지정 하는 구성을 사용 하 여 백 엔�
 
 연결 드레이닝 정상적으로 계획 된 서비스 업데이트 도중 백 엔드 풀 멤버를 제거할 수 있습니다. 규칙을 만드는 동안이 설정은 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 백 엔드 풀의 모든 등록 해제 인스턴스에 새 요청을 받지는 확인 합니다. 한편, 기존 요청은 구성 된 제한 시간 내에 완료 되도록 허용 됩니다. 연결 드레이닝 API 호출에 의해 명시적으로 백 엔드 풀에서 제거 되는 백 엔드 인스턴스에 적용 됩니다. 도로 보고 되는 백 엔드 인스턴스에 적용 됩니다 *비정상* 상태에 따라 검색 합니다.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>프로토콜
 
 Application Gateway는 라우팅 요청을 백 엔드 서버에 대 한 HTTP 및 HTTPS를 지원 합니다. HTTP를 선택할 경우에 백 엔드 서버로 트래픽을 암호화 되지 않습니다. 암호화 되지 않은 통신을 허용 하지 않으면 HTTPS를 선택 합니다.
 

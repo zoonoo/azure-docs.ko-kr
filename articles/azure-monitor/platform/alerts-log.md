@@ -1,6 +1,6 @@
 ---
 title: 만들기, 보기 및 관리 로그를 사용 하 여 Azure Monitor 경고 | Microsoft Docs
-description: Azure Monitor를 사용하여 Azure에서 로그 경고를 작성, 보기 및 관리합니다.
+description: Azure 모니터를 사용 하 여 작성, 보기 및 Azure에서 로그 경고 규칙을 관리 합니다.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399166"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427457"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 

@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244105"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728960"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 
-이 C# 예제에서는 Azure Time Series Insights GA 환경에서에서 데이터를 쿼리 하는 방법을 보여 줍니다. 
+이 C# 예제에서는 Azure Time Series Insights GA 환경에서에서 데이터를 쿼리 하는 방법을 보여 줍니다.
 
 이 샘플은 쿼리 API 사용의 몇 가지 기본 예제를 보여 줍니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "66244105"
 1. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
 
 > [!NOTE]
-> 예제 코드에서 제공 됩니다 [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample)합니다.
+> 예제 코드에서 제공 됩니다 [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)합니다.
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 

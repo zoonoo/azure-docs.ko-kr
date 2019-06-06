@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight Tools - Hive, LLAP 또는 PySpark용 Visual Studio Code 사용 | Microsoft Docs
+title: Azure HDInsight Tools-Hive, LLAP 또는 PySpark 용 Visual Studio Code 사용
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
-Keywords: Visual Studio Code, Azure HDInsight Tools, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, 대화형 Hive, 대화형 쿼리
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681757"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427695"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -55,7 +53,7 @@ Azure HDInsight Tools는 Windows, Linux 및 macOS를 포함하여 Visual Studio 
 
 작업 폴더를 열고 Visual Studio Code에서 파일을 만들려면 다음 단계를 완료합니다.
 
-1. 메뉴 모음에서 **파일** > **폴더 열기...** > **C:\HD\HDexample**로 이동한 다음, **폴더 선택** 단추를 선택합니다. 왼쪽의 **탐색기** 뷰에 폴더가 나타납니다.
+1. 메뉴 모음에서 **파일** > **폴더 열기...**  > **C:\HD\HDexample**로 이동한 다음, **폴더 선택** 단추를 선택합니다. 왼쪽의 **탐색기** 뷰에 폴더가 나타납니다.
 
 2. **탐색기** 뷰에서 폴더, **HDexample**, 작업 폴더 옆의 **새 파일** 아이콘을 차례로 선택합니다.
 
@@ -71,12 +69,12 @@ Visual Studio Code에서 HDInsight 클러스터에 스크립트를 제출하려�
 
     ![HDInsight Tools for Visual Studio Code 로그인](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. **출력** 창의 로그인 지침을 따릅니다.
+2. 로그인에 대 한 지침을 수행 합니다 **출력** 창입니다.
     + Azure 전역 환경의 경우 **HDInsight: 로그인** 명령은 HDInsight 탐색기에서 **Azure에 로그인** 작업을 트리거하고 반대의 경우도 마찬가지입니다.
 
         ![Azure에 대한 로그인 지침](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + 기타 환경의 경우에는 로그인 지침을 따릅니다.
+    + 다른 환경에 대 한 로그인 지침을 따릅니다.
 
         ![기타 환경에 대한 로그인 지침](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -306,7 +304,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     **POST/일괄 처리**   
     요청 본문
 
-    | 이름 | description | 형식 | 
+    | name | description | 형식 | 
     | :- | :- | :- | 
     | file | 실행할 애플리케이션을 포함하는 파일 | 경로(필수) | 
     | proxyUser | 작업을 실행할 때 가장하는 사용자 | 문자열 | 
@@ -322,13 +320,13 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     | numExecutors | 이 세션에 대해 시작할 실행기 수 | int |
     | 아카이브 | 이 세션에 사용할 아카이브 | 문자열 목록 |
     | 큐 | 제출되는 YARN 큐의 이름 | 문자열 |
-    | 이름 | 이 세션의 이름 | 문자열 |
+    | name | 이 세션의 이름 | 문자열 |
     | conf | Spark 구성 속성 | key=val의 맵 |
 
     응답 본문   
     만든 일괄 처리 개체입니다.
 
-    | 이름 | description | 형식 | 
+    | name | description | 형식 | 
     | :- | :- | :- | 
     | id | 세션 ID | int | 
     | appId | 이 세션의 애플리케이션 ID |  String |
@@ -360,7 +358,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 Visual Studio Code용 HDInsight는 다음 기능을 지원합니다.
 
-- **IntelliSense 자동 완성**. 키워드, 메서드, 변수 등에 대한 추천 항목이 팝업됩니다. 다음과 같이 다양한 아이콘이 여러 형식의 개체를 나타냅니다.
+- **IntelliSense 자동 완성**합니다. 키워드, 메서드, 변수 등에 대한 추천 항목이 팝업됩니다. 다음과 같이 다양한 아이콘이 여러 형식의 개체를 나타냅니다.
 
     ![HDInsight Tools for Visual Studio Code IntelliSense 개체 형식](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **IntelliSense 오류 표식**. 언어 서비스에서 Hive 스크립트에 대한 편집 오류에 밑줄을 표시합니다.     

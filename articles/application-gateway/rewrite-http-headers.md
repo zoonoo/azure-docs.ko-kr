@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000964"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476026"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더를 다시 작성
 
@@ -153,11 +153,11 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거할 수 있
 
 ## <a name="limitations"></a>제한 사항
 
+- 응답에 동일한 이름 가진 둘 이상의 머리글이 다른 헤더 응답에서 삭제 한 다음 이러한 헤더 중 하나의 값을 재작성 발생 합니다. 응답에서 Set-cookie 헤더를 여러 개를 가질 수 있으므로 일반적으로 Set-cookie 헤더를 사용 하 여 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이 사용 하 여 app service를 사용 하는 경우 application gateway에서 쿠키 기반 세션 선호도 구성 했습니다. 이 경우 응답 2 Set-cookie 헤더에 포함 됩니다: 즉, app service에서 사용 되는 것 `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 및 응용 프로그램 게이트웨이 선호도 대 한 다른 즉, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. 이 시나리오에서는 Set-cookie 헤더 중 하나를 다시 작성은 다른 Set-cookie 헤더 응답에서 제거 될 수 있습니다.
+
 - 연결, 업그레이드 및 호스트 헤더를 다시 작성 현재 지원 되지 않습니다.
 
 - 에 정의 된 대로 헤더 이름은 모든 영숫자 문자 및 특정 기호를 포함할 수 있습니다 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)합니다. 밑줄 현재 지원 되지 않습니다 (\_) 헤더 이름에 특수 문자입니다.
-
-- 응답에 동일한 이름 가진 여러 헤더 응답에서 다른 헤더를 삭제 한 다음 이러한 헤더 중 하나의 값을 재작성 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

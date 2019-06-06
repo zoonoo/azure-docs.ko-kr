@@ -7,24 +7,24 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307274"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497528"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
-Windows 가상 데스크톱 미리 보기 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장합니다. Windows 가상 데스크톱 등의 원격 컴퓨팅 환경에서 프로필을 로밍할 수 FSLogix 설계 되었습니다. 완전 한 사용자 프로필을 단일 컨테이너에 저장합니다. 로그인 시 컨테이너 네이티브, 게스트의 가상 하드 디스크 (VHD) 및 Hyper-v 가상 하드 디스크 (VHDX) Microsoft 서비스를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필 즉시 사용할 수 있습니다 및 기본 사용자 프로필을 똑같이 시스템에 표시 됩니다.
+Windows 가상 데스크톱 미리 보기 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장합니다. Windows 가상 데스크톱 등의 원격 컴퓨팅 환경에서 프로필을 로밍할 수 FSLogix 설계 되었습니다. 완전 한 사용자 프로필을 단일 컨테이너에 저장합니다. 로그인에이 컨테이너는 기본적으로 지원 되는 가상 하드 디스크 (VHD) 및 Hyper-v 가상 하드 디스크 (VHDX)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필 즉시 사용할 수 있습니다 및 기본 사용자 프로필을 똑같이 시스템에 표시 됩니다.
 
 이 문서에서는 Azure Files를 사용 하는 FSLogix 프로필 컨테이너 설명 하겠습니다. 정보는 기능인 Windows 가상 데스크톱의 컨텍스트에서 [3 월 21에서 이전에 발표](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/)합니다.
 
 ## <a name="user-profiles"></a>사용자 프로필
 
-사용자 프로필에 대 한 바탕 화면 설정, 영구적인 네트워크 연결 및 응용 프로그램 설정과 같은 구성 정보를 포함 하 여 개별 데이터 요소를 포함 합니다. 기본적으로 Windows 운영 체제와 긴밀 하 게 통합 된 로컬 사용자 프로필을 만듭니다.
+사용자 프로필을 바탕 화면 설정, 영구적인 네트워크 연결 등 응용 프로그램 설정 구성 정보를 포함 하 여 개별에 대 한 데이터 요소를 포함 합니다. 기본적으로 Windows 운영 체제와 긴밀 하 게 통합 된 로컬 사용자 프로필을 만듭니다.
 
-원격 사용자 프로필 사용자 데이터 및 운영 체제 간에 파티션을 제공합니다. 운영 체제를 바꾸거나 사용자 데이터를 영향 없이 변경 될 수 있습니다. 세션 호스트 RDSH (원격 데스크톱) 및 가상 데스크톱 인프라 (VDI)에서 운영 체제는 다음과 같은 이유로 대체 될 수 있습니다.
+원격 사용자 프로필 사용자 데이터 및 운영 체제 간에 파티션을 제공합니다. 운영 체제를 대체 하거나 사용자 데이터를 영향을 주지 않고 변경할 수 있습니다. 세션 호스트 RDSH (원격 데스크톱) 및 가상 데스크톱 인프라 (VDI)에서 운영 체제는 다음과 같은 이유로 대체 될 수 있습니다.
 
 - 운영 체제 업그레이드
 - 기존 가상 머신 (VM)의 대체
@@ -67,7 +67,7 @@ S2D 클러스터 패치, 업데이트 및 보안 상태를 유지 관리 되는 
 
 ## <a name="fslogix-profile-containers"></a>FSLogix 프로필 컨테이너
 
-2018 년 11 월 19 일에 [Microsoft 획득 FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/)합니다. FSLogix 주소 많은 프로필 컨테이너 문제, 그중에서 키 다음과 같습니다.
+2018 년 11 월 19 [Microsoft 획득 FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/)합니다. FSLogix 많은 프로필 컨테이너 문제를 해결합니다. 그중에서 키 다음과 같습니다.
 
 - **성능:** 합니다 [FSLogix 프로필 컨테이너](https://fslogix.com/products/profile-containers) 은 고성능 및 캐시 된 exchange 모드를 지금까지 차단 하는 성능 관련 문제를 해결 합니다.
 - **OneDrive:** 비즈니스용 OneDrive FSLogix 프로필 컨테이너 없이 비영구적 RDSH 또는 VDI 환경에서 지원 되지 않습니다. [비즈니스 및 FSLogix 모범 사례에 대 한 OneDrive](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) 작용 하는 방법을 설명 합니다. 자세한 내용은 [동기화 클라이언트를 사용 하 여 가상 데스크톱에](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi)입니다.

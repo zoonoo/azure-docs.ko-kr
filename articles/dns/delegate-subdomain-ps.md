@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 40b2a4d98e6269d9740856ba44c1043af75ce1b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ee4d9e6390c9a091096bb7c06160b76fd8af90f
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791187"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730280"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS 하위 도메인 위임
 
@@ -25,7 +25,7 @@ Azure PowerShell을 사용하여 DNS 하위 도메인을 위임할 수 있습니
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

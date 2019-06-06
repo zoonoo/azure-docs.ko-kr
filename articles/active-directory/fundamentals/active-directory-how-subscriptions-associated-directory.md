@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463636"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430785"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -42,6 +42,7 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
     - RBAC를 사용 하 여 역할 할당 된 사용자에 대 한 액세스를 잃게 됩니다.
     - 서비스 관리자 및 공동 관리자에 액세스할 수 없게 됩니다.
     - 모든 주요 자격 증명 모음에 있는 경우 이러한에서는 액세스할 수 없게 및 연결 후 수정 해야 합니다.
+    - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 모든 관리 되는 id를 설정한 경우 다시 사용 하도록 설정 하거나 연결 후 다시
     - 연결 후 다시 등록 해야는 등록 된 Azure Stack에 있는 경우
 
 1. 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
@@ -76,7 +77,9 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
 1. 키 자격 증명 모음 테 넌 트 ID를 변경 해야 모든 키 자격 증명 모음에 있는 경우 자세한 내용은 [구독 이동 후 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/key-vault-subscription-move-fix.md)합니다.
 
-2. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)합니다.
+2. 리소스에 대 한 관리 되는 시스템 할당 Id를 사용한 경우 이러한 다시 활성화 해야 있습니다. 관리 되는 사용자 할당 Id를 사용 하는 경우 다시 만들어야 이러한 합니다. 를 다시 사용 하도록 설정 하거나 관리 되는 Id를 다시 만드는 후 해당 id에 할당 된 권한을 다시 설정 해야 합니다. 자세한 내용은 참조 [Azure 리소스에 대 한 관리 되는 id 란?](../managed-identities-azure-resources/overview.md)합니다.
+
+3. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)합니다.
 
 
 

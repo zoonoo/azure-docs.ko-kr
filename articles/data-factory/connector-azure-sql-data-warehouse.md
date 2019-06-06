@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245057"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427887"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -531,7 +531,7 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR �
 
 **Decimal 열으로 로딩**
 
-텍스트 형식으로 원본 데이터를 SQL Data Warehouse Decimal 열에 로드 하는 빈 값이 포함 된 다음과 같은 오류가 도달할 수 있습니다.
+원본 데이터를 텍스트 형식 또는 다른 비 PolyBase 호환 (단계적된 복사 및 PolyBase 사용)를 저장 하 고 SQL Data Warehouse Decimal 열에 로드 하는 빈 값이 포함 된 다음과 같은 오류가 도달할 수 있습니다.
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: HT
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385156"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688656"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -36,11 +36,18 @@ ms.locfileid: "66385156"
 
 ## <a name="may-2019"></a>2019년 5월
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 이상에서 동적 패키징 지원 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services 진단 로그 및 메트릭 용 azure 모니터링 지원
 
-HLS를 추가 (버전 4 이상)에서 여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산에 대해 동적 패키징을 지원 합니다.
+이제 Media Services에서 원격 분석 데이터 emmited 보려는 Azure Monitor를 사용할 수 있습니다.
 
-자세한 내용은 [동적 패키징](dynamic-packaging-overview.md)합니다.
+* Azure Monitor 진단 로그를 사용 하 여 Media Services 키 배달 끝점에서 전송 요청을 모니터링 합니다. 
+* Media Services에서 내보내는 메트릭 모니터링 [스트리밍 끝점](streaming-endpoint-concept.md)합니다.   
+
+자세한 내용은 참조 하세요 [Media Services 모니터링 메트릭 및 진단 로그](media-services-metrics-diagnostic-logs.md)합니다.
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>동적 패키징에서 다중 오디오 트랙을 지원합니다. 
+
+여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산을 스트리밍할 때 [동적 패키징](dynamic-packaging-overview.md) HLS 출력에 대 한 다중 오디오 트랙 이제 (버전 4 이상).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>한국 지역 쌍은 Media Services에 대 한 열기 
 

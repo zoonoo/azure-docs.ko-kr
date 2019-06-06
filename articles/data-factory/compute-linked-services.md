@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155255"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480438"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 컴퓨팅 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -98,7 +98,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 ### <a name="properties"></a>properties
 | 자산                     | 설명                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
-| 형식                         | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | 예      |
+| type                         | 형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. | 예      |
 | clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | 예      |
 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. HDInsight 클러스터는 Azure Storage 계정과 동일한 지역에 생성됩니다. Azure HDInsight에는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수에 대한 제한이 있습니다. 필요한 clustersize를 충족하기에 해당 Azure 지역의 코어 할당량이 충분한지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다. </p> | 예      |
 | clusterResourceGroup         | HDInsight 클러스터는 이 리소스 그룹에 생성됩니다. | 예      |
@@ -108,7 +108,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | hostSubscriptionId           | HDInsight 클러스터를 만드는 데 사용되는 Azure 구독 ID입니다. 지정하지 않으면 Azure 로그인 컨텍스트의 구독 ID를 사용합니다. | 아닙니다.       |
 | clusterNamePrefix           | HDI 클러스터 이름의 접두사로, 클러스터 이름 끝에 타임스탬프가 자동으로 추가됩니다.| 아닙니다.       |
 | sparkVersion                 | 클러스터 형식이 "Spark"인 경우 Spark 버전입니다. | 아닙니다.       |
-| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아닙니다.       |
+| additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. 이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아닙니다.       |
 | osType                       | 운영 체제 유형입니다. 허용되는 값은 다음과 같습니다. Linux 및 Windows(HDInsight 3.3에만 해당) 기본값은 Linux입니다. | 아닙니다.       |
 | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 metastore로 사용하여 만들어집니다. | 아닙니다.       |
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다.       |
@@ -286,7 +286,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 ### <a name="properties"></a>properties
 | 자산          | 설명                                                  | 필수 |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| 형식              | 형식 속성은 **HDInsight**로 설정해야 합니다.            | 예      |
+| type              | 형식 속성은 **HDInsight**로 설정해야 합니다.            | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
 | 사용자 이름          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | 예      |
 | 암호          | 사용자 계정으로 password를 지정합니다.                       | 예      |
@@ -346,7 +346,7 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 ### <a name="properties"></a>properties
 | 자산          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
-| 형식              | 형식 속성은 **AzureBatch**로 설정해야 합니다. | 예      |
+| type              | 형식 속성은 **AzureBatch**로 설정해야 합니다. | 예      |
 | accountName       | Azure Batch 계정의 이름         | 예      |
 | accessKey         | Azure Batch 계정에 대한 선택키  | 예      |
 | batchUri          | Azure 배치 계정에 대한 URL로, https://*batchaccountname.region*.batch.azure.com 형식을 사용합니다. | 예      |
@@ -425,7 +425,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 | 자산             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| 형식                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
+| type                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
 | dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다.           | 아닙니다.                                       |
 | subscriptionId       | Azure 구독 ID                    | 아닙니다.                                       |
@@ -494,6 +494,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 아닙니다.                |
 | newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 계산 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아닙니다.               |
 | newClusterSparkConf  | 선택적인 사용자 지정 Spark 구성 키-값 쌍의 집합입니다. 또한 사용자는 각각 spark.driver.extraJavaOptions 및 spark.executor.extraJavaOptions를 통해 드라이버와 실행기에 추가 JVM 옵션 문자열을 전달할 수 있습니다. | 아닙니다.  |
+| newClusterInitScripts| 새 클러스터에 대 한 선택 사항, 사용자 정의 초기화 스크립트 집합이 있습니다. Init 스크립트 DBFS 경로 지정 합니다. | 아닙니다.  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스

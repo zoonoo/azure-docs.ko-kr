@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728013"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428470"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -111,7 +111,7 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 --- | --- | ---
 *.portal.azure.com | Azure 글로벌에 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
 *.portal.azure.us | Azure Government에만 적용됩니다. Azure 서비스와의 연결과 시간 동기화를 확인합니다. | URL에 액세스할 수 있어야 합니다.<br/><br/> URL에 연결할 수 없으면 필수 구성 요소 확인은 실패합니다.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | Url에 대 한 액세스가 필요 합니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 인터넷에 연결 된 컴퓨터에 수동으로 모듈을 설치 하 고 다음 기기에 모듈을 복사 해야 합니다. [이 문제 해결 가이드에서 # 4 단계로 이동 하 여 자세한](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)합니다.
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | PowerShell vCenter PowerCLI 모듈을 다운로드하는 데 사용됩니다. | Url에 대 한 액세스가 필요 합니다.<br/><br/> 필수 구성 요소 확인은 실패하지 않습니다.<br/><br/> Collector VM에서 자동 모듈 설치가 실패합니다. 인터넷에 연결 된 컴퓨터에 수동으로 모듈을 설치 하 고 다음 기기에 모듈을 복사 해야 합니다. [이 문제 해결 가이드에서 # 4 단계로 이동 하 여 자세한](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)합니다.
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>수동으로 VMware PowerCLI 모듈 설치
@@ -152,7 +152,7 @@ RDP | TCP 3389 |
 ## <a name="collected-metadata"></a>수집된 메타데이터
 
 > [!NOTE]
-> Azure로 마이그레이션할 때 응용 프로그램의 크기를 조정하고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행하기 위해 Azure Migrate Collector Appliance에서 수집된 메타 데이터를 사용합니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다. 
+> Azure로 마이그레이션할 때 응용 프로그램의 크기를 조정하고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행하기 위해 Azure Migrate Collector Appliance에서 수집된 메타 데이터를 사용합니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
 
 Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터를 검색합니다. VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
 
@@ -167,7 +167,7 @@ Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터�
 
 ### <a name="performance-counters"></a>성능 카운터
 
- Collector 어플라이언스는 20초 간격으로 ESXi 호스트에서 각 VM에 대해 다음 성능 카운터를 수집합니다. 이러한 카운터는 vCenter 카운터로, 용어 자체는 평균을 의미하지만 20초 샘플은 실시간 카운터입니다. VM에 대한 성능 데이터는 검색을 실행하고 2시간 후에 포털에서 사용 가능해집니다. 정확한 크기 권장 사항을 얻을 수 있도록 성능 기반 평가를 만들기 전에 최소한 하루 이상을 기다리는 것이 좋습니다. 즉각적인 만족을 원할 경우 적절한 크기의 성능 데이터를 고려하지 않는 온-프레미스 방식의 크기 조정 기준으로 평가를 만들 수 있습니다.
+ Collector 어플라이언스는 20초 간격으로 ESXi 호스트에서 각 VM에 대해 다음 성능 카운터를 수집합니다. 이러한 카운터는 vCenter 카운터로, 용어 자체는 평균을 의미하지만 20초 샘플은 실시간 카운터입니다. VM에 대한 성능 데이터는 검색을 실행하고 2시간 후에 포털에서 사용 가능해집니다. 정확한 크기 권장 사항을 얻을 수 있도록 성능 기반 평가를 만들기 전에 최소한 하루 이상을 기다리는 것이 좋습니다. 즉각적인 만족을 원할 경우 적절한 크기의 성능 데이터를 고려하지 않는 온-프레미스 방식의 크기 조정 기준으로 평가를 만들 수 있습니다  .
 
 **카운터** |  **평가에 미치는 영향**
 --- | ---

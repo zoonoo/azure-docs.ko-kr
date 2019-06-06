@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768177"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425612"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -93,7 +93,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행을 위해 실제로 사용되는 데이터 통합 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
 
 > [!NOTE]
-> **4를 초과**하는 DIU 설정은 현재 **Blob Storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사하는 경우에만 작동합니다.** .
+> 설정 DIUs **4 보다 큰** 현재 경우에만 적용 됩니다 있습니다 **다른 클라우드 데이터 저장소를AzureStorage/DataLakeStorage/AmazonS3/Google클라우드Storage/클라우드FTP/cloudSFTP에서에서여러파일을복사**.
 >
 
 **예제:**

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b5a203150906758bde33431a1dab717e090f2e28
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418139"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475580"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>미리 보기-클러스터 노드 및 필요한 포트 및 Azure Kubernetes Service (AKS)에서 서비스에 대 한 액세스 제어에 대 한 송신 트래픽 제한
 
@@ -73,9 +73,9 @@ AKS, 포트 및 주소의 두 가지 있습니다.
 
 다음 FQDN 응용 프로그램 규칙이 필요 합니다.
 
-| FQDN                      | Port      | 사용      |
+| FQDN                      | 포트      | 사용      |
 |---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | 이 주소는 API 서버 끝점입니다. |
+| *.azmk8s.io               | HTTPS:443,22,9000 | 이 주소는 API 서버 끝점입니다. |
 | aksrepos.azurecr.io       | HTTPS:443 | 이 주소가 액세스 이미지에서 컨테이너 레지스트리 ACR (Azure)에 필요 합니다. |
 | \*.blob.core.windows.net   | HTTPS:443 | 이 주소는 백 엔드 저장소 ACR에 저장 된 이미지입니다. |
 | mcr.microsoft.com         | HTTPS:443 | 이 주소는 Microsoft 컨테이너 레지스트리 (MCR)에 대 한 액세스 이미지에 필요 합니다. |
@@ -91,7 +91,7 @@ AKS, 포트 및 주소의 두 가지 있습니다.
 
 다음 FQDN / 응용 프로그램 규칙은 제대로 작동 하려면 AKS 클러스터에 대 한 권장 됩니다.
 
-| FQDN                                    | Port      | 사용      |
+| FQDN                                    | 포트      | 사용      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | 이 주소에는 Linux 클러스터 노드에 필수 보안 패치 및 업데이트를 다운로드할 수 있습니다. |
 | packages.microsoft.com                  | HTTPS:443 | 이 주소는 사용 되는 Microsoft 패키지 리포지토리 캐시에 대 한 *apt get* 작업 합니다. |

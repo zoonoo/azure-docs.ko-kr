@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967812"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730317"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -40,17 +40,17 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 1. Azure Digital Twins 인스턴스를 선택합니다.
 1. **활동 로그**를 선택하여 디스플레이 패널을 불러옵니다.
 
-    ![활동 로그][1]
+    [![활동 로그](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 고급 활동 로깅의 경우:
 
 1. **로그** 옵션을 선택하여 **활동 로그 분석 개요**를 선택합니다.
 
-    ![선택][2]
+    [![선택](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. **활동 로그 분석 개요**는 필수 활동 로그 데이터를 요약합니다.
 
-    ![활동 로그 분석 개요][3]
+    [![활동 log analytics 개요]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >**활동 로그**를 사용하여 구독 수준 이벤트에 대한 인사이트를 신속하게 얻을 수 있습니다.
@@ -70,12 +70,12 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 1. Azure Portal에서 리소스를 불러옵니다.
 1. **진단 설정**을 클릭합니다.
 
-    ![진단 설정 1][4]
+    [![진단 설정 1](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. **진단 켜기**를 클릭하여 데이터를 수집합니다(이전에 사용하도록 설정하지 않은 경우).
 1. 요청된 필드에 정보를 입력하고 데이터를 저장할 방법 위치를 선택합니다.
 
-    ![진단 설정 2][5]
+    [![진단 설정 2](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     진단 로그를 사용 하 여 저장 종종 [Azure File Storage](../storage/files/storage-files-deployment-guide.md) 와 공유 하 고 [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md)합니다. 두 옵션 모두 선택할 수 있습니다.
 
@@ -99,24 +99,24 @@ Azure Monitor는 로깅 원본을 확인 하 고 한곳에서 분석할 수 있�
 1. Azure Portal에서 **Log Analytics**를 검색합니다.
 1. 사용할 나타납니다 **Log Analytics 작업 영역** 인스턴스. 그 중 하나를 선택하고 쿼리할 **로그**를 선택합니다.
 
-    ![Log Analytics][6]
+    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. 아직 없는 경우는 **Log Analytics 작업 영역** 인스턴스를 클릭 하 여 작업 영역을 만들 수 있습니다 합니다 **추가** 단추:
 
-    ![OMS 만들기][7]
+    [![OMS 만들기](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 한 번에 **Log Analytics 작업 영역** 인스턴스가 프로 비전 되므로, 강력한 쿼리를 사용 하 여 여러 로그에서 항목을 찾을 하거나 사용 하 여 특정 조건을 사용 하 여 검색할 수 있습니다 **로그 관리**:
 
-   ![로그 관리][8]
+   [![로그 관리](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 강력한 쿼리 작업에 대한 자세한 내용은 [쿼리 시작하기](../azure-monitor/log-query/get-started-queries.md)를 참조하세요.
 
 > [!NOTE]
 > 이벤트를 보낼 때 5 분 지연이 발생할 수 있습니다 **Log Analytics 작업 영역** 처음으로 합니다.
 
-Azure Monitor 로그에는 또한 강력한 오류 및 경고 알림 서비스를 클릭 하 여 볼 수 있는 제공 **진단 및 문제 해결**:
+Azure Monitor 로그 에서도 강력한 오류 및 경고 알림 서비스를 클릭 하 여 볼 수 있습니다 **진단 및 문제 해결**:
 
-   ![경고 및 오류 알림][9]
+   [![경고 및 오류 알림](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >사용 하 여 **Log Analytics 작업 영역** 여러 앱 기능, 구독 또는 서비스에 대 한 쿼리 로그 기록에 있습니다.
@@ -132,14 +132,3 @@ Azure Digital Twins는 응용 프로그램별 로깅 및 보안 감사도 지원
 - [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 읽고 Azure 진단 설정에 대해 자세히 알아보세요.
 
 - 에 대해 자세히 알아보세요 [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md)합니다.
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

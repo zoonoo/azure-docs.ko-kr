@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258851"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735155"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지 (미리 보기)에 대 한 메시지 강화
 
@@ -49,6 +49,8 @@ ms.locfileid: "66258851"
 
 Azure Blob storage, Service Bus 큐 또는 Service Bus 토픽와 같은 사용자 지정 끝점으로 라우팅되는 메시지를 IoT Hub의 기본 제공 끝점에 메시지를 강화를 추가할 수 있습니다.
 
+또한 Event Grid로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지를 강화를 추가할 수 있습니다. 자세한 내용은 [Iot Hub 및 Event Grid](iot-hub-event-grid.md)합니다.
+
 끝점당 원칙이 적용 됩니다. 특정 끝점에 대 한 자동 삽입 될 5 강화를 지정 하는 경우 끝점으로 이동 하는 모든 메시지는 동일한 5 원칙이 지정 합니다.
 
 메시지 강화 하는 방법, 참조는 [메시지 원칙이 자습서](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Azure Blob storage, Service Bus 큐 또는 Service Bus 토픽와 같은 사용�
 
 ## <a name="availability"></a>가용성
 
-이 미리 보기로 제공 되는 기능과 미국 동부, 미국 서 부, 유럽 서 부를 제외한 모든 지역에서 제공 됩니다 [Azure Government](/azure-government/documentation-government-welcome.md)하십시오 [Azure 중국 21Vianet](/azure/china/china-welcome.md), 및 [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+이 미리 보기로 제공 되는 기능과 미국 동부, 미국 서 부, 유럽 서 부를 제외한 모든 지역에서 제공 됩니다 [Azure Government](/azure/azure-government/documentation-government-welcome)하십시오 [Azure 중국 21Vianet](/azure/china/china-welcome), 및 [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>다음 단계
 
