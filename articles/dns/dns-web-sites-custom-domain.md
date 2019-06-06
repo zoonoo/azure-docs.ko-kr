@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665953"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730263"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -41,7 +41,7 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -189,4 +189,4 @@ set-AzWebApp `
 Azure DNS 프라이빗 영역을 만드는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용하여 Azure DNS 사설 영역 시작](private-dns-getstarted-powershell.md)
+> [PowerShell을 사용하여 Azure DNS 프라이빗 영역 시작](private-dns-getstarted-powershell.md)
