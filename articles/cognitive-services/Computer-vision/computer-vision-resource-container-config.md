@@ -31,8 +31,7 @@ ms.locfileid: "59678686"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적 하는데 사용 되는 Azure `Cognitive Services` 리소스 키를 지정합니다. ApiKey에 대한 값을 지정 해야 하며 그 값은 [ `Billing` ](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스에 대한 유효한 키여야 합니다.
-이 설정은 다음 위치에서 찾을 수 있습니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는데 사용되는 Azure `Cognitive Services` 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 그 값은 [`Billing`](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스에 대한 유효한 키여야 합니다.
 
 * Azure Portal: **Cognitive Services** 리소스 관리 아래에 있는 **키**
 
@@ -42,13 +41,12 @@ ms.locfileid: "59678686"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure에서 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정 해야 하며 그 값은 Azure에서  _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
-
+`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure의 _Cognitive Services_ 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure의 _Cognitive Services_ 리소스에 대한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
 * Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
 
-다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가 해야 합니다. 
+다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다.  
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
@@ -92,16 +90,16 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 다음 표에 나와 있는 것 처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가 해야 합니다.
 
-{_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
+다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다.
 
-| 구분 | 값 | 형식 또는 예 |
+| 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
 |{BILLING_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 Azure에서 `Cognitive Services` 리소스 [키] 페이지에서 **키** 입니다. 
+> ApiKey 값은 Azure `Cognitive Services` 리소스 [키] 페이지의 **키**입니다.
 
 ## <a name="recognize-text-container-docker-examples"></a>텍스트 인식 컨테이너 Docker 예제
 
