@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735155"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754557"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지 (미리 보기)에 대 한 메시지 강화
 
@@ -77,7 +77,7 @@ Azure Blob storage, Service Bus 큐 또는 Service Bus 토픽와 같은 사용�
 
 ## <a name="availability"></a>가용성
 
-이 미리 보기로 제공 되는 기능과 미국 동부, 미국 서 부, 유럽 서 부를 제외한 모든 지역에서 제공 됩니다 [Azure Government](/azure/azure-government/documentation-government-welcome)하십시오 [Azure 중국 21Vianet](/azure/china/china-welcome), 및 [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+이 미리 보기로 제공 되는 기능과 미국 동부, 미국 서 부, 유럽 서 부를 제외한 모든 지역에서 제공 됩니다 [Azure Government](/azure/azure-government/documentation-government-welcome)하십시오 [Azure 중국 21Vianet](/azure/china), 및 [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>다음 단계
 

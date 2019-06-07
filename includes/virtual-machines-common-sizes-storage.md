@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420798"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755598"
 ---
 스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다.
 
@@ -57,7 +57,7 @@ Premium Storage 캐싱: 지원되지 않음
 - SLES 12 SP2 이상
 - RHEL 또는 CentOS 버전 6.7 통해 Microsoft에서 제공한 LIS 패키지 4.3.1 6.10 (또는 이상) 설치
 - Microsoft에서 제공한 LIS 4.2.1 패키지를 사용 하 여 CentOS 또는 RHEL 버전 7.3 (또는 이상) 설치
-- CentOS 또는 RHEL 버전 7.4 이상
+- CentOS 또는 RHEL 버전 7.6 이상
 - UEK4 또는 나중에 oracle Linux
 - 10 이상 Debian backports 커널로 debian 9
 - CoreOS 4.14 커널 이상

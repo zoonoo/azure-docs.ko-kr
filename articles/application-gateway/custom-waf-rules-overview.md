@@ -7,18 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 62259749e04d66d78206a0bba77ce88f2c08c82f
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689003"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752036"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>웹 응용 프로그램 방화벽에 대 한 사용자 지정 규칙
-
-> [!IMPORTANT]
-> Azure Application Gateway WAF 사용자 지정 규칙은 현재 공개 미리 보기입니다. **사용자 지정 규칙 WAF_v2 SKU에만 사용할 수 있는**합니다.
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능이 지원되지 않거나, 기능이 제한되거나, 일부 Azure 위치에 제공되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Application Gateway 웹 응용 프로그램 방화벽 (WAF)는 다양 한 유형의 공격 으로부터 보호를 제공 하는 미리 구성 된, 플랫폼에서 관리 하는 규칙 집합을 사용 하 여 제공 됩니다. 이러한 공격 교차 사이트 스크립팅, SQL 주입 등 포함 됩니다. WAF 관리자 인 경우에 (CR) 규칙을 설정 하는 고유한 규칙 핵심 규칙 확장을 작성 하는 것이 좋습니다. 규칙을 차단 하거나 일치 조건에 따라 요청된 트래픽을 허용 합니다.
 

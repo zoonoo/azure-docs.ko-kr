@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480067"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753197"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -27,7 +27,7 @@ ms.locfileid: "66480067"
 
 Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
-1. **Python**에서 기계 학습의 학습 스크립트를 개발합니다.
+1. 기계 학습에서 스크립트 개발 **Python** 또는 시각적 인터페이스를 사용 하 여 합니다.
 1. **‘계산 대상’** 을 만들고 구성합니다.
 1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 1. **‘실험을 쿼리’** 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
@@ -107,34 +107,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 ## <a name="compute-target"></a>계산 대상
 
-컴퓨팅 대상은 학습 스크립트를 실행하거나 서비스 배포를 호스트하는 데 사용하는 컴퓨팅 리소스입니다. 지원되는 계산 대상은 다음과 같습니다.
-
-| 계산 대상 | 교육 | 배포 |
-| ---- |:----:|:----:|
-| 로컬 컴퓨터 | ✓ | &nbsp; |
-| Azure Machine Learning 컴퓨팅 | ✓ | &nbsp; |
-| Azure의 Linux VM</br>(예: Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure 데이터 레이크 분석 | ✓ | &nbsp; |
-| HDInsight용 Apache Spark | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| FPGA(Field-programmable Gate Array) | &nbsp; | ✓ |
-
-계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 머신 이외의 계산 대상을 공유합니다.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>관리형 및 비관리형 컴퓨팅 대상
-
-* **관리형**: 컴퓨팅 대상은 Azure Machine Learning Service에서 만들고 관리합니다. 이러한 컴퓨팅 대상은 기계 학습 워크로드에 최적화되어 있습니다. Azure Machine Learning 컴퓨팅은 2018년 12월 4일 현재 유일한 관리형 컴퓨팅 대상입니다. 추가 관리형 컴퓨팅 대상은 나중에 추가될 수 있습니다.
-
-    Azure Portal, Azure Machine Learning SDK 또는 Azure CLI를 사용하여 작업 영역을 통해 직접 기계 학습 컴퓨팅 인스턴스를 만들 수 있습니다. 기타 모든 컴퓨팅 대상은 작업 영역 외부에서 만든 다음, 해당 작업 영역에 연결해야 합니다.
-
-* **비관리형**: Azure Machine Learning Service에서 관리되지 *않는* 컴퓨팅 대상입니다. Azure Machine Learning 외부에서 해당 컴퓨팅 대상을 만든 다음, 사용하기 전에 작업 영역에 연결해야 합니다. 비관리형 컴퓨팅 대상에는 사용자가 기계 학습 워크로드 성능을 유지하거나 향상시키는 추가 단계가 필요할 수 있습니다.
-
-학습에 대한 컴퓨팅 대상을 선택하는 방법에 대한 자세한 내용은 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
-
-배포를 위한 컴퓨팅 대상을 선택하는 방법에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
+A [계산 대상](concept-compute-target.md) 실행 하는 교육 스크립트 또는 호스트 서비스 배포에 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 수 있습니다. 계산 대상을 쉽게 코드를 변경 하지 않고 계산 환경을 변경 합니다. 
 
 ## <a name="training-script"></a>학습 스크립트
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743225"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752579"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -93,7 +93,7 @@ Windows Defender ATP 통합이 사용하도록 설정되어 있는지 확인하�
 
 ## <a name="set-the-firewall-configuration"></a>방화벽 구성 설정
 
-Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
+Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 
 ## <a name="test-the-feature"></a>기능 테스트
 

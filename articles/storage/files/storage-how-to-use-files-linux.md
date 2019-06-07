@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427930"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754825"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427930"
 
     다른 배포판에서는 적절한 패키지 관리자를 사용하거나 [소스에서 컴파일합니다](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **탑재된 공유의 디렉터리/파일 권한 결정**: 아래 예제에서는 모든 사용자에게 읽기, 쓰기 및 실행 권한을 부여하기 위해 `0777` 권한을 사용합니다. 다른 [chmod 권한](https://en.wikipedia.org/wiki/Chmod)으로 바꿀 수 있습니다.
+* **탑재된 공유의 디렉터리/파일 권한 결정**: 아래 예제에서는 모든 사용자에게 읽기, 쓰기 및 실행 권한을 부여하기 위해 `0777` 권한을 사용합니다. 서로 바꿀 수 있습니다 [chmod 권한](https://en.wikipedia.org/wiki/Chmod) 원하는 대로 하지만이 인해 잠재적으로 액세스를 제한 합니다. 다른 권한을 사용 하는 경우 uid 및 gid 원하는 로컬 그룹에 대 한 액세스를 유지 하기 위해 사용 하는 것이 좋습니다.
+
+> [!NOTE]
+> Dir_mode 및 file_mode 디렉터리 및 파일 권한을 명시적으로 할당 하지 않으면 0755 기본값이 됩니다.
 
 * **445 포트가 열려 있는지 확인**: SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다.
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427930"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **탑재 명령을 사용하여 Azure 파일 공유를 탑재합니다**. 로 바꿉니다 **< storage_account_name >** 를 **< 공유 이름 >** 하십시오 **< smb_version >** , **< storage_account_key >** , 및 **< mount_point >** 사용자 환경에 대 한 적절 한 정보를 사용 하 여 합니다. Linux 배포판이 암호화를 사용 하 여 SMB 3.0을 지 원하는 경우 (참조 [이해 SMB 클라이언트 요구 사항](#smb-client-reqs) 자세한 내용은)를 사용 하 여 **3.0** 에 대 한 **< smb_version >** 합니다. 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 Linux 배포를 사용 하 여 **2.1** 에 대 한 **< smb_version >** 합니다. Azure 파일 공유를 Azure 지역 외부에서 탑재 될 수 있습니다 (포함 하 여 온-프레미스 또는 다른 Azure 지역) SMB 3.0을 사용 합니다. 
+1. **탑재 명령을 사용하여 Azure 파일 공유를 탑재합니다**. 로 바꿉니다 **< storage_account_name >** 를 **< 공유 이름 >** 하십시오 **< smb_version >** , **< storage_account_key >** , 및 **< mount_point >** 사용자 환경에 대 한 적절 한 정보를 사용 하 여 합니다. Linux 배포판이 암호화를 사용 하 여 SMB 3.0을 지 원하는 경우 (참조 [이해 SMB 클라이언트 요구 사항](#smb-client-reqs) 자세한 내용은)를 사용 하 여 **3.0** 에 대 한 **< smb_version >** 합니다. 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 Linux 배포를 사용 하 여 **2.1** 에 대 한 **< smb_version >** 합니다. Azure 파일 공유를 Azure 지역 외부에서 탑재 될 수 있습니다 (포함 하 여 온-프레미스 또는 다른 Azure 지역) SMB 3.0을 사용 합니다. 원하는 경우 탑재 된 공유의 디렉터리 및 파일 권한을 변경할 수 있지만 제한 액세스를 의미 합니다.
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

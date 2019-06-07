@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743239"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754593"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽 (미리 보기)를 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Azure Monitor 로그로 Azure 방화벽 통합 먼저 모든 응용 프로그램 종속성의 인식할 수 없는 경우는 응용 프로그램 작업을 시작 하는 경우 유용 합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
-방화벽 설치를 성공적으로 알게 된 후 내부 끝점을 사용할 수 있습니다 (https://<clustername>-int.azurehdinsight.net) VNET 내에서 Ambari에 액세스할 수 있습니다. 공용 끝점을 사용 하도록 (https://<clustername>. azurehdinsight.net) 또는 ssh 끝점 (<clustername>-ssh.azurehdinsight.net), 오른쪽 경로 경로 테이블에 있고 NSG 규칙 설정 문제를 방지 asymetric 라우팅 설명 있는지확인[여기](https://docs.microsoft.com/azure/firewall/integrate-lb)합니다.
+방화벽 설치를 성공적으로 알게 된 후 내부 끝점을 사용할 수 있습니다 (`https://<clustername>-int.azurehdinsight.net`) VNET 내에서 Ambari에 액세스할 수 있습니다. 공용 끝점을 사용 하도록 (`https://<clustername>.azurehdinsight.net`) 또는 ssh 끝점 (`<clustername>-ssh.azurehdinsight.net`), 경로 테이블의 올바른 경로 있고 NSG 규칙 설명 asymetric 라우팅 문제를 방지 하려면 설치 했는지 [여기](https://docs.microsoft.com/azure/firewall/integrate-lb)합니다.
 
 ## <a name="configure-another-network-virtual-appliance"></a>다른 네트워크 가상 어플라이언스를 구성 합니다.
 

@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455656"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751887"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -74,7 +74,7 @@ Microsoft 사용자 대신 호스트 marketplace 트랜잭션 수는 더 나은 
 
 - 제품을 Azure 클라이언트와 호환 되어야 합니다. (종종 SaaS 앱은 또한 최상의 성능 및 호환성을 위해 Azure에서 호스트 됩니다 있지만 이것이 요구 사항은 없습니다.) 
 - 제품을 사용 해야 합니다 [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) id 관리 및 인증에 대 한 합니다.
-- 제품을 사용 해야 합니다 [SaaS Fulfillment Api](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) Azure Marketplace에 통합할 수 있습니다.
+- 제품을 사용 해야 합니다 [SaaS Fulfillment Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) Azure Marketplace에 통합할 수 있습니다.
 
 #### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 SaaS 제품의 경우, 게시자로 고려해 야 사용량 요금 Azure 인프라 및 소프트웨어 라이선스 요금에 대 한 단일 비용 항목으로 합니다. 이 비용은 고객에 게 월별 고정 요금으로 표시 됩니다. Azure 인프라 사용 관리 되 고의 파트너에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 

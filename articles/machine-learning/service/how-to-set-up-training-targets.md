@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475991"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752947"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
@@ -37,18 +37,8 @@ Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경
 
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|학습 &nbsp;대상| GPU 지원 |자동화된 ML | ML 파이프라인 | 시각적 인터페이스
-|----|:----:|:----:|:----:|:----:|
-|[로컬 컴퓨터](#local)| 아마도 | 예 | &nbsp; | &nbsp; |
-|[Azure Machine Learning 컴퓨팅](#amlcompute)| 예 | 예 & <br/>하이퍼 매개 변수&nbsp;튜닝 | 예 | 예 |
-|[원격 VM](#vm) |예 | 예 & <br/>하이퍼 매개 변수 튜닝 | 예 | &nbsp; |
-|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | 예 | 예 | &nbsp; |
-|[Azure 데이터 레이크 분석](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | 예 | &nbsp; |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | 예 | &nbsp; |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | 예 | &nbsp; |
-
-**모든 컴퓨팅 대상을 여러 학습 작업에 다시 사용할 수 있습니다**. 예를 들어 원격 VM을 사용자의 작업 영역에 연결한 후에는 여러 작업에 다시 사용할 수 있습니다.
 
 > [!NOTE]
 > Azure Machine Learning 컴퓨팅은 영구 리소스로 생성되거나 실행을 요청할 때 동적으로 생성될 수 있습니다. 실행에 기반한 생성은 학습 실행이 완료된 후 컴퓨팅 대상을 제거하므로 이 방법으로 생성된 컴퓨팅 대상을 다시 사용할 수 없습니다.
