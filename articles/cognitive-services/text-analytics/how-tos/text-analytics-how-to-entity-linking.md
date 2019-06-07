@@ -17,29 +17,29 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65231431"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>텍스트 분석의 명명 된 엔터티 인식 사용 방법
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>텍스트 분석의 명명된 엔터티 인식 사용 방법
 
-합니다 [명명 된 엔터티 인식 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 구조화 되지 않은 텍스트를 받아서 각 JSON 문서에 대 한 링크를 사용 하 여 엔터티를 명확 하 게 목록을 추가 정보 (Wikipedia 및 Bing)는 웹에서 반환 합니다. 
+[명명된 엔터티 인식 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)는 구조화 되지 않은 텍스트를 받아서 각 JSON 문서에 대해 웹(Wikipedia 및 Bing)의 추가 정보에 대한 링크를 포함한 명확하지 않은 엔터티의 목록을 반환 합니다. 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>엔터티 링크 및 명명된 엔터티 인식
 
-텍스트 분석 ' `entities` 둘 다 명명 된 엔터티 인식 (NER) 및 엔터티 연결 끝점 지원 합니다.
+텍스트 분석의 `entities` 끝점은 명명된 엔터티 인식(NER) 및 엔터티 연결을 모두 지원 합니다.
 
-### <a name="entity-linking"></a>엔터티 연결
-엔터티 링크 설정은 텍스트에서 찾은 엔터티의 ID를 식별하고 명확하게 구분하는 기능입니다(예: "Mars"가 행성 또는 로마의 전쟁의 신으로 사용되고 있는지 확인). 이 프로세스를 수행하려면 인식된 엔터티가 연결되는 기술 자료가 있어야 합니다. Wikipedia가 `entities` 엔드포인트 텍스트 분석의 기술 자료로 사용됩니다.
+### <a name="entity-linking"></a>엔터티 링크
+엔터티 링크 설정은 텍스트에서 찾은 엔터티의 ID를 식별하고 명확하게 구분하는 기능입니다(예: "Mars"가 행성 또는 로마의 전쟁의 신으로 사용되고 있는지 확인). 이 프로세스를 수행하려면 인식된 엔터티가 연결되는 기술 자료가 있어야 합니다. Wikipedia가 `entities` 끝점 텍스트 분석의 기술 자료로 사용됩니다.
 
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 NER(명명된 엔터티 인식)은 텍스트의 다른 엔터티를 식별하고 미리 정의된 클래스로 분류하는 기능입니다. 지원되는 엔터티 클래스는 다음과 같습니다.
 
-Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), 엔터티 연결 및 명명 된 엔터티 인식 (NER)를 모두 사용할 수 있습니다.
+텍스트 분석 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)에서는, 엔터티 연결 및 명명된 엔터티 인식(NER)을 모두 사용할 수 있습니다.
 
 ### <a name="language-support"></a>언어 지원
 
-여러 언어로 엔터티 링크 설정을 사용하려면 각 언어에서 해당하는 기술 자료를 사용해야 합니다. 텍스트 분석의 엔터티 링크 설정에서 이는 `entities` 엔드포인트에서 지원하는 각 언어가 해당 언어의 Wikipedia 자료에 연결됨을 의미합니다. 자료 크기는 언어마다 다르기 때문에 엔터티 링크 설정 기능의 재현율도 각기 다릅니다.
+여러 언어로 엔터티 링크 설정을 사용하려면 각 언어에서 해당하는 기술 자료를 사용해야 합니다. 텍스트 분석의 엔터티 링크 설정에서 이는 `entities` 끝점에서 지원하는 각 언어가 해당 언어의 Wikipedia 자료에 연결됨을 의미합니다. 자료 크기는 언어마다 다르기 때문에 엔터티 링크 설정 기능의 재현율도 각기 다릅니다.
 
-## <a name="supported-types-for-named-entity-recognition"></a>명명된 엔터티 인식의 지원되는 형식
+## <a name="supported-types-for-named-entity-recognition"></a>명명된 엔터티 인식의 지원되는 유형
 
-| Type  | 하위 유형 | 예 |
+| 유형  | 하위 유형 | 예 |
 |:-----------   |:------------- |:---------|
 | 사람        | 해당 없음\*         | "Jeff", "Bill Gates"     |
 | Location      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
@@ -63,13 +63,13 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
 
-\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열 된 모든 지원 되는 엔터티 형식의 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어 에서만 사용할 수 있습니다.
+\* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열된 모든 지원 되는 엔터티 유형은 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어에서만 사용할 수 있습니다.
 
 
 
 ## <a name="preparation"></a>준비
 
-다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트, 언어
+다음 형식의 JSON 문서가 있어야 합니다. ID, text, language
 
 현재 지원되는 언어는 [이 목록](../text-analytics-supported-languages.md)을 참조하세요.
 
@@ -94,9 +94,9 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 연결 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`).
++ 엔터티 추출에 대한 HTTP 끝점을 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`).
 
-+ Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
++ Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [끝점 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
@@ -279,8 +279,8 @@ Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com
 이 문서에서는 Cognitive Services의 텍스트 분석을 사용하여 엔터티 링크 설정에 대한 개념과 워크플로를 배웠습니다. 요약하자면 다음과 같습니다.
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)를 선택한 언어로 사용할 수 있습니다.
-+ 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
-+ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/entities` 엔드포인트에 대해 수행됩니다.
++ 요청 본문의 JSON 문서에는 ID, text 및 language 코드가 포함됩니다.
++ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 끝점](text-analytics-how-to-access-key.md)를 사용하여 `/entities` 끝점에 대해 수행됩니다.
 + 연결된 엔터티(각 문서 ID에 대한 신뢰도 점수, 오프셋 및 웹 링크 포함)로 구성된 응답 출력은 모든 애플리케이션에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
