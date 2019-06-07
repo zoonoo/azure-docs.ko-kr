@@ -19,11 +19,11 @@ ms.locfileid: "58349742"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Custom Vision에서 사용자 데이터 내보내기 또는 삭제
 
-Custom Vision은 서비스를 운영하는 사용자 데이터를 수집 하지만 고객은 Custom Vision [Training Api](https://go.microsoft.com/fwlink/?linkid=865446)를 사용하여 해당 데이터 보기, 내보내기 및 삭제를 완전히 통제합니다.
+Custom Vision은 서비스를 운영하는 사용자 데이터를 수집하지만 고객은 Custom Vision [Training API](https://go.microsoft.com/fwlink/?linkid=865446)를 사용하여 해당 데이터 보기, 내보내기 및 삭제를 완전히 통제합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Custom Vision에서 사용자 데이터를 내보내기 및 삭제 하는 방법을 알아보려면 다음 표를 참조 합니다.
+Custom Vision에서 사용자 데이터를 내보내기 및 삭제하는 방법을 알아보려면 다음 표를 참조합니다.
 
 | Data | 내보내기 작업 | 삭제 작업 |
 | ---- | ---------------- | ---------------- |
