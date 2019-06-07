@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399688"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743171"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -54,6 +54,8 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> 새 정책의 일정 및
 월별/연도별 백업   | Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
 자동 클록 조정 | 지원되지 않습니다.<br/><br/> Azure Backup VM을 백업 하는 경우에 자동으로 일광 절약 시간 변경에 대 한 조정 하지 않습니다.<br/><br/>  필요에 따라 정책을 수동으로 수정합니다.
 [하이브리드 백업에 대한 보안 기능](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  보안 기능을 비활성화 하면 지원 되지 않습니다.
+시스템 시간이 변경 되는 VM 백업 | 지원되지 않습니다.<br/><br/> 컴퓨터에 해당 VM;에 대 한 backup을 사용 하도록 설정한 후 미래의 날짜-시간으로 변경 된 경우 그러나 시간 변경 내용은 되돌리지 하는 경우에 성공적인 백업을 보장 되지 않습니다.  
+
 
 ## <a name="operating-system-support-windows"></a>운영 체제 지원(Windows)
 
@@ -146,7 +148,7 @@ VM 크기 |   CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모
 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)의 VM 백업 |  지원되지 않습니다.
 함께 배포 되는 Vm 백업 [하이브리드 사용 혜택 (허브)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | 지원됩니다.
 Vm에 배포 되는 백업 된 [확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  지원되지 않습니다.
-배포 된 Vm 백업 된 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, 타사에서 게시) |  지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
+배포 된 Vm 백업 된 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, 타사에서 게시) |  지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다. 에서는 이러한 요구에서 바로 구매 정보가 대로 아니라만 디스크 vm 백업 Azure Marketplace Vm을 복원 하지 마세요.
 사용자 지정 이미지 (타사)에서 배포 된 Vm 백업 |   지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 Vm 백업  | 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성을 백업 | Azure Backup은 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.

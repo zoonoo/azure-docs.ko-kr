@@ -69,7 +69,7 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서 또는 샘플 중 하나를 탐색 하 여 응용 프로그램에 내보낸된 모델을 통합 합니다.
+다음 문서 또는 샘플 중 하나를 탐색하여 응용 프로그램에 내보낸 모델을 통합합니다.
 
 * [Python을 사용 하 여 Tensorflow 모델 사용](export-model-python.md)
 * [Windows Machine Learning을 사용 하 여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)

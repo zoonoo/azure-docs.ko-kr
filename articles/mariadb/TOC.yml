@@ -51,6 +51,8 @@
           href: concepts-ssl-connection-security.md
         - name: VNet
           href: concepts-data-access-security-vnet.md
+        - name: 연결 아키텍처
+          href: concepts-connectivity-architecture.md
     - name: 비즈니스 연속성
       items:
         - name: 개요
