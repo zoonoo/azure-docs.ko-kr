@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: 파일 무결성 모니터링을 사용하는 기준 비교
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: 데이터 수집
-          href: security-center-enable-data-collection.md
-        - name: 기본 제공 보안 정책
-          href: security-center-policy-definitions.md
-        - name: 전자 메일 알림
-          href: security-center-provide-security-contact-details.md
-        - name: '가격 책정 계층 '
-          href: security-center-pricing.md
-        - name: 보안 구성
-          href: security-center-customize-os-security-config.md
-        - name: 테넌트 수준 표시 유형
-          href: security-center-management-groups.md
+    - name: 데이터 수집
+      href: security-center-enable-data-collection.md
+    - name: 기본 제공 보안 정책
+      href: security-center-policy-definitions.md
+    - name: 전자 메일 알림
+      href: security-center-provide-security-contact-details.md
+    - name: 가격 책정 계층
+      href: security-center-pricing.md
+    - name: 보안 구성
+      href: security-center-customize-os-security-config.md
+    - name: 테넌트 수준 표시 유형
+      href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
       href: security-center-recommendations.md
       items:

@@ -56,7 +56,7 @@ sections:
         className: cardsD
         items:
           - title: Time Series Insights GA API
-            html: <p><a href="rest/api/time-series-insights/ga">데이터 액세스</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">쿼리 구문</a></p>
+            html: <p><a href="/rest/api/time-series-insights/ga">데이터 액세스</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">쿼리 구문</a></p>
           - title: Time Series Insights 미리 보기 API
             html: <p><a href="/rest/api/time-series-insights/preview-query">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">모델 API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">환경 API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">시계열 식 API</a></p>
           - title: Client SDK

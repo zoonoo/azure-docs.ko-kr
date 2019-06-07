@@ -326,39 +326,6 @@
               href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: SaaS 애플리케이션 제품
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-          items:
-            - name: 필수 조건
-              href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-            - name: SaaS 애플리케이션 제품 만들기
-              href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-              items:
-                - name: 제품 설정 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-                - name: 기술 정보 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-                - name: 계획 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-                - name: 채널 정보 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-                - name: 시험 사용 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-                - name: 상점 세부 정보 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-                - name: 연락처 탭
-                  href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-            - name: 제품 게시
-              href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-            - name: 기존 제품 업데이트
-              href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-            - name: SaaS 처리 API
-              href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-              items:
-                - name: SaaS 애플리케이션 등록
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-                - name: SaaS API v1(사용되지 않음)
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-                - name: SaaS API v2
-                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
         - name: 가상 머신 제안
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
