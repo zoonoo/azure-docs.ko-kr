@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 HTTP 기본 인증을 사용하여 RESTful 서비스 보호 | Microsoft Docs
 description: HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694657"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507600"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -68,7 +68,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>1.3단계: 인증 미들웨어 클래스 추가
 
-*App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이렇게 하려면 다음을 수행합니다.
+*App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이를 수행하려면:
 
 1. *App_Start* 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 후 **클래스**를 선택합니다.
 
@@ -192,7 +192,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-14-add-an-owin-startup-class"></a>1.4단계: OWIN 시작 클래스 추가
 
-`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이렇게 하려면 다음을 수행합니다.
+`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이를 수행하려면:
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** **추가** > 를 선택한 다음 **OWIN**을 검색합니다.
 
    ![OWIN 시작 클래스 추가](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
