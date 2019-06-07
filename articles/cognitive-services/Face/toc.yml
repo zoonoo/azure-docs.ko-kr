@@ -63,6 +63,8 @@
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 얼굴 인식 모델 지정
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: 얼굴 감지 모델 지정
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 대규모 기능 사용
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: 실시간 비디오 분석

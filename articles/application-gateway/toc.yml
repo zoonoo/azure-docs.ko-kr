@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: WAF 구성
           href: application-gateway-waf-configuration.md
+        - name: 사용자 지정 규칙
+          href: custom-waf-rules-overview.md
     - name: 상태 모니터링
       items:
         - name: 상태 프로브
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: WAF 사용자 지정 규칙
+      items:
+        - name: 사용자 지정 규칙 예제
+          href: create-custom-waf-rules.md
+        - name: 사용자 지정 규칙으로 WAF 구성
+          href: configure-waf-custom-rules.md
     - name: URL 경로
       items:
         - name: Azure PowerShell

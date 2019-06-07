@@ -90,6 +90,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: 가상 네트워크
               href: concepts-data-access-and-security-vnet.md
+            - name: 연결 아키텍처
+              href: concepts-connectivity-architecture.md
         - name: 비즈니스 연속성
           items:
             - name: 개요
@@ -188,6 +190,10 @@
           href: howto-configure-server-parameters-using-portal.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: 자동 증가 스토리지
+      items:
+        - name: Azure portal
+          href: howto-auto-grow-storage-portal.md
     - name: 서버 로그 액세스
       items:
         - name: Azure portal

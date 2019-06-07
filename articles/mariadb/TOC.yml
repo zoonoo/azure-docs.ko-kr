@@ -105,6 +105,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
+    - name: 자동 증가 스토리지
+      items:
+        - name: Azure portal
+          href: howto-auto-grow-storage-portal.md
     - name: 서버 로그 액세스
       items:
         - name: Azure portal

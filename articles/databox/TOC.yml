@@ -111,9 +111,7 @@
           items:
             - name: Azure 포털을 통해 관리
               href: data-box-portal-ui-admin.md
-            - name: Blob 계층으로 데이터 이동
-              href: data-box-how-to-set-data-tier.md
-            - name: Data Box Heavy 문제 해결
+            - name: Data Box Disk 문제 해결
               href: data-box-disk-troubleshoot.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md
@@ -155,12 +153,18 @@
               href: data-box-local-web-ui-admin.md
             - name: 디바이스 문제 해결
               href: data-box-troubleshoot.md
+            - name: Blob 계층으로 데이터 이동
+              href: data-box-how-to-set-data-tier.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md
             - name: 마이그레이션
               items:
+                - name: SharePoint Online으로
+                  href: data-box-heavy-migrate-spo.md
                 - name: Azure 파일 동기화로
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: HDFS 저장소에서
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: 리소스
       items:
         - name: Data Box 제품

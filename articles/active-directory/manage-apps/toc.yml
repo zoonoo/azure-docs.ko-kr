@@ -2,8 +2,10 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 애플리케이션 관리 정보
+    - name: 애플리케이션 관리란?
       href: what-is-application-management.md
+    - name: 애플리케이션 프록시란?
+      href: what-is-application-proxy.md
 - name: 빠른 시작
   expanded: true
   items:
