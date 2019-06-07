@@ -38,7 +38,7 @@ Maven 중앙 리포지토리에서 Custom Vision SDK를 설치할 수 있습니�
 
 [Cognitive Services Java SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) 프로젝트를 복제 또는 다운로드합니다. **Vision/CustomVision/** 폴더로 이동합니다.
 
-이 Java 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __샘플 Java 프로젝트__라는 새로운 Custom Vision 이미지 분류 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__인지 아니면 __벗나무__인지 확인하는 용도로 사용됩니다.
+이 Java 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __샘플 Java 프로젝트__ 라는 새로운 Custom Vision 이미지 분류 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__ 인지 아니면 __벗나무__ 인지 확인하는 용도로 사용됩니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
