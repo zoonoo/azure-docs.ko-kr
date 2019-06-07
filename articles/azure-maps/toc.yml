@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: 지리적 위치 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: 모바일 서비스
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Render Service
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Route Service
