@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417886"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514585"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -407,7 +407,7 @@ Azure Information Protection 서비스의 모든 측면을 관리할 수 있습�
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="desktop-analytics-administrator"></a>데스크톱 분석 관리자
-데스크톱 관리 도구 및 서비스(Intune 등)을 액세스하고 관리할 수 있습니다.
+데스크톱 분석 및 Office 사용자 지정 및 정책 서비스를 관리할 수 있습니다. 데스크톱 분석에 대 한 자산 인벤토리를 보기, 배포 계획을 만들고, 배포 및 상태를 확인 하는 기능이 포함 됩니다. Office 사용자 지정 및 정책 서비스에 대 한이 역할에는 Office 정책을 관리 하는 사용자 수 있습니다.
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.

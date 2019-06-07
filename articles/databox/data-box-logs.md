@@ -1,43 +1,43 @@
 ---
-title: 추적 및 Azure Data Box 이벤트 로그 | Microsoft Docs
-description: 추적 하 고 Azure Data Box 주문 다양 한 단계에서 이벤트를 기록 하는 방법을 설명 합니다.
+title: 추적 및 Azure Data Box를 Azure 데이터 상자 많은 이벤트를 기록할 | Microsoft Docs
+description: 추적 하 고 Azure Data Box 및 Azure 데이터 상자 많은 주문 다양 한 단계에서 이벤트를 기록 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7a6adc72c1dfbe67311ae2ca98d5b07dfab41719
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806508"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495815"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box"></a>추적 및 Azure Data Box에 대 한 이벤트 로깅
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>추적 및 Azure Data Box 및 Azure 데이터 많은 상자의 이벤트 로깅
 
-Data Box 주문 다음 단계를 거칩니다: 순서를 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 하 고, 및 데이터 지우기입니다. 순서로 각 단계에 해당 순서에 대 한 액세스를 제어, 감사 이벤트의 순서를 추적 하는 여러 작업을 수행할 수 있으며 생성 되는 다양 한 로그를 해석할 수도 있습니다.
+Data Box 또는 상자에 과도 한 데이터 순서를 다음 단계를 거칩니다: 순서를 설정, 데이터 복사, 반환, Azure에 업로드 및 확인 및 데이터 지우기. 순서로 각 단계에 해당 순서에 대 한 액세스를 제어, 감사 이벤트의 순서를 추적 하는 여러 작업을 수행할 수 있으며 생성 되는 다양 한 로그를 해석할 수도 있습니다.
 
-다음 표에서 Data Box 주문 단계 및 추적 하 고 각 단계 순서를 감사를 사용할 수 있는 도구가 요약을 보여 줍니다.
+다음 표에서 Data Box 또는 데이터 상자 많은 순서 단계 및 추적 하 고 각 단계 순서를 감사를 사용할 수 있는 도구가 요약을 보여 줍니다.
 
 | 데이터 상자 순서 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [RBAC 통해 순서에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order)                                                    |
-| 처리 순서            | [순서를 추적](#track-the-order) 통해 <ul><li> Azure portal </li><li> 운송 업체 웹 사이트를 전달합니다. </li><li>메일 알림</ul> |
+| 처리 순서            | [순서를 추적](#track-the-order) 통해 <ul><li> Azure portal </li><li> 운송 업체 웹 사이트를 전달합니다. </li><li>전자 메일 알림</ul> |
 | 디바이스 설정              | 장치에 로그인 하는 액세스 자격 증명 [활동 로그](#query-activity-logs-during-setup)                                              |
-| 장치에 데이터 복사        | [뷰 *error.xml* 파일](#view-error-log-during-data-copy-to-data-box) 데이터 복사                                                             |
+| 장치에 데이터 복사        | [뷰 *error.xml* 파일](#view-error-log-during-data-copy) 데이터 복사                                                             |
 | 배송 준비            | [BOM 파일 검사](#inspect-bom-during-prepare-to-ship) 또는 장치에서 매니페스트 파일                                      |
 | Azure에 데이터 업로드       | [검토 *copylogs* ](#review-copy-log-during-upload-to-azure) 데이터 중 오류에 대 한 Azure 데이터 센터에 업로드                         |
 | 장치의 데이터 지우기   | [로그 관리 권의 체인을 볼](#get-chain-of-custody-logs-after-data-erasure) 감사 로그 등 주문 내역                                                   |
 
-이 문서에서는 다양 한 메커니즘 또는 추적 하 고 Data Box 주문 감사를 사용할 수 있는 도구를 자세히 설명 합니다.
+이 문서에서는 다양 한 메커니즘 또는 추적 하 고 Data Box 또는 상자에 과도 한 데이터 감사를 사용할 수 있는 도구를 자세히 설명 합니다. 이 문서의 정보는 Data Box 및 상자에 과도 한 데이터 모두에 적용 됩니다. 후속 섹션에서는 Data Box에 대 한 참조도 상자에 과도 한 데이터에 적용 됩니다.
 
 ## <a name="set-up-access-control-on-the-order"></a>순서에 대 한 액세스 제어 설정
 
 순서를 처음 만들 때 주문 액세스할 수 있는 사용자를 제어할 수 있습니다. Data Box 주문에 대 한 액세스를 제어 하려면 다양 한 범위에서 역할 기반 Access Control (RBAC) 역할을 설정 합니다. RBAC 역할 액세스-읽기-쓰기, 읽기 전용, 읽기 / 쓰기 작업의 하위 집합의 형식을 결정합니다.
 
-정의할 수 있는 두 가지 데이터 상자 역할 다음과 같습니다.
+Azure Data Box 서비스에 대해 정의 될 수 있는 두 가지 역할이 있습니다.
 
 - **데이터 상자 판독기** -범위에서 정의 된 대로 주문이에 대 한 읽기 전용으로 액세스 했습니다. 만 주문의 세부 정보를 볼 수 있습니다. 저장소 계정과 관련 된 기타 세부 정보에 액세스 하거나 등 주소 같은 주문 세부 정보를 편집할 수는 없습니다.
 - **데이터 상자 기여자** -지정 된 저장소 계정에 데이터를 전송 하는 순서에만 만들 수 있습니다 *저장소 계정에 대 한 쓰기 액세스를 이미 있는 경우*합니다. 저장소 계정에 액세스할 수 없는 경우 계정에 데이터를 복사 하는 Data Box 주문도 만들 수 있습니다. 이 역할이 모든 저장소 계정을 정의 하지 않으면 권한 또는 권한 부여 액세스와 관련 된 저장소 계정입니다.  
@@ -70,9 +70,9 @@ Azure portal을 통해 전달 운송 업체 웹 사이트를 통해 주문을 �
 
 - 각 로그인 Data Box는 실시간으로 기록된 합니다. 그러나이 정보는 에서만 사용할 수는 [감사 로그](#audit-logs) 순서는 성공적으로 완료 합니다.
 
-## <a name="view-error-log-during-data-copy-to-data-box"></a>Data Box로 데이터 복사 중 오류 로그 보기
+## <a name="view-error-log-during-data-copy"></a>데이터를 복사 하는 동안 오류 로그 보기
 
-데이터 상자에 데이터 복사 중 오류 파일에 복사 되는 데이터를 사용 하 여 문제가 있는 경우 생성 됩니다.
+Data Box 또는 상자에 과도 한 데이터를 데이터 복사 중 오류 파일에 복사 되는 데이터를 사용 하 여 문제가 있는 경우 생성 됩니다.
 
 ### <a name="errorxml-file"></a>Error.xml 파일
 
@@ -147,7 +147,7 @@ Azure portal을 통해 전달 운송 업체 웹 사이트를 통해 주문을 �
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-위의 경우 각각의 다음 단계로 계속 진행 하기 전에 오류를 해결 합니다. SMB 또는 NFS 프로토콜을 통해 Data Box로 데이터 복사 중에 수신 하는 오류에 대 한 자세한 내용은 이동 [문제 해결 Data Box](data-box-troubleshoot.md)합니다. REST 통해 Data Box로 데이터 복사 중에 수신 된 오류에 대 한 자세한 내용은 이동 [문제 해결 데이터 상자 Blob 저장소 문제](data-box-troubleshoot-rest.md)합니다.
+위의 경우 각각의 다음 단계로 계속 진행 하기 전에 오류를 해결 합니다. SMB 또는 NFS 프로토콜을 통해 Data Box로 데이터 복사 중에 수신 하는 오류에 대 한 자세한 내용은 이동 [Data Box 문제를 해결 하 고 데이터 상자 부담 스러운 문제](data-box-troubleshoot.md)합니다. REST 통해 Data Box로 데이터 복사 중에 수신 된 오류에 대 한 자세한 내용은 이동 [문제 해결 데이터 상자 Blob 저장소 문제](data-box-troubleshoot-rest.md)합니다.
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>BOM을 검사 하는 동안 배송 준비
 
@@ -157,7 +157,7 @@ Azure portal을 통해 전달 운송 업체 웹 사이트를 통해 주문을 �
 - 이 파일을 사용 하 여 파일의 실제 크기에 대하여 확인할 수 있습니다.
 - 있는지 확인 합니다 *crc64* 0이 아닌 문자열에 해당 합니다. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-배송을 이동할 준비 하는 동안 받은 오류에 대 한 자세한 내용은 [문제 해결 Data Box](data-box-troubleshoot.md)합니다.
+배송을 이동할 준비 하는 동안 받은 오류에 대 한 자세한 내용은 [Data Box 문제를 해결 하 고 데이터 상자 부담 스러운 문제](data-box-troubleshoot.md)합니다.
 
 ### <a name="bom-or-manifest-file"></a>BOM 또는 매니페스트 파일
 
@@ -253,7 +253,7 @@ Azure에 업로드 오류를 사용 하 여 완료할 수도 있습니다.
 
 ### <a name="audit-logs"></a>감사 로그
 
-전원 켜기에 대 한 정보를 포함 하는 감사 로그 및 Azure 데이터 센터 외부의 경우 Data Box에 대 한 액세스를 공유 합니다. 이러한 로그 위치에 있습니다. `storage-account/azuredatabox-chainofcustodylogs`
+전원 켜기에 대 한 정보를 포함 하는 감사 로그 및 Azure 데이터 센터 외부에 데이터 상자 또는 상자에 과도 한 데이터에 대 한 액세스를 공유 합니다. 이러한 로그 위치에 있습니다. `storage-account/azuredatabox-chainofcustodylogs`
 
 Data Box에서 감사 로그의 예제는 다음과 같습니다.
 
@@ -310,7 +310,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>주문 기록 다운로드
 
-순서 기록은 Azure portal에서 사용할 수 있습니다. 순서는 전체 장치 정리 (디스크에서 데이터 지우기)를 완료 하는 경우 다음으로 이동 **Data Box 주문 > Order details**. ** 주문 내역을 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [주문 기록과 다운로드](data-box-portal-admin.md#download-order-history)합니다.
+순서 기록은 Azure portal에서 사용할 수 있습니다. 순서는 전체 장치 정리 (디스크에서 데이터 지우기)를 완료 하는 경우 다음 장치 주문으로 이동할 **Order details**. ** 주문 내역을 다운로드** 옵션을 사용할 수 있습니다. 자세한 내용은 [주문 기록과 다운로드](data-box-portal-admin.md#download-order-history)합니다.
 
 주문 기록을 통해 스크롤 하는 경우 다음을 수행 표시 합니다.
 
@@ -324,7 +324,7 @@ Azure portal에서 주문 기록 로그의 예제는 다음과 같습니다.
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -362,11 +362,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대해 알아봅니다 하는 방법 [Data Box에서 문제를 해결](data-box-troubleshoot.md)합니다.
+- 설명 하는 방법 [Data Box 및 상자에 과도 한 데이터에 대 한 문제를 해결](data-box-troubleshoot.md)합니다.

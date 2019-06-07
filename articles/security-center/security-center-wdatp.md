@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258458"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743225"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -44,10 +44,6 @@ Windows Defender ATP를 사용 하는 경우 다음을 수행 표시 합니다.
 - **세부 머신 조사**: Azure Security Center 고객은 Windows Defender ATP 콘솔에 액세스한 다음 세부 조사를 수행하여 위반 범위를 파악할 수 있습니다.
 
 ![경고 목록 및 각 경고 관련 일반 정보가 표시된 Azure Security Center](media/security-center-wdatp/image1.png)
-
-Azure Security Center에서 [경고 조사](security-center-investigation.md)를 진행할 수 있습니다.
-
-![Azure Security Center의 경고 조사 대시보드](media/security-center-wdatp/image2.png)
 
 Windows Defender ATP로 피벗하여 경고를 추가로 조사할 수 있습니다. 그러면 경고 프로세스 트리, 인시던트 그래프 등의 추가 정보를 확인할 수 있습니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
 

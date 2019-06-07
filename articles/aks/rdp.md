@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307349"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688640"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Azure Kubernetes Service (AKS)를 Windows Server 클러스터 유지 관리 또는 문제 해결에 대 한 RDP를 사용 하 여 연결
 
@@ -32,7 +32,18 @@ Windows Server 노드 지원은 현재 AKS에서 미리 보기로 제공 됩니�
 
 Windows Server에 대 한 노드의 AKS 클러스터 IP 주소 외부에서 액세스할 수 없습니다. RDP 연결을 위해 Windows 서버 노드를 동일한 서브넷에 공개적으로 액세스 가능한 IP 주소를 사용 하 여 가상 컴퓨터를 배포할 수 있습니다.
 
-다음 예제에서는 명명 된 가상 머신을 만듭니다 *myVM* 에 *myResourceGroup* 리소스 그룹입니다. 바꿉니다 *$SUBNET_ID* Windows 서버 노드 풀에서 사용 하는 서브넷의 ID를 사용 하 여 합니다.
+다음 예제에서는 명명 된 가상 머신을 만듭니다 *myVM* 에 *myResourceGroup* 리소스 그룹입니다.
+
+먼저 Windows Server 노드 풀에서 사용 하는 서브넷을 가져옵니다. 서브넷 id를 가져오려면 서브넷의 이름을 알아야 합니다. 서브넷의 이름을 가져오려면 vnet의 이름이 필요 합니다. 클러스터 네트워크 목록에 대 한 쿼리를 통해 vnet 이름을 가져옵니다. 클러스터를 쿼리하려면 해당 이름이 필요 합니다. Azure Cloud Shell에서 다음을 실행 하 여 이러한 모든를 가져올 수 있습니다.
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+SUBNET_ID 했으므로 VM을 만드는 동일한 Azure Cloud Shell 창에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az vm create \

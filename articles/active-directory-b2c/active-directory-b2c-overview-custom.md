@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 사용자 지정 정책 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책에 대해 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc77cbcf004ddbd1738e598d5073a11f13e2c5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695427"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509808"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
 
@@ -29,9 +29,9 @@ ms.locfileid: "64695427"
 |-|-------------------|-----------------|
 | 대상 사용자 | ID 전문 지식이 있거나 없는 모든 애플리케이션 개발자 | ID 전문가, 시스템 통합 서비스, 컨설턴트 및 사내 ID 팀. OpenIDConnect 흐름에 만족하고 ID 공급자와 클레임 기반 인증을 이해합니다. |
 | 구성 방법 | 사용자에게 친숙한 UI(사용자 인터페이스)를 사용하는 Azure Portal | XML 파일 직접 편집 및 Azure Portal에 업로드 |
-| UI 사용자 지정 | 전체 UI 사용자 지정 HTML, CSS 및 JavaScript 포함 합니다.<br><br>사용자 지정 문자열을 사용하는 다국어 지원 | 동일 |
-| 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 동일 |
-| 토큰 및 세션 관리 | 사용자 지정 토큰 및 다중 세션 옵션 | 동일 |
+| UI 사용자 지정 | 전체 UI 사용자 지정 HTML, CSS 및 JavaScript 포함 합니다.<br><br>사용자 지정 문자열을 사용하는 다국어 지원 | 같은 데이터 집합 |
+| 특성 사용자 지정 | 표준 및 사용자 지정 특성 | 같은 데이터 집합 |
+| 토큰 및 세션 관리 | 사용자 지정 토큰 및 다중 세션 옵션 | 같은 데이터 집합 |
 | ID 공급자 | 미리 정의 된 로컬 또는 소셜 공급자 및 Azure Active Directory 테 넌 트와 페더레이션 등 대부분의 OIDC id 공급자입니다. | 표준 기반 OIDC, OAUTH 및 SAML  또한 REST Api를 사용 하 여 통합을 사용 하 여 인증을 있습니다. |
 | ID 작업 | 로컬 또는 많은 소셜 계정을 사용하여 등록 또는 로그인<br><br>셀프 서비스 암호 재설정<br><br>프로필 편집<br><br>Multi-Factor Authentication.<br><br>토큰 및 세션을 사용자 지정합니다.<br><br>액세스 토큰 흐름. | 사용자 지정 ID 공급자를 사용하는 사용자 흐름과 동일한 작업을 완료하거나 사용자 지정 범위를 사용합니다.<br><br>등록 시 다른 시스템에서 사용자를 프로비전합니다.<br><br>고유한 이메일 서비스 공급자를 사용하여 환영 이메일을 보냅니다.<br><br>Azure AD B2C 외부의 사용자 저장소를 사용합니다.<br><br>API를 사용하여 신뢰할 수 있는 시스템으로 사용자 제공 정보의 유효성을 검사합니다. |
 

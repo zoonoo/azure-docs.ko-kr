@@ -9,19 +9,19 @@ ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: 70c32f5e54fa7e71c0884ceba48c84af782b3f41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419007"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428204"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정
 
 Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌드하고 실행하려면 다음이 필요합니다.
 
 * Docker
-* Visual Studio 2017
+* Visual Studio 2017 이상
 * Service Fabric Mesh 런타임
 * Service Fabric Mesh SDK 및 도구
 
@@ -31,20 +31,20 @@ Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌�
 * Windows Server 버전 1709
 * Windows Server 버전 1803
 
-실행되는 Windows 버전에 따라 설치된 모든 구성 요소를 가져오는 데 도움이 되는 지침은 다음과 같습니다.
+다음 지침을 실행 하는 Windows의 버전을 기반으로 하는 데 도움이 모든 항목이 설치 되어 있습니다.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017은 Service Fabric Mesh 응용 프로그램을 배포하는 데 필요합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
+Visual Studio 2017 이상 Service Fabric 망상 조직 응용 프로그램을 배포 해야 합니다. [설치 버전 15.6.0][download-visual-studio] 이상은 다음 워크로드를 사용하도록 설정합니다.
 
 * ASP.NET 및 웹 개발
 * Azure 개발
 
 ## <a name="install-docker"></a>Docker 설치
 
-Docker가 이미 설치되어 있으면 최신 버전인지 확인합니다. 새 버전이 없으면 Docker에서 메시지를 표시할 수 있지만, 수동으로 최신 버전이 있는지 확인하세요.
+Docker가 이미 설치되어 있으면 최신 버전인지 확인합니다. Docker는 새 버전 아웃 되었지만 최신 버전이 있는지 수동으로 확인 하는 경우 묻는 메시지가 될 수 있습니다.
 
 #### <a name="install-docker-on-windows-10"></a>Windows 10에 Docker 설치
 
@@ -52,7 +52,7 @@ Service Fabric Mesh에서 사용하는 컨테이너화된 Service Fabric 앱을 
 
 설치하는 동안 요청 시 **Linux 컨테이너 대신 Windows 컨테이너 사용**을 선택합니다.
 
-머신에서 Hyper-V를 사용하도록 설정되지 않은 경우 Docker 설치 시 설정하라는 메시지가 표시됩니다. 메시지가 표시되면 **확인**을 클릭하여 설정합니다.
+Hyper-v 컴퓨터에서 활성화 되어 있지 않으면, Docker의 설치 관리자는 사용 하도록 제공 합니다. 메시지가 표시되면 **확인**을 클릭하여 설정합니다.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Windows Server 2016에 Docker 설치
 
@@ -89,9 +89,9 @@ Install-WindowsFeature Containers
 > Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709 Docker 이미지만 사용할 수 있습니다.
 > Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경우 Windows 버전 1709 또는 1803의 Docker 이미지를 사용합니다.
 
-Visual Studio를 사용하는 경우 계정이 없으면 Visual Studio가 자동으로 로컬 클러스터를 만들기 때문에 이 섹션을 건너뛰어도 됩니다.
+Visual Studio를 사용 하는 경우 계정이 없는 경우 Visual Studio를 로컬 클러스터 만들기는 때문에이 섹션을 건너뛸 수 있습니다.
 
-한 번에 단일 Service Fabric 앱을 만들고 실행할 때 최상의 디버깅 성능을 얻으려면 단일 노드 로컬 개발 클러스터를 만듭니다. 한 번에 여러 애플리케이션을 실행하는 경우 5개 노드 로컬 개발 클러스터를 만듭니다. Service Fabric Mesh 프로젝트를 배포하거나 디버그할 때마다 클러스터가 실행되고 있어야 합니다.
+디버깅 성능을 만들고 한 번에 단일 Service Fabric 앱이 실행 되는 경우 최고 단일 노드 로컬 개발 클러스터를 만듭니다. 한 번에 여러 응용 프로그램을 실행 중인 경우에 다섯 개의 노드 로컬 개발 클러스터를 만듭니다. Service Fabric Mesh 프로젝트를 배포하거나 디버그할 때마다 클러스터가 실행되고 있어야 합니다.
 
 런타임, SDK, Visual Studio 도구 및 Docker를 설치한 후에 Docker를 실행하고 개발 클러스터를 만듭니다.
 

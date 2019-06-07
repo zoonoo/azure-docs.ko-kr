@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0bc74ac0fe45f2502064340a0c3ce5b82694b06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245701"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687915"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3 버킷에서 데이터 복사
 
-AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 개체, 폴더 및 버킷 Amazon Web Services (AWS) S3에서 Azure blob storage로 복사 AzCopy를 사용 하 여 합니다.
+AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사용할 수 있는 명령줄 유틸리티입니다. 이 문서에서는 개체, 디렉터리 및 버킷 Amazon Web Services (AWS) S3에서 Azure blob storage로 복사 AzCopy를 사용 하 여 합니다.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>권한 부여 자격 증명 제공할 방법 선택
 
@@ -46,7 +46,7 @@ AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-folders-and-buckets"></a>개체 복사, 폴더 및 버킷
+## <a name="copy-objects-directories-and-buckets"></a>개체 복사, 디렉터리 및 버킷
 
 AzCopy를 사용 합니다 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, AWS S3 및 저장소 서버 간에 직접 데이터를 복사 하도록 합니다. 이러한 복사 작업에는 컴퓨터의 네트워크 대역폭 사용 하지 마세요.
 
@@ -64,12 +64,12 @@ AzCopy를 사용 합니다 [URL에서 블록 배치](https://docs.microsoft.com/
 >
 > 버킷 가상 호스팅에 대 한 자세한 내용은 [가상 호스팅의 버킷이 표시]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)합니다.
 
-### <a name="copy-a-folder"></a>폴더를 복사 합니다.
+### <a name="copy-a-directory"></a>디렉터리 복사
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
-| **예제** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
+| **구문** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **예제** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>버킷의 복사
 
@@ -132,10 +132,10 @@ AzCopy는 다음이 단계를 수행합니다.
 
 이러한 문서 중 하나에서 더 많은 예제를 찾습니다.
 
-- [AzCopy를 사용 하 여 시작](storage-use-azcopy-v10.md)
+- [AzCopy 시작](storage-use-azcopy-v10.md)
 
-- [AzCopy 및 blob storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-blobs.md)
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 
-- [AzCopy 및 file storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-files.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
-- [구성, 최적화 및 AzCopy 문제 해결](storage-use-azcopy-configure.md)
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

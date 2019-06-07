@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596706"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692839"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -67,6 +67,9 @@ Traffic Manager 프로필을 마찬가지로 DNS 영역 apex에 Azure CDN 끝점
 예를 들어 정적 웹 사이트 이름이 www.contoso.com 인 경우 사용자가 DNS 이름에는 www 앞에 추가할 필요 없이 contoso.com을 사용 하 여 사이트에 액세스할 수 있습니다.
 
 앞에서 설명한 대로 영역 apex에 CNAME 레코드 지원 되지 않습니다. 따라서 contoso.com CDN 끝점을 가리키도록 CNAME 레코드를 사용할 수 없습니다. 대신, CDN 끝점에 영역 루트를 직접 가리키도록 별칭 레코드를 사용할 수 있습니다.
+
+> [!NOTE]
+> 영역 apex akamai에서의 Azure CDN에 대 한 CDN 끝점을 가리키는 현재 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

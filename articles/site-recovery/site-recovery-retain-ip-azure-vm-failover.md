@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277304"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479949"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -43,7 +43,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
         - 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
         - 동아시아의 워크로드는 VNet의 세 개 서브넷에 분산됩니다.
             - **서브넷 1**: 10.1.1.0/24
-            - **서브넷 2**: 10.1.2.0/24,
+            - **서브넷 2**: 10.1.2.0/24
             - **서브넷 3**: 10.1.3.0/24
     - 보조(대상) 지역은 Azure 동남아시아
         - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
@@ -131,11 +131,11 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 - 동아시아에는 주소 공간이 10.1.0.0/16인 VNet(**원본 VNet**)이 있습니다.
   - 동아시아의 워크로드는 **Source VNet**의 세 개 서브넷에 분산됩니다.
     - **서브넷 1**: 10.1.1.0/24
-    - **서브넷 2**: 10.1.2.0/24,
-    - **서브넷 3**: 10.1.3.0/24 주소 공간이 10.1.0.0/16인 Azure 가상 네트워크를 활용합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
+    - **서브넷 2**: 10.1.2.0/24
+    - **서브넷 3**: 10.1.3.0/24 주소 공간 10.1.0.0/16 사용 하 여 Azure virtual network를 활용 합니다. 이 가상 네트워크의 이름은 **Source VNet**입니다.
       - 보조(대상) 지역은 Azure 동남아시아:
   - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
-- 동아시아의 VM은 Azure ExpressRoute 또는 사이트 간 VPN을 통해 온-프레미스 데이터 센터에 연결됩니다.
+- 동아시아의 Vm은 Azure ExpressRoute 또는 사이트 간 VPN으로는 온-프레미스 데이터 센터에 연결 됩니다.
 - RTO를 줄이기 위해 B사는 장애 조치(failover) 전에 Azure 동남 아시아의 Recovery VNet에 게이트웨이를 프로비전합니다.
 - B사는 복제된 VM의 대상 IP 주소를 할당/확인합니다. 대상 IP 주소는 각 VM의 원본 IP 주소와 같습니다.
 

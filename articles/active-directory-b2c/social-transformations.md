@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 소셜 계정 클레임 변환 예 | Microsoft Docs
 description: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 소셜 계정 클레임 변환 예입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697743"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512482"
 ---
 # <a name="social-accounts-claims-transformations"></a>소셜 계정 클레임 변환
 
@@ -63,7 +63,7 @@ Azure Active Directory 호출에서 사용할 수 있는, 사용자의 alternati
 ### <a name="example"></a>예
 
 - 입력 클레임:
-    - **키**: 12334
+    - **key**: 12334
     - **identityProvider**: Facebook.com
 - 출력 클레임:
     - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}

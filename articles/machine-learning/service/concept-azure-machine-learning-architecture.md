@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242415"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480067"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -162,6 +162,9 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 ## <a name="snapshot"></a>스냅샷
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
+
+> [!NOTE]
+> 불필요 한 파일 스냅숏이 포함 되 고을 방지 하려면 (.gitignore 또는.amlignore)에 무시 파일을 확인 합니다. 스냅숏 디렉터리에이 파일을 배치 하 고에 무시 파일을 추가 합니다. .Amlignore 파일에서는 동일한 [구문과 패턴.gitignore 파일을](https://git-scm.com/docs/gitignore)입니다. 두 파일 모두 없으면.amlignore 파일 우선적으로 적용 합니다.
 
 ## <a name="activity"></a>작업
 

@@ -2,18 +2,17 @@
 title: Azure HDInsight 클러스터 모니터링을 사용 하 여 Azure Monitor 로그
 description: Azure Monitor 로그를 사용 하 여 HDInsight 클러스터에서 실행 하는 작업을 모니터링 하는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203672"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479252"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight 클러스터 모니터링을 사용 하 여 Azure Monitor 로그
 
@@ -49,21 +48,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션에서는 Azure Log Analytics 작업 영역을 사용하여 작업, 디버그 로그 등을 모니터링하도록 기존 HDInsight Hadoop 클러스터를 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/), 클러스터를 선택 합니다.  지침에 대해서는 [클러스터 나열 및 표시](./hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요. 클러스터는 새 포털 페이지에서 열립니다.
 
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+1. 왼쪽의 **모니터링**에서 **Operations Management Suite**를 선택합니다.
 
-3. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+1. 기본 보기의 **OMS 모니터링**에서 **사용**을 선택합니다.
 
-4. 목록에서 클러스터를 선택 합니다.
+1. **작업 영역 선택** 드롭다운 목록에서 기존 Log Analytics 작업 영역을 선택합니다.
 
-5. 왼쪽의 **모니터링**에서 **Operations Management Suite**를 선택합니다.
-
-6. 기본 보기의 **OMS 모니터링**에서 **사용**을 선택합니다.
-
-7. **작업 영역 선택** 드롭다운 목록에서 기존 Log Analytics 작업 영역을 선택합니다.
-
-8. **저장**을 선택합니다.  설정을 저장하는 데 몇 분 정도 걸립니다.
+1. **저장**을 선택합니다.  설정을 저장하는 데 몇 분 정도 걸립니다.
 
     ![HDInsight 클러스터에 대한 모니터링 사용](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight 클러스터에 대한 모니터링 사용")
 
