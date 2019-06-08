@@ -27,7 +27,7 @@ ms.locfileid: "66497318"
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 사용자 지정 비전 리소스 만들기
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 Custom Vision 리소스 만들기
 Custom Vision Service를 사용 하려면에서 사용자 지정 비전 교육 및 예측 리소스를 만들 해야 합니다 [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)합니다. 이렇게 하면 학습 및 예측 리소스가 둘 다 생성됩니다. 
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
@@ -44,7 +44,7 @@ Custom Vision Service를 사용 하려면에서 사용자 지정 비전 교육 �
 1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
 
    > [!NOTE]
-   > 사용 가능한 리소스 그룹이 없는 경우의에 로그인 했는지 확인 하십시오 [customvision.ai](https://customvision.ai) 에 로그인 할 때 동일한 계정을 사용 합니다 [Azure portal](https://portal.azure.com/)합니다. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
+   > 사용 가능한 리소스 그룹이 없는 경우, [Azure portal](https://portal.azure.com/)에 로그인할 때 사용한 동일한 계정으로 [customvision.ai](https://customvision.ai) 로그인했는지 확인하십시오. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __분류__ 를 선택합니다. 그런 다음 __분류 유형__ 아래에서 사용 사례에 따라 **다중 레이블** 또는 **다중 클래스**를 선택합니다. 다중 레이블 분류에서는 0개 이상의 태그가 이미지에 적용되는 반면 다중 클래스 분류에서는 이미지가 단일 범주로 정렬됩니다. 즉, 제출하는 모든 이미지가 가장 적합한 태그로 정렬됩니다. 원하는 경우 나중에 분류 유형을 변경할 수 있습니다.
 
@@ -87,7 +87,7 @@ Custom Vision Service를 사용 하려면에서 사용자 지정 비전 교육 �
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/getting-started-build-a-classifier/add-images01.png)
 
 
-1. 태그를 만들려면 __내 태그__ 필드에 텍스트를 입력하고 Enter 키를 누릅니다. 태그가 이미 있는 경우 드롭다운 메뉴에 표시됩니다. 다중 레이블 프로젝트에서는 이미지에 태그를 여러 개 추가할 수 있지만 다중 클래스 프로젝트에서는 태그를 하나만 추가할 수 있습니다. 이미지 업로드를 완료하려면 __[number]개 파일 업로드__ 단추를 사용합니다. 
+1. 태그를 만들려면 __내 태그__ 필드에 텍스트를 입력하고 Enter 키를 누릅니다. 태그가 이미 있는 경우 드롭다운 메뉴에 표시됩니다. 다중 레이블 프로젝트에서는 이미지에 태그를 여러 개 추가할 수 있지만 다중 클래스 프로젝트에서는 태그를 하나만 추가할 수 있습니다. 이미지 업로드를 완료하려면 __[수]개 파일 업로드__ 단추를 사용합니다. 
 
     ![태그 및 업로드 페이지 이미지](./media/getting-started-build-a-classifier/add-images03.png)
 
