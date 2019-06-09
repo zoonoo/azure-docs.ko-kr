@@ -71,7 +71,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
     b. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 옵션을 찾을 수 있습니다.
     
-    다. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
+    c. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
     
     d. Azure Portal에 새 사용자로 로그인하여 Databricks 작업 영역을 찾습니다.
     
@@ -88,7 +88,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
 #### <a name="error-message"></a>오류 메시지
 
-"클라우드 공급자 시작 실패: 클러스터를 설정 하는 동안 클라우드 공급자 오류가 발생 했습니다. 자세한 내용은 Databricks 가이드를 참조하세요. Azure 오류 코드: PublicIPCountLimitReached. Azure 오류 메시지: 만들 수 없습니다이 구독에 대해 60 개 이상의 공용 IP 주소가 지역의. "
+"클라우드 공급자 시작 실패: 클러스터를 설정 하는 동안 클라우드 공급자 오류가 발생 했습니다. 자세한 내용은 Databricks 가이드를 참조하세요. Azure 오류 코드: PublicIPCountLimitReached. Azure 오류 메시지: 이 지역에서 이 구독에 대해 60 개 이상의 공용 IP 주소를 만들 수 없습니다."
 
 #### <a name="solution"></a>해결 방법
 
@@ -109,7 +109,7 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 
 자세한 방법은 [리소스 공급자 및 유형](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요.
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>문제: Azure Databricks는 관리자만이 부여할 수 있는 조직의 리소스에에서 액세스할 수 있는 권한이 필요 합니다.
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>문제: Azure Databricks는 관리자만이 부여할 수 있는 조직의 리소스에서 액세스할 수 있는 권한이 필요 합니다.
 
 #### <a name="background"></a>백그라운드
 
