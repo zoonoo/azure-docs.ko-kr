@@ -69,10 +69,10 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서 또는 샘플 중 하나를 탐색하여 응용 프로그램에 내보낸 모델을 통합 합니다.
+다음 문서 또는 샘플 중 하나를 탐색하여 응용 프로그램에 내보낸 모델을 통합합니다.
 
 * [Python을 사용하여 Tensorflow 모델 사용](export-model-python.md)
 * [Windows Machine Learning을 사용하여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)
-* Swift를 사용하여 실시간 이미지 분류에 대한 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) 예제를 참조 하세요.
-* Android에서 실시간 이미지 분류에 대한 [Android 응용 프로그램에서 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 예제를 참조 하세요.
-* Xamarin iOS 앱에서 실시간 이미지 분류에 대한 [Xamarin 사용하여 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 예제를 참조 하세요.
+* Swift를 사용하는 실시간 이미지 분류에 대한 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) 예제를 참조하세요.
+* Android에서의 실시간 이미지 분류에 대한 [Android 응용 프로그램의 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 예제를 참조하세요.
+* Xamarin iOS 앱에서의 실시간 이미지 분류에 대한 [Xamarin을 사용하는 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 예제를 참조하세요.
