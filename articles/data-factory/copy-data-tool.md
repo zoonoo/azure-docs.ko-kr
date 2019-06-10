@@ -19,7 +19,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60787692"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
-Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
+Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
 
 - Azure Data Factory 데이터 복사 도구를 사용할 때는 연결된 서비스, 데이터 세트, 파이프라인, 작업 및 트리거에 대한 Data Factory 정의를 이해할 필요가 없습니다. 
 - 데이터 복사 도구의 흐름을 보면 Data Lake에 데이터를 로드하는 과정을 쉽게 이해할 수 있습니다. 이 도구는 선택한 원본 데이터 저장소에서 선택한 대상/싱크 데이터 저장소로 데이터를 복사하는 데 필요한 모든 Data Factory 리소스를 자동으로 만듭니다. 
@@ -78,7 +78,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 종단 간 데이�
 ![데이터베이스의 데이터 필터링](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
+폴더 경로의 변수를 사용하여 폴더에서 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** 및 **{minute}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다. 
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다. 
 

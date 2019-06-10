@@ -46,7 +46,7 @@ API | 사용 시기 | 메모
 Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 이 단계는 다른 버전의 Visual Studio에서도 유사합니다.
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
-2. **설치됨** > **템플릿** > **Visual C#** > **Windows 기본 바탕 화면**을 선택합니다.
+2. **설치됨** > **템플릿** > **Visual C#**  > **Windows 기본 바탕 화면**을 선택합니다.
 3. **콘솔 앱(.NET Framework)** 를 선택합니다.
 4. **이름:** 필드에서 애플리케이션의 이름을 입력합니다.
 5. **확인**을 선택합니다.
@@ -325,12 +325,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 BLOB인 경우 복사 작업 동안 해당 BLOB에 대한 액세스를 인증하는 SAS를 만듭니다.
 
-## <a name="share-snapshots"></a>공유 스냅숏
-Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅숏을 만들 수 있습니다. 또한 공유 스냅숏을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅숏은 읽기 전용이므로 공유 스냅숏에 쓰기 작업이 허용되지 않습니다.
+## <a name="share-snapshots"></a>공유 스냅샷
+Azure Storage 클라이언트 라이브러리의 버전 8.5부터는 공유 스냅샷을 만들 수 있습니다. 또한 공유 스냅샷을 나열하거나 찾고 삭제할 수도 있습니다. 공유 스냅샷은 읽기 전용이므로 공유 스냅샷에 쓰기 작업이 허용되지 않습니다.
 
 **공유 스냅숏 만들기**
 
-다음 예제에서는 파일 공유 스냅숏을 만듭니다.
+다음 예제에서는 파일 공유 스냅샷을 만듭니다.
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -342,7 +342,7 @@ var snapshotShare = myShare.Snapshot();
 ```
 **공유 스냅숏 나열**
 
-다음 예제에서는 공유에 공유 스냅숏을 나열합니다.
+다음 예제에서는 공유에 공유 스냅샷을 나열합니다.
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -350,7 +350,7 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 **공유 스냅숏 내에서 파일 및 디렉터리 찾아보기**
 
-다음 예제에서는 공유 스냅숏 내에서 파일 및 디렉터리를 찾습니다.
+다음 예제에서는 공유 스냅샷 내에서 파일 및 디렉터리를 찾습니다.
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -360,9 +360,9 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 **공유 및 공유 스냅숏 나열 및 공유 스냅숏의 파일 공유 또는 파일 복원** 
 
-파일 공유의 스냅숏을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
+파일 공유의 스냅샷을 만들면 나중에 개별 파일 또는 전체 파일 공유를 복구할 수 있습니다. 
 
-파일 공유의 공유 스냅숏을 쿼리하여 파일 공유 스냅숏의 파일을 복원할 수 있습니다. 그런 다음 특정 공유 스냅숏에 속하는 파일을 검색하고 해당 버전을 사용하여 직접 읽고 비교하거나 복원할 수 있습니다.
+파일 공유의 공유 스냅샷을 쿼리하여 파일 공유 스냅샷의 파일을 복원할 수 있습니다. 그런 다음, 특정 공유 스냅샷에 속하는 파일을 검색하고 해당 버전을 사용하여 직접 읽고 비교하거나 복원할 수 있습니다.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -393,7 +393,7 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 **공유 스냅숏 삭제**
 
-다음 예제에서는 파일 공유 스냅숏을 삭제합니다.
+다음 예제에서는 파일 공유 스냅샷을 삭제합니다.
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
@@ -456,7 +456,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-또한 종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
+또한 엔드투엔드 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.

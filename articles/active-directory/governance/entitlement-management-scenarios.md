@@ -16,17 +16,17 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918470"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473179"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)의 일반적인 시나리오
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -50,7 +50,7 @@ ms.locfileid: "64918470"
 > | **2.** [패키지 액세스 리소스 역할 추가](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>그룹</li><li>애플리케이션</li><li>SharePoint 사이트</li></ul> | ![리소스 역할 추가](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [정책 추가](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>디렉터리의 사용자에 대 한</li><li>승인 필요</li><li>만료 설정</li></ul> | ![정책 추가](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>내 비즈니스 파트너 (사용자를 디렉터리에 아직 포함)에서 사용자 그룹, 응용 프로그램 또는 SharePoint 사이트에 대 한 요청 액세스 허용 하려고 하는 경우
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>그룹, 응용 프로그램 또는 SharePoint 사이트에 액세스를 요청 (사용자를 디렉터리에 아직 포함) 내 비즈니스 파트너 디렉터리에서 사용자를 허용 하려고 하는 경우
 
 > [!div class="mx-tableFixed"]
 > | 단계 | 예 |
@@ -124,4 +124,4 @@ ms.locfileid: "64918470"
 ## <a name="next-steps"></a>다음 단계
 
 - [자습서: 첫 번째 액세스 패키지 만들기](entitlement-management-access-package-first.md)
-- [편집 및 기존 액세스 패키지 관리](entitlement-management-access-package-edit.md)
+- [기존 액세스 패키지 편집 및 관리](entitlement-management-access-package-edit.md)

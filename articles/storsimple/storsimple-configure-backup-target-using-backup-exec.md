@@ -115,7 +115,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 1.  백업 서버에서 대상 백업 에이전트에 연결하고, 백업 에이전트는 백업 서버에 데이터를 전송합니다.
 2.  백업 서버에서 계층화된 StorSimple 볼륨에 데이터를 씁니다.
 3.  백업 서버에서 카탈로그 데이터베이스를 업데이트한 다음 백업 작업을 완료합니다.
-4.  스냅숏 스크립트에서 StorSimple 클라우드 스냅숏 관리자를 트리거합니다(시작 또는 삭제).
+4.  스냅샷 스크립트에서 StorSimple 클라우드 스냅샷 관리자를 트리거합니다(시작 또는 삭제).
 5.  백업 서버에서 보존 정책에 따라 만료된 백업을 삭제합니다.
 
 
@@ -141,7 +141,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 2.  백업 서버에서 고성능 저장소에 데이터를 씁니다.
 3.  백업 서버에서 카탈로그 데이터베이스를 업데이트한 다음 백업 작업을 완료합니다.
 4.  백업 서버에서 보존 정책에 따라 StorSimple에 백업을 복사합니다.
-5.  스냅숏 스크립트에서 StorSimple 클라우드 스냅숏 관리자를 트리거합니다(시작 또는 삭제).
+5.  스냅샷 스크립트에서 StorSimple 클라우드 스냅샷 관리자를 트리거합니다(시작 또는 삭제).
 6.  백업 서버에서 보존 정책에 따라 만료된 백업을 삭제합니다.
 
 ### <a name="secondary-target-restore-logical-steps"></a>보조 대상 복원 논리 단계
@@ -161,7 +161,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ### <a name="set-up-the-network"></a>네트워크 설정
 
-StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimple에는 Azure 클라우드에 대한 활성 연결이 필요합니다. 이 연결은 클라우드 스냅숏, 관리 및 메타데이터 전송과 같은 작업에서 오래되고 자주 액세스되지 않는 데이터를 Azure 클라우드 저장소에 계층화하는 데 사용됩니다.
+StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimple에는 Azure 클라우드에 대한 활성 연결이 필요합니다. 이 연결은 클라우드 스냅샷, 관리 및 메타데이터 전송과 같은 작업에서 오래되고 자주 액세스되지 않는 데이터를 Azure 클라우드 저장소에 계층화하는 데 사용됩니다.
 
 솔루션을 최적으로 수행하려면 다음과 같은 네트워킹 모범 사례를 따르는 것이 좋습니다.
 
@@ -187,9 +187,9 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 | 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전. |
 | 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](storsimple-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
 | 백업 데이터를 저장하는 볼륨에 대한 일반적인 볼륨 컨테이너를 만듭니다. 볼륨 컨테이너에 있는 모든 데이터의 중복을 제거합니다. | StorSimple 볼륨 컨테이너는 중복 제거 도메인을 정의합니다.  |
-| StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅숏 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
+| StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅샷 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
 | 모든 백업 대상 볼륨에 대한 고유한 StorSimple 백업 정책을 만듭니다. | StorSimple 백업 정책은 볼륨 일관성 그룹을 정의합니다. |
-| 스냅숏이 만료될 때 일정을 사용하지 않도록 설정합니다. | 스냅숏은 후처리 작업으로 트리거됩니다. |
+| 스냅샷이 만료될 때 일정을 사용하지 않도록 설정합니다. | 스냅샷은 후처리 작업으로 트리거됩니다. |
 
 ### <a name="set-up-the-host-backup-server-storage"></a>호스트 백업 서버 저장소 설정
 
@@ -421,19 +421,19 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 7.  **Backup** 열에서 새 단계를 추가합니다. 원본에 대해 **증분**을 사용합니다. 대상에 대해 증분 백업 작업이 보관되는 StorSimple 볼륨을 선택합니다. 1-6단계를 반복합니다.
 
-## <a name="storsimple-cloud-snapshots"></a>StorSimple 클라우드 스냅숏
+## <a name="storsimple-cloud-snapshots"></a>StorSimple 클라우드 스냅샷
 
-StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터를 보호합니다. 클라우드 스냅숏을 만드는 것은 로컬 백업 테이프를 오프 사이트 시설로 전달하는 것과 같습니다. Azure 지역 중복 저장소를 사용하는 경우 클라우드 스냅숏을 만드는 것은 백업 테이프를 여러 사이트로 전달하는 것과 같습니다. 재해 발생 후 디바이스를 복원해야 하는 경우 다른 StorSimple 디바이스를 온라인 상태로 전환하여 장애 조치를 수행할 수 있습니다. 장애 조치 후에 최근의 클라우드 스냅숏에서 클라우드 속도로 데이터에 액세스할 수 있습니다.
+StorSimple 클라우드 스냅샷은 StorSimple 디바이스에 있는 데이터를 보호합니다. 클라우드 스냅샷을 만드는 것은 로컬 백업 테이프를 오프 사이트 시설로 전달하는 것과 같습니다. Azure 지역 중복 저장소를 사용하는 경우 클라우드 스냅샷을 만드는 것은 백업 테이프를 여러 사이트로 전달하는 것과 같습니다. 재해 발생 후 디바이스를 복원해야 하는 경우 다른 StorSimple 디바이스를 온라인 상태로 전환하여 장애 조치를 수행할 수 있습니다. 장애 조치 후에 최근의 클라우드 스냅샷에서 클라우드 속도로 데이터에 액세스할 수 있습니다.
 
-다음 섹션에서는 백업 후처리 중에 StorSimple 클라우드 스냅숏을 시작하고 삭제하는 간단한 스크립트를 만드는 방법에 대해 설명합니다.
-
-> [!NOTE]
-> 수동 또는 프로그래밍 방식으로 만든 스냅숏은 StorSimple 스냅숏 만료 정책을 따르지 않습니다. 이러한 스냅숏은 수동 또는 프로그래밍 방식으로 삭제되어야 합니다.
-
-### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>스크립트를 사용하여 클라우드 스냅숏 시작 및 삭제
+다음 섹션에서는 백업 후처리 중에 StorSimple 클라우드 스냅샷을 시작하고 삭제하는 간단한 스크립트를 만드는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> StorSimple 스냅숏을 삭제하기 전에 규정 준수 및 데이터 보존 영향을 신중하게 평가합니다. 사후 백업 스크립트를 실행하는 방법에 대한 자세한 내용은 [Backup Exec 설명서](https://www.veritas.com/support/en_US/article.100032497.html)(영문)를 참조하세요.
+> 수동 또는 프로그래밍 방식으로 만든 스냅샷은 StorSimple 스냅샷 만료 정책을 따르지 않습니다. 이러한 스냅샷은 수동 또는 프로그래밍 방식으로 삭제되어야 합니다.
+
+### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>스크립트를 사용하여 클라우드 스냅샷 시작 및 삭제
+
+> [!NOTE]
+> StorSimple 스냅샷을 삭제하기 전에 규정 준수 및 데이터 보존 영향을 신중하게 평가합니다. 사후 백업 스크립트를 실행하는 방법에 대한 자세한 내용은 [Backup Exec 설명서](https://www.veritas.com/support/en_US/article.100032497.html)(영문)를 참조하세요.
 
 ### <a name="backup-lifecycle"></a>Backup 주기
 
@@ -446,7 +446,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
 -   StorSimple 볼륨과 연관된 StorSimple 백업 정책은 설정해야 하지만 사용하도록 설정되면 안 됩니다.
 -   StorSimple 리소스 이름, 등록 키, 디바이스 이름 및 백업 정책 ID가 필요합니다.
 
-### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅숏을 시작하거나 삭제하려면
+### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅샷을 시작하거나 삭제하려면
 
 1. [Azure PowerShell 설치](/powershell/azure/overview)
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
@@ -459,7 +459,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
    ![Backup Exec 콘솔 - 백업 옵션, 전처리 및 후처리 명령 탭](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
-> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 애플리케이션 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
+> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅샷 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 애플리케이션 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
 
 ## <a name="storsimple-as-a-restore-source"></a>복원 원본인 StorSimple
 

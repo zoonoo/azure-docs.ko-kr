@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Portal을 사용하여 Stream Analytics 작업을 만들고 관리'
-description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 통합적 데모를 제공합니다.
+description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 엔드투엔드 데모를 제공합니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea

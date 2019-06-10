@@ -243,7 +243,7 @@ def main(req: func.HttpRequest):
     helpers.process_http_request(req)
 ```
 
-또는 공유 코드를 독립 실행형 패키지에 넣어 공용 또는 개인 PyPI 인스턴스에 게시한 다음, 일반 종속성으로 지정합니다.
+또는 공유 코드를 독립 실행형 패키지에 넣어 공용 또는 프라이빗 PyPI 인스턴스에 게시한 다음, 일반 종속성으로 지정합니다.
 
 ## <a name="async"></a>Async
 

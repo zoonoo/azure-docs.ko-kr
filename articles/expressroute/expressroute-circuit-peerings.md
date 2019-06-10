@@ -31,7 +31,7 @@ ExpressRoute 회로는 연결 공급자를 통한 온-프레미스 인프라와 
 
 ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로는 서비스 키(S 키)라고 하는 표준 GUID를 통해 고유하게 식별됩니다. 서비스 키는 Microsoft, 연결 공급자 및 사용자 간에 교환되는 유일한 정보의 부분입니다. S 키는 보안을 위한 암호가 아닙니다. ExpressRoute 회로와 S 키 사이에는 1:1 매핑이 있습니다.
 
-새 ExpressRoute 회로에는 두 개의 독립 피어링이 포함될 수 있습니다. 개인 피어링 및 Microsoft 피어링 반면 기존 ExpressRoute 회로에는 3개의 피어링이 포함될 수 있습니다. Azure 공용, Azure 개인 및 Microsoft 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. ExpressRoute 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. ExpressRoute 회로는 ExpressRoute 회로마다 1개, 2개 또는 3개의 피어링을 모두 사용할 수 있습니다.
+새 ExpressRoute 회로에는 두 개의 독립 피어링이 포함될 수 있습니다. 프라이빗 피어링 및 Microsoft 피어링. 반면 기존 ExpressRoute 회로에는 3개의 피어링이 포함될 수 있습니다. Azure 공용, Azure 프라이빗 및 Microsoft. 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. ExpressRoute 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. ExpressRoute 회로는 ExpressRoute 회로마다 1개, 2개 또는 3개의 피어링을 모두 사용할 수 있습니다.
 
 각 회로는 고정 대역폭(50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 10Gbps)이며 연결 공급자 및 피어링 위치에 매핑됩니다. 선택한 대역폭은 모든 회로 피어링에서 공유됩니다.
 
@@ -41,15 +41,15 @@ ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로�
 
 ## <a name="routingdomains"></a>ExpressRoute 피어링
 
-ExpressRoute 회로에는 연결된 여러 라우팅 도메인/피어링이 있습니다. Azure 공용, Azure 개인 및 Microsoft 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 개인*으로 분류됩니다.
+ExpressRoute 회로에는 연결된 여러 라우팅 도메인/피어링이 있습니다. Azure 공용, Azure 프라이빗 및 Microsoft. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗*으로 분류됩니다.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Azure 개인 피어링
 
-Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이 피어링을 통해 개인 IP 주소에서 가상 머신과 클라우드 서비스에 직접 연결할 수 있습니다.  
+Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 프라이빗 피어링 도메인을 통해 연결될 수 있습니다. 프라이빗 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이 피어링을 통해 개인 IP 주소에서 가상 머신과 클라우드 서비스에 직접 연결할 수 있습니다.  
 
-둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md) 페이지에서 확인할 수 있습니다.  라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
+둘 이상의 가상 네트워크를 프라이빗 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 검토하세요. 제한 사항에 대한 최신 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md) 페이지에서 확인할 수 있습니다.  라우팅 구성에 대한 자세한 내용은 [라우팅](expressroute-routing.md) 페이지를 참조하세요.
 
 ### <a name="microsoftpeering"></a>Microsoft 피어링
 
@@ -81,12 +81,12 @@ Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주�
 | --- | --- | --- | --- |
 | **피어링당 지원되는 최대값 # 접두사** |기본적으로 4000, ExpressRoute 프리미엄으로 10,000 |200 |200 |
 | **지원되는 IP 주소 범위** |WAN 내의 유효한 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |
-| **AS 번호 요구 사항** |개인 및 공용 AS 번호. 공용 AS 번호를 사용하려는 경우 해당 번호를 소유하고 있어야 합니다. |개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |개인 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |
+| **AS 번호 요구 사항** |프라이빗 및 공용 AS 번호. 공용 AS 번호를 사용하려는 경우 해당 번호를 소유하고 있어야 합니다. |프라이빗 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |프라이빗 및 공용 AS 번호. 하지만, 공용 IP 주소의 소유권을 증명해야 합니다. |
 | **지원되는 IP 프로토콜**| IPv4 |  IPv4, IPv6 | IPv4 |
 | **라우팅 인터페이스 IP 주소** |RFC1918 및 공용 IP 주소 |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |라우팅 레지스트리의 사용자에게 등록된 공용 IP 주소. |
 | **MD5 해시 지원** |예 |예 |예 |
 
-ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
+ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 프라이빗 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
 
 각 피어링에는 별도 BGP 세션이 필요합니다(각 피어링 형식에 한 쌍). BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. 계층 2 연결 공급자를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다. ExpressRoute를 설정하기 위한 [워크플로](expressroute-workflows.md) 를 검토하여 자세히 알아볼 수 있습니다.
 
@@ -94,7 +94,7 @@ ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용�
 
 ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
 
-NPM은 Azure 개인 피어링 및 Microsoft 피어링의 상태를 모니터링합니다. 자세한 내용은 [포스트](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
+NPM은 Azure 프라이빗 피어링 및 Microsoft 피어링의 상태를 모니터링합니다. 자세한 내용은 [포스트](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

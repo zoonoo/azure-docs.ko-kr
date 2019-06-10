@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228342"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496512"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
-
-## <a name="overview"></a>개요 ##
 
 Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Network에 있는 서브넷에 배포한 것입니다. ASE는 다음으로 구성됩니다.
 
@@ -62,17 +60,14 @@ ASE에서 앱을 만들려면
 
 1. OS를 선택합니다. 
 
-    * ASE에서 Linux 앱을 호스트하는 것은 새로운 미리 보기 기능이므로, 현재 프로덕션 워크로드를 실행 중인 ASE에는 Linux 앱을 추가하지 않는 것이 좋습니다. 
-    * ASE에 Linux 앱을 추가하게 되면 ASE도 미리 보기 모드가 됩니다. 
-
 1. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
 
     a. **새로 만들기**를 선택합니다.
 
     b. App Service 계획의 이름을 입력합니다.
 
-    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE의 Linux 앱 호스트는 현재 **미국 서부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
-
+    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
+    
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
     e. **확인**을 선택합니다.
@@ -135,7 +130,7 @@ ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만�
 
 외부 ASE에서는 이러한 게시 옵션이 모두 동일하게 동작합니다. 자세한 내용은 [Azure App Service의 배포][AppDeploy]를 참조하세요. 
 
-게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 엔드포인트는 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 개인 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에 설명된 것처럼 시스템에서 앱에 대한 DNS를 구성해야 합니다. 여기에 SCM 엔드포인트가 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
+게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 엔드포인트는 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 프라이빗 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에 설명된 것처럼 시스템에서 앱에 대한 DNS를 구성해야 합니다. 여기에 SCM 엔드포인트가 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
 
 기본적으로 게시 끝점이 인터넷에 액세스할 수 없기 때문에 ILB ase에서는 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템이 작동 하지 않습니다. Azure DevOps에 대 한 ILB 도달할 수 있는 내부 네트워크에서 자체 호스팅된 해제 에이전트를 설치 하 여이 문제를 해결 작업할 수 있습니다. 또는 Dropbox와 같은 끌어오기 모델을 사용 하는 CI 시스템을 사용할 수 있습니다.
 

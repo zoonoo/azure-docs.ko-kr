@@ -191,9 +191,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ```
 
 
-### <a name="prefetch-images-from-a-private-container-registry"></a>개인 컨테이너 레지스트리에서 이미지 프리페치
+### <a name="prefetch-images-from-a-private-container-registry"></a>프라이빗 컨테이너 레지스트리에서 이미지 프리페치
 
-개인 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 개인 Azure Container Registry에서 개인 TensorFlow 이미지를 프리페치한다고 가정합니다. 이미지 참조는 앞의 예와 동일합니다.
+프라이빗 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 프라이빗 Azure Container Registry에서 프라이빗 TensorFlow 이미지를 프리페치한다고 가정합니다. 이미지 참조는 앞의 예와 동일합니다.
 
 ```csharp
 // Specify a container registry

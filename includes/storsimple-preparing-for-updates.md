@@ -14,7 +14,7 @@ ms.locfileid: "66149631"
 ## <a name="preparing-for-updates"></a>업데이트 준비
 업데이트를 스캔하고 적용하기 전에 다음 단계를 수행해야 합니다.
 
-1. 디바이스 데이터의 클라우드 스냅숏을 만듭니다.
+1. 디바이스 데이터의 클라우드 스냅샷을 만듭니다.
 2. 컨트롤러 고정 IP가 라우팅할 수 있으며 인터넷에 연결할 수 있는지 확인합니다. 이러한 고정된 IP는 디바이스를 서비스 업데이트하는 데 사용됩니다. 디바이스의 Windows PowerShell 인터페이스에서 다음 cmdlet을 실행하여 이를 테스트할 수 있습니다.
    
      `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network>`

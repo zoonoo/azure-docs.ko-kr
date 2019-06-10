@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306668"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -55,7 +55,7 @@ ms.locfileid: "66157957"
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
-* Windows 개발 환경을 설정합니다. [Visual Studio 2017](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
+* Windows 개발 환경을 설정합니다. [Visual Studio 2019](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>런타임 버전 가져오기
 
-Azure에 연결하고 Service Fabric 클러스터가 포함된 구독을 선택한 후 클러스터의 런타임 버전을 가져올 수 있습니다.
+Azure에 연결하고 Service Fabric 클러스터가 포함된 구독을 선택했으면 클러스터의 런타임 버전을 가져올 수 있습니다.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-또는 다음을 통해 구독의 모든 클러스터 목록을 가져옵니다.
+또는 다음 예제를 통해 구독의 모든 클러스터 목록을 가져옵니다.
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ sfctl cluster upgrade-status
 > * 클러스터 런타임 업그레이드
 > * 업그레이드 모니터링
 
-[!div class="checklist"]
-> * 클러스터 런타임 버전 가져오기
-> * 클러스터 런타임 업그레이드
-> * 업그레이드 모니터링
+다음 자습서를 진행합니다.
 
+> [!div class="nextstepaction"]
+> [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)

@@ -2,24 +2,24 @@
 title: 자습서 - 애플리케이션에 ID 공급자 추가 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Active Directory B2C의 애플리케이션에 ID 공급자를 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1bd78442f6a7218dde3710236766117816c42fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710143"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512206"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
-애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다. Azure Portal을 사용하여 Azure AD(Azure Active Directory) B2C에서 지원하는 ID 공급자를 [사용자 흐름](active-directory-b2c-reference-policies.md)에 추가할 수 있습니다.
+애플리케이션에서 사용자가 다른 ID 공급자로 로그인하도록 허용할 수 있습니다. ‘ID 공급자’는 애플리케이션에 인증 서비스를 제공하는 동시에 ID 정보를 만들고 유지 관리합니다.  Azure Portal을 사용하여 Azure AD(Azure Active Directory) B2C에서 지원하는 ID 공급자를 [사용자 흐름](active-directory-b2c-reference-policies.md)에 추가할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -92,7 +92,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Azure Active Directory ID 공급자 추가
 
 1. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용합니다.
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 3. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 4. **이름**을 입력합니다. 예를 들어 *Contoso Azure AD*를 입력합니다.
 5. **ID 공급자 유형**을 선택하고 **Open ID Connect(미리 보기)** 를 선택한 다음, **확인**을 클릭합니다.

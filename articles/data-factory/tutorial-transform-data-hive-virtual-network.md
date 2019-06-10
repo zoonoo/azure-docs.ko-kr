@@ -222,9 +222,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **userName** - 클러스터를 만들 때 지정한 클러스터 로그인 사용자의 이름입니다. 
 - **password** - 이 사용자에 대한 암호입니다.
-- **clusterUri** - HDInsight 클러스터의 URL을 `https://<clustername>.azurehdinsight.net` 형식으로 지정합니다.  이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 사설 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
+- **clusterUri** - HDInsight 클러스터의 URL을 `https://<clustername>.azurehdinsight.net` 형식으로 지정합니다.  이 문서에서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 `https://clustername.azurehdinsight.net`에 있는 클러스터에 연결할 수 있습니다. 이 주소는 NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)을 사용하여 인터넷 액세스를 제한한 경우 사용할 수 없는 공용 게이트웨이를 사용합니다. Data Factory에서 Azure Virtual Network의 HDInsight 클러스터에 작업을 제출하려면, URL을 HDInsight에서 사용하는 게이트웨이의 개인 IP 주소로 확인할 수 있도록 Azure Virtual Network를 구성해야 합니다.
 
-  1. Azure Portal에서 HDInsight가 있는 Virtual Network를 엽니다. 이름이 `nic-gateway-0`으로 시작하는 네트워크 인터페이스를 엽니다. 사설 IP 주소를 적어 둡니다. 예를 들어 10.6.0.15입니다. 
+  1. Azure Portal에서 HDInsight가 있는 Virtual Network를 엽니다. 이름이 `nic-gateway-0`으로 시작하는 네트워크 인터페이스를 엽니다. 개인 IP 주소를 적어 둡니다. 예를 들어 10.6.0.15입니다. 
   2. Azure Virtual Network에 DNS 서버가 있는 경우 `https://<clustername>.azurehdinsight.net` HDInsight 클러스터 URL을 `10.6.0.15`로 확인할 수 있도록 DNS 레코드를 업데이트합니다. 이 방법을 사용하는 것이 좋습니다. Azure Virtual Network에 DNS 서버가 없는 경우, 자체 호스팅 통합 런타임 노드로 등록된 모든 VM의 호스트 파일(C:\Windows\System32\drivers\etc)을 편집하여 다음과 같은 항목을 추가함으로써 이 문제를 일시적으로 해결할 수 있습니다. 
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`

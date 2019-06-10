@@ -9,20 +9,20 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727445"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427826"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
- KV(Key Vault) 인증서는 만들거나 키 자격 증명 모음으로 가져올 수 있습니다. KV 인증서를 만들 때 개인 키는 키 자격 증명 모음 내에 만들어지며 인증서 소유자에게 절대 공개되지 않습니다. 다음은 Key Vault에서 인증서 생성 방법입니다.  
+ KV(Key Vault) 인증서는 만들거나 키 자격 증명 모음으로 가져올 수 있습니다. KV 인증서를 만들 때 프라이빗 키는 키 자격 증명 모음 내에 만들어지며 인증서 소유자에게 절대 공개되지 않습니다. 다음은 Key Vault에서 인증서 생성 방법입니다.  
 
 -   **자체 서명된 인증서 만들기:** 이 방법은 공용-개인 키 쌍을 만들어 인증서와 연결합니다. 인증서는 자체 키에 의해 서명됩니다.  
 
--    **수동으로 새 인증서 만들기:** 이 방법은 공용-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 개인 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다.  
+-    **수동으로 새 인증서 만들기:** 이 방법은 공용-개인 키 쌍을 만들고 X.509 인증서 서명 요청을 생성합니다. 등록 기관 또는 인증 기관에서 서명 요청에 서명할 수 있습니다. 서명된 x509 인증서를 보류 중인 키 쌍과 병합하여 Key Vault에서 KV 인증서를 완료할 수 있습니다. 이 방법은 더 많은 단계를 필요로 하지만 프라이빗 키가 Key Vault에서 만들어지고 또 Key Vault로 제한되기 때문에 보안이 더욱 강화됩니다. 이 방법을 아래 다이어그램에서 설명합니다.  
 
 ![사용자 고유의 인증 기관을 통해 인증서 만들기](media/certificate-authority-1.png)  
 
@@ -82,7 +82,7 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 |공급자|인증서 종류|  
 |--------------|----------------------|  
 |DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
-|GlobalCert|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
+|GlobalCert|Key Vault는 Globaltrust 사용 하 여 OV 또는 EV SSL 인증서 제공 |
 
  인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
 

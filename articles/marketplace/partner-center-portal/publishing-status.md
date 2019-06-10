@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806148"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474514"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상용 Marketplace 제품의 게시 상태를 확인 합니다.
 
 현재 볼 수 있습니다 **게시 상태** 에 **개요를 제공** 탭의 [상용 Marketplace 포털](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) 파트너 센터에서.
 
+각 제품에 대해 다음 상태 표시기 중 하나가 표시되어야 합니다.
+
+| **상태**    | **설명**  |
+| :---------- | :-------------------|
+| **초안** | 제품 만들어졌지만 게시 되는 되지 않습니다. |
+| **게시 진행 중** | 요금제/게시 프로세스의 단계를 통해 서를 작동 합니다. |
+| **주의 필요** | 중요 한 문제를 Microsoft 또는 게시 단계 중 하나에서 인증 하는 동안 발견 되었습니다. |
+| **미리 보기** | 제품은은 Microsoft에서 인증 된 하 고 이제 게시자가 최종 확인을 기다립니다. 선택 제품을 라이브로 전환 라이브입니다. |
+| **라이브** | 제품은 marketplace에 라이브에 표시 되 고 고객에 의해 획득 수 수 있습니다. |
+| **보류 중인 중지 판매** | 게시자 선택 "판매 stop" 제품의 계획, 했지만 작업이 아직 완료 되지 않았습니다. |
+| **Marketplace에서 사용할 수 없음** | Marketplace에서 이전에 게시 된 제품/계획이 제거 되었습니다. |
+
 ## <a name="automated-validation"></a>자동화 된 유효성 검사
 
 게시 프로세스의 첫 번째 단계는 자동화 된 유효성 검사 집합이 표시 됩니다. 각 유효성 검사 단계에서 제품 만들기를 사용 하도록 선택한 기능에 해당 합니다. 해당 기능을 사용할 수 없습니다, 유효성 검사 다음 게시 단계를 건너뜁니다. 게시 상태가 승인 하기 전에 각 유효성 검사를 완료 합니다.
 
-- **구매 흐름 설치를 제공 합니다. (> 10 분)**
+- **구매 흐름 설치를 제공 합니다. (< 10 분)**
 
 이 단계에서는 Azure portal 통해 고객이 구매 하는 경우에 제품을 수행할 수 있습니다을 확인 합니다. 이 단계는 Microsoft를 통해 판매 되는 제품에 적용할 수만 있습니다.
 
@@ -34,7 +46,7 @@ ms.locfileid: "65806148"
 
 이전 단계에서 시험의 특성과 데이터 유효성 검사 한 후이 단계에서는 배포 하 고 고객이 사용할 준비가 되도록 테스트 드라이브의 인스턴스를 복제 합니다.  이 단계는 사용 하도록 설정 하 여 테스트 드라이브를 사용 하 여 제품에 적용할 수만 있습니다.
 
-- **관리 유효성 검사 및 등록 발생할 (> 15 분)**
+- **관리 유효성 검사 및 등록 발생할 (< 15 분)**
 
 이 단계에서는 잠재 고객 관리 시스템 제품 설치 프로그램에 제공 된 정보에 따라 리드를 받을 수 있는지 확인 합니다. 이 단계는 사용 하도록 설정 하는 잠재 고객 관리를 사용 하 여 제품에 적용할 수만 있습니다.
 

@@ -6,20 +6,20 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719059"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252893"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드 
 
 이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
-[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -27,15 +27,15 @@ ms.locfileid: "64719059"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건:
+## <a name="prerequisites"></a>필수 조건
 
-다음 항목이 있어야 합니다.
+* HDInsight의 Apache Spark 클러스터입니다. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
 
-* [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 완료합니다.
+* HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)을 참조하세요.
 
 ## <a name="understand-the-data-set"></a>데이터 집합 이해
 
-애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다. 이 파일은 **\HdiSamples\HdiSamples\SensorSampleData\hvac**에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 이 데이터를 사용하여 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
+애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다. 파일은 `\HdiSamples\HdiSamples\SensorSampleData\hvac`에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 이 데이터를 사용하여 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
 
 ![Spark 기계 학습 예제에 사용되는 데이터의 스냅숏](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark 기계 학습 예제에 사용되는 데이터의 스냅숏")
 
@@ -60,6 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
+
 3. 데이터(hvac.csv)를 로드하고, 구문 분석하고, 모델 학습에 사용합니다. 
 
     ```PySpark
@@ -96,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    파이프라인 및 작동 방법에 대한 자세한 내용은 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark Machine Learning 파이프라인</a>을 참조하세요.
+    파이프라인 및 작동 방법에 대한 자세한 내용은 [Apache Spark Machine Learning 파이프라인](https://spark.apache.org/docs/latest/ml-pipeline.html)을 참조하세요.
 
 5. 학습 문서에 파이프라인을 맞춥니다.
    
@@ -187,12 +188,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-* Apache Spark 기계 학습 애플리케이션 개발
-
-다음 자습서로 이동하여 Spark용 IntelliJ IDEA 작업을 사용하는 방법을 알아봅니다. 
+이 자습서에서는 Jupyter Notebook을 사용하여 Azure HDInsight에 대한 Apache Spark Machine Learning 애플리케이션을 빌드하는 방법을 알아보았습니다. 다음 자습서로 이동하여 Spark용 IntelliJ IDEA 작업을 사용하는 방법을 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [IntelliJ를 사용하여 Scala Maven 애플리케이션 만들기](./apache-spark-create-standalone-application.md)
-

@@ -30,7 +30,7 @@ ms.locfileid: "60402754"
 
 이런 내용은 지연된 메시지를 큐에서 복구하려고 시도할 때 특히 유의해야 합니다. [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) 인스턴트를 통과한 메시지는 어떠한 방법으로도(Peek에 의해 반환되는 경우에도) 일반 검색을 수행할 수 없습니다. Peek은 로그의 현재 상태를 반영하는 진단 도구이기 때문에 이러한 메시지를 반환하는 것은 의도적입니다.
 
-또한 Peek는 잠긴 상태에서 다른 수신기가 현재 처리하고 있지만 아직 완료되지 않은 메시지를 반환합니다. 하지만 Peek는 연결이 끊긴 스냅숏을 반환하기 때문에 미리 본 메시지에서 메시지의 잠금 상태를 관찰할 수 없으며 애플리케이션이 해당 메시지를 읽으려고 하면 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 및 [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 속성이 [InvalidOperationException](/dotnet/api/system.invalidoperationexception)을 throw합니다.
+또한 Peek는 잠긴 상태에서 다른 수신기가 현재 처리하고 있지만 아직 완료되지 않은 메시지를 반환합니다. 하지만 Peek는 연결이 끊긴 스냅샷을 반환하기 때문에 미리 본 메시지에서 메시지의 잠금 상태를 관찰할 수 없으며 애플리케이션이 해당 메시지를 읽으려고 하면 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) 및 [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) 속성이 [InvalidOperationException](/dotnet/api/system.invalidoperationexception)을 throw합니다.
 
 ## <a name="peek-apis"></a>Peek API
 

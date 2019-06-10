@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234167"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475635"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service (AKS)에서 응용 프로그램 요구에 맞게 클러스터를 자동으로 크기 조정
 
@@ -28,11 +28,11 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 진행하려면 Azure CLI 버전 2.0.55 이상을 실행하고 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 문서에서는 Azure CLI 버전 2.0.65 실행 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-클러스터 자동 크기 조정기를 지원하는 AKS 클러스터는 가상 머신 확장 집합을 사용하고 Kubernetes 버전 *1.12.4* 이상을 실행해야 합니다. 이 확장 집합 지원은 미리 보기로 제공됩니다. 확장 집합을 사용하는 클러스터를 옵트인하고 만들려면 먼저 다음 예제와 같이 [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치합니다.
+클러스터 autoscaler를 지 원하는 AKS 클러스터에서 가상 머신 확장 집합을 사용 하 고 Kubernetes 버전을 실행 해야 *1.12.7* 이상. 이 확장 집합 지원은 미리 보기로 제공됩니다. 확장 집합을 사용하는 클러스터를 옵트인하고 만들려면 먼저 다음 예제와 같이 [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치합니다.
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>제한 사항
 
-생성 하 고 가상 머신 확장 집합을 사용 하는 AKS 클러스터를 관리 하는 경우 다음과 같은 제한이 있습니다.
+만들고 클러스터 autoscaler를 사용 하는 AKS 클러스터를 관리 하는 경우 다음과 같은 제한이 있습니다.
 
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
+* (현재 AKS에서 미리 보기)는에서 여러 노드 풀은 현재 사용할 수 없습니다.
 
 ## <a name="about-the-cluster-autoscaler"></a>클러스터 자동 크기 조정기 정보
 

@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가 | Microsoft Docs
 description: Azure Active Directory B2C에서 SAML 프로토콜 및 사용자 지정 정책을 사용하 여 ADFS 2016 설정
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767985"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510424"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -26,7 +26,7 @@ ms.locfileid: "65767985"
 ## <a name="prerequisites"></a>필수 조건
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
-- 개인 키가 포함된 인증서 .pfx 파일에 액세스할 수 있는지 확인합니다. 자체 서명된 인증서를 생성하고 Azure AD B2C에 업로드할 수 있습니다. Azure AD B2C는 이 인증서를 사용하여 SAML ID 공급자에 보낸 SAML 요청에 서명합니다.
+- 프라이빗 키가 포함된 인증서 .pfx 파일에 액세스할 수 있는지 확인합니다. 자체 서명된 인증서를 생성하고 Azure AD B2C에 업로드할 수 있습니다. Azure AD B2C는 이 인증서를 사용하여 SAML ID 공급자에 보낸 SAML 요청에 서명합니다.
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -39,7 +39,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
 7. 정책 키의 **이름**을 입력합니다. 예: `SamlCert`. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-8. 개인 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
+8. 프라이빗 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 9. **만들기**를 클릭합니다.
 
 ## <a name="add-a-claims-provider"></a>클레임 공급자 추가
@@ -144,7 +144,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 Azure AD B2C에서 ADFS를 ID 공급자로 사용하려면 Azure AD B2C SAML 메타데이터를 사용하여 ADFS 신뢰 당사자 트러스트를 만들어야 합니다. 다음 예제에서는 Azure AD B2C 기술 프로필의 SAML 메타데이터에 대한 URL 주소를 보여 줍니다.
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 다음 값을 바꿉니다.

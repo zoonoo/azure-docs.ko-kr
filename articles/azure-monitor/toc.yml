@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: 클래식 경고
           href: platform/alerts-classic.overview.md
-        - name: 스마트 그룹
-          href: platform/alerts-smartgroups-overview.md
-        - name: 자동 크기 조정
-          href: platform/autoscale-overview.md
         - name: 메트릭 경고
           href: platform/alerts-metric-overview.md
         - name: 로그 경고
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: 작업 규칙
           href: platform/alerts-action-rules.md
+        - name: 스마트 그룹
+          href: platform/alerts-smartgroups-overview.md
+        - name: 자동 크기 조정
+          href: platform/autoscale-overview.md
         - name: 변경 분석
           href: app/change-analysis.md
     - name: 데이터 가상화
@@ -303,17 +303,17 @@
                       href: app/profiler-trackrequests.md
                     - name: Profiler 문제 해결
                       href: app/profiler-troubleshooting.md
-                - name: 스냅숏 디버거
+                - name: 스냅샷 디버거
                   items:
                     - name: 개요
                       href: app/snapshot-debugger.md
-                    - name: App Service의 스냅숏 디버거를 사용하도록 설정
+                    - name: App Service의 스냅샷 디버거를 사용하도록 설정
                       href: app/snapshot-debugger-appservice.md
-                    - name: 다른 환경의 스냅숏 디버거를 사용하도록 설정
+                    - name: 다른 환경의 스냅샷 디버거를 사용하도록 설정
                       href: app/snapshot-debugger-vm.md
-                    - name: 스냅숏 디버거 업그레이드
+                    - name: 스냅샷 디버거 업그레이드
                       href: app/snapshot-debugger-upgrade.md
-                    - name: 스냅숏 디버거 문제 해결
+                    - name: 스냅샷 디버거 문제 해결
                       href: app/snapshot-debugger-troubleshoot.md
                 - name: 진단
                   href: ../application-insights/app-insights-azure-diagnostics.md
@@ -373,7 +373,7 @@
                   href: app/annotations.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: 스냅숏 디버거
+                - name: 스냅샷 디버거
                   href: app/snapshot-debugger.md
             - name: Java 앱
               items:
@@ -448,7 +448,7 @@
               items:
                 - name: .NET에 대한 데이터 없음
                   href: app/asp-net-troubleshoot-no-data.md
-                - name: 스냅숏 디버거
+                - name: 스냅샷 디버거
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
                 - name: Java
                   href: app/java-troubleshoot.md

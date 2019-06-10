@@ -46,7 +46,7 @@ Service Fabric은 구입 즉시 포괄적인 이벤트 집합을 제공합니다
 
 * Service Fabric 이벤트 채널 - Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시지 채널 사이에서 선택하는 데 사용되는 관련 `logLevelKeywordFilters` 집합을 사용하여 단일 ETW 공급자가 제공합니다. 이러한 방식으로 나가는 Service Fabric 이벤트를 격리하여 필요에 따라 필터링합니다. Linux에서는 Service Fabric 이벤트가 LTTng를 통해 수신되어 단일 Storage 테이블에 배치되며, 필요에 따라 어디서나 필터링할 수 있습니다. 이러한 채널에는 클러스터 상태 이해에 도움이 되는 구조화된 조정 이벤트가 포함되어 있습니다. 진단은 클러스터 생성 시 기본적으로 사용이 가능하며, 나중에 쿼리할 수 있도록 이러한 채널의 이벤트가 전송되는 Azure Storage 테이블이 만들어집니다. 
 
-* EventStore - EventStore는 REST API를 통해 그리고 Service Fabric Explorer 에서 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 플랫폼에서 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅숏 보기를 볼 수 있습니다. [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 EventStore에 대한 자세한 내용을 볼 수도 있습니다.    
+* EventStore - EventStore는 REST API를 통해 그리고 Service Fabric Explorer 에서 사용할 수 있는 Service Fabric 플랫폼 이벤트를 제공하는 플랫폼에서 제공하는 기능입니다. 이벤트 시간을 기반으로 각 엔터티(예: 노드, 서비스, 애플리케이션 및 쿼리)에 대해 클러스터에서 진행 중인 작업에 대한 스냅샷 보기를 볼 수 있습니다. [EventStore 개요](service-fabric-diagnostics-eventstore.md)에서 EventStore에 대한 자세한 내용을 볼 수도 있습니다.    
 
 ![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
 

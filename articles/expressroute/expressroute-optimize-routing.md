@@ -44,14 +44,14 @@ ms.locfileid: "60883570"
 두 번째 방법은 어떤 접두사가 어떤 사무실에 근접한지 힌트를 제공하는 것 외에도 두 ExpressRoute 회로에서 두 접두사를 계속해서 알리는 것입니다. BGP AS Path 앞에 추가를 지원하므로 라우팅에 영향을 주는 접두사에 대한 AS Path를 구성할 수 있습니다. 이 예제에서는 미국 동부 172.2.0.0/31에 대한 AS PATH를 연장할 수 있으므로 이 접두사에 대해 전송되는 트래픽에는 미국 서부의 ExpressRoute 회로를 선호하게 됩니다(네트워크에서 이 접두사에 대한 경로가 서부에서 더 짧다고 생각하므로). 마찬가지로 미국 동부에서 ExpressRoute 회로를 선호하도록 미국 서부에서 172.2.0.2/31에 대한 AS PATH를 연장할 수 있습니다. 두 사무소 모두에 대해 라우팅이 최적화됩니다. 이 디자인에서 한 ExpressRoute 회로가 중단되면 Exchange Online에서 다른 ExpressRoute 회로 및 WAN을 통해 계속 연결할 수 있습니다. 
 
 > [!IMPORTANT]
-> Microsoft 피어링에서 수신한 접두사에 대한 AS PATH에서 개인 AS 번호를 제거합니다. Microsoft 피어링을 위한 라우팅에 영향을 주는 AS PATH에 공용 AS 번호를 추가해야 합니다.
+> Microsoft 피어링에서 수신한 접두사에 대한 AS PATH에서 프라이빗 AS 번호를 제거합니다. Microsoft 피어링을 위한 라우팅에 영향을 주는 AS PATH에 공용 AS 번호를 추가해야 합니다.
 > 
 > 
 
 ![ExpressRoute 사례 2 솔루션 - AS PATH 접두사 사용](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
 > [!NOTE]
-> 여기에 지정된 예제는 Microsoft 및 공용 피어링에 대한 것으로 개인 피어링에 대해 동일한 기능을 지원하지 않습니다. 또한 앞에 추가된 AS 경로는 기본 경로 및 보조 경로의 선택에 영향을 주는 하나의 단일 ExpressRoute 회로 내에서 작동합니다.
+> 여기에 지정된 예제는 Microsoft 및 공용 피어링에 대한 것으로 프라이빗 피어링에 대해 동일한 기능을 지원하지 않습니다. 또한 앞에 추가된 AS 경로는 기본 경로 및 보조 경로의 선택에 영향을 주는 하나의 단일 ExpressRoute 회로 내에서 작동합니다.
 > 
 > 
 

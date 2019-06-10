@@ -135,7 +135,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 ### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4단계: Linux Vm의 응용 프로그램 일치 백업
 
-애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅숏(사전 스냅숏 및 사후 스냅숏) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
+애플리케이션 일치 백업은 Azure Backup의 새 기능입니다. VM 스냅샷(사전 스냅샷 및 사후 스냅샷) 이전 및 이후에 실행하는 스크립트를 만들고 선택할 수 있습니다.
 
 1. JSON 파일을 다운로드합니다.
 
@@ -303,7 +303,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
     ![Recovery Services 자격 증명 모음 myVault 세부 정보 페이지](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표(**...**) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
+9.  **Backup 항목(Azure Virtual Machine)** 블레이드에서 페이지의 오른쪽에 있는 줄임표( **...** ) 단추를 클릭한 다음 **지금 Backup**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 지금 Backup 명령](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -472,7 +472,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
     ![VM 복구 페이지](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  **myvm1** 블레이드의 줄임표(**...**) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
+4.  **myvm1** 블레이드의 줄임표( **...** ) 단추를 클릭한 다음 **VM 복원**을 클릭합니다.
 
     ![VM 복원 명령](./media/oracle-backup-recovery/recover_vm_05.png)
 

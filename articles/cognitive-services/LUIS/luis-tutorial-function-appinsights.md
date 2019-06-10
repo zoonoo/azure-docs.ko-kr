@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bde1983f89cb2fcd0a6fddadc2c3379dee4310be
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098775"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399625"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Application Insights 및 Azure 함수에 LUIS 결과 추가
-이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
+이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터를 만든 후 Kusto 언어나 분석 집계를 Power BI를 사용 하 여 쿼리할 수 있습니다 하 고 실시간 utterance 엔터티와 의도 보고 합니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
 
-이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
+이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다. A [Bot Framework 4.x LUIS 자습서를 사용 하 여](luis-nodejs-tutorial-bf-v4.md) 도 제공 됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -112,7 +112,7 @@ Application Insights를 열어 LUIS 항목을 확인합니다.
 
 1. 포털에서 **모든 리소스**를 선택한 후 웹앱 봇 이름으로 필터링합니다. **Application Insights** 유형의 리소스를 클릭합니다. Application Insights의 아이콘은 전구입니다. 
 
-    ![[Azure Portal에서 App Insights 검색](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ! [[Azure portal에서 app insights 검색](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. 리소스가 열리면 맨 오른쪽 패널에서 돋보기의 **검색** 아이콘을 클릭합니다. 오른쪽에 새 패널이 표시됩니다. 발견된 원격 분석 데이터의 양에 따라 패널을 표시하는 데 다소 시간이 걸릴 수 있습니다. `LUIS-results`를 검색하고 키보드에서 Enter 키를 누릅니다. 이 자습서에서 추가된 LUIS 쿼리 결과로만 목록 범위가 좁혀집니다.
 
@@ -129,7 +129,7 @@ Application Insights를 열어 LUIS 항목을 확인합니다.
 > 종속성 목록을 저장하고 나중에 해당 목록으로 돌아가려면 **...자세히**를 클릭하고 **즐겨찾기 저장**을 클릭합니다.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights에서 의도, 점수 및 발화 쿼리
-Application Insights를 사용하면 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 언어로 데이터를 쿼리하고 [PowerBI](https://powerbi.microsoft.com)로 데이터를 내보낼 수 있습니다. 
+Application Insights로 데이터를 쿼리 하는 기능을 제공 합니다 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 언어 뿐만 내보내기 되도록 [Power BI](https://powerbi.microsoft.com)합니다. 
 
 1. 필터 상자 위의 종속성 목록 맨 위에서 **분석**을 클릭합니다. 
 
@@ -152,7 +152,7 @@ Application Insights를 사용하면 [Kusto](https://docs.microsoft.com/azure/ap
     ![Analytics 상위 의도](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-[Kusto 쿼리 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 또는 [PowerBi로 데이터 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)에 대해 자세히 알아보세요. 
+에 대 한 자세한 정보는 [Kusto 쿼리 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 또는 [Power BI로 데이터 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 'Windows 호스트에 대한 IPsec 전송 모드 구성 - 개인 피어링: ExpressRoute: Azure | Microsoft Docs'
-description: GPO 및 OU를 사용하는 ExpressRoute 개인 피어링을 통해 Azure Windows VM과 온-프레미스 Windows 호스트 간에 IPsec 전송 모드를 사용하도록 설정하는 방법입니다.
+title: 'Windows 호스트에 대한 IPsec 전송 모드 구성 - 프라이빗 피어링: ExpressRoute: Azure | Microsoft Docs'
+description: GPO 및 OU를 사용하는 ExpressRoute 프라이빗 피어링을 통해 Azure Windows VM과 온-프레미스 Windows 호스트 간에 IPsec 전송 모드를 사용하도록 설정하는 방법입니다.
 services: expressroute
 author: fabferri
 ms.service: expressroute
@@ -15,13 +15,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60367274"
 ---
-# <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 개인 피어링을 위한 IPsec 전송 모드 구성
+# <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
 
-이 문서를 통해 Windows를 실행하는 Azure VM과 온-프레미스 Windows 호스트 간의 ExpressRoute 개인 피어링을 통해 전송 모드에서 IPsec 터널을 만들 수 있습니다. 이 문서에서는 그룹 정책 개체를 사용하여 구성을 만드는 단계를 설명합니다. OU(조직 구성 단위) 및 GPO(그룹 정책 개체)를 사용하지 않고 이 구성을 만들 수 있지만, OU 및 GPO 조합은 보안 정책의 제어를 단순화하고 신속하게 규모를 확장할 수 있도록 합니다. 이 문서의 단계에서는 이미 Active Directory 구성이 있으며, OU 및 GPO를 사용하는 데 익숙하다고 가정합니다.
+이 문서를 통해 Windows를 실행하는 Azure VM과 온-프레미스 Windows 호스트 간의 ExpressRoute 프라이빗 피어링을 통해 전송 모드에서 IPsec 터널을 만들 수 있습니다. 이 문서에서는 그룹 정책 개체를 사용하여 구성을 만드는 단계를 설명합니다. OU(조직 구성 단위) 및 GPO(그룹 정책 개체)를 사용하지 않고 이 구성을 만들 수 있지만, OU 및 GPO 조합은 보안 정책의 제어를 단순화하고 신속하게 규모를 확장할 수 있도록 합니다. 이 문서의 단계에서는 이미 Active Directory 구성이 있으며, OU 및 GPO를 사용하는 데 익숙하다고 가정합니다.
 
 ## <a name="about-this-configuration"></a>이 구성에 대한 정보
 
-다음 단계의 구성은 ExpressRoute 개인 피어링에서 단일 Azure VNet(Virtual Network)을 사용합니다. 그러나 이 구성은 더 많은 Azure VNet 및 온-프레미스 네트워크 간에 걸쳐 있을 수 있습니다. 이 문서에서는 IPsec 암호화 정책을 정의하고 이를 Azure VM 그룹과 동일한 OU에 속하는 호스트 온-프레미스에 적용할 수 있도록 합니다. Azure VM(vm1 및 vm2)과 대상 포트 8080이 있는 HTTP 트래픽 전용의 온-프레미스 host1 간에 암호화를 구성합니다. 요구 사항에 따라 다른 유형의 IPsec 정책을 만들 수 있습니다.
+다음 단계의 구성은 ExpressRoute 프라이빗 피어링에서 단일 Azure VNet(Virtual Network)을 사용합니다. 그러나 이 구성은 더 많은 Azure VNet 및 온-프레미스 네트워크 간에 걸쳐 있을 수 있습니다. 이 문서에서는 IPsec 암호화 정책을 정의하고 이를 Azure VM 그룹과 동일한 OU에 속하는 호스트 온-프레미스에 적용할 수 있도록 합니다. Azure VM(vm1 및 vm2)과 대상 포트 8080이 있는 HTTP 트래픽 전용의 온-프레미스 host1 간에 암호화를 구성합니다. 요구 사항에 따라 다른 유형의 IPsec 정책을 만들 수 있습니다.
 
 ### <a name="working-with-ous"></a>OU 사용 
 
@@ -36,7 +36,7 @@ OU와 관련된 보안 정책은 GPO를 통해 컴퓨터로 푸시됩니다. 단
 
 [![1]][1]
 
-이 다이어그램은 ExpressRoute 개인 피어링을 통과하는 IPsec 터널을 보여 줍니다.
+이 다이어그램은 ExpressRoute 프라이빗 피어링을 통과하는 IPsec 터널을 보여 줍니다.
 
 [![4]][4]
 
@@ -70,7 +70,7 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * ExpressRoute 회로 생성에 대한 내용은 [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)를 참조하세요. 
   * 연결 제공자가 회로를 사용하도록 설정하는지 확인합니다. 
-  * 회로에 대해 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
+  * 회로에 대해 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
   * VNet 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 * ExpressRoute 가상 네트워크 게이트웨이가 ExpressRoute 회로에 연결되어 있어야 합니다. 자세한 내용은 [ExpressRoute 회로에 VNet 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.
@@ -104,7 +104,7 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
 1. OU에 연결된 새 GPO를 만들려면 그룹 정책 관리 스냅인을 열고 GPO를 연결할 OU를 찾습니다. 이 예제에서 OU의 이름은 **IPSecOU**입니다. 
 
    [![9]][9]
-2. 그룹 정책 관리 스냅인에서 OU를 선택하고 마우스 오른쪽 단추를 클릭합니다. 드롭다운에서 “**이 도메인에서 GPO를 만들어 여기에 연결...**”을 클릭합니다.
+2. 그룹 정책 관리 스냅인에서 OU를 선택하고 마우스 오른쪽 단추를 클릭합니다. 드롭다운에서 “**이 도메인에서 GPO를 만들어 여기에 연결...** ”을 클릭합니다.
 
    [![10]][10]
 3. 나중에 쉽게 찾을 수 있도록 GPO의 이름을 직관적인 이름으로 지정합니다. **확인**을 클릭하여 GPO를 만들고 연결합니다.
@@ -236,7 +236,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
    [![42]][42]
 3. 규칙은 IPsec 모드, 즉 터널 모드 또는 전송 모드를 정의하기 위한 옵션을 제공합니다.
 
-   * 터널 모드에서 원래 패킷은 IP 헤더 집합으로 캡슐화됩니다. 터널 모드는 원래 패킷의 IP 헤더를 암호화하여 내부 라우팅 정보를 보호합니다. 터널 모드는 사이트 간 VPN 시나리오의 게이트웨이 간에 널리 구현됩니다. 터널 모드는 대부분의 경우 호스트 간의 종단 간 암호화에 사용됩니다.
+   * 터널 모드에서 원래 패킷은 IP 헤더 집합으로 캡슐화됩니다. 터널 모드는 원래 패킷의 IP 헤더를 암호화하여 내부 라우팅 정보를 보호합니다. 터널 모드는 사이트 간 VPN 시나리오의 게이트웨이 간에 널리 구현됩니다. 터널 모드는 대부분의 경우 호스트 간의 엔드투엔드 암호화에 사용됩니다.
 
    * 전송 모드는 페이로드 및 ESP 트레일러만 암호화하며 원래 패킷의 IP 헤더는 암호화되지 않습니다. 전송 모드에서 패킷의 IP 원본 및 IP 대상은 변경되지 않습니다.
 
@@ -259,7 +259,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 
    [![48]][48]
 
-IPsec 정책에 따르면 대상 포트 8080의 모든 HTTP 연결이 IPsec 전송 모드를 사용해야 합니다. HTTP는 일반 텍스트 프로토콜이므로 보안 정책을 사용하도록 설정하면 ExpressRoute 개인 피어링을 통해 전송되는 데이터가 암호화됩니다. Active Directory에 대한 IP 보안 정책은 고급 보안이 포함된 Windows 방화벽 구성이 복잡해지는 결과를 가져오지만 IPsec 연결의 추가 사용자 지정을 허용합니다.
+IPsec 정책에 따르면 대상 포트 8080의 모든 HTTP 연결이 IPsec 전송 모드를 사용해야 합니다. HTTP는 일반 텍스트 프로토콜이므로 보안 정책을 사용하도록 설정하면 ExpressRoute 프라이빗 피어링을 통해 전송되는 데이터가 암호화됩니다. Active Directory에 대한 IP 보안 정책은 고급 보안이 포함된 Windows 방화벽 구성이 복잡해지는 결과를 가져오지만 IPsec 연결의 추가 사용자 지정을 허용합니다.
 
 ## <a name="assigngpo"></a>8. OU에 IPsec GPO 할당
 

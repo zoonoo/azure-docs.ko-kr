@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602084"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472581"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기)
 Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor에서 Log Analytics 작업 영역으로 전달 합니다.  이 데이터를 사용할 수 [쿼리](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor에서. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
@@ -43,7 +43,7 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 - 컴퓨터: 컴퓨터를 보고 합니다. 정규화 된 도메인 이름 
 - AgentID: Log Analytics 에이전트를 사용 하 여 컴퓨터에 대 한 고유 식별자  
-- 컴퓨터: ServiceMap에서 노출 하는 컴퓨터에 대 한 Azure Resource Manager 리소스의 이름입니다. 폼의 것 *m-{GUID}*, 여기서 *GUID* 노드의 에이전트 Id guid와 동일  
+- 컴퓨터: ServiceMap에서 노출 하는 컴퓨터에 대 한 Azure Resource Manager 리소스의 이름입니다. 폼의 것 *m-{GUID}* , 여기서 *GUID* 노드의 에이전트 Id guid와 동일  
 - 프로세스: ServiceMap에서 노출 하는 프로세스에 대 한 Azure Resource Manager 리소스의 이름입니다. 폼의 것 *p-{16 진수 문자열}* 합니다. 프로세스는 컴퓨터 범위 내에서 고유 하 고 컴퓨터에서 고유 프로세스 ID를 생성 하려면 컴퓨터와 프로세스 필드를 결합 합니다. 
 - ProcessName: 보고 프로세스의 실행 파일 이름입니다.
 - 모든 IP 주소는 문자열 형식으로 정식 IPv4 예를 들어 *13.107.3.160* 
@@ -124,13 +124,6 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 
 ### <a name="ports"></a>포트 
 적극적으로 들어오는 트래픽을 허용 하거나 트래픽을 잠재적으로 수락할 수 있지만 보고 기간 동안 유휴 상태가 되는 컴퓨터에서 포트 VMBoundPort 테이블에 기록 됩니다.  
-
->[!NOTE]
->수집 하 고 다음 지역에서 Log Analytics 작업 영역에서 포트 데이터 기록에 Vm에 대 한 azure Monitor 지원 하지 않습니다.  
->- 미국 동부  
->- 서유럽
->
-> 다른 사용은이 데이터를 수집 [지원 되는 지역](vminsights-enable-overview.md#log-analytics) Vm에 대 한 Azure Monitor에 대 한 합니다. 
 
 VMBoundPort의 모든 레코드는 다음 필드에 의해 식별 됩니다. 
 

@@ -2,20 +2,20 @@
 title: 지역화 문자열 ID - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682716"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510918"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -33,7 +33,7 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | **logonIdentifier_email** | 메일 주소 |
 | **requiredField_email** | 이메일을 입력하세요. |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | 사용자 이름으로 로그인 |
 | **logonIdentifier_username** | 사용자 이름 |
 | **requiredField_username** | 사용자 이름을 입력하세요. |

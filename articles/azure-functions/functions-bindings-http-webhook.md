@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104376"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472372"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -666,7 +666,7 @@ module.exports = function (context, req) {
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
-.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;

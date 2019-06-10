@@ -26,11 +26,11 @@ ms.locfileid: "60610152"
 ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템을 감사해야 합니다. 요구 사항이 각 고객의 특정 구현에 따라 달라질 수 있으므로 고객은 이 아키텍처를 사용하여 구축된 솔루션에 대한 적절한 보안 및 규정 준수 평가를 수행해야 합니다.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 모든 웹 애플리케이션 연결에는 최소 1.2 버전의 TLS가 필요합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
+이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 제공합니다. 웹 애플리케이션은 Azure 데이터 센터의 프라이빗 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 모든 웹 애플리케이션 연결에는 최소 1.2 버전의 TLS가 필요합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
 
-아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 조직의 비공개 로컬 영역 네트워크나 인터넷을 통해 안전하게 액세스할 수 있게 됩니다. 온-프레미스 솔루션의 경우 고객이 보안, 작업 및 규정 준수의 모든 측면을 담당합니다.
+아키텍처는 온-프레미스 네트워크를 Azure 허용 웹 기반 작업으로 확장하는 보안 하이브리드 환경을 제공하여 조직의 프라이빗 로컬 영역 네트워크나 인터넷을 통해 안전하게 액세스할 수 있게 됩니다. 온-프레미스 솔루션의 경우 고객이 보안, 작업 및 규정 준수의 모든 측면을 담당합니다.
 
-이 솔루션에 포함된 Azure 리소스는 VPN Gateway를 사용하는 IPSec VPN 및 ExpressRoute를 통해 온-프레미스 네트워크 또는 데이터 센터 코로케이션 시설(예: 캔버라의 CDC)에 연결할 수 있습니다. VPN 활용을 결정할 때는 전송되는 데이터의 등급과 네트워크 경로를 염두에 두어야 합니다. 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Azure 서비스에 대한 개인 네트워크 연결에 ExpressRoute를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다. Azure에 연결하는 메커니즘에 대한 자세한 내용은 [지침 및 권장 사항](#guidance-and-recommendations) 섹션을 참조하세요.
+이 솔루션에 포함된 Azure 리소스는 VPN Gateway를 사용하는 IPSec VPN 및 ExpressRoute를 통해 온-프레미스 네트워크 또는 데이터 센터 코로케이션 시설(예: 캔버라의 CDC)에 연결할 수 있습니다. VPN 활용을 결정할 때는 전송되는 데이터의 등급과 네트워크 경로를 염두에 두어야 합니다. 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Azure 서비스에 대한 프라이빗 네트워크 연결에 ExpressRoute를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다. Azure에 연결하는 메커니즘에 대한 자세한 내용은 [지침 및 권장 사항](#guidance-and-recommendations) 섹션을 참조하세요.
 
 사용자가 온-프레미스 자격 증명을 사용하여 인증하고, 온-프레미스 Active Directory Federation Services 인프라를 사용하여 클라우드의 모든 리소스에 액세스하도록 하려면 Azure Active Directory와의 페더레이션을 사용해야 합니다. Active Directory Federation Services는 이러한 하이브리드 환경에 간소화된 보안 ID 페더레이션 및 웹 Single Sign-On 기능을 제공할 수 있습니다. Azure Active Directory 설정에 대한 자세한 내용은 [지침 및 권장 사항](#guidance-and-recommendations) 섹션을 참조하세요.
 
@@ -103,7 +103,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 **Azure Web App**: [Azure App Service](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 애플리케이션을 빌드하고 호스트할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps Services 또는 Git 리포지토리에서 자동화된 배포를 사용합니다.
 
 ### <a name="virtual-network"></a>Virtual Network
-아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
+아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
 **네트워크 보안 그룹**: [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. 네트워크 보안 그룹은 서브넷 또는 개별 가상 머신 수준에서 트래픽을 보호하는 데 사용될 수 있습니다. 다음과 같은 네트워크 보안 그룹이 있습니다.
 - Application Gateway용 네트워크 보안 그룹 1개
@@ -118,7 +118,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 
 **서브넷**: 각 서브넷이 해당 네트워크 보안 그룹에 연결됩니다.
 
-**Azure DNS**: Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에서 도메인을 호스팅하면 사용자가 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 또한 Azure DNS는 사설 DNS 도메인도 지원합니다.
+**Azure DNS**: Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에서 도메인을 호스팅하면 사용자가 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. Azure DNS는 프라이빗 DNS 도메인도 지원합니다.
 
 **Azure Load Balancer**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하면 고객이 애플리케이션의 크기를 조정하고 고가용성 서비스를 만들 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다.
 
@@ -221,9 +221,9 @@ Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/
 
 분류된 정보의 경우 이 IaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 IPSec VPN 터널을 구성해야 합니다. IPSec VPN을 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 레이어를 추가할 수 있습니다.
 
-Azure를 통해 보안 IPSec VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 
+Azure를 통해 보안 IPSec VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 사설망을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 
 
-VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 통과하므로 Microsoft는 비공개 연결 옵션을 제공합니다. Azure ExpressRoute는 Azure 및 온-프레미스 위치 또는 Exchange 호스팅 공급자 간의 전용 링크이며 비공개 네트워크로 간주됩니다. ExpressRoute 연결은 인터넷을 통해 수행되지 않으므로 인터넷을 통한 일반적인 연결보다 높은 안정성, 빠른 속도 및 짧은 대기 시간을 제공합니다. 또한 이 연결은 고객의 통신 공급자의 직접 연결이므로 데이터는 인터넷을 통해 이동하지 않으며, 따라서 노출되지 않습니다.
+VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 통과하므로 Microsoft는 프라이빗 연결 옵션을 제공합니다. Azure ExpressRoute는 Azure 및 온-프레미스 위치 또는 Exchange 호스팅 공급자 간의 전용 링크이며 프라이빗 네트워크로 간주됩니다. ExpressRoute 연결은 인터넷을 통해 수행되지 않으므로 인터넷을 통한 일반적인 연결보다 높은 안정성, 빠른 속도 및 짧은 대기 시간을 제공합니다. 또한 이 연결은 고객의 통신 공급자의 직접 연결이므로 데이터는 인터넷을 통해 이동하지 않으며, 따라서 노출되지 않습니다.
 
 온-프레미스 네트워크를 Azure로 확장하는 보안 하이브리드 네트워크를 구현하는 모범 사례를 [사용할 수 있습니다](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid). 
 

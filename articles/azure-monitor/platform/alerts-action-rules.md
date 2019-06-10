@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620004"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734899"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -67,7 +67,7 @@ ms.locfileid: "65620004"
 * **경고 규칙 ID**: 경고 규칙의 Resource Manager ID를 사용 하 여 특정 경고 규칙에 대 한 필터링 할 수 있습니다.
 * **조건 모니터링**: 모니터 조건으로 "실행 됨" 또는 "Resolved" 중 하나를 사용 하 여 경고 인스턴스를 필터링 합니다.
 * **설명**: 경고 규칙의 일부로 정의 된 설명 내에서 일치 하는 정규식입니다.
-* **경고 컨텍스트 (페이로드)**: 정규식 내에서 일치 합니다 [경고 컨텍스트](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 경고 인스턴스 필드입니다.
+* **경고 컨텍스트 (페이로드)** : 정규식 내에서 일치 합니다 [경고 컨텍스트](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 경고 인스턴스 필드입니다.
 
 이러한 필터는 서로 함께에서 적용 됩니다. 예를 들어, '리소스 종류' 설정 = ' 가상 컴퓨터 ' 및 '심각도' = 'Sev0' 내 Vm에만에 모든 'Sev0' 경고에 대 한 필터링 한 합니다. 
 
@@ -80,7 +80,7 @@ ms.locfileid: "65620004"
 #### <a name="suppression"></a>표시 안 함
 
 선택 하는 경우 **억제**, 작업 및 알림 억제에 대 한 기간을 구성 합니다. 다음 중 하나를 선택합니다.
-* **지금부터 (항상)**: 무기한 모든 알림을 표시 하지 않습니다.
+* **지금부터 (항상)** : 무기한 모든 알림을 표시 하지 않습니다.
 * **예약된 된 시간에**: 제한 기간 내에서 알림을 표시 합니다.
 * **되풀이 사용 하 여**: 매일, 매주 또는 매월 수 있는 되풀이 일정에 따라 표시 하지 않습니다.
 
@@ -128,12 +128,15 @@ Contoso에서는 모든 ' 컴퓨터-01'에 대해 생성 된 경고를 로그에
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>시나리오 3: 리소스 그룹에서 정의한 작업 그룹
 
-Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)를 개별적으로 해당 리소스 그룹 'ContosoRG'에 대 한 경고를 트리거하는 동작을 정의 하려고 합니다.
+Contoso가 정의 [구독 수준에서 메트릭 경고](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), 해당 리소스 그룹 'ContosoRG'에서 생성 된 경고에 대 한 특히 트리거하는 동작을 정의 하려고 합니다.
 
 **해결 방법:** 사용 하 여 작업 규칙 만들기
 * Scope = 'ContosoRG'
 * 필터가 없습니다
 * 'ContosoActionGroup'로 설정 하는 작업 그룹
+
+> [!NOTE]
+> **작업 규칙 내에 정의 된 작업 그룹 및 경고 규칙 독립적으로 작동할 수 없는 중복 제거를 사용 하 여**입니다. 작업 그룹에 없는 경우 위에서 설명한 시나리오에서 경고 규칙에 대 한 정의 트리거합니다 함께에서 작업 규칙에 정의 된 작업 그룹을 사용 하 여 합니다. 
 
 ## <a name="managing-your-action-rules"></a>작업 규칙 관리
 

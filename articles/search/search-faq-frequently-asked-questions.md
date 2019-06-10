@@ -42,11 +42,11 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 ## <a name="indexing-operations"></a>인덱싱 작업
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>인덱스나 인덱스 스냅숏의 Backup 및 복원(또는 다운로드 및 이동)
+### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>인덱스나 인덱스 스냅샷의 Backup 및 복원(또는 다운로드 및 이동)
 
-언제든 [인덱스 정의를 가져올 수](https://docs.microsoft.com/rest/api/searchservice/get-index) 있지만 클라우드 시스템에서 실행되는 *채워진* 인덱스를 로컬 시스템에 다운로드하거나 다른 Azure Search 서비스로 이동하기 위한 인덱스 추출, 스냅숏 또는 백업-복원 기능은 없습니다.
+언제든 [인덱스 정의를 가져올 수](https://docs.microsoft.com/rest/api/searchservice/get-index) 있지만 클라우드 시스템에서 실행되는 *채워진* 인덱스를 로컬 시스템에 다운로드하거나 다른 Azure Search 서비스로 이동하기 위한 인덱스 추출, 스냅샷 또는 백업-복원 기능은 없습니다.
 
-인덱스는 사용자가 작성한 코드에서 구축 및 채워지며 클라우드에서는 오직 Azure Search 상에서 실행됩니다. 일반적으로 인덱스를 다른 서비스로 이동하려는 고객은 새 엔드포인트를 사용하게 코드를 편집한 다음 인덱싱을 다시 실행하여 그렇게 하게 됩니다. 스냅숏 만들기나 인덱스 백업 기능이 필요한 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)을 남겨 주시기 바랍니다.
+인덱스는 사용자가 작성한 코드에서 구축 및 채워지며 클라우드에서는 오직 Azure Search 상에서 실행됩니다. 일반적으로 인덱스를 다른 서비스로 이동하려는 고객은 새 엔드포인트를 사용하게 코드를 편집한 다음 인덱싱을 다시 실행하여 그렇게 하게 됩니다. 스냅샷 만들기나 인덱스 백업 기능이 필요한 경우 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)을 남겨 주시기 바랍니다.
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>내 인덱스 또는 서비스가 삭제된 경우 복원할 수 있나요?
 

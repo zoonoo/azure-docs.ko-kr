@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bbb614f9a540131ea25f53b8d566a4a5ee8c197b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cd13b3a7a3bc4d5a80e44d146e08c14e81ffdb60
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692272"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730059"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -40,9 +40,9 @@ ms.locfileid: "64692272"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-이 문서에는 Azure PowerShell 모듈 버전 1.0.0 설치 하 고 PowerShell을 로컬로 사용 하려는 경우 이상. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
@@ -89,7 +89,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-사용 하 여 세 개의 서브넷 구성을 만들어 세 개의 서브넷을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 *공용*, *개인* 및 *DMZ* 서브넷에 대한 세 개의 서브넷 구성을 만듭니다.
+사용 하 여 세 개의 서브넷 구성을 만들어 세 개의 서브넷을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 *공용*, *프라이빗* 및 *DMZ* 서브넷에 대한 세 개의 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -192,7 +192,7 @@ $vmNva = New-AzVM `
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
-이후 단계에서 *공용* 서브넷의 해당 트래픽이 네트워크 가상 어플라이언스를 통해 *개인* 서브넷에 라우팅되는지 유효성을 검사할 수 있도록 가상 네트워크에 두 개의 VM을 만듭니다.
+이후 단계에서 *공용* 서브넷의 해당 트래픽이 네트워크 가상 어플라이언스를 통해 *프라이빗* 서브넷에 라우팅되는지 유효성을 검사할 수 있도록 가상 네트워크에 두 개의 VM을 만듭니다.
 
 에 VM을 만듭니다는 *공개* 사용 하 여 서브넷 [New-azvm](/powershell/module/az.compute/new-azvm)합니다. 다음 예제는 *myVirtualNetwork* 가상 네트워크의 *공용* 서브넷에 *myVmPublic*이라는 VM을 만듭니다.
 
@@ -296,7 +296,7 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-첫 번째 홉이 NVA의 개인 IP 주소인 10.0.2.4인 것을 확인할 수 있습니다. 두 번째 홉은 *myVmPrivate* VM의 개인 IP 주소인 10.0.1.4입니다. 경로가 *myRouteTablePublic* 경로 테이블에 추가되고 *공용* 서브넷에 연결되었으므로 Azure는 트래픽을 직접 *개인* 서브넷에 라우팅하는 대신 NVA를 통해 트래픽을 라우팅합니다.
+첫 번째 홉이 NVA의 개인 IP 주소인 10.0.2.4인 것을 확인할 수 있습니다. 두 번째 홉은 *myVmPrivate* VM의 개인 IP 주소인 10.0.1.4입니다. 경로가 *myRouteTablePublic* 경로 테이블에 추가되고 *공용* 서브넷에 연결되었으므로 Azure는 트래픽을 직접 *프라이빗* 서브넷에 라우팅하는 대신 NVA를 통해 트래픽을 라우팅합니다.
 
 *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다. 그러면 *myVmPrivate* VM에 연결된 상태가 유지됩니다.
 
@@ -331,6 +331,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 개인 서브넷으로 트래픽을 라우팅하는 간단한 네트워크 가상 어플라이언스를 만들었습니다. 이제 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 방화벽 및 WAN 최적화 같은 네트워크 기능을 수행하는 다양한 미리 구성된 네트워크 가상 어플라이언스를 배포합니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md) 및 [경로 테이블 관리](manage-route-table.md)를 참조하세요.
+이 문서에서는 경로 테이블을 만들고 서브넷에 연결했습니다. 공용 서브넷에서 프라이빗 서브넷으로 트래픽을 라우팅하는 간단한 네트워크 가상 어플라이언스를 만들었습니다. 이제 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)에서 방화벽 및 WAN 최적화 같은 네트워크 기능을 수행하는 다양한 미리 구성된 네트워크 가상 어플라이언스를 배포합니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md) 및 [경로 테이블 관리](manage-route-table.md)를 참조하세요.
 
 가상 네트워크 내에서 여러 Azure 리소스를 배포할 수 있는 반면, 일부 Azure PaaS 서비스에 대한 리소스는 가상 네트워크에 배포할 수 없습니다. 하지만 일부 Azure PaaS 서비스의 리소스에 대한 액세스를 가상 네트워크 서브넷의 트래픽만으로 제한할 수 있습니다. 방법을 알아보려면 [PaaS 리소스에 대한 네트워크 액세스 제한](tutorial-restrict-network-access-to-resources-powershell.md)을 참조하세요.

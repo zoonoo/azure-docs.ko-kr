@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse - MPP 아키텍처 | Microsoft Docs
 description: Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c3cdd464dffc810e76cf101ac70c2a14bbc4f9ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515806"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
 Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 

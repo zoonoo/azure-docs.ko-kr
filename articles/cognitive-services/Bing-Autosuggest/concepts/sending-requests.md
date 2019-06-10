@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 597ef48fd7499a9d33b214b182d6dd1354756cdf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011635"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382706"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
 
@@ -33,7 +33,7 @@ Bing API를 사용하여 제안된 쿼리를 가져오려면 `GET` 요청을 다
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
+헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 참조에서 확인할 수 있습니다.
 
 **Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.
 모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
@@ -168,5 +168,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>다음 단계
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Bing Autosuggest API에서 제안된 검색어 가져오기](get-suggestions.md)

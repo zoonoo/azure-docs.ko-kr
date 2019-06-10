@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: eb131e07b0cf561f3156744472660852bbd69ec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393290"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428135"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>FabricClient를 사용하여 애플리케이션 배포 및 제거
 > [!div class="op_single_selector"]
@@ -39,15 +39,15 @@ ms.locfileid: "60393290"
 3. 이미지 저장소에서 애플리케이션 패키지 제거
 4. 애플리케이션 인스턴스 만들기
 
-애플리케이션을 배포하고 인스턴스가 클러스터에서 실행되면 애플리케이션 인스턴스와 해당 애플리케이션 형식을 삭제할 수 있습니다. 클러스터에서 애플리케이션을 완전히 제거하려면 다음 단계를 수행합니다.
+응용 프로그램을 배포 하 고 클러스터의 인스턴스를 실행 한 후에 응용 프로그램 인스턴스와 해당 응용 프로그램 유형을 삭제할 수 있습니다. 다음이 단계를 수행 하 여 클러스터에서 응용 프로그램을 완전히 제거:
 
 1. 실행 중인 애플리케이션 인스턴스 제거(또는 삭제)
 2. 더 이상 필요하지 않은 경우 애플리케이션 유형 등록 취소
 
-로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 애플리케이션 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 스크립트에서 수행하는 작업에 대한 배경을 설명합니다. 
+로컬 개발 클러스터에서 Visual Studio를 사용하여 애플리케이션을 배포 및 디버그하는 경우 이전의 모든 단계는 PowerShell 스크립트를 통해 자동으로 처리됩니다.  이 스크립트는 애플리케이션 프로젝트의 *Scripts* 폴더에 있습니다. 이 문서에서는 백그라운드 스크립트가 수행 하는 Visual Studio 외부에서 동일한 작업을 수행할 수 있도록 합니다. 
  
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
-이 문서의 코드 예제 중 하나를 실행하기 전에 [FabricClient](/dotnet/api/system.fabric.fabricclient) 인스턴스를 만들어 클러스터에 연결합니다. 로컬 개발 클러스터 또는 원격 클러스터나 Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용하여 보안된 클러스터에 연결하는 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis)을 참조하세요. 로컬 개발 클러스터에 연결하려면 다음을 실행합니다.
+이 문서의 코드 예제 중 하나를 실행하기 전에 [FabricClient](/dotnet/api/system.fabric.fabricclient) 인스턴스를 만들어 클러스터에 연결합니다. 로컬 개발 클러스터 또는 원격 클러스터나 Azure Active Directory, X509 인증서 또는 Windows Active Directory를 사용하여 보안된 클러스터에 연결하는 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis)을 참조하세요. 로컬 개발 클러스터에 연결 하려면 다음 예제를 실행 합니다.
 
 ```csharp
 // Connect to the local cluster.
@@ -55,9 +55,9 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>애플리케이션 패키지 업로드
-Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 애플리케이션 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 애플리케이션 패키지는 *C:\Users\&lt;username&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다.
+Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 애플리케이션 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지를 포함 하는 응용 프로그램 패키지에 위치한 *C:\Users\&lt; username&gt;\Documents\Visual Studio 2019\Projects\ MyApplication\MyApplication\pkg\Debug*합니다.
 
-애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 애플리케이션 패키지를 등록하는 동안 애플리케이션 패키지를 확인합니다. 단, 로컬로 애플리케이션 패키지를 확인하려는 경우(예: 업로드하기 전에) [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용합니다.
+애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 애플리케이션 패키지를 등록하는 동안 애플리케이션 패키지를 확인합니다. 그러나 로컬로 응용 프로그램 패키지를 확인 하려는 경우 (즉, 이전 업로드)를 사용 합니다 [Test-servicefabricapplicationpackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API는 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다. 
 
@@ -83,7 +83,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 클러스터에서 실행 중인 명명된 애플리케이션과 서비스를 확인하려면 [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) 및 [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync) API를 실행합니다.
 
 ## <a name="create-a-service-instance"></a>서비스 인스턴스 만들기
-[CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API를 사용하여 서비스 형식에서 서비스를 인스턴스화할 수 있습니다.  서비스가 애플리케이션 매니페스트에서 기본 서비스로 선언되면 애플리케이션이 인스턴스화될 때 해당 서비스도 인스턴스화됩니다.  이미 인스턴스화된 서비스에 대해 [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API를 호출하면 FabricErrorCode.ServiceAlreadyExists 값의 오류 코드를 포함하는 FabricException 형식의 예외를 반환하게 됩니다.
+[CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) API를 사용하여 서비스 형식에서 서비스를 인스턴스화할 수 있습니다.  서비스가 애플리케이션 매니페스트에서 기본 서비스로 선언되면 애플리케이션이 인스턴스화될 때 해당 서비스도 인스턴스화됩니다.  호출 된 [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 이미 인스턴스화된 서비스에 대 한 API는 FabricException 형식의 예외를 반환 합니다. 예외는 FabricErrorCode.ServiceAlreadyExists 값을 사용 하 여 오류 코드가 포함 됩니다.
 
 ## <a name="remove-a-service-instance"></a>서비스 인스턴스 제거
 서비스 인스턴스가 더 이상 필요하지 않을 경우 [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) API를 호출하여 실행 중인 애플리케이션 인스턴스에서 제거할 수 있습니다.  
@@ -98,7 +98,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 > 이 작업은 되돌릴 수 없으며 애플리케이션 상태는 복구할 수 없습니다.
 
 ## <a name="unregister-an-application-type"></a>애플리케이션 유형 등록 취소
-특정 버전의 애플리케이션 형식이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API를 사용하여 해당 애플리케이션 형식의 버전을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 형식의 버전을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 애플리케이션 형식의 버전은 해당 애플리케이션 형식의 버전에 대해 인스턴스화된 애플리케이션이나 해당 애플리케이션 형식의 버전을 참조하는 보류 중인 애플리케이션이 없는 한 등록 취소할 수 있습니다.
+특정 버전의 애플리케이션 형식이 더 이상 필요하지 않으면 [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API를 사용하여 해당 애플리케이션 형식의 버전을 등록 취소해야 합니다. 사용하지 않는 애플리케이션 형식의 버전을 등록 취소하면 이미지 저장소에서 사용하는 저장 공간이 해제됩니다. 응용 프로그램 형식의 버전으로 응용 프로그램 형식의 버전에 대해 인스턴스화된 응용 프로그램이 없는 등록 취소할 수 있습니다. 또한 응용 프로그램 유형을 보류 중인 응용 프로그램이 없는 있습니다 업그레이드는 응용 프로그램 유형의 버전을 참조 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage가 ImageStoreConnectionString을 요청함
@@ -141,7 +141,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 
 문제: 성공적으로 완료 하는 패키지를 업로드 합니다. 하지만 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 시간이 초과 됩니다. 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
-압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
+압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 저하 (특히 압축 시간이 포함) 수를 등록 하 고 응용 프로그램의 등록을 취소 하지만 형식 더 빠릅니다.
 - [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
 
 ### <a name="deploy-application-package-with-many-files"></a>많은 파일이 있는 애플리케이션 패키지 배포
@@ -151,7 +151,7 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 - [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
 
 ## <a name="code-example"></a>코드 예제
-다음 예제에서는 애플리케이션 패키지를 이미지 저장소로 복사하고, 애플리케이션 형식을 프로비전하고, 애플리케이션 인스턴스를 만들고, 서비스 인스턴스를 만들고, 애플리케이션 인스턴스를 제거하고, 애플리케이션 형식의 프로비전을 취소하고, 이미지 저장소에서 애플리케이션 패키지를 삭제합니다.
+다음 예제에서는 응용 프로그램 패키지를 이미지 저장소에 복사 하 고 응용 프로그램 유형을 프로 비전 합니다. 그런 다음 예제에서는 응용 프로그램 인스턴스를 만들고 서비스 인스턴스를 만듭니다. 마지막으로 예제 응용 프로그램 인스턴스를 제거, 응용 프로그램 유형을 프로 비전 해제 및 이미지 저장소에서 응용 프로그램 패키지를 삭제 합니다.
 
 ```csharp
 using System;
@@ -179,7 +179,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2019\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

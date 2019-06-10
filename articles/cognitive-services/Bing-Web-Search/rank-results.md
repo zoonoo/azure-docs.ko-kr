@@ -11,18 +11,18 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9a49c4af474d7f0618bf0cff1a093e5cbb62fe2d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295609"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390131"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>순위를 사용하여 Bing Web Search API 결과를 표시하는 방법  
 
-각 검색 응답에는 검색 결과를 표시하는 방법을 지정하는 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 일반적인 검색 결과 페이지에 대한 기본 줄 콘텐츠와 사이드바 콘텐츠를 기준으로 결과를 그룹화합니다. 일반적인 기본 줄과 사이드바 형식으로 결과를 표시하지 않는 경우 기본 줄 콘텐츠에 사이드바 콘텐츠보다 높은 가시성을 제공해야 합니다.  
+각 검색 응답에는 검색 결과를 표시하는 방법을 지정하는 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) 답변이 포함됩니다. 순위 응답은 일반적인 검색 결과 페이지에 대한 기본 줄 콘텐츠와 사이드바 콘텐츠를 기준으로 결과를 그룹화합니다. 일반적인 기본 줄과 사이드바 형식으로 결과를 표시하지 않는 경우 기본 줄 콘텐츠에 사이드바 콘텐츠보다 높은 가시성을 제공해야 합니다.  
 
-각 그룹(기본 줄 또는 사이드바) 내에서 [항목](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠가 나타나는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 다음 두 가지 방법을 제공합니다.  
+각 그룹(기본 줄 또는 사이드바) 내에서 [항목](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) 배열은 콘텐츠가 나타나는 순서를 식별합니다. 각 항목은 답변 내에서 결과를 식별하는 다음 두 가지 방법을 제공합니다.  
 
 -   `answerType` 및 `resultIndex` - `answerType` 필드는 답변(예: 웹 페이지 또는 뉴스)을 식별하고, `resultIndex`는 답변 내의 결과(예: 뉴스 기사)를 식별합니다. 인덱스는 0부터 시작합니다.  
 
@@ -30,11 +30,11 @@ ms.locfileid: "58295609"
 
 순위 ID를 답변 또는 결과 중 하나의 ID와 일치하기만 하면 되므로 ID를 사용하는 것이 더 간단합니다. 답변 개체에 `id` 필드가 포함된 경우 모든 답변의 결과를 함께 표시합니다. 예를 들어 `News` 개체에 `id` 필드가 포함된 경우 모든 뉴스 기사를 함께 표시합니다. `News` 개체에 `id` 필드가 포함되지 않은 경우에는 각 뉴스 기사에 `id` 필드가 포함되며, 순위 응답이 뉴스 기사와 다른 답변의 결과를 함께 사용합니다.  
 
-`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. `answerType` 값은 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 개체에 있는 필드의 이름입니다. 모든 답변의 결과를 함께 표시해야 하는 경우에는 순위 응답 항목에 `resultIndex` 필드가 포함되지 않습니다.  
+`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. `answerType` 값은 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체에 있는 필드의 이름입니다. 모든 답변의 결과를 함께 표시해야 하는 경우에는 순위 응답 항목에 `resultIndex` 필드가 포함되지 않습니다.  
 
 ## <a name="ranking-response-example"></a>순위 응답 예제
 
-다음은 예제 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)를 보여 줍니다. 웹 답변에는 `id` 필드가 포함되어 있지 않으므로 순위에 따라 모든 웹 페이지를 개별적으로 표시합니다(각 웹 페이지에 `id` 필드가 포함됨). 또한 이미지, 비디오 및 관련 검색 답변에는 `id` 필드가 포함되어 있으므로 순위에 따라 각 답변의 결과를 함께 표시합니다.
+다음은 예제 [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)를 보여 줍니다. 웹 답변에는 `id` 필드가 포함되어 있지 않으므로 순위에 따라 모든 웹 페이지를 개별적으로 표시합니다(각 웹 페이지에 `id` 필드가 포함됨). 또한 이미지, 비디오 및 관련 검색 답변에는 `id` 필드가 포함되어 있으므로 순위에 따라 각 답변의 결과를 함께 표시합니다.
 
 ```json
 {  

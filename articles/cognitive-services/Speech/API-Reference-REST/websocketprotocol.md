@@ -13,7 +13,7 @@ ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58076193"
@@ -378,7 +378,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 *지속 시간* 요소는 이 음성 구의 지속 시간(100나노초 단위)을 지정합니다.
 
-클라이언트는 음성 가설에 포함된 주파수, 타이밍 또는 텍스트, 또는 두 음성 가설의 텍스트 일관성에 관하여 가정을 하지 않아야 합니다. 가설은 단지 서비스의 전사 프로세스에 대한 스냅숏일 뿐이며, 전사의 안정된 누적을 나타내지 않습니다. 예를 들어 첫 번째 음성 가설이 단어 "fine fun"을 포함하고 두 번째 가설이 단어 "find funny"를 포함할 수 있습니다. 음성 서비스는 음성 가설의 텍스트에 관하여 사후 처리(예: 대문자화, 문장 부호)를 수행하지 않습니다.
+클라이언트는 음성 가설에 포함된 주파수, 타이밍 또는 텍스트, 또는 두 음성 가설의 텍스트 일관성에 관하여 가정을 하지 않아야 합니다. 가설은 단지 서비스의 전사 프로세스에 대한 스냅샷일 뿐이며, 전사의 안정된 누적을 나타내지 않습니다. 예를 들어 첫 번째 음성 가설이 단어 "fine fun"을 포함하고 두 번째 가설이 단어 "find funny"를 포함할 수 있습니다. 음성 서비스는 음성 가설의 텍스트에 관하여 사후 처리(예: 대문자화, 문장 부호)를 수행하지 않습니다.
 
 ### <a name="message-speechphrase"></a>메시지 `speech.phrase`
 

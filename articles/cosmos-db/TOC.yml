@@ -210,6 +210,8 @@
         - name: 역할 기반 액세스 제어
           displayName: rbac
           href: role-based-access-control.md
+        - name: 보안 특성
+          href: cosmos-db-security-attributes.md
     - name: 엔터프라이즈 준비
       items:
         - name: 온라인 백업 및 주문형 복원
@@ -360,6 +362,8 @@
               href: manage-mongodb-with-resource-manager.md
             - name: Powershell을 사용하여 관리
               href: powershell-samples-mongodb.md
+            - name: 일반적인 문제 해결
+              href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
@@ -529,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: 피드 변경
       items:
-        - name: Azure Cosmos DB 트리거 로그
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Azure Cosmos DB 트리거 연결 정책
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: 여러 Azure Cosmos DB 트리거
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB 트리거 문제 해결
@@ -598,6 +602,8 @@
       items:
         - name: 성능 팁
           items:
+            - name: 쿼리 실행 메트릭 가져오기
+              href: profile-sql-api-query.md
             - name: 쿼리 성능 조정
               href: sql-api-query-metrics.md
             - name: .NET SDK용 성능 팁

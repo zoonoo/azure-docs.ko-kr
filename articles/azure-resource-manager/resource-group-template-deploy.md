@@ -4,14 +4,14 @@ description: Azure Resource Manager 및 Azure PowerShell을 사용 하 여 Azure
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779951"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476987"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -34,6 +34,8 @@ New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Template
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
+
+현재 REST API를 통해 관리 그룹 배포만 지원 됩니다. 참조 [Resource Manager 템플릿과 Resource Manager REST API를 사용 하 여 리소스 배포](resource-group-template-deploy-rest.md)합니다.
 
 이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
 
@@ -76,7 +78,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 개인 저장소 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요. 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요.
+앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 프라이빗 스토리지 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요. 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요.
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Azure Cloud shell에서 배포
 
@@ -248,4 +250,4 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 - 둘 이상의 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](deployment-manager-overview.md)를 참조하세요.
 - 리소스 그룹에 있지만 템플릿에 정의되지 않은 리소스를 처리하는 방법을 지정하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 - 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
-- SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요.
+- SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요.

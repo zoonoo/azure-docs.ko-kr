@@ -309,7 +309,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="importexport"></a>Import/Export
-가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로 캐시에서 데이터를 가져오고 내보낼 수 있습니다. 가져오기/내보내기를 사용하면 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 캐시에서 데이터를 가져오고 내보낼 수 있습니다. 가져오기/내보내기를 사용하면 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스 중에는 Azure Cache for Redis에서 RDB 파일을 Azure Storage에서 메모리로 로드한 다음, 키를 캐시에 삽입합니다.
 
@@ -429,7 +429,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases)을 참조하세요.
 
 > [!NOTE]
->  `databases` 설정은 캐시를 만드는 동안에만 PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 구성할 수 있습니다. PowerShell을 사용하여 캐시를 만드는 동안 `databases`를 구성하는 예제는 [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)를 참조하세요.
+> `databases` 설정은 캐시를 만드는 동안에만 PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 구성할 수 있습니다. PowerShell을 사용하여 캐시를 만드는 동안 `databases`를 구성하는 예제는 [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases)를 참조하세요.
 > 
 > 
 

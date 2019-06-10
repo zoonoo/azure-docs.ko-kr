@@ -187,7 +187,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](app-service-linux-faq.md)

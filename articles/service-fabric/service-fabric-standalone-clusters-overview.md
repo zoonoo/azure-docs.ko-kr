@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b4b7759d1dc23c1a1b3a9b5aeb2a181923e14d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543739"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752345"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 독립 실행형 클러스터 개요
 
@@ -68,6 +68,7 @@ Windows 독립 실행형 클러스터에 대해 Windows 보안을 설정할 수�
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+* Windows Server 2019
 
 ## <a name="next-steps"></a>다음 단계
 독립 실행형 클러스터의 [보호](service-fabric-cluster-security.md), [크기 조정](service-fabric-cluster-scaling-standalone.md) 및 [업그레이드](service-fabric-cluster-upgrade-standalone.md)에 대해 자세히 알아봅니다.

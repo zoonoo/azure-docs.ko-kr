@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245057"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427887"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -65,7 +65,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -531,7 +531,7 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR �
 
 **Decimal 열으로 로딩**
 
-텍스트 형식으로 원본 데이터를 SQL Data Warehouse Decimal 열에 로드 하는 빈 값이 포함 된 다음과 같은 오류가 도달할 수 있습니다.
+원본 데이터를 텍스트 형식 또는 다른 비 PolyBase 호환 (단계적된 복사 및 PolyBase 사용)를 저장 하 고 SQL Data Warehouse Decimal 열에 로드 하는 빈 값이 포함 된 다음과 같은 오류가 도달할 수 있습니다.
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....

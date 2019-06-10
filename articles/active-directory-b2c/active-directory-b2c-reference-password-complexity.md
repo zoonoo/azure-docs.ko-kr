@@ -2,20 +2,20 @@
 title: 암호 복잡성 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 소비자가 제공한 암호에 복잡성 요구 사항을 구성하는 방법입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c47a22883de4a3b28a42b390ef78368277e22be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703735"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509026"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory) B2C는 계정을 만들 때 최종 사용자가
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **사용자 흐름**을 선택합니다.
 2. 사용자 흐름을 선택하고, **속성**을 클릭합니다.
 3. **암호 복잡성**에서 이 사용자 흐름에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.

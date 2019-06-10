@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112170"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357041"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>자습서: Displayr과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 Displayr이 Azure AD에 연결되도록 구성하려면 갤러리의 Displayr을 관리형 SaaS 앱 목록에 추가해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 탐색 창에서 **Active Directory** 서비스를 선택합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Displayr**를 입력합니다.
@@ -91,11 +91,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![인증서 다운로드 링크](common/certificatebase64.png)
 
-1. Displayr 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. Displayr 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도, Displayr 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다.  **그룹 클레임(미리 보기)**   대화 상자의  **사용자 특성 및 클레임**  섹션에서 다음 단계를 수행합니다.
+1. 위에서 언급한 특성 외에도, Displayr 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
     a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
 

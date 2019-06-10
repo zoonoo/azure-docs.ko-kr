@@ -61,7 +61,7 @@ ms.locfileid: "61227140"
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [디바이스 이름이 변경됨](troubleshoot-device-names-problems.md)
 - VM 복구 액세스
-    -  Windows
+    - Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)
         - [Azure Portal](troubleshoot-recovery-disks-portal-windows.md)
     - Linux

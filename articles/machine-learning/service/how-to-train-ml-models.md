@@ -109,7 +109,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 매개 변수 | 설명 | 기본값
 --|--|--
-`custom_docker_base_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 개인 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_base_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node`| 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다. 여기서는 각 노드에서 사용할 수 있는 `2` GPU를 사용합니다.| `1`
 `distributed_backend`| Estimator가 MPI를 통해 제공하는 분산 학습 시작을 위한 백 엔드입니다.  병렬 또는 분산 학습을 수행하려면(예: `node_count`>1, `process_count_per_node`>1 또는 둘 다) `distributed_backend='mpi'`를 설정합니다. AML에서 사용되는 MPI 구현은 [Open MPI](https://www.open-mpi.org/)입니다.| `None`

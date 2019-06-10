@@ -30,7 +30,7 @@ ms.locfileid: "65956603"
 템플릿, PowerShell cmdlet 또는 CLI 명령을 사용 하 여 암호화를 사용할 수 있습니다. 가상 머신 확장에 대한 스키마 정보가 필요한 경우 [Windows용 Azure Disk Encryption 확장](../virtual-machines/extensions/azure-disk-enc-windows.md) 문서를 참조하세요.
 
 >[!IMPORTANT]
- > Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅숏을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅숏을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 백업이 생성 된이 매개 변수가 지정 될 때까지 관리 되는 디스크 기반 Vm에 대해 집합 AzVMDiskEncryptionExtension 명령이 실패 합니다. 
+ > Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅샷을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 백업이 생성 된이 매개 변수가 지정 될 때까지 관리 되는 디스크 기반 Vm에 대해 집합 AzVMDiskEncryptionExtension 명령이 실패 합니다. 
 >
 > 암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다. 
 >
@@ -113,7 +113,7 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
      ```
  
   > [!NOTE]
-  >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅숏을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅숏을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 이 명령은 백업을 만들고 이 매개 변수가 지정될 때까지 관리 디스크 기반 VM에 대해 실패합니다. 
+  >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅샷을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 이 명령은 백업을 만들고 이 매개 변수가 지정될 때까지 관리 디스크 기반 VM에 대해 실패합니다. 
   >
   >암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다. 
 
@@ -239,7 +239,7 @@ Windows 가상 머신 확장 집합을 암호화하거나 암호 해독하려면
 * [사전에 암호화된 Linux VHD 준비](azure-security-disk-encryption-appendix.md#bkmk_preLinux)
 
 >[!IMPORTANT]
- >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅숏을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅숏을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 백업이 생성 된이 매개 변수가 지정 될 때까지 관리 되는 디스크 기반 Vm에 대해 집합 AzVMDiskEncryptionExtension 명령이 실패 합니다. 
+ >Azure Disk Encryption을 사용하기 전에 외부에 관리 디스크 기반 VM 인스턴스에 대해 스냅샷을 만들고 백업해야 합니다. 포털에서 관리 디스크에 대한 스냅샷을 수행하거나 [Azure Backup](../backup/backup-azure-vms-encryption.md)을 사용할 수 있습니다. Backup은 암호화 중에 예기치 않은 오류가 발생할 경우 복구 옵션으로 사용할 수 있습니다. 백업 설정 되 면 집합 AzVMDiskEncryptionExtension cmdlet-skipVmBackup 매개 변수를 지정 하 여 관리 되는 디스크 암호화를 사용할 수 있습니다. 백업이 생성 된이 매개 변수가 지정 될 때까지 관리 되는 디스크 기반 Vm에 대해 집합 AzVMDiskEncryptionExtension 명령이 실패 합니다. 
 >
 >암호화하거나 암호화를 사용하지 않도록 설정하면 VM이 다시 부팅될 수 있습니다. 
 

@@ -37,7 +37,7 @@ ms.locfileid: "58002301"
 
 - **Terraform 설치**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
-- **SSH 키 쌍 만들기**: SSH 키 쌍이 아직 없는 경우 [Azure에서 Linux VM용 SSH 공개-개인 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
+- **SSH 키 쌍 만들기**: SSH 키 쌍이 아직 없는 경우 [Azure에서 Linux VM용 SSH 공개-프라이빗 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 

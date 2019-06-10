@@ -23,7 +23,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "61271804"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
-[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅숏으로 복원할 수 있습니다. 
+[Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다. 
 
 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure에서 앱 복원](web-sites-restore.md)을 참조하세요.
 

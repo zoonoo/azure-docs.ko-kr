@@ -26,7 +26,7 @@ Azure Security Center에서는 웹 애플리케이션을 보호하기 위해 Mic
 
 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.
 
-Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.com/pricing/details/app-service/windows/) 서비스 계획 아래에 배포된 외부 ASE(App Service 환경)에 있는 웹 애플리케이션을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. 앱은 격리된 전용 Azure 환경에 호스팅되기 때문에 온-프레미스 네트워크와 안전한 연결이 필요하거나 추가적인 성능 및 규모가 필요한 앱에 이상적입니다. 앱은 격리된 환경에 있는 것 외에도 앱에는 외부 IP 주소 부하 분산 장치가 필요합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.
+Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.com/pricing/details/app-service/windows/) 서비스 계획 아래에 배포된 외부 ASE(App Service 환경)에 있는 웹 애플리케이션을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. 앱은 격리된 프라이빗 전용 Azure 환경에 호스팅되기 때문에 온-프레미스 네트워크와 안전한 연결이 필요하거나 추가적인 성능 및 규모가 필요한 앱에 이상적입니다. 앱은 격리된 환경에 있는 것 외에도 앱에는 외부 IP 주소 부하 분산 장치가 필요합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  이 문서는 단계별 가이드가 아닙니다.

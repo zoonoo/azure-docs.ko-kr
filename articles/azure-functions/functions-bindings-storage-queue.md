@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2f6b693e11ccbb759b59c949b24690e8a2054f94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132392"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472286"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -566,7 +566,7 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 
 |자산  |Default | 설명 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최솟값은 00:00:00.100(100밀리초)입니다. |
+|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소 00:00:00.100 (100ms) 이며 최대 00시 01분: 00 (1 분 미만)를 증가 시킵니다. |
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
 |batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
 |maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|

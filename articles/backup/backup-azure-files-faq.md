@@ -79,7 +79,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 ## <a name="backup"></a>Backup
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>파일 공유당 만들 수 있는 주문형 백업은 몇 개입니까? <br/>
-언제든지 파일 공유에 대해 최대 200개의 스냅숏을 가질 수 있습니다. 이 한도에는 정책에 정의된 대로 Azure Backup에서 생성한 스냅숏이 포함됩니다. 한도에 도달한 후 백업이 실패하기 시작하면 향후 백업에 성공하기 위해 주문형 복원 지점을 삭제합니다.
+언제든지 파일 공유에 대해 최대 200개의 스냅샷을 가질 수 있습니다. 이 한도에는 정책에 정의된 대로 Azure Backup에서 생성한 스냅샷이 포함됩니다. 한도에 도달한 후 백업이 실패하기 시작하면 향후 백업에 성공하기 위해 주문형 복원 지점을 삭제합니다.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>저장소 계정에서 가상 네트워크를 사용하도록 설정한 후부터 계정에서 파일 공유 백업이 실패하기 시작합니다. 그 이유는
 Azure 파일 공유에 대한 Backup은 Virtual Networks를 사용하도록 설정된 저장소 계정을 지원하지 않습니다. 백업을 성공적으로 수행하려면 저장소 계정에서 Virtual Network를 사용하지 않도록 설정합니다.
@@ -101,8 +101,8 @@ Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확�
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>PowerShell을 사용하여 Azure 파일 공유에 대한 백업을 구성/관리/복원할 수 있나요? <br/>
 예. [여기](backup-azure-afs-automation.md)에 있는 자세한 설명서를 참조하세요.
 
-### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Azure Backup에서 만든 스냅숏에 액세스하고 탑재할 수 있나요? <br/>
-Azure Backup에서 만든 모든 스냅숏은 포털의 스냅숏 보기, PowerShell 또는 CLI로 액세스할 수 있습니다. Azure 파일 공유 스냅숏에 대한 자세한 내용은 [Azure Files(미리 보기)의 공유 스냅숏 개요](../storage/files/storage-snapshots-files.md)를 참조하세요.
+### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Azure Backup에서 만든 스냅샷에 액세스하고 탑재할 수 있나요? <br/>
+Azure Backup에서 만든 모든 스냅샷은 포털의 스냅샷 보기, PowerShell 또는 CLI로 액세스할 수 있습니다. Azure 파일 공유 스냅샷에 대한 자세한 내용은 [Azure Files(미리 보기)의 공유 스냅샷 개요](../storage/files/storage-snapshots-files.md)를 참조하세요.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>백업에 대해 구성할 수 있는 최대 보존 기간은 얼마인가요? <br/>
 Azure 파일 공유 백업은 최대 180일의 보존 기간이 적용된 정책을 구성할 수 있는 기능을 제공합니다. 그러나 [PowerShell의 "요청 시 백업"](backup-azure-afs-automation.md#trigger-an-on-demand-backup) 옵션을 사용하면 복구 지점을 10년 동안 유지할 수도 있습니다.

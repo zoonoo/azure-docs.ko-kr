@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306805"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428061"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
@@ -43,7 +43,7 @@ Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오�
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * 네트워크 보안 그룹에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다.
-* Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2017](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
+* Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2019](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 
 ## <a name="network-topology"></a>네트워크 토폴로지
 
@@ -88,7 +88,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
     </Resources>
     ```
 
-    포트를 제거하면 클러스터 Resource Manager 템플릿에서 네트워크 보안 그룹을 통해 연 애플리케이션 포트 범위에서 Service Fabric이 동적으로 포트를 지정하여 API Management에서 해당 포트로 트래픽이 흐르도록 할 수 있습니다.
+    포트를 제거 하면 Service Fabric이 네트워크 보안 그룹을 통해 클러스터 Resource Manager 템플릿에서 트래픽이 흐르도록 수 있습니다를 API Management에서 연 응용 프로그램 포트 범위에서 동적으로 포트를 지정할 수 있습니다.
 
  6. Web API를 로컬에서 사용할 수 있는지 확인하려면 Visual Studio에서 F5 키를 누릅니다.
 
@@ -125,7 +125,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 [Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates)에서는 API Management 보안을 구성합니다. API Management는 서비스 검색을 위해 클러스터에 대한 액세스 권한이 있는 클라이언트 인증서를 사용하여 Service Fabric 클러스터에 인증해야 합니다. 이 문서에서는 기본적으로 클러스터 액세스에 사용할 수 있는 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)를 만들 때 이전에 지정된 것과 동일한 인증서를 사용합니다.
 
-이 문서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 개인 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
+이 문서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 프라이빗 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 

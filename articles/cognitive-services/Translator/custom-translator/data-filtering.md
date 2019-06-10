@@ -2,19 +2,19 @@
 title: 데이터 필터링 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 시스템을 학습하는 데 사용할 문서를 제출하면 문서는 일련의 처리 및 필터링 단계를 거쳐 학습을 준비합니다.
-author: v-pawal
+author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916113"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389349"
 ---
 # <a name="data-filtering"></a>데이터 필터링
 

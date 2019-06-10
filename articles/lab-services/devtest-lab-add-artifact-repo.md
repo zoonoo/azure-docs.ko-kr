@@ -23,11 +23,11 @@ ms.locfileid: "60311712"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
-랩에서 VM에 대한 [사용자 지정 아티팩트를 만들](devtest-lab-artifact-author.md)거나 [Azure Resource Manager 템플릿을 사용하여 사용자 지정 테스트 환경을 만들](devtest-lab-create-environment-from-arm.md) 수 있습니다. 팀에서 만드는 아티팩트 또는 Resource Manager 템플릿에 대한 개인 Git 리포지토리를 추가해야 합니다. 리포지토리는 [GitHub](https://github.com) 또는 [Azure DevOps Services](https://visualstudio.com)에서 호스팅될 수 있습니다.
+랩에서 VM에 대한 [사용자 지정 아티팩트를 만들](devtest-lab-artifact-author.md)거나 [Azure Resource Manager 템플릿을 사용하여 사용자 지정 테스트 환경을 만들](devtest-lab-create-environment-from-arm.md) 수 있습니다. 팀에서 만드는 아티팩트 또는 Resource Manager 템플릿에 대한 프라이빗 Git 리포지토리를 추가해야 합니다. 리포지토리는 [GitHub](https://github.com) 또는 [Azure DevOps Services](https://visualstudio.com)에서 호스팅될 수 있습니다.
 
-Microsoft는 그대로 배포하거나 랩에 맞게 사용자 지정할 수 있는 [아티팩트의 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)를 제공합니다. 아티팩트를 사용자 지정하거나 만들 때 공용 리포지토리에 아티팩트를 저장할 수 없습니다. 사용자 지정 아티팩트 및 사용자가 만드는 아티팩트에 대한 사용자 고유의 개인 리포지토리를 만들어야 합니다. 
+Microsoft는 그대로 배포하거나 랩에 맞게 사용자 지정할 수 있는 [아티팩트의 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)를 제공합니다. 아티팩트를 사용자 지정하거나 만들 때 공용 리포지토리에 아티팩트를 저장할 수 없습니다. 사용자 지정 아티팩트 및 사용자가 만드는 아티팩트에 대한 사용자 고유의 프라이빗 리포지토리를 만들어야 합니다. 
 
-VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사용자 지정한 다음 나중에 추가 VM을 만들 수 있습니다. 사용자 지정 Resource Manager 템플릿을 저장할 개인 리포지토리를 만들어야 합니다.  
+VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사용자 지정한 다음 나중에 추가 VM을 만들 수 있습니다. 사용자 지정 Resource Manager 템플릿을 저장할 프라이빗 리포지토리를 만들어야 합니다.  
 
 * GitHub 리포지토리를 만드는 방법을 알아보려면 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)를 참조하세요.
 * Git 리포지토리를 가진 Azure DevOps 서비스 프로젝트를 만드는 방법에 알아보려면 참조 [Azure DevOps 서비스에 연결](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)합니다.
@@ -74,7 +74,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다. 
-4. **구성 및 정책** > **리포지토리** > **+ 추가**를 선택합니다.
+4. **구성 및 정책** > **리포지토리** >  **+ 추가**를 선택합니다.
 
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 두 번째 **리포지토리** 페이지에서 다음 정보를 지정합니다.
@@ -94,8 +94,8 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>다음 단계
-개인 Git 리포지토리를 만든 후 필요에 따라 다음 중 하나 또는 둘 다를 수행할 수 있습니다.
+프라이빗 Git 리포지토리를 만든 후 필요에 따라 다음 중 하나 또는 둘 다를 수행할 수 있습니다.
 * [사용자 지정 아티팩트](devtest-lab-artifact-author.md)를 저장합니다. 나중에 새 VM을 만드는 데 사용할 수 있습니다.
-* [Resource Manager 템플릿을 사용하여 다중 VM 환경 및 PaaS 리소스를 만듭니다](devtest-lab-create-environment-from-arm.md). 그런 다음 개인 리포지토리에 템플릿을 저장할 수 있습니다.
+* [Resource Manager 템플릿을 사용하여 다중 VM 환경 및 PaaS 리소스를 만듭니다](devtest-lab-create-environment-from-arm.md). 그런 다음, 프라이빗 리포지토리에 템플릿을 저장할 수 있습니다.
 
-VM을 만드는 경우 Git 리포지토리에 아티팩트 또는 템플릿이 추가되었는지 확인할 수 있습니다. 아티팩트 또는 템플릿 목록에서 즉시 사용할 수 있습니다. 사용자의 개인 리포지토리 이름은 원본을 지정하는 열에 표시됩니다. 
+VM을 만드는 경우 Git 리포지토리에 아티팩트 또는 템플릿이 추가되었는지 확인할 수 있습니다. 아티팩트 또는 템플릿 목록에서 즉시 사용할 수 있습니다. 사용자의 프라이빗 리포지토리 이름은 원본을 지정하는 열에 표시됩니다. 

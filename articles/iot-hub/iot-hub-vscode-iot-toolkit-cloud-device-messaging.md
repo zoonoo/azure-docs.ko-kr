@@ -17,7 +17,7 @@ ms.locfileid: "61440085"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
-![종단 간 다이어그램](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
+![엔드투엔드 다이어그램](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 이 문서에서는 Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지를 보내고 받는 방법에 중점을 둡니다.
 

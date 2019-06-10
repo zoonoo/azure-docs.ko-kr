@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074058"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431324"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -55,7 +55,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 부하 분산 장치 및 서비스에 대한 IP 주소는 동적으로 할당하거나 사용할 기존 고정 IP 주소를 지정할 수 있습니다. 내부 및 외부 고정 IP 주소를 모두 할당할 수 있습니다. 이 기존 고정 IP 주소는 종종 DNS 항목에 연결됩니다.
 
-*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치에는 사설 IP 주소만 할당되므로 인터넷에서 액세스할 수 없습니다.
+*내부* 및 *외부* 부하 분산 장치를 모두 만들 수 있습니다. 내부 부하 분산 장치에는 개인 IP 주소만 할당되므로 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="azure-virtual-networks"></a>Azure 가상 네트워크
 
@@ -99,6 +99,8 @@ LoadBalancer 유형 Service를 만들면 기본 Azure 부하 분산 장치 리�
 AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들거나 AKS HTTP 애플리케이션 라우팅 기능을 사용할 수 있습니다. AKS 클러스터에 대한 HTTP 애플리케이션 라우팅을 사용하도록 설정하면 Azure 플랫폼에서 수신 컨트롤러와 *External-DNS* 컨트롤러를 만듭니다. Kubernetes에서 새 수신 리소스가 만들어지면 필요한 DNS A 레코드가 클러스터별 DNS 영역에 만들어집니다. 자세한 내용은 [HTTP 애플리케이션 라우팅 배포][aks-http-routing]를 참조하세요.
 
 수신의 또 다른 일반적인 기능은 SSL/TLS 종료입니다. HTTPS를 통해 액세스되는 대규모 웹 애플리케이션에서 TLS 종료는 애플리케이션 자체 내에서가 아니라 수신 리소스에서 처리할 수 있습니다. 자동 TLS 인증 생성 및 구성을 제공하기 위해 Let's Encrypt와 같은 공급자를 사용하도록 수신 리소스를 구성할 수 있습니다. Let 's Encrypt를 사용하여 NGINX 수신 컨트롤러를 구성하는 방법에 대한 자세한 내용은 [수신 및 TLS][aks-ingress-tls]를 참조하세요.
+
+AKS 클러스터에서 컨테이너에 대 한 요청에 클라이언트 원본 IP를 유지 하기 위해 수신 컨트롤러를 구성할 수도 있습니다. 클라이언트의 요청을 수신 컨트롤러를 통해 AKS 클러스터에서 컨테이너에 라우팅되면 해당 요청의 원본 ip는 대상 컨테이너에 사용할 수 없습니다. 사용 하도록 설정한 경우 *클라이언트 소스 IP 보존*, 클라이언트에 대 한 원본 IP가 아래에 있는 요청 헤더에 있는 *X-전달 기능에 대 한*합니다. 클라이언트 원본 IP 유지 수신 컨트롤러를 사용 하는 경우 SSL 통과 사용할 수 없습니다. 클라이언트 원본 IP 유지 및 SSL 통과 수의 다른 서비스와 같은 합니다 *LoadBalancer* 형식입니다.
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 

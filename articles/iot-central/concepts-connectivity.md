@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467791"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693180"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -139,7 +139,7 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
 1. 연결된 된 장치가 처음으로 표시 된 **연결 되지 않은 장치** 에 **Device Explorer** 페이지. 디바이스의 프로비전 상태는 **등록**됩니다. **연결** 적절 한 장치 템플릿에 대 한 장치 및 IoT Central 응용 프로그램에 연결 하는 장치를 승인 합니다. 그런 다음 장치에서 IoT Hub 연결 문자열을 검색 하 고 데이터를 보내기 시작 수 있습니다. 완료 되었습니다 장치 프로 비전 및 프로 비전 상태가 이제 **프로 비전 됨**합니다.
 
-## <a name="provisioning-status"></a>프로비전 상태
+## <a name="provisioning-status"></a>프로 비전 상태
 
 실제 장치에 연결 될 때 IoT Central 응용 프로그램을 프로 비전 상태는 변경 다음과 같습니다.
 

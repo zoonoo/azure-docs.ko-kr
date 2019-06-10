@@ -2,20 +2,20 @@
 title: 암시적 흐름-Azure Active Directory B2C를 사용 하 여 로그인 하는 단일 페이지 | Microsoft Docs
 description: Azure Active Directory B2C를 사용 하 여 OAuth 2.0 암시적 흐름을 사용 하 여 단일 페이지 기호를 추가 하는 방법에 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698942"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508967"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용 하 여 로그인 하는 단일 페이지
 

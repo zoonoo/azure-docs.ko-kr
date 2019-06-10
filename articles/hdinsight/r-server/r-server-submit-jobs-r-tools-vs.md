@@ -29,7 +29,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및  **Microsoft R Client** 옵션을 선택합니다.
 
-3. SSH 인증에 대한 공용 및 개인 키가 필요합니다.
+3. SSH 인증에 대한 공용 및 프라이빗 키가 필요합니다.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 `RxSpark` 함수를 제공합니다.

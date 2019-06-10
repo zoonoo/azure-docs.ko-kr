@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ce7e7aa471017fba7632018db116f7855a50d32e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357567"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497058"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1372,6 +1372,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/blockchain-workbench">
                                                 <img src="media/index/blockchain-workbench.svg" alt="" />
                                                 <p>Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-app-configuration/">
+                                                <img src="media/index/azure-appconf.svg" alt="" />
+                                                <p>앱 구성</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4335,7 +4341,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
+                                                    <p>실험 및 모델 관리를 갖춘 엔드투엔드, 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5297,6 +5303,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Blockchain Workbench</h3>
                                                     <p>어렵지 않게 블록체인을 클라우드에 연결</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-app-configuration/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-appconf.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>앱 구성</h3>
+                                                    <p>앱 구성을 위한 빠르고 확장성 있는 매개 변수 스토리지</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6636,7 +6661,7 @@ Azure Dev 공간 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
@@ -6652,7 +6677,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 아키텍처 센터</h3>
-                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
+                                                    <p>Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

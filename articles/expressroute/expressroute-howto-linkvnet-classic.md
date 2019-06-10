@@ -42,8 +42,8 @@ ms.locfileid: "60370631"
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
    * 지침에 따라 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자가 회로를 사용하도록 설정합니다.
-   * 회로에 구성된 Azure 개인 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md)을 참조하세요.
-   * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 종단 간 연결을 사용하도록 작동 중이어야 합니다.
+   * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md)을 참조하세요.
+   * Azure 프라이빗 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
    * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들고 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크를 구성합니다](expressroute-howto-vnet-portal-classic.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>최신 PowerShell cmdlet 다운로드

@@ -36,7 +36,7 @@
           items:
             - name: 보안 지침 읽기
               href: data-box-safety.md
-            - name: 추적 및 로깅
+            - name: 추적 및 로깅 검토
               href: data-box-logs.md
             - name: 요구 사항 검토
               items:
@@ -111,7 +111,7 @@
           items:
             - name: Azure 포털을 통해 관리
               href: data-box-portal-ui-admin.md
-            - name: 디스크 문제 해결
+            - name: Data Box Disk 문제 해결
               href: data-box-disk-troubleshoot.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md
@@ -121,12 +121,50 @@
           items:
             - name: Data Box Heavy란?
               href: data-box-heavy-overview.md
+        - name: 빠른 시작
+          items:
+            - name: 설정 - Azure Portal
+              href: data-box-heavy-quickstart-portal.md
+        - name: 자습서
+          items:
+            - name: 1 - 주문
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 - 설정
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 - 연결 및 복사
+              items:
+                - name: SMB를 통해
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: '4 - 반환, 업로드, 확인'
+              href: data-box-heavy-deploy-picked-up.md
         - name: 개념
           items:
+            - name: 추적 및 로깅 검토
+              href: data-box-logs.md
             - name: 요구 사항 검토
               href: data-box-heavy-system-requirements.md
             - name: 제한 이해
               href: data-box-heavy-limits.md
+        - name: 방법
+          items:
+            - name: Azure 포털을 통해 관리
+              href: data-box-portal-admin.md
+            - name: 로컬 웹 UI를 통해 관리
+              href: data-box-local-web-ui-admin.md
+            - name: 디바이스 문제 해결
+              href: data-box-troubleshoot.md
+            - name: Blob 계층으로 데이터 이동
+              href: data-box-how-to-set-data-tier.md
+            - name: 지원에 문의
+              href: data-box-disk-contact-microsoft-support.md
+            - name: 마이그레이션
+              items:
+                - name: SharePoint Online으로
+                  href: data-box-heavy-migrate-spo.md
+                - name: Azure 파일 동기화로
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: HDFS 저장소에서
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: 리소스
       items:
         - name: Data Box 제품

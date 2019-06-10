@@ -37,7 +37,7 @@ ms.locfileid: "60457620"
 다음 기준을 충족하는지 확인합니다.
 
 1. 네트워크 가상 어플라이언스 (NVA) 해야합니다. 일반적으로 프로 비전 되는 Azure Marketplace에서 가상 네트워크에서 선택한 타사 소프트웨어입니다.
-2. NVA 네트워크 인터페이스에 지정된 개인용 IP가 있습니다. 
+2. NVA 네트워크 인터페이스에 지정된 프라이빗 IP가 있습니다. 
 3. 가상 허브에서 NVA는 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 NVA VNet을 'DMZ VNet'이라고 합니다.
 4. 'DMZ VNet'에는 하나 이상의 가상 네트워크가 연결되어 있을 수 있습니다. 이 문서에서는 이 VNet을 '간접 스포크 VNet'이라고 합니다. 이러한 VNet은 VNet 피어링을 사용하여 DMZ VNet에 연결할 수 있습니다.
 5. 2개의 VNet이 이미 생성되었는지 확인합니다. 이 Vnet은 스포크 VNet으로 사용됩니다. 이 문서에서 VNet 스포크 주소 공간은 10.0.2.0/24 및 10.0.3.0/24입니다. VNet을 만드는 방법에 관한 정보가 필요하면 [PowerShell을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-powershell.md)를 참조하세요.
@@ -97,7 +97,7 @@ ms.locfileid: "60457620"
 
 ## <a name="route"></a>4. 가상 허브 경로 만들기
 
-이 문서에서 간접 스포크 VNet 주소 공간은 10.0.2.0/24 및 10.0.3.0/24이고 DMZ NVA 네트워크 인터페이스 개인용 IP 주소는 10.0.4.5입니다.
+이 문서에서 간접 스포크 VNet 주소 공간은 10.0.2.0/24 및 10.0.3.0/24이고 DMZ NVA 네트워크 인터페이스 개인 IP 주소는 10.0.4.5입니다.
 
 ```powershell
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"

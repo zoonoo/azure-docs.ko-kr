@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109330"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753819"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -23,7 +23,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 ## <a name="overview"></a>개요
 
-이 Azure Security and Compliance Blueprint는 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf)로 분류된 워크로드를 처리하는 데 적합한 Microsoft Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 호스팅 웹 애플리케이션 아키텍처를 제공하기 위한 지침 및 자동화 스크립트를 제공합니다. 이 보안 분류는 공공 부문에서 만들거나 처리하는 대부분의 정보를 포함합니다. 여기에는 일상적인 비즈니스 작업 및 서비스가 포함되며, 미디어에서 분실, 도난 또는 게시되는 경우 그 중 일부는 해로운 결과를 초래할 수 있습니다. OFFICIAL 분류에 대한 일반적인 위협 프로필은 중요한 정보와 서비스를 제공하는 개인 비즈니스와 거의 같습니다. UK OFFICIAL은 제한된 역량과 리소스를 갖춘 공격자의 위협 또는 타협으로부터 영국 정부의 데이터 또는 서비스를 방어해야 할 필요성을 예상합니다. 이러한 공격자는 핵티비스트(hactivist), 단일 주장 압력 단체, 사회 고발 언론인, 유능한 개인 해커, 대다수의 범죄자 및 범죄 집단과 같지만 이에 국한되지는 않습니다.
+이 Azure Security and Compliance Blueprint는 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf)로 분류된 워크로드를 처리하는 데 적합한 Microsoft Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 호스팅 웹 애플리케이션 아키텍처를 제공하기 위한 지침 및 자동화 스크립트를 제공합니다. 이 보안 분류는 공공 부문에서 만들거나 처리하는 대부분의 정보를 포함합니다. 여기에는 일상적인 비즈니스 작업 및 서비스가 포함되며, 미디어에서 분실, 도난 또는 게시되는 경우 그 중 일부는 해로운 결과를 초래할 수 있습니다. OFFICIAL 분류에 대한 일반적인 위협 프로필은 중요한 정보와 서비스를 제공하는 프라이빗 비즈니스와 거의 같습니다. UK OFFICIAL은 제한된 역량과 리소스를 갖춘 공격자의 위협 또는 타협으로부터 영국 정부의 데이터 또는 서비스를 방어해야 할 필요성을 예상합니다. 이러한 공격자는 핵티비스트(hactivist), 단일 주장 압력 단체, 사회 고발 언론인, 유능한 개인 해커, 대다수의 범죄자 및 범죄 집단과 같지만 이에 국한되지는 않습니다.
 
 이 청사진은 영국 NCSC(National Cyber Security Centre)에서 검토되었으며 NCSC 14개 클라우드 보안 원칙에 부합합니다.
 
@@ -105,7 +105,7 @@ Azure App Service는 인프라를 관리할 필요 없이 Java, PHP, Node.js Pyt
 
 App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)이며, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 또는 소셜 로그인([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) 및 [Microsoft 인증](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)을 통해 사용자를 인증합니다.
 
-기본, 표준 및 프리미엄 요금제는 프로덕션 워크로드에 적용되는 요금제이며, 전용 Virtual Machine 인스턴스에서 실행됩니다. 각 인스턴스는 여러 개의 애플리케이션과 도메인을 지원할 수 있습니다. 또한 App Services는 필요한 경우 [IP 주소 제한](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)을 지원하여 신뢰할 수 있는 IP 주소로 전송되는 트래픽을 보호하고, [Key Vault](https://azure.microsoft.com/services/key-vault/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 같은 다른 PaaS 서비스에 안전하게 연결할 수 있도록 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity)를 지원합니다. 추가 보안이 필요한 경우 격리 계층 요금제는 개인 전용 Azure 환경에서 앱을 호스팅하며, 온-프레미스 네트워크와의 보안 연결이 필요하거나 추가 성능과 크기 조정이 필요한 앱에 이상적입니다.
+기본, 표준 및 프리미엄 요금제는 프로덕션 워크로드에 적용되는 요금제이며, 전용 Virtual Machine 인스턴스에서 실행됩니다. 각 인스턴스는 여러 개의 애플리케이션과 도메인을 지원할 수 있습니다. 또한 App Services는 필요한 경우 [IP 주소 제한](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)을 지원하여 신뢰할 수 있는 IP 주소로 전송되는 트래픽을 보호하고, [Key Vault](https://azure.microsoft.com/services/key-vault/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 같은 다른 PaaS 서비스에 안전하게 연결할 수 있도록 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity)를 지원합니다. 추가 보안이 필요한 경우 격리 계층 요금제는 프라이빗 전용 Azure 환경에서 앱을 호스팅하며, 온-프레미스 네트워크와의 보안 연결이 필요하거나 추가 성능과 크기 조정이 필요한 앱에 이상적입니다.
 
 이 템플릿에서 배포하는 App Service 기능은 다음과 같습니다.
 
@@ -191,7 +191,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="azure-activity-logs"></a>Azure 활동 로그
 
-[Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log)는 구독에 대한 제어 평면 이벤트를 감사합니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '누가, 무엇을, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다.
+[Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)는 구독에 대한 제어 평면 이벤트를 감사합니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '누가, 무엇을, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

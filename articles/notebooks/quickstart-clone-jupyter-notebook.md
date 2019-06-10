@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e180192ed8375e00464ed9ec96080cde10295e5c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238648"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754043"
 ---
 # <a name="quickstart-clone-a-notebook"></a>빠른 시작: Notebook 복제
 
@@ -60,7 +60,7 @@ ms.locfileid: "60238648"
 
     ![프로젝트 공유 명령](media/quickstarts/share-project-command.png)
 
-1. 프로젝트를 복제할 때 **공용** 옵션을 선택 취소했으므로 클론은 비공개입니다. 복사본을 공용으로 지정하려면 **프로젝트 설정**을 선택하고 팝업에서 **공용 프로젝트**를 설정한 후 **저장**을 선택합니다.
+1. 프로젝트를 복제할 때 **공용** 옵션을 선택 취소했으므로 클론은 프라이빗입니다. 복사본을 공용으로 지정하려면 **프로젝트 설정**을 선택하고 팝업에서 **공용 프로젝트**를 설정한 후 **저장**을 선택합니다.
 
 1. 프로젝트에서 노트를 선택하여 실행합니다. 예를 들어 Azure Cognitive Services 리포지토리의 각 노트에는 자체적으로 빠른 시작이 포함되어 있습니다. 아래 이미지는 BingImageSearchAPI 노트를 사용하고, Cognitive Services API 구독 키를 추가하고, 검색어를 "puppies"에서 "bunnies"로 변경한 이후의 결과를 보여 줍니다.
 

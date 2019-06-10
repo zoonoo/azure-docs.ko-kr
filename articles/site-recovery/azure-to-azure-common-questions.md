@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925664"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753780"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -59,7 +59,7 @@ Site Recovery 팀은 충분 한 인프라 용량 계획에 Azure 용량 관리 �
 예,이 Azure Vm에 대 한 관리 디스크를 사용 하 여. 복제에 사용 되는 Azure VM에 새 디스크를 추가 하면 VM에 대 한 복제 상태 경고를 사용 하 여 참고 지정 하는 VM에 하나 이상의 디스크 보호를 위해 사용할 수 있는지 보여 줍니다. 추가 된 디스크에 대 한 복제를 사용할 수 있습니다.
 - 추가 된 디스크에 대 한 보호를 사용 하는 경우 초기 복제 후 경고가 사라집니다.
 - 디스크에 대 한 복제를 사용 하도록 설정 하지 않으려는 경우 경고를 해제할를 선택할 수 있습니다.
-- 디스크를 추가 하 고이 복제를 사용 하도록 VM을 장애 조치할 때 복제 지점 복구에 사용할 수 있는 디스크가 표시 됩니다. 예를 들어, VM에 단일 디스크를 새로 추가한 디스크를 추가 하기 전에 생성 된 복제 지점 복제 지점이 2 개의 디스크의 "1"으로 구성 되는 표시 됩니다.
+- 디스크를 추가 하 고이 복제를 사용 하도록 VM을 장애 조치할 때 복제 지점 복구에 사용할 수 있는 디스크가 표시 됩니다. 예를 들어, VM에 단일 디스크가 있고 새로운 디스크를 추가하는 경우, 디스크를 추가하기 전에 생성한 복제 지점은 “2개 디스크 중 하나”로 구성된 복제 지점을 표시합니다.
 
 Site Recovery는 "핫 제거" 디스크의 복제 된 VM에서 지원 하지 않습니다. VM 디스크를 제거 하면 해제 한 다음 VM에 대 한 복제를 다시 설정 해야 합니다.
 
@@ -84,24 +84,24 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 ## <a name="replication-policy"></a>복제 정책
 
 ### <a name="what-is-a-replication-policy"></a>복제 정책은 무엇인가요?
-복구 지점의 보존 기록 및 앱 일치 스냅숏 빈도에 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 다음 기본 설정을 사용하여 새 복제 정책을 만듭니다.
+복구 지점의 보존 기록 및 앱 일치 스냅샷 빈도에 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 다음 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
 * 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
-* 앱 일치 스냅숏 빈도의 경우 60분으로 설정합니다.
+* 앱 일치 스냅샷 빈도의 경우 60분으로 설정합니다.
 
 [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
-크래시 일치 복구 지점은 스냅숏을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅숏을 만들 때 메모리에 있던 내용이 포함되지 않습니다.
+크래시 일치 복구 지점은 스냅샷을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅샷을 만들 때 메모리에 있던 내용이 포함되지 않습니다.
 
-현재 대부분의 애플리케이션은 크래시 일치 스냅숏을 제대로 복구할 수 있습니다. 크래시 일치 복구 지점은 데이터베이스가 없는 운영 체제와 파일 서버, DHCP 서버, 인쇄 서버 등의 애플리케이션에 일반적으로 적합합니다.
+현재 대부분의 애플리케이션은 크래시 일치 스냅샷을 제대로 복구할 수 있습니다. 크래시 일치 복구 지점은 데이터베이스가 없는 운영 체제와 파일 서버, DHCP 서버, 인쇄 서버 등의 애플리케이션에 일반적으로 적합합니다.
 
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>충돌 일치 복구 지점 생성 빈도는 어느 정도인가요?
 Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>애플리케이션 일치 복구 지점은 무엇인가요?
-애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다.
-추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
+애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅샷에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅샷과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다.
+추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅샷은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>애플리케이션 일치 복구 지점이 애플리케이션 성능에 미치는 영향은 무엇입니까?
 애플리케이션 일치 복구 지점은 메모리와 프로세스의 모든 데이터를 캡처하므로 애플리케이션을 수신 거부하기 위해 Windows에 VSS 같은 프레임워크가 필요합니다. 워크로드가 이미 바쁘게 진행되고 있는 상태에서 이 작업이 매우 자주 수행될 경우 성능이 저하될 수 있습니다. 일반적으로 데이터베이스 이외 워크로드의 경우 앱 일치 복구 지점에 낮은 빈도를 사용하지 않는 것이 좋고, 데이터베이스 워크로드에도 1시간이면 충분합니다.
@@ -110,7 +110,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 Site Recovery는 1 시간 동안에서 최소 빈도 사용 하 여 프로그램 응용 프로그램 일치 복구 지점을 만듭니다 수 있습니다.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>복구 지점은 어떻게 생성 및 저장되나요?
-Site Recovery에서 복구 지점을 생성하는 방법을 이해하기 위해 복구 지점 보존 창은 24시간, 앱 일치 빈도 스냅숏은 1시간인 복제 정책을 예로 들어 살펴 보겠습니다.
+Site Recovery에서 복구 지점을 생성하는 방법을 이해하기 위해 복구 지점 보존 창은 24시간, 앱 일치 빈도 스냅샷은 1시간인 복제 정책을 예로 들어 살펴 보겠습니다.
 
 Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사용자는 이 빈도를 변경할 수 없습니다. 따라서 마지막 1시간 동안 사용자가 선택할 수 있는 크래시 일치 지점 12개와 앱 일치 지점 1개를 만듭니다. 시간이 지남에 따라 Site Recovery는 마지막 1시간 이전에 만든 모든 복구 지점을 정리하여 시간당 한 개의 복구 지점만 저장합니다.
 
@@ -143,7 +143,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 복구 지점이 모든 복제된 가상 머신에서 일관되는지 확인하는 것을 의미합니다.
 Site Recovery는 “다중 VM 일관성” 옵션을 제공하며, 이 옵션을 선택하는 경우 복제 그룹을 만들어 그룹의 일부인 모든 머신을 함께 복제합니다.
 모든 가상 머신은 장애 조치 시 크래시 일치와 앱 일치 복구 지점을 공유합니다.
-자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)합니다.
+자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)합니다.
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>다중 VM 일관성 복제 그룹 내에서 단일 가상 머신을 장애 조치(failover)할 수 있나요?
 "다중 VM 일관성" 옵션을 선택하면 애플리케이션은 한 그룹 내의 모든 가상 머신에서 종속성을 가지게 됩니다. 따라서 단일 가상 머신 장애 조치는 허용되지 않습니다.
@@ -171,7 +171,7 @@ Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 
 - 이 작업을 수행 하거나 복구 계획을 사용 하 여 자동화할 수 있습니다.
 - 설명 하는 방법 [장애 조치 후 공용 IP 주소 설정](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan)합니다.  
 
-### <a name="can-i-retain-a-private-ip-address-during-failover"></a>장애 조치(failover) 중 사설 IP 주소를 유지할 수 있나요?
+### <a name="can-i-retain-a-private-ip-address-during-failover"></a>장애 조치(failover) 중 개인 IP 주소를 유지할 수 있나요?
 예, 개인 IP 주소를 유지할 수 있습니다. 기본적으로 Azure VM에 재해 복구를 사용하도록 설정하면 Site Recovery는 원본 리소스 설정에 따라 대상 리소스를 만듭니다. -고정 IP 주소를 사용 하 여 구성 하는 Azure Vm에 대 한 Site Recovery를 사용 하 여에 없는 경우 대상 VM에 대 한 동일한 IP 주소를 프로 비전 하려고 합니다.
 에 대 한 자세한 [장애 조치 중 IP 주소를 유지](site-recovery-retain-ip-azure-vm-failover.md)합니다.
 

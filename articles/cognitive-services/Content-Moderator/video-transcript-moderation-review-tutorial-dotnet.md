@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522080"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474690"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -44,15 +44,15 @@ ms.locfileid: "58522080"
 
 `App.config` 파일을 편집하고 Active Directory 테넌트 이름, 서비스 엔드포인트 및 `#####`에서 표시한 구독 키를 추가합니다. 다음 정보가 필요합니다.
 
-    |키|설명|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|AMS(Azure Media Services) API에 대한 엔드포인트|
-    |`ClientSecret`|Azure Media Services에 대한 구독 키|
-    |`ClientId`|Azure Media Services에 대한 클라이언트 ID|
-    |`AzureAdTenantName`|소속 조직을 나타내는 Active Directory 테넌트 이름|
-    |`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 검토 API에 대한 구독 키|
-    |`ContentModeratorApiEndpoint`|Content Moderator API에 대한 엔드포인트|
-    |`ContentModeratorTeamId`|Content Moderator 팀 ID|
+|키|설명|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|AMS(Azure Media Services) API에 대한 엔드포인트|
+|`ClientSecret`|Azure Media Services에 대한 구독 키|
+|`ClientId`|Azure Media Services에 대한 클라이언트 ID|
+|`AzureAdTenantName`|소속 조직을 나타내는 Active Directory 테넌트 이름|
+|`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 검토 API에 대한 구독 키|
+|`ContentModeratorApiEndpoint`|Content Moderator API에 대한 엔드포인트|
+|`ContentModeratorTeamId`|Content Moderator 팀 ID|
 
 ## <a name="examine-the-main-code"></a>기본 코드 검사
 

@@ -37,7 +37,7 @@ Windows 컴퓨터에서 SSH 키를 생성하고 사용하는 추가적인 방법
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-`ssh-keygen` 명령을 사용하여 SSH 공용 및 개인 키 파일을 생성합니다. 기본적으로 이러한 파일은 ~/.ssh 디렉터리에 만들어집니다. 다른 위치와 선택적 암호(*암호*)를 지정하여 개인 키 파일에 액세스 할 수 있습니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
+`ssh-keygen` 명령을 사용하여 SSH 공용 및 개인 키 파일을 생성합니다. 기본적으로 이러한 파일은 ~/.ssh 디렉터리에 만들어집니다. 다른 위치와 선택적 암호(*암호*)를 지정하여 프라이빗 키 파일에 액세스 할 수 있습니다. 이름 같은 SSH 키 쌍이 주어진 위치에 있으면 해당 파일이 덮어쓰여집니다.
 
 다음 명령은 RSA 암호화 및 2048 비트 길이를 사용하여 SSH 키 쌍을 만듭니다.
 
@@ -81,7 +81,7 @@ az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
 
 ## <a name="ssh-into-your-vm"></a>VM에 SSH 수행
 
-Azure VM에 공개 키를 배포하고 로컬 시스템에 개인 키를 배포하여 VM의 IP 주소 또는 DNS 이름을 사용하여 VM에 SSH를 수행합니다. 다음 명령에서 *azureuser*와 *myvm.westus.cloudapp.azure.com*을 관리자 사용자 이름과 정규화된 도메인 이름(또는 IP 주소)으로 바꿉니다.
+Azure VM에 공개 키를 배포하고 로컬 시스템에 프라이빗 키를 배포하여 VM의 IP 주소 또는 DNS 이름을 사용하여 VM에 SSH를 수행합니다. 다음 명령에서 *azureuser*와 *myvm.westus.cloudapp.azure.com*을 관리자 사용자 이름과 정규화된 도메인 이름(또는 IP 주소)으로 바꿉니다.
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com

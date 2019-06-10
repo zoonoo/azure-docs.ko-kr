@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 06/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743599"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755147"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 azure 모니터링 가상 머신 확장
 
@@ -53,11 +53,27 @@ Log Analytics 에이전트 확장은 다음 Linux 배포판에 대해 실행할 
 >버전 1.x보다 낮은 OpenSSL은 어떤 플랫폼에서도 지원되지 않으며 버전 1.10은 x86_64 플랫폼(64비트)에서만 지원됩니다.  
 >
 
+### <a name="agent-prerequisites"></a>에이전트 필수 구성 요소
+
+다음 표에서 지원 되는 Linux 배포판에 에이전트가 설치 되는 데 필요한 패키지를 강조 표시 합니다.
+
+|필수 패키지 |설명 |최소 버전 |
+|-----------------|------------|----------------|
+|Glibc |    GNU C 라이브러리 | 2.5-12 
+|Openssl    | OpenSSL 라이브러리 | 1.0.x 또는 1.1.x |
+|Curl | cURL 웹 클라이언트 | 7.15.5 |
+|Python-ctypes | | 
+|PAM | 플러그형 인증 모듈 | | 
+
+>[!NOTE]
+>Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
 다음 표에서 Azure Monitor VM 확장 및 각 릴리스에 대 한 Log Analytics 에이전트 번들 버전의 매핑을 제공합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
 
 | Azure Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

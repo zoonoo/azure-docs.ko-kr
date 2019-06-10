@@ -59,7 +59,7 @@ Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 �
 
 Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Chrome 및 Firefox에서는 확장이 작동하지만 Internet Explorer에서는 작동하지 않음
 
@@ -73,7 +73,7 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 
   * 이런 상황은 브라우저 버전, 컴퓨터 속도, 방문한 사이트에 따라 달라질 수 있습니다. 그런 경우는 특정 애플리케이션의 통합을 수정할 수 있도록 지원 팀에 문의해 주세요.
 
-또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>애플리케이션의 로그인 페이지가 최근에 변경되었거나 추가 필드가 필요한지 확인
 
@@ -81,7 +81,7 @@ Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 �
 
 Microsoft에는 애플리케이션 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록****Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 애플리케이션의 공급업체와 연락된 경우는 애플리케이션을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 

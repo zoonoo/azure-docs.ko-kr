@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225898"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477258"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -168,6 +168,7 @@ Managed disks를 사용 하는 가상 컴퓨터를 사용 하 여 관리 되는 
 * Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
 * 표준 SKU 부하 분산 장치 또는 표준 SKU 공용 IP를 사용 하 여 Virtual Machine Scale Sets는 이동할 수 없습니다.
 * 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
+* 사용자는 가상 네트워크에서 모든 리소스를 이동 하려면 않을 기존 가상 네트워크의 가상 머신.
 
 Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방법을 사용합니다.
 
@@ -235,7 +236,7 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 ### <a name="app-service-certificate-limitations"></a>App Service Certificate 제한 사항
 
-App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 개인 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 개인 인증서만 삭제하면 됩니다.
+App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 프라이빗 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 프라이빗 인증서만 삭제하면 됩니다.
 
 ### <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 
@@ -363,7 +364,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
    (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
    ```
 
-   Azure CLI의 경우 
+   Azure CLI의 경우
 
    ```azurecli-interactive
    az account show --subscription <your-source-subscription> --query tenantId

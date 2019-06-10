@@ -2,20 +2,20 @@
 title: OpenID Connect로 웹 로그인 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 OpenID Connect 인증 프로토콜을 사용 하 여 웹 응용 프로그램을 빌드하십시오.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703942"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509213"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -100,7 +100,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | 매개 변수 | 설명 |
 | --------- | ----------- |
 | id_token | 응용 프로그램이 요청 하는 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
-| 코드 | 응용 프로그램 요청을 사용 하는 경우 권한 부여 코드 `response_type=code+id_token`합니다. 응용 프로그램 권한 부여 코드를 사용 하 여 대상 리소스에 대 한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 일반적으로 약 10 분 후 만료 됩니다. |
+| code | 응용 프로그램 요청을 사용 하는 경우 권한 부여 코드 `response_type=code+id_token`합니다. 응용 프로그램 권한 부여 코드를 사용 하 여 대상 리소스에 대 한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 일반적으로 약 10 분 후 만료 됩니다. |
 | state | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램이 있는지 확인 해야 합니다 `state` 요청 및 응답의 값이 동일 합니다. |
 
 오류 응답에 보낼 수도 있습니다는 `redirect_uri` 매개 변수 응용 프로그램이 적절 하 게 처리할 수 있도록 합니다.
@@ -168,7 +168,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id | 예 | 응용 프로그램 ID를 [Azure portal](https://portal.azure.com/) 응용 프로그램에 할당 합니다. |
 | grant_type | 예 | 권한 유형입니다. 인증 코드 흐름의 경우 `authorization_code`이어야 합니다. |
 | scope | 아닙니다. | 공백으로 구분된 범위 목록입니다. `openid` 범위는 사용자에게 로그인하고 id_token 매개 변수의 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. 클라이언트와 동일한 응용 프로그램 ID로 표현 되는 응용 프로그램의 고유한 백 엔드 web API에 토큰을 가져오는 데 사용할 수 있습니다. `offline_access` 범위 응용 프로그램 리소스에 대 한 확장 된 액세스에 대 한 새로 고침 토큰을 해야 함을 나타냅니다. |
-| 코드 | 예 | 사용자 흐름의 시작 부분에서 얻은 권한 부여 코드입니다. |
+| code | 예 | 사용자 흐름의 시작 부분에서 얻은 권한 부여 코드입니다. |
 | redirect_uri | 예 | 권한 부여 코드를 받은 애플리케이션의 `redirect_uri` 매개 변수입니다. |
 | client_secret | 예 | 생성 된 응용 프로그램 암호를 [Azure portal](https://portal.azure.com/)합니다. 이 애플리케이션 암호는 중요한 보안 아티팩트입니다. 서버에 안전하게 저장해야 합니다. 이 클라이언트 암호를 정기적으로 변경 합니다. |
 

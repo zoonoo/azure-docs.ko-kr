@@ -174,7 +174,7 @@ ms.locfileid: "62121217"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
 | **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
-| **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
+| **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
 ### <a name="example"></a>예
 ```

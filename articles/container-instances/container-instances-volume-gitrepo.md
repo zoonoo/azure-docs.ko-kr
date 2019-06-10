@@ -80,11 +80,11 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 Azure Resource Manager 템플릿을 사용하는 컨테이너 인스턴스 배포의 예제를 보려면 [Azure Container Instances에서 다중 컨테이너 그룹 배포](container-instances-multi-container-group.md)를 참조하세요.
 
-## <a name="private-git-repo-authentication"></a>개인 Git 리포지토리 인증
+## <a name="private-git-repo-authentication"></a>프라이빗 Git 리포지토리 인증
 
-개인 Git 리포지토리에 대한 gitRepo 볼륨을 탑재하려면 리포지토리 URL에서 자격 증명을 지정합니다. 일반적으로 자격 증명은 사용자 이름의 형식이며 리포지토리에 대한 범위가 지정된 액세스 권한을 부여하는 PAT(개인용 액세스 토큰)입니다.
+프라이빗 Git 리포지토리에 대한 gitRepo 볼륨을 탑재하려면 리포지토리 URL에서 자격 증명을 지정합니다. 일반적으로 자격 증명은 사용자 이름의 형식이며 리포지토리에 대한 범위가 지정된 액세스 권한을 부여하는 PAT(개인용 액세스 토큰)입니다.
 
-예를 들어 개인 GitHub 리포지토리에 대한 Azure CLI `--gitrepo-url` 매개 변수는 다음과 비슷하게 표시됩니다(여기에서 "gituser"는 GitHub 사용자 이름이며, "abcdef1234fdsa4321abcdef"는 사용자의 개인용 액세스 토큰임).
+예를 들어 프라이빗 GitHub 리포지토리에 대한 Azure CLI `--gitrepo-url` 매개 변수는 다음과 비슷하게 표시됩니다(여기에서 "gituser"는 GitHub 사용자 이름이며, "abcdef1234fdsa4321abcdef"는 사용자의 개인용 액세스 토큰임).
 
 ```azurecli
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950000"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754899"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -157,7 +157,7 @@ Bob의 권한은 제한만 `Actions` 하 고 `DataActions` 에 지정 된 된 [S
 
 데이터 작업을 보고 작업하려면 도구 또는 SDK의 올바른 버전이 있어야 합니다.
 
-| 도구  | Version  |
+| 도구  | 버전  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 이상 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 이상 |
@@ -216,11 +216,11 @@ Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` 속성에서는 역할을 할당할 수 있는 범위(구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 역할을 할당할 수 있도록 하며, 나머지 구독 또는 리소스 그룹에 대해 혼란스러운 사용자 환경이 아닙니다. 구독, 리소스 그룹 또는 리소스 ID를 적어도 하나 사용해야 합니다.
+`AssignableScopes` 속성이 역할 정의 사용할 수 있는 범위 (구독, 리소스 그룹 또는 리소스)를 지정 합니다. 구독 또는 리소스 그룹을 필요로 하는 역할 할당에 사용할 수 있는 설정 하 고 구독 또는 리소스 그룹의 나머지 부분에 대 한 사용자 환경을 보다 깔끔하게 수 있습니다. 구독, 리소스 그룹 또는 리소스 ID를 적어도 하나 사용해야 합니다.
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
-| 시나리오 | 예제 |
+| 시나리오 | 예 |
 |----------|---------|
 | 역할은 단일 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | 역할은 두 개의 구독에 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |

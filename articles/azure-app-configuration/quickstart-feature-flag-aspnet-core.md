@@ -23,7 +23,7 @@ ms.locfileid: "65411839"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
-Azure App Configuration에 애플리케이션을 연결하여 ASP.NET Core에서 기능 관리를 사용하도록 설정할 수 있습니다. 이 관리형 서비스를 사용하여 모든 기능 플래그를 저장하고 해당 상태를 중앙에서 제어할 수 있습니다. 이 빠른 시작에서는 이 서비스를 ASP.NET Core 웹앱에 통합하여 기능 관리의 종단 간 구현을 만드는 방법을 보여 줍니다.
+Azure App Configuration에 애플리케이션을 연결하여 ASP.NET Core에서 기능 관리를 사용하도록 설정할 수 있습니다. 이 관리형 서비스를 사용하여 모든 기능 플래그를 저장하고 해당 상태를 중앙에서 제어할 수 있습니다. 이 빠른 시작에서는 이 서비스를 ASP.NET Core 웹앱에 통합하여 기능 관리의 엔드투엔드 구현을 만드는 방법을 보여 줍니다.
 
 .NET Core 기능 관리 라이브러리는 포괄적인 기능 플래그 지원을 통해 프레임워크를 확장합니다. 이 라이브러리는 .NET Core 구성 시스템을 토대로 빌드됩니다. 또한 해당 .NET Core 구성 공급자를 통해 App Configuration과 원활하게 통합됩니다.
 
@@ -39,7 +39,7 @@ Azure App Configuration에 애플리케이션을 연결하여 ASP.NET Core에서
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **기능 관리자** > **+ 만들기**를 선택하여 다음 기능 플래그를 추가합니다.
+6. **기능 관리자** >  **+ 만들기**를 선택하여 다음 기능 플래그를 추가합니다.
 
     | 키 | 시스템 상태 |
     |---|---|

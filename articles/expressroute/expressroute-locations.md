@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.author: mialdrid
-ms.openlocfilehash: 671fdafeb4bba871256968c6eebca73130a229b5
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/31/2019
+ms.author: jaredr80
+ms.openlocfilehash: 96413d08edd18693fb2d04e49abebad6ed505485
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252871"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478146"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -37,7 +37,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 
 지역 내 하나 이상의 ExpressRoute 위치와 연결된 경우, 지역 내의 모든 지역에 걸쳐 Azure 서비스에 대한 액세스 권한을 갖습니다.
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>지역 내 ExpressRoute 위치에 대한 Azure 지역 
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>지역 내 ExpressRoute 위치에 대한 Azure 지역
 다음 표에서 지역 내 ExpressRoute 위치에 대한 Azure 지역의 맵을 제공합니다.
 
 | **지역** | **영역** | **Azure 지역** | **ExpressRoute 위치** |
@@ -89,10 +89,11 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **Chief Telecom** |지원됨 |지원됨 |타이베이 |
 | **China Telecom Global** |지원됨 |지원되지 않음 |홍콩 특별 행정구 |
 | **[Cologix](https://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |지원됨 |지원됨 |시카고, 댈러스, 몬트리올, 토론토, 워싱턴 DC |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 더블린, 런던, 파리, 싱가포르2, 도쿄 |
+| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |지원됨 |지원됨 |암스테르담, 더블린, 런던, 뉴포트, 파리, 싱가포르 2, 도쿄 |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |지원됨 |지원됨 |시카고, 덴버, 로스앤젤레스, 뉴욕, 실리콘밸리, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 지원됨 |지원됨 |Amsterdam2, 프랑크푸르트|
+| **Devoli** | 지원됨 |지원됨 | 멜버른, 시드니 |
 | **du datamena** |지원됨 |지원됨 | Dubai2 |
 | **eir** |지원됨 |지원됨 |더블린|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |지원됨 |지원됨 |싱가포르, 싱가포르 2 |
@@ -125,6 +126,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |지원됨 |지원됨 |오사카 |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |지원됨 |지원됨 |멜버른, 시드니 |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 런던, 파리, 상 파울로, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
+| **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | 지원됨 | 지원됨 | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |지원됨 |지원됨 |시카고, 홍콩 특별 행정구, 런던 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |지원됨 |지원됨 |서울 |
@@ -143,6 +145,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **[Telus](https://www.telus.com)** |지원됨 |지원됨 |몬트리올, 시애틀, 토론토 |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | 지원됨 | 지원됨 | 콸라룸푸르 |
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |지원됨 |지원됨 |댈러스 |
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |지원됨 |지원됨 |상파울루 |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 홍콩 특별 행정구, 런던, 뭄바이, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |지원됨 |지원됨 |런던, 싱가포르 |
@@ -295,7 +298,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 * 연결 공급자가 목록에 없는 경우 위에 나열된 ExpressRoute Exchange 파트너 중 하나에 연결되어 있는지 확인해 주세요.
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 시스템 통합업체
-사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.
+사용자 요구에 맞도록 프라이빗 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.
 
 | **시스템 통합 업체** | **Continent** |
 | --- | --- |

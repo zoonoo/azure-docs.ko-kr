@@ -33,14 +33,14 @@ ms.locfileid: "60586137"
 
 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 애플리케이션을 수정 없이 이러한 환경에 배포하는 것은 FedRAMP 높음 기준의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 FedRAMP 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.
-- 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다. 
+- 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다.
 
 이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/fedrampblueprintvideo)를 확인하세요.
 
 배포 지침을 보려면 [여기](https://aka.ms/fedrampblueprintrepo)를 클릭하세요.
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
-이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.  요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
+이 솔루션은 SQL Server 백 엔드가 있는 IaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 이 아키텍처는 웹 계층, 데이터 계층, Active Directory 인프라, Application Gateway 및 Load Balancer를 포함합니다. 웹 및 데이터 계층에 배포된 가상 머신은 가용성 집합에서 구성되며 SQL Server 인스턴스는 고가용성을 위해 AlwaysOn 가용성 그룹에 구성됩니다. Virtual Machines는 도메인에 조인되며 Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다. 요새 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 보안 연결을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 Azure ExpressRoute 연결을 구성하는 것이 좋습니다.**
 
 ![FedRAMP용 IaaS 웹 애플리케이션 참조 아키텍처 다이어그램](images/fedramp-iaaswa-architecture.png?raw=true "FedRAMP용 IaaS 웹 애플리케이션 참조 아키텍처 다이어그램")
 
@@ -81,7 +81,7 @@ ms.locfileid: "60586137"
 **요새 호스트**: 베스천 호스트는 관리자가 배포된 리소스에 액세스할 수 있는 안전한 연결을 제공하는 단일 진입점입니다. 요새 호스트의 NSG는 RDP에 대한 TCP 포트 3389에 대해서만 연결을 허용합니다. 고객은 조직 시스템 강화 요구 사항에 맞게 요새 호스트를 추가로 구성할 수 있습니다.
 
 ### <a name="virtual-network"></a>가상 네트워크
-아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
+아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
 **네트워크 보안 그룹**: 이 솔루션은 가상 네트워크 내부에서 별도 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 서브넷 관리를 포함하는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "60586137"
 -   [Always Encrypted 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)은 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 나타나지 않게 합니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 -   [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 참조 아키텍처 배포 후에 수행할 수 있습니다. 고객은 데이터베이스 스키마를 준수하도록 동적 데이터 마스킹 설정을 조정해야 합니다.
 
-**Azure Disk Encryption**: Azure Disk Encryption은 Windows IaaS 가상 머신 디스크를 암호화하는 데 사용됩니다. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
+**Azure Disk Encryption**: Azure Disk Encryption은 Windows IaaS 가상 머신 디스크를 암호화하는 데 사용됩니다. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
 
 ### <a name="identity-management"></a>ID 관리
 
@@ -149,7 +149,7 @@ ms.locfileid: "60586137"
 
 Azure Monitor 로그는 시스템 상태 뿐만 아니라 시스템 및 사용자 작업에 대 한 광범위 로깅을 제공 합니다. 합니다 [Azure Monitor 로그](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 솔루션 수집 하 고 Azure 리소스에서 생성 된 데이터를 분석 하 여 온-프레미스 환경입니다.
 
-- **활동 로그:**.  [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+- **활동 로그:** .  [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그:**  [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
 - **로그 보관:**  모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장 및 대시보드 보고에 대 한 Azure Monitor 로그에 연결 합니다.
 
@@ -197,7 +197,7 @@ Azure Monitor 로그는 시스템 상태 뿐만 아니라 시스템 및 사용�
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
 이 IaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
 
-Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
+Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 프라이빗 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
 
 VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 통과하므로 Microsoft는 훨씬 더 안전한 또 다른 연결 옵션을 제공합니다. Azure ExpressRoute는 Azure 및 온-프레미스 위치 또는 Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. ExpressRoute 연결은 인터넷을 통해 수행되지 않으므로 인터넷을 통한 일반적인 연결보다 높은 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안을 제공합니다. 또한 이 연결은 고객의 통신 공급자의 직접 연결이므로 데이터는 인터넷을 통해 이동하지 않으며, 따라서 노출되지 않습니다.
 

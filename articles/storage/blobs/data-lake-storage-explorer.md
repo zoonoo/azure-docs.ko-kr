@@ -18,7 +18,7 @@ ms.locfileid: "64939352"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>빠른 시작: Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리
 
-이 빠른 시작에서는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 디렉터리 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
+이 빠른 시작에서는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 디렉터리 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 948110e5532aeeb2b9acbbb66361eb9c55eaf897
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c205f792138ebd7e8094b3bd7cd303d54dfa8d8f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543341"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389853"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Bing Entity API를 사용하여 엔터티 검색
 
@@ -23,9 +23,9 @@ ms.locfileid: "57543341"
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 
-사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코드합니다. 예를 들어 사용자가 *Marcus Appel*을 입력하는 경우 `q`를 *Marcus+Appel* 또는 *Marcus%20Appel*로 설정합니다.
+사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코드합니다. 예를 들어 사용자가 *Marcus Appel*을 입력하는 경우 `q`를 *Marcus+Appel* 또는 *Marcus%20Appel*로 설정합니다.
 
-검색에 오타가 있는 경우 검색 응답에 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) 개체가 포함됩니다. 이 개체는 원래 철자 및 Bing이 검색에 사용한 수정된 철자를 보여 줍니다.
+검색에 오타가 있는 경우 검색 응답에 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) 개체가 포함됩니다. 이 개체는 원래 철자 및 Bing이 검색에 사용한 수정된 철자를 보여 줍니다.
 
 ```json
 "queryContext": {
@@ -38,15 +38,15 @@ ms.locfileid: "57543341"
 
 ## <a name="the-bing-entity-search-api-response"></a>Bing Entity Search API 응답
 
-API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) 개체가 포함됩니다. Bing에서 관련된 엔터티 또는 장소를 찾은 경우 개체에 `entities` 필드, `places` 필드 또는 둘 다가 포함됩니다. 찾지 못한 경우에는 응답 개체에 필드가 포함되지 않습니다.
+API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse) 개체가 포함됩니다. Bing에서 관련된 엔터티 또는 장소를 찾은 경우 개체에 `entities` 필드, `places` 필드 또는 둘 다가 포함됩니다. 찾지 못한 경우에는 응답 개체에 필드가 포함되지 않습니다.
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
+`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
 
 요청을 충족하는 엔터티가 기준 엔터티밖에 없다고 Bing에서 판단하는 경우(요청을 충족하는 엔터티에 대한 모호성 없음) 기준 엔터티가 반환됩니다. 여러 엔터티가 요청을 충족하는 경우 목록에는 둘 이상의 명확성 엔터티가 포함됩니다. 예를 들어 요청이 프랜차이즈 영화의 일반 제목을 사용하는 경우 목록에 모호성 엔터티가 포함될 가능성이 큽니다. 그러나 요청이 프랜차이즈의 특정 제목을 지정하는 경우 목록에 단일 기준 엔터티가 포함될 가능성이 큽니다.
 
-엔터티에는 가수, 배우, 운동 선수, 모델 등 잘 알려진 개인, 레이니어 산, 링컨 기념관 등의 장소 및 랜드마크, 바나나, 골든두들, 책, 영화 제목 등의 사물이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 엔터티 형식을 식별하는 힌트가 포함됩니다. 예를 들어 사람, 영화, 동물, 명소 등입니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)을 참조하세요.
+엔터티에는 가수, 배우, 운동 선수, 모델 등 잘 알려진 개인, 레이니어 산, 링컨 기념관 등의 장소 및 랜드마크, 바나나, 골든두들, 책, 영화 제목 등의 사물이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 엔터티 형식을 식별하는 힌트가 포함됩니다. 예를 들어 사람, 영화, 동물, 명소 등입니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)을 참조하세요.
 
 ```json
 "entityPresentationInfo": {
@@ -174,9 +174,9 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 
 ## <a name="find-places"></a>장소 찾기
 
-`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
+`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#place) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
 
-장소에는 식당, 호텔 또는 현지 기업이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 로컬 엔터티 형식을 식별하는 힌트가 포함됩니다. 목록에는 장소, LocalBusiness, 식당과 같은 힌트 목록이 포함됩니다. 배열의 각 연속 힌트는 엔터티 형식의 범위를 좁힙니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)을 참조하세요.
+장소에는 식당, 호텔 또는 현지 기업이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 로컬 엔터티 형식을 식별하는 힌트가 포함됩니다. 목록에는 장소, LocalBusiness, 식당과 같은 힌트 목록이 포함됩니다. 배열의 각 연속 힌트는 엔터티 형식의 범위를 좁힙니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#entity-types)을 참조하세요.
 
 ```json
 "entityPresentationInfo": {
@@ -189,7 +189,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true**로 설정합니다. 
+*주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true**로 설정합니다. 
 
 ```json
 {
@@ -290,7 +290,7 @@ Bing Entity API 응답에는 제3자가 소유한 정보가 포함됩니다. 예
 
 ### <a name="license-attribution"></a>라이선스 특성
 
-계약 규칙 목록에 [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) 규칙이 포함된 경우, 라이선스가 적용되는 콘텐츠 바로 다음 줄에 고지 사항을 표시해야 합니다. `LicenseAttribution` 규칙은 `targetPropertyName` 필드를 사용하여 라이선스가 적용되는 자산을 식별합니다.
+계약 규칙 목록에 [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#licenseattribution) 규칙이 포함된 경우, 라이선스가 적용되는 콘텐츠 바로 다음 줄에 고지 사항을 표시해야 합니다. `LicenseAttribution` 규칙은 `targetPropertyName` 필드를 사용하여 라이선스가 적용되는 자산을 식별합니다.
 
 다음은 `LicenseAttribution` 규칙을 포함하는 예제를 보여 줍니다.
 
@@ -300,7 +300,7 @@ Bing Entity API 응답에는 제3자가 소유한 정보가 포함됩니다. 예
 
 ### <a name="link-and-text-attribution"></a>링크 및 텍스트 특성
 
-일반적으로 [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) 및 [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) 규칙은 데이터 공급자를 식별하는 데 사용됩니다. `targetPropertyName` 필드는 규칙이 적용되는 필드를 식별합니다.
+일반적으로 [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#linkattribution) 및 [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#textattribution) 규칙은 데이터 공급자를 식별하는 데 사용됩니다. `targetPropertyName` 필드는 규칙이 적용되는 필드를 식별합니다.
 
 공급자를 귀속하려면 특성이 적용되는 콘텐츠(예: 대상 필드) 바로 다음에 줄을 포함합니다. 공급자가 데이터 출처임을 표시하도록 줄에 명확한 레이블을 지정해야 합니다. 예를 들어 “Data from: contoso.com”입니다. `LinkAttribution` 규칙의 경우 공급자 웹 사이트에 대한 하이퍼링크를 만들어야 합니다.
 
@@ -310,7 +310,7 @@ Bing Entity API 응답에는 제3자가 소유한 정보가 포함됩니다. 예
 
 ### <a name="media-attribution"></a>미디어 특성
 
-엔터티에 이미지가 포함되어 있고 이미지를 표시하는 경우 공급자 웹 사이트에 대한 클릭 광고 링크를 제공해야 합니다. 엔터티에 [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) 규칙이 포함된 경우 규칙의 URL을 사용하여 클릭 광고 링크를 만듭니다. 포함되지 않은 경우에는 이미지의 `provider` 필드에 포함된 URL을 사용하여 클릭 광고 링크를 만듭니다.
+엔터티에 이미지가 포함되어 있고 이미지를 표시하는 경우 공급자 웹 사이트에 대한 클릭 광고 링크를 제공해야 합니다. 엔터티에 [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mediaattribution) 규칙이 포함된 경우 규칙의 URL을 사용하여 클릭 광고 링크를 만듭니다. 포함되지 않은 경우에는 이미지의 `provider` 필드에 포함된 URL을 사용하여 클릭 광고 링크를 만듭니다.
 
 다음은 이미지의 `provider` 필드 및 계약 규칙을 포함하는 예제를 보여 줍니다. 예제에는 계약 규칙이 포함되어 있으므로 이미지의 `provider` 필드를 무시하고 `MediaAttribution` 규칙을 적용합니다.
 

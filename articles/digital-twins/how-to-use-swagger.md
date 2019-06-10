@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967765"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730390"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -42,15 +42,15 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 
 간결한 요약에서는 API를 설명합니다.
 
-![Swagger 상위][1]
+[![Swagger 위쪽](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 관리 API 개체 모델도 나열됩니다.
 
-![Swagger 모델][2]
+[![Swagger 모델](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 키 특성의 더 자세한 요약은 각 나열된 개체 모델을 선택하면 됩니다.
 
-![Swagger 모델][3]
+[![Swagger 모델](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 사용할 수 있습니다.
 
@@ -64,7 +64,7 @@ Swagger는 Azure Digital Twins 관리 API에 대한 호출 테스트와 개발�
 * 필수 매개 변수 데이터 형식
 * 리소스에 액세스하는 HTTP 메서드.
 
-![Swagger 엔드포인트][4]
+[![Swagger 끝점](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 더 자세한 개요를 보려면 각 리소스를 선택합니다.
 
@@ -74,11 +74,11 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 
 특정 엔드포인트를 선택하면 **사용해보기**가 표시됩니다.
 
-![Swagger 사용][5]
+[![Swagger 시도](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 해당 섹션을 확장하면 각 필수 및 선택적 매개 변수에 대한 입력 필드가 표시됩니다. 올바른 값을 입력하고 **실행**을 선택합니다.
 
-![Swagger 사용됨][6]
+[![Swagger 시도](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 테스트를 실행한 후 응답 데이터의 유효성을 검사할 수 있습니다.
 
@@ -86,7 +86,7 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 
 나열된 각 엔드포인트에는 개발 및 테스트의 유효성을 검사하는 응답 본문 데이터도 포함됩니다. 이러한 예제에는 성공적인 HTTP 요청에 대해 원하는 상태 코드 및 JSON이 포함됩니다.
 
-![Swagger 응답][7]
+[![Swagger 응답](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 예제에는 실패한 테스트를 디버그하거나 개선하는 오류 코드도 포함됩니다.
 
@@ -104,7 +104,7 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | 이름  | 다음 항목으로 교체 | 예제 |
+    | 이름  | 다음 항목으로 교체 | 예 |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 포털에 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -118,31 +118,22 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
 
 5. Azure AD 앱의 ID를 복사 합니다.
 
-6. Swagger 페이지에서 권한 부여 단추를 클릭 합니다.
+Azure Active Directory 등록을 완료 합니다.
 
-    ![Swagger를 권한 부여 단추](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. 클릭 합니다 **권한 부여** swagger 페이지에는 단추입니다.
 
-7. Client_id 필드에 응용 프로그램 ID를 붙여 넣습니다.
+    [![Swagger를 클릭 합니다. 권한 부여 단추](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Swagger client_id 필드](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. 응용 프로그램 ID를 붙여 합니다 **client_id** 필드입니다.
 
-    ![Swagger 응용 프로그램 권한 부여](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Swagger client_id 필드](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. 이제 전달자 표시 결과에 표시 되는 로그인된 한 사용자의 id 및 권한 부여 헤더에서 인증 토큰 전달 합니다.
+8. 모달 다음 성공 후 이동 합니다.
 
-    ![Swagger 토큰 결과](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Swagger 리디렉션 모달](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프에 대해 자세히 알아보려면 [Azure Digital Twins 개체 모델 이해](./concepts-objectmodel-spatialgraph.md)를 읽어보세요.
 
 - 관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 읽어보세요.
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

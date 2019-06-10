@@ -102,7 +102,7 @@ Azure Migrate는 온-프레미스 환경을 지속적으로 프로파일링하�
    - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>"Azure 클라우드 선택 실패"을 Azure를 선택할 수 없습니다 클라우드 어플라이언스를 오류로 실패
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>"Azure 클라우드 선택 실패" 오류와 함께 어플라이언스에서 Azure 클라우드를 선택할 수 없습니다
 
 이것은 알려진 문제이며 이 문제에 대한 수정사항이 있습니다. 어플라이언스에 대한 [최신 업그레이드](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions)를 다운로드하고 수정 사항을 적용하기 위해 어플라이언스를 업데이트합니다.
 
@@ -149,7 +149,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 2. C:\ProgramFiles\ProfilerService\VMWare\Scripts\ 디렉터리로 이동합니다.
 3. InstallPowerCLI.ps1 스크립트를 실행합니다.
 
-### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>UnhandledException Internal 오류: System.IO.FileNotFoundException System.IO.FileNotFoundException
 
 이 문제는 VMware PowerCLI 설치 문제로 인해 발생할 수 있습니다. 문제를 해결하려면 아래 단계를 수행합니다.
 
@@ -160,7 +160,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
    b. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)로 이동하여 'Azure Migrate Collector' 서비스를 중지합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 중지를 클릭합니다.
 
-   다. 다음 위치에서 'VMware'로 시작하는 모든 폴더를 삭제합니다. C:\Program Files\WindowsPowerShell\Modules  
+   c. 다음 위치에서 'VMware'로 시작하는 모든 폴더를 삭제합니다. C:\Program Files\WindowsPowerShell\Modules  
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
@@ -173,7 +173,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
    b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
 
-   다. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (유형 확인을 위해 요청 하는 경우 ' A')
+   c. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (확인 요청이 있는 경우 'A'를 입력)
 
    d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
 
@@ -185,9 +185,9 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
     b. 시작으로 이동 > 실행 > 관리자 모드에서 Windows PowerShell(x86) 열기
 
-    다. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (유형 확인을 위해 요청 하는 경우 ' A')
+    c. 명령 실행:  Install-module "VMWare.VimAutomation.Core"-RequiredVersion "6.5.2.6234650" (확인 요청이 있는 경우 'A'를 입력)
 
-    d. 수집기 VM에서 동일한 위치에 "C:\Program Files (x86) \WindowsPowerShell\Modules"에서 "VMware"로 시작 하는 모든 모듈을 복사 합니다.
+    d. "C:\Program Files (x86) \WindowsPowerShell\Modules"에서 수집기 VM의 동일한 위치로 "VMware"로 시작하는 모든 모듈을 복사합니다.
 
     e. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
 
@@ -247,7 +247,7 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해서는 Azure Migrate의 종속성을 시각화할 수 없나요?
-Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor의 로그를 사용할 수 있습니다 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 더 긴 기간 동안.
+Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있으며 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Azure Monitor 로그를 사용하면 더 긴 기간 동안의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)할 수 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
 [그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.

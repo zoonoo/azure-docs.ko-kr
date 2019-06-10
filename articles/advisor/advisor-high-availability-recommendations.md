@@ -60,7 +60,7 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>실수로 데이터를 덮어쓰거나 삭제한 후에 데이터를 저장하고 복구할 수 있도록 Azure Storage 계정에 대해 일시 삭제 기능 사용
 
-삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅숏이 생성됩니다. 일시 삭제 기능을 사용하면 실수로 삭제하거나 덮어쓰는 경우 복구할 수 있습니다. Advisor는 일시 삭제 기능이 사용하도록 설정되지 않은 Azure Storage 계정을 식별하여 해당 기능을 사용하도록 제안합니다.
+삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제 기능을 사용하면 실수로 삭제하거나 덮어쓰는 경우 복구할 수 있습니다. Advisor는 일시 삭제 기능이 사용하도록 설정되지 않은 Azure Storage 계정을 식별하여 해당 기능을 사용하도록 제안합니다.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
 

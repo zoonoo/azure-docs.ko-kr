@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e9e47387ae385f943360d5a35bf58daecfb15b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a6be4f89f19cd64f5c9d235dc628ca222dab973c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606211"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515241"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 언어 검색
 

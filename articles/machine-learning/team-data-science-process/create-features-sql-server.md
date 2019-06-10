@@ -24,7 +24,7 @@ ms.locfileid: "65602926"
 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 > [!NOTE]
-> 실용적인 예제로는 [NYC Taxi 데이터 세트](https://www.andresmh.com/nyctaxitrips/)를 참조할 수 있으며, 상세한 단계별 연습에는 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> 실용적인 예제로는 [NYC Taxi 데이터 세트](https://www.andresmh.com/nyctaxitrips/)를 참조할 수 있으며, 엔드투엔드 연습에는 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 > 
 > 
 

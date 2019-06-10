@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책에 고유한 특성 추가 | Microsoft Docs
 description: 확장 속성, 사용자 지정 특성을 사용하고 사용자 인터페이스에 포함하는 방법에 대한 연습입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f81f60c7153368ae12f80bb7bb6781c3e295cb8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab7231c214060d17927e2509bee1687e2c9c87a3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689230"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507570"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
 
@@ -35,7 +35,7 @@ Azure AD B2C 디렉터리에는 기본 제공 특성 집합이 함께 제공됩�
 
 Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니다. 또한 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다.
 
-확장 속성은 디렉터리에서 사용자 개체의 스키마를 확장합니다. ‘확장 속성’, ‘사용자 지정 특성’ 및 ‘사용자 지정 클레임’은 이 문서의 컨텍스트에서 동일한 항목을 참조합니다. 이름은 컨텍스트(예: 애플리케이션, 개체 또는 정책)에 따라 달라집니다.
+확장 속성은 디렉터리에서 사용자 개체의 스키마를 확장합니다. ‘확장 속성’, ‘사용자 지정 특성’ 및 ‘사용자 지정 클레임’은 이 문서의 컨텍스트에서 동일한 항목을 참조합니다.    이름은 컨텍스트(예: 애플리케이션, 개체 또는 정책)에 따라 달라집니다.
 
 확장 속성은 사용자에 대한 데이터를 포함할 수 있더라도 애플리케이션 개체에만 등록할 수 있습니다. 이 속성은 애플리케이션에 연결됩니다. 확장 속성을 등록하려면 애플리케이션 개체에 쓰기 권한이 있어야 합니다. 단일 개체에 100개의 확장 속성(모든 형식 및 모든 애플리케이션)을 작성할 수 있습니다. 확장 속성이 대상 디렉터리 유형에 추가되고 Azure AD B2C 디렉터리 테넌트에서 즉시 액세스할 수 있게 됩니다.
 애플리케이션이 삭제되면 모든 사용자와 관련하여 포함된 모든 데이터와 함께 해당 확장 속성도 제거됩니다. 확장 속성이 애플리케이션에 의해 삭제되면 대상 디렉터리 개체에서 제거되고 값이 삭제됩니다.

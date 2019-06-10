@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918490"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472957"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>하이브리드 ID 수명 주기에 대한 계획
 ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 토대 중 하나입니다. 모바일 디바이스 또는 SaaS 앱에 로그인하는지와 무관하게 ID는 모든 항목에 액세스를 얻는 키입니다. 가장 높은 수준에서 ID 관리 솔루션은 프로비전한 리소스의 프로세스를 자동화하고 중앙 집중화를 포함하는 ID 리포지토리 간의 통합 및 동기화를 포함합니다. ID 솔루션은 온-프레미스 및 클라우드 전반에서 중앙 집중화된 ID여야 하며 특정 형태의 ID 페더레이션을 사용하여 중앙 집중된 인증을 유지 관리하고 외부 사용자 및 비즈니스와 안전하게 공유하며 협력해야 합니다. 리소스의 범위는 운영 체제 및 애플리케이션에서 사용자에 걸쳐 있거나 조직에 속해 있습니다. 조직 구조는 프로비전하는 정책 및 절차를 수용하기 위해 변경될 수 있습니다.
@@ -48,22 +48,23 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
   
   * 하이브리드 ID 솔루션은 라이선스 관리를 처리합니까?
     * 그렇다면 어떤 기능을 사용할 수 있습니까?
-* 솔루션은 그룹 기반 라이선스 관리를 처리합니까? 
+  * 솔루션은 그룹 기반 라이선스 관리를 처리합니까? 
   
-      - 그렇다면 보안 그룹을 할당할 수 있습니까? 
-       - 그렇다면 클라우드 디렉터리가 자동으로 그룹의 모든 멤버에게 라이선스를 할당합니까? 
-        - 사용자가 이후에 추가되거나 그룹에서 제거되는 경우 어떻게 됩니까, 라이선스가 자동으로 할당되거나 적절하게 제거됩니까? 
+    * 그렇다면 보안 그룹을 할당할 수 있습니까? 
+    * 그렇다면 클라우드 디렉터리가 자동으로 그룹의 모든 멤버에게 라이선스를 할당합니까? 
+    * 사용자가 이후에 추가되거나 그룹에서 제거되는 경우 어떻게 됩니까, 라이선스가 자동으로 할당되거나 적절하게 제거됩니까? 
 * 다른 타사 ID 공급자와 통합:
-* 이 하이브리드 솔루션은 타사 ID 공급자와 통합되어 Single Sign-On을 구현할 수 있습니까?
-* 다른 ID 공급자를 모두 통합된 ID 시스템에 통합할 수 있습니까?
-* 그렇다면 공급자의 종류 및 상태는 어떠하며 어떤 기능을 사용할 수 있습니까?
+  * 이 하이브리드 솔루션은 타사 ID 공급자와 통합되어 Single Sign-On을 구현할 수 있습니까?
+  * 다른 ID 공급자를 모두 통합된 ID 시스템에 통합할 수 있습니까?
+  * 그렇다면 공급자의 종류 및 상태는 어떠하며 어떤 기능을 사용할 수 있습니까?
 
 ## <a name="synchronization-management"></a>동기화 관리
 ID 관리자의 목표 중 하나는 모든 ID 공급자를 가져오고 동기화 상태를 유지할 수 있는 것입니다. 권한이 있는 마스터 ID 공급자에 기반하여 데이터 동기화를 유지합니다. 동기화된 관리 모델을 사용하는 하이브리드 ID 시나리오에서 온-프레미스 서버에 있는 모든 사용자 및 디바이스 ID를 관리하고 계정 및 필요에 따라 암호를 클라우드로 동기화합니다. 로그인에서 사용자는 클라우드에서 입력한 동일한 온-프레미스 암호를 입력하고 암호는 ID 솔루션에서 확인합니다. 이 모델은 디렉터리 동기화 도구를 사용합니다.
 
-![디렉터리 동기화](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 합니다. • 하이브리드 id 솔루션에 사용할 수 있는 동기화 솔루션은 무엇입니까?
-• 사용할 수는 Single sign-on 기능은 무엇입니까?
-• B2B 및 B2C 간의 ID 페더레이션에 대한 옵션은 무엇입니까?
+![디렉터리 동기화](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 합니다.
+*    하이브리드 id 솔루션에 사용할 수 있는 동기화 솔루션은 무엇입니까?
+*    Single sign-on 제공 되는 기능 이란?
+*    B2B 및 B2C 간의 id 페더레이션에 대 한 옵션은 무엇입니까?
 
 ## <a name="next-steps"></a>다음 단계
 [하이브리드 ID 관리 채택 전략 결정](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

@@ -1,18 +1,18 @@
 ---
-title: '빠른 시작: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기'
+title: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 description: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497336"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "66240202"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 Powershell을 사용하여 클러스터와 데이터베이스를 만듭니다. [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](../cloud-shell/overview.md)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 클러스터 및 데이터베이스를 사용 하 여 만든 Powershell. [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](../cloud-shell/overview.md)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+이 문서에서는 Azure CLI 버전 2.0.4 설치 하 고 Azure CLI를 로컬로 사용 하려는 경우 이상. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="configure-parameters"></a>매개 변수 구성
 
@@ -67,7 +67,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
-   | Name | *mykustocluster* | 원하는 클러스터 이름입니다.|
+   | 이름 | *mykustocluster* | 원하는 클러스터 이름입니다.|
    | SKU | *D13_v2* | 클러스터에 사용될 SKU입니다. |
    | ResourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
 
@@ -92,7 +92,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
    | ClusterName | *mykustocluster* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
-   | Name | *mykustodatabase* | 데이터베이스의 이름입니다.|
+   | 이름 | *mykustodatabase* | 데이터베이스의 이름입니다.|
    | ResourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
    | SoftDeletePeriod | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
    | HotCachePeriod | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
@@ -107,7 +107,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-* 다른 빠른 시작 및 자습서를 진행하려는 경우 만든 리소스를 그대로 둡니다.
+* 다른 문서를 수행 하려는 경우 사용자가 만든 리소스를 유지 합니다.
 * 리소스를 정리하려면 클러스터를 삭제합니다. 클러스터를 삭제하면 해당 클러스터에 있는 모든 데이터베이스도 함께 삭제됩니다. 다음 명령을 사용하여 클러스터를 삭제합니다.
 
     ```azurepowershell-interactive
@@ -117,4 +117,4 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 ## <a name="next-steps"></a>다음 단계
 
 * [추가 Az.Kusto 명령](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)
+* [Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)

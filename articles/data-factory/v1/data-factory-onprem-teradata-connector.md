@@ -64,11 +64,11 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **OnPremisesTeradata** |예 |
-| 서버 |Teradata 서버의 이름입니다. |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesTeradata** |예 |
+| server |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 다음과 같습니다. 익명, 기본 및 Windows입니다. |예 |
-| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
+| username |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아닙니다. |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아닙니다. |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -85,7 +85,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
+| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 예제: Teradata에서 Azure Blob으로 데이터 복사
 다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
@@ -297,7 +297,7 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| 정수  |Int32 |
+| 정수 |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |

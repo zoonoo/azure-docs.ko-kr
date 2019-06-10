@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142754"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239676"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -62,7 +62,7 @@ Azure IoT Edge 디바이스:
 
 2. **GitHub 리포지토리 업로드**를 선택합니다.
 
-3. 다음 GitHub 리포지토리 이름을 제공합니다. `Azure/ai-toolkit-iot-edge`. 프로젝트를 비공개로 유지하려면 **공개** 확인란 선택을 취소합니다. **가져오기**를 선택합니다. 
+3. 다음 GitHub 리포지토리 이름을 제공합니다. `Azure/ai-toolkit-iot-edge`. 프로젝트를 프라이빗으로 유지하려면 **공개** 확인란 선택을 취소합니다. **가져오기**를 선택합니다. 
 
 4. 가져오기를 마친 후에 새 **ai-toolkit-iot-edge** 프로젝트로 이동하여 **IoT Edge 변칙 검색 자습서** 폴더를 엽니다. 
 
@@ -145,7 +145,7 @@ IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 �
 
 3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 디바이스가 IoT Hub 디바이스 목록에 표시됩니다.
 
-4. **...** 를 다시 선택한 후 **D2C 메시지 모니터링 시작**을 선택합니다.
+4. **...** 을 다시 선택한 다음, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
 5. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에 machinelearningmodule이 true 또는 false 값을 제공하는 **anomaly**라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다.
 

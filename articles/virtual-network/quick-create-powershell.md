@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: a040f3895f710f4ebbdcd3f73568775a909aa64c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258266"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730090"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "66258266"
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 대신 PowerShell을 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure PowerShell 모듈 버전 1.0.0 이상을 사용해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 및 업그레이드 정보는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
@@ -221,4 +221,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 이 빠른 시작에서는 기본 가상 네트워크와 두 개의 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 VM 및 다른 VM 간에 개별적으로 통신했습니다. 가상 네트워크 설정에 대한 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
 
-Azure는 가상 머신 간에 무제한 비공개 통신을 허용합니다. 기본적으로 Azure는 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.
+Azure는 가상 머신 간에 무제한 프라이빗 통신을 허용합니다. 기본적으로 Azure는 인터넷에서 Windows VM으로의 인바운드 원격 데스크톱 연결만 허용합니다. 여러 유형의 VM 네트워크 통신을 구성하는 방법에 대한 자세한 내용은 [네트워크 트래픽 필터링](tutorial-filter-network-traffic.md) 자습서를 참조하세요.

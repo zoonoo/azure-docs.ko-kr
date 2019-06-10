@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/26/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762645"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515766"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
 이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 모범 사례 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
@@ -29,7 +29,7 @@ Azure SQL Data Warehouse를 이제 시작하는 사용자라면 이 문서가 �
 
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
-열에서 통계를 자동으로 감지하고 만들거나 업데이트하는 SQL Server와 달리, SQL Data Warehouse에서는 통계를 수동으로 유지 관리해야 합니다.  나중에 이를 변경하는 계획을 수행하지만 지금은 SQL Data Warehouse 계획이 최적화되도록 통계를 유지 관리하려고 합니다.  최적화 프로그램으로 만든 계획은 사용 가능한 통계만큼 훌륭합니다.  **모든 열에 샘플링된 통계를 만드는 것이 통계로 시작하는 쉬운 방법입니다.**   데이터에 중요한 변경 내용이 있는 것 만큼 통계를 업데이트하는 것도 중요합니다.  보수적인 접근 방법은 매일 또는 각 로드 후 통계를 업데이트하는 것일 수 있습니다.  통계를 작성하고 업데이트하는 성능 및 비용 간의 장단점은 항상 있습니다. 모든 통계를 유지하는 데 시간이 너무 오래 소요되는 경우 어떤 열에 통계가 있고 어떤 열에서 자주 업데이트가 필요한지 더 선별적으로 시도해볼 수 있습니다.  예를 들어 새 값이 매일 추가될 수 있는 날짜 열을 업데이트하려고 합니다. **조인에 포함된 열, WHERE 절에 사용된 열과 GROUP BY에 있는 열에서 통계를 유지하면 가장 큰 이점을 얻게 됩니다.**
+열에서 통계를 자동으로 감지하고 만들거나 업데이트하는 SQL Server와 달리, SQL Data Warehouse에서는 통계를 수동으로 유지 관리해야 합니다.  나중에 이를 변경하는 계획을 수행하지만 지금은 SQL Data Warehouse 계획이 최적화되도록 통계를 유지 관리하려고 합니다.  최적화 프로그램으로 만든 계획은 사용 가능한 통계만큼 훌륭합니다.  **모든 열에 샘플링된 통계를 만드는 것이 통계로 시작하는 쉬운 방법입니다.**  데이터에 중요한 변경 내용이 있는 것 만큼 통계를 업데이트하는 것도 중요합니다.  보수적인 접근 방법은 매일 또는 각 로드 후 통계를 업데이트하는 것일 수 있습니다.  통계를 작성하고 업데이트하는 성능 및 비용 간의 장단점은 항상 있습니다. 모든 통계를 유지하는 데 시간이 너무 오래 소요되는 경우 어떤 열에 통계가 있고 어떤 열에서 자주 업데이트가 필요한지 더 선별적으로 시도해볼 수 있습니다.  예를 들어 새 값이 매일 추가될 수 있는 날짜 열을 업데이트하려고 합니다. **조인에 포함된 열, WHERE 절에 사용된 열과 GROUP BY에 있는 열에서 통계를 유지하면 가장 큰 이점을 얻게 됩니다.**
 
 또한 [테이블 통계 관리][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]도 참조하세요.
 
@@ -39,7 +39,7 @@ INSERT 문을 이용한 작은 테이블에 대한 일회성 로드 또는 조�
 또한 [INSERT][INSERT]도 참조하세요.
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>PolyBase를 사용하여 데이터를 신속하고 로드하고 내보내기
-SQL Data Warehouse는 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 통해 데이터 로드 및 내보내기를 지원합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  그러나 대량의 데이터를 로드 또는 내보내거나 빠른 성능이 필요한 경우 PolyBase가 가장 좋습니다.  PolyBase는 SQL Data Warehouse의 MPP(대규모 병렬 처리) 아키텍처를 활용하도록 디자인되었으므로 데이터 로드 및 내보내기 성능이 다른 도구보다 빠릅니다.  PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습니다.  **CTAS를 사용하여 트랜잭션 로깅을 최소화하고 CTAS는 데이터를 로드하는 가장 빠른 방법입니다.**  또한 Azure Data Factory는 PolyBase 로드를 지원하며 CTAS와 비슷한 성능을 얻을 수 있습니다.  PolyBase는 Gzip 파일을 포함한 다양한 파일 형식을 지원합니다.  **gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 나누어 로드의 병렬 처리를 최대화합니다.**   총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다.
+SQL Data Warehouse는 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 통해 데이터 로드 및 내보내기를 지원합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  그러나 대량의 데이터를 로드 또는 내보내거나 빠른 성능이 필요한 경우 PolyBase가 가장 좋습니다.  PolyBase는 SQL Data Warehouse의 MPP(대규모 병렬 처리) 아키텍처를 활용하도록 디자인되었으므로 데이터 로드 및 내보내기 성능이 다른 도구보다 빠릅니다.  PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습니다.  **CTAS를 사용하여 트랜잭션 로깅을 최소화하고 CTAS는 데이터를 로드하는 가장 빠른 방법입니다.**  또한 Azure Data Factory는 PolyBase 로드를 지원하며 CTAS와 비슷한 성능을 얻을 수 있습니다.  PolyBase는 Gzip 파일을 포함한 다양한 파일 형식을 지원합니다.  **gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 나누어 로드의 병렬 처리를 최대화합니다.**  총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다.
 
 또한 [데이터 로드][Load data], [PolyBase 사용 지침][Guide for using PolyBase], [Azure SQL Data Warehouse 로딩 패턴 및 전략][Azure SQL Data Warehouse loading patterns and strategies], [Azure Data Factory를 사용하여 데이터 로드][Load Data with Azure Data Factory], [Azure Data Factory를 사용하여 데이터 이동][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [CTAS(Create Table As Select)][Create table as select (CTAS)]도 참조하세요.
 

@@ -9,17 +9,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523086"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753876"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객 관리 키를 사용 하 여 azure Search 암호화
 
 > [!Note]
-> 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 고객 관리 키를 사용 하 여 암호화가 됩니다. 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. .NET SDK 버전 8.0-미리 보기를 사용할 수도 있습니다.
+> 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 고객 관리 키를 사용 하 여 암호화가 됩니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. .NET SDK 버전 8.0-미리 보기를 사용할 수도 있습니다.
 >
 > 이 기능은 무료 서비스에 사용할 수 없습니다. 2019-01-01 이후에 생성 되는 청구 가능한 검색 서비스를 사용 해야 합니다. 지금은 포털 지원 되지 않습니다.
 
@@ -227,7 +227,7 @@ REST API를 통해 새 동의어 맵 만들기의 세부 정보를 찾을 수 �
 
 1. [Azure Active Directory 애플리케이션을 만듭니다](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [응용 프로그램 ID 및 인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) 암호화 된 인덱스를 만드는 데 필요한 있을 것입니다. 값을 제공 해야 합니다 **응용 프로그램 ID** 하 고 **인증 키**합니다.
+1. [응용 프로그램 ID 및 인증 키 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 암호화 된 인덱스를 만드는 데 필요한 있을 것입니다. 값을 제공 해야 합니다 **응용 프로그램 ID** 하 고 **인증 키**합니다.
 
 >[!Important]
 > 를 관리 되는 id를 대신 인증의 AAD 응용 프로그램을 사용 하도록 결정 하는 경우 Azure Search는 사용자를 대신해, AAD 응용 프로그램을 관리할 수 있는 권한이 없습니다 이므로 정기적으로 회전 같은 AAD 응용 프로그램을 관리 하는 사실을 고려해합니다 응용 프로그램 인증 키입니다.

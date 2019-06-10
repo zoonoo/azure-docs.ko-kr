@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785196"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508653"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정 
 
@@ -54,7 +54,7 @@ ms.locfileid: "65785196"
 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 3. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 4. **정책 키**, **추가**를 차례로 선택합니다.
 5. **옵션**으로는 `Manual`을 선택합니다.
@@ -156,7 +156,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 
 **ClaimsProviderSelection** 요소는 등록/로그인 화면의 ID 공급자 단추와 비슷합니다. Azure AD에 대해 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 방문할 때 새 단추가 표시됩니다.
 
-1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
+1. 앞에서 만든 사용자 경험의 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
 2. **ClaimsProviderSelections** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `ContosoExchange`)으로 설정합니다.
 
     ```XML
@@ -198,6 +198,6 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInContoso`.
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_contoso`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignInContoso)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
-5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
+5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
 6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
 

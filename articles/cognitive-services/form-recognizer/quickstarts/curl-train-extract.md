@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65907001"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235602"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
-Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가지 링크와 리소스가 포함된 환영 이메일을 받을 수 있습니다. 해당 메시지의 "Azure Portal" 링크를 사용하여 Azure Portal을 열고 Form Recognizer 리소스를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
+Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가지 링크와 리소스가 포함된 환영 이메일을 받을 수 있습니다. 해당 메시지의 “Azure Portal” 링크를 사용하여 Azure Portal을 열고 Form Recognizer 리소스를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
 
 |    |    |
 |--|--|
@@ -41,7 +41,7 @@ Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가
 | **리소스 그룹** | 리소스가 포함될 [Azure 리소스 그룹](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
 > [!IMPORTANT]
-> 일반적으로 Azure Portal에서 Cognitive Service 리소스를 만들 때는 다중 서비스 구독 키(여러 인지 서비스에서 사용) 또는 단일 서비스 구독 키(특정 인지 서비스에서만 사용)를 만들 수 있는 옵션이 제공됩니다. 그러나 Form Recognizer는 미리 보기 릴리스이므로 다중 서비스 구독에 포함되지 않으며 환영 이메일에 제공된 링크를 사용하지 않으면 단일 서비스 구독을 만들 수 없습니다.
+> 일반적으로 Azure Portal에서 Cognitive Service 리소스를 만들 때는 다중 서비스 구독 키(여러 Cognitive Service에서 사용) 또는 단일 서비스 구독 키(특정 Cognitive Service에서만 사용)를 만들 수 있는 옵션이 제공됩니다. 그러나 Form Recognizer는 미리 보기 릴리스이므로 다중 서비스 구독에 포함되지 않으며 환영 이메일에 제공된 링크를 사용하지 않으면 단일 서비스 구독을 만들 수 없습니다.
 
 Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 그런 다음, **키** 탭을 선택하여 구독 키를 봅니다. 두 키 중 하나에서 리소스에 대한 앱 액세스 권한을 부여합니다. **키 1**의 값을 복사합니다. 다음 섹션에서 사용하게 됩니다.
 
@@ -108,7 +108,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "C
 
 1. `<Endpoint>`를 Form Recognizer 구독 키에서 가져온 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<modelID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
-1. `<path to your form>`을 양식의 파일 경로로 바꿉니다.
+1. `<path to your form>`을 양식의 파일 경로로 바꿉니다. 예를 들어 c:\temp\file.pdf입니다. 
 1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 pdf, image/jpeg, image/png입니다.
 1. `<subscription key>`를 구독 키로 바꿉니다.
 

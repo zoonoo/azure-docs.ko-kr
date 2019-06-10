@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 지정 정책에서 SAML 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 SAML 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/21/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4a2e8938aeaf75b3b0237962d16f2702968358f9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dca330f20548d3a93091f89dc8ab2b3cb92f50e2
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695589"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512704"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 기술 프로필 정의
 
@@ -45,12 +45,12 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 
 ## <a name="digital-signing-certificates-exchange"></a>디지털 서명 인증서 교환
 
-Azure AD B2C와 SAML ID 공급자 간의 트러스트를 구축하려면 유효한 X509 인증서에 개인 키를 제공해야 합니다. 이렇게 하려면 개인 키(.pfx 파일)가 포함된 인증서를 Azure AD B2C 정책 키 저장소에 업로드합니다. Azure AD B2C는 제공된 인증서를 사용하여 SAML 로그인 요청에 디지털 서명을 합니다. 
+Azure AD B2C와 SAML ID 공급자 간의 트러스트를 구축하려면 유효한 X509 인증서에 프라이빗 키를 제공해야 합니다. 이렇게 하려면 프라이빗 키(.pfx 파일)가 포함된 인증서를 Azure AD B2C 정책 키 저장소에 업로드합니다. Azure AD B2C는 제공된 인증서를 사용하여 SAML 로그인 요청에 디지털 서명을 합니다. 
 
 인증서는 다음과 같은 방식으로 사용됩니다.
 
-- Azure AD B2C가 인증서의 Azure AD B2C 개인 키를 사용하여 SAML 요청을 생성하고 서명을 합니다. SAML 요청이 ID 공급자에게 전송되면 ID 공급자가 인증서의 Azure AD B2C 공개 키를 사용하여 요청 유효성을 검사합니다. 기술 프로필 메타데이터를 통해 Azure AD B2C 공용 인증서에 액세스할 수 있습니다. .cer 파일을 SAML ID 공급자에 수동으로 업로드할 수도 있습니다.
-- ID 공급자가 인증서의 ID 공급자 개인 키를 사용하여 Azure AD B2C로 전송된 데이터에 서명을 합니다. Azure AD B2C가 ID 공급자의 공용 인증서를 사용하여 데이터 유효성을 검사합니다. 각 ID 공급자의 설정 단계는 서로 다릅니다. 설정 방법의 지침은 사용 중인 ID 공급자의 설명서를 참조하세요. Azure AD B2C에서 정책은 ID 공급자 메타데이터를 사용하여 인증서 공개 키에 액세스해야 합니다.
+- Azure AD B2C가 인증서의 Azure AD B2C 프라이빗 키를 사용하여 SAML 요청을 생성하고 서명을 합니다. SAML 요청이 ID 공급자에게 전송되면 ID 공급자가 인증서의 Azure AD B2C 공개 키를 사용하여 요청 유효성을 검사합니다. 기술 프로필 메타데이터를 통해 Azure AD B2C 공용 인증서에 액세스할 수 있습니다. .cer 파일을 SAML ID 공급자에 수동으로 업로드할 수도 있습니다.
+- ID 공급자가 인증서의 ID 공급자 프라이빗 키를 사용하여 Azure AD B2C로 전송된 데이터에 서명을 합니다. Azure AD B2C가 ID 공급자의 공용 인증서를 사용하여 데이터 유효성을 검사합니다. 각 ID 공급자의 설정 단계는 서로 다릅니다. 설정 방법의 지침은 사용 중인 ID 공급자의 설명서를 참조하세요. Azure AD B2C에서 정책은 ID 공급자 메타데이터를 사용하여 인증서 공개 키에 액세스해야 합니다.
 
 대부분의 시나리오에서는 자체 서명된 인증서를 사용하면 됩니다. 프로덕션 환경에서는 인증 기관에서 발급한 X509 인증서를 사용하는 것이 좋습니다. 또한 이 문서 뒷부분에 설명되어 있는 것처럼 비프로덕션 환경에서는 양쪽에서 모두 SAML 서명을 사용하지 않도록 설정할 수 있습니다.
 
@@ -61,11 +61,11 @@ Azure AD B2C와 SAML ID 공급자 간의 트러스트를 구축하려면 유효�
 
 ## <a name="digital-encryption"></a>디지털 암호화
 
-SAML 응답 어설션을 암호화하기 위해 ID 공급자는 항상 Azure AD B2C 기술 프로필 내 암호화 인증서의 공개 키를 사용합니다. Azure AD B2C는 데이터 암호를 해독해야 할 때 암호화 인증서의 개인 부분을 사용합니다.
+SAML 응답 어설션을 암호화하기 위해 ID 공급자는 항상 Azure AD B2C 기술 프로필 내 암호화 인증서의 공개 키를 사용합니다. Azure AD B2C는 데이터 암호를 해독해야 할 때 암호화 인증서의 프라이빗 부분을 사용합니다.
 
 SAML 응답 어설션을 암호화하려면 다음 단계를 수행합니다.
 
-1. 개인 키(.pfx 파일)가 포함된 유효한 X509 인증서를 Azure AD B2C 정책 키 저장소에 업로드합니다.
+1. 프라이빗 키(.pfx 파일)가 포함된 유효한 X509 인증서를 Azure AD B2C 정책 키 저장소에 업로드합니다.
 2. 식별자가 `SamlAssertionDecryption`인 **CryptographicKey** 요소를 기술 프로필 **CryptographicKeys** 컬렉션에 추가합니다. **StorageReferenceId**를 1단계에서 만든 정책 키의 이름으로 설정합니다.
 3. 기술 프로필 메타데이터 **WantsEncryptedAssertions**를 `true`로 설정합니다.
 4. 새 Azure AD B2C 기술 프로필 메타데이터로 ID 공급자를 업데이트합니다. 인증서의 공개 키를 포함하며 **use** 속성이 `encryption`으로 설정된 **KeyDescriptor**가 표시되어야 합니다.

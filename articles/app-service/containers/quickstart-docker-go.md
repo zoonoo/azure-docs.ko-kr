@@ -75,7 +75,7 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [사용자 지정 컨테이너 구성](configure-custom-container.md)

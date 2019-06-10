@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c2f85e6417c3185df58e757f9831ef171e39add
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 027e895ffbeb3cc0ff5b3348c2d7a8b76b930cf3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181897"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514820"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>빠른 시작: Java를 사용하여 이중 언어 사전이 있는 단어 조회
 

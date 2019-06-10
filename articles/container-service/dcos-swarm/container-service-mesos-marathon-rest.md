@@ -50,7 +50,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Docker로 포맷된 컨테이너 배포
-Marathon REST API를 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 클러스터의 개인 에이전트에 Nginx 컨테이너를 배포합니다. 
+Marathon REST API를 통해 원하는 배포를 설명하는 JSON 파일을 사용하여 Docker로 포맷된 컨테이너를 배포합니다. 다음 샘플은 클러스터의 프라이빗 에이전트에 Nginx 컨테이너를 배포합니다. 
 
 ```json
 {
@@ -91,7 +91,7 @@ curl localhost/marathon/v2/apps
 
 ## <a name="reach-the-container"></a>컨테이너에 연결
 
-클러스터의 사용자 에이전트 중 하나에 있는 컨테이너에서 Nginx가 실행되고 있는지 확인할 수 있습니다. 컨테이너가 실행되고 있는 호스트 및 포트를 찾으려면 Marathon에서 실행 중인 작업을 쿼리합니다. 
+클러스터의 프라이빗 에이전트 중 하나에 있는 컨테이너에서 Nginx가 실행되고 있는지 확인할 수 있습니다. 컨테이너가 실행되고 있는 호스트 및 포트를 찾으려면 Marathon에서 실행 중인 작업을 쿼리합니다. 
 
 ```bash
 curl localhost/marathon/v2/tasks

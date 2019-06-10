@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/05/2019
 ms.author: juliako
-ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799390"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735083"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -62,7 +62,10 @@ ms.locfileid: "65799390"
 
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
-## <a name="embedding-private-content"></a>개인 콘텐츠 포함
+> [!NOTE]
+> 비디오 Url을 공유 하는 문제가 있으면 링크에 'location' 매개 변수를 추가 하십시오. 매개 변수 설정 해야 합니다 [Video Indexer 존재 하는 Azure 지역](regions.md)합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
 **공용** 비디오에 대해서만 포함 팝업에서 포함 코드(이전 섹션 참조)를 가져올 수 있습니다. 
 

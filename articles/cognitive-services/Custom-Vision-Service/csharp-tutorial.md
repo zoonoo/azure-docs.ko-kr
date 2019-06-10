@@ -32,9 +32,9 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-[Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ImageClassification** 폴더로 이동하여 Visual Studio에서 _ImageClassification.csproj_를 엽니다.
+[Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ImageClassification** 폴더로 이동하여 Visual Studio에서 _ImageClassification.csproj_ 를 엽니다.
 
-이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__인지 아니면 __벗나무__인지 확인하는 용도로 사용됩니다.
+이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__ 라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 분류자를 학습하고 테스트하려면 이미지를 업로드합니다. 이 프로젝트의 분류자는 트리가 __솔송나무__ 인지 아니면 __벗나무__ 인지 확인하는 용도로 사용됩니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
@@ -62,7 +62,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 �
 
 ### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-이 프로젝트의 이미지가 포함되어 있습니다. 이 이미지는 _Program.cs_의 **LoadImagesFromDisk** 메서드에서 참조됩니다.
+이 프로젝트의 이미지가 포함되어 있습니다. 이 이미지는 _Program.cs_ 의 **LoadImagesFromDisk** 메서드에서 참조됩니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 

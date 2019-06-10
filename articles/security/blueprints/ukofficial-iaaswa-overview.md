@@ -129,7 +129,7 @@ Storage
 
 ### <a name="deployment-architecture"></a>배포 아키텍처:
 
-**온-프레미스 네트워크**: 조직에서 구현되는 개인 로컬 영역 네트워크입니다.
+**온-프레미스 네트워크**: 조직에서 구현되는 프라이빗 로컬 영역 네트워크입니다.
 
 **프로덕션 VNet**: 프로덕션 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview)(가상 네트워크)은 Azure에서 실행 중인 애플리케이션 및 다른 작업 리소스를 호스팅합니다. 각 VNet에는 네트워크 트래픽을 격리하고 관리하는 데 사용되는 여러 서브넷이 포함될 수 있습니다.
 
@@ -154,7 +154,7 @@ Storage
 
 **네트워크 보안 그룹**: [NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)에는 VNet 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다.
 
-**AD DS(Active Directory Domain Services)**: 이 아키텍처에서는 전용 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 배포를 제공합니다.
+**AD DS(Active Directory Domain Services)** : 이 아키텍처에서는 전용 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 배포를 제공합니다.
 
 **로깅 및 감사**: [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 작업을 시작한 사용자, 작업이 발생한 시기, 작업의 상태 및 작업을 조사할 수 있는 다른 속성의 값과 같은 구독의 리소스에서 수행된 작업을 캡처합니다. Azure 활동 로그는 구독에서 모든 작업을 캡처하는 Azure 플랫폼 서비스입니다. 필요한 경우 로그를 보관하거나 내보낼 수 있습니다.
 
@@ -174,7 +174,7 @@ Storage
 
 **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
 
-**방화벽 로그.**: Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용하도록 설정한 Application Gateway 리소스에 사용할 수 있습니다.
+**방화벽 로그.** : Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용하도록 설정한 Application Gateway 리소스에 사용할 수 있습니다.
 
 **로그 보관**: 보관 및 정의 된 보존 기간에 대 한 중앙 집중화 된 Azure 저장소 계정에 쓸 로그 데이터 저장소를 구성할 수 있습니다. Azure Monitor 로그를 사용 하 여 로그를 처리할 수 있습니다 또는 타사 SIEM 시스템으로 합니다.
 
@@ -200,7 +200,7 @@ Storage
 
 **IP 범위**: 아키텍처의 IP 범위는 제안된 범위입니다. 고객은 고유한 환경을 고려하고 적절한 범위를 사용하는 것이 좋습니다.
 
-**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 개인 네트워크 연결에 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
+**하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 프라이빗 네트워크 연결에 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
 
 **문제의 분리** 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](https://docs.microsoft.com/azure/best-practices-network-security) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
 

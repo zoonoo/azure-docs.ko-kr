@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691763"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417814"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -75,7 +75,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 4. 네트워크를 만들 리소스 그룹을 지정합니다. 기존 리소스 그룹인 **contosoRG**를 사용합니다.
 5. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.1.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
 6. **구독**에서 네트워크를 만드는 데 사용할 구독을 선택합니다.
-7. **위치**에서 Recovery Services 자격 증명 모음이 생성된 지역과 동일한 지역을 선택합니다. 이 자습서에서는 **서유럽**입니다.  네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다.
+7. **위치**에서 Recovery Services 자격 증명 모음이 생성된 지역과 동일한 지역을 선택합니다. 이 자습서에서는 **서유럽**입니다. 네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다.
 8. 네트워크에 서비스 엔드포인트가 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
 9. **만들기**를 클릭합니다.
 

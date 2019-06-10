@@ -87,7 +87,7 @@ ms.locfileid: "60373695"
 | [기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |모든 리소스를 포함하여 모든 것을 편집할 수 있습니다. |
 | [Application Insights 구성 요소 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Application Insights 리소스, 웹 테스트 및 경고를 편집할 수 있습니다. |
 | [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
-| [Application Insights 스냅숏 디버거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅숏 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
+| [Application Insights 스냅숏 디버거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅샷 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
 | [데이터 제거자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)을 참조하세요.   |
 | ExpressRoute 관리자 | 기본 경로를 삭제하고 관리할 수 있습니다.|

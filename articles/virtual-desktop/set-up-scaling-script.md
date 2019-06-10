@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410578"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755138"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
@@ -26,7 +26,7 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
 
 - Windows 가상 데스크톱 테 넌 트 및 계정 또는 해당 테 넌 트 (예: RDS 참가자)을 쿼리할 수 있는 권한이 있는 서비스 주체.
 - 세션 호스트 풀 Vm 구성 및 가상 데스크톱 Windows 서비스를 등록 합니다.
-- 추가 가상 컴퓨터를 작업 스케줄러를 통해 예약 된 작업을 실행 하며 세션 호스트에 대 한 네트워크 액세스를 포함 합니다. 이 문서 뒷부분에서에 reffered scaler VM으로 됩니다 수 있습니다.
+- 추가 가상 컴퓨터를 작업 스케줄러를 통해 예약 된 작업을 실행 하며 세션 호스트에 대 한 네트워크 액세스를 포함 합니다. 이 문서 뒷부분에서로 간주 scaler VM.
 - 합니다 [Microsoft Azure Resource Manager PowerShell 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 예약된 된 작업을 실행 하는 VM에 설치 합니다.
 - 합니다 [Windows 가상 데스크톱 PowerShell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 예약된 된 작업을 실행 하는 VM에 설치 합니다.
 

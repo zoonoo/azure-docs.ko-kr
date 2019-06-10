@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831068"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752067"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
-Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
+Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > Azure Cache for Redis는 클래식 VNet 및 Resource Manager VNet을 둘 다 지원합니다.
@@ -113,7 +113,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) |* |
+| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>1</sup> 고 서브넷에 대 한 사용자 지정 DNS 서버 <sup>3</sup> |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -121,6 +121,9 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 15000-15999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
+<sup>1</sup> Microsoft가 소유 하는 다음 IP 주소를 사용 하 여 Azure DNS 사용 되는 호스트 VM을 처리 하 합니다.
+
+<sup>3</sup> 이상이 사용자 지정 DNS 서버가 없는 포함 된 서브넷 redis 캐시 사용자 지정 DNS를 무시 하는 불필요 합니다.
 
 #### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 
@@ -226,7 +229,7 @@ ExpressRoute를 사용하여 온-프레미스 애플리케이션에서 Azure Cac
 >UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 **구체적이어야** 합니다. 다음 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용하고 따라서 잠재적으로 보다 구체적인 주소 범위를 사용하는 경로 알림에서 실수로 재정의될 수 있습니다.
 
 >[!WARNING]  
->Azure Cache for Redis는 **경로를 공용 피어링 경로에서 개인 피어링 경로로 잘못 교차 보급**하는 ExpressRoute 구성에서 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위를 개인 피어링 경로에서 잘못 교차 보급하는 경우 Azure Cache for Redis 인스턴스의 서브넷에 있는 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 잘못 강제 터널링됩니다. 이 네트워크 흐름으로 인해 Azure Cache for Redis가 중단됩니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 이어진 교차 보급 경로를 중지합니다.
+>Azure Cache for Redis는 **경로를 공용 피어링 경로에서 프라이빗 피어링 경로로 잘못 교차 보급**하는 ExpressRoute 구성에서 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위를 프라이빗 피어링 경로에서 잘못 교차 보급하는 경우 Azure Cache for Redis 인스턴스의 서브넷에 있는 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 잘못 강제 터널링됩니다. 이 네트워크 흐름으로 인해 Azure Cache for Redis가 중단됩니다. 이 문제를 해결하려면 공용 피어링 경로에서 프라이빗 피어링 경로로 이어진 교차 보급 경로를 중지합니다.
 
 
 사용자 정의 경로에 대한 배경 정보는 [개요](../virtual-network/virtual-networks-udr-overview.md)를 참조하세요.

@@ -34,13 +34,13 @@ ms.locfileid: "60583273"
 
 이 문서에서는 SQL Server를 실행하는 Virtual Machine이 Premium Storage를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
-IaaS VM의 SQL Server에서 Azure Premium Storage를 활용하는 전체 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
+IAAS VM의 SQL Server에서 Azure Premium Storage를 활용하는 엔드투엔드 프로세스를 이해해야 합니다. 다음 내용이 포함됩니다.
 
 * Premium Storage를 사용하기 위한 필수 구성 요소 파악
 * 새 배포를 위해 IaaS의 SQL Server를 Premium Storage에 배포하는 예제
 * 기존 배포 환경(SQL Always On 가용성 그룹을 사용하는 배포와 독립 실행형 서버 배포)을 마이그레이션하는 예제
 * 가능한 마이그레이션 방법
-* 기존 Always On 구현 환경의 마이그레이션을 위한 Azure, Windows 및 SQL Server 관련 단계를 전체적으로 보여주는 예제
+* 기존 Always On 구현 환경의 마이그레이션을 위한 Azure, Windows 및 SQL Server 관련 단계를 전체적으로 보여주는 엔드투엔드 예제.
 
 Azure Virtual Machines의 SQL Server에 대한 추가 배경 정보는 [Azure Virtual Machines의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 

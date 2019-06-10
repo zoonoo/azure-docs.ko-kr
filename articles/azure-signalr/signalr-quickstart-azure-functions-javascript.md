@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494048"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -84,4 +84,4 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 이 빠른 시작에서는 VS Code에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 다음으로는 VS Code에서 Azure Functions를 배포하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [VS Code로 Azure Functions 배포](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [VS Code로 Azure Functions 배포](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)

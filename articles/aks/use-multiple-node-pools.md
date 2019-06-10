@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235764"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475461"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-만들기 및 Azure Kubernetes Service (AKS)에서 클러스터에 대 한 여러 노드 풀을 관리
 
@@ -74,6 +74,7 @@ az provider register --namespace Microsoft.ContainerService
 * 첫 번째 노드 풀을 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * 대부분의 작업에서와 마찬가지로 기존 Resource Manager 템플릿을 사용 하 여 추가/업데이트/삭제 노드 풀 수 없습니다. 대신 [별도 Resource Manager 템플릿을 사용 하 여](#manage-node-pools-using-a-resource-manager-template) AKS 클러스터에서 노드 풀을 변경 해야 합니다.
+* (현재 AKS에서 미리 보기)는에서 클러스터 autoscaler는 사용할 수 없습니다.
 
 이 기능은 미리 보기 상태인 동안에 다음 추가 제한 사항이 적용 됩니다.
 
@@ -222,7 +223,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>노드가 풀에 대 한 VM 크기를 지정 합니다.
 
-노드 풀을 만들려면 이전 예제에서 만들어지는 클러스터의 노드에 기본 VM 크기를 사용 했습니다. 보다 일반적인 시나리오는 다양 한 VM 크기 및 기능을 사용 하 여 노드 풀을 만들 수입니다. 예를 들어, 많은 양의 CPU 또는 메모리를 사용 하 여 노드를 포함 하는 노드 풀 또는 GPU 지원을 제공 하는 노드 풀을 만들 수 있습니다. 다음 단계에서 하 여 [사용 하 여 taints tolerations][#schedule-pods-using-taints-and-tolerations] pod에 대 한 액세스를 제한 하는 방법을 Kubernetes 스케줄러를 알려주는 이러한 노드에서 실행 될 수는 있습니다.
+노드 풀을 만들려면 이전 예제에서 만들어지는 클러스터의 노드에 기본 VM 크기를 사용 했습니다. 보다 일반적인 시나리오는 다양 한 VM 크기 및 기능을 사용 하 여 노드 풀을 만들 수입니다. 예를 들어, 많은 양의 CPU 또는 메모리를 사용 하 여 노드를 포함 하는 노드 풀 또는 GPU 지원을 제공 하는 노드 풀을 만들 수 있습니다. 다음 단계에 있습니다 [taints 및 tolerations 사용](#schedule-pods-using-taints-and-tolerations) Kubernetes 스케줄러 이러한 노드에서 실행할 수 있는 pod에 대 한 액세스를 제한 하는 방법을 알려야 합니다.
 
 다음 예제에서 사용 하는 GPU 기반 노드 풀을 만들 합니다 *Standard_NC6* VM 크기입니다. 이러한 Vm은 NVIDIA Tesla K80 카드에서 전원이 공급 됩니다. 사용 가능한 VM 크기에 대 한 내용은 참조 하세요 [Azure에서 Linux 가상 머신 크기][vm-sizes]합니다.
 
@@ -332,7 +333,7 @@ Events:
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용 하 여 노드 풀 관리
 
-Azure Resource Manager 템플릿 만들기를 사용 하는 경우 관리 되는 리소스 및 리소스를 업데이트 하는 서식 파일 및 재배포 설정은 일반적으로 업데이트할 수 있습니다. AKS에서 nodepools를 사용 하 여 AKS 클러스터를 만든 후에 초기 nodepool 프로필을 업데이트할 수 없습니다. 이 동작은 없습니다 기존 Resource Manager 템플릿을 업데이트, 노드 풀을 변경 하는 재배포를 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 에이전트 풀만 업데이트 하는 별도 Resource Manager 템플릿을 만들어야 합니다.
+Azure Resource Manager 템플릿 만들기를 사용 하는 경우 관리 되는 리소스 및 리소스를 업데이트 하는 서식 파일 및 재배포 설정은 일반적으로 업데이트할 수 있습니다. AKS에서 노드 풀을 사용 하 여 AKS 클러스터를 만든 후 초기 노드 풀 프로필을 업데이트할 수 없습니다. 이 동작은 없습니다 기존 Resource Manager 템플릿을 업데이트, 노드 풀을 변경 하는 재배포를 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 에이전트 풀만 업데이트 하는 별도 Resource Manager 템플릿을 만들어야 합니다.
 
 같은 템플릿 만들기 `aks-agentpools.json` 다음 예제에서는 매니페스트를 붙여넣습니다. 이 예제에서는 서식 파일에 다음 설정을 구성합니다.
 

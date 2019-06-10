@@ -3,19 +3,19 @@ title: Translator Text API V3.0 참조
 titlesuffix: Azure Cognitive Services
 description: Translator Text API V3.0에 대한 참조 문서입니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796873"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387508"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -144,7 +144,7 @@ Cognitive 서비스의 다중 서비스 구독을 사용 하도록 마지막 인
 | 400036| 대상 언어("To" 필드)가 누락되었거나 올바르지 않습니다.|
 | 400042| 지정된 옵션("Options" 필드) 중 하나가 올바르지 않습니다.|
 | 400043| 클라이언트 추적 ID(ClientTraceId 필드 또는 X-ClientTranceId 헤더)가 누락되었거나 올바르지 않습니다.|
-| 400050| 입력 텍스트가 너무 깁니다.|
+| 400050| 입력 텍스트가 너무 깁니다. 뷰 [요청 제한](../request-limits.md)합니다.|
 | 400064| "translation" 매개 변수가 누락되었거나 올바르지 않습니다.|
 | 400070| 대상 스크립트(ToScript 매개 변수)의 수가 대상 언어(To parameter)의 수와 일치하지 않습니다.|
 | 400071| 값이 TextType에 적합하지 않습니다.|
@@ -152,14 +152,15 @@ Cognitive 서비스의 다중 서비스 구독을 사용 하도록 마지막 인
 | 400073| 스크립트 매개 변수가 올바르지 않습니다.|
 | 400074| 요청 분문이 유효한 JSON이 아닙니다.|
 | 400075| 언어 쌍 및 범주 조합이 올바르지 않습니다.|
-| 400077| 최대 요청 크기를 초과했습니다.|
+| 400077| 최대 요청 크기를 초과했습니다. 뷰 [요청 제한](../request-limits.md)합니다.|
 | 400079| from과 to 언어 간의 변환에 대해 요청된 사용자 지정 시스템이 존재하지 않습니다.|
 | 401000| 자격 증명이 누락되었거나 올바르지 않으므로 요청에 권한이 없습니다.|
 | 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. Translator Text API에 대한 구독을 사용하세요."|
 | 403000| 작업이 허용되지 않습니다.|
 | 403001| 구독이 무료 할당량을 초과했기 때문에 작업이 허용되지 않습니다.|
 | 405000| 요청 메서드가 요청된 리소스에 대해 지원되지 않습니다.|
-| 408001| 요청된 사용자 지정 변환 시스템을 아직 사용할 수 없습니다. 잠시 후에 다시 시도하세요.|
+| 408001| 요청 된 번역 시스템을 준비 중입니다. 잠시 후에 다시 시도하세요.|
+| 408002| 들어오는 스트림에서 기다리는 동안 시간이 초과 된 요청입니다. 클라이언트는 요청을 사용 했던 서버 대기 시간 내에서 생성 되지 않았습니다. 클라이언트는 수정 하지 않고 요청 이후 언제 든 반복 될 수 있습니다.|
 | 415000| Content-Type 헤더가 누락되었거나 올바르지 않습니다.|
 | 429000, 429001, 429002| 서버는 클라이언트 요청 한도 초과 했기 때문에 요청을 거부 합니다.|
 | 500000| 예기치 않은 오류가 발생했습니다. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|

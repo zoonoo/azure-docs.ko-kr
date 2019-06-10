@@ -329,7 +329,7 @@ ms.locfileid: "64730410"
    Set-AzNetworkInterface -NetworkInterface $MyNIC
    ```
 
-7. NIC에 할당된 개인 IP 주소 및 공용 IP 주소 리소스를 보려면 다음 명령을 입력합니다.
+7. 다음 명령을 입력하여 NIC에 할당된 개인 IP 주소 및 공용 IP 주소 리소스를 봅니다.
 
    ```powershell
    $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary

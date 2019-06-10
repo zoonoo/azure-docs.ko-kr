@@ -25,7 +25,7 @@ ms.locfileid: "60609963"
 
 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다. 애플리케이션을 수정 없이 이러한 환경에 배포하는 것은 배포 PCI DSS 3.2의 요구 사항을 온전히 충족하기에는 부족합니다. 다음 사항에 유의하세요.
 - 이 아키텍처는 고객이 PCI DSS 3.2 규격에 맞게 Azure를 사용하기 위한 기준을 제공합니다.
-- 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다. 
+- 요구 사항은 각 고객의 구현에서 특정 상황에 따라 달라질 수 있으므로 이 아키텍처를 사용하여 구축된 솔루션의 적합한 보안 및 준수 평가의 수행은 고객의 책임입니다.
 
 PCI DSS 호환을 위해서는 적격한 QSA(공인 보안 평가사)가 프로덕션 고객 솔루션을 인증해야 합니다. 요구 사항이 각 고객의 특정 구현에 따라 달라질 수 있으므로 고객은 이 아키텍처를 사용하여 구축된 솔루션에 대한 적절한 보안 및 규정 준수 평가를 수행해야 합니다.
 
@@ -33,7 +33,7 @@ PCI DSS 호환을 위해서는 적격한 QSA(공인 보안 평가사)가 프로�
 
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 
-이 Azure 보안 및 규정 준수 청사진 자동화는 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 웹 애플리케이션은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
+이 Azure 보안 및 규정 준수 청사진 자동화는 Azure SQL Database 백 엔드가 있는 PaaS 웹 애플리케이션에 대한 참조 아키텍처를 배포합니다. 웹 애플리케이션은 Azure 데이터 센터의 프라이빗 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 가상 머신 간에 웹 애플리케이션에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다.
 
 향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure SQL Database는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
@@ -106,7 +106,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 
 ### <a name="virtual-network"></a>Virtual Network
 
-아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
+아키텍처는 10.200.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
 **네트워크 보안 그룹**: [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 ACL(액세스 제어 목록)이 포함됩니다. 네트워크 보안 그룹은 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용될 수 있습니다. 다음과 같은 네트워크 보안 그룹이 있습니다.
 
@@ -122,7 +122,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 
 **서브넷**: 각 서브넷이 해당 네트워크 보안 그룹에 연결됩니다.
 
-**Azure DNS**: Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에서 도메인을 호스팅하면 사용자가 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 또한 Azure DNS는 사설 DNS 도메인도 지원합니다.
+**Azure DNS**: Domain Name System, 즉 DNS는 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview)는 Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에서 도메인을 호스팅하면 사용자가 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. Azure DNS는 프라이빗 DNS 도메인도 지원합니다.
 
 **Azure Load Balancer**: [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 사용하면 고객이 애플리케이션의 크기를 조정하고 고가용성 서비스를 만들 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하며, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다.
 
@@ -239,7 +239,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 이 PaaS 웹 애플리케이션 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 VPN 터널 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 구성해야 합니다. VPN 또는 ExpressRoute를 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 계층을 추가할 수 있습니다.
 
-Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객 네트워크와 Azure 간의 암호화된 연결 내에서 정보를 안전하게 &quot;터널링&quot;할 수 있도록 합니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
+Azure를 통해 보안 VPN 터널을 구현하면 온-프레미스 네트워크와 Azure Virtual Network 간의 가상 프라이빗 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객 네트워크와 Azure 간의 암호화된 연결 내에서 정보를 안전하게 &quot;터널링&quot;할 수 있도록 합니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포한 안전하고 완성도가 높은 기술입니다. [IPsec 터널 모드](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10))는 이 옵션에서 암호화 메커니즘으로 사용됩니다.
 
 VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 통과하므로 Microsoft는 훨씬 더 안전한 또 다른 연결 옵션을 제공합니다. Azure ExpressRoute는 Azure 및 온-프레미스 위치 또는 Exchange 호스팅 공급자 간의 전용 WAN 링크입니다. ExpressRoute 연결은 인터넷을 통해 수행되지 않으므로 인터넷을 통한 일반적인 연결보다 높은 안정성, 빠른 속도, 짧은 대기 시간 및 높은 보안을 제공합니다. 또한 이 연결은 고객의 통신 공급자의 직접 연결이므로 데이터는 인터넷을 통해 이동하지 않으며, 따라서 노출되지 않습니다.
 

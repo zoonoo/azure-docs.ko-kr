@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 8155a9c8dd8e16ae9853f78ea949954fd15d30e1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109483"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755029"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 Service Bus 네임스페이스 만들기
 
@@ -99,7 +99,7 @@ Service Bus 네임스페이스에서 만든 구독의 이름입니다.
 토픽 및 구독이 있는 **메시징**형식의 표준 Service Bus 네임스페이스를 만듭니다.
 
 ```json
-"resources ": [{
+"resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
         "type": "Microsoft.ServiceBus/Namespaces",

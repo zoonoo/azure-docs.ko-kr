@@ -1,6 +1,6 @@
 ---
 title: StorSimple Snapshot Manager 및 볼륨 | Microsoft Docs
-description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다.
+description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61078303"
 ---
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리
 ## <a name="overview"></a>개요
 **범위** 창에서 StorSimple Snapshot Manager **볼륨** 노드를 사용하여 볼륨을 선택하고 관련 정보를 볼 수 있습니다. 볼륨은 호스트에 의해 탑재된 볼륨에 해당하는 드라이브로 표시됩니다. **볼륨** 노드는 iSCSI와 디바이스를 사용하여 검색한 볼륨을 포함하여 StorSimple에서 지원하는 로컬 볼륨 및 볼륨 유형을 표시합니다. 
 
@@ -29,9 +29,9 @@ ms.locfileid: "61078303"
 
 ![결과 창의 볼륨 목록](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-또한 **볼륨** 노드를 사용하면 StorSimple 스냅숏 관리자에서 검색한 후에도 볼륨을 다시 검사하거나 삭제할 수 있습니다. 
+또한 **볼륨** 노드를 사용하면 StorSimple 스냅샷 관리자에서 검색한 후에도 볼륨을 다시 검사하거나 삭제할 수 있습니다. 
 
-이 자습서에서는 볼륨을 탑재, 초기화 및 포맷한 다음 StorSimple Snapshot Manager를 사용하여 다음 작업을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 볼륨을 탑재, 초기화 및 포맷한 다음, StorSimple Snapshot Manager를 사용하여 다음 작업을 수행하는 방법에 대해 설명합니다.
 
 * 볼륨에 대한 정보 보기 
 * 볼륨 삭제
@@ -86,7 +86,7 @@ ms.locfileid: "61078303"
 다음 절차에 따라 로컬 및 Azure StorSimple 볼륨에 대한 정보를 볼 수 있습니다.
 
 #### <a name="to-view-volume-information"></a>볼륨 정보를 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다. 
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다. 
 2. **범위** 창에서 **볼륨** 노드를 클릭합니다. 모든 Azure StorSimple 볼륨을 포함하여 로컬 볼륨 및 탑재된 볼륨 목록이 **결과** 창에 표시됩니다. **결과** 창의 열은 구성할 수 있습니다. (**볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **보기**를 선택한 다음 **열 추가/제거**를 선택합니다.)
    
     ![열 구성](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
@@ -99,28 +99,28 @@ ms.locfileid: "61078303"
    |  액세스 경로 |**액세스 경로** 열은 볼륨에 대한 액세스 경로를 표시합니다. 호스트 컴퓨터에서 볼륨에 액세스할 수 있는 드라이브 문자 또는 탑재 지점입니다. |
 
 ## <a name="delete-a-volume"></a>볼륨 삭제
-다음 절차에 따라 StorSimple Snapshot Manager에서 볼륨을 삭제할 수 있습니다.
+다음 절차에 따라 StorSimple 스냅샷 관리자에서 볼륨을 삭제할 수 있습니다.
 
 > [!NOTE]
 > 볼륨 그룹에 속해 있는 볼륨은 삭제할 수 없습니다. (볼륨 그룹에 속한 볼륨에 대해서는 삭제 옵션을 사용할 수 없습니다.) 볼륨을 삭제하려면 전체 볼륨 그룹을 삭제해야 합니다.
 
 #### <a name="to-delete-a-volume"></a>볼륨을 삭제하려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **볼륨** 노드를 클릭합니다. 
 3. **결과** 창에서 삭제하려는 볼륨을 마우스 오른쪽 단추로 클릭합니다.
 4. 메뉴에서 **삭제**를 클릭합니다. 
    
     ![볼륨 삭제](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
 5. **볼륨 삭제** 대화 상자가 나타납니다. 텍스트 상자에 **확인**을 입력한 다음 **확인**을 클릭합니다.
-6. 기본적으로 StorSimple Snapshot Manager는 삭제하기 전에 볼륨을 백업합니다. 이 예방 조치를 통해 실수로 삭제하는 경우의 데이터 손실을 방지할 수 있습니다. StorSimple Snapshot Manager는 볼륨을 백업하는 동안 **자동 스냅숏** 진행률 메시지를 표시합니다. 
+6. 기본적으로 StorSimple 스냅샷 관리자는 삭제하기 전에 볼륨을 백업합니다. 이 예방 조치를 통해 실수로 삭제하는 경우의 데이터 손실을 방지할 수 있습니다. StorSimple 스냅샷 관리자는 볼륨을 백업하는 동안 **자동 스냅샷** 진행률 메시지를 표시합니다. 
    
-    ![자동 스냅숏 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
+    ![자동 스냅샷 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
 
 ## <a name="rescan-volumes"></a>볼륨 다시 검사
-다음 절차에 따라 StorSimple 스냅숏 관리자에 연결된 볼륨을 다시 검사할 수 있습니다.
+다음 절차에 따라 StorSimple 스냅샷 관리자에 연결된 볼륨을 다시 검사할 수 있습니다.
 
 #### <a name="to-rescan-the-volumes"></a>볼륨을 다시 검사하려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **볼륨**을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 다시 검사**를 클릭합니다.
    
     ![볼륨 다시 검사](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
@@ -134,12 +134,12 @@ ms.locfileid: "61078303"
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
-* StorSimple Snapshot Manager 설치 및 구성 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
+* StorSimple Snapshot Manager 설치 및 구성. 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>기본 볼륨의 백업을 구성하려면
 1. StorSimple 디바이스에서 기본 볼륨을 만듭니다.
 2. [볼륨 탑재](#mount-volumes)에 설명된 대로 볼륨을 탑재, 초기화 및 포맷합니다. 
-3. 바탕 화면에서 StorSimple Snapshot Manager 아이콘을 클릭합니다. StorSimple Snapshot Manager 창이 나타납니다. 
+3. 바탕 화면에서 StorSimple 스냅샷 관리자 아이콘을 클릭합니다. StorSimple 스냅샷 관리자 창이 나타납니다. 
 4. **범위** 창에서 **볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **볼륨 다시 검사**를 선택합니다. 검사가 끝나면 볼륨 목록이 **결과** 창에 나타납니다. 
 5. **결과** 창에서 볼륨을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 그룹 만들기**를 선택합니다. 
    
@@ -162,7 +162,7 @@ ms.locfileid: "61078303"
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
-* StorSimple Snapshot Manager 설치 및 구성 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
+* StorSimple Snapshot Manager 설치 및 구성. 자세한 내용은 [StorSimple Snapshot Manager 배포](storsimple-snapshot-manager-deployment.md)를 참조하세요.
 * StorSimple 디바이스에 두 볼륨을 구성합니다. (예제에서 사용할 수 있는 볼륨은 **디스크 1** 및 **디스크 2**입니다.) 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>1단계: 디스크 관리를 사용 하 여 동적 미러 볼륨을 만들려면
@@ -194,7 +194,7 @@ ms.locfileid: "61078303"
 다음 절차에 따라 동적 미러 볼륨을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만듭니다.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>동적 미러 볼륨의 백업을 구성하려면
-1. 바탕 화면에서 StorSimple Snapshot Manager 아이콘을 클릭합니다. StorSimple Snapshot Manager 창이 나타납니다. 
+1. 바탕 화면에서 StorSimple 스냅샷 관리자 아이콘을 클릭합니다. StorSimple 스냅샷 관리자 창이 나타납니다. 
 2. **범위** 창에서 **볼륨** 노드를 마우스 오른쪽 단추로 클릭하고 **볼륨 다시 검사**를 선택합니다. 검사가 끝나면 볼륨 목록이 **결과** 창에 나타납니다. 동적 미러 볼륨은 단일 볼륨으로 나열됩니다. 
 3. **결과** 창에서 동적 미러 볼륨을 마우스 오른쪽 단추로 클릭한 다음 **볼륨 그룹 만들기**를 클릭합니다. 
 4. **볼륨 그룹 만들기** 대화 상자에서 볼륨 그룹의 이름을 입력하고 이 그룹에 동적 미러 볼륨을 할당한 다음 **확인**을 클릭합니다. 

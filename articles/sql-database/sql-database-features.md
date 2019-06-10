@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236825"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479208"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -96,8 +96,9 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [JSON 데이터 지원](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [예](sql-database-json-features.md) | [예](sql-database-json-features.md) |
 | [언어 요소](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 대부분 - 개별 요소 참조 |  예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [연결된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) 참조 | 에 [SQL Server 및 SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |[고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
+| [로그 전달](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | 기본적으로 기본 사용 하 여 DMS 마이그레이션 프로세스의 일부로 제공 합니다. [고가용성](sql-database-high-availability.md) 모든 데이터베이스에 포함 된 로그 전달 HA 대 안으로 사용 하는 권장 되지 않습니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
 | [로그인 및 사용자](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | 예, 하지만 `CREATE` 고 `ALTER` login 문은 모든 옵션 (Windows 및 Azure Active Directory 서버 수준 로그인 없음)를 제공 하지 않습니다. `EXECUTE AS LOGIN` 가 사용 하 여 지원 되지 않음- `EXECUTE AS USER` 대신 합니다.  | 일부를 사용 하 여 예 [차이점](sql-database-managed-instance-transact-sql-information.md#logins-and-users)합니다. Windows 로그인 지원 되지 않으며 Azure Active Directory 로그인을 사용 하 여 대체 해야 합니다. |
+| [장기 백업 보존-왼쪽에서 오른쪽](sql-database-long-term-retention.md) | 예, 자동으로 수행한 백업 최대 10 년 동안 보관 합니다. | 아직 없습니다. 사용 하 여 `COPY_ONLY` [수동 백업을](sql-database-managed-instance-transact-sql-information.md#backup) 임시 방편으로 합니다. |
 | [MDS(Master Data Services)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 아닙니다. | 아닙니다. |
 | [대량 가져오기에서 최소 로깅](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 아닙니다. | 아닙니다. |
 | [시스템 데이터 수정](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 아닙니다. | 예 |
@@ -139,7 +140,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [18.0 이상 버전](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
 | [SQL Server 프로파일러](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 |
-| [SQL Server 복제](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [트랜잭션 및 스냅숏 복제 구독자만 해당](sql-database-single-database-migrate.md) | 예, [공개 미리 보기 상태](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [SQL Server 복제](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [트랜잭션 및 스냅샷 복제 구독자만 해당](sql-database-single-database-migrate.md) | 예, [공개 미리 보기 상태](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SSRS(SQL Server Reporting Services)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | 아니요 - [Power BI 참조](https://docs.microsoft.com/power-bi/) | 아니요 - [Power BI 참조](https://docs.microsoft.com/power-bi/) |
 | [저장 프로시저](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | 예 | 예 |
 | [시스템 저장 함수](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) 참조 |

@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021920"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303009"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>빠른 시작: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "54021920"
 
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-* Visual Studio 2017, Visual Studio 2015 또는 Visual Studio 2013 업데이트 4를 설치합니다. Enterprise(Ultimate/Premium), Professional 및 Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다.
+* Visual Studio 2019, Visual Studio 2015 또는 Visual Studio 2013 업데이트 4를 설치합니다. Enterprise(Ultimate/Premium), Professional 및 Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다.
 
 * [설치 지침](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)에 따라 Visual Studio용 Stream Analytics 도구를 설치합니다.
 

@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책의 문제를 해결하기 위한 Application Insights | Microsoft Docs
 description: Application Insights를 설정하여 사용자 지정 정책의 실행을 추적하는 방법입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9b25e5dc5d090ad7aab3d61e2c303a465b5d7443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df5d710792d8c47e491f5b06d88f4050e8eb4a01
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508061"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: 로그 수집
 

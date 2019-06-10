@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
-description: Application Insights 종단 간 트랜잭션 진단
+description: Application Insights 엔드투엔드 트랜잭션 진단
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -60,7 +60,7 @@ ms.locfileid: "60783715"
 
 ## <a name="details-of-the-selected-telemetry"></a>선택한 원격 분석의 세부 정보
 
-이 접을 수 있는 창에는 트랜잭션 차트 또는 목록에서 선택한 모든 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 스택 추적 창 아래의 "..."를 클릭하여 추적을 복사하기 위한 옵션을 가져옵니다. "프로파일러 추적 열기" 또는 "디버그 스냅숏 열기"는 해당 세부 정보 창에서 코드 수준 진단을 보여줍니다.
+이 접을 수 있는 창에는 트랜잭션 차트 또는 목록에서 선택한 모든 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 스택 추적 창 아래의 "..."를 클릭하여 추적을 복사하기 위한 옵션을 가져옵니다. "프로파일러 추적 열기" 또는 "디버그 스냅샷 열기"는 해당 세부 정보 창에서 코드 수준 진단을 보여줍니다.
 
 ![예외 세부 정보](media/transaction-diagnostics/exceptiondetail.png)
 
@@ -70,9 +70,9 @@ ms.locfileid: "60783715"
 
 ![검색 결과](media/transaction-diagnostics/searchResults.png)
 
-## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅숏 디버거
+## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅샷 디버거
 
-[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅숏 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅숏을 볼 수 있습니다.
+[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅숏 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
 Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microsoft.com**
 

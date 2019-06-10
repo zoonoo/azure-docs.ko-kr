@@ -218,7 +218,7 @@ SAP LaMa는 SQL Server 자체를 재배치할 수 없습니다. 따라서 데이
 
 * sapsysGid: sapsys 그룹의 Linux 그룹 ID입니다. Windows에 대해서는 필요하지 않습니다.
 
-* _artifactsLocation: 이 템플릿에 필요한 아티팩트가 있는 기본 URI입니다. 함께 제공되는 스크립트를 사용하여 템플릿이 배포되면, 구독의 비공개 위치가 사용되고 이 값이 자동으로 생성됩니다. GitHub에서 템플릿을 배포하지 않은 경우에만 필요합니다.
+* _artifactsLocation: 이 템플릿에 필요한 아티팩트가 있는 기본 URI입니다. 함께 제공되는 스크립트를 사용하여 템플릿이 배포되면, 구독의 프라이빗 위치가 사용되고 이 값이 자동으로 생성됩니다. GitHub에서 템플릿을 배포하지 않은 경우에만 필요합니다.
 
 * _artifactsLocationSasToken: _artifactsLocation에 액세스하는 데 필요한 sasToken입니다. 함께 제공되는 스크립트를 사용하여 템플릿이 배포되면, sasToken이 자동으로 생성됩니다. GitHub에서 템플릿을 배포하지 않은 경우에만 필요합니다.
 

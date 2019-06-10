@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826571"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515927"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -46,7 +46,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
    ![Stream Analytics 활동 로그 조작 요약](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. 아래로 스크롤하여 실패한 조작의 원인이 된 오류의 세부 정보를 제공하는 JSON의 **속성** 섹션으로 이동합니다. 이 예제에서는 범위를 벗어난 위도 값의 런타임 오류로 인해 조작이 실패했습니다.
+4. 아래로 스크롤하여 실패한 조작의 원인이 된 오류의 세부 정보를 제공하는 JSON의 **속성** 섹션으로 이동합니다. 이 예제에서는 범위를 벗어난 위도 값의 런타임 오류로 인해 조작이 실패했습니다. Stream Analytics 작업에 의해 처리 되는 데이터의 불일치 데이터 오류가 발생 합니다. 다른에 대해 알아볼 수 있습니다 [입력 및 출력 데이터 오류 발생 이유 및](https://docs.microsoft.com/azure/stream-analytics/data-errors)합니다.
 
    ![JSON 오류 세부 정보](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -100,7 +100,7 @@ Azure Stream Analytics는 두 가지 범주의 진단 로그를 캡처합니다.
 이름 | 설명
 ------- | -------
 time | 로그의 타임스탬프(UTC)입니다.
-resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+ResourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | 로그 범주로, **실행** 또는 **작성** 중 하나입니다.
 operationName | 기록된 작업의 이름 예: **이벤트 전송: mysqloutput에 대한 SQL 출력 쓰기 실패**.
 status | 작업의 상태입니다. 예: **실패** 또는 **성공**.

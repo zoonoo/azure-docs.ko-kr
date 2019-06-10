@@ -314,7 +314,7 @@ ms.locfileid: "65409779"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Microsoft Azure를 사용하여 회사에서는 긴 조달 주기를 거치지 않고도 최단 시간에 계산 및 스토리지 리소스를 가져올 수 있습니다. 회사에서는 Azure Virtual Machines 서비스를 사용하여 SAP NetWeaver 기반 애플리케이션과 같은 클래식 애플리케이션을 Azure에 배포하고 온-프레미스에서 사용할 수 있는 추가 리소스를 확보하지 않고도 안정성과 가용성을 확장할 수 있습니다. 또한 Azure Virtual Machines 서비스는 프레미스 간 연결도 지원하므로 기업에서 Azure Virtual Machines를 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 적극적으로 통합할 수 있습니다.
+Microsoft Azure를 사용하여 회사에서는 긴 조달 주기를 거치지 않고도 최단 시간에 계산 및 스토리지 리소스를 가져올 수 있습니다. 회사에서는 Azure Virtual Machines 서비스를 사용하여 SAP NetWeaver 기반 애플리케이션과 같은 클래식 애플리케이션을 Azure에 배포하고 온-프레미스에서 사용할 수 있는 추가 리소스를 확보하지 않고도 안정성과 가용성을 확장할 수 있습니다. 또한 Azure Virtual Machines 서비스는 프레미스 간 연결도 지원하므로 기업에서 Azure Virtual Machines를 온-프레미스 도메인, 프라이빗 클라우드 및 SAP 시스템 지형에 적극적으로 통합할 수 있습니다.
 이 백서에서는 Microsoft Azure Virtual Machine의 기본 사항에 대해 설명하고 Azure의 SAP NetWeaver 설치에 대한 계획 연습 과정 및 구현 고려 사항을 제공하므로 Azure에서 SAP NetWeaver의 실제 배포를 시작하기 전에 이 문서를 읽으면 도움이 됩니다.
 이 문서는 지정된 플랫폼에서 SAP 소프트웨어 설치 및 배포에 대한 기본 리소스를 나타내는 SAP 설치 설명서 및 SAP 정보를 보완합니다.
 
@@ -631,13 +631,13 @@ Microsoft Azure는 구현하려는 모든 시나리오의 SAP 소프트웨어 �
 
 Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습니다. 사용자 고유의 DNS 서버를 설정하는 대신 사용할 수 있는 Azure DNS 서비스도 있습니다. 자세한 내용은 [이 문서][virtual-networks-manage-dns-in-vnet] 및 [이 페이지](https://azure.microsoft.com/services/dns/)에 있습니다.
 
-크로스-프레미스 또는 하이브리드 시나리오의 경우 온-프레미스 AD/OpenLDAP/DNS를 VPN 또는 개인 연결을 통해 Azure로 확장했다는 사실에 의존합니다. 여기에 설명된 특정 시나리오에서는 Azure에 AD/OpenLDAP 복제본을 설치해야 할 수 있습니다.
+크로스-프레미스 또는 하이브리드 시나리오의 경우 온-프레미스 AD/OpenLDAP/DNS를 VPN 또는 프라이빗 연결을 통해 Azure로 확장했다는 사실에 의존합니다. 여기에 설명된 특정 시나리오에서는 Azure에 AD/OpenLDAP 복제본을 설치해야 할 수 있습니다.
 
 네트워킹과 이름 확인은 SAP 시스템의 데이터베이스 배포에서 중요한 부분이므로 이 개념은 [DBMS 배포 가이드 ][dbms-guide]에서 더 자세히 설명합니다.
 
 ##### <a name="azure-virtual-networks"></a>Azure Virtual Networks
 
-Azure Virtual Network를 구축하여 Azure DHCP 기능에 의해 할당된 개인 IP 주소의 주소 범위를 정의할 수 있습니다. 크로스-프레미스 시나리오에서 정의된 IP 주소 범위는 여전히 DHCP를 사용하여 Azure에서 할당됩니다. 그러나 도메인 이름 확인은 온-프레미스에서 수행되므로(VM을 온-프레미스 도메인의 일부로 가정) 다른 Azure Cloud Services 이외의 주소를 확인할 수 있습니다.
+Azure Virtual Network를 빌드하여 Azure DHCP 기능에 의해 할당된 개인 IP 주소의 주소 범위를 정의할 수 있습니다. 크로스-프레미스 시나리오에서 정의된 IP 주소 범위는 여전히 DHCP를 사용하여 Azure에서 할당됩니다. 그러나 도메인 이름 확인은 온-프레미스에서 수행되므로(VM을 온-프레미스 도메인의 일부로 가정) 다른 Azure Cloud Services 이외의 주소를 확인할 수 있습니다.
 
 Azure의 모든 Virtual Machine을 Virtual Network에 연결해야 합니다.
 
@@ -703,9 +703,9 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 
 다중 사이트 VPN을 사용할 경우 각 지역에 별도의 Azure Virtual Network를 구성해야 합니다. 그러나 다른 지역의 소프트웨어 구성 요소가 서로 통신해야 하는 경우가 많습니다. 이상적으로 이러한 통신은 한 Azure 지역에서 온-프레미스로 라우팅되었다가 다시 여기서 다른 Azure 지역으로 라우팅되면 안 됩니다. 간단히 말해서 Azure는 한 지역의 Azure Virtual Network에서 다른 지역의 다른 Azure Virtual Network로의 연결을 구성할 수 있도록 합니다. 이 기능을 VNet 간 연결이라고 합니다. 이 기능에 대한 자세한 내용은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>를 참조하세요.
 
-#### <a name="private-connection-to-azure-expressroute"></a>Azure ExpressRoute에 대한 비공개 연결
+#### <a name="private-connection-to-azure-expressroute"></a>Azure ExpressRoute에 대한 프라이빗 연결
 
-Microsoft Azure ExpressRoute를 사용하여 Azure 데이터 센터와 고객의 온-프레미스 인프라 또는 공동 배치 환경 간에 개인 연결을 만들 수 있습니다. 다양한 MPLS(패킷 전환) VPN 공급자 또는 기타 네트워크 서비스 공급자에서 ExpressRoute를 제공합니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. ExpressRoute 연결은 인터넷을 통한 일반 연결보다 더 높은 보안을 제공하고 여러 병렬 회로를 통해 안정성을 높이며 더 빠른 속도와 짧은 대기 시간을 제공합니다.
+Microsoft Azure ExpressRoute를 사용하여 Azure 데이터 센터와 고객의 온-프레미스 인프라 또는 공동 배치 환경 간에 프라이빗 연결을 만들 수 있습니다. 다양한 MPLS(패킷 전환) VPN 공급자 또는 기타 네트워크 서비스 공급자에서 ExpressRoute를 제공합니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. ExpressRoute 연결은 인터넷을 통한 일반 연결보다 더 높은 보안을 제공하고 여러 병렬 회로를 통해 안정성을 높이며 더 빠른 속도와 짧은 대기 시간을 제공합니다.
 
 Azure ExpressRoute 및 제공 서비스에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
 
@@ -833,7 +833,7 @@ Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>고객별 이미지를 사용하여 VM 배포
 
-OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketplace에 제공된 이미지가 용도에 맞지 않을 수 있습니다. 따라서 자체 개인 OS/DBMS VM 이미지를 사용하는 VM을 만들어 이후 여러 번 배포할 수 있습니다. 중복성 유지를 위해 이러한 개인 이미지를 준비하려면 다음 항목을 고려해야 합니다.
+OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketplace에 제공된 이미지가 용도에 맞지 않을 수 있습니다. 따라서 자체 프라이빗 OS/DBMS VM 이미지를 사용하는 VM을 만들어 이후 여러 번 배포할 수 있습니다. 중복성 유지를 위해 이러한 프라이빗 이미지를 준비하려면 다음 항목을 고려해야 합니다.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -1051,7 +1051,7 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
 
 #### <a name="copying-sap-systems-within-azure"></a>Azure 내에서 SAP 시스템 복사
 
-SAP 시스템 또는 SAP 애플리케이션 계층을 지원하는 전용 DBMS 서버까지도 SAP 데이터베이스의 바이너리 또는 데이터 및 로그 파일과 함께 OS를 포함하는 여러 디스크로 구성될 수 있습니다. 디스크를 복사하는 Azure의 기능과 디스크를 로컬 디스크에 저장하는 Azure의 기능 모두 여러 디스크의 스냅숏을 일관된 방식으로 만드는 동기화 메커니즘을 사용하지 않습니다. 따라서 복사 또는 저장된 디스크의 상태는 같은 VM에 탑재되는 경우에도 다를 수 있습니다. 즉, 여러 다른 디스크에 다른 데이터 및 로그 파일이 포함된 구체적인 경우에도 데이터베이스는 일관되지 않게 됩니다.
+SAP 시스템 또는 SAP 애플리케이션 계층을 지원하는 전용 DBMS 서버까지도 SAP 데이터베이스의 바이너리 또는 데이터 및 로그 파일과 함께 OS를 포함하는 여러 디스크로 구성될 수 있습니다. 디스크를 복사하는 Azure의 기능과 디스크를 로컬 디스크에 저장하는 Azure의 기능 모두 여러 디스크의 스냅샷을 일관된 방식으로 만드는 동기화 메커니즘을 사용하지 않습니다. 따라서 복사 또는 저장된 디스크의 상태는 같은 VM에 탑재되는 경우에도 다를 수 있습니다. 즉, 여러 다른 디스크에 다른 데이터 및 로그 파일이 포함된 구체적인 경우에도 데이터베이스는 일관되지 않게 됩니다.
 
 **결론: SAP 시스템 구성의 일부로 디스크를 복사하거나 저장하려면 SAP 시스템을 중지하고 배포된 VM도 종료해야 합니다. 그런 후에만 디스크 집합을 복사 또는 다운로드하여 Azure 또는 온-프레미스에서 SAP 시스템의 복사본을 만들 수 있습니다.**
 
@@ -1087,7 +1087,7 @@ Azure Storage Explorer의 전문가 버전은 아래 페이지에서 확인할 �
 * <https://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>
 
-저장소 계정 내에서 VHD 자체를 복사하는 작업은 몇 초면 끝나는 프로세스입니다(지연 복사 및 기록 중 복사를 사용하여 스냅숏을 만드는 SAN 하드웨어와 유사). VHD 파일의 복사본을 만든 후에는 가상 머신에 연결하거나 VHD 복사본을 가상 머신에는 연결하기 위한 이미지로 사용할 수 있습니다.
+저장소 계정 내에서 VHD 자체를 복사하는 작업은 몇 초면 끝나는 프로세스입니다(지연 복사 및 기록 중 복사를 사용하여 스냅샷을 만드는 SAN 하드웨어와 유사). VHD 파일의 복사본을 만든 후에는 가상 머신에 연결하거나 VHD 복사본을 가상 머신에는 연결하기 위한 이미지로 사용할 수 있습니다.
 
 ##### <a name="powershell"></a>PowerShell
 
@@ -1339,7 +1339,7 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 > * 다음 마법사에서 새 **포트** 규칙을 만들도록 선택합니다.
 > * 마법사의 다음 단계에서 TCP의 설정을 그대로 두고 열려는 포트 번호를 입력합니다. 여기서 SAP 인스턴스 ID는 00이므로 3200을 사용했습니다. 인스턴스의 인스턴스 번호가 다른 경우 이전에 해당 인스턴스 번호를 기준으로 정의한 포트가 열립니다.
 > * 마법사의 다음 부분에서는 **연결 허용** 항목을 선택된 상태로 두어야 합니다.
-> * 마법사의 다음 단계에서는 해당 규칙이 도메인, 개인 및 공용 네트워크에 적용될지 여부를 정의해야 합니다. 필요한 경우 요구에 맞게 조정합니다. 그러나 공용 네트워크를 통해 외부에서 SAP GUI에 연결하는 경우 해당 규칙을 공용 네트워크에 적용해야 합니다.
+> * 마법사의 다음 단계에서는 해당 규칙이 도메인, 프라이빗 및 공용 네트워크에 적용될지 여부를 정의해야 합니다. 필요한 경우 요구에 맞게 조정합니다. 그러나 공용 네트워크를 통해 외부에서 SAP GUI에 연결하는 경우 해당 규칙을 공용 네트워크에 적용해야 합니다.
 > * 마법사의 마지막 단계에서 규칙 이름을 지정하고 **마침**을 눌러 규칙을 저장합니다.
 >
 > 규칙은 즉시 적용됩니다.
@@ -1611,7 +1611,7 @@ Azure Virtual Networks 및 이러한 네트워크를 정의하는 방법에 대�
 
 ## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>회사 네트워크 연결을 사용하여 SAP VM 배포(프레미스 간)
 
-SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역, 애플리케이션 계층 및 보다 작은 2계층으로 구성된 SAP 시스템과 Azure IaaS에 대한 온-프레미스 가상화 환경 간에 배포를 나눌 수 있습니다. 기본 가정은 단일 SAP 지형 내의 SAP 시스템은 배포 형식에 관계없이 서로 간에, 그리고 회사에 배포된 여러 다른 소프트웨어 구성 요소와 통신해야 한다는 것입니다. SAP GUI를 사용하여 연결하는 최종 사용자와 다른 인터페이스를 사용하여 연결하는 사용자는 배포 형식에 따른 차이를 느끼지 못해야 합니다. 이러한 조건은 온-프레미스 Active Directory/OpenLDAP 및 DNS 서비스를 사이트 간/다중 사이트 연결 또는 개인 연결(예: Azure ExpressRoute)을 통해 Azure 시스템으로 확장할 때만 충족될 수 있습니다.
+SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역, 애플리케이션 계층 및 보다 작은 2계층으로 구성된 SAP 시스템과 Azure IaaS에 대한 온-프레미스 가상화 환경 간에 배포를 나눌 수 있습니다. 기본 가정은 단일 SAP 지형 내의 SAP 시스템은 배포 형식에 관계없이 서로 간에, 그리고 회사에 배포된 여러 다른 소프트웨어 구성 요소와 통신해야 한다는 것입니다. SAP GUI를 사용하여 연결하는 최종 사용자와 다른 인터페이스를 사용하여 연결하는 사용자는 배포 형식에 따른 차이를 느끼지 못해야 합니다. 이러한 조건은 온-프레미스 Active Directory/OpenLDAP 및 DNS 서비스를 사이트 간/다중 사이트 연결 또는 프라이빗 연결(예: Azure ExpressRoute)을 통해 Azure 시스템으로 확장할 때만 충족될 수 있습니다.
 
 
 
@@ -1808,7 +1808,7 @@ Azure에서 실행되는 SAP 인스턴스도 SAProuter에서 액세스할 수 �
 
 ![SAP-라우터 네트워크 연결][planning-guide-figure-2600]
 
-SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 종단 간 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
+SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 엔드투엔드 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
 SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 SAProuter 문자열과 호스트 이름을 지정해야 합니다.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
@@ -1860,7 +1860,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 
 이 계산은 한 달이 30일 또는 43200분이라는 기준에서 출발합니다. 따라서 가동 중지 시간 0.05%는 21.6분에 해당합니다. 일반적으로 다양한 서비스의 가용성은 다음과 같이 배가됩니다.
 
-(가용성 서비스 #1/100) * (가용성 서비스 #2/100) * (가용성 서비스 #3/100)  
+(가용성 서비스 #1/100) * (가용성 서비스 #2/100) * (가용성 서비스 #3/100) 
 
 결과는 다음과 같습니다.
 
@@ -1952,7 +1952,7 @@ Azure에서 SAP Central Services의 고가용성 아키텍처의 경우 항목 �
 
 일반적으로 DBMS 및 특정 DBMS에 대한 고가용성 및 재해 복구 기능은 [DBMS 배포 가이드][dbms-guide]에서 설명하고 있습니다.
 
-#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템의 종단 간 고가용성
+#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템에 대한 엔드투엔드 고가용성
 
 Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과 Linux용입니다.
 
@@ -2008,7 +2008,7 @@ SAP 인스턴스의 자동 시작과 관련된 자세한 내용은 다음 항목
 3계층 SAP 구성의 고가용성 측면은 이전 섹션에서 이미 설명되었습니다. 그러나 DBMS 서버 요구 사항이 너무 커서 Azure에 포함할 수 없는 시스템의 경우는 어떨까요? SAP 애플리케이션 계층을 Azure에 배포할 수 있을까요?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>3계층 SAP 구성의 위치
-애플리케이션 계층 자체를 분할하거나 애플리케이션 및 DBMS 계층을 온-프레미스와 Azure 간에 분할하는 것은 지원되지 않습니다  SAP 시스템은 온-프레미스 또는 Azure에 완전히 배포됩니다. 또한 일부 애플리케이션 서버는 온-프레미스에 두고 다른 애플리케이션 서버는 Azure에 둘 수도 없습니다. 이것이 바로 논의를 시작할 부분입니다. 또한 SAP 시스템의 DBMS 구성 요소와 SAP 애플리케이션 서버 계층을 두 개의 서로 다른 Azure 지역에 배포하는 것도 지원되지 않습니다. 미국 서부에 DBMS를 배포하고 미국 중부에 SAP 애플리케이션 계층을 배포하는 경우를 예로 들 수 있습니다. 이러한 구성을 지원하지 않는 이유는 SAP NetWeaver 아키텍처의 대기 시간 민감도 때문입니다.
+애플리케이션 계층 자체를 분할하거나 애플리케이션 및 DBMS 계층을 온-프레미스와 Azure 간에 분할하는 것은 지원되지 않습니다 SAP 시스템은 온-프레미스 또는 Azure에 완전히 배포됩니다. 또한 일부 애플리케이션 서버는 온-프레미스에 두고 다른 애플리케이션 서버는 Azure에 둘 수도 없습니다. 이것이 바로 논의를 시작할 부분입니다. 또한 SAP 시스템의 DBMS 구성 요소와 SAP 애플리케이션 서버 계층을 두 개의 서로 다른 Azure 지역에 배포하는 것도 지원되지 않습니다. 미국 서부에 DBMS를 배포하고 미국 중부에 SAP 애플리케이션 계층을 배포하는 경우를 예로 들 수 있습니다. 이러한 구성을 지원하지 않는 이유는 SAP NetWeaver 아키텍처의 대기 시간 민감도 때문입니다.
 
 그러나 작년에 관련 작업을 거치면서 데이터 센터 파트너가 Azure 지역에 대한 공동 위치를 개발했습니다. 이러한 공동 위치는 대개 Azure 지역 내의 실제 Azure 데이터 센터와 가깝습니다. Azure에 대한 ExpressRoute를 사용해서 공동 위치에 짧은 거리를 유지하면서 자산을 연결하면 대기 시간이 2ms보다 적어질 수 있습니다. 이러한 경우 공동 위치에 DBMS 계층(SAN/NAS 저장소 포함)을 배치하고 Azure에 SAP 애플리케이션 계층을 배치할 수 있습니다. [HANA 큰 인스턴스입니다](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 

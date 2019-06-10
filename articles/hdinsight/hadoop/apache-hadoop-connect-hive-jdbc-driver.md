@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56a2b89277cbf8866c1992a6738bd80106ef3313
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906524"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480013"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -28,7 +28,6 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 * HDInsight Hadoop 클러스터. 만들려면 [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 합니다 [Java 개발자 키트 (JDK) 버전 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 이상.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 애플리케이션입니다.
-
 
 ## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
@@ -54,20 +53,12 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 1. 클러스터에서 복사할 특정 파일을 포함할 디렉터리를 만듭니다.
 
-2. 다음 스크립트에서 바꾸기 `sshuser` 클러스터에 대 한 SSH 사용자 계정 이름입니다.  `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.  명령줄에서 HDInsight 클러스터에서 파일을 복사 하려면 다음 명령을 입력 합니다.
+2. 다음 스크립트에서 바꾸기 `sshuser` 클러스터에 대 한 SSH 사용자 계정 이름입니다.  `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.  명령줄에서 이전 단계에서 만든 작업 디렉터리로 변경 하 고 HDInsight 클러스터에서 파일을 복사 하려면 다음 명령을 입력 합니다.
 
-    ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    ```cmd
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar} .
+
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/{commons-codec*.jar,commons-logging-*.jar,hive-*-1.2*.jar,httpclient-*.jar,httpcore-*.jar,libfb*.jar,libthrift-*.jar} .
     ```
 
 3. SQuirreL SQL 애플리케이션을 시작합니다. 왼쪽 창에서 **드라이버**를 선택합니다.
@@ -82,7 +73,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **이름**: Hive
     * **예제 URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **추가 클래스 경로**: 추가 단추를 사용하여 이전에 다운로드한 jar 파일을 모두 추가합니다.
+    * **추가 클래스 경로**: 사용 된 **추가** 이전에 다운로드 한 jar 파일의 모든 추가 단추
     * **클래스 이름**: org.apache.hive.jdbc.HiveDriver
 
    ![드라이버 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)

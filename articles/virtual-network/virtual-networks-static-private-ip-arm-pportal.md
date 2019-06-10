@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64723799"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
@@ -44,7 +44,7 @@ ms.locfileid: "64723799"
 다음 샘플 단계를 수행하려면 단순한 환경이 이미 만들어져 있어야 합니다. 이 문서에 표시된 대로 단계를 실행하려는 경우 먼저 [가상 네트워크 만들기](quick-create-portal.md)에 설명된 테스트 환경을 구축합니다.
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>정적 개인 IP 주소 테스트용 VM을 만드는 방법
-Azure 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만드는 동안에는 정적 개인 IP 주소를 설정할 수 없습니다. 먼저 VM를 만든 다음 개인 IP를 고정으로 설정합니다.
+Azure Portal을 사용하여 리소스 관리자 배포 모드에서 VM을 만드는 동안에는 정적 개인 IP 주소를 설정할 수 없습니다. 먼저 VM를 만든 다음, 해당 프라이빗 IP를 고정으로 설정합니다.
 
 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.
 

@@ -1,6 +1,6 @@
 ---
 title: '회로의 피어링 구성 - ExpressRoute: Azure: 클래식 | Microsoft Docs'
-description: 이 문서에서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
+description: 이 문서에서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -26,7 +26,7 @@ ms.locfileid: "64726204"
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
-이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 ExpressRoute 회로에 대한 피어링/라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 ExpressRoute 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 개인, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 
+이 문서에서는 PowerShell 및 클래식 배포 모델을 사용하여 ExpressRoute 회로에 대한 피어링/라우팅 구성을 만들고 관리하는 단계를 안내합니다. 아래 단계에서는 ExpressRoute 회로에 대한 피어링의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 설명합니다. ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다(Azure 프라이빗, Azure 공용 및 Microsoft). 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 
 
 이러한 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
@@ -81,15 +81,15 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
    Add-AzureAccount
    ```
 
-## <a name="azure-private-peering"></a>Azure 개인 피어링
+## <a name="azure-private-peering"></a>Azure 프라이빗 피어링
 
-이 섹션에서는 ExpressRoute 회로에 Azure 개인 피어링 구성을 만들고 가져오며 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다. 
+이 섹션에서는 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다. 
 
-### <a name="to-create-azure-private-peering"></a>Azure 개인 피어링을 만들려면
+### <a name="to-create-azure-private-peering"></a>Azure 프라이빗 피어링을 만들려면
 
 1. **ExpressRoute 회로를 만듭니다.**
 
-   지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+   지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 프라이빗 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 2. **ExpressRoute 회로를 확인하여 프로비전되도록 합니다.**
    
    ExpressRoute 회로가 프로비전되고 사용 가능한지 확인합니다.
@@ -124,16 +124,16 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
    * 기본 링크에 대한 /30 서브넷입니다. 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
    * 보조 링크에 대한 /30 서브넷입니다. 가상 네트워크에 예약된 주소 공간의 일부가 아니어야 합니다.
    * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
-   * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 개인 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
+   * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 프라이빗 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
    * 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **옵션**.
      
-   다음 예제를 사용하여 회로에 Azure 개인 피어링을 구성합니다.
+   다음 예제를 사용하여 회로에 Azure 프라이빗 피어링을 구성합니다.
 
    ```powershell
    New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
    ```    
 
-   MD5 해시를 사용하려는 경우 다음 예제를 사용하여 회로에 개인 피어링을 구성합니다.
+   MD5 해시를 사용하려는 경우 다음 예제를 사용하여 회로에 프라이빗 피어링을 구성합니다.
 
    ```powershell
    New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
@@ -143,7 +143,7 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
    > 고객 ASN이 아닌 피어링 ASN으로 AS 번호를 지정했는지 확인합니다.
    > 
 
-### <a name="to-view-azure-private-peering-details"></a>Azure 개인 피어링 세부 정보를 보려면
+### <a name="to-view-azure-private-peering-details"></a>Azure 프라이빗 피어링 세부 정보를 보려면
 
 다음 cmdlet을 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -168,7 +168,7 @@ State                          : Enabled
 VlanId                         : 100
 ```
 
-### <a name="to-update-azure-private-peering-configuration"></a>Azure 개인 피어링 구성을 업데이트하려면
+### <a name="to-update-azure-private-peering-configuration"></a>Azure 프라이빗 피어링 구성을 업데이트하려면
 
 다음 cmdlet을 사용하여 구성의 일부를 업데이트할 수 있습니다. 다음 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트하고 있습니다.
 
@@ -176,7 +176,7 @@ VlanId                         : 100
 Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 ```
 
-### <a name="to-delete-azure-private-peering"></a>Azure 개인 피어링을 삭제하려면
+### <a name="to-delete-azure-private-peering"></a>Azure 프라이빗 피어링을 삭제하려면
 
 다음 cmdlet을 실행하여 피어링 구성을 제거할 수 있습니다. 이 cmdlet을 실행하기 전에 모든 가상 네트워크가 ExpressRoute 회로에서 연결되지 않았는지 확인해야 합니다.
 
@@ -300,7 +300,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
 
 1. **ExpressRoute 회로 만들기**
   
-   지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 개인 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
+   지침에 따라 [ExpressRoute 회로](expressroute-howto-circuit-classic.md) 를 만들고 연결 공급자를 통해 프로비전합니다. 연결 공급자가 관리된 3계층 서비스를 제공하는 경우 연결 공급자를 요청하여 Azure 프라이빗 피어링을 사용하도록 할 수 있습니다. 이 경우에 다음 섹션에 나열된 지침에 따를 필요가 없습니다. 그러나 회로를 만든 후에 연결 공급자가 라우팅을 관리하지 않는 경우 아래 지침을 수행합니다.
 2. **ExpressRoute 회로를 확인하여 프로비전되는지 확인합니다.**
 
    회로가 프로비전 및 사용 가능으로 표시되는지 확인합니다. 

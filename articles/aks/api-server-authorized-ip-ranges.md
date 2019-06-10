@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243574"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475146"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>미리 보기-통해 API 서버에 대 한 보안 액세스 권한이 Azure Kubernetes Service (AKS)에서 IP 주소 범위
 
@@ -74,8 +74,6 @@ API 서버 권한이 부여 된 IP 범위를 구성할 때 다음과 같은 제�
 Kubernetes API 서버가 기본 Kubernetes Api 노출 되는 방법입니다. 이 구성 요소는 `kubectl` 또는 Kubernetes 대시보드와 같은 관리 도구에 대한 상호 작용을 제공합니다. AKS는 단일 테 넌 트 클러스터 마스터 전용된 API 서버를 사용 하 여 제공합니다. 기본적으로 API 서버에는 공용 IP 주소가 할당 됩니다 하 고 역할 기반 액세스 제어 (RBAC)를 사용 하 여 액세스를 제어 해야 합니다.
 
 그렇지 않으면 공개적으로 액세스 가능한 AKS 제어 평면에 대 한 보안 액세스를 API 서버를 사용 하 여 / IP 범위를 승인 합니다. 이러한 권한 있는 IP 범위 정의 된 IP 주소 범위 API 서버와 통신 하도록 허용 합니다. 이러한 권한 있는 IP 범위에 속하지 않은 IP 주소에서 API 서버에 대 한 요청을 차단 됩니다. RBAC를 사용 하 여 사용자 및 요청 작업을 만든 다음 권한을 부여할 계속 해야 합니다.
-
-권한 있는 IP 범위 기능을 사용 하려면 공용 IP 주소를 기본 NGINX 서비스를 배포 하 여 노드 풀에서 노출 됩니다. API 서버는이 권한이 있는 공용 IP 주소를 통해 노드 풀을 사용 하 여 통신합니다. 그런 다음 API 서버에 액세스할 수 있는 추가 IP 주소 범위를 정의 합니다.
 
 API 서버 및 기타 클러스터 구성 요소에 대 한 자세한 내용은 참조 하세요. [AKS에 대 한 Kubernetes 핵심 개념인][concepts-clusters-workloads]합니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954042"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431189"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -94,7 +94,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
 
 | **복합 인덱스**     | **샘플 `ORDER BY` 쿼리**      | **인덱스를 지원 합니까?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |

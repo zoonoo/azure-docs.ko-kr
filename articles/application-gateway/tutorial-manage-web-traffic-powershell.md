@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/1/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 15c6ba7c5659350143d75dee8bd5d5afcbf426e9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2b98fea1d74f70a133b3068b7326b78c7183f2c3
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66133352"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729571"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 

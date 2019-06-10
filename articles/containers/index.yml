@@ -44,7 +44,7 @@ sections:
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
           - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-            title: Azure Container Registry에서 개인 Docker 레지스트리 만들기
+            title: Azure Container Registry에서 프라이빗 Docker 레지스트리 만들기
             image:
               src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'

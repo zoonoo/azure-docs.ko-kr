@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 정수 클레임 변환 예 | Microsoft Docs
 description: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 정수 클레임 변환 예입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c109f188acfe37292aa31dfe057ced8b73199b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694741"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510812"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8c131f6aa9189a84be23d3ee42e9265aaea050a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6baf10308f04d5f08ba651bd70ac2b48dfc013c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66149056"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729459"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈을 실행해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -99,7 +99,7 @@ Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 공용 Docker Hub 리포지토리의 이미지로 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 개인 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
+이 빠른 시작에서는 공용 Docker Hub 리포지토리의 이미지로 Azure 컨테이너 인스턴스를 만들었습니다. 컨테이너 이미지를 빌드하고 프라이빗 Azure 컨테이너 레지스트리에서 배포하려면 Azure Container Instances 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)

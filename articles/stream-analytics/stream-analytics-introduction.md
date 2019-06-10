@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: ded2011111262eb45818ea149949989eef885f24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789597"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393976"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -49,7 +49,7 @@ Azure Stream Analytics는 사용하기 쉽고 유연하며 안정적이고 작�
 
 ## <a name="ease-of-getting-started"></a>시작의 용이성
 
-Azure Stream Analytics는 쉽게 시작할 수 있습니다. 몇 번의 클릭만으로 여러 원본 및 싱크에 연결하여 엔드투엔드 파이프라인을 만듭니다. Stream Analytics는 [Azure Event Hubs](/azure/event-hubs/) 및 [Azure IoT Hub](/azure/iot-hub/)에 연결하여 데이터 수집을 스트리밍할 수 있으며, [Azure Blob 스토리지](/azure/storage/storage-introduction)에 연결하여 기록 데이터를 수집할 수 있습니다. 또한 작업 입력에는 스트리밍 데이터에 조인하여 조회 작업을 수행할 수 있는 Azure Blob 스토리지 또는 [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database-preview)의 정적 또는 느리게 변경되는 참조 데이터가 포함될 수 있습니다.
+Azure Stream Analytics는 쉽게 시작할 수 있습니다. 몇 번의 클릭만으로 여러 원본 및 싱크에 연결하여 엔드투엔드 파이프라인을 만듭니다. Stream Analytics는 [Azure Event Hubs](/azure/event-hubs/) 및 [Azure IoT Hub](/azure/iot-hub/)에 연결하여 데이터 수집을 스트리밍할 수 있으며, [Azure Blob 스토리지](/azure/storage/storage-introduction)에 연결하여 기록 데이터를 수집할 수 있습니다. 또한 작업 입력에는 스트리밍 데이터에 조인하여 조회 작업을 수행할 수 있는 Azure Blob 스토리지 또는 [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database)의 정적 또는 느리게 변경되는 참조 데이터가 포함될 수 있습니다.
 
 Stream Analytics는 작업 출력을 [Azure Blob 스토리지](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 또는 [Azure Cosmos DB](/azure/cosmos-db/introduction)와 같은 많은 스토리지 시스템으로 라우팅할 수 있습니다. Azure HDInsight를 사용하여 저장된 출력에 대해 일괄 처리 분석을 실행하거나, 사용을 위해 Event Hubs 또는 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)와 같은 다른 서비스로 출력을 보낼 수 있습니다.
 

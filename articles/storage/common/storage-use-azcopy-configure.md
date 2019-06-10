@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247126"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688028"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>구성, 최적화 및 AzCopy 문제 해결
 
@@ -21,10 +21,10 @@ AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사
 
 > [!NOTE]
 > AzCopy를 사용 하 여 시작할 수 있도록 하는 콘텐츠를 찾으려는 경우 다음 문서 중 하나를 참조 하세요.
-> - [AzCopy를 사용 하 여 시작](storage-use-azcopy-v10.md)
-> - [AzCopy 및 blob storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-blobs.md)
-> - [AzCopy 및 file storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-files.md)
-> - [AzCopy 및 Amazon S3 버킷 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-s3.md)
+> - [AzCopy 시작](storage-use-azcopy-v10.md)
+> - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
+> - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+> - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
 
@@ -52,7 +52,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 설정의 `https_proxy` �
 
 ## <a name="change-the-location-of-the-log-files"></a>로그 파일의 위치 변경
 
-기본적으로 로그 파일은 `%USERPROFILE\\.azcopy` Windows, 또는 폴더를 `$HOME\\.azcopy` Mac 및 Linux에서 폴더입니다. 이러한 명령을 사용 하 여 해야 할 경우이 위치를 변경할 수 있습니다.
+기본적으로 로그 파일은 `%USERPROFILE\\.azcopy` Windows, 또는 디렉터리를 `$HOME\\.azcopy` Mac 및 Linux에서 디렉터리입니다. 이러한 명령을 사용 하 여 해야 할 경우이 위치를 변경할 수 있습니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy는 모든 작업에 대 한 로그 및 계획 파일을 만듭니다. 로
 
 로그 실패 상태가 포함 됩니다 (`UPLOADFAILED`, `COPYFAILED`, 및 `DOWNLOADFAILED`), 전체 경로 및 실패의 이유.
 
-기본적으로 로그 파일과 계획에 위치한 합니다 `%USERPROFILE\\.azcopy` Windows에서 폴더 또는 `$HOME\\.azcopy` Mac 및 Linux에서 폴더입니다.
+기본적으로 로그 파일과 계획에 위치한 합니다 `%USERPROFILE\\.azcopy` Windows 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux에서 디렉터리입니다.
 
 > [!IMPORTANT]
 > Microsoft 지원 (또는 제 3 자에 관련 된 문제 해결)에 요청을 제출 하는 경우 실행 하려는 명령의 교정된 버전을 공유 합니다. 그러면 SAS가 모든 사용자와 실수로 공유 되지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.

@@ -62,7 +62,7 @@ For-Each Signed Identifier[512 bytes]
 
 다음 계산은 Blob당 소비되는 저장소 양을 계산하는 방법을 보여줍니다.
 
-* 블록 Blob(기본 Blob 또는 스냅숏):
+* 블록 Blob(기본 Blob 또는 스냅샷):
 
    ```
    124 bytes + Len(BlobName) * 2 bytes +
@@ -72,7 +72,7 @@ For-Each Signed Identifier[512 bytes]
    SizeInBytes(data in uncommitted data blocks)
    ```
 
-* 페이지 Blob(기본 Blob 또는 스냅숏):
+* 페이지 Blob(기본 Blob 또는 스냅샷):
 
    ```
    124 bytes + Len(BlobName) * 2 bytes +
@@ -92,7 +92,7 @@ For-Each Signed Identifier[512 bytes]
     - Content-Encoding
     - Content-MD5
     - 권한
-    - 스냅숏 정보
+    - 스냅샷 정보
     - 임대
     - 일부 시스템 메타데이터
 
@@ -106,7 +106,7 @@ For-Each Signed Identifier[512 bytes]
   * 커밋된 블록과 커밋되지 않은 블록에 있는 데이터의 크기.
 
     >[!NOTE]
-    >스냅숏이 사용되면 이 크기에 기본 또는 스냅숏 Blob에 대한 고유 데이터만 포함됩니다. 커밋되지 않은 블록이 일주일 후에 사용되지 않았다면 가비지 수집됩니다. 그 후 그것들은 청구에 포함되지 않습니다.
+    >스냅샷이 사용되면 이 크기에 기본 또는 스냅샷 Blob에 대한 고유 데이터만 포함됩니다. 커밋되지 않은 블록이 일주일 후에 사용되지 않았다면 가비지 수집됩니다. 그 후 그것들은 청구에 포함되지 않습니다.
 
 * 페이지 Blob의 경우:
   * 데이터 시간이 12바이트인 비연속적인 페이지 범위의 수. **GetPageRanges** API를 호출할 때 표시되는 고유한 페이지 범위의 수입니다.
@@ -114,7 +114,7 @@ For-Each Signed Identifier[512 bytes]
   * 저장된 모든 페이지의 데이터 크기(바이트).
 
     >[!NOTE]
-    >스냅숏이 사용되면 이 크기에 기본 BLOB 또는 계산된 스냅숏 BLOB에 대한 고유 페이지만 포함됩니다.
+    >스냅샷이 사용되면 이 크기에 기본 Blob 또는 계산된 스냅샷 Blob에 대한 고유 페이지만 포함됩니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

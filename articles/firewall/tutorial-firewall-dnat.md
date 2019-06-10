@@ -17,7 +17,7 @@ ms.locfileid: "57531167"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
 
-서브넷에 대한 인바운드 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **Dnat**로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 및 포트를 사설 IP 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+서브넷에 대한 인바운드 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **Dnat**로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 및 포트를 프라이빗 IP 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -139,7 +139,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 요약을 검토한 다음, **만들기**를 클릭합니다. 이 설정은 완료하는 데 몇 분 정도 걸립니다.
 
-배포가 완료되면 가상 머신에 대한 사설 IP 주소를 적어 둡니다. 나중에 방화벽을 구성할 때 사용됩니다. 가상 머신 이름을 클릭하고, **설정** 아래에서 **네트워킹**을 클릭하여 사설 IP 주소를 찾습니다.
+배포가 완료되면 가상 머신에 대한 개인 IP 주소를 적어 둡니다. 나중에 방화벽을 구성할 때 사용됩니다. 가상 머신 이름을 클릭하고, **설정** 아래에서 **네트워킹**을 클릭하여 개인 IP 주소를 찾습니다.
 
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 

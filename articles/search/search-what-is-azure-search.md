@@ -17,7 +17,7 @@ ms.lasthandoff: 05/11/2019
 ms.locfileid: "65539331"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
 
 + 여러 콘텐츠 형식 및 플랫폼에서 얻은 데이터만 포함하는 검색 인덱스를 빌드합니다. 
 

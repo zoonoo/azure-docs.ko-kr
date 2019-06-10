@@ -26,12 +26,12 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 * **Azure 실행 계정** -관리 데이 계정을 [Resource Manager 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
   * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 이 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 개인 키를 보유합니다.
+  * 지정된 Automation 계정에서 *AzureRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 applicationId, tenantId, subscriptionId 및 인증서 지문을 보유합니다.
 
 * **Azure 클래식 실행 계정** -관리 데이 계정을 [클래식 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) 리소스입니다.
   * 구독에 관리 인증서를 만듭니다.
-  * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 개인 키를 보유합니다.
+  * 지정된 Automation 계정에서 *AzureClassicRunAsCertificate*라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 관리 인증서에서 사용되는 인증서 프라이빗 키를 보유합니다.
   * 지정된 Automation 계정에서 *AzureClassicRunAsConnection*이라는 Automation 연결 자산을 만듭니다. 연결 자산은 구독 이름, subscriptionId 및 인증서 자산 이름을 보유합니다.
   * 만들거나 갱신 구독에 공동 관리자 여야 합니다.
   

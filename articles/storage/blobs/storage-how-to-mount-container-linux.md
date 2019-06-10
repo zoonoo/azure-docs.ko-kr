@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 2/1/2019
 ms.author: normesta
 ms.reviewer: seguler
-ms.openlocfilehash: 261fd9f820f3e5421d9d0f4f7c9220ec31003283
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148433"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473456"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
 ## <a name="overview"></a>개요
-[Blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. blobfuse는 슬래시(/)를 구분 기호로 사용하는 가상 디렉터리 체계를 사용하여 이 네임스페이스를 제공합니다.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Blobfuse는 구분 기호로 '/'는 슬래시를 사용 하 여 가상 디렉터리 체계를 사용합니다.  
 
 이 가이드에서는 blobfuse를 사용하고, Blob Storage 컨테이너를 Linux에 탑재하고, 데이터에 액세스하는 방법을 보여 줍니다. blobfuse에 대한 자세한 내용은 [blobfuse 리포지토리](https://github.com/Azure/azure-storage-fuse)의 세부 정보를 참조하세요.
 

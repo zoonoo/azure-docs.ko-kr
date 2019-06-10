@@ -178,9 +178,9 @@ Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사�
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
 
-**DFS 네임스페이스(DFS-N)**: DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
+**DFS 네임스페이스(DFS-N)** : DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
  
-**DFS 복제(DFS-R)**: DFS-R 및 Azure 파일 동기화는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure 파일 동기화로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure 파일 동기화를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
+**DFS 복제(DFS-R)** : DFS-R 및 Azure 파일 동기화는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure 파일 동기화로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure 파일 동기화를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
 
 - DFS-R 배포에서 Azure 파일 동기화 배포로 마이그레이션하는 중입니다. 자세한 내용은 [DFS 복제(DFS-R) 배포를 Azure 파일 동기화로 마이그레이션](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)을 참조하세요.
 - 파일 데이터의 복사본을 필요로 하는 모든 온-프레미스 서버를 인터넷에 직접 연결할 수는 없습니다.
@@ -213,7 +213,7 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 > BMR(완전 복구) 복원은 예기치 않은 결과가 발생할 수 있으며 현재 지원되지 않습니다.
 
 > [!Note]  
-> VSS 스냅숏([이전 버전] 탭 포함)은 현재 클라우드 계층화를 사용할 수 있는 볼륨에서 지원되지 않습니다. 클라우드 계층화가 사용하도록 설정된 경우 Azure 파일 공유 스냅숏을 사용하여 백업에서 파일을 복원할 수 있습니다.
+> VSS 스냅샷([이전 버전] 탭 포함)은 현재 클라우드 계층화를 사용할 수 있는 볼륨에서 지원되지 않습니다. 클라우드 계층화가 사용하도록 설정된 경우 Azure 파일 공유 스냅샷을 사용하여 백업에서 파일을 복원할 수 있습니다.
 
 ### <a name="encryption-solutions"></a>암호화 솔루션
 암호화 솔루션에 대한 지원은 구현되는 방식에 따라 달라집니다. Azure 파일 동기화와 함께 작동하는 기능

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158111"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302401"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -32,7 +32,7 @@ ms.locfileid: "66158111"
 > * 서비스에서 HTTPS 엔드포인트 정의
 > * HTTPS를 사용하도록 Kestrel 구성
 > * 원격 클러스터 노드에 SSL 인증서 설치
-> * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
+> * NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
 > * 애플리케이션을 원격 클러스터에 배포
 
@@ -52,7 +52,7 @@ ms.locfileid: "66158111"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
+* **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
@@ -183,9 +183,9 @@ private X509Certificate2 GetCertificateFromStore()
 }
 ```
 
-## <a name="give-network-service-access-to-the-certificates-private-key"></a>NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
+## <a name="give-network-service-access-to-the-certificates-private-key"></a>NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
 
-이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 개인 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 작업은 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 **SetupEntryPoint**에 [시작 스크립트를 구성](service-fabric-run-script-at-service-startup.md)하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
+이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 프라이빗 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 단계는 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 **SetupEntryPoint**에 [시작 스크립트를 구성](service-fabric-run-script-at-service-startup.md)하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
 
 ### <a name="configure-the-service-setup-entry-point"></a>서비스 설치 진입점 구성
 
@@ -358,7 +358,7 @@ Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 �
 
 ![인증서 내보내기][image4]
 
-내보내기 마법사에서 **예, 개인 키를 내보냅니다**를 선택하고, PFX(개인 정보 교환) 형식을 선택합니다.  파일을 *C:\Users\sfuser\votingappcert.pfx*로 내보냅니다.
+내보내기 마법사에서 **예, 프라이빗 키를 내보냅니다**를 선택하고, PFX(개인 정보 교환) 형식을 선택합니다.  파일을 *C:\Users\sfuser\votingappcert.pfx*로 내보냅니다.
 
 그런 다음, [ Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet을 사용하여 원격 클러스터에 인증서를 설치합니다.
 
@@ -443,7 +443,7 @@ $slb | Set-AzLoadBalancer
 > * 서비스에서 HTTPS 엔드포인트 정의
 > * HTTPS를 사용하도록 Kestrel 구성
 > * 원격 클러스터 노드에 SSL 인증서 설치
-> * NETWORK SERVICE에 인증서의 개인 키에 대한 액세스 권한 부여
+> * NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
 > * Azure 부하 분산 장치에서 포트 443 열기
 > * 애플리케이션을 원격 클러스터에 배포
 

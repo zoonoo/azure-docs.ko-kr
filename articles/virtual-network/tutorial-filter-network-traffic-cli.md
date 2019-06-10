@@ -115,7 +115,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-이 문서에서 SSH(포트 22)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경에서는 포트 22를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [개인](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
+이 문서에서 SSH(포트 22)는 *myAsgMgmtServers* VM에 대해 인터넷에 노출되어 있습니다. 프로덕션 환경에서는 포트 22를 인터넷에 노출하는 대신 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [프라이빗](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 네트워크 연결을 통해 관리하려는 Azure 리소스에 연결하는 것이 좋습니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

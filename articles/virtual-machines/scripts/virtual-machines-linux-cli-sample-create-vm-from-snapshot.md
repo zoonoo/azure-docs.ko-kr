@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 스냅숏에서 VM 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 스냅숏에서 VM 만들기
+title: Azure CLI 스크립트 샘플 - 스냅샷에서 VM 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 스냅샷에서 VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -23,9 +23,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55694536"
 ---
-# <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI를 사용하여 스냅숏에서 가상 머신 만들기
+# <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI를 사용하여 스냅샷에서 가상 머신 만들기
 
-이 스크립트는 OS 디스크의 스냅숏에서 가상 컴퓨터를 만듭니다.
+이 스크립트는 OS 디스크의 스냅샷에서 가상 머신을 만듭니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -49,8 +49,8 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅숏 이름 및 리소스 그룹 이름을 사용하여 스냅숏을 가져옵니다. 반환된 개체의 Id 속성은 관리 디스크를 만드는 데 사용됩니다.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 스냅숏 Id, 디스크 이름, 저장소 유형 및 크기를 사용하여 스냅숏에서 관리 디스크를 만듭니다.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 가져옵니다. 반환된 개체의 Id 속성은 관리 디스크를 만드는 데 사용됩니다.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 스냅샷 Id, 디스크 이름, 저장소 유형 및 크기를 사용하여 스냅샷에서 관리 디스크를 만듭니다.  |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

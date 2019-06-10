@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2c4bd7bffd923430d0817cb6ea975f4c1596623
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390718"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729156"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Azure Key Vault (미리 보기)에서 사용자 고유 키를 사용 하 여 관리 되는 인스턴스에서 투명 한 데이터 암호화 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "60390718"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 모두 PowerShell를 사용 하 여 로컬로 또는 Azure Cloud Shell을 사용 하 여 AZ PowerShell 1.1.1-preview 또는 이상 미리 보기 버전이 필요 합니다. 업그레이드 해야 하는 경우 참조 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps), 실행 또는 아래 샘플 스크립트 모듈을 설치 합니다.
 

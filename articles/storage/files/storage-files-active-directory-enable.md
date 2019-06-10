@@ -31,7 +31,7 @@ Azure Files용 SMB를 통해 Azure AD를 사용할 수 있도록 설정하기 �
 3. 디렉터리와 파일에 대해 SMB를 통한 NTFS 권한을 구성합니다.
 4. 도메인 조인 VM에서 Azure 파일 공유를 탑재합니다.
 
-아래 다이어그램에는 Azure Files용 SMB를 통해 Azure AD 인증을 사용하도록 설정하는 전체 워크플로가 나와 있습니다. 
+아래 다이어그램에는 Azure Files용 SMB를 통해 Azure AD 인증을 사용하도록 설정하는 엔드투엔드 워크플로가 나와 있습니다. 
 
 ![Azure Files용 SMB를 통한 Azure AD 워크플로를 보여 주는 다이어그램](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 

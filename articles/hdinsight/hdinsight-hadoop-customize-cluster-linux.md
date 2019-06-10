@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518899"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479468"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
 
@@ -58,7 +58,7 @@ HDInsight 클러스터를 만드는 경우 Azure 구독에 대한 [기여자] �
 
      * ESP 사용 하 여 클러스터:
          
-         * Wasb [s]:// http [s] 또는 Uri:// 지원 됩니다.
+         * wasb: / / 또는 wasbs: / / 또는 http [s]:// Uri 지원 됩니다.
             
 * 특정 노드 유형에서만 실행되도록 제한할 수 있습니다. 예를 들어 헤드 노드 또는 작업자 노드가 있습니다.
 
@@ -352,7 +352,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
     ![스크립트 동작, 속성](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. 스크립트 동작 섹션에 있는 항목의 오른쪽에서 줄임표(**...**)를 선택하여 해당 동작을 수행할 수도 있습니다.
+6. 스크립트 동작 섹션에 있는 항목의 오른쪽에서 줄임표( **...** )를 선택하여 해당 동작을 수행할 수도 있습니다.
 
     ![스크립트 동작, 줄임표](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 

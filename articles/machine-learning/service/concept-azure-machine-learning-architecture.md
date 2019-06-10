@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242415"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753197"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -27,7 +27,7 @@ ms.locfileid: "66242415"
 
 Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
-1. **Python**에서 기계 학습의 학습 스크립트를 개발합니다.
+1. 기계 학습에서 스크립트 개발 **Python** 또는 시각적 인터페이스를 사용 하 여 합니다.
 1. **‘계산 대상’** 을 만들고 구성합니다.
 1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 1. **‘실험을 쿼리’** 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
@@ -107,38 +107,11 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 ## <a name="compute-target"></a>계산 대상
 
-컴퓨팅 대상은 학습 스크립트를 실행하거나 서비스 배포를 호스트하는 데 사용하는 컴퓨팅 리소스입니다. 지원되는 계산 대상은 다음과 같습니다.
-
-| 계산 대상 | 교육 | 배포 |
-| ---- |:----:|:----:|
-| 로컬 컴퓨터 | ✓ | &nbsp; |
-| Azure Machine Learning 컴퓨팅 | ✓ | &nbsp; |
-| Azure의 Linux VM</br>(예: Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure 데이터 레이크 분석 | ✓ | &nbsp; |
-| HDInsight용 Apache Spark | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| FPGA(Field-programmable Gate Array) | &nbsp; | ✓ |
-
-계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 머신 이외의 계산 대상을 공유합니다.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>관리형 및 비관리형 컴퓨팅 대상
-
-* **관리형**: 컴퓨팅 대상은 Azure Machine Learning Service에서 만들고 관리합니다. 이러한 컴퓨팅 대상은 기계 학습 워크로드에 최적화되어 있습니다. Azure Machine Learning 컴퓨팅은 2018년 12월 4일 현재 유일한 관리형 컴퓨팅 대상입니다. 추가 관리형 컴퓨팅 대상은 나중에 추가될 수 있습니다.
-
-    Azure Portal, Azure Machine Learning SDK 또는 Azure CLI를 사용하여 작업 영역을 통해 직접 기계 학습 컴퓨팅 인스턴스를 만들 수 있습니다. 기타 모든 컴퓨팅 대상은 작업 영역 외부에서 만든 다음, 해당 작업 영역에 연결해야 합니다.
-
-* **비관리형**: Azure Machine Learning Service에서 관리되지 *않는* 컴퓨팅 대상입니다. Azure Machine Learning 외부에서 해당 컴퓨팅 대상을 만든 다음, 사용하기 전에 작업 영역에 연결해야 합니다. 비관리형 컴퓨팅 대상에는 사용자가 기계 학습 워크로드 성능을 유지하거나 향상시키는 추가 단계가 필요할 수 있습니다.
-
-학습에 대한 컴퓨팅 대상을 선택하는 방법에 대한 자세한 내용은 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
-
-배포를 위한 컴퓨팅 대상을 선택하는 방법에 대한 자세한 내용은 [Azure Machine Learning Service를 사용하여 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
+A [계산 대상](concept-compute-target.md) 실행 하는 교육 스크립트 또는 호스트 서비스 배포에 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 수 있습니다. 계산 대상을 쉽게 코드를 변경 하지 않고 계산 환경을 변경 합니다. 
 
 ## <a name="training-script"></a>학습 스크립트
 
-모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(컴퓨팅 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅숏이 작업 영역의 실험 아래에 저장됩니다.
+모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(컴퓨팅 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅샷이 작업 영역의 실험 아래에 저장됩니다.
 
 예제는 [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
 
@@ -149,7 +122,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 * 실행에 대한 메타데이터(타임스탬프, 기간 등)
 * 스크립트를 통해 기록된 메트릭
 * 실험을 통해 자동 수집되거나 사용자가 명시적으로 업로드한 출력 파일
-* 실행 전의 스크립트를 포함하는 디렉터리의 스냅숏
+* 실행 전의 스크립트를 포함하는 디렉터리의 스냅샷
 
 모델을 학습시키기 위해 스크립트를 제출할 때 모델을 생성합니다. 실행에는 0개 이상의 자식 실행이 포함될 수 있습니다. 예를 들어 최상위 실행에는 두 개의 자식 실행이 포함될 수 있고, 각 자식 실행에는 자체 자식 실행이 포함될 수 있습니다.
 
@@ -159,9 +132,12 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다. 이 스 티 메이 터, ML 파이프라인을 실행 하는 스크립트를 사용 하 여 제출 하는 실행을 사용 하 여 작동 합니다. 또한 Machine Learning CLI 또는 SDK에서 전송 하는 실행에 대 한 작동 합니다.
 
-## <a name="snapshot"></a>스냅숏
+## <a name="snapshot"></a>스냅샷
 
-실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅숏으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅숏을 다운로드할 수 있습니다.
+실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
+
+> [!NOTE]
+> 불필요 한 파일 스냅숏이 포함 되 고을 방지 하려면 (.gitignore 또는.amlignore)에 무시 파일을 확인 합니다. 스냅숏 디렉터리에이 파일을 배치 하 고에 무시 파일을 추가 합니다. .Amlignore 파일에서는 동일한 [구문과 패턴.gitignore 파일을](https://git-scm.com/docs/gitignore)입니다. 두 파일 모두 없으면.amlignore 파일 우선적으로 적용 합니다.
 
 ## <a name="activity"></a>작업
 

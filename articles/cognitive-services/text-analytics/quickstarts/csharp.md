@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 05/28/2019
 ms.author: assafi
-ms.openlocfilehash: 44d4a9427fcf6b582d44707127b87c262781520f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602353"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297813"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>빠른 시작: .NET SDK 및 C#을 사용하여 Text Analytics 서비스 호출
 <a name="HOLTop"></a>
@@ -29,16 +29,11 @@ ms.locfileid: "65602353"
 
 ## <a name="prerequisites"></a>필수 조건
 
+* [Visual Studio 2017 이상]의 모든 버전
+* Text Analytics [.NET용 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 가입하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 필요합니다.
-
-> [!Tip]
->  C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON을 직렬화 및 역직렬화할 필요 없이 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
->
-> 몇 가지 유용한 링크:
-> - [SDK NuGet 페이지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Visual Studio 솔루션 만들기 및 SDK 설치
 
@@ -120,8 +115,7 @@ ms.locfileid: "65602353"
         var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
         var client = new TextAnalyticsClient(credentials)
         {
-            //Replace 'westus' with the correct region for your Text Analytics subscription.
-            Endpoint = "https://westus.api.cognitive.microsoft.com"
+            Endpoint = Endpoint
         };
 
         // Change the console encoding to display non-ASCII characters.

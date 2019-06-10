@@ -182,5 +182,5 @@ ms.locfileid: "61428304"
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>고급 분석 프로세스 및 기술 작동 예제
-공용 데이터 세트를 포함하는 팀 데이터 과학 프로세스를 사용하는 종단 간 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
+공용 데이터 세트를 포함하는 팀 데이터 과학 프로세스를 사용하는 엔드투엔드 연습 예제는 [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)을 참조하세요.
 

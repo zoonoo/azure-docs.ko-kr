@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
-    - name: 마이그레이션 모범 사례
-      items:
-        - name: 마이그레이션 이후 관리 및 보안에 대한 모범 사례
-          href: migrate-best-practices-security-management.md
-        - name: 마이그레이션 이후 네트워킹에 대한 모범 사례
-          href: migrate-best-practices-networking.md
-        - name: 마이그레이션 이후 비용 및 크기 조정에 대한 모범 사례
-          href: migrate-best-practices-costs.md
     - name: 마이그레이션 예제-Contoso 시리즈
       href: contoso-migration-overview.md
     - name: 대규모 환경 검색 및 평가

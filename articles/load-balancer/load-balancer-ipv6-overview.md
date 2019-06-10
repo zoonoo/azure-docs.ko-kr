@@ -29,14 +29,14 @@ ms.locfileid: "60861964"
 
 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용해 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
-* 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 종단 간 IPv6 연결.
-* VM과 공용 인터넷 IPv6 사용 가능 클라이언트 사이의 네이티브 종단 간 IPv6 아웃바운드 연결.
+* 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 엔드투엔드 IPv6 연결.
+* VM과 공용 인터넷 IPv6 사용 가능 클라이언트 사이의 네이티브 엔드투엔드 IPv6 아웃바운드 연결.
 
 다음 그림은 Azure Load Balancer에 대한 IPv6 기능을 보여 줍니다.
 
 ![IPv6를 사용하여 Azure Load Balancer](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
 
-배포된 후 IPv4 또는 IPv6 사용 가능 인터넷 클라이언트는 Azure 인터넷 연결 Load Balancer의 공용 IPv4 또는 IPv6 주소(또는 호스트 이름)와 통신할 수 있습니다. 부하 분산 장치는 NAT(네트워크 주소 변환)를 사용하여 VM의 개인 IPv6 주소로 IPv6 패킷을 라우팅합니다. IPv6 인터넷 클라이언트는 VM의 IPv6 주소와 직접 통신할 수 없습니다.
+배포된 후 IPv4 또는 IPv6 사용 가능 인터넷 클라이언트는 Azure 인터넷 연결 Load Balancer의 공용 IPv4 또는 IPv6 주소(또는 호스트 이름)와 통신할 수 있습니다. 부하 분산 장치는 NAT(네트워크 주소 변환)를 사용하여 VM의 프라이빗 IPv6 주소로 IPv6 패킷을 라우팅합니다. IPv6 인터넷 클라이언트는 VM의 IPv6 주소와 직접 통신할 수 없습니다.
 
 ## <a name="features"></a>기능
 
@@ -71,7 +71,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * 공용 IPv6 주소는 VM에 할당할 수 없습니다. 부하 분산 장치에만 할당할 수 있습니다.
 * 공용 IPv6 주소에 대해 역방향 DNS 조회를 구성할 수 없습니다.
 * IPv6 주소를 사용하는 VM은 Azure Cloud Service의 멤버가 될 수 없습니다. Azure Virtual Network (VNet)에 연결될 수 있으며 IPv4 주소를 통해 서로 통신합니다.
-* 개인 IPv6 주소를 리소스 그룹의 개별 VM에 배포할 수 있지만 확장 집합을 통해 리소스 그룹에 배포할 수는 없습니다.
+* 프라이빗 IPv6 주소를 리소스 그룹의 개별 VM에 배포할 수 있지만 확장 집합을 통해 리소스 그룹에 배포할 수는 없습니다.
 * Azure VM은 IPv6를 통해 다른 VM, 다른 Azure 서비스 또는 온-프레미스 디바이스에 연결할 수 없습니다. 단지 IPv6를 통해 Azure Load Balancer와 통신할 수 있습니다. 그러나 IPv4를 사용하면 이러한 다른 리소스와 통신할 수 있습니다.
 * IPv4에 대한 Network Security Group (NSG) 보호는 이중 스택 (IPv6+IPv4) 배포에서 지원됩니다. NSG는 IPv6 엔드포인트에 적용되지 않습니다.
 * VM의 IPv6 엔드포인트는 인터넷에 직접 노출되지 않습니다. 부하 분산 장치 뒤에.있습니다. 부하 분산 장치 규칙에 지정된 포트만 IPv6를 통해 액세스할 수 있습니다.

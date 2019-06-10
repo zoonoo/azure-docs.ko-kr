@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788016"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258416"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -68,8 +68,8 @@ Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 - **Azure Storage 데이터 이동 라이브러리**는 Azure Storage 서비스 간에 데이터를 이동하기 위한 .NET 라이브러리입니다. AzCopy 유틸리티는 데이터 이동 라이브러리를 사용하여 빌드됩니다. 자세한 내용은 데이터 이동 라이브러리에 대한 [참조 문서](/dotnet/api/microsoft.azure.storage.datamovement)를 참조하세요. 
 - **Azure Data Factory**는 Azure 리소스 인증에 계정 키, 공유 액세스 서명, 서비스 주체 또는 관리형 ID를 사용하여 Blob Storage 간에 데이터 복사를 지원합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Blob Storage 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요. 
 - **Blobfuse**는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. 자세한 내용은 [blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)을 참조하세요.
-- **Azure Data Box Disk**는 큰 데이터 세트 또는 네트워크 제약 조건으로 인해 유선으로 데이터를 업로드할 수 없는 경우 온-프레미스 데이터를 Blob Storage로 전송하는 서비스입니다. [Azure Data Box Disk](../../databox/data-box-disk-overview.md)를 사용하여 Microsoft의 SSD(Solid-State Disk)를 요청할 수 있습니다. 그런 다음, 해당 디스크에 데이터를 복사하고, Microsoft에 다시 제공하여 Blob Storage에 업로드할 수 있습니다.
-- **Azure Import/Export 서비스**는 사용자가 제공하고 이후에 Microsoft가 다시 사용자에게 사용자 데이터로 제공하는 대용량 데이터를 스토리지 계정에서 하드 드라이브로 내보내는 방법을 제공합니다. 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../common/storage-import-export-service.md)을 참조하세요.
+- **Azure Data Box** 서비스는 큰 데이터 세트 또는 네트워크 제약 조건으로 인해 유선으로 데이터를 업로드할 수 없는 경우 온-프레미스 데이터를 Blob Storage로 전송하는 서비스입니다. 데이터 크기에 따라 Microsoft의 [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) 또는 [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) 디바이스를 요청할 수 있습니다. 그런 다음, 해당 디바이스에 데이터를 복사하고, Microsoft에 다시 제공하여 Blob Storage에 업로드할 수 있습니다.
+- **Azure Import/Export 서비스**는 대용량 데이터를 사용자의 스토리지 계정에서 사용자가 제공하는 하드 드라이브로 가져오거나 내보내는 방법을 제공합니다. 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../common/storage-import-export-service.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

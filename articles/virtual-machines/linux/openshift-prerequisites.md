@@ -28,7 +28,7 @@ ms.locfileid: "61473888"
 
 OpenShift 설치에는 Ansible 플레이북이 사용됩니다. Ansible은 SSH(Secure Shell)를 사용하여 설치 단계를 완료하는 모든 클러스터 호스트에 연결합니다.
 
-Ansible의 원격 호스트에 SSH 연결 하면 암호를 들어갈 수 없습니다. 따라서 개인 키에는 연결된 암호를 사용할 수 없으며, 사용할 경우 배포에 실패합니다.
+Ansible의 원격 호스트에 SSH 연결 하면 암호를 들어갈 수 없습니다. 따라서 프라이빗 키에는 연결된 암호를 사용할 수 없으며, 사용할 경우 배포에 실패합니다.
 
 VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때문에 동일한 공개 키가 모든 VM에 액세스하는 데 사용됩니다. 모든 마찬가지로 플레이 북을 실행 중인 VM에 해당 개인 키가 있어야 합니다. 이 작업을 안전 하 게 수행 하려면 VM에 개인 키를 전달 하는 Azure key vault 사용 됩니다.
 
@@ -89,9 +89,9 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > SSH 키 쌍에는 암호를 포함할 수 없습니다.
 
-Windows의 SSH 키에 대한 자세한 내용은 [Windows에서 SSH 키를 만드는 방법](/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요. OpenSSH 형식으로 개인 키를 내보내야 합니다.
+Windows의 SSH 키에 대한 자세한 내용은 [Windows에서 SSH 키를 만드는 방법](/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요. OpenSSH 형식으로 프라이빗 키를 내보내야 합니다.
 
-## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Azure Key Vault에 SSH 개인 키 저장
+## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Azure Key Vault에 SSH 프라이빗 키 저장
 OpenShift 배포는 사용자가 만든 SSH 키를 사용하여 OpenShift 마스터에 대한 액세스를 보호합니다. SSH 키를 안전하게 검색하기 위해 배포를 사용하도록 설정하려면 다음 명령을 사용하여 Key Vault에 키를 저장합니다.
 
 ```azurecli

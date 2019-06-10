@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669825"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256641"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -67,11 +67,11 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**사용 현황 분석**](../../azure-monitor/app/usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
 | [**인스턴스 데이터에 대한 진단 검색**](../../azure-monitor/app/diagnostic-search.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.  |![원격 분석 검색](./media/app-insights-overview/search-tn.png) |
 | [**집계된 데이터에 대한 메트릭 탐색기**](../../azure-monitor/app/metrics-explorer.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다. |![메트릭](./media/app-insights-overview/metrics-tn.png) |
-| [**대시보드**](../../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |
+| [**대시보드**](../../azure-monitor/app/overview-dashboard.md)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |
 | [**라이브 메트릭 스트림**](../../azure-monitor/app/live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
 | [**분석**](../../azure-monitor/app/analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**스냅숏 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅숏을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
+| [**스냅숏 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
@@ -81,7 +81,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 ### <a name="monitor"></a>모니터
 앱에 Application Insights를 설치하고, [가용성 웹 테스트를 설정](../../azure-monitor/app/monitor-web-app-availability.md)하고, 다음을 수행합니다.
 
-* 종속성, 페이지 로드 및 AJAX 호출의 부하, 응답성 및 성능을 모니터링하기 위한 팀 공간용 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 설정합니다.
+* 종속성, 페이지 로드 및 AJAX 호출의 부하, 응답성 및 성능을 모니터링하기 위한 팀 공간용 기본 [애플리케이션 대시보드](../../azure-monitor/app/overview-dashboard.md)를 체크 아웃합니다.
 * 가장 느리고 대부분 실패한 요청을 검색합니다.
 * 새 릴리스를 배포할 때 [라이브 스트림](../../azure-monitor/app/live-stream.md)을 보고 성능 저하를 즉시 인식합니다.
 
@@ -90,7 +90,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 * 얼마나 많은 사용자가 영향을 받는지 평가합니다.
 * 오류는 예외, 종속성 호출 및 추적과 연관이 있습니다.
-* 프로파일러, 스냅숏, 스택 덤프 및 추적 로그를 검사합니다.
+* 프로파일러, 스냅샷, 스택 덤프 및 추적 로그를 검사합니다.
 
 ### <a name="build-measure-learn"></a>빌드, 측정, 학습
 배포하는 새로운 각 기능의 [효율성을 측정](../../azure-monitor/app/usage-overview.md)합니다.
@@ -149,7 +149,6 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 [azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
-[detect]: ../../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../../azure-monitor/app/java-get-started.md

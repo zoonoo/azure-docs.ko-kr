@@ -85,7 +85,7 @@ ms.locfileid: "65209789"
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java에서 Azure Blob Service 시작</a></td>
 </tr>
 <tr>
-<td>Blob 스냅숏</td>
+<td>Blob 스냅샷</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java에서 Azure Blob Service 시작</a></td>
 </tr>
 <tr>

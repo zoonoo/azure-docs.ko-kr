@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8def6336dd35b8eac1ae357cb32df35d1b7baa2c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256960"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383747"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 이미지 검색
 
@@ -141,4 +141,4 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 * Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

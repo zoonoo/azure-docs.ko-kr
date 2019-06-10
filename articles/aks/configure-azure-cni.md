@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956404"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497211"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -95,7 +95,7 @@ AKS 클러스터를 만들 때 Azure CNI 네트워킹에서 다음 매개 변수
 
 **서브넷**: 클러스터를 배포하려는 가상 네트워크 내의 서브넷입니다. 클러스터에 대해 가상 네트워크에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다. 하이브리드 연결의 경우 주소 범위가 환경의 다른 가상 네트워크와 겹쳐서는 안 됩니다.
 
-**Kubernetes 서비스 주소 범위**: 이는 Kubernetes가 클러스터의 내부 [서비스][services]에 할당하는 가상 IP의 세트입니다. 다음 요구 사항을 충족하는 모든 개인 주소 범위를 사용할 수 있습니다.
+**Kubernetes 서비스 주소 범위**: 이는 Kubernetes가 클러스터의 내부 [서비스][services]에 할당하는 가상 IP의 세트입니다. 다음 요구 사항을 충족하는 모든 프라이빗 주소 범위를 사용할 수 있습니다.
 
 * 클러스터의 가상 네트워크 IP 주소 범위에 속하지 않아야 합니다.
 * 클러스터 가상 네트워크가 피어링된 다른 가상 네트워크와 겹치지 않아야 합니다.
@@ -170,8 +170,6 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
   권장되지 않지만 이 구성은 가능합니다. 서비스 주소 범위는 Kubernetes가 클러스터의 내부 서비스에 할당하는 VIP(가상 IP)의 세트입니다. Azure 네트워킹은 Kubernetes 클러스터의 서비스 IP 범위를 볼 수 없습니다. 클러스터의 서비스 주소 범위에 대한 가시성 부족으로 인해 서비스 주소 범위와 겹치는 클러스터 가상 네트워크에서 나중에 새 서브넷을 만들 수 있습니다. 이러한 중복이 발생하는 경우 Kubernetes는 예기치 않은 동작이나 오류를 일으키는, 서브넷의 다른 리소스에서 이미 사용 중인 IP를 서비스에 할당할 수 있습니다. 클러스터의 가상 네트워크 외부에서 주소 범위를 사용하는 것을 확인하여 겹치는 위험을 방지할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-### <a name="networking-in-aks"></a>AKS의 네트워킹
 
 AKS의 네트워킹에 대한 자세한 내용은 다음 문서를 참조하세요.
 

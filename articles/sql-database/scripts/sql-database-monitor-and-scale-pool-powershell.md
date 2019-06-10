@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3501a05ae874dd18a7ab4f7b98d7c85a8da8cc15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c72324f4dcbcda313b7f6d1e34470c884822d59
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66115979"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729324"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에서 탄력적 풀 모니터링 및 크기 조정
 
@@ -25,7 +25,7 @@ ms.locfileid: "66115979"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AZ PowerShell 1.4.0 이상이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 

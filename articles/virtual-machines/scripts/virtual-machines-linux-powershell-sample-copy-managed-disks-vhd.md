@@ -45,7 +45,7 @@ ms.locfileid: "57249765"
 |---|---|
 | [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 저장소 계정에 기본 VHD를 복사하는 데 사용되는 관리 디스크에 대한 SAS URI를 생성합니다. |
 | [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅숏의 기본 VHD를 저장소 계정에 복사합니다. |
+| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅샷의 기본 VHD를 저장소 계정에 복사합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

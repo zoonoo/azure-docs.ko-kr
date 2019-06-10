@@ -1,6 +1,6 @@
 ---
 title: Hadoop 클러스터에서 데이터 탐색 - Team Data Science Process
-description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
+description: HDInsight Hadoop 클러스터를 사용하는 엔드투엔드 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -19,7 +19,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60303966"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
-이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
+이 연습에서는 엔드투엔드 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
 
 더 큰 데이터 세트를 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
 

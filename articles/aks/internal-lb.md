@@ -19,7 +19,7 @@ ms.locfileid: "65956378"
 AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 제한하기 위해 내부 부하 분산 장치를 만들고 사용할 수 있습니다. 내부 부하 분산 장치는 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 애플리케이션에만 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치를 만들고 사용하는 방법을 보여줍니다.
 
 > [!NOTE]
-> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. AKS는 현재 ‘기본’ SKU를 지원합니다. *표준* SKU를 사용하려면 업스트림 [aks-engine][aks-engine]을 사용할 수 있습니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요.
+> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다.   AKS는 현재 ‘기본’ SKU를 지원합니다.  *표준* SKU를 사용하려면 업스트림 [aks-engine][aks-engine]을 사용할 수 있습니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -56,7 +56,7 @@ kubectl apply -f internal-lb.yaml
 
 Azure load balancer는 노드 리소스 그룹에 만들어지고 AKS 클러스터와 동일한 가상 네트워크에 연결 합니다.
 
-서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *외부* 아닙니다 부하 분산 장치의 외부 인터페이스와 관련 하 여 외부 IP 주소를 공용에서 받는 것입니다. 다음 예제와 같이 IP 주소가 \<보류 중\>에서 실제 내부 IP 주소로 변경되는 데 1~2분이 소요될 수 있습니다.
+서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *외부* 아닙니다 부하 분산 장치의 외부 인터페이스와 관련 하 여 외부 IP 주소를 공용에서 받는 것입니다. 다음 예제와 같이 IP 주소가 \<보류 중\>에서 실제 내부 IP 주소로 변경되는 데 1~2분이 소요될 수 있습니다. 
 
 ```
 $ kubectl get service internal-app
@@ -94,11 +94,11 @@ NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
-## <a name="use-private-networks"></a>개인 네트워크 사용
+## <a name="use-private-networks"></a>프라이빗 네트워크 사용
 
-AKS 클러스터를 만들 때 고급 네트워킹 설정을 지정할 수 있습니다. 이 방법을 통해 클러스터를 기존 Azure 가상 네트워크 및 서브넷에 배포할 수 있습니다. 한 가지 시나리오는 온-프레미스 환경에 연결된 개인 네트워크에 AKS 클러스터를 배포하여 내부에서 액세스할 수 있는 서비스만 실행하는 것입니다. 자세한 내용은 참조 하세요. 사용 하 여 사용자 고유의 가상 네트워크 서브넷 구성 [Kubenet] [ use-kubenet] 하거나 [Azure CNI][advanced-networking]합니다.
+AKS 클러스터를 만들 때 고급 네트워킹 설정을 지정할 수 있습니다. 이 방법을 통해 클러스터를 기존 Azure 가상 네트워크 및 서브넷에 배포할 수 있습니다. 한 가지 시나리오는 온-프레미스 환경에 연결된 프라이빗 네트워크에 AKS 클러스터를 배포하여 내부에서 액세스할 수 있는 서비스만 실행하는 것입니다. 자세한 내용은 참조 하세요. 사용 하 여 사용자 고유의 가상 네트워크 서브넷 구성 [Kubenet] [ use-kubenet] 하거나 [Azure CNI][advanced-networking]합니다.
 
-개인 네트워크를 사용하는 AKS 클러스터에 내부 부하 분산 장치를 배포하려면 이전 단계를 변경하지 않아도 됩니다. 부하 분산 장치는 AKS 클러스터와 동일한 리소스 그룹에 만들어지지만 다음 예와 같이 개인 가상 네트워크 및 서브넷에 연결됩니다.
+프라이빗 네트워크를 사용하는 AKS 클러스터에 내부 부하 분산 장치를 배포하려면 이전 단계를 변경하지 않아도 됩니다. 부하 분산 장치는 AKS 클러스터와 동일한 리소스 그룹에 만들어지지만 다음 예와 같이 프라이빗 가상 네트워크 및 서브넷에 연결됩니다.
 
 ```
 $ kubectl get service internal-app

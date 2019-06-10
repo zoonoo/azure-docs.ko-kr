@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551376"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688733"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
 
-## <a name="recovery-services-vault"></a>복구 서비스 자격 증명 모음
+## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>각 Azure 구독에 만들 수 있는 자격 증명 모음의 개수에 제한이 있나요?
 예. 구독당 Azure Backup의 지원되는 지역당 최대 500개의 Recovery Services 자격 증명 모음을 만들 수 있습니다. 추가 자격 증명 모음이 필요한 경우 추가 구독을 만드세요.
@@ -182,8 +182,8 @@ Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있�
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?
 보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure로 백업하는 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다.
 
-- [백업 및 보존](./backup-introduction-to-azure-backup.md#backup-and-retention)에 대해 자세히 알아보세요.
-- [보호된 인스턴스](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)에 대해 자세히 알아보세요.
+- [백업 및 보존](./backup-overview.md#backup-and-retention)에 대해 자세히 알아보세요.
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Azure에 백업된 데이터를 몇 번이나 복구할 수 있나요?
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.

@@ -229,14 +229,14 @@
                   href: msal-js-initializing-client-applications.md
             - name: 오류 및 예외 처리
               href: msal-handling-exceptions.md
-            - name: MSAL 애플리케이션 테스트
-              href: msal-testing.md
             - name: 로깅
               href: msal-logging.md
             - name: Single Sign-On(JS)
               href: msal-js-sso.md
             - name: 프롬프트 동작(JS)
               href: msal-js-prompt-behavior.md
+            - name: ADFS 지원(.NET)
+              href: msal-net-adfs-support.md
             - name: Azure AD B2C와 통합
               items:
                 - name: JavaScript
@@ -366,6 +366,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: 사용자의 HttpClient 제공
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: 페이지 다시 로드 방지
+                  href: msal-js-avoid-page-reloads.md
+                - name: 인증 요청에 사용자 지정 상태 전달
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Visual Studio 작업
           items:
             - name: Active Directory 연결된 서비스 사용
