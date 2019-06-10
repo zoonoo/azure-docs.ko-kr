@@ -86,24 +86,27 @@
     - name: 작업 영역
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: 계산 대상
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: 시각적 인터페이스
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: 자동화된 기계 학습
+    - name: 자동화된 ML
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: 모델 관리(MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: 재사용 가능한 ML 파이프라인
+      href: concept-ml-pipelines.md
     - name: 모델 해석력
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA를 사용하여 가속화
+    - name: FPGA 개요
       href: concept-accelerate-with-fpgas.md
-    - name: ONNX 및 ONNX 런타임 최적화
+    - name: ONNX 및 ONNX 런타임
       href: concept-onnx.md
-    - name: 기계 학습 파이프라인
-      href: concept-ml-pipelines.md
     - name: 보안
       items:
         - name: 엔터프라이즈 보안 개요
