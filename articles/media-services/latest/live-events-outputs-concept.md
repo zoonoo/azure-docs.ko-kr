@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550972"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732978"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -79,48 +79,53 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
 비베니티 URL 또는 베니티 URL을 사용할 수 있습니다. 
 
+> [!NOTE] 
+> 예측 수를 수집 URL을 "베 니 티" 모드를 설정 합니다.
+
 * 비베니티 URL
 
     비베니티 URL은 AMS v3의 기본 모드입니다. 잠재적으로 라이브 이벤트를 빠르게 가져오지만 수집 URL은 라이브 이벤트를 시작할 때 알려집니다. URL은 라이브 이벤트를 중지/시작하는 경우 변경됩니다. <br/>비베니티는 최종 사용자가 앱에서 라이브 이벤트를 가능한 빨리 가져오고 동적 수집 URL이 문제가 되지 않는 앱을 사용하여 스트리밍하려는 경우 시나리오에서 유용합니다.
 * 베니티 URL
 
     베니티 모드는 하드웨어 브로드캐스트 인코더를 사용하고 라이브 이벤트를 시작할 때 해당 인코더를 다시 구성하지 않으려는 대형 미디어 브로드캐스터에서 선호합니다. 시간이 지나도 변경되지 않는 예측 수집 URL을 원합니다.
+    
+    설정 하면이 모드를 지정 하려면 `vanityUrl` 하 `true` 생성 시 (기본값은 `false`). 사용자 고유의 액세스 토큰을 전달 해야 (`LiveEventInput.accessToken`)를 만들 때. URL에 무작위 토큰을 방지 하려면 토큰 값을 지정 합니다. 액세스 토큰이 유효한 GUID 문자열 (대시 없이 또는) 해야 합니다. 모드를 설정한 후에 업데이트할 수 없습니다.
 
-> [!NOTE] 
-> 수집 URL을 예측하려면 "베니티" 모드를 사용하고 사용자 고유의 액세스 토큰을 전달해야 합니다(URL에서 무작위 토큰을 방지하기 위해).
+    액세스 토큰을 데이터 센터에서 고유 해야 합니다. 응용 프로그램을 베 니 티 URL을 사용 해야 하는 경우 항상 (모든 기존 GUID를 다시 사용) 대신 액세스 토큰에 대 한 새 GUID 인스턴스를 만드는 것이 좋습니다. 
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).<br/>
-아래 *액세스 토큰*은 고정 URL에 대해 지정해야 하는 것입니다. 128비트 16진수 숫자입니다.
+합니다 *액세스 토큰* 고정된 URL에 대해 지정 해야 합니다. 가 유효한 GUID 문자열 액세스 토큰 문자열을 설정 해야 합니다. <br/>
+합니다 *스트림 이름을* 특정 연결에 대 한 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 추가 됩니다 라이브 인코더를 사용 하는.
 
 #### <a name="non-vanity-url"></a>비베니티 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>부드러운 스트리밍
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>베니티 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>부드러운 스트리밍
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>라이브 이벤트 미리 보기 URL
 

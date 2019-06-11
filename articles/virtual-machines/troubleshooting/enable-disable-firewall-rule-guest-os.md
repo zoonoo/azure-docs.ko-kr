@@ -123,7 +123,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 어떤 방법으로도 VM에 액세스할 수 없는 경우 사용자 지정 스크립트 확장을 사용할 수 없게 되므로 시스템 디스크를 통해 오프라인 모드에서 직접 작업해야 합니다.
 
-다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+다음 단계를 따르기 전에 영향을 받는 VM의 시스템 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은  [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
 1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
 

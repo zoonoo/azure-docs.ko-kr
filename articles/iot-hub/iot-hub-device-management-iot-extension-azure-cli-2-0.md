@@ -19,7 +19,7 @@ ms.locfileid: "60399626"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
-![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
+![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 

@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956397"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497200"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "65956397"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.56 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.65 필요 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>고유한 서브넷을 사용한 Kubenet 네트워킹 개요
 
@@ -48,7 +48,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 
 절충안으로, *kubenet*을 사용하는 AKS 클러스터를 만들고 기존 가상 네트워크 서브넷에 연결할 수 있습니다. 이 방법을 사용하면 클러스터에서 실행될 수 있는 모든 잠재적 pod를 위해 많은 수의 IP 주소를 미리 예약할 필요가 없이, 노드가 정의된 IP 주소를 수신할 수 있습니다.
 
-*kubenet*을 사용하면 훨씬 더 작은 IP 주소 범위를 사용할 수 있으며 대규모 클러스터 및 애플리케이션 요구를 지원할 수 있습니다. 예를 들어 */27* IP 주소 범위를 사용하더라도 20-25 노드 클러스터를 실행하여 확장 또는 업그레이드를 위한 충분한 공간을 확보할 수 있습니다. 이 클러스터 크기는 최대 *2,200-2,750*개 pod를 지원합니다(노드당 최대 pod 기본값이 110개임).
+*kubenet*을 사용하면 훨씬 더 작은 IP 주소 범위를 사용할 수 있으며 대규모 클러스터 및 애플리케이션 요구를 지원할 수 있습니다. 예를 들어 */27* IP 주소 범위를 사용하더라도 20-25 노드 클러스터를 실행하여 확장 또는 업그레이드를 위한 충분한 공간을 확보할 수 있습니다. 이 클러스터 크기는 최대 *2,200-2,750*개 pod를 지원합니다(노드당 최대 pod 기본값이 110개임). 사용 하 여 구성할 수 있는 노드당 pod의 최대 수 *kubenet* AKS에서은 250입니다.
 
 다음 기본 계산은 네트워크 모델의 차이를 비교합니다.
 
@@ -144,11 +144,11 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 
-* *--service-cidr*을 사용하여 AKS 클러스터의 내부 서비스에 IP 주소를 할당합니다. 이 IP 주소 범위는 네트워크 환경의 다른 위치에서 사용되지 않는 주소 공간이어야 합니다. 여기에는 Express Route 또는 사이트 간 VPN 연결을 사용하여 Azure Virtual Network에 연결하거나 연결하려는 경우 모든 온-프레미스 네트워크 범위가 포함됩니다.
+* *--service-cidr*을 사용하여 AKS 클러스터의 내부 서비스에 IP 주소를 할당합니다. 이 IP 주소 범위는 네트워크 환경의 다른 위치에서 사용되지 않는 주소 공간이어야 합니다. 이 범위에 연결 또는 Express Route 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하려고 하는 경우 모든 온-프레미스 네트워크 범위를 포함 합니다.
 
 * *--dns-service-ip* 주소는 서비스 IP 주소 범위의 *.10* 주소여야 합니다.
 
-* *--pod-cidr*은 네트워크 환경의 다른 위치에서 사용되지 않는 큰 주소 공간이어야 합니다. 여기에는 Express Route 또는 사이트 간 VPN 연결을 사용하여 Azure Virtual Network에 연결하거나 연결하려는 경우 모든 온-프레미스 네트워크 범위가 포함됩니다.
+* *--pod-cidr*은 네트워크 환경의 다른 위치에서 사용되지 않는 큰 주소 공간이어야 합니다. 이 범위에 연결 또는 Express Route 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하려고 하는 경우 모든 온-프레미스 네트워크 범위를 포함 합니다.
     * 이 주소 범위는 확장할 예정인 노드 수를 수용할만큼 충분히 커야 합니다. 추가 노드를 위해 더 많은 주소가 필요하더라도 클러스터를 배포한 후에는 이 주소 범위를 변경할 수 없습니다.
     * Pod IP 주소 범위를 사용하여 */24* 주소 공간을 클러스터의 각 노드에 할당합니다. 다음 예제에서 *192.168.0.0/16*의 *-pod-cidr*은 첫 번째 노드 *192.168.0.0/24*, 두 번째 노드 *192.168.1.0/24*, 세 번째 노드 *192.168.2.0/24*를 할당합니다.
     * 클러스터가 확장 또는 업그레이드되면 Azure 플랫폼은 새로운 각 노드에 pod IP 주소 범위를 계속 할당합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322055"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428162"
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
 서비스에 문제가 발생할 때 인시던트 및 중단에 응답하고 수정하는 능력은 문제를 빠르게 검색할 수 있는 능력과 밀접한 관련이 있습니다. 서비스 코드에서 Azure 서비스 패브릭 상태 관리자로 문제 및 오류를 보고하면 서비스 패브릭이 제공하는 표준 상태 모니터링 도구를 사용하여 상태를 확인할 수 있습니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60322055"
 ## <a name="prerequisites"></a>필수 조건
 다음이 설치되어 있어야 합니다.
 
-* Visual Studio 2015 또는 Visual Studio 2017
+* Visual Studio 2015 또는 Visual Studio 2019
 * Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>로컬 보안 개발자 클러스터를 만들려면
@@ -65,7 +65,7 @@ ms.locfileid: "60322055"
 Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드가 포함되어 있습니다. 다음 단계는 서비스 코드에서 사용자 지정 상태 이벤트를 보고할 수 있는 방법을 보여 줍니다. 이런 보고서는 Service Fabric 탐색기, Azure Portal 상태 보기 및 PowerShell과 같이 상태 모니터링을 위해 서비스 패브릭이 제공하는 표준 도구에 자동으로 표시됩니다.
 
 1. Visual Studio에서 이전에 만든 애플리케이션을 다시 열거나 **상태 저장 서비스** Visual Studio 템플릿을 사용하여 새 애플리케이션을 만듭니다.
-1. Stateful1.cs 파일을 열고 `RunAsync` 메서드의 `myDictionary.TryGetValueAsync` 호출을 찾습니다. 이 애플리케이션의 핵심 논리는 카운트 실행을 계속 유지하는 것이므로 이 메서드가 카운터의 현재 값을 보유하는 `result` 를 반환하는 것을 볼 수 있습니다. 실제 애플리케이션에서 결과 부족이 오류를 나타낸 경우 해당 이벤트에 플래그를 지정할 수 있습니다.
+1. Stateful1.cs 파일을 열고 `RunAsync` 메서드의 `myDictionary.TryGetValueAsync` 호출을 찾습니다. 이 애플리케이션의 핵심 논리는 카운트 실행을 계속 유지하는 것이므로 이 메서드가 카운터의 현재 값을 보유하는 `result` 를 반환하는 것을 볼 수 있습니다. 이 응용 프로그램이 실제 응용 프로그램 및 결과 부족이 오류를 표시 하는 경우 해당 이벤트에 플래그 하려고 합니다.
 1. 결과 부족이 오류를 나타내는 경우 상태 이벤트를 보고하려면 다음 단계를 추가합니다.
    
     a. `System.Fabric.Health` 네임스페이스를 Stateful1.cs 파일에 추가합니다.
@@ -124,7 +124,7 @@ Visual Studio의 서비스 패브릭 프로젝트 템플릿에는 샘플 코드�
     }
     ```
    이제 이 코드는 `RunAsync`가 실행될 때마다 이 상태 보고서를 발생시킵니다. 변경한 후 **F5** 키를 눌러 애플리케이션을 실행합니다.
-1. 애플리케이션을 실행한 후에 서비스 패브릭 탐색기를 열어 애플리케이션의 상태를 확인합니다. 이번에는 Service Fabric 탐색기가 애플리케이션이 비정상이라고 표시합니다. 이는 이전에 추가한 코드에서 보고된 오류 때문입니다.
+1. 애플리케이션을 실행한 후에 서비스 패브릭 탐색기를 열어 애플리케이션의 상태를 확인합니다. 이번에는 Service Fabric 탐색기가 애플리케이션이 비정상이라고 표시합니다. 응용 프로그램 표시 된 오류 때문에 비정상으로 이전에 추가한 코드에서 보고 합니다.
    
     ![서비스 패브릭 탐색기에서 비정상적인 애플리케이션](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. 서비스 패브릭 탐색기의 트리 뷰에서 주 복제본을 선택하면 **성능 상태** 도 오류를 표시합니다. 서비스 패브릭 탐색기는 코드에서 `HealthInformation` 매개 변수에 추가된 상태 보고서 세부 정보도 표시합니다. PowerShell 및 Azure Portal에서도 동일한 상태 보고서를 볼 수 있습니다.

@@ -192,7 +192,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 [여기에서](../../azure-monitor/app/transaction-diagnostics.md) 종단 간 트랜잭션 진단 환경에 대해 자세히 알아봅니다.
 
-가상 가용성 테스트를 실패하게 만든 서버 쪽 예외 세부 정보를 확인하려면 예외 행을 클릭합니다. 다양한 코드 수준 진단에 대한 [디버그 스냅숏](../../azure-monitor/app/snapshot-debugger.md)을 가져올 수도 있습니다.
+가상 가용성 테스트를 실패하게 만든 서버 쪽 예외 세부 정보를 확인하려면 예외 행을 클릭합니다. 다양한 코드 수준 진단에 대한 [디버그 스냅샷](../../azure-monitor/app/snapshot-debugger.md)을 가져올 수도 있습니다.
 
 ![서버 쪽 진단](./media/monitor-web-app-availability/open-instance-4.png)
 

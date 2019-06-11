@@ -1,7 +1,7 @@
 ---
 title: REST API 콘솔-Content Moderator를 사용 하 여 사용 하 여 조정 작업
 titlesuffix: Azure Cognitive Services
-description: Review API의 작업 운영을 사용하여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대한 종합적인 콘텐츠 조정 작업을 시작할 수 있습니다.
+description: Review API의 작업 운영을 사용하여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대한 엔드투엔드 콘텐츠 조정 작업을 시작할 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
 ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58756089"

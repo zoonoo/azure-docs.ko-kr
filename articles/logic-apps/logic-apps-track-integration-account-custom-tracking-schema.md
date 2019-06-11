@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60847189"
 ---
-# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 종단 간 워크플로를 모니터링하는 사용자 지정 추적 스키마 만들기
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 엔드투엔드 워크플로를 모니터링하는 사용자 지정 추적 스키마 만들기
 
 기업 간 워크플로의 다양한 부분에 대해 사용할 수 있는 기본 제공 추적(예: AS2 또는 X12 메시지 추적)이 있습니다. 논리 앱, BizTalk Server, SQL Server 또는 다른 계층을 포함하는 워크플로를 만들 경우 워크플로의 시작부터 끝까지 이벤트를 기록하는 사용자 지정 추적을 사용하도록 설정할 수 있습니다. 
 
@@ -64,7 +64,7 @@ ms.locfileid: "60847189"
 | runId | String | 논리 앱 실행 ID입니다. 필수 사항입니다. |
 | operationName | String | 작업의 이름(예: action 또는 trigger)입니다. 필수 사항입니다. |
 | repeatItemScopeName | String | 작업이 `foreach`/`until` 루프에 있으면 아이템 이름을 반복합니다. 필수 사항입니다. |
-| repeatItemIndex | 정수  | 작업이 `foreach`/`until` 루프에 있는지의 여부입니다. 반복된 항목 인덱스를 나타냅니다. 필수 사항입니다. |
+| repeatItemIndex | 정수 | 작업이 `foreach`/`until` 루프에 있는지의 여부입니다. 반복된 항목 인덱스를 나타냅니다. 필수 사항입니다. |
 | trackingId | String | 메시지에 상호 연결할 추적 ID입니다. (선택 사항) |
 | CorrelationId | String | 메시지에 상호 연결할 상관 관계 ID입니다. (선택 사항) |
 | clientRequestId | String | 클라이언트는 메시지에 상호 연결하기 위해 이 항목을 채울 수 있습니다. (선택 사항) |

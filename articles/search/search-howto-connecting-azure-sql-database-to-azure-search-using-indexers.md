@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025352"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755106"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
 
@@ -158,23 +158,7 @@ Azure 서비스에서 데이터베이스에 연결하도록 허용해야 할 수
 
 **interval** 매개 변수는 필수 사항입니다. 두 개의 연속된 인덱서 실행 간의 시작 시간 간격을 나타냅니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-선택적 **startTime**은 예약된 실행을 시작해야 하는 시점을 나타냅니다. 생략한 경우 현재 UTC 시간이 사용됩니다. 이 시간은 과거의 시간일 수 있습니다. 이 경우 첫 번째 실행은 인덱서가 startTime 이후에 지속적으로 실행된 것처럼 예약됩니다.  
-
-인덱서의 실행은 한 번에 하나만 실행할 수 있습니다. 인덱서가 실행 중일 때 실행이 예약된 경우 다음 예약 시간까지 실행이 연기됩니다.
-
-좀 더 구체적인 예제를 살펴보겠습니다. 다음 시간별 일정을 구성했다고 가정해 보겠습니다.
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-다음과 같은 상황이 발생합니다.
-
-1. 첫 번째 인덱서 실행은 2015년 3월 1일 오전 12시경(UTC)에 시작됩니다.
-2. 이 실행에 20분(또는 1시간 미만의 기간)이 걸리는 것으로 가정합니다.
-3. 두 번째 인덱서 실행은 2015년 3월 1일 오전 1시경에 시작됩니다.
-4. 이제 이 실행이 오전 2시 10분경에 완료되도록 1시간이 넘게(예: 70분) 걸린다고 가정해 보겠습니다.
-5. 세 번째 실행의 시작 시간은 오전 2시입니다. 그러나 오전 1시에 시작된 두 번째 실행이 여전히 실행 중이므로 세 번째 실행을 건너뜁니다. 세 번째 실행은 오전 3시에 시작됩니다.
-
-**PUT indexer** 요청을 사용하여 기존 인덱서에 대한 일정을 추가, 변경 또는 삭제할 수 있습니다.
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
 
 <a name="CaptureChangedRows"></a>
 

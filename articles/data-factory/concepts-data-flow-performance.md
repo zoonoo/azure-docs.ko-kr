@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297696"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480421"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 튜닝 가이드
 
@@ -29,15 +29,28 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 
 ![디버그 단추](media/data-flow/debugb1.png "디버그")
 
+## <a name="monitor-data-flow-performance"></a>데이터 흐름 성능 모니터링
+
+브라우저에서 흐르는 데이터 매핑을 디자인 하는 동안 하면 단위 테스트 각 개별 변환 각 변환에 대 한 아래쪽 설정 창에서 데이터 미리 보기 탭을 클릭 하 여 합니다. 수행 해야 하는 다음 단계에 데이터 흐름 엔드-투-엔드 파이프라인 디자이너에서 테스트 하는 것입니다. 데이터 흐름 실행 활동을 추가 하 고 디버그 단추를 사용 하 여 데이터 흐름의 성능을 테스트 합니다. 파이프라인 창의 아래쪽 창에서 "작업"에서 안경 닦는 아이콘이 표시 됩니다.
+
+![데이터 흐름 모니터](media/data-flow/mon002.png "데이터 흐름 2 모니터링")
+
+해당 아이콘을 클릭 하 여 실행 계획 및 데이터 흐름의 후속 성능 프로필 표시 됩니다. 다른 크기의 데이터 원본에 대 한 데이터 흐름의 성능을 예측에이 정보를 사용할 수 있습니다. 전반적인 성능 계산에서 클러스터 작업 실행 설치 시간 1 분을 가정할 수 있습니다 하 고 클러스터 스핀업 시간 5 분을 추가 해야 기본 Azure Integration Runtime을 사용 하는 경우 note 합니다.
+
+![데이터 흐름 모니터링](media/data-flow/mon003.png "데이터 흐름 3 모니터")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Azure SQL Database 및 Azure SQL Data Warehouse에 대 한 최적화
 
 ![원본 파트](media/data-flow/sourcepart2.png "일부 원본")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>Spark 데이터 원본 데이터베이스 분할에 분할 키를 기반으로 데이터베이스 테이블 열 소스 변환에서 일치 시킬 수 있습니다.
+### <a name="partition-your-source-data"></a>원본 데이터를 분할 합니다.
 
 * "최적화"로 이동한 다음 "Source"를 선택 합니다. 쿼리에서 특정 테이블 열 또는 유형 중 하나를 설정 합니다.
 * "열"을 선택한 경우 다음 파티션 열을 선택 합니다.
 * 또한 Azure SQL DB에 연결의 최대 수 설정. 더 높은 설정 데이터베이스에 대 한 병렬 연결을 얻으려고 시도할 수 있습니다. 그러나 일부 경우 제한 된 수의 연결을 사용 하 여 성능이 향상 될 수 있습니다.
+* 원본 데이터베이스 테이블 분할 될 필요가 없습니다.
+* 데이터베이스 테이블의 파티션 구성표와 일치 하는 프로그램 원본 변환 쿼리를 설정 하면 파티션 제거를 활용 하는 소스 데이터베이스 엔진입니다.
+* 원본에 이미 분할 되지 않은 경우 ADF 데이터 원본 변환에서 선택 하는 키를 기반으로 Spark 변환 환경에서 분할을 계속 사용 합니다.
 
 ### <a name="set-batch-size-and-query-on-source"></a>원본에서 일괄 처리 크기 및 쿼리 설정
 
@@ -51,7 +64,7 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 
 ![싱크](media/data-flow/sink4.png "싱크")
 
-* 사용자 데이터 floes 행 단위로 처리를 방지 하기 위해 Azure SQL DB에 대 한 싱크 설정에서 "일괄 처리 크기"를 설정 합니다. 이 ADF 데이터베이스 처리를 제공 하는 크기에 따라 일괄 처리의 기록 알려줍니다.
+* 데이터 흐름의 행 단위로 처리를 방지 하기 위해 Azure SQL DB에 대 한 싱크 설정에서 "일괄 처리 크기"를 설정 합니다. 이 ADF 데이터베이스 처리를 제공 하는 크기에 따라 일괄 처리의 기록 알려줍니다.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>분할에 싱크에서 옵션 설정
 
@@ -84,7 +97,7 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>준비를 사용 하 여 데이터를 대량으로 Polybase 통해 로드
 
-* 사용자 데이터 floes 행 단위로 처리를 방지 하기 위해 ADF DW로-행 삽입을 방지 하려면 Polybase를 활용할 수 있도록에 싱크 설정에서 "스테이징" 옵션을 설정 합니다. 이 데이터를 대량에서 로드할 수 있도록 Polybase를 사용 하는 ADF 지시 합니다.
+* 데이터 흐름의 행 단위로 처리를 방지 하기 위해 ADF DW로-행 삽입을 방지 하려면 Polybase를 활용할 수 있도록에 싱크 설정에서 "스테이징" 옵션을 설정 합니다. 이 데이터를 대량에서 로드할 수 있도록 Polybase를 사용 하는 ADF 지시 합니다.
 * 데이터 흐름 작업을 실행 하는 경우 스테이징을 사용 하 여 파이프라인 설정, 대량 로드에 대 한 준비 데이터의 Blob 저장소 위치를 선택 해야 합니다.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Azure SQL DW의 크기 늘리기
@@ -113,4 +126,4 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 
 - [데이터 흐름 개요](concepts-data-flow-overview.md)
 - [데이터 흐름 작업](control-flow-execute-data-flow-activity.md)
-
+- [데이터 흐름 성능 모니터링](concepts-data-flow-monitoring.md)

@@ -3,19 +3,19 @@ title: Translator Text API BreakSentence 메서드
 titlesuffix: Azure Cognitive Services
 description: Translator Text API BreakSentence 메서드를 사용합니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: b2c0fbbfbcd2e3cf71ef85b9d06f2f805698bfd0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797427"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387570"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
     <td>*필수 쿼리 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>언어</td>
     <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다.</td>
   </tr>
   <tr>

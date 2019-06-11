@@ -24,7 +24,7 @@ ms.locfileid: "65204033"
 > [!NOTE]
 > 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [Data Factory의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
 
-이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
+이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 엔드투엔드 연습 과정을 제공합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -67,7 +67,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 [![대규모 데이터 처리 다이어그램](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
-다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 종단 간 솔루션을 구축하는 코드와 설명이 포함되어 있습니다.
+다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 엔드투엔드 솔루션을 빌드하는 코드와 설명이 포함되어 있습니다.
 
 * **계산 노드(VM)의 풀과 함께 Batch를 구성합니다.** 노드 수와 각 노드의 크기를 지정할 수 있습니다.
 

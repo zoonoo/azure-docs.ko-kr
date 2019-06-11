@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727445"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427826"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -82,7 +82,7 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 |공급자|인증서 종류|  
 |--------------|----------------------|  
 |DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
-|GlobalCert|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
+|GlobalCert|Key Vault는 Globaltrust 사용 하 여 OV 또는 EV SSL 인증서 제공 |
 
  인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
 

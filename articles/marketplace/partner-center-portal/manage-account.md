@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806193"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752835"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 Marketplace 계정을 관리 하는 방법 
 
@@ -279,7 +279,7 @@ United States 개별 납세자 식별 번호 (또는 뿐만) Microsoft에서 지
 1.  **사용자** 페이지 (아래 **계정 설정**)을 선택 **Azure AD 응용 프로그램을 추가**합니다.
 2.  다음 페이지에서 선택 **새 Azure AD 응용 프로그램**합니다.
 3.  입력 된 **회신 URL** 새 Azure AD 응용 프로그램입니다. 사용자가 로그인 하 고 (앱 URL 또는 로그온 URL 때로는 라고도 함) Azure AD 응용 프로그램을 사용 하 여 수 있는 URL입니다. 합니다 **회신 URL** 256 자 보다 길 수 없습니다 및 디렉터리 내에서 고유 해야 합니다.
-4.  입력 된 **앱 ID URI** 새 Azure AD 응용 프로그램입니다. Azure ad single sign-on 요청을 보내면 표시 되는 Azure AD 응용 프로그램에 대 한 논리 식별자입니다. 유의 합니다 **앱 ID URI** 디렉터리에서 각 Azure AD 응용 프로그램에 대해 고유 해야 합니다. 이 ID는 256 자 보다 길 수 없습니다. 앱 ID URI에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant)합니다.
+4.  입력 된 **앱 ID URI** 새 Azure AD 응용 프로그램입니다. Azure ad single sign-on 요청을 보내면 표시 되는 Azure AD 응용 프로그램에 대 한 논리 식별자입니다. 유의 합니다 **앱 ID URI** 디렉터리에서 각 Azure AD 응용 프로그램에 대해 고유 해야 합니다. 이 ID는 256 자 보다 길 수 없습니다. 앱 ID URI에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts)합니다.
 5.  에 **역할** 섹션, 역할 또는 Azure AD 응용 프로그램에 대 한 사용자 지정된 권한을 지정 합니다.
 6.  **저장**을 선택합니다.
 
@@ -309,11 +309,11 @@ Azure AD 응용 프로그램 읽기 및 Microsoft Azure AD에서에서 데이터
 
 |**역할**|**권한**|
 |----------------------------------|:---------------------------------|
-|전역 관리자|• 모든 Microsoft 계정/서비스 전체 권한으로 액세스할 수 있습니다.
+|글로벌 관리자|• 모든 Microsoft 계정/서비스 전체 권한으로 액세스할 수 있습니다.
 |      |• 파트너 센터에 대 한 지원 티켓 만들기
 ||• 보기 계약, 가격 목록 및 제품
 ||• 뷰를 만들고 파트너 사용자 관리|
-|관리자|•는 지급액 및 세금 설정 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
+|Manager|•는 지급액 및 세금 설정 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
 |      |•는 사용자 역할을 관리할 수 있고 회사 계정 (테 넌 트)|
 |Developer|•는 패키지를 업로드, 앱 및 추가 기능, 제출 및 원격 분석 정보에 대 한 사용 현황 보고서를 보려면
 |      |• 재무 정보 또는 계정 설정에 액세스할 수 없습니다.|
@@ -367,7 +367,7 @@ Azure AD 응용 프로그램 읽기 및 Microsoft Azure AD에서에서 데이터
 > 로그인 한 경우 현재 파트너 센터 계정을 사용 하 여 동일한 테 넌 트에 테 넌 트를 제거할 수 없습니다. 테 넌 트를 제거 파트너 센터에 로그인 해야 합니다는 **Manager** 계정과 연결 된 다른 테 넌 트에 대 한 합니다. 하나의 테 넌 트 계정에 연결 된 경우 해당 테 넌 트 계정을 연 Microsoft 계정으로 로그인 한 후 제거 될 수 있습니다.
 
 
-## <a name="agreements"></a>계약
+## <a name="agreements"></a>규약
 
 합니다 **계약** 파트너 센터의 섹션 (아래 **계정 설정**) 승인한 게시 계약 목록을 확인해 보겠습니다. 이러한 계약 이름 및 버전 번호에 허용 된 날짜를 포함 하 여 규약을 허용 하는 사용자의 이름에 따라 나열 됩니다. 
 

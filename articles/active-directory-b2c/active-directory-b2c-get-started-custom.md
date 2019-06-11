@@ -2,20 +2,20 @@
 title: 사용자 지정 정책-Azure Active Directory B2C를 사용 하 여 시작 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 시작 하는 방법에 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986826"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730022"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -83,7 +83,7 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
 1. **앱 등록 (레거시)** 를 선택 **새 응용 프로그램 등록**합니다.
 2. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
 3. **응용 프로그램 종류**로 **네이티브**를 선택합니다.
-4. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트입니다.
+4. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
 5. **만들기**를 클릭합니다. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 6. 설정 페이지에서 **필요한 권한**, **추가**를 차례로 선택합니다.
 7. 선택 **API 선택**를 검색 하 고 선택 **IdentityExperienceFramework**를 클릭 하 고 **선택**합니다.

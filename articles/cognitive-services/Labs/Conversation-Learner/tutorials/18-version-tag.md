@@ -1,21 +1,21 @@
 ---
-title: Conversation Learner 모델에서 Version Tagging을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: 대화 학습자 모델-Azure Cognitive Services를 사용 하 여 버전 태그를 사용 하는 방법 | Microsoft Docs
 titleSuffix: Azure
 description: Conversation Learner 모델에서 버전 관리 및 태그 지정을 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086312"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475715"
 ---
 # <a name="how-to-use-version-tagging"></a>Version Tagging을 사용하는 방법
 
@@ -30,9 +30,9 @@ ms.locfileid: "58086312"
 
 ## <a name="details"></a>세부 정보
 
-모델의 태그가 지정된 버전은 정적이므로 편집하거나 변경할 수 없습니다. 모델을 편집할 때 항상 마스터 버전을 편집 중입니다. 새 태그를 추가할 때 Conversation Learner는 해당 시점에 모델의 스냅숏을 캡처합니다. 
+모델의 태그가 지정된 버전은 정적이므로 편집하거나 변경할 수 없습니다. 모델을 편집할 때 항상 마스터 버전을 편집 중입니다. 새 태그를 추가할 때 Conversation Learner는 해당 시점에 모델의 스냅샷을 캡처합니다. 
 
-봇이 "라이브" 버전으로 선택한 버전의 모델을 사용하지만 "태그 편집"을 "마스터"로 설정하는 경우 봇이 보유한 모든 대화를 볼 수 있습니다. 모델의 "태그 편집" 속성이 "Master" 이외의 값으로 설정되는 경우 모델의 스냅숏을 볼 수 있지만 모델을 어떤 방식으로도 변경할 수 없습니다.
+봇이 "라이브" 버전으로 선택한 버전의 모델을 사용하지만 "태그 편집"을 "마스터"로 설정하는 경우 봇이 보유한 모든 대화를 볼 수 있습니다. 모델의 "태그 편집" 속성이 "Master" 이외의 값으로 설정되는 경우 모델의 스냅샷을 볼 수 있지만 모델을 어떤 방식으로도 변경할 수 없습니다.
 
 ## <a name="steps"></a>단계
 
@@ -109,4 +109,4 @@ ms.locfileid: "58086312"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [데모 - 암호 재설정](./demo-password-reset.md)
+> [열거형 엔터티 및 엔터티 동작 설정](./tutorial-enum-set-entity.md)

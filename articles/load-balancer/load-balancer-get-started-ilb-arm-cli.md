@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122316"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475893"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -60,7 +60,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용하여 **myFrontEnd**라는 프런트 엔드 IP 구성 및 **10.0.0.7 개인 IP 주소와 연결되는 **myBackEndPool**이라는 백 엔드 풀이 포함된 **myLoadBalancer**라는 공용 기본 부하 분산 장치를 만듭니다.
+내부 Load Balancer를 만듭니다 [az network lb 만듭니다](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 라는 **myLoadBalancer** 이라는 프런트 엔드 IP 구성을 포함 하는 **myFrontEnd**, 이라는 백 엔드 풀 **myBackEndPool** 개인 IP 주소와 연결 된 * * 10.0.0.7 합니다.
 
 ```azurecli-interactive
   az network lb create \

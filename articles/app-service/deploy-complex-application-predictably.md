@@ -36,7 +36,7 @@ ms.locfileid: "60766922"
 * Application insights, 경고, 자동 크기 조정 설정
 
 ## <a name="tools-you-will-use"></a>사용할 도구
-이 자습서에서는 다음 도구를 사용합니다. 도구에 대한 포괄적인 설명이 아니기 때문에 종단간 시나리오를 그대로 유지하고 각각에 대해 간단히 소개하고 이에 대한 자세한 정보를 찾을 수 있는 곳을 알려드립니다. 
+이 자습서에서는 다음 도구를 사용합니다. 도구에 대한 포괄적인 설명이 아니기 때문에 엔드투엔드 시나리오를 그대로 유지하고 각각에 대해 간단히 소개하고 이에 대한 자세한 정보를 찾을 수 있는 곳을 알려드립니다. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 리소스 관리자 템플릿(JSON)
 예를 들어 Azure App Service에서 앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [Azure Marketplace](/azure/marketplace)의 복잡한 템플릿은 데이터베이스, 스토리지 계정, App Service 계획, 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 제공됩니다. Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)
@@ -193,7 +193,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 **Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-2. **Visual C#** > **클라우드** > **Azure 리소스 그룹**을 클릭한 후에 **확인**을 클릭합니다.
+2. **Visual C#**  > **클라우드** > **Azure 리소스 그룹**을 클릭한 후에 **확인**을 클릭합니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. **Azure 템플릿 선택**에서 **빈 템플릿**을 선택하고 **확인**을 클릭합니다.

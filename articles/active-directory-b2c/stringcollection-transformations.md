@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 StringCollection 클레임 변환 예제 | Microsoft Docs
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 StringCollection 클레임 변환 예제를 제공합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37102a231f1741b9e488cca101f4a5411f89de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681998"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512429"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 

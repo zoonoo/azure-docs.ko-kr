@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795759"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480086"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "65795759"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- [시나리오 아키텍처 및 구성 요소](concepts-azure-to-azure-architecture.md)를 이해해야 합니다.
+- [시나리오 아키텍처 및 구성 요소](concepts-azure-to-azure-architecture.md)를 검토합니다.
 - 시작하기 전에 [지원 요구 사항](site-recovery-support-matrix-azure-to-azure.md)을 검토합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
@@ -156,7 +156,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
     --- | ---
     **복제 정책 이름** | 정책 이름입니다.
     **복구 지점 보존** | 기본적으로 Site Recovery는 복구 지점을 24시간 동안 유지합니다. 이 값을 1-72시간 사이에서 구성할 수 있습니다.
-    **앱 일치 스냅숏 빈도** | 기본적으로 Site Recovery는 4시간마다 앱 일치 스냅숏을 만듭니다. 이 값을 1-12시간 사이에서 구성할 수 있습니다.<br/><br/> 앱 일치 스냅숏은 VM 내 애플리케이션 데이터의 지정 시간 스냅숏입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
+    **앱 일치 스냅샷 빈도** | 기본적으로 Site Recovery는 4시간마다 앱 일치 스냅샷을 만듭니다. 이 값을 1-12시간 사이에서 구성할 수 있습니다.<br/><br/> 앱 일치 스냅샷은 VM 내 애플리케이션 데이터의 지정 시간 스냅샷입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅샷을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
     **복제 그룹** | 애플리케이션에서 여러 VM 간에 다중 VM 일관성을 유지해야 하는 경우 해당 VM에 대한 복제 그룹을 만들 수 있습니다. 선택한 VM은 기본적으로 복제 그룹에 포함되지 않습니다.
 
 5. 새 또는 기존 복제 그룹에 VM을 추가하려는 경우  **사용자 지정**에서 다중 VM 일관성에 대해 **예**를 선택합니다. 그런 후 **OK**를 클릭합니다. 

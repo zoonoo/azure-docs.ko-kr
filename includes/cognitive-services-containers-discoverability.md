@@ -4,17 +4,17 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2019
-ms.openlocfilehash: d3a176171d106f2ed01cfddbb46993a43be3bb41
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2361bae06606a8337b709099832d677ca32c4499
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302809"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420711"
 ---
 ## <a name="blog-posts"></a>블로그 게시물
 
 * [Cognitive Services 컨테이너 실행](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
-* [Cognitive Services Language Understanding 컨테이너 시작](https://azure.microsoft.com/en-us/blog/getting-started-with-cognitive-services-language-understanding-container/)
+* [Cognitive Services Language Understanding 컨테이너 시작](https://azure.microsoft.com/blog/getting-started-with-cognitive-services-language-understanding-container/)
 
 ## <a name="developer-samples"></a>개발자 샘플
 

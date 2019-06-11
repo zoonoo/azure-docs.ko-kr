@@ -30,7 +30,7 @@ Azure IaaS 디스크로 시작하는 페이지 Blob에 대한 몇 가지 사용 
 
 Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 아니라 많은 타사 개발자는 페이지 Blob의 REST 인터페이스를 사용하여 업계를 주도하는 혁신을 구현했습니다. 다음은 Azure에서 구현되는 몇 가지 고유한 시나리오입니다. 
 
-* 애플리케이션 지향 증분 스냅숏 관리: 애플리케이션은 페이지 Blob 스냅숏 및 REST API를 활용하여 데이터의 비용이 중복되지 않게 애플리케이션 검사점을 저장할 수 있습니다. Azure Storage는 전체 Blob을 복사할 필요가 없는 페이지 Blob에 대한 로컬 스냅숏을 지원합니다. 또한 이러한 공용 스냅숏 API를 사용하면 스냅숏 간 델타 액세스 및 복사가 가능합니다.
+* 애플리케이션 지향 증분 스냅샷 관리: 애플리케이션은 페이지 Blob 스냅샷 및 REST API를 활용하여 데이터의 비용이 중복되지 않게 애플리케이션 검사점을 저장할 수 있습니다. Azure Storage는 전체 Blob을 복사할 필요가 없는 페이지 Blob에 대한 로컬 스냅샷을 지원합니다. 또한 이러한 공용 스냅샷 API를 사용하면 스냅샷 간 델타 액세스 및 복사가 가능합니다.
 * 응용 프로그램에서 온-프레미스에서 클라우드 및 데이터의 실시간 마이그레이션: 온-프레미스 데이터를 복사 하 고 REST Api를 사용 하 여 온-프레미스 VM을 계속 실행 하는 동안 Azure 페이지 blob에 직접 쓸입니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이러한 방식으로 Vm을 마이그레이션할 수 있습니다 하 고 가상 디스크를 온-프레미스 VM 및 장애 조치에 필요한 가동 중지 시간을 사용 하 여 계속 하는 동안 백그라운드에서 발생 되는 데이터 마이그레이션이 클라우드로 최소 가동 중지 시간 (분)에 짧은 됩니다.
 * [SAS 기반](../common/storage-dotnet-shared-access-signature-part-1.md) 공유 액세스: 동시성 제어를 지원하는 다중 판독기 및 단일 작성기와 같은 시나리오를 사용할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>지정된 크기의 빈 페이지 Blob 만들기
 
-페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 스토리지 계정(그림 1의 *pbaccount*)의 Blob 스토리지에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(*testvhds*)를 만드는 방법을 보여줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob를 만들려면 호출 [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)만들 blob의 최대 크기를 전달 합니다. blobSize는 512바이트의 배수여야 합니다.
+페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 스토리지 계정(그림 1의 *pbaccount*)의 Blob 스토리지에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(*testvhds*)를 만드는 방법을 보여줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob를 만들려면 호출 [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)만들 blob의 최대 크기를 전달 합니다. blobSize  는 512바이트의 배수여야 합니다.
 
 ```csharp
 using Microsoft.Azure;
@@ -147,8 +147,8 @@ Standard Storage 및 Premium Storage는 둘 다 내구성과 고가용성이 보
 
 ### <a name="seamless-migration-to-azure"></a>Azure로 원활한 마이그레이션
 
-Azure는 자체 사용자 지정 백업 솔루션 구현에 관심이 있는 고객 및 개발자에게 델타만 보유하는 증분 스냅숏도 제공합니다. 이 기능은 초기 전체 복사의 비용을 방지하여 백업 비용을 크게 낮출 수 있습니다. 이 기능은 효율적으로 차등 데이터를 읽고 복사하는 기능과 더불어 개발자가 기능을 한층 더 혁신할 수 있도록 해주는 또 하나의 강력한 기능입니다. 이를 통해 Azure에서 최상의 백업 및 DR(재해 복구) 환경을 제공할 수 있습니다. DR에 대한 증분 데이터를 쉽게 복사하는 데 사용할 수 있는 [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges) API 및 [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob) API와 함께 [Blob 스냅숏](/rest/api/storageservices/snapshot-blob)을 사용하여 Azure에서 VM에 대한 사용자 고유의 백업 또는 DR 솔루션을 설정할 수 있습니다. 
+Azure는 자체 사용자 지정 백업 솔루션 구현에 관심이 있는 고객 및 개발자에게 델타만 보유하는 증분 스냅샷도 제공합니다. 이 기능은 초기 전체 복사의 비용을 방지하여 백업 비용을 크게 낮출 수 있습니다. 이 기능은 효율적으로 차등 데이터를 읽고 복사하는 기능과 더불어 개발자가 기능을 한층 더 혁신할 수 있도록 해주는 또 하나의 강력한 기능입니다. 이를 통해 Azure에서 최상의 백업 및 DR(재해 복구) 환경을 제공할 수 있습니다. DR에 대한 증분 데이터를 쉽게 복사하는 데 사용할 수 있는 [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges) API 및 [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob) API와 함께 [Blob 스냅샷](/rest/api/storageservices/snapshot-blob)을 사용하여 Azure에서 VM에 대한 사용자 고유의 백업 또는 DR 솔루션을 설정할 수 있습니다. 
 
 게다가 많은 엔터프라이즈에는 온-프레미스 데이터 센터에서 이미 실행 중인 중요한 워크로드가 있습니다. 워크로드를 클라우드로 마이그레이션하는 데 우려 사항 중 하나는 해당 데이터를 복사하는 데 필요한 가동 중단 시간과 전환 후 예측하지 못한 문제 발생 위험입니다. 대부분의 경우 가동 중단 시간은 클라우드로의 마이그레이션을 위한 쇼스타퍼(showstopper)일 수 있습니다. Azure는 페이지 Blob REST API를 사용하여 중요한 워크로드의 중단을 최소화하면서 클라우드를 마이그레이션하여 이 문제를 해결합니다. 
 
-스냅숏을 만드는 방법 및 스냅숏에서 페이지 Blob을 복원하는 방법에 대한 예제는 [증분 스냅숏을 사용하여 백업 프로세스 설정](../../virtual-machines/windows/incremental-snapshots.md) 문서를 참조하세요.
+스냅샷을 만드는 방법 및 스냅샷에서 페이지 Blob을 복원하는 방법에 대한 예제는 [증분 스냅샷을 사용하여 백업 프로세스 설정](../../virtual-machines/windows/incremental-snapshots.md) 문서를 참조하세요.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464822"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514505"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례
 
@@ -22,7 +22,6 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 > [!div class="checklist"]
 > * 이미지 취약성 검색 및 해결
-> * 디지털 서명된 컨테이너 이미지에서 신뢰할 수 있는 레지스트리 사용
 > * 기본 이미지가 업데이트될 때 컨테이너 이미지를 자동으로 트리거하고 다시 배포
 
 [클러스터 보안][best-practices-cluster-security] 및 [Pod 보안][best-practices-pod-security]에 대한 모범 사례를 참조할 수도 있습니다.
@@ -36,16 +35,6 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 ![컨테이너 이미지 검색 및 수정, 유효성 검사 후 배포](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 실제 예제에서는 CI/CD(지속적인 통합/지속적인 배포) 파이프라인을 사용하여 이미지 검색, 확인 및 배포를 자동화할 수 있습니다. Azure Container Registry에는 이러한 취약성 검사 기능이 포함되어 있습니다.
-
-## <a name="use-a-trusted-registry"></a>신뢰할 수 있는 레지스트리 사용
-
-**모범 사례 지침** - Pod 및 배포에서 사용할 수 있는 이미지 레지스트리를 제한합니다. 사용할 수 있는 이미지의 유효성을 검사하고 제어하는 신뢰할 수 있는 레지스트리만 허용합니다.
-
-추가 보안을 위해 애플리케이션 코드에 디지털로 서명할 수 있는 것처럼 컨테이너 이미지에도 디지털로 서명할 수 있습니다. 그런 다음, AKS가 서명된 이미지만 배포하도록 허용합니다. 이 프로세스는 취약성 검사를 통과한 이미지만이 아니라 디지털로 서명되고 사용자가 신뢰할 수 있는 이미지만 끌어오도록 AKS를 제한하는 추가적인 보안 계층을 제공합니다. 또한 컨테이너 이미지가 손상되거나 정확히 같은 이름을 갖는 이미지로 바뀌는 일이 없도록 할 수 있습니다.
-
-디지털로 서명된 컨테이너 이미지를 제공하는 신뢰할 수 있는 레지스트리로 인해 작업 환경이 복잡해질 수 있지만 특정 정책 또는 규정 준수를 위해 디지털 서명이 반드시 필요할 수 있습니다. Azure Container Registry는 신뢰할 수 있는 레지스트리와 서명된 이미지가 사용되도록 지원합니다.
-
-디지털로 서명된 이미지에 대한 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰][acr-content-trust]를 참조하세요.
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>기본 이미지 업데이트 시 새 이미지를 자동으로 빌드
 
@@ -62,7 +51,6 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 이 문서에서는 컨테이너를 보호하는 방법을 중점적으로 설명했습니다. 이러한 일부 영역을 구현하려면 다음 문서를 참조하세요.
 
 * [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화][acr-base-image-update]
-* [Azure Container Registry의 콘텐츠 신뢰][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -72,5 +60,4 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

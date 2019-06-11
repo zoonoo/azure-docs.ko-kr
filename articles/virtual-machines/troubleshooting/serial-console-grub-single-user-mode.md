@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835032"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735258"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 VM을 부팅할 때 가장 먼저 나타날 수 있는 GRand Unified Bootloader입니다. 운영 체제가 시작되기 전에 표시되므로 SSH를 통해 액세스할 수 없습니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -184,7 +184,7 @@ SLES에서 GRUB 액세스에는 YaST를 통한 부팅 로더 구성이 필요합
 SLES가 정상적으로 부팅할 수 없는 경우 비상 셸로 자동으로 전환됩니다. 비상 셸로 수동으로 전환하려면 다음 지침을 따르세요.
 
 1. GRUB에서 'e'를 눌러서 부팅 항목(SLES 항목)을 편집합니다.
-1. `linux`로 시작하는 커널 줄을 찾습니다.
+1. 커널 줄을 찾은-시작 `linux`
 1. 줄의 끝에 `systemd.unit=emergency.target`을 추가합니다.
 1. Ctrl + X를 눌러서 이 설정으로 다시 부팅하고 비상 셸로 전환합니다.
    > _읽기 전용_ 파일 시스템으로 비상 셸로 전환됩니다. 편집하려는 파일이 있는 경우에는 읽기-쓰기 권한으로 파일 시스템을 다시 탑재해야 합니다. 이렇게 하려면 셸에 `mount -o remount,rw /`를 입력합니다.

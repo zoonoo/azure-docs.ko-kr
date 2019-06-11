@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130474"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472595"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Azure Monitor를 사용 하도록 설정에 대 한 Vm (미리 보기) 개요
 
@@ -40,6 +40,7 @@ ms.locfileid: "66130474"
 Vm에 대 한 azure Monitor에는 다음 지역에서 Log Analytics 작업 영역을 지원합니다.
 
 - 미국 중서부
+- 미국 서 부 2<sup>1</sup>
 - 미국 동부
 - 캐나다 중부<sup>1</sup>
 - 영국 남부<sup>1</sup>
@@ -197,8 +198,8 @@ Vm에 대 한 azure Monitor를 사용 하는 성능 카운터를 수집 하도�
 |LogicalDisk |평균 디스크 초/전송 |
 |LogicalDisk |평균 디스크 초/쓰기 |
 |LogicalDisk |디스크 바이트/초 |
-|LogicalDisk |디스크 읽기 바이트/초  |
-|LogicalDisk |디스크 읽기/초  |
+|LogicalDisk |디스크 읽기 바이트/초 |
+|LogicalDisk |디스크 읽기/초 |
 |LogicalDisk |디스크 전송/초 |
 |LogicalDisk |디스크 쓰기 바이트/초 |
 |LogicalDisk |디스크 쓰기/초 |
@@ -213,8 +214,8 @@ Vm에 대 한 azure Monitor를 사용 하는 성능 카운터를 수집 하도�
 |개체 이름 |카운터 이름 |
 |------------|-------------|
 |논리 디스크 |% 사용된 공간 |
-|논리 디스크 |디스크 읽기 바이트/초  |
-|논리 디스크 |디스크 읽기/초  |
+|논리 디스크 |디스크 읽기 바이트/초 |
+|논리 디스크 |디스크 읽기/초 |
 |논리 디스크 |디스크 전송/초 |
 |논리 디스크 |디스크 쓰기 바이트/초 |
 |논리 디스크 |디스크 쓰기/초 |

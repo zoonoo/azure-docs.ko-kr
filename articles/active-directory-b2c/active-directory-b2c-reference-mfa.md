@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 Multi-Factor Authentication | Microsoft Docs
 description: Azure Active Directory B2C에서 보호하는 소비자 지향 애플리케이션에서 Multi-Factor Authentication을 사용하는 방법입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6cd9cdd2a63b91d0b72a73ba65f4fff87d2a3922
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a14c648e55c25c6244f1ba09d5b73bf31e5f7337
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715740"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509306"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs
 

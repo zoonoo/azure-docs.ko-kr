@@ -43,10 +43,12 @@
   items:
     - name: 키-값 저장소
       href: concept-key-value.md
-    - name: 지정 시간 스냅숏
+    - name: 지정 시간 스냅샷
       href: concept-point-time-snapshot.md
     - name: 기능 관리
       href: concept-feature-management.md
+    - name: 이벤트 처리
+      href: concept-app-configuration-event.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: 구성 데이터 가져오기 또는 내보내기
       href: howto-import-export-data.md
+    - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
+      href: howto-app-configuration-event.md
     - name: 모범 사례
       href: howto-best-practices.md
 - name: 참고 자료

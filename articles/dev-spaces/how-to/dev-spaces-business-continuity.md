@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686984"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754421"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -27,7 +27,7 @@ Azure Dev Spaces는 AKS(Azure Kubernetes Service)의 기능입니다. AKS의 재
 
 여러 지역에서 AKS 클러스터에 대해 Dev Spaces를 사용하도록 설정하면 Azure 지역 하나에서 오류가 발생하더라도 Dev Spaces 사용을 즉시 다시 시작할 수 있습니다.
 
-여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)을 참조하세요.
+여러 지역에 AKS를 배포하는 방법과 관련된 일반 정보는 [여러 지역 배포 계획](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)을 참조하세요.
 
 Azure Dev Spaces와 호환되는 AKS 클러스터 배포에 대한 정보는 [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)를 참조하세요.
 
@@ -79,7 +79,7 @@ azds space select -n <space name>
 
 Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로젝트에 사용되는 클러스터를 전환할 수 있습니다.
 
-1. Visual Studio에서 새 프로젝트를 엽니다.
+1. Visual Studio에서 프로젝트를 엽니다.
 1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. 왼쪽 창에서 **디버그**를 클릭합니다.
 1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces**를 선택합니다.

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192544"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492748"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -34,9 +34,9 @@ Azure Blob storage에 대 한 변경할 수 없는 저장소를 사용 하면 �
 
 변경할 수 없는 저장소 다음을 지원합니다.
 
-- **[시간 기준 보존 정책 지원이](#time-based-retention)**: 사용자 지정된 된 간격에 대 한 데이터를 저장 하는 정책을 설정할 수 있습니다. 시간 기준 보존 정책이 경우 설정 blob 생성 및 읽기, 하지만 하지 수정 하거나 삭제할 수입니다. 보존 기간이 만료 되 면 blob은 삭제 하지만 덮어쓰지 수 있습니다.
+- **[시간 기준 보존 정책 지원이](#time-based-retention)** : 사용자 지정된 된 간격에 대 한 데이터를 저장 하는 정책을 설정할 수 있습니다. 시간 기준 보존 정책이 경우 설정 blob 생성 및 읽기, 하지만 하지 수정 하거나 삭제할 수입니다. 보존 기간이 만료 되 면 blob은 삭제 하지만 덮어쓰지 수 있습니다.
 
-- **[법적 보존 정책 지원이](#legal-holds)**: 보존 간격을 알 수 없는 경우 사용자 데이터를 저장할 immutably 법적 보존을 지울 때까지 법적 포함을 설정할 수 있습니다.  법적 보존 정책을 설정 하는 경우 blob 생성 및 읽기, 하지만 하지 수정 하거나 삭제할 수입니다. 각 법적 보존을 사용자 정의 영숫자 태그 (예: 이벤트 이름 등 사례 ID) 문자열을 식별자로 사용 되는 연결 되어 있습니다. 
+- **[법적 보존 정책 지원이](#legal-holds)** : 보존 간격을 알 수 없는 경우 사용자 데이터를 저장할 immutably 법적 보존을 지울 때까지 법적 포함을 설정할 수 있습니다.  법적 보존 정책을 설정 하는 경우 blob 생성 및 읽기, 하지만 하지 수정 하거나 삭제할 수입니다. 각 법적 보존을 사용자 정의 영숫자 태그 (예: 이벤트 이름 등 사례 ID) 문자열을 식별자로 사용 되는 연결 되어 있습니다. 
 
 - **모든 Blob 계층 지원**: WORM 정책은 Azure Blob Storage 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층으로 데이터를 전환할 수 있습니다.
 
@@ -53,7 +53,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 ### <a name="time-based-retention"></a>시간 기반 보존
 
 > [!IMPORTANT]
-> SEC 17a-4(f) 및 기타 규정을 준수하도록 Blob을 변경 불가능한 상태(쓰기 및 삭제 금지)로 유지하려면 시간 기준 보존 정책을 *잠가야* 합니다. 적절한 시간(일반적으로 24 시간 이내)에 정책을 잠그는 것이 좋습니다. 단기간의 기능 평가 이외의 용도로는 *잠금 해제* 상태를 사용하지 않는 것이 좋습니다.
+> 시간 기준 보존 정책이 있어야 *잠긴* 규격이에 blob에 대 한 변경할 수 없는 (쓰기 및 삭제 금지 된) 초 17a-4(f) 및 기타 규정 준수에 대 한 상태입니다. 잠그는 정책을 합당 한 시간에에서 일반적으로 24 시간 보다 작아야 하는 것이 좋습니다. 적용된 시간 기준 보존 정책의 초기 상태가 *잠기지 않은*, 기능을 테스트 하 고 잠글 전에 정책을 변경할 수 있습니다. 하는 동안 합니다 *잠기지 않은* 불변성 보호를 제공 하는 상태를 권장 하지 않습니다를 사용 하 여를 *잠기지 않은* 단기 기능 평가판 이외의 목적을 위해 상태. 
 
 컨테이너에 시간 기준 보존 정책을 적용하면 컨테이너의 모든 Blob이 *유효* 보존 기간 동안 변경 불가능한 상태로 유지됩니다. 기존 blob에 대 한 효과적인 보존 기간은 blob 수정 시간 및 사용자 지정 보존 간격 사이의 차이 것과 같습니다.
 
@@ -66,6 +66,8 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 >
 > 새 blob _testblob2_, 이제 컨테이너에 업로드 합니다. 이 새 Blob의 유효 보존 기간은 5년입니다.
 
+잠금 해제 시간 기준 보존 정책을 기능 테스트에 권장 및 정책을 초 17a-4(f) 및 기타 규정을 준수 하기 위해 잠겨 있어야 합니다. 시간 기준 보존 정책이 잠기면 정책을 제거할 수 없습니다 하 고 효과적인 보존 기간으로 5 증가의 경우 최대 허용 됩니다. 잠금 시간 기준 보존 정책을 설정 하는 방법에 대 한 자세한 내용은 참조는 [Getting started](#getting-started) 섹션입니다.
+
 ### <a name="legal-holds"></a>법적 보존
 
 법적 보존이 설정되면 이 법적 보존을 지울 때까지 기존 및 새 Blob이 모두 변경 불가능한 상태로 유지됩니다. 법적 보존을 설정하고 지우는 방법에 대한 자세한 내용은 [시작](#getting-started) 섹션을 참조하세요.
@@ -77,7 +79,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 |시나리오  |Blob 상태  |허용되지 않는 Blob 작업  |
 |---------|---------|---------|
 |BLOB의 유효 보존 기간이 아직 만료되지 않았고/않았거나 법적 보존이 설정되어 있음     |변경할 수 없음: 삭제 및 쓰기 금지         | Blob 배치<sup>1</sup>, 블록 배치<sup>1</sup>, 블록 목록 배치<sup>1</sup>Delete Blob 컨테이너 집합에 대 한 Blob 메타 데이터 삭제, 페이지 배치, Blob 속성, 스냅숏 Blob, Blob 증분 복사를 설정 합니다. 블록 추가         |
-|BLOB의 유효 보존 기간이 만료됨     |쓰기만 금지(삭제 작업은 허용)         |Blob<sup>1</sup> 배치, 블록<sup>1</sup> 배치, 블록 목록<sup>1</sup> 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅숏 Blob, Blob 증분 복사, 블록 추가         |
+|BLOB의 유효 보존 기간이 만료됨     |쓰기만 금지(삭제 작업은 허용)         |Blob<sup>1</sup> 배치, 블록<sup>1</sup> 배치, 블록 목록<sup>1</sup> 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅샷 Blob, Blob 증분 복사, 블록 추가         |
 |모든 법적 보존을 지우고,컨테이너에 시간 기준 보존 정책이 설정되지 않음     |변경 가능         |없음         |
 |만들어진 WORM 정책(시간 기준 보존 또는 법적 보존)이 없음     |변경 가능         |없음         |
 
@@ -124,7 +126,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
     초기 상태 정책의 기능을 테스트 하 여 잠글 전에 정책을 변경할 수 있도록 잠금 해제 됩니다. 정책을 잠금은 초 17a-4와 같은 규정 준수에 대 한 필수적입니다.
 
-5. 정책을 잠급니다. 줄임표를 마우스 오른쪽 단추로 클릭 (**...** ), 추가 작업을 사용 하 여 다음과 같은 메뉴가 나타납니다.
+5. 정책을 잠급니다. 줄임표를 마우스 오른쪽 단추로 클릭 ( **...** ), 추가 작업을 사용 하 여 다음과 같은 메뉴가 나타납니다.
 
     ![메뉴의 "잠금 정책"](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **웜 규정 준수의 설명서를 제공 하나요?**
 
-예. 문서 준수에 Microsoft는 독립 평가 기관인 Azure 변경할 수 없는 Blob Storage 및 특정 요구 사항 준수를 평가 하려면 Cohasset 연결 레코드 관리 및 정보 관리를 전문으로 하는 유지 금융 서비스 업계 합니다. Cohasset은 Azure 변경할 수 없는 Blob 저장소, 웜 상태에서 시간을 기준으로 Blob을 유지 하는 데 사용 하는 경우 CFTC 규칙 1.31(c)-(d), FINRA 규칙 4511 및 초 규칙 17a-4의 관련 저장소 요구 사항을 충족 하는지 확인 합니다. Microsoft 글로벌 금융 기관에 대 한 레코드 보존에 대 한 가장 규범적인 지침을 나타내므로이 규칙 집합을 대상으로 합니다. Cohasset 보고서에서 사용할 수 있는를 [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage)합니다.
+예. 문서 준수에 Microsoft는 독립 평가 기관인 Azure 변경할 수 없는 Blob Storage 및 특정 요구 사항 준수를 평가 하려면 Cohasset 연결 레코드 관리 및 정보 관리를 전문으로 하는 유지 금융 서비스 업계 합니다. Cohasset은 Azure 변경할 수 없는 Blob 저장소, 웜 상태에서 시간을 기준으로 Blob을 유지 하는 데 사용 하는 경우 CFTC 규칙 1.31(c)-(d), FINRA 규칙 4511 및 초 규칙 17a-4의 관련 저장소 요구 사항을 충족 하는지 확인 합니다. Microsoft 글로벌 금융 기관에 대 한 레코드 보존에 대 한 가장 규범적인 지침을 나타내므로이 규칙 집합을 대상으로 합니다. Cohasset 보고서에서 사용할 수 있는를 [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage)합니다. 증명 문자로 Microsoft에서 웜 규정 준수에 대 한를 요청 하려면 Azure 지원에 문의 하세요.
 
 **이 기능은 블록 Blob에만 적용되나요, 아니면 페이지 및 추가 Blob에도 적용되나요?**
 
@@ -186,6 +188,10 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 **법적 보존 정책을 법적 절차에 대해서만 아니면 다른 사용 시나리오가 있습니다?**
 
 아니요, 법적 보관은 시간 기준 보존 정책에 사용 되는 일반 용어만 합니다. 소송에만 사용 하지 않아도 proceedings 관련 됩니다. 법적 보존 정책을 여기서 보존 기간 알 수 없는 덮어쓰기 및 보호 하는 중요 한 엔터프라이즈 웜 데이터에 대 한 삭제를 사용 하지 않도록 설정 하는 것에 대 한 유용 합니다. 업무상 중요 한 웜 워크 로드를 보호 하거나 사용자 지정 이벤트 트리거를 시간 기준 보존 정책 사용 해야 하기 전에 준비 정책으로 사용 하려면 엔터프라이즈 정책으로 사용할 수 있습니다. 
+
+**제거할 수는 *잠긴* 시간 기준 보존 정책 또는 법적?**
+
+잠금 해제 시간 기준 보존 정책에 대 한 컨테이너에서 제거할 수 있습니다. 시간 기준 보존 정책이 잠기면 제거할 수 없습니다. 유효 기간 확장은만 사용할 수 있습니다. 법적 보존 태그를 삭제할 수 있습니다. 모든 법적 태그를 삭제할 때 법적 보존 제거 됩니다.
 
 ***잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 컨테이너를 삭제하려고 시도하면 어떻게 되나요?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-불변성 정책 제거(추가 -프롬프트 강제로 닫기):
+잠금이 해제 된 불변성 정책 제거 (추가-프롬프트 해제 하도록):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

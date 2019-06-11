@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681839"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492734"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -89,6 +89,14 @@ Azure Backup에서 수동으로 트리거된 모든 작업을 표시 합니다 *
     ![유지 하거나 백업 중지 메뉴의 데이터를 삭제 합니다.](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. 선택 **백업 중지**합니다.
+
+>
+> [!NOTE]
+참조 된 데이터 삭제 옵션에 대 한 자세한 내용은 FAQ 아래: <br/>
+* [Autoprotected 인스턴스에서 데이터베이스를 삭제할 경우 백업은 어떻게 되나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [해당 동작은 어떤 것 autoprotected 데이터베이스의 백업 작업 중지 수행 하나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
 
 
 ## <a name="resume-protection-for-a-sql-database"></a>SQL 데이터베이스에 대한 보호 재개

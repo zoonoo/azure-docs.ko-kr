@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238225"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480252"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -307,7 +307,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. 코드 셀. 이 셀은 실행하면 `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)` 출력을 표시합니다.
@@ -326,7 +326,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
@@ -403,7 +403,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
 ## <a name="save-halt-and-close-the-notebook"></a>Notebook을 저장하고, 중지하고, 닫기
 
-Notebook을 편집하는 동안 **파일** > **저장 및 검사점** 명령 또는 도구 모음의 저장 단추를 사용하여 현재 상태를 저장할 수 있습니다. "검사점"은 세션 중 언제든지 되돌릴 수 있는 스냅숏을 만듭니다. 검사점을 사용하면 일련의 실험 변경 작업을 수행할 수 있으며, 변경 내용이 작동하지 않으면 **파일** > **검사점으로 되돌리기** 명령을 사용하여 간단하게 검사점으로 되돌릴 수 있습니다. 추가 셀을 만들고 실행하지 않을 코드를 주석으로 처리하는 방법도 있습니다. 어떤 방법을 사용해도 상관 없습니다.
+Notebook을 편집하는 동안 **파일** > **저장 및 검사점** 명령 또는 도구 모음의 저장 단추를 사용하여 현재 상태를 저장할 수 있습니다. "검사점"은 세션 중 언제든지 되돌릴 수 있는 스냅샷을 만듭니다. 검사점을 사용하면 일련의 실험 변경 작업을 수행할 수 있으며, 변경 내용이 작동하지 않으면 **파일** > **검사점으로 되돌리기** 명령을 사용하여 간단하게 검사점으로 되돌릴 수 있습니다. 추가 셀을 만들고 실행하지 않을 코드를 주석으로 처리하는 방법도 있습니다. 어떤 방법을 사용해도 상관 없습니다.
 
 또한 언제든지 **파일** > **복사본 만들기** 명령을 사용하여 Notebook의 현재 상태 복사본을 프로젝트에 새 파일로 만들 수 있습니다. 해당 복사본은 새 브라우저 탭에서 자동으로 열립니다.
 

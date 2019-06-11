@@ -77,7 +77,7 @@ ms.locfileid: "65209634"
         ![Blob 목록 파일에서 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
    
    > [!NOTE]
-   > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅숏을 가져와 해당 스냅숏을 복사합니다.
+   > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.
  
 
 4. **반송 정보**에서:

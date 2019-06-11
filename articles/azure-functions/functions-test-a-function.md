@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473325"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496398"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -312,7 +312,7 @@ module.exports = {
 ```
 이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다.
 
-그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
+그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 
 ```javascript
 const httpFunction = require('./index');

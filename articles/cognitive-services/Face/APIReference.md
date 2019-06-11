@@ -12,7 +12,7 @@ ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: f4258f34bb7d353ee4e76f4675f4ef672a4a8c78
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59547608"
@@ -28,4 +28,4 @@ Azure Face API는 얼굴 감지 및 인식에 대한 알고리즘을 제공하�
 - [LargeFaceList Api](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)에 대한 LargeFaceList를 관리하는 데 사용됩니다.
 - [PersonGroup Person Api](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup Person Faces를 관리하는 데 사용됩니다.
 - [PersonGroup Api](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup 데이터 세트를 관리하는 데 사용됩니다.
-- [Api를 스냅숏](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-take): 여러 구독 간 데이터 마이그레이션용 스냅숏을 관리하는 데 사용됩니다.
+- [Api를 스냅숏](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-take): 여러 구독 간 데이터 마이그레이션용 스냅샷을 관리하는 데 사용됩니다.

@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f41e81d948bfa482a016e3770a705344f9c26b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118836"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390442"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>빠른 시작: Bing Autosuggest REST API 및 Java로 검색 쿼리 제안
 
@@ -44,7 +44,7 @@ ms.locfileid: "58118836"
     import com.google.gson.JsonParser;
     ```
 
-2. 구독 키, API 및 경로 [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)와 검색 쿼리에 대한 변수를 만듭니다.
+2. 구독 키, API 및 경로 [시장 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)와 검색 쿼리에 대한 변수를 만듭니다.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -207,4 +207,4 @@ public static String prettify(String json_text) {
 > [단일 페이지 웹앱 만들기](../tutorials/autosuggest.md)
 
 - [Bing Autosuggest란?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

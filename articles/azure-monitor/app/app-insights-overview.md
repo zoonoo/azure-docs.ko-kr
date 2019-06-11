@@ -71,7 +71,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**라이브 메트릭 스트림**](../../azure-monitor/app/live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
 | [**분석**](../../azure-monitor/app/analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**스냅숏 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅숏을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
+| [**스냅숏 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
@@ -90,7 +90,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 * 얼마나 많은 사용자가 영향을 받는지 평가합니다.
 * 오류는 예외, 종속성 호출 및 추적과 연관이 있습니다.
-* 프로파일러, 스냅숏, 스택 덤프 및 추적 로그를 검사합니다.
+* 프로파일러, 스냅샷, 스택 덤프 및 추적 로그를 검사합니다.
 
 ### <a name="build-measure-learn"></a>빌드, 측정, 학습
 배포하는 새로운 각 기능의 [효율성을 측정](../../azure-monitor/app/usage-overview.md)합니다.

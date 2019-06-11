@@ -346,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 작업을 전체적으로 보려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)에서 일괄 채점 notebook을 사용해 보세요. 
+이 작업을 엔드투엔드로 보려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)에서 일괄 채점 notebook을 사용해 보세요. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

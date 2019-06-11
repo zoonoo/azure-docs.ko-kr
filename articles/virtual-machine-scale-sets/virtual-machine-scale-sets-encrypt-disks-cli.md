@@ -114,7 +114,7 @@ az vmss encryption enable \
 
 암호화 프로세스를 시작하는 데 1~2분 정도 걸릴 수 있습니다.
 
-확장 집합이 이전 단계에 만든 확장 집합에 대한 업그레이드 정책이며 “자동”으로 설정되어 있으므로 VM 인스턴스가 암호화 프로세스를 자동으로 시작합니다. 업그레이드 정책이 수동으로 설정된 확장 집합의 경우에는 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 VM 인스턴스에 대해 암호화 정책을 시작합니다.
+확장 집합이 이전 단계에 만든 확장 집합에 대한 업그레이드 정책이며 “자동”으로 설정되어 있으므로 VM 인스턴스가 암호화 프로세스를 자동으로 시작합니다.  업그레이드 정책이 수동으로 설정된 확장 집합의 경우에는 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 VM 인스턴스에 대해 암호화 정책을 시작합니다.
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>키를 래핑하지 KEK를 사용 하 여 암호화를 사용 하도록 설정
 
@@ -148,7 +148,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-VM 인스턴스가 암호화되어 있으면 다음 예제 출력에 나온 것처럼 “EncryptionState/encrypted”가 보고됩니다.
+VM 인스턴스가 암호화되어 있으면 다음 예제 출력에 나온 것처럼 “EncryptionState/encrypted”가 보고됩니다. 
 
 ```bash
 [
@@ -187,4 +187,4 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 - 이 문서에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 암호화했습니다. [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 또는 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)에 대해 [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) 또는 템플릿을 사용할 수도 있습니다.
 - 다른 확장 프로 비전 되 면 Azure Disk Encryption 적용 하려는 경우, 사용할 수 있습니다 [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md)합니다. 사용할 수 있습니다 [이 이들은](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) 를 시작 합니다.
-- Linux 확장 집합 데이터 디스크 암호화에 대한 종단 간 배치 파일 예제는 [여기](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat)서 찾을 수 있습니다. 이 예제에서는 리소스 그룹, Linux 확장 집합을 만들고, 5GB 데이터 디스크를 탑재하고, 가상 머신 확장 집합을 암호화합니다.
+- Linux 확장 집합 데이터 디스크 암호화에 대한 엔드투엔드 배치 파일 예제는 [여기](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat)서 찾을 수 있습니다. 이 예제에서는 리소스 그룹, Linux 확장 집합을 만들고, 5GB 데이터 디스크를 탑재하고, 가상 머신 확장 집합을 암호화합니다.

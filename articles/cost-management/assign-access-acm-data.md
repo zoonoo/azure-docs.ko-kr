@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785850"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493765"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -170,6 +170,13 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
 9. **저장**을 클릭합니다.
+
+## <a name="cross-tenant-authentication-issues"></a>교차 테 넌 트 인증 문제
+
+현재 Azure Cost Management 테 넌 트 간 인증에 대 한 지원이 제한적입니다. 일부 환경에서 테 넌 트 간 인증 하려고 할 때 나타날 수 있습니다는 **액세스가 거부 되었습니다** 비용 분석에 오류가 있습니다. 이 문제는 다른 테 넌 트의 구독에 역할 기반 액세스 제어 (RBAC)를 구성 하 고 비용 데이터 보기를 시도 하는 경우에 발생할 수 있습니다.
+
+*문제를 해결 하려면*: 테 넌 트 간 RBAC를 구성한 후에 1 시간을 대기 합니다. 비용 분석에 비용을 확인 하거나 두 테 넌 트의 사용자에 게 Cost Management 액세스 권한을 부여 해 보십시오.  
+
 
 ## <a name="next-steps"></a>다음 단계
 

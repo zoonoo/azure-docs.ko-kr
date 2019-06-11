@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627153"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471432"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 정보 다운로드 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627153"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* 꼭 짓 점 및 가장자리에서 ttl을 적용할 그래프 대량 실행자에 대 한 지원 추가
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* 게이트웨이 모드에서 실행 하는 경우 Azure Cosmos DB의 탄력적인 크기 조정 하는 동안 예외를 일으키는 문제를 해결 합니다. 이 수정 프로그램을 사용 하면 기능적 1.4.1으로 릴리스 합니다.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* 대량 추가 파티션 키, 문서 id 튜플 삭제를 허용 하도록 SQL API 계정에 대 한 지원. 이러한 변경을 통해 기능적 1.4.0으로 릴리스 합니다.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * .NET Standard 2.0을 지원하는 MongoBulkExecutor가 포함되어 있습니다. 이 기능은 1.3.0 릴리스와 기능적으로 동일하며, 대상 프레임워크로 .NET Standard 2.0 지원이 추가되었습니다.
@@ -50,10 +62,24 @@ ms.locfileid: "60627153"
 
 * BulkExecutor 라이브러리가 .NET Core 애플리케이션과 함께 작동하도록 지원되는 대상 프레임워크 중 하나로 .NET Standard 2.0이 추가되었습니다.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* 이제 Azure Cosmos DB.NET SDK (2.4.0)의 최신 버전을 사용 하 여 Bulk Executor를 업데이트 합니다.
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* 꼭 짓 점 및 가장자리에서 ttl을 적용할 그래프 대량 실행자에 대 한 지원 추가
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* 게이트웨이 모드에서 실행 하는 경우 Azure Cosmos DB의 탄력적인 크기 조정 하는 동안 예외를 일으키는 문제를 해결 합니다.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* 대량 추가 파티션 키, 문서 id 튜플 삭제를 허용 하도록 SQL API 계정에 대 한 지원.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* SQL API 계정에서 삭제할 파티션 키, 문서 id 튜플을 수락하도록 BulkDelete 작업의 오버로드가 추가되었습니다.
-* 입력 쿼리에서 삭제할 문서를 지정하는 필터로 사용될 뿐 아니라 파티션 키의 값을 지정하는 파티션 키가 포함된 RequestOptions를 SQL API 계정이 수락하도록 BulkDelete 작업의 오버로드가 추가되었습니다.
 * BulkExecutor에서 사용하는 사용자 에이전트에서 발생하는 서식 문제가 수정되었습니다.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

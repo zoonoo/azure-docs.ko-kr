@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683794"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510699"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683794"
 
 Azure AD(Azure Active Directory) B2C는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. JWT 토큰 발급자의 기술 프로필은 다시 신뢰 당사자 애플리케이션으로 반환되는 JWT 토큰을 내보냅니다. 일반적으로 이 기술 프로필은 사용자 경험의 마지막 오케스트레이션 단계입니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `None`로 설정해야 합니다. **OutputTokenFormat** 요소를 `JWT`로 설정합니다.
 

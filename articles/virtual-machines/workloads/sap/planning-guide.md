@@ -1051,7 +1051,7 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
 
 #### <a name="copying-sap-systems-within-azure"></a>Azure 내에서 SAP 시스템 복사
 
-SAP 시스템 또는 SAP 애플리케이션 계층을 지원하는 전용 DBMS 서버까지도 SAP 데이터베이스의 바이너리 또는 데이터 및 로그 파일과 함께 OS를 포함하는 여러 디스크로 구성될 수 있습니다. 디스크를 복사하는 Azure의 기능과 디스크를 로컬 디스크에 저장하는 Azure의 기능 모두 여러 디스크의 스냅숏을 일관된 방식으로 만드는 동기화 메커니즘을 사용하지 않습니다. 따라서 복사 또는 저장된 디스크의 상태는 같은 VM에 탑재되는 경우에도 다를 수 있습니다. 즉, 여러 다른 디스크에 다른 데이터 및 로그 파일이 포함된 구체적인 경우에도 데이터베이스는 일관되지 않게 됩니다.
+SAP 시스템 또는 SAP 애플리케이션 계층을 지원하는 전용 DBMS 서버까지도 SAP 데이터베이스의 바이너리 또는 데이터 및 로그 파일과 함께 OS를 포함하는 여러 디스크로 구성될 수 있습니다. 디스크를 복사하는 Azure의 기능과 디스크를 로컬 디스크에 저장하는 Azure의 기능 모두 여러 디스크의 스냅샷을 일관된 방식으로 만드는 동기화 메커니즘을 사용하지 않습니다. 따라서 복사 또는 저장된 디스크의 상태는 같은 VM에 탑재되는 경우에도 다를 수 있습니다. 즉, 여러 다른 디스크에 다른 데이터 및 로그 파일이 포함된 구체적인 경우에도 데이터베이스는 일관되지 않게 됩니다.
 
 **결론: SAP 시스템 구성의 일부로 디스크를 복사하거나 저장하려면 SAP 시스템을 중지하고 배포된 VM도 종료해야 합니다. 그런 후에만 디스크 집합을 복사 또는 다운로드하여 Azure 또는 온-프레미스에서 SAP 시스템의 복사본을 만들 수 있습니다.**
 
@@ -1087,7 +1087,7 @@ Azure Storage Explorer의 전문가 버전은 아래 페이지에서 확인할 �
 * <https://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>
 
-저장소 계정 내에서 VHD 자체를 복사하는 작업은 몇 초면 끝나는 프로세스입니다(지연 복사 및 기록 중 복사를 사용하여 스냅숏을 만드는 SAN 하드웨어와 유사). VHD 파일의 복사본을 만든 후에는 가상 머신에 연결하거나 VHD 복사본을 가상 머신에는 연결하기 위한 이미지로 사용할 수 있습니다.
+저장소 계정 내에서 VHD 자체를 복사하는 작업은 몇 초면 끝나는 프로세스입니다(지연 복사 및 기록 중 복사를 사용하여 스냅샷을 만드는 SAN 하드웨어와 유사). VHD 파일의 복사본을 만든 후에는 가상 머신에 연결하거나 VHD 복사본을 가상 머신에는 연결하기 위한 이미지로 사용할 수 있습니다.
 
 ##### <a name="powershell"></a>PowerShell
 
@@ -1808,7 +1808,7 @@ Azure에서 실행되는 SAP 인스턴스도 SAProuter에서 액세스할 수 �
 
 ![SAP-라우터 네트워크 연결][planning-guide-figure-2600]
 
-SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 종단 간 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
+SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 엔드투엔드 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
 SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 SAProuter 문자열과 호스트 이름을 지정해야 합니다.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
@@ -1952,7 +1952,7 @@ Azure에서 SAP Central Services의 고가용성 아키텍처의 경우 항목 �
 
 일반적으로 DBMS 및 특정 DBMS에 대한 고가용성 및 재해 복구 기능은 [DBMS 배포 가이드][dbms-guide]에서 설명하고 있습니다.
 
-#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템의 종단 간 고가용성
+#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템에 대한 엔드투엔드 고가용성
 
 Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과 Linux용입니다.
 

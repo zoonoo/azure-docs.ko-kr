@@ -23,7 +23,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="user-defined-restore-points"></a>사용자 정의 복원 지점
-SQL Data Warehouse는 8시간 간격으로 데이터 웨어하우스의 스냅숏을 자동으로 만들어 8시간 RPO(복구 지점 목표)를 보장합니다. 이 자동화 스냅숏은 데이터 웨어하우스 실행에 따른 관리 부담을 완화하지만, 비즈니스 필요에 따라 중대한 시간에 스냅숏을 생성할 필요가 있습니다. 예를 들어, 데이터 부하가 아주 높아지기 직전이나 데이터 웨어하우스에 새 스크립트를 배포하기 직전에 스냅숏을 생성하면 해당 작업 바로 직전의 복원 지점을 사용할 수 있습니다. 
+SQL Data Warehouse는 8시간 간격으로 데이터 웨어하우스의 스냅샷을 자동으로 만들어 8시간 RPO(복구 지점 목표)를 보장합니다. 이 자동화 스냅샷은 데이터 웨어하우스 실행에 따른 관리 부담을 완화하지만, 비즈니스 필요에 따라 중대한 시간에 스냅샷을 생성할 필요가 있습니다. 예를 들어, 데이터 부하가 아주 높아지기 직전이나 데이터 웨어하우스에 새 스크립트를 배포하기 직전에 스냅샷을 생성하면 해당 작업 바로 직전의 복원 지점을 사용할 수 있습니다. 
 
 SQL Data Warehouse에서 지 원하는 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) 를 통해 합니다 [새로 만들기-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 

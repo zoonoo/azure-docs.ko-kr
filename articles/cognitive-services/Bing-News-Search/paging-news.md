@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885075"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390489"
 ---
 # <a name="how-to-page-through-news-search-results"></a>뉴스 검색 결과를 통해 페이징하는 방법
 
-News Search API를 호출하면 Bing이 쿼리와 관련된 결과 목록을 반환합니다. 예상되는 총 사용 가능한 결과 수를 가져오려면 응답 개체의 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) 필드에 액세스해야 합니다.  
+News Search API를 호출하면 Bing이 쿼리와 관련된 결과 목록을 반환합니다. 예상되는 총 사용 가능한 결과 수를 가져오려면 응답 개체의 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) 필드에 액세스해야 합니다.  
   
 다음 예제는 뉴스 응답에 포함되는 `totalEstimatedMatches` 필드를 보여줍니다.  
 
@@ -32,7 +32,7 @@ News Search API를 호출하면 Bing이 쿼리와 관련된 결과 목록을 반
 }  
 ```  
   
-사용 가능한 문서를 페이징하려면 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
+사용 가능한 문서를 페이징하려면 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
  
 
 |매개 변수  |설명  |

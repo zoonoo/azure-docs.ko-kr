@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867225"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386641"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Video Search API 업그레이드 가이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "55867225"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -71,11 +71,11 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested)로 변경했습니다.  
+- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)로 변경했습니다.  
 
 ### <a name="object-changes"></a>개체 변경 내용
 
-- [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 앞에서는 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffset` 값에 이전 오프셋 값과 결과의 비디오 수를 더한 값으로 설정했습니다. 이번에는 간단하게 `offset` 쿼리 매개 변수를 `nextOffset` 값으로 설정했습니다.  
+- [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 앞에서는 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffset` 값에 이전 오프셋 값과 결과의 비디오 수를 더한 값으로 설정했습니다. 이번에는 간단하게 `offset` 쿼리 매개 변수를 `nextOffset` 값으로 설정했습니다.  
   
-- `relatedVideos` 필드의 데이터 형식을 `Video[]`에서 [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule)로 변경했습니다([VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) 참조).
+- `relatedVideos` 필드의 데이터 형식을 `Video[]`에서 [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule)로 변경했습니다([VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails) 참조).
 

@@ -34,11 +34,11 @@ ms.locfileid: "60739427"
 
 ## <a name="backup-overview"></a>Backup 개요
 
-Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅숏을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
+Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅샷을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 스토리지의 스냅샷을 생성합니다(VM이 중지되었을 때는 애플리케이션 쓰기가 수행되지 않음).
 
-기본적으로 Azure Backup에서는 Linux VM용으로 파일 시스템 일치 백업을 가져옵니다. 그러나 [사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 가져오도록 Azure Backup을 구성할 수 있습니다. Azure Backup 서비스가 스냅숏을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
+기본적으로 Azure Backup에서는 Linux VM용으로 파일 시스템 일치 백업을 가져옵니다. 그러나 [사전 스크립트 및 사후 스크립트 프레임워크를 사용하여 애플리케이션 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 가져오도록 Azure Backup을 구성할 수 있습니다. Azure Backup 서비스가 스냅샷을 생성하면 데이터가 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 이 서비스는 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
-데이터 전송이 완료되면 스냅숏이 제거되고 복구 지점이 생성됩니다.
+데이터 전송이 완료되면 스냅샷이 제거되고 복구 지점이 생성됩니다.
 
 
 ## <a name="create-a-backup"></a>백업 만들기

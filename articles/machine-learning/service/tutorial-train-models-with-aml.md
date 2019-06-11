@@ -394,7 +394,7 @@ from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-다음 스냅숏은 학습의 끝에 표시되는 위젯입니다.
+다음 스냅샷은 학습의 끝에 표시되는 위젯입니다.
 
 ![Notebook 위젯](./media/tutorial-train-models-with-aml/widget.png)
 

@@ -49,8 +49,8 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명에서 백업한 항목을 모니터링할 수 있습니다.
 - Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-    - **LRS(로컬 중복 스토리지)**: 데이터 센터에 오류를 방지 하려면 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-    - **GRS(지역 중복 스토리지)**: 전체 지역 가동 중단을 방지 하기 GRS를 사용할 수 있습니다. GRS는 보조 지역에 데이터를 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
+    - **LRS(로컬 중복 스토리지)** : 데이터 센터에 오류를 방지 하려면 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **GRS(지역 중복 스토리지)** : 전체 지역 가동 중단을 방지 하기 GRS를 사용할 수 있습니다. GRS는 보조 지역에 데이터를 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - 기본적으로 Recovery Services 자격 증명 모음 GRS를 사용 합니다. 
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -114,13 +114,13 @@ Azure Backup 다른 백업 에이전트에서는 어떤 유형의 컴퓨터에 �
     - Windows vm의 경우 VMSnapshot 확장이 설치 됩니다.
     - Linux Vm의 경우 VMSnapshot Linux 확장 설치 됩니다.
 1. 확장은 저장소 수준의 스냅숏을 만듭니다. 
-    - 실행 하는 Windows Vm에 대 한 백업을 사용 하 여는 Windows 섀도 복사본 서비스 VSS (볼륨) vm 앱 일치 스냅숏을 조정 합니다. 기본적으로 백업에는 전체 VSS 백업을 수행합니다. Backup에서 앱 일관성이 있는 스냅숏을 만들 수 없는 경우에는 일관성 있는 파일 스냅숏을 만듭니다.
+    - 실행 하는 Windows Vm에 대 한 백업을 사용 하 여는 Windows 섀도 복사본 서비스 VSS (볼륨) vm 앱 일치 스냅숏을 조정 합니다. 기본적으로 백업에는 전체 VSS 백업을 수행합니다. Backup에서 앱 일관성이 있는 스냅샷을 만들 수 없는 경우에는 일관성 있는 파일 스냅샷을 만듭니다.
     - Linux Vm에 대 한 백업 파일에 일관 된 스냅숏을 만듭니다. 앱 일치 스냅숏을 수동으로 사전/사후 스크립트를 사용자 지정 해야 합니다.
     - 각 VM 디스크를 병렬로 백업하여 백업이 최적화됩니다. 백업 중인 각 디스크에 대해 Azure Backup은 디스크의 블록을 읽고 변경된 데이터만 저장합니다. 
-1. 스냅숏을 만든 후에는 데이터가 자격 증명 모음으로 전송됩니다. 
+1. 스냅샷을 만든 후에는 데이터가 자격 증명 모음으로 전송됩니다. 
     - 마지막 백업 복사 되므로 변경 데이터의만 차단 합니다.
     - 데이터가 암호화되지 않습니다. Azure Backup은 Azure Disk Encryption을 사용 하 여 암호화 된 Azure Vm에 백업할 수 있습니다.
-    - 스냅숏 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업이 몇 시간이 걸릴 수 있습니다. VM에 대 한 백업 시간을 총 일별 백업 정책의 24 시간 미만 됩니다.
+    - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업이 몇 시간이 걸릴 수 있습니다. VM에 대 한 백업 시간을 총 일별 백업 정책의 24 시간 미만 됩니다.
 1. 자격 증명 모음에 데이터를 보낸 후 스냅숏이 제거 되 고 복구 지점이 생성 됩니다.
 
 Azure Vm에는 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM (예: SQL Server 데이터베이스 백업) 내에서 작업을 백업 하는 경우 백 엔드 데이터도 인터넷에 액세스를 해야 합니다. 
@@ -178,7 +178,7 @@ Vm에 대 한 디스크 저장소 및 사용 가능한 디스크 유형에 대 �
 
 Azure Backup을 사용 하 여 premium storage를 사용 하 여 Azure Vm을 백업할 수 있습니다.
 
-- Premium storage Vm 백업 과정에서 Backup 서비스는 이라는 임시 준비 위치를 만듭니다 *AzureBackup-*, 저장소 계정에 있습니다. 준비 위치의 크기를 복구 지점 스냅숏의 크기를 같습니다.
+- Premium storage Vm 백업 과정에서 Backup 서비스는 이라는 임시 준비 위치를 만듭니다 *AzureBackup-* , 저장소 계정에 있습니다. 준비 위치의 크기를 복구 지점 스냅숏의 크기를 같습니다.
 - Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아보기](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
 - 백업 작업이 완료되면 준비 위치가 삭제됩니다.
 - 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md#billing)과 일관성이 있습니다.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400019"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471451"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -37,10 +37,10 @@ ms.locfileid: "66400019"
 
 앱 특정 속성을 캡처하도록 복구 그룹을 계획하고 만들 수 있습니다. 예를 들어 SQL 서버 백 엔드, 미들웨어 및 웹 프런트 엔드의 일반적인 3계층 애플리케이션을 생각해 봅시다. 일반적으로 각 계층의 컴퓨터에서 장애 조치(failover) 후 올바른 순서로 시작하도록 복구 계획을 사용자 지정합니다.
 
-    - SQL 백 엔드를 먼저, 미들웨어를 다음으로, 웹 프런트 엔드를 마지막으로 시작해야 합니다.
-    - 이러한 시작 순서를 통해 마지막 컴퓨터가 시작되면 앱이 작동하도록 합니다.
-    - 이 순서를 사용하면 미들웨어가 시작되고 SQL Server 계층에 연결하려고 시도할 때, SQL Server 계층이 이미 실행 중입니다. 
-    - 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
+- SQL 백 엔드를 먼저, 미들웨어를 다음으로, 웹 프런트 엔드를 마지막으로 시작해야 합니다.
+- 이러한 시작 순서를 통해 마지막 컴퓨터가 시작되면 앱이 작동하도록 합니다.
+- 이 순서를 사용하면 미들웨어가 시작되고 SQL Server 계층에 연결하려고 시도할 때, SQL Server 계층이 이미 실행 중입니다. 
+- 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
 
 이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다.
 - 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 애플리케이션 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.

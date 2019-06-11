@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521727"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514319"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>실시간 (미리 보기) 로그 및 이벤트를 보는 방법
 컨테이너에 대 한 azure Monitor는 현재 미리 보기로 kubectl 명령을 실행 하지 않고도 Azure Kubernetes Service (AKS) 컨테이너 로그 (stdout/stderr) 및 이벤트에 실시간 보기를 제공 하는 기능을 포함 합니다. 두 옵션 중 하나를 선택 하면 새 창이 표 아래에 표시 성능 데이터에는 **노드**를 **컨트롤러**, 및 **컨테이너** 보기. 실시간 로깅 및 더 많은 도움을 실시간으로 문제를 해결 컨테이너 엔진에 의해 생성 된 이벤트를 보여 줍니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "65521727"
 >**참가자** 클러스터 리소스에 대 한 액세스는이 기능이 작동 하기 위해 필요 합니다.
 >
 
-로그에 대한 액세스를 제어하기 위해 라이브 로그에서 지원하는 세 가지 방법은 다음과 같습니다.
+실시간 로그는 로그에 대 한 액세스를 제어 하는 세 가지 방법을 지원 합니다.
 
 1. Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS 
 2. Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
@@ -66,10 +66,13 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. 다음 명령을 실행 하 여 클러스터 규칙 바인딩을 만든를 구성 하는이 처음으로 하는 경우: `kubectl create -f LogReaderRBAC.yaml`합니다. 실시간 로그에 구성을 업데이트 하려면 라이브 이벤트 로그를 도입 했습니다 전에 미리 보기에 대 한 지원 하도록 이전에 설정한 경우 다음 명령을 실행: `kubectl apply -f LiveLogRBAC.yml`합니다. 
+2. 다음 명령을 실행 하 여 클러스터 규칙 바인딩을 만든 경우 처음으로 구성 됩니다. `kubectl create -f LogReaderRBAC.yaml`합니다. 실시간 로그에 구성을 업데이트 하려면 라이브 이벤트 로그를 도입 했습니다 전에 미리 보기에 대 한 지원 하도록 이전에 설정한 경우 다음 명령을 실행: `kubectl apply -f LogReaderRBAC.yml`합니다. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Azure Active Directory를 사용하여 AKS 구성
-사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음 구성하는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration.md)을 참조하세요. [클라이언트 애플리케이션](../../aks/azure-ad-integration.md#create-client-application)을 만들고 **리디렉션 URI**를 지정하는 단계를 수행하는 동안 `https://ininprodeusuxbase.microsoft.com/*` 목록에 다른 URI를 추가해야 합니다.  
+사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음으로 구성 된 경우 참조 [통합 Azure Active Directory와 Azure Kubernetes Service](../../aks/azure-ad-integration.md)합니다. 만드는 단계는 [클라이언트 응용 프로그램](../../aks/azure-ad-integration.md#create-client-application)를 두 개를 지정 해야 **리디렉션 URI** 항목입니다. 두 Uri는 다음과 같습니다.
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >Single Sign-On을 위해 Azure Active Directory를 사용하여 인증을 구성하는 작업은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다. 인증을 구성 해야 **앱 등록 (레거시)** 옵션 및 uri에서 와일드 카드 사용을 지원 하기 위해 Azure ad에서로 등록 하 여 목록에 추가 된 **네이티브** 앱.
@@ -77,7 +80,7 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 
 ## <a name="view-live-logs-and-events"></a>실시간 로그 보기 및 이벤트
 
-컨테이너 엔진에서 생성 될 때 실시간 로그 이벤트를 볼 수 있습니다 합니다 **노드가**, **컨트롤러**, 및 **컨테이너** 보기. 속성 창에서 선택한 **라이브 데이터 (미리 보기)를 확인** 창과 옵션 연속 스트림으로 로그 및 이벤트를 볼 수는 있는 성능 데이터 표 아래에 표시 됩니다. 
+컨테이너 엔진에서 생성 될 때 실시간 로그 이벤트를 볼 수 있습니다 합니다 **노드가**, **컨트롤러**, 및 **컨테이너** 보기. 속성 창에서 선택 **라이브 데이터 (미리 보기)를 확인** 창과 옵션 연속 스트림으로 로그 및 이벤트를 볼 수는 있는 성능 데이터 표 아래에 표시 됩니다. 
 
 ![노드 속성 창 보기 실시간 로그 옵션](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
@@ -87,8 +90,8 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 |------|---------------|--------------|----------------|
 | 노드 | 노드 | 행사 | 노드가 선택 될 때 이벤트 필터링 되지 않음 및 클러스터 전체 Kubernetes 이벤트를 표시 합니다. 창 제목에는 클러스터의 이름이 표시 됩니다. |
 | 노드 | Pod | 행사 | Pod를 선택 하면 해당 네임 스페이스에 이벤트 필터링 됩니다. 창 제목 pod의 네임 스페이스를 보여 줍니다. | 
-| 컨트롤러 | Pod | 행사 | Pod를 선택 하면 해당 네임 스페이스에 이벤트 필터링 됩니다. 창 제목 pod의 네임 스페이스를 보여 줍니다. |
-| 컨트롤러 | Controller | 행사 | 컨트롤러를 선택 하면 해당 네임 스페이스에 이벤트 필터링 됩니다. 창 제목 컨트롤러의 네임 스페이스를 보여 줍니다. |
+| Controllers | Pod | 행사 | Pod를 선택 하면 해당 네임 스페이스에 이벤트 필터링 됩니다. 창 제목 pod의 네임 스페이스를 보여 줍니다. |
+| Controllers | Controller | 행사 | 컨트롤러를 선택 하면 해당 네임 스페이스에 이벤트 필터링 됩니다. 창 제목 컨트롤러의 네임 스페이스를 보여 줍니다. |
 | 노드/컨트롤러/컨테이너 | 컨테이너 | 로그 | 창 제목 컨테이너 pod의 이름을 사용 하 여 그룹화를 보여 줍니다. |
 
 AAD를 사용하여 AKS 클러스터를 SSO로 구성하면 해당 브라우저 세션 중에 처음 사용할 때 인증을 요구하는 메시지가 표시됩니다. 계정을 선택하고 Azure를 통해 인증을 수행합니다.  

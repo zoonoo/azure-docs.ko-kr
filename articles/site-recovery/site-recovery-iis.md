@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280420"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480303"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -109,7 +109,7 @@ DNS가 동적 DNS 업데이트로 구성된 경우 가상 머신은 일반적으
         </connectionStrings>
         </configuration>
 
-웹 계층에서 연결 문자열을 업데이트하려면 복구 계획에서 그룹 3 뒤에 [IIS 연결 업데이트 스크립트](https://aka.ms/asr-update-webtier-script-classic)를 추가합니다.
+웹 계층에서 연결 문자열을 업데이트하려면 복구 계획에서 그룹 3 뒤에 [IIS 연결 업데이트 스크립트](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc)를 추가합니다.
 
 #### <a name="site-bindings-for-the-application"></a>애플리케이션에 대한 사이트 바인딩
 모든 사이트는 바인딩 정보로 구성됩니다. 바인딩 정보에는 바인딩 유형, IIS 서버에서 사이트에 대한 요청을 수신 대기하는 IP 주소, 포트 번호 및 사이트에 대한 호스트 이름이 포함됩니다. 장애 조치 중에 연결된 IP 주소가 변경되면 이러한 바인딩을 업데이트해야 할 수 있습니다.

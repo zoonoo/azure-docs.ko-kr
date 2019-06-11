@@ -2,20 +2,20 @@
 title: 세션 동작-Azure Active Directory B2C를 구성 합니다. | Microsoft Docs
 description: Azure Active Directory B2C의 세션 동작을 구성 합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700980"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512557"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 세션 동작을 구성 합니다.
 
@@ -50,11 +50,11 @@ Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택하여 Azure AD B2C 테넌트가 포함된 디렉터리를 사용합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 선택 **사용자 흐름 (정책)** 합니다.
 5. 이전에 만든 사용자 흐름을 엽니다. 
 6. **속성**을 선택합니다.
-7. 구성 **웹 앱 세션 수명 (분)**, **웹 앱 세션 시간 제한**합니다 **Single sign-on 구성**, 및 **로그 아웃 요청에서 ID 토큰 필요**  필요에 따라 합니다.
+7. 구성 **웹 앱 세션 수명 (분)** , **웹 앱 세션 시간 제한**합니다 **Single sign-on 구성**, 및 **로그 아웃 요청에서 ID 토큰 필요**  필요에 따라 합니다.
 
     ![세션 동작 구성](./media/session-behavior/session-behavior.png)
     

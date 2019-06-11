@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a148c849d0935978f049e01dd254c4c18800ee3b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859203"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496995"
 ---
 # <a name="convert-data-format-of-utterances"></a>발언의 데이터 형식 변환
 LUIS는 Cognitive Services Speech 서비스를 사용하여 예측 전에 음성 발언을 텍스트로 변환하는 방법을 제공합니다. 
@@ -36,5 +36,5 @@ LUIS의 음성 텍스트 변환 기능을 사용하여 음성 발언을 엔드�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [음성 텍스트 변환 사용](luis-tutorial-speech-to-intent.md)
+> [데이터 추출](luis-concept-data-extraction.md)
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827329"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742542"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -29,7 +29,9 @@ ms.locfileid: "65827329"
 
 공유 컴퓨터 정품 인증을 사용 하면 여러 사용자가 액세스 하는 조직의 컴퓨터에 Office 365 ProPlus 배포를 수 있습니다. 공유 컴퓨터 정품 인증에 대 한 자세한 내용은 참조 하세요. [Office 365 ProPlus에 대 한 공유 컴퓨터 정품 인증 개요](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)합니다.
 
-사용 합니다 [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117) Office를 설치 합니다. Windows 10 Enterprise 다중 세션은만 Office 365 ProPlus를 지원합니다.
+사용 합니다 [Office 배포 도구](https://www.microsoft.com/download/details.aspx?id=49117) Office를 설치 합니다. Windows 10 Enterprise 다중 세션에는 다음 버전을의 Office만 지원합니다.
+- Office 365 ProPlus
+- Microsoft 365 Business 구독과 함께 제공 되는 office 365 비즈니스
 
 Office 배포 도구 구성 XML 파일이 필요 합니다. 다음 샘플을 사용자 지정 하려면 참조는 [Office 배포 도구에 대 한 구성 옵션](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)합니다.
 
@@ -132,7 +134,7 @@ OneDrive 컴퓨터별 모드로 설치 하는 방법을 다음과 같습니다.
 
 2. 이 링크를 사용 하 여 스테이징 위치로 OneDriveSetup.exe를 다운로드 합니다. <https://aka.ms/OneDriveWVD-Installer>
 
-3. 생략 하 여 OneDrive를 사용 하 여 office를 설치 하는 경우  **\<ExcludeApp ID = "OneDrive" /\>**, 관리자 권한 명령 프롬프트에서 다음을 실행 하 여 설치 된 기존 OneDrive 사용자별 설치를 제거 명령:
+3. 생략 하 여 OneDrive를 사용 하 여 office를 설치 하는 경우  **\<ExcludeApp ID = "OneDrive" /\>** , 관리자 권한 명령 프롬프트에서 다음을 실행 하 여 설치 된 기존 OneDrive 사용자별 설치를 제거 명령:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

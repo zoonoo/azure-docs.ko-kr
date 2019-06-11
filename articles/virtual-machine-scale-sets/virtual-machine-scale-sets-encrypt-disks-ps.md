@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7ebb88317da45ff496385b72c603a44d628b0202
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a582a4787a4b215d82dcbff60be8853793f92c32
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869068"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728361"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>OS 및 Azure PowerShell을 사용 하 여 설정 하는 가상 머신 확장에 연결 된 데이터 디스크 암호화
 
@@ -33,7 +33,7 @@ Azure Disk Encryption이 지원되는 경우는 다음과 같습니다.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>디스크 암호화가 활성화된 Azure Key Vault 만들기
 

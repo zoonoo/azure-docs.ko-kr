@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850525"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514521"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -70,7 +70,7 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 저장소(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 저장소가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 요구에 맞게 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
 
-AKS 클러스터의 노드에 대 한 VM 이미지는 Ubuntu Linux 또는 Windows Server 2019에 따라 현재. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수행 하는 수동 구성이 없습니다.
+AKS 클러스터의 노드에 대 한 VM 이미지는 Ubuntu Linux 또는 Windows Server 2019에 따라 현재. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수행 하는 수동 구성이 없습니다. 에이전트 노드는 표준 virtual machines로 청구 되며, 사용 하는 VM 크기에 해야 할인 (포함 [Azure 예약][reservation-discounts]) 자동으로 적용 됩니다.
 
 다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 모 비 이외의 컨테이너 런타임을 사용 하려는 경우 사용할 수 있습니다 `aks-engine` 구성 하 고 현재 요구를 충족 하는 Kubernetes 클러스터를 배포 합니다.
 
@@ -270,3 +270,4 @@ AKS 클러스터를 만들 때 사용할 수 있는 네임스페이스는 다음
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

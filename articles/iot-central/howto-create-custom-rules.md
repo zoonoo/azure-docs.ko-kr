@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805983"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742406"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>알림을 전송 하는 사용자 지정 규칙을 사용 하 여 Azure IoT Central 확장
 
@@ -40,9 +40,9 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 
 | 설정 | 값 |
 | ------- | ----- |
-| 결제 계획 | 종량제 |
+| 결제 계획 | Pay-As-You-Go |
 | 애플리케이션 템플릿 | 샘플 Contoso |
-| 애플리케이션 이름 | 기본값을 적용 하거나 고유한 이름을 선택합니다 |
+| 응용 프로그램 이름 | 기본값을 적용 하거나 고유한 이름을 선택합니다 |
 | URL | 기본값 또는 자신의 고유 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
 | Azure 구독 | Azure 구독 |
@@ -61,13 +61,13 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 설정 | 값 |
 | ------- | ----- |
 | 이름    | 네임 스페이스 이름을 선택합니다 |
-| 가격 책정 계층  | Basic |
+| 가격 책정 계층 | Basic |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
-| Location | 미국 동부 |
+| 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
-### <a name="stream-analytics-job"></a>스트림 분석 작업
+### <a name="stream-analytics-job"></a>Stream Analytics 작업
 
 사용 된 [Stream Analytics 작업을 만들려면 Azure portal](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) 다음 설정을 사용 하 여:
 
@@ -76,7 +76,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 이름    | 작업 이름을 선택합니다 |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
-| Location | 미국 동부 |
+| 위치 | 미국 동부 |
 | 호스팅 환경 | 클라우드 |
 | 스트리밍 단위 | 3 |
 
@@ -90,8 +90,8 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
 | OS | Windows |
-| 호스팅 계획 | 사용 계획 |
-| Location | 미국 동부 |
+| 호스팅 계획 | 소비 계획 |
+| 위치 | 미국 동부 |
 | 런타임 스택 | .NET |
 | Storage | 새로 만들기 |
 
@@ -105,7 +105,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 암호 | 암호 만들기 |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
-| 가격 책정 계층  | F1 무료 |
+| 가격 책정 계층 | F1 무료 |
 | 연락처 정보 | 필수 정보 입력 |
 
 필요한 모든 리소스를 만들었으면 하 **DetectStoppedDevices** 다음 스크린샷과 같은 리소스 그룹은:
@@ -313,10 +313,10 @@ test-device-3   2019-05-02T14:24:28.919Z
     | 설정 | 값 |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
-    | Enabled | 설정 |
+    | 사용 | 켜짐 |
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
-    | 측정값 | 설정 |
+    | 측정값 | 켜짐 |
     | 디바이스 | 꺼짐 |
     | 디바이스 템플릿 | 꺼짐 |
 
@@ -353,4 +353,4 @@ IoT Central 응용 프로그램을 삭제할 수 있습니다 합니다 **관리
 * 장치 데이터를 보내는 중지 하는 경우를 감지 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-제안 된 다음 단계에 알아보려면는 알림과 사용자 지정 규칙을 만드는 방법을 배웠으므로 하는 방법 [시각화를 Power BI 대시보드에 있는 Azure IoT Central 데이터 및 분석](howto-connect-powerbi.md)합니다.
+제안 된 다음 단계에 알아보려면는 알림과 사용자 지정 규칙을 만드는 방법을 배웠으므로 하는 방법 [확장 Azure IoT Central 사용자 지정 분석을 사용 하 여](howto-create-custom-analytics.md)입니다.

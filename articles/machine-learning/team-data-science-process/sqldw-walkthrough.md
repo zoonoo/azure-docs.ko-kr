@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045410"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478845"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
@@ -310,14 +310,14 @@ Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key V
 저장소 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
 
 > [!NOTE]
-> Azure CLI에서 SMB를 사용하여 Linux VM에 Azure File 스토리지를 탑재하는 방법
+> 프라이빗 Blob 스토리지 계정의 지리적 위치에 따라 공용 Blob에서 프라이빗 스토리지 계정으로 데이터를 복사하는 프로세스는 약 15분 또는 더 오래 걸릴 수 있으며, 스토리지 계정에서 Azure SQL DW로 데이터를 로드하는 프로세스는 20분 이상 걸릴 수 있습니다.
 >
 >
 
 중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 > [!NOTE]
-> 공용 Blob Storage에서 개인 Blob Storage 계정으로 복사할 .csv 파일이 개인 Blob Storage 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
+> 공용 Blob Storage에서 프라이빗 Blob 스토리지 계정으로 복사할 .csv 파일이 개인 Blob Storage 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
 >
 >
 
@@ -584,11 +584,11 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 이 샘플 IPython Notebook 또는 Python 스크립트 파일을 실행하기 위해 다음 Python 패키지가 필요합니다. AzureML IPython Notebook 서비스를 사용하는 경우 이러한 패키지는 미리 설치되었습니다.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 큰 데이터로 AzureML에 고급 분석 솔루션을 구축할 때 권장된 시퀀스는 다음과 같습니다.
 

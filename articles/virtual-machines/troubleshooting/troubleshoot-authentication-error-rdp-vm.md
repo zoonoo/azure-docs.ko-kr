@@ -73,9 +73,9 @@ VM에서 FIPS(Federal Information Processing Standard) 호환 알고리즘 연�
 
 ## <a name="before-you-troubleshoot"></a>해결하기 전에
 
-### <a name="create-a-backup-snapshot"></a>백업 스냅숏 만들기
+### <a name="create-a-backup-snapshot"></a>백업 스냅샷 만들기
 
-백업 스냅숏을 만들려면 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
+백업 스냅샷을 만들려면 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
 
 ### <a name="connect-to-the-vm-remotely"></a>원격으로 VM에 연결
 

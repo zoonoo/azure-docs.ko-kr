@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008497"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417317"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Text Analytics API에 대한 언어 및 지역 지원
 
@@ -23,7 +23,11 @@ ms.locfileid: "60008497"
 
 ## <a name="language-detection"></a>언어 검색
 
-Text Analytics API는 최대 120개의 다양한 언어를 감지할 수 있습니다. 언어 감지는 언어의 "스크립트"를 반환합니다. 예를 들어, "I have a dog" 구에 대해서는 `en-US` 대신 `en`을 반환합니다. 유일한 특수 사례는 중국어로, 해당 언어 감지 기능은 제공된 텍스트가 지정된 스크립트를 확인할 수 있는 경우 `zh_CHS` 또는 `zh_CHT`를 반환합니다. 중국어 문서에 대해 특정 스크립트를 식별할 수 없는 경우 간단히 `zh`가 반환됩니다.
+Text Analytics API는 다양 한 언어, 변형, 언어 및 국가/문화권 일부 언어를 검색할 수 있습니다.  언어 감지는 언어의 "스크립트"를 반환합니다. 예를 들어, "I have a dog" 구에 대해서는 `en-US` 대신 `en`을 반환합니다. 유일한 특수 사례는 중국어로, 해당 언어 감지 기능은 제공된 텍스트가 지정된 스크립트를 확인할 수 있는 경우 `zh_CHS` 또는 `zh_CHT`를 반환합니다. 중국어 문서에 대해 특정 스크립트를 식별할 수 없는 경우 간단히 `zh`가 반환됩니다.
+
+이 기능에 대 한 언어의 정확한 목록을 게시 하지 않습니다 하지만 다양 한 언어, 변형, 언어 및 국가/문화권 일부 언어를 검색할 수 있습니다. 
+
+콘텐츠를 덜 사용 되는 언어로 표현 된 경우 코드를 반환 하는 경우를 확인 하려면 언어 감지를 시도할 수 있습니다. 검색할 수 없는 언어에 대 한 응답은 `unknown`합니다.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>감정 분석, 핵심 구 추출 및 명명 된 엔터티 인식
 

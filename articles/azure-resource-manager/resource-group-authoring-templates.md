@@ -1,23 +1,18 @@
 ---
 title: Azure Resource Manager 템플릿 구조 및 구문 | Microsoft Docs
 description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431231"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -72,7 +67,21 @@ ms.locfileid: "60728041"
 
 템플릿 함수 및 해당 매개 변수는 대/소문자를 구분하지 않습니다. 예를 들어 Resource Manager에서 **variables('var1')** 와 **VARIABLES('VAR1')** 는 동일합니다. 계산될 때 함수는 대/소문자를 명시적으로 수정하지 않는 한(toUpper 또는 toLower 등) 대/소문자를 보존합니다. 특정 리소스 유형에는 함수가 계산되는 방식에 관계없이 대/소문자 요구 사항이 있을 수 있습니다.
 
-리터럴 문자열을 대괄호 `[`로 시작하되, 식으로 해석되지 않게 하려면 문자 `[[`로 시작하도록 추가 대괄호를 추가합니다.
+왼쪽된 괄호를 사용 하 여 시작 리터럴 문자열을 `[` 및 오른쪽 대괄호를 사용 하 여 종료 `]`, 식으로 해석 되지 않습니다 하지만로 시작 하도록 추가 대괄호를 추가 `[[`합니다. 예를 들어, variable:
+
+```json
+"demoVar1": "[[test value]"
+```
+
+확인 `[test value]`합니다.
+
+그러나 리터럴 문자열을 대괄호를 사용 하 여 종료 하지 않습니다. 첫 번째 중괄호를 이스케이프 하지 마십시오. 예를 들어, variable:
+
+```json
+"demoVar2": "[test] value"
+```
+
+확인 `[test] value`합니다.
 
 문자열 값을 매개 변수로 함수에 전달 하려면 작은따옴표를 사용 합니다.
 
@@ -496,7 +505,7 @@ ms.locfileid: "60728041"
 | condition | 아닙니다. | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. 참조 [조건을](#condition)합니다. |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
 | 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. 자식 리소스에 대 한 형식의 형식을 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
-| 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스에 대 한 이름 형식은 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
+| name |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스에 대 한 이름 형식은 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
 | location |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
 | tags |아닙니다. |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
 | 설명 |아닙니다. |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
@@ -772,7 +781,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 (Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value

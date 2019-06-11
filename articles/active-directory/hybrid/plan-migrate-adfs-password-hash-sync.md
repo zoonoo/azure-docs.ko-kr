@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Azure AD에 대해 페더레이션에서 암호 해시 동기화로 마이그레이션 | Microsoft Docs'
+title: 'Azure AD Connect: 페더레이션에서 Azure AD에 대 한 PHS로 마이그레이션 | Microsoft Docs'
 description: 이 문서에는 하이브리드 ID 환경을 페더레이션에서 암호 해시 동기화로 전환하는 방법에 대한 정보가 나와 있습니다.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: a1d2c587129f9f9f09c8f3871748449dc7b1755b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298901"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474033"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 

@@ -59,7 +59,7 @@ iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 �
 * Apple Developer Network에서 FPS SDK를 가져옵니다. FPS SDK에는 두 가지 구성 요소가 들어 있습니다.
 
     - FPS Server SDK에는 KSM(키 보안 모듈), 클라이언트 샘플, 사양 및 테스트 벡터 집합이 들어 있습니다.
-    - FPS Deployment Pack은 D 함수 사양 및 FPS 인증서를 생성하는 방법에 관한 지침, 고객별 개인 키 및 애플리케이션 비밀 키를 포함합니다. Apple은 사용이 허가된 콘텐츠 공급자에게만 FPS Deployment Pack을 발급합니다.
+    - FPS Deployment Pack은 D 함수 사양 및 FPS 인증서를 생성하는 방법에 관한 지침, 고객별 프라이빗 키 및 애플리케이션 비밀 키를 포함합니다. Apple은 사용이 허가된 콘텐츠 공급자에게만 FPS Deployment Pack을 발급합니다.
 
 ## <a name="configuration-in-media-services"></a>Media Services의 구성
 [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices)를 통한 FPS 오프라인 모드 구성의 경우, FPS 오프라인 모드를 구성하는 데 필요한 API를 제공하는 Media Services .NET SDK 버전 4.0.0.4 이상을 사용합니다.
@@ -205,9 +205,9 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 
 - **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 대체 오디오 트랙이 존재할 때(HLS에 대한 경우임), 오프라인 모드 동안 iOS 10과 iOS 11은 모두 기본 설정에 따라 대체 오디오 트랙을 사용합니다. FPS 오프라인 모드에 대한 이 동작을 보완하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
 - **audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?** CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
-- **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?**  예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
+- **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?** 예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
 - **FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?** FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.
-- **마지막 매개변수는 FPS 오프라인 모드에 대한 다음 API에서 무엇을 의미합니까?**
+- **마지막 매개변수는 FPS 오프라인 모드에 대한 다음 API에서 무엇을 의미합니까?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     이 API에 대한 설명서를 보려면 [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration 메서드](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)를 참조하세요. 이 매개 변수는 오프라인 임대 기간(시간 단위)을 나타냅니다.

@@ -2,20 +2,20 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 RelyingParty 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253769"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512847"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -178,7 +178,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 사용자에게 표시되는 기술 프로필의 이름이 들어 있는 문자열입니다. |
 | 설명 | 0:1 | 사용자에게 표시되는 기술 프로필의 설명이 들어 있는 문자열입니다. |
-| Protocol | 1:1 | 페더레이션에 사용되는 프로토콜입니다. |
+| 프로토콜 | 1:1 | 페더레이션에 사용되는 프로토콜입니다. |
 | Metadata | 0:1 | 신뢰 당사자와 기타 커뮤니티 참가자 간의 상호 작용을 구성하기 위한 트랜잭션 과정에서 엔드포인트와의 통신을 위해 프로토콜에서 사용하는 키/값 쌍의 *Item* 컬렉션입니다. |
 | OutputClaims | 0:1 | 기술 프로필의 출력으로 가져오는 클레임 형식 목록입니다. 이러한 각 요소는 **ClaimsSchema** 섹션 또는 이 정책 파일이 상속을 하는 정책에 이미 정의되어 있는 **ClaimType**에 대한 참조를 포함합니다. |
 | SubjectNamingInfo | 0:1 | 토큰에 사용되는 주체 이름입니다. |

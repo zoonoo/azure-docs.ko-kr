@@ -71,7 +71,7 @@ StorSimple 디바이스는 SSD(반도체 드라이브) 및 HDD(하드 디스크 
 
 * StorSimple 디바이스 관리자 암호
 * 핸드셰이크 인증 프로토콜(CHAP) 초기자 및 대상 암호 문제
-* StorSimple 스냅숏 관리자 암호
+* StorSimple 스냅샷 관리자 암호
 
 ### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>StorSimple용 Windows PowerShell 및 StorSimple 디바이스 관리자 암호
 
@@ -104,17 +104,17 @@ CHAP를 구성하는 경우 다음 사항에 유의하세요.
 
 CHAP에 대한 자세한 내용 및 StorSimple을 구성하는 방법을 보려면 [StorSimple 디바이스에 대한 CHAP 구성](storsimple-8000-configure-chap.md)으로 이동하세요.
 
-### <a name="storsimple-snapshot-manager-password"></a>StorSimple 스냅숏 관리자 암호
+### <a name="storsimple-snapshot-manager-password"></a>StorSimple 스냅샷 관리자 암호
 
-StorSimple 스냅숏 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 Microsoft Management Console (MMC) 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다.
+StorSimple 스냅샷 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 애플리케이션에 일관된 백업을 생성하는 Microsoft Management Console (MMC) 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅샷 관리자를 사용할 수 있습니다.
 
-StorSimple 스냅숏 관리자를 사용하여 디바이스를 구성할 때 StorSimple Snapshot Manager 암호를 제공해야 합니다. 이 암호는 등록 중 StorSimple에 대한 Windows PowerShell에서 먼저 설정됩니다. StorSimple 디바이스 관리자 서비스에서 암호를 설정하고 변경할 수도 있습니다. 이 암호는 StorSimple Snapshot Manager 디바이스를 인증합니다.
+StorSimple 스냅샷 관리자를 사용하여 디바이스를 구성할 때 StorSimple Snapshot Manager 암호를 제공해야 합니다. 이 암호는 등록 중 StorSimple에 대한 Windows PowerShell에서 먼저 설정됩니다. StorSimple 디바이스 관리자 서비스에서 암호를 설정하고 변경할 수도 있습니다. 이 암호는 StorSimple Snapshot Manager에서 디바이스를 인증합니다.
 
-![StorSimple 스냅숏 관리자 암호](./media/storsimple-security/SnapshotMgrPassword.png)
+![StorSimple 스냅샷 관리자 암호](./media/storsimple-security/SnapshotMgrPassword.png)
 
-StorSimple 스냅숏 관리자 암호는 14 ~ 15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합을 3개 이상 포함해야 합니다. StorSimple 스냅숏 관리자 암호를 설정한 후 변경될 수 있지만 검색할 수 없습니다. 암호를 변경하는 경우에 모든 원격 사용자에게 알려야 합니다.
+StorSimple 스냅샷 관리자 암호는 14 ~ 15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합을 3개 이상 포함해야 합니다. StorSimple 스냅샷 관리자 암호를 설정한 후 변경될 수 있지만 검색할 수 없습니다. 암호를 변경하는 경우에 모든 원격 사용자에게 알려야 합니다.
 
-StorSimple 스냅숏 관리자에 대한 자세한 내용을 보려면 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)
+StorSimple 스냅샷 관리자에 대한 자세한 내용을 보려면 [StorSimple 스냅샷 관리자란?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="password-best-practices"></a>암호 모범 사례
 

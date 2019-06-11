@@ -40,7 +40,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 2. **TenantId** 및 **SubscriptionId**를 적어둡니다. 나중에 필요합니다.
 3. 다음 명령을 사용하여 새 Azure Active Directory 애플리케이션을 만듭니다. 자리 표시자는 바꿉니다.
    
-   * **{표시 이름}:****MySampleApp**과 같은 애플리케이션의 표시 이름입니다.
+   * **{표시 이름}:** **MySampleApp**과 같은 애플리케이션의 표시 이름입니다.
    * **{홈페이지 URL}:** 와 같은 앱의 홈 페이지 URL **http:\/mysampleapp/홈**합니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
    * **{애플리케이션 식별자}:** 고유 식별자와 같은 **http:\//mysampleapp**합니다. 이 URL이 실제 애플리케이션을 가리킬 필요는 없습니다.
    * **{암호}:** 앱 인증에 사용하는 암호입니다.

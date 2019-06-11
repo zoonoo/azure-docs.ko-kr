@@ -19,11 +19,11 @@ ms.locfileid: "65471775"
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
 
 ## <a name="logical-components"></a>논리적 구성 요소
-**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)**: Azure Diagnostics 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
+**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)** : Azure Diagnostics 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
 
-**진단 플러그 인(DiagnosticsPlugin.exe)**: 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
+**진단 플러그 인(DiagnosticsPlugin.exe)** : 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
 
-**모니터링 에이전트(MonAgent\*.exe 프로세스)**: 진단 데이터를 모니터링, 수집 및 전송합니다.  
+**모니터링 에이전트(MonAgent\*.exe 프로세스)** : 진단 데이터를 모니터링, 수집 및 전송합니다.  
 
 ## <a name="logartifact-paths"></a>로그/아티팩트 경로
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
@@ -283,7 +283,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 Windows Azure Diagnostics 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다.
 
-.NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅숏에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
+.NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅샷에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
 **DiagnosticsPluginLauncher.exe**를 실행할 때 일반적으로 **255** 종료 코드로 매니페스트되지만, 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```

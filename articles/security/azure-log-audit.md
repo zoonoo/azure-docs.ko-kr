@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121504"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752562"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -279,7 +279,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 |[애플리케이션 맵](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|주요 메트릭 및 경고가 포함된 앱의 구성 요소입니다.|
 |[인스턴스 데이터에 대한 진단 검색](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| 요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.|
 |[집계된 데이터에 대한 메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다.|
-|[대시보드](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다.|
+|[대시보드](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다.|
 |[라이브 메트릭 스트림](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다.|
 |[분석](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다.|
 |[자동 및 수동 경고](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|자동 경고는 응용 프로그램의 일반적인 원격 분석 패턴에 맞게 조정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거됩니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 경고를 설정할 수도 있습니다.|
@@ -330,7 +330,7 @@ Azure Monitor의 중앙 로그를 Azure에 호스트 된 Log Analytics 작업 �
 
 | 서비스 | 리소스 종류 | 로그 | 메트릭 | 해결 방법 |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  진단|진단|    [Azure 애플리케이션](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  진단|진단|    [Azure 애플리케이션](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     커넥터|  커넥터|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [커넥터(미리 보기)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure Automation 계정| Microsoft.Automation/<br>AutomationAccounts|    진단||       [자세한 정보](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch 계정|  Microsoft.Batch/<br>batchAccounts|  진단|    진단||
@@ -344,7 +344,7 @@ Azure Monitor의 중앙 로그를 Azure에 호스트 된 Log Analytics 작업 �
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    진단|||
 |Azure Logic Apps|  Microsoft.Logic/<br>workflows|  진단|    진단||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|네트워크 보안 그룹|   Microsoft.Network/<br>networksecuritygroups|진단||   [Azure 네트워크 보안 그룹 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|네트워크 보안 그룹|   Microsoft.Network/<br>networksecuritygroups|진단||   [Azure 네트워크 보안 그룹 분석](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |복구 자격 증명|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Search 서비스|   Microsoft.Search/<br>searchServices|    진단|    진단||
 |Service Bus 네임스페이스| Microsoft.ServiceBus/<br>namespaces|    진단|진단|    [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -357,7 +357,7 @@ Azure Monitor의 중앙 로그를 Azure에 호스트 된 Log Analytics 작업 �
 |가상 머신 크기 집합|    Microsoft.Compute/<br>virtualMachines    ||진단||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |웹 서버 팜|Microsoft.Web/<br>serverfarms||   진단
-|Websites|  Microsoft.Web/<br>sites ||      진단|    [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|웹 사이트|  Microsoft.Web/<br>sites ||      진단|    [자세한 정보](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slots||||
 
 

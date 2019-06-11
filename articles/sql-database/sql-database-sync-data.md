@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939581"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693091"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -119,7 +119,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 ### <a name="general-requirements"></a>일반 요구 사항
 
 - 각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 기본 키 값을 변경해야 하는 경우 해당 행을 삭제한 다음 새 기본 키 값을 사용하여 행을 다시 만듭니다. 
-- 스냅숏 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅숏 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
+- 스냅샷 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
@@ -129,6 +129,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 - 개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
 - Azure Active Directory 인증은 지원되지 않습니다.
 - 이름이 같지만 스키마가 다른 테이블(예: dbo.customers 및 sales.customers)은 지원되지 않습니다.
+- 사용자 정의 데이터 형식의 열이 지원 되지 않습니다.
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
 

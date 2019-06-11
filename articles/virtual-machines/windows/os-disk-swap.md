@@ -28,7 +28,7 @@ ms.locfileid: "55980417"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-VM은 반드시 중지/할당 취소되어야 합니다. 그래야만 관리 디스크의 리소스 ID를 다른 관리 디스크의 리소스 ID로 바꿀 수 있습니다. 
+VM은 반드시 중지/할당 취소되어야 합니다. 그래야만 관리 디스크의 리소스 ID를 다른 관리 디스크의 리소스 ID로 바꿀 수 있습니다.
 
 VM 크기 및 저장소 유형이 연결할 디스크와 호환되어야 합니다. 예를 들어, 사용하려는 디스크가 Premium Storage에 있으면, VM이 Premium Storage를 지원할 수 있어야 합니다(예: DS 시리즈 크기). 
 
@@ -63,4 +63,4 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 **다음 단계**
 
-디스크의 복사본을 만들려면 [디스크 스냅숏](snapshot-copy-managed-disk.md)을 참조하세요.
+디스크의 복사본을 만들려면 [디스크 스냅샷](snapshot-copy-managed-disk.md)을 참조하세요.

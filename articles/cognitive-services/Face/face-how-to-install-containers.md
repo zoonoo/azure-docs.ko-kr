@@ -86,7 +86,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 | Placeholder | 값 |
 |-------------|-------|
 |{BILLING_KEY} | 이 키 컨테이너를 시작 하는 데 사용 되 고 Azure에서 사용할 수 있습니다 `Cognitive Services` **키** 페이지입니다. |
-|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure에서 사용할 수 있습니다 `Cognitive Services` **개요** 페이지입니다. 예는 `https://westus.api.cognitive.microsoft.com/face/v1.0`입니다.|
+|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` **개요** 페이지에서 확인할 수 있습니다. 예제입니다. `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 추가 된 `face/v1.0` BILLING_ENDPOINT_URI 앞의 예제에 표시 된 대로 끝점 URI로 라우팅할 합니다. 
 

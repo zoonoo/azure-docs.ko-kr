@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111270"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427426"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -54,6 +54,7 @@ VMware VM의 DPM | System Center 2012 R2 업데이트 롤업 5 이상
 지원되지 않는 파일 형식 | 대/소문자를 구분하는 파일 시스템의 서버, 하드 링크(건너뜀), 재분석 지점(건너뜀), 암호화 및 압축(건너뜀), 암호화 및 스파스(건너뜀), 압축 스트림, 분석 스트림
 로컬 저장소 | 백업하려는 각 컴퓨터에는 백업 중인 데이터 크기의 5% 이상에 해당하는 사용 가능한 로컬 스토리지가 있어야 합니다. 예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
 자격 증명 모음 스토리지 | Azure Backup 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 머신 또는 데이터베이스)의 크기는 54,400GB를 초과해서는 안 됩니다.
+Azure ExpressRoute | Azure ExpressRoute를 사용 하 여 개인 또는 Microsoft 피어 링 구성 된 경우에 Azure에 데이터를 백업 하려면 사용할 수 없습니다.<br/><br/> Azure ExpressRoute는 공용 피어 링을 구성 하는 경우 Azure에 데이터를 백업 하려면 사용할 수 있습니다.<br/><br/> **참고:** 새 회로 대 한 공용 피어 링 사용 되지 않습니다.
 Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 경우 DPM SP1에 대한 롤업 2 이상을 설치합니다. 이 롤업은 에이전트 설치를 위해 반드시 필요합니다.<br/><br/> 이 문서에서는 MARS(icrosoft Azure Recovery Service) 에이전트라고도 하는 최신 버전의 Azure Backup 에이전트를 배포하는 방법을 설명합니다. 이전 버전을 배포한 경우 최신 버전으로 업데이트하여 백업이 예상대로 작동하도록 합니다.
 
 시작하기 전에 Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.

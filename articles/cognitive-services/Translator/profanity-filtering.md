@@ -3,19 +3,19 @@ title: 욕설 필터링 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API에서 욕설 필터링을 사용합니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: 586fd93af127fbcf72caf64ad9523ff2c67c8d2d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916634"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514206"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Translator Text API에서 욕설 필터링을 추가합니다.
 

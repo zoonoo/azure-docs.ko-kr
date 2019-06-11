@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399181"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477867"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 
 이 문서에서는 Azure Monitor의 로그 경고를 설정 하는 경우 발생할 수 있는 일반적인 문제를 해결 하는 방법을 보여 줍니다. 또한 기능 또는 로그 경고의 구성을 사용 하 여 일반적인 문제에 대 한 솔루션을 제공합니다. 
 
-용어 *로그 경고* fire의 로그 쿼리 기반 경고에 설명 합니다.는 [Azure Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 또는 [Azure Application Insights](../../azure-monitor/app/analytics.md)합니다. 에 대 한 기능, 용어 및 자세한 형식에서 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다.
+용어 *로그 경고* 화재에서 로그 쿼리를 기반으로 하는 규칙을 설명는 [Azure Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 나 [Azure Application Insights](../../azure-monitor/app/analytics.md)합니다. 에 대 한 기능, 용어 및 자세한 형식에서 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다.
 
 > [!NOTE]
 > 이 문서에서는 Azure portal 트리거되는 경고 규칙을 보여 줍니다. 알림을 연결 된 작업 그룹에서 수행 되지 않는 경우를 고려 하지 않습니다. 이러한 경우에 대 한 세부 정보를 보려면 [만들기 및 Azure portal에서 작업 그룹 관리](../platform/action-groups.md)합니다.

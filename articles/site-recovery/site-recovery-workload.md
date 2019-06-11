@@ -34,7 +34,7 @@ Site Recovery는 SharePoint, Exchange, Dynamics, SQL Server 및 Active Directory
 
 * 지원되는 컴퓨터에서 실행 중인 모든 워크로드에 복제를 제공하는 앱 중립성.
 * 가장 중요한 비즈니스 앱의 요구를 충족하는 30초의 낮은 RPO를 통한 근거리 동기 복제.
-* 단일 또는 다중 계층 애플리케이션에 대한 앱 일관성 스냅숏.
+* 단일 또는 다중 계층 애플리케이션에 대한 앱 일관성 스냅샷.
 * AD 복제, SQL AlwaysOn, Exchange 데이터베이스 가용성 그룹(DAG) 및 Oracle Data Guard를 포함하는 다른 애플리케이션 수준 복제 기술을 사용하여 SQL Server AlwaysOn, 파트너쉽과 통합합니다.
 * 클릭 한 번으로 전체 애플리케이션 스택을 복구하고 외부 스크립트 또는 수동 작업을 계획에 포함할 수 있는 유연한 복구.
 * Site Recovery 및 Azure의 고급 네트워크 관리는 낮은 RTO 네트워크 전환을 위해 IP 주소 예약, 부하 분산 장치 구성 및 Azure Traffic Manager와 통합을 포함하는 앱 네트워크 요구 사항을 단순화합니다.
@@ -69,7 +69,7 @@ SQL Server는 온-프레미스 데이터 센터에서 많은 비즈니스 앱에
 
 * SQL Server에 대해 간단하고 비용 효율적인 재해 복구 솔루션. SQL Server 독립 실행형 서버 및 클러스터의 여러 버전 및 에디션을 Azure 또는 보조 사이트로 복제합니다.  
 * SQL AlwaysOn 가용성 그룹 통합은 Azure Site Recovery 복구 계획을 통해 장애 조치 및 장애 복구를 관리합니다.
-* SQL Server 데이터베이스를 포함한 애플리케이션의 모든 계층에 대한 종단간 복구 계획.
+* SQL Server 데이터베이스를 포함한 애플리케이션의 모든 계층에 대한 엔드투엔드 복구 계획.
 * Azure에서 더 큰 IaaS 가상 머신으로 "폭발적으로 증가"하여 Site Recovery와 함께 최대 부하에 대한 SQL Server의 규모 증가.
 * SQL Server 재해 복구의 간편한 테스트. 테스트 장애 조치를 실행하여 프로덕션 환경에 영향을 주지 않고 데이터를 분석하고 규정 준수 검사를 실행할 수 있습니다.
 

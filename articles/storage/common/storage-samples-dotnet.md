@@ -85,7 +85,7 @@ ms.locfileid: "65209700"
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">BLOB 시작</a></td>
 </tr>           
 <tr> 
-<td>Blob 스냅숏</td>
+<td>Blob 스냅샷</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">증분 스냅숏을 사용하여 Azure Virtual Machine 디스크 백업</a></td>
 </tr> 
 <tr> 

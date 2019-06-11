@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989539"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472811"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -158,9 +158,9 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>사용자 지정 필드 (선택 사항) 보내도록 GraphAPI 업데이트
 
-Azure AD 인증을 위해 전송 하는 보안 토큰의 목록을 참조 하세요 [Microsoft id 플랫폼 ID 토큰](../develop/id-tokens.md)합니다. 다른 토큰을 전송 하는 사용자 지정 클레임을 할 경우 설정 합니다 `acceptMappedClaims` 응용 프로그램 필드 `True`합니다. Graph Explorer를 사용할 수 있습니다 또는이 변경을 수행 하려면 Azure AD 포털의 응용 프로그램 매니페스트 합니다.
+내에서 다른 토큰을 전송 하는 사용자 지정 클레임이 필요한 경우 PingAccess에서 access_token 사용으로 설정 합니다 `acceptMappedClaims` 응용 프로그램 필드 `True`합니다. Graph Explorer를 사용할 수 있습니다 또는이 변경을 수행 하려면 Azure AD 포털의 응용 프로그램 매니페스트 합니다.
 
-이 예에서는 Graph Explorer를 사용합니다.
+**이 예제에서는 Graph Explorer를 사용합니다.**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-이 예제에서는 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 업데이트는 `acceptMappedClaims` 필드:
+**이 예제에서는 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 업데이트는 `acceptMappedClaims` 필드:**
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 응용 프로그램 관리자입니다.
 2. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램의 목록이 표시 됩니다.
@@ -179,7 +179,28 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 5. 검색 된 `acceptMappedClaims` 필드 및 값으로 변경 `True`합니다.
 6. **저장**을 선택합니다.
 
-### <a name="use-a-custom-claim-optional"></a>(선택 사항) 사용자 지정 클레임을 사용 하 여
+
+### <a name="use-of-optional-claims-optional"></a>(선택 사항) 선택적 클레임의 사용
+선택적 클레임을 사용 하면 모든 사용자 및 테 넌 트에는 standard-but-not-included-by-default 클레임을 추가할 수 있습니다. 응용 프로그램 매니페스트를 수정 하 여 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 참조는 [Azure AD 응용 프로그램 매니페스트 문서를 이해 합니다.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+PingAccess를 사용 하는 access_token에 전자 메일 주소를 포함 하는 예제:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>클레임 매핑 정책의 (선택 사항) 사용
+[클레임 매핑 정책 (미리 보기)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) AzureAD에 존재 하지 않는 특성에 대 한 합니다. 클레임 매핑을 사용 하면 ADFS 또는 사용자 개체에 의해 백업 되는 추가 사용자 지정 클레임을 추가 하 여 클라우드로 기존 온-프레미스 앱을 마이그레이션할 수 있습니다.
 
 응용 프로그램 사용자 지정 클레임을 사용 하 여 추가 필드가 포함 되도록 해야 하면 수도 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)합니다.
 
@@ -187,6 +208,16 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 > 사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 애플리케이션에 할당해야 합니다. 이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
 > 정책 정 및 할당 PowerShell, Azure AD Graph Explorer 또는 Microsoft Graph를 통해 수행할 수 있습니다. 먼저 사용 해야 할 경우 해당 PowerShell에서, `New-AzureADPolicy` 다음으로 응용 프로그램에 할당 하 고 `Add-AzureADServicePrincipalPolicy`입니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)합니다.
+
+예제:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>(선택 사항 이지만 추가 클레임을 사용 하도록 응용 프로그램 기대 하는 경우 필수)는 사용자 지정 클레임을 사용 하는 PingAccess를 사용 하도록 설정
+PingAccess에서 다음 단계를 구성 하는 경우 웹 세션을 만들려는 (설정-> 액세스 웹 세션->)가 있어야 합니다 **프로필 요청** 선택 취소 하 고 **사용자 특성 새로 고침** 로 **없음**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>PingAccess 다운로드 및 응용 프로그램 구성
 

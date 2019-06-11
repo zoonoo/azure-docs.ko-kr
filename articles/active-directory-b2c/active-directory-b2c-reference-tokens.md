@@ -2,20 +2,20 @@
 title: 토큰-Azure Active Directory B2C 개요 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용 되는 토큰에 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681903"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509088"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰의 개요
 
@@ -57,7 +57,7 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 | 발급 시간 | `iat` | `1438535543` | epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 | `exp` | `1438539443` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 응용 프로그램 토큰 수명의 유효성을 확인 하려면이 클레임을 사용 해야 합니다. |
 | 이전이 아님 | `nbf` | `1438535543` | epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 이 시간은 일반적으로 토큰이 발급 된 시간과 같습니다. 응용 프로그램 토큰 수명의 유효성을 확인 하려면이 클레임을 사용 해야 합니다. |
-| Version | `ver` | `1.0` | Azure AD B2C에 의해 정의 된 대로 ID 토큰의 버전입니다. |
+| 버전 | `ver` | `1.0` | Azure AD B2C에 의해 정의 된 대로 ID 토큰의 버전입니다. |
 | 코드 해시 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 코드 해시는 OAuth 2.0 권한 부여 코드와 함께 토큰이 발급 된 경우에 ID 토큰에 포함 됩니다. 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행 하는 방법에 대 한 자세한 내용은 참조는 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)합니다.  |
 | 액세스 토큰 해시 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | OAuth 2.0 액세스 토큰과 함께 토큰이 발급 된 경우에 ID 토큰에 포함 하는 액세스 토큰 해시 합니다. 액세스 토큰 해시는 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행 하는 방법에 대 한 자세한 내용은 참조는 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce | `nonce` | `12345` | nonce는 토큰 재생 공격을 완화하는 데 사용된 전략입니다. 응용 프로그램 사용 하 여 권한 부여 요청에 nonce를 지정할 수는 `nonce` 쿼리 매개 변수입니다. 요청에 제공한 값의 수정 되지 않은 내보내집니다는 `nonce` 만 ID 토큰의 클레임입니다. 이 클레임 응용을 프로그램 요청에 지정 된 값에 대 한 값을 확인할 수 있습니다. 응용 프로그램 ID 토큰 유효성 검사 프로세스 중에이 유효성 검사를 수행 해야 합니다. |
@@ -65,7 +65,7 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 | 인증 컨텍스트 클래스 참조 | `acr` | 해당 없음 | 이전 정책과 사용 합니다. |
 | 보안 프레임워크 정책 | `tfp` | `b2c_1_signupsignin1` | ID 토큰을 얻는 데 사용 된 정책의 이름입니다. |
 | 인증 시간 | `auth_time` | `1438535543` | 이때 사용자 마지막으로 입력 한 자격 증명에 epoch 시간으로 표시 합니다. |
-| 범위 | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 여러 부여 된 권한은 공백으로 구분 됩니다. |
+| Scope | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 여러 부여 된 권한은 공백으로 구분 됩니다. |
 | 권한 있는 주체 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 요청을 시작한 클라이언트 애플리케이션의 **애플리케이션 ID**입니다. |
 
 ## <a name="configuration"></a>구성

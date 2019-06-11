@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357069"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472737"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -52,9 +52,9 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 
     | Filter | 설명 |
     | --- | --- |
-    | `$filter=atScope()` | 하위 범위의 역할 할당은 제외하고 지정된 범위에 대한 역할 할당만 나열합니다. |
-    | `$filter=principalId%20eq%20'{objectId}'` | 지정된 사용자, 그룹 또는 서비스 주체에 대한 역할 할당을 나열합니다. |
-    | `$filter=assignedTo('{objectId}')` | 그룹에서 상속된 역할 할당을 포함하여 지정된 사용자에 대한 역할 할당을 나열합니다. |
+    | `$filter=atScope()` | 만 지정된 된 범위를 제외한 다음 하위에서 역할 할당에 대 한 역할 할당을 나열 합니다. |
+    | `$filter=principalId%20eq%20'{objectId}'` | 지정 된 사용자, 그룹 또는 서비스 주체에 대 한 역할 할당을 나열합니다. |
+    | `$filter=assignedTo('{objectId}')` | 지정 된 사용자 또는 서비스 주체에 대 한 역할 할당을 나열합니다. 사용자 역할 할당 권한이 있는 그룹의 멤버인 경우 해당 역할 할당 나열 됩니다. 이 필터는 전이적 그룹 즉, 사용자 그룹의 멤버인 경우 해당 그룹에 역할 할당 권한이 있는 다른 그룹의 구성원은 해당 역할 할당도 나열 됩니다. 이 필터는 사용자 또는 서비스 주체 개체 id만 허용 됩니다. 그룹에 대 한 개체 id를 전달할 수 없습니다. |
 
 ## <a name="grant-access"></a>액세스 권한 부여
 

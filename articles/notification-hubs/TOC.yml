@@ -38,10 +38,6 @@
       items:
         - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Chrome 앱에 푸시 알림
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: iOS 앱에 푸시 알림
@@ -68,7 +64,7 @@
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: 특정 디바이스에 푸시 알림
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: 유니버설 Windows 플랫폼 앱에 푸시 알림
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

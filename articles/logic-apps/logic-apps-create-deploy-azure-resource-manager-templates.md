@@ -48,7 +48,7 @@ ms.locfileid: "60681758"
 
 ## <a name="authorize-oauth-connections"></a>OAuth 연결 권한 부여
 
-배포 후 논리 앱은 유효한 매개 변수와 함께 종단 간에 적용됩니다. 그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다. 자동화 된 배포의 경우 이와 같은 각 OAuth 연결에 동의 하는 스크립트를 사용할 수 있습니다 [예제 프로젝트의에서 스크립트는 GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth)합니다. Logic Apps 디자이너에서 논리 앱을 열어도 Visual Studio 또는 Azure portal을 통해 OAuth 연결 권한을 부여할 수 있습니다.
+배포 후 논리 앱은 유효한 매개 변수와 함께 엔드투엔드에 적용됩니다. 그러나 OAuth 연결이 유효한 액세스 토큰을 생성하도록 권한을 부여해야 합니다. 자동화 된 배포의 경우 이와 같은 각 OAuth 연결에 동의 하는 스크립트를 사용할 수 있습니다 [예제 프로젝트의에서 스크립트는 GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth)합니다. Logic Apps 디자이너에서 논리 앱을 열어도 Visual Studio 또는 Azure portal을 통해 OAuth 연결 권한을 부여할 수 있습니다.
 
 <a name="powershell"></a>
 

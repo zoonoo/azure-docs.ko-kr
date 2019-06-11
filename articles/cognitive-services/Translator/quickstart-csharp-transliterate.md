@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: e8da13916fbbf711304f636d9c9ccaf95c48c99a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c1d55e29b15f52fa97e997a4002e77bb935d53d7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864697"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514148"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 음역
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 기술 기능 | Microsoft Docs
-description: 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
+title: Azure-Microsoft Azure의에서 보안 기술 기능
+description: 소개 하는 데 도움이 되는 Azure에서 보안 서비스에는 데이터, 리소스 및 클라우드에서 응용 프로그램을 보호 합니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121558"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480731"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
-
-현재 및 미래의 Azure 고객이 Azure 플랫폼에서 사용할 수 있는 다양한 보안 관련 기능을 이해하고 활용할 수 있도록 Microsoft는 일련의 백서, 보안 개요, 모범 사례 및 검사 목록을 개발했습니다. 주제는 폭과 깊이에 따라 다양하게 다루어지며 정기적으로 업데이트됩니다. 이 문서는 아래의 요약 섹션에서 설명하는 시리즈의 일부입니다. 이 Azure 보안 시리즈에 대한 자세한 내용은 (URL)에서 찾을 수 있습니다.
+이 문서에서는 소개 보안에 도움이 되는 Azure에서 서비스 데이터, 리소스 및 클라우드에서 응용 프로그램 보호 및 비즈니스 보안 요구 사항을 충족 합니다.
 
 ## <a name="azure-platform"></a>Azure 플랫폼
 
@@ -41,29 +40,19 @@ Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습�
 
 - 비즈니스를 보호합니다.
 
-## <a name="scope"></a>범위
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>사용자의 책임을 수행할 수 있도록 보안 기술 기능
 
-이 백서에서는 Microsoft Azure의 핵심 구성 요소, 즉 [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure의 가상 머신 모델](https://docs.microsoft.com/azure/virtual-machines/)과 이를 관리하는 도구 및 인프라를 지원하는 보안 특징 및 기능을 중점적으로 소개합니다. 또한 이 백서는 고객이 데이터의 보안 및 개인 정보 보호를 이행하는 데 사용할 수 있는 Microsoft Azure 기술 기능에 주안점을 둡니다.
-
-이러한 공유 책임 모델을 이해하는 것은 클라우드로 전환하려는 고객에게 필수적입니다. 클라우드 공급자는 보안 및 규정 준수 활동에 대해 상당한 이점을 제공하지만 이러한 장점만으로 고객이 데이터, 애플리케이션 및 서비스 제품을 보호하지 않아도 되는 것은 아닙니다.
-
-IaaS 솔루션의 경우 고객은 운영 체제, 네트워크 구성, 애플리케이션, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다.  IaaS 배포를 토대로 구축되는 PaaS 솔루션의 경우 고객은 애플리케이션, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다. 그렇지만 SaaS 솔루션의 경우 고객이 계속해서 책임을 져야 합니다. 데이터가 올바르게 분류되는지 확인하고, 해당 사용자 및 끝점 디바이스를 관리하는 책임을 공유해야 합니다.
-
-이 문서에서 Azure 웹 사이트, Azure Active Directory, HDInsight, Media Services 등의 관련된 Microsoft Azure 플랫폼 구성 요소와 핵심 구성 요소 위에 계층화되는 기타 서비스를 자세히 다루지는 않습니다. 최소 수준의 일반 정보가 제공되지만, 사용자가 Microsoft에서 제공하고 이 백서에 제공된 링크에 포함되어 있는 기타 참조에 설명된 Azure 기본 개념에 익숙하다고 가정합니다.
-
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>사용자(고객) 책임을 이행하기 위한 보안 기술 기능 - 전반적 이해
-
-Microsoft Azure는 고객이 보안, 개인 정보 보호 및 규정 준수 요구를 충족하도록 도와줄 수 있는 서비스를 제공합니다. 다음 그림은 사용자가 업계 표준을 기준으로 안전하고 호환 가능한 애플리케이션 인프라를 구축하는 데 사용할 수 있는 다양한 Azure 서비스를 설명하는 데 도움이 됩니다.
+Microsoft Azure 보안, 개인 정보 보호 및 규정 준수 요구를 충족 하는 도움이 되는 서비스를 제공 합니다. 다음 그림은 산업 표준에 따라 보안 및 규정 준수 응용 프로그램 인프라를 만드는 데 사용할 수 있는 다양 한 Azure 서비스에 설명 하는 데 도움이 됩니다.
 
 ![사용 가능한 보안 기술 기능 - 전반적 이해](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
-## <a name="manage-and-control-identity-and-user-access-protect"></a>ID 및 사용자 액세스 관리 및 제어(보호)
+## <a name="manage-and-control-identity-and-user-access"></a>관리 및 id 및 사용자 액세스 제어
 
 Azure에서는 사용자 ID 및 자격 증명을 관리하고 액세스를 제어할 수 있도록 하여 회사 및 개인 정보를 보호하는 데 도움을 줍니다.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 애플리케이션 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 앱에 Single Sign-On(SaaS)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 애플리케이션 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 수천 개의 클라우드 앱에서 single sign-on을 제공 하 고 온-프레미스를 실행 하는 웹 앱에 액세스 합니다.
 
 Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을 포함합니다.
 
@@ -75,11 +64,11 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - Azure AD 애플리케이션 프록시를 통해 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스 프로비전
 
-[Azure Active Directory 포털](https://aad.portal.azure.com/)은 Azure Portal의 일부로 사용할 수 있습니다. 이 대시보드에서 조직 상태에 대한 개요를 보고 디렉터리, 사용자 또는 애플리케이션 액세스 관리에 대해 쉽게 알아볼 수 있습니다.
+합니다 [Azure Active Directory 포털](https://aad.portal.azure.com/) 제품은 Azure portal의 일부로. 이 대시보드에서 조직 상태에 간략히 하 고 쉽게 디렉터리, 사용자 또는 응용 프로그램 액세스를 관리할 수 있습니다.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-다음은 핵심적인 Azure ID 관리 기능입니다.
+다음은 핵심 Azure id 관리 기능입니다.
 
 - SSO(Single sign-on)
 
@@ -99,7 +88,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 [SSO(Single Sign-On)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
-대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS(Software as a Service) 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
+대부분의 조직에서는 최종 사용자 생산성에 대 한 Office 365, Box 및 Salesforce와 같은 서비스 (SaaS) 응용 프로그램으로 소프트웨어에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
 [Azure AD는 온-프레미스 Active Directory를 클라우드](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 장치 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 애플리케이션에 로그인할 수 있도록 합니다.
 
@@ -107,7 +96,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure MFA(Multi-Factor Authentication)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)는 두 개 이상의 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. [MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
+[Azure Multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) 둘 이상의 확인 방법 사용 해야 하며 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증의 메서드입니다. [MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>보안 모니터링, 경고 및 기계 학습 기반 보고서
 
@@ -117,11 +106,11 @@ Azure Portal 또는 [Azure Active Directory 포털](https://aad.portal.azure.com
 
 - 비정상 보고서 – 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
 
-- 통합 애플리케이션 보고서 – 클라우드 애플리케이션이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure Active Directory는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
+- 통합 된 응용 프로그램 보고서 – 조직에서 클라우드 응용 프로그램을 사용 하는 방법에 대 한 정보를 제공 합니다. Azure Active Directory는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
 
 - 오류 보고서 – 외부 애플리케이션에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 
-- 사용자별 보고서 – 특정 사용자에 대한 디바이스/로그인 활동 데이터를 표시합니다.
+- 사용자별 보고서 – 장치를 표시 하 고 특정 사용자에 대 한 작업 데이터에 서명 합니다.
 
 - 활동 로그 - 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
@@ -159,7 +148,7 @@ Azure AD Privileged Identity Management를 통해 다음을 할 수 있습니다
 
 [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. ID 보호는 기존 Azure Active Directory의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
 
-## <a name="secured-resource-access-in-azure"></a>Azure의 보안 리소스 액세스
+## <a name="secure-resource-access"></a>리소스 액세스 보안
 
 Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)를 방문하여 액세스하는 Azure 계정의 소유자는 계정 관리자(AA)입니다. 구독은 결제를 위한 컨테이너이지만 보안 경계로서의 역할도 합니다. 각 구독에는 Azure Portal을 사용하여 해당 구독에서 Azure 리소스를 추가, 제거 및 수정할 수 있는 SA(서비스 관리자)가 있습니다. 새 구독의 기본 SA는 AA이지만 AA가 Azure 계정 센터에서 SA를 변경할 수 있습니다.
 
@@ -175,7 +164,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 ![Azure의 보안 리소스 액세스 (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
-## <a name="azure-data-security-and-encryption-protect"></a>Azure 데이터 보안 및 암호화(보호)
+## <a name="data-security-and-encryption"></a>데이터 보안 및 암호화
 
 클라우드의 데이터를 보호하기 위한 핵심 중 하나는 데이터에서 발생 가능한 상태 그리고 해당 상태에 어떤 컨트롤을 제공할 것인지 설명하는 것입니다. Azure 데이터 보안 및 암호화 모범 사례의 경우 다음과 같은 데이터 상태와 관련된 권장 사항이 제공됩니다.
 
@@ -199,9 +188,9 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 **데이터를 저장하는 모든 위치 식별**
 
-휴지 상태의 암호화는 모든 데이터를 암호화하는 것을 목표로 합니다. 이렇게 하면 중요한 데이터 또는 모든 지속형 위치가 누락될 가능성이 없어집니다. 애플리케이션에 의해 저장된 모든 데이터가 열거됩니다. 
+휴지 상태의 암호화 목적은 모든 데이터를 암호화 하는 것입니다. 이렇게 하면 중요한 데이터 또는 모든 지속형 위치가 누락될 가능성이 없어집니다. 애플리케이션에 의해 저장된 모든 데이터가 열거됩니다.
 
-> [!Note] 
+> [!Note]
 > "애플리케이션 데이터" 또는 "PII' 뿐만 아니라 계정 메타데이터(구독 매핑, 계약 정보, PII)를 포함하여 애플리케이션과 관련된 모든 데이터가 열거됩니다.
 
 데이터를 저장하는 데 어떤 저장소를 사용할지 고려하세요. 예를 들면 다음과 같습니다.
@@ -214,7 +203,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 ### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Azure의 기존 휴지 상태의 암호화 지원 활용
 
-사용하는 각 저장소에 대해 기존 휴지 상태의 암호화 지원을 활용합니다.
+사용 하는 각 저장소의 기존 휴지 상태의 암호화 지원 활용 합니다.
 
 - Azure Storage: [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 참조하세요.
 
@@ -288,10 +277,10 @@ Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.
 > [!Note]
 > Azure RMS에 대한 자세한 내용은 [Azure Rights Management 시작](https://technet.microsoft.com/library/jj585016.aspx) 문서를 참조하세요.
 
-## <a name="secure-your-application-protect"></a>애플리케이션 보안(보호)
+## <a name="secure-your-application"></a>응용 프로그램 보호
 Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 애플리케이션 자체를 보호하는 것은 사용자 책임입니다. 즉, 애플리케이션 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 애플리케이션 코드 또는 콘텐츠는 위협에 취약할 수 있습니다.
 
-### <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
+### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 [WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)의 기능입니다.
 
 웹 애플리케이션 방화벽은 [OWASP 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
@@ -343,7 +332,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 
 Azure App Service는 Azure Cloud Services 및 Virtual Machines에서 사용하는 것과 동일한 맬웨어 방지 솔루션을 사용합니다. 자세한 내용은 [맬웨어 방지 설명서](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 
-## <a name="secure-your-network-protect"></a>네트워크 보안(보호)
+## <a name="secure-your-network"></a>네트워크 보호
 Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
 [Azure 네트워크 인프라](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)를 사용하면 Azure 리소스와 [VNet(가상 네트워크)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
@@ -358,7 +347,7 @@ Azure 네트워킹은 Azure Virtual Network의 네트워크 트래픽에 대한 
 
 Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 애플리케이션이 여러 데이터 센터에서 실행되는 경우 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하여 사용자 요청을 적절하게 여러 애플리케이션 인스턴스에 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
-## <a name="virtual-machine-security-protect"></a>가상 컴퓨터 보안(보호)
+## <a name="virtual-machine-security"></a>가상 머신 보안
 
 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)를 사용하면 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services 지원을 통해 거의 모든 운영 체제에 모든 작업과 언어를 배포할 수 있습니다.
 
@@ -370,7 +359,7 @@ Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 �
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>규정 준수 보장: 클라우드 서비스 실사 검사 목록(보호)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>규정 준수 보장: Cloud services 실사 검사 목록
 
 Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업을 연습해보는 데 도움을 주기 위해 [Cloud Services 실사 검사 목록](https://aka.ms/cloudchecklist.download)을 개발했습니다. 이 검사 목록은 개인 기업 및 공공 부문 조직(모든 수준 및 비영리 조직 정부 기관 포함)을 비롯한 모든 규모 및 종류의 조직이 자체 성과, 서비스, 데이터 관리 및 거버넌스 목표와 요구 사항을 식별하기 위한 체계를 제공합니다. 이를 통해 다양한 클라우드 서비스 공급자의 제품을 비교할 수 있으며 궁극적으로 클라우드 서비스 계약의 토대를 형성할 수 있게 됩니다.
 
@@ -390,7 +379,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 - 각 공급자에게 동일한 조건, 정의, 메트릭 및 전달 방식으로 일관된 질문을 제공함으로써 다양한 클라우드 서비스 공급자의 제품을 보다 간편하게 비교할 수 있습니다.
 
-## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure 인프라 및 애플리케이션 보안 유효성 검사(검색)
+## <a name="azure-infrastructure-and-application-security-validation"></a>Azure 인프라 및 응용 프로그램 보안 유효성 검사
 
 [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 사용자가 Microsoft Azure에서 자신의 데이터, 애플리케이션 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다.
 

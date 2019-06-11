@@ -1,6 +1,6 @@
 ---
-title: Azure Backup용 VM 스냅숏 Windows 확장 | Microsoft Docs
-description: VM 스냅숏 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
+title: Azure Backup용 VM 스냅샷 Windows 확장 | Microsoft Docs
+description: VM 스냅샷 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
@@ -16,9 +16,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60799424"
 ---
-# <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure Backup용 VM 스냅숏 Windows 확장
+# <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Windows 확장
 
-Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅숏 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅숏 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅숏 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
+Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅샷 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅샷 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅샷 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -27,11 +27,11 @@ Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-VM 스냅숏 확장을 사용하려면 가상 머신을 백업할 때 대상 가상 머신이 인터넷에 연결되어 있어야 합니다.
+VM 스냅샷 확장을 사용하려면 가상 머신을 백업할 때 대상 가상 머신이 인터넷에 연결되어 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 VM 스냅숏 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅숏을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅숏 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅숏 시작 시간, 스냅숏 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
+다음 JSON은 VM 스냅샷 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅샷을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅샷 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅샷 시작 시간, 스냅샷 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
 
 ```json
 {
@@ -75,12 +75,12 @@ VM 스냅숏 확장을 사용하려면 가상 머신을 백업할 때 대상 가
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 그러나 가상 머신에 VM 스냅숏 확장을 추가하려면 가상 머신에서 백업을 사용하도록 설정하는 것이 좋습니다. 이는 Resource Manager 템플릿을 통해 수행할 수 있습니다.  가상 머신에서 백업을 사용하도록 설정하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/)에 있습니다.
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 그러나 가상 머신에 VM 스냅샷 확장을 추가하려면 가상 머신에서 백업을 사용하도록 설정하는 것이 좋습니다. 이는 Resource Manager 템플릿을 통해 수행할 수 있습니다.  가상 머신에서 백업을 사용하도록 설정하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/)에 있습니다.
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 가상 머신에서 백업을 사용하도록 설정할 수 있습니다. 백업을 사용하도록 설정한 후 첫 번째 예약된 백업 작업은 VM 스냅숏 확장을 VM에 설치합니다.
+Azure CLI를 사용하여 가상 머신에서 백업을 사용하도록 설정할 수 있습니다. 백업을 사용하도록 설정한 후 첫 번째 예약된 백업 작업은 VM 스냅샷 확장을 VM에 설치합니다.
 
 ```azurecli
 az backup protection enable-for-vm \

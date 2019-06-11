@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257943"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735014"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -140,6 +140,15 @@ Azure Maps 이벤트를 구독하여 지오펜스 이벤트에 응답합니다. 
 | [Event Grid를 사용하여 Azure Maps 이벤트에 대응](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure Maps 통합에 관한 개요입니다. |
 | [자습서: 지오펜스 설정](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
 | [이벤트 스키마](event-schema-azure-maps.md) | Azure Maps 이벤트의 필드를 표시합니다. |
+
+## <a name="app-configuration"></a>앱 구성
+Azure 앱 구성 이벤트를 구독 하 키-값 수정 이벤트에 응답 합니다.
+
+|제목 | 설명 |
+|---------|---------|
+| [Event Grid를 사용 하 여 Azure 앱 구성 이벤트에 대응](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid를 사용 하 여 Azure 앱 구성을 통합의 개요입니다. |
+| [빠른 시작: Azure CLI를 사용 하 여 사용자 지정 웹 끝점을 Azure 앱 구성 이벤트 라우팅](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용 하 여 WebHook로 Azure 앱 구성 이벤트를 보내는 방법을 보여 줍니다. |
+| [이벤트 스키마](event-schema-app-configuration.md) | Azure 앱 구성 이벤트의 필드를 표시 합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

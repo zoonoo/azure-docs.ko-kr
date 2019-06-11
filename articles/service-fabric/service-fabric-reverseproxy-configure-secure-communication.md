@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 역방향 프록시 보안 통신 | Microsoft Docs
-description: 안전한 종단 간 통신을 사용하려면 역방향 프록시를 구성합니다.
+description: 안전한 엔드투엔드 통신을 사용하려면 역방향 프록시를 구성합니다.
 services: service-fabric
 documentationcenter: .net
 author: kavyako

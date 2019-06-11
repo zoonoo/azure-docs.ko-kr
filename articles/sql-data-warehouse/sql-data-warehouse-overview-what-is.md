@@ -23,7 +23,7 @@ SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하는 클라우드 
 
 
 ## <a name="key-component-of-big-data-solution"></a>빅 데이터 솔루션의 핵심 구성 요소
-SQL Data Warehouse는 클라우드에서 종단 간 빅 데이터 솔루션의 핵심 구성 요소입니다.
+SQL Data Warehouse는 클라우드에서 엔드투엔드 빅 데이터 솔루션의 핵심 구성 요소입니다.
 
 ![데이터 웨어하우스 솔루션](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
