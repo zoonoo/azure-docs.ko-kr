@@ -12,7 +12,7 @@ ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
 ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58472443"
@@ -30,8 +30,8 @@ Custom Vision service에 대 한 키의 두 계층 이며 Azure Portal을 통해
 |예측 수/월|10000 |Unlimited|
 |태그/프로젝트|50|500|
 |반복 횟수 |10|10|
-|레이블이 지정 된 이미지 분류 (50 이상 권장) 태그 당 최소 |5|5|
-|레이블이 지정 된 이미지 태그, 개체 감지 (50 이상 권장) 당 최소|15|15|
+|태그 당 최소 레이블이 지정된 이미지, 분류(50개 이상 권장) |5|5|
+|태그 당 최소 레이블이 지정된 이미지, 개체 감지(50개 이상 권장)|15|15|
 |예측 이미지 저장 기간|30일|30일|
 |저장소가 있는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|10|
 |저장소가 없는 [예측](https://go.microsoft.com/fwlink/?linkid=865445) 작업(초당 트랜잭션 수)|2|20|
