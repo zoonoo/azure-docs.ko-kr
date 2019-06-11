@@ -43,7 +43,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
-3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](sql-database-single-database-migrate.md#method-2-use-transactional-replication)을 참조하세요.  
+3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅샷](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](sql-database-single-database-migrate.md#method-2-use-transactional-replication)을 참조하세요.  
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
 5. Data Migration Assistant를 사용하여 데이터베이스 복사본을 새로운 Azure SQL Database로 [마이그레이션](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql)합니다.
 
@@ -99,8 +99,8 @@ SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 - 로컬 배포자 사용
   - 이렇게 하면 서버의 성능에 영향을 미칠 수 있습니다.
   - 성능에 영향을 미치지 않아야 하면 다른 서버를 사용할 수 있지만 관리가 복잡해집니다.
-- 스냅숏 폴더를 선택할 때 선택하는 폴더가 복제하려는 모든 테이블의 BCP를 수용하기에 충분한지 확인합니다.
-- 스냅숏을 만들면 완료될 때까지 연결된 테이블을 잠그며 스냅숏을 적절하게 예약합니다.
+- 스냅샷 폴더를 선택할 때 선택하는 폴더가 복제하려는 모든 테이블의 BCP를 수용하기에 충분한지 확인합니다.
+- 스냅샷을 만들면 완료될 때까지 연결된 테이블을 잠그며 스냅샷을 적절하게 예약합니다.
 - 푸시 구독만 Azure SQL Database에서 지원됩니다. 원본 데이터베이스에서만 구독자를 추가할 수 있습니다.
 
 ## <a name="resolving-database-migration-compatibility-issues"></a>데이터베이스 마이그레이션 호환성 문제 해결

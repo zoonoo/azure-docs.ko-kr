@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
-description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 종단 간 연결 및 성능을 모니터링할 수 있습니다.
+description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -48,18 +48,18 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 2. **지금 검색** 단추를 선택하여 이 Azure Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 개인 피어링을 검색합니다.
 
     >[!NOTE]
-    > 이 솔루션은 현재, ExpressRoute 개인 피어링만 검색합니다. 
+    > 이 솔루션은 현재, ExpressRoute 프라이빗 피어링만 검색합니다. 
 
     >[!NOTE]
-    > 이 Log Analytics 작업 영역에 연결된 구독 관련 가상 네트워크에 연결되어 있는 개인 피어링만 검색됩니다. ExpressRoute가 이 작업 영역에 연결된 구독 외부의 가상 네트워크에 연결된 경우 해당 구독에 Log Analytics 작업 영역을 만듭니다. 그런 다음, 네트워크 성능 모니터를 사용하여 해당 피어링을 모니터링합니다. 
+    > 이 Log Analytics 작업 영역에 연결된 구독 관련 가상 네트워크에 연결되어 있는 프라이빗 피어링만 검색됩니다. ExpressRoute가 이 작업 영역에 연결된 구독 외부의 가상 네트워크에 연결된 경우 해당 구독에 Log Analytics 작업 영역을 만듭니다. 그런 다음, 네트워크 성능 모니터를 사용하여 해당 피어링을 모니터링합니다. 
 
     ![ExpressRoute 모니터 구성](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
-   검색이 완료된 후에 검색된 개인 피어링 연결이 표에 나열됩니다. 이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 
+   검색이 완료된 후에 검색된 프라이빗 피어링 연결이 표에 나열됩니다. 이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>ExpressRoute 피어링 연결 모니터링 사용 
 
-1. 모니터링하려는 개인 피어링 연결을 선택합니다.
+1. 모니터링하려는 프라이빗 피어링 연결을 선택합니다.
 2. 오른쪽 창에서 **이 피어링 모니터링** 확인란을 선택합니다. 
 3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용**을 선택합니다. 
 4. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 피어링 연결의 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
@@ -94,7 +94,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 ### <a name="peerings-list"></a>피어링 목록 
 
-개인 피어링을 통한 가상 네트워크의 모든 연결 목록을 불러오려면 대시보드의 **개인 피어링** 타일을 선택합니다. 여기서 가상 네트워크 연결을 선택하고 해당 상태, 패킷 손실, 대역폭 사용률 및 대기 시간에 대한 추세 차트를 볼 수 있습니다. 
+개인 피어링을 통한 가상 네트워크의 모든 연결 목록을 불러오려면 대시보드의 **프라이빗 피어링** 타일을 선택합니다. 여기서 가상 네트워크 연결을 선택하고 해당 상태, 패킷 손실, 대역폭 사용률 및 대기 시간에 대한 추세 차트를 볼 수 있습니다. 
 
 ![ExpressRoute 피어링](media/network-performance-monitor-expressroute/expressroute-peerings.png) 
 

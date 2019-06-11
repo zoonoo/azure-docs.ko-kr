@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bed2c002cacdac1e47852e6fa3181885af6733d2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819023"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236795"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Backup용 Azure Resource Manager 템플릿
 
@@ -32,5 +32,6 @@ ms.locfileid: "56819023"
 | [백업이 활성화된 Windows Server VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | 기본 백업 정책이 활성화된 Windows Server VM 및 Recovery Services 자격 증명 모음을 만드는 템플릿입니다.|
 |**백업 작업 모니터링** |  |
 | [Azure Backup을 통한 Azure Monitor 로그 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Recovery Services 자격 증명 모음에서 사용된 백업 및 복원 작업, 백업 경고 및 클라우드 스토리지를 모니터링할 수 있는 Azure Backup을 통해 Azure Monitor 로그를 배포하는 템플릿입니다.|  
+|**Azure VM에서 SQL Server 백업** |  |
+| [Azure VM에서 SQL Server 백업](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | Recovery Services 자격 증명 모음 및 워크로드 관련 백업 정책을 만드는 템플릿입니다. Azure Backup 서비스에 VM을 등록하고 해당 VM에서 보호를 구성합니다. 현재 SQL 갤러리 이미지에 대해서만 작동합니다. |
 |   |   |
-

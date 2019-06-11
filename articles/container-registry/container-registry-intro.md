@@ -1,6 +1,6 @@
 ---
-title: Azure의 개인 Docker 컨테이너 레지스트리 - 개요
-description: 클라우드 기반의 관리되는 개인 Docker 레지스트리를 제공하는 Azure Container Registry 서비스에 대한 소개입니다.
+title: Azure의 프라이빗 Docker 컨테이너 레지스트리 - 개요
+description: 클라우드 기반의 관리되는 프라이빗 Docker 레지스트리를 제공하는 Azure Container Registry 서비스에 대한 소개입니다.
 services: container-registry
 author: stevelas
 ms.service: container-registry
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59997410"
 ---
-# <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
+# <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 
-Azure 컨테이너 레지스트리는 오픈 소스 Docker 레지스트리 2.0에 기반한 관리되는 [Docker 레지스트리](https://docs.docker.com/registry/) 서비스입니다. 개인 [Docker 컨테이너](https://www.docker.com/what-docker) 이미지를 저장하고 관리하기 위해 Azure 컨테이너 레지스트리를 만들고 유지 관리합니다.
+Azure 컨테이너 레지스트리는 오픈 소스 Docker 레지스트리 2.0에 기반한 관리되는 [Docker 레지스트리](https://docs.docker.com/registry/) 서비스입니다. 프라이빗 [Docker 컨테이너](https://www.docker.com/what-docker) 이미지를 저장하고 관리하기 위해 Azure 컨테이너 레지스트리를 만들고 유지 관리합니다.
 
 기존 컨테이너 개발 및 배포 파이프 라인을 통해 Azure에서 컨테이너 레지스트리를 사용하거나 [ACR 작업](#azure-container-registry-tasks)을 사용하여 Azure에 컨테이너 이미지를 빌드합니다. 요청에 따라 빌드하거나 소스 코드 커밋 및 기본 이미지 업데이트 빌드 트리거를 사용하여 빌드를 완전히 자동화합니다.
 
@@ -42,7 +42,7 @@ Azure에는 Azure 컨테이너 레지스트리를 관리하는 Azure 명령줄 �
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure ID, Azure Active Directory에서 지원하는 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. Azure CLI 또는 표준 `docker login` 명령을 사용하여 레지스트리에 로그인합니다.
 
-* **리포지토리** - 레지스트리에는 이름은 같지만 태그나 다이제스트가 다른 컨테이너 이미지의 가상 그룹인 리포지토리가 하나 이상 있습니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예: 
+* **리포지토리** - 레지스트리에는 이름은 같지만 태그나 다이제스트가 다른 컨테이너 이미지의 가상 그룹인 리포지토리가 하나 이상 있습니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1`은 회사 차원의 이미지를 나타냅니다.
   * `myregistry.azurecr.io/warrantydept/dotnet-build`는 보증 부서 차원에서 공유되는 .NET 앱을 빌드하는 데 사용되는 이미지를 나타냅니다.

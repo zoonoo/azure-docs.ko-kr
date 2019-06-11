@@ -226,6 +226,8 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
+        - name: 감사 범위별 Azure Services
+          href: ./compliance/azure-services-in-fedramp-auditscope.md
         - name: 데이터 분석
           href: ./blueprints/fedramp-analytics-overview.md
         - name: 데이터 웨어하우스

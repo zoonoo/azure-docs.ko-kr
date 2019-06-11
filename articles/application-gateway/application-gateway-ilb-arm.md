@@ -163,7 +163,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-이 단계에서는 "fipconfig01"라는 프런트 엔드 IP 구성을 만들고 현재 가상 네트워크 서브넷의 개인 IP와 연결합니다.
+이 단계에서는 "fipconfig01"라는 프런트 엔드 IP 구성을 만들고 현재 가상 네트워크 서브넷의 프라이빗 IP와 연결합니다.
 
 ### <a name="step-6"></a>6단계
 

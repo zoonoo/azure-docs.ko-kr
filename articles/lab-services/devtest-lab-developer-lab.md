@@ -83,7 +83,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    | Task | 학습 내용 |
    | --- | --- |
    | [DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md) |랩에서 가상 머신에 대한 사용자 고유의 사용자 지정 아티팩트를 만듭니다.|
-   | [Azure DevTest Labs에서 사용하기 위한 사용자 지정 아티팩트 및 Azure Resource Manager 템플릿을 저장할 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md) |사용자 지정 아티팩트를 자체의 개인 Git 리포지토리에 저장하는 방법을 알아봅니다.|
+   | [Azure DevTest Labs에서 사용하기 위한 사용자 지정 아티팩트 및 Azure Resource Manager 템플릿을 저장할 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md) |사용자 지정 아티팩트를 자체의 프라이빗 Git 리포지토리에 저장하는 방법을 알아봅니다.|
 
 5. **비용 제어**
    

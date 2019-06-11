@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087111"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399611"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 Node.js의 LUIS 봇
 
 Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
+
+A [Bot Framework 4.x LUIS 자습서를 사용 하 여](luis-nodejs-tutorial-bf-v4.md) 도 제공 됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -98,7 +100,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
   ![Azure에서 LUIS 앱 ID 업데이트](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-LUIS 앱 ID가 없는 경우, Azure에 로그인하는 데 사용하는 것과 동일한 계정을 사용하여 [LUIS](luis-reference-regions.md) 웹 사이트에 로그인합니다. **내 앱**을 선택합니다. 
+LUIS 앱 ID가 없는 경우에 로그인 합니다 [LUIS](luis-reference-regions.md) Azure에 로그인 하는 데 동일한 계정을 사용 하 여 웹 사이트입니다. **내 앱**을 선택합니다. 
 
 1. HomeAutomation 도메인에서 의도 및 엔터티를 포함하는 이전에 만든 LUIS 앱을 찾습니다.
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>봇 테스트
 
-Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스트합니다. “조명 꺼줘” 및 “히터 켜줘” 같은 메시지를 입력하여 메시지에 추가한 의도를 호출합니다.
+Azure portal에서 선택 **테스트 웹 채팅** 봇 테스트 합니다. “조명 꺼줘” 및 “히터 켜줘” 같은 메시지를 입력하여 메시지에 추가한 의도를 호출합니다.
    ![웹 채팅에서 HomeAutomation 봇 테스트](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

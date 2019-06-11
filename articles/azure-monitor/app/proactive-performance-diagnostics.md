@@ -52,7 +52,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 2. **범위**. 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 페이지에만 영향을 주나요? 특정 브라우저 또는 위치로 제한되나요? 이 정보는 알림에서 얻을 수 있습니다.
 3. **진단**. 종종 알림의 진단 정보는 문제의 특성을 암시합니다. 예를 들어 요청 속도가 높을 때 응답 시간이 느려지면 서버 또는 종속성이 오버로드된 것을 암시합니다. 
 
-    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)를 사용할 수 있습니다.
+    그렇지 않으면 Application Insights에서 성능 블레이드를 엽니다. 여기서 [프로파일러](profiler.md) 데이터를 찾을 수 있습니다. 예외가 throw되는 경우에는 [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md)를 사용할 수 있습니다.
 
 
 
@@ -69,7 +69,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [비공개](../../azure-monitor/app/data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 

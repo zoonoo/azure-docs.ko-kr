@@ -114,7 +114,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
-Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 일괄 작업을 처음부터 끝까지 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
+Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작성하지 않고 엔드투엔드 일괄 작업을 실행할 수 있습니다. 확장에서 지원하는 Batch 명령은 JSON 템플릿을 사용하여 Azure CLI로 풀, 작업 및 태스크를 만들 수 있습니다. 또한 확장 CLI 명령을 사용하여 작업 입력 파일을 Batch 계정과 연결된 Azure Storage 계정에 업로드하고 여기에서 작업 출력 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 ## <a name="script-examples"></a>스크립트 예제
 

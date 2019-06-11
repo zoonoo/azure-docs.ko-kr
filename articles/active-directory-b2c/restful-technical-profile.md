@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 지정 정책에서 RESTful 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 RESTful 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705311"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512736"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -33,7 +33,7 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 - **유효성 검사 기술 프로필** - 유효성 검사 기술 프로필은 RESTful 서비스를 호출합니다. 유효성 검사 기술 프로필은 사용자 경험이 계속되기 전에 사용자가 제공한 데이터의 유효성을 검사합니다. 유효성 검사 기술 프로필을 사용하면 오류 메시지가 자체 어설션된 페이지에 표시되고 출력 클레임에 반환됩니다.
 - **클레임 교환** - 오케스트레이션 단계를 통해 RESTful 서비스가 호출됩니다. 이 시나리오에서는 오류 메시지를 렌더링하는 사용자 인터페이스가 없습니다. REST API가 오류를 반환하는 경우 오류 메시지와 함께 사용자가 신뢰 당사자 애플리케이션으로 다시 리디렉션됩니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 Azure AD B2C에서 사용되는 프로토콜 처리기 어셈블리의 정규화된 이름을 포함해야 합니다. `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -161,7 +161,7 @@ REST API가 'CRM 시스템에서 사용자를 찾을 수 없습니다.'와 같�
 | --------- | -------- | ----------- |
 | 버전 | 예 | 1.0.0 | 
 | status | 예 | 409 | 
-| 코드 | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 오류 코드입니다. | 
+| code | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 오류 코드입니다. | 
 | requestId | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 요청 식별자입니다. | 
 | userMessage | 예 | 사용자에게 표시되는 오류 메시지입니다. | 
 | developerMessage | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는, 문제점 및 해결 방법에 대한 자세한 설명입니다. | 

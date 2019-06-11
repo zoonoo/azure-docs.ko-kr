@@ -25,7 +25,7 @@ ms.locfileid: "64708852"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
-가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 프라이빗 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 하나의 서브넷이 있는 가상 네트워크 만들기
@@ -75,7 +75,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |----|----|
-    |Name| 개인 |
+    |Name| 프라이빗 |
     |주소 범위| 10.0.1.0/24|
     |서비스 엔드포인트| **서비스** 아래에서 **Microsoft.Storage**를 선택합니다.|
 
@@ -233,7 +233,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ### <a name="create-the-second-virtual-machine"></a>두 번째 가상 머신 만들기
 
-1-7단계를 다시 수행하지만, 3단계에서 가상 머신의 이름을 *myVmPrivate*로 지정하고, 5단계에서 **사설** 서브넷을 선택합니다.
+1-7단계를 다시 수행하지만, 3단계에서 가상 머신의 이름을 *myVmPrivate*로 지정하고, 5단계에서 **프라이빗** 서브넷을 선택합니다.
 
 VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 설정이 포털에서 열린 후에만 다음 단계를 진행합니다.
 
@@ -281,7 +281,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 2. 검색 결과에 **myVmPublic**이 표시되면 선택합니다.
 3. *myVmPublic* VM에 대한 [저장소 계정에 대한 액세스 확인](#confirm-access-to-storage-account)에서 1-6단계를 완료합니다.
 
-   잠시 기다리면 `New-PSDrive : Access is denied` 오류가 발생합니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *공용* 서브넷에는 Azure Storage에 사용하도록 설정된 서비스 엔드포인트가 없습니다. 저장소 계정은 *공용* 서브넷이 아닌 *개인* 서브넷으로부터의 네트워크 액세스만을 허용합니다.
+   잠시 기다리면 `New-PSDrive : Access is denied` 오류가 발생합니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *공용* 서브넷에는 Azure Storage에 사용하도록 설정된 서비스 엔드포인트가 없습니다. 스토리지 계정은 *공용* 서브넷이 아닌 *프라이빗* 서브넷으로부터의 네트워크 액세스만을 허용합니다.
 
 4. *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
@@ -292,7 +292,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
    ![액세스가 거부됨 오류](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
 
-   컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *Private* 서브넷에 없기 때문에 액세스가 거부되었습니다.
+   컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *프라이빗* 서브넷에 없기 때문에 액세스가 거부되었습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

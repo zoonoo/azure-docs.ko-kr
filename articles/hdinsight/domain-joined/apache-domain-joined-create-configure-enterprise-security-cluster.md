@@ -282,7 +282,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 에 **개인 키 내보내기** 페이지에서 클릭 **예, 개인 키 내보내기**합니다. 개인 키가 키를 가져와야 하는 컴퓨터에서 읽을 암호화 된 메시지에 필요 합니다.
 
-    ![개인 키 내보내기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
+    ![프라이빗 키 내보내기](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image103.png)
 
 1. 에 **내보내기 파일 형식** 페이지에서 기본 설정을 유지 하 고, 클릭 **다음**합니다. 
 1. 에 **암호** 페이지에서 개인 키를 선택에 대 한 암호를 입력 **TripleDES-SHA1** 에 대 한 **암호화** 를 클릭 하 고 **다음**.

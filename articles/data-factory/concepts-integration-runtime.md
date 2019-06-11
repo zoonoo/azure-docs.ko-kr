@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232419"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427143"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
 
 - **데이터 흐름**: 실행 된 [데이터 흐름](concepts-data-flow-overview.md) 관리 되는 Azure 계산 환경에서.  
-- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
+- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 프라이빗 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
 - **작업 디스패치**:  디스패치 및 모니터링 변환 작업을 다양 한 Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등과 같은 계산 서비스를 실행 합니다.
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
@@ -38,7 +38,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 다음 테이블은 각 통합 런타임 유형에 대한 기능 및 네트워크 지원을 설명합니다.
 
-IR 유형 | 공용 네트워크 | 개인 네트워크
+IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
 Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
@@ -73,17 +73,17 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 ## <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
-- 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업 실행.
+- 클라우드 데이터 저장소와 프라이빗 네트워크의 데이터 저장소 간에 복사 작업을 실행합니다.
 - 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업 (BYOC 가져올 사용자 고유의 클러스터), HDInsight Pig 작업 (BYOC), HDInsight MapReduce 작업 (BYOC), HDInsight Spark 작업 (BYOC), HDInsight 스트리밍 작업 (BYOC), Machine Learning Batch 실행 작업, Machine Learning 리소스 활동, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업,.NET 사용자 지정 작업, 조회 작업 및 메타 데이터 가져오기 작업을 업데이트 합니다.
 
 > [!NOTE] 
 > 자체 호스팅 통합 런타임을 사용하여 SAP Hana, MySQL 등 BYOD(bring-your-own driver)를 요구하는 데이터 저장소를 지원합니다.  자세한 내용은 [지원되는 데이터 소스](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
 
 ### <a name="self-hosted-ir-network-environment"></a>자체 호스팅 IR 네트워크 환경
-공용 클라우드 환경에서 직접 시야를 가지고 있지 않은 개인 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
+공용 클라우드 환경에서 직접 시야를 가지고 있지 않은 프라이빗 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
 
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>자체 호스팅 IR 계산 리소스 및 크기 조정
-자체 호스팅 IR은 온-프레미스 컴퓨터 또는 개인 네트워크 내의 가상 머신에 설치해야 합니다. 현재 Windows 운영 체제에서만 자체 호스팅 IR의 실행을 지원합니다.  
+자체 호스팅 IR은 온-프레미스 머신 또는 프라이빗 네트워크 내의 가상 머신에 설치해야 합니다. 현재 Windows 운영 체제에서만 자체 호스팅 IR의 실행을 지원합니다.  
 
 고가용성과 확장성을 위해 논리 인스턴스를 활성-활성 모드의 여러 온-프레미스 컴퓨터와 연결하여 자체 호스팅 IR을 확장할 수 있습니다.  자세한 내용은 세부 정보 방법 가이드 아래의 자체 호스팅 IR 만들기 및 구성 방법 문서를 참조하세요.
 
@@ -91,7 +91,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 기존 SSIS 워크로드를 올리고 이동하려면 SSIS 패키지를 고유하게 실행하는 Azure-SSIS IR을 만들 수 있습니다.
 
 ### <a name="azure-ssis-ir-network-environment"></a>Azure-SSIS IR 네트워크 환경
-Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비전할 수 있습니다.  Azure-SSIS IR을 온-프레미스 네트워크에 연결된 Virtual Network에 조인하여 온-프레미스 데이터 액세스를 지원합니다.  
+Azure SSIS IR은 공용 네트워크 또는 프라이빗 네트워크에서 프로비전할 수 있습니다.  Azure-SSIS IR을 온-프레미스 네트워크에 연결된 Virtual Network에 조인하여 온-프레미스 데이터 액세스를 지원합니다.  
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Azure-SSIS IR 계산 리소스 및 크기 조정
 Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. 자신만의 Azure SQL Database 또는 Managed Instance 서버를 해당 서버에 연결할 SSIS 프로젝트/패키지(SSISDB)의 카탈로그를 호스트하게 만들 수 있습니다. 노드 크기를 지정하여 계산 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.
@@ -114,11 +114,11 @@ IR 위치는 해당 백 엔드 계산의 위치, 즉 기본적으로 데이터 �
 ### <a name="azure-ir-location"></a>Azure IR 위치
 Azure IR의 특정 위치를 설정할 수 있으며, 데이터 이동 또는 작업 디스패치는 이 특정 영역에서 발생합니다. 
 
-기본값인 Azure IR 자동 확인을 사용하도록 선택할 경우 
+사용 하려는 경우는 **자동으로 해결 Azure IR** 기본값, 
 
 - 복사 작업에서는 ADF가 자동으로 싱크 및 원본 데이터 저장소를 검색하여 동일한 영역에서 최적의 위치를 선택하고(사용 가능한 경우), 데이터 팩터리 영역을 사용할 대안을 검색할 수 없는 경우에는 동일한 지리에서 가장 가까운 위치를 선택하기 위해 노력합니다.
 
-- 조회/GetMetadata 작업 실행 및 변환 작업 디스패치에서는 ADF가 데이터 팩토리 영역에서 IR을 사용합니다.
+- 조회/GetMetadata/삭제 작업 실행 (파이프라인 활동), 변환 작업 디스패치 (라고도 외부 활동) 및 작업 (연결 테스트, 찾아보기 폴더 목록 및 테이블 목록에서 데이터 미리 보기) 제작에 대 한 ADF 데이터 팩터리 영역이에 IR을 사용 합니다.
 
 - 데이터 흐름에 대 한 ADF 데이터 팩토리 영역에 IR을 사용 합니다. 
 

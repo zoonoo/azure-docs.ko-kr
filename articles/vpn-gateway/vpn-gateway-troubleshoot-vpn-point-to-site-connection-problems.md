@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457479"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475965"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -56,13 +56,13 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 클라이언트 인증서를 설치하는 방법에 대한 자세한 내용은 [지점 및 사이트 간 연결에 대한 인증서를 생성 및 내보내기](vpn-gateway-certificates-point-to-site.md)를 참조하세요.
 
 > [!NOTE]
-> 클라이언트 인증서를 가져올 때 **강력한 개인 키 보호 사용** 옵션을 선택하지 않습니다.
+> 클라이언트 인증서를 가져올 때 **강력한 프라이빗 키 보호 사용** 옵션을 선택하지 않습니다.
 
 ## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>원격 서버가 응답 하지 않기 때문에 컴퓨터 및 VPN 서버 간의 네트워크 연결을 설정할 수 없습니다.
 
 ### <a name="symptom"></a>증상
 
-Windows에서 IKEv2를 사용 하는 Azure 가상 네트워크 gteway에 연결을 시도 하면 다음 오류 메시지가 표시:
+Windows에서 IKEv2를 사용 하 여 Azure 가상 네트워크 게이트웨이에 연결을 시도 하면 다음 오류 메시지가 표시:
 
 **원격 서버가 응답 하지 않기 때문에 컴퓨터 및 VPN 서버 간의 네트워크 연결을 설정할 수 없습니다.**
 

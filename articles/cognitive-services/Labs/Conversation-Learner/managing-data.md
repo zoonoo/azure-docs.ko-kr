@@ -3,19 +3,19 @@ title: Conversation Learner에서 사용자 데이터 관리 - Microsoft Cogniti
 titleSuffix: Azure
 description: Conversation Learner에서 사용자 데이터를 관리하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.author: nitinme
+ms.openlocfilehash: 7ea0b246a16ff196a4160d9822b5db15cd39a4a6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249081"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385194"
 ---
 # <a name="managing-user-data"></a>사용자 데이터 관리
 

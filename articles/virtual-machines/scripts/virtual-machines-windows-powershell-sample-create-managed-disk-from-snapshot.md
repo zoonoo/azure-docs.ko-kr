@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 스냅숏에서 관리 디스크 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 스냅숏에서 관리 디스크 만들기
+title: Azure PowerShell 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: f2bad16a983dc8159a10c5770b60d0c070965778
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 253193c00371aae9450b6001895d8a870af2513a
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978445"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730091"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>PowerShell을 사용하여 스냅숏에서 관리 디스크 만들기
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>PowerShell을 사용하여 스냅샷에서 관리 디스크 만들기
 
-이 스크립트는 스냅숏에서 관리 디스크를 만듭니다. 이를 사용하여 OS 및 데이터 디스크의 스냅숏에서 가상 머신을 복원합니다. 각 스냅숏에서 OS 및 데이터 관리 디스크를 만든 다음 관리 디스크를 연결하여 새 가상 머신을 만듭니다. 스냅숏에서 만든 데이터 디스크를 연결하여 기존 VM의 데이터 디스크를 복원할 수도 있습니다.
+이 스크립트는 스냅샷에서 관리 디스크를 만듭니다. 이를 사용하여 OS 및 데이터 디스크의 스냅샷에서 가상 머신을 복원합니다. 각 스냅샷에서 OS 및 데이터 관리 디스크를 만든 다음, 관리 디스크를 연결하여 새 가상 머신을 만듭니다. 스냅샷에서 만든 데이터 디스크를 연결하여 기존 VM의 데이터 디스크를 복원할 수도 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -39,12 +39,12 @@ ms.locfileid: "55978445"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트에서는 다음 명령을 사용하여 스냅숏에서 관리 디스크를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트에서는 다음 명령을 사용하여 스냅샷에서 관리 디스크를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | 스냅숏 속성을 가져옵니다.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 스냅숏의 리소스 ID, 부모 스냅숏의 위치와 같은 위치 및 저장소 형식을 포함합니다.  |
+| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | 스냅샷 속성을 가져옵니다.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | 디스크 만들기에 사용되는 디스크 구성을 만듭니다. 부모 스냅샷의 리소스 ID, 부모 스냅샷의 위치와 같은 위치 및 저장소 형식을 포함합니다.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 디스크 구성, 디스크 이름 및 리소스 그룹 이름을 사용하여 디스크를 만듭니다. |
 
 

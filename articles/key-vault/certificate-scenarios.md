@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725708"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427845"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -39,8 +39,7 @@ ms.locfileid: "64725708"
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
     다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
     -   DigiCert - Key Vault는 DigiCert를 통해 OV SSL 인증서를 제공합니다.  
-    -   GlobalSign - Key Vault는 GlobalSign을 통해 OV SSL 인증서를 제공합니다.  
-    -   WoSign - Key Vault는 WoSign 포털의 해당 WoSign 계정에서 고객에 의해 구성된 설정을 기반으로 WoSign을 통해 OV SSL 또는 EV SSL 인증서를 제공합니다.  
+    -   Globaltrust-Key Vault는 OV SSL Globaltrust 사용 하 여 인증서를 제공합니다.  
 
 **2단계** - CA 공급자에 대한 계정 관리자는 Key Vault를 통해 SSL 인증서를 등록, 갱신 및 사용하도록 Key Vault에서 사용할 자격 증명을 만듭니다.
 
@@ -87,7 +86,7 @@ ms.locfileid: "64725708"
 
  PEM 형식에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)의 인증서 섹션을 참조하세요.  
 
- 인증서 가져오기 – 디스크에 PEM 또는 PFX가 있어야 하며 개인 키가 필요합니다. 
+ 인증서 가져오기 – 디스크에 PEM 또는 PFX가 있어야 하며 프라이빗 키가 필요합니다. 
 -   자격 증명 모음 이름 및 인증서 이름을 지정해야 합니다(정책은 선택 사항).
 
 -   PEM / PFX 파일은 KV에서 구문 분석하고 인증서 정책을 채우는 데 사용할 수 있는 특성을 포함합니다. 인증서 정책이 이미 지정된 경우 KV는 PFX / PEM 파일에서 데이터를 일치시키려고 합니다.  

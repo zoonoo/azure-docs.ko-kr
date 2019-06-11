@@ -60,7 +60,7 @@ Azure Active Directory 사용자에게 TenantCreator 애플리케이션 역할�
 글로벌 관리자 계정에 TenantCreator 애플리케이션 역할을 할당하려면:
 
 1. 브라우저를 열고 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 연결합니다.
-   - 여러 Azure Active Directory 테넌트로 작업하는 경우 비공개 브라우저 세션을 열고 URL을 복사한 후 주소 창에 붙여넣는 것이 가장 좋습니다.
+   - 여러 Azure Active Directory 테넌트로 작업하는 경우 프라이빗 브라우저 세션을 열고 URL을 복사한 후 주소 창에 붙여넣는 것이 가장 좋습니다.
 2. Azure Portal 내의 검색 표시줄에서 **엔터프라이즈 애플리케이션**을 검색하고 **서비스** 범주 아래에 나타나는 항목을 선택합니다.
 3. **엔터프라이즈 애플리케이션** 내에서 **Windows Virtual Desktop**을 검색합니다. 이전 섹션에서 동의를 표한 두 애플리케이션이 표시됩니다. 이러한 두 앱 중 **Windows Virtual Desktop**을 선택합니다.
         !["엔터프라이즈 애플리케이션"에서 "Windows Virtual Desktop"을 검색할 때의 검색 결과 스크린샷입니다. "Windows Virtual Desktop"이라는 앱이 강조 표시됩니다.](media/tenant-enterprise-app.png)

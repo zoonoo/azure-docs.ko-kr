@@ -159,7 +159,7 @@ MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows S
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>8단계: 백업을 수행합니다
-Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 디바이스에서 두 유형(로컬 스냅숏 및 클라우드 스냅숏)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
+Backup은 볼륨의 지정 시간 보호 기능을 제공하며 복원 시간을 최소화하면서 복구 기능을 개선합니다. StorSimple 디바이스에서 두 유형(로컬 스냅샷 및 클라우드 스냅샷)의 백업을 수행할 수 있습니다. 이러한 각 유형의 백업은 **예약됨** 또는 **수동**이 될 수 있습니다.
 
 예약된 백업을 만들려면 Government 포털에서 다음 단계를 수행합니다.
 

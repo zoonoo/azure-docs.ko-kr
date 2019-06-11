@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 6fbbdb67478d0b45a2cc2ecb8a44fac140e72da5
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.date: 06/03/2019
+ms.openlocfilehash: 42ef03d604caacf5ba18773b88e892237b5f0eae
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851815"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688537"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -33,10 +33,10 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
 * Azure HDInsight 클러스터를 만듭니다. HDInsight 클러스터를 만들려면 [Azure HDInsight에서 Apache Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요. 대화형 Apache Hive 쿼리를 실행하려면 [HDInsight 대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터가 필요합니다.  
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 이상).  합니다 [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) 은 무료입니다.  도 참조 하세요 [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 하 고 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)합니다.
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 이상).  합니다 [Visual Studio Community edition](https://visualstudio.microsoft.com/vs/community/) 은 무료입니다.  도 참조 하세요 [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 하 고 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)합니다. Visual Studio 2019를 사용 하 여 약간의 인터페이스 변형이 있습니다.
 
   > [!IMPORTANT]  
-  > Data Lake Tools는 더 이상 Visual Studio 2013에 대 한 지원 됩니다. 
+  > Data Lake Tools는 더 이상 Visual Studio 2013에 대 한 지원 됩니다.
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치  
 <a name="install-or-update-data-lake-tools-for-visual-studio"></a>
@@ -85,7 +85,7 @@ Azure 구독에 연결하려면,
 
    ![Data Lake Tools for Visual Studio 서버 탐색기 - 클러스터 목록의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Data Lake Tools for Visual Studio 서버 탐색기")
 
-5. HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**, 기본 저장소 계정, 연결된 저장소 계정 및 **Hadoop 서비스 로그**가 표시됩니다. 엔터티를 더 확장할 수 있습니다.
+5. HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**를 기본 저장소 계정, 연결 된 저장소 계정 및 **Hadoop 서비스 로그** 표시 합니다. 엔터티를 더 확장할 수 있습니다.
 
 Azure 구독에 연결한 후에 다음 작업을 수행할 수 있습니다.
 
@@ -93,19 +93,20 @@ Visual Studio에서 Azure Portal에 연결하려면,
 
 1. 서버 탐색기에서로 이동 **Azure** > **HDInsight** 클러스터를 선택 합니다.
 
-2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 **Azure Portal에서 클러스터 관리**합니다.
+2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 **씨에 Azure portal에서 클러스터 관리**합니다.
 
 질문 하 Visual Studio에서 피드백을 제공 합니다.
 
 1. 서버 탐색기에서로 이동 **Azure** > **HDInsight**합니다.
 
 2. 마우스 오른쪽 단추로 클릭 **HDInsight** 중 하나를 선택 하 고 **MSDN 포럼** 궁금한 사항을 문의할 또는 **피드백** 의견을 보내주세요.
+
 ## <a name="link-a-cluster"></a>클러스터 연결
 마우스 오른쪽 단추로 클릭 하 여 클러스터를 연결할 수 있습니다 **HDInsight** 선택한 **HDInsight 클러스터 연결**합니다. 입력 **연결 Url**를 **사용자 이름** 하 고 **암호**, 클릭 **다음** 다음 **마침**, 클러스터 성공적인 HDInsight 노드 아래에 나열 되어야 합니다.
 
 ![스크린 샷 Data Lake Tools의 Visual Studio 클러스터 연결 대화 상자에 대 한](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-연결 된 클러스터 선택에서 마우스 오른쪽 단추로 클릭 **편집**, 사용자는 클러스터 정보를 업데이트할 수 없습니다. 추가 HDInsight 클러스터만 지원함 Hive 지금은 note 합니다.
+연결 된 클러스터 선택에서 마우스 오른쪽 단추로 클릭 **편집**, 사용자는 클러스터 정보를 업데이트할 수 없습니다. 이제 Hive를 지원 HDInsight 클러스터를 추가 합니다.
 
 ![스크린 샷의 Data Lake Tools for Visual Studio 링크 클러스터 업데이트](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -170,7 +171,14 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 1. 선택한 쿼리를 실행 하려는 클러스터를 마우스 오른쪽 단추로 클릭 **Hive 쿼리 작성**합니다.  
 
-2. Hive 쿼리를 입력합니다.  
+2. 다음 Hive 쿼리를 입력 합니다.
+
+    ```sql
+    SELECT devicemodel, COUNT(devicemodel) AS deviceCount
+    FROM hivesampletable
+    GROUP BY devicemodel
+    ORDER BY devicemodel
+    ```
 
     Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 입력 `SELECT * FROM`, IntelliSense 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다.
 

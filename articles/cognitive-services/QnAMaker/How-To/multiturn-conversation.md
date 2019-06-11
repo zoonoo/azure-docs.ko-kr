@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0aab2250d6692d7db99c55b23604c08f5fe619a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235727"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479674"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>후속 프롬프트를 사용 하 여 대화의 여러 설정 만들기
 
@@ -102,7 +102,7 @@ PDF 문서를 가져오면 QnA Maker는 대화형 흐름을 만들기 위해 구
 1. 에 대 한 행의 `Signout`을 선택 **추가 후속 프롬프트** 에서 합니다 **응답** 열입니다.
 1. 에 **후속 프롬프트 (미리 보기)** 팝업 창에서 다음을 입력 합니다.
 
-    |필드|Value|
+    |필드|값|
     |--|--|
     |표시 텍스트|`Turn off the device`. 후속 프롬프트에서 표시 하도록 선택 하면 사용자 지정 텍스트입니다.|
     |상황에 맞는 전용|선택 합니다. 이 응답 컨텍스트를 지정 하는 질문 하는 경우에 반환 됩니다.|
@@ -162,7 +162,7 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 1. 에 **답변** 선택이 질문에 대 한 열 **후속 프롬프트 추가**합니다. 
 1. 합니다 **후속 프롬프트 (미리 보기)** , 다음 값을 입력 하 여 새 후속 프롬프트를 만듭니다. 
 
-    |텍스트 필드|Value|
+    |텍스트 필드|값|
     |--|--|
     |**텍스트를 표시 합니다.**|`Create a Windows Account`. 후속 프롬프트에서 표시 하도록 선택 하면 사용자 지정 텍스트입니다.|
     |**Context-only**|선택 합니다. 이 응답 컨텍스트를 지정 하는 질문 하는 경우에 반환 됩니다.|
@@ -389,7 +389,11 @@ QnA Maker _GenerateAnswer_ JSON 응답의 후속 프롬프트를 포함 합니�
 
 [텍스트 표시 및 표시 순서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto)JSON 응답에서 반환 된, 편집 하는 동안 지원 되는 [업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)합니다. 
 
-수정-상위 용어가 응답 열으로 이동 하 고 응답을 편집 해야 합니다. 
+<!--
+
+FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## <a name="next-steps"></a>다음 단계
 

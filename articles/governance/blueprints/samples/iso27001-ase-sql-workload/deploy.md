@@ -123,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |네트워크 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-workload-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |네트워크 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |네트워크 보안 그룹 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
-|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 개인 IP|[Azure Firewall](../../../../firewall/overview.md)의 개인 IP를 구성합니다. _ISO 27001: Shared Services_ 아티팩트 매개 변수 **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
+|Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Azure Firewall 프라이빗 IP|[Azure Firewall](../../../../firewall/overview.md)의 개인 IP를 구성합니다. _ISO 27001: Shared Services_ 아티팩트 매개 변수 **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Shared services 구독 ID|워크로드와 Shared Services 간에 VNET 피어링을 사용하도록 설정하는 데 사용되는 값입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network 주소 접두사|가상 네트워크에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|기본 서브넷 주소 접두사|가상 네트워크 기본 서브넷에 대한 CIDR 표기법입니다. 기본값은 _10.1.0.0/16_입니다.|

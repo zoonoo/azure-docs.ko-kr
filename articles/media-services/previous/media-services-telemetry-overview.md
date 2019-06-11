@@ -110,7 +110,7 @@ ResultCode|결과 코드 세부 정보|S_OK
 RequestCount|집계의 총 요청|3
 BytesSent|집계된 보낸 바이트 수|2987358
 ServerLatency|평균 서버 대기 시간(저장소 포함)|129
-E2ELatency|평균 종단 간 대기 시간|250
+E2ELatency|평균 엔드투엔드 대기 시간|250
 
 **라이브 채널**
 
@@ -132,10 +132,10 @@ OverlapCount|수집의 겹침|0
 DiscontinuityCount|트랙 불연속성|0
 LastTimestamp|마지막으로 수집된 데이터 타임스탬프|1800488800
 NonincreasingCount|증가하지 않는 타임스탬프로 인해 삭제된 조각 수|2
-UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |True 
-UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|True 
-UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True 
-Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True <br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |True
+UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|True
+UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True
+Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **라이브 보관**
 

@@ -62,7 +62,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 | url | 웹 서버의 기본 URL입니다. | 예. |
 | enableServerCertificateValidation | HTTP 엔드포인트에 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 아닙니다.<br /> (기본값: **true**) |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
 
@@ -111,7 +111,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 1. MMC(Microsoft Management Console)를 엽니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
 2. **인증서** > **개인**을 확장한 후 **인증서**를 선택합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **개인 키 관리**를 선택합니다.
+3. 개별 저장소에서 인증서를 마우스 오른쪽 단추로 클릭한 다음, **모든 작업** > **프라이빗 키 관리**를 선택합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 통합 런타임 호스트 서비스(DIAHostService)를 실행 중인 사용자 계정을 추가합니다.
 
 **예제 1: certThumbprint 사용**

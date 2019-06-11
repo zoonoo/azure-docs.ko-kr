@@ -60,7 +60,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 이 문서에서는 이러한 두 데이터 집합을 사용 하 여 테스트 Sqoop 가져오기 및 내보내기.
 
 ## <a name="create-cluster-and-sql-database"></a>테스트 환경 설정
-클러스터, SQL database 및 기타 개체는 Azure Resource Manager 템플릿을 사용 하 여 Azure portal을 통해 생성 됩니다. 서식 파일에서 찾을 수 있습니다 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)합니다. Resource Manager 템플릿은 SQL database에 테이블 스키마를 배포 하는 bacpac 패키지를 호출 합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 개인 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
+클러스터, SQL database 및 기타 개체는 Azure Resource Manager 템플릿을 사용 하 여 Azure portal을 통해 생성 됩니다. 서식 파일에서 찾을 수 있습니다 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)합니다. Resource Manager 템플릿은 SQL database에 테이블 스키마를 배포 하는 bacpac 패키지를 호출 합니다.  백업 패키지는 공용 Blob 컨테이너, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac에 있습니다. Bacpac 파일에 대한 프라이빗 컨테이너를 사용하려는 경우 템플릿에 다음 값을 사용합니다.
 
 ```json
 "storageKeyType": "Primary",

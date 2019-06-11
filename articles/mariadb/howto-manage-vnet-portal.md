@@ -15,7 +15,7 @@ ms.locfileid: "60745919"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
-VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의 개인 주소 공간을 Azure Database for MariaDB 서버로 확장합니다. 제한을 포함하여 Azure Database for MariaDB VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MariaDB 서버 VNet 서비스 엔드포인트](concepts-data-access-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MariaDB에 대해 지원되는 모든 지역에서 사용할 수 있습니다.
+VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의 프라이빗 주소 공간을 Azure Database for MariaDB 서버로 확장합니다. 제한을 포함하여 Azure Database for MariaDB VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MariaDB 서버 VNet 서비스 엔드포인트](concepts-data-access-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MariaDB에 대해 지원되는 모든 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.

@@ -121,6 +121,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: 개발자 환경 사용자 지정
       items:
+        - name: 새 개발자 포털 액세스 및 사용자 지정
+          href: api-management-howto-developer-portal.md
         - name: 페이지 콘텐츠 및 레이아웃 수정
           href: api-management-modify-content-layout.md
         - name: 템플릿을 사용하여 시스템 페이지 사용자 지정

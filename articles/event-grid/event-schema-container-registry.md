@@ -157,12 +157,12 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| topic | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | Blob Storage 이벤트 데이터입니다. |
+| data | 개체 | Blob Storage 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
@@ -173,8 +173,8 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 | id | string | 이벤트 ID입니다. |
 | timestamp | string | 이벤트가 발생한 시간입니다. |
 | action | string | 제공된 이벤트를 포함하는 동작입니다. |
-| 대상 | 개체 | 이벤트의 대상입니다. |
-| 요청 | 개체 | 이벤트를 생성한 요청입니다. |
+| target | 개체 | 이벤트의 대상입니다. |
+| request | 개체 | 이벤트를 생성한 요청입니다. |
 
 대상 개체의 속성은 다음과 같습니다.
 
@@ -184,10 +184,10 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 | size | 정수 | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
 | digest | string | 콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다. |
 | length | 정수 | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
-| 리포지토리(repository) | string | 리포지토리 이름입니다. |
+| repository | string | 리포지토리 이름입니다. |
 | tag | string | 태그 이름입니다. |
-| 이름 | string | 차트 이름입니다. |
-| 버전 | string | 차트 버전입니다. |
+| name | string | 차트 이름입니다. |
+| version | string | 차트 버전입니다. |
 
 요청 개체의 속성은 다음과 같습니다.
 
@@ -196,7 +196,7 @@ Azure Container Registry는 다음 이벤트 유형을 내보냅니다.
 | id | string | 이벤트를 시작한 요청의 ID입니다. |
 | addr | string | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |
 | host | string | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
-| 메서드 | string | 이벤트를 생성한 요청 메서드입니다. |
+| method | string | 이벤트를 생성한 요청 메서드입니다. |
 | useragent | string | 요청의 사용자 에이전트 헤더입니다. |
 
 ## <a name="next-steps"></a>다음 단계

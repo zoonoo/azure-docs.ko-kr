@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3c645ea748834340a2e6cfb8d3e7e1b1e876dcf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e93dbc072de7208927eba9e45c09143b56f52a9b
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540847"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418309"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -165,7 +165,7 @@ ms.locfileid: "65540847"
 4. **복제 정책 만들기**에서 정책 이름을 입력합니다. **VMwareRepPolicy**를 사용합니다.
 5. **RPO 임계값**에서 기본값인 60분을 사용합니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
 6. **복구 지점 보존**에서 각 복구 지점이 보존되는 방법을 지정합니다. 이 자습서에서는 72시간을 사용합니다. 복제된 VM은 보존 기간 중 임의의 시점으로 복구될 수 있습니다.
-7. **앱 일치 스냅숏 빈도**에서 앱 일치 스냅숏이 만들어지는 빈도를 지정합니다. 기본값은 60분을 사용하고 있습니다. **확인**을 선택하여 정책을 만듭니다.
+7. **앱 일치 스냅샷 빈도**에서 앱 일치 스냅샷이 만들어지는 빈도를 지정합니다. 기본값은 60분을 사용하고 있습니다. **확인**을 선택하여 정책을 만듭니다.
 
    ![복제 정책 만들기](./media/vmware-azure-tutorial/replication-policy.png)
 

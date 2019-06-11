@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da23b90e44869dcbd21acf9b2c4e04f30153ae09
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259256"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751770"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
@@ -107,7 +107,7 @@ SaaS 서비스에서
 |  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자 토큰 가져오기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자 토큰 가져오기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 |  x-ms-marketplace-token  |  Azure에서 SaaS ISV의 웹 사이트에 사용자가 리디렉션될 경우 URL에 토큰 쿼리 매개 변수 (예: `https://contoso.com/signup?token=..`). *참고:* URL을 사용 하기 전에 브라우저에서 토큰 값을 디코딩합니다.  |
 
 *응답 코드:*
@@ -171,7 +171,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 | 콘텐츠 형식       |  `application/json`  |
 | x-ms-requestid     |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 | x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -198,7 +198,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
@@ -241,7 +241,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 |  콘텐츠 형식      |  `application/json`  |
 |  x-ms-requestid    |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -305,7 +305,7 @@ Response Body:
 |   콘텐츠 형식     |  `application/json` |
 |   x-ms-requestid   |   가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *응답 코드:*
 
@@ -359,7 +359,7 @@ Response Body:
 |  콘텐츠 형식      | `application/json`  |
 |  x-ms-requestid    | 가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 문자열에서 서버 쪽 이벤트를 사용 하 여 클라이언트 작업의 모든 이벤트를 상호 연결합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *요청:*
 
@@ -416,7 +416,7 @@ Response Body:
 |  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.    |
-| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *요청 페이로드:*
 
@@ -482,7 +482,7 @@ Request Body:
 |  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.    |
-| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *요청 페이로드:*
 
@@ -548,7 +548,7 @@ Request Body:
 |   콘텐츠 형식     |  `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.   |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.   |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -601,7 +601,7 @@ Request Body:
 |   콘텐츠 형식     |  `application/json` |
 |  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -664,7 +664,7 @@ Request Body:
 |  콘텐츠 형식      |  `application/json`   |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |[JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  권한 부여     |[JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:* 코드: 200<br> SaaS 작업 보류 된 가져옵니다.<br>
 응답 페이로드:
@@ -727,7 +727,7 @@ Response body:
 |   콘텐츠 형식     | `application/json`   |
 |   x-ms-requestid   |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다. |
-|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *요청 페이로드:*
 
@@ -774,26 +774,35 @@ Response body:
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
+여기서 작업 중 하나일 수 있습니다. 
+- `Subscribe`(때 리소스 활성화 된)
+- `Unsubscribe`(경우 리소스가 삭제 되었습니다)
+- `ChangePlan`(변경 계획 작업이 완료 되 면)
+- `ChangeQuantity`(수량 변경 작업에 완료 되 면)
+- `Suspend`(때 리소스 일시 중단 됨)
+- `Reinstate`(때 리소스에 복원 되었습니다 일시 중단 후)
 
-여기서 작업은 다음 중 하나일 수 있습니다. 
-- `Subscribe`  (경우 리소스 활성화 된)
-- `Unsubscribe` (경우 리소스가 삭제 되었습니다)
-- `ChangePlan` (변경 계획 작업이 완료 되 면)
-- `ChangeQuantity` (변경 수량 작업이 완료 되 면)
-- `Suspend` (경우 리소스를 일시 중단 됨)
-- `Reinstate` (경우 리소스에 복원 되었습니다 일시 중단 후)
+여기서 상태 중 하나일 수 있습니다. <br>
+        -NotStarted, <br>
+        -InProgress, <br>
+        -성공 <br>
+        -실패 <br>
+        -충돌 <br>
 
+실행 가능한 상태 웹 후크 알림의 성공 및 실패는입니다. 작업의 수명 주기 NotStarted에서 성공/실패/충돌 같은 터미널 상태입니다. 시작 되지 않은 경우, 진행 중인 작업에 작업을 수행 하기 전에 터미널 상태에 도달할 때까지 상태 가져오기 작업 API 통해 요청을 계속 하십시오. 
 
 ## <a name="mock-api"></a>Mock API
 

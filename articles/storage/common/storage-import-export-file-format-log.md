@@ -110,8 +110,8 @@ properties-status ::=
 |`Blob`|중첩 XML 요소|Blob을 나타냅니다.|  
 |`Blob/BlobPath`|String|Blob의 URI입니다.|  
 |`Blob/FilePath`|String|드라이브의 파일에 대한 상대 경로입니다.|  
-|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
-|`Blob/Length`|정수 |바이트 단위인 Blob의 총 길이입니다.|  
+|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅샷 버전입니다.|  
+|`Blob/Length`|정수|바이트 단위인 Blob의 총 길이입니다.|  
 |`Blob/LastModified`|DateTime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
 |`Blob/ImportDisposition`|String|가져오기 작업에 대한 Blob의 가져오기 처리입니다.|  
 |`Blob/ImportDisposition/@Status`|특성, 문자열|가져오기 처리의 상태입니다.|  

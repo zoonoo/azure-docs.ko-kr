@@ -151,7 +151,7 @@ Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 
 
 ### <a name="ip-address-version"></a>IP 주소 버전
 
-개인 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 개인 IPv6 주소는 동적 할당 메서드를 사용하여 할당될 수 있습니다. 가상 네트워크의 개인 IPv6 주소 간에 통신할 수 없습니다. 인터넷 연결 부하 분산 장치를 통해 인터넷의 개인 IPv6 주소에 대한 인바운드와 통신할 수 있습니다. 자세한 내용은 [IPv6으로 인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+개인 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 개인 IPv6 주소는 동적 할당 메서드를 사용하여 할당될 수 있습니다. 가상 네트워크의 개인 IPv6 주소 간에 통신할 수 없습니다. 인터넷 연결 부하 분산 장치를 통해 인터넷의 프라이빗 IPv6 주소에 대한 인바운드와 통신할 수 있습니다. 자세한 내용은 [IPv6으로 인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ### <a name="allocation-method"></a>할당 방법
 

@@ -20,7 +20,7 @@ ms.locfileid: "60589053"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
-이러한 **종단 간 연습**에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 **지능형 애플리케이션**을 만드는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
+이러한 **엔드투엔드 연습**에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 **지능형 애플리케이션**을 만드는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
 
 
 ## <a name="walkthrough-descriptions"></a>연습 설명

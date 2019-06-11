@@ -1,7 +1,7 @@
 ---
 title: 공동 작업 시 보안
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다.
+description: 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -19,7 +19,7 @@ ms.lasthandoff: 05/10/2019
 ms.locfileid: "65522486"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
-작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
+작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 프라이빗 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
 
 ## <a name="access-to-authoring"></a>작성에 대한 액세스
 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트 또는 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)에서 앱에 액세스하는 것은 앱 소유자가 제어합니다. 
@@ -48,9 +48,9 @@ ms.locfileid: "65522486"
 |:--|:--|
 |소유자 및 협력자에게 제공|소유자, 협력자 및 앱 ID를 아는 그 밖의 모든 사람에게 제공|
 
-### <a name="private-app-endpoint-security"></a>개인 앱 엔드포인트 보안
+### <a name="private-app-endpoint-security"></a>프라이빗 앱 엔드포인트 보안
 
-개인 앱의 엔드포인트는 다음에만 제공됩니다.
+프라이빗 앱의 엔드포인트는 다음에만 제공됩니다.
 
 |키 및 사용자|설명|
 |--|--|
@@ -60,15 +60,15 @@ ms.locfileid: "65522486"
 
 #### <a name="microsoft-user-accounts"></a>Microsoft 사용자 계정
 
-작성자 및 협력자는 개인 LUIS 앱에 키를 할당할 수 있습니다. Azure Portal에서 LUIS 키를 만드는 Microsoft 사용자 계정은 앱 소유자 또는 앱 협력자여야 합니다. 다른 Azure 계정에서 개인 앱에 키를 할당할 수 없습니다.
+작성자 및 협력자는 프라이빗 LUIS 앱에 키를 할당할 수 있습니다. Azure Portal에서 LUIS 키를 만드는 Microsoft 사용자 계정은 앱 소유자 또는 앱 협력자여야 합니다. 다른 Azure 계정에서 프라이빗 앱에 키를 할당할 수 없습니다.
 
 Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-collaborate.md#azure-active-directory-tenant-user)를 참조하세요. 
 
 ### <a name="public-app-endpoint-access"></a>공용 앱 엔드포인트 액세스
 
-앱이 공용으로 구성되면 키에 전체 엔드포인트 할당량이 사용되지 않는 한 ‘모든’ 유효한 LUIS 작성 키 또는 LUIS 엔드포인트 키가 앱을 쿼리할 수 있습니다.
+앱이 공용으로 구성되면 키에 전체 엔드포인트 할당량이 사용되지 않는 한 ‘모든’ 유효한 LUIS 작성 키 또는 LUIS 엔드포인트 키가 앱을 쿼리할 수 있습니다. 
 
-소유자 또는 협력자가 아닌 사용자는 앱 ID가 제공된 경우에만 공용 앱에 액세스할 수 있습니다. LUIS에는 공용 앱을 검색할 수 있는 공개 ‘시장’이나 다른 방법이 없습니다.  
+소유자 또는 협력자가 아닌 사용자는 앱 ID가 제공된 경우에만 공용 앱에 액세스할 수 있습니다. LUIS에는 공용 앱을 검색할 수 있는 공개 ‘시장’이나 다른 방법이 없습니다.   
 
 공용 앱은 모든 지역에 게시되므로 지역 기반 LUIS 리소스 키를 가진 사용자가 해당 리소스 키와 연결된 지역에서 앱에 액세스할 수 있습니다.
 

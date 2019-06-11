@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956987"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473520"
 ---
 # <a name="collaborating-with-other-authors"></a>다른 작성자와 공동 작업
 
@@ -31,7 +31,7 @@ Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Dir
 
 ## <a name="luis-app-owner"></a>LUIS 앱 소유자
 
-앱을 생성 하는 계정 소유자 이며 각 앱에 단일 소유자입니다. 소유자는 앱에 표시 됩니다 **[설정](luis-how-to-collaborate.md)** 페이지입니다. 소유자는 앱을 삭제할 수 끝점 할당량에는 월별 한도의 75%에 도달 하면 전자 메일을 수신 합니다. 
+앱을 생성 하는 계정 소유자 이며 각 앱에 단일 소유자입니다. 소유자는 앱에 표시 됩니다 **[설정](luis-how-to-collaborate.md)** 페이지입니다. 소유자 끝점 할당량에는 월별 한도의 75%에 도달 하면 전자 메일을 받습니다. 
 
 ## <a name="authorization-roles"></a>권한 부여 역할
 LUIS는 소유자와 공동 작업자에게 여러 역할을 지원하지 않습니다. 단, 한 가지 예외는 있습니다. 소유자는 앱을 삭제할 수 있는 유일한 계정입니다.

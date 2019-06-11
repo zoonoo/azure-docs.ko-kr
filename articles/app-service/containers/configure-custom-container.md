@@ -1,5 +1,5 @@
 ---
-title: 고객 컨테이너-Azure App Service 구성 | Microsoft Docs
+title: 사용자 지정 컨테이너-Azure App Service 구성 | Microsoft Docs
 description: Azure App Service에서 작업 하도록 Node.js 앱을 구성 하는 방법 알아보기
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919733"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430934"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "64919733"
 
 ## <a name="configure-port-number"></a>포트 번호를 구성 합니다.
 
-사용자 지정 이미지에서 웹 서버 80 이외의 포트를 사용할 수 있습니다. Azure를 사용 하 여 사용자 지정 하는 포트 정보를 `WEBSITES_PORT` 앱 설정 합니다. [이 자습서의 Python 샘플](https://github.com/Azure-Samples/docker-django-webapp-linux)에 대한 GitHub 페이지에서 `WEBSITES_PORT`를 _8000_으로 설정해야 함을 보여 줍니다. 실행 하 여 설정할 수 있습니다 [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud Shell에서 명령을 합니다. 예를 들면 다음과 같습니다.
+사용자 지정 이미지에서 웹 서버 80 이외의 포트를 사용할 수 있습니다. Azure를 사용 하 여 사용자 지정 컨테이너를 사용 하는 포트 정보를 `WEBSITES_PORT` 앱 설정 합니다. [이 자습서의 Python 샘플](https://github.com/Azure-Samples/docker-django-webapp-linux)에 대한 GitHub 페이지에서 `WEBSITES_PORT`를 _8000_으로 설정해야 함을 보여 줍니다. 실행 하 여 설정할 수 있습니다 [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud Shell에서 명령을 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -169,7 +169,7 @@ wordpress:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)

@@ -1,6 +1,6 @@
 ---
 title: ExpressRoute를 통해 BFD 구성 - Azure | Microsoft Docs
-description: 이 문서는 ExpressRoute 회로의 비공개 피어링을 통해 BFD(Bidirectional Forwarding Detection)를 구성하는 방법에 대한 지침을 제공합니다.
+description: 이 문서는 ExpressRoute 회로의 프라이빗 피어링을 통해 BFD(Bidirectional Forwarding Detection)를 구성하는 방법에 대한 지침을 제공합니다.
 services: expressroute
 author: rambk
 ms.service: expressroute
@@ -17,7 +17,7 @@ ms.locfileid: "60367673"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute를 통해 BFD 구성
 
-ExpressRoute는 비공개 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. ExpressRoute를 통해 BFD를 활성화하면 ExpressRoute 회로(PE)를 종단시킬 Microsoft Enterprise 에지(MSEE) 기기와 라우터 사이에 연결 오류 감지를 촉진할 수 있습니다. Customer Edge 라우팅 디바이스 또는 Partner Edge 라우팅 디바이스를 통해 ExpressRoute를 종료할 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
+ExpressRoute는 프라이빗 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. ExpressRoute를 통해 BFD를 활성화하면 ExpressRoute 회로(PE)를 종단시킬 Microsoft Enterprise 에지(MSEE) 기기와 라우터 사이에 연결 오류 감지를 촉진할 수 있습니다. Customer Edge 라우팅 디바이스 또는 Partner Edge 라우팅 디바이스를 통해 ExpressRoute를 종료할 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
 
 ## <a name="need-for-bfd"></a>BFD의 필요성
 
@@ -34,7 +34,7 @@ Customer Edge 피어링 디바이스에서 하위 BGP keepalive 및 hold-time을
 
 ## <a name="enabling-bfd"></a>BFD 사용
 
-BFD는 기본적으로 MSEE에서 새로 생성된 모든 ExpressRoute 비공개 피어링 인터페이스에 구성됩니다. 따라서 BFD를 활성화하려면 PE에 BFD를 구성하기만 하면 됩니다. BFD를 구성하는 과정은 2단계 프로세스입니다. 인터페이스에 BFD를 구성한 다음, BGP 세션에 연결하기만 하면 됩니다.
+BFD는 기본적으로 MSEE에서 새로 생성된 모든 ExpressRoute 프라이빗 피어링 인터페이스에 구성됩니다. 따라서 BFD를 활성화하려면 PE에 BFD를 구성하기만 하면 됩니다. BFD를 구성하는 과정은 2단계 프로세스입니다. 인터페이스에 BFD를 구성한 다음, BGP 세션에 연결하기만 하면 됩니다.
 
 PE(Cisco IOS XE 사용) 구성 예는 아래에 나와 있습니다. 
 
@@ -56,7 +56,7 @@ PE(Cisco IOS XE 사용) 구성 예는 아래에 나와 있습니다.
       exit-address-family
 
 >[!NOTE]
->기존의 비공개 피어링에 BFD를 활성화하려면 피어링을 다시 설정해야 합니다. [ExpressRoute 피어링 다시 설정][ResetPeering] 참조
+>기존의 프라이빗 피어링에 BFD를 활성화하려면 피어링을 다시 설정해야 합니다. [ExpressRoute 피어링 다시 설정][ResetPeering] 참조
 >
 
 ## <a name="bfd-timer-negotiation"></a>BFD 타이머 협상
@@ -64,7 +64,7 @@ PE(Cisco IOS XE 사용) 구성 예는 아래에 나와 있습니다.
 BFD 피어 간의 전송 속도는 둘 중 더 느린 쪽을 따릅니다. MSEE BFD 전송/수신 간격 300밀리초로 설정됩니다. 특정 시나리오에서 간격은 750밀리초의 높은 값으로 설정될 수 있습니다. 더 높은 값을 구성하면 이러한 간격을 강제로 늘릴 수 있지만 간격을 단축할 수는 없습니다.
 
 >[!NOTE]
->지역 중복 ExpressRoute 비공개 피어링 회로를 구성했거나 사이트 간 IPSec VPN 연결을 ExpressRoute 비공개 피어링의 백업으로 사용하는 경우 비공개 피어링을 통해 BFD를 활성화하면 ExpressRoute 연결 실패 후 장애 조치(failover)가 더 빨리 수행됩니다. 
+>지역 중복 ExpressRoute 프라이빗 피어링 회로를 구성했거나 사이트 간 IPSec VPN 연결을 ExpressRoute 프라이빗 피어링의 백업으로 사용하는 경우 프라이빗 피어링을 통해 BFD를 활성화하면 ExpressRoute 연결 실패 후 장애 조치(failover)가 더 빨리 수행됩니다. 
 >
 
 ## <a name="next-steps"></a>다음 단계

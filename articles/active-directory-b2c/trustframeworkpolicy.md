@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TrustFrameworkPolicy 요소를 지정합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1102aee9d7fa5fe3df0e048398cdc8bd71ff0a3c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812954"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512309"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,11 +40,11 @@ ms.locfileid: "65812954"
 
 | 특성 | 필수 | 설명 |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | 예. | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
+| PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
 | TenantObjectId | 아닙니다. | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
-| TenantId | 예. | 이 정책이 속한 테넌트의 고유 식별자입니다. |
-| PolicyId | 예. | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
-| PublicPolicyUri | 예. | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
+| TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
+| PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
+| PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
 | DeploymentMode | 아닙니다. | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 | UserJourneyRecorderEndpoint | 아닙니다. | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 
@@ -88,7 +88,7 @@ ms.locfileid: "65812954"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |

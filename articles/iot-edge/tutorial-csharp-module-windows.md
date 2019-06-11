@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576200"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303946"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -34,11 +34,11 @@ Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행
 
 ## <a name="solution-scope"></a>솔루션 범위
 
-이 자습서에서는 **Visual Studio 2017**을 사용하여 **C#** 에서 모듈을 개발하는 방법과 **Windows 디바이스**에 배포하는 방법을 설명합니다. Linux 디바이스용 모듈을 개발하는 경우에는 [Linux 디바이스용 C# IoT Edge 모듈 개발](tutorial-csharp-module.md)로 이동합니다. 
+이 자습서에서는 **Visual Studio 2019**를 사용하여 **C#** 에서 모듈을 개발하는 방법과 **Windows 디바이스**에 배포하는 방법을 설명합니다. Linux 디바이스용 모듈을 개발하는 경우에는 [Linux 디바이스용 C# IoT Edge 모듈 개발](tutorial-csharp-module.md)로 이동합니다. 
 
 다음 표에서 C 모듈을 개발하고 Windows에 배포하기 위한 옵션을 확인할 수 있습니다. 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 개발** | ![VS Code의 WinAMD64용 C# 모듈 개발](./media/tutorial-c-module/green-check.png) | ![Visual Studio의 WinAMD64용 C# 모듈 개발](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 디버그** |   | ![Visual Studio의 WinAMD64용 C# 모듈 디버그](./media/tutorial-c-module/green-check.png) |
@@ -50,8 +50,11 @@ Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * [Azure IoT Edge를 실행하는 Windows 디바이스](quickstart.md)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
-* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 확장이 구성되어 있는 [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) 버전 15.7 이상
+* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)
 * Windows 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
+
+> [!TIP]
+> Visual Studio 2017(버전 15.7 이상)을 사용하는 경우 Visual Studio Marketplace에서 VS 2017용 [Azure IoT Edge Tools(미리 보기)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)를 다운로드하여 설치합니다.
 
 ## <a name="create-a-module-project"></a>모듈 프로젝트 만들기
 
@@ -59,21 +62,22 @@ Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-Azure IoT Tools 확장에서는 Visual Studio 2017에서 지원되는 모든 IoT Edge 모듈 언어를 위한 프로젝트 템플릿이 제공됩니다. 이러한 템플릿에는 작업 모듈을 배포하여 IoT Edge를 테스트하는 데 필요한 모든 파일 및 코드가 포함되어 있으며, 사용자 고유의 비즈니스 논리를 사용하여 템플릿을 사용자 지정하기 위한 시작 지점이 되기도 합니다. 
+Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge 모듈 언어를 위한 프로젝트 템플릿이 제공됩니다. 이러한 템플릿에는 작업 모듈을 배포하여 IoT Edge를 테스트하는 데 필요한 모든 파일 및 코드가 포함되어 있으며, 사용자 고유의 비즈니스 논리를 사용하여 템플릿을 사용자 지정하기 위한 시작 지점이 되기도 합니다. 
 
-1. Visual Studio를 관리자 권한으로 실행합니다.
+1. Visual Studio 2019를 시작하고 **새 프로젝트 만들기**를 선택합니다.
 
-2. **파일** > **새로 만들기** > **프로젝트**를 선택합니다. 
-
-3. 새 프로젝트 창에서 **Azure IoT** 프로젝트 형식을 선택하고 **Azure IoT Edge** 프로젝트를 선택합니다. 프로젝트 및 솔루션의 이름을 설명이 포함된 이름(예: **CSharpTutorialApp**)으로 바꿉니다. **확인**을 선택하여 프로젝트를 만듭니다. 
+2. 새 프로젝트 창에서 **IoT Edge** 프로젝트를 검색하고, **Azure IoT Edge(Windows amd64)** 프로젝트를 선택합니다. **다음**을 클릭합니다. 
 
    ![새 Azure IoT Edge 프로젝트 만들기](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. 새 프로젝트 구성 창에서 프로젝트 및 솔루션의 이름을 구체적인 이름(예: **CSharpTutorialApp**)으로 바꿉니다. **만들기**를 클릭하여 프로젝트를 만듭니다. 
+
+   ![새 Azure IoT Edge 프로젝트 구성](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. IoT Edge 애플리케이션 및 모듈 창에서 다음 값을 사용하여 프로젝트를 구성합니다. 
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 애플리케이션 플랫폼 | **Linux Amd64**를 선택 해제하고 **WindowsAmd64**를 선택합니다. |
    | 템플릿 선택 | **C# 모듈**을 선택합니다. | 
    | 모듈 프로젝트 이름 | 모듈의 이름을 **CSharpModule**로 지정합니다. | 
    | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/csharpmodule과 같습니다. |
@@ -84,7 +88,7 @@ Azure IoT Tools 확장에서는 Visual Studio 2017에서 지원되는 모든 IoT
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-배포 매니페스트는 컨테이너 레지스트리의 자격 증명을 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. Azure Container Registry의 **액세스 키** 섹션에서 자격 증명을 사용합니다. 
+배포 매니페스트는 컨테이너 레지스트리의 자격 증명을 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. Azure Container Registry의 **액세스 키** 섹션에서 자격 증명을 사용합니다. 
 
 1. Visual Studio 솔루션 탐색기에서 **deployment.template.json** 파일을 엽니다. 
 
@@ -322,7 +326,7 @@ IoT Edge Tools 확장을 사용하여 IoT Hub에 도착하는 메시지를 볼 �
 
 1. Visual Studio 클라우드 탐색기에서 IoT Edge 디바이스의 이름을 선택합니다. 
 
-2. **동작** 목록에서 **D2C 메시지 모니터링 시작**을 선택합니다. 
+2. **동작** 목록에서 **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 
 
 3. IoT Hub에 메시지가 들어오는 것을 확인합니다. CSharpModule 코드를 변경할 경우 머신 온도가 25도에 도달할 때까지 기다렸다가 메시지를 보내므로 메시지가 도착할 때까지 시간이 걸릴 수 있습니다. 또한 온도 임계값에 도달하는 모든 메시지에 메시지 유형 **경고**를 추가합니다. 
 

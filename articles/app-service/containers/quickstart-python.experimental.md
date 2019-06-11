@@ -174,4 +174,4 @@ Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 �
 > [Python 앱 구성](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+> [자습서: 프라이빗 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)

@@ -15,7 +15,7 @@
           href: quickstarts/csharp.md
         - name: Go
           href: quickstarts/go.md
-        - name: 자바
+        - name: Java
           href: quickstarts/java.md
         - name: Node.js
           href: quickstarts/nodejs.md

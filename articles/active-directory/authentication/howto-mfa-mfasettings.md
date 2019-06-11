@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359199"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496757"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
-이 문서는 Azure Portal에서 Multi-Factor Authentication 설정을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 모든 [버전의 Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need)에서 이러한 모든 기능을 사용할 수 있는 것은 아닙니다.
+이 문서는 Azure Portal에서 Multi-Factor Authentication 설정을 관리하는 데 도움이 됩니다. Azure Multi-Factor Authentication을 최대한 활용할 수 있게 하는 다양한 항목을 설명합니다. 기능 중 일부만 모든 버전의 Azure Multi-factor Authentication에 사용할 수 있습니다.
 
-Azure Portal의 Multi-Factor Authentication 관련 설정은 **Azure Active Directory** > **MFA**로 이동하여 액세스할 수 있습니다.
+로 이동 하 여 Azure portal에서 Azure Multi-factor authentication과 관련 된 설정에 액세스할 수 있습니다 **Azure Active Directory** > **MFA**합니다.
 
 ![Azure Portal - Azure AD Multi-Factor Authentication 설정](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,7 +33,7 @@ Azure Portal의 Multi-Factor Authentication 관련 설정은 **Azure Active Dire
 | 기능 | 설명 |
 | ------- | ----------- |
 | 계정 잠금 | 연이어 거부된 인증 시도가 너무 많은 경우 Multi-Factor Authentication 서비스에서 계정을 일시적으로 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
-| [사용자 차단/차단 해제](#block-and-unblock-users) | MFA 서버(온-프레미스)에서 특정 사용자가 Multi-Factor Authentication 요청을 수신하지 못하도록 차단하는 데 사용됩니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
+| [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Multi-factor Authentication 요청을 받을 수 없도록 차단 하는 데 사용 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단된 시간 이후 90일 동안 차단된 상태로 유지됩니다. |
 | [사기 행위 경고](#fraud-alert) | 사용자가 사기성 확인 요청을 보고서 수와 관련 된 설정 구성 |
 | 알림 | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
 | [OATH 토큰](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
@@ -162,7 +162,7 @@ _일회성 바이패스_ 기능을 통해 사용자는 2단계 인증을 수행�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **MFA** > **일회성 바이패스**로 이동합니다.
 
-## <a name="caching-rules"></a>캐시 규칙
+## <a name="caching-rules"></a>캐싱 규칙
 
 _캐싱_ 기능을 사용하여 사용자가 인증된 후 인증 시도를 할 수 있는 시간 기간을 설정할 수 있습니다. 지정된 시간 기간 이내에 사용자에 대한 이후 인증 시도는 자동으로 성공합니다. 캐싱은 첫 번째 요청이 진행 중인 동안 VPN과 같은 온-프레미스 시스템이 여러 확인 요청을 전송하는 경우 주로 사용됩니다. 이 기능을 사용하면 사용자가 진행 중인 첫 번째 확인에 성공한 후 자동으로 후속 요청이 성공할 수 있습니다.
 

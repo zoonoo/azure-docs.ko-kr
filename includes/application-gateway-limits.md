@@ -2,19 +2,19 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238744"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66689112"
 ---
 | Resource | 기본/최대 제한 | 참고 |
 | --- | --- | --- |
 | Azure Application Gateway |구독 당 1,000 개 | |
-| 프런트 엔드 IP 구성 |2 |공용 1 및 개인 1 |
+| 프런트 엔드 IP 구성 |2 |공용 1 및 프라이빗 1 |
 | 프런트 엔드 포트 |100<sup>1</sup> | |
 | 백 엔드 주소 풀 |100<sup>1</sup> | |
 | 풀당 백 엔드 서버 |1,200 | |
@@ -37,5 +37,6 @@ ms.locfileid: "66238744"
 | 최대 파일 업로드 크기 표준 |2GB | |
 | 최대 파일 업로드 크기 WAF |100MB 중간 WAF 게이트웨이<br>500MB 큰 WAF 게이트웨이| |
 | 파일이 없으면 WAF 본문 크기 제한|128KB||
+|최대 WAF 사용자 지정 규칙|100||
 
 <sup>1</sup> WAF가 활성화 된 Sku의 경우 최적의 성능을 위해 40 리소스의 수를 제한 하는 권장 합니다.

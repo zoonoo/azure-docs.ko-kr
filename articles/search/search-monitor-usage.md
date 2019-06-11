@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797373"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755070"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
 
@@ -114,7 +114,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | 이름 | Type | 예 | 메모 |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| ResourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |문자열 |"Query.Search" |작업 이름 |
 | operationVersion |문자열 |"2019-05-06" |사용된 api-version |
 | category |문자열 |"OperationLogs" |constant |
@@ -138,14 +138,14 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 | 이름 | Type | 예 | 메모 |
 | --- | --- | --- | --- |
-| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
+| ResourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |
 | 실시간 |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
-| 평균 |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
+| average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
 | minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
 | maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
-| 합계 |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
-| 개수 |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
+| total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
+| count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 | timegrain |문자열 |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
 모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
@@ -175,7 +175,7 @@ Azure Search REST API와 .NET SDK는 둘 다 서비스 메트릭, 인덱스와 �
 * [문서 수 계산](/rest/api/searchservice/count-documents)
 * [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)
 
-PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs) 설명서를 참조하세요.
+PowerShell 또는 Azure CLI를 사용하려면 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

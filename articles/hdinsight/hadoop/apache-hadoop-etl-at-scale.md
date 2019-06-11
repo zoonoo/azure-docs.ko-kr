@@ -77,7 +77,7 @@ ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한
 
 테라바이트 범위의 데이터 세트를 업로드하는 경우, 특히 데이터가 온-프레미스 위치에서 제공되면 네트워크 대기 시간이 중요한 문제가 될 수 있습니다.  이러한 경우 아래 옵션을 사용할 수 있습니다.
 
-* Azure ExpressRoute:  Azure ExpressRoute를 사용하면 Azure 데이터 센터와 온-프레미스 인프라 사이의 사설 연결을 만들 수 있습니다. 이러한 연결은 대량의 데이터를 전송할 때 신뢰할 수 있는 옵션을 제공합니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
+* Azure ExpressRoute:  Azure ExpressRoute를 사용하면 Azure 데이터 센터와 온-프레미스 인프라 사이의 프라이빗 연결을 만들 수 있습니다. 이러한 연결은 대량의 데이터를 전송할 때 신뢰할 수 있는 옵션을 제공합니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
 
 * "오프라인" 데이터 업로드: [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그런 다음, [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Storage로 데이터를 복사할 수 있습니다.
 
@@ -127,7 +127,7 @@ Sqoop은 MapReduce를 사용하여 데이터를 가져오고 내보내고, 병�
 
 Apache Flume은 대량의 로그 데이터를 효율적으로 수집, 집계 및 이동하기 위해 안정적으로 사용할 수 있는 분산 서비스입니다. Flume은 스트리밍 데이터 흐름에 기반한 간단하고 유연한 아키텍처입니다. Flume은 튜닝할 수 있는 안정성 메커니즘과 다양한 장애 조치 및 복구 메커니즘을 통해 내결함성이 있는 강력한 도구입니다. Flume은 온라인 분석 애플리케이션을 허용하는 확장 가능한 간단한 데이터 모델을 사용합니다.
 
-Apache Flume은 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
+Apache Flume은 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
 
 ## <a name="transform"></a>변환
 

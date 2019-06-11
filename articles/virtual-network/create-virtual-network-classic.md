@@ -28,7 +28,7 @@ ms.locfileid: "62098119"
 > [!IMPORTANT]
 > Azure에는 두 개의 [다양 한 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 만들고 리소스를 사용 하 여 작업 합니다. Resource Manager 및 클래식 합니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. [Resource Manager](quick-create-portal.md) 배포 모델을 통해 최신 가상 네트워크를 만드는 것이 좋습니다.
 
-이 자습서에서는 별도의 공용 및 개인 서브넷이 있는 기본 Azure Virtual Network(클래식)를 만드는 방법에 대해 알아봅니다. Virtual Machines 및 서브넷에 있는 Cloud Services와 같은 Azure 리소스를 만들 수 있습니다. 가상 네트워크(클래식)에서 생성된 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다.
+이 자습서에서는 별도의 공용 및 프라이빗 서브넷이 있는 기본 Azure Virtual Network(클래식)를 만드는 방법에 대해 알아봅니다. Virtual Machines 및 서브넷에 있는 Cloud Services와 같은 Azure 리소스를 만들 수 있습니다. 가상 네트워크(클래식)에서 생성된 리소스는 서로 간에 통신할 수 있으며 가상 네트워크에 연결된 다른 네트워크의 리소스와도 통신할 수 있습니다.
 
 모든 [가상 네트워크](manage-virtual-network.md) 및 [서브넷](virtual-network-manage-subnet.md) 설정에 대해 자세히 확인하세요.
 
@@ -55,7 +55,7 @@ ms.locfileid: "62098119"
     |구독 및 위치|구독 및 위치를 선택합니다.
 
     Azure를 처음 사용하는 경우 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 [위치](https://azure.microsoft.com/regions)(*지역*이라고도 함)에 대해 자세히 알아봅니다.
-4. 포털에서 가상 네트워크를 만들 때 서브넷을 하나만 만들 수 있습니다. 이 자습서에서는 가상 네트워크를 만든 후 두 번째 서브넷을 만듭니다. 나중에 인터넷에서 액세스할 수 있는 리소스를 **공용** 서브넷에 만들 수 있습니다. 또한 **개인** 서브넷에는 인터넷에서 액세스할 수 없는 리소스를 만들 수 있습니다. 두 번째 서브넷을 만들려면 페이지 위쪽의 **리소스 검색** 상자에 **myVnet**을 입력합니다. **myVnet**이 검색 결과에 표시되면 클릭합니다.
+4. 포털에서 가상 네트워크를 만들 때 서브넷을 하나만 만들 수 있습니다. 이 자습서에서는 가상 네트워크를 만든 후 두 번째 서브넷을 만듭니다. 나중에 인터넷에서 액세스할 수 있는 리소스를 **공용** 서브넷에 만들 수 있습니다. 또한 **프라이빗** 서브넷에는 인터넷에서 액세스할 수 없는 리소스를 만들 수 있습니다. 두 번째 서브넷을 만들려면 페이지 위쪽의 **리소스 검색** 상자에 **myVnet**을 입력합니다. **myVnet**이 검색 결과에 표시되면 클릭합니다.
 5. 표시되는 **가상 네트워크 만들기(클래식)** 창에서 **서브넷**(**설정** 섹션)을 클릭합니다.
 6. 표시되는 **myVnet - 서브넷** 창에서 **+추가**를 클릭합니다.
 7. **서브넷 추가** 창에서 **이름**에 **개인**을 입력합니다. **주소 범위**에 **10.0.1.0/24**를 입력합니다.  **확인**을 클릭합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "62098119"
     azure config mode asm
     ```
 
-4. 개인 서브넷을 사용하는 가상 네트워크를 만듭니다.
+4. 프라이빗 서브넷을 사용하는 가상 네트워크를 만듭니다.
 
     ```azurecli-interactive
     azure network vnet create --vnet myVnet --address-space 10.0.0.0 --cidr 16  --subnet-name Private --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --location "East US"
@@ -118,7 +118,7 @@ ms.locfileid: "62098119"
     Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
     ```
 
-5. 공용 및 개인 서브넷을 사용하여 가상 네트워크를 만들려면 텍스트 편집기를 사용하여 다음에 나오는 **VirtualNetworkSite** 요소를 네트워크 구성 파일에 추가합니다.
+5. 공용 및 프라이빗 서브넷을 사용하여 가상 네트워크를 만들려면 텍스트 편집기를 사용하여 다음에 나오는 **VirtualNetworkSite** 요소를 네트워크 구성 파일에 추가합니다.
 
     ```xml
     <VirtualNetworkSite name="myVnet" Location="East US">

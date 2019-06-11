@@ -18,7 +18,7 @@ ms.locfileid: "64943959"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
-이 자습서에서는 Azure Stream Analytics를 사용하는 방법에 대한 종단 간 일러스트레이션을 제공합니다. 다음 방법에 대해 알아봅니다. 
+이 자습서에서는 Azure Stream Analytics를 사용하는 방법에 대한 엔드투엔드 일러스트레이션을 제공합니다. 다음 방법에 대해 알아봅니다. 
 
 * 스트리밍 이벤트를 Azure Event Hubs의 인스턴스로 전환합니다. 이 자습서에서는 휴대폰 메타데이터 레코드 스트림을 시뮬레이트하는 앱을 사용합니다.
 

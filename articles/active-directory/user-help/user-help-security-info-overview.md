@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a8a200df2f474cead197a0e74ae7e27927f814d2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470689"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242267"
 ---
 # <a name="security-info-preview-overview"></a>보안 정보(미리 보기) 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "65470689"
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
-## <a name="security-info-articles"></a>보안 정보 문서
+## <a name="security-info-related-articles"></a>보안 정보 관련 문서
 
 보안 정보 추가, 업데이트 및 삭제에 대한 자세한 내용 및 지침을 보려면 다음 문서(사용하려는 방법에 따라)를 참조하세요.
 

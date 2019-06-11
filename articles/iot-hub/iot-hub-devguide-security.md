@@ -350,7 +350,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 * **CA 서명 X.509 인증서**. 디바이스를 식별하고 IoT Hub에서 디바이스 인증을 받으려면 CA(인증 기관)에서 생성 및 서명한 X.509 인증서를 사용할 수 있습니다. 지문 또는 CA 인증을 사용합니다.
 
-* **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 개인 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다. 
+* **자체 생성 및 자체 서명 X-509 인증서**. 디바이스 제조업체 또는 사내 배포자는 이러한 인증서를 생성하고 디바이스에 해당 프라이빗 키(및 인증서)를 저장할 수 있습니다. 이러한 용도로 [OpenSSL](https://www.openssl.org/) 및 [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 유틸리티와 같은 도구를 사용할 수 있습니다. 지문 인증만 사용합니다. 
 
 디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
@@ -389,7 +389,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="c-support"></a>C\# 지원
 
-클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여 **DeviceClient** 인스턴스를 만들도록 지원합니다. X.509 인증서는 개인 키를 포함하는 PFX(PKCS #12라고도 함) 형식이어야 합니다.
+클래스 **DeviceAuthenticationWithX509Certificate**는 X.509 인증서를 사용하여 **DeviceClient** 인스턴스를 만들도록 지원합니다. X.509 인증서는 프라이빗 키를 포함하는 PFX(PKCS #12라고도 함) 형식이어야 합니다.
 
 다음은 샘플 코드 조각입니다.
 

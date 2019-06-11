@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595619"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388542"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>포털에서 Bing Custom Search 인스턴스 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "65595619"
 
 Bing Custom Search [포털](https://customsearch.ai)에 로그인한 후에는 검색 인스턴스를 선택하고 **프로덕션** 탭을 클릭합니다. **엔드포인트**에서 API 엔드포인트(예: Web API)를 선택합니다. 사용자 구독에 따라 표시되는 엔드포인트가 달라집니다.
 
-검색 쿼리를 만들려면 엔드포인트에 대한 매개 변수 값을 입력합니다. 포털에 표시되는 매개 변수는 선택한 엔드포인트에 따라 변경될 수 있습니다. 참조 된 [Custom Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 자세한 내용은 합니다. 검색 인스턴스를 사용 하 여 구독을 변경, 적절 한 구독 키를 추가 및 적절 한 시장 및/또는 언어 매개 변수를 업데이트 합니다.
+검색 쿼리를 만들려면 엔드포인트에 대한 매개 변수 값을 입력합니다. 포털에 표시되는 매개 변수는 선택한 엔드포인트에 따라 변경될 수 있습니다. 참조 된 [Custom Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 자세한 내용은 합니다. 검색 인스턴스를 사용 하 여 구독을 변경, 적절 한 구독 키를 추가 및 적절 한 시장 및/또는 언어 매개 변수를 업데이트 합니다.
 
 몇 가지 중요한 매개 변수는 다음과 같습니다.
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255686"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497161"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -60,9 +60,12 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 ![개요 단추](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>문제 해결
+
+선택 하는 경우 **타일 설정 구성** 대시보드도 90 일의 기본 데이터 보존을 사용 하 여 데이터를 31 일 이상 표시 되지 것입니다 31 일 초과 사용자 지정 시간 범위를 설정 합니다. 현재이 동작에 대 한 해결 방법은 없습니다입니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [깔때기](../../azure-monitor/app/usage-funnels.md)
 - [보존](../../azure-monitor/app/usage-retention.md)
 - [사용자 흐름](../../azure-monitor/app/usage-flows.md)
-- [대시보드](../../azure-monitor/app/app-insights-dashboards.md)

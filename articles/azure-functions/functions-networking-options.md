@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575610"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492845"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 네트워킹 옵션 함수
 
@@ -61,7 +61,7 @@ ms.locfileid: "64575610"
 
 앱에서 데이터베이스 및 가상 네트워크에서 실행 되는 웹 서비스에 액세스할 수 있도록 가상 네트워크 통합을 사용할 수 있습니다. 가상 네트워크 통합을 사용 하 여 VM의 응용 프로그램에 대 한 공개 끝점을 노출할 필요가 없습니다. 개인, 비 인터넷 라우팅 가능 주소를 대신 사용할 수 있습니다.
 
-Virtual network 통합의 일반 공급 버전 함수 앱을 가상 네트워크에 연결 하는 VPN gateway에 의존 합니다. App Service 계획에서 호스트 하는 함수에 제공 됩니다. 이 기능을 구성 하는 방법에 알아보려면 참조 [Azure virtual network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration)합니다.
+Virtual network 통합의 일반 공급 버전 함수 앱을 가상 네트워크에 연결 하는 VPN gateway에 의존 합니다. App Service 계획에서 호스트 하는 함수에 제공 됩니다. 이 기능을 구성 하는 방법에 알아보려면 참조 [Azure virtual network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md)합니다.
 
 ### <a name="preview-version-of-virtual-network-integration"></a>가상 네트워크 통합 미리 보기 버전
 
@@ -89,7 +89,7 @@ Azure Functions를 사용 하는 대로 각 하이브리드 연결은 단일 TCP
 
 자세한 내용은 참조는 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md), App Service 계획에서 함수를 지 합니다.
 
-## <a name="private-site-access"></a>개인 사이트 액세스
+## <a name="private-site-access"></a>프라이빗 사이트 액세스
 
 개인 사이트 액세스 로부터 개인 네트워크와 같은 Azure virtual network 내 에서만에서 액세스할 수 있는 앱을 만드는 가리킵니다. 
 * 개인 사이트 액세스는 프리미엄 및 App Service에서 사용할 수 있는 시점을 계획 **서비스 끝점** 구성 됩니다. 자세한 내용은 참조 하세요. [virtual network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474054"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -70,26 +70,17 @@ Id 관리 및 권한 관리의 개요, 2018 Ignite 컨퍼런스에서 다음 동
 
 - Azure AD 보안 그룹
 - Office 365 그룹
-- Azure AD에 대 한 엔터프라이즈 응용 프로그램
-- SaaS 애플리케이션
-- 사용자 지정 통합 응용 프로그램
-- SharePoint Online 사이트 모음
-- SharePoint Online 사이트
+- Azure AD 엔터프라이즈 응용 프로그램, SaaS 응용 프로그램 및 페더레이션을 지 원하는 사용자 지정 통합 응용 프로그램을 포함 하거나 프로 비전
+- SharePoint Online 사이트 모음 및 사이트
 
-## <a name="prerequisites"></a>필수 조건
+또한 Azure AD 보안 그룹 또는 Office 365 그룹에 의존 하는 다른 리소스에 대 한 액세스를 제어할 수 있습니다.  예를 들면 다음과 같습니다.
 
-Azure AD 권한 관리 (미리 보기)를 사용 하려면 다음 라이선스 중 하나가 있어야 있습니다.
-
-- Azure AD Premium P2
-- EMS(Enterprise Mobility + Security) E5 라이선스
-
-자세한 내용은 [Azure Active Directory Premium edition에 등록](../fundamentals/active-directory-get-started-premium.md) 하거나 [Enterprise Mobility + Security E5 평가판](https://aka.ms/emse5trial)합니다.
-
-Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드, 현재이 미리 보기에서 사용 하기 위해 사용할 수 없는 경우
+- 구성 및 액세스 패키지에는 Azure AD 보안 그룹을 사용 하 여 Microsoft Office 365에 대 한 사용자 라이선스를 제공할 수 있습니다 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 해당 그룹에 대 한
+- 사용자 만들기 및 액세스 패키지에는 Azure AD 보안 그룹을 사용 하 여 Azure 리소스 관리에 대 한 액세스를 제공할 수 있습니다는 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 해당 그룹에 대 한
 
 ## <a name="what-are-access-packages-and-policies"></a>액세스 패키지 및 정책 이란?
 
-권한 관리의 개념을 소개는 *액세스 패키지*합니다. 액세스 패키지는 사용자가 프로젝트에서 작업 또는 해당 작업을 수행 해야 하는 모든 리소스 번들입니다. 리소스 그룹, 응용 프로그램 또는 사이트에 대 한 액세스를 포함 합니다. 액세스 패키지 내부 직원 및도 조직 외부 사용자에 대 한 액세스를 제어 하는 데 사용 됩니다. 액세스 패키지 라는 컨테이너에 정의 된 *카탈로그*합니다.
+권한 관리의 개념을 소개는 *액세스 패키지*합니다. 액세스 패키지는 사용자가 프로젝트에서 작업 또는 해당 작업을 수행 해야 하는 모든 리소스 번들입니다. 리소스 그룹, 응용 프로그램 또는 사이트에 대 한 액세스를 포함 합니다. 액세스 패키지 내부 직원 및도 조직 외부 사용자에 대 한 액세스를 제어 하는 데 사용 됩니다. 액세스 패키지는 카탈로그(*catalogs*)라는 컨테이너에 정의됩니다.
 
 하나 이상의 액세스 패키지 포함 *정책을*합니다. 정책 규칙 또는 액세스 패키지를 액세스 하는 guardrails를 정의 합니다. 적절 한 사용자만 적절 한 리소스와 적절 한 양의 시간에 대 한 액세스를 부여 되어 있는지 적용 정책을 사용 하도록 설정 합니다.
 
@@ -132,7 +123,7 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 �
 | policy | 사용자 액세스를 얻는 방법, 승인할 수 있는, 사용자가 액세스할 기간 등 액세스 수명 주기를 정의 하는 규칙의 집합입니다. 예제 정책에 대 한 직원 액세스 및 외부 액세스 포함 됩니다. |
 | catalog | 관련 된 리소스 및 액세스 패키지의 컨테이너입니다. |
 | 일반 카탈로그 | 항상 사용할 수 있는 기본 제공 카탈로그입니다. 일반 카탈로그 리소스를 추가 하려면 특정 권한이 필요 합니다. |
-| 리소스 | 자산 또는 사용자 권한을 부여할 수 있는 서비스 (예: 그룹, 응용 프로그램 또는 사이트). |
+| resource | 자산 또는 사용자 권한을 부여할 수 있는 서비스 (예: 그룹, 응용 프로그램 또는 사이트). |
 | 리소스 종류 | 그룹, 응용 프로그램 및 SharePoint Online 사이트를 포함 하는 리소스의 형식입니다. |
 | 리소스 역할 | 컬렉션 리소스를 사용 하 여 연결 된 권한입니다. |
 | 리소스 디렉터리 | 하나 이상의 리소스를 공유할 수 있는 디렉터리입니다. |
@@ -173,6 +164,12 @@ Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 �
 | [카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [카탈로그를 편집/삭제](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>라이선스 요구 사항
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Azure Government, Azure 독일 및 Azure 중국 21Vianet와 같은 특수 한 클라우드, 현재이 미리 보기에서 사용 하기 위해 사용할 수 없는 경우
 
 ## <a name="next-steps"></a>다음 단계
 

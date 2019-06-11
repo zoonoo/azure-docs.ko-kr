@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386761"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 
@@ -78,7 +78,7 @@ Bing Custom Search는 JavaScript 코드 조각으로 웹 페이지 및 웹 애�
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
+  > 필요에 따라 URL에 다음 쿼리 매개 변수를 추가합니다. 이러한 매개 변수에 대한 자세한 내용은 [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) 참조를 확인하세요.
   >
   > - q
   > - mkt

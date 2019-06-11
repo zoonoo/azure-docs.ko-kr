@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b444ad799eaa356d654952c32ac58188de8d7131
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619759"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417378"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
 
@@ -39,9 +39,10 @@ Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로
 
 ## <a name="hello-blockchain"></a>Hello, Blockchain!
 
-요청자가 요청을 보내고 응답자가 요청에 대한 응답을 보내는 기본 애플리케이션을 빌드해 봅시다. 예를 들어 요청이 "안녕하세요?"라고 하면 응답은 "좋습니다!"라고 할 수 있습니다. 요청과 응답 모두 기본 블록체인에 기록됩니다. 
+요청자가 요청을 보내고 응답자가 요청에 대한 응답을 보내는 기본 애플리케이션을 빌드해 봅시다.
+예를 들어 요청이 "안녕하세요?"라고 하면 응답은 "좋습니다!"라고 할 수 있습니다. 요청과 응답 모두 기본 블록체인에 기록됩니다.
 
-애플리케이션 파일을 만드는 단계를 따르거나 [GitHub에서 샘플을 다운로드](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain)할 수 있습니다. 
+애플리케이션 파일을 만드는 단계를 따르거나 [GitHub에서 샘플을 다운로드](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain)할 수 있습니다.
 
 ## <a name="configuration-file"></a>구성 파일
 
@@ -215,7 +216,7 @@ Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로
 
 ### <a name="workflows"></a>워크플로
 
-워크플로는 계약에서 하나 이상의 단계와 작업을 정의합니다. 요청-응답 시나리오에서 워크플로의 첫 번째 단계(상태)는 요청자(역할)가 요청(함수)을 보내기 위한 작업(전환)을 수행합니다. 다음 단계(상태)는 응답자(역할)가 응답(함수)을 보내기 위한 작업(전환)을 수행합니다. 애플리케이션의 워크플로에는 계약의 흐름을 설명하는 데 필요한 속성, 함수 및 상태가 포함될 수 있습니다. 
+워크플로는 계약에서 하나 이상의 단계와 작업을 정의합니다. 요청-응답 시나리오에서 워크플로의 첫 번째 단계(상태)는 요청자(역할)가 요청(함수)을 보내기 위한 작업(전환)을 수행합니다. 다음 단계(상태)는 응답자(역할)가 응답(함수)을 보내기 위한 작업(전환)을 수행합니다. 애플리케이션의 워크플로에는 계약의 흐름을 설명하는 데 필요한 속성, 함수 및 상태가 포함될 수 있습니다.
 
 구성 파일 콘텐츠에 대한 자세한 내용은 [Azure Blockchain 워크플로 구성 참조](configuration.md)를 참조하세요.
 
@@ -229,24 +230,23 @@ Solidity의 스마트 계약은 개체 지향 언어의 클래스와 유사합�
 
 ### <a name="version-pragma"></a>버전 pragma
 
-대상으로 하고 있는 Solidity의 버전을 나타내는 것이 좋습니다. 버전을 지정하면 향후 Solidity 버전과 호환되지 않는 것을 방지할 수 있습니다. 
+대상으로 하고 있는 Solidity의 버전을 나타내는 것이 좋습니다. 버전을 지정하면 향후 Solidity 버전과 호환되지 않는 것을 방지할 수 있습니다.
 
 `HelloBlockchain.sol` 스마트 계약 코드 파일의 맨 위에 다음 버전 pragma를 추가합니다.
 
-
-  ``` solidity
-  pragma solidity ^0.4.20;
-  ```
+``` solidity
+pragma solidity >=0.4.25 <0.6.0;
+```
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>구성 및 스마트 계약 코드 관계
 
-Blockchain Workbench는 구성 파일과 스마트 계약 코드 파일을 사용하여 블록체인 애플리케이션을 만듭니다. 구성에 정의된 것과 스마트 계약의 코드 사이에는 관계가 있습니다. 계약 세부 정보, 함수, 매개 변수 및 유형이 일치해야 애플리케이션을 만들 수 있습니다. 애플리케이션을 만들기 전에 Blockchain Workbench에서 파일을 확인합니다. 
+Blockchain Workbench는 구성 파일과 스마트 계약 코드 파일을 사용하여 블록체인 애플리케이션을 만듭니다. 구성에 정의된 것과 스마트 계약의 코드 사이에는 관계가 있습니다. 계약 세부 정보, 함수, 매개 변수 및 유형이 일치해야 애플리케이션을 만들 수 있습니다. 애플리케이션을 만들기 전에 Blockchain Workbench에서 파일을 확인합니다.
 
 ### <a name="contract"></a>계약
 
 **contract** 헤더를 `HelloBlockchain.sol` 스마트 계약 코드 파일에 추가합니다.
 
-```
+``` solidity
 contract HelloBlockchain {
 ```
 
@@ -254,17 +254,17 @@ contract HelloBlockchain {
 
 상태 변수는 각 계약 인스턴스의 상태 값을 저장합니다. 계약의 상태 변수는 구성 파일에 정의된 워크플로 속성과 일치해야 합니다.
 
-`HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 상태 변수를 추가합니다. 
+`HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 상태 변수를 추가합니다.
 
-```
+``` solidity
     //Set of States
     enum StateType { Request, Respond}
-    
+
     //List of properties
     StateType public  State;
     address public  Requestor;
     address public  Responder;
-    
+
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -275,11 +275,11 @@ contract HelloBlockchain {
 
 생성자 함수에서 계약을 생성하기 전에 수행하려는 비즈니스 논리를 작성합니다. 예를 들어 시작 값으로 상태 변수를 초기화합니다.
 
-계약자 함수를 `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 추가합니다. 
+계약자 함수를 `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 추가합니다.
 
-```
+``` solidity
     // constructor function
-    constructor(string message) public
+    constructor(string memory message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
@@ -293,22 +293,23 @@ contract HelloBlockchain {
 
 함수에서 수행하려는 비즈니스 논리를 작성합니다. 예를 들어 상태 변수의 값을 수정합니다.
 
-1. `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 다음 함수를 추가합니다. 
+1. `HelloBlockchain.sol` 스마트 계약 코드 파일의 계약에 다음 함수를 추가합니다.
 
-    ```
+    ``` solidity
         // call this function to send a request
-        function SendRequest(string requestMessage) public
+        function SendRequest(string memory requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
+    
             RequestMessage = requestMessage;
             State = StateType.Request;
         }
     
         // call this function to send a response
-        function SendResponse(string responseMessage) public
+        function SendResponse(string memory responseMessage) public
         {
             Responder = msg.sender;
     
@@ -334,7 +335,7 @@ Blockchain Workbench에 블록체인 애플리케이션을 추가하려면 구�
 블록체인 애플리케이션을 배포하는 데 몇 분이 걸립니다. 배포가 완료되면 새 애플리케이션이 **애플리케이션**에 표시됩니다. 
 
 > [!NOTE]
-> [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다. 
+> [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다.
 
 ## <a name="add-blockchain-application-members"></a>블록체인 애플리케이션 구성원 추가
 

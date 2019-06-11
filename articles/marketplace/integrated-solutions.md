@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515610"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 통합 된 솔루션
 
@@ -30,6 +30,15 @@ ms.locfileid: "64938020"
 
 ## <a name="next-steps"></a>다음 단계
 
-통합 된 솔루션을를 검색 하 고 이러한 값 가진된 파트너의 컨설팅 서비스 섹션을 방문 하 여 연결할 수 있습니다 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)합니다.
+통합 된 솔루션을 검색 하 고 해당 목록에 여기를 방문 하 여 이러한 값 가진된 파트너와 연결할 수 있습니다.
+
+* [고객 360 Zero2Hero 대 중적으로](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [신속한 상거래](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [신용 분석](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [의료 클라우드 보안 스택](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps 가속 엔진](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server의 지원 종료가](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+또한의 컨설팅 서비스 섹션을 방문 하 여 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)합니다.
 
 ---

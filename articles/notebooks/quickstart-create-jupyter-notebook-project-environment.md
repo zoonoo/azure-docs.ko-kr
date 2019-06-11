@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240661"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754035"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>빠른 시작: 사용자 지정 환경을 사용하여 프로젝트 만들기
 
@@ -43,7 +43,7 @@ Azure Notebooks의 프로젝트는 특정 설정 명령을 사용하여 구성�
     - **공용 프로젝트**: (지워짐)
     - **README.md 만들기**: (지워짐)
 
-1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록(**+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
+1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록( **+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
 
 1. Notebook에 *Custom environment.ipynb*와 같은 이름을 지정하여 **Python 3.6** 언어를 선택한 다음 **새로 만들기**를 선택합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101315"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386398"
 ---
 # <a name="paging-through-video-search-results"></a>비디오 검색 결과를 통한 페이징
 
@@ -26,7 +26,7 @@ Bing Video Search API는 쿼리에서 찾은 모든 검색 결과의 하위 집�
 
 ## <a name="total-estimated-matches"></a>총 예상 일치 항목 수
 
-검색되는 예상 결과 수를 가져오려면 JSON 응답에서 [ totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) 필드를 사용합니다.   
+검색되는 예상 결과 수를 가져오려면 JSON 응답에서 [ totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) 필드를 사용합니다.   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Bing Video Search API는 쿼리에서 찾은 모든 검색 결과의 하위 집�
   
 ## <a name="paging-through-videos"></a>비디오를 통한 페이징
 
-사용 가능한 비디오를 페이징하려면 요청을 보낼 때 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
+사용 가능한 비디오를 페이징하려면 요청을 보낼 때 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
   
 
 |매개 변수  |설명  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-[count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count)에 기본값을 사용하는 경우 다음 예제와 같이 `offset` 쿼리 매개 변수만 지정하면 됩니다.  
+[count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count)에 기본값을 사용하는 경우 다음 예제와 같이 `offset` 쿼리 매개 변수만 지정하면 됩니다.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 한 번에 35개의 비디오를 페이징하는 경우 첫 번째 요청에서 `offset` 쿼리 매개 변수를 0으로 설정한 다음, 후속 요청마다 `offset`을 35씩 증가시킵니다. 그러나 다음 응답의 일부 결과에는 이전 응답과 중복되는 비디오 결과가 포함될 수 있습니다. 예를 들어 응답의 처음 두 비디오는 이전 응답의 마지막 두 비디오와 같을 수 있습니다.
 
-중복되는 결과를 제거하려면 `Videos` 개체의 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) 필드를 사용하면 됩니다.
+중복되는 결과를 제거하려면 `Videos` 개체의 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) 필드를 사용하면 됩니다.
 
 예를 들어 한 번에 30개의 비디오를 페이징하려면 첫 번째 요청에서 `count`를 30으로, `offset`을 0으로 설정할 수 있습니다. 다음 요청에서는 `offset` 쿼리 매개 변수를 `nextOffset` 값으로 설정합니다.
 

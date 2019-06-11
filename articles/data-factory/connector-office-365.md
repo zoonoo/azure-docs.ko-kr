@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245048"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475658"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Office 365에서 Azure Data Factory를 사용 하 여 Azure로 데이터 복사
 
-Azure Data Factory를 사용하면 Office 365 테넌트의 풍부한 조직 데이터를 확장 가능한 방식으로 Azure로 가져와서 분석 애플리케이션을 빌드하고 이러한 중요 데이터 자산을 기반으로 인사이트를 추출할 수 있습니다. Privileged Access Management와 통합하면 Office 365의 큐레이팅된 중요한 데이터에 대한 보안 액세스 제어가 가능합니다.  Microsoft Graph 데이터 연결에 대한 자세한 내용은 [이 링크](https://docs.microsoft.com/graph/data-connect-concept-overview)를 참조하세요.
+Azure Data Factory와 통합 [Microsoft Graph 데이터 연결](https://docs.microsoft.com/graph/data-connect-concept-overview), 다양 한 Office 365에서 조직 데이터를 Azure로 확장 가능한 방식으로 테 넌 트 및 분석 응용 프로그램 빌드를 가져올 수 있습니다 및 기반 통찰력을 얻기 이러한 중요 데이터 자산이 있습니다. Privileged Access Management와 통합하면 Office 365의 큐레이팅된 중요한 데이터에 대한 보안 액세스 제어가 가능합니다.  참조 하십시오 [이 링크](https://docs.microsoft.com/graph/data-connect-concept-overview) Microsoft Graph 데이터에 대 한 개요에 대 한 연결 및 참조 [이 링크](https://docs.microsoft.com/graph/data-connect-policies#licensing) 라이선스 정보입니다.
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Office 365에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+주소록 연락처, 행사 일정, 전자 메일 메시지, 사용자 정보, 사서함 설정을 사용 하도록 설정 하는 Exchange 전자 메일 사서함에서 ADF Office 365 커넥터 및 Microsoft Graph 데이터 연결 다양 한 유형의 데이터 집합의 확장 수집에 사용 하도록 설정 하 고 등등입니다.  참조 [여기](https://docs.microsoft.com/graph/data-connect-datasets) 사용 가능한 데이터 집합의 전체 목록을 볼 수 있습니다.
 
 이제 단일 복사 작업 내에서 할 수 있습니다 **에 Office 365에서 데이터 복사 [Azure Blob Storage](connector-azure-blob-storage.md)를 [Azure 데이터 레이크 저장소 Gen1](connector-azure-data-lake-store.md), 및 [Azure Data Lake 저장소 Gen2 ](connector-azure-data-lake-storage.md) JSON 형식으로** (setOfObjects 형식). Office 365를 다른 유형의 데이터 저장소나 다른 형식으로 로드하려면, 첫 번째 복사 작업을 후속 복사 작업과 연결하여 [지원되는 ADF 대상 저장소](copy-activity-overview.md#supported-data-stores-and-formats)로 데이터를 추가로 로드할 수 있습니다("지원되는 데이터 저장소 및 형식" 표의 "싱크로 지원" 열 참조).
 

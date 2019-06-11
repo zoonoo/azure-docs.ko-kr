@@ -60,7 +60,7 @@ Data Box Edge 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 클라우드에서 사용 가능한 두 개의 인기 있는 Docker 레지스트리 서비스는 Azure Container Registry 및 Docker Hub입니다. 이 문서에서는 Container Registry를 사용합니다.
+Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 프라이빗 Docker 레지스트리입니다. 클라우드에서 사용 가능한 두 개의 인기 있는 Docker 레지스트리 서비스는 Azure Container Registry 및 Docker Hub입니다. 이 문서에서는 Container Registry를 사용합니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. **리소스 만들기 > 컨테이너 > Container Registry**를 선택합니다. **만들기**를 클릭합니다.

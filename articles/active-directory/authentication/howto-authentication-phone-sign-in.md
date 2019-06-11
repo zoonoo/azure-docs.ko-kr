@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359152"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472746"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
@@ -88,6 +88,6 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ## <a name="next-steps"></a>다음 단계
 
-[디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Azure Multi-Factor Authentication에 대한 자세한 정보](../authentication/howto-mfa-getstarted.md)

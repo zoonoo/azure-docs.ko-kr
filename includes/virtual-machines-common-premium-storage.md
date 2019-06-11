@@ -136,7 +136,7 @@ Premium Storage 계정에는 다음과 같은 확장성 목표가 있습니다.
 
 | 총 계정 용량 | 로컬 중복 저장소 계정의 총 대역폭 |
 | --- | --- | 
-| 디스크 용량: 35TB <br>스냅숏 용량: 10TB | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
+| 디스크 용량: 35TB <br>스냅샷 용량: 10TB | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
 
 <sup>1</sup> 저장소 계정으로 전송되는 모든 데이터(요청)
 
@@ -217,31 +217,31 @@ Premium Storage 디스크를 프로비전할 때 디스크의 크기가 최대 I
 
 Premium Storage를 사용한 고성능 설계에 대한 자세한 내용은 [Premium Storage를 사용한 성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
 
-## <a name="snapshots-and-copy-blob"></a>Blob 스냅숏 생성 및 복사
+## <a name="snapshots-and-copy-blob"></a>스냅샷 및 Blob 복사
 
-Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의 스냅숏을 만들어서 다른 위치(예: 다른 저장소 계정)에 복사할 수 있습니다.
+Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의 스냅샷을 만들어서 다른 위치(예: 다른 저장소 계정)에 복사할 수 있습니다.
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 
-관리되지 않는 프리미엄 디스크에 대한 [증분 스냅숏](../articles/virtual-machines/linux/incremental-snapshots.md)은 표준 저장소에서 스냅숏을 사용하는 것과 같은 방식으로 만듭니다. Premium Storage는 복제 옵션으로 로컬 중복 스토리지만 지원합니다. 스냅숏을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅숏을 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
+관리되지 않는 프리미엄 디스크에 대한 [증분 스냅샷](../articles/virtual-machines/linux/incremental-snapshots.md)은 표준 저장소에서 스냅샷을 사용하는 것과 같은 방식으로 만듭니다. Premium Storage는 복제 옵션으로 로컬 중복 스토리지만 지원합니다. 스냅샷을 만든 후 지역 중복 표준 저장소 계정에 이러한 스냅샷을 복사하는 것이 좋습니다. 자세한 내용은 [Azure Storage 중복 옵션](../articles/storage/common/storage-redundancy.md)을 참조하세요.
 
-디스크가 VM에 연결되어 있으면 디스크에서 일부 API 작업이 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 경우 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신 [스냅숏 Blob](/rest/api/storageservices/Snapshot-Blob) REST API를 사용하여 Blob의 스냅숏을 먼저 만듭니다. 그런 다음 스냅숏의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
+디스크가 VM에 연결되어 있으면 디스크에서 일부 API 작업이 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 경우 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신 [스냅샷 Blob](/rest/api/storageservices/Snapshot-Blob) REST API를 사용하여 Blob의 스냅샷을 먼저 만듭니다. 그런 다음, 스냅샷의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
 
-Premium Storage Blob 스냅숏에 다음 한도가 적용됩니다.
+Premium Storage Blob 스냅샷에 다음 한도가 적용됩니다.
 
 | Premium Storage 한도 | 값 |
 | --- | --- |
-| Blob당 최대 스냅숏 수 | 100 |
-| 스냅숏의 Storage 계정 용량<br>(스냅숏의 데이터만 포함합니다. 기본 Blob의 데이터는 포함하지 않습니다.) | 10TB |
-| 연속 스냅숏 사이의 최소 시간 | 10분 |
+| Blob당 최대 스냅샷 수 | 100 |
+| 스냅샷의 Storage 계정 용량<br>(스냅샷의 데이터만 포함합니다. 기본 Blob의 데이터는 포함하지 않습니다.) | 10TB |
+| 연속 스냅샷 사이의 최소 시간 | 10분 |
 
-스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 Premium Storage 계정에서 지역 중복 표준 스토리지 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
+스냅샷의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 Premium Storage 계정에서 지역 중복 표준 스토리지 계정으로 스냅샷을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
 프리미엄 스토리지 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](https://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
 ### <a name="managed-disks"></a>관리 디스크
 
-관리 디스크에 대한 스냅숏은 관리 디스크의 읽기 전용 복사본입니다. 스냅숏은 표준 관리 디스크로 저장됩니다. 현재 관리 디스크에 대해 [증분 스냅숏](../articles/virtual-machines/windows/incremental-snapshots.md)은 지원되지 않습니다. 관리 디스크에 대한 스냅숏을 만드는 방법을 알아보려면 [Windows에서 관리 스냅숏을 사용하여 Azure Managed Disk로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) 또는 [Linux에서 관리 스냅숏을 사용하여 Azure Managed Disk로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)를 참조하세요.
+관리 디스크에 대한 스냅샷은 관리 디스크의 읽기 전용 복사본입니다. 스냅샷은 표준 관리 디스크로 저장됩니다. 현재 관리 디스크에 대해 [증분 스냅샷](../articles/virtual-machines/windows/incremental-snapshots.md)은 지원되지 않습니다. 관리 디스크에 대한 스냅샷을 만드는 방법을 알아보려면 [Windows에서 관리 스냅샷을 사용하여 Azure Managed Disk로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) 또는 [Linux에서 관리 스냅샷을 사용하여 Azure Managed Disk로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)를 참조하세요.
 
 관리 디스크가 VM에 연결되어 있으면 디스크에서 일부 API 작업이 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 동안 공유 액세스 서명(SAS)을 생성하여 복사 작업을 수행할 수 없습니다. 대신 디스크 스냅숏을 먼저 만든 다음 스냅샷 복사를 수행합니다. 또는 디스크를 분리한 다음 SAS를 생성하여 복사 작업을 수행할 수 있습니다.
 
@@ -296,11 +296,11 @@ Premium Storage를 사용하는 경우 다음과 같은 청구 고려 사항이 
 
 * **프리미엄 관리되지 않는 디스크 스냅숏**
 
-    프리미엄 관리되지 않는 디스크의 스냅숏은 스냅숏이 사용한 추가 용량에 대해 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Snapshot-Blob)를 참조하세요.
+    프리미엄 관리되지 않는 디스크의 스냅샷은 스냅샷이 사용한 추가 용량에 대해 청구됩니다. 스냅샷에 대한 자세한 내용은 [Blob의 스냅샷 만들기](/rest/api/storageservices/Snapshot-Blob)를 참조하세요.
 
 * **프리미엄 관리 디스크 스냅숏**
 
-    관리 디스크에 대한 스냅숏은 디스크의 읽기 전용 복사본입니다. 디스크는 표준 관리 디스크로 저장됩니다. 스냅숏 비용은 표준 관리 디스크와 동일하게 책정됩니다. 예를 들어 128GB 프리미엄 관리 디스크의 스냅숏을 만드는 경우 스냅숏 비용은 128GB 표준 관리 디스크 비용과 같습니다.  
+    관리 디스크에 대한 스냅샷은 디스크의 읽기 전용 복사본입니다. 디스크는 표준 관리 디스크로 저장됩니다. 스냅샷 비용은 표준 관리 디스크와 동일하게 책정됩니다. 예를 들어 128GB 프리미엄 관리 디스크의 스냅샷을 만드는 경우 스냅샷 비용은 128GB 표준 관리 디스크 비용과 같습니다.  
 
 * **아웃바운드 데이터 전송**
 

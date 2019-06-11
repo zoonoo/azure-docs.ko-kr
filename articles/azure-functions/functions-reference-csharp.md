@@ -22,7 +22,7 @@ ms.locfileid: "64724968"
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-이 문서는 C# 스크립트(*.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
+이 문서는 C# 스크립트( *.csx*)를 사용하여 Azure Functions를 개발하는 방법을 소개합니다.
 
 Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니다. [Visual Studio 클래스 라이브러리 프로젝트에서 C#을 사용](functions-develop-vs.md)하기 위한 지침을 찾고 있는 경우 [C# 개발자 참조](functions-dotnet-class-library.md)를 참조하세요.
 
@@ -363,11 +363,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 ## <a name="referencing-custom-assemblies"></a>사용자 지정 어셈블리 참조
 
-사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *전용* 어셈블리를 사용합니다.
+사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *프라이빗* 어셈블리를 사용합니다.
 
 * 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다.
 
-* 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
+* 프라이빗 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 프라이빗 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
 
 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 [패키지 관리](#using-nuget-packages)에 대한 섹션을 참조하세요.
 

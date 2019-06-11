@@ -72,7 +72,7 @@ ms.locfileid: "65964032"
 
 ![세부 정보로 이동 단추 스크린샷](media/app-map/go-to-details.png)
 
-![종단 간 트랜잭션 세부 정보 스크린샷](media/app-map/end-to-end-transaction.png)
+![엔드투엔드 트랜잭션 세부 정보 스크린샷](media/app-map/end-to-end-transaction.png)
 
 ### <a name="view-in-analytics"></a>Analytics에서 보기
 

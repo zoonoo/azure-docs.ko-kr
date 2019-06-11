@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236451"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471592"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -116,7 +116,8 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-아쉽게도 셀프 서비스 구독 양도 제품에 사용할 수 없습니다. 지원 되는 제품의 목록을 보려면 합니다 [제품 지원](#supported-offers) 이 문서의 섹션입니다.
+아쉽게도 셀프 서비스 구독 양도 제품에 사용할 수 없습니다. 지원 되는 제품의 목록을 보려면 합니다 [제품 지원](#supported-offers) 이 문서의 섹션입니다. 또한 모든 국가 대 한 구독 전송이 차단 하지 않습니다. 그러나 국가 간 전송 지원 되지 않습니다. 구독을 전송할 국가 간 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다. 
+
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>다른 국가에서 계정에 소유권을 양도할 수 있습니까?
 

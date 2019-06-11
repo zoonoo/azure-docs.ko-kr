@@ -56,7 +56,7 @@ Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인�
 > [!IMPORTANT]
 > UDR에 정의된 경로는 ExpressRoute 구성을 통해 보급된 경로보다 우선하도록 충분히 구체적이어야 합니다. 이전 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용합니다. 따라서 더 구체적인 주소 범위를 사용하는 경로 보급 알림으로 인해 주소 범위가 잘못 재정의될 가능성이 있습니다.
 >
-> 공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure 주소 범위 집합이 포함되어 있습니다. 개인 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 라우팅됩니다. 이 네트워크 흐름은 App Service Environment에서 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로의 교차 보급 경로를 중지합니다. 다른 솔루션은 App Service Environment가 강제 터널 구성에서 작동하도록 설정하는 것입니다.
+> 공용 피어링 경로에서 프라이빗 피어링 경로로 경로의 교차 보급을 수행하는 ExpressRoute 구성에서는 App Service Environment가 지원되지 않습니다. 공용 피어링이 구성된 ExpressRoute 구성은 Microsoft에서 경로 보급 알림을 받습니다. 보급 알림에는 대규모 Microsoft Azure 주소 범위 집합이 포함되어 있습니다. 프라이빗 피어링 경로에서 주소 범위를 교차 보급하는 경우 App Service Environment 서브넷의 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라로 라우팅됩니다. 이 네트워크 흐름은 App Service Environment에서 기본적으로 지원되지 않습니다. 이 문제를 해결하려면 공용 피어링 경로에서 프라이빗 피어링 경로로의 교차 보급 경로를 중지합니다. 다른 솔루션은 App Service Environment가 강제 터널 구성에서 작동하도록 설정하는 것입니다.
 
 ![직접 인터넷 액세스][1]
 

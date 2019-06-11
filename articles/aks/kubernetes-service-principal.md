@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786387"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475620"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -118,7 +118,7 @@ ACR(Azure Container Registry)을 컨테이너 이미지 저장소로 사용하�
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다.
+Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도로 리소스 그룹에서 ACI(Azure Container Instances)를 실행하도록 선택하는 경우, AKS 서비스 주체에 ACI 리소스 그룹에 대한 ‘Contributor’ 권한을 부여해야 합니다. 
 
 ## <a name="additional-considerations"></a>추가 고려 사항
 
@@ -126,7 +126,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 
 - Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
 - 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 할 수 있습니다 [업데이트 또는 서비스 주체 자격 증명 회전] [ update-credentials] 언제 든 지 합니다.
-- 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example*)과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
+- 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example* )과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
 - Kubernetes 클러스터의 에이전트 노드 Vm에 서비스 주체 자격 증명 파일에 저장 됩니다. `/etc/kubernetes/azure.json`
 - [az aks create][az-aks-create] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
@@ -136,6 +136,24 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>문제 해결
+
+Azure CLI에서 서비스 주체 자격 증명을 AKS 클러스터에 대 한 캐시 됩니다. 이러한 자격 증명이 만료 되는 경우 AKS 클러스터를 배포 하는 오류가 발생 합니다. 실행 하는 경우 다음 오류 메시지가 [az aks 만듭니다] [ az-aks-create] 캐시 된 서비스 주체 자격 증명을 사용 하 여 문제를 나타낼 수 있습니다.
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+다음 명령을 사용 하 여 자격 증명 파일의 보존 기간을 확인 합니다.
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+서비스 주체 자격 증명의 기본 만료 시간은 1 년 이며 경우에 *aksServicePrincipal.json* 파일 1 년 보다 오래 된 파일을 삭제 하 고 AKS 클러스터를 다시 배포 해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,24 +1,26 @@
 ---
 title: Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
-description: Azure Active Directory 서비스 주체를 사용하여 Azure Kubernetes Service에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
+description: Azure Active Directory 서비스 주체를 사용하여 Azure Kubernetes Service에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-service
 author: dlepow
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333619"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754468"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
 AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 가지 Azure 서비스 간 인증을 위해 권장되는 구성에 대해 설명합니다.
 
-이 문서에서는 AKS 클러스터를 이미 만든 상태로 `kubectl` 명령줄 클라이언트로 클러스터에 액세스할 수 있다고 가정합니다. 
+이러한 인증 방법 중 하나를 구성 해야 합니다. 가장 일반적인 방법은 하는 것 [AKS 서비스 주체를 사용 하 여 액세스를 부여](#grant-aks-access-to-acr)합니다. 특정 한 요구 사항이 하면 필요에 따라 [Kubernetes 비밀을 사용 하 여 액세스를 부여](#access-with-kubernetes-secret)합니다.
+
+이 문서에서는 AKS 클러스터를 이미 만든 상태로 `kubectl` 명령줄 클라이언트로 클러스터에 액세스할 수 있다고 가정합니다.
 
 ## <a name="grant-aks-access-to-acr"></a>AKS에 ACR에 대한 액세스 권한 부여
 

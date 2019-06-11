@@ -1,21 +1,21 @@
 ---
-title: 엔터티 확인자 대화 학습자 모델-Microsoft Cognitive Services | Microsoft Docs
+title: 엔터티 확인자 대화 학습자 모델-Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Conversation Learner 모델의 엔터티 해결 프로그램을 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167850"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475745"
 ---
 # <a name="entity-resolvers"></a>엔터티 해결 프로그램
 
@@ -94,4 +94,4 @@ Web UI의 홈페이지에서 시작합니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [대체 입력](./10-alternative-inputs.md)
+> [열거형 엔터티](./tutorial-enum-set-entity.md)

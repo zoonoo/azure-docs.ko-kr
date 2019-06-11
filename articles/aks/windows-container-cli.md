@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305293"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752380"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 Azure Kubernetes Service (AKS) 클러스터에서 Windows Server 컨테이너 만들기
 
@@ -86,7 +86,6 @@ az provider register --namespace Microsoft.ContainerService
 * AKS 클러스터에는 최대 8 개의 노드 풀 있을 수 있습니다.
 * AKS 클러스터에는 이러한 8 노드 풀에서 노드를 400 개 까지가 있을 수 있습니다.
 * Windows Server 노드 풀 이름을 6 자 제한이 있습니다.
-* Windows Server 노드 풀에서 사용할 수 없으면 캐나다 지역에서이 시간입니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a1ee55dd3aebca869da47bbc994f546aa4fe528
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415687"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496759"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -30,11 +30,11 @@ ms.locfileid: "60415687"
 
 다음 표에서는 세 가지 버전의 Multi-Factor Authentication 간 차이점을 설명합니다.
 
-| Version | 설명 |
+| 버전 | 설명 |
 | --- | --- |
-| Office 365용 Multi-Factor Authentication <br> Microsoft 365 Business |이 버전은 Office 365 애플리케이션에서만 작동되며 Office 365 또는 Microsoft 365 포털에서 관리됩니다. 관리자는 [2단계 인증을 사용하여 Office 365 리소스의 보안을 유지](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)할 수 있습니다. 이 버전은 Office 365 또는 Microsoft 365 Business 구독의 일부입니다. |
-| Azure AD 관리자를 위한 Multi-Factor Authentication | Azure AD 테넌트에서 Azure AD 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 2단계 인증을 사용하도록 설정할 수 있습니다.|
-| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 애플리케이션 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)의 기능이며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
+| Office 365용 Multi-Factor Authentication <br> Microsoft 365 Business | 이 버전은 Office 365 또는 Microsoft 365 포털에서 관리 됩니다. 관리자는 [2단계 인증을 사용하여 Office 365 리소스의 보안을 유지](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)할 수 있습니다. 이 버전은 Office 365 또는 Microsoft 365 Business 구독의 일부입니다. |
+| Azure AD 관리자를 위한 Multi-Factor Authentication | Azure AD 테넌트에서 Azure AD 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 2단계 인증을 사용하도록 설정할 수 있습니다. |
+| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 애플리케이션 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-factor Authentication의 기능은 [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)합니다. |
 
 > [!NOTE]
 > 신규 고객은 2018년 9월 1일부터 제공되는 독립 제품 형태의 Azure Multi-Factor Authentication을 더 이상 구매할 수 없습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "60415687"
 | 두 번째 단계로 SMS |● |● |● |
 | MFA를 지원하지 않는 클라이언트에 대한 앱 암호 |● |● |● |
 | 확인 방법에 대한 관리자 제어 |● |● |● |
-| MFA를 사용하여 비관리자 계정 보호 |● (Office 365 애플리케이션만 해당) | |● |
+| MFA를 사용하여 비관리자 계정 보호 |● | |● |
 | PIN 모드 | | |● |
 | 사기 행위 경고 | | |● |
 | MFA 보고서 | | |● |
@@ -75,17 +75,13 @@ Azure AD 테넌트에서 전역 관리자 역할이 할당된 사용자는 추�
 
 ## <a name="how-to-purchase-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication을 구매하는 방법
 
-Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하려는 경우 몇 가지 옵션이 있습니다.
+Azure Active Directory Premium 또는 Azure AD Premium 또는 조건부 액세스를 포함 하는 라이선스 번들과 같은 Azure Multi-factor Authentication을 포함 하 고 Azure Active Directory에서 사용자에 게 할당할 라이선스를 구입 합니다.
 
-### <a name="option-1---licenses-that-include-mfa"></a>옵션 1 - MFA를 포함하는 라이선스
+### <a name="consumption-based-licensing"></a>사용량 기반 라이선스
 
-Azure Active Directory Premium 또는 Azure AD Premium이 포함된 라이선스 번들처럼 Azure Multi-Factor Authentication이 포함되는 라이선스를 구매하여 Azure Active Directory의 사용자에게 할당합니다.
+사용량 기반 라이선스를 더 이상 유효한 새 고객에 게 제공 2018 년 9 월 1 일.
 
-### <a name="option-2---mfa-consumption-based-model"></a>옵션 2 - MFA 사용량 기반 모델
-
-2018년 9월 1일부터 이 옵션은 더 이상 신규 고객에게 제공되지 않습니다.
-
-2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+더 이상 유효 2018 년 9 월 1 일에 새로운 인증 공급자를 만들 수 없습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
 
 Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.
 

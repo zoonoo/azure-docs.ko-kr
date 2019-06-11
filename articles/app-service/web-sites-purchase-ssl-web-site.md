@@ -50,7 +50,7 @@ ms.locfileid: "65955714"
 | 설정 | 설명 |
 |-|-|
 | 이름 | App Service Certificate에 대한 식별 이름입니다. |
-| Naked 도메인 호스트 이름 | 여기에 루트 도메인을 지정하면 루트 도메인 및 `www` 하위 도메인을 ‘둘 다’ 보호하는 인증서를 얻게 됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`). |
+| Naked 도메인 호스트 이름 | 여기에 루트 도메인을 지정하면 루트 도메인 및 `www` 하위 도메인을 ‘둘 다’ 보호하는 인증서를 얻게 됩니다.  하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`). |
 | 구독 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 리소스 그룹 | 인증서를 포함하는 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
 | 인증서 SKU | 표준 인증서 또는 [와일드 카드 인증서](https://wikipedia.org/wiki/Wildcard_certificate) 여부에 관계없이 만들려는 인증서 유형을 결정합니다. |
@@ -73,7 +73,7 @@ ms.locfileid: "65955714"
 | 이름 | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | Location | App Service 앱과 동일한 위치를 선택합니다. |
-| 가격 책정 계층  | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
+| 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
 | 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [키 자격 증명 모음에 여러 애플리케이션에 대한 액세스 권한 부여](../key-vault/key-vault-group-permissions-for-apps.md)의 단계에 따라 구성할 수 있습니다. |
 | Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](../key-vault/key-vault-network-security.md)의 단계에 따라 구성할 수 있습니다. |
 
@@ -97,9 +97,9 @@ ms.locfileid: "65955714"
 
 ## <a name="bind-certificate-to-app"></a>앱에 인증서 바인딩
 
-**[Azure Portal](https://portal.azure.com/)** 의 왼쪽 메뉴에서 **App Services** > **\<your_app>** 을 선택합니다.
+**[Azure Portal](https://portal.azure.com/)** 의 왼쪽 메뉴에서 **App Services** >  **\<your_app>** 을 선택합니다.
 
-앱의 왼쪽 탐색 영역에서 **SSL 설정** > **개인 인증서(.pfx)** > **App Service Certificate 가져오기**를 선택합니다.
+앱의 왼쪽 탐색 영역에서 **SSL 설정** > **개인 인증서(.pfx)**  > **App Service Certificate 가져오기**를 선택합니다.
 
 ![인증서 가져오기 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -114,7 +114,7 @@ ms.locfileid: "65955714"
 | 설정 | 설명 |
 |-|-|
 | 호스트 이름 | SSL 바인딩을 추가할 도메인 이름입니다. |
-| 개인 인증서 지문 | 바인딩할 인증서입니다. |
+| 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
 | SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
 
 ## <a name="verify-https-access"></a>HTTPS 액세스 확인

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388153"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742464"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -81,7 +81,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
    *그림 3: Azure Portal에서 프로비전 구성*
     
 1. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/v2/
-1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드에 정보를 입력 하지 않으면 Azure AD는 각 요청을 사용 하 여 Azure AD에서 발급 한 OAuth 전달자 토큰을 포함 합니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
+1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 
 1. 선택 **연결 테스트** Azure Active Directory에서 SCIM 끝점에 연결을 시도 하도록 합니다. 시도가 실패 하면 오류 정보가 표시 됩니다.  
 
     >[!NOTE]
@@ -667,8 +667,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
     
 1. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://\<ip-address>:9000/과 유사합니다. 여기서 \<ip-address>는 인터넷에 노출된 IP 주소입니다. 
 
-1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드에 정보를 입력 하지 않으면 Azure AD는 각 요청을 사용 하 여 Azure AD에서 발급 한 OAuth 전달자 토큰이 포함 됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-
+1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 
 1. 선택 **연결 테스트** Azure Active Directory에서 SCIM 끝점에 연결을 시도 하도록 합니다. 시도가 실패 하면 오류 정보가 표시 됩니다.  
 
     >[!NOTE]
@@ -1330,7 +1329,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | jobTitle |title |
 | 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| 관리자 |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |

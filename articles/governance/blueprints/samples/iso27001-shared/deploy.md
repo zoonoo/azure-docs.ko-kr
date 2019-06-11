@@ -89,8 +89,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **조직 이름**: 조직에 대한 짧은 이름을 입력합니다. 이 속성은 주로 리소스 이름을 지정하기 위해 사용됩니다.
      - **Shared Services 서브넷 주소 접두사**: 배포된 리소스를 함께 네트워킹하기 위해 CIDR 표기법으로 값을 제공합니다.
      - **Shared Services 위치**: 아티팩트를 배포하는 위치를 결정합니다. 일부 서비스는 모든 위치에서 사용할 수 없습니다. 이러한 서비스를 배포하는 아티팩트는 해당 아티팩트를 배포하는 위치에 대한 매개 변수 옵션을 제공합니다.
-     - **허용되는 위치(Azure Policy: ISO 27001의 청사진 이니셔티브)**: 리소스 그룹 및 리소스에 허용되는 위치를 나타내는 값입니다.
-     - **VM 에이전트에 대한 Log Analytics 작업 영역(Azure Policy: ISO 27001의 청사진 이니셔티브)**: 작업 영역의 리소스 ID를 지정합니다. 이 매개 변수는 `concat` 함수를 사용하여 리소스 ID를 생성합니다.
+     - **허용되는 위치(Azure Policy: ISO 27001의 청사진 이니셔티브)** : 리소스 그룹 및 리소스에 허용되는 위치를 나타내는 값입니다.
+     - **VM 에이전트에 대한 Log Analytics 작업 영역(Azure Policy: ISO 27001의 청사진 이니셔티브)** : 작업 영역의 리소스 ID를 지정합니다. 이 매개 변수는 `concat` 함수를 사용하여 리소스 ID를 생성합니다.
 
    - 아티팩트 매개 변수
 
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Log Analytics 템플릿|Resource Manager 템플릿|위치|Log Analytics 작업 영역을 만드는 데 사용되는 지역입니다. 기본값은 _미국 서부 2_입니다.|
 |네트워크 리소스 그룹|리소스 그룹|Name|**잠김** - **조직 이름**을 `-sharedsvcs-net-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |네트워크 리소스 그룹|리소스 그룹|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
-|Azure Firewall 템플릿|Resource Manager 템플릿|Azure Firewall 개인 IP|[Azure Firewall](../../../../firewall/overview.md)의 개인 IP를 구성합니다. 이 값은 Shared Services 서브넷에 대한 기본 경로 테이블로도 사용됩니다. **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
+|Azure Firewall 템플릿|Resource Manager 템플릿|Azure Firewall 프라이빗 IP|[Azure Firewall](../../../../firewall/overview.md)의 개인 IP를 구성합니다. 이 값은 Shared Services 서브넷에 대한 기본 경로 테이블로도 사용됩니다. **Azure Firewall 서브넷 주소 접두사**에 정의된 CIDR 표기법의 일부여야 합니다. 기본값은 _10.0.4.4_입니다.|
 |Azure Firewall 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |네트워크 보안 그룹 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_입니다.|
 |Virtual Network 및 경로 테이블 템플릿|Resource Manager 템플릿|Virtual Network 주소 접두사|가상 네트워크에 대한 CIDR 표기법입니다. 기본값은 _10.0.0.0/16_입니다.|

@@ -73,7 +73,7 @@ az network watcher configure \
 
 VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다. 트래픽이 다른 대상 및 원본 IP 주소에서 허용되거나 거부되는지 여부를 테스트하려면 [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) 명령을 사용합니다.
 
-VM에서 www.bing.com에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
+VM에서 www.bing.com 에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
 ```azurecli-interactive
 az network watcher test-ip-flow \

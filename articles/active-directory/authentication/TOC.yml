@@ -43,8 +43,6 @@
       items:
         - name: MFA 작동 방법
           href: concept-mfa-howitworks.md
-        - name: 올바른 버전은 무엇인가요?
-          href: concept-mfa-whichversion.md
         - name: 사용자 라이선스
           href: concept-mfa-licensing.md
         - name: 인증 공급자 관리
@@ -144,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: iOS 디바이스의 CBA
               href: active-directory-certificate-based-authentication-ios.md
-    - name: 개발
-      items:
-        - name: 사용자 지정 앱에 MFA 빌드
-          href: howto-mfa-sdk.md
     - name: 보고
       items:
         - name: SSPR 보고서
@@ -156,7 +150,7 @@
           href: howto-mfa-reporting.md
         - name: 데이터 수집
           href: howto-mfa-reporting-datacollection.md
-    - name: 'MFA 서버 '
+    - name: MFA 서버
       items:
         - name: 온-프레미스에서 MFA 배포
           href: howto-mfaserver-deploy.md

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397648"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729494"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -79,9 +79,6 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
 
-> [!NOTE]
-> 업데이트 관리를 사용 하 여 azure 가상 머신 확장 집합을 관리할 수 있습니다. 업데이트 관리는 자체 및 기본 이미지가 아닌 인스턴스에서 작동합니다. 모든 VM 인스턴스를 한 번에 업데이트 되지에 대 한 증분 방식으로 업데이트를 예약 해야 합니다.
-
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 
 다음 표에는 지원되지 않는 운영 체제가 나열되어 있습니다.
@@ -99,7 +96,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 #### <a name="linux"></a>Linux
 
-Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 사설 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
+Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
 
 Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 정보를 참조 하세요 [Linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)합니다. Windows Log Analytics 에이전트를 설치 하는 방법에 대 한 정보를 참조 하세요 [Microsoft 모니터링 에이전트에 대 한 Windows](../log-analytics/log-analytics-windows-agent.md)합니다.
 
@@ -195,7 +192,7 @@ Operations Manager 관리 그룹을 통신 하 고 있는 Azure Monitor 로그�
 
 관리되는 Windows 컴퓨터 각각에서 하루에 두 번 검사가 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다.
 
-관리되는 Linux 컴퓨터 각각에서 3시간마다 검사가 수행됩니다.
+검색은 관리 되는 각 Linux 컴퓨터에 대 한 매시간 수행 됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>컴퓨터 목록

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825413"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742378"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>로그인한 후 애플리케이션 페이지의 오류
 
@@ -67,9 +67,11 @@ Azure AD 응답으로 보낼 Azure AD 구성의 특성을 추가하려면 아래
 
 다음 번에 사용자가 애플리케이션에 로그인하면 Azure AD는 SAML 응답으로 새 특성을 보냅니다.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>애플리케이션에 필요한 다른 사용자 식별자 값 또는 형식
+## <a name="the-application-doesnt-identify-the-user"></a>응용 프로그램 사용자를 식별 하지 않습니다.
 
-SAML 응답이 역할과 같은 특성을 누락하거나 애플리케이션에 EntityID 특성에 대한 다른 형식이 필요하기 때문에 애플리케이션에 대한 로그인이 실패합니다.
+SAML 응답이 역할과 같은 특성을 누락 하거나 응용 프로그램은 다른 형식이 나 값 EntityID 특성에 대 한 것 이기 때문에 응용 프로그램에 로그인 실패 됩니다.
+
+사용 중인 경우 [Azure AD 자동 사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 을 만들려면 유지 관리 및 응용 프로그램에서 사용자를 제거 합니다. 그런 다음 사용자가 SaaS 응용 프로그램을 제대로 준비 되었는지 확인 합니다. 자세한 내용은 참조 하세요. [사용자가 Azure AD 갤러리 응용 프로그램을 프로 비전 됨](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Azure AD 애플리케이션 구성에 특성을 추가합니다.
 

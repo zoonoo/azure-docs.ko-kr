@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823253"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356949"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -90,6 +90,10 @@ Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 R
 
 최종 쿼리가 여러 번 실행되는 경우, 사용자 환경이 전혀 변경되지 않는다고 가정하면, 반환되는 결과는 일치하며 예상대로 **Name** 속성별로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
+> [!NOTE]
+> 사용자에게 액세스 권한이 이미 있는 구독에서 쿼리가 결과를 반환하지 않는 경우 `Search-AzGraph` cmdlet이 기본 컨텍스트에서 구독으로 기본 설정됨을 유의하세요. 기본 컨텍스트의 일부인 구독 ID 목록을 보려면 이 `(Get-AzContext).Account.ExtendedProperties.Subscriptions`를 실행합니다. 액세스 권한이 있는 모든 구독을 검색하려면 PSDefaultParameterValues를 `Search-AzGraph' cmdlet by running 
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`로 설정합니다.
+   
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Azure PowerShell 환경에서 Resource Graph 모듈을 제거하려면 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.

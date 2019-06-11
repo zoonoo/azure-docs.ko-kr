@@ -23,7 +23,7 @@ ms.locfileid: "60306346"
 
 Application Insights는 애플리케이션에서 각 프로세스의 메모리 사용을 자동으로 분석하고 잠재적 메모리 누수 또는 메모리 사용 증가에 대해 경고할 수 있습니다.
 
-이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱이 충분한 메모리 성능 카운터 원격 분석(예: 전용 바이트)을 생성할 때 활성 상태입니다.
+이 기능을 사용하려면 앱에 대한 [성능 카운터 구성](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) 이외의 특별한 설정이 필요하지 않습니다. 앱이 충분한 메모리 성능 카운터 원격 분석(예: 프라이빗 바이트)을 생성할 때 활성 상태입니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 애플리케이션의 일부인 하나 이상의 머신 및/또는 하나 이상의 프로세스에서 메모리 사용이 장기간 걸쳐 지속적으로 증가하면 일반 알림이 제공됩니다. 기계 학습 알고리즘은 메모리 누출 패턴과 일치하는 증가된 메모리 소비를 감지하는 데 사용됩니다.

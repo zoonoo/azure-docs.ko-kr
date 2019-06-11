@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책에서 OAuth2 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책에서 OAuth2 기술 프로필을 정의 합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683883"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512946"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683883"
 
 Azure AD(Azure Active Directory) B2C는 OAuth2 프로토콜 ID 공급자를 지원합니다. OAuth2 권한 부여 및 위임 된 인증에 대 한 기본 프로토콜을입니다. 자세한 내용은 [RFC 6749 OAuth 2.0 권한 부여 프레임워크](https://tools.ietf.org/html/rfc6749)를 참조하세요. OAuth2 기술 프로필을 사용 하 여 Facebook과 같은 OAuth2 기반된 id 공급자를 사용 하 여 페더레이션 할 수 있습니다. 페더레이션 id 공급자를 사용 하 여 기존 소셜 로그인 또는 엔터프라이즈 id 사용자를를 수 있습니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `OAuth2`로 설정해야 합니다. 예를 들어 **Facebook-OAUTH** 기술 프로필의 프로토콜은 `OAuth2`입니다.
 

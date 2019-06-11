@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: jonbeck7
+author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/29/2018
-ms.author: azcspmt;jonbeck;cynthn;danlep
+ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145838"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755195"
 ---
 ## <a name="deployment-considerations"></a>배포 고려 사항
 * **Azure 구독** - 몇몇 계산 집약적 인스턴스를 배포하려면 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
@@ -29,11 +29,11 @@ ms.locfileid: "66145838"
 * **크기 조정** - 특수한 하드웨어로 인해 동일한 크기의 제품군(H 시리즈 또는 계산 집약적 A 시리즈) 내에서만 계산 집약적 인스턴스의 크기를 조정할 수 있습니다. 예를 들어 H 시리즈 VM 크기는 한 H 시리즈에서 다른 H 시리즈로만 조정할 수 있습니다. 또한 계산 집약적이지 않은 크기에서 계산 집약적 크기로 조정하는 것은 지원되지 않습니다.  
 
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
-계산 집약적 인스턴스(H16r, H16mr, A8 및 A9) 일부는 RDMA(원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스로 사용됩니다. (NC24r과 같이 'r'로 지정된 N 시리즈 크기를 선택하는 경우에도 RDMA를 사용할 수 있습니다.) 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스 외에 추가로 사용됩니다. 
+계산 집약적인 인스턴스 (A8, A9, H16r, H16mr, HB 및 HC)의 하위 집합에는 원격 직접 메모리 액세스 (RDMA) 연결에 대 한 네트워크 인터페이스를 기능입니다. NC24rs 구성 (NC24rs_v2 및 NC24rs_v3) 같은 'r'를 사용 하 여 지정 된 N 시리즈 크기를 선택한 RDMA 지원 됩니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스 외에 추가로 사용됩니다. 
   
-이 인터페이스를 사용하면 RDMA 가능 인스턴스에서 IB(InfiniBand) 네트워크를 통해 통신할 수 있으며, H16r, H16mr 및 RDMA 가능 N 시리즈 가상 머신에서는 FDR 속도로, A8 및 A9 가상 머신에서는 QDR 속도로 작동할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다.
+이 인터페이스는 RDMA 지원 인스턴스가 H16r, H16mr 및 RDMA 지원 N 시리즈 가상 머신에 대 한 요금과 A8 및 A9 가상 머신에서 QDR 속도로 HB HC, FDR EDR 요금 운영 IB (InfiniBand) 네트워크를 통해 통신할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대 한 자세한 내용은이 페이지에서 테이블의 세부 정보를 참조 하세요.
 
 > [!NOTE]
-> IP over IB는 Azure에서 지원되지 않습니다. RDMA over IB만 지원됩니다.
+> Azure에서 IP over IB 에서만 SR-IOV Vm (현재 HB 및 HC)를 사용 하도록 설정 합니다. RDMA over IB 모든 RDMA 지원 인스턴스가 지원 됩니다.
 >
 

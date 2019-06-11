@@ -69,7 +69,7 @@ SQL VM에 대해 자동화된 백업을 구성하는 방법에 대한 자세한 
 - **중앙 관리 및 모니터링**: Azure의 단일 대시보드에서 Azure Backup이 지원하는 다른 작업을 포함한 모든 백업을 중앙에서 관리합니다.
 - **정책 기반 백업 및 보존**: 정기 백업에 대한 표준 백업 정책을 만듭니다. 몇 년 동안 백업을 유지 관리하는 보존 정책을 설정합니다.
 - **SQL Always On에 대한 지원**: SQL Server Always On 구성을 검색 및 보호하고 백업 가용성 그룹 백업 기본 설정을 적용합니다.
-- **15분 RPO(복구 지점 목표)**: 최대 15분마다 SQL 트랜잭션 로그 백업을 구성합니다.
+- **15분 RPO(복구 지점 목표)** : 최대 15분마다 SQL 트랜잭션 로그 백업을 구성합니다.
 - **특정 시점 복원**: 전체, 차등 및 로그 백업을 수동으로 복원할 필요 없이 포털을 사용하여 데이터베이스를 특정 시점으로 복구합니다.
 - **오류에 대한 통합된 이메일 경고**: 오류에 대한 통합된 이메일 알림을 구성합니다.
 - **역할 기반 액세스 제어**: 포털을 통해 백업 및 복원 작업을 관리할 수 있는 사용자를 결정합니다.
@@ -105,7 +105,7 @@ SQL Server 2012 SP1 CU2부터 URL에 백업이라고도 하는 Microsoft Azure B
 | 2016의 향상된 기능 | 세부 정보 |
 | --- | --- |
 | **스트라이프** |Microsoft Azure Blob Storage에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다. |
-| **스냅숏 백업** |Azure 스냅숏을 사용하는 경우 SQL Server 파일-스냅숏 Backup 기능은 Azure Blob Storage 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅숏 Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
+| **스냅숏 백업** |Azure 스냅샷을 사용하는 경우 SQL Server 파일-스냅샷 Backup 기능은 Azure Blob Storage 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅샷 Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
 
 자세한 내용은 SQL Server의 버전에 따라 다음 문서 중 하나를 참조하세요.
 

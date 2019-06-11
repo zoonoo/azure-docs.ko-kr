@@ -56,7 +56,7 @@ ms.locfileid: "65473281"
 
 Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다. 
 
-1. Visual Studio Code에서 **Azure: Functions** 영역에 표시할 Azure 로고를 선택하고 새 프로젝트 만들기 아이콘을 선택합니다.
+1. Visual Studio Code에서 **Azure: 함수** 영역에 표시할 Azure 로고를 선택하고 새 프로젝트 만들기 아이콘을 선택합니다.
 
     ![함수 앱 프로젝트 만들기](./media/functions-create-first-function-powershell/create-function-app-project.png)
 

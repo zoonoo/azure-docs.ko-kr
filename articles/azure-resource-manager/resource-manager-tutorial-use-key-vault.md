@@ -10,22 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c147023635f337e203f02779ef6df3d0a0f0088c
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 0d78e6eaca708073c3a216507b320fe8783a25b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015561"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239250"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
 
 Azure Key Vault에서 비밀을 검색하여 Resource Manager 배포 중에 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
 
-[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 기타 종속 리소스를 만듭니다. 이 자습서에서는 키 자격 증명 모음에서 가상 머신 관리자 암호를 검색하도록 템플릿을 사용자 지정합니다.
+[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신을 만듭니다. 가상 머신 관리자 사용자 이름과 암호를 제공해야 합니다. 암호를 제공하는 대신, Azure Key Vault에 암호를 미리 저장한 다음, 배포 중에 키 자격 증명 모음에서 암호를 검색하도록 템플릿을 사용자 지정할 수 있습니다.
 
 ![Resource Manager 템플릿 Key Vault 통합 다이어그램](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
@@ -57,80 +57,52 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-key-vault"></a>키 자격 증명 모음 준비
 
-이 섹션에서는 Resource Manager 템플릿을 사용하여 키 자격 증명 모음 및 비밀을 만듭니다. 이 템플릿은:
+이 섹션에서는 키 자격 증명 모음을 만들고 비밀을 키 자격 증명 모음에 추가하여 템플릿을 배포할 때 비밀을 검색할 수 있습니다. 키 자격 증명 모음을 만드는 여러 가지 방법이 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 [Resource Manager 템플릿](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json)을 배포합니다. 이 템플릿은:
 
 * `enabledForTemplateDeployment` 속성이 활성화된 키 자격 증명 모음을 만듭니다. 템플릿 배포 프로세스가 이 키 자격 증명 모음에 정의된 비밀에 액세스할 수 있으려면 이 속성이 true여야 합니다.
 * 키 자격 증명 모음에 비밀 추가  비밀에는 가상 머신 관리자 암호가 저장됩니다.
 
-가상 머신 템플릿을 배포하는 사용자가 키 자격 증명 모음의 소유자나 기여자가 아닌 경우에는 키 자격 증명 모음의 소유자나 기여자가 키 자격 증명 모음에 대한 Microsoft.KeyVault/vaults/deploy/action 권한에 대한 액세스를 해당 사용자에게 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
+> [!NOTE]
+> 가상 머신 템플릿을 배포하는 사용자가 키 자격 증명 모음의 소유자나 기여자가 아닌 경우에는 키 자격 증명 모음의 소유자나 기여자가 키 자격 증명 모음에 대한 Microsoft.KeyVault/vaults/deploy/action 권한에 대한 액세스를 해당 사용자에게 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
 
-권한을 구성하려면 템플릿에 Azure AD 사용자 개체 ID가 필요합니다. 다음 절차는 개체 ID(GUID)를 가져옵니다.
+다음 PowerShell 스크립트를 실행하려면 **사용해 보세요**를 선택하여 Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭한 다음, **붙여넣기**를 선택합니다.
 
-1. 다음 Azure PowerShell 또는 Azure CLI 명령을 실행합니다.  
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
+$secretValue = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```azurecli-interactive
-    echo "Enter your email address that is associated with your Azure subscription):" &&
-    read upn &&
-    az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```   
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
-    ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
-    (Get-AzADUser -UserPrincipalName $upn).Id
-    ```
-    또는
-    ```azurepowershell-interactive
-    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
-    (Get-AzADUser -DisplayName $displayName).Id
-    ```
-    ---
-2. 개체 ID를 기록해 둡니다. 자습서의 뒷부분에서 필요합니다.
+$resourceGroupName = "${projectName}rg"
+$keyVaultName = $projectName
+$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json"
 
-키 자격 증명 모음을 만들려면:
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+```
 
-1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿에서 키 자격 증명 모음 및 비밀이 생성됩니다.
+몇 가지 중요한 정보가 있습니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
+* 리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다. [이 자습서에서 만든 리소스를 더 쉽게 정리](#clean-up-resources)하려면 [다음 템플릿을 배포](#deploy-the-template)할 때 동일한 프로젝트 이름과 리소스 그룹 이름을 사용하세요.
+* 비밀 이름에 대한 기본 이름은 **vmAdminPassword**입니다. 이 이름은 템플릿에 하드 코드되어 있습니다.
+* 템플릿에서 비밀을 검색할 수 있으려면 키 자격 증명 모음에 대해 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이라는 액세스 정책을 사용하도록 설정해야 합니다. 이 정책은 템플릿에서 사용하도록 설정됩니다. 이 액세스 정책에 대한 자세한 내용은 [키 자격 증명 모음 및 비밀 배포](./resource-manager-keyvault-parameter.md#deploy-key-vaults-and-secrets)를 참조하세요.
 
-2. 다음 값을 선택하거나 입력합니다.  값을 입력한 후에 **구매**를 선택하지 마십시오.
+템플릿에는 **keyVaultId**라는 하나의 출력 값이 있습니다. 이 값을 적어두세요. 이 ID는 가상 머신을 배포할 때 필요합니다. 리소스 ID 형식은 다음가 같습니다.
 
-    ![Resource Manager 템플릿 Key Vault 통합 배포 포털](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
+```json
+/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
+```
 
-    * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: 고유 이름을 지정합니다. 이 이름을 적어두십시오. 동일한 리소스 그룹을 사용하여 다음 세션에서 가상 머신을 배포하게 됩니다. 동일한 리소스 그룹에 키 자격 증명 모음과 가상 머신을 둘 다 배치하면 자습서의 끝 부분에서 리소스를 정리하기 쉽습니다.
-    * **위치**: 위치를 선택합니다.  기본 위치는 **미국 중부**입니다.
-    * **Key Vault 이름**: 고유한 이름을 지정합니다. 
-    * **테넌트 ID**: 템플릿 함수가 자동으로 검색한 테넌트 ID입니다.  기본값을 변경하지 마십시오.
-    * **AD 사용자 ID**: 마지막 절차에서 검색한 Azure AD 사용자 개체 ID를 입력합니다.
-    * **비밀 이름**: 기본 이름은 **vmAdminPassword**입니다. 여기에서 비밀 이름을 변경하면 가상 머신을 배포할 때 비밀 이름을 업데이트해야 합니다.
-    * **비밀 값**: 비밀을 입력합니다.  비밀은 가상 머신에 로그인할 때 사용되는 암호입니다. 마지막 절차에서 만든 생성된 암호를 사용하는 것이 좋습니다.
-    * **위에 명시된 사용 약관에 동의함**: 선택합니다.
-3. 맨 위에서 **매개 변수 편집**을 선택하여 템플릿을 살펴봅니다.
-4. 템플릿 JSON 파일의 28번 줄로 이동합니다. 이것이 키 자격 증명 모음 리소스 정의입니다.
-5. 35번 줄로 이동합니다.
+ID를 복사하여 붙여넣으면 ID가 여러 줄로 분할될 수 있습니다. 줄을 병합하고 여분의 공백을 제거해야 합니다.
 
-    ```json
-    "enabledForTemplateDeployment": true,
-    ```
-    `enabledForTemplateDeployment`는 Key Vault 속성입니다. 배포하는 동안 이 키 자격 증명 모음에서 비밀을 검색할 수 있으려면 이 속성이 true여야 합니다.
-6. 89번 줄로 이동합니다. Key Vault 비밀 정의입니다.
-7. 페이지 아래쪽에서 **삭제**를 선택합니다. 변경은 하지 않습니다.
-8. 이전 스크린샷과 같이 모든 값을 입력했는지 확인한 다음, 페이지 맨 아래에서 **구매**를 클릭합니다.
-9. 페이지 상단에서 벨 아이콘(알림)을 선택하여 **알림** 창을 엽니다. 리소스 배포가 완료될 때까지 기다립니다.
-10. **알림** 창에서 **리소스 그룹으로 이동**을 선택합니다. 
-11. 키 자격 증명 모음 이름을 선택하여 엽니다.
-12. 왼쪽 창에서 **비밀**을 선택합니다. **vmAdminPassword**가 나열됩니다.
-13. 왼쪽 창에서 **액세스 정책**을 선택합니다. 내 이름(Active Directory)이 나열되어야 하며, 그렇지 않으면 키 저장소에 액세스할 수 있는 권한이 없습니다.
-14. **클릭하여 고급 액세스 정책 표시**를 선택합니다. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이 선택되어 있는지 확인합니다. 이 설정은 키 자격 증명 모음 통합이 작동하기 위한 또 다른 조건입니다.
+배포의 유효성을 검사하려면 동일한 셸 창에서 다음 PowerShell 명령을 실행하여 비밀을 일반 텍스트로 검색합니다. 이 명령은 이전 PowerShell 스크립트에 정의된 $keyVaultName 변수를 사용하므로 동일한 셸 세션에서만 작동합니다.
 
-    ![Resource Manager 템플릿 Key Vault 통합 액세스 정책](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-15. 왼쪽 창에서 **속성**을 선택합니다.
-16. **리소스 ID**의 복사본을 만들어 둡니다. 이 ID는 가상 머신을 배포할 때 필요합니다.  리소스 ID 형식은 다음가 같습니다.
+```azurepowershell
+(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+```
 
-    ```json
-    /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-    ```
+이제 키 자격 증명 모음과 비밀을 준비했으므로 다음 섹션에서는 배포 중에 비밀을 검색하도록 기존 템플릿을 사용자 지정하는 방법을 보여 줍니다.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -142,6 +114,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에 사용된 시나리오와 동일한 시나리오입니다.
 4. 템플릿에 5개 리소스가 정의되어 있습니다.
 
@@ -177,24 +150,28 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     },
     ```
 
-    **id**를 마지막 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다.  
+    > [!IMPORTANT]
+    > **id** 값을 마지막 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다.
 
     ![키 자격 증명 모음과 Resource Manager 템플릿 가상 머신 배포 매개 변수 파일 통합](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. 다음 항목에 대한 값을 제공합니다.
 
     * **adminUsername**: 가상 머신 관리자 계정의 이름을 지정합니다.
     * **dnsLabelPrefix**: dnsLabelPrefix의 이름을 지정합니다.
+
+    이전 스크린샷의 예제를 참조하세요.
+
 4. 변경 내용을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-[템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 템플릿을 배포합니다. **azuredeploy.json**과 **azuredeploy.parameters.json**을 둘 다 Cloud Shell에 업로드한 후, 다음 PowerShell 스크립트를 사용하여 템플릿을 배포합니다.
+[템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 템플릿을 배포합니다. **azuredeploy.json** 및 **azuredeploy.parameters.json**을 모두 Cloud Shell에 업로드하고, 다음 PowerShell 스크립트를 사용하여 템플릿을 배포해야 합니다.
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+$resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
@@ -208,7 +185,7 @@ New-AzResourceGroupDeployment `
 가상 머신 배포에 성공한 후에는 키 자격 증명 모음에 저장된 암호를 사용하여 로그인을 테스트합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-2. **리소스 그룹**/**YourResourceGroupName>**/**simpleWinVM**을 선택합니다.
+2. **리소스 그룹**/**YourResourceGroupName>** /**simpleWinVM**을 선택합니다.
 3. 위에서 **연결**을 선택합니다.
 4. **RDP 파일 다운로드**를 선택한 다음, 지침에 따라 키 자격 증명 모음에 저장된 암호를 사용하여 가상 머신에 로그인합니다.
 
@@ -216,10 +193,12 @@ New-AzResourceGroupDeployment `
 
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
-2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
-3. 해당 리소스 그룹 이름을 선택합니다.  리소스 그룹에 총 6개의 리소스가 표시됩니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>다음 단계
 

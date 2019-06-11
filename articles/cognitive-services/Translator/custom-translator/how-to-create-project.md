@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762707"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383003"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
 
@@ -40,11 +40,11 @@ ms.locfileid: "57762707"
 
     e.  범주 설명: 이 필드에는 현재 근무하고 있는 특정 분야나 업계에 대한 설명을 입력합니다. 예를 들어, 범주가 의학이라면 여기에는 수술, 소아과와 같은 설명을 입력할 수 있습니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않습니다.
 
-    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다. 단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
+    f.  프로젝트 레이블: [프로젝트 레이블](workspace-and-project.md#project-labels)은 언어 쌍과 범주가 동일한 여러 프로젝트를 구분해 줍니다. 동일한 언어 쌍과 범주로 여러 개의 프로젝트를 빌드하고 각 프로젝트를 서로 다른 CategoryID를 사용하여 액세스할 계획이라면 레이블‘만’ 사용합니다.  단일 범주의 시스템을 빌드할 계획이라면 이 필드를 사용하지 않습니다. 서로 다른 언어 쌍을 구분하는 데는 프로젝트 레이블이 유용하지도, 필요하지도 않습니다. 여러 프로젝트에서 동일한 레이블을 사용할 수 있습니다.
 
     ![프로젝트 만들기 대화 상자](media/how-to/how-to-create-project-dialog.png)
 
-3.  만들기 클릭 
+3.  만들기 클릭
 
 ## <a name="view-project-details"></a>프로젝트 세부 사항 보기
 

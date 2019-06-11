@@ -2,20 +2,20 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsSchema 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721757"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511860"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
+| 프로토콜 | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -100,7 +100,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 }
 ```
 
-### <a name="mask"></a>Mask
+### <a name="mask"></a>마스크
 
 **Mask** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -161,9 +161,9 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Text | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
+| 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 아닙니다. | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 다음과 같습니다. True 또는 False입니다. |
+| SelectByDefault | 아닙니다. | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값: True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 

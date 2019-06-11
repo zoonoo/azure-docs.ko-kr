@@ -70,7 +70,7 @@ Functions 프로젝트는 Azure의 함수 앱에 해당합니다. 동일한 로�
 func init MyFunctionProj
 ```
 
-_MyFunctionProj_라는 폴더가 만들어지며, 이 폴더에는 다음과 같은 세 개 파일이 포함되어 있습니다.
+_MyFunctionProj_ 라는 폴더가 만들어지며, 이 폴더에는 다음과 같은 세 개 파일이 포함되어 있습니다.
 
 * `local.settings.json` 파일은 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다.
 * `requirements.txt` 파일에는 Azure에 게시할 때 설치되는 패키지 목록이 포함되어 있습니다.
@@ -102,7 +102,7 @@ func new
 
 **HTTP 트리거** 템플릿을 선택하고 함수 이름으로 `HttpTrigger`를 입력한 다음, Enter 키를 누릅니다.
 
-_HttpTrigger_라는 하위 폴더가 만들어지며, 이 폴더에는 다음 파일이 포함되어 있습니다.
+_HttpTrigger_ 라는 하위 폴더가 만들어지며, 이 폴더에는 다음 파일이 포함되어 있습니다.
 
 * **function.json**: 함수, 트리거 및 기타 바인딩을 정의하는 구성 파일입니다. 이 파일을 검토하여 `scriptFile` 값이 함수가 들어 있는 파일을 가리키는지 확인할 수 있으며, 호출 트리거 및 바인딩은 `bindings` 배열에 정의됩니다.
 

@@ -2,20 +2,20 @@
 title: Predicates 및 PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 소셜 계정 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714158"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512958"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -42,7 +42,7 @@ ms.locfileid: "64714158"
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 다음과 같습니다. **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
+| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 

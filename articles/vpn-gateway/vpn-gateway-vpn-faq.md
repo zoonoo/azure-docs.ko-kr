@@ -42,7 +42,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 * 지점 및 사이트 간 - SSTP(Secure Socket Tunneling Protocol) 또는 IKE v2를 통한 VPN 연결. 이 연결에는 VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [지점 및 사이트 간](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
 * VNet 간 - 이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 디바이스가 필요하지 않습니다. 자세한 내용은 [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요.
 * 다중 사이트 - 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다. 자세한 내용은 [다중 사이트](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)를 참조하세요.
-* ExpressRoute - ExpressRoute는 공용 인터넷을 통한 VPN 연결이 아닌 WAN에서 Azure에 대한 비공개 연결입니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
+* ExpressRoute - ExpressRoute는 공용 인터넷을 통한 VPN 연결이 아닌 WAN에서 Azure에 대한 프라이빗 연결입니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
 VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
@@ -130,7 +130,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에 어떤 영향도 미칠 수 없습니다.
 
-가상 네트워크 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 디바이스입니다. Azure 인프라 엔터티는 준수 이유로 고객 개인 네트워크에 연결할 수 없으므로 인프라 통신용 공용 엔드포인트를 이용해야 합니다. 공용 엔드포인트는 Azure 보안 감사에서 정기적으로 검색됩니다.
+가상 네트워크 게이트웨이는 기본적으로 고객 프라이빗 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 디바이스입니다. Azure 인프라 엔터티는 규정 준수 이유로 고객 프라이빗 네트워크에 연결할 수 없으므로 인프라 통신용 공용 엔드포인트를 이용해야 합니다. 공용 엔드포인트는 Azure 보안 감사에서 정기적으로 검색됩니다.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>게이트웨이 유형, 요구 사항 및 처리량에 대한 자세한 내용
 
@@ -186,7 +186,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 예. 자세한 내용은 [BGP](#bgp) 섹션을 참조하세요.
 
 **클래식 배포 모델**<br>
- Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure Virtual Networks 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
+Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 사용할 수 있지만 네트워크 구성 파일에서 정적으로 정의된 주소 공간의 영향을 받습니다. BGP는 클래식 배포 모델을 사용하는 Azure Virtual Networks 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
@@ -223,7 +223,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 몇 가지 옵션이 있습니다. VM에 RDP를 사용하도록 설정한 경우 개인 IP 주소를 사용하여 가상 머신에 연결할 수 있습니다. 이 경우 개인 IP 주소 및 연결하려는 포트(일반적으로 3389)를 지정합니다. 가상 머신에서 트래픽에 대한 포트를 구성해야 합니다.
 
-동일한 가상 네트워크에 있는 다른 가상 머신의 개인 IP 주소를 통해 가상 머신에 연결할 수도 있습니다. 가상 네트워크의 외부 위치에서 연결할 경우 개인 IP 주소를 사용하여 가상 컴퓨터에 RDP할 수 없습니다. 예를 들어 지점 및 사이트 간 가상 네트워크를 구성하고 컴퓨터에서 연결을 설정하지 않은 경우 개인 IP 주소를 통해 가상 컴퓨터에 연결할 수 없습니다.
+동일한 가상 네트워크에 있는 다른 가상 머신의 개인 IP 주소를 통해 가상 머신에 연결할 수도 있습니다. 가상 네트워크의 외부 위치에서 연결할 경우 개인 IP 주소를 사용하여 가상 머신에 RDP할 수 없습니다. 예를 들어 지점 및 사이트 간 가상 네트워크를 구성하고 컴퓨터에서 연결을 설정하지 않은 경우 개인 IP 주소를 통해 가상 머신에 연결할 수 없습니다.
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>내 가상 머신이 프레미스 간 연결을 사용하는 가상 네트워크에 포함된 경우 내 VM의 모든 트래픽이 해당 연결을 통해 이동됩니까?
 

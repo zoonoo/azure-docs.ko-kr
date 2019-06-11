@@ -24,7 +24,7 @@ ms.locfileid: "64704579"
 
 ## <a name="when-to-use"></a>사용하는 경우
 
-지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Service Bus를 설정하려는 경우 *방화벽*을 활용하여 다른 IP 주소의 Service Bus 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure ExpressRoute][express-route]에서 Service Bus를 사용하여 온-프레미스 인프라에 개인 연결을 만듭니다. 
+지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Service Bus를 설정하려는 경우 *방화벽*을 활용하여 다른 IP 주소의 Service Bus 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express Route][express-route]에서 Service Bus를 사용하여 온-프레미스 인프라에 프라이빗 연결을 만듭니다. 
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 

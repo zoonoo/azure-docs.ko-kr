@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887369"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514502"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -66,7 +66,7 @@ kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커�
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>나만의 AKS 인프라 리소스 그룹의 이름을 제공할 수 있습니까?
 
-예. 기본적으로 AKS 리소스 공급자를 자동으로 보조 리소스 그룹을 만듭니다 (같은 *MC_myResourceGroup_myAKSCluster_eastus*) 배포 하는 동안. 회사 정책을 준수 하는 관리 되는이 클러스터에 대 한 고유한 이름을 제공할 수 있습니다 (*MC_*) 리소스 그룹입니다.
+예. 기본적으로 AKS 리소스 공급자를 자동으로 보조 리소스 그룹을 만듭니다 (같은 *MC_myResourceGroup_myAKSCluster_eastus*) 배포 하는 동안. 회사 정책을 준수 하는 관리 되는이 클러스터에 대 한 고유한 이름을 제공할 수 있습니다 (*MC_* ) 리소스 그룹입니다.
 
 고유한 리소스 그룹 이름을 지정 하려면 다음을 설치 합니다 [aks 미리 보기] [ aks-preview-cli] Azure CLI 확장 버전 *평면이 0.3.2* 이상. 사용 하 여 AKS 클러스터를 만들 때 합니다 [az aks 만들기] [ az-aks-create] 명령에 사용 하 여는 *-노드 리소스 그룹* 매개 변수 리소스 그룹의 이름을 지정 합니다. 경우 있습니다 [Azure Resource Manager 템플릿을 사용 하 여] [ aks-rm-template] AKS 클러스터를 배포 하려면 리소스 그룹 이름을 사용 하 여 정의할 수 있습니다 합니다 *nodeResourceGroup* 속성입니다.
 
@@ -129,6 +129,10 @@ AKS 관리 서비스 이기 때문에 배포 하 고 클러스터의 일부로 �
 
 사용자는 최소를 재정의할 수 없습니다. `maxPods` 유효성 검사 합니다.
 
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>내 AKS 에이전트 노드에 Azure 예약 할인을 적용할 수 있나요?
+
+AKS 에이전트 노드는 표준 Azure virtual machines로 청구 되며 따라서 구입한 [Azure 예약] [ reservation-discounts] AKS에서 사용 하는 VM 크기, 할인 자동으로 적용 됩니다.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -145,6 +149,7 @@ AKS 관리 서비스 이기 때문에 배포 하 고 클러스터의 일부로 �
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

@@ -1,6 +1,6 @@
 ---
 title: StorSimple Snapshot Manager 백업 작업 | Microsoft Docs
-description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업 작업, 현재 실행 중인 백업 작업 및 완료된 백업 작업을 보고 관리하는 방법을 설명합니다.
+description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 예약된 백업 작업, 현재 실행 중인 백업 작업 및 완료된 백업 작업을 보고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -16,12 +16,12 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60303488"
 ---
-# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple 스냅샷 관리자를 사용하여 백업 작업 보기 및 관리
 
 ## <a name="overview"></a>개요
 **범위** 창의 **작업** 노드에는 대화형으로 또는 구성된 정책에 따라 시작한 **예약됨**, **최근 24시간** 및 **실행 중** 백업 태스크가 표시됩니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "60303488"
 다음 절차를 사용하여 예약된 백업 작업을 볼 수 있습니다.
 
 #### <a name="to-view-scheduled-jobs"></a>예약된 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다. 
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다. 
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **예약됨**을 클릭합니다. **결과** 창에 다음 정보가 표시됩니다.
    
    * **이름** – 예약된 스냅숏의 이름
@@ -40,7 +40,7 @@ ms.locfileid: "60303488"
    * **마지막 실행** – 가장 최근으로 예약된 스냅숏의 날짜 및 시간
      
      > [!NOTE]
-     > 일회성 스냅숏은 **다음 실행** 및 **마지막 실행**이 동일합니다.
+     > 일회성 스냅샷은 **다음 실행** 및 **마지막 실행**이 동일합니다.
      
      ![예약된 백업 작업](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. 특정 작업에 대해 추가 작업을 수행하려면 **결과** 창에서 해당 작업 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션 중에서 선택합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "60303488"
 다음 절차를 사용하여 최근 24시간 동안 완료된 백업 및 복원 작업을 볼 수 있습니다.
 
 #### <a name="to-view-recent-jobs"></a>최근 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **최근 24시간**을 클릭합니다. **결과** 창에 최근 24시간 동안의 백업 작업이 표시됩니다(최대 64개 작업까지). 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
    
    * **이름** – 예약된 스냅숏의 이름
@@ -69,7 +69,7 @@ ms.locfileid: "60303488"
 다음 절차를 사용하여 현재 실행 중인 작업을 볼 수 있습니다.
 
 #### <a name="to-view-currently-running-jobs"></a>현재 실행 중인 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅샷 관리자를 시작합니다.
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
    
    * **이름** – 예약된 스냅숏의 이름

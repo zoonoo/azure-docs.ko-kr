@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074369"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389083"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -69,7 +69,7 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
 
         ![SQL Database 세부 정보](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - **SQL 탄력적 풀을 사용하시겠습니까?**: **아니요** 옵션을 선택합니다.
+   - **SQL 탄력적 풀을 사용하시겠습니까?** : **아니요** 옵션을 선택합니다.
    - **컴퓨팅 및 스토리지**: **데이터베이스 구성**을 선택하고 이 빠른 시작에 대해서는 **vCore 기반 구매 옵션**을 선택합니다.
 
      ![vCore 기반 구매 옵션](media/sql-database-get-started-portal/create-database-vcore.png)
@@ -137,4 +137,4 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
   - [Azure Data Studio를 사용하여 연결 및 쿼리](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Azure CLI를 사용하여 프로비저닝된 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [Azure CLI 샘플](sql-database-cli-samples.md)을 참조하세요.
 - Azure PowerShell을 사용하여 프로비저닝된 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](sql-database-powershell-samples.md)을 참조하세요.
-- Azure Powershell을 사용하여 서버리스 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [PowerShell을 사용하여 서버리스 데이터베이스 만들기](sql-database-serverless.md#create-new-database-using-powershell)를 참조하세요.
+- Azure Powershell을 사용하여 서버리스 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [PowerShell을 사용하여 서버리스 데이터베이스 만들기](sql-database-serverless.md#create-new-serverless-database-using-powershell)를 참조하세요.

@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956281"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475416"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -30,13 +30,13 @@ Azure Container Instances에 Virtual Kubelet 공급자를 사용할 때 표준 K
 
 이 문서에서는 AKS 클러스터가 설치되어 있다고 가정합니다. AKS 클러스터가 필요한 경우 [AKS(Azure Kubernetes Service) 빠른 시작][aks-quick-start]을 참조하세요.
 
-또한 Azure CLI 버전 **2.0.33** 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI 버전 해야 **2.0.65** 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-Virtual Kubelet을 설치하려면 [Helm](https://docs.helm.sh/using_helm/#installing-helm)도 필요합니다.
+Virtual Kubelet을 설치 하려면 설치 및 구성 [Helm] [ aks-helm] AKS 클러스터에 있습니다. 반드시에 Tiller [Kubernetes RBAC를 사용 하 여 사용 하도록 구성 된](#for-rbac-enabled-clusters), 필요한 경우.
 
 ### <a name="register-container-instances-feature-provider"></a>Container Instances 기능 공급자 등록
 
-컨테이너 인스턴스 ACI (Azure) 서비스에서 이전에 사용 하지 않은 경우 구독을 사용 하 여 서비스 공급자를 등록 합니다. 다음 예제에서와 같이 [az provider list] [az provider list] 명령을 사용 하 여 ACI 공급자 등록 상태를 확인할 수 있습니다.
+컨테이너 인스턴스 ACI (Azure) 서비스에서 이전에 사용 하지 않은 경우 구독을 사용 하 여 서비스 공급자를 등록 합니다. 다음 예제와 같이 [az provider list][az-provider-list] 명령을 사용하여 ACI 공급자 등록의 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -44,13 +44,13 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 *Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered*로 보고됩니다.
 
-```
+```console
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
 ```
 
-공급자로 표시 되 면 *NotRegistered*, 다음 예제에서와 같이 [az 공급자 등록]을 사용 하 여 [az provider register] 공급자를 등록 합니다.
+공급자가 *NotRegistered*로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -83,7 +83,7 @@ subjects:
 
 [kubectl apply][kubectl-apply]를 사용하여 서비스 계정과 바인딩을 적용하고 다음 예제와 같이 *rbac-virtual-kubelet.yaml* 파일을 지정합니다.
 
-```
+```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/tiller created
@@ -102,16 +102,20 @@ helm init --service-account tiller
 [az aks install-connector][aks-install-connector] 명령을 사용하여 Virtual Kubelet을 설치합니다. 다음 예제에서는 Linux 및 Windows 커넥터를 배포합니다.
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
+az aks install-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
-이 인수는 `aks install-connector` 명령에 사용할 수 있습니다.
+사용할 수 있는 이러한 인수는 [az aks 설치-커넥터] [ aks-install-connector] 명령입니다.
 
 | 인수: | 설명 | 필수 |
 |---|---|:---:|
-| `--connector-name` | ACI 커넥터의 이름입니다.| 예. |
-| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예. |
-| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예. |
+| `--connector-name` | ACI 커넥터의 이름입니다.| 예 |
+| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예 |
+| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예 |
 | `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값은 다음과 같습니다. 둘 다, Linux, Windows. Default: Linux. | 아닙니다. |
 | `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아닙니다. |
 | `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아닙니다. |
@@ -122,17 +126,15 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 ## <a name="validate-virtual-kubelet"></a>Virtual Kubelet 유효성 검사
 
-Virtual Kubelet이 설치되었는지 확인하려면 [kubectl get nodes][kubectl-get] 명령을 사용하여 Kubernetes 노드 목록을 반환합니다.
+Virtual Kubelet 설치 되어 있는지 확인을 위해 사용 하 여 Kubernetes 노드 목록을 반환 합니다 [kubectl get 노드] [ kubectl-get] 명령:
 
-```
+```console
 $ kubectl get nodes
 
-NAME                                    STATUS    ROLES     AGE       VERSION
-aks-nodepool1-23443254-0                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-1                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-2                Ready     agent     16d       v1.9.6
-virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
-virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
+NAME                                             STATUS   ROLES   AGE   VERSION
+aks-nodepool1-56577038-0                         Ready    agent   11m   v1.12.8
+virtual-kubelet-virtual-kubelet-linux-eastus     Ready    agent   39s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
+virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
 ```
 
 ## <a name="run-linux-container"></a>Linux 컨테이너 실행
@@ -178,11 +180,11 @@ kubectl create -f virtual-kubelet-linux.yaml
 
 `-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 예약된 노드를 포함한 Pod 목록을 출력합니다. `aci-helloworld` Pod는 `virtual-kubelet-virtual-kubelet-linux` 노드에서 예약되었습니다.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.147.210   virtual-kubelet-virtual-kubelet-linux-eastus
 ```
 
 ## <a name="run-windows-container"></a>Windows 컨테이너 실행
@@ -226,13 +228,13 @@ spec:
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-`-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 예약된 노드를 포함한 Pod 목록을 출력합니다. `nanoserver-iis` Pod는 `virtual-kubelet-virtual-kubelet-win` 노드에서 예약되었습니다.
+`-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 예약된 노드를 포함한 Pod 목록을 출력합니다. `nanoserver-iis` Pod는 `virtual-kubelet-virtual-kubelet-windows` 노드에서 예약되었습니다.
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.143.39    virtual-kubelet-virtual-kubelet-windows-eastus
 ```
 
 ## <a name="remove-virtual-kubelet"></a>Virtual Kubelet 제거
@@ -240,7 +242,11 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 [az aks remove-connector][aks-remove-connector] 명령을 사용하여 Virtual Kubelet을 제거합니다. 커넥터, AKS 클러스터 및 AKS 클러스터 리소스 그룹의 이름으로 인수 값을 바꿉니다.
 
 ```azurecli-interactive
-az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks remove-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
 > [!NOTE]
@@ -259,6 +265,9 @@ Virtual Kubelet에 대한 자세한 내용은 [Virtual Kubelet GitHub 프로젝�
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 [virtual-nodes-cli]: virtual-nodes-cli.md
 [virtual-nodes-portal]: virtual-nodes-portal.md
+[aks-helm]: kubernetes-helm.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

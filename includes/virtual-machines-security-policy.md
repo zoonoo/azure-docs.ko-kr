@@ -35,7 +35,7 @@ Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소�
 
 키 자격 증명 모음 액세스 정책은 키, 비밀 및 인증서에 대한 권한을 별도로 부여합니다. 예를 들어 사용자에게 키에 대한 액세스 권한만 부여하고 암호에 대해서는 권한을 부여하지 않을 수 있습니다. 그러나 키, 암호 또는 인증서에 대한 액세스 권한은 자격 증명 모음 수준에 있습니다. 즉 [키 자격 증명 모음 액세스 정책](../articles/key-vault/key-vault-secure-your-key-vault.md)에서는 개체 수준 권한을 지원하지 않습니다.
 
-VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방법으로 VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md)을 만들 수 있으므로 로그인할 때 암호를 사용할 필요가 없습니다. SSH 키를 사용하여 [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md)에서 Linux VM에 연결할 수도 있습니다.
+VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방법으로 VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 프라이빗 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md)을 만들 수 있으므로 로그인할 때 암호를 사용할 필요가 없습니다. SSH 키를 사용하여 [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md)에서 Linux VM에 연결할 수도 있습니다.
 
 ## <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
 

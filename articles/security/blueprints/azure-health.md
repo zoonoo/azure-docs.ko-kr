@@ -22,7 +22,7 @@ ms.locfileid: "60609736"
 
 **Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 및 IaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족함과 동시에 의료 데이터가 포함된 솔루션을 수집/저장/분석/상호 작용/식별하고 안전하게 배포하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
 
-Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 
+Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 엔드투엔드 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 
 
 IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 PAW(Privileged Access Workstation)를 구현하는 방법을 보여 줍니다. IaaS SQL Server 데이터베이스는 SQL IaaS VM으로 가져오는 잠재적 실험 데이터를 추가하며, 해당 VM은 MSI 인증 액세스를 사용하여 SQL Azure PaaS 서비스와 상호 작용합니다. 이 두 가지 방식은 모두 공통 참조 아키텍처를 나타내며, Microsoft Azure을 간편하게 도입하는 데 사용됩니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
 

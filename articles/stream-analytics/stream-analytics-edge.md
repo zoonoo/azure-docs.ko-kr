@@ -62,7 +62,7 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 1. [이러한 지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 Azure Portal에서 저장소 계정을 만듭니다. ASA에서 이 계정을 사용하기 위해 모든 기본 옵션을 유지할 수 있습니다.
 2. 새로 만든 스토리지 계정에서 Blob Storage 컨테이너를 만듭니다.
     1. **Blobs**을 클릭한 다음, **+ 컨테이너**를 클릭합니다. 
-    2. 이름을 입력하고 컨테이너를 **비공개**로 유지합니다.
+    2. 이름을 입력하고 컨테이너를 **프라이빗**으로 유지합니다.
 
 #### <a name="create-an-asa-edge-job"></a>ASA Edge 작업 만들기
 > [!Note]

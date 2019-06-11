@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924360"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476909"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure 데이터 상자의 가장자리에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "64924360"
 
 3. **암호 변경**을 선택합니다.
  
-### <a name="reset-device-password"></a>디바이스 암호 재설정
+### <a name="reset-device-password"></a>장치 암호 재설정
 
 재설정 워크플로에서는 사용자가 이전 암호를 기억할 필요가 없으며 암호를 분실했을 때 유용합니다. 이 워크플로는 Azure Portal에서 수행합니다.
 
@@ -54,6 +54,48 @@ ms.locfileid: "64924360"
 2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 선택 **재설정**합니다.
 
     ![암호 재설정](media/data-box-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="manage-resource-access"></a>리소스 액세스 관리
+
+데이터 상자 Edge/데이터 상자 게이트웨이, IoT Hub 및 Azure Storage 리소스를 만들려면 리소스 그룹 수준에서 참가자 또는 더 높은 권한이 필요 합니다. 해당 리소스 공급자를 등록 해야 합니다. 정품 인증 키 및 자격 증명을 포함 하는 모든 작업에 대 한 권한이 Azure Active Directory Graph API에도 필요 합니다. 이러한 작업은 다음 섹션에 설명 되어 있습니다.
+
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Microsoft Azure Active Directory Graph API 사용 권한 관리
+
+데이터 상자에 지 장치 또는 자격 증명을 필요로 하는 작업을 수행 하는 것에 대 한 정품 인증 키를 생성 하는 경우 Azure Active Directory Graph API 사용 권한이 필요 합니다. 작업 자격 증명을 할 수 있습니다.
+
+-  연결 된 저장소 계정으로 공유를 만드는 중입니다.
+-  장치에서 공유에 액세스할 수 있는 사용자를 만드는 중입니다.
+
+해야는 `User` Active Directory 테 넌 트에 액세스할 수 있으려면 필요에 따라 `Read all directory objects`합니다. 권한이 없기 때문에 게스트 사용자 일 수 없습니다 `Read all directory objects`합니다. 게스트에서 다음 데이터 상자에 지 장치에서 공유를 생성 하는 정품 인증 키를 생성 하는 등 작업 인 경우 사용자의 모든 만들어지지 것입니다.
+
+Azure Active Directory Graph API에는 사용자에 게 액세스를 제공 하는 방법에 대 한 자세한 내용은 참조 하세요. [관리자, 사용자 및 게스트 사용자에 대 한 액세스를 기본](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)입니다.
+
+### <a name="register-resource-providers"></a>리소스 공급자 등록
+
+(Azure Resource Manager 모델)에서 Azure에서 리소스를 프로 비전 하려면 해당 리소스의 생성을 지 원하는 리소스 공급자를 해야 합니다. 예를 들어, 가상 컴퓨터를 프로 비전 하려면 있어야 'Microsoft.Compute' 리소스 공급자 구독에서 사용할 수 있습니다.
+ 
+구독 수준에서 리소스 공급자 등록 됩니다. 기본적으로 모든 새 Azure 구독 목록을 자주 사용 되는 리소스 공급자를 사용 하 여 미리 등록 됩니다. 'Microsoft.DataBoxEdge'에 대 한 리소스 공급자는이 목록에 포함 되지 않습니다.
+
+사용자가 이러한 리소스에 대 한 리소스 공급자가 이미 있다면, 소유자 권한이 있는 해당 리소스 그룹 내에서 'Microsoft.DataBoxEdge'와 같은 리소스를 만들 수에 대 한 구독 수준에 대 한 액세스 권한을 부여 하지 않아도 됩니다. 등록 합니다.
+
+모든 리소스를 만들려면 먼저 리소스 공급자 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자 등록 되지 않은 경우에 새 리소스를 만드는 사용자에 구독 수준에서 필요한 리소스 공급자를 등록할 수 있는 충분 한 권한이 있는지 확인 해야 합니다. 그런 다음이 수행 하지 않은, 다음 오류를 볼 수 있습니다.
+
+*구독 <Subscription name> 리소스 공급자를 등록할 수 있는 권한이 없습니다. Microsoft.DataBoxEdge.*
+
+
+현재 구독에 등록 된 리소스 공급자의 목록을 가져오려면, 다음 명령을 실행 합니다.
+
+```PowerShell
+Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
+```
+
+데이터 상자 Edge 장치에 대 한 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge`, 구독 관리자는 다음 명령을 실행 해야 합니다.
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
+```
+
+리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 참조 하세요. [리소스 공급자 등록 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors)합니다.
 
 ## <a name="manage-connectivity-mode"></a>연결 모드 관리
 

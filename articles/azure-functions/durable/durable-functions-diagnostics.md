@@ -25,7 +25,7 @@ ms.locfileid: "62126666"
 
 Azure Functions에서 진단 및 모니터링을 수행하려면 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하는 것이 좋습니다. 지속성 함수에도 동일하게 적용됩니다. 함수 앱에서 Application Insights를 활용하는 방법에 대한 개요는 [Azure Functions 모니터링](../functions-monitoring.md)을 참조하세요.
 
-또한 Azure Functions 지속성 확장은 오케스트레이션의 종단 간 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/app/analytics.md) 도구를 사용하여 검색하고 쿼리할 수 있습니다.
+또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/app/analytics.md) 도구를 사용하여 검색하고 쿼리할 수 있습니다.
 
 ### <a name="tracking-data"></a>추적 데이터
 

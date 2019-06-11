@@ -48,7 +48,7 @@ Azure App Service는 확장성 높은 자체 패치 웹 호스팅 서비스를 �
 - [App Service 앱 만들기](/azure/app-service/)
 - [App Service 앱에 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
 - 신뢰할 수 있는 인증 기관에서 SSL 인증서 구매
-- SSL 인증서 요청을 서명하는 데 사용되는 개인 키 보유
+- SSL 인증서 요청을 서명하는 데 사용되는 프라이빗 키 보유
 
 <a name="requirements"></a>
 
@@ -58,7 +58,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 * 신뢰할 수 있는 인증 기관에서 서명됨
 * 암호로 보호된 PFX 파일로 내보냄
-* 길이가 2048비트 이상인 개인 키를 포함함
+* 길이가 2048비트 이상인 프라이빗 키 포함
 * 인증서 체인의 모든 중간 인증서를 포함함
 
 > [!NOTE]
@@ -100,9 +100,9 @@ _mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍
 
 ### <a name="export-certificate-to-pfx"></a>PFX로 인증서 내보내기
 
-인증서 요청 생성에 사용된 개인 키로 병합된 SSL 인증서를 내보냅니다.
+인증서 요청 생성에 사용된 프라이빗 키로 병합된 SSL 인증서를 내보냅니다.
 
-OpenSSL을 사용하여 인증서 요청을 생성한 경우 개인 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file>_ 및 _&lt;merged-certificate-file>_ 을 사용자의 개인 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
+OpenSSL을 사용하여 인증서 요청을 생성한 경우 프라이빗 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file>_ 및 _&lt;merged-certificate-file>_ 을 사용자의 개인 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -193,7 +193,7 @@ A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메�
 
 ![HTTPS 적용](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예: 
+작업이 완료되면 앱을 가리키는 HTTP URL 중 하나로 이동합니다. 예:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

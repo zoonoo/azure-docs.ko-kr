@@ -81,7 +81,7 @@ Azure 등록 포털에서 보안 작업을 알리는 세부 정보를 포함 하
 [Azure 청사진](../governance/blueprints/overview.md) 서비스 클라우드 설계자 및 중앙 정보 기술 그룹을 구현 하 고 조직의 표준, 패턴 및 요구 사항을 준수 하는 Azure 리소스의 반복 가능한 집합을 정의할 수 있습니다. Azure 청사진을 사용 하면 개발 팀이 신속 하 게 빌드 및 기본 제공 구성 요소 및 해당 환경 내 조직의 규정 준수를 만들고 하 고 있는지 확신의 집합을 사용 하 여 새 환경을 구축할 수 있습니다.
 
 ## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>저장소 서비스에서 예기치 않은 동작 변경 모니터링
-클라우드 환경에서 호스팅되는 분산 애플리케이션의 문제를 진단하고 해결하는 과정은 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 디바이스 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 애플리케이션의 네트워크 트래픽은 공용 네트워크와 개인 네트워크로 전송될 수 있으며, 애플리케이션이 여러 가지 저장 기술을 사용할 수도 있습니다.
+클라우드 환경에서 호스팅되는 분산 애플리케이션의 문제를 진단하고 해결하는 과정은 기존 환경보다 복잡할 수 있습니다. 애플리케이션은 PaaS 또는 IaaS 인프라, 온-프레미스, 모바일 디바이스 또는 이들 중 일부가 조합된 환경에 배포될 수 있습니다. 애플리케이션의 네트워크 트래픽은 공용 네트워크와 프라이빗 네트워크로 전송될 수 있으며, 애플리케이션이 여러 가지 저장 기술을 사용할 수도 있습니다.
 
 따라서 애플리케이션이 사용하는 스토리지 서비스를 지속적으로 모니터링해 응답 속도 저하 등의 예기치 않은 동작 변경을 파악해야 합니다. 로깅을 사용하여 자세한 데이터를 수집하고 문제를 심층 분석합니다. 모니터링 및 로깅을 통해 얻은 진단 정보를 토대로 애플리케이션에 발생한 문제의 근본 원인을 확인할 수 있습니다. 그러면 문제를 해결하고 해당 문제를 완화하기 위한 적절한 단계를 결정할 수 있습니다.
 
@@ -122,8 +122,8 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **모범 사례**: 조사 고 hunting 프로세스의 속도 및 공격 조사에 끝점 검색 및 응답 (EDR) 기능을 통합 하 여 거짓 긍정을 줄입니다.   
 **세부 정보**: [Windows Defender ATP 통합을 사용 하도록 설정](../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) 통해 Security Center 보안 정책입니다. 위협 사냥 및 인시던트 대응에 대 한 Azure Sentinel를 사용 하는 것이 좋습니다.
 
-## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>종단 간 시나리오 기반 네트워크 모니터링
-고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 종단 간 네트워크를 구축합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
+## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>엔드투엔드 시나리오 기반 네트워크 모니터링
+고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
 
 [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)는 지역별 서비스입니다. 이 서비스에서 제공하는 진단 및 시각화 도구를 사용하면 Azure 내/외부 통신에 사용되는 네트워크 시나리오 수준의 상태를 모니터링하고 진단할 수 있습니다.
 
@@ -187,7 +187,7 @@ Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](../clou
 
 [네트워크 보안 그룹](../virtual-network/security-overview.md)은 공격 표면을 줄이기 위한 또 다른 방법입니다. [서비스 태그](../virtual-network/security-overview.md#service-tags) 및 [애플리케이션 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하여 보안 규칙을 만드는 복잡성을 최소화하고 애플리케이션 구조의 기본 확장으로 네트워크 보안을 구성할 수 있습니다.
 
-가능하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 비공개 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다.
+가능하면 [가상 네트워크](../virtual-network/virtual-networks-overview.md)에 Azure 서비스를 배포해야 합니다. 이렇게 하면 서비스 리소스가 개인 IP 주소를 통해 통신할 수 있습니다. 가상 네트워크의 Azure 서비스 트래픽은 공용 IP 주소를 원본 IP 주소로 사용합니다.
 
 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 사용 시에는 서비스 트래픽이 가상 네트워크의 Azure 서비스에 액세스할 때 가상 네트워크 비공개 주소를 원본 IP 주소로 사용하도록 전환됩니다.
 

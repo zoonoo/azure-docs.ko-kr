@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 Graph API 사용 | Microsoft Docs
 description: 프로세스를 자동화하기 위해 애플리케이션 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ce4446f52fec4312466fc18cb97e25e93358ee1a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88b1d05a47f4a8267ab936a922ac190a925bd5ba
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697920"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510171"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 

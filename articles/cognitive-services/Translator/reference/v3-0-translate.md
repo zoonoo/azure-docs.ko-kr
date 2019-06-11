@@ -3,19 +3,19 @@ title: Translator Text API Translate 메서드
 titleSuffix: Azure Cognitive Services
 description: Translator Text API Translate 메서드를 사용합니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235823"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389763"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 

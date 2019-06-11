@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e005677f6a21c0f795f649f43407b55bec2a40a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789949"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383579"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
 
@@ -28,7 +28,7 @@ ms.locfileid: "59789949"
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
 -->
 
-사용자가 썸네일을 클릭하는 경우 [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-contenturl)을 사용하여 사용자에게 전체 크기 이미지를 표시할 수 있습니다. 이미지 특성을 확인합니다.
+사용자가 썸네일을 클릭하는 경우 [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-contenturl)을 사용하여 사용자에게 전체 크기 이미지를 표시할 수 있습니다. 이미지 특성을 확인합니다.
 
 `shoppingSourcesCount` 또는 `recipeSourcesCount`가 0보다 큰 경우 이미지의 항목에 대해 쇼핑이나 레시피가 존재하는 것을 나타내려면 썸네일에 쇼핑 카트 같은 배지를 추가합니다.
 
@@ -36,12 +36,12 @@ ms.locfileid: "59789949"
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
 -->
 
-이미지에서 인식된 사람 또는 이미지를 포함하는 웹 페이지 같이 이미지에 대한 인사이트를 얻으려면 [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken)을 사용합니다. 자세한 내용은 [이미지 인사이트](image-insights.md)를 참조합니다.
+이미지에서 인식된 사람 또는 이미지를 포함하는 웹 페이지 같이 이미지에 대한 인사이트를 얻으려면 [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken)을 사용합니다. 자세한 내용은 [이미지 인사이트](image-insights.md)를 참조합니다.
 
 ## <a name="resizing-and-cropping-thumbnails"></a>썸네일 크기 조정 및 자르기
 
 사용자가 커서를 썸네일 위로 이동하는 경우처럼 썸네일의 크기를 조정하고 확장할 수도 있습니다.
 > [!NOTE]
-> 확대하는 경우 이미지의 특성을 확인합니다. 예를 들어 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl)에서 호스트를 추출하여 이미지 아래에 표시하여 확인합니다.
+> 확대하는 경우 이미지의 특성을 확인합니다. 예를 들어 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-hostpagedisplayurl)에서 호스트를 추출하여 이미지 아래에 표시하여 확인합니다.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

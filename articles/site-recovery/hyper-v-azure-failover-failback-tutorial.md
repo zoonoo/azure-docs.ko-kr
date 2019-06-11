@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314861"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399449"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -35,7 +35,7 @@ ms.locfileid: "58314861"
 
 ## <a name="prepare-for-failover-and-failback"></a>장애 조치(failover) 및 장애 복구(failback) 준비
 
-VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM이 꺼져 있는지 확인해야 합니다. 이렇게 하면 복제 중 데이터 일관성을 보장할 수 있습니다. 장애 복구(failback) 시 온-프레미스 VM을 켜지 마십시오. 
+VM에서 스냅샷이 없으며 장애 복구(failback) 시 온-프레미스 VM이 꺼져 있는지 확인해야 합니다. 이렇게 하면 복제 중 데이터 일관성을 보장할 수 있습니다. 장애 복구(failback) 시 온-프레미스 VM을 켜지 마십시오. 
 
 장애 조치(failover)및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 
@@ -51,7 +51,7 @@ VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM�
 
 1. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
 
-1. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리되는 디스크 설정을 수정할 수 있습니다.
+1. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
 
 1. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 

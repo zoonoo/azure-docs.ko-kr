@@ -40,4 +40,6 @@ az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
+
 [Azure Database for MariaDB 매개 변수를 설정하는 방법](howto-configure-server-parameters-cli.md)에 대해 알아봅니다.
+

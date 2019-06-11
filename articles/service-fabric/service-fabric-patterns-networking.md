@@ -386,7 +386,7 @@ DnsSettings              : {
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-배포 후에 부하 분산 장치는 개인 정적 10.0.0.250 IP 주소를 사용합니다. 동일한 가상 네트워크에 다른 컴퓨터가 있는 경우 내부 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트로 이동할 수 있습니다. 부하 분산 장치 뒤의 노드 중 하나로 연결됩니다.
+배포 후에 부하 분산 장치는 프라이빗 정적 10.0.0.250 IP 주소를 사용합니다. 동일한 가상 네트워크에 다른 컴퓨터가 있는 경우 내부 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트로 이동할 수 있습니다. 부하 분산 장치 뒤의 노드 중 하나로 연결됩니다.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>내부 및 외부 부하 분산 장치

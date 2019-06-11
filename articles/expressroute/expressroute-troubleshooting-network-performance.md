@@ -27,7 +27,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 >
 
 ## <a name="network-components"></a>네트워크 구성 요소
-문제 해결 방법을 자세히 살펴보기 전에 일반적인 용어 및 구성 요소를 살펴보겠습니다. 이 토론을 통해 Azure에서 연결이 가능하게 해주는 종단 간 체인의 각 구성 요소에 대해 알아볼 것입니다.
+문제 해결 방법을 자세히 살펴보기 전에 일반적인 용어 및 구성 요소를 살펴보겠습니다. 이 토론을 통해 Azure에서 연결이 가능하게 해주는 엔드투엔드 체인의 각 구성 요소에 대해 알아볼 것입니다.
 [![1]][1]
 
 크게 요약하자면, 다음과 같은 세 가지 주요 네트워크 라우팅 도메인이 있습니다.
@@ -121,7 +121,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 [![2]][2]
 
 >[!NOTE]
-> MSEE는 Azure 클라우드에 있지 않습니다. ExpressRoute는 Azure가 아닌 Microsoft 네트워크의 에지에 있습니다. ExpressRoute로 MSEE와 연결되면 Microsoft의 네트워크에 연결된 것이며, 여기서 Office 365(Microsoft 피어링을 통해) 또는 Azure(개인 및/또는 Microsoft 피어링을 통해) 같은 클라우드 서비스로 이동할 수 있습니다.
+> MSEE는 Azure 클라우드에 있지 않습니다. ExpressRoute는 Azure가 아닌 Microsoft 네트워크의 에지에 있습니다. ExpressRoute로 MSEE와 연결되면 Microsoft의 네트워크에 연결된 것이며, 여기서 Office 365(Microsoft 피어링을 통해) 또는 Azure(프라이빗 및/또는 Microsoft 피어링을 통해) 같은 클라우드 서비스로 이동할 수 있습니다.
 >
 >
 
@@ -157,7 +157,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 
 테스트 설정:
  - Windows Server 2016을 실행하고 10Gbps NIC를 사용하고 ExpressRoute 회로에 연결된 물리적 서버.
- - 개인 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
+ - 프라이빗 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
  - 지정된 지역의 UltraPerformance 게이트웨이를 사용하는 Azure VNet.
  - VNet에서 Windows Server 2016을 실행하는 DS5v2 VM. VM은 도메인에 가입되지 않았으며, AzureCT가 설치된 기본 Azure 이미지(최적화 또는 사용자 지정 없는)를 사용하여 빌드되었습니다.
  - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들면 다음과 같습니다.

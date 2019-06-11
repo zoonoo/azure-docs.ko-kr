@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686153"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729387"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -85,7 +85,7 @@ Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
 ## <a name="deploy-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명은 Azure Key Vault 암호에 저장되므로, 애플리케이션 및 서비스는 해당 자격 증명을 사용하여 프라이빗 레지스트리에 액세스할 수 있습니다.
 
 먼저 [az acr show][az-acr-show] 명령을 사용하여 레지스트리의 로그인 서버 이름을 가져옵니다. 로그인 서버 이름은 모두 소문자이며 `myregistry.azurecr.io`와 유사합니다.
 
@@ -163,7 +163,7 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

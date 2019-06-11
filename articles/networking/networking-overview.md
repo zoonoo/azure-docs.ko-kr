@@ -25,7 +25,7 @@ ms.locfileid: "60565857"
 # <a name="azure-networking"></a>Azure 네트워킹
 
 Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워킹 기능을 제공합니다. 다음과 같은 주요 기능에 대해 알아보려면 그 중 하나를 클릭합니다.
-- [Azure 리소스 간 연결](#connectivity): 클라우드의 안전한 개인 가상 네트워크에서 Azure 리소스를 서로 연결합니다.
+- [Azure 리소스 간 연결](#connectivity): 클라우드의 안전한 프라이빗 가상 네트워크에서 Azure 리소스를 서로 연결합니다.
 - [인터넷 연결](#internet-connectivity): 인터넷을 통해 Azure 리소스 간에 통신합니다.
 - [온-프레미스 연결](#on-premises-connectivity): 인터넷의 VPN(가상 사설망) 또는 전용 Azure 연결을 통해 온-프레미스 네트워크를 Azure 리소스에 연결합니다.
 - [부하 분산 및 트래픽 방향](#load-balancing): 동일한 위치에 있는 서버에 대한 트래픽 및 다른 위치에 있는 서버에 대한 직접 트래픽의 부하를 분산합니다.
@@ -38,7 +38,7 @@ Azure에서는 함께 또는 별도로 사용할 수 있는 다양한 네트워�
 
 Virtual Machines, Cloud Services, Virtual Machines Scale Sets, Azure App Service Environment는와 같은 Azure 리소스는 Azure VNet(Virtual Network)를 통해 서로 개별적으로 통신할 수 있습니다. [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json) 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. 각 Azure 구독 및 Azure [지역](https://azure.microsoft.com/regions) 내에서 여러 VNet을 구현할 수 있습니다. 각 VNet은 다른 VNet에서 격리됩니다. 각 VNet에 대해 다음을 수행할 수 있습니다.
 
-- 공용 및 사설(RFC 1918) 주소를 사용하여 사용자 지정 사설 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스에 사용자가 할당한 주소 공간의 사설 IP 주소를 할당합니다.
+- 공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 개인 IP 주소 공간을 지정합니다. Azure에서는 VNet에 연결된 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다.
 - VNet을 하나 이상의 서브넷으로 분할하고 VNet 주소 공간의 일부를 각 서브넷에 할당합니다.
 - Azure 제공 이름 확인을 사용하거나 VNet에 연결된 리소스에서 사용할 수 있도록 자체 DNS 서버를 지정합니다.
 
@@ -49,13 +49,13 @@ Azure Virtual Network 서비스에 대해 자세히 알아보려면 [가상 네�
 
 ## <a name="internet-connectivity"></a>인터넷 연결
 
-VNet에 연결된 모든 Azure 리소스는 기본적으로 인터넷에 아웃바운드로 연결됩니다. 리소스의 사설 IP 주소는 Azure 인프라를 통해 공용 IP 주소로 SNAT(원본 네트워크 주소 변환)이 이루어집니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
+VNet에 연결된 모든 Azure 리소스는 기본적으로 인터넷에 아웃바운드로 연결됩니다. 리소스의 개인 IP 주소는 Azure 인프라에서 공용 IP 주소로 변환하는 원본 네트워크 주소입니다. 아웃바운드 인터넷 연결에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참조하세요.
 
 인터넷에서 Azure 리소스에 인바운드로 통신하거나 SNAT 없이 인터넷에 아웃바운드로 통신하려면 리소스에 공용 IP 주소가 할당되어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md?toc=%2fazure%2fnetworking%2ftoc.json)를 참조하세요.
 
 ## <a name="on-premises-connectivity"></a>온-프레미스 연결
 
-VPN 연결 또는 직접 개별 연결을 통해 VNet의 리소스 액세스할 수 있습니다. Azure Virtual Network와 온-프레미스 네트워크 간에 네트워크 트래픽을 보내려면 가상 네트워크 게이트웨이를 만들어야 합니다. 게이트웨이의 설정을 구성하여 VPN 또는 ExpressRoute 중 하나로 원하는 연결 형식을 만듭니다.
+VPN 연결 또는 직접 프라이빗 연결을 통해 VNet의 리소스 액세스할 수 있습니다. Azure Virtual Network와 온-프레미스 네트워크 간에 네트워크 트래픽을 보내려면 가상 네트워크 게이트웨이를 만들어야 합니다. 게이트웨이의 설정을 구성하여 VPN 또는 ExpressRoute 중 하나로 원하는 연결 형식을 만듭니다.
 
 다음 옵션을 조합하여 온-프레미스 네트워크를 VNet에 연결할 수 있습니다.
 
@@ -77,7 +77,7 @@ VPN 연결 또는 직접 개별 연결을 통해 VNet의 리소스 액세스할 
 
 ![ExpressRoute](./media/networking-overview/expressroute.png)
 
-이 종류의 연결은 ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 전용입니다. 트래픽이 인터넷을 트래버스하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. ExpressRoute는 사이트 간 연결과 함께 사용할 수 있습니다.
+이 종류의 연결은 ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 프라이빗 전용입니다. 트래픽이 인터넷을 트래버스하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. ExpressRoute는 사이트 간 연결과 함께 사용할 수 있습니다.
 
 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 
@@ -135,7 +135,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 ## <a name="manageability"></a>관리 효율성
 
 Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터링하고 관리합니다.
-- **활동 로그:**. 모든 Azure 리소스에는 수행되는 작업, 작업의 상태 및 작업을 시작한 사용자에 대한 정보를 제공하는 활동 로그가 있습니다. 활동 로그에 대한 자세한 내용을 알아보려면 [활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
+- **활동 로그:** . 모든 Azure 리소스에는 수행되는 작업, 작업의 상태 및 작업을 시작한 사용자에 대한 정보를 제공하는 활동 로그가 있습니다. 활동 로그에 대한 자세한 내용을 알아보려면 [활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **진단 로그:** 정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 Azure 이벤트 허브로 전송 하거나 Azure Monitor 로그로 전송 된 Azure storage 계정에 기록 됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, 진단 로그는 Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **메트릭:** 메트릭은 리소스에 대해 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. 현재 메트릭은 Application Gateway에서 사용할 수 있습니다. 메트릭에 대해 자세히 알아보려면 [메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 - **문제 해결:** Azure Portal에서 문제 해결 정보에 직접 액세스할 수 있습니다. 정보를 통해 ExpressRoute, VPN Gateway, Application Gateway, 네트워크 보안 로그, 경로, DNS, Load Balancer 및 Traffic Manager에서 발생하는 일반적인 문제를 진단할 수 있습니다.

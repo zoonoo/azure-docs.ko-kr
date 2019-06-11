@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408572"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393544"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -29,7 +29,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 수행하려면 [JDK(Java Development Kit)](https://aka.ms/azure-jdks)(버전 8) 및 [Apache Maven](https://maven.apache.org/)(버전 3.0 이상)을 설치합니다.
+이 빠른 시작을 수행하려면 [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk)(버전 8) 및 [Apache Maven](https://maven.apache.org/)(버전 3.0 이상)을 설치합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **구성 탐색기** > **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
+6. **구성 탐색기** >  **+ 만들기**를 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|

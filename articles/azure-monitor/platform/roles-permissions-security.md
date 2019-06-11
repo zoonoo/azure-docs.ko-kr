@@ -27,7 +27,7 @@ Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세
 ### <a name="monitoring-reader"></a>Monitoring Reader
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
-* 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
+* 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
 * [Azure 경고](alerts-overview.md)에 정의된 경고 규칙 보기
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md) 또는 [플랫폼 간 CLI](cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.

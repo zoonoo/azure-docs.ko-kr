@@ -10,16 +10,16 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 9b3edd10d2928a512b94e9273000439f80cb8f33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 076dbb26c267cf65a0d6f3a9835375b09951f2aa
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777092"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388507"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 엔드포인트
 
-**Image Search API**는 세 개의 엔드포인트를 포함합니다.  엔드포인트 1은 쿼리를 기반으로 하는 웹에서 이미지를 반환합니다. 엔드포인트 2는 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)를 반환합니다.  엔드포인트 3은 최신 이미지를 반환합니다.
+**Image Search API**는 세 개의 엔드포인트를 포함합니다.  엔드포인트 1은 쿼리를 기반으로 하는 웹에서 이미지를 반환합니다. 엔드포인트 2는 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse)를 반환합니다.  엔드포인트 3은 최신 이미지를 반환합니다.
 
 ## <a name="endpoints"></a>엔드포인트
 
@@ -34,9 +34,9 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-GET 요청은 이미지가 포함된 웹 페이지와 같이 이미지에 대한 정보를 반환합니다. `GET` 요청에 [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) 매개 변수를 포함합니다.
+GET 요청은 이미지가 포함된 웹 페이지와 같이 이미지에 대한 정보를 반환합니다. `GET` 요청에 [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) 매개 변수를 포함합니다.
 
-또는 `POST` 요청의 본문에 이진 이미지를 포함하고 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) 매개 변수를 `RecognizedEntities`로 설정할 수 있습니다. 그러면 후속 `GET` 요청에서 매개 변수로 사용할 [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken)이 반환되며 이미지에 있는 인물에 대한 정보가 반환됩니다.  `insightsToken`을 사용하여 다른 호출을 하지 않고 `POST`의 결과에서 `RecognizedEntities`을 제외한 모든 정보를 얻으려면 `modules`를 `All`로 설정합니다.
+또는 `POST` 요청의 본문에 이진 이미지를 포함하고 [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) 매개 변수를 `RecognizedEntities`로 설정할 수 있습니다. 그러면 후속 `GET` 요청에서 매개 변수로 사용할 [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken)이 반환되며 이미지에 있는 인물에 대한 정보가 반환됩니다.  `insightsToken`을 사용하여 다른 호출을 하지 않고 `POST`의 결과에서 `RecognizedEntities`을 제외한 모든 정보를 얻으려면 `modules`를 `All`로 설정합니다.
 
 
 **엔드포인트 3:** 다른 사용자가 한 검색 요청을 기반으로 최신 이미지를 반환합니다. 이미지는 예를 들어 주목할 만한 사람이나 이벤트를 기반으로 다양한 범주로 구분됩니다.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 
 최신 이미지를 지원하는 지역/국가 목록은 [최신 이미지](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)를 참조하세요.
 
-헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 참조를 참조하세요.
+헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 참조를 참조하세요.
 ## <a name="response-json"></a>응답 JSON
 이미지 검색 요청에 대한 응답에는 결과가 JSON 개체로 포함됩니다. 결과 구문 분석의 예제는 [자습서](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) 및 [소스 코드](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)를 참조하세요.
 

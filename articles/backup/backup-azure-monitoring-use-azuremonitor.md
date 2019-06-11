@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics; Azure Backup; 경고; 진단 설정 작업 그룹
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190516"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734833"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Azure Monitor를 사용 하 여 모니터링
 
@@ -46,7 +46,7 @@ LA 작업 영역을 대상으로 하는 다른 구독에서 선택할 수 있습
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 솔루션 배포
 
-LA 작업 영역 내에서 데이터가 있으면 [github 템플릿 배포](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) 데이터를 시각화 하려면 LA에 있습니다. 제대로 작업 영역을 식별 하 고 다음에서이 서식 파일을 설치 하려면 동일한 리소스 그룹, 작업 영역 이름 및 작업 영역 위치를 제공 해야 합니다.
+LA 작업 영역 내에서 데이터가 있으면 [GitHub 템플릿 배포](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) 데이터를 시각화 하려면 LA에 있습니다. 제대로 작업 영역을 식별 하 고 다음에서이 서식 파일을 설치 하려면 동일한 리소스 그룹, 작업 영역 이름 및 작업 영역 위치를 제공 해야 합니다.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Log Analytics (LA)를 사용 하 여 Azure Backup 데이터 보기
 
@@ -242,13 +242,13 @@ Azure portal에 로그인 하 고 관련 Azure Recovery Services 자격 증명 �
 
 ![Azure VM 백업에 대 한 활동 로그](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-"JSON" 세그먼트를 클릭하여 자세한 내용을 확인하고 복사한 후 텍스트 편집기에서 붙여넣고 볼 수 있습니다. 자격 증명 모음 세부 정보를 표시 해야 하 고 작업을 트리거한 항목 로그 백업 항목 즉, 합니다.
+클릭 작업 이름을 작업 및 관련 세부 정보 표시 됩니다 것입니다.
 
-그런 후 "활동 로그 경고 추가"를 클릭하여 이러한 모든 로그에 대한 경고를 생성합니다.
+![새 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-"추가"활동 로그 경고 위에 표시 된 클릭할 수 있습니다 및 경고 만들기 화면 유사한 경고를 만드는 화면 열립니다 [위에서 설명한 대로](#create-alerts-using-log-analytics)입니다.
+클릭 **새 경고 규칙** 열려는 합니다 **규칙 만들기** 화면을 만들 수 있습니다이에 설명 된 단계를 사용 하 여 경고 [문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)합니다.
 
-여기 리소스는 자체 RS 자격 증명 모음 및 하므로 알림 활동 로그를 통해 원하는 모든 자격 증명 모음에 대 한 동일한 작업을 반복 해야 합니다. 조건이는 이벤트 기반 경고 이므로 모든 임계값, 기간, 빈도 제공 되지 않습니다. 관련 활동 로그가 생성 되는 즉시 경고가 발생 합니다.
+여기 리소스 자체 복구 서비스 자격 증명 모음 이며 하므로 알림 활동 로그를 통해 원하는 모든 자격 증명 모음에 대 한 동일한 작업을 반복 해야 합니다. 조건이는 이벤트 기반 경고 이므로 모든 임계값, 기간, 빈도 제공 되지 않습니다. 관련 활동 로그가 생성 되는 즉시 경고가 발생 합니다.
 
 ## <a name="recommendation"></a>권장 사항
 

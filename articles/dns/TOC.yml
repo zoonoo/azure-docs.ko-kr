@@ -19,7 +19,7 @@
       href: dns-delegate-domain-azure-dns.md
     - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
       href: dns-web-sites-custom-domain.md
-    - name: 개인 DNS 영역 및 레코드 만들기
+    - name: 프라이빗 DNS 영역 및 레코드 만들기
       href: private-dns-getstarted-powershell.md
     - name: Traffic Manager에 대한 별칭 레코드
       href: tutorial-alias-tm.md
@@ -41,9 +41,9 @@
       href: dns-domain-delegation.md
     - name: FAQ
       href: dns-faq.md
-    - name: 개인 DNS 영역 사용
+    - name: 프라이빗 DNS 영역 사용
       href: private-dns-overview.md
-    - name: 개인 DNS 시나리오
+    - name: 프라이빗 DNS 시나리오
       href: private-dns-scenarios.md
     - name: DNS 메트릭 및 경고
       href: dns-alerts-metrics.md
@@ -53,7 +53,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 방법
   items:
-    - name: 개인 DNS 영역 및 레코드 만들기 - Azure CLI
+    - name: 프라이빗 DNS 영역 및 레코드 만들기 - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: 부하 분산 웹앱에 대한 별칭 레코드
       href: dns-alias-appservice.md

@@ -66,7 +66,7 @@ Azure backup에 Key Vault에 액세스 권한을 제공 합니다. [Azure Backup
 예. 머신이 종료되면 백업이 실행됩니다. 복구 지점은 충돌 일치로 표시됩니다.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
-예. **스냅숏 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
+예. **스냅숏 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅샷에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
 ### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>(즉, Azure Backup 서비스에서 만든 리소스 그룹에 대 한 잠금을 사용 하도록 `AzureBackupRG_<geo>_<number>`), 내 백업이 계속 작동 하려면?
 Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 백업을 최대 18 개의 복원 지점 제한 없기 때문에 실패 하기 시작 합니다.
@@ -83,7 +83,7 @@ Azure Backup은 최대 16개 디스크가 연결된 VM을 백업할 수 있습�
 Azure Backup은 [표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. SSD로 관리 되는 디스크는 Azure Vm에 대 한 새로운 유형의 영구 저장소를 제공합니다. SSD Managed Disks에 대한 지원이 [즉시 복원](backup-instant-restore-capability.md)에서 제공됩니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
-WA 지원 디스크에는 스냅숏을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다. WA 지원 디스크를 사용하는 VM에 대한 디스크 제외 기능은 즉시 복원으로 업그레이드한 구독에만 지원됩니다.
+WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure Backup 서비스는 백업에서 WA 지원 디스크를 제외할 수 있습니다. WA 지원 디스크를 사용하는 VM에 대한 디스크 제외 기능은 즉시 복원으로 업그레이드한 구독에만 지원됩니다.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.

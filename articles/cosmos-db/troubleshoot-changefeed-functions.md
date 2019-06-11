@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242525"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734510"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하는 경우 문제 해결
 
@@ -88,6 +88,12 @@ Azure Function에 변경 내용을 받으면 해당 자주 처리 하 고 필요
 또한 시나리오의 유효성을 검사할 수, Azure 함수 앱 인스턴스 개수를 알고 있는 경우를 실행 합니다. 임대 컨테이너를 검사 하 고 고유한 값에 포함 된 임대 항목 수를 계산 하는 경우는 `Owner` 속성에 함수 앱의 인스턴스 수와 동일 해야 합니다. 알려진된 Azure 함수 앱 인스턴스가 보다 더 많은 소유자 인 경우 이러한 추가 소유자 "도용" 변경 내용을 하나는 의미 합니다.
 
 이 상황을 적용할 쉬운 해결 방법 중 하나는 `LeaseCollectionPrefix/leaseCollectionPrefix` 새로운/다른 값을 사용 하 여 함수 또는 새 임대 컨테이너를 사용 하 여 테스트 또는 합니다.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>바인딩 IReadOnlyList를 사용 하 여 수행할 수 있습니다<Document> 또는 JArray
+
+Azure Functions 프로젝트 (또는 참조 프로젝트)에서 제공 하는 것 보다 다양 한 버전을 사용 하 여 Azure Cosmos DB SDK에 대 한 수동 NuGet 참조를 포함 하는 경우이 오류가 발생 합니다 [Azure Functions Cosmos DB 확장](./troubleshoot-changefeed-functions.md#dependencies)합니다.
+
+문제를 해결 하려면이 경우, Azure Functions Cosmos DB 확장 패키지를 통해 해결 추가한 및 Azure Cosmos DB SDK 참조를 사용 하는 수동 NuGet 참조를 제거 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

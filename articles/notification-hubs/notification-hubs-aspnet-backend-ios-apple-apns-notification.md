@@ -299,7 +299,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     @property (strong, nonatomic) RegisterClient* registerClient;
     ```
 
-9. ViewController.m에서, 개인 메서드 선언을 `@interface` 섹션에 추가합니다.
+9. ViewController.m에서, 프라이빗 메서드 선언을 `@interface` 섹션에 추가합니다.
 
     ```objc
     @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
