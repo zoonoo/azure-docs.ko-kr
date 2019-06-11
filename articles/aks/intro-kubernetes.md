@@ -23,7 +23,7 @@ Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 �
 
 Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
-시작하려면 [Azure Portal에서][aks-portal] 또는 [Azure CLI를 사용하여][aks-cli] AKS 빠른 시작을 완료합니다.
+시작하려면 [Azure Portal][aks-portal]이나 [Azure CLI][aks-cli]를 사용하여 AKS 빠른 시작을 완료합니다.
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
@@ -41,7 +41,7 @@ AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-a
 
 AKS 클러스터 및 배포된 애플리케이션이 수행되는 방법을 이해하기 위해 컨테이너 상태에 대한 Azure Monitor는 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 메트릭을 수집합니다. 컨테이너 로그를 사용할 수 있으며, [Kubernetes 마스터 로그를 검토][aks-master-logs]할 수도 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 제공됩니다.
 
-자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health].을 참조하세요.
+자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health]을 참조하세요.
 
 ## <a name="clusters-and-nodes"></a>클러스터 및 노드
 
