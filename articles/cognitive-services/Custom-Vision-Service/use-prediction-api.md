@@ -32,7 +32,7 @@ ms.locfileid: "59046073"
 
 ![게시 단추 주위에 빨간색 직사각형이 있는 성능 탭 표시 됩니다.](./media/use-prediction-api/unpublished-iteration.png)
 
-모델이 성공적으로 게시 되 면 왼쪽 사이드바에서 반복 옆에 있는 표시 "게시" 레이블을 표시 하 고 해당 이름을 반복의 설명에 표시 됩니다.
+모델이 성공적으로 게시되면, 왼쪽 사이드바에서 반복 옆에 "게시됨" 레이블이 표시되고 해당 이름이 반복의 설명에 나타납니다.
 
 ![게시 된 반복의 이름과 게시 레이블 주위에 빨간색 직사각형이 있는 성능 탭 표시 됩니다.](./media/use-prediction-api/published-iteration.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "59046073"
 ![이미지 파일 및 예측 키 값을 사용 하 여에 대 한 예측 URL 값 주위에 빨간색 직사각형이 있는 성능 탭 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> __예측 키__ 는 프로젝트와 관련된 Custom Vision Azure 리소스의 [Azure portal](https://portal.azure.com) 페이지의 __키__ 블레이드 아래에서도 찾을 수 있습니다.
+>  __예측 키__ 는 프로젝트와 관련된 Custom Vision Azure 리소스의 [Azure portal](https://portal.azure.com) 페이지의 __키__ 블레이드 아래에서도 찾을 수 있습니다. 
 
 이 가이드에서는 로컬 이미지를 사용하므로 **이미지 파일이 있는 경우** 아래의 URL을 임시 위치에 복사합니다. 해당하는 __예측 키__ 값도 복사합니다.
 
