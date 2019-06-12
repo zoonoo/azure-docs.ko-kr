@@ -73,17 +73,17 @@ ms.locfileid: "60996601"
 
 | 값 | Type | 설명 |
 |-------|------|-------------|
-| <*retry-policy-type*> | 문자열 | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
-| <*retry-interval*> | 문자열 | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
-| <*retry-attempts*> | 정수  | 재시도 횟수이며, 1~90 사이여야 합니다. | 
+| <*retry-policy-type*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
+| <*retry-interval*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
+| <*retry-attempts*> | Integer  | 재시도 횟수이며, 1~90 사이여야 합니다. | 
 ||||
 
 *선택 사항*
 
 | 값 | Type | 설명 |
 |-------|------|-------------|
-| <*minimum-interval*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
-| <*maximum-interval*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
+| <*minimum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
+| <*maximum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
 |||| 
 
 다른 정책 유형에 대한 자세한 내용은 다음과 같습니다.
