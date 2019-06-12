@@ -27,7 +27,7 @@ ms.locfileid: "60002275"
 
 ## <a name="preparation"></a>준비
 
-다음 형식의 JSON 문서가 있어야 합니다. ID, text
+다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트
 
 문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 언어 감지를 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "60002275"
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [언어 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 검토합니다.
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 감지를 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 언어 감지를 위한 HTTP 엔드포인트를 설정합니다. `/languages` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`)를 포함해야 합니다.
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
