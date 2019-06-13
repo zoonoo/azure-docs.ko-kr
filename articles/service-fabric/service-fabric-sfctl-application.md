@@ -30,7 +30,7 @@ ms.locfileid: "60837490"
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
 | delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
-| 배포됨 | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
+| deployed | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
 | health | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
@@ -40,10 +40,10 @@ ms.locfileid: "60837490"
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
 | provision | 외부 저장소의 .sfpkg 패키지를 사용하거나 이미지 저장소의 애플리케이션 패키지를 사용하는 클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전하거나 등록합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
-| 형식 | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
+| type | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
 | type-list | Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다. |
 | unprovision | 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다. |
-| 업그레이드 | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
+| upgrade | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
 | upgrade-resume | Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업그레이드하기 시작합니다. |
 | upgrade-rollback | Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그레이드의 롤백을 시작합니다. |
 | upgrade-status | 이 애플리케이션에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다. |
