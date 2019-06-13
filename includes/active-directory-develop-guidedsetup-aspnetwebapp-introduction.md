@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121827"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482406"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>ASP.NET 웹앱에 Microsoft에 로그인 추가
 
 이 가이드에서는 OpenID Connect를 사용하는 브라우저 기반 애플리케이션에서 ASP.NET MVC 솔루션을 사용하여 Microsoft에 로그인을 구현하는 방법을 보여 줍니다.
 
-이 가이드를 모두 살펴보면 애플리케이션에서 Azure Active Directory와 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)의 로그인을 수락할 수 있습니다.
+이 가이드의 끝부분에서 애플리케이션은 outlook.com, live.com 등과 같은 개인 계정의 로그인을 허용할 수 있습니다. 이러한 계정에는 Azure Active Directory와 통합된 모든 회사 또는 조직의 업무 및 학교 계정도 포함됩니다.
 
-> 이 가이드에는 Visual Studio 2017이 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [Visual Studio 2017 무료 다운로드](https://www.visualstudio.com/downloads/)
+> 이 가이드에는 Visual Studio 2019가 필요합니다.  이 프로그램이 아직 설치되어 있지 않나요?  [체험용 Visual Studio 2019 다운로드](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-이 가이드에서 만드는 애플리케이션 예제는 사용자가 브라우저를 사용하여 ASP.NET 웹 사이트에 액세스하면 사용자에게 로그인 단추를 통해 인증하도록 요청하는 시나리오를 기반으로 합니다. 이 시나리오에서는 웹 페이지를 렌더링하는 작업의 대부분이 서버 쪽에서 발생합니다.
+사용자가 만든 샘플 애플리케이션은 브라우저를 사용하여 사용자가 로그인 단추를 통해 인증하도록 요청하는 ASP.NET 웹 사이트에 액세스하는 시나리오를 기반으로 합니다. 이 시나리오에서는 웹 페이지를 렌더링하는 작업의 대부분이 서버 쪽에서 발생합니다.
 
 ## <a name="libraries"></a>라이브러리
 

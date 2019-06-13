@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480252"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751765"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -49,7 +49,7 @@ ms.locfileid: "66480252"
 
 ## <a name="create-the-data-file"></a>데이터 파일 만들기
 
-Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일에서 복사 하 여 만들 수 있습니다 [GitHub-Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), 또는 데이터를 직접 입력 하 여 합니다. 다음 섹션에서는 두 방법을 설명합니다.
+Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일은 [GitHub - Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)에서 복사하여 또는 데이터를 직접 입력하여 만들 수 있습니다. 다음 섹션에서는 두 방법을 설명합니다.
 
 ### <a name="upload-the-data-file"></a>데이터 파일 업로드
 

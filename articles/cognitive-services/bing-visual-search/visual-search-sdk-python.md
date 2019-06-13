@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: b2cb82076eb54f858fffb67d585ac2273f98583d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eb115d1bfe033761c8dab82b693e4e694ff3bd2b
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796321"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734629"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>빠른 시작: Bing Visual Search SDK for Python을 사용하여 이미지 인사이트 가져오기
 
@@ -50,6 +50,7 @@ ms.locfileid: "65796321"
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. 구독 키, 사용자 지정 구성 ID 및 업로드할 이미지에 대한 변수를 만듭니다. 
     
@@ -63,7 +64,7 @@ ms.locfileid: "65796321"
 3. 클라이언트 인스턴스화
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-the-search-request"></a>검색 요청 보내기

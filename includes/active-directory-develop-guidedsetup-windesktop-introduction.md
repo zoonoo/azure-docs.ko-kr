@@ -14,21 +14,21 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f0cc888eaf3724737e9c868c69a641094a19348c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121642"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482470"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
-이 가이드에서는 네이티브 Windows Desktop .NET(XAML) 애플리케이션이 액세스 토큰을 얻고 개발자를 위한 Microsoft ID 플랫폼(이전의 Azure AD) v2.0 엔드포인트에서 액세스 토큰이 필요한 Microsoft Graph API 또는 다른 API를 호출할 수 있는 방법에 대해 설명합니다.
+이 가이드에서는 네이티브 Windows Desktop.NET(XAML) 애플리케이션에서 액세스 토큰을 사용하여 Microsoft Graph API를 호출하는 방법을 보여줍니다. 이 앱은 개발자 v2.0 엔드포인트에 대한 Microsoft ID 플랫폼의 액세스 토큰을 필요로 하는 기타 API에 액세스할 수 있습니다. 이 플랫폼은 이전에 Azure AD라고 명명되었습니다.
 
 이 가이드를 완료하면 애플리케이션은 개인 계정(outlook.com, live.com 등 포함)을 사용하는 보호된 API를 호출할 수 있습니다. 또한 애플리케이션은 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 및 학교 계정을 사용합니다.  
 
 > [!NOTE]
-> 이 가이드에는 Visual Studio 2015 업데이트 3 또는 Visual Studio 2017이 필요합니다. 이러한 버전이 설치되지 않으셨습니까? [체험용 Visual Studio 2017 다운로드](https://www.visualstudio.com/downloads/)
+> 이 가이드에는 Visual Studio 2015 업데이트 3 또는 Visual Studio 2019가 필요합니다. 이러한 버전이 설치되지 않으셨습니까? [체험용 Visual Studio 2019를 다운로드](https://www.visualstudio.com/downloads/)합니다.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
@@ -38,7 +38,7 @@ ms.locfileid: "66121642"
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>보호되는 Web API에 액세스하기 위한 토큰 획득 처리
 
-샘플 애플리케이션은 사용자를 인증한 후에 개발자를 위한 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 Web API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
+사용자가 인증된 후에 샘플 애플리케이션은 개발자를 위한 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 Web API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
 
 Microsoft Graph와 같은 API에는 특정 리소스에 대한 액세스를 허용하는 토큰이 필요합니다. 예를 들어 사용자 프로필을 읽고, 사용자 일정에 액세스하고, 메일을 보내는 데 토큰이 필요합니다. 애플리케이션에서는 MSAL을 사용하여 액세스 토큰을 요청하고 API 범위를 지정하여 이러한 리소스에 액세스할 수 있습니다. 그런 다음 이 액세스 토큰은 보호되는 리소스에 대한 모든 호출에 사용될 수 있도록 HTTP 인증 헤더에 추가됩니다.
 

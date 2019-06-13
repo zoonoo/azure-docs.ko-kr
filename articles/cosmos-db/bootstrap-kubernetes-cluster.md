@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795606"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427709"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
 
@@ -29,7 +29,7 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 
 1. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. 운영 체제에 해당하는 Azure CLI를 다운로드하고 설치할 수 있습니다.
 
-1. Azure Kubernetes 엔진 [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) 버전을 설치합니다. 다른 운영 체제에 대한 설치 지침은 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) 페이지에서 사용할 수 있습니다. 연결된 설명서의 **AKS 엔진 설치** 섹션의 단계만 수행하면 됩니다. 다운로드한 후, zip 파일의 압축을 풉니다.
+1. Azure Kubernetes 엔진의 [최신 버전](https://github.com/Azure/aks-engine/releases)을 설치합니다. 다른 운영 체제에 대한 설치 지침은 [Azure Kubernetes 엔진](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) 페이지에서 사용할 수 있습니다. 연결된 설명서의 **AKS 엔진 설치** 섹션의 단계만 수행하면 됩니다. 다운로드한 후, zip 파일의 압축을 풉니다.
 
    Azure Kubernetes 엔진(**aks-engine**)은 Azure에서 Kubernetes 클러스터용 Azure Resource Manager 템플릿을 생성합니다. aks-engine에 입력하는 항목은 오케스트레이터, 기능 및 에이전트를 포함하여 원하는 클러스터를 설명하는 클러스터 정의 파일입니다. 입력 파일의 구조는 Azure Kubernetes Service의 공용 API와 비슷합니다.
 
@@ -77,7 +77,7 @@ Azure Cosmos DB의 etcd API에 대한 자세한 내용은 [개요](etcd-api-intr
 1. 명령 프롬프트에서 Azure Kubernetes 엔진 실행 파일이 있는 폴더로 이동합니다. 예를 들어, 명령 프롬프트에서 다음과 같이 폴더로 이동할 수 있습니다.
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. 원하는 텍스트 편집기를 열고 Azure Cosmos DB etcd API 사용하여 Azure Kubernetes 클러스터를 배포하는 Resource Manager 템플릿을 정의합니다. 텍스트 편집기에 다음 JSON 정의를 복사하고 파일을 `apiModel.json`으로 저장합니다.

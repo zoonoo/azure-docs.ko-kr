@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787826"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389215"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -107,7 +107,7 @@ ms.locfileid: "65787826"
 
     ![웹 서비스 테스트 페이지를 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. 테스트 데이터를 입력하거나 자동으로 채워진 샘플 데이터를 사용하고, 아래쪽에서 **테스트**를 선택합니다. 테스트 요청이 웹 서비스에 제출되고, 결과가 페이지에 표시됩니다.
+1. 테스트 데이터를 입력하거나 자동으로 채워진 샘플 데이터를 사용하고, 아래쪽에서 **테스트**를 선택합니다. 테스트 요청이 웹 서비스에 제출되고, 결과가 페이지에 표시됩니다. 입력 데이터에 대한 가격 값이 생성되지만 예측 값을 생성하는 데는 사용되지 않습니다.
 
 ## <a name="manage-the-web-service"></a>웹 서비스 관리
 

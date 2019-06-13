@@ -12,7 +12,7 @@ ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57449966"

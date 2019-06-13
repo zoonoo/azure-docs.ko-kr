@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956431"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687954"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -251,11 +251,11 @@ Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough/monitor-containers.png)
 
-`azure-vote-front` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-back` Pod에 대한 로그를 보려면 **분석에서 보기** 옵션을 선택한 다음, 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 클릭합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
 ![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>클러스터 삭제
+## <a name="delete-the-cluster"></a>클러스터 삭제
 
 클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
 

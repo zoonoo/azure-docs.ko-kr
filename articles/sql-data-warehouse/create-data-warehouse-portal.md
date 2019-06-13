@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169267"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428054"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL 데이터 웨어하우스 생성 및 쿼리
 
@@ -81,7 +82,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 8. **적용**을 클릭합니다.
 
-9. 이제 SQL Data Warehouse 폼을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
+9. SQL Data Warehouse 폼을 완료했으면 **만들기**를 클릭하여 데이터베이스를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
 
     ![만들기 클릭](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되지 않도록 방지하는 서버 수준에 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 서버 수준에서 방화벽을 만듭니다. 방화벽은 외부 애플리케이션 및 도구가 서버나 서버의 데이터베이스에 연결하지 못하도록 차단합니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다.
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Data Warehouses**를 클릭한 다음, **SQL Data Warehouses** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다. 
+1. 배포가 완료되면 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. **데이터베이스**를 선택하고 **SQL Data Warehouse** 옆에 있는 별표를 선택하여 SQL Data Warehouse를 즐겨찾기에 추가합니다.
+1. 왼쪽 메뉴에서 **SQL Data Warehouses**를 선택한 후 **SQL Data Warehouse** 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열려 정규화된 서버 이름(예: **mynewserver-20180430.database.windows.net**)을 표시하고 추가 구성을 위한 옵션을 제공합니다.
+1. 이 빠른 시작과 다른 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 정규화된 서버 이름을 복사합니다. 서버 설정을 열려면 서버 이름을 클릭합니다.
 
-2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 서버 설정을 열려면 서버 이름을 클릭합니다.
+   ![서버 이름 찾기](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![서버 이름 찾기](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. **방화벽 설정 표시**를 클릭합니다.
 
-3. 서버 설정을 열려면 
-4. 서버 이름을 클릭합니다.
+   ![서버 설정](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![서버 설정](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
-5. **방화벽 설정 표시**를 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
+   ![서버 방화벽 규칙](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![서버 방화벽 규칙](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. 현재 IP 주소를 새 방화벽 규칙에 추가하려면 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-4. 현재 IP 주소를 새 방화벽 규칙에 추가하려면 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+1. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
-5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
-
-6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
+1. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
 이제 이 IP 주소를 사용하여 SQL 서버 및 해당 데이터 웨어하우스에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 ServerAdmin 계정을 사용합니다.
 
@@ -127,8 +127,8 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **SQL Data Warehouse**를 선택하고, **SQL Data Warehouse** 페이지에서 사용자의 데이터 웨어하우스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다. 
+2. 왼쪽 메뉴에서 **SQL Data Warehouse**를 선택하고, **SQL Data Warehouse** 페이지에서 사용자의 데이터 웨어하우스를 클릭합니다.
+3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20180430.database.windows.net입니다.
 
     ![연결 정보](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -183,12 +183,12 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 계산 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다. 
+데이터 웨어하우스 단위 및 데이터 웨어하우스에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 계산 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다.
 
-- 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 계산을 일시 중지할 수 있습니다. 계산을 일시 중지하면 데이터 스토리지 요금만 부과됩니다. 데이터를 작업할 준비가 완료되면 언제든지 계산을 다시 시작할 수 있습니다.
-- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다. 
+- 데이터를 스토리지에 보관하려는 경우 데이터 웨어하우스를 사용하지 않을 때 계산을 일시 중지할 수 있습니다. 컴퓨팅을 일시 중지하면 데이터 스토리지 비용만 부과됩니다. 데이터를 작업할 준비가 완료되면 언제든지 컴퓨팅을 다시 시작할 수 있습니다.
+- 앞으로 요금이 부과되지 않게 하려면 데이터 웨어하우스를 삭제하면 됩니다.
 
-필요에 따라 다음 단계에 따라 리소스를 정리합니다.
+다음 단계에 따라 더 이상 필요없는 리소스를 정리할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 데이터 웨어하우스를 클릭합니다.
 
@@ -196,7 +196,7 @@ SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 �
 
 2. 계산을 일시 중지하려면 **일시 중지** 단추를 클릭합니다. 데이터 웨어하우스가 일시 중지되면 **다시 시작** 단추가 표시됩니다. 계산을 다시 시작하려면 **다시 시작**을 클릭합니다.
 
-3. 계산 또는 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
+3. 컴퓨팅이나 스토리지에 대한 요금이 청구되지 않도록 데이터 웨어하우스를 제거하려면 **삭제**를 클릭합니다.
 
 4. 만든 SQL 서버를 제거하려면 이전 이미지에 있는 **mynewserver-20180430.database.windows.net**을 클릭한 다음, **삭제**를 클릭합니다. 서버를 삭제하면 해당 서버에 할당된 모든 데이터베이스가 삭제되므로 주의해서 실행해야 합니다.
 

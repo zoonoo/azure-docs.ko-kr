@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ed2b35c5a1a0a017cb6bea086601282c83956d88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442053"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515542"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
 이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter 노트북에서 Azure Machine Learning 서비스(미리 보기)에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning Service에서 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다. 
+이 자습서에서는 Azure Machine Learning Service에서 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다.
 
 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -31,12 +31,12 @@ ms.locfileid: "65442053"
 > * 원격 클러스터의 간단한 로지스틱 회귀 모델을 학습합니다.
 > * 학습 결과 검토 및 최상의 모델 등록
 
-모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다. 
+모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.8에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.41에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,8 +50,8 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 * Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
 
 아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
- 
-* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
+
+* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용
 * [사용자 고유의 Notebook 서버](#server) 사용
 
 ### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
@@ -61,7 +61,6 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 * Notebook 웹 페이지를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
-
 
 ### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
 
@@ -106,7 +105,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-an-experiment"></a>실험 만들기
 
-작업 영역에서 실행을 추적하는 실험을 만듭니다. 작업 영역에는 여러 개의 실험이 있을 수 있습니다. 
+작업 영역에서 실행을 추적하는 실험을 만듭니다. 작업 영역에는 여러 개의 실험이 있을 수 있습니다.
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -120,7 +119,6 @@ exp = Experiment(workspace=ws, name=experiment_name)
 데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
 
  **컴퓨팅을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅이 있으면 이 코드는 기존 컴퓨팅을 사용하고 만들기 프로세스를 건너뜁니다.
-
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -143,21 +141,21 @@ if compute_name in ws.compute_targets:
 else:
     print('creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes, 
+                                                                min_nodes = compute_min_nodes,
                                                                 max_nodes = compute_max_nodes)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
+
+    # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
+
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
-이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 계산 리소스가 준비되었습니다. 
+이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 계산 리소스가 준비되었습니다.
 
 ## <a name="explore-data"></a>데이터 탐색
 
@@ -171,7 +169,6 @@ else:
 
 MNIST 데이터 세트를 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다. 학습 및 테스트용 이미지와 레이블이 모두 다운로드됩니다.
 
-
 ```python
 import urllib.request
 import os
@@ -184,13 +181,12 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-u
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
+
 ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)``` 같은 출력이 표시됩니다.
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
 
 압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 세트에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 Notebook과 동일한 폴더에 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로만 간단히 구문 분석합니다.
-
-
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -234,8 +230,8 @@ print(ds.datastore_type, ds.account_name, ds.container_name)
 
 ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
-이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다. 
 
+이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다.
 
 ## <a name="train-on-a-remote-cluster"></a>원격 클러스터에서 학습
 
@@ -243,7 +239,7 @@ ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progres
 * 디렉터리 만들기
 * 학습 스크립트 만들기
 * Estimator 개체 만들기
-* 작업 제출 
+* 작업 제출
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -293,7 +289,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 run = Run.get_context()
 
 print('Train a logistic regression model with regularization rate of', args.reg)
-clf = LogisticRegression(C=1.0/args.reg, random_state=42)
+clf = LogisticRegression(C=1.0/args.reg, solver="liblinear", multi_class="auto", random_state=42)
 clf.fit(X_train, y_train)
 
 print('Predict the test set')
@@ -324,35 +320,31 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
   shutil.copy('utils.py', script_folder)
   ```
 
-
 ### <a name="create-an-estimator"></a>추정기 만들기
 
-추정기 개체는 실행을 제출하는 데 사용됩니다. 다음과 같은 항목을 정의하는 코드를 실행하여 추정기를 만듭니다.
+[SKLearn 추정기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 개체는 실행을 제출하는 데 사용됩니다. 다음과 같은 항목을 정의하는 코드를 실행하여 추정기를 만듭니다.
 
 * 추정기 개체의 이름(`est`)
-* 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. 
+* 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 계산 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
 * 학습 스크립트 이름(**train.py**)
-* 학습 스크립트에서 필요한 매개 변수 
-* 학습에 필요한 Python 패키지
+* 학습 스크립트에서 필요한 매개 변수
 
 이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**에서 데이터 저장소(`ds.path('mnist').as_mount()`)를 사용하도록 설정되었습니다.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.train.sklearn import SKLearn
 
 script_params = {
     '--data-folder': ds.path('mnist').as_mount(),
-    '--regularization': 0.8
+    '--regularization': 0.5
 }
 
-est = Estimator(source_directory=script_folder,
+est = SKLearn(source_directory=script_folder,
                 script_params=script_params,
                 compute_target=compute_target,
-                entry_script='train.py',
-                conda_packages=['scikit-learn'])
+                entry_script='train.py')
 ```
-
 
 ### <a name="submit-the-job-to-the-cluster"></a>클러스터에 작업 제출
 
@@ -371,7 +363,7 @@ run
 
 기다리는 동안 수행되는 작업은 다음과 같습니다.
 
-- **이미지 만들기**: 추정기에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분**이 걸립니다. 
+- **이미지 만들기**: 추정기에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분**이 걸립니다.
 
   컨테이너가 후속 실행을 위해 캐시되므로 이 단계는 각 Python 환경에 대해 한 번만 수행됩니다. 이미지 생성 중에 로그가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 이미지 만들기 진행 상황을 모니터링할 수 있습니다.
 
@@ -381,20 +373,18 @@ run
 
 - **후 처리 중**: 실행의 **./outputs** 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
 
-
-실행 중인 작업의 진행 상황은 여러 가지 방법으로 확인할 수 있습니다. 이 자습서에서는 Jupyter 위젯과 `wait_for_completion` 메서드를 사용합니다. 
+실행 중인 작업의 진행 상황은 여러 가지 방법으로 확인할 수 있습니다. 이 자습서에서는 Jupyter 위젯과 `wait_for_completion` 메서드를 사용합니다.
 
 ### <a name="jupyter-widget"></a>Jupyter 위젯
 
 Jupyter 위젯으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
-
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-다음 스냅샷은 학습의 끝에 표시되는 위젯입니다.
+위젯은 학습이 끝날 때 다음과 같이 표시됩니다.
 
 ![Notebook 위젯](./media/tutorial-train-models-with-aml/widget.png)
 
@@ -402,8 +392,7 @@ RunDetails(run).show()
 
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
-모델 학습 및 모니터링은 백그라운드에서 발생합니다. 더 많은 코드를 실행하기 전에 모델 학습이 완료될 때까지 기다립니다. 모델 학습이 완료되는 시간을 표시하려면 `wait_for_completion`을 사용합니다. 
-
+모델 학습 및 모니터링은 백그라운드에서 발생합니다. 더 많은 코드를 실행하기 전에 모델 학습이 완료될 때까지 기다립니다. 모델 학습이 완료되는 시간을 표시하려면 `wait_for_completion`을 사용합니다.
 
 ```python
 run.wait_for_completion(show_output=False) # specify True for a verbose log
@@ -416,6 +405,7 @@ run.wait_for_completion(show_output=False) # specify True for a verbose log
 ```python
 print(run.get_metrics())
 ```
+
 출력은 원격 모델 정확도가 0.9204라는 것을 보여줍니다.
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
@@ -435,7 +425,7 @@ print(run.get_file_names())
 나중에 사용자 또는 다른 공동 작업자가 이 모델을 쿼리, 검사 및 배포할 수 있도록 해당 모델을 작업 영역에 등록합니다.
 
 ```python
-# register model 
+# register model
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
@@ -445,7 +435,6 @@ print(model.name, model.id, model.version, sep = '\t')
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 Azure Machine Learning 컴퓨팅 클러스터만 삭제할 수도 있습니다. 그러나 자동 크기 조정이 설정되고 클러스터 최솟값이 0이 됩니다. 따라서 이 특정 리소스를 사용하지 않는 경우에는 추가 컴퓨팅 요금이 부과하지 않습니다.
-
 
 ```python
 # optionally, delete the Azure Machine Learning Compute cluster

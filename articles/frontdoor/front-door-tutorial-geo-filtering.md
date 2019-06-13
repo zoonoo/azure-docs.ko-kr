@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950173"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389161"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책을 설정하는 방법
 이 자습서에서는 Azure PowerShell을 사용하여 간단한 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다. 이 샘플 지역 필터링 정책은 미국을 제외한 모든 국가/지역으로부터의 요청을 차단합니다.
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > WAF 정책을 Front Door 프런트 엔드 호스트에 연결하려면 WebApplicationFirewallPolicyLink 속성을 한 번만 설정하면 됩니다. 이후의 정책 업데이트는 프런트 엔드 호스트에 자동으로 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-- [Front Door와 애플리케이션 계층 보안](front-door-application-security.md)에 대해 알아 보세요.
+- [Azure 웹 애플리케이션 방화벽](waf-overview.md)에 대해 알아봅니다.
 - [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.

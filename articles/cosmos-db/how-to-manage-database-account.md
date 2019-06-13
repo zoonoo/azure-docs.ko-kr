@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240900"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399880"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager 템플릿
 
-이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치(failover) 및 다중 마스터를 선택하기 위한 옵션 및 두 개의 지역으로 구성된 지원되는 API에 대한 Azure Cosmos DB 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지 [Azure Cosmos DB 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)에서 Azure에 배포를 클릭합니다
+이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치(failover) 및 다중 마스터를 선택하기 위한 옵션 및 두 개의 지역으로 구성된 지원되는 API에 대한 Azure Cosmos 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지인 [Azure Cosmos 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)에서 Azure에 배포를 클릭합니다
 
 ## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>리소스 관리자 템플릿
 
-계정 및 설정 `enableMultipleWriteLocations: true`를 생성하는 데 사용되는 Resource Manager 템플릿을 배포하면 단일 마스터에서 다중 마스터로 계정을 마이그레이션할 수 있습니다. 다음 Azure Resource Manager 템플릿은 단일 지역 및 다중 마스터가 활성화된 SQL API용 Azure Cosmos DB 계정을 배포할 최소 템플릿입니다.
+계정 및 설정 `enableMultipleWriteLocations: true`를 생성하는 데 사용되는 Resource Manager 템플릿을 배포하면 단일 마스터에서 다중 마스터로 계정을 마이그레이션할 수 있습니다. 다음 Azure Resource Manager 템플릿은 단일 지역 및 다중 마스터가 활성화된 SQL API용 Azure Cosmos 계정을 배포할 최소 템플릿입니다.
 
 ```json
 {
@@ -239,13 +239,13 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 }
 ```
 
-## <a id="automatic-failover"></a>Azure Cosmos DB 계정에 자동 장애 조치 사용
+## <a id="automatic-failover"></a>Azure Cosmos 계정에 자동 장애 조치(failover) 사용
 
 자동 장애 조치(failover) 옵션을 통해 Azure Cosmos DB는 장애 조치(failover) 우선 순위가 가장 높은 지역으로 장애 조치(failover)할 수 있으며, 지역을 사용할 수 없는 경우 사용자 작업이 필요하지 않습니다. 자동 장애 조치(failover)를 사용하도록 설정한 경우 지역 우선 순위를 수정할 수 있습니다. 계정에는 자동 장애 조치(failover)를 사용하도록 설정하기 위해 두 개 이상의 지역이 있어야 합니다.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure Portal
 
-1. Azure Cosmos DB 계정에서 **글로벌로 데이터 복제** 창을 엽니다.
+1. Azure Cosmos 계정에서 **전역적으로 데이터 복제** 창을 엽니다.
 
 2. 창의 위쪽에서 **자동 장애 조치**를 선택합니다.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 수동 장애 조치(failover)를 수행하기 위한 프로세스에는 계정의 쓰기 지역(장애 조치 우선 순위 = 0)을 계정에 대해 구성된 다른 지역으로 변경하는 것이 포함됩니다.
 
 > [!NOTE]
-> 다중 마스터 계정은 수동으로 장애 조치(failover)할 수 없습니다. Azure Cosmos DB SDK를 사용하는 애플리케이션의 경우 SDK는 지역을 사용할 수 없게 되는 시기를 감지한 다음, SDK에서 멀티 호밍 API를 사용할 경우 다음 가장 가까운 지역으로 자동 리디렉션합니다.
+> 다중 마스터 계정은 수동으로 장애 조치(failover)할 수 없습니다. Azure Cosmos SDK를 사용하는 애플리케이션의 경우 SDK는 지역을 사용할 수 없게 되는 시기를 감지한 다음, SDK에서 멀티 호밍 API를 사용할 경우 다음 가장 가까운 지역으로 자동 리디렉션합니다.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure Portal
 

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237897"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751730"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>빠른 시작: 로그인 및 사용자 ID 설정
 
@@ -35,7 +35,7 @@ ms.locfileid: "60237897"
     ![로그인 프롬프트의 새 Microsoft 계정 만들기 명령](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > 연결 된 계정에 이미 있는 전자 메일 주소를 사용 하 여 새 계정을 만들려는 경우 표시 될 수 있습니다 메시지를 "있습니다 수 없습니다. 여기에서 등록 작업을 사용 하 여 회사 또는 학교 전자 메일 주소입니다. Gmail 이나 yahoo! 같은 개인 전자 메일을 사용 하거나 새 Outlook 전자 메일을 받습니다. " 이 경우 새 계정을 만들지 않고 회사 전자 메일 주소를 로그인을 시도 합니다.
+    > 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (여기에 회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 받으세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
 
 1. 메시지가 표시되면 암호를 입력합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "60237897"
     ![Azure Notebooks 프로필 페이지의 초기 보기](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> "사용자 ID는 이미 사용" 메시지를 표시 하는 경우 다른 ID를 시도 모든 Azure Notebooks 계정에서 사용자 Id는 고유 하 고 Azure Notebooks Microsoft 브랜드 이름 등의 특정 사용자 Id를 예약 합니다.
+> "User ID is already in use,"(사용자 ID가 이미 사용 중임)라는 메시지가 표시되면 다른 ID를 시도해 보세요. 사용자 ID는 모든 Azure Notebooks 계정 전반에서 고유하며 Azure Notebooks는 Microsoft 브랜드 이름과 같은 특정 사용자 ID도 보유합니다.
 
 ## <a name="sign-out"></a>로그아웃
 

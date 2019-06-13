@@ -45,7 +45,7 @@ ms.locfileid: "59046073"
 ![이미지 파일 및 예측 키 값을 사용 하 여에 대 한 예측 URL 값 주위에 빨간색 직사각형이 있는 성능 탭 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
->  __예측 키__ 는 프로젝트와 관련된 Custom Vision Azure 리소스의 [Azure portal](https://portal.azure.com) 페이지의 __키__ 블레이드 아래에서도 찾을 수 있습니다. 
+> __예측 키__ 는 프로젝트와 관련된 Custom Vision Azure 리소스의 [Azure portal](https://portal.azure.com) 페이지의 __키__ 블레이드 아래에서도 찾을 수 있습니다.
 
 이 가이드에서는 로컬 이미지를 사용하므로 **이미지 파일이 있는 경우** 아래의 URL을 임시 위치에 복사합니다. 해당하는 __예측 키__ 값도 복사합니다.
 

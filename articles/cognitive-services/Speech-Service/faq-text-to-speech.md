@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883290"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751616"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
 
@@ -33,7 +33,7 @@ ms.locfileid: "55883290"
 
 **Q: 사용자 지정 음성 모델을 사용하려는 경우 API는 표준 음성에 사용되는 API와 동일한가요?**
 
-**A**: 사용자 지정 음성 모델이 생성 및 배포되면 해당 모델용 고유 엔드포인트가 제공됩니다. 앱에서 음성을 사용하여 발화하도록 하려면 HTTP 요청에 이 엔드포인트를 지정해야 합니다. Text to Speech 서비스용 REST API에서 사용할 수 있는 것과 동일한 기능을 사용자 지정 엔드포인트에서 사용할 수 있습니다. [사용자 지정 엔드포인트를 만들고 사용하는](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint) 방법을 알아보세요.
+**A**: 사용자 지정 음성 모델이 생성 및 배포되면 해당 모델용 고유 엔드포인트가 제공됩니다. 앱에서 음성을 사용하여 발화하도록 하려면 HTTP 요청에 이 엔드포인트를 지정해야 합니다. Text to Speech 서비스용 REST API에서 사용할 수 있는 것과 동일한 기능을 사용자 지정 엔드포인트에서 사용할 수 있습니다. [사용자 지정 엔드포인트를 만들고 사용하는](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint) 방법을 알아보세요.
 
 **Q: 사용자 지정 음성 모델을 만들려면 학습 데이터를 직접 준비해야 하나요?**
 
@@ -41,7 +41,7 @@ ms.locfileid: "55883290"
 
 사용자 지정된 음성 모델을 만들려면 음성 데이터 컬렉션이 필요합니다. 이 컬렉션은 음성 녹음의 오디오 파일 집합과 각 오디오 파일을 전사한 대한 텍스트 파일로 구성됩니다. 디지털 음성의 결과는 학습 데이터의 품질에 따라 크게 달라집니다. 좋은 텍스트 음성 변환 음성을 생성하려면 고품질의 고정식 마이크를 사용하여 조용한 공간에서 녹음해야 합니다. 일관된 음량, 말하기 속도, 말하기 높낮이, 그리고 일관된 음성 표현 습관조차도 훌륭한 디지털 음성을 작성하는 데 필수적입니다. 음성은 녹음실에서 녹음하는 것이 가장 좋습니다.
 
-현재 온라인 녹음은 지원하지 않으며, 녹음실에 대한 권장 사항도 제공하지 않습니다. 형식 요구 사항은 [녹음 및 전사를 준비하는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)을 참조하세요.
+현재 온라인 녹음은 지원하지 않으며, 녹음실에 대한 권장 사항도 제공하지 않습니다. 형식 요구 사항은 [녹음 및 전사를 준비하는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice)을 참조하세요.
 
 **Q: 사용자 지정 음성 학습에 사용할 음성 데이터를 녹음할 때는 어떤 스크립트를 사용해야 하나요?**
 
