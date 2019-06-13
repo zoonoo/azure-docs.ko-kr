@@ -67,7 +67,7 @@ ms.locfileid: "60619827"
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | 문자열 |
-| 형식 | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
+| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows`(Windows) | 문자열 |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>설정
@@ -75,7 +75,7 @@ ms.locfileid: "60619827"
 | 이름 | 값/예제 | 데이터 형식
 | ---- | ---- | ----
 | protocol | `http` 또는 `tcp` | 문자열 |
-| 포트 | 프로토콜이 `http`인 경우 선택 항목이고, 프로토콜이 `tcp`인 경우 필수 항목입니다. | int |
+| port | 프로토콜이 `http`인 경우 선택 항목이고, 프로토콜이 `tcp`인 경우 필수 항목입니다. | int |
 | requestPath | 프로토콜이 `http`인 경우 필수 항목이고, 프로토콜이 `tcp`인 경우 허용되지 않습니다. | 문자열 |
 
 ## <a name="deploy-the-application-health-extension"></a>애플리케이션 상태 확장 배포
