@@ -36,7 +36,6 @@ Custom Vision Service의 Azure로의 이동이 완료되면, Azure 외부에서 
 - [Pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 Custom Vision 리소스 만들기
-
 Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. 
 
 여러 프로젝트를 단일 리소스에 연결할 수 있습니다. [가격 책정 및 제한](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas)에 대한 자세한 정보를 사용할 수 있습니다. Custom Vision Service를 계속 무료로 사용하려면, Azure portal에서 F0 계층을 선택할 수 있습니다. 
@@ -50,7 +49,7 @@ Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://por
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Python 샘플 코드를 사용하여 Azure에 프로젝트 복사
 
-에 따라 합니다 [샘플 코드 지침](https://github.com/Azure-Samples/custom-vision-move-project)제한 평가판 키를 사용 하 여을 "source" 자료 "대상"으로 만든 새 Azure 리소스의 키와 프로젝트 ID입니다.
+제한된 평가판 키와 프로젝트 ID를 "원본" 자료로 사용하고 만든 새 Azure 리소스의 키를 "대상"으로 사용하여 [샘플 코드 지침](https://github.com/Azure-Samples/custom-vision-move-project)을 따라합니다.
 
 기본적으로 모든 제한된 평가판 프로젝트는 미국 중남부 Azure 지역에서 호스트됩니다.
 
