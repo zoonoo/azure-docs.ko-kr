@@ -85,7 +85,7 @@ Azure Stream Analytics는 이벤트를 정확히 한 번 처리하고 이벤트�
 
 Azure Stream Analytics에는 이벤트 전달이 실패할 경우를 대비하여 복구 기능이 내장되어 있습니다. 또한 Stream Analytics는 기본 제공 검사점을 제공하여 작업 상태를 유지하고, 반복 가능한 결과를 제공합니다.
 
-관리형 서비스인 Stream Analytics는 분 수준에서 에서 99.9%의 가용성으로 이벤트 처리를 보장합니다. 자세한 내용은 [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 페이지를 참조하세요. 
+관리형 서비스인 Stream Analytics는 분 수준에서 99.9%의 가용성으로 이벤트 처리를 보장합니다. 자세한 내용은 [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 페이지를 참조하세요. 
 
 ### <a name="security"></a>보안
 
@@ -101,7 +101,7 @@ Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Stream Analytics의 개요를 살펴봤습니다. 다음으로 심층적으로 알아보고 첫 번째 Stream Analytics 작업을 만들 수 있습니다.
+이제 Azure Stream Analytics의 개요를 살펴봤습니다. 다음으로 첫 번째 Stream Analytics 작업을 심층적으로 알아보고 만들 수 있습니다.
 
 * [Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
