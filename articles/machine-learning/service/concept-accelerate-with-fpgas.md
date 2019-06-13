@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479571"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>현장에서 프로그래밍 FPGA (gate array) 란
 
@@ -80,7 +80,7 @@ Azure 클라우드의 FPGA에 학습된 DNN 모델 배포를 시작하려면 [�
 
 다음 비디오와 블로그를 확인하세요.
 
-+ [하이퍼스케일 하드웨어: Azure + FPGA 기반의 대규모 ML: 빌드 2018(비디오)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [하이퍼스케일 하드웨어: Azure + FPGA 기반의 대규모 ML: 빌드 2018(비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Microsoft FPGA 기반 구성 가능 클라우드 살펴보기(비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0256396cd228898f3852772b113e6064a0656746
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237659"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495553"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Azure IoT Central UI를 사용자 지정 
 
@@ -75,6 +75,5 @@ PNG 이미지에서 투명 한 배경의 32 x 32 픽셀 보다 크지 합니다.
 
 이제 IoT Central 응용 프로그램에서 UI 사용자 지정 하는 방법을 배웠으므로 제안 된 다음 단계 다음과 같습니다.
 
-> [!div class="nextstepaction"]
-> [응용 프로그램 관리](./howto-administer.md)
-> [응용 프로그램 대시보드를 구성 합니다.](./howto-configure-homepage.md)
+- [애플리케이션 관리](./howto-administer.md)
+- [응용 프로그램 대시보드를 구성 합니다.](./howto-configure-homepage.md)

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303207"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755053"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>개요 Azure SQL Database 관리 인스턴스 리소스 제한
 
@@ -38,8 +38,8 @@ Azure SQL Database 관리 되는 인스턴스는 두 세대의 하드웨어에 �
 | --- | --- | --- |
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
 | vCore 수 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
-| 메모리 | vCore당 7GB | vCore당 5.1GB |
-| 최대 메모리 내 OLTP 메모리 | vCore당 3GB | vCore당 2.6GB |
+| 메모리 (메모리/코어 비율) | vCore당 7GB | vCore당 5.1GB |
+| 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: vCore당 3GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 8 GB<br/> -16 코어: 데이터베이스당 20GB<br/> -24 코어: 데이터베이스당 36 GB | 인스턴스 제한: VCore 당 2.5GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 13 GB<br/> -16 코어: 데이터베이스당 32GB |
 | 최대 인스턴스 저장소 (범용) |  8 TB | 8 TB |
 | 최대 인스턴스 저장소 (비즈니스 위험) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
 
@@ -50,14 +50,14 @@ Azure SQL Database 관리 되는 인스턴스는 두 세대의 하드웨어에 �
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| 메모리 | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) |
+| 메모리 (메모리/코어 비율) | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) |
 | 최대 인스턴스 저장소 크기 | 8 TB | Gen4: 1TB <br/> Gen5: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
 | 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K (1375/vCore) |
 | 로그 처리량 | vCore당 3MB/초<br/>인스턴스당 최대 22 MB/s | VCore 당 4 MB/s<br/>인스턴스당 최대 48 MB/s|
-| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1,920GB(vCore당 24GB) | 제약 조건 없음 - 최대 인스턴스 스토리지 크기로 제한됨 |
 | 최대 세션 | 30000 | 30000 |

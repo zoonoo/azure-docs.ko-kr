@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726590"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729857"
 ---
 # <a name="production-readiness-checklist"></a>프로덕션 준비 검사 목록
 
 애플리케이션 및 클러스터가 프로덕션 트래픽을 허용할 준비가 되었나요? 애플리케이션 및 클러스터를 실행하고 테스트한다고 해서 프로덕션으로 이동할 준비가 된 것은 아닙니다. 다음 검사 목록을 진행하여 애플리케이션 및 클러스터가 원활하게 실행되도록 유지합니다. 이러한 항목을 모두 검사하는 것이 좋습니다. 특정 라인 항목(예: 고유한 진단 프레임워크)의 경우, 대체 솔루션을 사용하도록 선택할 수 있습니다.
 
 
-## <a name="pre-requisites-for-production"></a>프로덕션을 위한 필수 조건
-1. [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)는 다음과 같습니다. 
-1. X.509 인증서 사용
-1. 보안 정책 구성
-1. Azure Service Fabric에 대해 SSL 구성
-1. Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
-1. 보안을 위해 Azure Key Vault 설정
-1. Microsoft.Network/loadBalancersAssign users to roles
+## <a name="prerequisites-for-production"></a>프로덕션에 대 한 필수 구성 요소
+1. Azure Service Fabric 모범 사례: [응용 프로그램 디자인](./service-fabric-best-practices-applications.md), [보안](./service-fabric-best-practices-security.md)를 [네트워킹](./service-fabric-best-practices-networking.md)를 [용량 계획 및 크기 조정](./service-fabric-best-practices-capacity-scaling.md)를 [코드로 서의 인프라](./service-fabric-best-practices-infrastructure-as-code.md), 및 [모니터링 및 진단](./service-fabric-best-practices-monitoring.md)합니다. 
 1. Actors 프로그래밍 모델을 사용하는 경우 Reliable Actors 보안 구성 구현
 1. 코어 20개 또는 노드 10개를 초과하는 클러스터의 경우, 시스템 서비스를 위한 전용 기본 노드 유형을 만듭니다. [배치 제약 조건](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 추가하여 기본 노드 유형을 시스템 서비스에 예약합니다.
 1. 기본 노드 유형에 대해 D2v2 이상 SKU를 사용합니다. 하드 디스크 용량이 50GB 이상인 SKU를 선택하는 것이 좋습니다.

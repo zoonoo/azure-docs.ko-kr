@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242287"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734644"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 복제본 읽기
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 프롬프트가 표시되면 사용자 계정의 암호를 입력합니다.
 
 ## <a name="monitor-replication"></a>복제 모니터링
-Azure Database for PostgreSQL은 Azure Monitor에 **복제본 간 최대 지연 시간** 메트릭을 제공합니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다. 이 메트릭은 마스터와 가장 오래 지연된 복제본 간의 지연 시간을 바이트 단위로 보여 줍니다. 
+Azure Database for PostgreSQL 복제 모니터링에 대 한 두 가지 메트릭을 제공 합니다. 두 메트릭은 **복제본 간에 최대 지연** 하 고 **복제본 지연**합니다. 이러한 메트릭을 보는 방법에 알아보려면 참조를 **복제본 모니터링** 섹션을 [복제본 방법 문서를 읽어보세요](howto-read-replicas-portal.md)합니다.
 
-Azure Database for PostgreSQL은 Azure Monitor에 **복제본 지연 시간** 메트릭도 제공합니다. 이 메트릭은 복제본에만 사용할 수 있습니다. 
+합니다 **복제본 간에 지연 최대** 메트릭 지연을 마스터와 대부분 지연 복제본 간에 바이트를 표시 합니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다.
 
-메트릭은 `pg_stat_wal_receiver` 보기에서 계산됩니다.
+합니다 **복제본 지연** 메트릭 마지막 트랜잭션 재생 이후 시간을 보여 줍니다. 마스터 서버에서 트랜잭션이 발생하지 않으면 메트릭은 이 지연 시간을 반영합니다. 이 메트릭은 복제본 서버에만 제공 됩니다. 복제 지연 시간에서 계산 되는 `pg_stat_wal_receiver` 보기:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-지연 시간 메트릭은 마지막으로 재생된 트랜잭션 이후의 시간을 보여 줍니다. 마스터 서버에서 트랜잭션이 발생하지 않으면 메트릭은 이 지연 시간을 반영합니다.
 
 복제본 지연 시간이 워크로드에 적합하지 않은 값에 도달하면 알리도록 경고를 설정하십시오. 
 

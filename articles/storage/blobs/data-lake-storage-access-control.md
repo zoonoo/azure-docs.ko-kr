@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243604"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751644"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -53,7 +53,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 저장소 계정 수준에서 보안 주체를 역할에 할당 한 경우에 해당 보안 주체 특정 파일 및 디렉터리에 대 한 액세스 권한 부여 액세스 제어 목록을 사용할 수 있습니다.
 
-역할 할당을 통해 부여 되는 수준이 보다 낮은 액세스 수준을 제공 하기 위해 액세스 제어 목록에 사용할 수 없습니다. 예를 들어, 할당 하는 경우는 [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) 에서 디렉터리에 기록 하는 보안 주체를 방지 하기 위해 보안 주체 액세스 제어를 사용할 수 없습니다. 다음에 역할 목록입니다.
+역할 할당을 통해 부여 되는 수준이 보다 낮은 액세스 수준을 제공 하기 위해 액세스 제어 목록에 사용할 수 없습니다. 예를 들어, 할당 하는 경우는 [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 에서 디렉터리에 기록 하는 보안 주체를 방지 하기 위해 보안 주체 액세스 제어를 사용할 수 없습니다. 다음에 역할 목록입니다.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>파일 및 디렉터리 수준 권한 설정 사용 하 여 액세스 제어 목록
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425426"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -35,7 +35,7 @@ Media Services를 통해 콘텐츠 키 자동 생성 하는 것이 좋습니다.
 > * 날짜/시간 형식의 **콘텐츠 키 정책** 속성은 언제나 UTC 형식입니다.
 > * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 자세한 내용은 [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조하세요.
 
-## <a name="example"></a>예
+### <a name="example"></a>예
 
 키를 가져오려면 **GetPolicyPropertiesWithSecretsAsync**에 나와 있는 것 처럼 합니다 [기존 정책에서 서명 키를 가져온](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) 예제입니다.
 

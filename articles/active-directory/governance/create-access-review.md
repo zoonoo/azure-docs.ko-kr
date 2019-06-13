@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113470"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734573"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 만들거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -31,14 +31,13 @@ ms.locfileid: "66113470"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure AD Premium P2
-- [액세스 검토를 사용하도록 설정](access-reviews-overview.md)
 - 전역 관리자 또는 사용자 관리자
 
 자세한 내용은 [사용자의 라이선스가 있어야 합니다.?](access-reviews-overview.md#which-users-must-have-licenses)합니다.
 
 ## <a name="create-one-or-more-access-reviews"></a>하나 이상의 액세스 검토 만들기
 
-1. Azure 포털을 열고 로그인 합니다 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
+1. 포털을 열고 Azure에 로그인 합니다 [Identity 거 버 넌 스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **액세스 검토**합니다.
 
@@ -88,7 +87,7 @@ ms.locfileid: "66113470"
 
     Go 액세스가 검토 페이지에 프로그램의 목록을 보려면 **프로그램**합니다. 전역 관리자 또는 사용자 관리자 역할의 경우 추가 프로그램을 만들 수 있습니다. 예를 들어 준수 이니셔티브 또는 비즈니스 목표 각각에 대한 프로그램을 하나씩 선택할 수 있습니다. 프로그램이 더 이상 필요하지 않고 연결된 컨트롤이 없는 경우 해당 프로그램을 삭제할 수 있습니다.
 
-### <a name="upon-completion-settings"></a>설정 완료 시
+### <a name="upon-completion-settings"></a>완료 시 설정
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 

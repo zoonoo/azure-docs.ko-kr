@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 10f85ea697ad0ffae181112ae51eac928424ccc3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861738"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393153"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Azure Dev Spaces에서 Java를 사용하여 시작
 
@@ -56,7 +56,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에 리소스 그룹을 만듭니다.
+명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -221,3 +221,6 @@ public String greeting()
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

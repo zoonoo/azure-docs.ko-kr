@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967519"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730191"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 다음 단계를 Visual Studio Code에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
 1. Visual Studio Code를 시작합니다.
-1. VS Code의 로컬 복사본에서 **azure-iot-pcs-remote-monitoring-dotnet** 모듈을 엽니다.
-1. scripts\local\launch\idesettings\vscode\.에서 파일 **launch.json** 및 **tasks.json**을 복사합니다. 새 폴더 **azure-iot-pcs-remote-monitoring-dotnet\.vscode**를 만들고 이 폴더에 해당 파일을 붙여넣습니다.
-1. VS Code의 디버그 패널을 열고 **모든 마이크로 서비스 실행** 구성을 실행합니다. 이 구성은 Docker에서 디바이스 시뮬레이션 마이크로 서비스를 실행하고 디버거에서 다른 마이크로 서비스를 실행합니다.
+1. VS Code에서 엽니다는 **azure-iot-pcs-remote-monitoring-dotnet** 폴더입니다.
+1. 라는 새 폴더를 만듭니다 **.vscode** 에 **azure-iot-pcs-remote-monitoring-dotnet** 폴더입니다.
+1. 파일을 복사 합니다 **launch.json** 하 고 **tasks.json** services\scripts\local\launch\idesettings\vscode 하에서 합니다 **.vscode** 방금 만든 폴더.
+1. 열기는 **디버그 패널** VS Code 및 실행 합니다 **모두 실행 마이크로 서비스** 구성 합니다. 이 구성은 Docker에서 디바이스 시뮬레이션 마이크로 서비스를 실행하고 디버거에서 다른 마이크로 서비스를 실행합니다.
 
-예를 들어, **디버그 콘솔**의 **Auth** 서비스 출력은 다음과 같습니다.
+실행의 출력 **모두 실행 마이크로 서비스** 디버그 콘솔에는 다음과 같습니다.
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>웹 UI 실행
 

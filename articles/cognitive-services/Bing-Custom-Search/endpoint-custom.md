@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790218"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390352"
 ---
 # <a name="custom-search"></a>사용자 지정 검색
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 사용자는 관련 없는 콘텐츠가 포함된 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다.
@@ -28,10 +28,10 @@ Bing Custom Search API를 사용하여 결과를 가져오려면 `GET` 요청을
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Custom Search 원본을 설정하는 방법을 설명하는 예제는 [자습서](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)를 참조하세요. 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Custom Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) 참조를 참조하세요.
+Custom Search 원본을 설정하는 방법을 설명하는 예제는 [자습서](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)를 참조하세요. 헤더, 매개 변수, 지역/국가 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Custom Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference) 참조를 참조하세요.
 
 ## <a name="custom-search-response-json"></a>Custom Search 응답 JSON
-사용자 지정 검색 요청은 결과를 JSON 개체로 반환합니다. [응답 개체](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects)를 참조하세요. 
+사용자 지정 검색 요청은 결과를 JSON 개체로 반환합니다. [응답 개체](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects)를 참조하세요. 
 
 ## <a name="custom-autosuggest"></a>Custom Autosuggest
 Custom Autosuggest API를 사용하면 부분 검색 쿼리 용어를 Bing에 전송하고 구성할 수 있는 제안된 쿼리 목록을 받을 수 있습니다. Custom Autosuggest를 사용하는 경우 API에서 반환된 제안을 추가하고, 선택적으로 Bing에서 생성된 제안을 포함할지 여부를 지정합니다.

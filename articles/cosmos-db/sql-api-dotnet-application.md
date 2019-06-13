@@ -25,7 +25,7 @@ ms.locfileid: "65979029"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
+Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 엔드투엔드 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
 
 ![이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.
 
-2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 애플리케이션**을 선택합니다.
+2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#** , **웹**을 확장한 후 **ASP.NET 웹 애플리케이션**을 선택합니다.
 
       ![ASP.NET 웹 애플리케이션 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 

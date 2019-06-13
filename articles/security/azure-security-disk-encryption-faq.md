@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416698"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730691"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -43,7 +43,7 @@ Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pri
 
 Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
 
-| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
+| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
@@ -82,6 +82,9 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>암호 또는 암호화 키 회전 하는 방법
 
 암호를 회전, 디스크 암호화를 사용 하도록 원래 사용 했던 동일한 명령을 호출 하는 다른 키 자격 증명 모음을 지정 합니다. 주요 암호화 키를 회전 하려면 원래 사용 했던 디스크 암호화를 사용 하도록 설정 하려면 새 키 암호화를 지정 하는 동일한 명령을 호출 합니다. 
+
+>[!WARNING]
+> - 이전에 사용한 경우 [Azure AD 앱을 사용 하 여 Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md) 계속 해야이 VM을 암호화 하는 Azure AD 자격 증명을 지정 하 여 VM을 암호화 하려면이 옵션을 사용 합니다. 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에서는 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 사용할 수 없습니다. 즉, 이 암호화된 VM을 위해 AAD 애플리케이션에서 전환하는 기능은 아직 지원되지 않습니다.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>추가 하거나 어떻게 키 암호화 키를 처음 사용 하지 않은 경우 제거?
 

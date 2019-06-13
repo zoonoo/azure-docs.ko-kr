@@ -103,7 +103,7 @@ PdM를 통해 모든 사용 사례 또는 비즈니스 문제를 효과적으로
 
 ## <a name="data-science-for-predictive-maintenance"></a>예측 유지 관리에 대한 데이터 과학
 
-이 섹션에서는 PdM에 대한 데이터 과학 원칙 및 사례의 일반적인 지침을 제공합니다. TDM, 솔루션 설계자 또는 개발자가 PdM에 대해 종단간 AI 애플리케이션을 빌드하기 위한 필수 구성 요소 및 프로세스를 이해하도록 하기 위한 것입니다. [예측 유지 관리에 대한 솔루션 템플릿](#solution-templates-for-predictive-maintenance)에서 나열된 데모 및 개념 증명 템플릿의 검토와 함께 이 섹션을 읽을 수 있습니다. 그런 다음, 이러한 원칙과 모범 사례를 사용하여 Azure에서 PdM 솔루션을 구현할 수 있습니다.
+이 섹션에서는 PdM에 대한 데이터 과학 원칙 및 사례의 일반적인 지침을 제공합니다. TDM, 솔루션 설계자 또는 개발자가 PdM에 대해 엔드투엔드 AI 애플리케이션을 빌드하기 위한 필수 구성 요소 및 프로세스를 이해하도록 하기 위한 것입니다. [예측 유지 관리에 대한 솔루션 템플릿](#solution-templates-for-predictive-maintenance)에서 나열된 데모 및 개념 증명 템플릿의 검토와 함께 이 섹션을 읽을 수 있습니다. 그런 다음, 이러한 원칙과 모범 사례를 사용하여 Azure에서 PdM 솔루션을 구현할 수 있습니다.
 
 > [!NOTE]
 > 이 가이드에서는 데이터 과학 판독기에 대해 설명하지 않습니다. [예측 유지 관리에 대한 학습 리소스](#training-resources-for-predictive-maintenance) 섹션에서 추가 정보에 대한 몇 가지 유용한 소스가 제공됩니다. 가이드에 나열된 [솔루션 템플릿](#solution-templates-for-predictive-maintenance)은 특정 PdM 문제에 대한 이러한 AI 기술 중 일부를 보여줍니다.
@@ -291,7 +291,7 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 ![그림 5. 다중 클래스 분류에 대한 오류 시간 예측 레이블](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) 그림 5. 오류 시간 예측을 위한 다중 클래스 분류에 대한 레이블 지정
 
-이렇게 질문할 수 있습니다. “근본 원인/문제 _P<sub>i</sub>_ 로 인해 시간의 다음 X 단위에서 자산이 실패할 확률은 얼마인가요?” 여기서 _i_는 가능성 있는 근본 원인의 수입니다. 이 질문에 대답하면 자산 오류 이전에 X 레코드의 레이블을 "근본 원인 _P<sub>i</sub>_ 으로 인해 곧 실패"(레이블=_P<sub>i</sub>_)로 지정합니다. 다른 모든 레코드의 레이블을 "정상"으로 지정합니다(레이블=0). 또한 이 방법에서는 레이블이 범주입니다(그림 6 참조).
+이렇게 질문할 수 있습니다. “근본 원인/문제 _P<sub>i</sub>_ 로 인해 시간의 다음 X 단위에서 자산이 실패할 확률은 얼마인가요?” 여기서 _i_는 가능성 있는 근본 원인의 수입니다. 이 질문에 대답하면 자산 오류 이전에 X 레코드의 레이블을 "근본 원인 _P<sub>i</sub>_ 으로 인해 곧 실패"(레이블=_P<sub>i</sub>_ )로 지정합니다. 다른 모든 레코드의 레이블을 "정상"으로 지정합니다(레이블=0). 또한 이 방법에서는 레이블이 범주입니다(그림 6 참조).
 
 ![그림 6. 다중 클래스 분류에 대한 근본 원인 예측 레이블](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) 그림 6. 근본 원인 예측을 위한 다중 클래스 분류에 대한 레이블 지정
 

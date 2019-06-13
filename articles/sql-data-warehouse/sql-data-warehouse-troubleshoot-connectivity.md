@@ -10,12 +10,12 @@ ms.component: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f25d2ab5b2b988725d8f4fdf942854746f404d1
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873828"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754839"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>연결 문제 해결
 
@@ -57,7 +57,7 @@ SQL data warehouse가 일시 중지 또는 크기 조정 중인지 확인하려�
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal)에서 찾을수 있습니다.
+SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal)에서 찾을수 있습니다.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/서비스 끝점 설정 확인
 

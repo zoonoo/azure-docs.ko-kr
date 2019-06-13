@@ -12,7 +12,7 @@ ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57449966"
@@ -25,7 +25,7 @@ Text Analytics 리소스는 클라우드에서 연중무휴 24시간 내내 사�
 
 + [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만들고, **텍스트 분석 API**를 선택합니다. 등록하면 키가 생성됩니다.
 
-Text Analytics의 경우 탐색 및 평가용 무료 계층과 프로덕션 워크로드용 청구 가능 계층이 있습니다. 각 구독에서 여러 등록을 할 수 있습니다: 무료, 유료 하나 하나 및 등입니다. 요청 볼륨이 증가하면 더 많은 트랜잭션을 제공하는 계층으로 전환할 수 있습니다.
+Text Analytics의 경우 탐색 및 평가용 무료 계층과 프로덕션 워크로드용 청구 가능 계층이 있습니다. 각 구독에서 여러 등록을 할 수 있습니다: 무료 하나, 유료 하나 등등. 요청 볼륨이 증가하면 더 많은 트랜잭션을 제공하는 계층으로 전환할 수 있습니다.
 
 미리 보기 또는 무료 계층에 대한 서비스 수준 계약은 없습니다. 자세한 내용은 [Cognitive Services에 대한 SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)를 참조하세요.
 

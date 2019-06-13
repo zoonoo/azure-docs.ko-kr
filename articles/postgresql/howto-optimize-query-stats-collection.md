@@ -29,7 +29,7 @@ ms.locfileid: "65068956"
 
   ![PostgreSQL 서버 매개 변수 블레이드](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
-- [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 az postgres server configuration set to `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 az postgres server configuration set 명령을 구성합니다`--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
 ## <a name="use-the-query-store"></a>쿼리 저장소 사용 
 Azure Database for PostgreSQL의 [쿼리 저장소](concepts-query-store.md) 기능은 쿼리 성능을 추적하는 더 효과적인 방법을 제공합니다. *pg_stats_statements*를 사용하지 않고 기능을 사용하는 것이 좋습니다. 

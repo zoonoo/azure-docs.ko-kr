@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 27fcf32a9a268488da318567d3edc55d23bd8967
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145454"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482310"
 ---
-1. Visual Studio 2017을 시작합니다.
+1. Visual Studio 2019를 시작합니다.
 
 1. **C++를 사용한 데스크톱 개발** 워크로드를 사용할 수 있도록 합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하는 경우 다음 단계를 건너뜁니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "66145454"
 
 1. C++ 워크로드 또는 NuGet을 사용하도록 설정해야 하는 경우 대화 상자의 오른쪽 아래 모서리에서 **수정**을 선택합니다. 새로운 기능을 설치하려면 잠시 시간이 걸립니다. 두 기능을 모두 이미 사용하도록 설정한 경우 대신 대화 상자를 닫습니다.
 
-1. 새로운 Visual C++ Windows 데스크톱 창 콘솔 애플리케이션을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C++** > **Windows Desktop**을 확장합니다. 그런 다음, **Windows 콘솔 애플리케이션 만들기**를 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
+1. 새로운 Visual C++ Windows 데스크톱 창 콘솔 애플리케이션을 만듭니다. 먼저, 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자의 왼쪽 창에서 **설치됨** > **Visual C++**  > **Windows Desktop**을 확장합니다. 그런 다음, **Windows 콘솔 애플리케이션 만들기**를 선택합니다. 프로젝트 이름으로 *helloworld*를 입력합니다.
 
     ![새 프로젝트 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 

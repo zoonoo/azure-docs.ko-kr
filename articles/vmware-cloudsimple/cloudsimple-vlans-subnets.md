@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209573"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497568"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 및 서브넷 개요
 
 CloudSimple는 CloudSimple 서비스를 배포할 지역 마다 네트워크를 제공 합니다.  네트워크가 라우팅을 기본적으로 사용할 수 있는 단일 TCP 계층 3 주소 공간입니다.  모든 사설 클라우드 및이 지역에서 생성 하는 서브넷은 추가 구성 없이 서로 통신할 수 있습니다.  Vlan을 사용 하 여 vCenter에서 분산된 포트 그룹을 만들 수 있습니다.
+
+![CloudSimple 네트워크 토폴로지](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
@@ -34,6 +36,10 @@ Vlan (계층 2 네트워크)는 사설 클라우드 마다 생성 됩니다.  �
 사설 클라우드는 격리 된 VMware 스택을 (ESXi 호스트, vCenter, vSAN을 및 NSX)으로 만들어집니다. vCenter 서버에서 관리 하는 환경입니다.  관리 구성 요소에 대해 선택한 네트워크에 배포 됩니다 **vSphere/vSAN 서브넷 CIDR**합니다.  네트워크 CIDR 범위는 배포 하는 동안 서로 다른 서브넷으로 구분 됩니다.
 
 최소 vSphere/vSAN 서브넷 CIDR 범위 접두사: **/24** 최대 vSphere/vSAN 서브넷 CIDR 범위 접두사: **21 /**
+
+> [!CAUTION]
+> VSphere/vSAN CIDR 범위에서 IP 주소는 사설 클라우드 인프라에서 사용 하기 위해 예약 되어 있습니다. 모든 가상 머신에서이 범위의 IP 주소를 사용 하지 마세요.
+
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN 서브넷 CIDR 범위 제한
 

@@ -3,19 +3,19 @@ title: 미리 학습된 엔터티를 Conversation Learner 모델에 추가하는
 titleSuffix: Azure
 description: 미리 학습된 엔터티를 Conversation Learner 모델에 추가하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.author: nitinme
+ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565413"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389266"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>미리 학습된 엔터티를 추가하는 방법
 이 자습서에서는 미리 학습된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.

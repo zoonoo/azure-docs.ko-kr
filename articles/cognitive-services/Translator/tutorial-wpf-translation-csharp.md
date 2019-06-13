@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078128"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514719"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -79,9 +79,9 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 1. Visual Studio의 솔루션 탐색기(오른쪽 패널)에서 프로젝트를 찾습니다. 마우스 오른쪽 단추로 프로젝트를 클릭한 다음, **추가 > 참조...** 를 선택합니다. 그러면 **참조 관리자**가 열립니다.
    ![어셈블리 참조 추가](media/add-assemblies-sample.png)
 2. 어셈블리 탭에는 참조에 사용할 수 있는 모든 .NET Framework 어셈블리가 나열됩니다. 화면의 오른쪽 위에 있는 검색 창을 사용하여 다음 참조를 검색하고 이를 프로젝트에 추가합니다.
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. 이러한 참조가 프로젝트에 추가되면 **확인**을 클릭하여 **참조 관리자**를 닫을 수 있습니다.
 
 > [!NOTE]
@@ -108,7 +108,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 사용자 인터페이스에 포함되는 구성 요소는 다음과 같습니다.
 
-| Name | Type | 설명 |
+| 이름 | Type | 설명 |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Microsoft Translator에서 텍스트 번역에 지원하는 언어 목록을 표시합니다. 사용자가 번역할 원본 언어를 선택합니다. |
 | `ToLanguageComboBox` | ComboBox | `FromComboBox`와 동일한 언어 목록을 표시하지만 사용자가 번역할 대상 언어를 선택하는 데 사용됩니다. |

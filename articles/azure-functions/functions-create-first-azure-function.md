@@ -48,7 +48,7 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
     ![플랫폼 선택을 위한 함수 빠른 시작.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
-1. **웹후크 + API**를 선택한 다음, **만들기**를 선택합니다.
+1. **Webhook + API**를 선택한 다음, **만들기**를 선택합니다.
 
     ![Azure Portal에서 함수 빨리 시작하기.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 

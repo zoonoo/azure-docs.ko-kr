@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622427"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428238"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
@@ -27,7 +27,7 @@ ms.locfileid: "60622427"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2017 또는 2015 설치를 포함합니다.
+시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
 
 또한 배포하기 위해 기존 Node.js 애플리케이션이 필요합니다. 이 빠른 시작은 [여기][download-sample]에서 다운로드할 수 있는 간단한 Node.js 웹 사이트를 사용합니다. 다음 단계에서 프로젝트를 만든 후 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 폴더에 이 파일을 추출합니다.
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-애플리케이션 프로젝트(**MyGuestApp**)는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
+응용 프로그램 프로젝트 (**MyGuestApp**) 코드를 직접 포함 하지 않습니다. 프로젝트에는 서비스 프로젝트의 집합을 참조합니다. 또한 다른 세 가지 유형의 콘텐츠를 포함 합니다.
 
 * **게시 프로필**  
 다양한 환경에 대한 도구 기본 설정입니다.
@@ -83,7 +83,7 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 배포하는 예제 Node.js 앱은 포트 **80**을 사용하므로 Service Fabric에 해당 포트를 노출하도록 지시합니다.
 
-프로젝트에서 **ServiceManifest.xml** 파일을 엽니다. 매니페스트의 맨 아래에는 이미 정의된 항목이 포함된 `<Resources> \ <Endpoints>`이 있습니다. 해당 항목을 수정하여 `Port`, `Protocol` 및 `Type`을 추가합니다. 
+프로젝트에서 **ServiceManifest.xml** 파일을 엽니다. 매니페스트의 맨 아래에 있는지를 `<Resources> \ <Endpoints>` 이미 정의 된 항목입니다. 해당 항목을 수정하여 `Port`, `Protocol` 및 `Type`을 추가합니다. 
 
 ```xml
   <Resources>
@@ -98,7 +98,7 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
-**F5** 키를 누르고 프로젝트를 실행하면 로컬 클러스터에 배포됩니다. 하지만 대신 Azure에 배포해보겠습니다.
+키를 누르면 **F5** 을 로컬 클러스터에 배포 된 프로젝트를 실행 합니다. 하지만 대신 Azure에 배포해보겠습니다.
 
 프로젝트를 마우스 오른쪽 단추로 클릭하고 대화 상자를 여는 **게시...** 를 선택하여 Azure에 게시할 수 있습니다.
 
@@ -108,7 +108,7 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
 
 이전에 수행하지 않은 경우 배포할 Azure 계정을 선택합니다. 아직 없는 경우 [하나에 등록][create-account]합니다.
 
-**연결 엔드포인트**에서 배포할 Service Fabric 클러스터를 선택합니다. 없는 경우 Azure Portal에 웹 브라우저 창을 여는 **&lt;새 클러스터 만들기...&gt;** 를 선택합니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
+**연결 엔드포인트**에서 배포할 Service Fabric 클러스터를 선택합니다. 없다면 하나를 선택 **&lt;새 클러스터 만들기... &gt;** 를 Azure portal에 웹 브라우저 창을 엽니다. 자세한 내용은 [포털에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal)를 참조하세요. 
 
 Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** 설정을 **80**으로 설정해야 합니다.
 
@@ -130,11 +130,11 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** �
 
 ![Azure Portal에서 Service Fabric 개요 블레이드][overview]
 
-`HELLO WORLD` 응답이 표시되는 이 주소로 이동합니다.
+표시 되는이 주소로 이동 하 여 `HELLO WORLD` 응답 합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
-해당 리소스에 대한 요금이 청구되므로 이 빠른 시작에서 만든 리소스를 모두 삭제해야 합니다.
+이러한 리소스에 대 한 청구 되는이 빠른 시작에서 만든 리소스를 모두 삭제 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)에 대해 자세히 알아보세요.

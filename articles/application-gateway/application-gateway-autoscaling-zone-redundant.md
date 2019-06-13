@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986880"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431206"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
@@ -26,8 +26,8 @@ Application Gateway 및 웹 응용 프로그램 방화벽 (WAF) Standard_v2 및 
   영역 중복은 Azure 영역 사용할 수 있는 사용할 수 있습니다. 다른 지역의 다른 모든 기능이 지원 됩니다. 자세한 내용은 참조 하세요. [azure에서 가용성 영역은 무엇입니까?](../availability-zones/az-overview.md#services-support-by-region)
 - **정적 VIP**: Application gateway v2 SKU에서 정적 VIP를 단독으로 입력합니다. 이 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 배포 수명 주기 동안 변경 되지 않는지 확인 합니다.
 - **헤더 재작성**: Application Gateway를 사용 하면 추가, 제거 또는 v2 SKU를 사용 하 여 HTTP 요청 및 응답 헤더를 업데이트할 수 있습니다. 자세한 내용은 참조 하세요. [Application Gateway를 사용 하 여 다시 작성 하는 HTTP 헤더](rewrite-http-headers.md)
-- **Key Vault 통합 (미리 보기)**: 응용 프로그램 게이트웨이 v2 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
-- **Azure Kubernetes Service 수신 컨트롤러 (미리 보기)**: Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 Kubernetes Service (AKS (Azure) AKS 클러스터 라고는 수신으로 사용 하도록 허용 합니다. 자세한 내용은 참조는 [설명서 페이지](https://azure.github.io/application-gateway-kubernetes-ingress/)합니다.
+- **Key Vault 통합 (미리 보기)** : 응용 프로그램 게이트웨이 v2 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
+- **Azure Kubernetes Service 수신 컨트롤러 (미리 보기)** : Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 Kubernetes Service (AKS (Azure) AKS 클러스터 라고는 수신으로 사용 하도록 허용 합니다. 자세한 내용은 참조는 [설명서 페이지](https://azure.github.io/application-gateway-kubernetes-ingress/)합니다.
 - **성능 향상**: SKU는 최대 5 X 더 나은 SSL 제공 v2 표준/WAF SKU에 비해 성능 오프 로드 합니다.
 - **배포 및 업데이트 시간을 단축** v2 SKU 표준/WAF SKU에 비해 더 빠르게 배포 및 업데이트 시간을 제공 합니다. 또한 WAF 구성 변경 내용을 포함 됩니다.
 
@@ -54,6 +54,8 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 > [!NOTE]
 > 현재 각 인스턴스에 약 10 명의 용량 단위로 지원.
 > 계산 단위에서 처리할 수 있는 요청 수가 TLS 인증서 키 크기, 키 교환 알고리즘, 헤더 재작성 및 WAF 들어오는 요청 크기의 경우 다양 한 조건에 따라 달라 집니다. 계산 단위 당 요청 속도 파악 하기 위한 응용 프로그램 테스트를 수행 하는 것이 좋습니다. 용량 단위 및 계산 단위를 모두 제공 될 예정를 기준으로 청구 시작 하기 전에 합니다.
+
+다음 표에서 예제 가격을 표시 하 고 용도로 사용 됩니다.
 
 **미국 동부에서 가격**:
 
@@ -106,7 +108,7 @@ Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규�
 
 |                                                   | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| 자동 크기 조정                                       |          | &#x2713; |
+| 자동 확장                                       |          | &#x2713; |
 | 영역 중복                                   |          | &#x2713; |
 | 정적 VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) 수신 컨트롤러 |          | &#x2713; |
@@ -129,7 +131,7 @@ Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규�
 
 ## <a name="differences-with-v1-sku"></a>V1 SKU와의 차이점
 
-|차이|세부 정보|
+|차이점|세부 정보|
 |--|--|
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
@@ -142,9 +144,12 @@ Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규�
 |Netwatcher 통합|지원되지 않습니다.|
 |Azure 지원 센터 통합|아직 사용할 수 없습니다.
 
+## <a name="migrate-from-v1-to-v2"></a>v1에서 v2로 마이그레이션
+
+Azure PowerShell 스크립트에서 v1 응용 프로그램 게이트웨이/WAF v2 자동 크기 조정 SKU에 마이그레이션할 수 있도록 PowerShell 갤러리에서 제공 됩니다. 이 스크립트를 사용 하면 v1 게이트웨이에서 구성을 복사 합니다. 트래픽 마이그레이션 사용자의 책임입니다. 자세한 내용은 참조 하세요. [마이그레이션할 Azure Application Gateway v1에서 v2로](migrate-v1-v2.md)합니다.
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: Azure Application Gateway-Azure portal 사용 하 여 직접 웹 트래픽](quick-create-portal.md)
+- [빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal](quick-create-portal.md)
 - [Azure PowerShell을 사용하여 예약된 가상 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이 만들기](tutorial-autoscale-ps.md)
 - [Application Gateway](overview.md)에 대해 자세히 알아보세요.
 - [Azure Firewall](../firewall/overview.md)에 대해 자세히 알아보세요.

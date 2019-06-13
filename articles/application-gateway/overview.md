@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947259"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418121"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -29,9 +29,9 @@ Application Gateway를 사용하면 URI 경로 또는 호스트 헤더와 같은
 
 다음 기능이 Azure Application Gateway에 포함되어 있습니다.
 
-## <a name="secure-sockets-layer-ssl-termination"></a>SSL(Secure Sockets Layer) 종료
+## <a name="secure-sockets-layer-ssltls-termination"></a>SSL(Secure Sockets Layer)/TLS 종료
 
-Application Gateway는 게이트웨이에서 SSL 종료를 지원합니다. 그 후의 트래픽은 일반적으로 암호화되지 않은 상태로 백 엔드 서버로 흐릅니다. 이 기능을 사용하면 비용이 많이 드는 암호화 및 암호 해독 오버헤드로부터 웹 서버의 부담을 줄일 수 있습니다. 그러나 서버에 암호화되지 않은 통신을 허용하는 옵션이 아닌 경우도 있습니다. 이는 보안 요구 사항, 규정 준수 요구 사항 또는 애플리케이션에서 보안 연결만 수락할 수 있기 때문일 수 있습니다. 이러한 애플리케이션의 경우 Application Gateway에서 엔드투엔드 SSL 암호화를 지원합니다.
+Application Gateway는 게이트웨이에서 SSL/TLS 종료를 지원합니다. 그 후의 트래픽은 일반적으로 암호화되지 않은 상태로 백 엔드 서버로 흐릅니다. 이 기능을 사용하면 비용이 많이 드는 암호화 및 암호 해독 오버헤드로부터 웹 서버의 부담을 줄일 수 있습니다. 그러나 서버에 암호화되지 않은 통신을 허용하는 옵션이 아닌 경우도 있습니다. 이는 보안 요구 사항, 규정 준수 요구 사항 또는 애플리케이션에서 보안 연결만 수락할 수 있기 때문일 수 있습니다. 이러한 애플리케이션의 경우 Application Gateway에서 엔드투엔드 SSL/TLS 암호화를 지원합니다.
 
 ## <a name="autoscaling"></a>자동 확장
 

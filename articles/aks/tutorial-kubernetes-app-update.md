@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304474"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475505"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -85,7 +85,10 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다. ACR 레지스트리로 푸시하는 데 문제가 있는 경우 [az acr login][az-acr-login] 명령을 실행했는지 확인합니다.
+이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
+
+> [!NOTE]
+> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. 예: `az acr login --name <azure container registry name>`
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

@@ -42,7 +42,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 * Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
 
-인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름을 사용합니다.  PowerShell 자식 Runbook을 호출할 때 스크립트가 로컬 디렉터리에 위치하는 것을 지정하도록 *.\\*로 해당 이름을 시작해야 합니다.
+인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름을 사용합니다.  PowerShell 자식 Runbook을 호출할 때 스크립트가 로컬 디렉터리에 위치하는 것을 지정하도록 *.\\* 로 해당 이름을 시작해야 합니다.
 
 ### <a name="example"></a>예
 

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9544337ef1322e52cbdf123bb48d283485a8c7dd
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: b847615e8440a8992c8130d12cd6111afe3d33d2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890841"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390234"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Bing Spell Check API 사용
 
@@ -44,14 +44,14 @@ API에서 지원하는 두 가지 교정 모드는 `Proof` 및 `Spell`입니다.
 
 ## <a name="market-setting"></a>시장 설정
 
-[지역/국가 코드](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#market-codes)는 요청에 `mkt` 쿼리 매개 변수로 지정해야 합니다. 그렇지 않으면, API는 요청의 IP 주소를 기반으로 기본 지역/국가를 사용합니다.
+[지역/국가 코드](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes)는 요청에 `mkt` 쿼리 매개 변수로 지정해야 합니다. 그렇지 않으면, API는 요청의 IP 주소를 기반으로 기본 지역/국가를 사용합니다.
 
 
 ## <a name="http-post-and-get-support"></a>HTTP POST 및 GET 지원
 
 API는 HTTP POST 또는 HTTP GET을 지원합니다. 교정하려는 텍스트의 길이에 따라 둘 중 하나를 사용합니다. 문자열이 항상 1,500자 미만인 경우 GET을 사용합니다. 그러나 문자열을 최대 10,000자까지 지원하려면 POST를 사용합니다. 텍스트 문자열에는 유효한 UTF-8 문자가 모두 포함될 수 있습니다.
 
-다음 예제에서는 텍스트 문자열의 맞춤법 및 문법을 검사하기 위한 POST 요청을 보여 줍니다. 이 예제에는 완성도에 대한 [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#mode) 쿼리 매개 변수가 포함되어 있습니다(`mode`가 기본적으로 Proof로 설정되므로 생략되었을 수도 있음). [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text) 쿼리 매개 변수에는 교정할 문자열이 포함됩니다.
+다음 예제에서는 텍스트 문자열의 맞춤법 및 문법을 검사하기 위한 POST 요청을 보여 줍니다. 이 예제에는 완성도에 대한 [mode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) 쿼리 매개 변수가 포함되어 있습니다(`mode`가 기본적으로 Proof로 설정되므로 생략되었을 수도 있음). [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) 쿼리 매개 변수에는 교정할 문자열이 포함됩니다.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -68,7 +68,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 HTTP GET을 사용하는 경우 URL의 쿼리 문자열에 `text` 쿼리 매개 변수를 포함합니다.
   
-다음은 이전 요청에 대한 응답을 보여줍니다. 응답에는 [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#spellcheck) 개체가 포함됩니다. 
+다음은 이전 요청에 대한 응답을 보여줍니다. 응답에는 [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck) 개체가 포함됩니다. 
   
 ```json
 {  
@@ -112,7 +112,7 @@ HTTP GET을 사용하는 경우 URL의 쿼리 문자열에 `text` 쿼리 매개 
 }  
 ```  
   
-[flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#flaggedtokens) 필드에는 API를 통해 [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#text) 문자열에서 찾은 맞춤법 및 문법 오류가 나열됩니다. `token` 필드에는 바꿀 단어가 포함됩니다. `offset` 필드의 0부터 시작하는 오프셋을 사용하여 `text` 문자열의 토큰을 찾습니다. 그런 다음, 해당 위치의 단어를 `suggestion` 필드의 단어로 바꿉니다. 
+[flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) 필드에는 API를 통해 [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) 문자열에서 찾은 맞춤법 및 문법 오류가 나열됩니다. `token` 필드에는 바꿀 단어가 포함됩니다. `offset` 필드의 0부터 시작하는 오프셋을 사용하여 `text` 문자열의 토큰을 찾습니다. 그런 다음, 해당 위치의 단어를 `suggestion` 필드의 단어로 바꿉니다. 
 
 `type` 필드가 RepeatedToken인 경우에도 토큰을 `suggestion`으로 바꾸지만 후행 공백을 제거해야 할 수도 있습니다.
 
@@ -123,4 +123,4 @@ HTTP GET을 사용하는 경우 URL의 쿼리 문자열에 `text` 쿼리 매개 
 ## <a name="next-steps"></a>다음 단계
 
 - [Bing Spell Check API란?](../overview.md)
-- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

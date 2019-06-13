@@ -20,7 +20,7 @@ ms.locfileid: "60811167"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark로 데이터 탐색 및 모델링
 
-이 연습에서는 HDInsight Spark를 사용하여 NYC Taxi Trip 및 요금 2013 데이터 세트의 샘플에 데이터 탐색과 이진 분류 및 회귀 모델링 작업을 수행합니다.  처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계를 종단 간 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다.
+이 연습에서는 HDInsight Spark를 사용하여 NYC Taxi Trip 및 요금 2013 데이터 세트의 샘플에 데이터 탐색과 이진 분류 및 회귀 모델링 작업을 수행합니다.  처리를 위한 HDInsight Spark 클러스터와 데이터 및 모델을 저장하는 Azure Blob을 사용하여 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계를 엔드투엔드 안내합니다. 프로세스는 Azure Storage Blob에서 가져온 데이터를 탐색하고 시각화한 다음 데이터를 준비하여 예측 모델을 빌드합니다. 이러한 모델은 Spark MLlib 도구 키트를 사용하여 이진 분류 및 회귀 모델링 작업을 수행합니다.
 
 * **이진 분류** 작업은 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 
 * **회귀** 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
@@ -589,8 +589,8 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
 1. **모델 교육** 데이터
-2. **모델 평가** 
-3. **모델 저장** 
+2. **모델 평가**
+3. **모델 저장**
 
 ### <a name="classification-using-logistic-regression"></a>로지스틱 회귀를 사용하는 분류
 이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지를 예측하는 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) 로 로지스틱 회귀 분석 모델을 학습하고 평가하며 저장하는 방법을 보여 줍니다.
@@ -847,8 +847,8 @@ Area under ROC = 0.985297691373
 이러한 모델은 소개에서 설명했습니다. 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
 1. **모델 교육** 데이터
-2. **모델 평가** 
-3. **모델 저장** 
+2. **모델 평가**
+3. **모델 저장**
 
 ### <a name="linear-regression-with-sgd"></a>SGD로 선형 회귀
 이 섹션의 코드는 크기 조정된 기능을 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 사용하는 선형 회귀를 학습하는 방법 및 WASB(Azure Blob Storage)에서 모델의 점수를 매기고 평가하며 저장하는 방법을 보여줍니다.

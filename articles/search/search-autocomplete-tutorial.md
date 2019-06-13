@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524019"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426932"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
 
@@ -46,7 +46,7 @@ Azure Search 서비스를 준비 된 NYCJobs 데모 인덱스를 호스트 하�
 
 * 다운로드 합니다 [DotNetHowToAutoComplete 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)합니다.
 
-샘플은 포괄적인, 포괄적 제안, 자동 완성, 패싯 탐색 및 클라이언트 쪽 캐싱 전체 설명은 샘플에서 제공 하는 기능에 대 한 주석을 확인 하 고 추가 정보를 검토 해야 합니다.
+샘플은 포괄적인, 포괄적 제안, 자동 완성, 패싯 탐색 및 클라이언트 쪽 캐싱 전체 설명은 샘플에서 제공 하는 기능에 대 한 주석을 확인 하 고 추가 정보를 검토 합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -70,7 +70,7 @@ Azure Search 서비스를 준비 된 NYCJobs 데모 인덱스를 호스트 하�
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-이 스타일 지정, JavaScript 및 자리 표시자 텍스트에서 참조 하는 ID에 대 한 클래스를 사용 하 여 간단한 입력된 텍스트 상자입니다.  매직은 포함 된 JavaScript입니다.
+이 예제는 스타일 지정, JavaScript 및 자리 표시자 텍스트에서 참조 하는 ID에 대 한 클래스를 사용 하 여 간단한 입력된 텍스트 상자입니다.  매직은 포함 된 JavaScript입니다.
 
 C# 언어 샘플 Index.cshtml에서 활용 하 여 JavaScript를 사용 합니다 [jQuery UI 자동 완성 라이브러리](https://jqueryui.com/autocomplete/)합니다. 이 라이브러리는 추천 단어를 검색 하는 MVC 컨트롤러에 대 한 비동기 호출 하 여 검색 상자에 자동 완성 환경을 추가 합니다. JavaScript 언어 버전은 IndexJavaScript.cshtml입니다. 검색 표시줄 뿐만 아니라 Azure search REST API 호출에 대 한 아래 스크립트를 포함합니다.
 
@@ -95,7 +95,7 @@ $(function () {
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-위의 줄 위치 검색 상자에서 표시할 항목의 목록을 가져오려면 jQuery UI 자동 완성 함수에 알려줍니다. MVC 프로젝트 이므로 쿼리 제안 (다음 섹션에서 제안 하는 방법에 대 한 자세한 내용은)를 반환 하는 것에 대 한 논리가 포함 된 HomeController.cs에서 제안 함수를 호출 합니다. 이 함수는 또한 컨트롤 강조 표시, 유사 항목 일치 및 용어에는 몇 가지 매개 변수를 전달 합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
+위의 줄 위치 검색 상자에서 표시할 항목의 목록을 가져오려면 jQuery UI 자동 완성 함수에 알려줍니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안 (다음 섹션에서 제안 하는 방법에 대 한 자세한 내용은)를 반환 하는 것에 대 한 논리가 포함 된 HomeController.cs에서 제안 함수를 호출 합니다. 이 함수는 또한 컨트롤 강조 표시, 유사 항목 일치 및 용어에는 몇 가지 매개 변수를 전달 합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>샘플을 확장하여 유사 일치 지원
 
@@ -162,7 +162,7 @@ $(function () {
 
 엽니다는 **HomeController.cs** 컨트롤러 디렉터리 아래에 있는 파일입니다. 
 
-가장 먼저 알 수 있듯이 호출 되는 클래스의 맨 위에 있는 메서드인지 `InitSearch`합니다. 이 항목은 Azure Search 서비스에 대해 인증된 HTTP 인덱스 클라이언트가 만듭니다. 자세한 내용은 [.NET 응용 프로그램에서 Azure Search를 사용 하는 방법을](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)합니다.
+가장 먼저 알 수 있듯이 호출 되는 클래스의 맨 위에 있는 메서드인지 `InitSearch`합니다. 이 메서드는 Azure Search 서비스에 인증 된 HTTP 인덱스 클라이언트를 만듭니다. 자세한 내용은 [.NET 응용 프로그램에서 Azure Search를 사용 하는 방법을](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)합니다.
 
 41 줄에 Suggest 함수로를 확인할 수 있습니다. 기반이 되는 [DocumentsOperationsExtensions.Suggest 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)합니다.
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-이 코드를, Home 컨트롤러를 호출하는 위의 에제와 비교해 보면 몇 가지 유사점을 확인할 수 있습니다.  `minLength` 및 `position`에 대한 자동 완성 구성은 정확히 동일합니다. 
+이 예제에서는를 Home 컨트롤러를 호출 하는 위의 예제를 비교 하는 경우에 몇 가지 유사점을 확인할 수 있습니다.  `minLength` 및 `position`에 대한 자동 완성 구성은 정확히 동일합니다. 
 
 여기서 큰 변화는 소스입니다. Home 컨트롤러의 제안 메서드를 호출 하는 대신 REST 요청을 JavaScript 함수에서 생성 되 고 Ajax를 사용 하 여 실행. 그러면 응답이 "성공" 처리되고 소스로 사용됩니다.
 
@@ -302,7 +302,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 1. NYCJobs 샘플 코드의 DataLoader 폴더를 엽니다 **DataLoader.sln** Visual Studio에서.
 
-1. Azure Search 서비스에 대 한 연결 정보를 추가 합니다. DataLoader 프로젝트 안에서 App.config를 열고 Azure Search 서비스 및 Azure Search Service API 키에 맞게 TargetSearchServiceName 및 TargetSearchServiceApiKey appSettings를 변경합니다. 이 정보는 Azure Portal에서 찾을 수 있습니다.
+1. Azure Search 서비스에 대 한 연결 정보를 추가 합니다. DataLoader 프로젝트 안에서 App.config를 열고 Azure Search 서비스 및 Azure Search Service API 키에 맞게 TargetSearchServiceName 및 TargetSearchServiceApiKey appSettings를 변경합니다. Azure portal에서이 정보를 찾을 수 있습니다.
 
 1. F5 키를 눌러 두 개의 인덱스를 만들고 NYCJob 샘플 데이터를 가져오는 응용 프로그램을 시작 합니다.
 

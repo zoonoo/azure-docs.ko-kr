@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure AD 디바이스 관리 설명서
+title: Azure AD 디바이스 ID 설명서
 metadata:
   document_id: null
-  title: 'Azure Active Directory 디바이스 관리 설명서 - 자습서, 개념, 참조 | Microsoft Docs'
-  description: Azure Active 디바이스 관리를 구성하고 테스트하는 방법을 알아봅니다.
+  title: 'Azure Active Directory 디바이스 ID 관리 설명서 - 자습서, 개념, 참조 | Microsoft Docs'
+  description: Azure AD에서 디바이스 ID를 구성하고 관리하는 방법을 알아봅니다.
   services: active-directory
   ms.subservice: devices
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 디바이스를 통해 사용자가 회사 자산에 액세스하게 됩니다. IT 관리자로써 회사 자산을 보호하기 위해 이러한 디바이스를 제어할 수 있어야 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다.<br>디바이스 관리는 디바이스 기반 조건부 액세스의 기반이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
+  description: 사용자는 Azure AD에서 디바이스를 통해 회사 자산에 액세스할 수 있습니다. IT 관리자는 회사의 자산을 보호하기 위해 Azure AD에서 이러한 디바이스 ID를 관리하려고 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다.<br>또한 디바이스 ID 관리는 디바이스 기반 조건부 액세스에 대한 기반이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
 sections:
   - title: 단계별 자습서
     items:

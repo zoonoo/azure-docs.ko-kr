@@ -133,7 +133,7 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 * 적절한 java 문서 생성을 위한 Java 헤더 파일을 수정했습니다.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* 게이트웨이 모드에서 [Netty 라이브러리](https://netty.io/)를 사용하여 비차단 IO에 대한 종단 간 지원을 제공하는 GA SDK입니다. 
+* 게이트웨이 모드에서 [Netty 라이브러리](https://netty.io/)를 사용하여 비차단 IO에 대한 엔드투엔드 지원을 제공하는 GA SDK입니다. 
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.

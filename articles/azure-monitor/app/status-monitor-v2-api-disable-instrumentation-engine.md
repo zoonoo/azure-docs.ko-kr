@@ -1,6 +1,6 @@
 ---
 title: 'Azure 상태 모니터 v2 API 참조: 계측 엔진을 사용 하지 않도록 설정 | Microsoft Docs'
-description: 상태 모니터 v2-InstrumentationEngine API 참조 사용 하지 않도록 설정 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
+description: 상태 모니터 v2 API 참조입니다. -InstrumentationEngine 사용 하지 않도록 설정 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스 또는 Azure Vm에서 호스트 하는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,26 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 7d1b658da59c0e778c82301077ef27bdd9c9e614
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144900"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514419"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>상태 모니터 v2 API: 사용 안 함-InstrumentationEngine (v0.2.1 알파)
 
-이 문서에서는의 구성원으로 제공 되는 cmdlet을 설명 합니다 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
+이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
 > [!IMPORTANT]
 > 상태 모니터 v2는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 참조 하세요. [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 하지 않습니다. 일부 기능은 지원 되지 않는, 및 일부 기능이 제한 될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="description"></a>설명
-
-이 cmdlet은 일부 레지스트리 키를 제거 하 여 계측 엔진 수 없게 됩니다.
-이러한 변경 내용을 적용 하려면 IIS를 다시 시작 합니다.
+일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
+변경 내용을 적용 하려면 IIS를 다시 시작 합니다.
 
 > [!IMPORTANT] 
 > 이 cmdlet은 관리자 권한으로 PowerShell 세션에 필요합니다.
@@ -64,4 +63,4 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>다음 단계
 
  상태 모니터 v2 사용 하 여 더 수행 합니다.
- - 가이드를 사용 하 여 [문제 해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.
+ - 가이드를 사용 하 여 [해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.

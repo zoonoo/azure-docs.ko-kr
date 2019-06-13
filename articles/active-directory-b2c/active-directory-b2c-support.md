@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에 대한 지원 | Microsoft Docs
 description: Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4311f7001e2cd5a05b3a383925dc759acb8b8a05
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 698526cfcb598901032bc00015a8e6faeddba9c6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680867"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508295"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: 지원 요청 제출
 다음 단계를 사용하여 Azure 포털에서 Azure AD(Azure Active Directory) B2C에 대한 지원 요청을 제출할 수 있습니다.

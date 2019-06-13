@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 93af2e4c373701383a674c694f7799ba890414dd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887437"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475174"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -115,7 +115,7 @@ Pod를 삭제 한 후에 응용 프로그램에서 영구 저장소를 필요할
 
 Azure Managed Disks를 사용 하는 경우에 복제와 같은 DR 솔루션을 선택할 수 있습니다.
 
-* [Azure 기반의 Ark](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
+* [Azure에서 Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>애플리케이션 기반 비동기 복제

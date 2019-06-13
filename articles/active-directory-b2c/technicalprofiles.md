@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TechnicalProfiles 요소를 지정합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711057"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512292"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -82,10 +82,10 @@ ms.locfileid: "64711057"
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
+| Domain | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
 | DisplayName | 0:1 | 사용자에게 표시할 수 있는 기술 프로필의 이름입니다. |
 | 설명 | 0:1 | 사용자에게 표시할 수 있는 기술 프로필에 대한 설명입니다. |
-| Protocol | 0:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
+| 프로토콜 | 0:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
 | Metadata | 0:1 | 트랜잭션 과정에서 엔드포인트와 통신하기 위해 프로토콜에서 사용하는 키/값 쌍의 컬렉션입니다. |
 | InputTokenFormat | 0:1 | 입력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. `JWT` 값은 IETF 사양을 기준으로 JSON Web Token을 나타냅니다. `SAML11` 값은 OASIS 사양을 기준으로 SAML 1.1 보안 토큰을 나타냅니다.  `SAML2` 값은 OASIS 사양을 기준으로 SAML 2.0 보안 토큰을 나타냅니다. |
 | OutputTokenFormat | 0:1 | 출력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. |
@@ -102,14 +102,14 @@ ms.locfileid: "64711057"
 | UseTechnicalProfileForSessionManagement | 0:1 | 세션 관리에 사용할 다른 기술 프로필입니다. |
 |EnabledForUserJourneys| 0:1 |사용자 경험에서 기술 프로필을 실행할지 여부를 제어합니다.  |
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>프로토콜
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Name | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` 또는 `None`입니다. |
-| Handler | 아닙니다. | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
+| 처리기 | 아닙니다. | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
 
 ### <a name="metadata"></a>Metadata
 
@@ -125,7 +125,7 @@ ms.locfileid: "64711057"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 키 | 예 | 메타데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
+| 키 | 예 | 메타 데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 

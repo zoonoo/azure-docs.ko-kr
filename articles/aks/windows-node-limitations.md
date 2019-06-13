@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304403"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475409"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>노드 풀을 Windows Server 및 Azure Kubernetes Service (AKS)에서 응용 프로그램 워크 로드에 대 한 현재 제한 사항
 
@@ -45,6 +45,7 @@ AKS와 관련 된 Windows Server 컨테이너에서 Kubernetes에 대 한 다음
 AKS에서 Windows Server 노드 풀 지원에 다음 추가 제한 사항이 적용 됩니다.
 
 - AKS 클러스터는 항상 첫 번째 노드 풀으로 Linux 노드 풀을 포함합니다. AKS 클러스터 자체는 삭제 하지 않는 한이 첫 번째 linux 노드 풀을 삭제할 수 없습니다.
+- 현재 AKS, 하나의 백 엔드 풀에 기본 Linux 노드 풀만 허용 하는 기본 부하 분산만 지원 합니다. 결과적으로, Windows pod에서 아웃 바운드 트래픽을 항상 [Azure 관리 되는 공용 IP 주소로 변환][azure-outbound-traffic]합니다. 이 IP 주소를 구성할 수 없는 경우 되므로 Windows pod에서 들어오는 허용 목록에 추가 트래픽을를 현재 사용할 수 없습니다. 
 - AKS 클러스터는 Azure CNI (고급) 네트워킹 모델을 사용 해야 합니다.
     - (기본) Kubenet 네트워킹 지원 되지 않습니다. Kubenet를 사용 하 여 AKS 클러스터를 만들 수 없습니다. 네트워크 모델의 차이점에 대 한 자세한 내용은 참조 하세요. [AKS에서 응용 프로그램에 대 한 개념을 네트워크][azure-network-models]합니다.
     - Azure CNI 네트워크 모델에는 추가 계획 및 IP 주소 관리에 대 한 고려 사항에 필요합니다. 계획 하 고 Azure CNI를 구현 하는 방법에 대 한 자세한 내용은 참조 하세요. [AKS의 네트워킹 구성 Azure CNI][configure-azure-cni]합니다.
@@ -87,3 +88,4 @@ AKS에서 Windows Server 컨테이너를 시작 하기 [AKS에 Windows Server를
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

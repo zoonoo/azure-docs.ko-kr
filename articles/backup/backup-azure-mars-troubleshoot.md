@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243443"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743151"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -82,7 +82,15 @@ ms.locfileid: "66243443"
 수동 백업은 문제 없이 실행되지만 예약 백업이 자동으로 트리거되지 않으면 다음 작업을 시도해보세요.
 
 - Azure 파일 및 폴더 백업 일정을 사용 하 여 Windows Server 백업 일정 충돌 하지 않는 것을 확인 합니다.
-- **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다. **Microsoft**를 확장하고 **온라인 백업**을 선택합니다. **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다. 상태가 **사용**으로 설정되어 있는지 확인합니다. 설정되지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택한 다음, **확인**을 클릭합니다. **일반** 탭에서 **보안 옵션**으로 이동하여 작업을 실행하도록 선택된 사용자 계정이 서버의 **로컬 관리자 그룹** 또는 **SYSTEM** 중 하나인지 확인합니다.
+
+- 온라인 백업 상태 설정 되어 있는지 확인 **사용**합니다. 수행 하는 상태를 확인 하는 아래:
+
+  - **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다.
+    - **Microsoft**를 확장하고 **온라인 백업**을 선택합니다.
+  - **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다.
+  - 상태로 설정 되어 있으면 확인 **사용**합니다. 설정되지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택한 다음, **확인**을 클릭합니다.
+
+- 확인 작업 실행을 위해 선택한 사용자 계정 중 하나 **시스템** 하거나 **로컬 관리자 ' 그룹** 서버의 합니다. 로 사용자 계정을 확인 하려면 합니다 **일반** 탭을 확인 합니다 **보안 옵션**합니다.
 
 - PowerShell 3.0 이상이 서버에 설치되었는지 확인합니다. PowerShell 버전을 확인하려면 다음 명령을 실행하고 *주* 버전 번호가 3 이상인지 확인합니다.
 
@@ -97,6 +105,15 @@ ms.locfileid: "66243443"
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Backup 에이전트 설치 후 서버를 다시 부팅 되었는지 확인
+
+- 없는지 누락 되거나 손상 **PowerShell** 모듈 **MSonlineBackup**합니다. 해결 하려면 문제가 수행 파일이 없거나 손상 된 모든 인 경우는 아래:
+
+  - 다른 컴퓨터 (Windows 2008 R2) MSOnlineBackup 폴더에서 복사 MARS 에이전트를 제대로 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 경로입니다.
+  - 동일한 경로에 문제가 있는 컴퓨터에 붙여 넣어 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 합니다.
+  - 하는 경우 **MSOnlineBackup** 폴더가 이미 있는 컴퓨터의 붙여넣기/바꾸기 내부에 있는 콘텐츠 파일입니다.
+
 
 > [!TIP]
 > 변경 내용이 일관적으로 적용되도록 위의 단계를 수행한 후 서버를 다시 부팅합니다.

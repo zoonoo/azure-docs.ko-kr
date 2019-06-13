@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2af8ef7d29d1ac506ddca654544bc938758aa0d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66149799"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479454"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
@@ -40,7 +40,7 @@ Azure Automation을 사용하려는 경우 첫 번째 단계는 자동화 계정
 Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azure Automation 계정을 만들려면 다음 단계를 따릅니다.
 
 - Azure Portal에 로그인합니다.
-- 왼쪽 위 모서리에서 "**+ 리소스 만들기**"를 클릭합니다.
+- 왼쪽 위 모서리에서 " **+ 리소스 만들기**"를 클릭합니다.
 - "**Automation**"을 검색합니다(Enter 키 누름).
 - 검색 결과에서 Automation 앱을 클릭합니다.
 
@@ -59,14 +59,9 @@ Marketplace의 Automation 앱을 선택하고 구성하는 방법을 통해 Azur
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation 모듈 업데이트
 
-자동 조정 권장 사항을 검색 하는 PowerShell 스크립트를 사용 하 여 [Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 하 고 [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 4 버전의 Azure 모듈 업데이트에 대 한 명령 및 이상이 필요 합니다.
+자동 조정 권장 사항을 검색 하는 PowerShell 스크립트를 사용 하 여 [Get AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) 하 고 [Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) 버전 4에는 Azure 모듈에 대 한 명령 및 이상이 필요 합니다.
 
-Azure PowerShell 모듈을 업데이트하려면 다음 단계를 수행합니다.
-
-- Automation 앱 창에 액세스하고 왼쪽 메뉴에서 "**모듈**"을 선택합니다(이 메뉴 항목은 공유 리소스 아래에 있으므로 아래로 스크롤합니다).
-- 모듈 창 맨 위에서 "**Azure 모듈 업데이트**"를 클릭하고 "Azure 모듈이 업데이트되었습니다."라는 메시지가 표시될 때까지 기다립니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
-
-![Azure Automation 모듈 업데이트](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
+- Azure 모듈 업데이트에 필요한 경우 참조 [Azure Automation에서 Az 모듈 지원](../automation/az-modules.md)합니다.
 
 ## <a name="create-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -76,7 +71,7 @@ Azure Automation Runbook을 만들려면 다음 단계를 수행합니다.
 
 - 이전 단계에서 만든 Azure Automation 계정에 액세스합니다.
 - Automation 계정 창 왼쪽에서 "**Runbook**" 메뉴 항목을 클릭하여 PowerShell 스크립트로 새 Azure Automation Runbook을 만듭니다. Automation Runbook을 만드는 방법에 대한 자세한 내용은 [새 Runbook 만들기](../automation/manage-runbooks.md#create-a-runbook)를 참조하세요.
-- 새 Runbook을 추가하려면 "**+ Runbook 추가**" 메뉴 옵션을 클릭하고 "**빨리 만들기 – 새 Runbook 만들기**"를 클릭합니다.
+- 새 Runbook을 추가하려면 " **+ Runbook 추가**" 메뉴 옵션을 클릭하고 "**빨리 만들기 – 새 Runbook 만들기**"를 클릭합니다.
 - Runbook 창에서 Runbook의 이름을 입력하고(이 예제에서는 "**AutomaticTuningEmailAutomation**" 사용) Runbook의 유형을 **PowerShell**로 선택한 후 이 Runbook의 용도를 나타내는 설명을 작성합니다.
 - **만들기** 단추를 클릭하여 새 Runbook 만들기를 완료합니다.
 
@@ -199,7 +194,7 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 이 단계의 전제 조건은 [Microsoft Flow](https://flow.microsoft.com) 계정을 등록하고 로그인하는 것입니다. 솔루션 내부에서 다음 단계에 따라 **새 흐름**을 설정합니다.
 
 - "**내 흐름**" 메뉴 항목에 액세스합니다.
-- 내 흐름 내의 페이지 위쪽에서 "**+빈 페이지에서 만들기**" 페이지를 선택합니다.
+- 내 흐름 내의 페이지 위쪽에서 " **+빈 페이지에서 만들기**" 페이지를 선택합니다.
 - 페이지 아래쪽에서 "**수백 개의 커넥터 및 트리거 검색**" 링크를 클릭합니다.
 - 검색 필드에서 "**되풀이**"를 입력하고 검색 결과에서 "**예약 - 되풀이**"를 선택하여 전자 메일 배달 작업이 실행되도록 예약합니다.
 - 되풀이 창의 빈도 필드에서 이 흐름을 실행할 예약 빈도(예: 분, 시, 일, 주 등의 빈도로 자동 전자 메일 전송)를 선택합니다.
@@ -208,14 +203,14 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 
 1. 조정 권장 사항을 검색하는 PowerShell 스크립트를 실행하는 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation – 작업 만들기**"를 선택합니다.
    - 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창**에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](https://docs.microsoft.com/connectors/azureautomation/#create-job)를 참조하세요.
    - "**흐름 저장**"을 클릭하여 이 작업 만들기를 완료합니다.
 
 2. 실행된 PowerShell 스크립트에서 출력을 검색하는 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation - 작업 출력 가져오기**"를 선택합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)를 참조하세요.
    - 필수 필드를 채웁니다(이전 작업을 만들 때와 유사) - Azure 구독 ID, 리소스 그룹 및 Automation 계정을 채웁니다(Automation 계정 창에 입력한 것과 같음).
    - "**작업 ID**" 필드 내부를 클릭하여 "**동적 콘텐츠**" 메뉴를 표시합니다. 이 메뉴 내에서 "**작업 ID**" 옵션을 선택합니다.
@@ -223,7 +218,7 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 
 3. Office 365 통합을 사용하여 메일을 전송하기 위한 작업을 만듭니다.
 
-   - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
+   - 되풀이 흐름 창에서 " **+새 단계**","**작업 추가**"를 선택합니다.
    - 검색 필드에서 "**전자 메일 보내기**"를 입력하고 검색 결과에서 "**Office 365 Outlook - 전자 메일 보내기**"를 선택합니다.
    - "**받는 사람**" 필드에 알림 전자 메일을 보내야 하는 전자 메일 주소를 입력합니다.
    - "**제목**" 필드에 전자 메일의 제목(예: "자동 조정 권장 사항 전자 메일 알림")을 입력합니다.

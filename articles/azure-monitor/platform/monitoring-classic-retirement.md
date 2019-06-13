@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 82e6f28e00de725042a3d764a898b3c6486e1110
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66023212"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497116"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -53,19 +53,19 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>클래식 모니터링 및 경고 플랫폼의 사용 중지
 
 앞에서 설명한 대로, 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에서 사용할 수 있는 클래식 모니터링 및 경고 플랫폼은 새 시스템으로 교체됨에 따라 앞으로 몇 개월 내에 사용 중지됩니다.
-이전 클래식 모니터링 및 경고 31 년 8 월 2019;에 만료 됩니다. 이에 관련 된 Api, Azure 포털 인터페이스 및 서비스의 클로저를 포함합니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
+이전 클래식 모니터링 및 경고 년 8 월 2019; 31 일에 만료 됩니다. 이에 관련 된 Api, Azure 포털 인터페이스 및 서비스의 클로저를 포함합니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
 
 - 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../../azure-monitor/app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
 
-해당 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure Portal 페이지](../../azure-monitor/platform/alerts-classic-portal.md) 및 [리소스 템플릿](../../azure-monitor/platform/alerts-enable-template.md)이 포함된 모든 클래식 모니터링 및 경고 시스템은 2019년 6월 말까지 사용할 수 있습니다. 
+모든 클래식 모니터링 및 경고에 해당 하는 포함 하 여 시스템 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)를 [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)에 [CLI](../../azure-monitor/platform/alerts-classic-portal.md)를 [Azure portal 페이지](../../azure-monitor/platform/alerts-classic-portal.md), 및 [ 리소스 템플릿](../../azure-monitor/platform/alerts-enable-template.md) 2019 년 8 월의 끝까지 사용 가능한 유지 됩니다. 
 
 Azure Monitor에서 8 월 2019의 끝:
 
 - 기존 모니터링 및 경고 서비스는 사용 되지 않음 및 새 경고 규칙 만들기에 대 한 더 이상 사용할 수 됩니다.
-- 2019년 6월 이후에도 경고(클래식)에 계속 남아 있는 모든 경고 규칙은 계속 실행되고 알림을 발생하지만 수정할 수 없습니다.
-- 2019 년 9 월, 클래식 모니터링 및 마이그레이션할 수 있는 경고의 경고 규칙을 시작 자동으로 이동할 Microsoft에서 새 Azure monitor 플랫폼에 해당 합니다. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
+- 경고 2019 년 8 월 이상 (클래식)에 계속 남아 있는 모든 경고 규칙은를 실행 하 고 알림을 발생 계속 있지만 수정에 사용할 수 없습니다.
+- 2019 년 9 월, 클래식 모니터링 및 마이그레이션할 수 있는 경고의 경고 규칙을 시작 자동으로 이동할 Microsoft에서 새 Azure monitor 플랫폼에서 해당 하는 몇 주 단계. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
 - 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 모든 전자 메일 주소, 웹 후크 엔드포인트 또는 클래식 경고 규칙과 연결 된 논리 앱 링크 마이그레이션되면 앞으로 수행할 수 있지만 제대로 동작 하지 않을 수 경고 페이로드 새 플랫폼에서 다른 수 됩니다.
 - 일부 [자동으로 마이그레이션할 수 없는 클래식 경고 규칙](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) 2020 년 6 월까지 실행을 계속 사용자의 수동 작업이 필요 합니다.
 

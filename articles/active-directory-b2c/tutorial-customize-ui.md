@@ -2,20 +2,20 @@
 title: 자습서 - 사용자 환경 인터페이스 사용자 지정 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정하는 방법에 대해 알아봅니다.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702558"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512093"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 사용자 환경 인터페이스 사용자 지정
 
@@ -137,7 +137,7 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
 
 ## <a name="update-the-user-flow"></a>사용자 흐름 업데이트
 
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 2. **사용자 흐름(정책)** 을 선택한 다음, *B2C_1_signupsignin1* 사용자 흐름을 선택합니다.
 3. **페이지 레이아웃**을 선택한 다음, **통합 가입 또는 로그인 페이지** 아래에서 **사용자 지정 페이지 콘텐츠 사용**에 대해 **예**를 클릭합니다.
 4. **사용자 지정 페이지 URI**에서 이전에 기록한 *custom-ui.html* 파일의 URI를 입력합니다.

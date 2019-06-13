@@ -1,6 +1,6 @@
 ---
 title: 'Azure 상태 모니터 v2 API 참조: 상태를 가져옵니다. | Microsoft Docs'
-description: 상태 모니터 v2 API 참조 Get-ApplicationInsightsMonitoringStatus 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
+description: 상태 모니터 v2 API 참조입니다. Get-ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415994"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514301"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>상태 모니터 v2 API: Get-ApplicationInsightsMonitoringStatus (v0.2.2 알파)
 
-이 문서에서는의 구성원으로 제공 되는 cmdlet을 설명 합니다 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
+이 문서에서는 설명의 구성원임을 확인 하는 cmdlet를 [Az.ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)합니다.
 
 > [!IMPORTANT]
 > 상태 모니터 v2는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 참조 하세요. [추가 사용 약관에 대 한 Microsoft Azure 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 하 고 프로덕션 워크 로드에 대 한 권장 하지 않습니다. 일부 기능은 지원 되지 않는, 및 일부 기능이 제한 될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="description"></a>설명
 
-이 cmdlet은 PowerShell 모듈에서 사용 하 여 문제 해결을 위해 제공 됩니다.
-이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일을 보고 합니다.
-추가 매개 변수는 모니터링의 현재 상태에서 추가 보고서를 제공합니다.
+사용 하도록 설정 되는 PowerShell 모듈의 문제를 해결 합니다.
+이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일에 대 한 정보를 보고 합니다.
+추가 매개 변수 상태 모니터링의 추가 보고서를 제공합니다.
 
 > [!IMPORTANT] 
 > 이 cmdlet은 관리자 권한으로 PowerShell 세션에 필요합니다.
@@ -40,9 +40,9 @@ ms.locfileid: "65415994"
 ## <a name="examples"></a>예
 
 
-### <a name="example-basic-information"></a>예: 기본 정보
+### <a name="example-basic-information"></a>예제: 기본 정보
 
-명령을 실행: `Get-ApplicationInsightsMonitoringStatus` 이 모듈에 대 한 정보는 출력을 가져오려면:
+실행 `Get-ApplicationInsightsMonitoringStatus` 현재 모듈에 대 한 정보를 표시 합니다.
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -77,11 +77,11 @@ Machine Identifier:
 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
 ```
 
-### <a name="example-runtime-status"></a>예: 런타임 상태
+### <a name="example-runtime-status"></a>예제: 런타임 상태
 
-계측 된 모든 Dll이 로드 하는 경우 참조 컴퓨터에서 프로세스를 검사할 수 있습니다. 모니터링이 작동 하는 경우에 12 개 이상의 DLL은 로드할 수 해야 합니다.
+모든 Dll이 로드 하는 경우를 계측 하는 컴퓨터의 프로세스를 검사할 수 있습니다. 모니터링이 작동 하는 경우에 12 개 이상의 Dll은 로드할 수 해야 합니다.
 
-- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+명령을 실행 하 여 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>매개 변수 
+## <a name="parameters"></a>매개 변수
 
-### <a name="no-params"></a>(매개 변수)
+### <a name="no-parameters"></a>(매개 변수)
 
-하 여 **기본**,이 cmdlet은 버전 번호 및 모니터링에 필요한 Dll의 경로 보고 합니다.
+기본적으로이 cmdlet은 버전 번호 및 모니터링에 필요한 Dll의 경로 보고 합니다.
 
 Application Insights SDK를 포함 하 여 모든 DLL의 버전을 식별 하는 경우이 옵션을 사용 합니다.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**옵션**. 이 cmdlet은 IIS를 실행 하는 경우 보고 합니다.
-이 cmdlet은 IIS 런타임으로 필요한 Dll이 로드 되 면 검사에 외부 도구를 다운로드할 수도 됩니다.
+**옵션**. 이 매개 변수를 사용 하 여 IIS를 실행 하는지 여부를 보고 합니다.
+또한 IIS 런타임으로 필요한 Dll이 로드 하는 경우를 결정 하는 데 외부 도구가 다운로드 됩니다.
 
 
 어떤 이유로 든 실패 하면이 프로세스에는 이러한 명령을 수동으로 실행할 수 있습니다.
@@ -138,10 +138,10 @@ Application Insights SDK를 포함 하 여 모든 DLL의 버전을 식별 하는
 
 ### <a name="-force"></a>-Force
 
-**옵션**. InspectProcess 함께만 사용합니다. 이 스위치는 추가 도구를 다운로드 하려면 사용자 프롬프트를 건너뜁니다.
+**옵션**. InspectProcess 함께만 사용합니다. 추가 도구 다운로드 되기 전에 표시 되는 사용자 프롬프트를 표시 하지 않으려면이 스위치를 사용 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
  상태 모니터 v2 사용 하 여 더 수행 합니다.
- - 가이드를 사용 하 여 [문제 해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.
+ - 가이드를 사용 하 여 [해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.

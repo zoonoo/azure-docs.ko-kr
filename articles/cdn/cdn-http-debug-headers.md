@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736975"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475292"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.
@@ -27,7 +27,7 @@ ms.locfileid: "60736975"
 ## <a name="usage"></a>사용 현황
 POP 서버에서 사용자에게 보내는 응답에는 다음 조건이 충족되는 경우에만 `X-EC-Debug` 헤더가 포함됩니다.
 
-- [디버그 캐시 응답 헤더 기능](cdn-rules-engine-reference-features.md#debug-cache-response-headers)은 지정된 요청에서 활성화됩니다.
+- [디버그 캐시 응답 헤더 기능](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers)은 지정된 요청에서 활성화됩니다.
 - 지정된 요청은 응답에 포함될 디버그 캐시 응답 헤더 집합을 정의합니다.
 
 ## <a name="requesting-debug-cache-information"></a>디버그 캐시 정보 요청
@@ -118,7 +118,7 @@ UNKNOWN | 서버에서 요청된 자산을 캐시할 수 있는지 여부를 평
 ## <a name="cache-key-response-header"></a>캐시 키 응답 헤더
 `X-EC-Debug: x-ec-cache-key` 응답 헤더는 요청된 콘텐츠와 연결된 실제 캐시 키를 나타냅니다. 실제 캐시 키는 캐싱을 위해 자산을 식별하는 경로로 구성됩니다. 즉 서버에서 cache-key에 정의된 경로에 따라 자산의 캐시된 버전을 확인합니다.
 
-이 실제 캐시 키는 이중 슬래시(//)로 시작하고, 그 뒤에 콘텐츠(HTTP 또는 HTTPS)를 요청하는 데 사용되는 프로토콜이 나옵니다. 이 프로토콜 뒤에는 콘텐츠 액세스 지점(예: _/000001/_)으로 시작하는 요청된 자산에 대한 상대 경로가 나옵니다.
+이 실제 캐시 키는 이중 슬래시(//)로 시작하고, 그 뒤에 콘텐츠(HTTP 또는 HTTPS)를 요청하는 데 사용되는 프로토콜이 나옵니다. 이 프로토콜 뒤에는 콘텐츠 액세스 지점(예: _/000001/_ )으로 시작하는 요청된 자산에 대한 상대 경로가 나옵니다.
 
 기본적으로 HTTP 플랫폼은 *표준 캐시*를 사용하도록 구성됩니다. 즉, 캐싱 메커니즘에서 쿼리 문자열이 무시됩니다. 이러한 유형의 구성은 캐시 키에서 쿼리 문자열 데이터를 포함하지 못하도록 방지합니다.
 
@@ -151,7 +151,7 @@ UNKNOWN | 서버에서 요청된 자산을 캐시할 수 있는지 여부를 평
 
 - MATimePeriod: 최대 처리 기간 값 (즉 MASeconds)을 더 큰 단위 (예를 들어, 일)으로 변환합니다. 
 
-- UnixTime: Unix 시간에서 (즉, 요청 된 콘텐츠의 캐시 타임 스탬프를 나타냅니다. 또는 Unix Epoch라고도 함)으로 나타냅니다. 캐시 타임스탬프는 자산의 TTL이 계산되는 시작 날짜/시간을 나타냅니다. 
+- UnixTime: Unix 시간 (라고도: POSIX 시간 또는 Unix epoch)에서 요청 된 콘텐츠의 캐시 타임 스탬프를 나타냅니다. 캐시 타임스탬프는 자산의 TTL이 계산되는 시작 날짜/시간을 나타냅니다. 
 
     원본 서버에서 타사 HTTP 캐싱 서버를 활용하지 않거나 해당 서버에서 Age 응답 헤더를 반환하지 않는 경우, 캐시 타임스탬프는 항상 자산을 검색하거나 유효성을 다시 검사한 날짜/시간이 됩니다. 이 고, 그렇지 POP 서버는 자산의 TTL을 다음과 같이 계산 필드를 사용 합니다. Retrieval/RevalidateDateTime - Age.
 

@@ -3,19 +3,19 @@ title: Conversation Learner 모델에서 분기 및 실행 취소 작업을 사�
 titleSuffix: Azure
 description: Conversation Learner 모델에서 분기 및 실행 취소 작업을 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206733"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389886"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>분기 및 실행 취소 작업을 사용하는 방법
 이 자습서에서는 실행 취소 및 분기 작업을 설명합니다.

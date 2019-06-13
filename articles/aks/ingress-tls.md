@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: ad73b9d84a041f42cfdc3c7f5513bd0d32adf2a0
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c858d1ac56da5f04346b3cd84402d4eeeb7fd975
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392193"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430981"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -44,6 +44,9 @@ ms.locfileid: "66392193"
 
 > [!TIP]
 > 다음 예제에서는 명명 된 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다 *수신 basic*합니다. 필요에 따라 사용자 고유의 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터 RBAC를 사용할 수 없는 경우 추가 `--set rbac.create=false` Helm 명령입니다.
+
+> [!TIP]
+> 사용 하도록 설정 하려는 경우 [클라이언트 소스 IP 보존] [ client-source-ip] 클러스터에서 컨테이너에 대 한 요청에 대 한 추가 `--set controller.service.externalTrafficPolicy=Local` 를 Helm 설치 명령을 합니다. 클라이언트 원본 IP에서 요청 헤더에 저장 됩니다 *X-전달 기능에 대 한*합니다. 사용 하도록 설정 하는 클라이언트 소스 IP 보존을 사용 하 여 수신 컨트롤러를 사용 하는 경우 SSL 통과 작동 하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -404,4 +407,5 @@ kubectl delete -f hello-world-ingress.yaml
 [aks-ingress-own-tls]: ingress-own-tls.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli

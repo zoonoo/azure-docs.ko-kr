@@ -20,7 +20,7 @@ ms.locfileid: "58119414"
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs(미리 보기)에 Apache Kafka Connect 지원 통합
 수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 Kafka 지원 Event hubs와 함께 Kafka Connect 프레임워크를 사용하는 방법을 안내합니다.
 
-이 자습서에서는 Kafka Connect를 Kafka 지원 Azure 이벤트 허브와 통합하고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포하는 방법을 안내합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 종합적인 Kafka Connect 시나리오를 보여줍니다.
+이 자습서에서는 Kafka Connect를 Kafka 지원 Azure 이벤트 허브와 통합하고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포하는 방법을 안내합니다. 이 기능은 현재 미리 보기로 제공됩니다. 이러한 커넥터는 프로덕션 용도로 제작된 것이 아니지만, Azure Event Hubs가 Kafka broker 역할을 하는 엔드투엔드 Kafka Connect 시나리오를 보여줍니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)에서 사용할 수 있습니다.

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418067"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515562"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -155,11 +155,11 @@ Azure Machine Learning을 사용 하 여 자동화 된 기계 학습 Python 모�
 
 자동화 된 기계 학습은 같은 다른 Microsoft 솔루션에서 사용할 수 있는:
 
-|통합|설명
-|------------|-----------
-|ML.NET|자동 모델 선택 및 교육 ML.NET를 사용 하 여 Visual Studio 및 Visual Studio Code를 사용 하 여.NET 앱에서 기계 학습 (미리 보기)를 자동화 합니다. [자세한 정보](https://docs.microsoft.com/dotnet/machine-learning/automl-overview).
-|HDIsnight|동시에 HDInsight 클러스터에서 Spark의 ML에 자동화 된 교육 작업을 확장 합니다. [자세한 정보](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md).
-|PowerBI|Power BI (미리 보기)에서 직접 기계 학습 모델을 호출 합니다. [자세한 정보](https://docs.microsoft.com/power-bi/service-machine-learning-automated).
+|통합|설명|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|자동 모델 선택 및 교육 ML.NET를 사용 하 여 Visual Studio 및 Visual Studio Code를 사용 하 여.NET 앱에서 기계 학습 (미리 보기)를 자동화 합니다.|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|동시에 HDInsight 클러스터에서 Spark의 ML에 자동화 된 교육 작업을 확장 합니다.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Power BI (미리 보기)에서 직접 기계 학습 모델을 호출 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

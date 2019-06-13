@@ -2,20 +2,20 @@
 title: 사용자 지정 정책을 사용하여 동적으로 Azure Active Directory B2C UI(사용자 인터페이스) 사용자 지정 | Microsoft Docs
 description: 런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708883"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507774"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -68,7 +68,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
 
-2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET Core 웹 애플리케이션(.NET Core)** 을 선택합니다.
+2. **새 프로젝트** 창에서 **Visual C#**  > **웹** > **ASP.NET Core 웹 애플리케이션(.NET Core)** 을 선택합니다.
 
 3. 애플리케이션 이름(예:*Contoso.AADB2C.UI*)을 지정한 후 **확인**을 선택합니다.
 

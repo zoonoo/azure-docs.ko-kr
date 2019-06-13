@@ -28,7 +28,7 @@ ms.locfileid: "65800739"
 ![](media/common/multi-container.png)
 
 ### <a name="download-sample-code-for-mywebapi"></a>*mywebapi* 샘플 코드 다운로드
-이제 GitHub 리포지토리에서 샘플 코드를 다운로드해 보겠습니다. https://github.com/Azure/dev-spaces로 이동하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 다운로드합니다. 이 섹션에서 사용할 코드는 `samples/dotnetcore/getting-started/mywebapi`에 있습니다.
+이제 GitHub 리포지토리에서 샘플 코드를 다운로드해 보겠습니다. [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 로 이동하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 다운로드합니다. 이 섹션에서 사용할 코드는 `samples/dotnetcore/getting-started/mywebapi`에 있습니다.
 
 ### <a name="run-mywebapi"></a>*mywebapi* 실행
 1. *별도의 Visual Studio 창*에서 `mywebapi` 프로젝트를 엽니다.

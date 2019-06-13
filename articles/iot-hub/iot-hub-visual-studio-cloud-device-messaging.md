@@ -17,7 +17,7 @@ ms.locfileid: "61440746"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Visual Studio용 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
-![종단 간 다이어그램](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
+![엔드투엔드 다이어그램](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)는 Azure 리소스를 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 작업을 수행할 수 있는 유용한 Visual Studio 확장입니다. 이 문서에서는 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지를 보내고 받는 방법에 중점을 둡니다.
 

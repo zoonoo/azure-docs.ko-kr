@@ -70,6 +70,8 @@
           href: waf-front-door-create-portal.md
         - name: WAF 정책 구성 - Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: 봇 보호 구성
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: 사용자 지정 응답 코드 구성
           href: waf-front-door-configure-custom-response-code.md
         - name: IP 제한 구성

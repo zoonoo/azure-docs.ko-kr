@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236295"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735022"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -26,26 +26,28 @@ AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사
 
 <a id="download-and-install-azcopy" />
 
-## <a name="download-azcopy"></a>AzCopy를 다운로드 합니다.
+## <a name="download-azcopy"></a>AzCopy 다운로드
 
-먼저 컴퓨터에 있는 임의의 폴더로 AzCopy V10 실행 파일을 다운로드 합니다. 편의 위해 쉽게 사용할 수 있도록 시스템 경로 AzCopy 폴더 위치를 추가 하는 것이 좋습니다.
+먼저, 컴퓨터에 디렉터리를 AzCopy V10 실행 파일을 다운로드 합니다. 
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows)(zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux)(tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
 
 > [!NOTE]
 > 데이터를 복사 하려는 경우에 [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) 서비스를 설치 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)합니다.
 
 ## <a name="run-azcopy"></a>AzCopy를 실행 합니다.
 
-명령 프롬프트에서 파일을 다운로드 한 디렉터리로 이동 합니다.
+편의 위해 쉽게 사용할 수 있도록 시스템 경로 AzCopy 실행 파일의 디렉터리 위치를 추가 하는 것이 좋습니다. 이런 방식으로 입력할 수 있습니다 `azcopy` 시스템에서 모든 디렉터리에서.
 
-AzCopy 명령 목록을 보려면, 입력 `azCopy`, 한 다음 ENTER 키를 누릅니다.
+입력 하 여 AzCopy 실행 파일의 위치로 디렉터리를 변경 해야 AzCopy 디렉터리 경로를 추가 하지 않으려는 경우 `azcopy` 또는 `.\azcopy` Windows PowerShell 명령 프롬프트에서.
 
-특정 명령에 대 한 자세한 내용은 입력 `azCopy` 다음 명령의 이름을 입력 합니다.
+명령 목록을 보려면 `azcopy -h` 한 다음 ENTER 키를 누릅니다.
 
-에 대 한 자세한 예는 `copy` 명령에 입력 `azcopy copy`, 한 다음 ENTER 키를 누릅니다.
+특정 명령에 대 한 자세한 포함 된 명령의 이름입니다 (예: `azcopy list -h`).
+
+![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 AzCopy를 사용 하 여 의미 있는 모든 작업을 수행 하려면, 저장소 서비스에 권한 부여 자격 증명 제공할 방법을 결정 해야 합니다.
 
@@ -81,7 +83,7 @@ Azure AD (Active Directory)를 사용 하거나 공유 액세스 서명 (SAS) �
 
 참조를 확인 하 고 역할을 할당 하는 방법을 알아보려면 [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
-사용자 id가 대상 컨테이너 또는 폴더의 액세스 제어 목록 (ACL)에 추가 하는 경우 사용자의 id에 할당 된 이러한 역할 중 하나를 사용할 필요가 없습니다. ACL을 본인 대상 폴더에 대 한 쓰기 및 컨테이너와 각 부모 폴더에 대 한 실행 해야 합니다.
+사용자 id가 대상 컨테이너 또는 디렉터리의 액세스 제어 목록 (ACL)에 추가 하는 경우 사용자의 id에 할당 된 이러한 역할 중 하나를 사용할 필요가 없습니다. ACL을 id에 대 한 대상 디렉터리에 쓰기 및 컨테이너와 각 부모 디렉터리에 대 한 실행 해야 합니다.
 
 자세한 내용은 참조 하세요 [Azure Data Lake 저장소 Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)입니다.
 
@@ -102,7 +104,7 @@ Azure AD (Active Directory)를 사용 하거나 공유 액세스 서명 (SAS) �
 
 참조를 확인 하 고 역할을 할당 하는 방법을 알아보려면 [Azure blob 및 큐 데이터에 RBAC 사용 하 여 Azure portal에서 액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.
 
-사용자 id가 대상 컨테이너 또는 폴더의 액세스 제어 목록 (ACL)에 추가 하는 경우 사용자의 id에 할당 된 이러한 역할 중 하나를 사용할 필요가 없습니다. ACL을 본인 대상 폴더에 대 한 권한이 읽기 및 컨테이너와 각 부모 폴더에 대 한 실행 해야 합니다.
+사용자 id가 대상 컨테이너 또는 디렉터리의 액세스 제어 목록 (ACL)에 추가 하는 경우 사용자의 id에 할당 된 이러한 역할 중 하나를 사용할 필요가 없습니다. ACL을 본인 대상 디렉터리에 대 한 읽기 권한이 및 컨테이너와 각 부모 디렉터리에 대 한 실행 해야 합니다.
 
 자세한 내용은 참조 하세요 [Azure Data Lake 저장소 Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)입니다.
 
@@ -114,11 +116,11 @@ Azure AD (Active Directory)를 사용 하거나 공유 액세스 서명 (SAS) �
 azcopy login
 ```
 
-이 명령은 웹 사이트의 URL과 인증 코드를 반환합니다. 웹 사이트를 열고 코드를 제공 하를 선택 합니다 **다음** 단추입니다.
+이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
 
 ![컨테이너 만들기](media/storage-use-azcopy-v10/azcopy-login.png)
 
-로그인 창이 표시 됩니다. 해당 창에서 Azure 계정 자격 증명을 사용 하 여 Azure 계정에 로그인 합니다. 에 성공적으로 로그인 한 후에 브라우저 창을 닫을 수 있으며 AzCopy를 사용 하 여 시작할 수 있습니다.
+로그인 창이 나타납니다. 이 창에서 Azure 계정 자격 증명을 사용하여 Azure 계정에 로그인합니다. 로그인에 성공하면 브라우저 창을 닫고 AzCopy를 사용할 수 있습니다.
 
 ### <a name="option-2-use-a-sas-token"></a>옵션 2: SAS 토큰 사용
 
@@ -138,11 +140,11 @@ SAS 토큰 및 구입 하는 방법에 대 한 자세한 내용은 참조 하세
 
 예제 명령은 찾기 위해 이러한 문서 중 하나를 참조 하세요.
 
-- [AzCopy 및 blob storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-blobs.md)
+- [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 
-- [AzCopy 및 file storage 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-files.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
-- [AzCopy 및 Amazon S3 버킷 사용 하 여 데이터를 전송 합니다.](storage-use-azcopy-s3.md)
+- [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>구성, 최적화 및 AzCopy 문제 해결
 

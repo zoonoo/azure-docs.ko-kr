@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780124"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479876"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
-![종단 간 다이어그램](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
+![엔드투엔드 다이어그램](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
 
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>학습 내용
 
-Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시각화하는 방법에 대해 알아봅니다. Web Apps를 사용하여 IoT Hub의 데이터를 시각화하려면 [Azure Web Apps를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
+Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시각화하는 방법에 대해 알아봅니다. Toe 웹 앱을 사용 하 여 IoT hub에서 데이터를 시각화, 하십시오 시도 하려는 경우 [는 웹 앱을 사용 하 여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)합니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
@@ -179,6 +179,6 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터를 시각화했습니다.
 
-Azure IoT Hub에서 데이터를 시각화하는 또 다른 방법이 있습니다. [Azure Web Apps를 사용하여 Azure IoT Hub의 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
+Azure IoT Hub에서 데이터를 시각화 하는 다른 방법은 참조 하세요 [는 웹 앱을 사용 하 여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)합니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

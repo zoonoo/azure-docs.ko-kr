@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709923"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475193"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
 
-- [Cache-Key 다시 쓰기](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [클라이언트 요청 헤더 수정](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [클라이언트 응답 헤더 수정](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [URL 리디렉션](cdn-rules-engine-reference-features.md#url-redirect)
-- [URL 다시 쓰기](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Cache-Key 다시 쓰기](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [클라이언트 요청 헤더 수정](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [클라이언트 응답 헤더 수정](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [URL 리디렉션](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [URL 다시 쓰기](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>정의
 다음 표에 지원되는 HTTP 변수가 설명되어 있습니다. 지역 메타데이터(예: 우편 번호)를 특정 요청에 대해 사용할 수 없는 경우에는 빈 값이 반환됩니다.
@@ -37,8 +37,8 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 | 이름 | 변수 | 설명 | 샘플 값 |
 | ---- | -------- | ----------- | ------------ |
 | ASN(요청자) | %{geo_asnum} | 요청자의 AS 번호를 나타냅니다. <br /><br />**사용되지 않음:** %{virt_dst_asnum}. <br />이 변수는 %{geo_asnum}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | AS15133 |
-| 도시(요청자) | %{geo_city} | 요청자의 도시를 나타냅니다. | 로스앤젤레스 |
-| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 다음과 같습니다. <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남미<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />% {Geo_continent (를) 대신이 변수는 사용 되지 합니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| N/A |
+| 도시(요청자) | %{geo_city} | 요청자의 도시를 나타냅니다. | Los Angeles |
+| 대륙(요청자) | %{geo_continent} | 해당 약어를 통해 요청자의 대륙을 나타냅니다. <br />유효한 값은 <br />AF: 아프리카<br />AS: 아시아<br />EU: 유럽<br />NA: 북아메리카<br />OC: 오세아니아<br />SA: 남미<br /><br />**사용되지 않음:** %{virt_dst_continent}. <br />% {Geo_continent (를) 대신이 변수는 사용 되지 합니다. <br />이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다.| N/A |
 | 쿠키 값 | %{cookie_Cookie} | 쿠키 용어에 의해 식별된 쿠키 키에 해당하는 값을 반환합니다. | 사용법 예제: <br />%{cookie__utma}<br /><br />샘플 값:<br />111662281.2.10.1222100123 |
 | 국가(요청자) | %{geo_country} | 해당 국가 코드를 통해 요청자의 국가를 나타냅니다. <br />**사용되지 않음:** %{virt_dst_country}. <br /><br />이 변수는 %{geo_country}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | US |
 | 지정된 시장 지역(요청자) | %{geo_dma_code} |해당 지역 코드를 통해 요청자의 미디어 시장을 나타냅니다. <br /><br />이 필드는 미국에서 발생하는 요청에만 적용됩니다.| 745 |
@@ -113,7 +113,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 | 조건 | 설명 | 예 |
 | --------- | ----------- | --------|
 | % 기호 이스케이프 | 백슬래시를 사용하여 백분율 기호를 이스케이프할 수 있습니다. <br />오른쪽의 샘플 값은 HTTP 변수가 아닌 리터럴 값으로 처리됩니다.| \%{host} |
-| 알 수 없는 변수 | 빈 문자열은 항상 알 수 없는 변수에 대해 반환됩니다. | %{unknownvariable} |
+| 알 수 없는 변수 | 빈 문자열은 항상 알 수 없는 변수에 대해 반환됩니다. | %{unknown_variable} |
 | 잘못된 문자 또는 구문 | 잘못된 문자 또는 구문을 포함하는 변수는 리터럴 값으로 처리됩니다. <br /><br />예제 #1: 지정된 된 값에 잘못 된 문자 (예를 들어,-). <br /><br />예제 #2: 지정된 된 값에는 이중 중괄호 집합을 포함합니다. <br /><br />예제 #3: 지정된 된 값에 닫는 중괄호를 누락 되었습니다.<br /> | 예제 #1: %{resp_user-agent} <br /><br />예제 #2: %{{host}} <br /><br />예제 #3: %{host |
 | 변수 이름 누락 | 변수를 지정하지 않은 경우 항상 NULL 값이 반환됩니다. | %{} |
 | 후행 문자 | 변수를 추적하는 문자는 리터럴 값으로 처리됩니다. <br />오른쪽의 샘플 값에는 리터럴 값으로 처리되는 추적 중괄호가 포함되어 있습니다. | %{host}} |
@@ -127,9 +127,9 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 
 | 조건 | 구문 | 예 | 설명 |
 | --------- | ------ | --------| ----------- |
-| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referer:=unspecified} | 누락되었거나 NULL로 설정한 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referer=unspecified} | 누락된 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
-| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | %{http_referer:+unspecified} | 값이 할당된 경우에만 참조자 헤더가 *unspecified*로 설정됩니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족할 경우 헤더를 기본값으로 설정합니다. <br /><br />- 헤더 누락 <br /><br />- 헤더 값이 NULL로 설정됨.| %{Variable:=Value} | %{http_referrer:=unspecified} | 참조 페이지 헤더에만 설정할 *지정 되지 않은* 없거나 설정 때 NULL로 합니다. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 누락된 경우 헤더를 기본값으로 설정합니다. | %{Variable=Value} | %{http_referrer=unspecified} | 참조 페이지 헤더에만 설정할 *지정 되지 않은* 누락 된 경우. 설정된 경우 아무 작업도 수행되지 않습니다. |
+| 다음 조건 중 하나라도 충족하지 않을 경우 헤더를 기본값으로 설정합니다. <br /><br />- 누락됨<br /><br /> - NULL로 설정됨. | %{Variable:+Value} | %{http_referrer:+unspecified} | 참조 페이지 헤더에만 설정할 *지정 되지 않은* 경우 값에 할당 합니다. 누락되거나 NULL로 설정되지 않은 경우 아무 작업도 수행되지 않습니다. |
 
 ## <a name="manipulating-variables"></a>변수 조작
 변수는 다음과 같은 방법으로 조작할 수 있습니다.

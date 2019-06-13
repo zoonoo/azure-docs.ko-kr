@@ -1,6 +1,6 @@
 ---
 title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버깅 | Microsoft Docs
-description: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너를 디버그하는 방법을 알아봅니다.
+description: Visual Studio 2019를 사용 하 여 Azure Service Fabric에서 Windows 컨테이너를 디버깅 하는 방법에 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482646"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428154"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버그
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>방법: Visual Studio 2019를 사용 하 여 Azure Service Fabric에서 Windows 컨테이너 디버그
 
-Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 애플리케이션을 Service Fabric 서비스로 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
+Visual Studio 2019를 사용 하 여 Service Fabric 서비스와 컨테이너에서.NET 응용 프로그램을 디버깅할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 애플리�
 
 1. 다음 단계로 계속 진행하기 전에 Window용 Docker 서비스가 실행되고 있는지 확인합니다.
 
-1. 컨테이너 간에 DNS 확인을 지원하려면 컴퓨터 이름을 사용하여 로컬 개발 클러스터를 설정해야 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
+1. 컨테이너 간 DNS 확인을 지원 하려면 해야 로컬 개발 클러스터를 설정 하려면 컴퓨터 이름을 사용 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
    1. PowerShell을 관리자 권한으로 엽니다.
    2. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
    3. 스크립트 실행`DevClusterSetup.ps1`
@@ -53,19 +53,19 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 애플리�
 
 Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 가능한 해결 방법은 다음과 같습니다.
 
-* ClusterFQDNorIP에 localhost를 사용하면 컨테이너에서 DNS 확인을 지원하지 않습니다.
+* ClusterFQDNorIP에 대 한 localhost를 사용 하 여 컨테이너의 DNS 확인을 지원 하지 않습니다.
     * 해결 방법: 머신 이름을 사용하여 로컬 클러스터를 설정합니다(위 참조).
-* Virtual Machine에서 Windows10을 실행하면 DNS 회신이 컨테이너에 반환되지 않습니다.
+* Windows10 가상 머신에서 실행 되는 컨테이너에 대 한 DNS 회신을 얻이 없습니다.
     * 해결 방법: Virtual Machines NIC에서 IPv4에 대한 UDP 체크섬 오프로드를 사용하지 않도록 설정합니다.
-    * 이 경우 컴퓨터의 네트워킹 성능이 저하됩니다.
+    * Windows10 실행 컴퓨터에서 네트워킹 성능이 저하 됩니다.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Docker Compose를 사용하여 애플리케이션을 배포한 경우 DNS 서비스 이름을 사용하여 동일한 애플리케이션에서 서비스를 확인하는 작업이 Windows10에서 작동하지 않습니다.
+* DNS를 사용 하 여 동일한 응용 프로그램에서 서비스를 확인 합니다. 서비스 이름에서 작동 하지 않습니다 Windows10, 응용 프로그램은 Docker Compose를 사용 하 여 배포 된 경우
     * 해결 방법: servicename.applicationname을 사용하여 서비스 엔드포인트를 확인합니다.
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * ClusterFQDNorIP에 IP-address를 사용하는 경우 호스트에서 주 IP를 변경하면 DNS 기능이 중단됩니다.
-    * 해결 방법: 호스트에서 새 기본 IP를 사용하여 클러스터를 다시 만들거나 머신 이름을 사용합니다. 의도적인 작동입니다.
-* 클러스터에서 만든 FQDN을 네트워크에서 확인할 수 없는 경우 DNS가 실패합니다.
-    * 해결 방법: 호스트의 기본 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 의도적인 작동입니다.
+    * 해결 방법: 호스트에서 새 기본 IP를 사용하여 클러스터를 다시 만들거나 머신 이름을 사용합니다. 이 중단은 의도적인 문제입니다.
+* 클러스터를 사용 하 여 만든 FQDN을 네트워크에서 확인할 수 없는 경우 DNS가 실패 합니다.
+    * 해결 방법: 호스트의 기본 IP를 사용하여 로컬 클러스터를 다시 만듭니다. 이 오류는 의도적입니다.
 * 컨테이너를 디버그하는 경우 Docker 로그는 Visual Studio 출력 창에서만 사용할 수 있으며 Service Fabric API(Service Fabric Explorer 포함)를 통해서는 사용할 수 없습니다
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Service Fabric을 통해 Docker 컨테이너에서 실행되는 .NET 애플리케이션 디버깅
@@ -81,4 +81,4 @@ Service Fabric의 컨테이너 디버깅에 대해 알려진 제한 사항과 �
     Visual Studio는 .NET 및 .NET Core용 콘솔 및 ASP.NET 프로젝트 형식을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Service Fabric 및 컨테이너의 기능에 대한 자세한 내용을 보려면 [Service Fabric 컨테이너 개요](service-fabric-containers-overview.md) 링크를 클릭하세요.
+Service Fabric 및 컨테이너의 기능에 대 한 자세한 내용은 Service Fabric 컨테이너 overview](service-fabric-containers-overview.md)를 참조 하세요.

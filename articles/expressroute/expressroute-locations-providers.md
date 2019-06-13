@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.author: mialdrid
-ms.openlocfilehash: a86d3f44d3c2177185fa81602f953be4f726badb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.date: 05/31/2019
+ms.author: jaredr80
+ms.openlocfilehash: c443d4705da83a43af10763f633f340b1eab69d3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478150"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -86,10 +86,10 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **첸나이** | Tata Communications | 인도 남부 | Global CloudXchange(GCX), SIFY, Tata Communications |
 | **첸나이2** | Airtel | 인도 남부 | Airtel |
 | **시카고** | Equinix | 미국 중북부 | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
-| **댈러스** | Equinix | 해당 없음 | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Verizon, Zayo|
+| **댈러스** | Equinix | 해당 없음 | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **덴버** | CoreSite | 미국 중서부 | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat 아랍에미리트 | 아랍에미리트 북부 | Etisalat 아랍에미리트 |
-| **Dubai2** | du datamena | 아랍에미리트 북부 | du datamena |
+| **Dubai2** | du datamena | 아랍에미리트 북부 | du datamena, Orixcom |
 | **더블린** | Equinix | 북유럽 | Colt, eir, Equinix, Interxion, Megaport |
 | **프랑크푸르트** | Interxion | 해당 없음 | DE-CIX Interxion |
 | **Hong Kong SAR** | Equinix | 동아시아 | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -100,13 +100,13 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **런던2** | Telehouse | 영국 남부 | IX 도달률, Equinix |
 | **로스앤젤레스** | CoreSite | 해당 없음 | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **마르세유** |Interxion | 프랑스 남부 | Interxion |
-| **멜버른** | NextDC | 오스트레일리아 남동부 | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
+| **멜버른** | NextDC | 오스트레일리아 남동부 | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **마이애미** | Equinix | 해당 없음 | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | 해당 없음 | Bell Canada, Cologix, Telus, Zayo |
 | **뭄바이** | Tata Communications | 인도 서부 | Global CloudXchange (GCX), 의존 Jio, Sify, Tata Communications, Verizon |
 | **뭄바이2** | Airtel | 인도 서부 | Airtel, Sify, Vodafone Idea |
 | **뉴욕** | Equinix | 해당 없음 | Coresite, Equinix, InterCloud, Megaport, 패킷, Zayo 센추리 클라우드 연결 |
-| **뉴포트(웨일스)** | Next Generation Data | 영국 서부 | British Telecom, Level 3 Communications, Next Generation Data |
+| **뉴포트(웨일스)** | Next Generation Data | 영국 서부 | British Telecom, Level 3 Communications Colt, 다음 세대 데이터 |
 | **오사카** | Equinix | 일본 서부 | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **파리** | Interxion | 프랑스 중부 | Colt, Equinix, Intercloud, Interxion, Orange, Zayo Telia 통신사 |
 | **퍼스** | NextDC | 해당 없음 | Megaport, NextDC |

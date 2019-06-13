@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 123c5556dc76b35cf4a6b4b34e0c3e2fe437cebe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e014910bc34d2c6aaf9904c5a3670e7d7b496e84
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996449"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384388"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing Image Search API v7 업그레이드 가이드
 
@@ -74,83 +74,83 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)로 변경했습니다.  
+- `modulesRequested` 쿼리 매개 변수의 이름을 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)로 변경했습니다.  
 
-- Annotations의 이름을 Tags로 변경했습니다. Tags에 대한 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 쿼리 매개 변수를 참조하세요.  
+- Annotations의 이름을 Tags로 변경했습니다. Tags에 대한 [모듈](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 쿼리 매개 변수를 참조하세요.  
 
-- ShoppingSources 필터 값의 지원되는 시장 목록을 en-US만으로 변경했습니다. [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)을 참조하세요.  
+- ShoppingSources 필터 값의 지원되는 시장 목록을 en-US만으로 변경했습니다. [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)을 참조하세요.  
 
 
 ### <a name="image-insights-changes"></a>이미지 인사이트 변경 내용
 
-- [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)의 `annotations` 필드 이름을 `imageTags`로 변경했습니다.  
+- [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse)의 `annotations` 필드 이름을 `imageTags`로 변경했습니다.  
 
-- `AnnotationModule` 개체의 이름을 [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetagsmodule)로 변경했습니다.  
+- `AnnotationModule` 개체의 이름을 [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule)로 변경했습니다.  
 
-- `Annotation` 개체의 이름을 [Tag](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#tag)로 변경하고, `confidence` 필드를 제거했습니다.  
+- `Annotation` 개체의 이름을 [Tag](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)로 변경하고, `confidence` 필드를 제거했습니다.  
 
-- [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) 개체의 `insightsSourcesSummary` 필드 이름을 `insightsMetadata`로 변경했습니다.  
+- [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 개체의 `insightsSourcesSummary` 필드 이름을 `insightsMetadata`로 변경했습니다.  
 
-- `InsightsSourcesSummary` 개체의 이름을 [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightsmetadata)로 변경했습니다.  
+- `InsightsSourcesSummary` 개체의 이름을 [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata)로 변경했습니다.  
 
 - `https://api.cognitive.microsoft.com/bing/v7.0/images/details` 엔드포인트를 추가했습니다. /images/search 엔드포인트 대신 요청 이미지 인사이트에 이 엔드포인트를 사용합니다. [이미지 인사이트](./image-insights.md)를 참조하세요.
 
 - 다음 쿼리 매개 변수는 이제 `/images/details` 엔드포인트와만 유효합니다.  
 
-    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
-    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
-    -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
-    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
-    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
-    -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
-    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#ct)  
+    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
+    -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+    -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
-- `ImageInsightsResponse` 개체의 이름을 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsights)로 변경했습니다.  
+- `ImageInsightsResponse` 개체의 이름을 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights)로 변경했습니다.  
 
-- [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsights) 개체에서 다음 필드의 데이터 형식을 변경했습니다.  
+- [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights) 개체에서 다음 필드의 데이터 형식을 변경했습니다.  
 
-    -   `relatedCollections` 필드의 형식을 `ImageGallery[]`에서 [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#relatedcollectionsmodule)로 변경했습니다.  
+    -   `relatedCollections` 필드의 형식을 `ImageGallery[]`에서 [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule)로 변경했습니다.  
 
-    -   `pagesIncluding` 필드의 형식을 `Image[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
+    -   `pagesIncluding` 필드의 형식을 `Image[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
 
-    -   `relatedSearches` 필드의 형식을 `Query[]`에서 [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#relatedsearchesmodule)로 변경했습니다.  
+    -   `relatedSearches` 필드의 형식을 `Query[]`에서 [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule)로 변경했습니다.  
 
-    -   `recipes` 필드의 형식을 `Recipe[]`에서 [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#recipesmodule)로 변경했습니다.  
+    -   `recipes` 필드의 형식을 `Recipe[]`에서 [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule)로 변경했습니다.  
 
-    -   `visuallySimilarImages` 필드의 형식을 `Image[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
+    -   `visuallySimilarImages` 필드의 형식을 `Image[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
 
-    -   `visuallySimilarProducts` 필드의 형식을 `ProductSummaryImage[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
+    -   `visuallySimilarProducts` 필드의 형식을 `ProductSummaryImage[]`에서 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)로 변경했습니다.  
 
-    -   `ProductSummaryImage` 개체를 제거하고 제품 관련 필드를 [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) 개체로 이동했습니다. `Image` 개체는 이미지가 이미지 인사이트 응답에서 시각적으로 유사한 제품의 일부로 포함되는 경우에만 제품 관련 필드를 포함합니다.  
+    -   `ProductSummaryImage` 개체를 제거하고 제품 관련 필드를 [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 개체로 이동했습니다. `Image` 개체는 이미지가 이미지 인사이트 응답에서 시각적으로 유사한 제품의 일부로 포함되는 경우에만 제품 관련 필드를 포함합니다.  
 
-    -   `recognizedEntityGroups` 필드의 형식을 `RecognizedEntityGroup[]`에서 [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#recognizedentitiesmodule)로 변경했습니다.  
+    -   `recognizedEntityGroups` 필드의 형식을 `RecognizedEntityGroup[]`에서 [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule)로 변경했습니다.  
 
--   [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)의 `categoryClassification` 필드 이름을 `annotations`로 변경하고, 해당 형식을 `AnnotationsModule`로 변경했습니다.  
+-   [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse)의 `categoryClassification` 필드 이름을 `annotations`로 변경하고, 해당 형식을 `AnnotationsModule`로 변경했습니다.  
 
 ### <a name="images-answer"></a>이미지 응답
 
--   [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images)에서 displayShoppingSourcesBadges 및 displayRecipeSourcesBadges 필드를 제거했습니다.  
+-   [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images)에서 displayShoppingSourcesBadges 및 displayRecipeSourcesBadges 필드를 제거했습니다.  
 
--   [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 이전에 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffsetAddCount` 값에 이전 오프셋 값과 결과의 이미지 수를 더한 값으로 설정했습니다. 이제 `offset`을 `nextOffset` 값으로 설정합니다.  
+-   [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images)의 `nextOffsetAddCount` 필드 이름을 `nextOffset`으로 변경했습니다. 오프셋을 사용하는 방식도 변경되었습니다. 이전에 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) 쿼리 매개 변수를 `nextOffsetAddCount` 값에 이전 오프셋 값과 결과의 이미지 수를 더한 값으로 설정했습니다. 이제 `offset`을 `nextOffset` 값으로 설정합니다.  
 
 
 ## <a name="non-breaking-changes"></a>호환성이 손상되지 않는 변경
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- 가능한 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 필터 값으로 Transparent를 추가했습니다. Transparent 필터는 투명한 배경이 있는 이미지만을 반환합니다.
+- 가능한 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) 필터 값으로 Transparent를 추가했습니다. Transparent 필터는 투명한 배경이 있는 이미지만을 반환합니다.
 
-- 가능한 [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license) 필터 값으로 Any를 추가했습니다. Any 필터는 라이선스 아래에 있는 이미지만을 반환합니다.
+- 가능한 [license](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) 필터 값으로 Any를 추가했습니다. Any 필터는 라이선스 아래에 있는 이미지만을 반환합니다.
 
-- [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) 및 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) 쿼리 매개 변수를 추가했습니다. 이러한 필터를 사용하여 파일 크기의 범위 내에서 이미지를 반환합니다.  
+- [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) 및 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) 쿼리 매개 변수를 추가했습니다. 이러한 필터를 사용하여 파일 크기의 범위 내에서 이미지를 반환합니다.  
 
-- [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxheight), [minHeight](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minheight), [maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxwidth), [minWidth](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minwidth) 쿼리 매개 변수를 추가했습니다. 이러한 필터를 사용하여 높이 및 너비의 범위 내에서 이미지를 반환합니다.  
+- [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight), [minHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight), [maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth), [minWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) 쿼리 매개 변수를 추가했습니다. 이러한 필터를 사용하여 높이 및 너비의 범위 내에서 이미지를 반환합니다.  
 
 ### <a name="object-changes"></a>개체 변경 내용
 
-- [Offer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer) 개체에 `description` 및 `lastUpdated` 필드를 추가했습니다.  
+- [Offer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer) 개체에 `description` 및 `lastUpdated` 필드를 추가했습니다.  
 
-- [ImageGallery](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagegallery) 개체에 `name` 필드를 추가했습니다.  
+- [ImageGallery](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery) 개체에 `name` 필드를 추가했습니다.  
 
-- [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 개체에 `similarTerms`를 추가했습니다. 이 필드는 사용자의 쿼리 문자열에 대한 의미와 유사한 용어 목록을 포함합니다.  
+- [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 개체에 `similarTerms`를 추가했습니다. 이 필드는 사용자의 쿼리 문자열에 대한 의미와 유사한 용어 목록을 포함합니다.  

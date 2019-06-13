@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919098"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496734"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -54,18 +54,18 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
-| **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br>  암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
-| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다  <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다  <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
-| **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다  <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
+| **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br> 암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
+| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br> 관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
+| **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
 ### <a name="client-experience"></a>클라이언트 환경
 사용자 로그인 환경을 결정하는 데 사용하는 전략입니다.  다음 테이블에서는 어떤 사용자가 해당 로그인 환경을 예상해야 하는지에 대한 정보를 제공합니다.  페더레이션된 모든 ID 공급자가 모든 시나리오에서 SSO를 지원하는 것은 아닙니다.
 
-**도메인 가입된 개인 네트워크 애플리케이션**:
+**도메인 가입된 프라이빗 네트워크 애플리케이션**:
 
 |  | 동기화된 ID | 페더레이션된 ID |
 | --- | --- | --- |
-| 웹 브라우저 |양식 기반 인증  |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
+| 웹 브라우저 |양식 기반 인증 |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
 | OneDrive for Business |자격 증명 확인 |Single Sign-On |
@@ -75,7 +75,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 |  | 동기화된 ID | 페더레이션된 ID |
 | --- | --- | --- |
-| 웹 브라우저 |양식 기반 인증  |양식 기반 인증  |
+| 웹 브라우저 |양식 기반 인증 |양식 기반 인증 |
 | Outlook, 비즈니스용 Skype(Lync), 비즈니스용 OneDrive, Office 구독 |자격 증명 확인 |자격 증명 확인 |
 | Exchange ActiveSync |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
 | 모바일 앱 |자격 증명 확인 |자격 증명 확인 |
@@ -134,7 +134,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * 연결된 사서함이 있다면 로그인에 사용되는 다른 포리스트에도 다른 계정이 있습니다.
 
 > [!NOTE]
-> 온-프레미스 및 클라우드에 존재하는 개체는 고유 식별자를 통해 "연결"됩니다. 디렉터리 동기화의 컨텍스트에서 이 고유한 식별자는 SourceAnchor라고 합니다. Single Sign-On의 컨텍스트에서 ImmutableId라고 합니다. [Azure AD Connect에 대한 설계 개념](plan-connect-design-concepts.md#sourceanchor) 
+> 온-프레미스 및 클라우드에 존재하는 개체는 고유 식별자를 통해 "연결"됩니다. 디렉터리 동기화의 컨텍스트에서 이 고유한 식별자는 SourceAnchor라고 합니다. Single Sign-On의 컨텍스트에서 ImmutableId라고 합니다. [Azure AD Connect에 대한 설계 개념](plan-connect-design-concepts.md#sourceanchor)
 > 
 > 
 
@@ -199,8 +199,7 @@ Multi-Factor 설계 옵션:
 | 온-프레미스 AD |Multi-Factor Authentication 서버 |
 
 > [!NOTE]
-> 또한 선택한 Multi-Factor Authentication 설계 옵션이 설계에 필요한 기능을 지원하도록 해야 합니다.  자세한 내용은 [다단계 보안 솔루션 선택](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)을 참조하세요.
-> 
+> 또한 선택한 Multi-Factor Authentication 설계 옵션이 설계에 필요한 기능을 지원하도록 해야 합니다.  자세한 내용은 [다단계 보안 솔루션 선택](../authentication/concept-mfa-howitworks.md)을 참조하세요.
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Multi-Factor Auth 공급자

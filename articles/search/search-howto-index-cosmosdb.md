@@ -10,18 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522845"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753992"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search 인덱서를 사용 하 여 Cosmos DB를 인덱싱하는 방법
 
 
 > [!Note]
-> MongoDB API 지원은 미리 보기로 제공 되며 프로덕션 사용에 대 한 의도 하지 않습니다. 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. 포털 또는 지금은.NET SDK를 지원 하지 있습니다.
+> MongoDB API 지원은 미리 보기로 제공 되며 프로덕션 사용에 대 한 의도 하지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 포털 또는 지금은.NET SDK를 지원 하지 있습니다.
 >
 > SQL API 일반 공급 됩니다.
 
@@ -255,7 +255,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON 데이터 형식과 Azure Search 데이터 형식 사이의 매핑
 | JSON 데이터 형식 | 호환되는 대상 인덱스 필드 형식 |
 | --- | --- |
-| 부울 |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
 | String |Edm.String |
@@ -282,6 +282,8 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
+
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
 
 ## <a name="use-net"></a>.NET 사용
 

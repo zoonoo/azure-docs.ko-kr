@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306886"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428107"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -38,7 +38,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 ## <a name="prerequisites"></a>필수 조건
 
 * 다음을 실행하는 개발 컴퓨터
-  * Visual Studio 2015 또는 Visual Studio 2017.
+  * Visual Studio 2015 또는 Visual Studio 2019 합니다.
   * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
   *  Windows용 Docker [Windows용 Docker CE 가져오기(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
@@ -482,7 +482,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들면 다음과 같습니다.
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
-- Windows Server 버전 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709를 실행하는 호스트에서 HyperV 격리 모드로만 작동합니다. 
+- Windows Server 2016을 사용 하 여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709 실행 하는 호스트 에서만 Hyper-v 격리 모드에서 작동 합니다. 
 - Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 2016을 실행하는 호스트에서 프로세스 격리 모드로 실행할 때 컨테이너 OS와 호스트 OS의 수정 버전이 동일한지 확인해야 할 수 있습니다.
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.

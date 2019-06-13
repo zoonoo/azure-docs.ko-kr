@@ -1,21 +1,17 @@
 ---
 title: Azure 관리되는 애플리케이션 개요 | Microsoft Docs
 description: Azure 관리형 애플리케이션에 대한 개념을 설명합니다.
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001808"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479813"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 애플리케이션 개요
 
@@ -55,7 +51,9 @@ IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션�
 
 ## <a name="resource-groups-for-managed-applications"></a>관리되는 애플리케이션에 대한 리소스 그룹
 
-일반적으로 관리되는 애플리케이션의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 애플리케이션을 정의할 때는 게시자가 액세스 수준을 지정합니다. [데이터 작업](../role-based-access-control/role-definitions.md)에 대한 액세스 제한은 현재 Azure의 모든 데이터 공급자에 대해 지원되지 않습니다.
+일반적으로 관리되는 애플리케이션의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 애플리케이션을 정의할 때는 게시자가 액세스 수준을 지정합니다. 게시자는 영구 역할 할당을 요청하거나 기간이 제한된 할당에 대한 [Just-In-Time 액세스](request-just-in-time-access.md)를 요청할 수 있습니다.
+
+[데이터 작업](../role-based-access-control/role-definitions.md)에 대한 액세스 제한은 현재 Azure의 모든 데이터 공급자에 대해 지원되지 않습니다.
 
 다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
 
@@ -69,7 +67,7 @@ IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션�
 
 ### <a name="managed-resource-group"></a>관리되는 리소스 그룹
 
-이 리소스 그룹은 관리되는 애플리케이션에 필요한 모든 리소스를 갖습니다. 예를 들어 이 리소스 그룹에는 솔루션에 대한 가상 머신, 저장소 계정 및 가상 네트워크가 포함됩니다. 소비자는 관리되는 애플리케이션에 대한 개별 리소스를 관리하지 않으므로 이 리소스 그룹에 제한적으로 액세스할 수 있습니다. 이 리소스 그룹에 대한 게시자의 액세스는 관리되는 애플리케이션 정의에서 지정한 역할에 해당합니다. 예를 들어 게시자는 이 리소스 그룹에 대해 소유자 또는 참가자 역할을 요청할 수 있습니다.
+이 리소스 그룹은 관리되는 애플리케이션에 필요한 모든 리소스를 갖습니다. 예를 들어 이 리소스 그룹에는 솔루션에 대한 가상 머신, 저장소 계정 및 가상 네트워크가 포함됩니다. 소비자는 관리되는 애플리케이션에 대한 개별 리소스를 관리하지 않으므로 이 리소스 그룹에 제한적으로 액세스할 수 있습니다. 이 리소스 그룹에 대한 게시자의 액세스는 관리되는 애플리케이션 정의에서 지정한 역할에 해당합니다. 예를 들어 게시자는 이 리소스 그룹에 대해 소유자 또는 참가자 역할을 요청할 수 있습니다. 액세스는 영구적이거나 특정 시간으로 제한됩니다.
 
 소비자가 관리되는 애플리케이션을 삭제하면 관리되는 리소스 그룹도 삭제됩니다.
 

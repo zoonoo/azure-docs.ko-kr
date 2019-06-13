@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7c4ec0304211d4ce311d3db2275b065219f37f0f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834293"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514759"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>빠른 시작: Translator Text API를 사용하여 Node.js 사용 문자열 번역
 
@@ -77,8 +77,7 @@ let options = {
     url: 'translate',
     qs: {
       'api-version': '3.0',
-      'to': 'it',
-      'to': 'de'
+      'to': ['de', 'it']
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
@@ -92,7 +91,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 요청을 인증하는 가장 쉬운 방법은 구독 키에서 `Ocp-Apim-Subscription-Key` 헤더로 전달하는 것이며, 이 샘플에서 이 방법을 사용할 것입니다. 대안으로, 액세스 토큰에 구독 키를 대체하고 `Authorization` 헤더로서 액세스 토큰을 전달하여 요청의 유효성을 검사할 수 있습니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)을 참조하세요.
 

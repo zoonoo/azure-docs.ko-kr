@@ -146,7 +146,7 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
   * 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.
   * 확인자는 지정하지 않고 키는 지정한 경우 해당 식별자가 필요한 키 식별자와 일치하는 경우 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
 
-이 문서의 코드 예제는 암호화 정책을 설정하고 암호화된 데이터를 사용하는 방법을 보여줍니다. 하지만 Azure Key Vault를 사용하는 방법은 보여주지 않습니다. GitHub에 대한 [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)은 Key Vault 통합과 함께 Blob, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여줍니다.
+이 문서의 코드 예제는 암호화 정책을 설정하고 암호화된 데이터를 사용하는 방법을 보여줍니다. 하지만 Azure Key Vault를 사용하는 방법은 보여주지 않습니다. GitHub에 대한 [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)은 Key Vault 통합과 함께 Blob, 큐 및 테이블에 대한 보다 자세한 엔드투엔드 간 시나리오를 보여줍니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드
 사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.

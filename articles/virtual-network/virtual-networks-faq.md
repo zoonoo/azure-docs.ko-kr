@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508418"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497102"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -180,17 +180,18 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE(App Service Environment)를 사용하여 VNet 내부에 Web Apps를 배포할 수 있습니다. VNet에 대해 지점 및 사이트 간 연결이 구성된 경우 VNet에서 모든 Web Apps를 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내에서 웹 앱 배포, 앱의 백 엔드 서비스 끝점을 사용 하 여 앱에 인바운드 트래픽 잠글 및 VNet 통합을 사용 하 여 Vnet에 연결할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
+* [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Web Apps를 통해 VNet 통합 및 하이브리드 연결 사용](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [App Service 액세스 제한](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
 예. (선택 사항) VNet 내에서 Cloud Services 역할 인스턴스를 배포할 수 있습니다. 이를 수행하려면 서비스 구성의 네트워크 구성 섹션에서 VNet 이름 및 역할/서브넷 매핑을 지정합니다. 이진 파일을 업데이트할 필요가 없습니다.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>VMSS(Virtual Machine Scale Set)를 VNet에 연결할 수 있습니까?
-예. VMSS를 VNet에 연결해야 합니다.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>VNet에 설정 하는 가상 머신 확장을 연결할 수 있습니까?
+예. 가상 머신 확장 집합 VNet에 연결 해야 합니다.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>VNet에 리소스를 배포할 수 있는 전체 Azure 서비스 목록이 있습니까?
 네, 자세한 내용은 [Azure 서비스에 대한 가상 네트워크 통합](virtual-network-for-azure-services.md)을 참조하세요.
@@ -219,7 +220,7 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 ## <a name="apis-schemas-and-tools"></a>API, 스키마 및 도구
 
 ### <a name="can-i-manage-vnets-from-code"></a>코드에서 VNet을 관리할 수 있습니까?
-예. [Azure Resource Manager](/rest/api/virtual-network) 및 [클래식(서비스 관리)](https://go.microsoft.com/fwlink/?LinkId=296833) 배포 모델에서 VNet에 대해 REST API를 사용할 수 있습니다.
+예. REST Api를 사용 하 여 Vnet에 대 한 합니다 [Azure Resource Manager](/rest/api/virtual-network) 하 고 [클래식](https://go.microsoft.com/fwlink/?LinkId=296833) 배포 모델입니다.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
@@ -239,7 +240,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 두 가상 네트워크가 다른 지역 (글로벌 VNet 피어 링)에 있는 경우에 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
 다음 리소스는 글로벌 VNet 피어 링에서 통신할 수 없어 해당 의미는 기본 부하 분산 장치를 사용 합니다.
 - 기본 부하 분산 장치 뒤의 Vm
-- 기본 부하 분산 장치를 사용 하 여 VM Scale Sets 
+- 기본 부하 분산 장치를 사용 하 여 가상 머신 확장 집합 
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
@@ -247,7 +248,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - API Management
 - Active Directory 도메인 서비스 (추가)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
 - App Service Environment
@@ -285,7 +286,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 계산 리소스에 의해서만 제한됩니다.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet 피어 링 하는 문제를 해결 하려면 어떻게 해야 합니까?
-[문제 해결사 가이드] 다음과 같습니다 (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 시도할 수 있습니다.
+다음은 [문제 해결사 가이드](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 시도할 수 있습니다.
 
 ## <a name="virtual-network-tap"></a>가상 네트워크 TAP
 

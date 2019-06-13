@@ -171,7 +171,7 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
 이 자습서에서는 Azure IoT Hub에서 Azure 서비스로 메시지를 효율적으로 라우팅하기 위해 Avro 데이터를 쿼리하는 방법을 알아보았습니다.
 
-IoT Hub를 사용하는 완벽한 통합형 솔루션의 예는 [Azure IoT 솔루션 가속기 설명서](/azure/iot-accelerators)를 참조하세요.
+IoT Hub를 사용하는 완벽한 엔드투엔드 솔루션의 예는 [Azure IoT 솔루션 가속기 설명서](/azure/iot-accelerators)를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.
 

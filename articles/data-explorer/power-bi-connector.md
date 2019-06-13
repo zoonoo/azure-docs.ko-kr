@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399301"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494659"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
 
@@ -38,13 +38,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     ![데이터 가져오기](media/power-bi-connector/get-data-more.png)
 
-1. *Azure Data Explorer*를 검색한 다음, **Azure Data Explorer(베타)** , **연결**을 차례로 선택합니다.
+1. 검색할 *Azure 데이터 탐색기*를 선택 **Azure 데이터 탐색기** 한 다음 **Connect**합니다.
 
     ![데이터 검색 및 가져오기](media/power-bi-connector/search-get-data.png)
 
-1. **커넥터 미리 보기** 화면에서 **계속**을 선택합니다.
-
-1. 다음 화면에서 다음 정보로 양식을 작성합니다.
+1. 에 **Azure 데이터 탐색기 (Kusto)** 화면에서 다음 정보로 양식을 작성 하세요.
 
     ![클러스터, 데이터베이스, 테이블 옵션](media/power-bi-connector/cluster-database-table.png)
 

@@ -1,6 +1,6 @@
 ---
-title: .NET에서 Azure Relay 하이브리드 연결 Websocket 시작 | Microsoft Docs
-description: Azure Relay 하이브리드 연결 Websocket에 대한 C# 콘솔 애플리케이션을 작성합니다.
+title: .NET에서 Azure 릴레이 하이브리드 연결 Websocket을 사용 하 여 시작 | Microsoft Docs
+description: 작성 된 C# 콘솔 응용 프로그램 Azure 릴레이 하이브리드 연결 Websocket에 대 한 합니다.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749738"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428344"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>.NET에서 Relay 하이브리드 연결 WebSockets 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 
     ![응용 프로그램 실행](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-축하합니다. 종단 간 하이브리드 연결 애플리케이션을 만들었습니다.
+축, 완전 한 하이브리드 연결 응용 프로그램을 만들었습니다!
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 메시지를 보내고 받는 데 WebSockets를 사용한 .NET 클라이언트 및 서버 애플리케이션을 만들었습니다. Azure Relay의 하이브리드 연결 기능은 HTTP를 사용하여 메시지를 보내고 받을 수도 있도록 지원합니다. Azure Relay 하이브리드 연결에 HTTP를 사용하는 방법에 대한 자세한 내용은 [HTTP 빠른 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)을 참조하세요.

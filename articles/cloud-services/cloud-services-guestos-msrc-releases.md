@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241317"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743047"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
 ## <a name="may-2019-guest-os"></a>2019 년 5 월 게스트 OS
 
->[!NOTE]
->수 있습니다 게스트 운영 체제 현재 롤아웃하는 자동 업데이트에 대해 구성 된 클라우드 서비스 Vm에 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치 있습니다 게스트 OS에 포함 됩니다. 이 목록은 변경될 수 있습니다.
-
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4505050 ]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 18 일  |
-|  Rel 19-05   |  [4497932 ]  |  업데이트를 깜박일 수 있습니다.   |  3.73, 4.66, 5.31  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4499175 ]  |  5 월 보안 롤업   |  2.86  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495612 ]  |  5 월 보안 롤업.NET 3.5   |  2.86  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495593 ]  |  5 월 보안 롤업.NET 4.5.2   |  2.86  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4499158 ]  |  5 월 보안 롤업   |  3.73  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495607 ]  |  5 월 보안 롤업.NET 3.5   |  3.73  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495591 ]  |  5 월 보안 롤업.NET 4.5.2   |  3.73  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4492872 ]  |  IE 롤업   |  3.73  |  2019 년 4 월 16 일  |
-|  Rel 19-05   |  [4499165 ]  |  3 월 보안 롤업   |  4.66  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495615 ]  |  5 월 보안 롤업.NET 3.5   |  4.66  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495589 ]  |  5 월 보안 롤업.NET 4.5.2   |  4.66  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4498947 ]  |  5월 SSU   |  5.31  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4494175 ]  |  마이크로코드 업데이트 될 수 있습니다.   |  5.31  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4505052 ]  |  5 월 보안 롤업   |  5.31  |  2019 년 5 월 19 일  |
-|  Rel 19-05   |  [4499728 ]  |  5월 SSU   |  6.7  |  2019 년 5 월 19 일  |
-|  Rel 19-05   |  [4505056 ]  |  5 월 보안 롤업   |  6.7  |  2019 년 5 월 19 일  |
-|  Rel 19-05   |  [4494174 ]  |  마이크로코드 업데이트 될 수 있습니다.   |  6.7  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4495590 ]  |  5 월.NET 보안 롤업   |  6.7  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4498206]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4505050]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 18 일  |
+|  Rel 19-05   |  [4497932]  |  업데이트를 깜박일 수 있습니다.   |  3.73, 4.66, 5.31  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4499175]  |  5 월 보안 롤업   |  2.86  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495612]  |  5 월 보안 롤업.NET 3.5   |  2.86  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495593]  |  5 월 보안 롤업.NET 4.5.2   |  2.86  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4499158]  |  5 월 보안 롤업   |  3.73  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495607]  |  5 월 보안 롤업.NET 3.5   |  3.73  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495591]  |  5 월 보안 롤업.NET 4.5.2   |  3.73  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4492872]  |  IE 롤업   |  3.73  |  2019 년 4 월 16 일  |
+|  Rel 19-05   |  [4499165]  |  3 월 보안 롤업   |  4.66  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495615]  |  5 월 보안 롤업.NET 3.5   |  4.66  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495589]  |  5 월 보안 롤업.NET 4.5.2   |  4.66  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4498947]  |  5월 SSU   |  5.31  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4494175]  |  마이크로코드 업데이트 될 수 있습니다.   |  5.31  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4505052]  |  5 월 보안 롤업   |  5.31  |  2019 년 5 월 19 일  |
+|  Rel 19-05   |  [4499728]  |  5월 SSU   |  6.7  |  2019 년 5 월 19 일  |
+|  Rel 19-05   |  [4505056]  |  5 월 보안 롤업   |  6.7  |  2019 년 5 월 19 일  |
+|  Rel 19-05   |  [4494174]  |  마이크로코드 업데이트 될 수 있습니다.   |  6.7  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4495590]  |  5 월.NET 보안 롤업   |  6.7  |  2019 년 5 월 14 일  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>2019 년 4 월 게스트 OS
@@ -83,11 +81,11 @@ ms.locfileid: "66241317"
 | Rel 19-04 | [4493448] | Windows 보안 | 2.85 | 2019년 4월 9일 |
 | Rel 19-04 | [4493478] | 깜박임 | 3.72, 4.65, 5.30, 6.6 | 2019년 4월 9일 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 2019년 4월 9일 |
-| Rel 19-04 | [KB4490628] | 서비스 스택 업데이트 | 2.85 | 2019년 3월 12일 |
-| Rel 19-04 | [KB4474419] | SHA2 지원 | 2.85 | 2019년 3월 12일 |
-| Rel 19-04 | [KB4489878] | 3 월 비보안 롤업 | 2.85 | 2019년 3월 12일 |
-| Rel 19-04 | [KB4489891] | 3 월 비보안 롤업 | 3.72 | 2019년 3월 12일 |
-| Rel 19-04 | [KB4489881] | 3 월 비보안 롤업 | 4.65 | 2019년 3월 12일 |
+| Rel 19-04 | [4490628] | 서비스 스택 업데이트 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [4474419] | SHA2 지원 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [4489878] | 3 월 비보안 롤업 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [4489891] | 3 월 비보안 롤업 | 3.72 | 2019년 3월 12일 |
+| Rel 19-04 | [4489881] | 3 월 비보안 롤업 | 4.65 | 2019년 3월 12일 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ ms.locfileid: "66241317"
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>2019 년 3 월 게스트 OS
 
