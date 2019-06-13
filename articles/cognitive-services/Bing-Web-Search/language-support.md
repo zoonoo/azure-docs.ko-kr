@@ -10,18 +10,18 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798252"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384770"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
 Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가 또는 지역 지정은 해당 국가 또는 지역의 관심 분야에 따라 검색 결과를 구체화하는 데 유용합니다. 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
-`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정된 경우 [`Accept-Language` 헤더](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers)를 사용하여 하나 이상의 언어 코드를 지정해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
+`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정된 경우 [`Accept-Language` 헤더](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers)를 사용하여 하나 이상의 언어 코드를 지정해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#markets)을 사용합니다.
 
 또는 **시장** 테이블에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 시장을 지정할 수 있습니다. 시장을 지정하면 동시에 국가 또는 지역 및 기본 언어가 지정됩니다. `setLang` 쿼리 매개 변수로 언어를 명시적으로 설정할 수 있습니다.
 
@@ -56,8 +56,8 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |포르투갈|PT|
 |필리핀|PH|
 |러시아|RU|
-|사우디 아라비아|SA|
-|남아프리카|ZA|
+|사우디아라비아|SA|
+|남아프리카 공화국|ZA|
 |스페인|ES|
 |스웨덴|SE|
 |스위스|CH|
@@ -83,7 +83,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩 특별 행정구|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어(번체)|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
@@ -99,13 +99,13 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |포르투갈|포르투갈어|pt-PT|
 |필리핀|영어|en-PH|
 |러시아|러시아어|ru-RU|
-|사우디 아라비아|아랍어|ar-SA|
-|남아프리카|영어|en-ZA|
+|사우디아라비아|아랍어|ar-SA|
+|남아프리카 공화국|영어|en-ZA|
 |스페인|스페인어|es-ES|
 |스웨덴|스웨덴어|sv-SE|
 |스위스|프랑스어|fr-CH|
 |스위스|독일어|de-CH|
-|대만|중국어 번체|zh-TW|
+|대만|중국어(번체)|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
 |미국|영어|en-US|

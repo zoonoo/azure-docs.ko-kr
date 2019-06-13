@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298814"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473793"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell 참조
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>DESCRIPTION
 
-로컬 DNS 연결 테스트를 실행합니다. Active Directory connector를 구성 하려면 사용자도이 포리스트에 연결 된 도메인 컨트롤러와 같이 연결 하려고 하는 포리스트에 대 한 이름 확인 둘 다 있어야 합니다.
+로컬 DNS 연결 테스트를 실행합니다.
+Active Directory connector를 구성 하려면 사용자도이 포리스트에 연결 된 도메인 컨트롤러와 같이 연결 되려고 포리스트에 대 한 이름 해상도 모두 있어야 합니다.
 
 ### <a name="examples"></a>예제
 
@@ -308,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-사용자는 AD 사이트에서 제공 하는 DNS 서비스를 사용 하지 않는 경우 / 로그온 DC를 해당 수 검사 포트 53을 건너뜁니다.
-사용자가 여전히 _.ldap._tcp.\<forestfqdn\>을 확인할 수 있어야 Active Directory 커넥터 구성이 성공합니다.
+사용자는 AD 사이트에서 제공 하는 DNS 서비스를 사용 하지 경우 / 로그온 DC를 해당 수 검사 포트 53을 건너뜁니다.
+여전히 사용자 _.ldap._tcp을 확인할 수 여야 합니다. \<forestfqdn\> Active Directory Connector 구성을 완료 하려면 순서 대로 합니다.
 
 ```yml
 Type: SwitchParameter

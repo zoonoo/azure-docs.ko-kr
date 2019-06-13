@@ -2,20 +2,20 @@
 title: 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정 - Azure Active Directory B2C | Microsoft Docs
 description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 등록 또는 로그인 경험에 클레임을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768001"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507552"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -51,7 +51,7 @@ ms.locfileid: "65768001"
 - **UserHelpText** - 사용자가 필요한 내용을 파악할 수 있도록 도와줍니다.
 - **UserInputType** - 텍스트 상자, 라디오 선택, 드롭다운 목록 또는 다중 선택일 수 있습니다.
 
-#### <a name="textbox"></a>텍스트 상자
+#### <a name="textbox"></a>TextBox
 
 ```xml
 <ClaimType Id="city">

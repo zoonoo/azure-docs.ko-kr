@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866853"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388492"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Bing Entity Search API란?
 
@@ -39,5 +39,5 @@ Bing Entity Search API는 RESTful 웹 서비스이며, HTTP 요청을 수행하�
 
 * Bing Entity Search API에 대한 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/)를 사용해 보세요. 
 * 첫 번째 요청을 신속하게 시작하려면 [빠른 시작](quickstarts/csharp.md)
-* [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 참조 섹션을 시도해 보세요.
+* [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 참조 섹션을 시도해 보세요.
 * [Bing 사용 및 표시 요구 사항](./use-display-requirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.

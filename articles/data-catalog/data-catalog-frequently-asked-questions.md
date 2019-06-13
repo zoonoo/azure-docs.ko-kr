@@ -56,7 +56,7 @@ ms.locfileid: "61004044"
 기능 요청 및 기타 피드백을 제출하려면 [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources)으로 이동합니다.
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>데이터 카탈로그를 시작하려면 어떻게 하나요?
-시작하는 가장 좋은 방법은 [데이터 카탈로그 시작](data-catalog-get-started.md)으로 이동하는 것입니다. 이 문서는 서비스의 기능에 대한 종단간 개요입니다.
+시작하는 가장 좋은 방법은 [데이터 카탈로그 시작](data-catalog-get-started.md)으로 이동하는 것입니다. 이 문서는 서비스의 기능에 대한 엔드투엔드 개요입니다.
 
 ## <a name="how-do-i-register-my-data"></a>내 데이터를 어떻게 등록하나요?
 데이터 카탈로그에 데이터를 등록하려면:

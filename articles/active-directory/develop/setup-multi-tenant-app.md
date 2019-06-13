@@ -29,7 +29,7 @@ ms.locfileid: "65540465"
 - [다중 테넌트 애플리케이션의 의미](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application) 이해
 - [애플리케이션을 다중 테넌트로 구성하는 방법](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) 이해
 - 다중 테넌트 애플리케이션에 필요한 [Azure AD 동의 프레임워크로 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 대한 단계별 개요 확인
-- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 구성되고 종합적으로 코딩되는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)(등록 방법, "common" 엔드포인트 사용 방법, "user" 및 "admin" 동의 구현 방법, 좀 더 수준 높은 다중 계층 시나리오를 구현 방법 포함) 알아보기
+- 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 구성되고 엔드투엔드로 코딩되는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)(등록 방법, "common" 엔드포인트 사용 방법, "user" 및 "admin" 동의 구현 방법, 좀 더 수준 높은 다중 계층 시나리오를 구현 방법 포함) 알아보기
 
 ## <a name="next-steps"></a>다음 단계
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

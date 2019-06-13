@@ -1808,7 +1808,7 @@ Azure에서 실행되는 SAP 인스턴스도 SAProuter에서 액세스할 수 �
 
 ![SAP-라우터 네트워크 연결][planning-guide-figure-2600]
 
-SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 종단 간 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
+SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 엔드투엔드 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
 SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 SAProuter 문자열과 호스트 이름을 지정해야 합니다.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
@@ -1952,7 +1952,7 @@ Azure에서 SAP Central Services의 고가용성 아키텍처의 경우 항목 �
 
 일반적으로 DBMS 및 특정 DBMS에 대한 고가용성 및 재해 복구 기능은 [DBMS 배포 가이드][dbms-guide]에서 설명하고 있습니다.
 
-#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템의 종단 간 고가용성
+#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템에 대한 엔드투엔드 고가용성
 
 Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과 Linux용입니다.
 

@@ -4,14 +4,14 @@ description: Azure Resource Manager 및 Azure PowerShell을 사용 하 여 Azure
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779951"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476987"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -34,6 +34,8 @@ New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Template
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
+
+현재 REST API를 통해 관리 그룹 배포만 지원 됩니다. 참조 [Resource Manager 템플릿과 Resource Manager REST API를 사용 하 여 리소스 배포](resource-group-template-deploy-rest.md)합니다.
 
 이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
 

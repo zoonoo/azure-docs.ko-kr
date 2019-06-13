@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398541"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430864"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 모델 interpretability
 
@@ -462,7 +462,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
 
 자동화 된 machine learning 자동 학습 모델의 기능 중요도 해석 하는 것에 대 한 패키지를 포함 합니다. 또한 분류 시나리오를 수행할 수 클래스 수준 기능 중요도 검색할 수 있습니다. 자동화 된 machine learning 내에서이 동작을 사용 하도록 설정 하는 방법은 두 가지가 있습니다.
 
-* 앙상블 학습 된 모델의 기능 중요도 사용 하도록 설정 하려면 사용 합니다 [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) 함수입니다.
+* 앙상블 학습 된 모델의 기능 중요도 사용 하도록 설정 하려면 사용 합니다 [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) 함수입니다.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* 학습 하기 전에 각 개별 실행의 기능 중요도 사용 하도록 설정 하려면 설정를 `model_explainability` 매개 변수를 `True` 에 `AutoMLConfig` 개체, 유효성 검사 데이터를 제공 합니다. 그런 다음 사용 합니다 [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) 함수입니다.
+* 학습 하기 전에 각 개별 실행의 기능 중요도 사용 하도록 설정 하려면 설정를 `model_explainability` 매개 변수를 `True` 에 `AutoMLConfig` 개체, 유효성 검사 데이터를 제공 합니다. 그런 다음 사용 합니다 [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) 함수입니다.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

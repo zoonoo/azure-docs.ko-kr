@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149243"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515736"
 ---
-# <a name="streaming-endpoints-origin"></a>스트리밍 끝점 (원본)
+# <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
 Microsoft Azure Media services에서는 [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 응용 프로그램 중 하나를 사용 하 여에 직접 제공할 수 있는 동적 (-just-in-time) 패키징 및 원본 서비스를 나타냅니다는 일반적인 스트리밍 미디어 프로토콜 (HLS 또는 DASH). 또한 합니다 **스트리밍 끝점** 업계 최고의 Drm에 동적 (-just-in-time) 암호화를 제공 합니다.
 
@@ -35,7 +35,7 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 추가 엔드포인트: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
-## <a name="types"></a>형식  
+## <a name="types"></a>유형  
 
 **스트리밍 엔드포인트**의 유형으로는 **표준** (미리 보기) 및 **Premium**합니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
 
@@ -156,7 +156,7 @@ CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이�
 
 사용 하 여 스트리밍 끝점 (Azure CDN에 트래픽을 보내지는)에 DNS 변경이 수행 되었을 경우를 확인할 수 있습니다 https://www.digwebinterface.com합니다. 결과 결과에 azureedge.net 도메인 이름이 있으면 트래픽은 이제를 가리키는지 CDN 합니다.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

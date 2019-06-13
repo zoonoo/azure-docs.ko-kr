@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43f01b39ed01e94fe21283997b5981e7fa49bde5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109579"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384517"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -144,4 +144,4 @@ ms.locfileid: "58109579"
 > [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Bing Entity Search API란?](../search-the-web.md)
-* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

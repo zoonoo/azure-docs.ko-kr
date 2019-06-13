@@ -16,12 +16,12 @@ ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113281"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473358"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>그룹의 액세스 검토를 완료 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -40,7 +40,7 @@ ms.locfileid: "66113281"
 
 검토자가 검토를 완료 진행률을 추적할 수 있습니다.
 
-1. Azure 포털을 열고 로그인 합니다 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
+1. 포털을 열고 Azure에 로그인 합니다 [Identity 거 버 넌 스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **액세스 검토**합니다.
 

@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990501"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479269"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
@@ -58,13 +58,12 @@ Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 
 1. 작업을 수동으로 종료 합니다.
 1. 크기 조정 작업이 완료 된 후 작업을 다시 제출 합니다.
 
-보류 중인 목록 및 실행 중인 작업을 보려면 YARN을 사용할 수 있습니다 **ResourceManager UI**, 다음 단계를 수행 합니다.
+보류 중인 목록 및 실행 중인 작업을 보려면 YARN을 사용할 수 있습니다 **Resource Manager UI**, 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 이동 **모든 서비스** > **Analytics** > **HDInsight 클러스터**, 한 다음 클러스터를 선택 합니다.
-3. 기본 보기에서로 이동 **클러스터 대시보드** > **Ambari 홈**합니다. 클러스터 자격 증명을 입력 합니다.
-4. Ambari UI에서 선택 **YARN** 왼쪽 메뉴의 서비스 목록에 있습니다.  
-5. YARN 페이지에서 선택 **빠른 링크** 하 고 활성 헤드 노드를 마우스로 클릭 **ResourceManager UI**합니다.
+1. [Azure portal](https://portal.azure.com/), 클러스터를 선택 합니다.  지침에 대해서는 [클러스터 나열 및 표시](./hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요. 클러스터는 새 포털 페이지에서 열립니다.
+2. 기본 보기에서로 이동 **클러스터 대시보드** > **Ambari 홈**합니다. 클러스터 자격 증명을 입력 합니다.
+3. Ambari UI에서 선택 **YARN** 왼쪽 메뉴의 서비스 목록에 있습니다.  
+4. YARN 페이지에서 선택 **빠른 링크** 하 고 활성 헤드 노드를 마우스로 클릭 **ResourceManager UI**합니다.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 

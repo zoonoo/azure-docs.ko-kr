@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 사용자 경험에서 REST API 클레임 교환 통합 | Microsoft Docs
 description: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717298"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510714"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -60,7 +60,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 프로젝트를 만듭니다.
 
-2. **새 프로젝트** 창에서 **Visual C#** > **웹** > **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
+2. **새 프로젝트** 창에서 **Visual C#**  > **웹** > **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
 
 3. **이름** 상자에서 애플리케이션의 이름(예: *Contoso.AADB2C.API*)을 지정한 후 **확인**을 선택합니다.
 
@@ -248,13 +248,13 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 
 다음 XML 코드 조각에는 두 가지 기술 프로필을 포함하는 클레임 공급자 노드가 포함됩니다.
 
-* **TechnicalProfile Id="REST-API-SignUp"**: RESTful 서비스를 정의합니다.
+* **TechnicalProfile Id="REST-API-SignUp"** : RESTful 서비스를 정의합니다.
   * `Proprietary`은 RESTful 기반 공급자의 프로토콜로 설명되어 있습니다.
   * `InputClaims`는 Azure AD B2C에서 REST 서비스로 전송할 클레임을 정의합니다.
 
     이 예제에서 `givenName` 클레임의 콘텐츠는 `firstName`으로 REST 서비스에 보내고, `surname` 클레임의 콘텐츠 `lastName`으로 REST 서비스에 보내고, `email`은 그대로 보냅니다. `OutputClaims` 요소는 RESTful 서비스에서 Azure AD B2C로 다시 검색하는 클레임을 정의합니다.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: 기존 기술 프로필에 유효성 검사 기술 프로필을 추가합니다(기본 정책에 정의됨). 경험을 등록하는 동안 유효성 검사 기술 프로필은 이전 기술 프로필을 호출합니다. RESTful 서비스가 HTTP 오류 409(충돌 오류)를 반환하는 경우 사용자에게 오류 메시지가 표시됩니다.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : 기존 기술 프로필에 유효성 검사 기술 프로필을 추가합니다(기본 정책에 정의됨). 경험을 등록하는 동안 유효성 검사 기술 프로필은 이전 기술 프로필을 호출합니다. RESTful 서비스가 HTTP 오류 409(충돌 오류)를 반환하는 경우 사용자에게 오류 메시지가 표시됩니다.
 
 `<ClaimsProviders>` 노드를 찾은 후 `<ClaimsProviders>` 노드 아래에서 다음 XML 코드 조각을 추가합니다.
 

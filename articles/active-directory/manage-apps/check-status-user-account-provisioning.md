@@ -25,7 +25,7 @@ ms.locfileid: "65963086"
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
 
-Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](user-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 애플리케이션 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
+Azure Active Directory에는 엔드투엔드 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](user-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 애플리케이션 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
 
 이 문서에서는 프로비전 작업을 설정한 후 해당 상태를 확인하는 방법과 개별 사용자 및 그룹의 프로비전 문제를 해결하는 방법에 대해 설명합니다.
 

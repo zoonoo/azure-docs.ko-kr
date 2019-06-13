@@ -189,9 +189,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![성능 창의 스크린샷](./media/opencensus-python/0008-performance.png)
 
-5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 애플리케이션을 통해 개별 이벤트의 호출 스택의 수준까지 종단 간 트랜잭션을 탐색할 수 있습니다.
+5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 애플리케이션을 통해 개별 이벤트의 호출 스택의 수준까지 엔드투엔드 트랜잭션을 탐색할 수 있습니다.
 
-     ![종단 간 트랜잭션 인터페이스의 스크린샷](./media/opencensus-python/0009-end-to-end-transaction.png)
+     ![엔드투엔드 트랜잭션 인터페이스의 스크린샷](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="opencensus-trace-for-python"></a>Python용 OpenCensus 추적
 

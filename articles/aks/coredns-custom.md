@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 9c67902f8a6c10552ea60fed145afc24f82b01a1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594296"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693394"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
 
@@ -27,7 +27,7 @@ AKS 관리 되는 서비스 이므로 CoreDNS에 대 한 기본 구성을 수정
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에 필요한 경우 참조 [Azure CLI를 사용 하 여] AKS 빠른 시작 [aks-빠른 시작-cli] [Azure portal을 사용 하 여] 또는 [aks 빠른 시작-포털].
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
 ## <a name="what-is-supportedunsupported"></a>지원/지원 되지 않는 새로운 기능
 
@@ -192,5 +192,7 @@ data:
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 
-<!-- LINKS - external -->
+<!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

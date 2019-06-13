@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225868"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417984"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
+
+## <a name="whats-new"></a>새로운 기능
+
+[자세한](whats-new.md) Language Understanding의 새로운 기능에 대 한 합니다.
 
 <a name="luis-authoring"></a>
 

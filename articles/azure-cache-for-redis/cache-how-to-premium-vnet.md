@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831068"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752067"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -113,7 +113,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) |* |
+| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>1</sup> 고 서브넷에 대 한 사용자 지정 DNS 서버 <sup>3</sup> |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -121,6 +121,9 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 15000-15999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
+<sup>1</sup> Microsoft가 소유 하는 다음 IP 주소를 사용 하 여 Azure DNS 사용 되는 호스트 VM을 처리 하 합니다.
+
+<sup>3</sup> 이상이 사용자 지정 DNS 서버가 없는 포함 된 서브넷 redis 캐시 사용자 지정 DNS를 무시 하는 불필요 합니다.
 
 #### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 

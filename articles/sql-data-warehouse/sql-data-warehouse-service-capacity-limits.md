@@ -2,20 +2,20 @@
 title: 용량 제한 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/14/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f3c2ecbb4c83132b674b4c296adc1339027f5215
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797790"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514673"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.

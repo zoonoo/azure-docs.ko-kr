@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62124642"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386529"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 
@@ -50,6 +50,6 @@ API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.m
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) 참조 페이지에는 검색 결과를 요청하는 데 사용되는 엔드포인트, 헤더 및 쿼리 매개 변수의 목록이 포함되어 있습니다.
+* [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) 참조 페이지에는 검색 결과를 요청하는 데 사용되는 엔드포인트, 헤더 및 쿼리 매개 변수의 목록이 포함되어 있습니다.
 
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925664"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753780"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -59,7 +59,7 @@ Site Recovery 팀은 충분 한 인프라 용량 계획에 Azure 용량 관리 �
 예,이 Azure Vm에 대 한 관리 디스크를 사용 하 여. 복제에 사용 되는 Azure VM에 새 디스크를 추가 하면 VM에 대 한 복제 상태 경고를 사용 하 여 참고 지정 하는 VM에 하나 이상의 디스크 보호를 위해 사용할 수 있는지 보여 줍니다. 추가 된 디스크에 대 한 복제를 사용할 수 있습니다.
 - 추가 된 디스크에 대 한 보호를 사용 하는 경우 초기 복제 후 경고가 사라집니다.
 - 디스크에 대 한 복제를 사용 하도록 설정 하지 않으려는 경우 경고를 해제할를 선택할 수 있습니다.
-- 디스크를 추가 하 고이 복제를 사용 하도록 VM을 장애 조치할 때 복제 지점 복구에 사용할 수 있는 디스크가 표시 됩니다. 예를 들어, VM에 단일 디스크를 새로 추가한 디스크를 추가 하기 전에 생성 된 복제 지점 복제 지점이 2 개의 디스크의 "1"으로 구성 되는 표시 됩니다.
+- 디스크를 추가 하 고이 복제를 사용 하도록 VM을 장애 조치할 때 복제 지점 복구에 사용할 수 있는 디스크가 표시 됩니다. 예를 들어, VM에 단일 디스크가 있고 새로운 디스크를 추가하는 경우, 디스크를 추가하기 전에 생성한 복제 지점은 “2개 디스크 중 하나”로 구성된 복제 지점을 표시합니다.
 
 Site Recovery는 "핫 제거" 디스크의 복제 된 VM에서 지원 하지 않습니다. VM 디스크를 제거 하면 해제 한 다음 VM에 대 한 복제를 다시 설정 해야 합니다.
 
@@ -143,7 +143,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 복구 지점이 모든 복제된 가상 머신에서 일관되는지 확인하는 것을 의미합니다.
 Site Recovery는 “다중 VM 일관성” 옵션을 제공하며, 이 옵션을 선택하는 경우 복제 그룹을 만들어 그룹의 일부인 모든 머신을 함께 복제합니다.
 모든 가상 머신은 장애 조치 시 크래시 일치와 앱 일치 복구 지점을 공유합니다.
-자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)합니다.
+자습서를 통해 [다중 VM 일관성을 사용하도록 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)합니다.
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>다중 VM 일관성 복제 그룹 내에서 단일 가상 머신을 장애 조치(failover)할 수 있나요?
 "다중 VM 일관성" 옵션을 선택하면 애플리케이션은 한 그룹 내의 모든 가상 머신에서 종속성을 가지게 됩니다. 따라서 단일 가상 머신 장애 조치는 허용되지 않습니다.

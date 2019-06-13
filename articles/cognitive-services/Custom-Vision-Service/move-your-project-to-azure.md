@@ -12,7 +12,7 @@ ms.date: 02/19/2019
 ms.author: anroth
 ms.openlocfilehash: 6fac6531ea0a39796de13f95aee33b30dc91f131
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274453"
@@ -29,20 +29,19 @@ Custom Vision Service의 Azure로의 이동이 완료되면, Azure 외부에서 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [Custom Vision 웹 사이트](https://customvision.ai)에 로그온하기 원하는 Microsoft 계정 또는 Azure Active Directory(AAD) 계정에 로그인하는데 관련된 유효한 Azure 구독이 필요합니다.  
+- [Custom Vision 웹 사이트](https://customvision.ai)에 로그온하기 원하는 Microsoft 계정 또는 Azure Active Directory(AAD) 계정에 로그인하는데 관련된 유효한 Azure 구독이 필요합니다. 
     - Azure 계정이 없는 경우 무료 [계정을 생성합니다](https://azure.microsoft.com/free/).
     - Azure 구독 및 리소스의 개념에 대한 소개는 [Azure 개발자 가이드..](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)를 참조합니다.
-- [Python](https://www.python.org/downloads/)
+-  [Python](https://www.python.org/downloads/)
 - [Pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portal에서 Custom Vision 리소스 만들기
-
-Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다.
+Azure에서 Custom Vision Service를 사용하려면, [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. 
 
 여러 프로젝트를 단일 리소스에 연결할 수 있습니다. [가격 책정 및 제한](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/limits-and-quotas)에 대한 자세한 정보를 사용할 수 있습니다. Custom Vision Service를 계속 무료로 사용하려면, Azure portal에서 F0 계층을 선택할 수 있습니다. 
 
 > [!NOTE]
-> Azure 리소스로 Custom Vision 프로젝트를 이동하면, 해당 Azure 리소스의 기본 [권한]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 상속합니다. 조직의 다른 사용자가 프로젝트가 속하는 Azure 리소스의 소유자인 경우, [Custom Vision 웹 사이트](https://customvision.ai)의 프로젝트에 액세스할 수 있습니다. 마찬가지로, 리소스를 삭제하면 프로젝트 개체가 삭제됩니다. 
+> Azure 리소스로 Custom Vision 프로젝트를 이동하면, 해당 Azure 리소스의 기본 [권한]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)을 상속합니다. 조직의 다른 사용자가 프로젝트가 속하는 Azure 리소스의 소유자인 경우, [Custom Vision 웹 사이트](https://customvision.ai)의 프로젝트에 액세스할 수 있습니다. 마찬가지로, 리소스를 삭제하면 프로젝트 개체가 삭제됩니다.  
 
 ## <a name="find-your-limited-trial-project-information"></a>제한된 평가판 프로젝트 정보 찾기
 

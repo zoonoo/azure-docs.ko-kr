@@ -202,6 +202,6 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다. 
 
-IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT 솔루션 액셀러레이터](https://azure.microsoft.com/documentation/suites/iot-suite/)를 참조하세요.
+IoT Hub를 사용하는 전체 엔드투엔드 솔루션의 예를 보려면 [Azure IoT 솔루션 액셀러레이터](https://azure.microsoft.com/documentation/suites/iot-suite/)를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide.md)를 참조하세요.

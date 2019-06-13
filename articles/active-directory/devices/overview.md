@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 디바이스 관리란? | Microsoft Docs
-description: 사용자 환경의 리소스에 액세스하는 디바이스를 제어하는 데 디바이스 관리가 어떻게 도움이 되는지에 대해 알아봅니다.
+title: Azure Active Directory의 디바이스 ID란? | Microsoft Docs
+description: 디바이스 ID 관리가 사용자 환경의 리소스에 액세스하는 디바이스를 관리하는 데 어떻게 도움이 되는지 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -13,35 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e756b260db0f6db752d345e085b16d58cee5555
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8f91ff65d0e11ed2e9f923f94c740314c9136d99
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997281"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688691"
 ---
-# <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
+# <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
 모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 디바이스, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. BYOD(Bring Your Own Device)를 포함하는 디바이스의 확산에 따라 IT 전문가는 다음 두 가지 대립되는 목표에 직면하고 있습니다.
 
 - 최종 사용자가 언제 어디서나 생산성을 높일 수 있도록 지원
 - 언제든지 회사 자산 보호
 
-디바이스를 통해 사용자가 회사 자산에 액세스하게 됩니다. IT 관리자로써 회사 자산을 보호하기 위해 이러한 디바이스를 제어할 수 있어야 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다.
+사용자는 Azure AD에서 디바이스를 통해 회사 자산에 액세스할 수 있습니다. IT 관리자는 회사의 자산을 보호하기 위해 디바이스 ID를 관리하려고 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다.
 
-디바이스 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)의 토대이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
+또한 디바이스 ID 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)에 대한 기반이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
 
-이 문서에서는 Azure Active Directory에서 디바이스 관리가 작동되는 방식을 설명합니다.
+## <a name="getting-devices-in-azure-ad"></a>Azure AD에서 디바이스 가져오기
 
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>Azure AD에서 제어하는 디바이스 얻기
-
-Azure AD에서 제어하는 디바이스를 얻으려면 두 가지 옵션이 있습니다.
+Azure AD에서 디바이스를 가져올 수 있는 두 가지 옵션이 있습니다.
 
 - 등록
 - 가입
@@ -66,7 +62,7 @@ Azure AD 등록 디바이스의 목표는 **BYOD(Bring Your Own Device)** 시나
 - 처음으로 회사 애플리케이션에 액세스 하는 경우
 - Windows 10의 경우 **설정** 메뉴를 통해 수동으로
 
-Windows 10, iOS, Android 및 macOS용 Azure AD 등록 디바이스를 구성할 수 있습니다.
+**Windows 10 개인, iOS, Android 및 macOS** 디바이스에 Azure AD 등록 디바이스 상태를 구성할 수 있습니다.
 
 ## <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
@@ -88,12 +84,11 @@ Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 
 Azure AD 가입 디바이스를 구현하면 다음과 같은 이점이 제공됩니다.
 
-- Azure 관리 SaaS 앱 및 서비스에 대한 **SSO(Single Sign-On)**. 사용자가 회사 리소스에 액세스할 때 추가 인증 메시지가 표시되지 않습니다. 사용자가 도메인 네트워크에 연결되어 있지 않은 경우에도 SSO 기능을 사용할 수 있습니다.
+- Azure 관리 SaaS 앱 및 서비스에 대한 **SSO(Single Sign-On)** . 사용자가 회사 리소스에 액세스할 때 추가 인증 메시지가 표시되지 않습니다. 사용자가 도메인 네트워크에 연결되어 있지 않은 경우에도 SSO 기능을 사용할 수 있습니다.
 - 가입 디바이스 간 사용자 설정의 **엔터프라이즈 규정 준수 로밍**. 사용자는 디바이스 간에 설정을 보기 위해 Microsoft 계정(예: Hotmail)을 연결할 필요가 없습니다.
 - Azure AD 계정을 사용하여 **비즈니스용 Windows 스토어에 액세스**합니다. 사용자가 조직에서 미리 선택된 애플리케이션의 인벤토리에서 선택할 수 있습니다.
 - **Windows Hello**는 회사 리소스에 대한 안전하고 편리한 액세스를 지원합니다.
 - 앱에 대한 **액세스 제한**은 규정 준수 정책을 충족하는 디바이스에만 해당합니다.
-
 - 디바이스가 온-프레미스 도메인 컨트롤러에 대한 시야를 갖고 있는 경우 **온-프레미스 리소스에 원활하게 액세스**됩니다.
 
 Azure AD 가입은 기본적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 조직을 위해 고안되었으나, 다음과 같은 시나리오에서 확실히 사용할 수 있습니다.
@@ -129,9 +124,9 @@ Windows 10 및 하위 수준 디바이스(예: Windows 8 및 Windows 7)에 대�
 
 ## <a name="summary"></a>요약
 
-Azure AD의 디바이스 관리를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
+Azure AD의 디바이스 ID 관리를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- Azure AD의 제어를 받는 디바이스를 가져오는 프로세스를 단순화
+- Azure AD에서 디바이스 가져오기 및 관리 프로세스 간소화
 - 사용자가 조직의 클라우드 기반 리소스에 대한 액세스를 편리하게 사용할 수 있도록 제공
 
 thumb의 규칙으로 인해 다음을 사용해야 합니다.
@@ -156,9 +151,9 @@ thumb의 규칙으로 인해 다음을 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에서 디바이스를 관리하는 방법에 대한 개요를 보려면 [Azure Portal을 사용하여 디바이스 관리](device-management-azure-portal.md)를 참조하세요.
+- Azure Portal에서 디바이스 ID를 관리하는 방법에 대한 개요를 보려면 [Azure Portal을 사용하여 디바이스 ID 관리](device-management-azure-portal.md)를 참조하세요.
+- 설정하려면 다음을 수행합니다.
+   - Azure Active Directory 등록 Windows 10 디바이스는 [Azure Active Directory 등록 Windows 10 디바이스를 구성하는 방법](../user-help/device-management-azuread-registered-devices-windows10-setup.md)을 참조하세요.
+   - Azure Active Directory 조인 디바이스는 [Azure Active Directory 조인 구현을 계획하는 방법](azureadjoin-plan.md)을 참조하세요.
+   - 하이브리드 Azure AD 조인 디바이스는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.   
 - 디바이스 기반 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 구성](../conditional-access/require-managed-devices.md)을 참조하세요.
-- 설정:
-   - Azure Active Directory Windows 10 디바이스를 설정하려면 [Azure Active Directory 등록 Windows 10 디바이스를 구성하는 방법](../user-help/device-management-azuread-registered-devices-windows10-setup.md) 참조
-   - Azure Active Directory 조인 디바이스를 설정하려면 [Azure Active Directory 조인 디바이스를 구성하는 방법](../user-help/device-management-azuread-joined-devices-setup.md) 참조
-   - 하이브리드 Azure AD 조인 디바이스는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.

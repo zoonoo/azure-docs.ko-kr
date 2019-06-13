@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786969"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428325"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 다음 단계를 수행합니다.
@@ -280,7 +280,6 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
     3. **리소스 이름**에 대해 Service Bus 네임스페이스를 선택합니다. 
     4. **새 매개 변수 추가**를 선택하고 **접미사 필터**를 선택합니다. 
     5. **접미사 필터**에 대해 두 번째 Service Bus 항목 구독의 이름을 입력합니다. 
-
         ![Logic Apps 디자이너 - 이벤트 구성](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. 디자이너에서 **+ 새 단계**를 선택하고 다음 단계를 수행합니다.
     1. **Service Bus**를 검색합니다.

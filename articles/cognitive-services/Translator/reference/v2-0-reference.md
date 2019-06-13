@@ -3,19 +3,19 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: V2.0 Translator Text API에 대한 참조 문서입니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
-ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: v-pawal
+ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527288"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389838"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -28,11 +28,18 @@ Translator Text API V2는 애플리케이션, 웹 사이트, 도구 또는 기�
 Translator Text API에 액세스하려면 [Microsoft Azure에 등록](../translator-text-how-to-signup.md)해야 합니다.
 
 ## <a name="authorization"></a>권한 부여
-Translator Text API에 대한 모든 호출에는 인증을 위한 구독 키가 필요합니다. 이 API는 다음과 같은 두 가지 인증 모드를 지원합니다.
+Translator Text API에 대한 모든 호출에는 인증을 위한 구독 키가 필요합니다. API 인증의 세 가지 모드를 지원합니다.
 
-* 액세스 토큰 사용. 9**단계**에 참조된 구독 키를 통해 권한 부여 서비스에 대해 POST 요청을 수행하여 액세스 토큰을 생성합니다. 자세한 내용은 토큰 서비스 설명서를 참조하세요. 권한 부여 헤더 또는 access_token 쿼리 매개 변수를 사용하여 Translator 서비스에 액세스 토큰을 전달합니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
+- 액세스 토큰입니다. 9**단계**에 참조된 구독 키를 통해 권한 부여 서비스에 대해 POST 요청을 수행하여 액세스 토큰을 생성합니다. 자세한 내용은 토큰 서비스 설명서를 참조하세요. 권한 부여 헤더를 사용 하 여 Translator 서비스에 액세스 토큰을 전달할 또는 `access_token` 쿼리 매개 변수입니다. 액세스 토큰은 10분 동안 유효합니다. 새 액세스 토큰을 10 분 간격으로 가져오고 유지 동일한 액세스를 사용 하 여 반복 되는 요청에 대 한 토큰이 분 동안.
+- 구독 키에 직접 해당 합니다. 구독 키의 값으로 전달 된 `Ocp-Apim-Subscription-Key` Translator API에 요청을 사용 하 여 포함 된 헤더입니다. 이 모드에서는 액세스 토큰을 생성 하는 인증 토큰 서비스를 호출할 필요가 없습니다.
+- A [Cognitive Services 다중 서비스 구독](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 이 모드에서는 여러 서비스에 대 한 요청을 인증 하는 단일 비밀 키를 사용할 수 있습니다. <br/>
+다중 서비스 비밀 키를 사용 하면 요청을 사용 하 여 두 가지 인증 헤더를 포함 해야 합니다. 첫 번째 머리글 비밀 키를 전달합니다. 두 번째 헤더에는 구독과 연결 된 지역을 지정 합니다.
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
 
-* 구독 키 직접 사용. Translator API 요청에 포함된 `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 값으로 제공합니다. 이 모드에서는 액세스 토큰을 생성하기 위해 인증 토큰 서비스를 호출할 필요가 없습니다.
+지역이 다중 서비스 Text API 구독은 필요 합니다. 선택한 지역이 다중 서비스 등록 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 및 Azure portal 통해 다중 서비스 구독에 등록할 때 선택한 동일한 지역에 있어야 합니다.
+
+사용 가능한 지역은 어디 인가요 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`를 `eastus2`, `japaneast`를 `northeurope`를 `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`를 `westeurope`합니다 `westus`, 및 `westus2`합니다.
 
 구독 키와 액세스 토큰은 보이지 않게 숨겨야 하는 비밀입니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394133"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734885"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps를 사용 하 여 일반적인 경고 스키마를 통합 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "66394133"
 
 ## <a name="overview"></a>개요
 
-합니다 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 표준화 되 고 확장할 수 있는 JSON 스키마를 다른 모든 경고 유형을 제공 합니다. 일반 경고 스키마 웹 후크, runbook 및 logic apps를 통해 프로그래밍 방식으로 – 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있습니다 하는 방법을 보여 줍니다. 프로그래밍 방식으로 다른 메서드에 동일한 원칙을 적용할 수 있습니다. 이 문서에 설명 된 논리 앱에 대 한 잘 정의 된 변수를 만듭니다는 ['필수' 필드](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), 및 처리 하는 방법을 설명 합니다 [경고 유형]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') 특정 논리입니다.
+합니다 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 표준화 되 고 확장할 수 있는 JSON 스키마를 다른 모든 경고 유형을 제공 합니다. 일반 경고 스키마 웹 후크, runbook 및 logic apps를 통해 프로그래밍 방식으로 – 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있습니다 하는 방법을 보여 줍니다. 프로그래밍 방식으로 다른 메서드에 동일한 원칙을 적용할 수 있습니다. 이 문서에 설명 된 논리 앱에 대 한 잘 정의 된 변수를 만듭니다는 ['필수' 필드](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), 및 처리 하는 방법을 설명 합니다 [경고 유형](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 특정 논리입니다.
 
 
 ## <a name="prerequisites"></a>필수 조건 
@@ -125,7 +125,7 @@ ms.locfileid: "66394133"
 
     ![논리 앱 식을](media/alerts-common-schema-integrations/logic-app-expressions.png "논리 앱 식")
     
-     ['monitoringService' 필드]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') 기반 경고 유형을 고유 하 게 식별할 수 있도록에서 조건부 논리를 만들 수는 있습니다.
+     ['monitoringService' 필드](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 기반 경고 유형을 고유 하 게 식별할 수 있도록에서 조건부 논리를 만들 수는 있습니다.
 
     
     예를 들어는 아래 코드 조각 인지 확인 하는 경우 경고 Application Insights 기반 로그 경고를 검색 결과 인쇄 하는 경우. 그렇지 않은 경우 'NA'를 인쇄합니다.

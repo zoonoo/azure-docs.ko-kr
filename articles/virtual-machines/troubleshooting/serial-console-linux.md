@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: HT
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389032"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735251"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux 용 azure 직렬 콘솔
 
@@ -47,6 +47,7 @@ Windows에 대 한 직렬 콘솔 설명서를 참조 하세요 [직렬 콘솔에
 
 - Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
 
+- VM 또는 가상 머신 확장 집합 인스턴스 직렬 출력에서 구성 해야 `ttys0`합니다. Azure 이미지에 대 한 기본값 이지만 double 사용자 지정 이미지에이 확인 하려고 합니다. 세부 정보 [아래](#custom-linux-images)합니다.
 
 
 ## <a name="get-started-with-the-serial-console"></a>직렬 콘솔을 사용 하 여 시작
@@ -84,6 +85,9 @@ Vm에 대 한 직렬 콘솔은 클릭으로 간단 **직렬 콘솔** 내 합니�
 ## <a name="serial-console-linux-distribution-availability"></a>직렬 콘솔 Linux 배포 가용성
 직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 보증 배포](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에는 기본적으로 직렬 콘솔이 구성됩니다. Azure Portal의 **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택하면 직렬 콘솔에 대한 액세스를 제공합니다.
 
+> [!NOTE]
+> 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. 도달 **Enter** 는 종종 문제를 해결 여기서 아무에 표시 되는 직렬 콘솔입니다.
+
 배포      | 직렬 콘솔 액세스
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
@@ -92,10 +96,13 @@ Ubuntu      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정�
 CoreOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘솔 액세스가 기본적으로 활성화되어 있습니다. Azure에서 이전 버전의 SLES(10 이하)를 사용하는 경우[기술 자료 문서](https://www.novell.com/support/kb/doc.php?id=3456486)를 참고하여 직렬 콘솔을 사용하도록 설정합니다.
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
-사용자 지정 Linux 이미지     | 사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 사용자 지정 이미지를 올바르게 만드는 방법에 대한 자세한 내용은 [Azure에서 Linux VHD 생성 및 업로드](https://aka.ms/createuploadvhd)를 참조하세요. 사용자 지정 커널을 빌드하는 경우 `CONFIG_SERIAL_8250=y` 및 `CONFIG_MAGIC_SYSRQ_SERIAL=y` 커널 플래그를 사용하는 것이 좋습니다. 일반적으로 구성 파일은 */boot/* 경로에 위치합니다.
 
-> [!NOTE]
-> 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. 도달 **Enter** 는 종종 문제를 해결 여기서 아무에 표시 되는 직렬 콘솔입니다.
+### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`
+
+직렬 출력 대상으로 ttys0을 추가 하려고도 합니다. 직렬 콘솔을 사용 하는 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은에서 일반 시스템 요구 사항을 참조 하세요 [만들기 및 Azure에서 Linux VHD 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)합니다.
+
+사용자 지정 커널을 빌드하는 경우 `CONFIG_SERIAL_8250=y` 및 `CONFIG_MAGIC_SYSRQ_SERIAL=y` 커널 플래그를 사용하는 것이 좋습니다. 일반적으로 구성 파일은 */boot/* 경로에 위치합니다. |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>직렬 콘솔에 액세스 하기 위한 일반적인 시나리오
 
@@ -201,13 +208,14 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
 직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
 직렬 콘솔 계층적 네임 스페이스를 사용 하 여 Azure Data Lake 저장소 Gen2를 사용 하 여 저장소 계정을 사용 하 여 작동 하지 않습니다. | 계층적 네임 스페이스를 사용 하 여 알려진된 문제입니다. 를 완화 하기 위해 VM의 부트 진단 저장소 계정이 생성 되지 않도록 Azure Data Lake 저장소 Gen2를 사용 하 여 확인 합니다. 이 옵션은 저장소 계정 만들 때만 설정할 수 있습니다. 이 문제를 완화 하려면 사용 하도록 설정 하는 Azure Data Lake 저장소 Gen2 없이 별도 부트 진단 저장소 계정을 만들려면 해야 합니다.
+비정상적인 키보드 SLES BYOS 이미지에 입력 합니다. 키보드 입력만 산발적으로 인식 됩니다. | 이것이 문제가 Plymouth 패키지입니다. Plymouth 시작 화면이 필요 하지 않습니다 고 Plymouth 방해 직렬 콘솔을 사용 하는 플랫폼 기능을 사용 하 여 Azure에서 실행 되어야 합니다. 사용 하 여 Plymouth 제거 `sudo zypper remove plymouth` 후 다시 부팅 합니다. 추가 하 여 GRUB config 커널 줄을 수정 또는 `plymouth.enable=0` 줄의 끝에 있습니다. 여이 작업을 수행할 수 있습니다 [부팅할 때 부팅 항목을 편집](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), 또는 GRUB_CMDLINE_LINUX 줄을 편집 하 여 `/etc/default/grub`다시 작성, 사용 하 여 GRUB `grub2-mkconfig -o /boot/grub2/grub.cfg`, 다시 부팅 해야 합니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. (https://aka.ms/serialconsolefeedback)[https://aka.ms/serialconsolefeedback] 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
+a. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 

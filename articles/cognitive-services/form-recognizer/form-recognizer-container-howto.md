@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1c9e68f643f27f70190b5847225692d554cc5480
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306541"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475432"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Form Recognizer 컨테이너 설치 및 실행
 Form Recognizer는 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. 값과 테이블 항목을 연결한 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 복잡성을 줄이고 워크플로 자동화 프로세스 또는 다른 애플리케이션에 쉽게 통합할 수 있도록 간단한 REST API를 사용하여 사용자 지정 Form Recognizer 모델을 호출할 수 있습니다. 5개의 문서(또는 빈 양식)만 필요하므로 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 결과를 빠르고 정확하게 얻을 수 있습니다. 데이터 레이블 지정 또는 데이터 주석은 필요하지 않습니다.
@@ -114,9 +114,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
@@ -142,6 +142,8 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \

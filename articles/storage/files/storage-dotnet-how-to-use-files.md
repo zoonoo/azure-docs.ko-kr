@@ -456,7 +456,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-또한 종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
+또한 엔드투엔드 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-windows-file-connection-problems.md)를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.

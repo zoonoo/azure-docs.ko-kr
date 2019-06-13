@@ -1,29 +1,25 @@
 ---
-title: HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩 - Azure Logic Apps | Microsoft 문서
+title: HTTP 끝점-Azure Logic Apps를 사용 하 여 워크플로 호출, 트리거 또는 중첩
 description: Azure Logic Apps에 대해 워크플로를 호출, 트리거 또는 중첩하기 위해 HTTP 엔드포인트 설정
 services: logic-apps
-keywords: 워크플로, HTTP 엔드포인트
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304276"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495049"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 통해 워크플로 호출, 트리거 또는 중첩
 
 URL을 통해 Logic Apps를 트리거 또는 호출할 수 있도록 동기식 HTTP 엔드포인트를 기본적으로 논리 앱에 트리거로 표시할 수 있습니다. 또한 호출 가능 엔드포인트의 패턴을 사용하여 Logic Apps에서 워크플로를 중첩할 수도 있습니다.
 

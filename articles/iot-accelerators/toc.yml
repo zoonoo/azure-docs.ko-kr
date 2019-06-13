@@ -147,16 +147,12 @@
       items:
         - name: OPC 쌍 아키텍처
           href: overview-opc-twin-architecture.md
-        - name: 연결된 팩터리 아키텍처
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: 방법 가이드
       items:
         - name: 연결된 팩터리
           items:
             - name: 대시보드 사용
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: 게이트웨이 배포
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: OPC 게시자 사용
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: 솔루션 가속기 구성

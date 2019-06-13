@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783436"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473767"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -114,7 +114,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
 KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성할 준비가 되었습니다.
 
-1. 다음 설정을 사용하여 SharePoint 사이트를 게시합니다. 단계별 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+1. 다음 설정을 사용하여 SharePoint 사이트를 게시합니다. 단계별 지침은 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조하세요.
    * **내부 URL**: **<https://SharePoint/>** 와 같은, 이전에 선택한 SharePoint 내부 URL입니다.
    * **사전 인증 방법**: Azure Active Directory
    * **헤더에서 URL 변환**: 아니요

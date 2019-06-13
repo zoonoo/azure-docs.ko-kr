@@ -2,20 +2,20 @@
 title: Azure Active Directory 조직에 대한 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인을 설정합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785241"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508432"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -51,7 +51,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>테넌트에서 Azure AD를 ID 공급자로 구성
 
 1. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 3. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 4. **이름**을 입력합니다. 예를 들어 `Contoso Azure AD`을 입력합니다.
 5. **ID 공급자 유형**을 선택하고 **Open ID Connect(미리 보기)** 를 선택한 다음, **확인**을 클릭합니다.

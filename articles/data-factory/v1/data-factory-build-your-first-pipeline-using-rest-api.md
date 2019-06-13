@@ -323,7 +323,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
   3. REST API를 호출하는 다음 두 명령을 실행하여 데이터 팩터리를 만들고 작업의 결과를 인쇄합니다.
 * 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 * 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
-* 만약 “**이 구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**”라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
+* 만약 “**이 구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.** ”라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
 
   * Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다.
 
@@ -493,7 +493,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 | 항목 | 설명 |
 |:--- |:--- |
 | [데이터 팩터리 REST API 참조](/rest/api/datafactory/) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
-| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
+| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 엔드투엔드 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 세트](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |

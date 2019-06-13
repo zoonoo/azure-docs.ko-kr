@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256641"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496383"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
-
-[소개 애니메이션을 살펴보겠습니다](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Application Insights의 작동 방식
 애플리케이션에 작은 계측 패키지를 설치하고 Microsoft Azure 포털에서 Application Insights 리소스를 설정합니다. 이 계측 기능이 앱을 모니터링하여 포털에 원격 분석 데이터를 보냅니다. 애플리케이션을 어디서나 실행할 수 있습니다. Azure에 호스트할 필요가 없습니다.
@@ -71,7 +69,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**라이브 메트릭 스트림**](../../azure-monitor/app/live-stream.md)<br/>새 빌드를 배포할 때 이러한 실시간에 가까운 성능 표시기를 확인하여 모든 항목이 예상대로 작동하는지 알 수 있습니다. |![라이브 메트릭 샘플](./media/app-insights-overview/live-metrics-tn.png) |
 | [**분석**](../../azure-monitor/app/analytics.md)<br/>이 강력한 쿼리 언어를 사용하여 앱의 성능 및 사용 현황에 대한 까다로운 질문에 답변할 수 있습니다. |![분석 샘플](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>코드의 성능 데이터를 참조하세요. 스택 추적의 코드로 이동하세요.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**스냅숏 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
+| [**스냅샷 디버거**](../../azure-monitor/app/snapshot-debugger.md)<br/>실시간 작업에서 샘플링된 스냅샷을 매개 변수 값으로 디버그합니다.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>사용 현황 메트릭을 다른 비즈니스 인텔리전스와 통합합니다.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**연속 내보내기**](../../azure-monitor/app/export-telemetry.md)<br/>원시 데이터가 도착하는 즉시 저장소에 대량으로 내보냅니다. |![내보내기](./media/app-insights-overview/export-tn.png) |
@@ -104,11 +102,13 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 시작하는 데는 몇 가지 방법이 있습니다. 본인에게 적합한 방법으로 시작합니다. 나중에 계정을 더 추가할 수 있습니다.
 
-* **런타임: 서버에서 웹앱을 계측합니다.** 코드에 대한 업데이트를 방지합니다. 서버에 대한 관리자 액세스 권한이 필요합니다.
-  * [**IIS 온-프레미스 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure 웹앱 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **개발 타임: 코드에 Application Insights를 추가합니다.** 사용자 지정 원격 분석을 작성하고 백 엔드 및 데스크톱 앱을 계측할 수 있습니다.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 업데이트 2 이상
+* **런타임: 서버에서 웹앱을 계측합니다.** 이미 배포된 애플리케이션에 적합합니다. 코드에 대한 업데이트를 방지합니다.
+  * [**VM 또는 온-프레미스의 IIS에서 호스팅되는 ASP.NET 애플리케이션**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure Web Apps에서 호스팅되는 ASP.NET 또는 ASP.NET Core 애플리케이션**](../../azure-monitor/app/azure-web-apps.md)
+* **개발 타임: 코드에 Application Insights를 추가합니다.** 원격 분석 데이터 컬렉션을 사용자 지정하고 원격 분석 데이터를 추가로 전송할 수 있습니다.
+  * [ASP.NET 애플리케이션](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 애플리케이션](../../azure-monitor/app/asp-net-core.md)
+  * [.NET 콘솔 애플리케이션](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.JS](../../azure-monitor/app/nodejs.md)
   * [기타 플랫폼](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 다음을 사용하여 런타임에 시작하세요.
 
 * [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 다음을 사용하여 개발 시에 시작하세요.
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 
 ## <a name="videos"></a>동영상
 
-[![애니메이션 소개](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- 외부 비디오: [ASP.NET 애플리케이션으로 Application Insight 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)
+- 외부 비디오: [ASP.NET Core와 Visual Studio로 Application Insight 구성](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)
+- 외부 비디오: [ASP.NET Core와 Visual Studio Code로 Application Insight 구성](https://youtu.be/ygGt84GDync)
 
 <!--Link references-->
 

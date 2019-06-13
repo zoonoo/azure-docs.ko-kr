@@ -36,7 +36,7 @@ ms.locfileid: "65606475"
 SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 몇 가지 샘플 SQL 스크립트는 다음과 같습니다.
 
 > [!NOTE]
-> 실용적인 예제에는 [NYC Taxi 데이터 세트](https://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
+> 실용적인 예제에는 [NYC Taxi 데이터 세트](https://www.andresmh.com/nyctaxitrips/)를 사용할 수 있으며, 엔드투엔드 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 > 
 > 
 
@@ -137,7 +137,7 @@ Python의 [Pandas 라이브러리](https://pandas.pydata.org/) 에서는 Python 
 이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md) 문서에 설명된 대로 Pandas 데이터 프레임으로 작업할 수 있습니다.
 
 ## <a name="azure-data-science-in-action-example"></a>Azure 데이터 과학 작동 예제
-공용 데이터 세트를 사용한 Azure 데이터 과학 프로세스의 종단 간 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](sql-walkthrough.md)를 참조하세요.
+공용 데이터 세트를 사용한 Azure 데이터 과학 프로세스의 엔드투엔드 연습 예제는 [Azure에서 Azure 데이터 과학 프로세스](sql-walkthrough.md)를 참조하세요.
 
 [1]: ./media/sql-server-virtual-machine/reader_db_featurizedinput.png
 

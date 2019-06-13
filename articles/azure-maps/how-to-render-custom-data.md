@@ -3,18 +3,18 @@ title: Azure Maps에서 래스터 지도에 사용자 지정 데이터를 렌더
 description: Azure Maps에서 래스터 지도에 사용자 지정 데이터를 렌더링 합니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794618"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734291"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 지도에 사용자 지정 데이터를 렌더링 합니다.
 
@@ -42,7 +42,7 @@ Azure Maps 계정 S0 계층 지원의 단일 인스턴스만 `pins` 매개 변�
 
 2. 요청을 만들려면 선택 **새로 만들기** 다시 합니다. 에 **새로 만들기** 창에서 **요청**합니다. 입력 한 **요청 이름** 압정에 대 한 요청을 저장 하 고 선택한 위치와 이전 단계에서 만든 컬렉션을 선택 합니다 **저장**합니다.
     
-    ![Postman에서 요청을 만듭니다](./media/tutorial-geofence/postman-new.png)
+    ![Postman에서 요청을 만듭니다](./media/how-to-render-custom-data/postman-new.png)
 
 3. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 GET 요청을 만들려면 다음 URL을 입력 합니다.
 
@@ -145,7 +145,7 @@ Azure Maps 계정 S0 계층 지원의 단일 인스턴스만 `pins` 매개 변�
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
     ```
 
-6. 결과 이미지는 다음과 같습니다.
+    응답 이미지는 다음과 같습니다.
 
     ![Azure Maps 데이터 스토리지에서 데이터 가져오기](./media/how-to-render-custom-data/uploaded-path.png)
 
@@ -164,9 +164,9 @@ Azure Maps 계정 S0 계층 지원의 단일 인스턴스만 `pins` 매개 변�
     &subscription-key={subscription--key}
     ```
 
-결과 이미지는 다음과 같습니다.
+    응답 이미지는 다음과 같습니다.
 
-![불투명 한 다각형을 렌더링 합니다.](./media/how-to-render-custom-data/opaque-polygon.png)
+    ![불투명 한 다각형을 렌더링 합니다.](./media/how-to-render-custom-data/opaque-polygon.png)
 
 
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>원 및 사용자 지정 레이블이 있는 압정 렌더링
@@ -186,9 +186,9 @@ Azure Maps 계정 S0 계층 지원의 단일 인스턴스만 `pins` 매개 변�
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
     ```
 
-결과 이미지는 다음과 같습니다.
+    응답 이미지는 다음과 같습니다.
 
-![사용자 지정 압정을 사용 하 여 원을 렌더링합니다](./media/how-to-render-custom-data/circle-custom-pins.png)
+    ![사용자 지정 압정을 사용 하 여 원을 렌더링합니다](./media/how-to-render-custom-data/circle-custom-pins.png)
 
 ## <a name="next-steps"></a>다음 단계
 

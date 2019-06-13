@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 9f7f71f47fadd7cfe2364acf1a8505e1967a78e5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146456"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475993"
 ---
 Azure IoT Hub를 계속 시작하고 모든 확장 IoT 시나리오를 살펴보려면 다음을 참조하세요.
 
@@ -25,7 +25,7 @@ Azure IoT Hub를 계속 시작하고 모든 확장 IoT 시나리오를 살펴보
 
 - [Power BI를 사용하여 IoT Hub의 실시간 센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Azure App Service의 Web Apps 기능을 사용하여 IoT Hub의 실시간 센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [웹 앱을 사용 하 여 IoT hub에서 실시간 센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용하여 일기 예보](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

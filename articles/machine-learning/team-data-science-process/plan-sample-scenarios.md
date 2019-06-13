@@ -245,7 +245,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 ![샘플 DS 프로세스 연습 시나리오][8]
 
 ### <a name="advanced-analytics-in-action-examples"></a>고급 분석 작동 예제
-공용 데이터 세트에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure Machine Learning 연습에 대한 자세한 내용은 다음을 참조하세요.
+공용 데이터 세트에서 고급 분석 프로세스 및 기술을 사용하는 엔드투엔드 Azure Machine Learning 연습에 대한 자세한 내용은 다음을 참조하세요.
 
 * [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md)

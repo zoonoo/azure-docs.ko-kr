@@ -43,7 +43,7 @@
       items:
         - name: Azure Functions를 사용하여 데이터 필터링
           href: tutorial-deploy-function.md
-        - name: ASA를 사용하여 평균 찾기
+        - name: Azure Stream Analytics를 사용하여 평균 찾기
           href: tutorial-deploy-stream-analytics.md
         - name: Azure Machine Learning Service를 사용하여 데이터 채점
           href: tutorial-deploy-machine-learning.md
@@ -123,7 +123,7 @@
       items:
         - name: Linux
           href: how-to-auto-provision-simulated-device-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: how-to-auto-provision-simulated-device-windows.md
     - name: 사용자 지정 모듈 개발 및 디버그
       items:

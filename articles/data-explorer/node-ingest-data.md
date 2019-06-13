@@ -1,28 +1,28 @@
 ---
-title: '빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집'
-description: 이 빠른 시작 문서에서는 Node.js를 사용하여 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
+title: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집
+description: 이 문서에서는 Node.js를 사용 하 여 Azure 데이터 탐색기를 (부하) 데이터를 수집 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800416"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494489"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 2개의 Node용 클라이언트 라이브러리, [수집 라이브러리](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) 및 [데이터 라이브러리](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)를 제공합니다. 이러한 라이브러리를 사용하여 데이터를 클러스터로 수집(로드)하고 코드에서 데이터를 쿼리할 수 있습니다. 이 빠른 시작에서는 먼저 테스트 클러스터에서 테이블 및 데이터 매핑을 만듭니다. 그런 다음, 클러스터 큐에 수집을 넣고 결과의 유효성을 검사합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 2개의 Node용 클라이언트 라이브러리, [수집 라이브러리](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) 및 [데이터 라이브러리](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)를 제공합니다. 이러한 라이브러리를 사용하여 데이터를 클러스터로 수집(로드)하고 코드에서 데이터를 쿼리할 수 있습니다. 이 문서에서는 먼저 테이블 및 데이터 매핑 테스트 클러스터에서를 만듭니다. 그런 다음, 클러스터 큐에 수집을 넣고 결과의 유효성을 검사합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 Azure 구독 외에 다음 항목이 필요합니다.
+Azure 구독 외에도이 문서를 완료 하려면 다음이 필요 합니다.
 
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
 
@@ -88,7 +88,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>테스트 클러스터에 테이블 만들기
 
-`StormEvents.csv` 파일에 있는 데이터 스키마와 일치하는 테이블을 만듭니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. ‘로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 XXXXXXXXX 코드를 입력하여 인증하세요.’ 단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다. 연결을 만드는 후속 코드 블록을 위해 다시 로그인해야 합니다.
+`StormEvents.csv` 파일에 있는 데이터 스키마와 일치하는 테이블을 만듭니다. 이 코드를 실행하면 다음과 같은 메시지가 반환됩니다. ‘로그인하려면 웹 브라우저를 사용하여 https://microsoft.com/devicelogin 페이지를 열고 XXXXXXXXX 코드를 입력하여 인증하세요.’  단계에 따라 로그인한 후 돌아가서 다음 코드 블록을 실행합니다. 연결을 만드는 후속 코드 블록을 위해 다시 로그인해야 합니다.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
@@ -158,7 +158,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 빠른 시작 및 자습서를 진행하려는 경우 만든 리소스를 그대로 둡니다. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 `StormEvents` 테이블을 정리합니다.
+다른 문서를 수행 하려는 경우 사용자가 만든 리소스를 유지 합니다. 그렇지 않으면 데이터베이스에서 다음 명령을 실행하여 `StormEvents` 테이블을 정리합니다.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+* [쿼리 작성](write-queries.md)

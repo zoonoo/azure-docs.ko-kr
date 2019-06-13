@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237608"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427372"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -82,6 +82,15 @@ ms.locfileid: "60237608"
 |VMware VM|VMware vCenter/vSphere ESX/ESXi  라이선스 버전 5.5/6.0/6.5 |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
 |VMware VM|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|N|클러스터 공유 볼륨(CSVs), NFS 및 SAN 저장소의 VMware VM<br /> 파일 및 폴더의 항목 수준 복구는 Windows VM에만 사용 가능하며, VMware vApps는 지원되지 않습니다.|
 |Linux|Hyper-V 또는 VMware 게스트로 실행되는 Linux|물리적 서버, <br/>온-프레미스 Hyper-V VM, <br/> VMWare의 Windows VM|Y|Y|Hyper-V는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행되어야 합니다. 보호: 전체 가상 머신<br /><br />복구: 전체 가상 머신 <br/><br/> 지원되는 Linux 배포 및 버전의 전체 목록은 [Azure 보증 배포판의 Linux](../virtual-machines/linux/endorsed-distros.md)를 참조하세요.|
+
+## <a name="azure-expressroute-support"></a>Azure ExpressRoute 지원
+
+Azure ExpressRoute를 사용 하 여 개인 또는 Microsoft 피어 링 구성 된 경우에 Azure에 데이터를 백업 하려면 사용할 수 없습니다.
+
+Azure ExpressRoute는 공용 피어 링을 구성 하는 경우 Azure에 데이터를 백업 하려면 사용할 수 있습니다.
+
+>[!NOTE]
+>새 회로 대 한 공용 피어 링 사용 되지 않습니다.
 
 ## <a name="cluster-support"></a>클러스터 지원
 Azure Backup Server는 다음과 같은 클러스터 된 애플리케이션에서 데이터를 보호할 수 있습니다.

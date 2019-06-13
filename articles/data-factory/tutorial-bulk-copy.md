@@ -34,7 +34,7 @@ ms.locfileid: "66123405"
 
 이 자습서에서는 Azure PowerShell을 사용합니다. 다른 도구/SDK를 사용하여 데이터 팩터리를 만드는 방법을 알아보려면 [빠른 시작](quickstart-create-data-factory-dot-net.md)을 참조하세요. 
 
-## <a name="end-to-end-workflow"></a>종단 간 워크플로
+## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 이 시나리오에서는 SQL Data Warehouse에 복사할 여러 개의 Azure SQL Database 테이블이 있습니다. 다음은 파이프라인에서 발생하는 워크플로 단계의 논리적 시퀀스입니다.
 
 ![워크플로](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)

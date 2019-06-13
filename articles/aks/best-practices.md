@@ -2,18 +2,17 @@
 title: AKS(Azure Kubernetes Service)에 대한 모범 사례
 description: 클러스터 운영자 및 개발자가 AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 모범 사례에 대한 모음입니다.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: iainfou
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467156"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514569"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
 
@@ -41,7 +40,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [클러스터 보안 및 업그레이드에 대한 모범 사례](operator-best-practices-cluster-security.md)
     * API 서버에 대한 액세스를 보호하고, 컨테이너 액세스를 제한하며, 업그레이드 및 노드 재부팅을 관리합니다.
 * [컨테이너 이미지 관리 및 보안에 대한 모범 사례](operator-best-practices-container-image-management.md)
-    * 신뢰할 수 있는 레지스트리를 사용하여 이미지와 런타임을 보호하고, 기본 이미지 업데이트를 자동으로 빌드합니다.
+    * 이미지 및 런타임 및 기본 이미지 업데이트 시 자동화 된 빌드를 보호 하는 포함 되어 있습니다.
 * [Pod 보안에 대한 모범 사례](developer-best-practices-pod-security.md)
     * 리소스에 대한 액세스를 보호하고, 자격 증명 노출을 제한하며, Pod ID와 디지털 키 자격 증명 모음을 사용합니다.
 

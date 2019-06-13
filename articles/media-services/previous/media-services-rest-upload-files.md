@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817598"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752877"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드  
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 - [Azure Storage REST API 사용](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob 배치](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Blob Storage에 Blob 업로드](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Blob Storage에 Blob 업로드](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Postman을 사용하여 파일 업로드
 

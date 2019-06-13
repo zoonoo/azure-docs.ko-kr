@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795809"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428397"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>빠른 시작: 1 - C#에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795809"
 > * [Postman](search-fiddler.md)
 >*
 
-이 문서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 [Azure Search 인덱스](search-what-is-an-index.md)를 만드는 프로세스를 안내합니다. 인덱스를 만들고, 로드하고, 쿼리하는 3부 연습의 첫 번째 과정입니다. 인덱스를 만들려면 다음 작업을 수행합니다.
+이 문서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 [Azure Search 인덱스](search-what-is-an-index.md)를 만드는 프로세스를 안내합니다. 이 빠른 시작은 인덱스를 만들고, 로드하고, 쿼리하는 3부 연습의 첫 번째 과정입니다. 인덱스를 만들려면 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 검색 서비스에 연결할 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 개체를 만듭니다.
@@ -39,7 +39,7 @@ ms.locfileid: "65795809"
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)는 Azure 샘플 GitHub 리포지토리에 있는 C#로 작성된 .NET Core 콘솔 애플리케이션인 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다. 데이터는 솔루션에 포함되어 있습니다.
 
@@ -61,15 +61,13 @@ ms.locfileid: "65795809"
 
 1. appsettings.json에서 기본 콘텐츠를 아래 예제로 바꾼 다음, 서비스에 대한 서비스 이름과 관리자 API 키를 제공합니다. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
-
-  서비스 이름으로 이름 자체만 필요합니다. 예를 들어 URL이 https://mydemo.search.windows.net이면 `mydemo`를 JSON 파일에 추가합니다.
+   서비스 이름으로 이름 자체만 필요합니다. 예를 들어 URL이 https://mydemo.search.windows.net 이면 `mydemo` 를 JSON 파일에 추가합니다.
 
 1. F5를 눌러 솔루션을 빌드하고 콘솔 앱을 실행합니다. 이 연습의 나머지 단계와 이어지는 단계는 이 코드의 작동 방식을 살펴보는 것입니다. 
 
@@ -108,7 +106,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 1. `Index` 개체의 `Name` 속성을 인덱스의 이름으로 설정합니다.
 
-2. `Index` 개체의 `Fields` 속성을 `Field` 개체의 배열로 설정합니다. `Field` 개체를 만드는 가장 쉬운 방법은 `FieldBuilder.BuildForType` 메서드를 호출하여 형식 매개 변수에 대한 모델 클래스를 전달합니다. 모델 클래스에는 인덱스 필드에 매핑되는 속성이 있습니다. 이를 통해 모델 클래스의 인스턴스에 대한 검색 인덱스에서 문서를 바인딩할 수 있습니다.
+2. `Index` 개체의 `Fields` 속성을 `Field` 개체의 배열로 설정합니다. `Field` 개체를 만드는 가장 쉬운 방법은 `FieldBuilder.BuildForType` 메서드를 호출하여 형식 매개 변수에 대한 모델 클래스를 전달합니다. 모델 클래스에는 인덱스 필드에 매핑되는 속성이 있습니다. 이 매핑을 통해 모델 클래스의 인스턴스에 대한 검색 인덱스에서 문서를 바인딩할 수 있습니다.
 
 > [!NOTE]
 > 모델 클래스를 사용할 계획이 아니라면 `Field` 개체를 직접.만들어 여전히 인덱스를 정의할 수 있습니다. 필드 이름을 데이터 형식(또는 문자열 필드의 분석기)과 함께 생성자에 제공할 수 있습니다. 또한 `IsSearchable`, `IsFilterable`과 같은 다른 속성은 몇 가지 이름으로 설정할 수도 있습니다.
@@ -184,7 +182,7 @@ public partial class Hotel
 > 
 > 
 
-모델 클래스를 정의했으므로 인덱스 정의를 아주 쉽게 만들 수 있습니다.
+모델 클래스를 정의했으면, 인덱스 정의를 쉽게 만들 수 있습니다.
 
 ```csharp
 var definition = new Index()
@@ -203,7 +201,7 @@ serviceClient.Indexes.Create(definition);
 
 요청이 성공하면 메서드가 정상적으로 반환됩니다. 잘못된 매개 변수 등 요청에 문제가 발생하면 메서드가 `CloudException`을 발생시킵니다.
 
-인덱스 작업이 완료되고 해당 인덱스를 삭제하려면 `SearchServiceClient`에서 `Indexes.Delete` 메서드를 호출합니다. 예: 
+인덱스 작업이 완료되고 해당 인덱스를 삭제하려면 `SearchServiceClient`에서 `Indexes.Delete` 메서드를 호출합니다. 예:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");

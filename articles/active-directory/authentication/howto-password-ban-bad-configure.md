@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414865"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742300"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "60414865"
 
 ## <a name="add-to-the-custom-list"></a>사용자 지정 목록에 추가
 
-사용자 지정 금지 암호 목록을 구성하려면 Azure Active Directory Premium P1 또는 P2 라이선스가 필요합니다. Azure Active Directory 라이선싱에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+사용자 지정 금지 암호 목록을 구성하려면 Azure Active Directory Premium P1 또는 P2 라이선스가 필요합니다. Azure Active Directory 라이선스에 대 한 정보를 자세한 참조를 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)합니다.
 
 1. 에 로그인 하는 [Azure portal](https://portal.azure.com) 로 이동한 **Azure Active Directory**, **인증 방법**, 한 다음 **암호 보호**합니다.
 1. **Enforce custom list**(사용자 지정 목록 적용) 옵션을 **예**로 설정합니다.

@@ -80,7 +80,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 
 | 접근 방식 | 세부 정보 | 장점 | 고려 사항 |
 | --- | --- | --- | --- |
-| ADF(Azure Data Factory)를 사용하여 데이터를 Hadoop 클러스터에서 Azure Data Lake Storage Gen1로 직접 복사합니다. |[ADF는 데이터 원본으로 HDFS 지원](../data-factory/connector-hdfs.md) |ADF는 HDFS에 대한 기본 지원과 일등급 종단 간 관리 및 모니터링을 제공합니다. |온-프레미스 또는 IaaS 클러스터에 배포하려면 데이터 관리 게이트웨이가 필요합니다. |
+| ADF(Azure Data Factory)를 사용하여 데이터를 Hadoop 클러스터에서 Azure Data Lake Storage Gen1로 직접 복사합니다. |[ADF는 데이터 원본으로 HDFS 지원](../data-factory/connector-hdfs.md) |ADF는 HDFS에 대한 기본 지원과 일등급 엔드투엔드 관리 및 모니터링을 제공합니다. |온-프레미스 또는 IaaS 클러스터에 배포하려면 데이터 관리 게이트웨이가 필요합니다. |
 | Hadoop에서 데이터를 파일로 내보냅니다. 그런 다음, 적절한 메커니즘을 사용하여 파일을 Azure Data Lake Storage Gen1에 복사합니다. |파일을 Azure Data Lake Storage Gen1에 복사하는 데 사용할 수 있는 도구는 다음과 같습니다. <ul><li>[Windows OS용 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Data Lake Storage Gen1 SDK를 사용하는 사용자 지정 앱</li></ul> |빠르게 시작할 수 있습니다. 맞춤 업로드를 수행할 수 있습니다. |여러 기술을 사용하는 다단계 절차입니다. 도구를 맞춤화할 수 있으므로 시간이 지날수록 관리와 모니터링이 어려워집니다. |
 | Distcp를 사용하여 Hadoop에서 Azure Storage로 데이터를 복사합니다. 그런 다음, 적절한 메커니즘을 사용하여 데이터를 Azure Storage에서 Data Lake Storage Gen1로 복사합니다. |데이터를 Azure Storage에서 Data Lake Storage Gen1에 복사하는 데 사용할 수 있는 도구는 다음과 같습니다. <ul><li>[Azure 데이터 팩터리](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |오픈 소스 도구를 사용할 수 있습니다. |여러 기술을 사용하는 다단계 절차입니다. |
 

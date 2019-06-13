@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2017
+ms.date: 06/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07d52544b584adb02cc60790b7cb63c8aee1e366
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130921"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514484"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
 
@@ -82,7 +82,7 @@ ms.locfileid: "66130921"
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
                 }
             },
             "dailyQuota": {
@@ -200,7 +200,7 @@ ms.locfileid: "66130921"
 
 |priceCode|계획|
 |---|---|
-|1|기본|
+|1|Basic|
 |2|Enterprise|
 
 * 기본적인 Basic 가격 계획만 사용하려는 경우 템플릿에서 CurrentBillingFeatures 리소스를 생략해도 됩니다.
@@ -452,4 +452,3 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights에 Azure 진단 보내기](powershell-azure-diagnostics.md)
 * [GitHub에서 Azure로 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

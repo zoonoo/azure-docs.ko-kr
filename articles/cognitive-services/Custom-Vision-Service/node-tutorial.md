@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 86e9508049635d51726e9d0bcbdc5a4d52539f3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482456"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384159"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>빠른 시작: Custom Vision Node.js SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -49,8 +49,9 @@ npm install azure-cognitiveservices-customvision-prediction
 
 ```javascript
 const util = require('util');
-const TrainingApi = require("azure-cognitiveservices-customvision-training");
-const PredictionApi = require("azure-cognitiveservices-customvision-prediction");
+const fs = require('fs');
+const TrainingApiClient = require("azure-cognitiveservices-customvision-training");
+const PredictionApiClient = require("azure-cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -168,7 +169,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-그러면 테스트 이미지(**<base_image_url>/Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
+그러면 테스트 이미지( **<base_image_url>/Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

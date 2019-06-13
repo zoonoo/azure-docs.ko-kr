@@ -3,19 +3,19 @@ title: Conversation Learner에서 학습하는 방법 - Microsoft Cognitive Serv
 titleSuffix: Azure
 description: Conversation Learner에서 학습하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 9e5e6594a74219a22d67af18827bfe2b7cbd0fb8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220266"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385267"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Conversation Learner에서 학습하는 방법 
 
@@ -27,7 +27,7 @@ ms.locfileid: "55220266"
 
 내부적으로 Conversation Learner는 엔터티 추출을 위해 [LUIS](https://www.luis.ai)를 사용합니다.  LUIS에 익숙한 경우 해당 환경이 Conversation Learner의 엔터티 추출에 적용됩니다.
 
-엔터티 추출 모델은 사용자 발언 내의 콘텐츠 및 컨텍스트를 인식합니다.  예를 들어 “Seattle” 단어가 “What's the weather in Seattle”과 같은 하나의 발언에서 도시로 레이블이 지정된 경우 엔터티 추출은 발언이 완전히 다른 경우에도 “Population of Seattle”과 같은 다른 발언에서 동일한 콘텐츠(“Seattle”)를 도시로 인식할 수 있습니다.  반면, “Schedule a meeting with Francis”에서 “Francis”가 이름으로 인식된 경우 “Set up a meeting with Robin”과 같은 유사한 컨텍스트에서 이전에 보지 못한 새로운 이름을 인식할 수 있습니다.  Machine Learning은 학습 예제를 기준으로 콘텐츠, 컨텍스트 또는 둘 다에 적용하는 경우를 유추합니다.
+엔터티 추출 모델은 사용자 발언 내의 콘텐츠  및 컨텍스트  를 인식합니다.  예를 들어 “Seattle” 단어가 “What's the weather in Seattle”과 같은 하나의 발언에서 도시로 레이블이 지정된 경우 엔터티 추출은 발언이 완전히 다른 경우에도 “Population of Seattle”과 같은 다른 발언에서 동일한 콘텐츠(“Seattle”)를 도시로 인식할 수 있습니다.  반면, “Schedule a meeting with Francis”에서 “Francis”가 이름으로 인식된 경우 “Set up a meeting with Robin”과 같은 유사한 컨텍스트에서 이전에 보지 못한 새로운 이름을 인식할 수 있습니다.  Machine Learning은 학습 예제를 기준으로 콘텐츠, 컨텍스트 또는 둘 다에 적용하는 경우를 유추합니다.
 
 현재, 엔터티 추출은 현재 발언의 콘텐츠만 인식합니다.  아래의 작업 선택과 달리, 이전 시스템 턴, 이전 사용자 턴 또는 이전에 인식된 엔터티와 같은 대화 기록은 인식하지 못합니다.  결과적으로, 엔터티 추출의 동작은 모든 발언에서 “공유”됩니다.  예를 들어 사용자 발언 “I want Apple”의 “Apple”이 한 사용자 발언에서 엔터티 형식 “Fruit”로 레이블이 지정된 경우 엔터티 추출 모델은 이 발언(“I want Apple”)의 “Apple”이 항상 “Fruit”로 레이블이 지정되어야 한다고 예상합니다.
 

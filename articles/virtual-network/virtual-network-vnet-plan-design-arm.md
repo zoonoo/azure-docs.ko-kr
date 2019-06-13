@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575414"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478598"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -77,7 +77,7 @@ ms.locfileid: "64575414"
 - 서브넷의 VM마다 다른 보안 규칙을 적용해야 하는 경우 VM의 네트워크 인터페이스를 하나 이상의 애플리케이션 보안 그룹에 연결할 수 있습니다. 보안 규칙은 원본, 대상 또는 둘 다에서 애플리케이션 보안 그룹을 지정할 수 있습니다. 그러면 해당 규칙은 애플리케이션 보안 그룹의 구성원인 네트워크 인터페이스에만 적용됩니다. 자세한 내용은 [네트워크 보안 그룹](security-overview.md) 및 [애플리케이션 보안 그룹](security-overview.md#application-security-groups)을 참조하세요.
 - Azure에서는 각 네트워크 보안 그룹 내에 여러 기본 보안 규칙을 만듭니다. 하나의 기본 규칙은 모든 트래픽이 가상 네트워크의 모든 리소스 간에 흐르도록 허용합니다. 이 동작을 재정의하려면 네트워크 보안 그룹 사용자 지정 라우팅을 사용하여 트래픽을 NVA 또는 둘 다로 라우팅합니다. Azure의 모든 [기본 보안 규칙](security-overview.md#default-security-rules)을 알고 네트워크 보안 그룹 규칙이 리소스에 적용되는 방식을 이해하는 것이 좋습니다.
 
-Azure와 사용 하 여 인터넷 경계 네트워크 (DMZ 라고도 함)를 구현 하기 위한 샘플 디자인을 볼 수 있습니다는 [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) 하거나 [네트워크 보안 그룹](virtual-networks-dmz-nsg.md)합니다.
+Azure와 사용 하 여 인터넷 경계 네트워크 (DMZ 라고도 함)를 구현 하기 위한 샘플 디자인을 볼 수 있습니다는 [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)합니다.
 
 ### <a name="traffic-routing"></a>트래픽 라우팅
 

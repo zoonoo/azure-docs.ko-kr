@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024884"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753971"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure Search로 Azure Blob Storage에서 문서 인덱싱
 이 문서에서는 Azure Search를 사용하여 Azure Blob Storage에 저장된 문서(예: PDF, Office 파일 및 다양한 기타 일반적인 형식)를 인덱싱하는 방법을 보여줍니다. 먼저, blob 인덱서 설정 및 구성의 기본 사항을 설명합니다. 그런 다음, 동작 및 발생할 수 있는 시나리오의 심층적 탐색을 제공합니다.
@@ -116,6 +116,8 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
+
 ## <a name="how-azure-search-indexes-blobs"></a>Azure Search가 BLOB을 인덱싱하는 방식
 
 [인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 저장소 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 저장소 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
@@ -139,6 +141,8 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
   * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Search는 이 타임스탬프로 변경된 BLOB을 식별하여 초기 인덱싱 후 모든 항목을 다시 인덱싱하는 것을 방지합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).
   * **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
+  * **메타 데이터\_저장소\_sas\_토큰** (Edm.String)-사용할 수 있는 임시 SAS 토큰 [사용자 지정 기술](cognitive-search-custom-skill-interface.md) blob에 대 한 액세스를 가져오려고 합니다. 만료 될 수 있습니다 나중에 사용할이 토큰을 저장 되어야 합니다.
+
 * 각 문서 형식과 관련된 메타데이터 속성이 [여기](#ContentSpecificMetadata) 나열된 필드로 추출됩니다.
 
 검색 인덱스에서 위의 모든 속성에 대한 필드를 정의하지 않아도 되는 경우 애플리케이션에 필요한 속성만 캡처합니다.

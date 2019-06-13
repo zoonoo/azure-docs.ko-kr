@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 로그인 유지 | Microsoft Docs
 description: Azure Active Directory B2C에서 KMSI(로그인 유지)를 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cd48f2c194cc643d131a7def4b96285cde0bcbf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712539"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509418"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 

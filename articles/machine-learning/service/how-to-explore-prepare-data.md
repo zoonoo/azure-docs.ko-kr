@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146288"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753050"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
@@ -127,10 +127,10 @@ IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1
 Primary Type|FieldType.STRING|거짓 연습|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 설명|FieldType.STRING|가짜 확인|500 달러를 통해|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||학교, 공용 빌드|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
-Arrest|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Domestic|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 비트|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-구|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
+구역|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
@@ -140,7 +140,7 @@ Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2
 Updated On|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 위도|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
 경도|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+위치|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>누락 값 입력
 
@@ -148,7 +148,7 @@ Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7
 
 이전 섹션에서 생성 된 데이터 집합 프로필에서 했습니다 보면 `Latitude` 고 `Longitude` 열에 누락 값의 비율이 높으면 합니다. 이 예제에서는 평균을 계산 하 고 이러한 두 개의 열에 누락 값을 대체 합니다.
 
-먼저, 사용 하 여 데이터 집합의 최신 정의 가져옵니다 [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) 사용 하 여 데이터를 줄이려면 및 [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)이므로 주소 하고자 하는 열만 봅니다.
+먼저, 사용 하 여 데이터 집합의 최신 정의 가져옵니다 [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) 사용 하 여 데이터를 줄이려면 및 [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow)이므로 주소 하고자 하는 열만 봅니다.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -164,9 +164,9 @@ ds_def.head(3)
 
 ||ID|Arrest| 위도|경도|
 -|---------|-----|---------|----------|
-|0|10498554|거짓|41.692834|-87.604319|
-|1|10516598|거짓| 41.744107 |-87.664494|
-|2|10519196|거짓| NaN|NaN|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
 
 다음으로 확인 합니다 `MEAN` 사용 하 여 위도 열 값을 [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 함수입니다. 이 함수는 `group_by_columns` 매개 변수의 열 배열을 수락하여 집계 수준을 지정합니다. `summary_columns` 매개 변수는 허용 합니다 `SummaryColumnsValue` 현재 열 이름을, 새 계산된 필드 이름을 지정 하는 함수 및 `SummaryFunction` 하는 데.
 
@@ -181,7 +181,7 @@ lat_mean.head(1)
 
 ||Arrest|Latitude_MEAN|
 --|-----|--------|
-|0|거짓|41.780049|
+|0|False|41.780049|
 
 사용 하 여 대체 값을 확인 합니다 [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) imputes 열을 계산된 하는 고정 된 식에 알아보려면 `MIN`에 `MAX`를 `MEAN` 값 또는 `CUSTOM` 값입니다. `group_by_columns`를 지정하면 그룹별로 계산된 `MIN`, `MAX` 및 `MEAN`을 사용하여 누락 값이 그룹을 기준으로 입력됩니다.
 
@@ -217,9 +217,9 @@ ds_def.head(3)
 
 ||ID|Arrest|위도|경도
 -|---------|-----|---------|----------
-0|10498554|거짓|41.692834|-87.604319
-1|10516598|거짓|41.744107|-87.664494
-2|10519196|거짓|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 를 사용 하 여 데이터 집합 정의 업데이트할 [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) 수행된 변환 단계를 유지 하 합니다.
 
@@ -230,9 +230,9 @@ dataset.head(3)
 
 ||ID|Arrest|위도|경도
 -|---------|-----|---------|----------
-0|10498554|거짓|41.692834|-87.604319
-1|10516598|거짓|41.744107|-87.664494
-2|10519196|거짓|41.780049|-87.000000
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
 
 ## <a name="create-assertion-rules"></a>어설션 규칙 만들기
 
@@ -259,7 +259,7 @@ ds_def.get_profile()
 ||Type|Min|max|개수|누락된 수|누락되지 않은 수|누락 백분율|오류 수|비어 있는 수|0.1% 분위수|1% 분위수|5% 분위수|25% 분위수|50% 분위수|75% 분위수|95% 분위수|99% 분위수|99.9% 분위수|평균|표준 편차|Variance|왜곡도|첨도
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
-Arrest|FieldType.BOOLEAN|거짓|거짓|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 위도|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1.05
 경도|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
 
@@ -294,7 +294,7 @@ dataset.head(3)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
 
-날짜 및 시간 형식 '에서 2016으로 변환 해야 한다고 가정해 봅니다-04-04 오후 10 시-오전 12 시 '. 에 [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) 인수를에 원하는 출력의 예제를 제공 합니다 `example_data` 형식으로 매개 변수: *(원래 출력, 원하는 출력)*.
+날짜 및 시간 형식 '에서 2016으로 변환 해야 한다고 가정해 봅니다-04-04 오후 10 시-오전 12 시 '. 에 [ `derive_column_by_example()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#derive-column-by-example-source-columns--sourcecolumns--new-column-name--str--example-data--exampledata-----azureml-dataprep-api-dataflow-dataflow) 인수를에 원하는 출력의 예제를 제공 합니다 `example_data` 형식으로 매개 변수: *(원래 출력, 원하는 출력)* .
 
 다음 코드에서는 원하는 출력의 두 가지 예 ("2016-04-04 23시 56분: 00", "2016-04-04 오후 10-오전 12 시") 및 ("2016-04-15 17시: 00", "2016-04-15 오후 4 시-오후 6 시")
 

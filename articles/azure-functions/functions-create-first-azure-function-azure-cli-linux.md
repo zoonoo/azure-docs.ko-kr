@@ -28,13 +28,13 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 샘플을 실행하기 전에 다음이 있어야 합니다.
+이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
 
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
 
 + [Azure CLI]( /cli/azure/install-azure-cli)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 
-+ 활성 Azure 구독.
++ 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

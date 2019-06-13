@@ -2,20 +2,20 @@
 title: OAuth1 기술 프로필을 Azure Active Directory B2C에서 사용자 지정 정책에서 정의 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책에서 OAuth1 기술 프로필을 정의 합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699838"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513109"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64699838"
 
 Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/rfc5849) 프로토콜 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용 하 여 OAuth1 기반된 id 공급자로 Twitter 등을 사용 하 여 페더레이션 할 수 있습니다. 기존 소셜 로그인 또는 엔터프라이즈 id를 사용 하면 id 공급자와 페더레이션.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `OAuth1`로 설정해야 합니다. 예를 들어 **Twitter-OAUTH1** 기술 프로필의 프로토콜은 `OAuth1`입니다.
 

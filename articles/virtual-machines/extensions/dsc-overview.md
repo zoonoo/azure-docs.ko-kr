@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518853"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515900"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -81,7 +81,7 @@ Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-노드 구성 이름에 대 한 이름을 사용 하 고 있는지 확인 합니다 *노드 구성* 및 구성은 없습니다.
+노드 구성 이름에 대 한 Azure 상태 구성의 노드 구성이 있는지를 확인 합니다.  표시 되지 않는 확장 배포는 오류를 반환 합니다.  또한의 이름을 사용 하 고 있는지를 확인 합니다 *노드 구성* 및 구성은 없습니다.
 구성을 사용 되는 스크립트에 정의 된 [노드 구성 (MOF 파일)를 컴파일하는 데](https://docs.microsoft.com/azure/automation/automation-dsc-compile)합니다.
 이름을 마침표 뒤에 구성을 항상 `.` 고 `localhost` 또는 특정 컴퓨터 이름입니다.
 

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110392"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428092"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 애플리케이션에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server Core 2016 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너 배포에 대해 설명합니다. [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참고하여 Linux 컨테이너를 배포합니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 빠른 시작에서는 Service Fabric 애플리케이션에서 미리 작성된 Docker 컨테이너 이미지를 배포하는 방법을 보여줍니다. 완료하면 Windows Server Core 2016 서버 및 IIS 컨테이너를 실행하게 됩니다. 이 빠른 시작에서는 Windows 컨테이너를 배포합니다. Linux 컨테이너를 배포하려면 [이 빠른 시작](service-fabric-quickstart-containers-linux.md)을 참조하세요.
 
 ![IIS default web page][iis-default]
 
@@ -44,7 +44,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 * Azure 구속([체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있음)
 * 다음을 실행하는 개발 컴퓨터
-  * Visual Studio 2015 또는 Visual Studio 2017.
+  * Visual Studio 2015 또는 Windows 2019
   * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Visual Studio에서 Docker 이미지 컨테이너 패키징
@@ -100,13 +100,13 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 다음 스크립트를 실행하기 전에 PowerShell에서 `Connect-AzAccount`를 실행하여 Azure와의 연결을 설정합니다.
 
-다음 스크립트를 클립보드에 복사하고 **Windows PowerShell ISE**를 엽니다.  빈 Untitled1.ps1 창에 내용을 붙여넣습니다. 그런 다음, 스크립트의 `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd` 등의 변수에 값을 지정합니다.  스크립트를 실행하기 전에 `certfolder`에 지정한 디렉터리가 존재해야 합니다.
+다음 스크립트를 클립보드에 복사하고 **Windows PowerShell ISE**를 엽니다.  빈 Untitled1.ps1 창에 내용을 붙여넣습니다. 그런 다음, 스크립트의 `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd` 등의 변수에 대한 값을 제공합니다.  스크립트를 실행하기 전에 `certfolder`에 지정한 디렉터리가 존재해야 합니다.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
-변수에 값을 지정했으면 **F5** 키를 눌러 스크립트를 실행합니다.
+변수에 대한 값을 제공했으면 **F5** 키를 눌러서 스크립트를 실행합니다.
 
-스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 예: 
+스크립트가 실행되고 클러스터가 생성되면 출력에서 `ClusterEndpoint`를 찾아보세요. 예:
 
 ```powershell
 ...

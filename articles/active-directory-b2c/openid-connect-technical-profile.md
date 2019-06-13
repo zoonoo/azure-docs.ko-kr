@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책에서 OpenId Connect 기술 프로필을 정의 합니다. | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책에서 OpenId Connect 기술 프로필을 정의 합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710319"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512909"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OpenId Connect 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64710319"
 
 Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 프로토콜 ID 공급자를 지원합니다. OpenID Connect 1.0은 OAuth 2.0을 토대로 ID 계층을 정의하고 최신 인증 프로토콜을 나타냅니다. OpenId Connect 기술 프로필을 사용 하 여 Azure AD와 같은 OpenId Connect 기반된 id 공급자를 사용 하 여 페더레이션 할 수 있습니다. 페더레이션 id 공급자를 사용 하 여 기존 소셜 로그인 또는 엔터프라이즈 id 사용자를를 수 있습니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `OpenIdConnect`로 설정해야 합니다. 예를 들어 **MSA-OIDC** 기술 프로필의 프로토콜은 `OpenIdConnect`입니다.
 

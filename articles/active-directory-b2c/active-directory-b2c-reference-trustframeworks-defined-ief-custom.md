@@ -2,20 +2,20 @@
 title: 참조 - Azure Active Directory B2C의 보안 프레임워크 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책 및 ID 환경 프레임워크에 대한 항목입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20767c8903cd6617db4d37b756c3d8ae95cfb6ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701219"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508816"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
@@ -52,10 +52,10 @@ TF는 OIX(Open Identity Exchange) 보안 프레임워크 모델의 핵심이며,
 - **참가자가 제공/요구하는 디지털 ID 정보에 대한 설명**
 
 - **디지털 ID 정보의 생성 및 사용, 즉 LOA 및 LOP 측정에 대한 기술 정책 - 이러한 서면 상의 정책에는 일반적으로 다음 범주의 정책이 포함됩니다.**
-    - ID 교정 정책(예: 사람의 ID 정보를 얼마나 엄격하게 조사하는가?)
-    - 보안 정책(예: 정보 무결성 및 기밀성을 얼마나 엄격하게 보호하는가?)
-    - 개인 정보 정책(예: 사용자는 PII(개인 식별 정보)에 어떤 제어권을 가지는가?)
-    - 존속성 정책(예: 공급자가 운영을 중단하는 경우 PII 기능의 연속성 및 보호는 어떻게 작동하는가?)
+    - ID 교정 정책(예: 사람의 ID 정보를 얼마나 엄격하게 조사하는가?  )
+    - 보안 정책(예: 정보 무결성 및 기밀성을 얼마나 엄격하게 보호하는가?  )
+    - 개인 정보 정책(예: 사용자는 PII(개인 식별 정보)에 어떤 제어권을 가지는가?  )
+    - 존속성 정책(예: 공급자가 운영을 중단하는 경우 PII 기능의 연속성 및 보호는 어떻게 작동하는가?  )
 
 - **디지털 ID 정보의 생성 및 사용에 대한 기술 프로필 - 이러한 프로필에 포함되는 항목은 다음과 같습니다.**
     - 지정된 LOA에서 디지털 ID 정보를 사용할 수 있는 범위 인터페이스

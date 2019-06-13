@@ -122,8 +122,8 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **모범 사례**: 조사 고 hunting 프로세스의 속도 및 공격 조사에 끝점 검색 및 응답 (EDR) 기능을 통합 하 여 거짓 긍정을 줄입니다.   
 **세부 정보**: [Windows Defender ATP 통합을 사용 하도록 설정](../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) 통해 Security Center 보안 정책입니다. 위협 사냥 및 인시던트 대응에 대 한 Azure Sentinel를 사용 하는 것이 좋습니다.
 
-## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>종단 간 시나리오 기반 네트워크 모니터링
-고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 종단 간 네트워크를 구축합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
+## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>엔드투엔드 시나리오 기반 네트워크 모니터링
+고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
 
 [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)는 지역별 서비스입니다. 이 서비스에서 제공하는 진단 및 시각화 도구를 사용하면 Azure 내/외부 통신에 사용되는 네트워크 시나리오 수준의 상태를 모니터링하고 진단할 수 있습니다.
 

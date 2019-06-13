@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912653"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808445"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -30,8 +30,8 @@ Cognitive Services Speech SDK는 Windows 10 및 Windows Server 2016에서 테스
 
 Cognitive Services 음성 SDK에는 [Microsoft Visual C++ Visual Studio 2019에 대 한 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 시스템에 있습니다. 최신 버전의 `Microsoft Visual C++ Redistributable for Visual Studio 2019`용 설치 관리자는 여기에서 다운로드할 수 있습니다.
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 애플리케이션에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 

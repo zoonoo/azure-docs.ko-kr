@@ -18,7 +18,7 @@ ms.lasthandoff: 05/17/2019
 ms.locfileid: "65873805"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse 비즈니스 인텔리전스 파트너
-종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL Data Warehouse를 지 원하는 공식 비즈니스 인텔리전스 (BI) 솔루션을 사용 하 여 Microsoft 파트너 회사를 강조 표시 합니다.
+엔드투엔드 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL Data Warehouse를 지 원하는 공식 비즈니스 인텔리전스 (BI) 솔루션을 사용 하 여 Microsoft 파트너 회사를 강조 표시 합니다.
 
 ## <a name="our-business-intelligence-partners"></a>비즈니스 인텔리전스 파트너
 | 파트너 | 설명 | 웹 사이트/제품 링크 |

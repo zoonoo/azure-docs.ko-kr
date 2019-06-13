@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472987"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -34,10 +34,11 @@ Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-테넌트에 애플리케이션을 추가하려면 다음이 필요합니다.
+Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필요합니다.
 
 * [Microsoft Azure AD 기본 또는 Premium 구독](https://azure.microsoft.com/pricing/details/active-directory).
 * 애플리케이션 관리자 계정
+* 사용자 ID는 온-프레미스 디렉터리에서 동기화되거나 Azure AD 테넌트 내에서 직접 생성되어야 합니다. ID 동기화를 통해 Azure AD가 사용자에게 App Proxy 게시 애플리케이션에 대한 액세스 권한을 부여하기 전에 미리 인증하고 SSO(Single Sign-On)를 수행하는 데 필요한 사용자 식별자 정보를 가질 수 있습니다.
 
 ### <a name="windows-server"></a>Windows Server
 

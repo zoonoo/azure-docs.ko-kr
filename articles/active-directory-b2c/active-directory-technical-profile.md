@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 Azure Active Directory 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507441"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64718698"
 
 Azure AD(Azure Active Directory) B2C는 Azure Active Directory 사용자 관리를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
 

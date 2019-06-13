@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045410"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478845"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
@@ -584,11 +584,11 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 이 샘플 IPython Notebook 또는 Python 스크립트 파일을 실행하기 위해 다음 Python 패키지가 필요합니다. AzureML IPython Notebook 서비스를 사용하는 경우 이러한 패키지는 미리 설치되었습니다.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 큰 데이터로 AzureML에 고급 분석 솔루션을 구축할 때 권장된 시퀀스는 다음과 같습니다.
 

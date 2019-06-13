@@ -28,7 +28,7 @@ ms.locfileid: "60628662"
 
 Microsoft Azure StorSimple은 진정한 하이브리드 클라우드 저장소 기능이 있는 엔터프라이즈 저장소에 대한 고유한 접근 방법입니다. 고객이 최고 수준의 성능에 대해 중요 업무용 데이터 온-프레미스를 유지하면서 비활성 데이터에 대해 경제적인 클라우드 저장소를 활용할 수 있도록 지원합니다. 
 
-CSP(클라우드 솔루션 공급자)용 StorSimple 가상 배열을 통해 파트너는 이 기회를 활용할 수 있습니다. 파트너는 직접 프로비전, 요금 청구 및 Microsoft의 클라우드 서비스 지원으로 종단 간 고객 수명 주기를 소유합니다. 즉, 파트너는 이제 파트너의 서비스와 함께 StorSimple을 고객에게 판매할 수 있습니다.
+CSP(클라우드 솔루션 공급자)용 StorSimple 가상 배열을 통해 파트너는 이 기회를 활용할 수 있습니다. 파트너는 직접 프로비전, 요금 청구 및 Microsoft의 클라우드 서비스 지원으로 엔드투엔드 고객 수명 주기를 소유합니다. 즉, 파트너는 이제 파트너의 서비스와 함께 StorSimple을 고객에게 판매할 수 있습니다.
 
 CSP용 StorSimple에 대한 자세한 내용은 [Azure CSP 개요](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) 페이지를 방문합니다.
 

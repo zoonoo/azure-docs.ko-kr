@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978888"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475226"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -138,13 +138,17 @@ Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [Ap
 
 ### <a name="test-the-hostnames"></a>호스트 이름 테스트
 
-앱에 기본 호스트 이름을 할당한 경우 선택한 각 호스트 이름에 대해 성공 알림도 표시됩니다. 
+앱에 기본 호스트 이름을 할당한 경우 선택한 각 호스트 이름에 대해 성공 알림도 표시됩니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-또한 선택한 호스트 이름도 **사용자 지정 도메인** 페이지의 **사용자 지정 호스트 이름** 섹션에서 표시됩니다. 
+또한 선택한 호스트 이름도 **사용자 지정 도메인** 페이지의 **사용자 지정 호스트 이름** 섹션에서 표시됩니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> A **참고 보안** 레이블 브라우저에 따라 경고 및 오류 또는 사용자 지정 도메인은 의미는 SSL 인증서에 아직 바인딩되어 모든 HTTPS 요청을 브라우저에서 사용자 지정 도메인을 받게 됩니다. SSL 바인딩을 구성 하려면 [구입 및 Azure App Service에 대 한 SSL 인증서 구성](web-sites-purchase-ssl-web-site.md)합니다.
+>
 
 호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 탐색 하 려 _kontoso.net_ 하 고 _www\.kontoso.net_합니다.
 
@@ -275,7 +279,7 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메�
 
 모든 호스트 이름 바인딩이 삭제되어야 App Service 도메인을 삭제할 수 있습니다.
 
-**...** > **삭제**를 선택하여 각 호스트 이름 바인딩을 삭제합니다. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
+**...**  > **삭제**를 선택하여 각 호스트 이름 바인딩을 삭제합니다. 모든 바인딩을 삭제한 후 **저장**을 선택합니다.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

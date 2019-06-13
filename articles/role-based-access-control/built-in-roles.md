@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977756"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755117"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -2533,7 +2533,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제 합니다. |
@@ -2552,7 +2552,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 전체 권한입니다. |
@@ -2567,7 +2567,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
@@ -2582,7 +2582,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐를 삭제 합니다. |
@@ -2601,7 +2601,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **actions** |  |
 > | *없음* |  |
@@ -2617,7 +2617,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **actions** |  |
 > | *없음* |  |
@@ -2632,7 +2632,7 @@ ms.locfileid: "65977756"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
+> | **설명** | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)합니다. |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |

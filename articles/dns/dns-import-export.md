@@ -2,17 +2,16 @@
 title: Azure CLI를 사용하여 도메인 영역 파일을 Azure DNS에 가져오기 및 내보내기 | Microsoft Docs
 description: Azure CLI를 사용하여 Azure DNS에 DNS 영역 파일을 가져오고 내보내는 방법을 알아봅니다
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 4/3/2019
-ms.date: 04/15/2019
-ms.author: v-jay
-ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 4/3/2019
+ms.author: victorh
+ms.openlocfilehash: 00ff5636f97b24c656ee4e5d8ceb2f6b22524538
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293079"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515342"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
 
@@ -115,19 +114,19 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
         "nsRecords": [
           {
             "additionalProperties": {},
-            "nsdname": "ns1-03.azure-dns.cn."
+            "nsdname": "ns1-03.azure-dns.com."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns2-03.azure-dns.cn."
+            "nsdname": "ns2-03.azure-dns.net."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns3-03.azure-dns.cn."
+            "nsdname": "ns3-03.azure-dns.org."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns4-03.azure-dns.cn."
+            "nsdname": "ns4-03.azure-dns.info."
           }
         ],
         "resourceGroup": "myresourcegroup",
@@ -138,9 +137,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
     ```
 
     ```cmd
-    nslookup www.contoso.com ns1-03.azure-dns.cn
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
-        Server: ns1-01.azure-dns.cn
+        Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
 
         Name:www.contoso.com
@@ -154,7 +153,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Azure DNS에서 DNS 영역 파일 내보내기
 
-DNS 영역을 가져오는 Azure CLI 명령 형식은 다음과 같습니다.
+DNS 영역을 내보내려면 Azure CLI 명령의 형식은 다음과 같습니다.
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

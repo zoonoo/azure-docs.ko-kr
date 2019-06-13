@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 179b67306803437ccad085cccfb1b5fd40888261
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240854"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386793"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -167,7 +167,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>일부 속성 경로를 선택적으로 제외하는 옵트아웃 정책
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -201,7 +201,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>일부 속성 경로를 선택적으로 포함하는 옵트인 정책
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -235,7 +235,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>특정 속성 경로에 대해서만 공간 인덱스 사용
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -280,7 +280,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="no-indexing"></a>인덱싱 안 함
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

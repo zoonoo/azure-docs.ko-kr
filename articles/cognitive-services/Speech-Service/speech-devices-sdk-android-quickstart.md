@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234512"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425672"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 음성 장치 SDK 샘플 앱 실행
 
@@ -84,7 +84,7 @@ ms.locfileid: "66234512"
 
 1. 소스 코드에 음성 구독 키를 추가 합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
 
-   음성 및 LUIS 정보 MainActivity.java를 살펴봅니다.
+   LUIS와 음성에 대 한 정보 MainActivity.java를 살펴봅니다.
 
    ```java
     // Subscription
@@ -145,7 +145,7 @@ ms.locfileid: "66234512"
 
    ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](media/speech-devices-sdk/qsg-8.png)
 
-1. 새로 추가 하는 것은 대화 기록 데모입니다. 세션 시작 '을 사용 하 여 복사를 시작 합니다. 기본적으로 모든 사용자는 게스트를 장치에는 파일 /video/participants.properties에 입력할 수 참가자의 음성 서명이 있는 경우 이러한입니다. 음성 시그니처 확인을 생성 하려면 [촬영할 대화 (SDK)](how-to-use-conversation-transcription-service.md)합니다.
+1. 새 대화 기록 데모를 보십시오. 세션 시작 '을 사용 하 여 복사를 시작 합니다. 기본적으로 모든 사용자가 게스트입니다. 그러나 참가자의 음성 서명이 있는 경우 이러한 넣을 수 있습니다 파일로 `/video/participants.properties` 장치의 합니다. 음성 시그니처를 생성 하려면 살펴 [촬영할 대화 (SDK)](how-to-use-conversation-transcription-service.md)합니다.
 
    ![데모 대화 기록 응용 프로그램](media/speech-devices-sdk/qsg-15.png)
 

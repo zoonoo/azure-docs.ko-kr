@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965724"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476720"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -26,6 +26,12 @@ Azure에서 Windows Virtual Desktop을 실행하면 다음과 같은 작업이 �
 * 기존 RDS(원격 데스크톱 서비스)와 Windows Server 데스크톱 및 앱을 컴퓨터로 가져오기
 * 데스크톱 및 앱 가상화
 * 통합 관리 환경을 사용하여 Windows 10/Windows Server/Windows 7 데스크톱 및 앱 관리
+
+## <a name="introductory-video"></a>소개 비디오
+
+다음 비디오에서 Scott Manchester가 Windows Virtual Desktop의 기능 중 일부를 보여줍니다.
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>주요 기능
 
@@ -92,7 +98,6 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
-
 
 ## <a name="supported-virtual-machine-os-image"></a>지원되는 가상 머신 OS 이미지
 

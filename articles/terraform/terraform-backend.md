@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297931"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693304"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Terraform 상태를 Azure Storage에 저장
 
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 상태 스토리지에 대한 Azure Storage Blob을 사용하는 경우 blob은 상태를 기록하는 모든 작업 전에 자동으로 잠겨 있습니다. 이 구성은 손상을 일으킬 수 있는 여러 동시 상태 작업을 방지합니다. 자세한 내용은 Terraform 설명서의 [상태 잠금][terraform-state-lock]을 참조하세요.
 
-Azure Portal 또는 기타 Azure 관리 도구를 통해 blob을 검토할 때는 잠겨져 있습니다.
+Azure 포털 또는 기타 Azure 관리 도구를 통해 blob를 검사 하는 경우에 잠금의 볼 수 있습니다.
 
 ![잠금을 사용한 Azure blob](media/terraform-backend/lock.png)
 

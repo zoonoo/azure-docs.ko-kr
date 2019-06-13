@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 날짜 클레임 변환 예제 | Microsoft Docs
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 날짜 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710431"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511120"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
@@ -92,7 +92,7 @@ ms.locfileid: "64710431"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | datetime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | dateTime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 다음 예제에서는 `dateOfBirth` 클레임(date 데이터 형식)을 다른 `dateOfBirthWithTime` 클레임(dateTime 데이터 형식)으로 변환하는 방법을 보여 줍니다.
 
@@ -120,7 +120,7 @@ ms.locfileid: "64710431"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | currentDateTime | datetime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | currentDateTime | dateTime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -141,8 +141,8 @@ ms.locfileid: "64710431"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | datetime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
-| InputClaim | secondDateTime | datetime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
+| InputClaim | firstDateTime | dateTime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
+| InputClaim | secondDateTime | dateTime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
 | InputParameter | operator | 문자열 | same(같음), later than(보다 이후) 또는 earlier than(보다 이전) 값 중 하나입니다. |
 | InputParameter | timeSpanInSeconds | int | 첫 번째 datetime에 시간 간격을 추가합니다. |
 | OutputClaim | result | 부울 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768177"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425612"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ## <a name="data-integration-units"></a>데이터 통합 단위
 
-**DIU(데이터 통합 단위)**(이전의 클라우드 데이터 이동 단위 또는 DMU)는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DIU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** 에만 적용됩니다.
+**DIU(데이터 통합 단위)** (이전의 클라우드 데이터 이동 단위 또는 DMU)는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DIU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** 에만 적용됩니다.
 
 **복사 작업 실행을 위한 최소 데이터 통합 단위는 2입니다.** 지정되지 않은 경우, 다양한 복사 시나리오에서 사용되는 기본 DIU가 나열된 다음 표를 참조하세요.
 
@@ -93,7 +93,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행을 위해 실제로 사용되는 데이터 통합 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
 
 > [!NOTE]
-> **4를 초과**하는 DIU 설정은 현재 **Blob Storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사하는 경우에만 작동합니다.**.
+> 설정 DIUs **4 보다 큰** 현재 경우에만 적용 됩니다 있습니다 **다른 클라우드 데이터 저장소를AzureStorage/DataLakeStorage/AmazonS3/Google클라우드Storage/클라우드FTP/cloudSFTP에서에서여러파일을복사**.
 >
 
 **예제:**
@@ -122,7 +122,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 데이터 이동에 대해 청구되는 총 기간은 전체 DIU의 기간 합계입니다. 두 클라우드 단위로 1시간이 걸렸던 복사 작업이 이제 8개의 클라우드에서 15분이 소요된다면 전체 청구 금액은 거의 동일한 상태로 유지됩니다.
 
-## <a name="parallel-copy"></a>병렬 복사 
+## <a name="parallel-copy"></a>병렬 복사
 
 **parallelCopies** 속성을 사용하여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성을 병렬로 원본에서 읽어오거나 싱크 데이터 저장소에 쓰는 복사 작업 내 최대 스레드 수라고 생각할 수 있습니다.
 
@@ -348,7 +348,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 입력 또는 출력 데이터 집합이 파일인 경우 대상에 데이터를 쓸 때 복사 작업을 설정하여 압축하거나 압축을 해제할 수 있습니다. 압축을 선택할 때 입력/출력(I/O) 및 CPU 간에 균형을 유지합니다. 계산 리소스에서 데이터를 압축하는 데 추가 비용이 발생합니다. 대신에, 네트워크 I/O 및 저장소는 감소합니다. 데이터에 따라 전체 복사 처리량이 향상되는 것을 볼 수 있습니다.
 
-**코덱**: 압축 코덱에는 각각 장점이 있습니다. 예를 들어 bzip2는 가장 낮은 복사 처리량을 갖지만 처리를 위해 분할될 수 있으므로 bzip2로 최상의 Hive 쿼리 성능을 얻게 됩니다. Gzip는 가장 균형 있는 옵션을 제공하고 가장 흔하게 사용됩니다. 종단 간 시나리오에 가장 적합한 코덱을 선택합니다.
+**코덱**: 압축 코덱에는 각각 장점이 있습니다. 예를 들어 bzip2는 가장 낮은 복사 처리량을 갖지만 처리를 위해 분할될 수 있으므로 bzip2로 최상의 Hive 쿼리 성능을 얻게 됩니다. Gzip는 가장 균형 있는 옵션을 제공하고 가장 흔하게 사용됩니다. 엔드투엔드 시나리오에 가장 적합한 코덱을 선택합니다.
 
 **수준**: 각 압축 코덱의 경우 빠른 압축 및 최적 압축이라는 두 옵션 중에서 선택할 수 있습니다. 파일이 최적으로 압축되지 않은 경우에도 가장 빠르게 압축된 옵션은 데이터를 최대한 빨리 압축합니다. 최적으로 압축된 옵션은 압축에 더 많은 시간을 사용하고 최소한의 데이터를 생성합니다. 두 옵션 모두 테스트하여 어떤 옵션이 사용자에게 더 나은 성능을 제공하는지 확인할 수 있습니다.
 

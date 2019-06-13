@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9dd730a7adc94c08a197049468b21e1b7eb6f737
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723873"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508311"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정
 
@@ -39,7 +39,7 @@ ms.locfileid: "64723873"
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Salesforce에서 연결된 앱 만들기
 
-1. **ID 공급자** 페이지에서 **Service Providers are now created via Connected Apps. Click here.**(서비스 공급자가 연결된 앱을 통해 생성됩니다. 여기를 클릭하세요.)를 클릭합니다.
+1. **ID 공급자** 페이지에서 **Service Providers are now created via Connected Apps. Click here.** (서비스 공급자가 연결된 앱을 통해 생성됩니다. 여기를 클릭하세요.)를 클릭합니다.
 2. **기본 정보** 아래에서 연결된 앱에 대한 필수 값을 입력합니다.
 3. **웹앱 설정** 아래에서 **SAML 사용** 확인란을 선택합니다.
 4. **엔터티 ID** 필드에 다음 URL을 입력합니다. `your-tenant` 값을 Azure AD B2C 테넌트의 이름으로 바꾸어야 합니다.

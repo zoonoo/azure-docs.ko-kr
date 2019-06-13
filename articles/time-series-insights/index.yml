@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/23/2019
+  ms.date: 06/03/2019
   ms.author: anshan
 abstract:
   description: 'Azure Time Series Insights를 시작합니다. Azure Time Series Insights는 운영 분석 역량을 강화할 수 있는 강력한 데이터 탐색 및 원격 분석 도구를 제공합니다. 본 설명서에서는 이 서비스, 이 서비스의 여러 기능을 시작하는 방법, 클라이언트 SDK 및 강력한 Time Series Insights API를 설명합니다. 정보는 두 가지 버전으로 제공되는데, 하나는 일반 공급 버전(Time Series Insights GA)이고 다른 하나는 현재 미리 보기로 제공되는 주요 서비스 업데이트(Time Series Insights 미리 보기)입니다.'
@@ -46,9 +46,9 @@ sections:
         className: cardsD
         items:
           - title: Azure Time Series Insights GA
-            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">환경 만들기</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">단일 페이지 웹앱 만들기</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">JavaScript 클라이언트 라이브러리 살펴보기</a></p>
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Azure Time Series Insights 환경 만들기</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">단일 페이지 웹앱 만들기</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">JavaScript 클라이언트 라이브러리 살펴보기</a></p>
           - title: Azure Time Series Insights 미리 보기
-            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">미리 보기 자습서</a></p>
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Azure Time Series Insights 미리 보기 환경 설정</a></p>
   - title: 참고 자료
     items:
       - type: list
@@ -56,6 +56,8 @@ sections:
         className: cardsD
         items:
           - title: Time Series Insights GA API
-            html: <p><a href="/rest/api/time-series-insights-management">리소스 관리 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">쿼리 구문</a></p>
+            html: <p><a href="/rest/api/time-series-insights/ga">데이터 액세스</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">쿼리 구문</a></p>
           - title: Time Series Insights 미리 보기 API
             html: <p><a href="/rest/api/time-series-insights/preview-query">쿼리 API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">모델 API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">환경 API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">시계열 식 API</a></p>
+          - title: Client SDK
+            html: '<p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript 클라이언트 SDK</a></p>'

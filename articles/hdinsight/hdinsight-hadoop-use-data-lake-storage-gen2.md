@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707310"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427395"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -22,18 +22,18 @@ Azure Data Lake 저장소 Gen2는 전용 빅 데이터 분석을 Azure Blob stor
 
 Data Lake 저장소 Gen2는 기본값 및 추가 저장소 계정으로 거의 모든 Azure HDInsight 클러스터 형식에 대 한 저장소 옵션으로 사용할 수 있습니다. 그러나 HBase, Data Lake 저장소 Gen2 계정은 하나만 있을 수 있습니다.
 
-> [!Note] 
+> [!Note]  
 > Data Lake 저장소 Gen2로 선택한 후에 **기본 저장소 유형**, 추가 저장소로 Data Lake 저장소 Gen1 계정을 선택할 수 없습니다.
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Azure portal을 통해 Data Lake 저장소 Gen2를 사용 하 여 클러스터 만들기
 
 저장소에 Data Lake 저장소 Gen2를 사용 하는 HDInsight 클러스터를 만들려면 Data Lake 저장소 Gen2 계정을 구성 하려면 다음이 단계를 수행 합니다.
 
-### <a name="create-a-user-managed-identity"></a>관리 되는 사용자 id 만들기
+### <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
 
 사용자 할당 관리 ID가 아직 없는 경우 지금 만듭니다. [Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)을 참조하세요. Azure HDInsight에서 관리 되는 identities 작업에 대 한 자세한 내용은 참조 하세요. [Azure HDInsight에서 id 관리](hdinsight-managed-identities.md)합니다.
 
-![사용자 할당 관리 ID 만들기](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+![사용자 할당 관리 ID 만들기](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Data Lake Storage Gen2 계정 만들기
 
@@ -41,7 +41,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. 있는지 확�
 
 ![Azure Portal에서 스토리지 계정을 만드는 과정을 보여 주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Data Lake 저장소 Gen2 계정에 관리 되는 id에 대 한 사용 권한 설정
+### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Data Lake 저장소 Gen2 계정에 관리 되는 id에 대 한 사용 권한 설정
 
 관리 되는 id를 할당 합니다 **저장소 Blob 데이터 소유자** 저장소 계정에는 역할입니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](../storage/common/storage-auth-aad-rbac.md)를 참조하세요.
 

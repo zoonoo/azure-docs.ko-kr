@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463489"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513660"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -107,7 +107,7 @@ ms.locfileid: "65463489"
 |50128|도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다.|
 |50129|디바이스는 작업 공간에 연결되지 않았습니다. **작업 공간 연결**에는 디바이스를 등록할 필요가 없습니다.|
 |50130|클레임 값을 알려진 인증 방법으로 해석할 수 없습니다.|
-|50131|다양한 조건부 액세스 오류에 사용됩니다. 예를 들어 Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
+|50131|다양한 조건부 액세스 오류에 사용됩니다. 예: Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
 |50132|다음과 같은 이유로 자격 증명이 철회되었습니다.<ul><li>SSO 아티팩트가 잘못되었거나 만료되었습니다.</li><li>애플리케이션에 대한 세션이 최신 상태가 아닙니다.</li><li>자동 로그인 요청을 보냈지만 Azure AD를 사용하는 사용자의 세션이 유효하지 않거나 만료되었습니다.</li></ul>|
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
@@ -181,6 +181,8 @@ ms.locfileid: "65463489"
 |500121| 강력한 인증 요청 하는 동안 인증에 실패 했습니다.|
 |500133| 어설션이 유효한 시간 범위 내에 있지 않습니다. 사용자 어설션에 대해 사용하기 전에 액세스 토큰이 만료되지 않았는지 확인하거나 새 토큰을 요청합니다.|
 |530021|응용 프로그램 승인 하는 조건부 액세스 앱 요구 사항을 충족 하지 않습니다.|
+|7000218|요청 본문은 다음 매개 변수를 포함 해야 합니다. 'client_assertion' 또는 'client_secret'.|
+
 
 ## <a name="next-steps"></a>다음 단계
 

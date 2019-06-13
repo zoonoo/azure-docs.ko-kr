@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851425"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515285"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
 
 서비스에는 데이터베이스 또는 기타 보안 Azure 서비스에 대한 특정 암호, 연결 문자열 및 기타 비밀이 필요할 수 있습니다. 구성 파일에서 이러한 비밀의 값을 설정하여 코드에서 환경 변수로 사용할 수 있습니다.  이러한 항목은 비밀의 보안을 손상시키지 하도록 주의해서 처리되어야 합니다.
 
-Azure Dev Spaces는 values.dev.yaml 파일과 azds.yaml에서 직접 인라인으로 비밀을 저장하기 위한 두 가지 권장 옵션을 제공합니다. values.yaml에 비밀을 저장하지 않는 것이 좋습니다.
- 
+Azure 개발 공간 클라이언트 도구에서 생성 된 Helm 차트에 비밀을 저장 하기 위한 두 가지 권장 되는, 간소화 된 옵션을 제공 하는 azure 개발 공간: azds.yaml에서 직접 인라인으로 고 values.dev.yaml 파일입니다. values.yaml에 비밀을 저장하지 않는 것이 좋습니다. Helm에 대 한 두 가지 방법 외부 클라이언트 도구에서 생성 된 차트에에서 정의 된이 문서를 만드는 경우 고유한 Helm 차트, Helm 차트를 사용 하 여 직접 관리 하 고 암호를 저장 합니다.
+
 ## <a name="method-1-valuesdevyaml"></a>방법 1: values.dev.yaml
 1. Azure Dev Spaces에 대해 활성화된 프로젝트로 VS Code를 엽니다.
 2. 이라는 파일을 추가 _values.dev.yaml_ 기존와 동일한 폴더에 _azds.yaml_ 에 비밀 키와 값을 다음 예제와 같이 정의 합니다.

@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 변환 기술 프로필 정의 | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 변환 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a2904bec34978a33d25534c9e9b32552191ad88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fd2f77200741c54d1ed10f0a0eec1da76462b0a0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705330"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511623"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 클레임 변환 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "64705330"
 
 클레임 변환 기술 프로필을 사용하면 출력 클레임 변환을 호출하여 클레임 값을 조작하거나, 클레임의 유효성을 검사하거나, 출력 클레임 집합의 기본값을 설정할 수 있습니다.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 Azure AD B2C에서 사용되는 프로토콜 처리기 어셈블리의 정규화된 이름을 포함해야 합니다. `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 

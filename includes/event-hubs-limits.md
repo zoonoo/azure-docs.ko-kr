@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238706"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736013"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 지정된 할당량과 제한을 나열합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
-| 제한 | Scope | 메모 | Value |
+| 제한 | Scope | 메모 | 값 |
 | --- | --- | --- | --- |
 | 구독당 Event Hubs 네임스페이스 수 |구독 |- |100 |
 | 네임스페이스당 Event Hubs 개수 |네임스페이스 |새 이벤트 허브를 만들기 위한 후속 요청이 거부 됩니다. |10 |
@@ -39,11 +39,11 @@ Event Hubs Dedicated 제품은 최소 4 시간의 사용량을 사용 하 여 �
 | --- | ---|
 | 대역폭 |  20 Cu |
 | 네임스페이스 | CU 당 50 |
-| Event Hubs |  Event hubs/항목 제한 하지 않습니다. |
+| Event Hubs |  네임 스페이스 당 1000 |
 | 수신 이벤트 | 포함 |
 | 메시지 크기 | 1 백만 바이트 |
 | 파티션 | CU 당 2000 |
 | 소비자 그룹 | 제한 없음, CU 당 event hub 당 1000 |
 | 조정된 연결 | 100,000개 포함 |
-| 메시지 보존 | CU 당 포함 된 10TB 90 일 |
+| 메시지 보존 | 등록 7 일 (90 일 보존 서비스 예정), 10TB 포함 CU 당 |
 | 캡처 | 포함 |

@@ -35,7 +35,7 @@ Java 가상 머신 기반 언어인 [Scala](https://www.scala-lang.org/)는 개�
 이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
 
 > [!NOTE]
-> Scala가 아닌 Python을 사용하여 종단 간 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure HDInsight에서 Spark를 사용하는 데이터 과학](spark-overview.md)을 참조하세요.
+> Scala가 아닌 Python을 사용하여 엔드투엔드 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure HDInsight에서 Spark를 사용하는 데이터 과학](spark-overview.md)을 참조하세요.
 > 
 > 
 
@@ -75,8 +75,8 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
 
 Jupyter Notebook이 제공되는 Spark 커널에는 사전 설정 컨텍스트가 있습니다. 개발하는 애플리케이션으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 사전 설정 컨텍스트는 다음과 같습니다.
 
-* `sc` 
-* `sqlContext` 
+* `sc`
+* `sqlContext`
 
 ### <a name="spark-magics"></a>Spark 매직
 Spark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 `%%`기호를 사용하여 호출할 수 있습니다. 이러한 명령 중 두 가지는 다음 코드 샘플에 사용됩니다.
@@ -543,10 +543,10 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
 다음으로, Spark ML `LogisticRegression()` 함수를 사용하여 로지스틱 회귀 모델을 만듭니다. 다음과 같은 단계를 통해 모델 빌딩 코드를 만듭니다.
 
 1. **모델 학습** 데이터
-2. **모델 평가** 
-3. **모델 저장** 
-4. **모델 점수 매기기** 
-5. **결과 그리기** 
+2. **모델 평가**
+3. **모델 저장**
+4. **모델 점수 매기기**
+5. **결과 그리기**
 
 이러한 절차에 대한 코드는 다음과 같습니다.
 

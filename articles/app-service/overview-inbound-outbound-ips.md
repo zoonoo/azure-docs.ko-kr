@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835297"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742949"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -35,9 +35,17 @@ ms.locfileid: "60835297"
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제하고 다시 만듭니다.
 - 기존 SSL 바인딩을 삭제합니다(예: 인증서 갱신 기간) ([인증서 갱신](app-service-web-tutorial-custom-ssl.md#renew-certificates) 참조).
 
-## <a name="get-static-inbound-ip"></a>고정 인바운드 IP 가져오기
+## <a name="find-the-inbound-ip"></a>인바운드 IP 찾기
 
-경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 얻으려면 [IP 기반 SSL 바인딩](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate)을 구성해야 합니다. 실제로 앱을 보호하는 SSL 기능이 필요하지 않은 경우 이 바인딩에 대한 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 SSL 바인딩에서는 인증서가 자체 IP 주소에 바인딩되므로 App Service는 고정 IP 주소를 프로비전하여 이를 구현합니다. 
+로컬 터미널에서 다음 명령을 실행 합니다.
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>고정 인바운드 IP 가져오기
+
+경우에 따라 앱에 대해 고정 전용 IP 주소를 사용하고자 할 수 있습니다. 고정 인바운드 IP 주소를 얻으려면 [IP 기반 SSL 바인딩](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain)을 구성해야 합니다. 실제로 앱을 보호하는 SSL 기능이 필요하지 않은 경우 이 바인딩에 대한 자체 서명된 인증서를 업로드할 수도 있습니다. IP 기반 SSL 바인딩에서는 인증서가 자체 IP 주소에 바인딩되므로 App Service는 고정 IP 주소를 프로비전하여 이를 구현합니다. 
 
 ## <a name="when-outbound-ips-change"></a>아웃바운드 IP가 변경되는 경우
 

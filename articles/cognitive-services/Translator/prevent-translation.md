@@ -3,19 +3,19 @@ title: 콘텐츠 번역 방지 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API를 사용하여 콘텐츠 번역을 방지합니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: a9590a9a38859818e0b609d64fc12e30afd2e09e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: 32e5ddecc336175443fc5e8743b19b480de71c6b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915274"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515252"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Translator Text API를 사용하여 콘텐츠 번역을 방지하는 방법
 

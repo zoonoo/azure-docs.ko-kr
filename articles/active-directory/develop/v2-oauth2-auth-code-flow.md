@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545175"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513532"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Microsoft id 플랫폼 구현을 사용 하 여, 로그인 및 모바일 및 데스크톱 앱에 API 액세스를 추가할 수 있습니다. 이 가이드는 언어 독립적이며 [Azure 공개 소스 인증 라이브러리](active-directory-authentication-libraries.md)를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
+OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Microsoft id 플랫폼 구현을 사용 하 여, 로그인 및 모바일 및 데스크톱 앱에 API 액세스를 추가할 수 있습니다. 이 가이드는 언어 독립적이며 [Azure 공개 소스 인증 라이브러리](reference-v2-libraries.md)를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
 
 > [!NOTE]
 > 일부 Azure Active Directory 시나리오 및 기능만 Microsoft id 플랫폼 끝점에서 지원 됩니다. Microsoft id 플랫폼 끝점을 사용 해야 하는 경우를 확인 하려면에 대해 알아보세요 [Microsoft identity 플랫폼 제한](active-directory-v2-limitations.md)합니다.
@@ -71,11 +71,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`  | 필수    | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다. |
 | `response_mode`   | 권장 | 결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 다음 중 하나일 수 있습니다.<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용 하 여 ID 토큰을 요청 하는 경우 사용할 수 없습니다 `query` 에 지정 된 대로 합니다 [OpenID 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)합니다. 코드만 요청하는 경우 `query`, `fragment` 또는 `form_post`를 사용할 수 있습니다. `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. 자세한 내용은 [OpenID Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)을 참조하세요.  |
 | `state`                 | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 이 값은 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-| `prompt`  | 선택적    | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다.<br/><br/>- `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.<br/>- `prompt=none` -반대 되는 사용자가 어떠한 대화형 프롬프트도 표시 되지 않도록 합니다. 경우 single sign-on을 통해 자동으로 요청을 완료할 수 없습니다, Microsoft id 플랫폼 끝점은 반환 되는 `interaction_required` 오류입니다.<br/>- `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
-| `login_hint`  | 선택적    | 사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.   |
-| `domain_hint`  | 선택적    | `consumers` 또는 `organizations` 중 하나일 수 있습니다.<br/><br/>전자 메일 기반 검색 프로세스를 건너뜁니다 고 포함 하는 경우 해당 거친 사용자 로그인 페이지를 좀 더 효율적인된 사용자 경험을 합니다. 앱이 이전 로그인 작업에서 `tid` 를 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다.  |
-| `code_challenge_method` | 선택적    | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 다음 값 중 하나입니다.<br/><br/>- `plain` <br/>- `S256`<br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft id 플랫폼을 지 원하는 둘 다 `plain` 고 `S256`입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
-| `code_challenge`  | 선택적 | 네이티브 클라이언트의 PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| `prompt`  | 선택 사항    | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다.<br/><br/>- `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.<br/>- `prompt=none` -반대 되는 사용자가 어떠한 대화형 프롬프트도 표시 되지 않도록 합니다. 경우 single sign-on을 통해 자동으로 요청을 완료할 수 없습니다, Microsoft id 플랫폼 끝점은 반환 되는 `interaction_required` 오류입니다.<br/>- `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
+| `login_hint`  | 선택 사항    | 사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.   |
+| `domain_hint`  | 선택 사항    | `consumers` 또는 `organizations` 중 하나일 수 있습니다.<br/><br/>전자 메일 기반 검색 프로세스를 건너뜁니다 고 포함 하는 경우 해당 거친 사용자 로그인 페이지를 좀 더 효율적인된 사용자 경험을 합니다. 앱이 이전 로그인 작업에서 `tid` 를 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다.  |
+| `code_challenge_method` | 선택 사항    | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 다음 값 중 하나입니다.<br/><br/>- `plain` <br/>- `S256`<br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft id 플랫폼을 지 원하는 둘 다 `plain` 고 `S256`입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| `code_challenge`  | 선택 사항 | 네이티브 클라이언트의 PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. Microsoft id 플랫폼 끝점에서 표시 된 사용 권한에 사용자가 동의 했음을 확인 합니다는 `scope` 쿼리 매개 변수입니다. 사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 필요한 사용 권한에 동의하라는 메시지가 표시됩니다. [사용 권한, 동의 및 다중 테넌트 앱의 세부 정보는 여기에 제공되어 있습니다](v2-permissions-and-consent.md).
 
@@ -158,7 +158,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `code`          | 필수  | 흐름의 첫 번째 레그에서 얻은 authorization_code입니다. |
 | `redirect_uri`  | 필수  | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다. |
 | `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 장치에 client_secret을 안정적으로 저장할 수 없습니다 때문에 응용 프로그램 암호를 사용 하 여 네이티브 앱에서는 해서는 안 됩니다. 웹 앱 및 web Api 서버 쪽에서 client_secret을 안전 하 게 저장 하는 기능이 필요 합니다.  클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다.  |
-| `code_verifier` | 선택적  | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| `code_verifier` | 선택 사항  | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 ### <a name="successful-response"></a>성공적인 응답
 

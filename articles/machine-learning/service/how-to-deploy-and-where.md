@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418055"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753113"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -92,14 +92,7 @@ ms.locfileid: "66418055"
 
 다음 대상 계산 또는 계산 리소스, 웹 서비스 배포를 호스팅에 사용할 수 있습니다. 
 
-| 계산 대상 | 사용 | 설명 |
-| ----- | ----- | ----- |
-| [로컬 웹 서비스](#local) | 테스트/디버그 | 제한 된 테스트 및 문제 해결에 적합 합니다.
-| [AKS(Azure Kubernetes Service)](#aks) | 실시간 유추 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
-| [ACI(Azure Container Instances)](#aci) | 테스트 | 낮은 등급, CPU 기반 워크 로드에 적합 합니다. |
-| [Azure Machine Learning 컴퓨팅](how-to-run-batch-predictions.md) | (미리 보기) 일괄 처리 유추 | 서버 리스 계산에서 점수 매기기 일괄 처리를 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
-| [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | 배포 및 IoT 장치에서 기계 학습 모델을 제공 합니다. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>배포 준비
 
@@ -130,8 +123,9 @@ ms.locfileid: "66418055"
 스키마 생성을 사용 하려면 포함는 `inference-schema` conda 환경 파일에 패키지 합니다. 다음 예제에서는 `[numpy-support]` 엔트리 스크립트가 numpy 매개 변수 형식을 사용 하므로: 
 
 #### <a name="example-dependencies-file"></a>예제 종속성 파일
-다음은 유추를 위한 Conda 종속성 파일의 예입니다.
-```python
+다음 YAML은 유추 Conda 종속성 파일의 예입니다.
+
+```YAML
 name: project_environment
 dependencies:
   - python=3.6.2
@@ -186,6 +180,48 @@ def run(data):
         return error
 ```
 
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>사전 입력 (Power BI에서 지원 소비)를 사용 하 여 예제 스크립트
+
+다음 예제에서는 입력된 데이터를 정의 하는 방법 < 키: 값 > 데이터 프레임을 사용 하 여 사전입니다. 이 메서드는 Power BI에서 배포 된 웹 서비스 사용에 대 한 지원 ([Power BI에서 웹 서비스를 사용 하는 방법에 자세히 알아보려면](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+def init():
+    global model
+    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+input_sample = pd.DataFrame(data=[{
+              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
+              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
+              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
+            }])
+
+output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+
+@input_schema('data', PandasParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # you can return any datatype as long as it is JSON-serializable
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 자세한 예제 스크립트의 경우 다음 예제를 참조 하세요.
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -224,7 +260,7 @@ InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-
 
 | 계산 대상 | 배포 구성 예제 |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -281,7 +317,7 @@ ACI에 대 한 할당량 및 지역 가용성을 확인, 참조를 [할당량 �
 
 자세한 내용은 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
-### <a id="aks"></a>Azure Kubernetes Service (프로덕션)
+### <a id="aks"></a>Azure Kubernetes Service (DEVTEST 및 프로덕션)
 
 기존 AKS 클러스터를 사용하거나 Azure Machine Learning SDK, CLI 또는 Azure Portal을 사용하여 새로운 클러스터를 만들 수 있습니다.
 
@@ -293,6 +329,9 @@ ACI에 대 한 할당량 및 지역 가용성을 확인, 참조를 [할당량 �
 
   ```python
   aks_target = AksCompute(ws,"myaks")
+  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
+  # cores and memory to handle this deployment configuration. Note that memory is also used by
+  # things such as dependencies and AML components.
   deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
   service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
   service.wait_for_deployment(show_output = True)
@@ -315,16 +354,23 @@ AKS 배포 및에서 자동 크기 조정에 대 한 자세한 정보는 [AksWeb
 #### 새 AKS 클러스터 만들기<a id="create-attach-aks"></a>
 **예상 시간:** 약 5 분입니다.
 
-> [!IMPORTANT]
-> AKS 클러스터는 한 번 연결 또는 만들기 작업 영역에 대 한 처리 합니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 포함 하는 리소스 그룹을 삭제 하면 다음에 배포 해야 새 클러스터를 만들어야 합니다.
+AKS 클러스터는 한 번 연결 또는 만들기 작업 영역에 대 한 처리 합니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 포함 하는 리소스 그룹을 삭제 하면 다음에 배포 해야 새 클러스터를 만들어야 합니다. 작업 영역에 연결 된 여러 AKS 클러스터를 사용할 수 있습니다.
 
-설정에 대 한 자세한 내용은 `autoscale_target_utilization`, `autoscale_max_replicas`, 및 `autoscale_min_replicas`를 참조 합니다 [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) 참조 합니다.
+개발, 유효성 검사 및 테스트에 대 한 AKS 클러스터를 만들려는 경우 설정한 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` 사용 하는 경우 [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)합니다. 이 설정을 사용 하 여 만든 클러스터는 하나의 노드만 권한만 갖습니다.
+
+> [!IMPORTANT]
+> 설정 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` 프로덕션 트래픽 처리에 적합 하지 않은 AKS 클러스터를 만듭니다. 유추 시간이 프로덕션에 만든 클러스터에 보다 길어질 수 있습니다. 내결함성 개발/테스트 클러스터에 대 한 보장 되지 않습니다.
+>
+> 개발/테스트에 만든 클러스터 두 개 이상의 가상 Cpu를 사용 하는 것이 좋습니다.
+
 다음 예제에서는 새 Azure Kubernetes Service 클러스터를 만드는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Use the default configuration (you can also provide parameters to customize this)
+# Use the default configuration (you can also provide parameters to customize this).
+# For example, to create a dev/test cluster, use:
+# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
@@ -341,6 +387,7 @@ Azure Machine Learning SDK 외부에서 AKS 클러스터를 만드는 방법에 
 * [AKS 클러스터 만들기](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [AKS 클러스터 (포털) 만들기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
+에 대 한 자세한 합니다 `cluster_purpose` 매개 변수를 참조 합니다 [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) 참조 합니다.
 
 > [!IMPORTANT]
 > [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우, agent_count 및 vm_size에 대한 사용자 지정 값을 선택하는 경우 agent_count와 vm_size를 곱한 값이 12개 가상 CPU보다 크거나 같아야 합니다. 예를 들어, 4개의 가상 CPU가 있는 "Standard_D3_v2"의 vm_size를 사용하는 경우는 3 이상의 agent_count를 선택해야 합니다.
@@ -349,7 +396,16 @@ Azure Machine Learning SDK 외부에서 AKS 클러스터를 만드는 방법에 
 
 #### <a name="attach-an-existing-aks-cluster"></a>기존 AKS 클러스터를 연결 합니다.
 
-Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.12. # # 및 12 개 이상의 가상 Cpu에 이미지를 배포 하려면 사용할 수 있습니다. 다음 코드는 기존 AKS 1.12를 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
+Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.12. # #, 이미지를 배포 하려면 사용할 수 있습니다.
+
+> [!WARNING]
+> AKS 클러스터에 작업 영역에 연결 하는 경우 클러스터를 사용 하는 설정 하 여는 방법을 정의할 수 있습니다는 `cluster_purpose` 매개 변수입니다.
+>
+> 설정 하지 않으면 경우는 `cluster_purpose` 매개 변수 또는 집합 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, 클러스터 12 개 이상의 가상 Cpu를 사용할 수 있어야 합니다. 그런 다음입니다.
+>
+> 설정한 경우 `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, 클러스터에 12 가상 Cpu가 필요 하지 않습니다. 그러나 개발/테스트에 대해 구성 된 클러스터를 프로덕션 수준 트래픽에 대 한 적합 한 되지 않으며 유추 시간이 길어질 수 있습니다.
+
+다음 코드는 기존 AKS 1.12를 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -357,11 +413,18 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attach the cluster to your workgroup
+# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
+# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+#                                         cluster_name = cluster_name,
+#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
+
+에 대 한 자세한 `attack_configuration()`를 참조 합니다 [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) 참조 합니다.
+
+에 대 한 자세한 합니다 `cluster_purpose` 매개 변수를 참조 합니다 [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) 참조 합니다.
 
 ## <a name="consume-web-services"></a>웹 서비스 사용
 
@@ -395,7 +458,7 @@ print(response.json())
 자세한 내용은 [웹 서비스를 사용할 클라이언트 애플리케이션 만들기](how-to-consume-web-service.md)를 참조하세요.
 
 
-### <a id="azuremlcompute"></a> 일괄 처리 사용
+### <a id="azuremlcompute"></a> 일괄 처리 유추
 Azure Machine Learning Compute 목표 생성 및 Azure Machine Learning 서비스에 의해 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측을 위해 사용할 수 있습니다.
 
 연습은 사용 하 여 Azure Machine Learning Compute batch 유추 읽기를 [일괄 처리 예측을 실행 하는 방법을](how-to-run-batch-predictions.md) 문서.

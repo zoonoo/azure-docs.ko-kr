@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731694"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478874"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -72,7 +72,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **AzureContainerRegistry**(Resource Manager만 해당): 이 태그는 Azure Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureContainerRegistry*를 지정하는 경우 트래픽은 AzureContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureContainerRegistry 액세스를 허용하려면 AzureContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
 * **AppService**(Resource Manager만 해당): 이 태그는 Azure AppService 서비스의 주소 접두사를 나타냅니다. 값으로 *AppService*를 지정하는 경우 트래픽은 AppService에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AppService 액세스를 허용하려면 다음과 같은 AppService.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
 * **AppServiceManagement**(Resource Manager만 해당): 이 태그는 Azure AppService Management 서비스의 주소 접두사를 나타냅니다. 값으로 *AppServiceManagement*를 지정하는 경우 트래픽은 AppServiceManagement에 대해 허용되거나 거부됩니다. 
-* **ApiManagement**(Resource Manager만 해당): 이 태그는 Azure Api Management 서비스의 주소 접두사를 나타냅니다. 값으로 *ApiManagement*를 지정하는 경우 트래픽은 ApiManagement에 대해 허용되거나 거부됩니다.  
+* **ApiManagement**(Resource Manager만 해당): 이 태그는 Azure Api Management 서비스의 주소 접두사를 나타냅니다. 지정 하는 경우 *ApiManagement* 트래픽을 값에 대해 허용 되거나 ApiManagement의 관리 인터페이스에서 거부 합니다.  
 * **AzureConnectors**(Resource Manager만 해당): 이 태그는 Azure Connectors 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureConnectors*를 지정하는 경우 트래픽은 AzureConnectors에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureConnectors 액세스를 허용하려면 AzureConnectors.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
 * **GatewayManager**(Resource Manager만 해당): 이 태그는 Azure Gateway Manager 서비스의 주소 접두사를 나타냅니다. 값으로 *GatewayManager*를 지정하는 경우 트래픽은 GatewayManager에 대해 허용되거나 거부됩니다.  
 * **AzureDataLake**(Resource Manager만 해당): 이 태그는 Azure Data Lake 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureDataLake*를 지정하는 경우 트래픽은 AzureDataLake에 대해 허용되거나 거부됩니다. 

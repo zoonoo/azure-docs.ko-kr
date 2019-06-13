@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 99ca7e82a11687d25355589e7ea539a14cdb493b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420693"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455193"
 ---
 1. 다음 플랫폼에 대 한 SDK 퀵 스타트 클라이언트를 다운로드 합니다.
     
@@ -94,7 +94,7 @@ ms.locfileid: "66420693"
 
         2. Visual Studio에서 로컬로.NET 서버 프로젝트를 빌드하십시오.
 
-        3. Visual Studio에서 솔루션 탐색기를 열고 마우스 오른쪽 단추로 클릭 `ZUMOAPPNAMEService` 프로젝트를 클릭 **게시**에 표시 됩니다는 `Publish to App Service` 창입니다. Mac에서 작업 하는 경우 앱을 배포 하는 다른 방법을 확인해 [여기](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git)합니다.
+        3. Visual Studio에서 솔루션 탐색기를 열고 마우스 오른쪽 단추로 클릭 `ZUMOAPPNAMEService` 프로젝트를 클릭 **게시**에 표시 됩니다는 `Publish to App Service` 창입니다. Mac에서 작업 하는 경우 앱을 배포 하는 다른 방법을 확인해 [여기](https://docs.microsoft.com/azure/app-service/deploy-local-git)합니다.
         
            ![Visual studio 게시](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 

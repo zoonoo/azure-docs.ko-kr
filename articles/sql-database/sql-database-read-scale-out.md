@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146129"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492717"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>부하 분산 읽기 전용 쿼리 워크 로드를 읽기 전용 복제본을 사용 하 여
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 일부로 합니다 [고가용성 아키텍처](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), Premium, 업무용 또는 하이퍼 스케일 서비스 계층의 각 데이터베이스는 주 복제본과 여러 보조 복제본을 사용 하 여 자동으로 프로 비전 합니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 합니다 **읽기 스케일 아웃** 기능 부하를 분산 SQL Database 읽기 전용 워크 로드 읽기 / 쓰기 복제본 공유 하지 않고 용량을 읽기 전용 복제본 중 하나를 사용 하 여 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 이 기능은 논리적으로 분리 된 읽기 전용 워크 로드 분석 등을 포함 하는 응용 프로그램에 대 한 합니다. 이 추가 용량을 사용 하 여 없이 성능 이점을 얻을 수 있습니다 이러한 추가 비용입니다.
 

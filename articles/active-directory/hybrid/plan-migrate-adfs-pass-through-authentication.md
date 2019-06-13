@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션 | Microsoft Docs'
+title: 'Azure AD Connect: 페더레이션에서 Azure AD에 대 한 PTA로 마이그레이션'
 description: 이 문서에는 하이브리드 ID 환경을 페더레이션에서 통과 인증으로 전환하는 방법에 대한 정보가 나와 있습니다.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382785"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473386"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -124,7 +124,7 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
-| IF | THEN |
+| If | 작업 |
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|

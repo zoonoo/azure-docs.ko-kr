@@ -356,7 +356,7 @@ Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 
   - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다.
   - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다.
 
-Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
+Data Factory 버전 1 문서에서 설명된 엔드투엔드 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)을 참조하세요.
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 

@@ -1,8 +1,8 @@
 ---
-title: Azure 프로덕션 운영 및 관리
-description: 이 문서에서는 Azure 프로덕션 네트워크의 관리 및 운영에 대한 일반적인 설명을 제공합니다.
+title: Azure 프로덕션 네트워크-Microsoft Azure의 관리
+description: 이 문서는 Microsoft 관리 하 고 Azure 데이터 센터를 보호 하려면 Azure 프로덕션 네트워크를 작동 하는 방법을 설명 합니다.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591469"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428273"
 ---
-# <a name="azure-production-operations-and-management"></a>Azure 프로덕션 운영 및 관리    
+# <a name="management-and-operation-of-the-azure-production-network"></a>관리 및 Azure 프로덕션 네트워크의 작업    
+이 문서는 Microsoft 관리 하 고 Azure 데이터 센터를 보호 하려면 Azure 프로덕션 네트워크를 작동 하는 방법을 설명 합니다.
+
+## <a name="monitor-log-and-report"></a>모니터링, 로그 및 보고서
+
 Azure 프로덕션 네트워크의 관리 및 운영은 Azure 및 Azure SQL Database의 운영 팀 간에 조정된 노력입니다. 이러한 팀은 환경 내에서 여러 시스템 및 애플리케이션 성능 모니터링 도구를 사용합니다. 또한 적절한 도구를 사용하여 네트워크 장치, 서버, 서비스 및 애플리케이션 프로세스를 모니터링합니다.
 
 Azure 환경에서 실행되는 서비스의 안전한 실행을 보장하기 위해 운영 팀에서는 다음 작업을 포함하여 여러 수준의 모니터링, 로깅 및 보고 기능을 구현합니다.

@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125180"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735208"
 ---
-**마지막 문서 업데이트**: 14 년 5 월 2019 오전 10시 PST입니다.
+**마지막 문서 업데이트**: 4 월 2019 3 오후 시 PST입니다.
 
 투기적 실행 사이드 채널 공격으로 알려진 공개된 [새로운 종류의 CPU 취약점](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
@@ -77,7 +77,7 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 대상 운영 체제를 최신 상태로 유지하여 이러한 추가 보안 기능을 사용하도록 설정해야 합니다. 다양한 투기적 실행 쪽 채널 완화를 기본적으로 사용하는 반면 여기에 설명된 추가 기능은 수동으로 활성화해야 하며 성능에 영향이 발생할 수 있습니다. 
 
 
-**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM 크기를 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다. VM에 하이퍼 스레딩을 사용 하는 경우를 확인 하려면을 참조 하십시오는 아래 스크립트는 VM 내에서 Windows 명령줄을 사용 합니다.
+**1단계: VM의 하이퍼 스레딩을 사용 하지 않도록 설정** -하이퍼스레딩 VM에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 VM 크기를 이동 해야 합니다. 참조 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/acu) 하이퍼 스레드 VM 크기 (코어로 비율로 2:1)의 목록에 대 한 합니다. VM 하이퍼 스레딩이 있는지를 확인 하려면을 참조 하십시오는 아래 스크립트는 VM 내에서 Windows 명령줄을 사용 합니다.
 
 형식 `wmic` 대화형 인터페이스를 입력 합니다. 그런 다음 실제의 크기를 보려면 아래 및 논리적 VM의 프로세서입니다.
 
@@ -85,7 +85,7 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-논리 프로세서 수가 실제 프로세서 (코어) 보다 큰 경우 하이퍼 스레딩을 사용 됩니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다. 
+논리 프로세서 수가 실제 프로세서 (코어) 보다 크면 다음 하이퍼 스레딩을 사용 됩니다.  하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오기 하이퍼 스레딩에 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다. 참조 하십시오 [코어 개수](#core-count) 하면 VM 코어 개수 감소 하는 이유는 무엇을 알아야 합니다.
 
 
 **2단계**: 1 단계를 병렬로 지침을 따릅니다 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 보호를 사용 하 여 활성화 되었는지 확인 하는 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈.
@@ -123,14 +123,14 @@ Windows OS support for MDS mitigation is enabled: True
 <a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
 
 
-**1단계: VM에서 하이퍼 스레딩을 해제할** -고객은 VM 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 아닌 VM으로 이동 해야 하는 이들 버전이 하이퍼 스레드에서 신뢰할 수 없는 코드를 실행 합니다.  VM 이들 버전이 하이퍼 스레드를 실행 하는 경우를 확인 하려면 실행을 `lscpu` Linux VM에서 명령을 합니다. 
+**1단계: VM의 하이퍼 스레딩을 사용 하지 않도록 설정** -하이퍼스레딩 VM에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 VM으로 이동 해야 합니다.  참조 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/acu) 하이퍼 스레드 VM 크기 (코어로 비율로 2:1)의 목록에 대 한 합니다. 하이퍼 스레드 VM을 실행 하는 경우를 확인 하려면 실행을 `lscpu` Linux VM에서 명령을 합니다. 
 
-경우 `Thread(s) per core = 2`, 하이퍼 스레딩을 사용 되었습니다. 
+경우 `Thread(s) per core = 2`, 다음 하이퍼 스레딩을 사용 되었습니다. 
 
-경우 `Thread(s) per core = 1`, 하이퍼 스레딩을 사용 하지 않도록 설정 된 후입니다. 
+경우 `Thread(s) per core = 1`, 다음 하이퍼 스레딩 비활성화 되었습니다. 
 
  
-샘플을 사용 하도록 설정 하는 하이퍼 스레딩을 사용 하 여 VM에 대 한 출력: 
+하이퍼 스레딩을 사용 하 여 VM에 대 한 샘플 출력: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오려면 하이퍼 스레딩을 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다.
+하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 가져오기 하이퍼 스레딩에 사용 하지 않도록 설정 합니다.  하이퍼 스레딩이 해제 되 면 **지원에는 전체 VM을 다시 부팅 해야 합니다.** 합니다. 참조 하십시오 [코어 개수](#core-count) 하면 VM 코어 개수 감소 하는 이유는 무엇을 알아야 합니다.
+
 
 
 **2단계**: 에 대해 완화 하는 투기적 실행 사이드 채널 취약성 아래 운영 시스템 공급자의 설명서를 참조 합니다.   
@@ -153,6 +154,11 @@ VM 이들 버전이 하이퍼 스레드를 실행 하는 경우 [Azure 지원에
 - [Redhat 및 CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>코어 수
+
+하이퍼 스레드 VM을 만든 경우 Azure 코어당 2 스레드를 할당 합니다.-Vcpu 라고 합니다. 하이퍼 스레딩을 사용 하지 않는 경우 Azure는 스레드 및 단일 스레드 코어 (물리적 코어) 등록 화면을 제거 합니다. VCPU cpu의 비율 2:1를 절반으로 줄일에 하이퍼 스레딩을 사용 하지 않도록 설정, VM의 CPU 수 있으므로 한 번 표시 됩니다. 예를 들어 D8_v3 VM는 8 개의 Vcpu (코어 x 4 코어 당 2 개 스레드)에서 실행 되는 하이퍼 스레드 VM.  하이퍼 스레딩을 사용 하지 않는 경우 Cpu 코어당 1 개 스레드를 사용 하 여 실제 코어 4 개를 삭제 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

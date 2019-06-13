@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
-description: Application Insights 종단 간 트랜잭션 진단
+description: Application Insights 엔드투엔드 트랜잭션 진단
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle

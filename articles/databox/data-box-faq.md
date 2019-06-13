@@ -38,7 +38,7 @@ a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계�
 ### <a name="q-what-is-azure-data-box"></a>Q. Azure Data Box란?
 a. Azure Data Box를 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
 
-디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 종단 간 추적됩니다.
+디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 엔드투엔드 추적됩니다.
 
 ### <a name="q-when-should-i-use-data-box"></a>Q. Data Box는 언제 사용해야 하나요?
 a. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것이 유리합니다. 데이터 크기가 40TB 미만이면 Data Box Disk를 사용하고, 500TB가 넘으면 [Data Box Heavy](data-box-heavy-overview.md)에 가입합니다.

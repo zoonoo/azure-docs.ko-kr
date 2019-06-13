@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789253"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476124"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -69,11 +69,11 @@ Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토�
 
 Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
 
-| Protocol | 포트 | 세부 정보 | 
+| 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
 연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.

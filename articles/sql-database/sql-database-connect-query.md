@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792043"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382270"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>빠른 시작: Azure SQL Database 연결 및 쿼리
 
@@ -39,6 +39,7 @@ ms.locfileid: "65792043"
 |[PHP](sql-database-connect-query-php.md)|이 빠른 시작에서는 PHP를 사용하여 Azure SQL 데이터베이스에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[Python](sql-database-connect-query-python.md)|이 빠른 시작에서는 Python을 사용하여 Azure SQL 데이터베이스에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. |
 |[Ruby](sql-database-connect-query-ruby.md)|이 빠른 시작에서는 Ruby를 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
+|[R](sql-database-connect-query-r.md)|이 빠른 시작에서는 Azure SQL Database Machine Learning Services에서 R을 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여줍니다.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>SQL Database 연결에 대한 TLS 고려 사항

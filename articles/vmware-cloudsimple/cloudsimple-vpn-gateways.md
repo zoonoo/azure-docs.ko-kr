@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872754"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496860"
 ---
 # <a name="vpn-gateways-overview"></a>VPN gateway 개요
 
@@ -36,6 +36,8 @@ VPN gateway에서 온-프레미스 사설 클라우드에 서비스를 사용할
 * 온-프레미스 Active Directory의 vCenter id 원본으로 사용 합니다.
 * 편리 하 게 전송할 VM 템플릿, Iso, 및 기타 파일의 온-프레미스 리소스에서 사설 클라우드 vCenter 합니다.
 * 온-프레미스 네트워크에서 사설 클라우드에서 실행 중인 워크 로드의 접근성입니다.
+
+![사이트 간 VPN 연결 토폴로지](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>암호화 매개 변수
 

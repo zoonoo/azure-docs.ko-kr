@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 구성 | Microsoft Docs
 description: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688856"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733656"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -140,7 +140,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
     </TechnicalProfile>
     ```
 
-    **client_id** 및 **resource_id**의 **DefaultValue**를 필수 조건 자습서에서 만든 ProxyIdentityExperienceFramework 애플리케이션의 애플리케이션 ID로 바꿉니다.
+    대체는 **DefaultValue** 의 **client_id** 필수 구성 요소 자습서에서 만든 ProxyIdentityExperienceFramework 응용 프로그램의 응용 프로그램 id입니다. 그런 **DefaultValue** 의 **resource_id** 도 필수 구성 요소 자습서에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 id입니다.  
 
 5. 다음 **ClaimsProvider** 요소를 기술 프로필과 함께 **ClaimsProviders** 요소에 추가합니다.
 
@@ -270,8 +270,8 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
 | 키 | 값 |
 | --- | ----- |
 | username | `user-account` |
-| 암호 | `password1` |
-| grant_type | 암호 |
+| password | `password1` |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |

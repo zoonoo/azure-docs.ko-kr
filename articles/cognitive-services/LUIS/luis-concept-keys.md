@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998750"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473578"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS의 작성 및 쿼리 예측 엔드포인트 키
 LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md), LUIS 앱에 [할당](luis-how-to-azure-subscription.md)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
@@ -49,11 +49,11 @@ LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#end
 
 Azure 리소스 만들기 프로세스가 완료되면 앱에 [키를 할당](luis-how-to-azure-subscription.md)합니다. 
 
-    * 엔드포인트 키는 키를 만들 때 지정한 사용 플랜에 따라 엔드포인트 적중 할당량을 허용합니다. 가격 정보는 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)을 참조하세요.
+* 엔드포인트 키는 키를 만들 때 지정한 사용 플랜에 따라 엔드포인트 적중 할당량을 허용합니다. 가격 정보는 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)을 참조하세요.
 
-    * 엔드포인트 키는 모든 LUIS 앱 또는 특정 LUIS 앱에 사용할 수 있습니다. 
+* 엔드포인트 키는 모든 LUIS 앱 또는 특정 LUIS 앱에 사용할 수 있습니다. 
 
-    * LUIS 앱 작성에는 엔드포인트 키를 사용하지 마세요. 
+* LUIS 앱 작성에는 엔드포인트 키를 사용하지 마세요. 
 
 ## <a name="use-endpoint-key-in-query"></a>쿼리에 엔드포인트 키 사용
 LUIS 엔드포인트는 두 가지 쿼리를 허용하고, 두 가지 쿼리는 모두 엔드포인트 키를 사용하지만, 서로 다른 위치에서 사용합니다.

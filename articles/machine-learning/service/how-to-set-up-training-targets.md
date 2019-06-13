@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236630"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752947"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
@@ -31,24 +31,14 @@ Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경
 
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.6에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 1.0.39 버전을 사용 하 여 테스트 했습니다.
 
 ## <a name="compute-targets-for-training"></a>학습용 컴퓨팅 대상
 
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|학습용 컴퓨팅 대상| GPU 가속 | 자동<br/> 하이퍼 매개 변수 튜닝 | 자동<br/> Machine Learning | Azure Machine Learning 파이프라인 |
-|----|:----:|:----:|:----:|:----:|
-|[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning 컴퓨팅](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[원격 VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure 데이터 레이크 분석](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-**모든 컴퓨팅 대상을 여러 학습 작업에 다시 사용할 수 있습니다**. 예를 들어 원격 VM을 사용자의 작업 영역에 연결한 후에는 여러 작업에 다시 사용할 수 있습니다.
 
 > [!NOTE]
 > Azure Machine Learning 컴퓨팅은 영구 리소스로 생성되거나 실행을 요청할 때 동적으로 생성될 수 있습니다. 실행에 기반한 생성은 학습 실행이 완료된 후 컴퓨팅 대상을 제거하므로 이 방법으로 생성된 컴퓨팅 대상을 다시 사용할 수 없습니다.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714291"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688721"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup이란?
 
@@ -32,7 +32,7 @@ Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
     - Azure Import/Export 서비스를 통해 오프라인 초기 백업을 수행하여 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련된 비용이 발생합니다.  [자세히 알아보기](backup-azure-backup-import-export.md).
 - **안전한 데이터 유지**: Azure Backup은 전송 중 및 저장 데이터를 보호하기 위한 솔루션을 제공합니다.
 - **애플리케이션 일치 백업 가져오기**: 애플리케이션 일치 백업은 백업 복사본을 복원하는 데 필요한 모든 데이터가 복구 지점에 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
-- **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 요구 사항에 미치는 영향에 대한 [자세한 정보](backup-introduction-to-azure-backup.md#backup-and-retention)를 확인하세요.
+- **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 
 - **자동 저장소 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 저장소가 필요합니다. Azure Backup을 사용하면 온-프레미스 저장소 디바이스를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 스토리지를 자동으로 할당하고 관리하며, 종량제 모델을 사용하므로 사용한 스토리지 비용만 지불하면 됩니다. 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/backup).
 - **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 두 가지 종류의 복제를 제공합니다.
     - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
@@ -109,6 +109,25 @@ Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있�
 **온-프레미스에서 실행되는 앱을 백업하려는 경우** | 앱 인식 백업의 경우 머신을 DPM 또는 MABS로 보호해야 합니다.
 **Azure VM의 백업 및 복구를 세밀하고 유연하게 설정하려는 경우** | Azure에서 실행되는 MABS/DPM으로 Azure VM을 보호하면 백업 일정 예약을 보다 유연하게 처리하고 파일, 폴더, 볼륨, 앱 및 시스템 상태를 매우 유연하게 보호하고 복원할 수 있습니다.
 
+## <a name="backup-and-retention"></a>Backup 및 보존
+
+Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백업 복사본 또는 스냅샷이라고도 함)이 있습니다.
+
+- 보호된 인스턴스는 Azure에 데이터를 백업하도록 구성된 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 데이터의 백업 복사본이 저장되면 인스턴스가 보호됩니다.
+- 데이터의 백업 복사본이 보호 기능입니다. 원본 데이터가 손실되었거나 손상된 경우 백업 복사본이 원본 데이터를 복원할 수 있습니다.
+
+다음 표는 각 구성 요소의 최대 백업 빈도를 보여줍니다. 백업 정책 구성은 복구 지점을 사용하는 속도를 결정합니다. 예를 들어 매일 복구 지점을 만들면 복구 지점을 27년 동안 보존한 후 실행합니다. 월별 복구 지점을 사용하는 경우 833년 동안 복구 지점을 보존할 수 있습니다. Backup 서비스는 복구 지점에 만료 시간 제한을 설정하지 않습니다.
+
+|  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
+| --- | --- | --- | --- | --- |
+| Backup 주기<br/> (Recovery Services 자격 증명 모음에) |매일 3회 백업 |하루에 두 번 백업 |하루에 두 번 백업 |매일 1회 백업 |
+| Backup 주기<br/> (디스크에 대한) |해당 없음 |SQL Server에 대해 15분마다<br/><br/> 다른 워크로드에 대해 1시간마다 |SQL Server에 대해 15분마다<br/><br/> 다른 워크로드에 대해 1시간마다 |해당 없음 |
+| 보존 옵션 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |매일, 매주, 매월, 매년 |
+| 보호된 인스턴스당 최대 복구 지점 |9999|9999|9999|9999|
+| 최대 보존 기간 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |백업 빈도에 따라 다름 |
+| 로컬 디스크의 복구 지점 |해당 없음 | 파일 서버의 경우 64<br/><br/> 애플리케이션 서버의 경우 448 | 파일 서버의 경우 64<br/><br/> 애플리케이션 서버의 경우 448 |해당 없음 |
+| 테이프의 복구 지점 |해당 없음 |Unlimited |해당 없음 |해당 없음 |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Azure Backup은 암호화를 어떻게 처리하나요?
 
 **암호화** | **온-프레미스 백업** | **Azure VM 백업** | **Azure VM에 SQL 백업**
@@ -119,7 +138,7 @@ Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있�
 ## <a name="next-steps"></a>다음 단계
 
 - 다양한 백업 시나리오에 대한 아키텍처와 구성 요소를 [검토](backup-architecture.md)합니다.
-- 백업에 지원되는 기능과 설정을 [확인](backup-support-matrix.md)합니다.
+- 백업 및 [Azure VM 백업](backup-support-matrix-iaas.md)에 대한 지원 요구 사항 및 제한 사항을 [확인](backup-support-matrix.md)합니다.
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

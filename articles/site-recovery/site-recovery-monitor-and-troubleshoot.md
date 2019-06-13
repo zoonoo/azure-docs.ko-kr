@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969382"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497555"
 ---
 # <a name="monitor-site-recovery"></a>Site Recovery 모니터링
 
@@ -40,7 +40,7 @@ ms.locfileid: "65969382"
 Healthy | 복제가 정상적으로 진행되고 있습니다. 오류 또는 경고 증상이 검색되지 않았습니다.
 Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 검색되었습니다.
 중요 | 하나 이상의 중요한 복제 오류 증상이 검색되었습니다.<br/><br/> 이러한 오류 증상은 일반적으로 복제가 중단되거나 데이터 변경률만큼 빠르게 진행되지 않음을 나타내는 지표입니다.
-적용할 수 없음 | 현재 복제되지 않을 것으로 예상되는 서버입니다. 여기에는 장애 조치(Failover)된 컴퓨터가 포함될 수 있습니다.
+해당 없음 | 현재 복제되지 않을 것으로 예상되는 서버입니다. 여기에는 장애 조치(Failover)된 컴퓨터가 포함될 수 있습니다.
 
 ## <a name="monitor-test-failovers"></a>테스트 장애 조치(Failover) 모니터링
 
@@ -52,8 +52,8 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 **State** | **세부 정보**
 --- | ---
 테스트 권장 | 보호 기능을 사용하도록 설정한 후에 테스트 장애 조치(Failover)가 수행되지 않은 컴퓨터입니다.
-성공적으로 수행 | 테스트 장애 조치(Failover)가 여러 번 성공한 컴퓨터입니다.
-적용할 수 없음 | 현재 테스트 장애 조치(Failover)에 적합하지 않은 컴퓨터입니다. 예를 들어, 장애 조치(Failover)되었으며 초기 복제/테스트 장애 조치(Failover)/장애 조치(Failover)가 진행 중인 컴퓨터입니다.
+성공적으로 수행됨 | 테스트 장애 조치(Failover)가 여러 번 성공한 컴퓨터입니다.
+해당 없음 | 현재 테스트 장애 조치(Failover)에 적합하지 않은 컴퓨터입니다. 예를 들어, 장애 조치(Failover)되었으며 초기 복제/테스트 장애 조치(Failover)/장애 조치(Failover)가 진행 중인 컴퓨터입니다.
 
 ## <a name="monitor-configuration-issues"></a>구성 문제 모니터링
 
@@ -98,9 +98,9 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
     **시나리오** | **State**  | **보기 사용 가능 여부**
     --- |--- | ---
     **온-프레미스 사이트 간 복제** | 모든 상태 | 아닙니다. 
-    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예.
+    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예
     **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.   
-    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예.     
+    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예     
     **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.      
     **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.
 
@@ -190,8 +190,8 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 
 다음과 같이 구독합니다.
 
-자격 증명 모음 > **모니터링 및 보고서** 섹션에서 **Site Recovery 이벤트**를 클릭합니다.
+자격 증명 모음에서 > **모니터링** 섹션에서 클릭 **Site Recovery 이벤트**합니다.
 1. **이메일 알림**을 클릭합니다.
 1. **이메일 알림**에서 알림을 켜고 보낼 사람을 지정합니다. 모든 구독 관리자와 선택적으로 특정 이메일 주소로 알림을 보낼 수 있습니다.
 
-    ![메일 알림](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![전자 메일 알림](./media/site-recovery-monitor-and-troubleshoot/email.png)

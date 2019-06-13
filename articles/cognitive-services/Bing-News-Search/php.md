@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090528"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390477"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>빠른 시작: PHP 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -34,7 +34,7 @@ ms.locfileid: "58090528"
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-[Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)는 Bing 검색 엔진의 뉴스 결과를 반환합니다.
+[Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)는 Bing 검색 엔진의 뉴스 결과를 반환합니다.
 
 1. 코드 주석에 설명된 대로 `php.ini`에서 보안 HTTP 지원이 사용하도록 설정되었는지 확인합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.

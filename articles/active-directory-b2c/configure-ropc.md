@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름 구성 | Microsoft Docs
 description: Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715874"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511355"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -71,8 +71,8 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 | 키 | 값 |
 | --- | ----- |
 | username | leadiocl@outlook.com |
-| 암호 | Passxword1 |
-| grant_type | 암호 |
+| password | Passxword1 |
+| grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | 토큰 id_token |
