@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f91ff65d0e11ed2e9f923f94c740314c9136d99
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: faabc65a78626c053aecfac81b560b4731e40b95
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688691"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730005"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -155,5 +155,5 @@ thumb의 규칙으로 인해 다음을 사용해야 합니다.
 - 설정하려면 다음을 수행합니다.
    - Azure Active Directory 등록 Windows 10 디바이스는 [Azure Active Directory 등록 Windows 10 디바이스를 구성하는 방법](../user-help/device-management-azuread-registered-devices-windows10-setup.md)을 참조하세요.
    - Azure Active Directory 조인 디바이스는 [Azure Active Directory 조인 구현을 계획하는 방법](azureadjoin-plan.md)을 참조하세요.
-   - 하이브리드 Azure AD 조인 디바이스는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.   
+   - 하이브리드 Azure AD 조인 디바이스는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.
 - 디바이스 기반 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 구성](../conditional-access/require-managed-devices.md)을 참조하세요.
