@@ -85,10 +85,10 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
 
 2. **쿼리** 상자를 클릭합니다. 
 
-3. 다음 쿼리를 입력합니다. 이 쿼리는 사기 감지 자습서에서 만든 셀프 조인 쿼리와 유사합니다. 차이점은 이 쿼리에서 사용자가 만든 새 출력으로 결과는 보낸다는 점입니다(`CallStream-PowerBI`). 
+3. 다음 쿼리를 입력합니다. 이 쿼리는 사기 감지 자습서에서 만든 셀프 조인 쿼리와 유사합니다. 차이점은 이 쿼리에서 사용자가 만든 새 출력(`CallStream-PowerBI`)으로 결과 보낸다는 점입니다. 
 
     >[!NOTE]
-    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않으면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
+    >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않았다면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
 
         ```SQL
         /* Our criteria for fraud:
