@@ -2,20 +2,20 @@
 title: Localization - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 Localization 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705855"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510590"
 ---
 # <a name="localization"></a>지역화
 
@@ -41,7 +41,7 @@ ms.locfileid: "64705855"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Enabled | 아닙니다. | 가능한 값은 `true` 또는 `false`입니다. |
+| 사용 | 아닙니다. | 가능한 값은 `true` 또는 `false`입니다. |
 
 **Localization** 요소에는 다음 XML 요소가 포함됩니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "64705855"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Text | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
+| 텍스트 | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
 | 값 | 예 | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
 
 다음 예제는 **LocalizedCollections** 요소의 사용을 보여 줍니다. 각각 영어와 스페인어로 된 두 개의 **LocalizedCollection** 요소를 포함합니다. 둘 다 영어 및 스페인어 항목 목록을 사용하여 `Gender` 클레임의 **Restriction** 컬렉션을 설정합니다.

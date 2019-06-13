@@ -55,7 +55,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 ## <a name="solution-overview"></a>솔루션 개요
 이 간단한 사용 사례는 Azure 데이터 팩터리를 사용하여 데이터를 수집, 준비, 변환, 분석 및 게시하는 방법의 예로 사용할 수 있습니다.
 
-![종단 간 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
+![엔드투엔드 워크플로](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 
 이 그림은 배포된 후 Azure 포털에서 데이터 파이프라인을 표시하는 방법을 보여줍니다.
 

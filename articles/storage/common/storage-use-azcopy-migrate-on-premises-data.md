@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 64d79abd1e142a231c08e02e7d62e8bfbab7b90e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244733"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754884"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
@@ -79,7 +79,7 @@ azcopy login
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>폴더의 콘텐츠를 Blob Storage에 업로드
 
-AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
+AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -119,9 +119,12 @@ AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개
 
 이 예제에서는 폴더 이름이 `myFolder`, 스토리지 계정 이름이 `mystorageaccount`, 컨테이너 이름이 `mycontainer`라고 가정합니다.
 
+> [!NOTE]
+> Linux 예제는 SAS 토큰을 추가합니다. 명령에 하나를 제공해야 합니다. 현재 버전의 AzCopy V10은 cron 작업에 Azure AD 인증을 지원하지 않습니다.
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

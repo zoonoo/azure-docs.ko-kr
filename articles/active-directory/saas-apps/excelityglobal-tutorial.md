@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265732"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>자습서: ExcelityGlobal과 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ ExcelityGlobal을 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 * 사용자가 해당 Azure AD 계정으로 ExcelityGlobal에 자동으로 로그인(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -140,7 +140,7 @@ ExcelityGlobal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>ExcelityGlobal Single Sign-On 구성
 
-**ExcelityGlobal** 쪽에서 Single Sign-On을 구성하려면 **지문 값**과 Azure Portal에서 복사한 해당 URL을 [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us/our-locations/)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**ExcelityGlobal** 쪽에서 Single Sign-On을 구성하려면 **지문 값**과 Azure Portal에서 복사한 해당 URL을 [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -195,7 +195,7 @@ ExcelityGlobal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ### <a name="create-excelityglobal-test-user"></a>ExcelityGlobal 테스트 사용자 만들기
 
-이 섹션에서는 ExcelityGlobal에서 Britta Simon이라는 사용자를 만듭니다.  [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us/our-locations/)과 협력하여 ExcelityGlobal 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ExcelityGlobal에서 Britta Simon이라는 사용자를 만듭니다.  [ExcelityGlobal 지원 팀](https://www.excelityglobal.com/contact-us)과 협력하여 ExcelityGlobal 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

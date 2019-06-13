@@ -22,7 +22,7 @@ ms.locfileid: "65979660"
 - 비용 관리
 - 조직별 규칙(예: 이름 지정 또는 위치)
 
-사용자 지정 정책을 만드는 비즈니스 동인이 무엇이든, 새 사용자 지정 정책을 정의하는 단계는 동일합니다.
+사용자 지정 정책을 만드는 비즈니스 요인이 무엇이든, 새 사용자 지정 정책을 정의하는 단계는 동일합니다.
 
 사용자 지정 정책을 만들기 전에, [정책 샘플](../samples/index.md)을 검사하여 요구 사항과 일치하는 기존 정책이 있는지 확인합니다.
 
@@ -207,7 +207,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _별칭_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
+Resource Manager 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -341,7 +341,7 @@ Azure Resource Graph(미리 보기)는 [Cloud Shell](https://shell.azure.com)을
 
 ### <a name="metadata"></a>Metadata
 
-처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드**의 값으로 _모두_를 사용하겠습니다.
+처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드**의 값으로 _all_ 을 사용하겠습니다.
 
 ```json
 "displayName": "Deny storage accounts not using only HTTPS",

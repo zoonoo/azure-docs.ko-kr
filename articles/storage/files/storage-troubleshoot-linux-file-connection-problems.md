@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987670"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472405"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -110,14 +110,13 @@ Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. �
 
 Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공유와 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다. 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정했는지 확인합니다. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "액세스 거부됨" 오류 발생
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>오류 "권한 부여 실패"는 포털에서 Azure 파일 공유로 이동 하는 경우
 
 포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
 
-액세스 거부됨  
-액세스 권한이 없음  
-이 콘텐츠에 대한 액세스 권한이 없는 것 같습니다. 액세스하려면 소유자에게 문의하세요.  
+권한 부여 실패  
+액세스 권한이 없음
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 1: 사용자 계정에 스토리지 계정에 대한 액세스 권한이 없음
 

@@ -276,7 +276,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | 자산 | Type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
-| CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| 문자열| 활동 실행 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -322,7 +322,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | 자산 | Type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
-| CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -366,7 +366,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | 자산 | Type | 설명 | 예 |
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
-| CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| CorrelationId |문자열 | 엔드투엔드 특정 요청을 추적하는 고유 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| 문자열| 트리거 실행 ID입니다. | `08587023010602533858661257311` |
 |ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 5ee9970a255928bca9d08111229be6298f20d7b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7df64c3fb70bdf3e7689787ec558bfe0e4942352
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235656"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754015"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>빠른 시작: 로컬 Jupyter Notebook 마이그레이션
 
@@ -50,7 +50,7 @@ ms.locfileid: "60235656"
 
    (마찬가지로 Notebook이 GitHub 리포지토리에 있으면 [빠른 시작: Notebook 복제](quickstart-clone-jupyter-notebook.md)의 단계를 대신 수행합니다.)
 
-   - **컴퓨터에서**를 사용하는 경우 *.ipynb* 파일을 팝업으로 끌어서 놓거나 **파일 선택**을 선택한 다음, 가져오려는 파일을 찾아서 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 업로드된 파일의 이름은 로컬 파일과 똑같은 이름으로 지정됩니다. (*.ipynb_checkpoints* 폴더의 콘텐츠를 업로드할 필요가 없습니다.)
+   - **컴퓨터에서**를 사용하는 경우 *.ipynb* 파일을 팝업으로 끌어서 놓거나 **파일 선택**을 선택한 다음, 가져오려는 파일을 찾아서 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 업로드된 파일의 이름은 로컬 파일과 똑같은 이름으로 지정됩니다. ( *.ipynb_checkpoints* 폴더의 콘텐츠를 업로드할 필요가 없습니다.)
 
      ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
 

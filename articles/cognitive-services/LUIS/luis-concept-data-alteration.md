@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0648dd9bc93097d3c2433943f983b5e9d22f0279
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522390"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473497"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 빌드된 datetimeV2에 대한 맞춤법 검사 및 표준 시간대 문제 해결이 포함됩니다. 
@@ -74,7 +74,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the l
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>timezoneOffset에 올바른 값을 결정하는 C# 코드
-다음 C# 코드는 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) 클래스의 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) 메서드를 사용하여 시스템 시간을 기반으로 올바른 `timezoneOffset`을 결정합니다.
+다음 C# 코드는 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) 클래스의 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) 메서드를 사용하여 시스템 시간을 기반으로 올바른 `timezoneOffset`을 결정합니다.
 
 ```CSharp
 // Get CST zone id

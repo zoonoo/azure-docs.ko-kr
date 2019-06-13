@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79697d44ea3e5126d43169f36c550046af3bc366
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170596"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480042"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -23,7 +23,9 @@ VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프�
 
 가상 네트워크 게이트웨이는 *게이트웨이 서브넷*이라는 사용자가 만든 특정 서브넷에 배포되는 둘 이상의 가상 머신으로 구성됩니다. 게이트웨이 서브넷에 있는 VM은 가상 네트워크 게이트웨이를 만들 때 생성됩니다. VM을 구성한 가상 네트워크 게이트웨이는 라우팅 테이블 및 게이트웨이에 특정한 게이트웨이 서비스를 포함합니다. 가상 네트워크 게이트웨이의 일부인 VM은 직접 구성할 수 없고 게이트웨이 서브넷에 추가 리소스를 배포해서는 안 됩니다.
 
-가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. 사용자가 구성하는 설정 중 하나는 게이트웨이 유형입니다. 게이트웨이 유형 ‘vpn’은 만든 가상 네트워크 게이트웨이의 유형이 VPN 게이트웨이임을 지정합니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 디바이스 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실의 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
+VPN 게이트웨이는 Azure 가용성 영역에서 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다. [Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보](about-zone-redundant-vnet-gateways.md) 참조
+
+가상 네트워크 게이트웨이 만들기는 완료되는 데 최대 45분까지 소요됩니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 지정한 설정으로 구성됩니다. 사용자가 구성하는 설정 중 하나는 게이트웨이 유형입니다. 게이트웨이 유형 ‘vpn’은 만든 가상 네트워크 게이트웨이의 유형이 VPN 게이트웨이임을 지정합니다. VPN Gateway를 만든 후에 해당 VPN Gateway와 다른 VPN Gateway(VNet 대 VNet) 간에 IPsec/IKE VPN 터널 연결을 만들거나, VPN Gateway와 온-프레미스 VPN 디바이스 간(사이트 간)의 크로스-프레미스 IPsec/IKE VPN 터널 연결을 생성할 수 있습니다. 지점과 사이트 간 VPN 연결(OpenVPN, IKEv2 또는 SSTP를 통한 VPN)을 생성하여 회의실 또는 집과 같은 원격 위치에서 가상 네트워크에 연결할 수 있습니다.
 
 ## <a name="configuring"></a>VPN Gateway 구성
 
@@ -83,7 +85,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>지점 및 사이트 간(IKEv2 또는 SSTP를 통한 VPN)
+## <a name="P2S"></a>지점 및 사이트 간 VPN
 
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
@@ -120,7 +122,7 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-## <a name="ExpressRoute"></a>ExpressRoute(개인 연결)
+## <a name="ExpressRoute"></a>ExpressRoute(프라이빗 연결)
 
 ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다.
 

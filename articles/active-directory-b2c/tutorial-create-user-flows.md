@@ -2,20 +2,20 @@
 title: Tutorial - 사용자 흐름 만들기 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 흐름을 만드는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fd8aefa924b927d9a55d0e91f35f40060097c53b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601588"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512146"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![구독 디렉터리로 전환](./media/tutorial-create-user-flows/switch-directories.png)
 
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 왼쪽 메뉴에서 **사용자 흐름**을 선택한 후 **새 사용자 흐름**을 선택합니다.
 
     ![새 사용자 흐름 선택](./media/tutorial-create-user-flows/signup-signin-user-flow.png)

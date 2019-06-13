@@ -2,20 +2,20 @@
 title: 자습서 - Azure Active Directory B2C 테넌트 만들기 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Active Directory B2C 테넌트를 만들어서 애플리케이션 등록을 준비하는 방법을 알아봅니다.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e2568bca8f8ecf170c82c5388823193b8b0457cf
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601692"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734456"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 구독을 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 구독이 포함된 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테넌트가 포함될 디렉터리와는 다릅니다.
+2. 구독을 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 구독이 포함된 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테 넌 트를 포함 하는 것과 다릅니다.
 
     ![구독 디렉터리로 전환](./media/tutorial-create-tenant/switch-directory-subscription.png)
 

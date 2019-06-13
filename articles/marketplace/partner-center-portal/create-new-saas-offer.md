@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243346"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751887"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
-서비스 (SaaS)에서 제공 하는 대로 소프트웨어를 만들기를 시작 하려면는 첫 번째 [파트너 센터 계정 만들기](./create-account.md) 연 합니다 [상용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 사용 하 여는 **제공** 탭을 선택 합니다. 
+서비스 (SaaS)에서 제공 하는 대로 소프트웨어를 만들기를 시작 하려면는 첫 번째 [파트너 센터 계정 만들기](./create-account.md) 연 합니다 [상용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 사용 하 여는 **개요** 탭을 선택 합니다.
 
-![파트너 센터에서 상용 Marketplace 대시보드](./media/commercial-marketplace-offers.png)
+![파트너 센터에서 상용 Marketplace 대시보드](./media/new-offer-overview.png)
 
 선택 된 + **새...** 단추를 클릭 합니다 **Software-as-a-service** 메뉴 항목입니다. 
 
 다른 제품 유형 중 하나를 선택 하면 리디렉션됩니다 이전의 [클라우드 파트너 포털](https://cloudpartner.azure.com/)합니다.  지금은 SaaS 제공 파트너 센터에 있는 상용 Marketplace 포털에서 제공 됩니다. 
 
-![파트너 센터에서 제품 창 만들기](./media/new-offer.png)
+![파트너 센터에서 제품 창 만들기](./media/new-offer-click.png)
 
+합니다 **새 제품** 대화 상자가 표시 됩니다. 
 
-합니다 **새 제품** 대화 상자가 표시 됩니다. ![새 제품 대화 상자](./media/new-offer-popup.png)
+![새 제품 대화 상자](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>제품 ID 및 이름
@@ -73,7 +74,7 @@ Microsoft 사용자 대신 호스트 marketplace 트랜잭션 수는 더 나은 
 
 - 제품을 Azure 클라이언트와 호환 되어야 합니다. (종종 SaaS 앱은 또한 최상의 성능 및 호환성을 위해 Azure에서 호스트 됩니다 있지만 이것이 요구 사항은 없습니다.) 
 - 제품을 사용 해야 합니다 [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) id 관리 및 인증에 대 한 합니다.
-- 제품을 사용 해야 합니다 [SaaS Fulfillment Api](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) Azure Marketplace에 통합할 수 있습니다.
+- 제품을 사용 해야 합니다 [SaaS Fulfillment Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) Azure Marketplace에 통합할 수 있습니다.
 
 #### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 SaaS 제품의 경우, 게시자로 고려해 야 사용량 요금 Azure 인프라 및 소프트웨어 라이선스 요금에 대 한 단일 비용 항목으로 합니다. 이 비용은 고객에 게 월별 고정 요금으로 표시 됩니다. Azure 인프라 사용 관리 되 고의 파트너에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 

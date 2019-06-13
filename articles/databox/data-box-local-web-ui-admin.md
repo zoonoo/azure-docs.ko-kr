@@ -1,114 +1,117 @@
 ---
-title: Microsoft Azure Data Box local web UI administration | Microsoft Docs in data
-description: Describes how to use the local web UI to administer your Data Box device
+title: 로컬 웹 UI 관리 Azure Data Box를 Azure 데이터 많은 상자에 대 한 | Microsoft Docs
+description: Data Box 및 데이터 상자 많은 장치를 관리 하려면 로컬 웹 UI를 사용 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404045"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496256"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Use the local web UI to administer your Data Box
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box 고 상자에 과도 한 데이터를 관리 하려면
 
-This article describes some of the configuration and management tasks that can be performed on the Data Box. You can manage the Data Box via the Azure portal UI and the local web UI for the device. This article focuses on the tasks that you can perform using the local web UI.
+이 문서에서는 Data Box 및 데이터 상자 많은 장치에서 수행할 수 있는 구성 및 관리 작업 중 일부를 설명 합니다. Azure portal UI 통해 Data Box 및 데이터 상자 많은 장치 및 장치의 로컬 웹 UI 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용하여 수행할 수 있는 작업을 중점적으로 설명합니다.
 
-Local web UI for the Data Box is used for the initial configuration of the device. You can also use the local web UI to shut down or restart the Data Box, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support.
+로컬 웹 UI Data Box 및 상자에 과도 한 데이터에 대 한 장치의 초기 구성에 사용 됩니다. 또한 로컬 웹 UI를 종료 또는 장치를 다시 시작, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고 Microsoft 지원에 대 한 로그 패키지 생성에 사용할 수 있습니다. 독립적인 두 노드를 사용 하 여 데이터 상자 많은 장치에서 장치의 각 노드에 해당 하는 두 개의 별도 로컬 웹 Ui에 액세스할 수 있습니다.
 
-This article includes the following tutorials:
+이 문서에는 다음 자습서가 포함되어 있습니다.
 
-- Generate a Support package
-- Shut down or restart your device
-- Download BOM or manifest files
-- View available capacity of the device
-- Skip checksum validation 
+- 지원 패키지 생성
+- 디바이스 종료 또는 다시 시작
+- BOM 또는 매니페스트 파일 다운로드
+- 디바이스의 사용 가능한 용량 확인
+- 체크섬 유효성 검사 건너뛰기
 
-## <a name="generate-support-package"></a>Generate Support package
+## <a name="generate-support-package"></a>지원 패키지 생성
 
-If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, perform the following steps:
+디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다. 지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
 
-1. In the local web UI, go to **Contact Support** and click **Create Support package**.
+1. 로컬 웹 UI에서 **고객 지원에 문의**로 이동한 다음 **지원 패키지 만들기**를 클릭합니다.
 
-    ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
+    ![지원 패키지 만들기 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. A Support package is gathered. This operation takes a few minutes.
+2. 지원 패키지가 수집됩니다. 이 작업은 몇 분 정도 걸립니다.
 
-    ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
+    ![지원 패키지 만들기 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once the Support package creation is complete, click **Download Support package**. 
+3. 지원 패키지 만들기가 완료되면 **지원 패키지 다운로드**를 클릭합니다. 
 
-    ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
+    ![지원 패키지 만들기 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
-4. Browse and choose the download location. Open the folder to view the contents.
+4. 다운로드 위치를 찾아서 선택합니다. 폴더를 열어 내용을 확인합니다.
 
-    ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
+    ![지원 패키지 만들기 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
 
 
-## <a name="shut-down-or-restart-your-device"></a>Shut down or restart your device
+## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
-You can shut down or restart your Data Box using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This minimizes any possibility of data corruption. Ensure that data copy is not in progress when you shut down the device.
+종료 하거나 로컬 웹 UI를 사용 하 여 장치를 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 디바이스를 종료할 때 데이터 복사가 진행 중이지 않은지 확인합니다.
 
-To shut down your Data Box, perform the following steps.
+장치를 종료 하려면 다음 단계를 수행 합니다.
 
-1. In the local web UI, go to **Shut down or restart**.
-2. Click **Shut down**.
+1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+2. **종료**를 클릭합니다.
 
-    ![Shut down Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
+    ![Data Box 종료 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. When prompted for confirmation, click **OK** to proceed.
+3. 종료를 확인하라는 메시지가 표시되면 **확인**을 클릭하여 계속 진행합니다.
 
-    ![Shut down Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
+    ![Data Box 종료 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
-Once the device is shut down, use the power button on the front panel to turn on the device.
+디바이스가 종료되면 전면 패널의 전원 단추를 사용하여 디바이스를 켭니다.
 
-To restart your Data Box, perform the following steps.
+Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
-1. In the local web UI, go to **Shut down or restart**.
-2. Click **Restart**.
+1. 로컬 웹 UI에서 **종료 또는 다시 시작**으로 이동합니다.
+2. **다시 시작**을 클릭합니다.
 
-    ![Restart Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
+    ![Data Box 다시 시작 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. When prompted for confirmation, click **OK** to proceed.
+3. 다시 시작을 확인하라는 메시지가 표시되면 **확인**을 클릭하여 계속 진행합니다.
 
-   The device shuts down and then restarts.
+   디바이스가 종료되었다가 다시 시작됩니다.
 
-## <a name="download-bom-or-manifest-files"></a>Download BOM or manifest files
+## <a name="download-bom-or-manifest-files"></a>BOM 또는 매니페스트 파일 다운로드
 
-The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box. These files are generated when you prepare the Data Box to ship.
+자재 명세서의 자료 (BOM) 또는 매니페스트 파일은 Data Box 또는 상자에 과도 한 데이터를 복사 된 파일의 목록을 포함 합니다. 배송 장치를 준비 하는 경우 이러한 파일이 생성 됩니다.
 
-Before you begin, make sure that your Data Box has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files:
+시작 하기 전에 장치에 완료 되도록 **배송 준비** 단계입니다. 다음 단계에 따라 BOM 또는 매니페스트 파일을 다운로드합니다.
 
-1. Go to the local web UI for your Data Box. You will see that the Data Box has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
+1. 장치의 로컬 웹 UI로 이동 합니다. 장치 배송 준비 완료 된 것을 볼 수 있습니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료**로 표시됩니다.
 
-    ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
+    ![디바이스 배송 준비 완료](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Click **Download list of files** to download the list of files that were copied on your Data Box.
+2. **파일 목록 다운로드**를 클릭하면 Data Box에 복사된 파일 목록을 다운로드할 수 있습니다.
 
-    ![Click Download list of files](media/data-box-portal-admin/download-list-of-files.png)
+    ![파일 목록 다운로드 클릭](media/data-box-portal-admin/download-list-of-files.png)
 
-3. In File Explorer, you will see that separate list of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
+3. 파일 탐색기에서, 디바이스에 연결하는 데 사용된 프로토콜 및 사용된 Azure Storage 유형에 따라 별도의 파일 목록이 생성되는 것을 볼 수 있습니다.
 
-    ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png)
+    ![스토리지 유형 및 연결 프로토콜에 대한 파일](media/data-box-portal-admin/files-storage-connection-type.png)
 
-   The following table maps the file names to the Azure Storage type and the connection protocol used.
+   다음 표는 파일 이름을 Azure Storage 유형 및 사용된 연결 프로토콜로 매핑합니다.
 
-    |File name  |Azure Storage type  |Connection protocol used |
+    |파일 이름  |Azure Storage 유형  |사용된 연결 프로토콜 |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Block blobs         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Page blobs         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
+    |databoxe2etest_BlockBlob.txt     |블록 Blob         |SMB/NFS         |
+    |databoxe2etest_PageBlob.txt     |페이지 Blob         |SMB/NFS         |
+    |databoxe2etest_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
+    |databoxe2etest_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
+    |databoxe2etest_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
+    |mydbmdrg1_MDisk-BOM.txt    |관리 디스크:         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |관리 디스크:         |SMB/NFS         |
 
-You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
+이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
+
+> [!NOTE]
+> 데이터 상자 Heavy, 두 파일 (BOM) 목록에 해당 장치에 두 개의 노드만 표시 합니다.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,32 +153,31 @@ You use this list to verify the files uploaded into the Azure Storage account af
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-This file contains the list of all the files that were copied on the Data Box. In this file, *crc64* value relates to the checksum generated for the corresponding file.
+이 파일에 있는 모든 파일 복사 된 데이터 상자 또는 상자에 과도 한 데이터 목록을 포함 합니다. 이 파일의 *crc64* 값은 해당 파일에 대해 생성된 체크섬과 관련이 있습니다.
 
-## <a name="view-available-capacity-of-the-device"></a>View available capacity of the device
+## <a name="view-available-capacity-of-the-device"></a>디바이스의 사용 가능한 용량 확인
 
-You can use the device dashboard to view the available and used capacity of the device. 
+디바이스 대시보드를 통해 디바이스에서 사용 가능한 용량과 사용한 용량을 확인할 수 있습니다.
 
-1. In the local web UI, go to **View dashboard**.
-2. Under the **Connect and copy**, the free and used space on the device is shown.
+1. 로컬 웹 UI에서 **대시보드 보기**로 이동합니다.
+2. **연결 및 복사** 아래에 디바이스의 사용 가능한 공간과 사용한 공간이 표시됩니다.
 
-    ![View available capacity](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
+    ![사용 가능한 용량 확인](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
+## <a name="skip-checksum-validation"></a>체크섬 유효성 검사 건너뛰기
 
-## <a name="skip-checksum-validation"></a>Skip checksum validation
+기본적으로는 배송을 준비할 때 데이터의 체크섬이 생성됩니다. 드물지만 파일 형식(작은 파일 크기)에 따라 성능이 저하될 수 있습니다. 이러한 경우에는 체크섬을 건너뛸 수 있습니다.
 
-Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum. 
+성능이 매우 낮은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 
-We strongly recommend that you do not disable checksum unless the performance is severely impacted.
+1. 로컬 웹 UI 장치의 오른쪽 위 모퉁이에서 이동 **설정을**합니다.
 
-1. In the top-right corner of the local web UI of your device, go to Settings.
+    ![체크섬 사용 안 함](media/data-box-local-web-ui-admin/disable-checksum.png)
 
-    ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
+2. 체크섬 유효성 검사를 **사용 안 함**으로 설정합니다.
+3. **적용**을 클릭합니다.
 
-2. **Disable** checksum validation
-3. Click **Apply**.
+## <a name="next-steps"></a>다음 단계
 
-## <a name="next-steps"></a>Next steps
-
-- Learn how to [Manage the Data Box via the Azure portal](data-box-portal-admin.md).
+- 설명 하는 방법 [Azure portal을 통해 Data Box 및 상자에 과도 한 데이터를 관리](data-box-portal-admin.md)합니다.
 

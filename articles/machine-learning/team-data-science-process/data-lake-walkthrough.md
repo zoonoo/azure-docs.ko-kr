@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60399961"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학 엔드 투 엔드 연습
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학 엔드투엔드 연습
 이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여줍니다. [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 ### <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
@@ -678,7 +678,7 @@ Azure Machine Learning Studio에서는 Azure Data Lake 저장소에서 직접 �
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
 ## <a name="summary"></a>요약
-이 연습을 완료하면서 Azure Data Lake에서 확장성 있는 종단 간 솔루션을 구축하기 위한 데이터 과학 환경을 만들었습니다. 이 환경은 모델 학습을 통한 데이터 획득부터 웹 서비스로 모델 배포에 이르는 데이터 과학 프로세스의 정식 단계를 통해 가져온 대형 공용 데이터 세트를 분석하는 데 사용되었습니다. U-SQL은 이러한 데이터를 처리하고 탐색하며 샘플링하는 데 사용되었습니다. Python 및 Hive는 Azure Machine Learning Studio에서 예측 모델을 빌드하고 배포하는 데 사용되었습니다.
+이 연습을 완료하면서 Azure Data Lake에서 확장성 있는 엔드투엔드 솔루션을 빌드하기 위한 데이터 과학 환경을 만들었습니다. 이 환경은 모델 학습을 통한 데이터 획득부터 웹 서비스로 모델 배포에 이르는 데이터 과학 프로세스의 정식 단계를 통해 가져온 대형 공용 데이터 세트를 분석하는 데 사용되었습니다. U-SQL은 이러한 데이터를 처리하고 탐색하며 샘플링하는 데 사용되었습니다. Python 및 Hive는 Azure Machine Learning Studio에서 예측 모델을 빌드하고 배포하는 데 사용되었습니다.
 
 ## <a name="whats-next"></a>다음 작업
 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 토픽에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.

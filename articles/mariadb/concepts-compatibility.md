@@ -13,7 +13,6 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61386818"
 ---
-
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구
 
 이 문서에는 Azure Database for MariaDB와 호환되는 드라이버 및 관리 도구를 설명합니다.
@@ -30,7 +29,7 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0과 SS
 .NET | [GitHub의 MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget의 설치 패키지](https://www.nuget.org/packages/MySqlConnector/) | 0.27 이상 | 0.26.5 이하 |
 MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | 인코딩 버그로 인해 UTF8이 아닌 Windows 시스템 중 일부에서 연결이 실패할 수 있습니다.
 Node.js |  [Github의 MySQLjs](https://github.com/mysqljs/mysql/) <br> NPM의 설치 패키지:<br> NPM에서 `npm install mysql` 실행 | 2.15 | 2.14.1 이하
-GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 버전 1.3의 경우 연결 문자열에 `allowNativePasswords=true`를 사용합니다. 버전 1.4는 수정 사항을 포함하고 `allowNativePasswords=true`는 더 이상 필요하지 않습니다.
+이동 | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 이하 | 사용 하 여 `allowNativePasswords=true` 버전 1.3에 대 한 연결 문자열에 있습니다. 버전 1.4 수정 사항을 포함 하 고 `allowNativePasswords=true` 필요 하지 않습니다.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 이하 |
 Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 |
 

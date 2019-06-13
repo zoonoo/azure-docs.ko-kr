@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479792"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>자습서:  발언의 감정 가져오기
 
@@ -54,6 +54,7 @@ ms.locfileid: "65236202"
 
 ## <a name="add-personname-prebuilt-entity"></a>PersonName 미리 빌드된 엔터티 추가 
 
+1. 탐색 메뉴에서 **빌드**를 선택합니다.
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 
@@ -69,11 +70,11 @@ ms.locfileid: "65236202"
 
 회사의 구성원에게서 직원 피드백을 캡처하기 위한 새 의도를 추가합니다. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. 왼쪽 패널에서 **의도**를 선택합니다.
 
-2. **새 의도 만들기**를 선택합니다.
+1. **새 의도 만들기**를 선택합니다.
 
-3. 새 의도 이름 `EmployeeFeedback`을 명명합니다.
+1. 새 의도 이름 `EmployeeFeedback`을 명명합니다.
 
     ![이름으로 EmployeeFeedback이 있는 의도 대화 상자 새로 만들기](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ ms.locfileid: "65236202"
 
 1. 맨 위 오른쪽 탐색에서 **관리**를 선택한 다음, 왼쪽 메뉴에서 **게시 설정**을 선택합니다.
 
-1. **감정 분석**을 선택하여 이 설정을 사용합니다. 
+1. **감정 분석을 사용하여 사용자의 발언이 긍정, 부정 또는 중립인지를 확인**을 선택합니다. 이 설정을 활성화합니다. 
 
     ![게시 설정으로 감정 분석 켜기](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ ms.locfileid: "65236202"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. 주소의 URL 끝으로 이동하고 `Jill Jones work with the media team on the public portal was amazing`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며 감정 분석이 추출된 `EmployeeFeedback` 의도가 반환되어야 합니다.
+1. 주소의 URL 끝으로 이동하여 다음 발언을 입력합니다.
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발언은 레이블이 지정된 발언과 같지 않으므로 유용한 테스트이며 감정 분석이 추출된 `EmployeeFeedback` 의도가 반환되어야 합니다.
     
     ```json
     {
@@ -153,6 +158,8 @@ ms.locfileid: "65236202"
     ```
 
     sentimentAnalysis는 점수 86%로 긍정적입니다. 
+
+    브라우저의 주소 표시줄에서 `q`에 대한 값을 제거하여 다른 발언을 시도하세요. `William Jones did a terrible job presenting his ideas.` 감정 점수는 낮은 점수 `0.18597582`를 반환하여 부정적인 감정을 나타냅니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

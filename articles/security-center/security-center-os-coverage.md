@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258699"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480528"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -59,7 +59,7 @@ ms.locfileid: "66258699"
 * Oracle Linux 6 및 7
 * Red Hat Enterprise Linux Server 6 및 7
 * Debian GNU/Linux 8 및 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
+* Ubuntu Linux 14.04 LTS, 16.04 LTS, 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
 32비트
@@ -93,7 +93,7 @@ ms.locfileid: "66258699"
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |디스크 암호화 평가|✔|✔|X|✔|✔|X|무료|
 |타사 배포|✔|X|X|✔|X|X|무료|
-|Nsg 평가|✔|✔|X|✔|✔|X|무료|
+|NSG 평가|✔|✔|X|✔|✔|X|무료|
 |Fileless 위협 탐지|✔|✔|✔|X|X|X|Standard|
 |네트워크 맵|✔|✔|X|✔|✔|X|Standard|
 |적응형 네트워크 제어|✔|✔|X|✔|✔|X|Standard|
@@ -129,7 +129,7 @@ ms.locfileid: "66258699"
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob Storage 계정*|✔| ✔|
+|Azure Blob storage 계정|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
 |VNet|✔| 해당 없음|
@@ -137,7 +137,6 @@ ms.locfileid: "66258699"
 |NIC|✔| 해당 없음|
 |NSG|✔| 해당 없음|
 |구독|✔ **| ✔|
-|App Service|✔| 해당 없음|
 |일괄 처리|✔| 해당 없음|
 |Service Fabric|✔| 해당 없음|
 |Automation 계정|✔| 해당 없음|
@@ -147,14 +146,9 @@ ms.locfileid: "66258699"
 |Stream Analytics|✔| 해당 없음|
 |이벤트 허브|✔| 해당 없음|
 |논리 앱|✔| 해당 없음|
-|서브넷|✔| 해당 없음|
-|VNet|✔| 해당 없음|
 |Storage 계정|✔| 해당 없음|
 |Redis|✔| 해당 없음|
-|SQL|✔| 해당 없음|
 |Data Lake Analytics|✔| 해당 없음|
-|Storage 계정|✔| 해당 없음|
-|구독|✔| 해당 없음|
 |주요 자격 증명 모음|✔| 해당 없음|
 
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 03/4/2019
 ms.author: aahi
-ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 93af1cce37c69691fb39f62270f4de6c9c73cf32
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "61335539"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388595"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Custom Search API란?
 
@@ -49,8 +49,8 @@ Bing Custom Search API를 사용하면 관심 있는 토픽에 대한 맞춤형 
 
 각 사용자 지정 검색 엔드포인트에 대한 참조 콘텐츠를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수가 포함됩니다. 응답 개체의 정의도 포함됩니다.
 
-- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
-- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
-- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
 

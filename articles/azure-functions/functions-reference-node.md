@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957342"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729476"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -110,7 +110,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
+ - ** _[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 (이러한 메서드를 결합 하지 마세요) 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다.
 
-- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환 하는 비동기/프라미스를 사용 하는 경우에 할당 된 출력 데이터를 사용 하 여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
+- ** _[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환 하는 비동기/프라미스를 사용 하는 경우에 할당 된 출력 데이터를 사용 하 여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
   ```
 
   동기 함수를 사용하는 경우 [`context.done`](#contextdone-method)을 사용하여 이 개체를 반환할 수 있습니다(예제 참조).
-- **_[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
+- ** _[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
 - **`context.bindings`에 대한 값을 할당합니다.** context.bindings에 직접 값을 할당할 수 있습니다.
 
   ```javascript
@@ -397,9 +397,9 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[응답 전용]_ `context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
++ ** _[응답 전용]_ `context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
 
-+ **_[응답 전용]_ `context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
++ ** _[응답 전용]_ `context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
 
     ```json
     {
@@ -465,23 +465,16 @@ Function App에 패키지를 설치하는 방법에는 두 가지가 있습니�
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `GetEnvironmentVariable` 함수에 표시된 대로 `process.env`를 사용하여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. 사용 하 여 이러한 설정에 액세스할 수 있습니다 `process.env`두 번째 및 세 번째 호출에서 여기 표시 된 것 처럼 `context.log()` 로그 위치를 `AzureWebJobsStorage` 고 `WEBSITE_SITE_NAME` 환경 변수:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

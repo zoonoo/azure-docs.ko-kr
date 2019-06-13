@@ -235,6 +235,8 @@
               href: msal-js-sso.md
             - name: 프롬프트 동작(JS)
               href: msal-js-prompt-behavior.md
+            - name: ADFS 지원(.NET)
+              href: msal-net-adfs-support.md
             - name: Azure AD B2C와 통합
               items:
                 - name: JavaScript

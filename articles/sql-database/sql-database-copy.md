@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: 4516d61c1bf8a32e807bcbc01ea1e5b283e31060
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/03/2019
+ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762685"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688081"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -49,8 +49,6 @@ Azure Portal을 사용하여 데이터베이스를 복사하려면 데이터베�
 ## <a name="copy-a-database-by-using-powershell"></a>PowerShell을 사용하여 데이터베이스 복사
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 PowerShell을 사용 하 여 데이터베이스를 복사 하려면 사용 합니다 [새로 만들기-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 

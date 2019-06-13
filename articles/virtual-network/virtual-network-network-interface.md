@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695359"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755250"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
 
@@ -111,6 +111,8 @@ DNS 서버는 Azure DHCP 서버에 의해 가상 머신 운영 체제 내의 네
 4. 다음 중 하나를 선택합니다.
    - **가상 네트워크에서 상속**: 이 옵션을 선택하면 네트워크 인터페이스가 할당되어 있는 가상 네트워크에 대해 정의된 DNS 서버 설정을 상속합니다. 가상 네트워크 수준에서는 사용자 지정 DNS 서버 또는 Azure 제공 DNS 서버가 정의됩니다. Azure에서 제공한 DNS 서버는 동일한 가상 네트워크에 할당된 리소스에 대한 호스트 이름을 확인할 수 있습니다. FQDN을 사용하여 서로 다른 가상 네트워크에 할당된 리소스를 확인해야 합니다.
    - **사용자 지정**: 여러 가상 네트워크에서 이름을 확인하도록 사용자 고유의 DNS 서버를 구성할 수 있습니다. DNS 서버로 사용하려는 서버의 IP 주소를 입력합니다. 여기서 지정하는 DNS 서버 주소는 이 네트워크 인터페이스에만 할당되며, 네트워크 인터페이스가 할당된 가상 네트워크의 모든 DNS 설정을 재정의합니다.
+     >[!Note]
+     >VM 가용성 집합의 일부인 NIC를 사용 하는 경우 각 가용성 집합의 일부인 모든 Nic에서 Vm에 대해 지정 된 모든 DNS 서버 상속 됩니다.
 5. **저장**을 선택합니다.
 
 **명령**

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192544"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492748"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -53,7 +53,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 ### <a name="time-based-retention"></a>시간 기반 보존
 
 > [!IMPORTANT]
-> SEC 17a-4(f) 및 기타 규정을 준수하도록 Blob을 변경 불가능한 상태(쓰기 및 삭제 금지)로 유지하려면 시간 기준 보존 정책을 *잠가야* 합니다. 적절한 시간(일반적으로 24 시간 이내)에 정책을 잠그는 것이 좋습니다. 단기간의 기능 평가 이외의 용도로는 *잠금 해제* 상태를 사용하지 않는 것이 좋습니다.
+> 시간 기준 보존 정책이 있어야 *잠긴* 규격이에 blob에 대 한 변경할 수 없는 (쓰기 및 삭제 금지 된) 초 17a-4(f) 및 기타 규정 준수에 대 한 상태입니다. 잠그는 정책을 합당 한 시간에에서 일반적으로 24 시간 보다 작아야 하는 것이 좋습니다. 적용된 시간 기준 보존 정책의 초기 상태가 *잠기지 않은*, 기능을 테스트 하 고 잠글 전에 정책을 변경할 수 있습니다. 하는 동안 합니다 *잠기지 않은* 불변성 보호를 제공 하는 상태를 권장 하지 않습니다를 사용 하 여를 *잠기지 않은* 단기 기능 평가판 이외의 목적을 위해 상태. 
 
 컨테이너에 시간 기준 보존 정책을 적용하면 컨테이너의 모든 Blob이 *유효* 보존 기간 동안 변경 불가능한 상태로 유지됩니다. 기존 blob에 대 한 효과적인 보존 기간은 blob 수정 시간 및 사용자 지정 보존 간격 사이의 차이 것과 같습니다.
 
@@ -65,6 +65,8 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 > 해당 컨테이너의 기존 blob _testblob1_, 1 년 전에 생성 되었습니다. 에 대 한 효과적인 보존 기간 _testblob1_ 4 년입니다.
 >
 > 새 blob _testblob2_, 이제 컨테이너에 업로드 합니다. 이 새 Blob의 유효 보존 기간은 5년입니다.
+
+잠금 해제 시간 기준 보존 정책을 기능 테스트에 권장 및 정책을 초 17a-4(f) 및 기타 규정을 준수 하기 위해 잠겨 있어야 합니다. 시간 기준 보존 정책이 잠기면 정책을 제거할 수 없습니다 하 고 효과적인 보존 기간으로 5 증가의 경우 최대 허용 됩니다. 잠금 시간 기준 보존 정책을 설정 하는 방법에 대 한 자세한 내용은 참조는 [Getting started](#getting-started) 섹션입니다.
 
 ### <a name="legal-holds"></a>법적 보존
 
@@ -169,7 +171,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **웜 규정 준수의 설명서를 제공 하나요?**
 
-예. 문서 준수에 Microsoft는 독립 평가 기관인 Azure 변경할 수 없는 Blob Storage 및 특정 요구 사항 준수를 평가 하려면 Cohasset 연결 레코드 관리 및 정보 관리를 전문으로 하는 유지 금융 서비스 업계 합니다. Cohasset은 Azure 변경할 수 없는 Blob 저장소, 웜 상태에서 시간을 기준으로 Blob을 유지 하는 데 사용 하는 경우 CFTC 규칙 1.31(c)-(d), FINRA 규칙 4511 및 초 규칙 17a-4의 관련 저장소 요구 사항을 충족 하는지 확인 합니다. Microsoft 글로벌 금융 기관에 대 한 레코드 보존에 대 한 가장 규범적인 지침을 나타내므로이 규칙 집합을 대상으로 합니다. Cohasset 보고서에서 사용할 수 있는를 [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage)합니다.
+예. 문서 준수에 Microsoft는 독립 평가 기관인 Azure 변경할 수 없는 Blob Storage 및 특정 요구 사항 준수를 평가 하려면 Cohasset 연결 레코드 관리 및 정보 관리를 전문으로 하는 유지 금융 서비스 업계 합니다. Cohasset은 Azure 변경할 수 없는 Blob 저장소, 웜 상태에서 시간을 기준으로 Blob을 유지 하는 데 사용 하는 경우 CFTC 규칙 1.31(c)-(d), FINRA 규칙 4511 및 초 규칙 17a-4의 관련 저장소 요구 사항을 충족 하는지 확인 합니다. Microsoft 글로벌 금융 기관에 대 한 레코드 보존에 대 한 가장 규범적인 지침을 나타내므로이 규칙 집합을 대상으로 합니다. Cohasset 보고서에서 사용할 수 있는를 [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage)합니다. 증명 문자로 Microsoft에서 웜 규정 준수에 대 한를 요청 하려면 Azure 지원에 문의 하세요.
 
 **이 기능은 블록 Blob에만 적용되나요, 아니면 페이지 및 추가 Blob에도 적용되나요?**
 
@@ -186,6 +188,10 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 **법적 보존 정책을 법적 절차에 대해서만 아니면 다른 사용 시나리오가 있습니다?**
 
 아니요, 법적 보관은 시간 기준 보존 정책에 사용 되는 일반 용어만 합니다. 소송에만 사용 하지 않아도 proceedings 관련 됩니다. 법적 보존 정책을 여기서 보존 기간 알 수 없는 덮어쓰기 및 보호 하는 중요 한 엔터프라이즈 웜 데이터에 대 한 삭제를 사용 하지 않도록 설정 하는 것에 대 한 유용 합니다. 업무상 중요 한 웜 워크 로드를 보호 하거나 사용자 지정 이벤트 트리거를 시간 기준 보존 정책 사용 해야 하기 전에 준비 정책으로 사용 하려면 엔터프라이즈 정책으로 사용할 수 있습니다. 
+
+**제거할 수는 *잠긴* 시간 기준 보존 정책 또는 법적?**
+
+잠금 해제 시간 기준 보존 정책에 대 한 컨테이너에서 제거할 수 있습니다. 시간 기준 보존 정책이 잠기면 제거할 수 없습니다. 유효 기간 확장은만 사용할 수 있습니다. 법적 보존 태그를 삭제할 수 있습니다. 모든 법적 태그를 삭제할 때 법적 보존 제거 됩니다.
 
 ***잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 컨테이너를 삭제하려고 시도하면 어떻게 되나요?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-불변성 정책 제거(추가 -프롬프트 강제로 닫기):
+잠금이 해제 된 불변성 정책 제거 (추가-프롬프트 해제 하도록):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

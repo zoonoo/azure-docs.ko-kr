@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249051"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482340"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -143,7 +143,7 @@ GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 
 
 **디스크 유형의 스냅숏을 지원 하나요?**
 
-Premium SSD, 표준 SSD 및 표준 SSD 어떠한 크기 제한 없이 스냅숏을 지원합니다. 따라서 스냅숏 대용량 디스크 (최대 32 TiB) 수 있습니다. Ultra Ssd 스냅숏을 지원 하지 않습니다.
+Premium SSD, 표준 SSD 및 HDD 표준 스냅숏을 지원합니다. 이러한 세 가지 디스크 유형의 스냅숏은 모든 디스크 크기 (32 TiB 최대 디스크 크기가 포함)에 대해 지원 됩니다. Ultra Ssd 스냅숏을 지원 하지 않습니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 

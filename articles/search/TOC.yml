@@ -163,24 +163,28 @@
       items:
         - name: 인덱서 개요
           href: search-indexer-overview.md
-        - name: Blob Storage 인덱서
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Table Storage 인덱서
+        - name: Azure Table Storage 인덱서
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB 인덱서
+        - name: Azure SQL DB 인덱서
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Cosmos DB 인덱서
+        - name: Azure Cosmos DB 인덱서
           href: search-howto-index-cosmosdb.md
-        - name: 일대다 BLOB 인덱싱
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV Blob 인덱싱
-          href: search-howto-index-csv-blobs.md
-        - name: JSON Blob 인덱싱
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob Storage 인덱서
+          items:
+            - name: Blob 인덱서 설정
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 일대다 Blob 인덱스
+              href: search-howto-index-one-to-many-blobs.md
+            - name: 인덱스 CSV blob
+              href: search-howto-index-csv-blobs.md
+            - name: 인덱스 JSON blob
+              href: search-howto-index-json-blobs.md
+        - name: 인덱서 일정
+          href: search-howto-schedule-indexers.md
+        - name: 맵 필드
+          href: search-indexer-field-mappings.md
         - name: SQL Server VM에 연결
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: 필드 매핑
-          href: search-indexer-field-mappings.md
         - name: 일반적인 문제 해결
           href: search-indexer-troubleshooting.md
     - name: AI로 보강

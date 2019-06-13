@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1ffb3f0071409e148f394913d4bda5ba73319e3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861622"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393438"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 .NET Core로 개발(Visual Studio Code)
 
@@ -35,7 +35,7 @@ ms.locfileid: "65861622"
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
-[지원되는 지역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에서 AKS 클러스터를 만들어야 합니다. 아래 명령은 *MyResourceGroup*이라는 리소스 그룹과 *MyAKS*라는 AKS 클러스터를 만듭니다.
+[지원되는 지역][supported-regions]에서 AKS 클러스터를 만들어야 합니다. 아래 명령은 *MyResourceGroup*이라는 리소스 그룹과 *MyAKS*라는 AKS 클러스터를 만듭니다.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -121,7 +121,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예: 
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예:
 
 1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
 1. [`Controllers/HomeController.cs`의 20줄](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20)을 다음으로 업데이트합니다.
@@ -183,7 +183,7 @@ Visual Studio Code에서 명령 팔레트를 열려면 *보기*, *명령 팔레�
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio Code에서 코드 업데이트
 
-서비스가 디버깅 모드에서 실행 중인 경우 `Controllers/HomeController.cs`의 20줄을 업데이트합니다. 예: 
+서비스가 디버깅 모드에서 실행 중인 경우 `Controllers/HomeController.cs`의 20줄을 업데이트합니다. 예:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";
@@ -209,3 +209,6 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

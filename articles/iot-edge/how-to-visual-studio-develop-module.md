@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253053"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474774"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2019를 사용 하 여 개발 하 고 Azure IoT Edge (미리 보기)에 대 한 모듈 디버그
 
@@ -95,20 +95,19 @@ Visual Studio 2019에 준비 되 면 다음 도구와 구성 요소를도 필요
 
 Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure IoT Edge 디바이스에 배포할 수 있는 프로젝트를 만듭니다. 먼저 Azure IoT Edge 솔루션을 만들고 해당 솔루션의 첫 번째 모듈을 생성 합니다. 각 IoT Edge 솔루션에는 둘 이상의 모듈이 포함될 수 있습니다.
 
-1. Visual Studio 새 프로젝트 대화 상자에서 검색 하 고 선택 **Azure IoT Edge**, 프로젝트의 이름을 입력 하 고 위치를 지정 및 선택한 **확인**합니다. 기본 프로젝트 이름은 **AzureIoTEdgeApp1**입니다.
+1. Visual Studio 새 프로젝트 대화 상자에서 검색 하 고 선택 **Azure IoT Edge** 프로젝트 및 클릭 **다음**합니다. 프로젝트 구성 창에서 프로젝트의 이름을 입력 위치를 지정 하 고 선택한 **만들기**합니다. 기본 프로젝트 이름은 **AzureIoTEdgeApp1**입니다.
 
-1. 에 **IoT Edge 응용 프로그램 추가 및 모듈** 창에서 **Linux Amd64**를 **Windows Amd64**, 또는 응용 프로그램 플랫폼으로 서 둘 다. 모두 선택 하면 각 기본 코드 모듈을 참조 하는 두 개의 프로젝트를 사용 하 여 솔루션을 만듭니다.
+   ![새 프로젝트 만들기](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   > [!TIP]
-   > 현재 Visual Studio 용 Azure IoT Edge 확장 ARM 플랫폼에 대 한 프로젝트를 지원 하지 않습니다. 이 참조 하세요 [IoT 개발자 블로그](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) ARM32v7/armhf에 대 한 솔루션을 개발 하려면 Visual Studio Code를 사용 하는 예제에 대 한 합니다.
+1. 에 **IoT Edge 응용 프로그램 추가 및 모듈** 창 중 하나를 선택  **C# 모듈** 또는 **C 모듈** 모듈 이름 및 모듈 이미지 리포지토리를 지정 합니다. Visual Studio는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 * **\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 * *\<* 레지스트리 이름 *\>.azurecr.io/* \<모듈 이름\>***과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸기만 하면 됩니다. 기본 모듈 이름은 **IoTEdgeModule1**입니다.
 
-1. 선택  **C# 모듈** 하거나 **C 모듈** 모듈 이름 및 모듈 이미지 리포지토리를 지정 합니다. Visual Studio는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 * **\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 * *\<* 레지스트리 이름 *\>.azurecr.io/* \<모듈 이름\>***과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸기만 하면 됩니다. 기본 모듈 이름은 **IoTEdgeModule1**입니다.
+   ![응용 프로그램 및 모듈 추가](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. 선택 **확인** 중 하나를 사용 하는 모듈을 사용 하 여 Azure IoT Edge 솔루션을 만들려면 C# 또는 3.
 
-이제는 **AzureIoTEdgeApp1.Linux.Amd64** 프로젝트 또는 **AzureIoTEdgeApp1.Windows.Amd64** 프로젝트 중 하나 또는 둘 다와 **IoTEdgeModule1** 프로젝트에 솔루션입니다. 각 **AzureIoTEdgeApp1** 프로젝트에는 `deployment.template.json` 파일, IoT Edge 솔루션을 빌드 및 배포 하려는 모듈을 정의 하 고 또한 모듈 간 경로 정의 합니다. 기본 솔루션에는 **tempSensor** 모듈과 **IoTEdgeModule1** 모듈이 있습니다. **tempSensor** 모듈은 **IoTEdgeModule1** 모듈에 시뮬레이션 데이터를 생성하고, **IoTEdgeModule1** 모듈의 기본 코드는 수신 메시지를 Azure IoT Hub로 직접 파이핑합니다.
+이제는 **AzureIoTEdgeApp1.Linux.Amd64** 프로젝트 또는 **AzureIoTEdgeApp1.Windows.Amd64** 프로젝트와는 **IoTEdgeModule1** 솔루션의 프로젝트입니다. 각 **AzureIoTEdgeApp1** 프로젝트에는 `deployment.template.json` 파일, IoT Edge 솔루션을 빌드 및 배포 하려는 모듈을 정의 하 고 또한 모듈 간 경로 정의 합니다. 기본 솔루션에는 **tempSensor** 모듈과 **IoTEdgeModule1** 모듈이 있습니다. **tempSensor** 모듈은 **IoTEdgeModule1** 모듈에 시뮬레이션 데이터를 생성하고, **IoTEdgeModule1** 모듈의 기본 코드는 수신 메시지를 Azure IoT Hub로 직접 파이핑합니다.
 
-**IoTEdgeModule1** 프로젝트는 .NET Core 2.1 콘솔 애플리케이션입니다. 여기에는 IoT Edge 디바이스를 Windows 컨테이너나 Linux 컨테이너로 실행할 때 필요한 필수 Docker 파일이 포함되어 있습니다. `module.json` 파일에 모듈의 메타 데이터에 설명 합니다. 종속성으로 Azure IoT 장치 SDK를 사용 하는 실제 모듈 코드에서 발견 되는 `Program.cs` 또는 `main.c` 파일입니다.
+합니다 **IoTEdgeModule1** 경우 프로젝트는.NET Core 2.1 콘솔 응용 프로그램을 C# 모듈입니다. 여기에는 IoT Edge 디바이스를 Windows 컨테이너나 Linux 컨테이너로 실행할 때 필요한 필수 Docker 파일이 포함되어 있습니다. `module.json` 파일에 모듈의 메타 데이터에 설명 합니다. 종속성으로 Azure IoT 장치 SDK를 사용 하는 실제 모듈 코드에서 발견 되는 `Program.cs` 또는 `main.c` 파일입니다.
 
 ## <a name="develop-your-module"></a>모듈 개발
 
@@ -122,7 +121,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
    ![Edge 디바이스 연결 문자열 복사](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. 로 이동 **도구가** > **Azure IoT Edge 도구** > **설치 IoT Edge 시뮬레이터**pasten 연결 문자열을 클릭 **확인** .
+1. 로 이동 **도구가** > **Azure IoT Edge 도구** > **설치 IoT Edge 시뮬레이터**연결 문자열을 붙여 넣고 클릭 **확인**.
 
    ![Edge 장치 연결 문자열 설정 창 열기](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 

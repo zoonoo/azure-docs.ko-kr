@@ -17,6 +17,18 @@
       href: quickstart-php.md
     - name: Node.js 앱 만들기
       href: quickstart-nodejs.md
+    - name: Docker 및 Visual Studio Code를 사용하여 Node.js 앱 만들기
+      items:
+        - name: 시작
+          href: tutorial-javascript-vscode-get-started.md
+        - name: 컨테이너 레지스트리 만들기
+          href: tutorial-javascript-vscode-create-registry.md
+        - name: 이미지 만들기
+          href: tutorial-javascript-vscode-containerize-app.md
+        - name: 이미지 배포
+          href: tutorial-javascript-vscode-deploy-container.md
+        - name: 로그 보기
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: Java 앱 만들기
       href: quickstart-java.md
     - name: Python 앱 만들기

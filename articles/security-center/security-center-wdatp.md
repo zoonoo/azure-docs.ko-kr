@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258458"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752579"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -44,10 +44,6 @@ Windows Defender ATP를 사용 하는 경우 다음을 수행 표시 합니다.
 - **세부 머신 조사**: Azure Security Center 고객은 Windows Defender ATP 콘솔에 액세스한 다음 세부 조사를 수행하여 위반 범위를 파악할 수 있습니다.
 
 ![경고 목록 및 각 경고 관련 일반 정보가 표시된 Azure Security Center](media/security-center-wdatp/image1.png)
-
-Azure Security Center에서 [경고 조사](security-center-investigation.md)를 진행할 수 있습니다.
-
-![Azure Security Center의 경고 조사 대시보드](media/security-center-wdatp/image2.png)
 
 Windows Defender ATP로 피벗하여 경고를 추가로 조사할 수 있습니다. 그러면 경고 프로세스 트리, 인시던트 그래프 등의 추가 정보를 확인할 수 있습니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
 
@@ -97,7 +93,7 @@ Windows Defender ATP 통합이 사용하도록 설정되어 있는지 확인하�
 
 ## <a name="set-the-firewall-configuration"></a>방화벽 구성 설정
 
-Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
+Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프록시나 방화벽이 익명 트래픽을 차단하는 경우 익명 트래픽이 허용되도록 설정해야 합니다. [프록시 서버에서 Windows Defender ATP 서비스 URL에 액세스할 수 있도록 설정](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 
 ## <a name="test-the-feature"></a>기능 테스트
 

@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238225"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751765"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -49,7 +49,7 @@ ms.locfileid: "60238225"
 
 ## <a name="create-the-data-file"></a>데이터 파일 만들기
 
-Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일에서 복사 하 여 만들 수 있습니다 [GitHub-Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), 또는 데이터를 직접 입력 하 여 합니다. 다음 섹션에서는 두 방법을 설명합니다.
+Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일은 [GitHub - Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)에서 복사하여 또는 데이터를 직접 입력하여 만들 수 있습니다. 다음 섹션에서는 두 방법을 설명합니다.
 
 ### <a name="upload-the-data-file"></a>데이터 파일 업로드
 
@@ -307,7 +307,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. 코드 셀. 이 셀은 실행하면 `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)` 출력을 표시합니다.
@@ -326,7 +326,7 @@ Notebook의 나머지 부분을 채우려면 일련의 Markdown 및 코드 셀�
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```

@@ -1,24 +1,24 @@
 ---
-title: '빠른 시작: Azure Data Explorer에 Azure Blob 수집'
-description: 이 빠른 시작에서는 Event Grid 구독을 사용하여 Azure Data Explorer에 스토리지 계정 데이터를 보내는 방법을 알아봅니다.
+title: Azure Data Explorer에 Azure Blob 수집
+description: 이 문서에서는 Event Grid 구독을 사용 하 여 Azure 데이터 탐색기로 저장소 계정 데이터를 전송 하는 방법을 알아봅니다.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051855"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494738"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>빠른 시작: Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
 Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, Blob 컨테이너에 기록된 Blob에서 지속적인 수집(데이터 로딩)을 제공합니다. 
 
-이 빠른 시작에서는 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정하고, 이벤트 허브를 통해 이벤트를 Azure Data Explorer로 전달하는 방법에 대해 알아봅니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
+이 문서에서는 설정 하는 방법을 알아봅니다는 [Azure Event Grid](/azure/event-grid/overview) 구독 및 이벤트 허브를 통해 Azure 데이터 탐색기로 경로 이벤트입니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,9 +38,9 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | Name | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
+    | 이름 | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
-    | 항목 종류 | *Storage 계정* | Event Grid 항목의 종류입니다. |
+    | 항목 종류 | *저장소 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
     | 모든 이벤트 형식 구독 | *clear* | 모든 이벤트에 대한 알림을 받지 않습니다. |
     | 정의된 이벤트 유형 | *만든 Blob* | 알림을 받을 특정 이벤트 |
@@ -50,7 +50,7 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
 1. 특정 컨테이너의 파일을 추적하려면 **추가 기능** 탭을 선택합니다. 알림에 대한 필터를 다음과 같이 설정합니다.
     * **제목 시작 문자** 필드는 Blob 컨테이너의 *리터럴* 접두사입니다. 적용된 패턴이 *startswith*이므로, 여러 컨테이너를 포함할 수 있습니다. 와일드카드는 허용되지 않습니다.
-     다음과 같이 *설정해야 합니다*. *`/blobServices/default/containers/`*[컨테이너 접두사]
+     다음과 같이 *설정해야 합니다*. *`/blobServices/default/containers/`* [컨테이너 접두사]
     * **제목 종료 문자** 필드는 Blob의 *리터럴* 접미사입니다. 와일드카드는 허용되지 않습니다.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 대상 테이블 만들기
@@ -157,7 +157,7 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
 > [!NOTE]
 > Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다.
 기본적으로 정책은 5 분으로 구성됩니다.
-정책은 나중에 필요에 따라 변경할 수 있습니다. 이 빠른 시작에서 잠시 대기 시간이 발생할 수 있습니다.
+정책은 나중에 필요에 따라 변경할 수 있습니다. 이 문서는 몇 분 정도 대기 시간을 예상할 수 있습니다.
 
 1. Azure Portal의 Event Grid에서 앱이 실행되는 동안 작업이 급증하는 것을 볼 수 있습니다.
 
@@ -196,5 +196,4 @@ Event Grid를 다시 사용하지 않으려는 경우, 비용이 발생하지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
+* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)

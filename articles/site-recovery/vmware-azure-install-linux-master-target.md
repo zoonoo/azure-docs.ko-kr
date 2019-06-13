@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479995"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -46,7 +46,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
 
-다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
+다음 Ubuntu 커널 지원 됩니다.
 
 
 |커널 시리즈  |최대 지원  |

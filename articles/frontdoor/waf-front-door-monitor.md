@@ -8,22 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/31/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ba6cca679ce4910ea941d9578939721514b2ec
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459762"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478978"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅 
 
 로그가 azure 웹 응용 프로그램 방화벽 (WAF) 모니터링 및 로깅 로깅과 Azure Monitor 및 Azure Monitor의 통합을 통해 제공 됩니다.
-
-> [!IMPORTANT]
-> 모니터링 및 로깅 기능에 대 한 Azure 프런트 도어 WAF는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

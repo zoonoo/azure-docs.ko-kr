@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228342"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496512"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
-
-## <a name="overview"></a>개요 ##
 
 Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Network에 있는 서브넷에 배포한 것입니다. ASE는 다음으로 구성됩니다.
 
@@ -62,17 +60,14 @@ ASE에서 앱을 만들려면
 
 1. OS를 선택합니다. 
 
-    * ASE에서 Linux 앱을 호스트하는 것은 새로운 미리 보기 기능이므로, 현재 프로덕션 워크로드를 실행 중인 ASE에는 Linux 앱을 추가하지 않는 것이 좋습니다. 
-    * ASE에 Linux 앱을 추가하게 되면 ASE도 미리 보기 모드가 됩니다. 
-
 1. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
 
     a. **새로 만들기**를 선택합니다.
 
     b. App Service 계획의 이름을 입력합니다.
 
-    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE의 Linux 앱 호스트는 현재 **미국 서부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
-
+    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
+    
     d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
     e. **확인**을 선택합니다.

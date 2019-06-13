@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713776"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754056"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -36,7 +36,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 1. Virtual Network 게이트웨이 - Azure의 VPN Gateway
 1. 로컬 네트워크 게이트웨이 - Azure 클라우드에서 [온-프레미스(FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 표현
-1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [FortiGate 구성](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 사이트 간 구성에 대한 자세한 단계별 지침은 다음을 방문하여 찾을 수 있습니다. [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)

@@ -2,20 +2,20 @@
 title: 자습서 - Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여 | Microsoft Docs
 description: Active Directory B2C를 사용하여 .NET Core Web api를 보호하고 단일 페이지 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 13fedae2798311a59a5cee2805ce9e09b1bd5a0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 609e7bc4104a445c5d77109c9470fb487b2f1336
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724682"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507741"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여
 

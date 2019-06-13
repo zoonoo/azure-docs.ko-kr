@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 8d2933f6a3bbab792acb708f2a59cad4eb2cabf7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389610"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>병렬 문서의 문장 페어링 및 정렬
 
@@ -37,7 +37,7 @@ Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니�
 | 데이터 집합   | 추출된 문장의 최소 권장 개수 | 정렬된 문장의 최소 권장 개수 | 정렬된 문장의 최대 개수 |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
 | 교육   | 10000                                     | 2,000                                    | 상한 없음                 |
-| 튜닝     | 2,000                                      | 500                                      | 2,500                          |
+| Tuning     | 2,000                                      | 500                                      | 2,500                          |
 | 테스트    | 2,000                                      | 500                                      | 2,500                          |
 | Dictionary | 0                                          | 0                                        | 상한 없음                 |
 

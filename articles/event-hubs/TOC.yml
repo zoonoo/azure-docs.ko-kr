@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Apache Kafka용 Event Hubs로 스트리밍
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: 전용 클러스터 만들기
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: 자습서
   items:
     - name: Event Hubs 데이터 스트림에서 잘못된 데이터 시각화

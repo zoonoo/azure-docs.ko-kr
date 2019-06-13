@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502247"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427521"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
-데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. 다음은 이 핵심 단계를 용이하게 진행하도록 하기 위해 DSVM에 제공된 몇 가지 도구입니다. 
+데이터 과학에서 핵심적인 단계는 데이터를 이해하는 것입니다. 시각화 및 데이터 탐색 도구는 데이터 이해를 가속화합니다. DSVM에서 제공이 주요 단계를 쉽게 일부 도구는 다음과 같습니다. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -42,7 +42,7 @@ ms.locfileid: "60502247"
 | 무엇인가요?   |  Weka는 데이터 마이닝 작업에 대한 기계 학습 알고리즘 컬렉션입니다. 알고리즘은 데이터 세트에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 DSVM 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
-| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux인 경우 X2Go에 로그인한 다음, Applications -&gt; Development -&gt; Weka로 이동합니다. |
+| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux에서 X2Go를 사용 하 여 로그인 한 다음 이동할 응용 프로그램-> Development-> Weka 합니다. |
 | 샘플에 대한 링크      | [Weka 샘플](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM의 관련 도구      |LightGBM, Rattle, Xgboost   |
 
@@ -56,12 +56,12 @@ ms.locfileid: "60502247"
 | 샘플에 대한 링크      | [Rattle](https://togaware.com/onepager/) |
 | DSVM의 관련 도구      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
 | 지원되는 DSVM 버전      | Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| DSVM의 관련 도구      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

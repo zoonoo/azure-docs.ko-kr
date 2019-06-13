@@ -102,7 +102,7 @@ Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 �
 * [자습서: IoT 원격 모니터링 및에 IoT hub와 사서함을 연결 하는 Azure Logic Apps를 사용 하 여 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [블로그: Logic apps에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
-## <a name="end-to-end-scenarios"></a>종단 간 시나리오
+## <a name="end-to-end-scenarios"></a>엔드투엔드 시나리오
 
 * [백서: Logic Apps와 같은 Azure 서비스를 사용 하 여 종단 간 사례 관리 통합](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 

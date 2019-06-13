@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247996"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427733"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure 데이터 상자 과도 한 시스템 요구 사항
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure 데이터 상자 과도 한 시스템 요구 사항 (미리 보기)
 
 이 문서에서는 Azure 데이터 상자 많은 장치 및 장치에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항을 설명 합니다. 정보를 신중 하 게 전에 검토에 데이터 상자 Heavy, 배포 하 고 다음 다시 참조 되도록 필요에 따라 배포 및 후속 작업을 하는 동안 하는 것이 좋습니다.
 

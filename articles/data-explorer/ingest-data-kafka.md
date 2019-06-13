@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집'
-description: 이 빠른 시작 문서에서는 Kafka에서 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
+title: Kafka에서 Azure Data Explorer로 데이터 수집
+description: 이 문서에서는 Azure 데이터 탐색기에서 Kafka에 (부하) 데이터를 수집 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901031"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497272"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Kafka에서 Azure Data Explorer로 데이터 수집
  
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer는 Kafka에서의 수집(데이터 로드)을 제공합니다. Kafka는 시스템 또는 애플리케이션 간에 데이터를 안정적으로 이동하는 실시간 스트리밍 데이터 파이프라인을 빌드할 수 있도록 하는 분산 스트리밍 플랫폼입니다.
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>다음 단계
  
-> [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
+* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)

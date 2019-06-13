@@ -555,7 +555,7 @@
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
-    - name: 자바
+    - name: Java
       href: /java/api
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'

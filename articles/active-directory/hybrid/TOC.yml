@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: 개념
   items:
+    - name: 하이브리드 ID
+      items:
+        - name: 온-프레미스 워크로드에 대한 클라우드 통제 관리
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect 및 Connect Health
       items:
         - name: Azure AD Connect 및 Connect Health란?

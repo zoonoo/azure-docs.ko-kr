@@ -1,6 +1,6 @@
 ---
 title: 진단 및 메시지 분석기를 사용한 Azure Storage 문제 해결 | Microsoft Docs
-description: Azure Storage 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서
+description: Azure Storage 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 엔드투엔드종 문제 해결을 보여 주는 자습서
 services: storage
 author: normesta
 ms.service: storage
@@ -17,14 +17,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65154234"
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 엔드투엔드 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 진단 및 문제 해결은 Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션을 빌드 및 지원하기 위한 핵심 기술입니다. 오류 및 성능 문제의 진단 및 문제 해결은 Azure 애플리케이션의 분산된 특성 때문에 기존 환경에서보다 더욱 복잡할 수 있습니다.
 
-이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 애플리케이션을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
+이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 애플리케이션을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 엔드투엔드에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
-이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure Storage 애플리케이션의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+이 자습서는 엔드투엔드 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure Storage 애플리케이션의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure Storage 애플리케이션 문제 해결 도구
 Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
@@ -289,7 +289,7 @@ Azure Storage 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을 �
 
 Message Analyzer에서 검색 조건이 클라이언트 요청 ID와 일치하는 첫 번째 로그 항목을 찾아 선택합니다. 클라이언트 로그에 각 클라이언트 요청 ID에 대한 여러 항목이 있으므로 모두 함께 쉽게 볼 수 있도록 **ClientRequestId** 필드에서 그룹화하려 할 수 있습니다. 아래 그림은 지정된 클라이언트 요청 ID에 대한 클라이언트 로그의 모든 메시지를 보여 줍니다.
 
-![404 오류를 표시하는 클라이언트 로그 ](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
+![404 오류를 표시하는 클라이언트 로그](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
 이러한 두 탭에서 보기 레이아웃에 표시된 데이터를 사용하여 요청 데이터를 분석해 오류를 일으킨 원인을 확인할 수 있습니다. 또한, 이보다 앞선 요청을 살펴보고 이전 이벤트가 404 오류를 발생시킬 수 있었는지 확인할 수도 있습니다. 예를 들어 이 클라이언트 요청 ID에 앞선 클라이언트 로그 항목을 검토하여 Blob이 삭제될 수 있었는지 여부 또는 오류가 컨테이너 또는 Blob에서 CreateIfNotExists API를 호출하는 클라이언트 애플리케이션 때문인지를 확인할 수 있습니다. 클라이언트 로그의 **설명** 필드에서 Blob의 주소를 찾을 수 있습니다. 서버 및 네트워크 추적 로그에서 이 정보는 **요약** 필드에 표시됩니다.
 
@@ -317,7 +317,7 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 서버 로그의 시간 범위 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 및 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |서버 |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Storage의 종단 간 시나리오 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure Storage의 엔드투엔드 시나리오 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 * [저장소 분석](https://msdn.microsoft.com/library/azure/hh343270.aspx)

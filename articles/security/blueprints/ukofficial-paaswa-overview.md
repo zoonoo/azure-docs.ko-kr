@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109330"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753819"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -191,7 +191,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="azure-activity-logs"></a>Azure 활동 로그
 
-[Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log)는 구독에 대한 제어 평면 이벤트를 감사합니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '누가, 무엇을, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다.
+[Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)는 구독에 대한 제어 평면 이벤트를 감사합니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '누가, 무엇을, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

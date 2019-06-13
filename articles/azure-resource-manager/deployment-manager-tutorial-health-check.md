@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790119"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479169"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -50,18 +50,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)을 완료합니다.
-* 이 자습서에 사용되는 [템플릿 및 아티팩트](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)를 다운로드합니다. 
+* 이 자습서에 사용되는 [템플릿 및 아티팩트](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)를 다운로드합니다.
 
 ## <a name="create-a-health-check-service-simulator"></a>상태 확인 서비스 시뮬레이터 만들기
 
-프로덕션 환경에서는 일반적으로 하나 이상의 모니터링 공급 기업을 사용합니다. 상태를 최대한 쉽게 통합할 수 있도록, Microsoft에서는 업계 최고 수준의 여러 서비스 상태 모니터링 회사와 협력하여 고객의 시스템에 상태 확인을 통합할 수 있는 간단한 복사/붙여넣기 솔루션을 제공해 왔습니다. 이러한 회사 목록은 [상태 모니터링 공급 기업](./deployment-manager-health-check.md#health-monitoring-providers)을 참조하세요. 이 자습서의 목적을 달성하기 위해, 상태 모니터링 서비스를 시뮬레이션하는 [Azure Function](/azure/azure-functions/)을 만듭니다. 이 함수는 상태 코드를 가져오고, 동일한 코드를 반환합니다. Azure Deployment Manager 템플릿은 상태 코드를 사용하여 배포 진행 방법을 결정합니다. 
+프로덕션 환경에서는 일반적으로 하나 이상의 모니터링 공급 기업을 사용합니다. 상태를 최대한 쉽게 통합할 수 있도록, Microsoft에서는 업계 최고 수준의 여러 서비스 상태 모니터링 회사와 협력하여 고객의 시스템에 상태 확인을 통합할 수 있는 간단한 복사/붙여넣기 솔루션을 제공해 왔습니다. 이러한 회사 목록은 [상태 모니터링 공급 기업](./deployment-manager-health-check.md#health-monitoring-providers)을 참조하세요. 이 자습서의 목적을 달성하기 위해, 상태 모니터링 서비스를 시뮬레이션하는 [Azure Function](/azure/azure-functions/)을 만듭니다. 이 함수는 상태 코드를 가져오고, 동일한 코드를 반환합니다. Azure Deployment Manager 템플릿은 상태 코드를 사용하여 배포 진행 방법을 결정합니다.
 
 다음 두 파일은 Azure Function 배포에 사용됩니다. 자습서를 진행하기 위해 두 파일을 다운로드할 필요는 없습니다.
 
-* [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.  
-* Azure Function 소스 코드의 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
+* [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.
+* Azure Function 소스 코드의 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
 
-Azure 함수를 배포하려면 **사용해보기**를 선택하여 Azure Cloud Shell을 열고, 다음 스크립트를 셸 창에 붙여넣습니다.  코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다. 
+Azure 함수를 배포하려면 **사용해보기**를 선택하여 Azure Cloud Shell을 열고, 다음 스크립트를 셸 창에 붙여넣습니다.  코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 > [!IMPORTANT]
 > PowerShell 스크립트의 **projectName**은 이 자습서에서 배포되는 Azure 서비스의 이름을 생성하는 데 사용합니다. Azure 서비스마다 이름에 대한 요구 사항이 다릅니다. 배포가 성공하도록 소문자와 숫자로만 구성된 12자 미만의 이름을 선택합니다.
@@ -81,7 +81,7 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 리소스 그룹을 엽니다.  기본 이름은 **rg**가 추가된 프로젝트 이름입니다.
 1. 리소스 그룹에서 앱 서비스를 선택합니다.  앱 서비스의 기본 이름은 **webapp**이 추가된 프로젝트 이름입니다.
-1. **함수**를 확장한 다음, **HttpTrigger1**을 선택합니다. 
+1. **함수**를 확장한 다음, **HttpTrigger1**을 선택합니다.
 
     ![Azure Deployment Manager 상태 확인 Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
     },
     ```
 
-    정의에 따라 상태가 *정상*이거나 *경고*이면 롤아웃이 진행됩니다. 
+    정의에 따라 상태가 *정상*이거나 *경고*이면 롤아웃이 진행됩니다.
 
 1. 새로 정의한 상태 확인 단계를 포함하도록 롤아웃 정의의 **dependsON**을 업데이트합니다.
 
@@ -189,7 +189,7 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
     ],
     ```
 
-1. 상태 확인 단계를 포함하도록 **stepGroups**를 업데이트합니다. **healthCheckStep**은 **stepGroup2**의 **postDeploymentSteps**에서 호출됩니다. **stepGroup3** 및 **stepGroup4**는 상태가 *정상* 또는 *경고*인 경우에만 배포됩니다. 
+1. 상태 확인 단계를 포함하도록 **stepGroups**를 업데이트합니다. **healthCheckStep**은 **stepGroup2**의 **postDeploymentSteps**에서 호출됩니다. **stepGroup3** 및 **stepGroup4**는 상태가 *정상* 또는 *경고*인 경우에만 배포됩니다.
 
     ```json
     "stepGroups": [
@@ -394,7 +394,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
     * **&lt;namePrefix>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
     * **&lt;namePrefix>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
     * 사용자 정의 관리 ID에 대한 리소스 그룹
-3. 해당 리소스 그룹 이름을 선택합니다.  
+3. 해당 리소스 그룹 이름을 선택합니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
 5. 마지막 두 단계를 반복하여 이 자습서에서 만든 다른 리소스 그룹을 삭제합니다.
 

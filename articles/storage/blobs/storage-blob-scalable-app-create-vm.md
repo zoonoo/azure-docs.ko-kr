@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38fd62eff663c7714acf00afe3ffa559c1eeb7e0
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66168224"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729092"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967054"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754521"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -36,7 +36,7 @@ Azure Digital Twins는 Blobs를 디바이스, 공간 및 사용자에 연결할 
 
 네 가지 주요 JSON 스키마는 다음과 같습니다.
 
-![JSON 스키마][1]
+[![JSON 스키마](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
 
 JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
 
@@ -56,9 +56,9 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
 | **name** |String | Blob의 이름입니다. |
 | **type** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
-| **typeId** | 정수  | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
+| **typeId** | Integer | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
 | **subtype** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **subtypeId** | 정수  | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtypeId** | Integer | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **description** | String | Blob의 사용자 지정 설명입니다. |
 | **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
 
@@ -114,9 +114,9 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 | **name** |String | Blob의 이름입니다. |
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
 | **type** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
-| **typeId** | 정수  | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
+| **typeId** | Integer | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
 | **subtype** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **subtypeId** | 정수  | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtypeId** | Integer | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
 | **description** | String | Blob의 사용자 지정 설명입니다. |
 | **contentInfos** | 배열 | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 마지막으로, [cURL](https://curl.haxx.se/) 사용자는 다음과 같이 동일한 방식으로 다중 파트 양식 요청을 수행할 수 있습니다.
 
-![디바이스 Blob][5]
+[![장치 blob](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ curl
 
 디바이스에 Blob을 연결할 수 있습니다. 다음 이미지는 관리 API의 Swagger 참조 설명서를 보여줍니다. Blob 사용량에 대한 디바이스 관련 API 엔드포인트와 이를 전달하는 데 필요한 경로 매개 변수를 지정합니다.
 
-![디바이스 Blob][2]
+[![장치 blob](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
 
 예를 들어 Blob을 업데이트하거나 만들고 디바이스에 Blob을 연결하려면 다음에 대해 인증된 HTTP PATCH 요청을 만듭니다.
 
@@ -229,7 +229,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 Blob을 공간에 연결할 수도 있습니다. 다음 이미지는 Blob 처리를 담당하는 모든 공간 API 엔드포인트를 나열합니다. 이러한 엔드포인트를 전달할 경로 매개 변수도 나열합니다.
 
-![공간 Blob][3]
+[![공간 blob](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
 
 예를 들어 공간에 연결된 Blob을 반환하려면 다음에 대한 인증된 HTTP GET 요청을 만듭니다.
 
@@ -249,7 +249,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 Blob을 사용자 모델에 연결할 수 있습니다(예: 프로필 사진 연결). 다음 이미지는 관련 사용자 API 엔드포인트 및 필요한 경로 매개 변수(예: `id`)를 보여줍니다.
 
-![사용자 Blob][4]
+[![사용자 blob](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
 
 예를 들어 사용자에게 연결된 Blob을 가져오려면 필요한 양식 데이터를 사용하여 인증된 HTTP GET 요청을 수행합니다.
 
@@ -288,10 +288,3 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 - Azure Digital Twins에 대한 Swagger 참조 설명서의 자세한 내용은 [Azure Digital Twins Swagger 사용](how-to-use-swagger.md)을 참조하세요.
 
 - Postman을 통해 Blob을 업로드하려면 [Postman을 구성하는 방법](./how-to-configure-postman.md)을 읽어보세요.
-
-<!-- Images -->
-[1]: media/how-to-add-blobs/blob-models.PNG
-[2]: media/how-to-add-blobs/blobs-device-api.PNG
-[3]: media/how-to-add-blobs/blobs-space-api.PNG
-[4]: media/how-to-add-blobs/blobs-users-api.PNG
-[5]: media/how-to-add-blobs/curl.PNG

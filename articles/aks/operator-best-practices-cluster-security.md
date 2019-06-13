@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849843"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475596"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -119,7 +119,7 @@ AppArmor에 대한 자세한 내용은 [Kubernetes의 AppArmor 프로필][k8s-ap
 
 AppArmor는 Linux 애플리케이션에 작동하지만 [seccomp(*sec*ure *comp*uting)][seccomp]는 프로세스 수준에서 작동합니다. Seccomp는 또한 Linux 커널 보안 모듈이며, 기본적으로 AKS 노드에 사용되는 Docker 런타임에서 지원됩니다. Seccomp를 사용하는 경우 컨테이너가 수행할 수 있는 프로세스 호출이 제한됩니다. 허용 또는 거부할 작업을 정의하는 필터를 만들고, pod YAML 매니페스트 내에서 주석을 사용하여 seccomp 필터에 연결합니다. 이러한 방식은 실행하는 데 필요한 최소 권한만 컨테이너에 부여하는 모범 사례에 적합합니다.
 
-작동 중인 seccomp를 보려면 파일에 대한 권한을 변경하지 못하게 하는 필터를 만듭니다. AKS 노드에 대해 [SSH][aks-ssh]를 수행하고 /var/lib/kubelet/seccomp/prevent-chmod라는 seccomp 필터를 만든 후 다음 콘텐츠를 붙여넣습니다.
+작동 중인 seccomp를 보려면 파일에 대한 권한을 변경하지 못하게 하는 필터를 만듭니다. AKS 노드에 대해 [SSH][aks-ssh]를 수행하고 /var/lib/kubelet/seccomp/prevent-chmod라는 seccomp 필터를 만든 후 다음 콘텐츠를 붙여넣습니다. 
 
 ```
 {
@@ -218,7 +218,7 @@ Weaveworks의 오픈 소스 [kured(KUbernetes REboot Daemon)][kured] 프로젝�
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
-[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

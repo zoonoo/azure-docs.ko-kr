@@ -3,19 +3,19 @@ title: CTF(Collaborative Translation Framework) 보고 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: CTF(Collaborative Translation Framework) 보고 사용 방법입니다.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712825"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389382"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -97,9 +97,9 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 | 필드 | 설명 |
 |:---|:---|
 | 카운트| 검색된 결과 수입니다.|
-| 원본 | 원본 언어입니다.|
+| 보낸 사람 | 원본 언어입니다.|
 | 등급| AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-| 받는 사람| 대상 언어입니다.|
+| 수행할 작업| 대상 언어입니다.|
 | Uri| AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 | 사용자| 사용자 이름입니다.|
 
@@ -168,10 +168,10 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 | 필드 | 설명 |
 |:---|:---|
 | CreatedDateUtc| AddTranslation()을 사용하여 항목을 만든 날짜입니다.|
-| 원본| 원본 언어입니다.|
+| 보낸 사람| 원본 언어입니다.|
 | OriginalText| 요청을 제출할 때 사용되는 원본 언어 텍스트입니다.|
 |등급 |AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-|받는 사람|    대상 언어입니다.|
+|수행할 작업|    대상 언어입니다.|
 |TranslatedText|    AddTranslation() 메서드 호출에서 제출된 번역입니다.|
 |Uri|   AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 |사용자   |사용자 이름입니다.|

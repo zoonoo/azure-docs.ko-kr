@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 JSON 클레임 변환 예제 | Microsoft Docs
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 JSON 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7574327f8acbd2215080e43a57b0b9c7cdd8b423
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510761"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -191,7 +191,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Xml | 문자열 | 클레임 변환에서 데이터를 XML에서 JSON 형식으로 변환하는 데 사용하는 ClaimType입니다. |
+| InputClaim | xml | 문자열 | 클레임 변환에서 데이터를 XML에서 JSON 형식으로 변환하는 데 사용하는 ClaimType입니다. |
 | OutputClaim | json : | 문자열 | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 형식의 데이터). |
 
 ```XML

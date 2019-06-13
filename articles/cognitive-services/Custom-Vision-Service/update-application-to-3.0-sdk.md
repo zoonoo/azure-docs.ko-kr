@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044009"

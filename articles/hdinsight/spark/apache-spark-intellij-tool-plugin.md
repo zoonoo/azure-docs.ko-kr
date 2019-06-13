@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 682b2266442f3aba6696385862844e1b4b93aa3d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702023"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496097"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -130,20 +130,35 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
    ![Azure 탐색기 링크](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
 2. Azure 탐색기에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **로그인**을 선택합니다.
+   
+   ![Azure 탐색기 링크](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-3. **Azure 로그인** 대화 상자에서 **로그인**을 선택하고 Azure 자격 증명을 입력합니다.
+
+3. 에 **Azure 로그인** 대화 상자에서 **장치 로그인**를 선택한 후 **로그인**합니다.
 
     ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. 구독을 선택한 후 **선택** 단추를 선택합니다.
+4. 에 **Azure 장치 로그인** 대화 상자, 클릭 **복사 및 열기**합니다.
+   
+   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
+
+5. 브라우저 인터페이스에서 코드를 붙여넣고 클릭 **다음**합니다.
+   
+   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
+
+6. Azure 자격 증명을 입력 하 고 브라우저를 닫습니다.
+   
+   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
+
+7. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. 구독을 선택한 후 **선택** 단추를 선택합니다.
 
     ![구독 선택 대화 상자](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-5. **Azure 탐색기**에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight Spark 클러스터를 표시합니다.
+8. **Azure 탐색기**를 확장 하 고 **HDInsight** 구독에 있는 HDInsight Spark 클러스터를 볼 수 있습니다.
 
     ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
-6. 클러스터와 연결된 리소스(예: 저장소 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
+9.  클러스터와 연결된 리소스(예: 저장소 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
 
     ![확장된 클러스터-이름 노드](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
@@ -168,7 +183,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
     
-        ![hdinsight 클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![Hdinsight 클러스터 대화 연결](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy 서비스**  
   
@@ -182,13 +197,13 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
 
-        ![livy 클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        ![Livy 클러스터 대화 연결](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
-4. **HDInsight** 노드에서 연결된 클러스터를 볼 수 있습니다.
+1. **HDInsight** 노드에서 연결된 클러스터를 볼 수 있습니다.
 
    ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-5. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
+2. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
 
    ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -207,12 +222,12 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |----|----|
     |Spark 클러스터(Linux 전용)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
     |제출할 아티팩트를 선택합니다.|기본 설정을 유지합니다.|
-    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표(**...**)를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
+    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
     |작업 구성|기본 키 및/또는 값을 변경할 수 있습니다. 자세한 내용은 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조하세요.|
     |명령줄 인수|필요한 경우 기본 클래스에 대해 공백으로 구분된 인수를 입력할 수 있습니다.|
-    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. 자세한 내용은 다음을 참조하세요. [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
+    |참조된 Jar 및 참조된 파일|참조되는 Jar 및 파일(있는 경우)의 경로를 입력할 수 있습니다. 추가 정보 [Apache Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)  [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요.|
     |작업 업로드 스토리지|추가 옵션을 표시하려면 확장합니다.|
-    |저장소 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
+    |스토리지 유형|드롭다운 목록에서 **Azure Blob을 사용하여 업로드**를 선택합니다.|
     |Storage 계정|스토리지 계정을 입력합니다.|
     |스토리지 키|스토리지 키를 입력합니다.|
     |저장소 컨테이너|**스토리지 계정** 및 **스토리지 키**를 입력했으면 드롭다운 목록에서 스토리지 컨테이너를 선택합니다.|
@@ -277,7 +292,7 @@ WINUTILS.EXE 필수 구성 요소를 충족했는지 확인합니다.
 
 1. 메뉴 모음에서 **실행** > **구성 편집...** 으로 이동합니다.
 
-2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** > **[HDInsight의 Spark] myApp**으로 이동합니다.
+2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** >  **[HDInsight의 Spark] myApp**으로 이동합니다.
 
 3. 기본 창에서 **로컬로 실행** 탭을 선택합니다.
 
@@ -285,7 +300,7 @@ WINUTILS.EXE 필수 구성 요소를 충족했는지 확인합니다.
 
     |자산 |값 |
     |----|----|
-    |작업 기본 클래스|기본값은 선택한 파일의 기본 클래스입니다. 줄임표(**...**)를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
+    |작업 기본 클래스|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
     |환경 변수|HADOOP_HOME 값이 올바른지 확인합니다.|
     |WINUTILS.exe 위치|경로가 올바른지 확인합니다.|
 
@@ -311,7 +326,7 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 
 1. 메뉴 모음에서 **실행** > **구성 편집...** 으로 이동합니다.
 
-2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** > **[HDInsight의 Spark] myApp**으로 이동합니다.
+2. **구성 실행/디버그** 창의 왼쪽 분할 창에서 **HDInsight의 Apache Spark** >  **[HDInsight의 Spark] myApp**으로 이동합니다.
 
 3. 주 창에서 **클러스터에서 원격으로 실행** 탭을 선택합니다.
 
@@ -320,7 +335,7 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
     |자산 |값 |
     |----|----|
     |Spark 클러스터(Linux 전용)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
-    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표(**...**)를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
+    |기본 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
 
     ![대화형 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
@@ -338,13 +353,68 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 
    ![Spark 콘솔로 선택 내용 보내기](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
+## <a name="reader-only-role"></a>판독기 전용 역할
+사용자가 제출 판독기 전용 역할 권한 사용 하 여 클러스터에 작업을 Ambari 자격 증명이 필요 합니다.
+
+### <a name="link-cluster-from-context-menu"></a>상황에 맞는 메뉴에서 링크 클러스터
+
+1. 판독기 전용 역할 계정으로 로그인 합니다.
+       
+2. **Azure 탐색기**, 확장 **HDInsight** 구독에 있는 HDInsight 클러스터를 볼 수 있습니다. 클러스터 표시 **"역할: 읽기 권한자"** 판독기 전용 역할 권한이 합니다.
+
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
+
+3. 판독기 전용 역할 권한 사용 하 여 클러스터를 마우스 오른쪽 단추로 클릭 합니다. 선택 **이 클러스터 연결** 클러스터 연결 상황에 맞는 메뉴에서. Ambari 사용자 이름 및 암호를 입력 합니다.
+
+  
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
+
+4. 클러스터에 성공적으로 연결 하는 경우 HDInsight 새로 고쳐집니다.
+   클러스터의 단계는 연결 됩니다.
+  
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
+
+
+
+### <a name="link-cluster-by-expanding-jobs-node"></a>작업 노드를 확장 하 여 링크 클러스터
+
+1. 클릭 **작업** 노드를 **클러스터 작업 액세스 거부** 창이 열립니다.
+   
+2. 클릭 **이 클러스터 연결** 클러스터를 연결 합니다.
+   
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
+
+### <a name="link-cluster-from-rundebug-configurations-window"></a>실행/디버그 구성 창에서 링크 클러스터
+
+1. HDInsight 구성 만들기. 선택한 **클러스터에서 원격으로 실행**합니다.
+   
+2. 판독기 전용 역할 권한이 있는 클러스터 선택에 대 한 **Spark 클러스터 (Linux 전용)** 합니다. 경고 메시지 아웃 보여 줍니다. 클릭할 수 **이 클러스터 연결** 클러스터를 연결 합니다.
+   
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
+   
+### <a name="view-storage-accounts"></a>저장소 계정 보기
+
+* 판독기 전용 역할 권한 사용 하 여 클러스터에 대 한 클릭 **Storage 계정** 노드를 **저장소 액세스가 거부** 창이 열립니다. 클릭할 수 **Azure Storage 탐색기를 열고** 저장소 탐색기를 엽니다.
+     
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
+
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
+
+* 연결 된 클러스터에 대 한 클릭 **Storage 계정** 노드를 **저장소 액세스가 거부** 창이 열립니다. 클릭할 수 **Azure Storage 엽니다** 저장소 탐색기를 엽니다.
+     
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
+
+
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
+  
+
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ를 사용하도록 기존 IntelliJ IDEA 애플리케이션 변환
 
 IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolkit for IntelliJ와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 애플리케이션을 제출할 수 있습니다.
 
 1. IntelliJ IDEA를 통해 만들어진 기존 Spark Scala 애플리케이션의 경우 관련된 .iml 파일을 엽니다.
 
-1. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
+2. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
@@ -352,7 +422,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-1. 변경 내용을 저장합니다. 이제 애플리케이션이 Azure Toolkit for IntelliJ와 호환됩니다. 프로젝트에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 애플리케이션 제출** 옵션이 표시됩니다.
+3. 변경 내용을 저장합니다. 이제 애플리케이션이 Azure Toolkit for IntelliJ와 호환됩니다. 프로젝트에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 애플리케이션 제출** 옵션이 표시됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724376"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476108"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
 
@@ -59,10 +59,10 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb[s]:**//url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아닙니다. | 대화형 24/7 클러스터 |
+| Azure Blob Storage | **wasb:** //url/ | **Standard** | 예 | 임시 클러스터 |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
+| 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아닙니다. | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 

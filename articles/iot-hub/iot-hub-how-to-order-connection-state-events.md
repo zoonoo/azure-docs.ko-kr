@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015268"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743314"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -266,13 +266,13 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 4. 입력 **이벤트 구독 세부 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
 
-5. 입력 합니다 **이벤트 유형을** 필드입니다. 선택 취소 **모든 이벤트 유형 구독** 선택한 **장치가 연결** 하 고 **장치 연결이 끊긴** 메뉴에서.
+5. 입력 합니다 **이벤트 유형을** 필드입니다. 드롭다운 목록에서 선택 **장치가 연결** 하 고 **장치 연결이 끊긴** 메뉴에서. 목록 닫고 선택 항목을 저장 하려면 화면의 다른 곳을 클릭 합니다.
 
    ![검색할 이벤트 유형을 설정 하십시오.](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. 에 대 한 **끝점 세부 정보**, 끝점 유형을 **웹 후크** 선택 끝점에서 클릭 하 고 논리 앱에서 복사한 URL을 붙여 넣습니다 및 선택 내용을 확인 합니다.
 
-   ![끝점 url 선택](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![끝점 url 선택](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. 폼 이제 다음 예제와 비슷하게 표시 됩니다.
 
@@ -302,11 +302,9 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
    ![장치에 대 한 ConnectionString](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Raspberry Pi 시뮬레이터 시작
 
-1. Raspberry Pi 웹 시뮬레이터를 사용하여 디바이스 연결을 시뮬레이션해 보겠습니다.
+Raspberry Pi 웹 시뮬레이터를 사용하여 디바이스 연결을 시뮬레이션해 보겠습니다.
 
 [Raspberry Pi 시뮬레이터 시작](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서는 Azure 구독에 요금을 부과하는 리소스를 사용했습니다. 자습서를 사용해보고 결과 테스트를 완료했다면 유지하지 않을 리소스는 비활성화하거나 삭제합니다.
+이 자습서에서는 Azure 구독에 요금을 부과하는 리소스를 사용했습니다. 완료 되 면 자습서를 사용해 및 테스트 결과 사용 하지 않도록 설정 하거나 유지 하지 않으려는 리소스를 삭제 합니다.
 
 논리 앱에 대한 작업을 잃지 않으려면 삭제하는 대신에 비활성화합니다.
 

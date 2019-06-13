@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175339"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384901"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Bing Web Search API v5를 v7로 업그레이드
 
@@ -75,14 +75,14 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="headers"></a>헤더
 
-- 선택적 [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) 요청 헤더가 추가되었습니다. 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
+- 선택적 [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) 요청 헤더가 추가되었습니다. 기본적으로 Bing은 사용 가능한 경우 캐시된 콘텐츠를 반환합니다. Bing이 캐시된 콘텐츠를 반환하지 않도록 하려면 Pragma 헤더를 no-cache로 설정합니다(예: Pragma: no-cache).
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
+- [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
 
-- [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오와 이미지의 수준을 올려 응답에 포함하려면 promote를 *videos,images*로 설정합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount`가 2이고 `promote`가 *videos,images*로 설정된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함될 수 있습니다.
+- [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오와 이미지의 수준을 올려 응답에 포함하려면 promote를 *videos,images*로 설정합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount`가 2이고 `promote`가 *videos,images*로 설정된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함될 수 있습니다.
 
 ### <a name="object-changes"></a>개체 변경 내용
 
-- `someResultsRemoved` 필드가 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) 개체에 추가되었습니다. 이 필드에는 응답이 웹 답변에서 일부 결과를 제외했는지 여부를 나타내는 부울 값이 포함됩니다.  
+- `someResultsRemoved` 필드가 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 개체에 추가되었습니다. 이 필드에는 응답이 웹 답변에서 일부 결과를 제외했는지 여부를 나타내는 부울 값이 포함됩니다.  

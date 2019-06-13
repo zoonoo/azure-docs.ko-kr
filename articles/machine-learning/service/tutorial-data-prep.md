@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604484"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474713"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
-이 자습서에서는 [Azure Machine Learning용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)를 사용하여 회귀 모델링 데이터를 준비하는 방법에 대해 알아봅니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
+이 자습서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)의 [데이터 준비 패키지](https://aka.ms/data-prep-sdk)를 사용하여 회귀 모델링에 대한 데이터를 준비하는 방법에 대해 알아봅니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. 이 자습서 시리즈를 마치면 데이터 기능에 대해 모델을 학습하여 택시 운행 비용을 예측할 수 있습니다. 이러한 기능으로는 날짜 및 시간, 승객 수, 위치 선택이 포함됩니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "65604484"
 [개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
 
 * 다음 요소가 설치된 Python 3.6 Notebook 서버:
-    *  Python용 Azure Machine Learning SDK의 azureml-dataprep 패키지
+    * Azure Machine Learning SDK의 `azureml-dataprep` 패키지
 * 자습서 Notebook
 
 * [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
@@ -46,7 +46,7 @@ ms.locfileid: "65604484"
 
 ### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
 
-사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
+사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 Python용 Azure Machine Learning SDK가 이미 설치 및 구성되어 있습니다.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ ms.locfileid: "65604484"
 
 사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 
-1. [Azure Machine Learning Python 빠른 시작](setup-create-workspace.md#sdk)의 설치 단계를 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
-1. `pip install azureml-dataprep`을 사용하여 작업 환경에 azureml-dataprep를 설치합니다.
+1. [Azure Machine Learning Python 빠른 시작](setup-create-workspace.md#sdk)의 설치 단계를 완료하여 Miniconda 환경을 만들고 SDK를 설치합니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
+1. `azureml-dataprep` 패키지는 SDK를 설치할 때 자동으로 설치됩니다.
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
     ```
@@ -85,14 +85,14 @@ ms.locfileid: "65604484"
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-SDK를 가져옵니다.
+패키지를 가져옵니다.
 
 ```python
 import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> 최신 버전을 설치하세요. 이 자습서는 버전 번호가 1.1.0보다 낮은 경우 작동하지 않음
+> 최신 azureml.dataprep 패키지 버전을 설치했는지 확인합니다. 이 자습서는 버전 번호가 1.1.0보다 낮은 경우 작동하지 않음
 
 ## <a name="load-data"></a>데이터 로드
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231989"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688903"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -100,7 +100,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 * 경고
 * Backup 항목
 * 보호된 서버
-* 심각도
+* Severity
 * 기간
 * 만든 시간
 * 상태
@@ -156,7 +156,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ## <a name="manage-backup-items"></a>Backup 항목 관리
 
-Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. 백업 유형의 전체 목록은 [백업할 수 있는 애플리케이션 및 워크로드](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요. 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
+Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터를 보유합니다. [자세한](backup-overview.md#what-can-i-back-up) 를 백업 하는 방법에 대 한 합니다. 다양한 서버, 컴퓨터, 데이터베이스 및 워크로드를 관리하려면 **백업 항목** 타일을 클릭하여 자격 증명 모음의 내용을 봅니다.
 
 ![Backup 항목 타일](./media/backup-azure-manage-windows-server/backup-items.png)
 

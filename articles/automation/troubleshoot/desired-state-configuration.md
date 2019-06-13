@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087271"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514455"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -145,6 +145,25 @@ System.InvalidOperationException error processing property 'Credential' of type 
 #### <a name="resolution"></a>해결 방법
 
 * 적절 한 전달 해야 **ConfigurationData** 설정할 **PSDscAllowPlainTextPassword** 구성에서 언급 하는 각 노드의 구성에 대해 true로 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#assets)을 참조하세요.
+
+### <a name="failure-processing-extension"></a>시나리오: Dsc 확장을 오류 "오류 처리 확장 프로그램"에서 온 보 딩
+
+#### <a name="issue"></a>문제
+
+DSC 확장을 오류를 사용 하 여 온 보 딩 오류가 포함 된 경우:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 일반적으로 노드가 서비스에 존재 하지 않는 노드가 노드 구성 이름에 할당 된 경우에 발생 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+* 서비스의 이름과 정확히 일치 하는 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
+* 그러면 온 보 딩 노드 구성을 노드에 할당 하지 않는 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

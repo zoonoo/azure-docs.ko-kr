@@ -166,6 +166,8 @@
           href: event-schema-service-bus.md
         - name: Azure Maps
           href: event-schema-azure-maps.md
+        - name: 앱 구성
+          href: event-schema-app-configuration.md
     - name: 템플릿 리소스
       items:
         - name: 이벤트 구독

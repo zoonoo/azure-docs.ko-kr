@@ -1,22 +1,22 @@
 ---
-title: '빠른 시작: Logstash에서 Azure Data Explorer로 데이터 수집'
-description: 이 빠른 시작 문서에서는 Logstash에서 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
+title: Logstash에서 Azure Data Explorer로 데이터 수집
+description: 이 문서에서는 Logstash에서 Azure 데이터 탐색기를 (부하) 데이터를 수집 하는 방법을 알아봅니다.
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046413"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494536"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>빠른 시작: Logstash에서 Azure Data Explorer로 데이터 수집
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Logstash에서 Azure Data Explorer로 데이터 수집
 
-[Logstash](https://www.elastic.co/products/logstash)는 동시에 여러 원본의 데이터를 수집하고, 데이터를 변환한 다음, 데이터를 즐겨찾는 “스태시”에 전송하는 오픈 소스인 서버 쪽 데이터 처리 파이프라인입니다. 이 빠른 시작에서는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스인 Azure Data Explorer에 해당 데이터를 전송합니다. 처음에 테이블 및 데이터 매핑을 테스트 클러스터에 만든 다음, 테이블에 데이터를 보내고 결과를 확인하도록 Logstash로 보냅니다.
+[Logstash](https://www.elastic.co/products/logstash)는 동시에 여러 원본의 데이터를 수집하고, 데이터를 변환한 다음, 데이터를 즐겨찾는 “스태시”에 전송하는 오픈 소스인 서버 쪽 데이터 처리 파이프라인입니다. 이 문서에서는 보내게 데이터는 Azure 데이터 탐색기로 로그 및 원격 분석 데이터에 대 한 빠르고 확장성이 높은 데이터 탐색 서비스인. 처음에 테이블 및 데이터 매핑을 테스트 클러스터에 만든 다음, 테이블에 데이터를 보내고 결과를 확인하도록 Logstash로 보냅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -146,5 +146,4 @@ output {
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+* [쿼리 작성](write-queries.md)

@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: 포털 인터페이스 테스트
           href: test-createuidefinition.md
+        - name: Just-In-Time 액세스 요청
+          href: request-just-in-time-access.md
         - name: 관리되는 리소스 업데이트
           href: update-managed-resources.md
         - name: 포털을 사용하여 응용 프로그램 정의 게시
@@ -49,8 +51,10 @@
           href: publish-managed-identity.md
     - name: 소비자
       items:
-        - name: 관리되는 응용 프로그램 모니터링
+        - name: 관리되는 애플리케이션 모니터링
           href: monitor-managed-application-portal.md
+        - name: Just-In-Time 액세스 승인
+          href: approve-just-in-time-access.md
 - name: 참고 자료
   items:
     - name: Azure CLI

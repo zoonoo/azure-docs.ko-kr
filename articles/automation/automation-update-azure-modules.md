@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2f55891ddd383ea15da499495909b56ffb0e06d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427493"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
-사용 해야 합니다. Automation 계정에서 Azure 모듈을 업데이트 하는 [업데이트 Azure 모듈 runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), 오픈 소스로 사용할 수 있는 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 확인할 수 있습니다.
+사용 해야 합니다. Automation 계정에서 Azure 모듈을 업데이트 하는 [업데이트 Azure 모듈 runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), 오픈 소스로 사용할 수 있는 합니다. **Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. Automation 계정에서 runbook을 가져오는 방법에 알아보려면 참조 [runbook을 가져오려면](manage-runbooks.md#import-a-runbook)합니다.
 
 가장 일반적인 AzureRM PowerShell 모듈은 각 Automation 계정에서 기본적으로 제공 됩니다. Azure 팀은 Azure 모듈을 정기적으로 업데이트, 따라서를 최신 상태로 유지 하는 사용 하려는 합니다 [업데이트 AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook을 Automation 계정에서 모듈을 업데이트 합니다.
 

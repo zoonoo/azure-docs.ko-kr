@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299178"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494358"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -80,7 +80,7 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 ## <a name="delivery-protocols"></a>배달 프로토콜
 
-|Protocol|예|
+|프로토콜|예|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -114,10 +114,10 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
     * DTS (dtse) Express
     * DTS HD 무손실 (코어 없음) (dtsl)
 
-### <a name="hls-support"></a>HLS 지원
+### <a name="multi-audio-tracks"></a>다중 오디오 트랙
 
-동적 패키징을 지원 HLS (버전 4 이상) 여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산에 대 한 합니다.
-
+동적 패키징 HLS 출력에 대 한 다중 오디오 트랙을 지 원하는 여러 코덱 및 언어를 사용 하 여 여러 오디오 트랙을 포함 하는 자산을 스트리밍할 때 (버전 4 이상).
+ 
 ### <a name="not-supported"></a>지원되지 않음
 
 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.

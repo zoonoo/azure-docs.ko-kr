@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 58821492c6972eeef622f8dc8a777f8da70acdf1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 353d5950372fe9a1255bf2b17dea4f8148d3ee6e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895926"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514778"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 텍스트 음역
 

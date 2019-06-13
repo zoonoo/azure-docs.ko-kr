@@ -36,7 +36,7 @@ ms.locfileid: "60628884"
 ## <a name="storsimple-and-csp-model"></a>StorSimple 및 CSP 모델
 
 ### <a name="what-does-it-mean-to-have-storsimple-as-a-part-of-the-cloud-solutions-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램의 일부로 StorSimple을 가진다는 것은 무엇을 의미합니까?
- CSP용 StorSimple을 통해 CSP 파트너는 StorSimple 가상 배열을 고객에게 다시 판매할 수 있습니다. 이 모델을 사용하여 CSP 파트너는 직접 프로비전, 요금 청구 및 Microsoft의 클라우드 서비스 지원으로 종단 간 고객 수명 주기를 소유할 수 있습니다. 
+ CSP용 StorSimple을 통해 CSP 파트너는 StorSimple 가상 배열을 고객에게 다시 판매할 수 있습니다. 이 모델을 사용하여 CSP 파트너는 직접 프로비전, 요금 청구 및 Microsoft의 클라우드 서비스 지원으로 엔드투엔드 고객 수명 주기를 소유할 수 있습니다. 
 
 자세한 내용은 [CSP 프로그램의 StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/)로 이동합니다. 
 

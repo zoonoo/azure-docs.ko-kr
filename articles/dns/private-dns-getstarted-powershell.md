@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b88454f06d2e2d42298e52feeaa26ae9d1a4902
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65916871"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730256"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure DNS 프라이빗 영역 만들기
 
@@ -41,7 +41,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 <!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
@@ -55,7 +55,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `New-AzDnsZone` cmdlet을 사용하여 만듭니다. 다음 예제에서는 **private.contoso.com**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
 
-**ZoneType** 매개 변수를 생략하면 영역이 공용 영역으로 만들어지므로 사설 영역을 만들어야 합니다. 
+**ZoneType** 매개 변수를 생략하면 영역이 공용 영역으로 만들어지므로 프라이빗 영역을 만들어야 합니다. 
 
 ```azurepowershell
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -209,7 +209,7 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 다음으로, 프라이빗 DNS 영역에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [개인 도메인에 Azure DNS 사용](private-dns-overview.md)
+> [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)
 
 
 

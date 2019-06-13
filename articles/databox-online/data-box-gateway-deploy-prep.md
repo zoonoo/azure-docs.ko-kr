@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686528"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476823"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -51,7 +51,11 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 시작하기 전에 다음 사항을 확인합니다.
 
 - Data Box Gateway 리소스에 Microsoft Azure 구독이 지원되어야 합니다. 종량제 구독은 지원되지 않습니다.
-- 구독에 대한 소유자 또는 기여자 액세스 권한이 있습니다.
+- Data Box Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+
+    - Data Box Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+    - IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+    - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
 - Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
@@ -106,7 +110,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
     |설정  |값  |
     |---------|---------|
-    |Name   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
+    |이름   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |   
     |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government의 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 나열된 모든 정부 지역에서 사용 가능합니다. <br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
     
     ![Data Box 게이트웨이 리소스 만들기](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)

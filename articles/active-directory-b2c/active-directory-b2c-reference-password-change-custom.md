@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자가 암호를 변경할 수 있게 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d05a5c4fa13b83abd26ee06123028f75a725582
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729465"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509250"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -29,7 +29,7 @@ Azure Active Directory(Azure AD) B2C에서는 로컬 계정으로 로그인한 �
 
 ## <a name="add-the-elements"></a>요소 추가 
 
-1. TrustframeworkExtensions.xml 파일을 열고 `oldPassword` 식별자를 사용하여 다음 **ClaimType** 요소를 [ClaimsSchema](claimsschema.md) 요소에 추가합니다. 
+1. TrustframeworkExtensions.xml 파일을 열고 `oldPassword` 식별자를 사용하여 다음 **ClaimType** 요소를 [ClaimsSchema](claimsschema.md) 요소에 추가합니다.  
 
     ```XML
     <BuildingBlocks>
@@ -166,10 +166,10 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
-6. **정책이 있는 경우 덮어쓰기**를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.
+6. **정책이 있는 경우 덮어쓰기**를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다. 
 7. **업로드**를 클릭합니다.
 8. 신뢰 당사자 파일(예: *ProfileEditPasswordChange.xml*)에 대해 5~7단계를 반복합니다.
 

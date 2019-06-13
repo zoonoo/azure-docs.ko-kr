@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b55cc226cfbb462cdccd73b3b80cfb0d56c10711
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143016"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475607"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
@@ -24,7 +24,7 @@ ms.locfileid: "66143016"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 이 문서에서는 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+이 문서에서는 Azure CLI 버전 2.0.65 중인지 필요 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="available-cluster-roles-permissions"></a>사용 가능한 클러스터 역할 권한
 
@@ -45,9 +45,9 @@ ms.locfileid: "66143016"
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>사용자 또는 그룹에 역할 권한을 할당합니다
 
-사용 가능한 역할 중 하나에 할당 하려면 AKS 클러스터의 리소스 ID를 가져오고 Azure AD 사용자 계정 또는 그룹의 ID를 지정 해야 합니다. 다음 예제 명령은 다음 단계를 수행합니다.
+사용 가능한 역할 중 하나에 할당 하려면 AKS 클러스터의 리소스 ID를 가져오고 Azure AD 사용자 계정 또는 그룹의 ID를 지정 해야 합니다. 다음 예제 명령:
 
-* *myResourceGroup* 리소스 그룹의 *myAKSCluster*라는 클러스터에 [az aks show][az-aks-show] 명령을 사용하여 클러스터 리소스 ID를 가져옵니다. 필요에 따라 고유한 클러스터 및 리소스 그룹 이름을 지정합니다.
+* 사용 하 여 클러스터 리소스 ID를 [az aks show] [ az-aks-show] 라는 클러스터에 대 한 명령을 *myAKSCluster* 에 *myResourceGroup* 리소스 그룹입니다. 필요에 따라 고유한 클러스터 및 리소스 그룹 이름을 지정합니다.
 * 사용 하는 [az 계정 표시] [ az-account-show] 하 고 [az ad 사용자 표시] [ az-ad-user-show] 명령에 사용자 ID를 가져옵니다.
 * 마지막으로, [az role assignment create][az-role-assignment-create] 명령을 사용하여 역할을 할당합니다.
 
@@ -69,7 +69,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD 그룹에 권한을 할당 하려는 경우 업데이트는 `--assignee` 앞의 예제에 표시 된 대로 사용자 대신 그룹의 개체 ID 사용 하 여 매개 변수입니다. 그룹에 대 한 개체 ID를 가져오려면 합니다 [az ad 그룹 표시] [ az-ad-group-show] 명령입니다. 다음 예제에서는 Azure AD 그룹에 대 한 개체 ID를 가져옵니다 *appdev*: `az ad group show --group appdev --query objectId -o tsv`
+> Azure AD 그룹에 권한을 할당 하려는 경우 업데이트 합니다 `--assignee` 의 개체 ID 사용 하 여 이전 예제와 같이 매개 변수를 *그룹* 대신 *사용자*합니다. 그룹에 대 한 개체 ID를 가져오려면 합니다 [az ad 그룹 표시] [ az-ad-group-show] 명령입니다. 다음 예제에서는 Azure AD 그룹에 대 한 개체 ID를 가져옵니다 *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
 

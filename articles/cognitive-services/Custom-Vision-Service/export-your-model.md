@@ -48,31 +48,31 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
     ![기어 아이콘 이미지](./media/export-your-model/gear-icon.png)
 
-3. __도메인__ 섹션에서 __소형__ 도메인을 선택합니다. __변경 내용 저장__을 선택하여 변경 내용을 저장합니다.
+3. __도메인__ 섹션에서 __소형__ 도메인을 선택합니다. __변경 내용 저장__ 을 선택하여 변경 내용을 저장합니다.
 
     ![도메인 선택 이미지](./media/export-your-model/domains.png)
 
-4. 페이지 위쪽에서 __교육__을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
+4. 페이지 위쪽에서 __교육__ 을 선택하여 새 도메인 사용 방법을 다시 학습합니다.
 
 ## <a name="export-your-model"></a>모델 내보내기
 
 재교육 후 모델을 내보내려면 다음 단계를 수행합니다.
 
-1. **성능** 탭으로 이동하여 __내보내기__를 선택합니다. 
+1. **성능** 탭으로 이동하여 __내보내기__ 를 선택합니다. 
 
     ![내보내기 아이콘 이미지](./media/export-your-model/export.png)
 
     > [!TIP]
-    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__를 선택합니다.
+    > __내보내기__ 항목을 사용할 수 없으면 선택한 반복에 소형 도메인이 사용되지 않습니다. 이 페이지의 __반복__ 섹션을 사용하여 소형 도메인을 사용하는 반복을 선택한 다음, __내보내기__ 를 선택합니다.
 
-2. 내보내기 형식을 선택한 다음, __내보내기__를 선택하여 모델을 내보냅니다.
+2. 내보내기 형식을 선택한 다음, __내보내기__ 를 선택하여 모델을 내보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서 또는 샘플 중 하나를 탐색 하 여 응용 프로그램에 내보낸된 모델을 통합 합니다.
+다음 문서 또는 샘플 중 하나를 탐색하여 응용 프로그램에 내보낸 모델을 통합합니다.
 
-* [Python을 사용 하 여 Tensorflow 모델 사용](export-model-python.md)
-* [Windows Machine Learning을 사용 하 여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)
-* 예제를 참조 하세요 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) Swift 사용 하 여 실시간 이미지 분류에 대 한 합니다.
-* 예제를 참조 하세요 [Android 응용 프로그램에서 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) Android에서 실시간 이미지 분류에 대 한 합니다.
-* 예제를 참조 하세요 [Xamarin 사용 하 여 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) Xamarin iOS 앱에서 실시간 이미지 분류에 대 한 합니다.
+* [Python을 사용하여 Tensorflow 모델 사용](export-model-python.md)
+* [Windows Machine Learning을 사용하여 ONNX 모델 사용](custom-vision-onnx-windows-ml.md)
+* Swift를 사용하는 실시간 이미지 분류에 대한 [iOS 응용 프로그램의 CoreML 모델](https://go.microsoft.com/fwlink/?linkid=857726) 예제를 참조하세요.
+* Android에서의 실시간 이미지 분류에 대한 [Android 응용 프로그램의 Tensorflow 모델](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) 예제를 참조하세요.
+* Xamarin iOS 앱에서의 실시간 이미지 분류에 대한 [Xamarin을 사용하는 CoreML 모델](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) 예제를 참조하세요.
