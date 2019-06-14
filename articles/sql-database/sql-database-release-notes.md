@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 04c19c9a8603fee46914eb94b50c4f97e34e9c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070222"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -32,7 +32,6 @@ ms.locfileid: "65787710"
 | 탄력적 데이터베이스 작업 | 정보를 참조 하세요 [만들기, 구성 및 탄력적 작업을 관리할](elastic-jobs-overview.md)합니다. |
 | 탄력적 쿼리 | 정보를 참조 하세요 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)합니다. |
 | 탄력적 트랜잭션 | [클라우드 데이터베이스에서 분산 트랜잭션을](sql-database-elastic-transactions-overview.md)합니다. |
-| 관리 되는 인스턴스를 사용 하 여 인스턴스 데이터 정렬 |정보를 참조 하세요 [Azure SQL Database에서 관리 되는 인스턴스를 만드는 Azure Resource Manager 템플릿 사용 하 여 PowerShell을 사용 하 여](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)입니다.|
 |(호환성 수준 150)에서 메모리 부여 피드백 (행 모드)|정보를 참조 하세요 [메모리 부여 피드백 (행 모드)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)합니다.|
 | Azure portal에서 쿼리 편집기 |정보를 참조 하세요 [Azure portal의 SQL 쿼리 편집기를 사용 하 여 데이터 연결 및 쿼리](sql-database-connect-query-portal.md)합니다.|
 | R services/기계 학습 단일 데이터베이스 및 탄력적 풀을 사용 하 여 |정보를 참조 하세요 [Azure SQL Database에서 Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)합니다.|
@@ -42,11 +41,22 @@ ms.locfileid: "65787710"
 |SQL 분석|정보를 참조 하세요 [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)합니다.|
 |호환성 수준 150) (아래 변수 지연 된 컴파일 테이블|정보를 참조 하세요 [테이블 변수 지연 된 컴파일](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)합니다.|
 | 관리 되는 인스턴스 위협 검색 |정보를 참조 하세요 [관리 되는 인스턴스를 Azure SQL Database 위협 감지 구성](sql-database-managed-instance-threat-detection.md)합니다.|
-| 관리 되는 인스턴스에 대 한 표준 시간대 지원|자세한 내용은 [Azure SQL Database Managed Instance의 표준 시간대](sql-database-managed-instance-timezone.md)합니다.|
 | 투명 한 데이터 암호화 (TDE) 사용 하 여 가져올 사용자 고유의 키 (BYOK) 관리 되는 인스턴스를 사용 하 여 |내용은 [Azure Key Vault에서 고객 관리 키를 사용 하 여 Azure SQL 투명 한 데이터 암호화: Bring Your Own Key 지원을](transparent-data-encryption-byok-azure-sql.md)합니다.|
 | &nbsp; |
 
-## <a name="may-2019"></a>2019 년 5 월
+## <a name="june-2019"></a>2019 년 6 월
+
+### <a name="service-improvements"></a>서비스 개선 사항
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+| Gen5 하드웨어 세대에서 관리 되는 인스턴스 vcore 4 개| 자세한 내용은 https://aka.ms/four-cores-sql-mi-update 을 참조하세요. |
+| 관리 되는 인스턴스-Visual Studio 구독자를 위한 월간 Azure 크레딧으로 구독에 대 한 지원 | 자세한 내용은 https://aka.ms/sql-mi-visual-studio-subscribers 를 참고하시기 바랍니다. |
+|관리 되는 인스턴스에 대 한 더 큰 지역 제한| 자세한 내용은 [지역별 리소스 제한](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)합니다.
+| &nbsp; |
+
+
+## <a name="may-2019"></a>2019년 5월
 
 ### <a name="service-improvements"></a>서비스 개선 사항
 
@@ -54,6 +64,8 @@ ms.locfileid: "65787710"
 | --- | --- |
 |일반 공급 용으로 릴리스 하는 대규모 서비스 계층| 자세한 내용은 [최대 100TB의 대규모 서비스 계층](sql-database-service-tier-hyperscale.md) 하 고 [고성능 대규모를 사용 하 여 Azure 데이터베이스 워크 로드에 대 한 확장을 가져옵니다](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/)합니다.|
 |서버 리스 계산 계층 공개 미리 보기로 릴리스 | 자세한 내용은 [SQL Database 서버 리스 (미리 보기)](sql-database-serverless.md)합니다.|
+|관리 되는 인스턴스 일반 공급 발표 된 표준 시간대 지원 |자세한 내용은 [Azure SQL Database Managed Instance의 표준 시간대](sql-database-managed-instance-timezone.md)합니다.|
+|관리 되는 인스턴스 일반 공급 용으로 릴리스를 사용 하 여 인스턴스 데이터 정렬 |정보를 참조 하세요 [Azure SQL Database에서 관리 되는 인스턴스를 만드는 Azure Resource Manager 템플릿 사용 하 여 PowerShell을 사용 하 여](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)입니다.|
 | VCore 기반 구매 모델을 사용 하 여 데이터베이스에 대 한 트랜잭션 로그 속도 및 대상 IOPS 증가| 자세한 내용은 [vCore 기반 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) 하 고 [DTU 기반 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)합니다.
 | &nbsp; |
 
@@ -65,7 +77,7 @@ ms.locfileid: "65787710"
 |서버 리스 계산 계층 docs 공개 미리 보기 릴리스| 자세한 내용은 [SQL Database 서버 리스 (미리 보기)](sql-database-serverless.md)합니다.|
 | &nbsp; |
 
-## <a name="april-2019"></a>2019 년 4 월
+## <a name="april-2019"></a>2019년 4월
 
 ### <a name="service-improvements"></a>서비스 개선 사항
 

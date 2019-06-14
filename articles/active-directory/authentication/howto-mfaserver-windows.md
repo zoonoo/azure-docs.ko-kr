@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa52dcf08a5e4b152d9fe0db36710e41a5a79fe7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057314"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -25,6 +25,9 @@ Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하�
 * 설정한 후에는 터미널 서비스에 대한 Azure Multi-Factor Authentication을 다시 부팅하여 적용되도록 합니다.
 * 'Azure Multi-Factor Authentication 사용자 일치'를 선택하고 사용자 목록에 없는 경우, 다시 부팅하면 컴퓨터에 로그인할 수 없습니다.
 * 신뢰할 수 있는 IP는 애플리케이션이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.  
+
+> [!IMPORTANT]
+> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
 
 > [!NOTE]
 > 이 기능은 Windows Server 2012 R2에서 보안 터미널 서비스를 보안하는 데 지원되지 않습니다.

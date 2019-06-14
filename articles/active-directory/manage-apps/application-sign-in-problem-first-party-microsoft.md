@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108308"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -45,7 +45,7 @@ ms.locfileid: "65956851"
 
 -   [그룹과 관련된 문제](#problems-with-groups)
 
--   [조건부 액세스 정책과 관련된 문제](#problems-with-conditional-access-policies)
+-   [조건부 액세스 정책과 관련 된 문제](#problems-with-conditional-access-policies)
 
 -   [애플리케이션 동의와 관련된 문제](#problems-with-application-consent)
 
@@ -67,11 +67,11 @@ ms.locfileid: "65956851"
 
   * **Multi-Factor Authentication**에서 사용자 액세스를 차단하지 않는지 확인합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
-  * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책 확인](#problems-with-conditional-access-policies) 또는 [특정 애플리케이션의 조건부 액세스 정책 확인](#check-a-specific-applications-conditional-access-policy) 또는 [특정 조건부 액세스 정책 사용 안 함](#disable-a-specific-conditional-access-policy)
+  * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책 확인](#problems-with-conditional-access-policies) 나 [특정 응용 프로그램의 조건부 액세스 정책 확인](#check-a-specific-applications-conditional-access-policy) 또는 [특정 조건부 액세스 정책을 사용 하지 않도록 설정](#disable-a-specific-conditional-access-policy)
 
   * 사용자의 **인증 연락처 정보**를 최신으로 유지하여 Multi-Factor Authentication 또는 조건부 액세스 정책을 적용할 수 있도록 해야 합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
-- 라이선스를 필요로 하는 **Microsoft****애플리케이션**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
+- 라이선스를 필요로 하는 **Microsoft** **애플리케이션**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
 
   * 사용자를 확인하거나 **라이선스를 할당합니다.** [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses) 또는 [그룹의 할당된 라이선스 확인](#check-a-groups-assigned-licenses)
 
@@ -85,7 +85,7 @@ ms.locfileid: "65956851"
 
   *  라이선스가 액세스하는 **애플리케이션에 적용되는지** 확인합니다.
 
-- 라이선스를 필요로 하지 않는 **Microsoft****애플리케이션**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
+- 라이선스를 필요로 하지 않는 **Microsoft** **애플리케이션**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
 
   * 응용 프로그램을 요청 하는 경우 **-사용자 수준 권한이** 사용자가 응용 프로그램에 로그인 하 고 수행한 있는지 확인 (예를 들어 "이이 사용자의이 사서함")에 액세스를 **사용자 수준 동의 작업** 응용 프로그램 데이터에 액세스할 수 있도록 합니다.
 
@@ -417,11 +417,11 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
     > 
     >
 
-## <a name="problems-with-conditional-access-policies"></a>조건부 액세스 정책과 관련된 문제
+## <a name="problems-with-conditional-access-policies"></a>조건부 액세스 정책과 관련 된 문제
 
 ### <a name="check-a-specific-conditional-access-policy"></a>특정 조건부 액세스 정책 확인
 
-단일 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행합니다.
+확인 하거나 단일 조건부 액세스 정책 유효성을 검사 합니다.
 
 1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
@@ -431,7 +431,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5. **조건부 액세스** 탐색 항목을 클릭합니다.
+5. 클릭 합니다 **조건부 액세스** 탐색 항목입니다.
 
 6. 검사하려는 정책을 클릭합니다.
 
@@ -442,9 +442,9 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
    >
    >
 
-### <a name="check-a-specific-applications-conditional-access-policy"></a>특정 애플리케이션의 조건부 액세스 정책 확인
+### <a name="check-a-specific-applications-conditional-access-policy"></a>특정 응용 프로그램의 조건부 액세스 정책 확인
 
-단일 애플리케이션의 현재 구성된 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행합니다.
+확인 하거나 현재 단일 응용 프로그램의 유효성을 검사 하려면 조건부 액세스 정책을 구성 합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
@@ -463,7 +463,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
      >
      >
 
-7.  **조건부 액세스** 탐색 항목을 클릭합니다.
+7.  클릭 합니다 **조건부 액세스** 탐색 항목입니다.
 
 8.  검사하려는 정책을 클릭합니다.
 
@@ -474,9 +474,9 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>특정 조건부 액세스 정책 사용 안 함
+### <a name="disable-a-specific-conditional-access-policy"></a>특정 조건부 액세스 정책을 사용 하지 않도록 설정
 
-단일 조건부 액세스 정책을 확인하거나 유효성을 검사하려면 다음을 수행합니다.
+확인 하거나 단일 조건부 액세스 정책 유효성을 검사 합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
@@ -486,7 +486,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 4.  탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **조건부 액세스** 탐색 항목을 클릭합니다.
+5.  클릭 합니다 **조건부 액세스** 탐색 항목입니다.
 
 6.  검사하려는 정책을 클릭합니다.
 
@@ -512,7 +512,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>애플리케이션에 대해 관리자 수준 동의 작업 수행
 
--   **V1 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우에만 애플리케이션의 로그인 URL의 끝에 “**?prompt=admin\_consent**”를 추가하여 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
+-   **V1 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우에만 애플리케이션의 로그인 URL의 끝에 “ **?prompt=admin\_consent**”를 추가하여 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 
 -   **V2 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 

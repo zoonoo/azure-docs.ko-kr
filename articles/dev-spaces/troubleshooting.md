@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058546"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -36,24 +36,26 @@ CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자�
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure Dev Spaces 컨트롤러를 만들지 못했음' 오류
 
+### <a name="reason"></a>이유
 컨트롤러를 만들 때 무언가 잘못되면 이 오류가 표시됩니다. 일시적인 오류인 경우 컨트롤러를 삭제하고 다시 만들면 문제가 해결됩니다.
 
-### <a name="try"></a>다음을 시도해 보세요.
+### <a name="try"></a>시도해 보기
 
-컨트롤러를 삭제하려면 Azure Dev Spaces CLI를 사용합니다. Visual Studio 또는 Cloud Shell에서는 작업할 수 없습니다. AZDS CLI를 설치하려면 먼저 Azure CLI를 설치한 다음 이 명령을 실행합니다.
+컨트롤러를 삭제 합니다.
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+컨트롤러를 삭제 하려면 Azure 개발 공간 CLI를 사용 해야 합니다. Visual Studio에서 컨트롤러를 삭제 하는 것이 불가능 합니다. 또한 설치할 수 없습니다 Azurecli 개발 공간 Azure Cloud Shell에서 Azure Cloud Shell에서 컨트롤러를 삭제할 수 없습니다 있도록 합니다.
+
+Azure 개발 공간 CLI를 설치가 없는 경우 먼저 다음 명령을 사용 하 여 설치 다음 컨트롤러를 삭제할 수 있습니다.
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-그런 다음 이 명령을 실행하여 컨트롤러를 삭제합니다.
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. 처음 만드는 것처럼 이 자습서의 지침에 따릅니다.
-
+CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. 참조를 [개발 팀](quickstart-team-development.md) 하거나 [.NET Core를 사용 하 여 개발](quickstart-netcore-visualstudio.md) 예제에 대 한 빠른 시작 합니다.
 
 ## <a name="error-service-cannot-be-started"></a>'서비스를 시작할 수 없습니다.' 오류
 
@@ -245,7 +247,7 @@ VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system
 2. 새 빌드 컨텍스트를 기준으로 올바르게 프로젝트 파일( _.csproj_)을 참조하도록 _Dockerfile_ 및 _Dockerfile.develop_ 파일을 수정합니다.
 3. .sln 파일 옆에 _.dockerignore_ 파일을 배치하고 필요에 따라 수정합니다.
 
-https://github.com/sgreenmsft/buildcontextsample에서 예제를 찾을 수 있습니다.
+https://github.com/sgreenmsft/buildcontextsample 에서 예제를 찾을 수 있습니다.
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 권한 부여 오류
 Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다.   Dev Spaces를 관리하려고 하는데 관련 Azure 구독에 대한 ‘owner’ 또는 ‘contributor’ 액세스 권한이 없는 경우 이 오류가 표시될 수 있습니다.  
@@ -378,7 +380,7 @@ AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자�
 
 컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트.
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 1. AKS 클러스터와 동일한는 일반적으로 컨트롤러를 포함 하는 리소스 그룹으로 이동 합니다.
 1. 사용 하도록 설정 합니다 *숨겨진된 형식 표시* 확인란을 선택 합니다.
 1. 컨트롤러에서를 클릭 합니다.
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Windows 노드 풀은 AKS 클러스터를 추가할 때 실패 하는 개발 공간을 사용 하도록 설정
 
 ### <a name="reason"></a>이유
-현재, Azure 개발 공간 Linux pod 및 노드만에서 실행할 것입니다. 이번에 Windows 노드 풀을 사용 하 여 AKS 클러스터에서 Azure 개발 공간을 사용할 수 없습니다.
+현재, Azure 개발 공간 Linux pod 및 노드만에서 실행할 것입니다. Windows 노드 풀을 사용 하 여 AKS 클러스터에 있는 경우 Linux 노드에서 Azure 개발 공간 pod 된만 예약 되었는지 확인 해야 합니다. Azure 개발 공간 포드를를 Windows 노드에서 실행 하도록 예약 하는 경우 해당 pod 시작 되지 않으며 개발 공간을 사용 하도록 설정 하지 못합니다.
+
+### <a name="try"></a>시도해 보기
+[추가 검은](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) Linux 되도록 AKS 클러스터에 pod는 Windows 노드에서 실행 되도록 예약 되지 않았습니다.

@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722461"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
@@ -177,7 +177,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
           CertificateStoreLocation={CertificateStore}
     ```
  
-    *{AppId}*, *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
+    *{AppId}* , *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
 
 4. 애플리케이션을 실행합니다. 
 
@@ -191,7 +191,7 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
+    _{AppId}_ , _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
 3. 애플리케이션을 실행합니다. 
 

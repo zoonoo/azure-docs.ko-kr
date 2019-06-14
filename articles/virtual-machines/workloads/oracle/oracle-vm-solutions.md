@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074223"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 이미지 및 Microsoft Azure에 배포
 
@@ -68,6 +68,18 @@ Oracle은 Oracle Linux 기반 가상 머신 이미지의 Azure에서 Oracle DB 1
 ### <a name="attached-disk-configuration-options"></a>연결된 디스크 구성 옵션
 
 연결된 디스크는 Azure Blob Storage 서비스에 의존합니다. 각 표준 디스크는 이론적으로 최대 초당 500개의 입력/출력 작업(IOPS)을 할 수 있습니다. 프리미엄 디스크 제품은 고성능 데이터베이스 워크로드에 적합하며 디스크당 최대 5000개의 IOPS를 제공할 수 있습니다. 성능 요구 사항을 충족 하는 경우 단일 디스크를 사용할 수 있습니다. 그러나 데이터베이스 데이터, 분산 후 Oracle 자동 저장소 관리 (ASM) 사용 하 여 여러 연결 된 디스크를 사용 하는 경우 효과적으로 IOPS 성능을 향상할 수 있습니다. Oracle ASM 관련 정보는 [Oracle 자동 저장소 개요](https://www.oracle.com/technetwork/database/index-100339.html)를 참조하세요. 설치 하 고 Linux Azure VM에서 Oracle ASM를 구성 하는 방법의 예제를 참조 합니다 [설치 및 구성 Oracle Automated Storage Management](configure-oracle-asm.md) 자습서입니다.
+
+### <a name="shared-storage-configuration-options"></a>공유 저장소 구성 옵션
+
+Azure NetApp 파일 클라우드에서 데이터베이스와 같은 고성능 워크 로드를 실행 하는 핵심 요구 사항을 충족 하도록 설계 되었습니다 및 제공
+- Azure 네이티브 VM 네이티브 NFS 클라이언트 또는 Oracle dNFS 통해 Oracle 워크 로드 중 하나를 실행 하기 위한 NFS 저장소 서비스를 공유
+- IOPS의 실제 범위 요구를 반영 하는 확장 가능한 성능 계층
+- 짧은 대기 시간
+- 고가용성, 높은 내구성 및 업무에 중요 한 엔터프라이즈 워크 로드 (예: SAP 및 Oracle)에 일반적으로 필요한 규모 관리 효율성
+- 빠르고 효율적인 백업 및 복구, 심한 RTO 및 RPO SLA를 달성 하기 위해
+
+Azure NetApp Files-네이티브 Azure 서비스로 Azure 데이터 센터 환경 내에서 실행 하는 모든 플래시 시스템 NetApp ONTAP® 기반으로 하므로 이러한 기능이 있을 수 있습니다. 결과 프로 비전 하 고 다른 Azure storage 옵션 처럼 사용할 수 있는 적합 한 데이터베이스 저장소 기술. 참조 [NetApp Azure Files 설명서](https://docs.microsoft.com/azure/azure-netapp-files/) 배포 하 고 Azure NetApp 파일 NFS 볼륨에 액세스 하는 방법에 대 한 자세한 내용은 합니다. 참조 [파일에 대해 Azure 배포 모범 사례 가이드를 사용 하 여 Azure NetApp Oracle](https://www.netapp.com/us/media/tr-4780.pdf) Azure NetApp 파일에 Oracle 데이터베이스를 운영 하기 위한 모범 사례 권장 사항에 대 한 합니다.
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle RAC(Oracle Real Application Cluster)
 Oracle RAC는 온-프레미스 다중 노드 클러스터 구성에서 단일 노드의 오류를 완화하도록 고안되었습니다. 이 기능은 하이퍼스케일(hyper-scale) 공용 클라우드 환경에 네이티브가 아닌 두 가지 온-프레미스 기술인 네트워크 멀티캐스트 및 공유 디스크에 의존합니다. 세 번째 해야 Azure에서 Oracle RAC를 필요로 하는 데이터베이스 솔루션을 하는 경우 이러한 기술을 사용 하려면 타사 소프트웨어. Oracle RAC에 대 한 자세한 내용은 참조는 [FlashGrid SkyCluster 페이지](https://www.flashgrid.io/oracle-rac-in-azure/)합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052098"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -129,7 +129,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 * 애플리케이션이 느리게 실행되는 경우 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>미국 정부 기관 고객용 GCC Office Url
-미국 버지니아 주 정부 지역에 대 한 DOD Url만 NPM 기본 제공 됩니다. GCC Url을 사용 하 여 고객에 게 사용자 지정 테스트를 만들어 각 URL 안정성이 추가 해야 합니다.
+미국 버지니아 주 정부 지역에 대 한 DOD Url만 NPM 기본 제공 됩니다. GCC Url을 사용 하 여 고객에 게 사용자 지정 테스트를 만들어 각 URL을 개별적으로 추가 해야 합니다.
 
 | 필드 | GCC |
 |:---   |:--- |

@@ -1,6 +1,6 @@
 ---
 title: 기본 정책 관리자-Azure Active Directory에 대 한 MFA 필요
-description: 관리자에 대 한 다단계 인증을 요구 하도록 조건부 액세스 정책
+description: 관리자 용 multi-factor authentication을 요구 하도록 조건부 액세스 정책
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112435"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>기본 정책: 관리자에 대해 MFA 요구
 
@@ -25,7 +25,7 @@ ms.locfileid: "66003283"
 **관리자에 대 한 MFA를 요구할** 되는 [기본 정책](concept-baseline-protection.md) 다음 권한 있는 관리자 역할 중 하나에 로그인 할 때마다 MFA를 요구 하는:
 
 * 전역 관리자
-* SharePoint administrator
+* SharePoint 관리자
 * Exchange 관리자
 * 조건부 액세스 관리자
 * 보안 관리자
@@ -78,4 +78,4 @@ ms.locfileid: "66003283"
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)
+* [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)

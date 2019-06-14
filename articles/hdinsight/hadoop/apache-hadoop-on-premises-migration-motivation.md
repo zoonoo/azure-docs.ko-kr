@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058566"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -21,7 +21,7 @@ ms.locfileid: "64685662"
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Azure HDInsight로 마이그레이션하는 이유
 
-Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/products/data-center/hdp/)의 Hadoop 구성 요소를 클라우드에 배포한 것입니다. Azure HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 합니다. HDInsight는 다음과 같은 가장 인기 있는 오픈 소스 프레임워크를 포함하고 있습니다.
+Azure HDInsight는 Hadoop 구성 요소는 클라우드 배포. Azure HDInsight는 대량 데이터를 쉽고 빠르며 비용 효율적으로 처리할 수 있도록 합니다. HDInsight는 다음과 같은 가장 인기 있는 오픈 소스 프레임워크를 포함하고 있습니다.
 
 - Apache Hadoop
 - Apache Spark
@@ -90,14 +90,13 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 | **질문** | **예제** | **대답** |
 |---|---|---|
 |**항목**: **환경**|||
-|클러스터 배포 유형|Hortonworks, Cloudera, MapR| |
 |클러스터 배포 버전|HDP 2.6.5, CDH 5.7|
 |빅 데이터 에코시스템 구성 요소|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |클러스터 유형|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |클러스터 수|4|
 |마스터 노드 수|2|
 |작업자 노드 수|100|
-|에지 노드 수| 5|
+|Edge 노드 수| 5|
 |총 디스크 공간|100TB|
 |마스터 노드 구성|m/y, cpu, 디스크 등|
 |데이터 노드 구성|m/y, cpu, 디스크 등|
@@ -199,7 +198,6 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |서로 다른 클러스터 간에 metastore를 공유합니까?|예||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
 |데이터 오케스트레이션에 ADF를 사용합니까?|아닙니다.||
-|IaaS에서 HDInsight 또는 Hortonworks 데이터 플랫폼을 사용합니까?|HDInsight||
 
 ## <a name="next-steps"></a>다음 단계
 
