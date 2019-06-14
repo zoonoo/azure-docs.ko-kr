@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b40f62a90dbe7c822b95476abe6ec25cf3fb21d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542444"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070023"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -63,9 +63,9 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > 일반적으로 최신을 결정하는 버전의 비교는 [CompareTo 메서드](https://msdn.microsoft.com/library/a5ts8tb6.aspx)의 규칙을 따릅니다.
 
 ### <a name="current-naming-convention"></a>현재 명명 규칙
-현재 게시된 모든 RHEL 이미지는 종량제 모델을 사용하며 [Azure의 RHUI(Red Hat 업데이트 인프라)](https://aka.ms/rhui-update)에 연결되어 있습니다. RHUI의 디자인 제한으로 인해 RHEL 7 제품군 이미지에 대해 새 명명 규칙이 채택되었습니다. RHEL 6 제품군 명명은 현재 변경되지 않았습니다.
+현재 게시된 모든 RHEL 이미지는 종량제 모델을 사용하며 [Azure의 RHUI(Red Hat 업데이트 인프라)](https://aka.ms/rhui-update)에 연결되어 있습니다. 새 명명 규칙은 채택 되는 디스크 파티션 구성표가 RHEL 7 제품군 이미지에 대 한 (raw, LVM) 버전 대신 SKU에 지정 됩니다. RHEL 이미지 버전 중 하나를 포함 하는 7 원시 또는 LVM 7입니다. RHEL 6 제품군 명명은 현재 변경되지 않았습니다.
 
-사실상 제한은 비 선택적 `yum update`가 RHUI에 연결된 VM에 대해 실행될 때 RHEL 버전이 현재 제품군의 최신 버전으로 업데이트됩니다. 자세한 내용은 [이 링크](https://aka.ms/rhui-update)를 참조하세요. 이로 인해 프로비전된 RHEL 7.2 이미지가 업데이트 후 RHEL 7.6이 되면 혼동될 수 있습니다. 필요한 버전을 명시적으로 지정하여 위의 예제에 설명된 대로 이전 이미지에서 여전히 프로비전할 수 있습니다. 새 RHEL 7 이미지를 프로비전하는 동안 필요한 버전을 지정하지 않는 경우 최신 이미지가 프로비전됩니다.
+이 명명 규칙에서 RHEL 7 이미지 Sku의 2 형식 됩니다. 부 버전을 나열 하는 Sku와 하지 않는 Sku입니다. 7-LVM SKU 또는 7 원시 사용 하려는 경우에 버전에서 배포 하려는 RHEL 부 버전을 지정할 수 있습니다. 됩니다 "최신"을 선택 하면 RHEL의 사소한 최신 릴리스를 프로 비전 합니다.
 
 >[!NOTE]
 > SAP 이미지 세트에 대한 RHEL에서 RHEL 버전은 고정으로 유지됩니다. 따라서 해당 명명 규칙은 SKU에서 특정 버전을 포함합니다.
@@ -73,28 +73,65 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 >[!NOTE]
 > RHEL 6 이미지 세트는 새 명명 규칙으로 이동되지 않았습니다.
 
+## <a name="extended-update-support-eus"></a>확장된 업데이트 지원 (EUS)
+4 월 2019의 RHEL 이미지를 사용할 수 있는 확장 업데이트 지원 (EUS) 저장소에 기본적으로 연결 된 합니다. 사용할 수 있는 RHEL EUS 대 한 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/rhel-eus)합니다.
+
+EUS EUS 지원 수명 종료 날짜에 대 한 자세한 내용은 VM 전환 하는 방법에 사용할 수 있습니다 [여기](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms)합니다.
+
+>[!NOTE]
+> EUS는 RHEL 추가 기능에서 지원 되지 않습니다. 이 일반적으로 RHEL Extras 채널에서 사용할 수 있는 패키지를 설치 하는 경우 있습니다 됩니다 EUS 반면 그렇게 할 것을 의미 합니다. Red Hat 기타 제품 수명 주기는 자세한 [여기](https://access.redhat.com/support/policy/updates/extras/)합니다.
+
+### <a name="for-customers-that-want-to-use-eus-images"></a>EUS 이미지를 사용 하려는 고객의 경우:
+EUS 리포지토리에 연결 된 이미지를 사용 하려는 고객은 SKU에 RHEL 부 버전 번호를 포함 하는 RHEL 이미지를 사용 해야 합니다. 이러한 이미지를 원시 분할 됩니다 (즉, 없습니다 LVM).
+
+예를 들어 사용 가능한 다음 2 RHEL 7.4 이미지 표시 될 수 있습니다.
+```bash
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7.4:7.4.2019041718
+```
+이 예에서 `RedHat:RHEL:7.4:7.4.2019041718` 기본적으로 EUS 리포지토리에 연결할 및 `RedHat:RHEL:7-RAW:7.4.2018010506` 기본적으로 비 EUS 저장소에 연결 됩니다.
+
+### <a name="for-customers-that-dont-want-to-use-eus-images"></a>EUS 이미지를 사용 하지 않은 고객의 경우:
+기본적으로 EUS에 연결 되어 있는 이미지를 사용 하지 않으려는 경우 SKU의 부 버전 번호를 포함 하지 않는 이미지를 사용 하 여 배포 합니다.
+
+#### <a name="rhel-images-with-eus"></a>EUS 사용 하 여 RHEL 이미지
+다음 표에서 SKU의 부 버전을 포함 하는 RHEL 이미지에 적용 됩니다.
+
+>[!NOTE]
+> 작성 당시 RHEL 7.4 및 부 버전 나중 경우 EUS 지원 Rhel EUS 더 이상 지원 되지 < 7.3 =.
+
+부 버전 |EUS 이미지 예제              |EUS 상태                                                   |
+:-------------|:------------------------------|:------------------------------------------------------------|
+RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | 이미지는 2019 년 4 월 게시 하 고 나중는 기본적으로 EUS 됩니다.|
+RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 이미지는 2019 년 6 월을 게시 하 고 나중는 기본적으로 EUS 됩니다. |
+RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 이미지는 2019 년 5 월 게시 하 고 나중는 기본적으로 EUS 됩니다.  |
+RHEL 8.0      |N/A                            | 없는 EUS 현재 사용 가능한 현재 이미지                 |
+
+
+## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
 다음 제품은 SKU이며 현재 일반 용도로 사용할 수 있습니다.
 
 제안| SKU | 분할 | 프로비전 | 메모
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-RAW | RAW | Linux 에이전트 | RHEL 7 이미지 제품군
-| | 7-LVM | LVM | Linux 에이전트 | RHEL 7 이미지 제품군
-| | 7-RAW-CI | RAW-CI | Cloud-init | RHEL 7 이미지 제품군
-| | 6.7 | RAW | Linux 에이전트 | RHEL 6.7 이미지, 이전 명명 규칙
-| | 6.8 | RAW | Linux 에이전트 | RHEL 6.8에 대해 위와 동일
-| | 6.9 | RAW | Linux 에이전트 | RHEL 6.9에 대해 위와 동일
-| | 6.10 | RAW | Linux 에이전트 | RHEL 6.10에 대해 위와 동일
-| | 7.2 | RAW | Linux 에이전트 | RHEL 7.2에 대해 위와 동일
-| | 7.3 | RAW | Linux 에이전트 | RHEL 7.3에 대해 위와 동일
-| | 7.4 | RAW | Linux 에이전트 | RHEL 7.4에 대해 위와 동일
-| | 7.5 | RAW | Linux 에이전트 | RHEL 7.5에 대해 위와 동일
-RHEL-SAP | 7.4 | LVM | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.4
-| | 7.5 | LVM | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.5
-RHEL-SAP-HANA | 6.7 | RAW | Linux 에이전트 | SAP HANA용 RHEL 6.7
-| | 7.2 | LVM | Linux 에이전트 | SAP HANA용 RHEL 7.2
-| | 7.3 | LVM | Linux 에이전트 | SAP HANA용 RHEL 7.3
-RHEL-SAP-APPS | 6.8 | RAW | Linux 에이전트 | SAP Business Applications용 RHEL 6.8
-| | 7.3 | LVM | Linux 에이전트 | SAP Business Applications용 RHEL 7.3
+RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7 제품군 이미지입니다. <br> 기본적으로 EUS 리포지토리 연결 되지 않은 경우
+|             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7 제품군 이미지입니다. <br> 기본적으로 EUS 리포지토리 연결 되지 않은 경우
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7 제품군 이미지입니다. <br> 기본적으로 EUS 리포지토리 연결 되지 않은 경우
+|             | 6.7      | RAW    | Linux 에이전트 | RHEL 6.7 이미지, 이전 명명 규칙
+|             | 6.8      | RAW    | Linux 에이전트 | RHEL 6.8에 대해 위와 동일
+|             | 6.9      | RAW    | Linux 에이전트 | RHEL 6.9에 대해 위와 동일
+|             | 6.10     | RAW    | Linux 에이전트 | RHEL 6.10에 대해 위와 동일
+|             | 7.2      | RAW    | Linux 에이전트 | RHEL 7.2에 대해 위와 동일
+|             | 7.3      | RAW    | Linux 에이전트 | RHEL 7.3에 대해 위와 동일
+|             | 7.4      | RAW    | Linux 에이전트 | RHEL 7.4에 위와 동일 합니다. <br> 2019 년 4 월부터 기본적으로 EUS 리포지토리에 연결
+|             | 7.5      | RAW    | Linux 에이전트 | RHEL 7.5에 위와 동일 합니다. <br> 2019 년 6 월을 기준으로 기본적으로 EUS 리포지토리에 연결
+|             | 7.6      | RAW    | Linux 에이전트 | RHEL 7.6에 위와 동일 합니다. <br> 2019 년 5 월을 기준으로 기본적으로 EUS 리포지토리에 연결
+RHEL-SAP      | 7.4      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.4
+|             | 7.5      | LVM    | Linux 에이전트 | SAP HANA 및 비즈니스 앱용 RHEL 7.5
+RHEL-SAP-HANA | 6.7      | RAW    | Linux 에이전트 | SAP HANA용 RHEL 6.7
+|             | 7.2      | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.2
+|             | 7.3      | LVM    | Linux 에이전트 | SAP HANA용 RHEL 7.3
+RHEL-SAP-APPS | 6.8      | RAW    | Linux 에이전트 | SAP Business Applications용 RHEL 6.8
+|             | 7.3      | LVM    | Linux 에이전트 | SAP Business Applications용 RHEL 7.3
 
 ### <a name="old-naming-convention"></a>이전 명명 규칙
 RHEL 7 이미지의 제품군 RHEL 6 이미지의 제품군은 위에서 설명한 명명 규칙이 변경될 때까지 해당 SKU의 특정 버전을 사용했습니다.

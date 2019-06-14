@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230104"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052061"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -133,7 +133,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 * Redis 클러스터를 사용하여 클러스터에서 분할된 데이터베이스(노드) 수를 늘림에 따라 처리량이 선형으로 늘어납니다. 예를 들어 10 개의 분할 된 데이터베이스에 P4 클러스터를 만드는 경우 가능한 처리량은 400,000 * 10 = 4 백만 RPS입니다.
 * 큰 크기의 키에 대한 처리량이 표준 계층에 비해 프리미엄 계층에서 더 높습니다.
 
-| 가격 책정 계층  | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 | 1KB 값 크기 |
+| 가격 책정 계층 | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 | 1KB 값 크기 |
 | --- | --- | --- | --- | --- | --- |
 | **표준 캐시 크기** | | |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**RPS(초당 요청 수) 비 SSL** |**RPS(초당 요청 수) SSL** |
 | C0 | 250MB | 공유됨 | 100/12.5  |  15,000 |   7,500 |
@@ -168,7 +168,7 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 | 클라우드   | Redis에 대한 Dns 접미사            |
 |---------|---------------------------------|
 | 공용  | *.redis.cache.windows.net       |
-| US Gov  | *.redis.cache.usgovcloudapi.net |
+| 미국 정부  | *.redis.cache.usgovcloudapi.net |
 | 독일 | *.redis.cache.cloudapi.de       |
 | 중국   | *.redis.cache.chinacloudapi.cn  |
 
@@ -251,7 +251,7 @@ Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예�
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis 명령줄 도구는 SSL 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 제공자 미리 보기 릴리스 발표](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하여 도구를 SSL 포트에 안전하게 연결할 수 있습니다.
+> Redis 명령줄 도구는 SSL 포트를 사용 하 여 작동 하지 않지만 같은 유틸리티를 사용할 수 있습니다 `stunnel` 안전 하 게의 지침에 따라 SSL 포트에 도구를 연결 하는 [Redis에 대 한 Azure 캐시를 사용 하 여 Redis 명령줄 도구를 사용 하는 방법 ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) 문서.
 >
 >
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > 이 메서드에 의해 지정 된 값은 전체 AppDomain에 영향을 주는 전역 설정 합니다. 예를 들어 4 코어 시스템을 설정 하려면 *minWorkerThreads* 하 고 *minIoThreads* 런타임 중 CPU 당 50을 하려면 **ThreadPool.SetMinThreads (200, 200)**.
+  > 이 메서드에 의해 지정 된 값은 전체 AppDomain에 영향을 주는 전역 설정 합니다. 예를 들어 4 코어 시스템을 설정 하려면 *minWorkerThreads* 하 고 *minIoThreads* 런타임 중 CPU 당 50을 하려면 **ThreadPool.SetMinThreads (200, 200)** .
 
 * 사용 하 여 설정 하는 최소 스레드를 지정할 수 이기도 합니다 [ *minIoThreads* 또는 *minWorkerThreads* 구성 설정](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) 아래를 `<processModel>` 구성 요소 `Machine.config`일반적으로, `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`합니다. **이러한 방식으로 최소 스레드 수를 설정는 일반적으로 있으므로 권장 되지 시스템 차원의 설정입니다.**
 

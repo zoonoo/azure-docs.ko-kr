@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
 ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784601"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
@@ -144,7 +144,7 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>다음 단계
-* [웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)
 * 다른 유형의 앱에 대한[Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Link references-->

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3157cef6952f01d689d3cb4a30c9d7c843095809
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071690"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -61,7 +61,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 > [!NOTE]
 > 이 구독은 활동 로그 경고를 저장하는 데 사용됩니다. 경고 리소스가 이 구독에 배포되고 이에 대한 활동 로그에서 이벤트를 모니터링합니다.
 
-1. 다음 중에 경고를 표시할 **이벤트 유형**을 선택합니다. ‘서비스 문제’, ‘계획된 유지 관리’ 및 ‘상태 공지’ 
+1. 다음 중에 경고를 표시할 **이벤트 유형**을 선택합니다. ‘서비스 문제’, ‘계획된 유지 관리’ 및 ‘상태 공지’    
 
 1. **경고 규칙 이름** 및 **설명**을 입력하여 경고 세부 정보를 정의합니다.
 
@@ -92,7 +92,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Azure Portal을 사용하여 기존 작업 그룹에 경고
 
-1. 이전 섹션의 1-7단계를 수행하여 서비스 상태 알림을 만듭니다. 
+1. 에 서비스 상태 알림을 생성 하려면 이전 섹션의 1-6 단계를 수행 합니다. 
 
 1. **작업 그룹 정의** 아래에서 **작업 그룹 선택** 단추를 클릭합니다. 적절한 작업 그룹을 선택합니다.
 

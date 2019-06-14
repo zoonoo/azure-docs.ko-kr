@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067511"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -87,7 +87,7 @@ Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량
 
 .NET SDK를 사용 하 여 [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 메서드를 사용 하면 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
 
-언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 
+언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 처리량을 증가 시키려면 크기 조정 작업을 수행 하면 필요한 리소스를 프로 비전 하는 시스템 작업 때문에 더 긴 시간이 걸릴 수 있습니다. Azure 포털 또는 Sdk를 사용 하 여 프로그래밍 방식으로 크기 조정 작업의 상태를 확인할 수 있습니다. .NET SDK를 사용할 때 사용 하 여 크기 조정 작업의 상태를 가져올 수 있습니다는 `DocumentClient.ReadOfferAsync` 메서드.
 
 ## <a name="comparison-of-models"></a>모델 비교
 

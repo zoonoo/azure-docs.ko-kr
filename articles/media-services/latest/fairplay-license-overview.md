@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733575"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성 
@@ -39,7 +39,7 @@ Media Services를 사용하여 **Apple FairPlay**로 암호화된 HLS 콘텐츠�
 
         다음 단계에서는 FairPlay에 대한 .pfx 인증서 파일을 생성하는 방법을 설명합니다.
 
-        1. https://slproweb.com/products/Win32OpenSSL.html에서 OpenSSL을 설치합니다.
+        1. https://slproweb.com/products/Win32OpenSSL.html 에서 OpenSSL을 설치합니다.
 
             FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
         2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.

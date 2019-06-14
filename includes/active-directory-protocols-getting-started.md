@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: priyamo
 ms.openlocfilehash: b6dd4cd55755ae2c92afd327ad72ffe6966b9a07
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121525"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 애플리케이션 등록

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
 ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683995"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일에서 용어 이해
@@ -43,8 +43,8 @@ Marketplace 주문 (외부 서비스 라고도 함)에 대 한 자세한 내용�
 용어 | 계정 유형 | 설명
 --- | --- | ---
 AccountName | EA | 등록 계정의 표시 이름입니다.
-계정 소유자 ID | EA | 등록 계정에 대 한 고유 식별자입니다.
-추가 정보 | 모두 | 서비스 특정 메타데이터입니다. 예를 들어 가상 머신용 이미지 형식입니다.
+AccountOwnerId | EA | 등록 계정에 대 한 고유 식별자입니다.
+AdditionalInfo | 모두 | 서비스 특정 메타데이터입니다. 예를 들어 가상 머신용 이미지 형식입니다.
 BillingAccountId | EA, MCA | 대금 청구 계정 루트에 대 한 고유 식별자입니다.
 BillingAccountName | EA, MCA | 청구 계정의 이름입니다.
 billingCurrency | EA, MCA | 청구 계정에 연결 된 통화입니다.
@@ -55,7 +55,7 @@ BillingProfileId | EA, MCA | EA 등록 또는 MCA 청구 프로필의 고유 식
 BillingProfileName | EA, MCA | EA 등록 또는 MCA 청구 프로필의 이름입니다.
 ChargeType | EA, MCA | 요금을 사용량을 나타내는지 여부를 나타냅니다 (**사용 현황**)를 구매 (**구매**), 또는 환불이 귀하 (**환불**).
 ConsumedQuantity | 종 량 제 | 수량을 참조 하세요.
-사용한 서비스 | 모두 | 서비스 요금을는 연결 된 이름입니다.
+ConsumedService | 모두 | 서비스 요금을는 연결 된 이름입니다.
 비용 | EA | CostInBillingCurrency를 참조 하세요.
 CostCenter | EA, MCA | 비용 센터 (MCA 계정에 대 한 진행 청구 기간에 사용 가능) 비용 추적에 대 한 구독에 대 한 정의.
 CostInBillingCurrency | MCA | 비용 크레딧 또는 세금 하기 전에 청구 통화 요금입니다.
@@ -64,7 +64,7 @@ CostInPricingCurrency | MCA | 비용 크레딧 또는 세금 하기 전에 가�
 Date | EA, MCA | 무료로 사용 또는 구매 날짜입니다.
 ExchangeRateDate | MCA | 환율이 설정 된 날짜입니다.
 ExchangeRatePricingToBilling | MCA | 환율 통화 가격 책정에 비용 청구 통화 변환 하는 데 사용 합니다.
-Frequency(빈도) | EA, MCA | 요금이 반복 해야 하는지 여부를 나타냅니다. 요금이 발생할 수 있습니다 하거나 한 번 (**OneTime**), 월별 또는 연간 기준 반복 (**되풀이**), 사용량에 따라 수 또는 (**UsageBased**).
+빈도 | EA, MCA | 요금이 반복 해야 하는지 여부를 나타냅니다. 요금이 발생할 수 있습니다 하거나 한 번 (**OneTime**), 월별 또는 연간 기준 반복 (**되풀이**), 사용량에 따라 수 또는 (**UsageBased**).
 IncludedQuantity | 종 량 제 | 현재 청구 기간에 무료로 포함 되는 미터의 양입니다.
 InstanceId | PAGY | ResourceId를 참조 하세요.
 InvoiceId | EA, MCA | PDF 청구서에 나열 된 고유한 문서 ID입니다.
@@ -73,11 +73,11 @@ InvoiceSectionId | EA, MCA | EA 부서나 MCA 송장 섹션에 대 한 고유 �
 InvoiceSectionName | EA, MCA | EA 부서나 MCA 송장 섹션의 이름입니다.
 IsAzureCreditEligible | EA, MCA | 요금은 Azure 크레딧을 사용 하 여에 대 한 지급 수 인지 여부를 나타냅니다 (값: True, False)입니다.
 Location | EA, MCA | 리소스가 실행 되 고 있는 데이터 센터 위치입니다.
-미터 범주 | 모두 | 측정기에 대 한 분류 범주 이름입니다. 예를 들어 *Cloud services* 하 고 *네트워킹*합니다.
+MeterCategory | 모두 | 측정기에 대 한 분류 범주 이름입니다. 예를 들어 *Cloud services* 하 고 *네트워킹*합니다.
 MeterId | 모두 | 측정기에 대 한 고유 식별자입니다.
-요금제 이름 | 모두 | 측정기의 이름입니다.
-요금제 지역 | 모두 | 위치를 기준으로 가격이 책정 되는 서비스에 대 한 데이터 센터 위치의 이름입니다. 위치를 확인 합니다.
-미터 하위 범주 | 모두 | 미터 subclassification 범주의 이름입니다.
+MeterName | 모두 | 측정기의 이름입니다.
+MeterRegion | 모두 | 위치를 기준으로 가격이 책정 되는 서비스에 대 한 데이터 센터 위치의 이름입니다. 위치를 확인 합니다.
+MeterSubCategory | 모두 | 미터 subclassification 범주의 이름입니다.
 OfferId | EA, MCA | 구매한 제품의 이름입니다.
 PartNumber | EA | 특정 미터 가격을 가져오는 데 사용 하는 식별자입니다.
 계획 이름 | EA | Marketplace 계획 이름입니다.
@@ -97,19 +97,19 @@ ReservationName | EA, MCA | 구매한 예약 인스턴스 이름입니다.
 ResourceGroupId | EA, MCA | 에 대 한 고유 식별자를 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 리소스가입니다.
 ResourceGroupName | EA, MCA | 이름을 합니다 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 이 리소스는 합니다.
 ResourceId | EA, MCA | 고유 식별자를 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) 리소스입니다.
-리소스 위치 | EA, MCA | 리소스가 실행 되 고 있는 데이터 센터 위치입니다. 위치를 확인 합니다.
+ResourceLocation | EA, MCA | 리소스가 실행 되 고 있는 데이터 센터 위치입니다. 위치를 확인 합니다.
 ResourceName | EA | 리소스의 이름입니다.
 ResourceType | MCA | 리소스 인스턴스의 유형입니다.
 ServiceFamily | EA, MCA | 서비스에 속하는 서비스 제품군입니다.
-서비스 정보 1 | 모두 | 서비스 특정 메타데이터입니다.
-서비스 정보 2 | 모두 | 선택적 서비스 특정 메타 데이터를 사용 하 여 레거시 필드입니다.
+ServiceInfo1 | 모두 | 서비스 특정 메타데이터입니다.
+ServiceInfo2 | 모두 | 선택적 서비스 특정 메타 데이터를 사용 하 여 레거시 필드입니다.
 ServicePeriodEndDate | MCA | 등급 기간의 종료 날짜 정의 사용 또는 구매 서비스에 대 한 가격 책정 잠겨 있습니다.
 ServicePeriodStartDate | MCA | 등급 기간의 시작 날짜 정의 사용 또는 구매 서비스에 대 한 가격 책정 잠겨 있습니다.
 SubscriptionId | 모두 | 구독에 대 한 고유 식별자입니다.
 SubscriptionName | 모두 | 구독의 이름입니다.
 태그들 | 모두 | 태그를 리소스에 할당 합니다. 리소스 그룹 태그를 포함 하지 않습니다. 그룹 또는 내부 비용 청구 비용을 배분 하는데 데 사용할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요.
 단위 | 종 량 제 | UnitOfMeasure를 참조 하세요.
-측정 단위 | 모두 | 서비스에 대 한 청구에 대 한 측정 단위입니다. 예를 들어, 계산 서비스는 시간당 요금이 청구 됩니다.
+UnitOfMeasure | 모두 | 서비스에 대 한 청구에 대 한 측정 단위입니다. 예를 들어, 계산 서비스는 시간당 요금이 청구 됩니다.
 UnitPrice | EA | 요금에 대 한 단위당 가격입니다.
 UsageDate | 종 량 제 | 날짜를 참조 하세요.
 

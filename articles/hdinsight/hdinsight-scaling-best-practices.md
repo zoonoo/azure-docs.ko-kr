@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077187"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
@@ -21,6 +21,9 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 정기적인 일괄 처리에 있는 경우 HDInsight 클러스터를 확장할 수 있습니다 잠시 후 작업을 하기 전에 클러스터에 충분 한 메모리 및 CPU 전원 되도록 합니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
 
 수동으로 아래에 설명 된 방법 중 하나를 사용 하 여 클러스터 크기를 조정 하거나 사용할 수 있습니다 [자동 크기 조정](hdinsight-autoscale-clusters.md) 에 CPU, 메모리 및 기타 메트릭에 대 한 응답에서 보내는 옵션 시스템을 자동으로 확장 및 축소 합니다.
+
+> [!NOTE]  
+> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.
 
 ## <a name="utilities-to-scale-clusters"></a>클러스터 크기를 조정 하는 유틸리티
 
@@ -47,6 +50,50 @@ Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 
 경우 있습니다 **추가** 노드를 실행 중인 HDInsight 클러스터 (강화), 보류 중이거나 실행 중인 모든 작업에는 영향을 받지 않습니다. 크기 조정 프로세스가 실행되는 동안 새 작업을 안전하게 제출할 수 있습니다. 크기 조정 작업이 어떤 이유로 든 실패 하면 클러스터는 작동 상태에서를 오류 처리 됩니다.
 
 경우 있습니다 **제거** 크기 조정 작업이 완료 될 때 노드 (규모 축소) 모든 보류 중이거나 실행 중인 작업은 실패 합니다. 이 오류는 일부의 서비스 크기 조정 프로세스 중 다시 시작 때문입니다. 위험이 클러스터 수동 크기 조정 작업 중에 중단된 안전 모드를 가져올 수 있습니다.
+
+데이터 노드 수 변경에 따른 영향은 다음과 같이 HDInsight에서 지원하는 각 클러스터 유형에 따라 다릅니다.
+
+* Apache Hadoop
+
+    모든 보류 중인 또는 실행 중인 작업에 영향을 주지 않고 실행되는 Hadoop 클러스터의 작업자 노드 수를 원활하게 늘릴 수 있습니다. 작업이 진행 중인 동안에 새 작업을 제출할 수 있습니다. 크기 조정 작업의 오류는 정상적으로 처리되므로 클러스터는 항상 기능 상태로 남아 있습니다.
+
+    데이터 노드 수를 줄여 Hadoop 클러스터를 축소하면 클러스터의 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 그러나 작업이 완료되면 작업을 다시 제출할 수 있습니다.
+
+* Apache HBase
+
+    HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    HBase 셸을 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache HBase 예제 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요.
+
+* Apache Storm
+
+    실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 토폴로지 균형을 다시 조정해야 합니다.
+
+    다음 두 가지 방법으로 사용하여 균형을 조정할 수 있습니다.
+
+  * Storm 웹 UI
+  * 명령줄 인터페이스(CLI) 도구
+
+    자세한 내용은 [Apache Storm 설명서](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
+
+    Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
+
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    다음은 Storm 토폴로지 균형을 다시 조정하는 CLI 명령의 예제입니다.
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>클러스터를 안전 하 게 축소 하는 방법
 
@@ -140,13 +187,13 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
 1. Hive 서비스를 중지하고 모든 쿼리 및 작업이 완료되었는지 확인합니다.
 2. 위의 찾을 스크래치 디렉터리의 내용을 나열 `hdfs://mycluster/tmp/hive/` 모든 파일에 포함 되어 있는지 확인 하려면:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     다음은 파일이 있는 경우의 샘플 출력입니다.
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
 
     HDFS에서 파일을 제거하는 명령줄 예제는 다음과 같습니다.
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
 #### <a name="run-the-command-to-leave-safe-mode"></a>안전 모드를 종료하는 명령 실행
 
 마지막 방법은 leave safe mode 명령을 실행 하는 것입니다. Hive 파일에 대 한 요금이 덜 복제로 인해 HDFS가 안전 모드에 대 한 이유는 알고 있는 경우 안전 모드를 종료 하려면 다음 명령을 실행할 수 있습니다.
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 * [Azure HDInsight 클러스터를 자동으로 크기 조정](hdinsight-autoscale-clusters.md)
 * [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)
-* [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)

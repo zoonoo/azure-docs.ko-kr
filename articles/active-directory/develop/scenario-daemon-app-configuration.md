@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055758"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데몬 앱
 
@@ -41,7 +41,9 @@ ms.locfileid: "65075327"
 
 디먼 응용 프로그램은 위임 된 권한만 하지만 응용 프로그램 사용 권한을 사용 하지 마십시오는 자신의 *지원 되는 계정 유형* 일 수 없습니다 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정 ( 예를 들어, Skype, Xbox, Outlook.com)* 합니다. 실제로 Microsoft 개인 계정에 대 한 디먼 응용 프로그램에 동의할 수 없는 테 넌 트 관리자가 있습니다. 선택 해야 *내 조직에서 계정을* 또는 *조직에서 계정을*합니다.
 
-따라서 응용 프로그램 구성에 지정 된 인증 기관에는 테 넌 트 ed (테 넌 트 ID 또는 조직과 연결 된 도메인 이름 지정) 이어야 합니다. 다중 테 넌 트 도구를 제공 하 고 ISV 인 경우 사용할 수 있습니다 `organizations`합니다. 하지만 관리자 동의 부여 하는 방법에 고객에 게 설명 해야 염두에서에 둡니다. 참조 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 세부 정보에 대 한
+따라서 응용 프로그램 구성에 지정 된 인증 기관에는 테 넌 트 ed (테 넌 트 ID 또는 조직과 연결 된 도메인 이름 지정) 이어야 합니다.
+
+다중 테 넌 트 도구를 제공 하 고 ISV 인 경우 사용할 수 있습니다 `organizations`합니다. 하지만 관리자 동의 부여 하는 방법에 고객에 게 설명 해야 염두에서에 둡니다. 참조 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 세부 정보에 대 한 합니다. 또한 현재는 MSAL의 제한 사항은 `organizations` 클라이언트 자격 증명이 응용 프로그램 비밀 (인증서 제외) 하는 경우에 허용 됩니다. 참조 [MSAL.NET 버그 #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>응용 프로그램 구성 및 인스턴스화
 

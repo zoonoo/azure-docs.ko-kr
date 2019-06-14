@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701024"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
@@ -163,7 +163,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. **Postman**을 엽니다.
 2. **GET**을 선택합니다.
-3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
+3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets) )
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.
 6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.

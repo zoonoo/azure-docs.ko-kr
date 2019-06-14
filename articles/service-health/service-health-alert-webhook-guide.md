@@ -1,5 +1,5 @@
 ---
-title: 웹후크를 사용하여 기존 문제 관리 시스템에 대한 상태 알림 구성 | Microsoft Docs
+title: 웹 후크를 사용 하 여 기존 문제 관리 시스템에 대 한 Azure 서비스 상태 알림 구성
 description: 기존 문제 관리 시스템에 서비스 상태 이벤트에 대한 개인 설정 알림 가져오기
 author: stephbaron
 ms.author: stbaron
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067184"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>웹후크를 사용하여 기존 문제 관리 시스템에 대한 상태 알림 구성
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685215"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정으로 Apache Hadoop 클러스터 만들기
@@ -39,7 +39,7 @@ ms.locfileid: "64685215"
 
 2. 지침에 따라 다음과 같은 사양의 클러스터를 만듭니다. 
 
-    - HDInsight 버전 3.6을 지정합니다. 3.6 이상 버전이 필요합니다.
+    - HDInsight 버전 3.6을 지정합니다. 3\.6 이상 버전이 필요합니다.
     - 보안 전송이 활성화된 저장소 계정을 지정합니다.
     - 저장소 계정에 짧은 이름을 사용합니다.
     - 저장소 계정과 blob 컨테이너를 미리 만들어 두어야 합니다.

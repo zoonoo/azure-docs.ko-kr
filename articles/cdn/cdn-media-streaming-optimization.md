@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636246"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
@@ -86,8 +86,8 @@ Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content
 
 |   | 일반 웹 배달 | 일반 미디어 스트리밍 | 주문형 비디오 미디어 스트리밍  
 --- | --- | --- | ---
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |365일 | 365일   
-Caching: Negative <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 | 1초
+Caching: 양수 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |365일 | 365일   
+Caching: 음수 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1 초 | 1 초
  
 ### <a name="deal-with-origin-failure"></a>원본 오류 처리  
 

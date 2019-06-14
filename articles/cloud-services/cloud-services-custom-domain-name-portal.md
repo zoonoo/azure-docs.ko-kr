@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063608"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
-클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
+클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 `http://contoso.cloudapp.net`과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
 
 그러나 **contoso.com**등의 고유한 도메인 이름에도 애플리케이션을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
 
@@ -78,7 +78,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
      CNAME 레코드를 만들 때 필요하므로 두 방법 중 하나에서 반환된 URL에 사용된 도메인 이름을 저장합니다.
 2. DNS 등록 기관의 웹 사이트에 로그온한 다음 DNS 관리 페이지로 이동합니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**로 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다.
 3. 이제 CNAME을 선택하거나 입력할 수 있는 위치를 찾습니다. 드롭다운에서 레코드 유형을 선택하거나 고급 설정 페이지로 이동해야 할 수도 있습니다. **CNAME**, **별칭** 또는 **하위 도메인**과 같은 단어를 찾아야 합니다.
-4. 도 제공 해야 도메인 또는 하위 도메인 별칭 CNAME에 대 한 같은 **www** 별칭을 만들려는 경우 **www\.customdomain.com**합니다. 루트 도메인에 대한 별칭을 만들려는 경우 등록 기관의 DNS 도구에서 '**\@**' 기호로 표시될 수도 있습니다.
+4. 도 제공 해야 도메인 또는 하위 도메인 별칭 CNAME에 대 한 같은 **www** 별칭을 만들려는 경우 **www\.customdomain.com**합니다. 루트 도메인에 대한 별칭을 만들려는 경우 등록 기관의 DNS 도구에서 ' **\@** ' 기호로 표시될 수도 있습니다.
 5. 정식 호스트 이름을 제공해야 합니다. 이 경우에는 애플리케이션의 **cloudapp.net** 도메인입니다.
 
 다음 CNAME 레코드에서 모든 트래픽을 전달 하는 예를 들어 **www\.contoso.com** 하려면 **contoso.cloudapp.net**, 배포 된 응용 프로그램의 사용자 지정 도메인 이름:
@@ -113,7 +113,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 3. 이제 A 레코드를 선택하거나 입력할 수 있는 위치를 찾습니다. 드롭다운에서 레코드 유형을 선택하거나 고급 설정 페이지로 이동해야 할 수도 있습니다.
 4. 이 A 레코드를 사용할 도메인 또는 하위 도메인을 선택하거나 입력합니다. 예를 들어 선택할 **www** 별칭을 만들려는 경우 **www\.customdomain.com**합니다. 모든 하위 도메인에 대한 와일드카드 항목을 만들려면 '*****'를 입력합니다. 이 같은 하위 도메인을 모두 설명 **mail.customdomain.com**를 **login.customdomain.com**, 및 **www\.customdomain.com**합니다.
 
-    루트 도메인에 대한 A 레코드를 만들려는 경우 등록 기관의 DNS 도구에서 '**\@**' 기호로 표시될 수도 있습니다.
+    루트 도메인에 대한 A 레코드를 만들려는 경우 등록 기관의 DNS 도구에서 ' **\@** ' 기호로 표시될 수도 있습니다.
 5. 제공된 필드에 클라우드 서비스의 IP 주소를 입력합니다. 그러면 A 레코드에 사용된 도메인 항목이 클라우드 서비스 배포의 IP 주소와 연결됩니다.
 
 예를 들어 다음 A 레코드는 모든 트래픽을 **contoso.com**에서 배포된 애플리케이션의 IP 주소인 **137.135.70.239**로 전달합니다.

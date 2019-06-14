@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c5ccc4ef6c095eacd29590504d46756ead856574
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058610"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
@@ -78,7 +78,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
    ```
 6. 사용 하 여 값을 읽을 수 있습니다.
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 업데이트
@@ -86,7 +86,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 컴퓨
 
 UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 빈 문자열일 수 URL을 편집 합니다.
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 그런 다음 새 값을 설정 하려면 5 단계를 수행 합니다.
@@ -112,7 +112,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예제: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
 1. 모든 설정 템플릿을 가져오려면
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. 해야 Group.Unified 템플릿입니다 디렉터리 수준에서 그룹에 대 한 게스트 정책을 설정 하려면
@@ -135,7 +135,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```
 6. 사용 하 여 값을 읽을 수 있습니다.
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -143,9 +143,9 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 
 검색할 설정의 이름을 알고 있는 경우 아래 cmdlet을 사용하여 현재 설정 값을 검색할 수 있습니다. 이 예제에서는 "UsageGuidelinesUrl"이라는 설정의 값을 검색합니다. 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 다음 단계는 디렉터리 수준에서 설정을 읽는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 그룹에 적용됩니다.
 
 1. 모든 기존 디렉터리 설정 읽기:
@@ -188,11 +188,11 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 
 ## <a name="remove-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 제거
 다음 단계는 디렉터리 수준에서 설정을 제거하는 것입니다. 이 설정은 디렉터리에 있는 모든 Office 그룹에 적용됩니다.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## <a name="update-settings-for-a-specific-group"></a>특정 그룹의 설정 업데이트
+## <a name="create-settings-for-a-specific-group"></a>특정 그룹에 대 한 설정 만들기
 
 1. "Groups.Unified.Guest"라는 설정 템플릿 검색
    ```powershell
@@ -219,13 +219,49 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    $SettingCopy["AllowToAddGuests"]=$False
    ```
-5. 디렉터리에 필요한 그룹의 새로운 설정을 만듭니다.
+5. 이 설정을 적용 하려는 그룹의 ID를 가져옵니다.
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. 설정을 확인,이 명령을 실행 합니다.
+6. 디렉터리에 필요한 그룹의 새로운 설정을 만듭니다.
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. 설정을 확인,이 명령을 실행 합니다.
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## <a name="update-settings-for-a-specific-group"></a>특정 그룹의 설정 업데이트
+1. 해당 설정이 업데이트 하려는 그룹의 ID를 가져옵니다.
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. 그룹의 설정을 검색 합니다.
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. 예: 필요에 따라 그룹의 설정 업데이트
+   ```powershell
+   $Setting["AllowToAddGuests"] = $True
+   ```
+4. 그런 다음이 특정 그룹에 대 한 설정의 ID를 가져옵니다.
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   다음과 유사 하 게 응답을 받습니다가 있습니다.
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. 그런 다음이 설정에 대 한 새 값을 설정할 수 있습니다.
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. 올바르게 업데이트 된 되도록 설정의 값을 읽을 수 있습니다.
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 구문 참조

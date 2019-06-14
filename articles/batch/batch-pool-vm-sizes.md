@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 06/11/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080882"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
@@ -28,60 +28,54 @@ Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 �
 
 VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습니다.
 
-* 일부 VM 제품군 또는 VM 크기는 Batch에서 지원되지 않습니다. 
+* 일부 VM 시리즈 또는 VM 크기 일괄 처리에서 지원 되지 않습니다.
 * 일부 VM 크기는 제한되어 있으므로 할당하기 전에 특별히 사용하도록 설정해야 합니다.
 
-## <a name="supported-vm-families-and-sizes"></a>지원되는 VM 제품군 및 크기
+## <a name="supported-vm-series-and-sizes"></a>지원 되는 VM 시리즈 및 크기
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Virtual Machine 구성의 풀
 
-Virtual Machine 구성의 Batch 풀은 다음을 *제외한* 모든 VM 크기([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md))를 지원합니다.
+가상 컴퓨터 구성의 batch 풀 거의 모든 VM 크기를 지원 합니다. ([Linux](../virtual-machines/linux/sizes.md)하십시오 [Windows](../virtual-machines/windows/sizes.md)). 지원 되는 크기 및 제한 사항에 자세히 알아보려면 다음 표를 참조 하십시오.
 
-| 패밀리  | 지원되지 않는 크기  |
-|---------|---------|
-| 기본 A 시리즈 | Basic_A0(A0) |
-| A 시리즈 | Standard_A0 |
-| B 시리즈 | 모두 |
-| DC 시리즈 | 모두 |
-| 익스트림 메모리 최적화 | 모두 |
-| Hb-series<sup>1,2</sup> | 모두 |
-| Hc-series<sup>1,2</sup> | 모두 |
-| Lsv2 시리즈 | 모두 |
-| NDv2-series<sup>1,2</sup> | 모두 |
-| NVv2 시리즈<sup>1</sup> | 모두 |
-| SAP HANA | 모두 |
+어떤 프로 모션 하거나 지원에 대 한 미리 보기 VM 크기 나열 되지 않은 보장 되지 않습니다.
 
+| VM 시리즈  | 지원되는 크기 | Batch 계정의 풀 할당 모드<sup>1</sup> |
+|------------|---------|-----------------|
+| 기본 A 시리즈 | 모든 규모 *제외한* Basic_A0 (A0) | 모두 |
+| A 시리즈 | 모든 규모 *제외한* Standard_A0 | 모두 |
+| Av2 시리즈 | 모든 크기 | 모두 |
+| B 시리즈 | 없음 | 사용할 수 없음 |
+| DC 시리즈 | 없음 | 사용할 수 없음 |
+| Dsv2 시리즈, Dv2 | 모든 크기 | 모두 |
+| Dv3, Dsv3 시리즈 | 모든 크기 | 모두 |
+| [메모리 액세스에 최적화 크기](../virtual-machines/linux/sizes-memory.md) | 없음 | 사용할 수 없음 |
+| Fsv2 시리즈 | 모든 크기 | 모두 |
+| H 시리즈 | 모든 크기 | 모두 |
+| HB 시리즈 | 모든 크기 | 사용자 구독 모드 |
+| HC 시리즈 | 모든 크기 | 사용자 구독 모드 |
+| Ls 시리즈 | 모든 크기 | 모두 |
+| Lsv2 시리즈 | 없음 | 사용할 수 없음 |
+| M 시리즈 | Standard_M64ms (낮은 우선 순위만), Standard_M128s (낮은 우선 순위만) | 모두 |  
+| NCv2-series<sup>2</sup> | 모든 크기 | 모두 |
+| NCv3-series<sup>2</sup> | 모든 크기 | 모두 |
+| ND-series<sup>2</sup> | 모든 크기 | 모두 |
+| NDv2 시리즈 | 모든 크기 | 사용자 구독 모드 |
+| NV 시리즈 | 모든 크기 | 모두 |
+| NVv3 시리즈 | 없음 | 사용할 수 없음 |
+| SAP HANA | 없음 | 사용할 수 없음 |
 
-<sup>1</sup> 지원할 계획입니다.  
-<sup>2</sup> 사용자 구독 모드의 배치 계정에서 사용할 수 있습니다. 사용자 구독 모드 배치 계정에 코어 할당량이 설정되어 있어야 합니다. 자세한 내용은 [사용자 구독 모드에 대한 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)을 참조하세요.
+<sup>1</sup> 몇 가지 새로운 VM 시리즈는 처음에 부분적으로 지원 합니다. 이러한 VM 시리즈를 사용 하 여 Batch 계정에서 할당할 수는 **풀 할당 모드가** 로 설정 **사용자 구독**합니다. 참조 [Batch 관리 계정](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) 일괄 처리 계정 구성에 대 한 자세한 내용은 합니다. 참조 [할당량 및 제한](batch-quota-limit.md) 부분적으로 지원 되는 VM 시리즈에 대 한 이러한 할당량을 요청 하는 방법에 알아보려면 **사용자 구독** Batch 계정.  
 
-다음 VM 시리즈는 낮은 우선 순위 노드에서만 지원됩니다.
-
-| 패밀리  | 지원되는 크기  |
-|---------|---------|
-| M 시리즈 | Standard_M64ms |
-| M 시리즈 | Standard_M128s |
-
-M 시리즈 제품군의 다른 VM 크기는 현재 지원되지 않습니다.
+<sup>2</sup> 이러한 VM 크기는 가상 컴퓨터 구성에서 Batch 풀에서 할당 될 수 있지만 특정 요청 해야 합니다 [할당량 증가](batch-quota-limit.md#increase-a-quota)합니다.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
 
-Cloud Service 구성의 Batch 풀은 다음을 *제외한* 모든 [Cloud Services에 적합한 VM 크기](../cloud-services/cloud-services-sizes-specs.md)를 지원합니다.
+Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Services에 적합한 VM 크기](../cloud-services/cloud-services-sizes-specs.md)를 지원합니다.
 
-| 패밀리  | 지원되지 않는 크기  |
-|---------|---------|
-| A 시리즈 | 매우 작음 |
+| VM 시리즈  | 지원되지 않는 크기 |
+|------------|-------------------|
+| A 시리즈   | 아주 작음       |
 | Av2 시리즈 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
-
-## <a name="restricted-vm-families"></a>제한되는 VM 제품군
-
-다음 VM 제품군은 Batch 풀에 할당할 수 있지만 특정 할당량 증가를 요청해야 합니다([이 문서 ](batch-quota-limit.md#increase-a-quota) 참조).
-
-* NCv2 시리즈
-* NCv3 시리즈
-* ND 시리즈
-
-이러한 크기는 Virtual Machine 구성의 풀에서만 사용할 수 있습니다.
 
 ## <a name="size-considerations"></a>크기 고려 사항
 
@@ -89,9 +83,9 @@ Cloud Service 구성의 Batch 풀은 다음을 *제외한* 모든 [Cloud Service
 
 * **노드당 태스크 수** - 한 번에 하나의 태스크가 하나의 노드에서 실행된다고 가정하여 노드 크기를 선택하는 것이 일반적입니다. 하지만 작업 실행 중에 계산 노드에서 여러 태스크(따라서 여러 애플리케이션 인스턴스)를 [병렬로 실행하는](batch-parallel-node-tasks.md) 것이 유리할 수도 있습니다. 이 경우 병렬 태스크 실행에 대해 증가되는 수요를 수용할 수 있도록 멀티 코어 노드 크기를 선택하는 것이 일반적입니다.
 
-* **다른 태스크에 대한 로드 수준** - 풀의 모든 노드는 동일한 크기입니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 애플리케이션을 실행하려면 별도의 풀을 사용하는 것이 좋습니다. 
+* **다른 태스크에 대한 로드 수준** - 풀의 모든 노드는 동일한 크기입니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 애플리케이션을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
 
-* **지역 가용성** - VM 제품군 또는 크기는 배치 계정을 만든 지역에서 사용하지 못할 수도 있습니다. 크기를 사용할 수 있는지를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
+* **지역 가용성** -VM 시리즈 또는 크기 못할 Batch 계정을 만든 지역에서 합니다. 크기를 사용할 수 있는지를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 
 * **할당량** - 배치 계정의 [코어 할당량](batch-quota-limit.md#resource-quotas)은 Batch 풀에 추가할 수 있는 지정된 크기의 노드 수를 제한할 수 있습니다. 할당량 증가를 요청하려면 [이 문서](batch-quota-limit.md#increase-a-quota)를 참조하세요. 
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083745"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -73,5 +73,5 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
-* [조건부 액세스를 사용한 앱 보호](../active-directory-conditional-access-azure-portal.md)
+* [조건부 액세스를 사용 하 여 앱 보호](../active-directory-conditional-access-azure-portal.md)
 * [셀프 서비스 그룹 관리/SSAA](groups-self-service-management.md)

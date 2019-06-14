@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061409"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스의 단일 데이터베이스에 Excel을 연결하고 보고서 만들기
 
@@ -37,9 +37,9 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
    ![데이터 원본을 선택합니다. Excel을 SQL Database에 연결합니다.](./media/sql-database-connect-excel/excel_data_source.png)
 
    데이터 연결 마법사가 열립니다.
-3. **데이터베이스 서버에 연결** 대화 상자에서 <*servername*>**.database.windows.net** 형식에서 연결하려는 SQL Database **서버 이름**을 입력합니다. 예를 들어, **msftestserver.database.windows.net**입니다. 선택적으로 데이터베이스 이름을 입력합니다. **확인**을 선택하여 자격 증명 창을 엽니다. 
+3. **데이터베이스 서버에 연결** 대화 상자에서 <*servername*> **.database.windows.net** 형식에서 연결하려는 SQL Database **서버 이름**을 입력합니다. 예를 들어, **msftestserver.database.windows.net**입니다. 선택적으로 데이터베이스 이름을 입력합니다. **확인**을 선택하여 자격 증명 창을 엽니다. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![데이터베이스 서버 대화 상자에 연결](media/sql-database-connect-excel/server-name.png)
 
 4. **SQL Server 데이터베이스** 대화 상자에서 왼쪽의 **데이터베이스**를 선택한 다음, 연결할 SQL Database 서버의 **사용자 이름**과 **암호**를 입력합니다. **연결**을 선택하여 **탐색기**를 엽니다. 
 
@@ -68,7 +68,7 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
 
 > [!TIP]
 > 다른 Excel 통합 문서 및 워크시트를 데이터베이스에 연결하려면 **데이터** 탭을 선택하고 **최근 원본**을 선택하여 **최근 원본** 대화 상자를 시작합니다. 여기서, 목록에서 만든 연결을 선택한 다음, **열기**를 클릭합니다.
-> ![최신 연결](media/sql-database-connect-excel/recent-connections.png)
+> ![최근 원본 대화 상자](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>.odc 파일을 사용하여 영구 연결 만들기
 
@@ -78,7 +78,7 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
    1. **더 찾아보기**를 선택하여 **데이터 원본 선택** 대화 상자를 엽니다.   
    2. **+NewSqlServerConnection.odc** 파일을 선택한 후 **열기**를 선택하여 **데이터 연결 마법사**를 엽니다.
 
-      ![새 연결](media/sql-database-connect-excel/new-connection.png)
+      ![새 연결 대화 상자](media/sql-database-connect-excel/new-connection.png)
 
 2. **데이터 연결 마법사**에서 서버 이름과 SQL Database 자격 증명을 입력합니다. **다음**을 선택합니다. 
    1. 드롭다운에서 데이터가 포함된 데이터베이스를 선택합니다. 
@@ -97,7 +97,7 @@ Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이�
 
 5. **데이터** 탭을 확장하고 **기존 연결**을 선택하여 새 연결이 저장되었는지 확인합니다. 
 
-    ![기존 연결](media/sql-database-connect-excel/existing-connection.png)
+    ![Existing Connection](media/sql-database-connect-excel/existing-connection.png)
 
 ## <a name="next-steps"></a>다음 단계
 

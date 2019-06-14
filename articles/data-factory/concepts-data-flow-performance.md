@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057962"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 튜닝 가이드
 
@@ -41,7 +41,7 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Azure SQL Database 및 Azure SQL Data Warehouse에 대 한 최적화
 
-![원본 파트](media/data-flow/sourcepart2.png "일부 원본")
+![원본 파트](media/data-flow/sourcepart3.png "일부 원본")
 
 ### <a name="partition-your-source-data"></a>원본 데이터를 분할 합니다.
 
@@ -122,8 +122,8 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 * 계산 노드 리소스 소진을 방지 하려면 성능에 대 한 단위를 최적화 하는 ADF에 기본값 또는 명시적인 파티션 구성표를 유지 및 추가한 다음 새 단일 출력 폴더에서 파일을 파트의 모든 병합 하는 파이프라인의 후속 복사 작업 수 있습니다. 파일입니다. 기본적으로,이 기술은 파일 병합에서 변환의 작업을 나누고 "단일 파일에 출력을" 설정으로 동일한 결과 달성 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-다른 데이터 흐름 문서를 참조 하세요.
+다른 데이터 흐름 문서 성능과 관련 된 참조:
 
-- [데이터 흐름 개요](concepts-data-flow-overview.md)
+- [데이터 흐름 탭 최적화](concepts-data-flow-optimize-tab.md)
 - [데이터 흐름 작업](control-flow-execute-data-flow-activity.md)
 - [데이터 흐름 성능 모니터링](concepts-data-flow-monitoring.md)

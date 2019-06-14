@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808941"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 데이터 플랫폼
@@ -33,7 +33,7 @@ ms.locfileid: "60808941"
 Azure 리소스 모니터링 데이터의 상당한을 생성 합니다. Azure Monitor는 메트릭 또는 로그 플랫폼 중 하나로 모니터링 되는 다른 원본에서 데이터와 함께이 데이터를 통합 합니다. 각각은 특정 모니터링 시나리오에 최적화 하 고 Azure Monitor에서 다양 한 기능을 지 원하는 각 키를 누릅니다. 데이터 분석, 시각화 및 경고와 같은 기능을 사용 하면 가장 효율적이 고 비용 효율적인 방식으로 필요한 시나리오를 구현할 수 있도록 차이 이해 해야 합니다. Insights와 같은 Azure Monitor [Application Insights](../app/app-insights-overview.md) 또는 [Vm에 대 한 Azure Monitor](../insights/vminsights-overview.md) 분석 도구가 알 필요 없이 특정 모니터링 시나리오에 초점을 맞출 수 있도록 합니다 두 가지 유형의 데이터 간의 차이점입니다. 
 
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 [메트릭](data-platform-metrics.md)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 정기적으로 수집 하 고 타임 스탬프, 이름, 값 및 하나 이상의 정의 레이블을 사용 하 여 식별 됩니다. 메트릭은 다양 한 알고리즘, 다른 메트릭과 비교 하 고 시간에 따른 추세에 대 한 분석을 사용 하 여 집계할 수 있습니다. 
 
 Azure Monitor의 메트릭 타임 스탬프 데이터 분석을 위해 최적화 된 시계열 데이터베이스에 저장 됩니다. 특히 경고에 대 한 적합 한 빠르고 메트릭을 사용 하면이 문제를 검색 합니다. 시스템 수행 하는 방법을 알려 따르면 일반적으로 문제의 근본 원인을 파악 하기 위해 로그를 사용 하 여 결합 해야 합니다.
@@ -67,7 +67,7 @@ Azure Monitor에서 분산된 추적을 사용 하 여 사용할 수는 [Applica
 
 다음 표에서 메트릭 및 Azure Monitor의 로그를 비교 합니다.
 
-| 특성  | 메트릭 | 로그 |
+| 특성  | metrics | 로그 |
 |:---|:---|:---|
 | 이점 | 간단 하 고 거의 실시간으로 경고 하는 등의 시나리오의 수입니다. 빠른 검색 문제에 적합 합니다. | 풍부한 분석 쿼리 언어입니다. 심층 분석 하 고 근본 원인을 식별에 적합 합니다. |
 | Data | 숫자 값만 | 텍스트 또는 숫자 데이터 |

@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789487"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Azure Stream Analytics에 대 한 정책 순서를 지정 하는 이벤트를 구성 합니다.
@@ -73,7 +73,9 @@ Stream Analytics 작업 중 하나를 기반으로 이벤트를 처리할 수 �
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-이 메시지는 하나 이상의 파티션을 입력에서을 알리기 위해 비어 있고 출력 지연 도착 임계값으로 지연 됩니다. 이 문제를 해결할 것을 권장 하 중 하나: 1. 입력을 수신 하는 이벤트 허브/IoT Hub의 모든 파티션을 확인 합니다. 2. PartitionID 쿼리 절에서 파티션을 사용 합니다. 
+이 메시지는 하나 이상의 파티션을 입력에서을 알리기 위해 비어 있고 출력 지연 도착 임계값으로 지연 됩니다. 이 문제를 해결할 것을 권장 하 중 하나: 
+1. 입력을 수신 하는 이벤트 허브/IoT Hub의 모든 파티션을 확인 합니다. 
+2. PartitionID 쿼리 절에서 파티션을 사용 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * [시간 처리 고려 사항](stream-analytics-time-handling.md)

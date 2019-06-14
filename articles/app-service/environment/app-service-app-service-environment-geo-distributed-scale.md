@@ -16,10 +16,10 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130724"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
@@ -112,7 +112,7 @@ Traffic Manager 및 DNS 구성의 최종 결과 대 한 요청은 `www.scalablea
 6. 브라우저 또는 디바이스는 IP 주소에 HTTP/S 요청을 보냅니다.  
 7. 요청은 App Service Environment 중 하나에서 실행 중인 앱 인스턴스 중 하나에 도착합니다.
 
-아래 그림의 콘솔에서는 세 개의 샘플 App Service Environment 중 하나에서 실행 중인 앱 인스턴스를 성공적으로 해결하는 샘플 앱의 사용자 지정 도메인에 대한 DNS 조회를 보여줍니다.(이 경우 세 개의 App Service Environments 중 두 번째) 
+아래 그림의 콘솔에서는 세 개의 샘플 App Service Environment 중 하나에서 실행 중인 앱 인스턴스를 성공적으로 해결하는 샘플 앱의 사용자 지정 도메인에 대한 DNS 조회를 보여줍니다.(이 경우 세 개의 App Service Environments 중 두 번째)
 
 ![DNS 조회][DNSLookup] 
 

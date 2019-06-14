@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059300"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -62,6 +62,19 @@ ms.locfileid: "66515562"
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>시계열 예측
+수익, 인벤토리, 판매량 또는 고객 요청 인지 예측 구축이 모든 비즈니스의 필수적인 부분입니다. 다양 한 결합 된 기법 및 접근 방식을 고품질 시계열 예측을 권장 하는 기계 학습 사용을 자동화 합니다. 자동화 된 기계 학습의 실험을 시계열 다변량 회귀 문제도 처리 됩니다. 시계열 지난 값은 "피벗" 함께 다른 예측자는 회귀 변수에 대해 추가 차원이 될 합니다. 
+
+고전 시계열 메서드, 달리이 방식에서는 여러 컨텍스트 변수 및 해당 관계를 학습 하는 동안 자연스럽 게 통합 하는 이점은 있습니다. 실제 예측 응용 프로그램에서 여러 요인 예보를 변경할 수 있습니다. 예를 들어, 판매를 예측 하는 경우의 기록 추세, 환율 및 price가 모든 상호 작용 판매 결과 공동 드라이브입니다. 추가 혜택 예측을 회귀 모델의 모든 최근 혁신 즉시 적용 됩니다.
+
+미래를 얼마나 예측 (예측된 기간)를 확장 해야 기본 예측 사양의 일부입니다. 필수 매개 변수를 설정 `max_horizon` 실험 정의 개수 단위 기간 (시간 간격, 학습 데이터 예: 월별, 주별 아웃 forecaster는 예측의 기반으로 합니다. 
+
+자동화 된 기계 학습 데이터 집합 및 예측 지평에서 모든 항목에 대 한 단일 하지만 내부적으로 자주 분기 된 모델을 학습. 더 많은 데이터를 모델 매개 변수를 예측 하 사용할 수 있으므로 보이지 않는 계열에 일반화가 가능해 집니다. 
+
+학습 데이터에서 추출 된 기능을 중요 한 역할을 합니다. 자동화 된 ML 표준 사전 처리 단계를 수행 하 고 계절의 영향이 캡처 및 예측 정확도 최대화 하 추가-시계열 기능 (예: 연도, 월, 요일 등)를 생성 합니다. 
+
+경우 시나리오에 대 한 적절 한에 지시할 수 있습니다 지연 만들기를 자동화 된 ML (`target_lags`) 또는 롤링 창 집계 데이터 (`target_rolling_window_size`)에서 대상의 (`y_value`) 이전 값입니다. 
 
 ## <a name="preprocessing"></a>전처리
 
@@ -136,7 +149,7 @@ weighted_accuracy|Weighted accuracy(가중 정확도)는 각 예제에 제공된
 --|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|없음|
 r2_score|R2는 평균을 출력하는 기준선 모델과 비교한 제곱 오차의 결정 계수 또는 환원율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|없음|
-spearman_correlation|Spearman correlation(Spearman 상관 관계)은 두 데이터 세트 간 관계의 비모수 단조성 측정입니다. Pearson 상관 관계와 달리 Spearman 상관 관계는 두 데이터 세트가 모두 정규적으로 분포된다고 가정하지 않습니다. 다른 상관 계수처럼, 이 방식은 -1과 +1 사이에서 달라지며 0은 상관 관계가 없음을 의미합니다. - 1 또는 +1의 상관 관계는 정확히 단조성 관계를 의미합니다. 양의 상관 관계는 x가 증가할 때 y도 증가함을 의미합니다. 음의 상관 관계는 x가 증가할 때 y는 감소함을 의미합니다.|[계산](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|없음|
+spearman_correlation|Spearman correlation(Spearman 상관 관계)은 두 데이터 세트 간 관계의 비모수 단조성 측정입니다. Pearson 상관 관계와 달리 Spearman 상관 관계는 두 데이터 세트가 모두 정규적으로 분포된다고 가정하지 않습니다. 다른 상관 계수처럼, 이 방식은 -1과 +1 사이에서 달라지며 0은 상관 관계가 없음을 의미합니다. \- 1 또는 +1의 상관 관계는 정확히 단조성 관계를 의미합니다. 양의 상관 관계는 x가 증가할 때 y도 증가함을 의미합니다. 음의 상관 관계는 x가 증가할 때 y는 감소함을 의미합니다.|[계산](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|없음|
 mean_absolute_error|Mean absolute error(평균 절대 오차)는 목표와 예측 간 차이의 예상 절대값입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|없음|
 normalized_mean_absolute_error|Normalized mean absolute error(정규화된 평균 절대 오차)는 평균 절대 오차를 데이터 범위로 나눈 것입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|데이터 범위로 나누기|
 median_absolute_error|Median absolute error(중앙값 절대 오차)는 목표와 예측 간 모든 절대 차이의 중앙값입니다. 이 손실은 이상값보다 강력합니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|없음|
@@ -160,6 +173,7 @@ Azure Machine Learning을 사용 하 여 자동화 된 기계 학습 Python 모�
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|자동 모델 선택 및 교육 ML.NET를 사용 하 여 Visual Studio 및 Visual Studio Code를 사용 하 여.NET 앱에서 기계 학습 (미리 보기)를 자동화 합니다.|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|동시에 HDInsight 클러스터에서 Spark의 ML에 자동화 된 교육 작업을 확장 합니다.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Power BI (미리 보기)에서 직접 기계 학습 모델을 호출 합니다.|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|SQL Server 2019 빅 데이터 클러스터에서 데이터 모델을 학습 하는 새 컴퓨터를 만듭니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

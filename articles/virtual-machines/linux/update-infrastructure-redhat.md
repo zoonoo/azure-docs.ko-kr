@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 5/28/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: e950a92925e77fa05708d2af3e04e7991243f613
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 4315a849f3f117633f5f6a9d93c995ece9f527a3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076996"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -31,27 +31,40 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
 
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI에 대한 중요한 정보
-* 현재 Azure RHUI는 각 RHEL 제품군(RHEL6 또는 RHEL7)의 최신 부 릴리스만 지원합니다. RHUI에 연결된 RHEL VM 인스턴스를 최신 부 버전으로 업그레이드하려면 `sudo yum update`를 실행합니다.
+* Azure RHUI는 Azure에서 생성 된 모든 RHEL PAYG Vm을 지 원하는 업데이트 인프라입니다. 이 불가능 하지는 않습니다 구독 관리자 또는 위성 또는 업데이트의 다른 소스를 사용 하 여 PAYG RHEL Vm을 등록 하지만 간접 double 청구 하면 PAYG VM을 사용 하 여 이렇게 합니다. 세부 정보에 대 한 다음 지정 시점을 참조 하세요.
+* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 머신을 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. 를 일관 되 게 Azure 호스 티 드 RHUI 이외의 업데이트 인프라를 사용 해야 하는 경우 등록 하는 데 고려해 야 합니다 [RHEL BYOS 이미지](https://aka.ms/rhel-byos)합니다.
+* RHUI의 기본 동작을 실행할 때 RHEL VM에 최신 부 버전으로 업그레이드 하는 `sudo yum update`합니다.
 
     예를 들어 RHEL 7.4 PAYG 이미지에서 VM을 프로비전하고 `sudo yum update`를 실행하는 경우 RHEL 7.6 VM(RHEL7 제품군에서 최신 부 버전)이 설치됩니다.
 
-    이러한 동작을 피하려면 [Azure에 대한 Red Hat 기반 가상 머신 만들기 및 업로드](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에 설명된 대로 사용자 고유의 이미지를 빌드해야 합니다. 그런 다음 다른 업데이트 인프라([Red Hat 콘텐츠 전달 서버에 직접](https://access.redhat.com/solutions/253273) 또는 [Red Hat 위성 서버](https://access.redhat.com/products/red-hat-satellite))에 연결해야 합니다.
+    이 동작을 방지 하려면으로 전환할 수 있습니다 [확장 업데이트 지원 채널](#rhel-eus-and-version-locking-rhel-vms) 에 설명 된 대로 사용자 고유의 이미지를 빌드 또는 합니다 [만들기 및 Azure 용 Red Hat 기반 가상 머신을 업로드](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서. 다른 업데이트 인프라에 연결 해야 하는 사용자 고유의 이미지를 빌드하는 경우 ([직접 Red Hat 콘텐츠 전달 서버에](https://access.redhat.com/solutions/253273) 또는 [Red Hat 위성 서버](https://access.redhat.com/products/red-hat-satellite)).
 
-* Azure 호스티드 RHUI에 대한 액세스는 RHEL PAYG 이미지 가격에 포함됩니다. Azure 호스티드 RHUI에서 PAYG RHEL VM의 등록을 취소하면 가상 머신을 사용자 라이선스 필요(BYOL) 형식 VM으로 변환하지 않습니다. 동일한 VM을 다른 업데이트 소스에 등록하면 _간접_ 요금이 이중으로 부과될 수 있습니다. 최초의 Azure RHEL 소프트웨어 요금이 사용자에게 청구됩니다. 이전에 구매한 Red Hat 구독에 대한 요금이 두 번째로 부과됩니다. Azure 호스티드 RHUI 이외의 업데이트 인프라를 지속적으로 사용해야 한다면 사용자 고유의(BYOL 형식) 이미지를 만들어 배포하도록 고려합니다. 이 과정은 [Azure용 Red Hat 기반 가상 머신 만들기 및 업데이트](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 설명합니다.
+
 
 * Azure(RHEL for SAP HANA 및 RHEL for SAP Business Applications)에서 RHEL PAYG 이미지는 SAP 인증에 필요한 특정 RHEL 부 버전에 남아 있는 전용 RHUI 채널에 연결됩니다.
 
 * Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 내의 VM에 제한됩니다. 온-프레미스 네트워크 인프라를 통해 모든 VM 트래픽을 프록시로 사용하는 경우 Azure RHUI에 액세스하도록 RHEL PAYG VM에 대한 사용자 정의 경로를 설정해야 할 수 있습니다.
 
 ## <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEl EUS 및 버전 잠금 RHEL VM
-일부 고객은 특정 RHEL 부 릴리스로 RHEL VM을 잠글 수도 있습니다. Extended Update Support 리포지토리에 연결하도록 리포지토리를 업데이트하여 RHEL VM을 특정 부 버전으로 버전을 잠글 수 있습니다. 다음 지침을 사용하여 특정 부 릴리스로 RHEL VM을 잠급니다.
+일부 고객은 특정 RHEL 부 릴리스로 RHEL VM을 잠글 수도 있습니다. Extended Update Support 리포지토리에 연결하도록 리포지토리를 업데이트하여 RHEL VM을 특정 부 버전으로 버전을 잠글 수 있습니다. 또한 EUS 버전 잠금 작업을 취소할 수 있습니다.
+
+>[!NOTE]
+> EUS는 RHEL 추가 기능에서 지원 되지 않습니다. 이 일반적으로 RHEL Extras 채널에서 사용할 수 있는 패키지를 설치 하는 경우 있습니다 됩니다 EUS 반면 그렇게 할 것을 의미 합니다. Red Hat 기타 제품 수명 주기는 자세한 [여기](https://access.redhat.com/support/policy/updates/extras/)합니다.
+
+이 문서 작성 당시 EUS 지원 rhel 마쳤습니다 < 7.3 =. "Red Hat Enterprise Linux 긴 지원 추가 기능" 섹션을 참조 합니다 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata/) 대 한 자세한 내용은 합니다.
+* RHEL 7.4 EUS 지원이 종료 2019 년 8 월 31 일
+* RHEL 7.5 EUS 지원이 종료 2020 년 4 월 30 년
+* 2020 년 10 월 31, RHEL 7.6 EUS 지원이 종료
+
+### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM EUS (버전 잠금 특정 부 버전)으로 전환
+다음 지침을 사용 하 여 특정 사소한 릴리스로 써 (루트로 실행)에 RHEL VM을 잠금.
 
 >[!NOTE]
 > 이는 EUS를 사용할 수 있는 RHEL 버전에만 적용됩니다. 이 문서 작성 당시 여기에는 RHEL 7.2-7.6이 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
 
 1. 비 EUS 리포지토리를 비활성화합니다.
     ```bash
-    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
+    yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. EUS 리포지토리를 추가 합니다.
@@ -59,13 +72,30 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. releasever 변수를 잠급니다.
+1. (루트로 실행) releasever 변수의 잠금:
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
     > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 7.5 > /etc/yum/vars/releasever`는 RHEL 7.5로 RHEL 버전을 잠급니다.
+
+1. RHEL VM 업데이트
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>비 EUS (버전 잠금을 제거)으로 RHEL VM을 전환 합니다.
+다음 루트로 실행 합니다.
+1. Releasever 파일을 제거 합니다.
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. EUS 리포지토리를 사용 하지 않도록 설정 합니다.
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+   ```
 
 1. RHEL VM 업데이트
     ```bash
@@ -121,9 +151,9 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
 1. Azure RHUI 엔드포인트에 대한 VM 구성 검사
 
-    a. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
+    1. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
 
-    b. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅샷을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
+    1. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅샷을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 
 1. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 내의 VM에 제한됩니다.
 
@@ -142,7 +172,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
   ```bash
   yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel6.config' install 'rhui-azure-rhel6'
   ```
-        
+
 - RHEL 7의 경우:
   ```bash
   yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'

@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729383"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
@@ -31,7 +31,7 @@ ms.locfileid: "64729383"
 - **문자열 ID**: 라이선스에 대한 작업을 수행할 때 PowerShell v1.0 cmdlet에서 사용됩니다.
 - **GUID**: Azure AD Graph 및 Microsoft Graph에서 사용되는 GUID입니다.
 - **포함된 서비스 플랜**: 문자열 ID 및 GUID에 해당하는 제품의 서비스 플랜 목록입니다.
-- **서비스 계획 포함 (이름)**: 서비스 계획 (이름) 제품의 문자열 ID 및 GUID에 해당 하는 목록
+- **서비스 계획 포함 (이름)** : 서비스 계획 (이름) 제품의 문자열 ID 및 GUID에 해당 하는 목록
 
 >[!NOTE]
 >이 정보는 2019 년 4 월 15 일을 기준으로 합니다.

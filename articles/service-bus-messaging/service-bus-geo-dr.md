@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058182"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -47,7 +47,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 -  *메타데이터*: 큐, 토픽 및 구독과 같은 엔터티 및 네임스페이스와 연결된 서비스의 해당 속성입니다. 엔터티 및 해당 설정만이 자동으로 복제됩니다. 메시지는 복제되지 않습니다.
 
--  *장애 조치(Failover)*: 보조 네임스페이스를 활성화하는 프로세스입니다.
+-  *장애 조치(failover)* : 보조 네임스페이스를 활성화하는 프로세스입니다.
 
 ## <a name="setup"></a>설정
 
@@ -120,7 +120,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 2. 데이터가 복제되지 않으면 현재 활성 세션이 복제되지 않습니다. 또한 중복 검색 및 예약된 메시지가 작동하지 않을 수 있습니다. 새 세션, 새 예약된 메시지 및 새 중복이 작동합니다. 
 
-3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)을 수행해야 합니다.
+3. 복잡한 분산 인프라를 장애 조치하려면 한 번 이상 [예행 연습](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)을 수행해야 합니다.
 
 4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다. 구독 및 규칙은 엔터티로 계산합니다.
 

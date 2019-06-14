@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 8e344d6908ba19f8e2294c7777b9c1016eafaf52
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43f940c3c5b0fcf06fb5aa9be268f85db19fc8a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077655"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -24,7 +24,7 @@ Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사
 
 ## <a name="escalation-tracks"></a>에스컬레이션 추적
 
-다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정 하는 경우 발생할 수 있습니다 문제 식별 및 해결 합니다.
+다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정 하는 경우 발생할 수 있습니다 문제 식별 및 해결 합니다. 테 넌 트의 설정 하 고, 사용 하 여 새로운 [진단 서비스](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) 일반적인 시나리오에 대 한 문제를 식별 합니다.
 
 >[!NOTE]
 >Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사례를 접수하지 않습니다. Windows 가상 데스크톱 지원, 참조 될 때마다 현재 기술 커뮤니티 포럼으로 이동 합니다. 방문 합니다 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 제품 팀과 활발 한 커뮤니티 멤버를 사용 하 여 문제를 설명 합니다. 지원 문제를 해결 해야 할 경우 작업 ID와 포함 하기 위한 대략적인 시간 프레임 문제가 발생 한 경우.

@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631612"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
@@ -69,7 +69,7 @@ Nasuni는 마이그레이션을 손쉽게 – 지금 시작 하려면 환경에 
 
 Talon을 사용 하면 더 큰 함수를 사용 하 여 StorSimple 플랫폼 (무제한 클라우드 리소스에서 지 원하는 작은 온사이트 공간)에서는 반환 이러한 이점을 활용할 수 계속 하려면 StorSimple 5000 ~ 7000 고객이 쉬워집니다.  Talon 빠른 솔루션을 사용 하면 고객이 마이그레이션할 수 잠금과 유지 이제는 더 작은 소프트웨어 전용 현장 공간이 필요 하 고 전역 파일과 같은 혜택을 추가 하는 동안 Azure에서 해당 데이터를 전역 네임 스페이스 및 다중 사이트 공동 작업 합니다.  Talon는 글로벌 고객에 게 그대로 유지 하면서 사용자 워크플로 또는 환경 없이 통합, Azure 기반 공간에 온-프레미스 파일 서버 워크 로드 마이그레이션 작업, 최고의 Azure 에코 시스템 솔루션입니다.  
 
-클라우드 통합 엔터프라이즈에서 진화 하는 방법에 자세히 알아보려면 https://www.talonstorage.com/alliances/microsoft-storsimple합니다.
+클라우드 통합 엔터프라이즈에서 진화 하는 방법에 자세히 알아보려면 https://www.talonstorage.com/alliances/microsoft-storsimple 합니다.
 
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답

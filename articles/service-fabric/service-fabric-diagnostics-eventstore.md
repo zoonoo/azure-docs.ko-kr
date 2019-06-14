@@ -12,23 +12,24 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2019
+ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: 520961fb4bd126ef878a779c10fb5689b8692c73
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f1e7428bc0665cdd3f981bb9c2e7b1f564598f40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074247"
 ---
-# <a name="eventstore-service-overview"></a>EventStore 서비스 개요
+# <a name="eventstore-overview"></a>EventStore 개요
 
 >[!NOTE]
 >Service Fabric 버전 6.4부터 EventStore API는 Azure에서만 실행되는 Windows 클러스터에 제공됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
 
 ## <a name="overview"></a>개요
 
-6.2 버전에 도입된 EventStore 서비스는 Service Fabric의 모니터링 옵션입니다. EventStore는 일정한 시기에 클러스터 또는 워크로드의 상태를 파악할 수 있는 방법을 제공합니다. EventStore는 클러스터에서 이벤트를 유지 관리하는 상태 저장 Service Fabric 서비스입니다. 이벤트는 Service Fabric Explorer, REST 및 API를 통해 노출됩니다. EventStore는 클러스터를 직접 쿼리하여 클러스터의 모든 엔터티에 대한 진단 데이터를 획득하고 다음 용도로 사용할 수 있습니다.
+6\.2 버전에 도입된 EventStore 서비스는 Service Fabric의 모니터링 옵션입니다. EventStore는 일정한 시기에 클러스터 또는 워크로드의 상태를 파악할 수 있는 방법을 제공합니다.
+EventStore는 클러스터에서 이벤트를 유지 관리하는 상태 저장 Service Fabric 서비스입니다. 이벤트는 Service Fabric Explorer, REST 및 API를 통해 노출됩니다. EventStore는 클러스터를 직접 쿼리하여 클러스터의 모든 엔터티에 대한 진단 데이터를 획득하고 다음 용도로 사용할 수 있습니다.
 
 * 개발 또는 테스트의 문제 또는 모니터링 파이프라인을 사용할 위치의 문제 진단
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
@@ -39,7 +40,7 @@ ms.locfileid: "64683738"
 EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric 이벤트](service-fabric-diagnostics-event-generation-operational.md)를 참조하세요.
 
 >[!NOTE]
->Service Fabric 버전 6.2부터 EventStore API는 현재 Azure에서만 실행되는 Windows 클러스터에 대한 미리 보기로 제공됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
+>Service Fabric 버전 6.4부터 EventStore Api 및 UX Azure Windows 클러스터에 대 한 일반 공급 됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
 
 클러스터의 각 엔터티 및 엔터티 형식에 사용할 수 있는 이벤트에 대해 EventStore 서비스를 쿼리할 수 있습니다. 즉, 다음 수준에서 이벤트를 쿼리할 수 있습니다.
 * 클러스터: 클러스터 자체에 한정된 이벤트(예: 클러스터 업그레이드)
@@ -70,9 +71,21 @@ EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지
     ],
 ```
 
-### <a name="azure-cluster"></a>Azure 클러스터
+### <a name="azure-cluster-version-65"></a>Azure 클러스터 버전 6.5 이상
+Azure 클러스터 가져옵니다 6.5 또는 더 높은 버전으로 업그레이드 하는 경우 클러스터에서 EventStore는 자동으로 활성화 됩니다. 옵트아웃 하려면 다음으로 클러스터 템플릿을 업데이트 해야 합니다.
 
-클러스터의 Azure Resource Manager 템플릿에서 켜면 EventStore 서비스를 수행 하 여는 [클러스터 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md) 및 다음 코드를 추가, 사용 하 여의 PlacementConstraints EventStore의 복제본을 배치 하려면 시스템 서비스에 대 한 전용 된 NodeType에 예를 들어 특정 NodeType의 서비스입니다. `upgradeDescription` 섹션은 노드에서 다시 시작을 트리거하도록 구성 업그레이드를 구성합니다. 다른 업데이트에서 섹션을 제거할 수 있습니다.
+* API 버전을 사용 하 여 `2019-03-01` 이상 
+* 클러스터의 속성 섹션에 다음 코드를 추가 합니다.
+  ```json  
+    "fabricSettings": [
+      …
+    ],
+    "eventStoreEnabled": false
+  ```
+
+### <a name="azure-cluster-version-64"></a>Azure 클러스터 버전 6.4
+
+버전 6.4를 사용 하는 경우에 EventStore 서비스를 활성화 하 여 Azure Resource Manager 템플릿을 편집할 수 있습니다. 수행 하 여 이렇게를 [클러스터 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md) 및 다음 코드를 추가, 사용 하 여의 PlacementConstraints 시스템 서비스에 대 한 전용 된 NodeType에 예를 들어 특정 NodeType에 EventStore 서비스의 복제본을 저장 하려면 . `upgradeDescription` 섹션은 노드에서 다시 시작을 트리거하도록 구성 업그레이드를 구성합니다. 다른 업데이트에서 섹션을 제거할 수 있습니다.
 
 ```json
     "fabricSettings": [
