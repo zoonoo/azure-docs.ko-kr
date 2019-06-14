@@ -273,7 +273,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    +---------+----------+------+--------------------+-----+
    ```
 
-2. **level**열을 **subscription_type**으로 변경하도록 이 데이터를 추가로 변환할 수 있습니다.
+2. **level** 열을 **subscription_type**으로 변경하도록 이 데이터를 추가로 변환할 수 있습니다.
 
    ```scala
    val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
