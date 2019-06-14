@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538860"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 Azure를 사용 하 여 IBM 메인프레임에서 3270 화면 기반 앱 통합
@@ -355,7 +355,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
    ![3270 작업 선택](./media/connectors-create-api-3270/select-3270-action.png)
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 연결이 아직 없을 경우 연결에 필요한 정보를 입력 하 고 선택 **만들기**합니다.
 

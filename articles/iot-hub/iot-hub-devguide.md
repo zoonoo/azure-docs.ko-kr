@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400153"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub 개발자 가이드
@@ -55,7 +55,7 @@ Azure IoT Hub는 다음을 제공합니다.
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md) - 장치 및 클라우드 구성 요소에 대한 IoT Hub 기능에 액세스 권한을 부여하는 데 사용되는 보안 모델을 설명합니다. 이 문서에서는 토큰 및 X.509 인증서 사용에 대한 정보와 부여할 수 있는 권한 정보를 포함합니다.
 
-* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md) - ‘디바이스 쌍’ 개념을 설명합니다. 장치 쌍과 장치 동기화 등 쌍 노출 기능 장치를 설명 합니다. 이 문서는 디바이스 쌍에 저장된 데이터에 대한 정보도 포함합니다.
+* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md) - ‘디바이스 쌍’ 개념을 설명합니다.  장치 쌍과 장치 동기화 등 쌍 노출 기능 장치를 설명 합니다. 이 문서는 디바이스 쌍에 저장된 데이터에 대한 정보도 포함합니다.
 
 * [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md) - 직접 메서드의 수명 주기에 대해 설명합니다. 이 문서에서는 백엔드 앱으로부터 디바이스에 대한 메서드를 호출하고 디바이스에서 직접 메서드를 처리하는 방법에 대해 설명합니다.
 

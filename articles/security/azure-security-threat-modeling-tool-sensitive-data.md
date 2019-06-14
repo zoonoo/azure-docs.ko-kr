@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610578"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | 위험 완화 
@@ -205,7 +205,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **적용 가능한 기술** | 일반 |
 | **특성**              | N/A  |
 | **참조**              | [SQL Server TDE(투명한 데이터 암호화) 이해](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
-| **단계** | SQL Server의 TDE(투명한 데이터 암호화) 기능을 통해 데이터베이스에서 중요한 데이터를 암호화하고 인증서를 사용하여 데이터를 암호화하는 데 사용되는 키를 보호할 수 있습니다. 그러면 키가 없는 사용자가 데이터를 사용하지 않도록 방지합니다. TDE는 데이터와 로그 파일을 의미하는 미사용 데이터를 보호합니다. 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다. |
+| **단계** | SQL Server의 TDE(투명한 데이터 암호화) 기능을 통해 데이터베이스에서 중요한 데이터를 암호화하고 인증서를 사용하여 데이터를 암호화하는 데 사용되는 키를 보호할 수 있습니다. 그러면 키가 없는 사용자가 데이터를 사용하지 않도록 방지합니다. TDE는 데이터와 로그 파일을 의미하는 미사용 데이터를 보호합니다. 다양한 업계에서 확립된 법, 규정 및 지침에 부합하는 기능을 제공합니다. |
 
 ## <a id="backup"></a>데이터베이스 백업이 암호화되었는지 확인
 

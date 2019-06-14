@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60625286"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
@@ -199,7 +199,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ### <a name="search-through-graylog-messages"></a>Graylog 메시지를 통해 검색
 
-Graylog 서버에서 메시지를 수집하도록 허용된 약간의 시간이 지나면 메시지를 검색할 수 있습니다. Graylog 서버로 보내는 메시지를 확인하려면 **입력** 구성 페이지에서 만든 GELF UDP 입력의 "**Show received messages(수신 메시지 표시)**" 단추를 클릭합니다. 다음 그림과 비슷한 화면으로 이동하게 됩니다. 
+Graylog 서버에서 메시지를 수집하도록 허용된 약간의 시간이 지나면 메시지를 검색할 수 있습니다. Graylog 서버로 보내는 메시지를 확인하려면 **입력** 구성 페이지에서 만든 GELF UDP 입력의 "**Show received messages(수신 메시지 표시)** " 단추를 클릭합니다. 다음 그림과 비슷한 화면으로 이동하게 됩니다. 
 
 ![히스토그램](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 

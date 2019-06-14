@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387828"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-spark.md)
 > * [현재 버전](transform-data-using-spark.md)
 
@@ -62,7 +62,7 @@ Spark 작업의 샘플 JSON 정의는 다음과 같습니다.
 
 | 자산              | 설명                              | 필수 |
 | --------------------- | ---------------------------------------- | -------- |
-| 이름                  | 파이프라인의 작업 이름입니다.    | 예      |
+| name                  | 파이프라인의 작업 이름입니다.    | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식                  | Spark 작업의 경우 작업 유형은 HDInsightSpark입니다. | 예      |
 | linkedServiceName     | Spark 프로그램이 실행되는 HDInsight Spark 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |

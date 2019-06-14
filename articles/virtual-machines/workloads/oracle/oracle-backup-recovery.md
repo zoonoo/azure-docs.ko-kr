@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567084"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Azure Linux Virtual Machine에서 Oracle Database 12c 데이터베이스 백업 및 복구
@@ -139,7 +139,7 @@ Azure CLI를 사용하여 명령줄 프롬프트 또는 스크립트를 사용�
 
 1. JSON 파일을 다운로드합니다.
 
-    https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
+    https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig 에서 VMSnapshotScriptPluginConfig.json을 다운로드합니다. 파일 콘텐츠는 다음과 유사하게 나타납니다.
 
     ```azurecli
     {

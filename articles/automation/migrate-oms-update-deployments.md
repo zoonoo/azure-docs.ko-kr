@@ -10,10 +10,10 @@ ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499259"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS 업데이트 배포를 Azure로 마이그레이션
@@ -57,7 +57,7 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 머신이 업데이트되려면 기존 OMS 배포에서 사용되는 저장된 검색을 선택합니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 |Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| **Linux** 또는 **Windows**를 선택합니다.|

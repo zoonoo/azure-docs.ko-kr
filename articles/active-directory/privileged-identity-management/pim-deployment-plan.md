@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440636"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
@@ -99,7 +99,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대한 PIM
 
-| Name | 역할 | 액션(Action) |
+| 이름 | 역할 | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 자신의 팀에 대해 의사 결정을 하고 PIM을 실행하도록 도와 주는 핵심 역할을 합니다. | SO/R/I |
@@ -109,7 +109,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대한 PIM
 
-| Name | 역할 | 액션(Action) |
+| 이름 | 역할 | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>다음에 대한 PIM을 배포하려는 각 구독 또는 리소스의 IT 소유자 출신 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -353,7 +353,7 @@ PIM이 프로덕션 환경에서 원하는 대로 작동하지 않은 경우 다
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다.
 1. **Azure AD 역할**을 클릭한 다음, **역할**을 클릭합니다.
-1. 구성한 각 역할의 자격이 있는 할당을 가진 모든 사용자에 대해 줄임표(**...** )를 클릭합니다.
+1. 구성한 각 역할의 자격이 있는 할당을 가진 모든 사용자에 대해 줄임표( **...** )를 클릭합니다.
 1. **영구 상태로 만들기** 옵션을 클릭하여 역할 할당을 영구 상태로 만듭니다.
 
 #### <a name="azure-resource-roles"></a>Azure 리소스 역할
@@ -362,7 +362,7 @@ PIM이 프로덕션 환경에서 원하는 대로 작동하지 않은 경우 다
 1. **Azure AD Privileged Identity Management**를 엽니다.
 1. **Azure 리소스**를 클릭한 다음, 롤백하려는 구독 또는 리소스를 클릭합니다.
 1. **역할**을 클릭합니다.
-1. 구성한 각 역할의 자격이 있는 할당을 가진 모든 사용자에 대해 줄임표(**...** )를 클릭합니다.
+1. 구성한 각 역할의 자격이 있는 할당을 가진 모든 사용자에 대해 줄임표( **...** )를 클릭합니다.
 1. **영구 상태로 만들기** 옵션을 클릭하여 역할 할당을 영구 상태로 만듭니다.
 
 ## <a name="step-4-next-steps-after-deploying-pim"></a>4단계. PIM을 배포한 후 다음 단계

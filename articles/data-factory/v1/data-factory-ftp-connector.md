@@ -14,14 +14,14 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486586"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-ftp-connector.md)
 > * [버전 2(현재 버전)](../connector-ftp.md)
 
@@ -225,8 +225,8 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 
 이 예에서는 일반 텍스트의 사용자 이름과 암호를 기본 인증으로 사용합니다. 다음 방법 중 하나를 사용할 수도 있습니다.
 
-* 익명 인증 
-* 암호화된 자격 증명으로 기본 인증 
+* 익명 인증
+* 암호화된 자격 증명으로 기본 인증
 * SSL/TLS 경우 FTP(FTPS)
 
 사용할 수 있는 다른 유형의 인증은 [FTP 연결 서비스](#linked-service-properties) 섹션을 참조하세요.

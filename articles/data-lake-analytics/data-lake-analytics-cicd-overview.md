@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333863"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
@@ -44,7 +44,7 @@ U-SQL 프로젝트용 빌드 작업을 설정하기 전에 최신 버전의 U-SQ
 해당 항목이 없으면 프로젝트를 마이그레이션하는 다음 두 가지 옵션 중 하나를 사용할 수 있습니다.
 
 - 옵션 1: 이전 가져오기 항목을 위의 항목으로 변경합니다.
-- 옵션 2: Azure Data Lake Tools for Visual Studio에서 이전 프로젝트를 엽니다. 2.3.3000.0보다 최신 버전을 사용합니다. 이전 프로젝트 템플릿은 최신 버전으로 자동으로 업그레이드됩니다. 2.3.3000.0보다 최신 버전을 사용하여 만든 새로운 프로젝트는 새 템플릿을 사용합니다.
+- 옵션 2: Azure Data Lake Tools for Visual Studio에서 이전 프로젝트를 엽니다. 2\.3.3000.0보다 최신 버전을 사용합니다. 이전 프로젝트 템플릿은 최신 버전으로 자동으로 업그레이드됩니다. 2\.3.3000.0보다 최신 버전을 사용하여 만든 새로운 프로젝트는 새 템플릿을 사용합니다.
 
 ### <a name="get-nuget"></a>NuGet 가져오기
 
@@ -456,31 +456,31 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 
 | 매개 변수 | 설명 | 기본값 | 필수 |
 |---------|-----------|-------------|--------|
-|패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|Null|true|
+|패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|null|true|
 |데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|마스터|false|
-|로그 파일|로깅을 위한 파일의 경로입니다. 표준 출력에 대한 기본값입니다(콘솔).|Null|false|
+|LogFile|로깅을 위한 파일의 경로입니다. 표준 출력에 대한 기본값입니다(콘솔).|null|false|
 |LogLevel|로그 수준: 자세한 정보, 보통, 경고 또는 오류입니다.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>로컬 배포에 대한 매개 변수입니다.
 
 |매개 변수|설명|기본값|필수|
 |---------|-----------|-------------|--------|
-|DataRoot|로컬 데이터 루트 폴더의 경로입니다.|Null|true|
+|DataRoot|로컬 데이터 루트 폴더의 경로입니다.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Azure Data Lake Analytics 배포에 대한 매개 변수입니다.
 
 |매개 변수|설명|기본값|필수|
 |---------|-----------|-------------|--------|
-|계좌|계정 이름별로 배포할 Azure Data Lake Analytics 계정을 지정합니다.|Null|true|
-|ResourceGroup|Azure Data Lake Analytics 계정에 대한 Azure 리소스 그룹 이름입니다.|Null|true|
-|SubscriptionId|Azure Data Lake Analytics 계정에 대한 Azure 구독 ID입니다.|Null|true|
-|테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|Null|true|
-|AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|Null|true|
+|계좌|계정 이름별로 배포할 Azure Data Lake Analytics 계정을 지정합니다.|null|true|
+|ResourceGroup|Azure Data Lake Analytics 계정에 대한 Azure 리소스 그룹 이름입니다.|null|true|
+|SubscriptionId|Azure Data Lake Analytics 계정에 대한 Azure 구독 ID입니다.|null|true|
+|테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|null|true|
+|AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|null|true|
 |대화형|인증에 대화형 모드를 사용할지 여부입니다.|false|false|
-|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|Null|비대화형 인증에 필요합니다.|
-|Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|Null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
-|SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|Null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
-|CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|Null|false|
+|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|null|비대화형 인증에 필요합니다.|
+|Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
+|SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
+|CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|null|false|
 | JobPrefix | U-SQL DDL 작업의 데이터베이스 배포에 대한 접두사입니다. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>다음 단계

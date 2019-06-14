@@ -9,17 +9,17 @@ ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131821"
 ---
 Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 사용하여 리소스를 관리, 배포 및 공유하기 위한 논리적 단위로 함수를 그룹화할 수 있습니다.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
-2. **새 프로젝트** 대화 상자에서 **설치됨** > **Visual C#** > **클라우드** > **Azure Functions**를 차례로 선택합니다. 프로젝트 이름을 입력하고 **확인**을 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
+2. **새 프로젝트** 대화 상자에서 **설치됨** > **Visual C#**  > **클라우드** > **Azure Functions**를 차례로 선택합니다. 프로젝트 이름을 입력하고 **확인**을 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
 
     ![Visual Studio에서 함수를 만드는 새 프로젝트 대화 상자](./media/functions-vstools-create/functions-vs-new-project.png)
 

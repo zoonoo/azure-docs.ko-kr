@@ -2,17 +2,16 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 저장소
 description: 볼륨, 영구적 볼륨, 저장소 클래스 및 클레임을 포함하여 AKS(Azure Kubernetes Service)의 저장소에 대해 알아봅니다.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/01/2019
+ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466820"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
