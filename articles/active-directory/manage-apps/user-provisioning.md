@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963988"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
@@ -261,7 +261,7 @@ Azure portal에서 감사 로그를 읽는 방법에 대 한 자세한 내용은
 
 예. "동기화만 할당 된 사용자 및 그룹" 하도록 프로 비전 서비스는 Azure AD 사용자 프로 비전 할 수 또는 멤버인 있는지 여부에 따라 SaaS 응용 프로그램에서 프로 비전 해제 사용자를 [동적 그룹](../users-groups-roles/groups-create-rule.md)합니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
 
-그러나 동적 그룹의 사용은 Azure AD에서 SaaS 애플리케이션으로의 종단 간 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용 하는 경우 이러한 제한 사항 및 권장 사항을 염두에서에 둡니다.
+그러나 동적 그룹의 사용은 Azure AD에서 SaaS 애플리케이션으로의 엔드투엔드 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용 하는 경우 이러한 제한 사항 및 권장 사항을 염두에서에 둡니다.
 
 - 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비전 또는 프로비전 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 자격 규칙에 대한 처리 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)을 참조하세요.
 
