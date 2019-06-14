@@ -11,10 +11,10 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60690707"
 ---
 # <a name="add-remove-and-sort-favorites"></a>즐겨찾기 추가, 제거 및 정렬

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610818"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
