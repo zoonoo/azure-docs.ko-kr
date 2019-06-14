@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062395"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 
@@ -158,11 +158,11 @@ REST api에서는 필터링 가능 됩니다 *에서* 간단한 필드에 대해
 
 ### <a name="approaches-for-filtering-on-text"></a>텍스트 필터링 방법
 
-| 접근 방식 | 설명 | 사용 시기 | 
+| 접근 방식 | 설명 | 사용 시기 |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | 문자열의 구분 기호로 분리 된 목록에 대 한 필드와 일치 하는 함수입니다. | 에 대 한 권장 [보안 필터](search-security-trimming-for-azure-search.md) 한 원시 텍스트 값이 많은 문자열 필드와 일치 해야 하는 필터입니다. 합니다 **search.in** 함수는 속도 위해 설계 되었습니다 및 명시적으로 사용 하 여 각 문자열에 대 한 필드를 비교 하는 보다 훨씬 빠릅니다 `eq` 고 `or`입니다. | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 사용 하 여 **search.ismatch** (또는 점수 매기기 동등한 **search.ismatchscoring**) 하나의 요청에 여러 검색 필터 조합을 하려는 경우. 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
-| [$filter=필드 연산자 문자열](query-odata-filter-orderby-syntax.md) | 필드, 연산자 및 값으로 구성된 사용자 정의 식입니다. | 정확히 일치 하는 문자열 필드는 문자열 값 사이의 찾으려는 경우이 사용 합니다. |
+| [`search.in`](search-query-odata-search-in-function.md) | 문자열의 구분 기호로 분리 된 목록에 대 한 필드와 일치 하는 함수입니다. | 에 대 한 권장 [보안 필터](search-security-trimming-for-azure-search.md) 한 원시 텍스트 값이 많은 문자열 필드와 일치 해야 하는 필터입니다. 합니다 **search.in** 함수는 속도 위해 설계 되었습니다 및 명시적으로 사용 하 여 각 문자열에 대 한 필드를 비교 하는 보다 훨씬 빠릅니다 `eq` 고 `or`입니다. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 사용 하 여 **search.ismatch** (또는 점수 매기기 동등한 **search.ismatchscoring**) 하나의 요청에 여러 검색 필터 조합을 하려는 경우. 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 필드, 연산자 및 값으로 구성된 사용자 정의 식입니다. | 정확히 일치 하는 문자열 필드는 문자열 값 사이의 찾으려는 경우이 사용 합니다. |
 
 ## <a name="numeric-filter-fundamentals"></a>숫자 필터 기본 사항
 

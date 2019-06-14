@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067960"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure 가상 네트워크 또는 방화벽 규칙을 사용 하 여 Azure container registry에 대 한 액세스 제한
 
@@ -216,7 +216,7 @@ VM을 만들 때 기본적으로 Azure는 동일한 리소스 그룹에서 가�
 
 ## <a name="allow-access-from-an-ip-address"></a>IP 주소에서 액세스 허용
 
-이 섹션에서는 Azure virtual network의 서브넷에서 액세스할 수 있도록 컨테이너 레지스트리를 구성 합니다. Azure CLI 및 Azure portal을 사용 하 여 해당 단계가 제공 됩니다.
+이 섹션에서는 특정 IP 주소 또는 범위에서 액세스할 수 있도록 컨테이너 레지스트리를 구성 합니다. Azure CLI 및 Azure portal을 사용 하 여 해당 단계가 제공 됩니다.
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>IP 주소-CLI에서에서 액세스 허용
 

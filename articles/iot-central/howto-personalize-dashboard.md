@@ -3,17 +3,17 @@ title: Azure IoT Central 개인 대시보드 만들기 | Microsoft Docs
 description: 사용자를 만들고 개인 대시보드를 관리 하는 방법에 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1641c4f3ae4eaa175657db8ff4064fa2202aea6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053005"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>개인 대시보드를 만들고 설정 합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064437"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 azure 모니터링 가상 머신 확장
 
@@ -38,17 +38,18 @@ Windows에 대 한 Log Analytics 에이전트 확장은 다음 버전의 Windows
 - Windows Server 2008 R2, 2012, 2012 R2, 2016 버전 1709 및 1803
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
-다음 표에서 Azure Monitor VM 확장 및 각 릴리스에 대 한 Log Analytics 에이전트 번들 버전의 매핑을 제공합니다. 
+다음 표에서 Windows Azure 모니터 VM 확장 및 각 릴리스에 대 한 Log Analytics 에이전트 번들 버전의 매핑을 제공합니다. 
 
-| Azure Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 릴리스 날짜 | 릴리스 정보 |
+| Log Analytics Windows 에이전트 번들 버전 | Azure Monitor Windows VM 확장 버전 | 릴리스 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | 2017 년 2 월 | |
-| 8.0.11072.0 | 1.0.11072.1 | 9 월 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | 2017 년 11 월 | | 
-| 8.0.11103.0 | 해당 없음 |  2018년 4월 | |
-| 8.0.11136.0 | 해당 없음 | 2018 년 9 월 |  <ul><li> VM 이동에 리소스 ID가 변경 검색에 대 한 지원 추가 </li><li> 리소스 ID를 비 확장을 사용 하는 경우 설치를 보고에 대 한 지원 추가 </li></ul>| 
-| 10.19.10006.0 | 해당 없음 | 2018 년 12 월 | <ul><li> 안정화 사소한 수정 </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | 2019 년 3 월 | <ul><li>안정화 사소한 수정 </li></ul> |
+| 10.20.18001 | 1.0.18001 | 2019 년 6 월 | <ul><li> 사소한 버그 수정 및 안정화 향상 된 기능 </li><li> 프록시 연결 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원)을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 </li></ul>|
+| 10.19.13515 | 1.0.13515 | 2019 년 3 월 | <ul><li>안정화 사소한 수정 </li></ul> |
+| 10.19.10006 | 해당 없음 | 2018 년 12 월 | <ul><li> 안정화 사소한 수정 </li></ul> | 
+| 8.0.11136 | 해당 없음 | 2018 년 9 월 |  <ul><li> VM 이동에 리소스 ID가 변경 검색에 대 한 지원 추가 </li><li> 리소스 ID를 비 확장을 사용 하는 경우 설치를 보고에 대 한 지원 추가 </li></ul>| 
+| 8.0.11103 | 해당 없음 |  2018년 4월 | |
+| 8.0.11081 | 1.0.11081 | 2017 년 11 월 | | 
+| 8.0.11072 | 1.0.11072 | 9 월 2017 | |
+| 8.0.11049 | 1.0.11049 | 2017 년 2 월 | |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

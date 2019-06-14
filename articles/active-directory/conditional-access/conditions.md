@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory 조건부 액세스의 조건이란? | Microsoft Docs
-description: Azure Active Directory 조건부 액세스에서 조건을 사용하여 정책을 트리거하는 방법을 알아봅니다.
+title: Azure Active Directory 조건부 액세스의 조건 이란? | Microsoft Docs
+description: Azure Active Directory 조건부 액세스에서 정책을 트리거할 수 조건을 사용 하는 방법을 알아봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,28 +18,28 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112604"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란?
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 이란?
 
-[Azure AD(Azure Active Directory) 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하여 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유("When this happens")에 대한 응답("Then do this")을 정의합니다.
+사용자를 사용 하 여 클라우드 앱에 액세스 하는 방법을 제어할 수 있습니다 [Azure Active Directory (Azure AD) 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)합니다. 조건부 액세스 정책을 응답 정의 ("Then do this") ("When this happens") 정책을 트리거하는 이유를 합니다.
 
 ![이유 및 응답](./media/conditions/10.png)
 
 
-조건부 액세스의 컨텍스트에서 **When this happens(이 경우)** 를 **조건**이라 합니다. **When this happens(이 경우)** 를 **액세스 제어**라 합니다. 조건과 액세스 제어의 조합이 조건부 액세스 정책을 나타냅니다.
+조건부 액세스의 컨텍스트에서 **이 경우** 호출 되는 **조건**합니다. **When this happens(이 경우)** 를 **액세스 제어**라 합니다. 조건 및 액세스 제어의 조합이 조건부 액세스 정책을 나타냅니다.
 
 ![조건부 액세스 정책](./media/conditions/61.png)
 
 
-조건부 액세스 정책에 구성하지 않은 조건은 적용되지 않습니다. 일부 조건은 환경에 조건부 액세스 정책을 적용하는 데 [필수적](best-practices.md)입니다.
+조건부 액세스 정책에서 구성 하지 않은 조건이 적용 되지 않습니다. 일부 조건은 [필수](best-practices.md) 환경에 조건부 액세스 정책을 적용 합니다.
 
-이 문서에서는 조건의 개요 및 조건부 액세스 정책에서 조건을 사용하는 방법을 설명합니다. 
+이 문서는 조건 및 조건부 액세스 정책에서 사용 하는 방법의 개요입니다. 
 
 ## <a name="users-and-groups"></a>개요
 
@@ -77,7 +77,7 @@ ms.locfileid: "65861537"
 
 ## <a name="sign-in-risk"></a>로그인 위험
 
-로그인 위험은 로그인을 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성의 지표(높음, 중간 또는 낮음)입니다. Azure AD는 사용자 로그인 중에 로그인 위험 수준을 계산합니다. 계산된 로그인 위험 수준을 조건부 액세스 정책의 조건으로 사용할 수 있습니다.
+로그인 위험은 로그인을 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성의 지표(높음, 중간 또는 낮음)입니다. Azure AD는 사용자 로그인 중에 로그인 위험 수준을 계산합니다. 계산 된 로그인 위험 수준을 조건부 액세스 정책에서 조건으로 사용할 수 있습니다.
 
 ![로그인 위험 수준](./media/conditions/22.png)
 
@@ -100,13 +100,13 @@ ms.locfileid: "65861537"
 지원되는 디바이스 플랫폼 목록은 [디바이스 플랫폼 조건](technical-reference.md#device-platform-condition)을 참조하세요.
 
 
-이 조건의 일반적인 사용 사례는 클라우드 앱에 대한 액세스를 [관리 디바이스](require-managed-devices.md)로 제한하는 정책입니다. 디바이스 플랫폼 조건을 포함하여 더 많은 시나리오를 보려면 [Azure Active Directory 앱 기반 조건부 액세스](app-based-conditional-access.md)를 참조하세요.
+이 조건의 일반적인 사용 사례는 클라우드 앱에 대한 액세스를 [관리 디바이스](require-managed-devices.md)로 제한하는 정책입니다. 장치 플랫폼 조건을 포함 하 여 더 많은 시나리오를 참조 하세요 [Azure Active Directory 앱 기반 조건부 액세스](app-based-conditional-access.md)합니다.
 
 
 
 ## <a name="device-state"></a>디바이스 상태
 
-디바이스 상태 조건은 하이브리드 Azure AD 가입 디바이스와, 조건부 액세스 정책에서 준수로 표시된 디바이스를 제외합니다. 
+장치 상태 조건을 하이브리드 Azure AD 조인 장치 및 조건부 액세스 정책에서 규정 준수로 표시 된 장치를 제외 합니다. 
 
 
 ![디바이스 상태 구성](./media/conditions/112.png)
@@ -125,12 +125,12 @@ ms.locfileid: "65861537"
 
 - 특정 국가 또는 지역에서 서비스에 액세스하는 사용자를 차단합니다. 
 
-자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건이란?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)을 참조하세요.
+자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)합니다.
 
 
 ## <a name="client-apps"></a>클라이언트 앱
 
-기본적으로 조건부 액세스 정책은 다음 앱에 적용됩니다.
+기본적으로 조건부 액세스 정책은 다음 앱에 적용 됩니다.
 
 - **[브라우저 앱](technical-reference.md#supported-browsers)** - 브라우저 앱에는 SAML, WS-Federation 또는 OpenID Connect 웹 SSO 프로토콜을 사용하는 웹 사이트가 포함됩니다. 이는 OAuth 기밀 클라이언트로 등록된 모든 웹 사이트 또는 웹 서비스에도 적용됩니다. 예를 들어 Office 365 SharePoint 웹 사이트가 있습니다. 
 
@@ -177,20 +177,20 @@ ms.locfileid: "65861537"
 
 다른 경우, 예를 들어 MFA가 필요한 경우 기본 인증을 사용하는 클라이언트가 MFA를 지원하지 않으므로 영향을 받는 사용자가 차단됩니다.
 
-사용자 및 그룹에 대해서만 이 설정을 대상으로 지정할 수 있습니다. 게스트나 역할을 지원하지 않습니다. 게스트 또는 역할 조건이 구성된 경우 조건부 액세스에서 정책을 사용자에게 적용해야 하는지 여부를 확인할 수 없기 때문에 모든 사용자가 차단됩니다.
+사용자 및 그룹에 대해서만 이 설정을 대상으로 지정할 수 있습니다. 게스트나 역할을 지원하지 않습니다. 게스트 또는 역할 상태를 구성 하는 경우 조건부 액세스 정책이 사용자에 게 적용 될 경우를 확인할 수 없으므로 모든 사용자가 차단 됩니다.
 
 
  자세한 내용은 다음을 참조하세요.
 
-- [Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
+- [Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)합니다.
  
-- [Azure Active Directory 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
+- [Azure Active Directory 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)합니다. 
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법에 대해 알아보려면 [빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+- 조건부 액세스 정책을 구성 하는 방법을 알아보려면 참조 [빠른 시작: Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 mfa](app-based-mfa.md)합니다.
 
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성 하려면 참조는 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151714"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808852"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -77,7 +77,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 2. PowerShell을 관리자 권한으로 실행합니다.
 
    >[!NOTE]
-   >IoT Edge를 하지 PowerShell (x86)를 설치 하는 AMD64 세션의 PowerShell 사용 합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행 합니다.
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
@@ -86,7 +86,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -95,7 +95,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 5. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -126,7 +126,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 2. PowerShell을 관리자 권한으로 실행합니다.
 
    >[!NOTE]
-   >IoT Edge를 하지 PowerShell (x86)를 설치 하는 AMD64 세션의 PowerShell 사용 합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행 합니다.
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
@@ -135,7 +135,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 3. 합니다 **배포 IoTEdge** 명령 인지 확인 하 Windows 컴퓨터에서 지원 되는 버전, 컨테이너 기능을 켭니다 모 비 런타임 및 IoT Edge 런타임에서 다운로드 합니다. 이 명령은 Windows 컨테이너를 사용 하 여 기본값으로 사용 됩니다. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -144,7 +144,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 6. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 사용 된 `-Dps` 수동 프로 비전 하는 대신 Device Provisioning Service를 사용 하는 플래그입니다.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -172,7 +172,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 오프 라인 구성 요소를 설치 하려면 사용 된 `-OfflineInstallationPath` 매개 변수는 배포 IoTEdge의 일부로 명령 및 파일 디렉터리의 절대 경로 제공 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -189,7 +189,7 @@ Get-Service iotedge
 최근 5분 간의 서비스 로그를 검사합니다. IoT Edge 런타임 설치를 완료, 실행 간격에서 발생 한 오류 목록이 표시 될 수 있습니다 **배포 IoTEdge** 하 고 **Initialize IoTEdge**합니다. 이러한 오류는 서비스를 구성 하기 전에 시작 하려고으로 예상 됩니다. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 실행 중인 모듈을 나열합니다. 새로 설치를 실행 하는 것을 표시만 모듈 뒤 **edge 에이전트**합니다. 한 후 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md), 다른 사용자가 표시 됩니다. 
@@ -233,7 +233,7 @@ URI 엔진 설치 스크립트의 출력에 나열 된 또는 config.yaml 파일
 다음 예제는 기존 구성 파일을 가리키고 Windows 컨테이너를 사용하는 설치를 보여 줍니다. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 

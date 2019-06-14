@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752229"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083796"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -270,7 +270,7 @@ Task | 최소 권한 역할 | 추가 역할
 인증 방법 구성 | 전역 관리자 | 
 모든 구성 읽기 | 전역 관리자 | 
 
-## <a name="security---conditional-access"></a>보안 - 조건부 액세스
+## <a name="security---conditional-access"></a>보안-조건부 액세스
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------

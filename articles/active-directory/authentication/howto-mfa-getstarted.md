@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235546"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Azure Multi-factor Authentication 클라우드 기반 배포 계획
@@ -301,7 +301,7 @@ NPS 인스턴스에 배포 된 경우에 사용 하 여 이미 참조할 [Azure 
 
 MFA를 사용 하 여 등록 되지 않은 사용자를 인증 하 려 할 때를 선택 합니다. 레지스트리 설정을 사용 하 여 `REQUIRE_USER_MATCH` 레지스트리 경로에 `HKLM\Software\Microsoft\AzureMFA` 기능 동작을 제어 합니다. 이 설정에 단일 구성 옵션이 있습니다.
 
-| 키 | Value | 기본값 |
+| 키 | 값 | 기본값 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | 설정되지 않음(TRUE와 동일) |
 

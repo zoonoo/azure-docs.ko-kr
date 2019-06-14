@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540823"
 ---
 #   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
@@ -264,5 +264,5 @@ Microsoft.Skills.Util.ShaperSkill
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [복합 유형을 사용 하는 방법](search-howto-complex-data-types.md)
-+ [기술 스토어 개요](knowledge-store-concept-intro.md)
++ [지식 저장소 개요](knowledge-store-concept-intro.md)
 + [정보 저장소를 사용 하 여 시작 하는 방법](knowledge-store-howto.md)

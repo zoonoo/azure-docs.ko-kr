@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
 ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391884"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
@@ -51,7 +51,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
    |  호스트 |[https://slack.botframework.com](`HDInsightClusterName.azurehdinsight.net`) 을 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
-   |  Port |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+   |  포트 |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값**을 사용합니다. |
    |  메커니즘 |선택 **Windows Azure HDInsight 서비스** |
    |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin**입니다. |

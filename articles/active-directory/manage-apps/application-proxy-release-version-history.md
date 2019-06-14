@@ -17,10 +17,10 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783298"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 애플리케이션 프록시: 버전 릴리스 내역
@@ -86,7 +86,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 
 ## <a name="earlier-versions"></a>이전 버전
 
-1.5.36.0 이전의 응용 프로그램 프록시 커넥터 버전을 사용 중인 경우 최신 확인 하기 위해 최신 버전으로 업데이트 기능을 완벽 하 게 지원 합니다.
+1\.5.36.0 이전의 응용 프로그램 프록시 커넥터 버전을 사용 중인 경우 최신 확인 하기 위해 최신 버전으로 업데이트 기능을 완벽 하 게 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 에 대해 자세히 알아보세요 [Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 대 한 원격 액세스](application-proxy.md)합니다.

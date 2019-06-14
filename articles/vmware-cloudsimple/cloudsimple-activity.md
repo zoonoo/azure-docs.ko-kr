@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160142"
 ---
 # <a name="activity-management-overview"></a>작업 관리 개요
 
 CloudSimple 사설 클라우드의 작동에 영향을 줄 수 있는 모든 활동을 추적 합니다. 이러한 활동을 경고, 이벤트, 작업 및 감사 활동을 포함 합니다. 합니다 [활동 페이지](https://docs.azure.cloudsimple.com/activity/) 현재 모든 활동을 요약 하 고 추가 세부 정보를 드릴 다운할 수 있습니다.
 
-## <a name="events"></a>이벤트
+## <a name="events"></a>Events
 
 이벤트는 CloudSimple 포털에서 사용자 및 시스템 작업을 추적합니다.  이벤트는 특정 리소스 영향의 심각도와 연결 된 활동을 표시 합니다.  CloudSimple 포털에서 이벤트를 볼 수 있습니다.
 
@@ -27,7 +27,7 @@ CloudSimple 사설 클라우드의 작동에 영향을 줄 수 있는 모든 활
 
 알림은 CloudSimple 환경에서 중요 한 작업의 알림입니다.  청구 또는 사용자 액세스에 영향을 주는 이벤트를 경고로 표시 됩니다.  CloudSimple 포털에서 발생 한 경고를 승인할 수 있습니다.
 
-## <a name="tasks"></a>작업
+## <a name="tasks"></a>태스크
 
 작업 완료를 30 초 넘게 걸리는 모든 사용자 작업을 추적 합니다.  CloudSimple 포털에서 작업의 진행률을 모니터링할 수 있습니다.  작업 표시 태스크 완료에 걸린 총 시간을 완료 합니다.
 

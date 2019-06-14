@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083533"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -88,7 +88,6 @@ ms.locfileid: "66477258"
 * Logic Apps
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
 * Managed Disks-관리 디스크가 가용성 영역에서 다른 구독으로 이동할 수 없습니다
-* 관리 ID - 사용자 할당
 * Media Services
 * Monitor - 새 구독으로 이동해도 [구독 할당량](../azure-subscription-service-limits.md#monitor-limits)을 초과하지 않는지 확인합니다.
 * Notification Hubs
@@ -141,6 +140,7 @@ ms.locfileid: "66477258"
 * ExpressRoute
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 * Managed Applications
+* 관리 ID - 사용자 할당
 * Microsoft Genomics
 * 보안
 * Site Recovery

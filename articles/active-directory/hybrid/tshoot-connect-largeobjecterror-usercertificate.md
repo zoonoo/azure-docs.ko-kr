@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095492"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
@@ -108,7 +108,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
     | 특성 | 연산자 | 값 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
-    | cloudMastered | NOTEQUAL | True  |
+    | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계. 필요한 아웃바운드 동기화 규칙을 만듭니다.
 새로운 동기화 규칙은 기존 동기화 규칙과 동일한 **범위 지정 필터**와 **높은 우선 순위**를 포함해야 합니다. 이렇게 하면 새 동기화 규칙이 기존 동기화 규칙과 동일한 개체 집합에 적용되고 userCertificate 특성에 대한 기존 동기화 규칙을 재정의합니다. 동기화 규칙을 만들려면

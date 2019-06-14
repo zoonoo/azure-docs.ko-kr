@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097200"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
@@ -39,7 +39,7 @@ ms.locfileid: "62097200"
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
 6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업**을 선택합니다.
-7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>**(코드 편집기) 아이콘을 선택합니다.
+7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>** (코드 편집기) 아이콘을 선택합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
          
         <policies>

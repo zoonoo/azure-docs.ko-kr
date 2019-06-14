@@ -17,19 +17,19 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294381"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108838"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
 이 플레이 북은 다음 작업을 수행하는 데 도움이 됩니다.
 
 * 위험 이벤트 및 취약성을 시뮬레이트하여 ID 보호 환경에 데이터 채우기
-* 위험 기반 조건부 액세스 정책을 설정하고 이러한 정책의 영향 테스트
+* 위험 기반 조건부 액세스 정책을 설정 하 고 이러한 정책의 영향 테스트
 
 
 ## <a name="simulating-risk-events"></a>위험 이벤트 시뮬레이션
@@ -42,7 +42,7 @@ ms.locfileid: "60294381"
 
 안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [익명 IP 주소에서 로그인](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)을 참조하세요. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "60294381"
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>일반적이지 않은 위치에서의 로그인
+### <a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [알 수 없는 위치에서 로그인](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)을 참조하세요. 
 
@@ -135,7 +135,7 @@ ms.locfileid: "60294381"
 6. 예를 들어 위험 이벤트 중 하나를 몇 번 시뮬레이트하여 테스트 계정의 사용자 위험을 상승시킵니다.
 7. 몇 분 정도 기다린 다음, 사용자에 대한 해당 사용자 수준이 보통인지 확인합니다. 보통이 아닌 경우 사용자에 대해 더 많은 위험 이벤트를 시뮬레이트합니다.
 8. **정책 적용**에 **켜기**를 선택합니다.
-9. 이제 위험 수준이 상승한 사용자로 로그인하여 사용자 위험 기반 조건부 액세스를 테스트할 수 있습니다.
+9. 이제 테스트 사용자 위험 기반 조건부 액세스 위험 수준이 상승된 된 사용자를 사용 하 여 로그인 합니다.
     
     
 
@@ -165,7 +165,7 @@ ms.locfileid: "60294381"
 
 7. **저장**을 클릭합니다.
 
-8. 이제 위험한 세션을 사용하여 로그인하여(예를 들어 Tor 브라우저 사용) 로그인 위험 기반 조건부 액세스를 테스트할 수 있습니다. 
+8. 이제 로그인 위험 기반 조건부 액세스 사용 하 여 위험한 세션 (예를 들어 Tor 브라우저)에 로그인 하 여 테스트할 수 있습니다. 
 
  
 

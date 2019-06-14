@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28277f61885b574026b19305bef143f09e0ec69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807702"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory B2B 협업
 
@@ -32,7 +32,7 @@ OneDrive/SharePoint Online에는 별도 초대 관리자가 있습니다. OneDri
 
 - Azure AD B2B 협업의 초대된 사용자는 OneDrive/SharePoint Online 공유 대화 상자에서 선택할 수 있습니다. OneDrive/SharePoint Online의 초대된 사용자는 초대를 상환한 후 Azure AD에도 표시됩니다.
 
-- 라이선싱 요구 사항이 다릅니다. 각 유료 Azure AD 라이선스의 경우 최대 5명의 게스트 사용자가 유료 Azure AD 기능에 액세스할 수 있도록 할 수 있습니다. 라이선스에 대해 자세히 알아보려면 [Azure AD B2B 라이선스](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) 및 [SharePoint Online 외부 공유 개요의 “외부 사용자란?”](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-is-an-external-user)을 참조하세요.
+- 라이선싱 요구 사항이 다릅니다. 각 유료 Azure AD 라이선스의 경우 최대 5명의 게스트 사용자가 유료 Azure AD 기능에 액세스할 수 있도록 할 수 있습니다. 라이선스에 대해 자세히 알아보려면 [Azure AD B2B 라이선스](https://docs.microsoft.com/azure/active-directory/b2b/licensing-guidance) 및 [SharePoint Online 외부 공유 개요의 “외부 사용자란?”](https://docs.microsoft.com/sharepoint/external-sharing-overview#what-happens-when-users-share)을 참조하세요.
 
 Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 관리하려면 OneDrive/SharePoint Online 외부 공유 설정을 **조직의 디렉터리에 이미 있는 외부 사용자와의 공유만 허용**으로 설정합니다. 사용자는 외부에서 공유되는 사이트로 이동하여 관리자가 추가한 외부 공동 관리자 중에서 선택할 수 있습니다. 관리자는 B2B 협업 초대 API를 통해 외부 협업자를 추가할 수 있습니다.
 

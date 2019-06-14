@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698410"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 디바이스 관리
@@ -64,7 +64,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
    | Home 및 End 키 |Standard |
    | 기능 키 및 키패드 |Esc[n~ |
    | 커서 키의 초기 상태 |정상 |
-   | 숫자 키패드의 초기 상태 |정상 |
+   | 숫자 키패드의 초기 상태 |보통 |
    | 추가 키보드 기능 사용 |Ctrl-Alt는 AltGr과 다름 |
    
     ![지원되는 Putty 설정](./media/storsimple-windows-powershell-administration/IC740877.png)
@@ -149,9 +149,9 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 | 디바이스 등록 |[StorSimple용 Windows PowerShell을 사용하여 디바이스 구성 및 등록](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
 | 웹 프록시 구성</br>웹 프록시 설정 보기 |[StorSimple 디바이스에 대한 웹 프록시 구성](storsimple-8000-configure-web-proxy.md) |
 | 디바이스에서 DATA 0 네트워크 인터페이스 설정 수정 |[StorSimple 디바이스에 대한 DATA 0 네트워크 인터페이스 수정](storsimple-8000-modify-data-0.md) |
-| 컨트롤러 중지  </br> 컨트롤러 다시 시작 또는 종료 </br> 디바이스 종료</br>디바이스를 공장 기본 설정으로 재설정 |[디바이스 컨트롤러 관리](storsimple-8000-manage-device-controller.md) |
+| 컨트롤러 중지 </br> 컨트롤러 다시 시작 또는 종료 </br> 디바이스 종료</br>디바이스를 공장 기본 설정으로 재설정 |[디바이스 컨트롤러 관리](storsimple-8000-manage-device-controller.md) |
 | 유지 관리 모드 업데이트 및 핫픽스 설치 |[디바이스 업데이트](storsimple-update-device.md) |
-| 유지 관리 모드 시작  </br>유지 관리 모드 종료 |[StorSimple 디바이스 모드](storsimple-8000-device-modes.md) |
+| 유지 관리 모드 시작 </br>유지 관리 모드 종료 |[StorSimple 디바이스 모드](storsimple-8000-device-modes.md) |
 | 지원 패키지 만들기</br>지원 패키지 암호 해독 및 편집 |[지원 패키지 만들기 및 관리](storsimple-8000-create-manage-support-package.md) |
 | 지원 세션 시작</br> |[StorSimple용 Windows PowerShell에서 지원 세션 시작](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 

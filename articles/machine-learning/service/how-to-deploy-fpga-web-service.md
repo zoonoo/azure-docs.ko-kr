@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 511333342371e18f75b48b60486705571353ee13
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 6cb9de60fe63c936da7340e6ec540a37163216f5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074984"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
@@ -164,21 +164,26 @@ print(output_tensors)
 
 사용 가능한 모델 및 해당 기본 분류자는 양만큼 유추에 대 한 기본 분류자를 사용 하는 경우는 아래 tensors는 출력입니다.
 
-+ Resnet50, QuantizedResnet50 ``
-output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
-``
-+ Resnet152, QuantizedResnet152 ``
-output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
-``
-+ Densenet121, QuantizedDensenet121 ``
-output_tensors = "classifier/densenet121/predictions/Softmax:0"
-``
-+ Vgg16, QuantizedVgg16 ``
-output_tensors = "classifier/vgg_16/fc8/squeezed:0"
-``
-+ SsdVgg, QuantizedSsdVgg ``
-output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
-``
++ Resnet50, QuantizedResnet50
+  ```
+  output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+  ```
++ Resnet152, QuantizedResnet152
+  ```
+  output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+  ```
++ Densenet121, QuantizedDensenet121
+  ```
+  output_tensors = "classifier/densenet121/predictions/Softmax:0"
+  ```
++ Vgg16, QuantizedVgg16
+  ```
+  output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+  ```
++ SsdVgg, QuantizedSsdVgg
+  ```
+  output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+  ```
 
 ### <a name="register-model"></a>모델 등록
 

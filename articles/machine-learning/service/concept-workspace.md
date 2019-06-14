@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059251"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>서비스 작업 영역을 Azure Machine Learning 이란?
 
@@ -32,16 +32,16 @@ ms.locfileid: "66388963"
 
 + 작업 영역을 포함할 수 있습니다 [Notebook Vm](quickstart-run-cloud-notebook.md), 클라우드 리소스를 Azure Machine Learning을 실행 하는 데 필요한 Python 환경을 사용 하 여 구성 합니다.
 + [사용자 역할](how-to-assign-roles.md) 사용 하면 다른 사용자, 팀 또는 프로젝트를 사용 하 여 작업 영역을 공유할 수 있습니다.
-+ [계산 대상](concept-azure-machine-learning-architecture.md#compute-target) 실험을 실행 하는 데 사용 됩니다.
++ [계산 대상](concept-azure-machine-learning-architecture.md#compute-targets) 실험을 실행 하는 데 사용 됩니다.
 + 작업 영역을 만들면 [관련 리소스](#resources) 도 자동으로 만들어집니다.
-+ [실험](concept-azure-machine-learning-architecture.md#experiment) 교육 실행 모델을 빌드하는 데 사용 됩니다.  만들고 사용 하 여 실험을 실행할 수 있습니다.
++ [실험](concept-azure-machine-learning-architecture.md#experiments) 교육 실행 모델을 빌드하는 데 사용 됩니다.  만들고 사용 하 여 실험을 실행할 수 있습니다.
     + 합니다 [Azure Machine Learning Python for SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다.
     + 합니다 [기계 학습 실험 (미리 보기) 자동](how-to-create-portal-experiments.md) 섹션에서는 Azure portal에서 합니다.
     + 합니다 [시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md)합니다.
-+ [파이프라인](concept-azure-machine-learning-architecture.md#pipeline) 학습 및 모델을 재 학습에 대 한 재사용 가능한 워크플로 됩니다.
-+ [데이터 집합](concept-azure-machine-learning-architecture.md#dataset) 모델 학습 및 파이프라인 만들기에 대 한 사용 데이터를 관리할 수 있도록 지원 합니다.
-+ 배포 하려는 모델을 만든 후 만든를 [등록 된 모델](concept-azure-machine-learning-architecture.md#model-registry)합니다.
-+ 등록 된 모델 및 점수 매기기 스크립트를 만드는 데는 [배포](concept-azure-machine-learning-architecture.md#image-registry)합니다.
++ [파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines) 학습 및 모델을 재 학습에 대 한 재사용 가능한 워크플로 됩니다.
++ [데이터 집합](concept-azure-machine-learning-architecture.md#datasets-and-datastores) 모델 학습 및 파이프라인 만들기에 대 한 사용 데이터를 관리할 수 있도록 지원 합니다.
++ 배포 하려는 모델을 만든 후에 등록 된 모델을 만듭니다.
++ 등록 된 모델 및 점수 매기기 스크립트를 만드는 데는 [배포](concept-azure-machine-learning-architecture.md#deployment)합니다.
 
 ## <a name="tools-for-workspace-interaction"></a>작업 영역 상호 작용을 위한 도구
 

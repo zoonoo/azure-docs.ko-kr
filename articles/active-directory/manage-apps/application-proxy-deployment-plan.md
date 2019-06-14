@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108477"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음과 같은 핵심 요구 사항은 구성 하 고 Azure AD 응용 프로그램 프록시를 구현 하기 위해 충족 되어야 합니다.
 
-*  **Azure 온 보 딩**: 응용 프로그램 프록시를 배포 하기 전에 사용자 id는 온-프레미스 디렉터리에서 동기화 하거나 Azure AD 테 넌 트 내에서 직접 만들 수 해야 합니다. Id 동기화는 Azure AD를 미리 게시 된 응용 프로그램을 앱 프록시에 대 한 액세스 권한을 부여 하기 전에 사용자를 인증 하 고에서 single sign-on (SSO) 하는 데 필요한 사용자 식별자 정보를가지고 있습니다.
+*  **Azure 온 보 딩**: 응용 프로그램 프록시를 배포 하기 전에 사용자 id는 온-프레미스 디렉터리에서 동기화 하거나 Azure AD 테 넌 트 내에서 직접 만들 수 해야 합니다. ID 동기화를 통해 Azure AD가 사용자에게 App Proxy 게시 애플리케이션에 대한 액세스 권한을 부여하기 전에 미리 인증하고 SSO(Single Sign-On)를 수행하는 데 필요한 사용자 식별자 정보를 가질 수 있습니다.
 
 * **조건부 액세스 요구 사항**: 이 사용자에 영향을 주는 대기 시간을 추가 하기 때문에 인트라넷 액세스에 대 한 응용 프로그램 프록시를 사용 하는 것은 좋지 않습니다. 인터넷에서 원격 액세스를 위한 사전 인증 및 조건부 액세스 정책을 사용 하 여 응용 프로그램 프록시를 사용 하는 것이 좋습니다.  인트라넷에서 사용에 대 한 조건부 액세스 diretly 할 수 있는 응용 프로그램을 현대화 하는 것을 제공 하는 방법은 AAD로 인증 합니다. 가리킵니다 [마이그레이션에 대 한 리소스 AAD에 응용 프로그램](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) 자세한 내용은 합니다. 
 
@@ -82,7 +82,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
    * **커넥터 설치** 에 설치 된 Windows 서버에 로컬 관리자 권한이 필요 합니다. 또한 최소 필요는 *응용 프로그램 관리자* 역할의 인증 및 Azure AD 테 넌 트 커넥터 인스턴스를 등록 합니다. 
 
-   * **응용 프로그램 게시 및 관리** 필요 합니다 *응용 프로그램 관리자* 역할입니다. 응용 프로그램 관리자는 등록, SSO 설정, 사용자 및 그룹 할당 및 라이선스, 응용 프로그램 프록시 설정 및 동의 포함 하는 디렉터리의 모든 응용 프로그램을 관리할 수 있습니다. 조건부 액세스를 관리 하는 기능을 부여 하지 것입니다. 합니다 *클라우드 응용 프로그램 관리자* 역할에서는 모든 기능이 응용 프로그램 관리자의 점을 제외 하 고 응용 프로그램 프록시 설정 관리할 수는 없습니다.
+   * **응용 프로그램 게시 및 관리** 필요 합니다 *응용 프로그램 관리자* 역할입니다. 응용 프로그램 관리자는 등록, SSO 설정, 사용자 및 그룹 할당 및 라이선스, 응용 프로그램 프록시 설정 및 동의 포함 하는 디렉터리의 모든 응용 프로그램을 관리할 수 있습니다. 조건부 액세스를 관리하는 기능은 부여하지 않습니다. 합니다 *클라우드 응용 프로그램 관리자* 역할에서는 모든 기능이 응용 프로그램 관리자의 점을 제외 하 고 응용 프로그램 프록시 설정 관리할 수는 없습니다.
 
 * **라이선스**: 응용 프로그램 프록시는 Azure AD Basic 정기 가입을 통해 사용할 수 있습니다. 참조 된 [Azure Active Directory 가격 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 옵션 및 기능 라이선스의 전체 목록은 합니다.  
 
@@ -266,7 +266,7 @@ Azure AD 응용 프로그램 프록시를 지원 하기 위해 다음과 같은 
 
 * 장치 기반 조건부 액세스: 등록, 승인 및 규격 장치만 사용 하 여 회사 데이터에 액세스할 수 있게 [장치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)합니다.
 
-* 응용 프로그램 기반 조건부 액세스: 작업은 사용자는 회사 네트워크에 없는 경우 중지 필요가 없습니다. [회사의 클라우드 및 온-프레미스 앱에 대 한 액세스 보호](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 및 조건부 액세스를 사용 하 여 컨트롤을 유지 관리 합니다.
+* 응용 프로그램 기반 조건부 액세스: 작업은 사용자는 회사 네트워크에 없는 경우 중지 필요가 없습니다. [회사의 클라우드 및 온-프레미스 앱에 대 한 액세스 보호](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 및 조건부 액세스 제어를 유지 관리 합니다.
 
 * 위험 기반 조건부 액세스: 사용 하 여 악의적인 해커 로부터 데이터 보호를 [위험 기반 조건부 액세스 정책](https://www.microsoft.com/cloud-platform/conditional-access) 적용할 수 있는 모든 앱 및 모든 사용자에 게 여부 온-프레미스 또는 클라우드에서 합니다.
 

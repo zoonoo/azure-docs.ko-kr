@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296047"
+ms.locfileid: "67108960"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>방법: 위험한 사용자 및 로그인 조사 
 
@@ -298,7 +298,7 @@ Azure 포털 외부에서 사용 하려는 경우 위험한 사용자 데이터�
 - 낮음
 
 
-**조건부 액세스** 필터를 사용하면 다음을 선택할 수 있습니다.
+합니다 **조건부 액세스** 필터를 사용 하면 선택할 수 있습니다.
 
 - 모두
 - 적용되지 않음

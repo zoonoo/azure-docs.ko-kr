@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077112"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -49,10 +49,6 @@ Azure Policy 각 할당에 대 한 관리 되는 id를 만들지만 관리 되�
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
-```
-
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>관리 ID 수동 구성
@@ -199,4 +195,4 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](programmatically-create.md)합니다.
 - 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](getting-compliance-data.md)합니다.
-- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

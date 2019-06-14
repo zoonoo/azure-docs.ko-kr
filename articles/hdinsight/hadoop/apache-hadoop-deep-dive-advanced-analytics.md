@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712401"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
@@ -46,7 +46,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 | 알고리즘 범주| 사용 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
 | 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
-| 클러스터링 | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
+| Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
 | 패턴 검색 | 데이터에서 빈번한 연결을 확인합니다. | 자율 | 연결 규칙 |
 | 회귀 | 숫자 결과를 예측합니다. | 감독 | 선형 회귀, 신경망 |
 | 보충 | 최적의 로봇 동작을 결정합니다. | 보충 | 몬테카를로 시뮬레이션, 딥 마인드 |
@@ -115,13 +115,13 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 ### <a name="try-it-out"></a>사용해 보세요!
 
-[이 자습서](../spark/apache-spark-microsoft-cognitive-toolkit.md)에 따라 이 솔루션을 종단 간에 구현합니다. 즉 HDInsight Spark 클러스터를 설치하고, Cognitive Toolkit를 설치하고, 10,000개의 CIFAR 이미지에 대한 점수를 매기는 Jupyter Notebook을 실행합니다.
+[이 자습서](../spark/apache-spark-microsoft-cognitive-toolkit.md)에 따라 이 엔드투엔드 솔루션을 구현합니다. 즉 HDInsight Spark 클러스터를 설치하고, Cognitive Toolkit를 설치하고, 10,000개의 CIFAR 이미지에 대한 점수를 매기는 Jupyter Notebook을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Apache Hive 및 Azure Machine Learning
 
-* [Apache Hive 및 Azure Machine Learning 엔드 투 엔드](../../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive 및 Azure Machine Learning 엔드투엔드](../../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
 Apache Spark 및 MLLib

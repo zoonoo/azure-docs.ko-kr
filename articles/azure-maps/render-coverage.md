@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869988"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
@@ -79,7 +79,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 세네갈                          | ✓ | ✓ |
 | 시에라리온                     | ✓ | ✓ |
 | 소말리아                          | ✓ | ✓ |
-| 남아프리카                     | ✓ | ✓ |
+| 남아프리카 공화국                     | ✓ | ✓ |
 | 남수단                      | ✓ | ✓ |
 | 수단                            | ✓ | ✓ |
 | 스와질란드                        | ✓ | ✓ |
@@ -180,7 +180,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 키르기스스탄                |   | Ø |
 | 라오스 |   | Ø |
 | 레바논                   | ✓ | ✓ |
-| 마카오                 | ✓ | ✓ |
+| 마카오 특별 행정구                 | ✓ | ✓ |
 | 말레이시아                  | ✓ | ✓ |
 | 몰디브                  |   | Ø |
 | 몽골                  |   | Ø |
@@ -201,7 +201,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 태국                  | ✓ | ✓ |
 | 동티모르               |   | Ø |
 | 투르크메니스탄              |   | Ø |
-| 아랍에미리트      | ✓ | ✓ |
+| 아랍 에미리트 연합국      | ✓ | ✓ |
 | 미국령 해외 제도 |   | Ø |
 | 우즈베키스탄                |   | Ø |
 | 베트남                   | ✓ | ✓ |
@@ -258,7 +258,7 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 페로 제도             | ✓ | Ø |
 | 핀란드                   | ✓ | ✓ |
 | 프랑스                    | ✓ | ✓ |
-| 조지아                   | ✓ | Ø |
+| 그루지야                   | ✓ | Ø |
 | 독일                   | ✓ | ✓ |
 | 지브롤터                 | ✓ | ✓ |
 | 그리스                    | ✓ | ✓ |

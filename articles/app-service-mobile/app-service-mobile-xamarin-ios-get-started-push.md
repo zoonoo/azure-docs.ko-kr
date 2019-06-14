@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: de24b64ecd95eec79d7508f978acda9f0ae5a8d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097543"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 푸시 알림 추가
@@ -147,7 +147,7 @@ ms.locfileid: "62097543"
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-2. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
+2. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
 3. 알림이 수신되는지 확인하고, **확인** 을 클릭하여 알림을 해제합니다.
 4. 2단계를 반복하여 앱을 즉시 닫은 후 알림이 표시되는지 확인합니다.
 

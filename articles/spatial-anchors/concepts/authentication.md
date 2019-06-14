@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073934"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>인증 및 Azure 공간 앵커에 대 한 권한 부여
 
@@ -56,7 +56,7 @@ this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 
 ## <a name="azure-ad-user-authentication"></a>Azure AD 사용자 인증
 
-Azure Active Directory 사용자를 대상으로 하는 응용 프로그램에 대 한 다음 문서에 설명 된 대로 ADAL 라이브러리를 사용 하 여 얻을 수 있는 사용자에 대 한 Azure AD 토큰을 사용할 것이 좋습니다: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; 나열 된 단계를 따라야 합니다. 아래 "빠른 시작"는 다음과 같습니다.
+Azure Active Directory 사용자를 대상으로 하는 응용 프로그램에 대 한 다음 문서에 설명 된 대로 ADAL 라이브러리를 사용 하 여 얻을 수 있는 사용자에 대 한 Azure AD 토큰을 사용할 것이 좋습니다: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); 있습니다 포함 하는 "빠른 시작" 아래에 나열 된 단계를 따라야 합니다.
 
 1. Azure portal에서 구성
     1.  Azure AD에 응용 프로그램 등록 **네이티브 응용 프로그램**합니다. 등록의 일환으로, 응용 프로그램, 다중 테 넌 트 수 해야 및 제공 응용 프로그램에 대해 허용 Url 리디렉션 되었는지 확인 해야 합니다.  
@@ -89,7 +89,7 @@ this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 
 앱 자체 메커니즘이 가정 여기에서 (예: Microsoft 계정, PlayFab, Facebook, Google ID, 사용자 지정 사용자 이름/암호, 등.) 해당 백 엔드 서비스에 인증 합니다. 사용자가 서비스를 검색할 수 있는 백 엔드 서비스에 인증 되 면 Azure AD 토큰을 Azure 공간 앵커에 대 한 액세스 토큰에 대 한 교환 및 클라이언트 응용 프로그램으로 다시 반환 합니다.
 
-다음 문서에 설명 된 대로 ADAL 라이브러리를 사용 하 여 Azure AD 액세스 토큰이 검색 됩니다: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; 포함 된 "빠른 시작" 아래에 나열 된 단계를 따라야 합니다.
+다음 문서에 설명 된 대로 ADAL 라이브러리를 사용 하 여 Azure AD 액세스 토큰이 검색 됩니다. [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); 포함 하는 "빠른 시작" 아래에 나열 된 단계를 따라야 합니다.
 
 1.  Azure portal에서 구성 합니다.
     1.  Azure AD에 응용 프로그램을 등록 합니다.

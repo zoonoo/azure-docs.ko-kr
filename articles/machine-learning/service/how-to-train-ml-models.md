@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075025"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -66,7 +66,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 생성자에는 필요한 모든 pip 패키지에 사용하는 `pip_packages`라는 매개 변수도 있습니다.
 
-`Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiment) 개체`experiment`의 `submit` 함수 호출을 통해 원격 계산에서 실행할 학습 작업을 제출합니다. 
+`Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 개체`experiment`의 `submit` 함수 호출을 통해 원격 계산에서 실행할 학습 작업을 제출합니다. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -125,13 +125,13 @@ print(run.get_portal_url())
 원본 디렉터리가 로컬 Git 리포지토리를 실행 하는 교육을 시작 하면 저장소에 대 한 정보는 실행된 기록에 저장 됩니다. 예를 들어, 현재 커밋 ID 저장소에 대 한 기록의 일부로 기록 됩니다.
 
 ## <a name="examples"></a>예
-추정기 패턴의 기본 사항을 보여 주는 Notebook은 다음을 참조하세요.
+스 티 메이 터 패턴의 기본 사항을 보여 주는 notebook을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-추정기를 사용하여 scikit-learn 모델을 학습하는 Notebook은 다음을 참조하세요.
+Scikit을 학습 하는 노트북에 대 한-내용은 평가기를 사용 하 여 모델에 알아봅니다.
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-딥 러닝 프레임워크 관련 추정기를 사용하는 학습 모델에 대한 Notebook은 다음을 참조하세요.
+심층 학습-프레임 워크 특정 추정을 사용 하 여 모델을 학습에서 notebook을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

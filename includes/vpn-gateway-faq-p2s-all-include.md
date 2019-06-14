@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056496"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -40,11 +40,11 @@ ms.locfileid: "66455187"
 
 Azure는 세 가지 유형의 지점-사이트 간 VPN 옵션을 지원합니다.
 
-* SSTP(Secure Socket Tunneling Protocol) SSTP는 Microsoft 등록 SSL 기반 솔루션으로 대부분의 방화벽이 443 SSL에서 사용하는 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있습니다.
+* SSTP(Secure Socket Tunneling Protocol) SSTP는 Microsoft 소유 SSL 기반 솔루션을 대부분의 방화벽이 443 SSL에서 사용 하는 아웃 바운드 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있습니다.
 
-* OpenVPN 합니다. OpenVPN에는 대부분의 방화벽이 443 SSL에서 사용 하는 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있는 SSL 기반 솔루션입니다.
+* OpenVPN 합니다. OpenVPN에는 대부분의 방화벽이 443 SSL에서 사용 하는 아웃 바운드 TCP 포트를 열기 때문에 방화벽을 뚫을 수 있는 SSL 기반 솔루션입니다.
 
-* IKEv2 VPN IKEv2 VPN은 표준 기반 IPsec VPN 솔루션으로 UDP 포트 500과 4500 및 IP 주소 프로토콜 번호를 사용합니다. 50. 방화벽이 항상 이러한 포트를 열지는 않습니다. 따라서 IKEv2 VPN이 프록시 및 방화벽을 트래버스할 수 없는 가능성이 있습니다.
+* IKEv2 VPN IKEv2 VPN은 아웃 바운드 UDP 포트 500과 4500 및 ip 주소 프로토콜을 더 사용 하는 표준 기반 IPsec VPN 솔루션입니다. 50. 방화벽이 항상 이러한 포트를 열지는 않습니다. 따라서 IKEv2 VPN이 프록시 및 방화벽을 트래버스할 수 없는 가능성이 있습니다.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>지점 및 사이트 간 연결에 대해 구성된 클라이언트 컴퓨터를 다시 시작하면 VPN이 자동으로 다시 연결됩니까?
 

@@ -17,16 +17,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832681"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -44,17 +44,17 @@ ms.locfileid: "65832681"
 
 ## <a name="start-new-access-package"></a>새 액세스 패키지를 시작 합니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
-1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할**합니다.
+1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
 
-    ![Azure portal에서 자격 관리](./media/entitlement-management-shared/elm-access-packages.png)
+    ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/elm-access-packages.png)
 
-1. 클릭 **새 액세스 패키지**합니다.
+1. **새 액세스 패키지**를 클릭합니다.
 
 ## <a name="basics"></a>기본 사항
 
@@ -112,7 +112,7 @@ ms.locfileid: "65832681"
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>리뷰 + 만들기
+## <a name="review--create"></a>검토 + 만들기
 
 에 **검토 + 만들기** 탭, 설정 및 유효성 검사 오류에 대 한 확인을 검토할 수 있습니다.
 

@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1b86085a76f5ff87147db9dbd0a584784f5e4a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686499"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
@@ -44,7 +44,7 @@ Azure Stream Analytics 프로젝트에서 **Script.asaql**을 두 번 클릭하�
    
 쿼리 편집기에서 **로컬로 실행**을 선택합니다. 또는 F5 키를 눌러도 됩니다.
    
-![로컬에서 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
+![로컬로 실행](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
 Visual Studio에서 바로 출력을 테이블 형식으로 볼 수 있습니다.
 

@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430814"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
@@ -38,7 +38,7 @@ ms.locfileid: "66430814"
 ## <a name="authority"></a>인증 기관
 인증 기관은 MSAL에서 토큰을 요청할 수 있는 디렉터리를 나타내는 URL입니다. 일반적인 기관 다음과 같습니다.
 
-- https://login.microsoftonline.com/&lt테 넌 트&gt;/, 여기서 &lt;테 넌 트&gt; 이 Azure AD 테 넌 트와 연결 된 도메인 또는 Azure Active Directory (Azure AD) 테 넌 트의 테 넌 트 ID입니다. 특정 조직의 사용자를 로그인에 사용 합니다.
+- https://login.microsoftonline.com/&lt 테 넌 트&gt; /, 여기서 &lt; 테 넌 트&gt; 이 Azure AD 테 넌 트와 연결 된 도메인 또는 Azure Active Directory (Azure AD) 테 넌 트의 테 넌 트 ID입니다. 특정 조직의 사용자를 로그인에 사용 합니다.
 - https://login.microsoftonline.com/common/. 회사 및 학교 계정 또는 개인 Microsoft 계정을 사용 하 여 사용자를 로그인 하는 데 사용 합니다.
 - https://login.microsoftonline.com/organizations/. 사용자가 회사 및 학교 계정으로 로그인 하는 데 사용 합니다.
 - https://login.microsoftonline.com/consumers/. 만 개인 Microsoft 계정 (이전의 Windows Live ID 계정)를 사용 하 여 사용자를 로그인 하는 데 사용 합니다.

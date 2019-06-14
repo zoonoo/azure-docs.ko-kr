@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 2c2ed46ed6e4a5d6663387777d3425d18b50500e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060208"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -41,9 +41,29 @@ ms.locfileid: "66743151"
 
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 
-| 오류 세부 정보 | 가능한 원인 | 권장 작업 |
-| ---     | ---     | ---    |
-| **오류** </br> *잘못된 보관 자격 증명이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)* | <ul><li> 자격 증명 모음 자격 증명이 유효하지 않습니다. (즉 등록되기 전 다운로드된지 48시간 이상이 지났습니다.)<li>MARS 에이전트는 Windows Temp 디렉터리에 파일을 다운로드할 수 없습니다. <li>자격 증명 모음 자격 증명이 네트워크 위치에 있습니다. <li>TLS 1.0을 사용하지 않도록 설정되어 있습니다.<li> 구성된 프록시 서버가 연결을 차단하고 있습니다. <br> |  <ul><li>새 자격 증명 모음 자격 증명을 다운로드합니다.(**참고**: 여러 자격 증명 모음 자격 증명 파일을 이전에 다운로드한 경우 다운로드한 최신 파일은 48시간 동안만 유효합니다.) <li>**IE** > **설정** > **인터넷 옵션** > **보안** > **인터넷**을 시작합니다. 다음으로 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. 그런 다음 **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li> 컴퓨터와 날짜 및 시간을 일치시킵니다.<li>파일 다운로드가 허용되지 않는다는 오류가 발생하면 C:/Windows/Temp 디렉터리에 많은 수의 파일이 있을 가능성이 있습니다.<li>C:/Windows/Temp로 이동하여 확장명이 .tmp인 파일이 60,000 또는 65,000개 넘게 있는지 확인합니다. 있는 경우 해당 파일을 삭제합니다.<li>.NET Framework 4.6.2가 설치되어 있는지 확인합니다. <li>PCI 준수로 인해 TLS 1.0을 사용하지 않도록 설정한 경우 이 [문제 해결 페이지](https://support.microsoft.com/help/4022913)를 참조하세요. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBengine.exe<li>.NET Framework와 관련되어 있는 CSC.exe 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외합니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<br><li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
+**오류 메시지**: 잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)
+
+| 원인 | 권장 작업 |
+| ---     | ---    |
+| **자격 증명 모음 자격 증명이 올바르지 않습니다.** <br/> <br/> 자격 증명 모음 자격 증명 파일이 손상 되었을 수 있습니다 또는 만료 되었을 (예: 다운로드 된 경우 등록 된 시간 전에 48 시간 이상)| Azure portal에서 Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 (참조 *6 단계* 아래에서 [ **MARS 에이전트를 다운로드** ](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) 섹션)을 수행 하 고는 아래: <ul><li> 설치 된 이미 있고 Microsoft Azure Backup 에이전트를 등록 하는 경우 다음 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 선택 **서버 등록** 새로 다운로드 한 등록을 완료 하려면 작업 창에서 자격 증명 <br/> <li> 새 설치에 실패 한 경우 다음 다시 설치 하십시오 새 자격 증명을 사용 하 여</ul> **참고**: 여러 자격 증명 모음 자격 증명 파일을 이전에 다운로드 하는 경우만 최신 다운로드 한 파일이 유효한 48 시간 이내입니다. 따라서 다음 새로 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
+| **프록시 서버/방화벽 차단 <br/>또는 <br/>아니요 인터넷에 연결** <br/><br/> 컴퓨터나 프록시 서버는 인터넷 액세스를 제한 한 경우 필요한 Url을 나열 하지 않고 등록이 실패 합니다.| 이 문제를 해결 하려면 다음을 수행 합니다 아래:<br/> <ul><li> 시스템이 인터넷에 연결 하도록 IT 팀에서 작업<li> 프록시 서버를 등록 에이전트 프록시 옵션을 선택한 경우 확인 없으면 프록시 설정 단계 나열 확인 [여기](#verifying-proxy-settings-for-windows)<li> 방화벽/프록시 서버가 있는 경우 다음 Url 및 IP 아래 해결 확인 네트워킹 팀과 작업 권한이<br/> <br> **URLs**<br> - *www.msftncsi.com* <br>-  *.Microsoft.com* <br> -  *.WindowsAzure.com* <br>-  *.microsoftonline.com* <br>-  *.windows.net* <br>**IP 주소**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록
+| **바이러스 백신 소프트웨어 차단** | 서버에 설치 된 바이러스 백신 소프트웨어를 사용 하는 경우 다음 바이러스 백신 검사에서 다음 파일에 대 한 필요한 제외 규칙을 추가 합니다. <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> 스크래치 폴더가 기본 위치는 *C:\Program Files\Microsoft Azure Recovery Services agent\scratch입니다* <li> Bin 폴더에 *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### <a name="additional-recommendations"></a>추가 권장 사항
+- 로 이동 *c: / Windows/Temp* 여 확장명이.tmp 인 파일을 60,000 또는 65,000 개 넘게 있는지 여부를 확인 합니다. 가 있는 경우 이러한 파일을 삭제 합니다.
+- 현지 표준 시간대를 사용 하 여 일치 하는 컴퓨터의 날짜 및 시간 확인
+- 확인 합니다 [다음](backup-configure-vault.md#verify-internet-access) 사이트가 IE 신뢰할 수 있는 사이트로 추가
+
+### <a name="verifying-proxy-settings-for-windows"></a>Windows에 대 한 프록시 설정을 확인 하는 중
+
+- 다운로드 **psexec** 에서 [여기](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- 이 실행 `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` 명령 프롬프트에서:
+- 이 시작 됩니다 *Internet Explorer* 창
+- 로 이동 *도구가* -> *인터넷 옵션* -> *연결* -> *LAN 설정*
+- 에 대 한 프록시 설정을 확인 하십시오 *시스템* 계정
+- 프록시가 구성 되어 있지 경우 프록시에 대 한 자세한 내용은 다음 세부 정보 제거
+-   프록시가 구성 되어 잘못 된 프록시 세부 정보를 확인 한 다음 *프록시 IP* 하 고 *포트* 세부 정보는 정확 하 게
+- 닫기 *Internet Explorer*
 
 ## <a name="unable-to-download-vault-credential-file"></a>자격 증명 모음 파일을 다운로드할 수 없음
 
@@ -85,34 +105,31 @@ ms.locfileid: "66743151"
 
 - 온라인 백업 상태 설정 되어 있는지 확인 **사용**합니다. 수행 하는 상태를 확인 하는 아래:
 
-  - **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다.
-    - **Microsoft**를 확장하고 **온라인 백업**을 선택합니다.
+  - 열기 **작업 스케줄러** 확장 **Microsoft**를 선택 하 고 **온라인 백업**합니다.
   - **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다.
-  - 상태로 설정 되어 있으면 확인 **사용**합니다. 설정되지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택한 다음, **확인**을 클릭합니다.
+  - 상태로 설정 되어 있으면 확인 **사용**합니다. 그렇지 않은 경우 선택한 **편집할** > **Enabled** 확인란을 클릭 **확인**합니다.
 
-- 확인 작업 실행을 위해 선택한 사용자 계정 중 하나 **시스템** 하거나 **로컬 관리자 ' 그룹** 서버의 합니다. 로 사용자 계정을 확인 하려면 합니다 **일반** 탭을 확인 합니다 **보안 옵션**합니다.
+- 확인 작업 실행을 위해 선택한 사용자 계정 중 하나 **시스템** 하거나 **로컬 관리자 ' 그룹** 서버의 합니다. 로 사용자 계정을 확인 하려면 합니다 **일반** 탭을 확인 합니다 **보안** 옵션입니다.
 
-- PowerShell 3.0 이상이 서버에 설치되었는지 확인합니다. PowerShell 버전을 확인하려면 다음 명령을 실행하고 *주* 버전 번호가 3 이상인지 확인합니다.
+- PowerShell 3.0 이상 서버에 설치 되었는지 확인 합니다. PowerShell 버전을 확인하려면 다음 명령을 실행하고 *주* 버전 번호가 3 이상인지 확인합니다.
 
   `$PSVersionTable.PSVersion`
 
-- 다음 경로가 *PSMODULEPATH* 환경 변수에 포함되었는지 확인합니다.
+- 일부인 다음 경로 확인 합니다 *PSMODULEPATH* 환경 변수
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- *LocalMachine*에 대한 PowerShell 실행 정책이 제한으로 설정된 경우 백업 작업을 트리거하는 PowerShell cmdlet이 실패할 수 있습니다. 평가 모드에서 다음 명령을 실행하고 실행 정책을 *Unrestricted* 또는 *RemoteSigned*로 설정합니다.
+- *LocalMachine*에 대한 PowerShell 실행 정책이 제한으로 설정된 경우 백업 작업을 트리거하는 PowerShell cmdlet이 실패할 수 있습니다. 확인 및를 실행 정책을 설정 하려면 관리자 모드에서 다음 명령을 실행 *Unrestricted* 또는 *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Backup 에이전트 설치 후 서버를 다시 부팅 되었는지 확인
+- 없는지 누락 되거나 손상 **PowerShell** 모듈 **MSonlineBackup**합니다. 없거나 손상 된 파일이 있는 경우 해결 하려면이 문제를 수행 합니다 아래:
 
-- 없는지 누락 되거나 손상 **PowerShell** 모듈 **MSonlineBackup**합니다. 해결 하려면 문제가 수행 파일이 없거나 손상 된 모든 인 경우는 아래:
-
-  - 다른 컴퓨터 (Windows 2008 R2) MSOnlineBackup 폴더에서 복사 MARS 에이전트를 제대로 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 경로입니다.
+  - MARS 에이전트는 제대로 작동 하는 모든 컴퓨터에서 MSOnlineBackup 폴더를 복사 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 경로입니다.
   - 동일한 경로에 문제가 있는 컴퓨터에 붙여 넣어 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 합니다.
-  - 하는 경우 **MSOnlineBackup** 폴더가 이미 있는 컴퓨터의 붙여넣기/바꾸기 내부에 있는 콘텐츠 파일입니다.
+  - 하는 경우 **MSOnlineBackup** 폴더는 이미 저장 되어 있는 컴퓨터에서 붙여넣기 또는 내부에 있는 콘텐츠 파일을 교체 합니다.
 
 
 > [!TIP]

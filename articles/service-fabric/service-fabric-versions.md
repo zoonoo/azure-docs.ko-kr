@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 606b14fba093b6ec8039c646a49bc3bf7d24eb51
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 8a548bce6da8b3bae004b0be4f6e8f09c9894025
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060347"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -36,7 +36,7 @@ ms.locfileid: "66296778"
 
 | 클러스터의 service Fabric 런타임 | 클러스터 버전에서 직접 업그레이드할 수 있습니다. |호환 되는 SDK 또는 NuGet 패키지 버전 | 지원 종료 |
 | --- | --- |--- | --- |
-| 5.3.121 이전의 모든 클러스터 버전 | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
+| 5\.3.121 이전의 모든 클러스터 버전 | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
 | 5.3.* | 5.1.158.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
 | 5.4.* | 5.1.158.* |버전 2.4보다 작거나 같음 |2017년 5월 10일       |
 | 5.5.* | 5.4.164.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
@@ -46,7 +46,8 @@ ms.locfileid: "66296778"
 | 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |2018년 7월 15일      |
 | 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018 년 10 월 26 일   |
 | 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |2019 년 3 월 31 일  |
-| 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |현재 버전, 종료 날짜 |
+| 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |2019 년 9 월 15 일 |
+| 6.5.* | 6.4.617.* |버전 3.4 보다 작거나 같음 |현재 버전, 종료 날짜 |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -103,3 +104,4 @@ ms.locfileid: "66296778"
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | 해당 없음 |
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |

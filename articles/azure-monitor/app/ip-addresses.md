@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: f96718282e9e7b1ba46be956c2e4d202c4f29ea0
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 408589144e896e608c80e13904794bd38ded3b36
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66430906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061188"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "66430906"
 > 
 
 > [!TIP]
-> 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독합니다.
+> 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom 을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독합니다.
 > 
 > 
 

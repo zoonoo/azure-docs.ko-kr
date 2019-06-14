@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062472"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL에에서 연결 아키텍처
 클라이언트 내부 및 외부 Azure에서에서 Azure Database for MySQL 인스턴스를 트래픽이 이동 되는 방법을이 문서에서는 Azure Database for MySQL 연결 아키텍처에도 설명 합니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
-SQL MySQL 용 Azure Database에 연결 서버에는 클러스터의 물리적 위치에 대 한 라우팅 들어오는 연결을 담당 하는 게이트웨이 통해 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
+MySQL 용 Azure Database에 연결 서버에는 클러스터의 물리적 위치에 대 한 라우팅 들어오는 연결을 담당 하는 게이트웨이 통해 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
 
 ![연결 아키텍처의 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 

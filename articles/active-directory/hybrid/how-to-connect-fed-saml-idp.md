@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138335"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
@@ -152,7 +152,7 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
 이 섹션에는 SAML 2.0 프로토콜을 사용하여 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 Single Sign-On 액세스를 허용하기 위해 Azure AD와 페더레이션되도록 SAML 2.0 ID 공급자를 구성하는 방법에 대한 지침이 포함되어 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자는 Azure AD입니다.
 
 ## <a name="add-azure-ad-metadata"></a>Azure AD 메타데이터 추가
-SAML 2.0 ID 공급자는 Azure AD 신뢰 당사자에 대한 정보를 준수해야 합니다. Azure AD는 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml에 메타데이터를 게시합니다.
+SAML 2.0 ID 공급자는 Azure AD 신뢰 당사자에 대한 정보를 준수해야 합니다. Azure AD는 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml 에 메타데이터를 게시합니다.
 
 SAML 2.0 ID 공급자를 구성할 때 항상 최신 Azure AD 메타데이터를 가져오는 것이 좋습니다.
 

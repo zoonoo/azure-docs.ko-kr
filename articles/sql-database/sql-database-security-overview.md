@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070192"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -100,9 +100,9 @@ SQL Database는 [전송 계층 보안](https://support.microsoft.com/help/313524
 
 Sql Server 암호화를 적용 (SSL/TLS)에서 항상 모든 연결에 대 한 합니다. 이렇게 하면 클라이언트와 서버 설정에 관계 없이 "전송"에서 모든 데이터가 암호화 됩니다 **Encrypt** 또는 **TrustServerCertificate** 연결 문자열에 있습니다.
 
-모범 사례로 권장 하는 문자열에 응용 프로그램의 연결에 암호화 된 연결이 지정 하 고 _**없습니다**_ 서버 인증서를 신뢰 합니다. 이렇게 하면를 서버 인증서를 확인 하려면 응용 프로그램 하 고 따라서 man 중간 형식 공격에서에 취약 하다에서 응용 프로그램을 방지 합니다.
+모범 사례로 권장 하는 문자열에 응용 프로그램의 연결에 암호화 된 연결이 지정 하 고 _**없습니다**_ 서버 인증서를 신뢰 합니다. 이 서버 인증서를 확인 하려면 응용 프로그램을 강제로 수행 하 고 따라서 man 중간 형식 공격에서에 취약 하다에서 응용 프로그램을 방지 합니다.
 
-예를 들어 ADO.NET 드라이버를 사용 하는 경우 이렇게 통해 **Encrypt = True** 하 고 **TrustServerCertificate = False**합니다. Azure portal에서 연결 문자열을 가져와야 하는 경우 올바른 설정을 해야 합니다.
+예를 들어 ADO.NET 드라이버를 사용 하는 경우 이렇게 통해 **Encrypt = True** 하 고 **TrustServerCertificate = False**합니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 
 > [!IMPORTANT]
 > 일부 타사 드라이버 기본적으로 TLS를 사용 하 여 또는 이전 버전의 TLS 사용 하지 않을 수 있습니다 (< 1.2) 작동 하기 위해. 이 경우 SQL Server 하더라도 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결할 수 있도록 보안 위험을 평가 하는 것이 좋습니다. 
