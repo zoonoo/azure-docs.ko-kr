@@ -65,8 +65,7 @@
 - name: 리소스
   items:
     - name: R 개발자 가이드
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: 블로그
       href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
     - name: MSDN 포럼

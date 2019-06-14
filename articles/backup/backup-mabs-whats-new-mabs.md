@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
 ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254719"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
@@ -39,7 +39,7 @@ TLS 1.2는 최상의 암호화를 사용하여 Microsoft에서 제안하는 통�
 ## <a name="vmware-vm-protection-support"></a>VMware VM 보호 지원
 VMware VM 백업은 이제 프로덕션 배포에 지원됩니다. MABS V3은 VMware VM 보호를 위해 다음을 제공합니다.
 
--   5.5 및 6.0에 대한 지원과 함께 vCenter 및 ESXi 6.5에 대한 지원
+-   5\.5 및 6.0에 대한 지원과 함께 vCenter 및 ESXi 6.5에 대한 지원
 - 클라우드로 VMware VM의 자동 보호 새 VMware VM이 보호된 폴더에 추가되는 경우 디스크 및 클라우드로 자동으로 보호됩니다.
 - VMware 대체 위치 복구를 위한 복구 효율성 개선
 

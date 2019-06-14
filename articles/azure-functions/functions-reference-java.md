@@ -11,22 +11,20 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050772"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
-Azure Functions 런타임에서 지원 [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)합니다.
+Azure Functions 런타임에서 지원 [Java SE 8 LTS (zulu8.31.0.2 jre8.0.181 win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)합니다. 이 가이드는 Java 사용 하 여 Azure 함수를 작성 하는 복잡성에 대 한 정보를 포함 합니다.
 
-이 가이드는 Java 사용 하 여 Azure 함수를 작성 하는 복잡성에 대 한 정보를 포함 합니다.
+Java 함수는 `public` 메서드를 주석으로 데코 레이트 `@FunctionName`합니다. 이 메서드는 Java 함수에 대 한 항목을 정의 하 고 특정 패키지에서 고유 해야 합니다. 
 
-Java 함수는 `public` 주석을 사용 하 여 데코레이팅된 메서드 `@FunctionName`합니다. 이 메서드는 java 함수에 대 한 항목을 정의 하 고 지정된 된 패키지에서 고유 해야 합니다. 
-
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 첫 번째 만들려면 Functions 빠른 시작을 완료 해야 함수를 사용 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 하거나 [maven을 사용 하 여](functions-create-first-java-maven.md)입니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 첫 번째 함수를 사용 하 여 만드는 Functions 빠른 시작을 완료 해야 [Visual Studio Code](functions-create-first-function-vs-code.md) 하거나 [Maven](functions-create-first-java-maven.md)합니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
@@ -34,7 +32,7 @@ Java 함수는 `public` 주석을 사용 하 여 데코레이팅된 메서드 `@
 
 ## <a name="folder-structure"></a>폴더 구조
 
-Azure Function Java 프로젝트의 폴더 구조는 다음과 같습니다.
+Azure Functions Java 프로젝트의 폴더 구조는 다음과 같습니다.
 
 ```
 FunctionsProject
@@ -58,18 +56,18 @@ FunctionsProject
  | - pom.xml
 ```
 
-함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
+공유를 사용할 수 있습니다 [host.json](functions-host-json.md) 파일을 함수 앱을 구성 합니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
 
-하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. 대상 디렉터리의 FunctionApp이 Azure의 함수 앱에 배포됩니다.
+하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. `FunctionApp` 대상에서 디렉터리는 Azure에서 함수 앱으로 배포 항목을 가져옵니다.
 
 ## <a name="triggers-and-annotations"></a>트리거 및 주석
 
- Azure 함수는 HTTP 요청, 타이머 또는 데이터 업데이트와 같은 트리거에 의해 호출됩니다. 함수는 해당 트리거 및 모든 다른 입력을 처리하고 하나 이상의 출력을 생성해야 합니다.
+ 함수는 HTTP 요청, 타이머 또는 데이터에 대 한 업데이트와 같은 트리거에 의해 호출 됩니다. 함수, 트리거 및 하나 이상의 출력을 생성 하는 데 다른 입력을 처리 해야 합니다.
 
-[com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)합니다.
+[com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 패키지에 포함된 Java 주석을 사용하여 입력 및 출력을 메서드에 바인딩합니다. 자세한 내용은 참조는 [Java 참조 문서](/java/api/com.microsoft.azure.functions.annotation)합니다.
 
 > [!IMPORTANT] 
-> Azure Storage Blob, 큐 또는 테이블 트리거를 로컬로 실행하려면 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file)에서 Azure Storage 계정을 구성해야 합니다.
+> Azure Storage 계정을 구성 해야 합니다 하 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) Azure Blob storage, Azure Queue storage 또는 Azure Table storage 트리거를 로컬로 실행 합니다.
 
 예제:
 
@@ -83,7 +81,7 @@ public class Function {
 }
 ```
 
-다음은 [azure-function-maven-plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin)에서 생성된 해당 `function.json`입니다.
+여기서는 생성 된 해당 `function.json` 여는 [azure functions-maven 플러그인](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin):
 
 ```json
 {
@@ -109,9 +107,9 @@ public class Function {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
 
-Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK를 다운로드하여 사용합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java 8 JDK 런타임을 사용합니다.
+Java 함수 앱의 로컬 개발을 위해 다운로드 하 고 사용 합니다 [Azure 용 Azul Zulu Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) 에서 Java 8 Jdk [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java 8 JDK 런타임을 사용합니다.
 
-JDK 및 함수 앱에 문제가 있는 경우 [정격 지원 플랜](https://azure.microsoft.com/support/plans/)을 통해 [Azure 지원](https://azure.microsoft.com/support/)을 사용할 수 있습니다.
+[Azure 지원](https://azure.microsoft.com/support/) Jdk 및 함수를 사용 하 여 문제에 대 한 앱은 사용할 수는 [정규화 된 지원 플랜](https://azure.microsoft.com/support/plans/)합니다.
 
 ## <a name="customize-jvm"></a>JVM을 사용자 지정
 
@@ -123,7 +121,7 @@ JDK 및 함수 앱에 문제가 있는 경우 [정격 지원 플랜](https://azu
 * `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-라는 앱 설정에 추가 인수를 제공할 수 있습니다 `JAVA_OPTS`합니다. 다음이 방법 중 하나에서 Azure에 배포 된 함수 앱에 앱 설정을 추가할 수 있습니다.
+라는 앱 설정에 추가 인수를 제공할 수 있습니다 `JAVA_OPTS`합니다. Azure portal 또는 Azure CLI에서 Azure에 배포 된 함수 앱에 앱 설정을 추가할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -131,36 +129,36 @@ JDK 및 함수 앱에 문제가 있는 경우 [정격 지원 플랜](https://azu
 
 ### <a name="azure-cli"></a>Azure CLI
 
-합니다 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령은 설정에 사용할 수 있습니다 `JAVA_OPTS`다음 예제와 같이:
+사용할 수는 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 설정 하는 명령 `JAVA_OPTS`다음 예제와 같이:
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --name <APP_NAME> \
-    --resource-group <RESOURCE_GROUP> \
-    --settings "JAVA_OPTS=-Djava.awt.headless=true"
-    ```
+```azurecli-interactive
+az functionapp config appsettings set --name <APP_NAME> \
+--resource-group <RESOURCE_GROUP> \
+--settings "JAVA_OPTS=-Djava.awt.headless=true"
+```
 이 예제는 헤드리스 모드를 사용 합니다. 바꿉니다 `<APP_NAME>` 함수 앱의 이름 및 `<RESOURCE_GROUP> ` 리소스 그룹을 사용 하 여 합니다.
 
 > [!WARNING]  
-> 실행 하는 경우는 [소비 계획](functions-scale.md#consumption-plan)를 추가 해야 합니다는 `WEBSITE_USE_PLACEHOLDER` 값을 사용 하 여 설정 `0`.  
+> 에 [소비 계획](functions-scale.md#consumption-plan)를 추가 해야 합니다는 `WEBSITE_USE_PLACEHOLDER` 값을 사용 하 여 설정 `0`.  
 이 설정은 Java 함수에 대 한 콜드 시작 시간이 늘어나지 합니다.
 
 ## <a name="third-party-libraries"></a>타사 라이브러리 
 
-Azure Functions는 타사 라이브러리의 사용을 지원합니다. 기본적으로 `pom.xml` 프로젝트 파일에 지정된 모든 종속성은 [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) 목표 중에 자동으로 번들로 묶어집니다. `pom.xml` 파일에 종속성으로 지정되지 않은 라이브러리의 경우 함수의 루트 디렉터리에 있는 `lib` 디렉터리에 배치합니다. `lib` 디렉터리에 배치된 종속성은 런타임에 시스템 클래스 로더에 추가됩니다.
+Azure Functions는 타사 라이브러리의 사용을 지원합니다. 기본적으로 프로젝트에 지정 된 모든 종속성 `pom.xml` 파일 중 자동으로 묶이는 합니다 [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) 목표입니다. `pom.xml` 파일에 종속성으로 지정되지 않은 라이브러리의 경우 함수의 루트 디렉터리에 있는 `lib` 디렉터리에 배치합니다. 종속성을 배치 합니다 `lib` 디렉터리는 런타임에 시스템 클래스 로더에 추가 됩니다.
 
-`com.microsoft.azure.functions:azure-functions-java-library` 종속성은 classpath에서 기본적으로 제공되므로 `lib` 디렉터리에 포함하지 않아도 됩니다. 또한 [여기](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies)에 나열된 종속성은 [azure-function-java-works-works](https://github.com/Azure/azure-functions-java-worker)를 통해 클래스 경로에 추가됩니다.
+합니다 `com.microsoft.azure.functions:azure-functions-java-library` 종속성 classpath에 기본적으로 제공 되는 및에 포함 될 필요가 없습니다를 `lib` 디렉터리입니다. 또한 [azure functions-java 작업자](https://github.com/Azure/azure-functions-java-worker) 나열 된 종속성 추가 [여기](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) 클래스 경로에 있습니다.
 
 ## <a name="data-type-support"></a>데이터 형식 지원
 
-POJO(이전의 일반 Java 개체), `azure-functions-java-library`에 정의된 형식 또는 String(문자열), Integer(정수)와 같은 기본 dataType을 사용하여 입력/출력 바인딩에 바인딩할 수 있습니다.
+Plain old Java object (Pojo)를 사용할 수 있습니다, 형식에 정의 된 `azure-functions-java-library`, 또는 입력 또는 출력 바인딩을 바인딩할 문자열 및 정수 등의 기본 데이터 형식입니다.
 
-### <a name="plain-old-java-objects-pojos"></a>이전의 일반 Java 개체(POJO)
+### <a name="pojos"></a>Pojo
 
-입력 데이터를 POJO로 변환하기 위해 [azure-function-java-worker](https://github.com/Azure/azure-functions-java-worker)에서 [gson](https://github.com/google/gson) 라이브러리를 사용합니다. 함수에 대한 입력으로 사용되는 POJO 형식은 `public`이어야 합니다.
+POJO에 입력된 데이터를 변환 하기 위한 [azure functions-java 작업자](https://github.com/Azure/azure-functions-java-worker) 사용 하는 [gson](https://github.com/google/gson) 라이브러리. 함수에 대한 입력으로 사용되는 POJO 형식은 `public`이어야 합니다.
 
 ### <a name="binary-data"></a>이진 데이터
 
-function.json의 `dataType` 필드를 `binary`로 설정하여 이진 입력 또는 출력을 `byte[]`에 바인딩합니다.
+이진 입력 또는 출력 바인딩 `byte[]`를 설정 하 여 합니다 `dataType` 필드를 function.json의 `binary`:
 
 ```java
    @FunctionName("BlobTrigger")
@@ -174,13 +172,13 @@ function.json의 `dataType` 필드를 `binary`로 설정하여 이진 입력 또
     }
 ```
 
-null 값이 필요한 경우 `Optional<T>`를 사용합니다.
+사용 하 여 null 값을 원하는 경우 `Optional<T>`합니다.
 
 ## <a name="bindings"></a>바인딩
 
 입력 및 출력 바인딩은 코드 내에서 데이터에 연결하는 선언적 방법을 제공합니다. 함수에는 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다.
 
-### <a name="example-input-binding"></a>입력 바인딩 예제
+### <a name="input-binding-example"></a>입력된 바인딩 예제
 
 ```java
 package com.example;
@@ -216,9 +214,9 @@ public class Function {
 }
 ```
 
-이 함수는 HTTP 요청으로 호출됩니다. 
-- HTTP 요청 페이로드는 `String`으로 `inputReq` 인수에 전달됩니다.
-- 하나의 항목이 Azure Table Storage에서 검색되고, `TestInputData`로 `inputData` 인수에 전달됩니다.
+HTTP 요청을 사용 하 여이 함수를 호출 하면 됩니다. 
+- HTTP 요청 페이로드에서로 전달 되는 `String` 인수에 대 한 `inputReq`합니다.
+- 하나의 항목 테이블 저장소에서 검색 되 고으로 전달 됩니다 `TestInputData` 인수에 `inputData`입니다.
 
 입력 일괄 처리를 받으려면에 바인딩할 수 있습니다 `String[]`, `POJO[]`하십시오 `List<String>`, 또는 `List<POJO>`.
 
@@ -237,11 +235,11 @@ public class Function {
 
 ```
 
-이 함수는 구성된 이벤트 허브에 새 데이터가 있을 때마다 트리거됩니다. `cardinality`가 `MANY`로 설정되면 함수는 이벤트 허브로부터 메시지의 일괄 처리를 받습니다. 이벤트 허브의 EventData는 함수 실행을 위해 `TestEventData`로 변환됩니다.
+이 함수는 구성된 이벤트 허브에 새 데이터가 있을 때마다 트리거됩니다. 때문에 합니다 `cardinality` 로 설정 된 `MANY`, 이벤트 허브에서 메시지 일괄 처리를 수신 하는 함수입니다. `EventData` 이벤트에서 허브 변환 `TestEventData` 함수 실행에 대 한 합니다.
 
-### <a name="example-output-binding"></a>출력 바인딩 예제
+### <a name="output-binding-example"></a>출력 바인딩 예제
 
-`$return`을 사용하여 출력 바인딩을 반환 값에 바인딩할 수 있습니다. 
+사용 하 여 출력 바인딩을 반환 값에 바인딩할 수 있습니다 `$return`합니다. 
 
 ```java
 package com.example;
@@ -294,20 +292,20 @@ public class Function {
     }
 ```
 
-이 함수는 HttpRequest에서 호출 되 고 Azure 큐에 여러 값을 씁니다.
+이 함수는 HttpRequest에 호출할 수 있습니다. Queue storage에 여러 값을 씁니다.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 및 HttpResponseMessage
 
- HttpRequestMessage 및 HttpResponseMessage 형식은 `azure-functions-java-library`에 정의되어 있으며, HttpTrigger 함수에서 사용할 도우미 형식입니다.
+ 에 정의 된 이러한 `azure-functions-java-library`합니다. 이들은 HttpTrigger 함수로 작업 하려면 도우미 형식입니다.
 
-| 특수 형식      |       대상        | 일반적 용도                  |
+| 특수 형식      |       대상        | 일반적인 용도                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리 가져오기 |
-| `HttpResponseMessage` | HTTP 출력 바인딩 | 200 이외의 반환 상태   |
+| `HttpRequestMessage<T>`  |    HTTP 트리거     | 메서드, 헤더 또는 쿼리를 가져옵니다. |
+| `HttpResponseMessage` | HTTP 출력 바인딩 | 200 이외의 상태를 반환합니다.   |
 
 ## <a name="metadata"></a>Metadata
 
-입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
+입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings)를 보내는 트리거는 거의 없습니다. 주석을 사용할 수 있습니다 `@BindingName` 트리거 메타 데이터를 바인딩합니다.
 
 
 ```Java
@@ -327,7 +325,7 @@ public class Function {
     }
 }
 ```
-위의 예제에서 `queryValue`는 `http://{example.host}/api/metadata?name=test` Http 요청 URL에서 `name` 쿼리 문자열 매개 변수에 바인딩됩니다. 큐 트리거 메타데이터에서 `Id`에 바인딩하는 또 다른 예제는 다음과 같습니다.
+앞의 예제에는 `queryValue` 쿼리 문자열 매개 변수에 바인딩된 `name` http 요청 URL에서 `http://{example.host}/api/metadata?name=test`합니다. 여기에 바인딩하는 방법을 보여 주는 또 다른 예는 `Id` 큐 트리거 메타 데이터에서 합니다.
 
 ```java
  @FunctionName("QueueTriggerMetadata")
@@ -344,15 +342,15 @@ public class Function {
 ```
 
 > [!NOTE]
-> 주석에 제공된 이름은 메타데이터 속성과 일치해야 합니다.
+> 에 주석이 지정 된 이름과 메타 데이터 속성과 일치 해야 합니다.
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
-`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다.
+`ExecutionContext`에 정의 된는 `azure-functions-java-library`, functions 런타임은와 통신 하는 도우미 메서드가 포함 되어 있습니다.
 
 ### <a name="logger"></a>로거
 
-`ExecutionContext`에 정의된 `getLogger`를 사용하여 함수 코드에서 로그를 기록합니다.
+사용 하 여 `getLogger`에 정의 된 `ExecutionContext`함수 코드에서 로그를 기록할 수 있습니다.
 
 예제:
 
@@ -373,22 +371,22 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>로그 보기 및 추적
 
-Azure CLI를 사용하여 다른 애플리케이션 로깅뿐만 아니라 Java stdout 및 stderr 로깅도 스트림할 수 있습니다. 
+다른 응용 프로그램 로깅 뿐만 아니라 스트림 Java stdout 및 stderr 로깅, Azure CLI를 사용할 수 있습니다. 
 
-Azure CLI를 사용하여 애플리케이션 로깅을 작성하도록 Function 애플리케이션을 구성합니다.
+Azure CLI를 사용 하 여 응용 프로그램 로깅을 작성 하 여 함수 앱을 구성 하는 방법을 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
-Azure CLI를 사용하여 함수 앱에 대한 로깅 출력을 스트리밍하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
+Azure CLI를 사용 하 여 함수 앱에 대 한 로깅 출력을 스트림 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력 합니다.
 
 ```azurecli-interactive
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
-[az webapp log tail](/cli/azure/webapp/log) 명령에는 `--provider` 옵션을 사용하여 출력을 필터링하는 옵션이 있습니다. 
+[az webapp log tail](/cli/azure/webapp/log) 명령에 사용 하 여 출력을 필터링 하는 옵션을 `--provider` 옵션입니다. 
 
-Azure CLI를 사용하여 로그 파일을 단일 ZIP 파일로 다운로드하려면 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
+Azure CLI를 사용 하 여 단일 ZIP 파일로 로그 파일을 다운로드, 새 명령 프롬프트, Bash 또는 터미널 세션을 열고 다음 명령을 입력 합니다.
 
 ```azurecli-interactive
 az webapp log download --resource-group resourcegroupname --name functionappname
@@ -398,11 +396,9 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `System.getenv("AzureWebJobsStorage")`를 사용하여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 [앱 설정](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. 를 사용 하 여 이러한 설정에 액세스할 수 있습니다 `System.getenv("AzureWebJobsStorage")`합니다.
 
-예제:
-
-이름이 testAppSetting이고 값이 testAppSettingValue인 [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)을 추가합니다.
+예를 들어, 추가할 수 있습니다 [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings), 이름의 `testAppSetting` 값 `testAppSettingValue`:
 
 ```java
 
@@ -417,11 +413,12 @@ public class Function {
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Function Java 개발에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure Functions Java 개발에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-* [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) 및 [Eclipse](functions-create-maven-eclipse.md)를 사용하여 로컬로 개발하고 디버그합니다. 
+* 로컬 개발 및 사용 하 여 디버그할 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)하십시오 [IntelliJ](functions-create-maven-intellij.md), 및 [Eclipse](functions-create-maven-eclipse.md)
 * [Visual Studio Code를 사용하여 Java Azure Functions 원격 디버그](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
-* [Azure Functions의 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - `azure-functions:add` 목적을 통해 함수 생성을 간소화하고 [ZIP 파일 배포](deployment-zip-push.md)에 대한 준비 디렉터리를 준비합니다.
+* [Azure Functions의 maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) 
+* 통해 함수 생성을 간소화 합니다 `azure-functions:add` 목표에 대 한 스테이징 디렉터리를 준비 하 고 [ZIP 파일 배포](deployment-zip-push.md)합니다.

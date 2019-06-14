@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111104"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
@@ -20,7 +20,7 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
 
 네임스페이스를 만들려면
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 포털의 왼쪽 탐색 창에서 **+ 리소스 만들기**, **통합**, **Service Bus**를 차례로 선택합니다.
 
     ![리소스 만들기 -> 통합 -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)

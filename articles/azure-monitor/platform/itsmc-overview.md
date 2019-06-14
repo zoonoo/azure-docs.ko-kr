@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395808"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 만든 사람
 - 해결한 사람
 - 종결한 사람
-- 원본
+- source
 - 할당 대상
 - Category
 - 제목
@@ -208,10 +208,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **필드**
 - ServiceDeskConnectionName
-- 서비스 창구 ID
+- 서비스 데스크 ID
 - 만든 사람
 - 종결한 사람
-- 원본
+- source
 - 할당 대상
 - 제목
 - Type
@@ -226,7 +226,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 할당 대상
 - 만든 날짜
 - 종결한 날짜
-- 마지막 수정 날짜
+- 마지막으로 수정한 날짜
 - 요청한 날짜
 - 예상된 시작 날짜
 - 예상된 종료 날짜
@@ -253,7 +253,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Title_s|  간단한 설명 |
 | Description_s|  메모 |
 | CreatedDate_t|  열림 |
-| ClosedDate_t| 닫힘|
+| ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
 | Computer  | 구성 항목 |
 

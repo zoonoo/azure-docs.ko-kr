@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>자습서: RunMyProcess와 Azure Active Directory 통합
@@ -144,7 +144,7 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 리디렉션** 텍스트 상자에 붙여 넣습니다.
 
-    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 리디렉션** 텍스트 상자에 붙여 넣습니다.
+    c. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 리디렉션** 텍스트 상자에 붙여 넣습니다.
 
     d. **이름 ID 형식** 텍스트 상자에 **이름 식별자 형식** 값을 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**로 입력합니다.
 
@@ -183,7 +183,7 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -207,7 +207,7 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
     b. **IDE 언어**, **언어** 및 **프로필**을 선택합니다. 
 
-    다. **나에게 계정 만들기 메일 보내기**를 선택합니다. 
+    c. **나에게 계정 만들기 메일 보내기**를 선택합니다. 
 
     d. **저장**을 클릭합니다.
    

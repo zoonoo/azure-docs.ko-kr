@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050571"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -173,7 +173,7 @@ Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 �
 
 ## <a name="local-settings-file"></a>로컬 설정 파일
 
-local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions 핵심 도구에 대한 설정을 저장합니다. local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 게시되지 않습니다. 파일의 구조는 다음과 같습니다.
+local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions 핵심 도구에 대한 설정을 저장합니다. local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 절대 게시되지 않습니다. 파일의 구조는 다음과 같습니다.
 
 ```json
 {
@@ -394,7 +394,7 @@ HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관�
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
-#### <a name="using-the-func-run-command-in-version-1x"></a>1.x 버전에서 `func run` 명령 사용
+#### <a name="using-the-func-run-command-in-version-1x"></a>1\.x 버전에서 `func run` 명령 사용
 
 >[!IMPORTANT]
 > `func run` 명령은 도구의 2.x 버전에서 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md) 항목을 참조하세요.
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Azure에 게시
 
-Core Tools는 두 가지 배포 유형을 지원합니다. 그중 하나는 함수 앱에 함수 프로젝트 파일을 직접 배포하는 것이고, 다른 하나는 사용자 지정 Linux 컨테이너를 배포하는 것입니다. 두 번째 유형은 버전 2.x에서만 지원됩니다. 그리고 이미 [Azure 구독에서 함수 앱을 작성](functions-cli-samples.md#create)한 상태여야 합니다.
+Azure Functions 핵심 도구는 두 가지 유형의 배포: 함수 프로젝트 파일을 통해 함수 앱에 직접 배포 [Zip 배포](functions-deployment-technologies.md#zip-deploy) 하 고 [사용자 지정 Docker 컨테이너 배포](functions-deployment-technologies.md#docker-container)합니다. 이미 있어야 [함수 앱을 Azure 구독에서 만든](functions-cli-samples.md#create), 코드를 배포 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
 
-버전 2.x에서는 게시 전에 프로젝트에서 [확장을 등록](#register-extensions)해야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
+### <a name="project-file-deployment"></a>배포 (프로젝트 파일)
 
-### <a name="project-file-deployment"></a>프로젝트 파일 배포
-
-가장 흔히 사용되는 배포 방법에서는 Core Tools를 사용하여 함수 앱 프로젝트, 이진 파일 및 종속성을 패키지로 만든 후 함수 앱에 해당 패키지를 배포합니다. 필요한 경우 [배포 패키지에서 함수를 직접 실행](run-functions-from-deployment-package.md)할 수 있습니다.
-
-Azure의 함수 앱에 Functions 프로젝트를 게시하려면 `publish` 명령을 사용합니다.
+Azure에서 함수 앱에 로컬 코드를 게시 하려면 사용 된 `publish` 명령:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-이 명령은 Azure에서 기존 함수 앱에 게시합니다. `<FunctionAppName>`이 구독에 없으면 오류가 발생합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요.
-
-`publish` 명령은 Functions 프로젝트 디렉터리의 콘텐츠를 업로드합니다. 파일을 로컬로 삭제하는 경우 `publish` 명령은 Azure에서 해당 파일을 삭제하지 않습니다. [Azure Portal]에서 [Kudu 도구](functions-how-to-use-azure-function-app-settings.md#kudu)를 사용하여 Azure에서 파일을 삭제할 수 있습니다.
+이 명령은 Azure에서 기존 함수 앱에 게시합니다. 게시 하려고 하면 오류를 얻게 된 `<FunctionAppName>` 구독에 존재 하지 않는 합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요. 기본적으로이 명령은 앱에서 실행을 통해 [패키지에서 실행](run-functions-from-deployment-package.md) 모드입니다.
 
 >[!IMPORTANT]
 > Azure Portal에서 함수 앱을 만들 때는 기본적으로 Function 런타임 버전 2.x가 사용됩니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.
 > 기존 함수가 있는 함수 앱의 런타임 버전은 변경할 수 없습니다.
 
-다음 프로젝트 게시 옵션은 두 버전 1.x 및 2.x에 모두 적용됩니다.
+버전 1.x 및 2.x에 대 한 다음 게시 옵션을 적용 됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용하는 경우 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경합니다. |
 | **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
 
-다음 프로젝트 게시 옵션은 버전 2.x에서만 지원됩니다.
+다음 게시 옵션은 버전 2.x에서만 지원됩니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
 |**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
 | **`--list-included-files`** | .funcignore 파일을 기준으로 하여 게시되는 파일 목록을 표시합니다. |
-| **`--nozip`** | 기본 `Run-From-Zip` 모드를 끕니다. |
+| **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 .wheels 폴더 생성을 건너뜁니다. |
 | **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
@@ -463,9 +457,9 @@ func azure functionapp publish <FunctionAppName>
 | **`--no-build`** | dotnet 함수 작성을 건너뜁니다. |
 | **`--dotnet-cli-params`** | 컴파일된 C#(.csproj) 함수를 게시할 때 Core Tools는 'dotnet build --output bin/publish'를 호출합니다. 이 명령으로 전달하는 모든 매개 변수는 명령줄에 추가됩니다. |
 
-### <a name="custom-container-deployment"></a>사용자 지정 컨테이너 배포
+### <a name="deployment-custom-container"></a>배포 (사용자 지정 컨테이너)
 
-Functions에서는 사용자 지정 Linux 컨테이너에서 함수 프로젝트를 배포할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. Core Tools 버전 2.x에서는 사용자 지정 컨테이너 배포가 지원됩니다. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 포함하려면 `func init`에서 --dockerfile 옵션을 사용합니다.
+Azure Functions에서 함수 프로젝트를 배포 하면는 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)합니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 사용 하 여 앱을 만들려고-dockerfile 옵션에서 사용 하 여 `func init`입니다.
 
 ```bash
 func deploy

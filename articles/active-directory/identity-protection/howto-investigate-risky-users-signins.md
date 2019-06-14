@@ -18,10 +18,10 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296047"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>방법: 위험한 사용자 및 로그인 조사 
@@ -46,7 +46,7 @@ ms.locfileid: "60296047"
 
 위험한 사용자 보고서에는 다음을 표시하는 기본 보기가 있습니다.
 
-- Name
+- 이름
 
 - 위험 상태
 
@@ -105,7 +105,7 @@ ms.locfileid: "60296047"
 
 보고되는 데이터를 자신에게 적합한 수준으로 좁히려면 다음 기본 필드를 사용하여 위험한 사용자 데이터를 필터링하면 됩니다.
 
-- Name
+- 이름
 
 - 사용자 이름
 
@@ -141,7 +141,7 @@ ms.locfileid: "60296047"
 **유형** 필터를 사용하면 다음을 선택할 수 있습니다.
 
 - Guest
-- 구성원
+- 멤버
 
 **상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
@@ -311,7 +311,7 @@ Azure 포털 외부에서 사용 하려는 경우 위험한 사용자 데이터�
 
 - 지난 1개월
 - 최근 7일
-- 지난 24시간
+- 최근 24시간
 - 사용자 지정 시간 간격
 
 

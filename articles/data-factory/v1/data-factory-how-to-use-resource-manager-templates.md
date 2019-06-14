@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583369"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "60583369"
 
 전 세계에 10개 제조 공장이 있는 조직의 상황을 고려해 보겠습니다. 각 공장의 로그는 개별 온-프레미스 SQL Server 데이터베이스에 저장됩니다. 회사에서는 임시 분석을 위해 클라우드에서 단일 데이터 웨어하우스를 구축할 하려고 합니다. 또한 논리는 동일하면서 구성은 다른 개발, 테스트 및 프러덕션 환경이 필요합니다.
 
-이 경우 동일한 환경에서 작업을 반복하지만 각 제조 공장에 대해 서로 다른 값을 갖는 10개 데이터 팩터리가 생깁니다. 실제로 **반복**되는 것입니다. 템플릿에서는 이 고유 흐름(즉 각 데이터 팩터리에서 동일한 활동의 파이프라인)의 추상이 가능하지만 각 제조 공장마다 별도의 매개 변수 파일을 사용합니다. 
+이 경우 동일한 환경에서 작업을 반복하지만 각 제조 공장에 대해 서로 다른 값을 갖는 10개 데이터 팩터리가 생깁니다. 실제로 **반복**되는 것입니다. 템플릿에서는 이 고유 흐름(즉 각 데이터 팩터리에서 동일한 활동의 파이프라인)의 추상이 가능하지만 각 제조 공장마다 별도의 매개 변수 파일을 사용합니다.
 
 나아가 조직이 서로 다른 환경에서 수차례 이 10개 데이터 팩터리를 배포하려 하므로 템플릿은 개발, 테스트 및 프러덕션 환경에 별도의 매개 변수 파일을 적용함으로써 이러한 **재사용성**을 활용할 수 있습니다.
 
@@ -53,7 +53,7 @@ GitHub에서 다음 Azure 빠른 시작 템플릿을 확인해 보세요.
 
 [Azure 빠른 시작](https://azure.microsoft.com/documentation/templates/)에서 Azure Data Factory를 자유롭게 공유할 수 있습니다. 이 리포지토리를 통해 공유할 수 있는 템플릿을 개발할 때는 [기여 가이드](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE)를 참조하세요.
 
-다음 섹션에서는 Resource Manager 템플릿에서 데이터 팩터리 리소스를 정의하는 것과 관련한 세부 정보를 제공합니다. 
+다음 섹션에서는 Resource Manager 템플릿에서 데이터 팩터리 리소스를 정의하는 것과 관련한 세부 정보를 제공합니다.
 
 ## <a name="defining-data-factory-resources-in-templates"></a>템플릿의 데이터 팩터리 리소스 정의
 데이터 팩터리 정의를 위한 최상위 템플릿은 다음과 같습니다.
