@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371458"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정 시작
@@ -59,7 +59,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정 송장 및 지불 방법
 | Type             | 정의  |
 |------------------|-------------|
 |Azure 크레딧    |  크레딧은 비용을 지불 해야 하는 횟수를 계산 청구서에 총 청구 크기를 자동으로 적용 됩니다. 자세한 내용은 [청구 프로필에 대 한 Azure 크레딧 잔액을 추적할](billing-mca-check-azure-credits-balance.md)합니다. |
-|수표 또는 전신 송금 | 금액을 지불 하 청구서에 대 한 확인 또는 유선을 통해 전송 합니다. 청구서의 결제에 대 한 지침 제공 됩니다. |
+|확인 또는 전선 전송 | 금액을 지불 하 청구서에 대 한 확인 또는 유선을 통해 전송 합니다. 청구서의 결제에 대 한 지침 제공 됩니다. |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>정책을 적용 하 여 컨트롤 Azure Marketplace 및 예약 구매
 
@@ -71,8 +71,8 @@ Azure 계획은 청구 프로필을 만들 때 자동으로 사용 됩니다. �
 
 | 계획             | 정의  |
 |------------------|-------------|
-|Microsoft Azure 플랜   | 사용자는 모든 워크 로드를 실행할 수 있는 구독을 만들 수 있습니다. 자세한 내용은 참조 하세요. [Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|개발/테스트용 Microsoft Azure 플랜 | Visual Studio 구독자가 개발에 대 한 제한 된 구독을 만들 수 있도록 하거나 워크 로드를 테스트 합니다. 이러한 구독은 Azure portal에서 더 낮은 요금 및 전용 가상 머신 이미지에 대 한 액세스와 같은 혜택을 가져옵니다. 자세한 내용은 참조 하세요. [Microsoft Azure DevTest에 대 한 계획](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure Plan   | 사용자는 모든 워크 로드를 실행할 수 있는 구독을 만들 수 있습니다. 자세한 내용은 참조 하세요. [Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Microsoft Azure 개발/테스트 계획 | Visual Studio 구독자가 개발에 대 한 제한 된 구독을 만들 수 있도록 하거나 워크 로드를 테스트 합니다. 이러한 구독은 Azure portal에서 더 낮은 요금 및 전용 가상 머신 이미지에 대 한 액세스와 같은 혜택을 가져옵니다. 자세한 내용은 참조 하세요. [Microsoft Azure DevTest에 대 한 계획](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>섹션에서는 송장 이해
 

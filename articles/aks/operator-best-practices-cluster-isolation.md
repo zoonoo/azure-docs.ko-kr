@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
 ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465309"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
@@ -48,7 +48,7 @@ AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사�
 
 ## <a name="physically-isolate-clusters"></a>물리적으로 클러스터 격리
 
-**모범 사례 가이드** - 개별 팀 또는 애플리케이션 배포에 대한 물리적 격리 사용을 최소화합니다. 대신에 이전 섹션에서 설명한 대로 ‘논리적’ 격리를 사용합니다.
+**모범 사례 가이드** - 개별 팀 또는 애플리케이션 배포에 대한 물리적 격리 사용을 최소화합니다. 대신에 이전 섹션에서 설명한 대로 ‘논리적’ 격리를 사용합니다. 
 
 일반적인 클러스터 격리 방법은 물리적으로 분리된 AKS 클러스터를 사용하는 것입니다. 이 격리 모델에서는 팀 또는 워크로드에 자체 AKS 클러스터가 할당됩니다. 이 접근 방식은 워크로드 또는 팀을 격리하는 가장 간편한 방법처럼 보이지만, 추가적인 관리 및 재무 오버헤드가 더해집니다. 이제 이러한 여러 클러스터를 유지 관리해야 하고 개별적으로 액세스를 제공하고 권한을 할당해야 합니다. 또한 모든 개별 노드에 대한 요금이 청구됩니다.
 

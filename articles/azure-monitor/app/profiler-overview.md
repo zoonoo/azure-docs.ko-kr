@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306328"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
@@ -95,7 +95,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 **BLOCKED_TIME**은 코드가 다른 리소스를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 예를 들어, 동기화 개체를 기다리거나, 스레드를 사용할 수 있거나 요청이 완료될 때까지 기다릴 수 있습니다.
 
-### <a name="unmanaged-async"></a>관리되지 않는 비동기
+### <a name="unmanaged-async"></a>관리 되지 않는 비동기
 
 .NET framework는 ETW 이벤트를 내보냅니다 및 스레드에서 비동기 호출을 추적할 수 있도록 스레드 간 작업 id를 전달 합니다. 비관리 코드 (네이티브 코드용) 및 비동기 코드의 일부 이전 스타일은 없으므로 이러한 이벤트와 동작 id 프로파일러는 스레드 및 스레드에서 실행 하는 함수는 알 수 없습니다. 호출 스택의 ' 관리 되지 않는 Async' 이라고 합니다. ETW 파일을 다운로드 하는 경우에 사용할 수 있습니다 [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 벌어지는 상황에 대 한 자세한 정보를 가져오려고 합니다.
 

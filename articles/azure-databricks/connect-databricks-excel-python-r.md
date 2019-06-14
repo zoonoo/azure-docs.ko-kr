@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236287"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
@@ -54,7 +54,7 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     다음 표에서는 대화 상자에서 제공하는 값에 대해 설명합니다.
     
-    |필드  | Value  |
+    |필드  | 값  |
     |---------|---------|
     |**데이터 원본 이름**     | 데이터 원본의 이름을 제공합니다.        |
     |**호스트**     | *서버 호스트 이름*으로 Databricks 작업 영역에서 복사한 값을 제공합니다.        |

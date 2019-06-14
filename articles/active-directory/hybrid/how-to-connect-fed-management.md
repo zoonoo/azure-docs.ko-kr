@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353634"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
@@ -64,7 +64,7 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 
     **구성 준비** 페이지는 트러스트를 복구하기 위해 수행할 작업 목록을 표시합니다.
 
-    ![구성 준비 완료](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![구성할 준비 완료](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. **설치** 를 클릭하여 트러스트를 복구합니다.
 
@@ -148,7 +148,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 6. **구성 준비** 페이지에서 마법사는 수행할 작업 목록을 표시합니다.
 
-   ![구성 준비 완료](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![구성할 준비 완료](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. **설치** 를 클릭하여 구성을 완료합니다. 구성이 완료되면 마법사에서 서버에 대한 연결을 확인하는 옵션을 제공합니다. **확인** 을 클릭하여 연결을 확인합니다.
 
@@ -178,7 +178,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
 5. **다음**을 클릭합니다. **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
 
-   ![구성 준비 완료](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
+   ![구성할 준비 완료](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
 > [!NOTE]
 > 추가 페더레이션된 도메인의 사용자는 Azure AD에 로그인하기 전에 동기화되어야 합니다.

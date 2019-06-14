@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312561"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>업로드 하 고 Azure Logic Apps를 사용 하 여 Dropbox의 파일 관리
@@ -57,7 +57,7 @@ Dropbox 커넥터 및 Azure Logic Apps를 사용 하 여 업로드 하 고 Dropb
 
 1. Azure 논리 앱이 Dropbox 액세스 권한이 이미 하지 않은 경우 이제 액세스 권한을 부여 합니다.
 
-1. 옆에 사용 하려면 원하는 파일 경로 이동 하는 **파일 경로** 상자에서 줄임표 (**...** ) 단추입니다. 
+1. 옆에 사용 하려면 원하는 파일 경로 이동 하는 **파일 경로** 상자에서 줄임표 ( **...** ) 단추입니다. 
 
    내에서 클릭할 수도 있습니다는 **파일 경로** 상자의 및 동적 콘텐츠 목록에서 선택 **파일 경로**, 이전 섹션에서 추가한 트리거에서 출력 값은 사용할 수 있습니다.
 

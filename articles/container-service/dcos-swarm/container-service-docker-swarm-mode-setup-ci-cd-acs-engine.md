@@ -10,10 +10,10 @@ ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
 ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430674"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
@@ -197,7 +197,7 @@ Azure DevOps를 사용하면 [환경에서 릴리스를 관리](https://www.visu
 
 ### <a name="initial-release-setup"></a>최초 릴리스 설정
 
-1. 릴리스 파이프라인을 만들려면 **릴리스** > **+ 릴리스**를 클릭합니다.
+1. 릴리스 파이프라인을 만들려면 **릴리스** >  **+ 릴리스**를 클릭합니다.
 
 2. 아티팩트 원본을 구성하려면 **아티팩트** > **아티팩트 원본 연결**을 클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 파이프라인을 연결합니다. 그런 후에 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60255071"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
@@ -70,12 +70,12 @@ Azure Monitor를 사용 하 여 통신 하도록 Operations Manager 에이전트
 |\*.ods.opinsights.azure.com| 443 |예|  
 |\*.oms.opinsights.azure.com| 443|예|  
 |\*.blob.core.windows.net| 443|예|  
-|\*.azure-automation.net| 443|예.|  
+|\*.azure-automation.net| 443|예|  
 |**관리 서버**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| 예|  
 |\*.ods.opinsights.azure.com| 443| 예|  
-|*.azure-automation.net | 443| 예.|  
+|*.azure-automation.net | 443| 예|  
 |**Azure Monitor에 operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -142,7 +142,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite를 확장한 다음 **연결**을 클릭합니다.
 1. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
-1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80)한 다음, **마침**을 클릭합니다.
+1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음, **마침**을 클릭합니다.
 
 프록시 서버에 인증이 필요한 경우 자격 증명 및 Azure Monitor에 보고 하는 관리 그룹에는 관리 되는 컴퓨터에 전파 해야 하는 설정을 구성 하려면 다음 단계를 수행 합니다.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358211"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 암호 보호 에이전트에 대한 버전 기록
@@ -28,7 +28,7 @@ ms.locfileid: "60358211"
 * 최종 일반 공급 버전으로 업데이트 EULA 계약에 동의
 
 > [!NOTE]
-> 1.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
+> 1\.2.125.0 빌드는 일반 공급 빌드입니다. 모든 사용자에 게 다시 주셔서 제품 피드백을 제공 했습니다!
 
 ## <a name="121160"></a>1.2.116.0
 
@@ -119,7 +119,7 @@ ms.locfileid: "60358211"
 * 이제 DC 에이전트 및 프록시 설치 관리자는 모두 이후 버전으로 업그레이드하는 경우 현재 위치 업그레이드를 지원합니다.
 
 > [!WARNING]
-> 1.1.10.3 버전에서 현재 위치 업그레이드는 지원되지 않으며 설치 오류가 발생합니다. 1.2.10 버전 이상으로 업그레이드하려면 먼저 DC 에이전트 및 프록시 서비스 소프트웨어를 완전히 제거한 다음, 처음부터 새 버전을 설치합니다. Azure AD 암호 보호 프록시 서비스를 다시 등록해야 합니다.  포리스트를 다시 등록할 필요가 없습니다.
+> 1\.1.10.3 버전에서 현재 위치 업그레이드는 지원되지 않으며 설치 오류가 발생합니다. 1\.2.10 버전 이상으로 업그레이드하려면 먼저 DC 에이전트 및 프록시 서비스 소프트웨어를 완전히 제거한 다음, 처음부터 새 버전을 설치합니다. Azure AD 암호 보호 프록시 서비스를 다시 등록해야 합니다.  포리스트를 다시 등록할 필요가 없습니다.
 
 > [!NOTE]
 > DC 에이전트 소프트웨어의 현재 위치 업그레이드에는 다시 부팅이 필요합니다.

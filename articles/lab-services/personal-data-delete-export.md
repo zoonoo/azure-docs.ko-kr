@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394989"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Azure DevTest Labs에서 개인 데이터 내보내기 또는 삭제
@@ -39,10 +39,10 @@ DevTest Labs에서는 사용자 이메일 주소를 사용하여 랩 사용자�
 ### <a name="user-object-id"></a>사용자 개체 ID
 DevTest Labs는 사용자 개체 ID를 사용하여 랩 관리자에게 월별 비용 추세와 리소스별 비용을 보여줍니다. 이를 통해 비용을 추적하고 랩에 대한 임계값을 관리할 수 있습니다. 
 
-**당월의 예상 비용 추세:**
+**당월의 예상 비용 추세:** 
 ![당월의 예상 비용 추세](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**리소스별 예상 월간 누계 비용:**
+**리소스별 예상 월간 누계 비용:** 
 ![리소스별 예상 월간 누계 비용](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
