@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터 및 컨테이너 환경이 있어야 합니다.
+Text Analytics 컨테이너를 실행하려면 호스트 컴퓨터 및 컨테이너 환경이 있어야 합니다.
 
 ## <a name="preparation"></a>준비
 
@@ -36,7 +36,7 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|`Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure 리소스는 연결된 청구 키 및 청구 끝점 URI를 가져올 수 있습니다. 값이 모두 Azure portal의 Cognitive Services 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.<br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|`Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 끝점 URI를 가져올 [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) Azure 리소스. 두 값 모두 Azure portal의 Cognitive Services 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 `text/analytics/v2.0` 라우팅을 끝점 URI에 추가해야 합니다.<br><br>**{BILLING_KEY}** : 리소스 키<br><br>**{BILLING_ENDPOINT_URI}** : 끝점 URI 예제: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
@@ -67,7 +67,7 @@ Text Analytics에 대한 컨테이너 이미지는 Microsoft Container Registry�
 |언어 감지 | `mcr.microsoft.com/azure-cognitive-services/language` |
 |감정 분석 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-[ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드 합니다.
+[ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Microsoft 컨테이너 레지스트리에서 컨테이너 이미지를 다운로드합니다.
 
 Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설명은 Docker 허브의 다음 컨테이너를 참조하세요.
 
@@ -112,7 +112,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 | 구분 | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키는 컨테이너를 시작 하는데 사용되고 Azure portal의 `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
+|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure portal의 `Cognitive Services` [키] 페이지에서 확인할 수 있습니다. |
 |{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. <br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `text/analytics/v2.0` 라우팅을 끝점 URI로 추가해야 합니다.
