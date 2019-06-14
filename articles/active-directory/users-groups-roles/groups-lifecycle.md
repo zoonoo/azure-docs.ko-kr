@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604391"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
@@ -69,7 +69,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 > 만료를 처음 설정할 경우 만료 간격보다 오래된 모든 그룹은 만료되기 전까지 30일로 설정됩니다. 하루 이내로 첫 번째 갱신 알림 전자 메일이 전송됩니다. 예를 들어 그룹 A가 400일 전에 만들어졌으며 만료 기간은 180일로 설정됩니다. 만료 정책에 적용 하면 그룹 A는 소유자가 갱신 하지 않으면 삭제 되기 전에 30 일에 있습니다.
 > 동적 그룹은 삭제 하 고 복원 하는 경우 새 그룹으로 표시 되 고 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24 시간이 걸릴 수 있습니다.
 
-## <a name="email-notifications"></a>메일 알림
+## <a name="email-notifications"></a>전자 메일 알림
 
 이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다. 이메일의 언어는 그룹 소유자의 기본 설정 언어 또는 테넌트 언어에 따라 결정됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 테넌트 언어가 사용됩니다.
 

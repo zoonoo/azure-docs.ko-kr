@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d208e981f46bd5cc156dd7f764de64638c91efb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2df98966b69250d31f2a741411aea6e5554f9ed6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112859"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 협업 라이선스 지침
 
@@ -29,7 +29,7 @@ B2B 게스트 사용자 라이선싱은 1:5 비율을 기준으로 자동 계산
 ## <a name="examples-calculating-guest-user-licenses"></a>예제: 게스트 사용자 라이선스 계산
 유료 Azure AD 서비스에 액세스해야 하는 게스트 사용자의 수를 확인한 후에는 필요한 1:5 비율로 게스트 사용자에게 제공하기에 충분한 Azure AD 유료 라이선스가 있는지 확인합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
-- Azure AD 앱이나 서비스에 게스트 사용자 100명을 초대하려고 하며 모든 게스트 사용자에게 액세스 관리 및 프로비전 기능을 할당하려고 합니다. 또한 게스트 사용자 중 50명에게는 MFA 및 조건부 액세스를 사용해야 하도록 설정하려고 합니다. 이 조합을 적용하려면 Azure AD Basic 라이선스와 Azure AD Premium P1 라이선스가 각각 10개씩 필요합니다. 게스트 사용자에게 Identity Protection 기능을 사용하려는 경우에는 게스트 사용자에게 적용되는 것과 같은 1:5 비율에 해당하는 Azure AD Premium P2 라이선스가 필요합니다.
+- Azure AD 앱이나 서비스에 게스트 사용자 100명을 초대하려고 하며 모든 게스트 사용자에게 액세스 관리 및 프로비전 기능을 할당하려고 합니다. 또한 이러한 게스트 사용자의 50에 대 한 MFA 및 조건부 액세스를 요구 하려고 합니다. 이 조합을 적용하려면 Azure AD Basic 라이선스와 Azure AD Premium P1 라이선스가 각각 10개씩 필요합니다. 게스트 사용자에게 Identity Protection 기능을 사용하려는 경우에는 게스트 사용자에게 적용되는 것과 같은 1:5 비율에 해당하는 Azure AD Premium P2 라이선스가 필요합니다.
 - 게스트 사용자 60명을 초대하고 모든 게스트 사용자가 MFA를 사용해야 하도록 설정하려는 경우 Azure AD Premium P1 라이선스가 12개 이상 필요합니다. Azure AD Premium P1 라이선스 보유 직원 수가 10명이라면 1:5 비율에 따라 게스트 사용자를 50명까지 초대할 수 있습니다. 이 경우 게스트 사용자 10명을 더 초대하려면 Premium P1 라이선스 2개를 추가로 구매해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

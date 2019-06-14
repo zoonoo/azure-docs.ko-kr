@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172181"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>StorSimple 백업 일정을 추가 또는 수정하려면
@@ -19,7 +19,7 @@ ms.locfileid: "66172181"
 
     ![일정 관리](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. **일정 추가** 블레이드에서 스냅숏 유형, 백업 빈도, 재방문 주기, 시작 및 종료 시간을 수정합니다. **추가**를 클릭합니다.
+3. **일정 추가** 블레이드에서 스냅샷 유형, 백업 빈도, 재방문 주기, 시작 및 종료 시간을 수정합니다. **추가**를 클릭합니다.
 
     ![일정 관리](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 

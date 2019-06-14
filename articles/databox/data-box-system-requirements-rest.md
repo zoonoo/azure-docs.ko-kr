@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436497"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
@@ -57,7 +57,7 @@ Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 �
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    NuGet 패키지: https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config 파일                 |
 |    Java                |    7.0.0                                           |    Maven 패키지: https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    연결 문자열 설정         |
-|    Node.js             |    2.8.3                                           |    NPM 링크:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0`)   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    서비스 인스턴스 선언    |
+|    Node.js             |    2.8.3                                           |    NPM 링크:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0` )   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    서비스 인스턴스 선언    |
 |    C++                 |    5.2.0                                           |    NuGet 패키지: https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    연결 문자열 설정         |
 |    PHP                 |    1.2.0                                           |    GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>작성기를 통해 설치( 자세한 내용은 아래 세부 정보 참조)                                                                                                             |    연결 문자열 설정         |
 |    Python              |    1.1.0                                           |    GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob: https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    서비스 인스턴스 선언    |

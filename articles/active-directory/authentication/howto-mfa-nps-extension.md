@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113413"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -134,7 +134,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다. 
 2. 지시에 따라 확인 방법을 설정합니다.
-3. 조건부 액세스 정책을 만들거나 [사용자 상태를 변경](howto-mfa-userstates.md)하여 테스트 계정에 대한 2단계 인증을 요구합니다. 
+3. 조건부 액세스 정책을 만들거나 또는 [사용자 상태를 변경](howto-mfa-userstates.md) 테스트 계정에 대 한 2 단계 확인이 필요 합니다. 
 
 사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
 
@@ -266,7 +266,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/ 에 액세스할 수 있는지 확인합니다.
 
 -------------------------------------------------------------
 
@@ -278,7 +278,7 @@ AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Ac
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
-NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
+NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 에 액세스할 수 있는지 확인합니다.
 
 -------------------------------------------------------------
 

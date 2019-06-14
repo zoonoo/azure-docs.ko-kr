@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335766"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 경고
@@ -108,7 +108,7 @@ ms.locfileid: "60335766"
 13. **저장** 단추를 클릭하여 경고 구성을 저장합니다.  5단계에서 **경고 사용** 을 선택한 경우 경고는 지금 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-*  [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-*  [사용 패턴](cdn-analyze-usage-patterns.md)
+* [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
+* [고급 HTTP 보고서](cdn-advanced-http-reports.md)
+* [사용 패턴](cdn-analyze-usage-patterns.md)
 

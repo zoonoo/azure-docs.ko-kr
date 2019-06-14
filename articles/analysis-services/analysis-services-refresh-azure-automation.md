@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356993"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
@@ -145,7 +145,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용을 먼저 만듭니다는
 합니다 **본문** 은 다음 속성을 포함 하는 JSON 문서:
 
 
-|자산  |Value  |
+|자산  |값  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름 <br/> 예제: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |

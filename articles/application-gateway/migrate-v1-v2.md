@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053335"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure 응용 프로그램 게이트웨이 마이그레이션 및 웹 v1에서 v2로 응용 프로그램 방화벽
 
@@ -117,11 +117,11 @@ Az Azure 모듈이 설치 된 경우를 확인 하려면 실행 `Get-InstalledMo
 
       PSApplicationGatewayTrustedRootCertificate 개체의 목록을 참조 하세요 [새로 만들기-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)합니다.
    * **privateIpAddress: [String]: 선택적**합니다. 특정 개인 IP 주소를 새 v2 게이트웨이에 연결 하려는 합니다.  새 v2 게이트웨이에 대 한 할당 하는 동일한 VNet에서 이어야 합니다. 를 지정 하지 않으면이 스크립트는 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
-    * **publicIpResourceId: [String]: 선택적**합니다. 새로운 v2 게이트웨이를 할당 하려는 구독에 공용 IP 주소 리소스의 resourceId입니다. 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. V2 게이트웨이의 이름을 사용 하 여 이름이 *-IP* 추가 합니다.
+    * **publicIpResourceId: [String]: 선택적**합니다. 새로운 v2 게이트웨이를 할당 하려는 구독에 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 를 지정 하지 않으면이 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. V2 게이트웨이의 이름을 사용 하 여 이름이 *-IP* 추가 합니다.
    * **validateMigration: [스위치]: 선택적**합니다. V2 게이트웨이 생성 후 구성 복사본 몇 가지 기본 구성을 비교 유효성 검사를 수행 하는 스크립트를 하려는 경우이 매개 변수를 사용 합니다. 기본적으로 유효성을 검사 하지 이루어집니다.
    * **enableAutoScale: [switch]: 선택적**합니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려는 경우이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정은 비활성화 됩니다. 사용할 수 있습니다 항상 수동으로 나중에 새로 만든된 v2 게이트웨이.
 
-1. 적절 한 매개 변수를 사용 하는 스크립트를 실행 합니다.
+1. 적절 한 매개 변수를 사용 하는 스크립트를 실행 합니다. 완료 하려면 5 ~ 7 분 정도 걸릴 수 있습니다.
 
     **예제**
 
@@ -176,7 +176,11 @@ Az Azure 모듈이 설치 된 경우를 확인 하려면 실행 `Get-InstalledMo
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell 스크립트에서 만든 새 v2 게이트웨이 크기가 적절 하 게 v1 게이트웨이 내에서 현재 제공 되는 트래픽을 모두 처리 하 시겠습니까?
 
-Azure PowerShell 스크립트는 기존 V1 게이트웨이에서 트래픽을 처리 하기 위해 적절 한 크기를 사용 하 여 새 v2 게이트웨이 만듭니다. 자동 크기 조정을 기본적으로 비활성화 되어 있지만 스크립트를 실행 하면 자동 크기 조정을 설정할 수 있습니다.
+Azure PowerShell 스크립트는 기존 v1 게이트웨이에서 트래픽을 처리 하기 위해 적절 한 크기를 사용 하 여 새 v2 게이트웨이 만듭니다. 자동 크기 조정을 기본적으로 비활성화 되어 있지만 스크립트를 실행 하면 자동 크기 조정을 설정할 수 있습니다.
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Azure storage에 로그를 보낼 내 v1 게이트웨이 구성 합니다. 스크립트에도 v2에 대 한이 구성을 복제는?
+
+아니요. 스크립트에는 v2에 대 한이 구성을 복제 하지 않습니다. 마이그레이션된 v2 게이트웨이에 로그 구성을 개별적으로 추가 해야 합니다.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하 여 몇 가지 문제를 실행 합니다. 도움을 받으려면 어떻게 하나요?
   

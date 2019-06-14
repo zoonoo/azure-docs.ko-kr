@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126684"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks (미리 보기) 가상 네트워크에 배포
@@ -121,7 +121,7 @@ Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 �
 
 사용 하지 않는 경우는 [Azure portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) 또는 [Azure Resource Manager 템플릿](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) 네트워크 보안 그룹을 만들려면 수동으로 해야 다음 트래픽 허용 목록을 서브넷에 있습니다.
 
-|Direction|프로토콜|원본|원본 포트|대상|대상 포트|
+|Direction|프로토콜|source|원본 포트|대상|대상 포트|
 |---------|--------|------|-----------|-----------|----------------|
 |인바운드|\*|VirtualNetwork|\*|\*|\*|
 |인바운드|\*|제어 평면 NAT IP|\*|\*|22|
@@ -148,7 +148,7 @@ Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 �
 |영국 남부|제어 평면 NAT </br></br>웹 앱|51.140.203.27/32 </br></br>51.140.204.4/32|
 |서유럽|제어 평면 NAT </br></br>웹 앱|23.100.0.135/32 </br></br>52.232.19.246/32|
 |유럽 북부|제어 평면 NAT </br></br>웹 앱|23.100.0.135/32 </br></br>52.232.19.246/32|
-|중앙 인도|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
+|인도 중부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |인도 남부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |인도 서부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |동남아시아|제어 평면 NAT </br></br>웹 앱|52.187.0.85/32 </br></br>52.187.145.107/32|

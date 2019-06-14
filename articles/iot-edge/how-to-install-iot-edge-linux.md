@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054287"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -82,6 +82,18 @@ Moby CLI(명령줄 인터페이스)를 설치합니다. CLI는 개발에 유용�
    ```bash
    sudo apt-get install moby-cli
    ```
+
+### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>모 비 호환성을 위해 Linux 커널을 확인합니다
+
+대부분의 임베디드 장치 제조업체 컨테이너 런타임 호환성을 위해 필요한 기능 누락 될 수 있는 사용자 지정 Linux 커널을 포함 하는 장치 이미지를 제공 합니다. 권장 설치 하는 경우 문제가 발생 하면 [모 비](https://github.com/moby/moby) 컨테이너 런타임을 수에 커널 구성을 사용 하 여 Linux 문제를 해결할 수는 [검사-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) 에 제공 된 스크립트는 공식 [모 비 Github 리포지토리](https://github.com/moby/moby) 장치에서 다음 명령을 실행 하 여 합니다.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+이 모 비 런타임에서 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력을 제공 합니다. 아래에 있는 모든 항목을 확인 하려고 `Generally Necessary` 및 `Network Drivers` 커널을 모 비 런타임 완벽 하 게 호환 되도록 설정 됩니다.  모든 누락 된 기능을 식별 하는 경우에 원본에서 커널을 다시 작성 하 고 적절 한 커널.config에 포함에 대 한 연결 된 모듈을 선택 하 여 활성화할 수 있습니다.  마찬가지로, defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 찾기 및 해당 기능을 사용 하도록 설정 하 고, 커널을 적절 하 게 다시 작성 해야 합니다.  새로 수정 된 커널을 배포한 후에 식별 된 기능을 성공적으로 설정 된가 있는지 확인 하려면 다시 확인 구성 스크립트를 실행 합니다.
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 

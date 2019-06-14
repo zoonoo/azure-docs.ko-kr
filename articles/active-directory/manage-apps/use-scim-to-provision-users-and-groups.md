@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742464"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
@@ -126,7 +126,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 * Microsoft Azure AD는 다음 연산자만 사용합니다.  
      - `eq`
      - `and`
-* 대/소문자 구분 일치를 사용 하는 특정 패치에 SCIM의 구조적 요소 필요가 `op` 에 정의 된 작업 값 https://tools.ietf.org/html/rfc7644#section-3.5.2합니다. Azure AD로 'op'의 값을 내보냅니다 `Add`하십시오 `Replace`, 및 `Remove`합니다.
+* 대/소문자 구분 일치를 사용 하는 특정 패치에 SCIM의 구조적 요소 필요가 `op` 에 정의 된 작업 값 https://tools.ietf.org/html/rfc7644#section-3.5.2 합니다. Azure AD로 'op'의 값을 내보냅니다 `Add`하십시오 `Replace`, 및 `Remove`합니다.
 * Microsoft Azure AD를 사용 하면 끝점 및 자격 증명이 유효한 지 확인 합니다. 임의 사용자 및 그룹을 가져올 요청 합니다. 일부로 수행 됩니다 **연결 테스트** 흐름에 [Azure portal](https://portal.azure.com)합니다. 
 * 리소스에 쿼리할 수 있는 특성을 응용 프로그램에서 일치 하는 특성으로 설정 해야 합니다 [Azure portal](https://portal.azure.com)합니다. 자세한 내용은 참조 하세요. [사용자 지정 사용자 프로 비전 특성 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
@@ -665,7 +665,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
    ![][2]
    *그림 6: Azure Portal에서 프로비전 구성*
     
-1. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://\<ip-address>:9000/과 유사합니다. 여기서 \<ip-address>는 인터넷에 노출된 IP 주소입니다. 
+1. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://\< ip-address>:9000/과 유사합니다. 여기서 \< ip-address>는 인터넷에 노출된 IP 주소입니다. 
 
 1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 
 1. 선택 **연결 테스트** Azure Active Directory에서 SCIM 끝점에 연결을 시도 하도록 합니다. 시도가 실패 하면 오류 정보가 표시 됩니다.  
@@ -823,7 +823,7 @@ CLI 라이브러리를 사용 하는 개발자는 모든 실행 CLI 어셈블리
    ```
 
 ### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 받는 모든 서비스는 발급자 필요한 Azure Active Directory 테 넌 트를 Azure Active Directory Graph 웹 서비스에 대 한 액세스를 Azure Active Directory로 인증 해야 합니다.  토큰에서 발급자는 "iss"와 같은 iss 클레임으로 식별 됩니다. "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"입니다.  이 예제에서는 클레임 값의 기본 주소 https://sts.windows.net상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 Azure Active Directory를 발급자로 식별에 대 한 Azure Active Directory 테 넌 트의 고유 식별자 토큰을 발급 합니다.  토큰이 Azure Active Directory Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 식별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.  동일한 단일 테 넌 트에 등록 된 응용 프로그램의 각 나타날 `iss` SCIM 요청과 클레임입니다.
+Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 받는 모든 서비스는 발급자 필요한 Azure Active Directory 테 넌 트를 Azure Active Directory Graph 웹 서비스에 대 한 액세스를 Azure Active Directory로 인증 해야 합니다.  토큰에서 발급자는 "iss"와 같은 iss 클레임으로 식별 됩니다. "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ "입니다.  이 예제에서는 클레임 값의 기본 주소 https://sts.windows.net 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 Azure Active Directory를 발급자로 식별에 대 한 Azure Active Directory 테 넌 트의 고유 식별자 토큰을 발급 합니다.  토큰이 Azure Active Directory Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 식별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.  동일한 단일 테 넌 트에 등록 된 응용 프로그램의 각 나타날 `iss` SCIM 요청과 클레임입니다.
 
 SCIM 서비스 구축을 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 Microsoft.Owin.Security.ActiveDirectory 패키지로 다음 단계를 수행 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 
@@ -1314,7 +1314,7 @@ SCIM 서비스 구축을 위해 Microsoft에서 제공 하는 CLI 라이브러�
 ## <a name="user-and-group-schema-reference"></a>사용자 및 그룹 스키마 참조
 Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프로비전할 수 있습니다.  이러한 형식의 리소스는 사용자 및 그룹입니다.  
 
-사용자 리소스는 스키마 식별자로 식별 됩니다 `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`,이 프로토콜 사양에 포함 되어 있는: https://tools.ietf.org/html/rfc7643합니다.  사용자 리소스의 특성에 Azure Active Directory에서 사용자의 특성의 기본 매핑 표 1에 제공 됩니다.  
+사용자 리소스는 스키마 식별자로 식별 됩니다 `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`,이 프로토콜 사양에 포함 되어 있는: https://tools.ietf.org/html/rfc7643 합니다.  사용자 리소스의 특성에 Azure Active Directory에서 사용자의 특성의 기본 매핑 표 1에 제공 됩니다.  
 
 그룹 리소스는 스키마 식별자 `urn:ietf:params:scim:schemas:core:2.0:Group`으로 식별됩니다. 표 2 리소스 그룹의 특성에 Azure Active Directory에서 그룹의 특성 간의 기본 매핑을 보여 줍니다.  
 

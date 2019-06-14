@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688830"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>MQ 커넥터를 사용하여 논리 앱에서 IBM MQ 서버에 연결
@@ -44,7 +44,7 @@ MQ 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
-1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
+1. **Azure 시작 보드**에서 **+** (더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
 2. MQTestApp, **구독**, **리소스 그룹** 및 **위치**와 같은 **이름**을 입력합니다(온-프레미스 데이터 게이트웨이 연결이 구성된 위치를 사용). **대시보드에 고정**을 선택하고 **만들기**를 선택합니다.  
 ![논리 앱 만들기](media/connectors-create-api-mq/Create_Logic_App.png)
 

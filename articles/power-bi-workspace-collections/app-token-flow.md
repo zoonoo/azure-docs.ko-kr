@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707114"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
@@ -92,7 +92,7 @@ Embed 토큰으로 사용하는 경우 액세스 권한을 제공하는 리소�
 
 Power BI 작업 영역 컬렉션에 사용 가능한 범위는 다음과 같습니다.
 
-|범위|설명|
+|Scope|설명|
 |---|---|
 |Dataset.Read|지정된 데이터 세트를 읽을 수 있는 사용 권한을 제공합니다.|
 |Dataset.Write|지정된 데이터 세트를 쓸 수 있는 사용 권한을 제공합니다.|

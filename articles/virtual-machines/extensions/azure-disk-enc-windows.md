@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff77f9fc017627143b14544af03d0d5e80813db9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051700"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -41,7 +41,44 @@ Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure
 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  네트워크 보안 설정에 대한 자세한 내용은 [Azure Disk Encryption 필수 조건](
 ../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
-## <a name="extension-schema"></a>확장 스키마
+## <a name="extension-schemata"></a>확장 스키마
+
+Azure Disk Encryption에 대 한 스키마를 두 가지: v1.1, Azure Active Directory (AAD) 속성과 v0.1 사용 하지 않는 최신, 권장 되는 스키마, AAD 등록 정보를 필요로 하는 이전 스키마입니다. 사용 하는 확장 프로그램에 해당 하는 스키마 버전을 사용 해야 합니다: 확장 버전 1.1에서 AzureDiskEncryption 확장 버전 0.1에 대 한 스키마 v0.1 AzureDiskEncryption에 대 한 스키마 v1.1.
+
+### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: (권장) AAD 없음
+
+V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요 하지 않습니다.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>스키마 v0.1: AAD를 사용 하 여 
+
+0\.1 스키마 필요 `aadClientID` 고 `aadClientSecret` 또는 `AADClientCertificate`합니다.
+
+`aadClientSecret`사용:
 
 ```json
 {
@@ -51,29 +88,56 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
   "location": "[location]",
   "properties": {
     "protectedSettings": {
-      "AADClientSecret": "[aadClientSecret]",
-    },
+      "AADClientSecret": "[aadClientSecret]"
+    },    
     "publisher": "Microsoft.Azure.Security",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-      
+      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-      "EncryptionOperation": "[encryptionOperation]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
-    "type": "AzureDiskEncryption",
-    "typeHandlerVersion": "[extensionVersion]"
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+`AADClientCertificate`사용:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### <a name="property-values"></a>속성 값
 
@@ -81,17 +145,17 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | 문자열 |
-| 형식 | AzureDiskEncryptionForWindows| 문자열 |
-| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
-| (선택 사항) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (선택 사항) AADClientSecret | 암호 | 문자열 |
-| (선택 사항) AADClientCertificate | thumbprint | 문자열 |
-| EncryptionOperation | EnableEncryption | 문자열 | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 문자열 |
+| 형식 | AzureDiskEncryptionForLinux | 문자열 |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0.1 스키마) AADClientSecret | password | 문자열 |
+| (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyEncryptionKeyURL | url | 문자열 |
-| KeyVaultResourceId | 리소스 uri | 문자열 |
-| KekVaultResourceId | 리소스 uri | 문자열 |
 | KeyVaultURL | url | 문자열 |
+| (선택 사항) 암호 | password | 문자열 | 
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 

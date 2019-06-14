@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139877"
 ---
 기본적으로 Mobile Apps 백 엔드의 API는 익명으로 호출할 수 있습니다. 다음으로, 인증된 클라이언트로만 액세스를 제한해야 합니다.  
 
-* **Node.js 백 엔드(Azure Portal을 통해)**:  
+* **Node.js 백 엔드(Azure Portal을 통해)** :  
 
     Mobile Apps 설정에서 **간편한 테이블**을 클릭하고 테이블을 선택합니다. **사용 권한 변경**을 클릭하고 모든 사용 권한에 대해 **인증된 액세스만**을 선택한 다음 **저장**을 클릭합니다.
-* **.NET 백 엔드(C#)**:  
+* **.NET 백 엔드(C#)** :  
 
     서버 프로젝트에서 **컨트롤러** > **TodoItemController.cs**로 이동합니다. 다음과 같이 **TodoItemController** 클래스에 `[Authorize]` 특성을 추가합니다. 특정 메서드로만 액세스를 제한하기 위해 이 특성을 클래스 대신 해당 메서드에만 적용할 수도 있습니다. 서버 프로젝트를 다시 게시합니다.
 

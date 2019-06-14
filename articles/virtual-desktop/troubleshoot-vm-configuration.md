@@ -8,13 +8,13 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928124"
 ---
-# <a name="tenant-and-host-pool-creation"></a>테 넌 트 및 호스트 풀 만들기
+# <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 virtual machines (Vm)를 구성 하는 경우 겪고 있는 문제를 해결 합니다.
 
@@ -222,7 +222,7 @@ VM 업데이트 관리를 실행 하는 데 작동 하지 않는 side-by-side-�
 동일한 서브넷 및 도메인에서 업데이트 관리를 실행 하려면 다음이 지침을 수행 합니다.
 
 1. 수정이 적용 됩니다 위치에서 VM에 사용 하 여 표준 원격 데스크톱 프로토콜 (RDP)를 연결 합니다.
-2. PsExec을 다운로드 https://docs.microsoft.com/sysinternals/downloads/psexec합니다.
+2. PsExec을 다운로드 https://docs.microsoft.com/sysinternals/downloads/psexec 합니다.
 3. 다운로드 한 파일을 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec가 압축 된 폴더로 이동 합니다.

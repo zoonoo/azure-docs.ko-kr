@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823400"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
@@ -41,7 +41,7 @@ ms.locfileid: "65823400"
   * 사용자 관리자
   * 디렉터리 작성자
   * 전역 관리자 또는 회사 관리자
-  * SharePoint administrator
+  * SharePoint 관리자
   * 규정 준수 관리자
   * 애플리케이션 관리자
   * 보안 관리자

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523974"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 호스트 풀 만들기
@@ -42,7 +42,7 @@ Enterprise 구독에 배포 하는 경우 아래로 스크롤하여 선택 **Azu
 
 1. 아래로 스크롤하여 마우스 오른쪽 단추로 클릭 **Azure에 배포**을 선택한 후 **복사 링크 위치**합니다.
 2. 메모장과 같은 텍스트 편집기를 열고 링크를 붙여 넣습니다.
-3. 바로 뒤 "https://portal.azure.com/" 해시 태그 (#) 하기 전에 다음을 입력 하 고는 at 기호 (@) 뒤에 테 넌 트 도메인 이름입니다. 다음은 사용 해야 하는 형식의 예: https://portal.azure.com/@Contoso.onmicrosoft.com#create/합니다.
+3. 바로 뒤 "https://portal.azure.com/ " 해시 태그 (#) 하기 전에 다음을 입력 하 고는 at 기호 (@) 뒤에 테 넌 트 도메인 이름입니다. 다음은 사용 해야 하는 형식의 예: https://portal.azure.com/@Contoso.onmicrosoft.com#create/ 합니다.
 4. Azure portal에 클라우드 솔루션 공급자 구독 관리자/참가자 권한 가진 사용자로 로그인 합니다.
 5. 주소 표시줄에 텍스트 편집기에 복사한 링크를 붙여 넣습니다.
 

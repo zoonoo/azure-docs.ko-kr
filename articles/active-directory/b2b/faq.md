@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113065"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -58,12 +58,12 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
 예! 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
-[Azure Portal](https://portal.azure.com)에 대한 게스트 사용자의 액세스를 차단하려면 Microsoft Azure 클래식 배포 모델 API에서 조건부 액세스 정책을 사용합니다.
+게스트 사용자의 액세스를 차단 하는 [Azure portal](https://portal.azure.com), Windows Azure 클래식 배포 모델 API에서 조건부 액세스 정책을 사용 합니다.
 1. **모든 사용자** 그룹을 수정하여 구성원만 포함되도록 합니다.
    ![UserType이 같은 게스트 되지 모든 사용자 그룹을 보여 주는 스크린샷](media/faq/modify-all-users-group.png)
 2. 게스트 사용자를 포함하는 동적 그룹을 만듭니다.
    ![새 모든 게스트 사용자 그룹을 보여 주는 스크린샷](media/faq/group-with-guest-users.png)
-3. 다음 비디오에서 보여준 대로 조건부 액세스 정책을 설정하여 게스트 사용자가 포털에 액세스하지 못하도록 차단합니다.
+3. 조건부 액세스 정책을 설정 블록 게스트 사용자에 게 포털에 액세스 하지 못하도록 다음 비디오에서 표시 된 것 처럼:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
@@ -111,7 +111,7 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 모든 Azure AD 통합 응용 프로그램에서 Azure B2B 게스트 사용자를 지원할 수 있지만 게스트 사용자를 인증 하는 테 넌 트로 설정 하는 끝점 사용 해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>파트너가 Multi-Factor Authentication을 설치하지 않은 경우 B2B 게스트 사용자에 대해 Multi-Factor Authentication을 강제할 수 있나요?
-예. 자세한 내용은 [B2B 협업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
+예. 자세한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)합니다.
 
 ### <a name="in-sharepoint-you-can-define-an-allow-or-deny-list-for-external-users-can-we-do-this-in-azure"></a>SharePoint에서 외부 사용자에 대한 "허용" 또는 "거부" 목록을 정의할 수 있습니다. Azure에서 수행할 수 있나요?
 예. Azure AD B2B 협업은 허용 목록 및 거부 목록을 지원합니다. 

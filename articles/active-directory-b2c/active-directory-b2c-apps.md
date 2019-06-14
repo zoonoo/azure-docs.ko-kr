@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051734"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형
 
@@ -98,7 +98,7 @@ Web API는 웹 애플리케이션, 데스크톱 및 모바일 애플리케이션
 6. `access_token` 및 `refresh_token`이 웹 서버에 반환됩니다.
 7. 웹 API가 권한 부여 헤더에서 `access_token`을 사용하여 호출됩니다.
 8. 웹 API에서 토큰의 유효성을 검사합니다.
-9. 보안 데이터가 웹 서버에 반환됩니다.
+9. 보안 데이터는 웹 응용 프로그램에 반환 됩니다.
 
 권한 부여 코드, 새로 고침 토큰 및 토큰을 가져오는 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-b2c-reference-oauth-code.md)을 참조하세요.
 

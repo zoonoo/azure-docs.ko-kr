@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578319"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스에서 디바이스 요약 사용
@@ -46,7 +46,7 @@ Essentials 영역은 상태, 모델, 대상 IQN 및 소프트웨어 버전과 �
 
 ## <a name="monitoring"></a>모니터링
 
-* **경고** 타일에서는 경고 심각도별로 그룹화된 디바이스에 대한 모든 활성 경고의 스냅숏을 제공합니다.
+* **경고** 타일에서는 경고 심각도별로 그룹화된 디바이스에 대한 모든 활성 경고의 스냅샷을 제공합니다.
 
     ![경고 타일](./media/storsimple-8000-device-dashboard/device-summary4.png)
 

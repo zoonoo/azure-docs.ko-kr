@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d0960c749d74903acc778c0f21d5c49f380195ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074169"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>상태 모니터 v2: 자세한 지침
 
@@ -167,7 +167,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>수동으로 최신 nupkg 파일 다운로드
 
-1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor로 이동합니다.
+1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor 로 이동합니다.
 2. 파일의 최신 버전을 선택 합니다 **버전 기록** 테이블입니다.
 3. 아래 **설치 옵션**를 선택 **수동 다운로드**합니다.
 
@@ -204,7 +204,7 @@ PowerShell 세션에서 검색할 수 있도록 PowerShell 디렉터리에 수�
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>옵션 2: 압축을 풀고 nupkg를 수동으로 가져오려면
 PowerShell 세션에서 검색할 수 있도록 PowerShell 디렉터리에 수동으로 다운로드 한 PowerShell 모듈을 설치 합니다.
-자세한 내용은 [PowerShell 모듈 설치](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module)합니다.
+자세한 내용은 [PowerShell 모듈 설치](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)합니다.
 
 다른 디렉터리에 모듈을 설치 하는 경우 수동으로 모듈을 사용 하 여 가져올 [Import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)합니다.
 

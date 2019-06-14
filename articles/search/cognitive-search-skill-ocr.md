@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523253"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
@@ -54,15 +54,15 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력      | 설명                                          |
+| 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
-| Image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
+| image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
 
 ## <a name="skill-outputs"></a>기술 출력
 | 출력 이름     | 설명                   |
 |---------------|-------------------------------|
-| 텍스트          | 이미지에서 추출된 일반 텍스트입니다.   |
+| text          | 이미지에서 추출된 일반 텍스트입니다.   |
 | layoutText    | 추출된 텍스트와 텍스트를 찾을 수 있는 위치를 설명하는 복합 유형입니다.|
 
 

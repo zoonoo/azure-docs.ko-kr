@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955985"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
@@ -33,7 +33,7 @@ ms.locfileid: "65955985"
 
 사용자 수준 자격 증명을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** > **&lt;any_app >** > **배포 center** > **배포 자격 증명**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **&lt;any_app >**  > **배포 center** > **배포 자격 증명**을 클릭합니다.
 
     포털에서 배포 자격 증명 페이지에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "65955985"
 ## <a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
 앱 수준 자격 증명을 가져오려면
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** > **&lt;any_app >** > **배포 center** > **배포 자격 증명**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **&lt;any_app >**  > **배포 center** > **배포 자격 증명**을 클릭합니다.
 
 2. **앱 자격 증명**을 클릭하고, **복사** 링크를 클릭하여 사용자 이름 또는 암호를 복사합니다.
 

@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110657"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -49,7 +49,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>Q: Azure Portal의 사용자 정보에 디바이스 레코드가 보입니다. 그리고 디바이스에서 상태가 등록됨으로 표시됩니다. 여기서 설정 올바르게 조건부 액세스를 사용 하려면?
 
-**A:** **deviceID**로 표시된 디바이스 가입 상태는 Azure AD의 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스 필요](../conditional-access/require-managed-devices.md)를 참조하세요.
+**A:** 장치 조인 상태를 표시 **deviceID**, Azure AD에서 상태와 일치 하 고 조건부 액세스에 대 한 평가 조건을 충족 해야 합니다. 자세한 내용은 [필요한 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 장치를 관리 되는](../conditional-access/require-managed-devices.md)합니다.
 
 ---
 
@@ -119,7 +119,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 **A:** 예. Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
 
-Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 사용자 이름 및 암호를 사용하여 데스크톱에 계속 액세스할 수 있습니다. 그러나 디바이스가 삭제 또는 비활성화되면 사용자는 디바이스 기반 조건부 액세스에 의해 보호되는 리소스에 액세스할 수 없습니다. 
+Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 사용자 이름 및 암호를 사용하여 데스크톱에 계속 액세스할 수 있습니다. 하지만 사용자가 장치 기반 조건부 액세스에 의해 보호 되는 모든 리소스에 액세스할 수 없습니다 장치를 삭제 하거나 사용 하지 않도록 설정 합니다. 
 
 이전에 로그인하지 않은 사용자는 디바이스에 액세스할 수 없습니다. 이들에게 활성화된 캐시된 사용자 이름 및 암호가 없기 때문입니다. 
 
@@ -155,7 +155,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ### <a name="q-why-do-my-users-see-you-cant-get-there-from-here"></a>Q: 사용자에 게 나타나는 이유 *있습니다 수 없습니다. 여기에서 가져올*?
 
-**A:** 특정 디바이스 상태를 요구하도록 특정 조건부 액세스 규칙을 구성했나요? 디바이스가 조건을 충족하지 않으면 사용자가 차단되고 해당 메시지가 표시됩니다. 조건부 액세스 정책 규칙을 평가합니다. 이 메시지가 표시되지 않게 하려면 디바이스가 조건을 충족해야 합니다.
+**A:** 특정 장치 상태를 요구 하도록 특정 조건부 액세스 규칙을 구성 했습니까? 디바이스가 조건을 충족하지 않으면 사용자가 차단되고 해당 메시지가 표시됩니다. 조건부 액세스 정책 규칙을 평가 합니다. 이 메시지가 표시되지 않게 하려면 디바이스가 조건을 충족해야 합니다.
 
 ---
 
@@ -224,7 +224,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **A:** 사용자가 도메인 조인 디바이스의 앱에 계정을 추가하면 **Windows에 계정을 추가하시겠습니까?** 라는 메시지가 표시될 수 있습니다. 사용자가 프롬프트에서 **예**를 입력하면 디바이스가 Azure AD에 등록됩니다. 신뢰 유형은 Azure AD 등록으로 표시됩니다. 조직에서 하이브리드 Azure AD 조인을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 조인됩니다. 동일한 디바이스에 대한 두 가지 디바이스 상태가 표시됩니다. 
 
-하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 모든 인증 및 조건부 액세스 평가에서 디바이스가 하이브리드 Azure AD 조인 상태로 간주됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 알아보세요. 
+하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치의 하이브리드 Azure AD 인증 및 조건부 액세스 평가 조인으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 알아보세요. 
 
 
 ---
@@ -259,11 +259,11 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 다음과 같은 단계를 수행합니다.
 
 1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [macOS 디바이스에 대한 조건부 액세스 정책 정의](../active-directory-conditional-access-azure-portal.md) 
+2.  [MacOS 장치에 대 한 조건부 액세스 정책을 정의 합니다.](../active-directory-conditional-access-azure-portal.md) 
 
 **설명**
 
-- 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](../conditional-access/technical-reference.md#client-apps-condition)가 필요합니다. 
+- 요구 사항에 대 한 조건부 액세스 정책에에서 포함 된 사용자를 [macOS에 대 한 지원 되는 Office 버전](../conditional-access/technical-reference.md#client-apps-condition) 리소스에 액세스 합니다. 
 
 - 첫 번째 액세스를 시도하는 동안 사용자에게는 회사 포털을 사용하여 디바이스를 등록하라는 메시지가 표시됩니다.
 

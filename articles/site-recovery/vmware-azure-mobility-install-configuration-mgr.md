@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598270"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
@@ -210,7 +210,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.
 
-Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할 수 있습니다. **모니터링** > **배포** > *[패키지 이름]* 으로 이동합니다.
+Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할 수 있습니다. **모니터링** > **배포** >  *[패키지 이름]* 으로 이동합니다.
 
   ![배포를 모니터링하는 Configuration Manager 옵션의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 

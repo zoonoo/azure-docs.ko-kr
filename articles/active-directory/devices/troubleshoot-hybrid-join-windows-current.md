@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7dc356c8101c1b0907818b45618ef6372c691
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110554"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -34,7 +34,7 @@ ms.locfileid: "60250886"
 
 이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- 디바이스 기반 조건부 액세스
+- 장치 기반 조건부 액세스
 
 - [엔터프라이즈 설정 로밍](../active-directory-windows-enterprise-state-roaming-overview.md)
 

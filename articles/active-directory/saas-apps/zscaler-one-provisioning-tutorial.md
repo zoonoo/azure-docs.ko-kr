@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706598"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Zscaler One 구성
@@ -103,7 +103,7 @@ Azure AD를 사용 하 여 프로 비전 하는 자동 사용자를 Zscaler One�
 
 5. 아래는 **관리자 자격 증명** 섹션을 채웁니다 합니다 **테 넌 트 URL** 및 **비밀 토큰** 6 단계에에서 설명 된 대로 상자에 Zscaler One에 대 한 설정 사용 하 여 계정.
 
-6. 테 넌 트 URL과 비밀 토큰을 받으려면 **관리** > **인증 설정을** Zscaler One 포털 UI에서에서 합니다. 아래 **인증 유형**를 선택 **SAML**합니다.
+6. 테 넌 트 URL과 비밀 토큰을 받으려면 **관리** > **인증 설정을** Zscaler One 포털 UI에서에서 합니다. **인증 형식**에서 **SAML**을 선택합니다.
 
     ![Zscaler One 인증 설정](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

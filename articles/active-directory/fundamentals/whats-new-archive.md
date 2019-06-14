@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110361"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -177,7 +177,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스에 대해 승인된 새 클라이언트 앱
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure에 대 한 승인 된 클라이언트 앱을 새 AD 앱 기반 조건부 액세스
 
 **유형:** 변경 계획  
 **서비스 범주:** 조건부 액세스  
@@ -439,7 +439,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서에 추가된 조건부 액세스 정보
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Azure AD 로그인 보고서에 추가 하는 조건부 액세스 정보
 
 **유형:** 새 기능  
 **서비스 범주:** 보고  
@@ -713,7 +713,7 @@ Azure AD 암호 보호에 대한 자세한 내용은 [조직에서 잘못된 암
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
-사용 약관을 만드는 동안 새 "custom" 조건부 액세스 정책 템플릿으로가 만들어집니다. 새 정책 템플릿을 사용하면 ToU를 만든 다음, 수동으로 포털을 탐색할 필요 없이 조건부 액세스 정책 생성 블레이드로 즉시 이동할 수 있습니다.
+사용 약관을 만드는 동안 새 "custom" 조건부 액세스 정책 템플릿이 만들어집니다. 이 새 정책 템플릿을 사용 하 여 ToU를 만들고 즉시 이동에 대 한 조건부 액세스 정책 만들기 블레이드에서 포털을 통해 수동으로 이동할 필요 없이 수 있습니다.
 
 자세한 내용은 [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)을 참조하세요.
 
@@ -891,7 +891,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
 **서비스 범주:** 기타  
 **제품 기능:** 디렉터리
  
-Azure AD(Azure Active Directory)를 배포하는 방법에 대한 새로운 단계별 가이드이며 SSPR(셀프 서비스 암호 재설정), SSO(Single Sign-On), CA(조건부 액세스), 앱 프록시, 사용자 프로비전, PTA(통과 인증)에 대한 ADFS(Active Directory Federation Services), PHS(암호 해시 동기화)에 대한 ADFS가 포함됩니다.
+Azure Active Directory (Azure AD)를 배포, 포함 하 여 셀프 서비스 암호 재설정 (SSPR)에서 single sign-on (SSO) 조건부 액세스 (CA) 하는 방법에 대 한 새, 단계별 지침 앱 프록시를 사용자 프로비저닝, ADFS Active Directory Federation Services ()를 통과 인증 (PTA) 및 ADFS PHS (암호 해시 동기화)를 합니다.
 
 배포 가이드를 보려면 GitHub의 [Identity Deployment Guides](https://aka.ms/DeploymentPlans)(ID 배포 가이드) 리포지토리로 이동하세요. 배포 가이드에 대한 피드백을 제공하려면 [배포 계획 사용자 의견 양식](https://aka.ms/deploymentplanfeedback)을 참조하세요. 배포 가이드에 대한 질문이 있는 경우 [IDGitDeploy](mailto:idgitdeploy@microsoft.com)에 문의하세요.
 
@@ -1034,7 +1034,7 @@ Enterprise 애플리케이션 페이지에서 관리자는 SAML 메타데이터 
 
 이렇게 하면 승인된 사용자를 위해 부드러운 환경을 활성화하는 동안 리소스에 대한 액세스를 제어할 수 있습니다.
 
-이 B2B 협업 기능은 모든 Azure Active Directory 고객에 대해 사용할 수 있으며 외부 비즈니스 사용자가 로그인하고 액세스를 획득하는 시기 및 방법의 더욱 세부적인 제어를 위해 조건부 액세스 및 ID 보호와 같은 Azure AD Premium 기능과 함께 사용할 수 있습니다.
+이 B2B 공동 작업 기능은 모든 Azure Active Directory 고객에 대해 사용 가능한 이며 시간과 외부 비즈니스 사용자가 로그인 하는 방법을 더 세부적으로 제어에 대 한 조건부 액세스 및 id 보호와 같은 Azure AD Premium 기능과 함께에서 사용할 있습니다. 에 액세스 합니다.
 
 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list)을 참조하세요.
 
@@ -1137,7 +1137,7 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>iOS 및 Android용 Azure AD 애플리케이션 기반 조건부 액세스와 함께 Intune Managed Browser를 사용하여 브라우저 액세스를 제한합니다.
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Intune Managed Browser를 사용 하 여 Azure를 사용 하 여 브라우저 액세스 제한 AD 응용 프로그램 기반 조건부 액세스 iOS 및 Android 용
 
 **유형:** 새 기능  
 **서비스 범주:** 조건부 액세스  
@@ -1147,13 +1147,13 @@ Azure AD는 갤러리 및 비갤러리 애플리케이션에 대한 인증서가
 
 **Intune Managed Browser SSO:** 직원은 모든 Azure AD 연결 앱에 대한 기본 클라이언트(예: Microsoft Outlook)와 Intune Managed Browser에서 Single Sign-On을 사용할 수 있습니다.
 
-**Intune Managed Browser 조건부 액세스 지원:** 이제 직원이 애플리케이션 기반 조건부 액세스 정책을 사용하여 Intune Managed Browser를 사용하도록 할 수 있습니다.
+**Intune Managed Browser 조건부 액세스 지원:** 이제 직원이 응용 프로그램 기반 조건부 액세스 정책을 사용 하 여 Intune Managed browser를 사용 하도록 요구할 수 있습니다.
 
 [블로그 게시물](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/)에서 이에 대해 자세히 읽어보세요.
 
 자세한 내용은 다음을 참조하세요.
 
-- [애플리케이션 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [응용 프로그램 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Managed Browser 정책 구성](https://aka.ms/managedbrowser)  
 
@@ -1494,13 +1494,13 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Azure AD 애플리케이션 기반 조건부 액세스에서 사용하기 위해 추가된 Intune 앱 보호 정책을 지원하는 애플리케이션
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Azure 사용에 대 한 추가 Intune 앱 보호 정책을 지 원하는 응용 프로그램 AD 응용 프로그램 기반 조건부 액세스
 
 **유형:** 변경된 기능  
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-애플리케이션 기반 조건부 액세스를 지원하는 애플리케이션을 더 많이 추가했습니다. 이제 승인된 이러한 클라이언트 응용 프로그램을 사용하여 Office 365 및 기타 Azure AD 연결 클라우드 응용 프로그램에 액세스할 수 있습니다.
+응용 프로그램 기반 조건부 액세스를 지 원하는 더 많은 응용 프로그램을 추가 했습니다. 이제 승인된 이러한 클라이언트 응용 프로그램을 사용하여 Office 365 및 기타 Azure AD 연결 클라우드 응용 프로그램에 액세스할 수 있습니다.
 
 2월 말까지 추가될 애플리케이션은 다음과 같습니다.
 
@@ -1783,7 +1783,7 @@ Azure Active Directory Access Control(또는 Access Control Service)은 2018년 
 
 Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타 Azure AD 연결 클라우드 앱에 대한 브라우저 액세스를 제한할 수 있습니다. 
 
-애플리케이션 기반 조건부 액세스에 대해 다음과 같은 조건을 구성할 수 있습니다.
+이제 응용 프로그램 기반 조건부 액세스에 대 한 다음 조건을 구성할 수 있습니다.
 
 **클라이언트 앱:** 브라우저
 
@@ -1793,11 +1793,11 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 앞으로 공개될 블로그와 릴리스 정보에서도 이 기능과 자세한 정보를 찾아볼 수 있습니다. 
 
-자세한 내용은 [Azure AD의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 참조하세요.
+자세한 내용은 [Azure AD의 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)합니다.
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스에 대해 승인된 새 클라이언트 앱
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure에 대 한 승인 된 클라이언트 앱을 새 AD 앱 기반 조건부 액세스
 
 **유형:** 변경 계획  
 **서비스 범주:** 조건부 액세스  
@@ -1848,11 +1848,11 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 **서비스 범주:** Azure AD  
 **제품 기능:** ID 보안 및 보호
 
-이제 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)를 사용하여 Intune 앱 보호 정책을 지원하는 [승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)으로 Office 365 및 기타 Azure AD에 연결된 클라우드 앱의 액세스를 제한할 수 있습니다. 승인된 클라이언트 애플리케이션에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
+이제 Office 365 및 기타 Azure AD 연결 클라우드 앱에 대 한 액세스를 제한할 수 [승인 된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) 사용 하 여 Intune 앱 보호 정책을 지 원하는 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)합니다. 승인된 클라이언트 애플리케이션에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
 
-[앱 기반](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 조건부 액세스 정책과 [디바이스 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) 조건부 액세스 정책이 결합됨으로써 개인 디바이스와 기업 디바이스의 데이터를 유연하게 보호할 수 있게 됩니다.
+결합 하 여 [앱 기반](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 사용 하 여 [장치 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) 개인 데이터 및 회사 장치를 보호 하기 위해 유연 하 게 조건부 액세스 정책을 있습니다.
 
-다음은 앱 기반 조건부 액세스에 사용 가능한 조건과 컨트롤입니다.
+다음 조건과 컨트롤 앱 기반 조건부 액세스 사용에 대 한 제공 됩니다.
 
 **지원되는 플랫폼 조건**
 
@@ -1867,7 +1867,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 - 승인된 클라이언트 앱 필요
 
-자세한 내용은 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)를 참조하세요.
+자세한 내용은 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)합니다.
  
 ---
 
@@ -1879,7 +1879,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 이제 Azure AD에 연결된 디바이스와 디바이스 관련 활동을 모두 한 곳에서 확인할 수 있습니다. Microsoft는 Azure Portal에서 모든 디바이스 ID와 설정을 한 번에 관리할 수 있는 새로운 관리 환경을 선보입니다. 이 릴리스에서는 다음과 같은 기능을 수행할 수 있습니다.
 
-- Azure AD의 조건부 액세스에 사용할 수 있는 모든 디바이스를 봅니다.
+- Azure AD의 조건부 액세스에 사용할 수 있는 모든 장치를 확인 합니다.
 - 하이브리드 Azure AD 조인 디바이스를 비롯한 속성 보기
 - Azure AD 조인 디바이스의 BitLocker 키 찾기, Intune을 사용하여 디바이스 관리하기
 - Azure AD 디바이스 관련 설정을 관리합니다.
@@ -1888,17 +1888,17 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD 조건부 액세스의 디바이스 플랫폼으로서 macOS 지원 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD 조건부 액세스에 대 한 장치 플랫폼으로 서 macOS 지원 
 
 **유형:** 새 기능    
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호 
 
-이제 Azure AD 조건부 액세스 정책에서 디바이스 플랫폼 조건으로서 macOS를 추가 또는 제외할 수 있습니다. 지원되는 디바이스 플랫폼에 macOS가 추가되어 다음과 같은 기능이 지원됩니다.
+이제 포함 하거나 수 있습니다 (제외)으로 Azure AD 조건부 액세스 정책에서 장치 플랫폼 조건으로 서 macOS 합니다. 지원되는 디바이스 플랫폼에 macOS가 추가되어 다음과 같은 기능이 지원됩니다.
 
 - **Intune을 사용하여 macOS 디바이스를 등록하고 관리합니다.** iOS, Android와 같은 여타 플랫폼과 마찬가지로 macOS의 경우에도 통합 등록을 수행하는 기업 포털 애플리케이션이 제공됩니다. 새로운 macOS용 기업 포털 앱을 이용하면 Intune을 사용하여 디바이스를 등록하고 등록한 디바이스를 Azure AD에 등록할 수 있습니다.
 - **macOS 디바이스가 Intune에 정의된 조직의 준수 정책을 준수하는지 확인합니다.** 이제 Azure Portal의 Intune에서 macOS 디바이스에 대한 준수 정책을 설정할 수 있습니다. 
-- **Azure AD에서 애플리케이션에 대한 액세스를 호환 가능한 macOS 장치로 제한합니다.** 조건부 액세스 정책에는 macOS가 별도의 디바이스 플랫폼 옵션으로 있습니다. 이제 Azure에 설정된 대상 애플리케이션에 대해 macOS 전용 조건부 액세스 정책을 작성할 수 있습니다.
+- **Azure AD에서 애플리케이션에 대한 액세스를 호환 가능한 macOS 장치로 제한합니다.** 별도 장치 플랫폼 옵션으로 macOS에 조건부 액세스 정책 작성 합니다. 이제 Azure에서 대상된 응용 프로그램 집합에 대해 macOS 전용 조건부 액세스 정책을 작성할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -1942,7 +1942,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스에 대해 승인된 새 클라이언트 앱
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure에 대 한 승인 된 클라이언트 앱을 새 AD 앱 기반 조건부 액세스
  
 **유형:** 변경된 기능  
 **서비스 범주:** 조건부 액세스  
@@ -1960,15 +1960,15 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 
 ---
 
-### <a name="use-or-between-controls-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 여러 컨트롤 사이에 ‘OR’ 사용 
+### <a name="use-or-between-controls-in-a-conditional-access-policy"></a>사용 하 여 "OR" 조건부 액세스 정책에서 여러 컨트롤 
 
 **유형:** 변경된 기능    
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
  
-이제 조건부 액세스 제어에 "OR"(선택한 컨트롤 중 하나 필요) 연산자를 사용할 수 있습니다. 이 기능을 사용하여 액세스 제어 사이에 "OR"이 있는 정책을 만들 수 있습니다. 사용자가 다단계 인증을 사용하거나 규정을 준수하는 디바이스를 사용하도록 요구하려는 경우 "OR" 연산자를 사용하여 정책을 만들 수 있습니다.
+이제 사용 "하거나" (선택한 컨트롤 중 하나 필요) 조건부 액세스 제어에 대 한 합니다. 이 기능을 사용하여 액세스 제어 사이에 "OR"이 있는 정책을 만들 수 있습니다. 사용자가 다단계 인증을 사용하거나 규정을 준수하는 디바이스를 사용하도록 요구하려는 경우 "OR" 연산자를 사용하여 정책을 만들 수 있습니다.
 
-자세한 내용은 [Azure AD 조건부 액세스의 컨트롤](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)을 참조하세요.
+자세한 내용은 [Azure AD 조건부 액세스의 컨트롤](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)합니다.
  
 ---
 

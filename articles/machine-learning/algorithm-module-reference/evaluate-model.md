@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 40a8247c22da1f7a057e222565ffb2ec4c6b7fb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028742"
 ---
 # <a name="evaluate-model-module"></a>평가 모델 모듈
@@ -81,7 +81,7 @@ Machine learning에서 일반적인 시나리오는 원래 데이터 집합 학�
 
 클러스터링 모델 이기 때문에 평가 결과 두 가지 회귀 모델의 점수를 비교 하거나 두 분류 모델을 비교 하면 보다 다릅니다. 그러나 전체 프레젠테이션에 동일합니다. 
 
-## <a name="metrics"></a>메트릭
+## <a name="metrics"></a>metrics
 
 이 섹션에서는 설명 사용에 대 한 지원 되는 모델의 특정 형식에 대해 반환 되는 메트릭에 **모델 평가**:
 

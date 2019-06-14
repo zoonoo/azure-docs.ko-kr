@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458609"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685275"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Virtual WAN의 Office 365 제어판
 
@@ -26,7 +26,7 @@ ms.locfileid: "60458609"
 이 기능을 Virtual WAN에 사용하면 이제 직접 인터넷 혁신에 대해 고객이 신뢰하는 Office 365 트래픽 범주를 특정할 수 있습니다. 이 신뢰할 수 있는 O365 트래픽은 프록시를 우회하여 사용자 위치에서 가장 가까운 Microsoft POP로 직접 라우팅합니다. 이것은 트래픽 역행과 헤어핀을 피하므로 최적화된 사용자 환경을 제공하며 WAN 비용이 절감됩니다. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Office 365 트래픽 범주
-Office 365 엔드포인트는 네트워크 주소 및 서브넷을 나타냅니다. 엔드포인트는 URL이나 IP 주소, 또는 IP 범위일 수 있습니다. URL은 *account.office.net*과 같은 FQDN이나 **.office365.com*과 같은 와일드 카드 URL일 수 있습니다. 엔드포인트는 각 중요도에 따라 **최적화**, **허용** 및 **기본**의 세 가지 범주로 나뉩니다. 엔드포인트 범주에 대한 자세한 내용은 [여기](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories)서 확인하세요.
+Office 365 엔드포인트는 네트워크 주소 및 서브넷을 나타냅니다. 엔드포인트는 URL이나 IP 주소, 또는 IP 범위일 수 있습니다. URL은 *account.office.net*과 같은 FQDN이나 * *.office365.com*과 같은 와일드 카드 URL일 수 있습니다. 엔드포인트는 각 중요도에 따라 **최적화**, **허용** 및 **기본**의 세 가지 범주로 나뉩니다. 엔드포인트 범주에 대한 자세한 내용은 [여기](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories)서 확인하세요.
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>직접 인터넷 혁신에 대해 Microsoft에서 권장하는 Office 365 트래픽 범주
 **최적화** 범주는 가장 중요한 네트워크 엔드포인트로, SSL 중단 및 검사와 기타 네트워크 보안 디바이스를 우회해야 합니다. 사용자와 가까운 직접 인터넷 송신이 있어야 합니다. 이 엔드포인트는 네트워크 성능, 대기 시간 및 가용성에 가장 민감한 Office 365 시나리오를 나타냅니다. 이 범주는 작은(~10의 순서로) 키 URL 집합과 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Microsoft Teams와 같은 핵심 Office 365 워크로드 전용 IP 서브넷의 정의된 집합을 포함합니다. 

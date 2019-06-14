@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585632"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
@@ -29,7 +29,7 @@ Azure SQL Database의 [Elastic Database 도구](sql-database-elastic-scale-intro
 
 **데이터베이스**: Azure SQL 데이터베이스입니다. 
 
-**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 애플리케이션에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요.  **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** 를 포함합니다.
+**데이터 종속 라우팅**: 특정 분할 키가 있는 경우 애플리케이션에서 분할된 데이터베이스에 연결할 수 있는 기능입니다. [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 참조하세요. **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** 를 포함합니다.
 
 **글로벌 분할된 데이터베이스 맵**: 분할 키와 **분할된 데이터베이스 세트** 내의 해당 분할된 데이터베이스 간 매핑입니다. 전역 분할된 데이터베이스 맵은 **분할된 데이터베이스 맵 관리자**에 저장됩니다. **로컬 분할된 데이터베이스 맵**과 비교할 수 있습니다.
 

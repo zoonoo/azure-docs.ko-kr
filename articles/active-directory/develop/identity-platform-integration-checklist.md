@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111465"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft identity 플랫폼 통합 검사 목록
 
@@ -52,7 +52,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 준수 하는 [응용 프로그램에 대 한 지침을 브랜딩](howto-add-branding-in-azure-ad-apps.md)합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 응용 프로그램의 동의 확인 프롬프트에서이 정보가 표시 됩니다. 사용자 이름 및 로고는 회사/제품의 담당자는 사용자가 합리적인된 의사 결정을 내릴 수 있도록 해야 합니다. 모든 상표를 위반 하지 하는 것을 확인 합니다. |
 
-### <a name="privacy"></a>개인정보취급방침
+### <a name="privacy"></a>개인 정보 보호
 
 |   |   |
 |---|---|
@@ -62,7 +62,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드에 최신 상태로 유지 합니다. 여 Uri에서 와일드 카드 (*)를 사용 하지 마세요. 웹 앱에 대 한 모든 Uri 안전 하 고 (예: https 체계를 사용 하 여) 암호화 되는지 확인 합니다. 공용 클라이언트의 경우 사용 하 여 플랫폼 특정 리디렉션 Uri 해당 하는 경우 (주로 iOS 및 Android 용). 그렇지 않은 경우 사용 하 여 대량의 앱에 다시 호출 하는 경우 충돌을 방지 하는 임의성을 사용 하 여 리디렉션 Uri. 앱 격리 웹 에이전트에서 사용 중인 경우 사용할 수 있습니다 https://login.microsoftonline.com/nativeclient합니다. 검토 하 고 모든 사용 되지 않거나 필요 하지 않은 리디렉션 Uri는 정기적으로 trim 키를 누릅니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드에 최신 상태로 유지 합니다. 여 Uri에서 와일드 카드 (*)를 사용 하지 마세요. 웹 앱에 대 한 모든 Uri 안전 하 고 (예: https 체계를 사용 하 여) 암호화 되는지 확인 합니다. 공용 클라이언트의 경우 사용 하 여 플랫폼 특정 리디렉션 Uri 해당 하는 경우 (주로 iOS 및 Android 용). 그렇지 않은 경우 사용 하 여 대량의 앱에 다시 호출 하는 경우 충돌을 방지 하는 임의성을 사용 하 여 리디렉션 Uri. 앱 격리 웹 에이전트에서 사용 중인 경우 사용할 수 있습니다 https://login.microsoftonline.com/nativeclient 합니다. 검토 하 고 모든 사용 되지 않거나 필요 하지 않은 리디렉션 Uri는 정기적으로 trim 키를 누릅니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 앱 디렉터리에 등록 되 면 최소화 하 고 수동으로 응용 프로그램 등록 소유자 목록을 모니터링 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 에 대 한 지원을 사용 하도록 설정 하지는 [OAuth2 암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md) 꼭 필요한 경우가 아니면 합니다. 유효한 시나리오에 알아봅니다 [여기](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 사용 하지 마세요 [리소스 소유자 암호 자격 증명 흐름 (ROPC)](v2-oauth-ropc.md)는 사용자의 암호를 직접 처리 합니다. 이 흐름은 높은 수준의 신뢰 및 사용자 노출 하며 다른, 보다 안전한 흐름을 사용할 수 없는 경우에 사용 해야 합니다. |
@@ -89,7 +89,7 @@ Microsoft identity 플랫폼 통합 검사 목록 뛰어난 품질 및 보안 �
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 전체 관리자 권한을 부여할 수 있습니다 동의 쉽게 테 넌 트에 있도록 앱에 필요한 사용 권한 집합을 등록 합니다. 사용 하 여 [증분 동의](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) 이유를 이해 하는 데 도움이 되는 런타임 시 앱을 처리할 수도 있고 사용자의 첫 번째 요청 시 혼동 하는 사용 권한을 요청 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 구현 된 [single sign-out 환경을 정리](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)합니다. 개인정보 취급 방침 및 보안 요구 되며 효율적인 사용자 환경을 만듭니다. |
 
-### <a name="testing"></a>테스트하는 중
+### <a name="testing"></a>테스트
 
 |   |   |
 |---|---|

@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646710"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 만들기
@@ -68,20 +68,20 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-## <a name="responses"></a>응답
+## <a name="responses"></a>Responses
 
 Recovery Services 자격 증명 모음을 만들거나 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |   [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | 확인        |
-|201 생성됨     | [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |
+|201 생성됨     | [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   만든 날짜      |
 
 REST API 응답에 대한 자세한 내용은 [응답 메시지 처리](/rest/api/azure/#process-the-response-message)를 참조하세요.
 
 ### <a name="example-response"></a>예제 응답
 
-이전 요청 본문 예제에서 압축된 ‘201 생성됨’ 응답은 *id*가 할당되었으며 *provisioningState*가 ‘성공’임을 보여 줍니다.
+이전 요청 본문 예제에서 압축된 ‘201 생성됨’ 응답은 *id*가 할당되었으며 *provisioningState*가 ‘성공’임을 보여 줍니다.  
 
 ```json
 {

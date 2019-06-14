@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295798"
+ms.locfileid: "67108980"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>방법: Azure Active Directory Identity Protection에서 위험 정책 구성(새로 고침)
 
@@ -114,7 +114,7 @@ MFA를 요구하는 로그인 위험 보안 정책을 구성할 수 있습니다
 
 ## <a name="what-is-a-user-risk-policy"></a>사용자 위험 정책이란?
 
-Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. Azure AD에서 시스템이 감지할 수 있는 의심스러운 작업을 위험 이벤트라고도 합니다. 일부 위험 이벤트를 실시간으로 감지할 수 있지만 더 많은 시간이 필요한 위험 이벤트도 있습니다. 예를 들어, 비정상적인 위치로 불가능한 이동을 감지하기 위해 시스템은 사용자의 일반 동작을 학습하기 위해 14일의 초기 학습 기간을 필요로 합니다. 감지된 위험 이벤트를 해결하기 위한 몇 가지 옵션이 있습니다. 예를 들어 개별 위험 이벤트를 수동으로 해결하거나 로그인 위험이나 사용자 위험 조건부 액세스 정책을 사용하여 해결할 수 있습니다.
+Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로그인과 함께 발생하는 의심스러운 작업을 감지하는 것입니다. Azure AD에서 시스템이 감지할 수 있는 의심스러운 작업을 위험 이벤트라고도 합니다. 일부 위험 이벤트를 실시간으로 감지할 수 있지만 더 많은 시간이 필요한 위험 이벤트도 있습니다. 예를 들어, 비정상적인 위치로 불가능한 이동을 감지하기 위해 시스템은 사용자의 일반 동작을 학습하기 위해 14일의 초기 학습 기간을 필요로 합니다. 감지된 위험 이벤트를 해결하기 위한 몇 가지 옵션이 있습니다. 예를 들어, 개별 위험 이벤트를 수동으로 해결할 수 있습니다 하거나 로그인 위험 또는 조건부 액세스 정책 사용자 위험 요소를 사용 하 여 얻을 수 있습니다.
 
 사용자에 대해 감지되었지만 해결되지 않은 모든 위험 이벤트를 활성 위험 이벤트라고 합니다. 사용자와 관련된 활성 위험 이벤트를 사용자 위험이라고 합니다. 사용자 위험에 따라 Azure AD는 사용자가 손상되었을 확률(낮음, 보통, 높음)을 계산합니다. 이 확률을 사용자 위험 수준이라고 합니다.
 

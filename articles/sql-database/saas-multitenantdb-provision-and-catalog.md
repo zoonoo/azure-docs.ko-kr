@@ -13,10 +13,10 @@ ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485981"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL 데이터베이스를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
@@ -161,7 +161,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
    - **$VenueType** = **블루스**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
    - **$DemoScenario** = **1**: 다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전.
 
-2. 커서를 38행(*New-Tenant `*)의 아무 위치에 놓고 중단점을 추가한 다음, **F9** 키를 누릅니다.
+2. 커서를 38행(*New-Tenant `* )의 아무 위치에 놓고 중단점을 추가한 다음, **F9** 키를 누릅니다.
 
    ![중단점](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -169,7 +169,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
 
 4. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.
 
-   ![debug](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![디버그](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. **디버그** 메뉴 옵션(**F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
 
@@ -201,7 +201,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
    - **$VenueType** = **축구**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
    - **$DemoScenario** = **2**: 자체 데이터베이스에 테넌트 프로비전.
 
-2. 커서를 57행(*&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*)의 아무 위치에 두고 새로운 중단점을 추가한 다음 **F9**를 누릅니다.
+2. 커서를 57행( *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* )의 아무 위치에 두고 새로운 중단점을 추가한 다음 **F9**를 누릅니다.
 
    ![중단점](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 

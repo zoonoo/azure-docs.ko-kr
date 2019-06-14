@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112360"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
@@ -37,10 +37,10 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
 |축약형   | 시간 단위    |
 |:---|:---|
-|d           | 일          |
+|일           | 일          |
 |h           | 시간         |
-|m           | 분       |
-|s           | 초       |
+|분           | minute       |
+|초           | second       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
 |tick        | 나노초   |

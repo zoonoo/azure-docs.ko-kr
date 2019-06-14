@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827304"
 ---
 # <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>지속적으로 통합 하 고 Azure Stream Analytics는 CI/CD NuGet 패키지를 사용 하 여 개발
@@ -58,7 +58,7 @@ Parameters.json 파일의 기본 매개 변수는 Visual Studio 프로젝트의 
 Azure Data Lake Store Gen1용 관리 ID를 출력 싱크로 사용하려면 Azure에 배포하기 전에 PowerShell을 사용하여 서비스 주체에 액세스 권한을 제공해야 합니다. [Resource Manager 템플릿에서 관리 ID를 사용하여 ADLS Gen1을 배포](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)하는 방법을 자세히 알아봅니다.
 
 
-## <a name="command-line-tool"></a>명령줄 도구 
+## <a name="command-line-tool"></a>명령줄 도구
 
 ### <a name="build-the-project"></a>프로젝트 빌드
 NuGet 패키지에는 **SA.exe**라는 명령줄 도구가 있습니다. 이 도구는 연속 통합 및 지속적인 업데이트 프로세스에서 사용할 수 있는 임의의 컴퓨터에서의 프로젝트 빌드 및 로컬 테스트를 지원합니다. 

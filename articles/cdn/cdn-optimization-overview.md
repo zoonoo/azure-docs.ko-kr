@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636329"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>콘텐츠 전송 형식에 맞게 Azure CDN 최적화
@@ -113,7 +113,7 @@ CDN 엔드포인트를 만들 때 엔드포인트를 전송하려는 시나리�
 
 ### <a name="large-file-download"></a>대용량 파일 다운로드
 
-**Akamai의 Azure CDN 표준** 프로필을 사용할 경우 대용량 파일 다운로드는 10MB를 초과하는 콘텐츠에 최적화됩니다. 평균 파일 크기가 10MB보다 작은 경우 일반 웹 배달을 사용합니다. 평균 파일 크기가 일관되게 10MB보다 큰 경우 대용량 파일에 대해 별도의 엔드포인트를 만드는 것이 더 효율적일 수 있습니다. 예를 들어 펌웨어 또는 소프트웨어 업데이트는 일반적으로 대용량 파일입니다. 1.8GB보다 큰 파일을 전달하려면 큰 파일 다운로드 최적화가 필요합니다.
+**Akamai의 Azure CDN 표준** 프로필을 사용할 경우 대용량 파일 다운로드는 10MB를 초과하는 콘텐츠에 최적화됩니다. 평균 파일 크기가 10MB보다 작은 경우 일반 웹 배달을 사용합니다. 평균 파일 크기가 일관되게 10MB보다 큰 경우 대용량 파일에 대해 별도의 엔드포인트를 만드는 것이 더 효율적일 수 있습니다. 예를 들어 펌웨어 또는 소프트웨어 업데이트는 일반적으로 대용량 파일입니다. 1\.8GB보다 큰 파일을 전달하려면 큰 파일 다운로드 최적화가 필요합니다.
 
 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반 웹 전송 최적화 유형을 사용하여 큰 파일 다운로드 콘텐츠를 전송합니다. 파일 다운로드 크기에는 제한이 없습니다.
 

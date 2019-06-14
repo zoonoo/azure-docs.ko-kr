@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063460"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈을 관리
 
-Azure Automation은 PowerShell 기반 runbook에서 사용할 자동화 계정에 PowerShell 모듈을 가져올 수 있는 기능을 제공 합니다. 이러한 모듈을 만든 PowerShell 갤러리에서 사용자 지정 모듈 또는 Azure에 대 한 Az 및 AzureRM 모듈을 수 있습니다.
+Azure Automation은 PowerShell 기반 runbook에서 사용할 자동화 계정에 PowerShell 모듈을 가져올 수 있는 기능을 제공 합니다. 이러한 모듈을 만든 PowerShell 갤러리에서 사용자 지정 모듈 또는 Azure에 대 한 Az 및 AzureRM 모듈을 수 있습니다. Automation 계정을 만들 때 기본적으로 일부 모듈 가져와집니다.
 
 ## <a name="import-modules"></a>모듈 가져오기
 
@@ -51,11 +51,27 @@ PowerShell 갤러리에서 모듈을 가져오려면,로 이동 https://www.powe
 
 ![Azure portal에서 PowerShell 갤러리 가져오기](../media/modules/gallery-azure-portal.png)
 
+## <a name="delete-modules"></a>모듈 삭제
+
+모듈에 문제가 있는 경우 모듈의 이전 버전으로 롤백하려면 필요한 Automation 계정에서 삭제할 수 있습니다. 원래 버전을 삭제할 수 없습니다는 [모듈을 기본](#default-modules) Automation 계정을 만들 때 가져온입니다. 삭제 하려는 모듈 중 하나의 최신 버전 인지 합니다 [모듈을 기본](#default-modules) 설치 하는 롤백 Automation 계정으로 설치 된 버전으로 합니다. 그렇지 않은 경우 모든 모듈을 Automation 계정에서 삭제 하면 제거 됩니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+Azure portal에서 Automation 계정으로 이동 및 선택 **모듈** 아래에서 **공유 리소스**합니다. 제거 하려는 모듈을 선택 합니다. 에 **모듈** 페이지에서 clcick **삭제**합니다. 이 모듈을 사용 하면 중 하나인 경우는 [모듈을 기본](#default-modules) Automation 계정이 만들어질 때 제공 된 버전으로 롤백할 수 됩니다.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell 통해 모듈을 제거 하려면 다음 명령을 실행 합니다.
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
+
 ## <a name="internal-cmdlets"></a>내부 cmdlet
 
 다음은 내부에서 cmdlet의 목록을 `Orchestrator.AssetManagement.Cmdlets` 모든 Automation 계정으로 가져온 모듈입니다. 이러한 cmdlet runbook 및 DSC 구성에 액세스할 수 있으며 Automation 계정 내 자산을 사용 하 여 상호 작용할 수 있도록 합니다. 내부 cmdlet은 암호를 검색할 수 있도록 또한에서 암호화 **변수** 값을 **자격 증명**, 및 암호화 **연결** 필드입니다. Azure PowerShell cmdlet에서 이러한 비밀을 검색 하지 못합니다. 이러한 cmdlet에 암시적으로 사용 하는 경우 Azure를 연결할 수 필요 하지 않습니다. 실행 계정을 사용 하 여 Azure에 인증 해야 하는 등의 연결을 해야 하는 시나리오에 유용 합니다.
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -209,6 +225,37 @@ Azure Automation에서 사용할 PowerShell 모듈을 작성 하는 경우에 �
 * 모듈은 xcopy 가능 패키지에 완전히 포함 되어야 합니다. Runbook을 실행 해야 하는 경우 azure Automation 모듈이 Automation 샌드박스에 분산 됩니다. 모듈은 실행 중인 호스트와는 독립적으로 작동해야 합니다. 모듈 패키지를 Zip으로 압축한 후 이동하여 다른 호스트의 PowerShell 환경으로 가져왔을 때 정상적으로 작동하게 만들 수 있어야 합니다. 이를 위해 모듈은 모듈 폴더 외부의 파일에 의존하면 안 됩니다. 이 폴더는 모듈을 Azure Automation으로 가져올 때 zip으로 압축되는 폴더입니다. 모듈 또한 호스트의 고유한 레지스트리 설정(예: 제품 설치 시 지정된 설정)에 의존하면 안 됩니다. 모듈의 모든 파일 경로 140 자 초과 적은 있어야 합니다. 140 자 초과 모든 경로 runbook을 가져오는 중 문제가 발생 합니다. 이 모범 사례를 따르지 않으면 모듈은 Azure Automation에서 사용할 수 없습니다.  
 
 * 모듈에서 [ 모듈](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)을 참조하는 경우 `AzureRM`도 참조하지 않는지 확인합니다. `Az` 모듈은 `AzureRM` 모듈과 함께 사용할 수 없습니다. `Az`는 기본적으로 가져오지 않는 Runbook에서 지원됩니다. `Az` 모듈과 고려할 사항에 대해 알아보려면 [Azure Automation의 Az 모듈 지원](../az-modules.md)을 참조하세요.
+
+## <a name="default-modules"></a>기본 모듈
+
+다음 표에서 Automation 계정을 만들 때 기본적으로 가져온 모듈을 보여 줍니다. 아래에 나열 된 모듈에는 최신 버전을 가져올 수 있지만 그 중 최신 버전을 삭제 하는 경우에 원래 버전 Automation 계정에서 제거할 수 없습니다.
+
+|모듈 이름|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>다음 단계
 

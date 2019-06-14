@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070381"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database 고급 데이터 보안 사용
 
@@ -78,7 +78,7 @@ Managed Instance의 [vCore 기반 구매 모델](sql-database-service-tiers-vcor
 vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 - **Gen4** 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, SSD 장착, 물리적 코어, 코어당 7GB RAM 및 vCore가 8~24개인 계산 규모를 기반으로 합니다.
-- **Gen5** 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 8~80개인 계산 규모를 기반으로 합니다.
+- **Gen5** 논리 Cpu는 Intel E5-2673 v4 기반 (Broadwell) 2.3 GHz 프로세서, NVMe SSD, 논리 코어 하이퍼 스레드된 빠르고 4 개 및 80 코어 간에 크기를 계산 합니다.
 
 하드웨어 세대 간의 차이점에 대한 자세한 내용은 [Managed Instance 리소스 제한](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)을 참조하세요.
 
@@ -240,5 +240,5 @@ SQL Database 서비스는 사용자를 위해 작업을 수행하거나 이러�
 - VNet 구성에 대한 자세한 내용은 [Managed Instance VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요.
 - 백업 파일에서 Managed Instance를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
-- 기본 제공 문제 해결 인텔리전스를 사용하는 Managed Instance 데이터베이스 성능의 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)을 참조하세요.
+- 고급 문제 해결 기본 제공 인텔리전스를 사용 하 여 관리 되는 인스턴스 데이터베이스 성능 모니터링, 참조 [Azure SQL Analytics를 사용 하 여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)합니다.
 - 가격 정보는 [SQL Database Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.

@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110386"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -357,13 +357,13 @@ Azure AD Connect 잠재적으로 일부 고객은 새 전자 메일 보낸 사�
 
 ---
 
-### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>새 Azure AD single sign-on 및 조건부 액세스 (공개 미리 보기)는 Microsoft Edge에서 지원
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Azure AD에서 single sign-on 및 Microsoft Edge (공개 미리 보기)에서 조건부 액세스에 대 한 새로운 지원
 
 **유형:** 새 기능  
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제공이 포함 되는 Microsoft Edge에 대 한 Azure AD 지원과 개선 했습니다. 이전에 Microsoft Intune Managed Browser에서 사용 하는 경우 이제 사용할 수 있습니다 Microsoft Edge 대신 합니다.
+Azure AD에서 single sign-on 및 조건부 액세스에 대 한 새로운 지원 제공이 포함 되는 Microsoft Edge에 대 한 Azure AD 지원과 개선 했습니다. 이전에 Microsoft Intune Managed Browser에서 사용 하는 경우 이제 사용할 수 있습니다 Microsoft Edge 대신 합니다.
 
 설정 및 장치 및 조건부 액세스를 사용 하 여 앱을 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [필요한 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 장치를 관리 되는](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) 및 [필요한 승인 된 클라우드에 대 한 클라이언트 앱 조건부 액세스를 사용 하 여 앱 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)합니다. Microsoft Edge를 사용 하 여 Microsoft Intune 정책을 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [인터넷 액세스 관리를 Microsoft Intune 정책으로 보호 된 브라우저를 사용 하 여](https://docs.microsoft.com/intune/app-configuration-managed-browser)입니다.
 
@@ -477,7 +477,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-를 방지 하려면 관리자가 실수로 잘못 구성 된 조건부 액세스 정책을 통해 자신의 테 넌 트는 자신을 잠그지에서 새 경고 및 업데이트 된 지침 Azure portal에서 만든 했습니다. 새 지침에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 조건부 액세스의 서비스 종속성을 이란](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)합니다.
+를 방지 하려면 관리자가 실수로 잘못 구성 된 조건부 액세스 정책을 통해 자신의 테 넌 트는 자신을 잠그지에서 새 경고 및 업데이트 된 지침 Azure portal에서 만든 했습니다. 새 지침에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory 조건부 액세스에서 서비스 종속성 이란](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)합니다.
 
 ---
 

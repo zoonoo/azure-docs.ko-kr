@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: ab7231c214060d17927e2509bee1687e2c9c87a3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507570"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
@@ -270,7 +270,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
    a. portal.azure.com의 B2C 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.  
    b. **b2c-extensions-app**을 찾고 선택합니다.  
-   다. **Essentials** 아래에서 **애플리케이션 ID** 및 **개체 ID**를 입력합니다.  
+   c. **Essentials** 아래에서 **애플리케이션 ID** 및 **개체 ID**를 입력합니다.  
    d. **AAD-Common** TechnicalProfile 메타데이터에 포함합니다.  
 
    ```xml

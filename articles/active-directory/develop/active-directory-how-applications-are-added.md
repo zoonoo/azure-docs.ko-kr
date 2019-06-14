@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111626"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -59,7 +59,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 * 로컬 사용자 및 그룹 애플리케이션 역할 할당 기록
 * 애플리케이션에 부여된 로컬 사용자 및 관리자 권한 기록
   * 예: 특정 사용자 이메일에 액세스하기 위한 애플리케이션 권한
-* 조건부 액세스 정책을 포함한 로컬 정책 기록
+* 조건부 액세스 정책을 포함 하 여 로컬 정책 기록
 * 애플리케이션의 대체 로컬 설정 기록
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)

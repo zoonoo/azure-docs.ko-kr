@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8b8b6758cc2df7a092ce36e9507f84ac534d0e3d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028727"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈 변환
@@ -48,7 +48,7 @@ ms.locfileid: "65028727"
 
 출력을 두 번 클릭 [CSV로 변환](./convert-to-csv.md), 이러한 옵션 중 하나를 선택 합니다.  
 
- + **결과 데이터 집합 다운로드->**: 로컬 폴더에 저장할 수 있는 CSV 형식으로 데이터의 복사본을 엽니다. 폴더를 지정 하지 않으면 기본 파일 이름을 적용 되 고 CSV 파일을 로컬에 저장 됩니다 **다운로드** 라이브러리입니다.
+ + **결과 데이터 집합 다운로드->** : 로컬 폴더에 저장할 수 있는 CSV 형식으로 데이터의 복사본을 엽니다. 폴더를 지정 하지 않으면 기본 파일 이름을 적용 되 고 CSV 파일을 로컬에 저장 됩니다 **다운로드** 라이브러리입니다.
 
 
  + **결과 데이터 집합->는 데이터 집합으로 저장**: CSV 파일을 별도 데이터 집합으로 Azure ML 작업 영역에 다시 저장합니다.

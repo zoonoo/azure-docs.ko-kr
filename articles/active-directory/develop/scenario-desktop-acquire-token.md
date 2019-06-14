@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962544"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111263"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>토큰을 획득 하는 웹 Api를 호출 하는 데스크톱 앱
 
@@ -547,7 +547,7 @@ Azure AD 사용 하 여 대화형 인증은 웹 브라우저 필요 (자세한 �
 - `scopes` 에 대 한 액세스 토큰을 요청 하려면
 - 받을 콜백 합니다 `DeviceCodeResult`
 
-  ![Image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
 다음 샘플 코드는 예외를 가져올 수 있습니다 및 완화 방법 종류에 대 한 설명이 포함 최신 경우를 표시 합니다.
 
@@ -646,7 +646,7 @@ MSAL.NET에서는 메모리 내 토큰 캐시가 기본적으로 제공됩니다
 - ``TokenCacheCallback``은 직렬화를 처리할 수 있도록 이벤트에 전달되는 콜백입니다. 형식의 인수를 사용 하 여 호출할 수 ``TokenCacheNotificationArgs``입니다.
 - ``TokenCacheNotificationArgs`` 제공 된 ``ClientId`` 응용 프로그램 및 토큰을 사용할 수 있는 사용자에 대 한 참조
 
-  ![Image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
 > 사용자가 애플리케이션의 `GetUserTokenCache` 및 `GetAppTokenCache` 메서드를 호출하면 MSAL.NET은 사용자 대신 토큰 캐시를 만들고 사용자에게 `IToken` 캐시를 제공합니다. 인터페이스를 구현 하는 것이 없게 합니다. 사용자는 사용자 지정 토큰 캐시 직렬화를 구현할 때 다음과 같은 일만 하면 됩니다.

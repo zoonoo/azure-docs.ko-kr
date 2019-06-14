@@ -1,6 +1,6 @@
 ---
 title: 기본 정책 블록 레거시 인증 (미리 보기)-Azure Active Directory
-description: 블록 레거시 인증 프로토콜에 대 한 조건부 액세스 정책
+description: 블록 레거시 인증 프로토콜에 조건부 액세스 정책
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235547"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112312"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기본 정책: 블록 레거시 인증 (미리 보기)
 
@@ -120,4 +120,4 @@ SharePoint Online 최신 인증 기본값에 사용 됩니다. 2017 년 8 월 1 
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)
+* [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)

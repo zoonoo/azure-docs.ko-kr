@@ -14,12 +14,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706a826d1b256e95e459d2a44cdb13ee56c70599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 969d08888002c97453cb2af18f42371227676597
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109489"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -177,7 +177,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 | 암호 해시 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 그럼 다음, 암호 해시 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 이 옵션을 또한 백업 옵션으로 레거시 클라이언트 지원을 보장하도록 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요.|
 | 암호 쓰기 저장(writeback) |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../authentication/quickstart-sspr.md)을 참조하세요. |
 | 그룹 쓰기 저장 |**Office 365 그룹** 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요. |
-| 디바이스 쓰기 저장(writeback) |Azure AD의 디바이스 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)을 참조하세요. |
+| 디바이스 쓰기 저장(writeback) |온-프레미스 Active Directory 조건부 액세스 시나리오에 대 한 Azure AD에 장치 개체 쓰기 저장 할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)을 참조하세요. |
 | 디렉터리 확장 특성 동기화 |디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 자세한 내용은 [디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md)을 참조하세요. |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 앱 및 특성 필터링
@@ -384,9 +384,9 @@ Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검�
 엔드투엔드 인증의 유효성 검사가 성공하려면 다음 테스트 중 하나 이상을 수동으로 수행해야 합니다.
 
 * 동기화가 완료되면 Azure AD Connect에서 페더레이션 로그인 확인 추가 작업을 사용하여 원하는 온-프레미스 사용자 계정에 대한 인증을 확인합니다.
-* 인트라넷의 도메인에 가입된 머신에서 브라우저에서 로그인할 수 있는지 확인합니다. https://myapps.microsoft.com에 연결하고 로그인된 계정을 사용하여 로그인했는지 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
-* 엑스트라넷에서, 디바이스에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 디바이스에서 https://myapps.microsoft.com에 연결하고 자격 증명을 제공합니다.
-* 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.
+* 인트라넷의 도메인에 가입된 머신에서 브라우저에서 로그인할 수 있는지 확인합니다. https://myapps.microsoft.com 에 연결하고 로그인된 계정을 사용하여 로그인했는지 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
+* 엑스트라넷에서, 디바이스에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 디바이스에서 https://myapps.microsoft.com 에 연결하고 자격 증명을 제공합니다.
+* 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com 에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 설치 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.

@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61313910"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스에서 위협 탐지(미리 보기) 구성

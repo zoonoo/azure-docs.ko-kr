@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417881"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>PIM에서 Azure AD 역할 설정 구성
@@ -37,7 +37,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 
     ![Azure AD 역할-설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. **역할**을 누릅니다.
+1. **역할**을 클릭합니다.
 
 1. 설정을 구성하려는 역할을 선택합니다.
 

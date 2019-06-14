@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235137"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110466"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -53,7 +53,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | [클라우드 기반 사용자 계정에 대한 정기적인 암호 재설정 사용 안 함](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | 정기적인 암호 재설정은 사용자가 기존 암호를 강화하도록 촉구합니다. Microsoft의 암호 지침 문서에 포함된 지침을 사용하고 클라우드 전용 사용자에게도 온-프레미스 정책을 적용합니다. | Azure AD Free |
 | [Azure Active Directory 스마트 잠금 사용자 지정](../authentication/howto-password-smart-lockout.md) | 클라우드 기반 사용자의 잠금이 온-프레미스 Active Directory 사용자에게 복제되지 않도록 방지 | Azure AD Basic |
 | [AD FS에 대해 엑스트라넷 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS 엑스트라넷 잠금은 유효한 AD FS 사용자가 해당 계정을 계속 사용할 수 있도록 하면서 무차별 암호 추측 공격으로부터 보호합니다. | |
-| [조건부 액세스 정책을 사용하여 Azure AD Multi-Factor Authentication 배포](../authentication/howto-mfa-getstarted.md) | 사용자가 조건부 액세스 정책을 사용하여 중요한 애플리케이션에 액세스할 때 2단계 인증을 수행하도록 합니다. | Azure AD Premium P1 |
+| [조건부 액세스 정책을 사용 하 여 Azure AD 다단계 인증 배포](../authentication/howto-mfa-getstarted.md) | 사용자가 조건부 액세스 정책을 사용 하 여 중요 한 응용 프로그램에 액세스할 때 2 단계 인증을 수행 해야 합니다. | Azure AD Premium P1 |
 | [Azure Active Directory Identity Protection 사용](../identity-protection/enable.md) | 조직의 사용자를 위해 위험한 로그인 및 손상된 자격 증명을 추적할 수 있도록 설정합니다. | Azure AD Premium P2 |
 | [위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거](../authentication/tutorial-risk-based-sspr-mfa.md) | Multi-Factor Authentication, 암호 재설정 및 위험 기반 로그인 차단 같은 이벤트를 트리거할 수 있는 자동화를 사용하도록 설정합니다. | Azure AD Premium P2 |
 | [셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication에 대한 등록 수렴 사용(미리 보기)](../authentication/concept-registration-mfa-sspr-converged.md) | 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정을 위해 하나의 공통된 환경에서 등록할 수 있도록 합니다. | Azure AD Premium P1 |

@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory 조건부 액세스의 서비스 종속성 이란? | Microsoft Docs
-description: Azure Active Directory 조건부 액세스에서 조건을 사용하여 정책을 트리거하는 방법을 알아봅니다.
+title: Azure Active Directory 조건부 액세스에서 서비스 종속성은 무엇 인가요? | Microsoft Docs
+description: Azure Active Directory 조건부 액세스에서 정책을 트리거할 수 조건을 사용 하는 방법을 알아봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112088"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 서비스 종속성 이란? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에서 서비스 종속성은 무엇 인가요? 
 
 
 조건부 액세스 정책을 사용 하 여 웹 사이트 및 서비스에 액세스 요구 사항을 지정할 수 있습니다. 예를 들어, multi-factor authentication (MFA)을 필요한 액세스 요구를 포함할 수 있습니다 또는 [관리 되는 장치](require-managed-devices.md)합니다. 
@@ -61,7 +61,7 @@ ms.locfileid: "60354363"
 | Azure Data Lake     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft 클래스 룸 | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩  |
-| Microsoft Teams     | Exchange                                    | 초기 바인딩 |
+| Microsoft 팀     | Exchange                                    | 초기 바인딩 |
 |                     | MS Planner                                  | 런타임에 바인딩  |
 |                     | SharePoint                                  | 초기 바인딩 |
 |                     | 비즈니스 온라인용 Skype                   | 초기 바인딩 |
@@ -70,7 +70,7 @@ ms.locfileid: "60354363"
 | Outlook의 그룹      | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩 |
 | PowerApps           | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
-|                     | Microsoft Azure Active Directory              | 초기 바인딩 |
+|                     | Windows Azure Active Directory              | 초기 바인딩 |
 | 프로젝트             | Dynamics CRM                                | 초기 바인딩 |
 | 비즈니스용 Skype  | Exchange                                    | 초기 바인딩 |
 | Visual Studio       | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
@@ -79,4 +79,4 @@ ms.locfileid: "60354363"
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 환경에서 조건부 액세스를 구현하는 방법은 [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)을 참조하세요.
+참조를 환경에서 조건부 액세스를 구현 하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 배포를 계획](plan-conditional-access.md)합니다.

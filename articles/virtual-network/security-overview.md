@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056545"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -81,6 +81,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **ServiceFabric**(Resource Manager만 해당): 이 태그는 ServiceFabric 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceFabric*을 지정하는 경우 ServiceFabric에 대한 트래픽이 허용 또는 거부됩니다. 
 * **AzureMachineLearning**(Resource Manager만 해당): 이 태그는 AzureMachineLearning 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureMachineLearning*를 지정하는 경우 AzureMachineLearning에 대한 트래픽이 허용 또는 거부됩니다. 
 * **BatchNodeManagement** (Resource Manager만 해당): 이 태그는 Azure BatchNodeManagement 서비스의 주소 접두사를 나타냅니다. 지정 하는 경우 *BatchNodeManagement* 트래픽을 값에 대해 허용 되거나 계산 노드에 Batch 서비스에서 거부 합니다.
+* **AzureBackup**(Resource Manager에만 해당):이 태그는 AzureBackup 서비스의 주소 접두사를 나타냅니다. AzureBackup 값을 지정 하는 경우에 트래픽이 허용 되거나 AzureBackup를 거부 합니다.
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 
