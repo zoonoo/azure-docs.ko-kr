@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402721"
 ---
-# <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프 
+# <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프
 
 순서 지정과 타임스탬프는 수신 또는 탐색된 메시지의 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 및 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 속성을 통해 모든 Service Bus 엔터티 및 표면에서 항상 사용되는 두 가지 기능입니다.
 

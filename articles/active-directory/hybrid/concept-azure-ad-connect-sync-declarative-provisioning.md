@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246447"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -42,14 +42,14 @@ ms.locfileid: "60246447"
 * [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
 * 대상, 대상 개체
 
-## <a name="scope"></a>범위
+## <a name="scope"></a>Scope
 범위 모듈은 개체를 평가하고 범위 내에서 처리에 포함되어야 하는 규칙을 결정합니다. 개체에 대한 특성 값에 따라 다른 동기화 규칙이 범위에 있다고 평가됩니다. 예를 들어 사서함이 없는 비활성화된 사용자에게는 사서함이 있는 활성화된 사용자보다 다양한 규칙이 적용됩니다.  
-![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 범위는 그룹 및 절로 정의됩니다. 절은 그룹 내에 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 예를 들어 (부서 = IT AND 국가 = 덴마크). 논리 OR은 그룹 간에 사용됩니다.
 
-![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
- 이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
 
 범위 모듈은 다음 작업을 지원합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "60246447"
 
 조인은 하나 이상의 그룹으로 정의됩니다. 그룹 내에 절이 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 논리 OR은 그룹 간에 사용됩니다. 그룹은 위에서 아래의 순서로 처리됩니다. 하나의 그룹이 대상의 개체와 정확히 일치하는 하나의 개체를 찾는 경우 다른 조인 규칙은 평가되지 않습니다. 0개 이상의 개체를 찾을 수 있는 경우 처리는 규칙의 다음 그룹으로 계속됩니다. 이러한 이유로 규칙은 가장 명시적인 것이 앞서고 더 유사한 것이 끝으로 보내는 순서대로 만들어져야 합니다.  
 ![조인 정의](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- 이 그림에서 조인은 위쪽에서 아래쪽으로 처리됩니다. 먼저 동기화 파이프라인은 employeeID에 대해 일치하는지 확인합니다. 그렇지 않으면 두 번째 규칙은 계정 이름이 객체를 조인하는 데 사용되는지 확인합니다. 일치하지 않는 경우 세 번째이자 마지막 규칙은 사용자의 이름을 사용하여 더 유사한 일치를 확인합니다.
+이 그림에서 조인은 위쪽에서 아래쪽으로 처리됩니다. 먼저 동기화 파이프라인은 employeeID에 대해 일치하는지 확인합니다. 그렇지 않으면 두 번째 규칙은 계정 이름이 객체를 조인하는 데 사용되는지 확인합니다. 일치하지 않는 경우 세 번째이자 마지막 규칙은 사용자의 이름을 사용하여 더 유사한 일치를 확인합니다.
 
 모든 조인 규칙이 평가되며 일치 항목이 없는 경우 **설명** 페이지의 **링크 형식**이 사용됩니다. 이 옵션이 **프로비전**에 설정된 경우 대상에서 새 개체가 만들어집니다.  
 ![프로비전 또는 조인](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  

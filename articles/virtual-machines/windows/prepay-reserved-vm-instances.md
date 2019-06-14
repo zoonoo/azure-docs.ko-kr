@@ -1,24 +1,23 @@
 ---
 title: 비용을 절감하기 위해 Azure Virtual Machines 선불 | Microsoft Docs
 description: 계산 비용을 절약하기 위해 Azure Reserved Virtual Machine Instances를 구입하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
+services: virtual-machines-windows
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashar
+manager: yashar
 editor: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
-ms.author: vikdesai
+ms.date: 04/13/2019
+ms.author: banders
 ms.openlocfilehash: e0fc5935790640cd30bbd52a2d2f93d18a7249f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60406871"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
-

@@ -15,10 +15,10 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334491"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
@@ -31,7 +31,7 @@ ms.locfileid: "60334491"
 
 **추가 보안 인증 페이지로 이동하려면**
 
-- https://aka.ms/MFASetup로 이동합니다.
+- https://aka.ms/MFASetup 로 이동합니다.
 
     ![검사](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 

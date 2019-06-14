@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335433"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-amazon-redshift-connector.md)
 > * [버전 2(현재 버전)](../connector-amazon-redshift.md)
 
@@ -63,11 +63,11 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |이 속성은 **AmazonRedshift**로 설정되어야 합니다. |예 |
-| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예. |
+| **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예. |
-| **암호** |사용자 계정의 암호입니다. |예. |
+| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **암호** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -330,16 +330,16 @@ Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_
 
 | Amazon Redshift 형식 | .NET 형식 |
 | --- | --- |
-| SmallInt |Int16 |
+| SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| real |단일 |
+| REAL |단일 |
 | double precision |Double |
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
-| 날짜 |DateTime |
+| DATE |DateTime |
 | TIMESTAMP |DateTime |
 | TEXT |String |
 

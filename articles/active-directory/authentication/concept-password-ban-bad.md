@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977298"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
@@ -26,7 +26,7 @@ ms.locfileid: "65977298"
 
 Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다. Azure AD ID 보호 팀은 일반적으로 사용되는 보안 위험이 있는 암호를 지속적으로 살펴보고 있습니다. 그리고 소위 말하는 전역 금지 암호 목록에서 자주 보이는 암호를 차단합니다. 사이버 범죄자 역시 비슷한 전략을 공격에 사용하므로 Microsoft는 이 목록의 콘텐츠를 공개적으로 게시하지 않습니다. 이와 같이 취약한 암호는 Microsoft 고객에게 실질적인 위협으로 다가오기 전에 차단됩니다. 현재 보안 노력에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/operations/security-intelligence-report)를 참조하세요.
 
-## <a name="custom-banned-password-list"></a>사용자 지정 금지된 암호 목록
+## <a name="custom-banned-password-list"></a>사용자 지정 금지 암호 목록
 
 일부 조직은 Microsoft에서 사용자 금지 암호 목록이라고 부르는 전역 금지 암호 목록 위에 자체적인 사용자 지정을 추가하여 보안을 강화하려 합니다. Contoso 같은 대기업 고객은 브랜드 이름, 회사 관련 용어 또는 기타 항목의 변형을 차단하도록 선택할 수 있습니다.
 

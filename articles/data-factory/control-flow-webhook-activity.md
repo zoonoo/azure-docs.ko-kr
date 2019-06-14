@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764308"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 후크 작업
@@ -56,7 +56,7 @@ ms.locfileid: "60764308"
 
 자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-이름 | 웹 후크 작업의 이름 | String | 예 |
+name | 웹 후크 작업의 이름 | String | 예 |
 형식 | 로 설정 되어야 합니다 **웹 후크**합니다. | String | 예 |
 메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. 지원되는 형식: ' POST' | 예 |
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). | 예 |
@@ -65,7 +65,7 @@ headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어
 인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원 되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아닙니다. |
 시간 제한 | 작업은 대기 시간를 &#39;callBackUri&#39; 를 호출 합니다. 기간 활동 호출할 'callBackUri' 대기 합니다. 기본값은 10mins ("00: 10:00"). 즉, d.hh:mm:ss Timespan 형식은 | String | 아닙니다. |
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 Azure Data Factory는 추가 속성을 "callBackUri" url 끝점의 본문에서 전달 됩니다 하 고이 uri를 지정 된 시간 제한 값 보다 먼저 호출 수를 예상 합니다. Uri가 호출 되지 '초과' 상태로 작업이 실패 합니다.
 

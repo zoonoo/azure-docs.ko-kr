@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593230"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
@@ -30,7 +30,7 @@ ms.locfileid: "60593230"
 
 Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)에서 부트 스크린샷을 확인하면 블루 스크린에 다음 오류 메시지 중 하나가 표시됩니다.
 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 http://windows.com/stopcode를 참조하세요. 지원 담당자를 호출하는 경우 이 정보를 제공합니다. 코드 중지: 중요 서비스 실패" 
+- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 http://windows.com/stopcode 를 참조하세요. 지원 담당자를 호출하는 경우 이 정보를 제공합니다. 코드 중지: 중요 서비스 실패" 
 - "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 다음 오류를 검색할 수 있습니다. CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>원인

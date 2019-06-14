@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139386"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
@@ -39,8 +39,8 @@ Azure AD Connect 동기화 서비스의 일부로 사용 하 여 암호화 키�
 첫째, Windows 서비스 제어 관리자에서 암호를 변경해야 합니다.  이 문제가 해결될 때까지 다음 오류가 표시됩니다.
 
 
-- Windows 서비스 제어 관리자에서 동기화 서비스를 시작하려고 하면 "**로컬 컴퓨터에서 Microsoft Azure AD 동기화 서비스를 시작하지 못했습니다.**"라는 오류 메시지가 표시됩니다. **오류 1069: 서비스가 로그온 실패로 인해 시작되지 않았습니다.**"
-- Windows 이벤트 뷰어의 시스템 이벤트 로그에는 **이벤트 ID 7038** “**다음 오류 때문에 현재 구성된 암호를 사용하여 ADSync 서비스에서 (으)로 로그온할 수 없습니다: 사용자 이름 또는 암호가 잘못되었습니다.**"라는 오류가 메시지가 포함됩니다.
+- Windows 서비스 제어 관리자에서 동기화 서비스를 시작하려고 하면 "**로컬 컴퓨터에서 Microsoft Azure AD 동기화 서비스를 시작하지 못했습니다.** "라는 오류 메시지가 표시됩니다. **오류 1069: 서비스가 로그온 실패로 인해 시작되지 않았습니다.** "
+- Windows 이벤트 뷰어의 시스템 이벤트 로그에는 **이벤트 ID 7038** “**다음 오류 때문에 현재 구성된 암호를 사용하여 ADSync 서비스에서 (으)로 로그온할 수 없습니다: 사용자 이름 또는 암호가 잘못되었습니다.** "라는 오류가 메시지가 포함됩니다.
 
 둘째, 특정 조건 하에서 암호가 업데이트되는 경우 동기화 서비스가 DPAPI를 통해 암호화 키를 더 이상 검색할 수 없습니다. 암호화 키가 없으면 동기화 서비스는 온-프레미스 AD 및 Azure AD 사이에서 동기화하는 데 필요한 암호를 해독할 수 없습니다.
 다음과 같은 오류가 표시됩니다.

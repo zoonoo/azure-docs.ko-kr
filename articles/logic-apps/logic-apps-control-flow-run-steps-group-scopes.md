@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685561"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위가 지정된 그룹 상태에 따라 작업 실행
@@ -165,7 +165,7 @@ ms.locfileid: "60685561"
 1. 원하는 워크플로 위치에 범위를 추가합니다. 예를 들어 논리 앱 워크플로의 기존 단계 사이에 범위를 추가하려면 다음 단계를 수행합니다. 
 
    1. 범위를 추가하려는 화살표 위로 포인터를 이동합니다. 
-   **더하기 기호**(**+**) > **작업 추가**를 선택합니다.
+   **더하기 기호**( **+** ) > **작업 추가**를 선택합니다.
 
       ![범위 추가](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

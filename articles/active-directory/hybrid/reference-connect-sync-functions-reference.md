@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381148"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 동기화: 함수 참조
@@ -82,7 +82,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 | **Program Flow** | | | | |
 | [오류](#error) |[IIF](#iif) |[선택](#select) |[스위치](#switch) | |
 | [Where](#where) |[With](#with) | | | |
-| **텍스트 모드** | | | | |
+| **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim.](#ltrim) |[Mid](#mid) | |
 | [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Replace](#replace) | |
@@ -389,7 +389,7 @@ proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **설명:**  
- ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
+ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
 
 **구문:**  
 `str ConvertFromBase64(str source)` - 인코딩에 유니코드 가정  
@@ -402,7 +402,7 @@ proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-두 예제 모두 "*Hello world!*"를 반환합니다.
+두 예제 모두 "*Hello world!* "를 반환합니다.
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -420,7 +420,7 @@ ConvertFromUTF8Hex 함수는 지정된 UTF8 16진수 인코딩 값을 문자열�
 
 **예제:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-"*Hello world!*"를 반환합니다.
+"*Hello world!* "를 반환합니다.
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -569,7 +569,7 @@ dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우
 - - -
 ### <a name="error"></a>오류
 **설명:**  
- Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
+Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 
 **구문:**  
 `void Error(str ErrorMessage)`
@@ -660,7 +660,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 5로 계산합니다.
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
- 7로 계산합니다.
+7로 계산합니다.
 
 - - -
 ### <a name="instrrev"></a>InStrRev
@@ -1258,7 +1258,7 @@ Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 "test"를 반환합니다.
 
 `Trim([proxyAddresses])`  
- proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
+proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
 - - -
 ### <a name="ucase"></a>UCase
@@ -1291,11 +1291,11 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 만료되지 않은 userCertificate 다중값 특성의 인증서 값을 반환합니다.
 
 - - -
-### <a name="with"></a>방법
+### <a name="with"></a>With
 **설명:**  
 With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수로 표현하여 복합 식을 단순화하는 방법을 제공합니다.
 
-**구문:**
+**구문:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variable: 하위 식을 나타냅니다.
 * subExpression: 변수로 표현되는 하위 식입니다.

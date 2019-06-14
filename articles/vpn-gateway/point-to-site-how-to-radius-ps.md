@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146934"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
@@ -80,7 +80,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **구독:** 구독이 둘 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹: TestRG**
 * **위치: 미국 동부**
-* **DNS 서버: VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소**입니다. (옵션)
+* **DNS 서버: VNet에 대한 이름 확인에 사용하려는 DNS 서버의 IP 주소**입니다. (선택 사항)
 * **GW 이름: Vnet1GW**
 * **공용 IP 이름: VNet1GWPIP**
 * **VpnType: 경로 기반**

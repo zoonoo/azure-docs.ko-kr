@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390073"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
@@ -49,7 +49,7 @@ ms.locfileid: "60390073"
    ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "게이트웨이 서브넷 추가")
 4. 서브넷의 **이름**에 필수 값 ‘GatewaySubnet’이 자동으로 채워집니다. 자동으로 채워진 **주소 범위** 값을 다음 값과 일치하도록 조정합니다.
 
-   **주소 범위(CIDR 블록)**: 10.1.255.0/27
+   **주소 범위(CIDR 블록)** : 10.1.255.0/27
 
    ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "게이트웨이 서브넷 추가")
 5. 게이트웨이 서브넷을 만들려면 페이지 맨 아래에서 **확인**을 클릭합니다.

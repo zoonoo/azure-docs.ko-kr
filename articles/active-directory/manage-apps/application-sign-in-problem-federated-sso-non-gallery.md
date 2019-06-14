@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825432"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 애플리케이션에 로그인하는 문제
@@ -242,7 +242,7 @@ HTTP를 사용 하 여 location 헤더에 인코딩된 SAML 요청을 전송 해
 
 **가능한 원인**
 
-Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회신 URL (Assertion Consumer Service URL)을 Azure AD는 구성 중 하나를 선택 하는 다음 해당 응용 프로그램에 대 한 Url 사용 합니다. 응용 프로그램에는 명시적 회신 URL이 구성 하는 경우에 사용자를 리디렉션할 수 https://127.0.0.1:444입니다. 
+Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회신 URL (Assertion Consumer Service URL)을 Azure AD는 구성 중 하나를 선택 하는 다음 해당 응용 프로그램에 대 한 Url 사용 합니다. 응용 프로그램에는 명시적 회신 URL이 구성 하는 경우에 사용자를 리디렉션할 수 https://127.0.0.1:444 입니다. 
 
 애플리케이션을 비-갤러리 앱으로 추가하면 Azure Active Directory에서는 이 회신 URL을 기본값으로 생성했습니다. 이 동작이 변경되어 Azure Active Directory는 기본적으로 이 URL을 더 이상 추가하지 않습니다. 
 
@@ -264,7 +264,7 @@ Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회�
 
 6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
+7.  애플리케이션이 로드되면 **기본 SAML 구성**을 엽니다. 에 **회신 URL (Assertion Consumer Service URL)** , 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

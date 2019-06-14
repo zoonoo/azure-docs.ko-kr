@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576954"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스의 디스크 드라이브 교체
@@ -53,7 +53,7 @@ ms.locfileid: "60576954"
 2. 키 위의 입구에 빨간색 표시기가 표시되지 않을 때까지 키를 시계 반대 방향으로 돌립니다.
 3. 키를 꺼냅니다.
    
-    ![ 잠금 해제된 디스크 드라이브](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![잠금 해제된 디스크 드라이브](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **그림 2** 잠금 해제된 디스크 드라이브
 4. 이제 디스크 드라이브를 꺼낼 수 있습니다.

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: a6e0509d941d9bfdfe6db7a8b93ee49c5bece1a6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171430"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 MariaDB 서버용 Azure 데이터베이스를 다시 시작
@@ -40,6 +40,4 @@ az mariadb server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-
 [Azure Database for MariaDB 매개 변수를 설정하는 방법](howto-configure-server-parameters-cli.md)에 대해 알아봅니다.
-

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546575"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-salesforce-connector.md)
 > * [현재 버전](connector-salesforce.md)
 
@@ -315,24 +315,24 @@ Salesforce에서 데이터를 복사할 경우 Salesforce 데이터 형식에서
 
 | Salesforce 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Currency |Decimal |
+| Auto Number |문자열 |
+| 확인란 |BOOLEAN |
+| 통화 |Decimal |
 | Date |DateTime |
-| Date/Time |DateTime |
-| Email |String |
-| Id |String |
-| 관계 조회 |String |
-| 다중 선택 선택 목록 |String |
+| 날짜/시간 |DateTime |
+| Email |문자열 |
+| Id |문자열 |
+| 관계 조회 |문자열 |
+| 다중 선택 선택 목록 |문자열 |
 | Number |Decimal |
-| Percent |Decimal |
-| Phone |String |
-| 선택 목록 |String |
-| 텍스트 |String |
-| 텍스트 영역 |String |
-| 텍스트 영역(Long) |String |
-| 텍스트 영역(Rich) |String |
-| 텍스트(암호화됨) |String |
+| 백분율 |Decimal |
+| Phone |문자열 |
+| 선택 목록 |문자열 |
+| 텍스트 |문자열 |
+| 텍스트 영역 |문자열 |
+| 텍스트 영역(Long) |문자열 |
+| 텍스트 영역(Rich) |문자열 |
+| 텍스트(암호화됨) |문자열 |
 | URL |String |
 
 ## <a name="next-steps"></a>다음 단계

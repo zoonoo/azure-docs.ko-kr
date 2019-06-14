@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626743"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
@@ -30,7 +30,7 @@ ms.locfileid: "60626743"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-|리소스  |링크  |
+|Resource  |연결  |
 |---------|---------|
 |SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -50,7 +50,7 @@ ms.locfileid: "60626743"
 * 다양한 오타 수정
 
 ### <a name="2.0.4"/>2.0.4</a>
-* 2.0.3에 도입된 형식 정의 문제 수정
+* 2\.0.3에 도입된 형식 정의 문제 수정
 
 ### <a name="2.0.3"/>2.0.3</a>
 * `big-integer` 종속성 제거
@@ -92,7 +92,7 @@ ms.locfileid: "60626743"
 
 ### <a name="1.14.0"/>1.14.0</a>
 * 세션 일관성에 대한 지원이 추가되었습니다.
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator 에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
 
 ### <a name="1.13.0"/>1.13.0</a>
 * 파티션 간 쿼리를 분할 검증했습니다

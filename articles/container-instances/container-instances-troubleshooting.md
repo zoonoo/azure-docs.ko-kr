@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070860"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
@@ -24,11 +24,11 @@ ms.locfileid: "65070860"
 
 컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. Azure 명명 규칙에 대한 자세한 내용은 Azure 아키텍처 센터에서 [명명 규칙][azure-name-restrictions]을 참조하세요.
 
-| 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예 |
+| Scope | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예 |
 | --- | --- | --- | --- | --- | --- |
 | 컨테이너 그룹 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 컨테이너 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 컨테이너 포트 | 1에서 65535 사이 |정수  |1에서 65535 사이의 정수 |`<port-number>` |`443` |
+| 컨테이너 포트 | 1에서 65535 사이 |Integer |1에서 65535 사이의 정수 |`<port-number>` |`443` |
 | DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
 | 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
 | 볼륨 이름 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 소문자, 숫자 및 하이픈 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
@@ -177,7 +177,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 Azure Container Instances는 캐싱 메커니즘을 기반으로 일반적인 이미지에 대 한 컨테이너 시작 시간 속도를 사용 하 여 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)등 `nanoserver:1809`합니다 `servercore:ltsc2019`, 및 `servercore:1809`합니다. 일반적으로 사용 되는 Linux 이미지와 같은 `ubuntu:1604` 고 `alpine:3.6` 캐시 됩니다. 최신 목록을 캐시 된 이미지 및 태그를 사용 합니다 [캐시 된 이미지 나열] [ list-cached-images] API.
 
 > [!NOTE]
-> 사용 하 여 Azure Container Instances에서 Windows Server 2019 기반 이미지의 미리 보기입니다.
+> Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 컨테이너 느린 네트워크 준비
 

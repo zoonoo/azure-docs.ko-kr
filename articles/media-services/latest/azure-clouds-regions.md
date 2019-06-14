@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409276"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
@@ -69,7 +69,7 @@ az account list-locations
 |엔드포인트 ||
 | --- | --- | 
 | Azure 리소스 관리자 |  `https://management.azure.com/` |
-| 인증 | `https://login.microsoftonline.com/` | 
+| Authentication | `https://login.microsoftonline.com/` | 
 | 토큰 대상 그룹 | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -77,7 +77,7 @@ az account list-locations
 |엔드포인트||
 | --- | --- | 
 | Azure 리소스 관리자 |  `https://management.usgovcloudapi.net/` |
-| 인증 | `https://login.microsoftonline.us/` | 
+| Authentication | `https://login.microsoftonline.us/` | 
 | 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germany
@@ -85,7 +85,7 @@ az account list-locations
 | 엔드포인트 ||
 | --- | --- |  
 | Azure 리소스 관리자 | `https://management.cloudapi.de/` |
-| 인증 | `https://login.microsoftonline.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
@@ -93,7 +93,7 @@ az account list-locations
 |엔드포인트||
 | --- | --- | 
 | Azure 리소스 관리자 | `https://management.chinacloudapi.cn/` |
-| 인증 | `https://login.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>참고 항목

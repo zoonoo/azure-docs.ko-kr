@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441646"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
@@ -27,7 +27,7 @@ ms.locfileid: "65441646"
 >사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1, Premium 2 또는 Basic 버전을 사용하거나 Office 365 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
-사용자가 조직의 테넌트별 앱(예: [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com))에 로그인하거나 도메인 변수(예: [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com))를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
+사용자가 조직의 테넌트별 앱(예: [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com))에 로그인하거나 도메인 변수(예: [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com))를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.
 
 사용자에 게 www 같은 사이트로 이동 하는 경우 즉시 표시 되지 않습니다 사용자 지정 브랜딩이\.office.com 합니다. 대신, 사용자 지정된 브랜딩이 표시되기 전에 사용자는 로그인해야 합니다.
 

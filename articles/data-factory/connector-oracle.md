@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405939"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-onprem-oracle-connector.md)
 > * [현재 버전](connector-oracle.md)
 
@@ -231,7 +231,7 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Or
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>싱크 형식인 Oracle 
+### <a name="oracle-as-a-sink-type"></a>싱크 형식인 Oracle
 
 Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **OracleSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
@@ -283,7 +283,7 @@ Oracle 간에 데이터를 복사할 경우 Oracle 데이터 형식에서 데이
 | BLOB |Byte[]<br/>(Oracle 10g 이상에서만 지원됨) |
 | CHAR |String |
 | CLOB |String |
-| 날짜 |DateTime |
+| DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | LONG |String |

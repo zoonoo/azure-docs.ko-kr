@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: kfollis
 ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551670"
 ---
 # <a name="export-or-delete-user-settings"></a>사용자 설정 내보내기 또는 삭제
@@ -36,7 +36,7 @@ ms.locfileid: "60551670"
 
     ![포털 설정 기어를 보여주는 스크린샷](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
-3. **모든 설정 내보내기** 또는 **모든 설정 및 개인 대시보드 삭제**를 선택합니다.
+3. **모든 설정 내보내기** 또는 **모든 설정 및 프라이빗 대시보드 삭제**를 선택합니다.
 
     ![포털을 보여 주는 스크린샷 내보내고 설정 삭제](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "60551670"
       | 액션(Action) | 설명 |
       | --- | --- |
       | **모든 설정 내보내기** | 사용자 설정과 색 테마, 즐겨찾기 및 개인 대시보드와 같은 포함 된.json 파일을 만듭니다.|
-      | **모든 설정 및 개인 대시보드 삭제** | 개인 대시보드 및 포털에 대 한 다른 사용자 지정 설정에 대 한 모든 링크를 삭제 합니다. |
+      | **모든 설정 및 프라이빗 대시보드 삭제** | 개인 대시보드 및 포털에 대 한 다른 사용자 지정 설정에 대 한 모든 링크를 삭제 합니다. |
 
 > [!NOTE]
 > 사용자 설정의 동적 특성 및 데이터 손상의 위험으로 인해.json 파일에서 설정을 가져올 수 없습니다.

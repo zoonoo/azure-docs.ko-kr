@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540656"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
@@ -74,7 +74,7 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>단일 테넌트 또는 다중 테넌트 응용 프로그램 개발 시의 추가 고려 사항
 
-단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 https://login.microsoftonline.com/common이지만 테넌트 특정 엔드포인트는 https://login.microsoftonline.com/contoso.onmicrosoft.com일 수 있습니다. 공통 엔드포인트는 애플리케이션을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
+단일 테넌트 애플리케이션 대신 다중 테넌트 애플리케이션을 개발할 때 고려할 몇 가지 추가 사항이 있습니다. 예를 들어 여러 디렉터리에 있는 사용자에게 애플리케이션을 사용할 수 있도록 만들려면 사용자가 속한 테넌트를 확인할 수 있는 메커니즘이 필요합니다. 단일 테넌트 애플리케이션은 한 사용자에 대한 고유한 자체 디렉터리만 검토하면 되지만, 다중 테넌트 애플리케이션은 Azure AD의 모든 디렉터리에서 특정 사용자를 식별해야 합니다. 이 작업을 수행할 수 있도록, Azure AD는 테넌트 특정 엔드포인트를 제공하지 않고 다중 테넌트 애플리케이션이 로그인 요청을 디렉션할 수 있는 공통 인증 엔드포인트를 제공합니다. 이 엔드포인트는 Azure AD의 모든 디렉터리에 대해 https://login.microsoftonline.com/common 이지만 테넌트 특정 엔드포인트는 https://login.microsoftonline.com/contoso.onmicrosoft.com 일 수 있습니다. 공통 엔드포인트는 애플리케이션을 개발할 때 특히 중요하게 고려해야 합니다. 로그인, 로그아웃, 토큰 유효성 검사 도중에 다중 테넌트를 처리하는 필수 논리가 있어야 하기 때문입니다.
 
 현재 단일 테넌트 애플리케이션을 개발 중이지만 이 애플리케이션을 다수의 조직에서 사용할 수 있도록 만들려는 경우 Azure AD에서 애플리케이션 및 해당 구성을 쉽게 변경하여 다중 테넌트를 지원하도록 만들 수 있습니다. 또한 단일 테넌트 애플리케이션의 인증을 제공하든 아니면 다중 테넌트 애플리케이션의 인증을 제공하든 상관없이, Azure AD는 모든 디렉터리의 모든 토큰에 동일한 서명 키를 사용합니다.
 

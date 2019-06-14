@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580944"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>StorSimple 가상 배열의 백업에서 복제
@@ -42,7 +42,7 @@ ms.locfileid: "60580944"
    
    b.    표시되는 필터링된 백업 목록에서 복제할 백업을 선택합니다.
    
-   다.    **확인**을 클릭합니다.
+   c.    **확인**을 클릭합니다.
    
    ![백업 복제](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. **복제** 블레이드에서 **대상 설정**을 클릭하고 다음을 수행합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "60580944"
    
    b.    필요에 따라 복제된 공유에 대한 설명을 제공합니다.
    
-   다.    복원 중인 공유의 유형을 변경할 수 없습니다. 계층화된 공유는 계층화된 공유로 복제되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복제됩니다.
+   c.    복원 중인 공유의 유형을 변경할 수 없습니다. 계층화된 공유는 계층화된 공유로 복제되고 로컬로 고정된 공유는 로컬로 고정된 공유로 복제됩니다.
    
    d.    용량은 복제 중인 공유의 크기와 동일한 값으로 설정됩니다.
    
@@ -82,7 +82,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    b.    표시되는 필터링된 백업 목록에서 복제할 백업을 선택합니다.
    
-   다.    **확인**을 클릭합니다.
+   c.    **확인**을 클릭합니다.
    
    ![백업 복제](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. **복제** 블레이드에서 **대상 볼륨 설정**을 클릭하고 다음을 수행합니다.
@@ -91,7 +91,7 @@ Azure Portal에서 백업을 복제하려면 공유를 복제하는 경우와 �
    
    b. **복제된 볼륨**의 볼륨 이름을 제공합니다. 볼륨 이름은 3자에서 127자 사이여야 합니다.
    
-   다. 볼륨 유형은 원래 볼륨으로 자동으로 설정됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
+   c. 볼륨 유형은 원래 볼륨으로 자동으로 설정됩니다. 계층화된 볼륨은 계층화된 볼륨으로 복제되고 로컬로 고정된 볼륨은 로컬로 고정된 볼륨으로 복제됩니다.
    
    d. **연결된 호스트**에서 **선택**을 클릭합니다.
    
