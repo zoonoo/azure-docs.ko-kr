@@ -118,7 +118,7 @@ Blockchain Workbench의 성공적인 **사용자 만들기** 응답 예:
 | applicationName      | 애플리케이션의 이름입니다. |
 | version              | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
 | workflowName         | 워크플로의 이름입니다. |
-| 매개 변수           | 계약 생성을 위한 매개 변수 입력입니다. |
+| parameters           | 계약 생성을 위한 매개 변수 입력입니다. |
 | connectionId         | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion | 메시징 스키마 버전입니다. |
 | messageName          | **CreateContractRequest** |
