@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873917"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL.js 사용 하 여 Internet Explorer와 Microsoft Edge 브라우저에서 알려진된 문제
@@ -43,9 +43,9 @@ MSAL.js Internet Explorer에서 실행할 수 있는 응용 프로그램에서 �
 일반적으로 응용 프로그램 (예를 들어 Azure 웹 앱)에서 프로덕션으로 배포 정상적으로, 최종 사용자가 팝업을 수락을 제공 합니다. Internet Explorer 11을 사용 하 여 테스트 했습니다.
 
 ### <a name="running-locally"></a>로컬로 실행
-다음 고려 사항에 유의 해야 하는 로컬로 실행 하면서 디버깅할 응용 프로그램을 Internet Explorer에서 실행 하려는 경우 (으로 응용 프로그램을 실행 한다고 가정해 보십시오 *http://localhost:1234*):
+다음 고려 사항에 유의 해야 하는 로컬로 실행 하면서 디버깅할 응용 프로그램을 Internet Explorer에서 실행 하려는 경우 (으로 응용 프로그램을 실행 한다고 가정해 보십시오 *http://localhost:1234* ):
 
-- Internet Explorer의 "보호 모드" MSAL.js 제대로 작동 하지 못하게 하는 명명 된 보안 메커니즘입니다. 증상, 중, 로그인 한 후 페이지 리디렉션될 수 http://localhost:1234/null입니다.
+- Internet Explorer의 "보호 모드" MSAL.js 제대로 작동 하지 못하게 하는 명명 된 보안 메커니즘입니다. 증상, 중, 로그인 한 후 페이지 리디렉션될 수 http://localhost:1234/null 입니다.
 
 - 를 실행 하 고 응용 프로그램을 로컬로 디버그이 "보호 모드"를 사용 하지 않도록 설정 해야 합니다. 이 방법을 사용 합니다.
 

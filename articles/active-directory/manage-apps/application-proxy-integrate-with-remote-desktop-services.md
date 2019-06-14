@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108456"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -29,7 +29,7 @@ ms.locfileid: "66233722"
 
 이 문서의 대상은 다음과 같습니다.
 - 원격 데스크톱 서비스를 통해 온-프레미스 애플리케이션을 게시하여 최종 사용자에게 더 많은 애플리케이션을 제공하려고 하는 현재 애플리케이션 프록시 고객.
-- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오에서는 RDS에 대한 제한된 2단계 확인 및 조건부 액세스 제어 집합을 제공합니다.
+- Azure AD 애플리케이션 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오는 rds.에 제한 된 집합만 2 단계 인증 및 조건부 액세스 제어 제공
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>애플리케이션 프록시를 표준 RDS 배포에 맞추는 방법
 
@@ -57,6 +57,8 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 - RD 웹을 게시할 경우 동일한 내부 및 외부 FQDN을 사용하는 것이 좋습니다. 내부 및 외부 FQDN 서로 다른 경우 클라이언트가 잘못된 링크를 받는 것을 방지하려면 요청 헤더 변환을 사용하지 않도록 설정해야 합니다. 
 
 - Internet Explorer에서 RDS ActiveX 추가 기능을 사용하도록 설정합니다.
+
+- Azure AD 사전 인증 흐름에 대 한 사용자만 연결할 수 있습니다에 게시 된 리소스를 **RemoteApp 및 데스크톱** 창입니다. 사용자가 데스크톱을 연결할 수 없습니다는 **원격 PC에 연결** 창입니다.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 애플리케이션 프록시 시나리오 배포
 
@@ -127,7 +129,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 | 사전 인증    | Internet Explorer + RDS ActiveX 추가 기능을 사용하는 Windows 7/10 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
 
-사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 Single Sign-On, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
+사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용 하 여 온-프레미스 리소스에 대 한 single sign-on, 조건부 액세스 및 2 단계 확인 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
 통과 인증을 사용하려면 이 문서에 나열된 단계를 두 번만 수정하면 됩니다.
 1. [RD 호스트 엔드포인트 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.

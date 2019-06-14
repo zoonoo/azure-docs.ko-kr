@@ -9,19 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: b0354803a117e8e2c2382ae888bde94a502f24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059430"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
 HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다.
-
-> [!IMPORTANT]  
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="what-is-hue"></a>Hue 정의
 Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 애플리케이션 세트입니다. Hue를 사용하여 Hadoop 클러스터(HDInsight 클러스터의 경우, WASB)와 연결된 저장소를 찾아보고 Hive 작업 및 Pig 스크립트 등을 실행할 수 있습니다. HDInsight Hadoop 클러스터에서 Hue 설치는 다음 구성 요소를 지원합니다.
@@ -42,7 +39,7 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 
 ## <a name="install-hue-using-script-actions"></a>스크립트 동작을 사용하여 Hue 설치
 
-Linux 기반 HDInsight 클러스터에서 Hue를 설치하는 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에서 사용할 수 있습니다. 이 스크립트를 사용하여 Azure Storage Blobs(WASB) 또는 Azure Data Lake Storage를 기본 스토리지로 클러스터에 Hue를 설치할 수 있습니다.
+Linux 기반 HDInsight 클러스터에서 Hue를 설치하는 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh 에서 사용할 수 있습니다. 이 스크립트를 사용하여 Azure Storage Blobs(WASB) 또는 Azure Data Lake Storage를 기본 스토리지로 클러스터에 Hue를 설치할 수 있습니다.
 
 이 섹션에서는 Azure Portal을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 

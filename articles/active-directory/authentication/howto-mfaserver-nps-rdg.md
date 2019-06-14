@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bc47f1f3e7022b566181220e203d33564b5b93b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a129030e8071dc590562ca5ca203d8d735f0449e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052543"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 
@@ -25,6 +25,9 @@ ms.locfileid: "60358307"
 터미널 서비스에 대한 Windows 인증이 Server 2012 R2에 대해 지원되지 않으므로 MFA 서버와 통합하려면 RD 게이트웨이 및 RADIUS를 사용합니다.
 
 별도의 서버에 Multi-Factor Authentication 서버를 설치합니다. 이 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시합니다. NPS에서 사용자 이름과 암호의 유효성을 검사한 후 Multi-Factor Authentication 서버로 응답을 반환합니다. 그런 다음 MFA 서버에서 두 번째 인증 단계를 수행하고 결과를 게이트웨이로 반환합니다.
+
+> [!IMPORTANT]
+> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,7 +71,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 8. 인증 공급자를 **이 서버에서 요청 인증**으로 변경합니다. 이 정책은 NPS가 Azure MFA 서버에서 RADIUS 요청을 수신할 때 루프 조건이 될 수 있는 Azure Multi-Factor Authentication 서버에 RADIUS 요청을 전송하는 대신 로컬로 인증이 발생하도록 합니다.
 9. 루프 조건을 방지하려면 새 정책이 **연결 요청 정책** 창의 원래 정책 위에 정렬되어 있는지 확인합니다.
 
-## <a name="configure-azure-multi-factor-authentication"></a>Azure 다단계 인증을 구성합니다.
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구성
 
 Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의 RADIUS 프록시로 구성됩니다.  RD 게이트웨이 서버와 별개의 도메인에 가입된 서버에 설치해야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 

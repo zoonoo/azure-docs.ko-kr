@@ -8,10 +8,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205618"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용 하는 모범 사례
@@ -683,7 +683,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 }
 ```
 
-### <a name="geometry"></a>기하 도형
+### <a name="geometry"></a>기 하 도형
 
 응답 형식이 면 **기 하 도형**, 반환 되는 기 하 도형 ID를 포함할 수 있습니다는 **dataSources** "geometry" 및 "id" 아래에 있는 개체입니다. 예를 들어 [다각형 가져오기 서비스](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) 엔터티 집합에 대 한 도시 또는 공항 개요 등 GeoJSON 형식으로의 기 하 도형 데이터를 요청할 수 있습니다. 에 대해이 경계 데이터를 사용할 수 있습니다 [지 오 펜싱](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) 하거나 [기 하 도형 내에서 검색 poi로 향하는](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)합니다.
 

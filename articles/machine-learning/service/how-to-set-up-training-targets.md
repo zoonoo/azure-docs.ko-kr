@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074936"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정 
 
-Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-target)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
+Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경(총체적으로 [__컴퓨팅 대상__](concept-azure-machine-learning-architecture.md#compute-targets)이라고 함)에서 모델을 학습할 수 있습니다. 컴퓨팅 대상은 로컬 컴퓨터 또는 클라우드 리소스(예: Azure Machine Learning Compute, Azure HDInsight 또는 원격 가상 머신)일 수 있습니다.  ["모델 배포 위치 및 방법"](how-to-deploy-and-where.md)의 설명에 따라 모델 배포용 컴퓨팅 대상을 만들 수도 있습니다.
 
 수 만들고 Azure portal, Azure CLI 또는 Azure Machine Learning VS Code 확장에는 Azure Machine Learning SDK를 사용 하 여 계산 대상을 관리 합니다. 다른 서비스(예: HDInsight 클러스터)를 통해 만든 컴퓨팅 대상이 있는 경우 해당 컴퓨팅 대상을 Azure Machine Learning Service 작업 영역에 연결하여 사용할 수 있습니다.
  
@@ -31,7 +31,7 @@ Azure Machine Learning Service를 사용하여 다양한 리소스 또는 환경
 
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 1.0.39 버전을 사용 하 여 테스트 했습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.39에서 테스트되었습니다.
 
 ## <a name="compute-targets-for-training"></a>학습용 컴퓨팅 대상
 
@@ -75,7 +75,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Python으로 컴퓨팅 대상 설정
+## <a name="set-up-in-python"></a>Python에서 설정
 
 아래의 섹션을 통해 다음과 같은 컴퓨팅 대상을 구성합니다.
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Azure Portal에서 컴퓨팅 설정
+## <a name="set-up-in-azure-portal"></a>Azure 포털에서 설정
 
 Azure Portal에서 작업 영역과 연결된 컴퓨팅 대상에 액세스할 수 있습니다.  Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
@@ -357,7 +357,7 @@ Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대�
 1. __연결__을 선택합니다. 
 1. 목록에서 컴퓨팅 대상을 선택하여 연결 작업의 상태를 봅니다.
 
-## <a name="set-up-compute-with-the-cli"></a>CLI를 사용하여 컴퓨팅 설정
+## <a name="set-up-with-cli"></a>CLI를 사용 하 여 설정 합니다.
 
 Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 작업 영역과 연결되어 있는 컴퓨팅 대상에 액세스할 수 있습니다.  CLI를 사용하여 다음을 수행할 수 있습니다.
 
@@ -367,7 +367,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 자세한 내용은 [리소스 관리](reference-azure-machine-learning-cli.md#resource-management)를 참조하세요.
 
-## <a name="set-up-compute-with-vs-code"></a>VS Code를 사용 하 여 계산을 설정
+## <a name="set-up-with-vs-code"></a>VS Code를 사용 하 여 설정 합니다.
 
 액세스, 작성, 사용 하 여 작업 영역에 연관 된 계산 대상을 관리 합니다 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) Azure Machine Learning 서비스에 대 한 합니다.
 
@@ -384,7 +384,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 >
 > 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
 > 
-> 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
+> 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
 ### <a name="create-an-experiment"></a>실험 만들기
 

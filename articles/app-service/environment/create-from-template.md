@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137089"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
@@ -45,7 +45,7 @@ ASE 만들기를 자동화하려면:
 
 2. ILB ASE를 만든 후에 ILB ASE 도메인과 일치하는 SSL 인증서를 업로드합니다.
 
-3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootdomain.com))을 사용할 때 ILB ASE의 앱으로 이동하는 SSL 트래픽에 사용됩니다.
+3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootdomain.com) )을 사용할 때 ILB ASE의 앱으로 이동하는 SSL 트래픽에 사용됩니다.
 
 
 ## <a name="create-the-ase"></a>ASE 만들기
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>"기본" SSL 인증서 업로드 및 구성
-SSL 인증서를 앱에 대한 SSL 연결을 설정하는 데 사용되는 "기본" SSL 인증서로 ASE와 연결해야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우 https://some-random-app.internal-contoso.com에 연결하려면 **.internal-contoso.com*에 유효한 SSL 인증서가 필요합니다. 
+SSL 인증서를 앱에 대한 SSL 연결을 설정하는 데 사용되는 "기본" SSL 인증서로 ASE와 연결해야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우 https://some-random-app.internal-contoso.com 에 연결하려면 * *.internal-contoso.com*에 유효한 SSL 인증서가 필요합니다. 
 
 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 SSL 인증서를 구합니다. SSL 인증서의 소스에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성해야 합니다.
 
-* **주체**: 이 특성은 **.your-root-domain-here.com*으로 설정되어야 합니다.
-* **주체 대체 이름**: 이 특성에는 **.your-root-domain-here.com* 및 **.scm.your-root-domain-here.com*이 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here.com* 형식의 주소를 사용합니다.
+* **주체**: 이 특성은 * *.your-root-domain-here.com*으로 설정되어야 합니다.
+* **주체 대체 이름**: 이 특성에는 * *.your-root-domain-here.com* 및 * *.scm.your-root-domain-here.com*이 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here.com* 형식의 주소를 사용합니다.
 
 유효한 SSL 인증서가 있는 경우 두 가지 추가 준비 단계가 필요합니다. SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서를 포함해야 합니다. 암호로 인증서를 보호합니다.
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 애플리케이션 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com은 **.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
+템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 애플리케이션 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com 은 * *.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
 
 그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대해 고유한 SNI SSL 인증서 바인딩을 구성할 수도 있습니다.
 

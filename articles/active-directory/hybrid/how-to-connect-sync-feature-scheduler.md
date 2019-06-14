@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139282"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
@@ -48,7 +48,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 이 cmdlet을 실행했을 때 **사용할 수 없는 동기화 명령 또는 cmdlet** 이 나타나면 PowerShell 모듈이 로드되지 않은 것입니다. 기본 설정보다 PowerShell 제한 수준이 높은 도메인 컨트롤러 또는 서버에서 Azure AD Connect를 실행할 경우 이 문제가 발생할 수 있습니다. 이 오류가 나타나면 `Import-Module ADSync`을(를) 실행하여 cmdlet을 사용할 수 있게 합니다.
 
 * **AllowedSyncCycleInterval**. Azure AD에서 허용되는 동기화 주기 간의 가장 짧은 시간 간격입니다. 이 설정보다 더 자주 동기화할 수 없으며 계속 지원됩니다.
-* **CurrentlyEffectiveSyncCycleInterval**. 현재 적용 중인 일정입니다. AllowedSyncInterval보다 낮은 경우 CustomizedSyncInterval(설정된 경우)과 동일한 값을 갖습니다. 1.1.281 이전 빌드를 사용하고 CustomizedSyncCycleInterval을 변경한 경우 이 변경 내용은 다음 동기화 주기 후에 적용됩니다. 1.1.281 빌드의 경우 변경 내용은 즉시 적용됩니다.
+* **CurrentlyEffectiveSyncCycleInterval**. 현재 적용 중인 일정입니다. AllowedSyncInterval보다 낮은 경우 CustomizedSyncInterval(설정된 경우)과 동일한 값을 갖습니다. 1\.1.281 이전 빌드를 사용하고 CustomizedSyncCycleInterval을 변경한 경우 이 변경 내용은 다음 동기화 주기 후에 적용됩니다. 1\.1.281 빌드의 경우 변경 내용은 즉시 적용됩니다.
 * **CustomizedSyncCycleInterval**. 스케줄러를 기본값 30분이 아닌 다른 빈도로 실행하려면 이 설정을 구성합니다. 위의 그림에서는 스케줄러가 1시간마다 실행되도록 설정되었습니다. 이 설정을 AllowedSyncInterval보다 낮은 값으로 설정하면 후자가 사용됩니다.
 * **NextSyncCyclePolicyType**. 델타 또는 초기입니다. 다음 실행 시 델타 변경만 처리할지 또는 전체 가져오기 및 동기화를 수행할지 여부를 정의합니다. 후자는 새 규칙 또는 변경된 규칙을 다시 처리하기도 합니다.
 * **NextSyncCycleStartTimeInUTC**. 스케줄러가 다음 동기화 주기를 시작하는 다음 시간입니다.
@@ -72,7 +72,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 구문: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
- d -일, HH - 시간, mm - 분, ss - 초
+d -일, HH - 시간, mm - 분, ss - 초
 
 예제: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 3시간마다 실행되도록 스케줄러를 변경합니다.
@@ -93,7 +93,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 유형을 실행해야 할 수도 있습니다.
 
 ### <a name="delta-sync-cycle"></a>델타 동기화 주기
- 델타 동기화 주기에는 다음 단계가 포함됩니다.
+델타 동기화 주기에는 다음 단계가 포함됩니다.
 
 
 - 모든 커넥터에서 델타 가져오기
@@ -157,7 +157,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 동기화 주기를 실행 중일 때 구성을 변경할 수 없습니다. 스케줄러에서 프로세스를 완료할 때까지 기다릴 수 있지만 이를 중지하여 즉시 변경할 수도 있습니다. 현재 주기를 중지해도 나쁜 영향을 주지 않으며 변경 사항은 다음 실행 시 처리됩니다.
 
 1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
-2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. 1\.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.
