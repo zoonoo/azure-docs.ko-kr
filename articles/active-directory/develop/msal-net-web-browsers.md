@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111319"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>웹 브라우저를 사용 하 여 MSAL.NET에서
 웹 브라우저는 대화형 인증을 위해 필요 합니다. MSAL.NET 기본적으로 지원 합니다 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-and-xamarinandroid) Xamarin.iOS에서 및 [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)합니다. 하지만 [포함 된 웹 브라우저를 사용할 수도 있습니다](#enable-embedded-webviews) (UX에서 single sign-on (SSO)를 보안에 대 한 필요)의 요구 사항에 따라 [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 하 고 [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) 앱입니다. 및 수도 있습니다 [동적으로 선택](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) Chrome 또는 Android에서 Chrome 사용자 지정 탭을 지 원하는 브라우저의 존재를 기반으로 웹 브라우저를 사용 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "65543952"
 
 - 암호 (입력 하나) 하는 경우 응용 프로그램 및 인증 라이브러리에서 저장 되지 됩니다.
 - 다른 id 공급자 (예를 들어 로그인에는 회사 또는 학교 계정 또는 Azure AD B2C를 사용 하 여 소셜 계정 또는 MSAL을 사용 하 여 개인 계정)으로 리디렉션을 사용 하도록 설정 합니다.
-- STS를 (Windows Hello pin을 입력 또는 자신의 전화 또는 휴대폰에 인증 앱에서 호출) 인증 단계 중 사용자 수행 다중 요소 인증 (MFA) 하 여 예를 들어, 조건부 액세스를 제어할 수 있습니다. 여기서는 필요한 다단계 인증 설정 되지 않은 것 아직 경우 사용자 수 설정 동일한 대화 상자에서 just-in-time에서 합니다.  사용자는 휴대폰 번호를 입력 하 고 인증 응용 프로그램을 설치 하 고 해당 계정을 추가 하려면 QR 태그를 검색 하는 따릅니다. 이 서버 상호 작용 기반 환경을 개선 되었습니다.
+- STS 제어 조건부 액세스를 예를 들어 사용자 수행 다중 요소 인증 (MFA) (Windows Hello pin을 입력 또는 자신의 전화 또는 휴대폰에 인증 앱에서 호출) 인증 단계 중 함으로써 있습니다. 여기서는 필요한 다단계 인증 설정 되지 않은 것 아직 경우 사용자 수 설정 동일한 대화 상자에서 just-in-time에서 합니다.  사용자는 휴대폰 번호를 입력 하 고 인증 응용 프로그램을 설치 하 고 해당 계정을 추가 하려면 QR 태그를 검색 하는 따릅니다. 이 서버 상호 작용 기반 환경을 개선 되었습니다.
 - 암호 (이전 암호와 새 암호에 대 한 추가 필드를 제공)이 만료 된 경우이 동일한 대화 상자에서 해당 암호를 변경할 수가 있습니다.
 - Azure AD 테 넌 트 관리자에 의해 제어 되는 테 넌 트 또는 응용 프로그램 (이미지)의 브랜딩 수 있도록 / 응용 프로그램 소유자입니다.
 - 응용 프로그램 리소스에 액세스할 수 있도록 동의 하면/인증 직후 이름에 범위를 지정 합니다.

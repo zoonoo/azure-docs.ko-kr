@@ -2,7 +2,7 @@
 title: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책 필요 | Microsoft Docs
 description: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책을 요구 하는 방법에 알아봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 4/4/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112735"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>조건부 액세스 (미리 보기)를 사용 하 여 클라우드 앱 액세스를 위해 앱 보호 정책 필요
 
@@ -33,7 +33,7 @@ ms.locfileid: "60355986"
 
 ## <a name="overview"></a>개요
 
-[Azure AD 조건부 액세스](overview.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 디바이스로 제한할 수 있습니다.
+사용 하 여 [Azure AD 조건부 액세스](overview.md)를 미세 조정할 수 있습니다 권한이 있는 사용자가 리소스를 액세스 하는 방법입니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 디바이스로 제한할 수 있습니다.
 
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책에는 모바일 장치 관리 (MDM) 솔루션을 필요 하지 않습니다. 장치 관리 솔루션에 장치 등록 없이 사용 하 여 회사 데이터를 보호할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure Active Directory 조건부 액세스를 Intune 앱 보호 정책 받기로
 
 정책으로 보호 된 클라이언트 앱의 목록을 참조 하세요 [앱 보호 정책 요구 사항을](technical-reference.md#approved-client-app-requirement)합니다.
 
-와 같은 다른 정책 사용 하 여 앱 보호-기반 조건부 액세스 정책을 결합할 수 있습니다 [장치 기반 조건부 액세스 정책을](require-managed-devices.md)합니다. 이러한 방식으로 개인 및 회사 장치에 대 한 데이터를 보호 하는 방법에 유연성을 제공할 수 있습니다.
+와 같은 앱 보호-기반 조건부 액세스 정책을 다른 정책과 결합할 수 있습니다 [장치 기반 조건부 액세스 정책](require-managed-devices.md)합니다. 이러한 방식으로 개인 및 회사 장치에 대 한 데이터를 보호 하는 방법에 유연성을 제공할 수 있습니다.
 
 ## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>앱 보호 기반 조건부 액세스 요구 사항의 이점
 
@@ -62,8 +62,8 @@ Azure Active Directory 조건부 액세스를 Intune 앱 보호 정책 받기로
 
 - 합니다 [앱 보호 정책 요구 사항을](technical-reference.md#app-protection-policy-requirement) 기술 참조입니다.
 - [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement) 기술 참조.
-- [Azure Active Directory의 조건부 액세스](overview.md)에 대한 기본 개념.
-- [조건부 액세스 정책을 구성하는](app-based-mfa.md) 방법.
+- 기본 개념 [Azure Active Directory의 조건부 액세스](overview.md)합니다.
+- 하는 방법 [조건부 액세스 정책을 구성할](app-based-mfa.md)합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -111,7 +111,7 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 
     ![조건부 액세스](./media/app-protection-based-conditional-access/07.png)
 
-4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)**:
+4. **조건을**, 구성 **장치 플랫폼** 하 고 **클라이언트 앱 (미리 보기)** :
 
     a. **장치 플랫폼**를 선택 **Android** 하 고 **iOS**합니다.
 
@@ -163,7 +163,7 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>Exchange Online에 대 한 앱 보호 기반 또는 준수 장치 정책
 
-이 시나리오는 Exchange Online에 액세스 하기 위한 앱 보호 기반 또는 준수 장치 조건부 액세스 정책으로 구성 됩니다.
+이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 보호 기반 또는 준수 장치 조건부 액세스 정책으로 구성 됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -261,7 +261,7 @@ Intune 앱 보호 정책이 회사 데이터에 액세스 하려면 응용 프�
 
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>Exchange Online에 대 한 앱 보호 기반 및 준수 장치 정책
 
-이 시나리오는 Exchange Online에 액세스 하기 위한 앱을 기반으로 보호 및 준수 장치 조건부 액세스 정책으로 구성 됩니다.
+이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 보호-기반 및 준수 장치 조건부 액세스 정책으로 구성 됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -436,5 +436,5 @@ Intune 앱 보호 정책이 필요 하며 회사 데이터에 액세스 하기 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
-- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조 [Azure Active Directory에서 조건부 액세스 모범 사례](best-practices.md)합니다. 
+- 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
+- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 

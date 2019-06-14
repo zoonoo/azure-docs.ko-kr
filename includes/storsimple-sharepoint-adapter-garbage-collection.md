@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0b5d9deacdd4266da30f17c95b6e575a652d2f76
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155842"
 ---
 이 절차에서는 다음을 수행합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "66155842"
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 애플리케이션의 일반 설정**을 편집하여 휴지통을 일시적으로 사용하지 않도록 설정합니다. 또한 이 작업은 관련 사이트 모음에 대한 휴지통을 비웁니다. 이 작업을 수행하려면 **중앙 관리** -> **애플리케이션 관리** -> **웹 애플리케이션(웹 애플리케이션 관리)** -> **SharePoint - 80** -> **일반 애플리케이션 설정**을 클릭합니다. **휴지통 상태**를 **OFF**로 설정합니다.
+2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 애플리케이션의 일반 설정**을 편집하여 휴지통을 일시적으로 사용하지 않도록 설정합니다. 또한 이 작업은 관련 사이트 모음에 대한 휴지통을 비웁니다. 이 작업을 수행하려면 **중앙 관리** -> **애플리케이션 관리** -> **웹 애플리케이션(웹 애플리케이션 관리)**  -> **SharePoint - 80** -> **일반 애플리케이션 설정**을 클릭합니다. **휴지통 상태**를 **OFF**로 설정합니다.
    
     ![웹 애플리케이션의 일반 설정](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -61,5 +61,5 @@ ms.locfileid: "66155842"
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 애플리케이션의 일반 설정**을 편집하여 휴지통을 다시 사용할 수 있도록 설정합니다. 이 작업을 수행하려면 **중앙 관리** -> **애플리케이션 관리** -> **웹 애플리케이션(웹 애플리케이션 관리)** -> **SharePoint - 80** -> **일반 애플리케이션 설정**을 클릭합니다. 휴지통 상태를 **ON**으로 설정합니다.
+2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 애플리케이션의 일반 설정**을 편집하여 휴지통을 다시 사용할 수 있도록 설정합니다. 이 작업을 수행하려면 **중앙 관리** -> **애플리케이션 관리** -> **웹 애플리케이션(웹 애플리케이션 관리)**  -> **SharePoint - 80** -> **일반 애플리케이션 설정**을 클릭합니다. 휴지통 상태를 **ON**으로 설정합니다.
 

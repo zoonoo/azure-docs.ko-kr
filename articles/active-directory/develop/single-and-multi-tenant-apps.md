@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111078"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory의 테넌시
 
@@ -36,17 +36,17 @@ Azure AD(Azure Active Directory)에서는 사용자 및 앱과 같은 개체를 
 
 Azure Portal에서 대상 그룹을 다음과 같이 설정하여 앱을 단일 테넌트 또는 다중 테넌트로 구성할 수 있습니다.
 
-| 대상 그룹 | 단일/다중 테넌트 | 로그인할 수 있는 사용자 | 
+| 대상 | 단일/다중 테넌트 | 로그인할 수 있는 사용자 | 
 |----------|--------| ---------|
-| 이 디렉터리의 계정에만 해당 | 단일 테넌트 | 디렉터리의 모든 사용자 및 게스트 계정이 응용 프로그램 또는 API를 사용할 수 있습니다.<br>*대상 그룹이 조직 내부자인 경우 이 옵션을 사용합니다.* |
-| 모든 Azure AD 디렉터리의 계정 | 다중 테넌트 | Microsoft에서 회사 또는 학교 계정을 사용하는 모든 사용자 및 게스트는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. 여기에는 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*대상 그룹이 비즈니스 또는 교육용 고객인 경우 이 옵션을 사용합니다.* |
+| 이 디렉터리의 계정에만 해당 | 단일 테넌트 | 디렉터리의 모든 사용자 및 게스트 계정은 사용자의 애플리케이션 또는 API를 사용할 수 있습니다.<br>*대상 그룹이 조직 내부자인 경우 이 옵션을 사용합니다.* |
+| Azure AD 디렉터리의 계정 | 다중 테넌트 | Microsoft에서 회사 또는 학교 계정을 사용하는 모든 사용자 및 게스트는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. 여기에는 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*대상 그룹이 비즈니스 또는 교육용 고객인 경우 이 옵션을 사용합니다.* |
 | Azure AD 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com) | 다중 테넌트 | 회사나 학교 계정 또는 개인 Microsoft 계정을 사용하는 모든 사용자는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. Skype 및 Xbox와 같은 서비스에 로그인하는 데 사용되는 개인 계정뿐만 아니라 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*다양한 Microsoft 계정을 대상으로 지정하려면 이 옵션을 사용합니다.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>다중 테넌트 앱에 대한 모범 사례
 
 IT 관리자가 해당 테넌트에서 설정할 수 있는 다양한 정책 수로 인해 우수한 다중 테넌트 앱을 빌드하는 작업은 어려울 수 있습니다. 다중 테넌트 앱을 빌드하려는 경우 다음과 같은 모범 사례를 따르세요.
 
-* 테넌트에서 구성된 [조건부 액세스 정책](conditional-access-dev-guide.md)이 포함된 앱을 테스트합니다.
+* 구성한 테 넌 트에 앱을 테스트 [조건부 액세스 정책을](conditional-access-dev-guide.md)합니다.
 * 앱이 실제로 필요한 사용 권한만 요청하도록 하기 위해 최소 사용자 액세스 원칙을 따릅니다. 사용자가 일부 조직에서 앱을 사용하지 못할 수 있으므로 관리자 동의가 필요한 권한을 요청하지 않는 것이 좋습니다. 
 * 앱의 일부로 노출한 사용 권한에 대해 적절한 이름 및 설명을 입력합니다. 이렇게 하면 사용자 및 관리자가 앱의 API를 사용하려고 할 때 동의하는 내용을 알 수 있습니다. 자세한 내용은 [사용 권한 가이드](v1-permissions-and-consent.md)에서 모범 사례 섹션을 참조하세요.
 

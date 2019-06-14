@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d31011ca70bbebaf994b5fb80a45eee8dbde40
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111217"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 데스크톱 앱
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>시나리오: Web API를 호출하는 데스크톱 앱
 
 하기만 하면 web Api를 호출 하는 데스크톱 앱 빌드에 대해 알아봅니다
 

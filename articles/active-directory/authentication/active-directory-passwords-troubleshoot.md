@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c76ad0739edea4c0541ace76ca2311453de71d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963032"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | SsprNotEnabledInUserPolicy = 11 | 관리자가 조직에 대해 암호 재설정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정을 구성하도록 요청하세요. 암호 재설정 구성에 대한 자세한 내용은 [빠른 시작: Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)을 참조하세요. | SSPR_0011: 조직에서 암호 재설정 정책을 정의하지 않았습니다. 관리자에게 문의하고 암호 재설정 정책을 정의하도록 요청하세요. |
 | UserNotLicensed = 12 | 조직에서 필요한 라이선스가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 라이선스 할당을 확인하도록 요청하세요. 라이선스에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing)을 참조하세요. | SSPR_0012: 조직에 암호 재설정을 수행하는 데 필요한 필수 라이선스가 없습니다. 관리자에게 문의하고 라이선스 할당을 검토하도록 요청하세요. |
 | UserNotMemberOfScopedAccessGroup = 13 | 관리자가 암호 재설정을 사용하도록 계정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정에 대한 계정을 구성하도록 요청하세요. 암호 재설정에 대한 계정 구성에 대한 자세한 내용은 [사용자 암호 재설정 롤아웃](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices)을 참조하세요. | SSPR_0013: 암호를 재설정할 수 있는 그룹의 구성원이 아닙니다. 관리자에게 문의하고 그룹에 추가되도록 요청하세요. |
-| UserNotProperlyConfigured = 14 | 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 다시 액세스할 수 잇게 되면 필요한 정보를 등록해야 합니다. 정보를 등록하려면 [셀프 서비스 암호 재설정 등록](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) 문서의 단계를 따르세요. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](howto-sspr-authenticationdata.md)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
+| UserNotProperlyConfigured = 14 | 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 다시 액세스할 수 잇게 되면 필요한 정보를 등록해야 합니다. 정보를 등록하려면 [셀프 서비스 암호 재설정 등록](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) 문서의 단계를 따르세요. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup 에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](howto-sspr-authenticationdata.md)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
 | OnPremisesAdminActionRequired = 29 | 조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. 잠재적 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)을 참조하세요. | SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. |
 | OnPremisesConnectivityError = 30 | 조직에 대한 연결 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 지금 바로 수행할 작업이 없지만 나중에 다시 시도하면 문제를 해결할 수 있습니다. 문제가 계속되면 관리자에게 문의하고 조사하도록 요청하세요. 연결 문제에 대해 알아보려면 [비밀번호 쓰기 저장 연결 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)을 참조하세요. | SSPR_0030: 온-프레미스 환경과의 불안정한 연결로 인해 암호를 재설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.|
 
@@ -127,7 +127,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 31018| KeyPairCreationSuccess| 이 이벤트는 암호 암호화 키가 생성되었음을 나타냅니다. 이 키는 클라우드의 암호를 온-프레미스 환경으로 전송하는 데 사용됩니다.|
 | 32000| UnknownError| 이 이벤트는 암호 관리 작업을 하는 동안 알 수 없는 오류가 발생했음을 나타냅니다. 자세한 내용은 이벤트에서 예외 텍스트를 확인합니다. 문제가 발생하는 경우 비밀번호 쓰기 저장 기능을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다. 이렇게 해도 도움이 되지 않으면 지원 담당 엔지니어에 지정된 소식지 추적 ID와 함께 이벤트 로그의 복사본을 포함합니다.|
 | 32001| ServiceError| 이 이벤트는 클라우드 암호 재설정 서비스에 연결하는 동안 오류가 발생했음을 나타냅니다. 이 오류는 일반적으로 온-프레미스 서비스가 암호 재설정 웹 서비스에 연결할 수 없는 경우에 발생합니다.|
-| 32002| ServiceBusError| 이 이벤트는 테넌트의 Service Bus 인스턴스에 연결하는 동안 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 https://ssprsbprodncu-sb.accesscontrol.windows.net/으로 연결을 허용하도록 방화벽을 확인하고 다시 시도하세요. 여전히 문제가 발생하는 경우 비밀번호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하세요.|
+| 32002| ServiceBusError| 이 이벤트는 테넌트의 Service Bus 인스턴스에 연결하는 동안 오류가 발생했음을 나타냅니다. 이는 온-프레미스 환경에서 아웃바운드 연결을 차단하기 때문에 발생할 수 있습니다. TCP 443을 통해 https://ssprsbprodncu-sb.accesscontrol.windows.net/ 으로 연결을 허용하도록 방화벽을 확인하고 다시 시도하세요. 여전히 문제가 발생하는 경우 비밀번호 쓰기 저장 기능을 비활성화하고 재활성화하여 시도하세요.|
 | 32003| InPutValidationError| 이 이벤트는 웹 서비스 API에 전달 된 입력이 잘못되었음을 나타냅니다. 작업을 다시 시도합니다.|
 | 32004| DecryptionError| 이 이벤트는 클라우드에서 도착하는 암호를 해독하는 오류가 발생했음을 나타냅니다. 클라우드 서비스 및 온-프레미스 환경 간에 암호 해독 키가 불일치하기 때문일 수 있습니다. 이 문제를 해결하기 위해 온-프레미스 환경에서 비밀번호 쓰기 저장을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.|
 | 32005| ConfigurationError| 온보딩하는 동안 온-프레미스 환경의 구성 파일에서 테넌트 관련 정보를 저장합니다. 이 이벤트는 이 파일을 저장하는 오류가 발생했거나 서비스를 시작할 때 파일을 읽는 오류가 발생함을 나타냅니다. 이 문제를 해결하려면 이 구성 파일을 다시 작성하도록 강제하여 비밀번호 쓰기 저장을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.|
@@ -135,8 +135,8 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 32008| ValidationError| 이 이벤트는 암호 재설정 웹 서비스에서 잘못된 응답을 받았음을 나타냅니다. 이 문제를 해결하려면 비밀번호 쓰기 저장 기능을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.|
 | 32009| AuthTokenError| 이 이벤트는 Azure AD Connect 설치 중에 지정된 전역 관리자 계정에 대한 권한 부여 토큰을 가져올 수 없음을 나타냅니다. 이 오류는 전역 관리자 계정으로 지정된 잘못된 사용자 이름 또는 암호로 인해 발생할 수 있습니다. 이 오류는 지정된 전역 관리자 계정이 페더레이션되는 경우에도 발생할 수 있습니다. 이 문제를 해결하려면 올바른 사용자 이름과 암호를 사용하여 구성을 다시 실행하고 관리자가 관리되는 (클라우드 전용 또는 암호 동기화된) 계정인지를 확인합니다.|
 | 32010| CryptoError| 이 이벤트는 클라우드 서비스에서 도달한 암호 암호화 키를 생성하거나 암호를 해독할 때 오류가 발생했음을 나타냅니다. 이 오류가 환경에 문제가 있음을 나타낼 수 있습니다. 이 문제를 해결하는 방법에 대한 자세한 내용은 이벤트 로그에서 세부 정보를 확인하세요. 비밀번호 쓰기 저장 서비스를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 수도 있습니다.|
-| 32011| OnBoardingServiceError| 이 이벤트는 온보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이 문제는 방화벽 규칙의 결과로, 또는 테넌트에 대한 인증 토큰을 가져오는 데 문제가 있는 경우에 발생할 수 있습니다. 이 문제를 해결하려면 TCP 443 및 TCP 9350-9354를 통해 https://ssprsbprodncu-sb.accesscontrol.windows.net/으로 아웃바운드 연결을 차단하지 않았는지 확인합니다. 또한 온보드에 사용하는 Azure AD 관리자 계정이 페더레이션되었는지를 확인합니다.|
-| 32013| OffBoardingError| 이 이벤트는 오프보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이 문제는 방화벽 규칙의 결과로, 또는 테넌트에 대한 권한 부여 토큰을 가져오는 데 문제가 있는 경우에 발생할 수 있습니다. 이 문제를 해결하려면 443을 통해 또는 https://ssprsbprodncu-sb.accesscontrol.windows.net/으로 아웃바운드 연결을 차단하지 않았는지 및 오프보드에 사용하는 Azure Active Directory 관리자 계정이 페더레이션되지 않았는지 확인합니다.|
+| 32011| OnBoardingServiceError| 이 이벤트는 온보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이 문제는 방화벽 규칙의 결과로, 또는 테넌트에 대한 인증 토큰을 가져오는 데 문제가 있는 경우에 발생할 수 있습니다. 이 문제를 해결하려면 TCP 443 및 TCP 9350-9354를 통해 https://ssprsbprodncu-sb.accesscontrol.windows.net/ 으로 아웃바운드 연결을 차단하지 않았는지 확인합니다. 또한 온보드에 사용하는 Azure AD 관리자 계정이 페더레이션되었는지를 확인합니다.|
+| 32013| OffBoardingError| 이 이벤트는 오프보딩 프로세스를 시작하기 위해 온-프레미스 서비스가 암호 재설정 웹 서비스와 제대로 통신하지 못함을 나타냅니다. 이 문제는 방화벽 규칙의 결과로, 또는 테넌트에 대한 권한 부여 토큰을 가져오는 데 문제가 있는 경우에 발생할 수 있습니다. 이 문제를 해결하려면 443을 통해 또는 https://ssprsbprodncu-sb.accesscontrol.windows.net/ 으로 아웃바운드 연결을 차단하지 않았는지 및 오프보드에 사용하는 Azure Active Directory 관리자 계정이 페더레이션되지 않았는지 확인합니다.|
 | 32014| ServiceBusWarning| 이 이벤트는 테넌트의 Service Bus 인스턴스에 연결하려고 재시도해야 함을 나타냅니다. 정상 조건에서 우려해야 하지만 여러 번 이 이벤트가 나타나는 경우, 특히 긴 대기 시간 또는 낮은 대역폭 연결이면 Service Bus에 대한 네트워크 연결을 확인합니다.|
 | 32015| ReportServiceHealthError| 비밀번호 쓰기 저장 서비스의 상태를 모니터링하려면 5분마다 하트비트 데이터를 암호 재설정 웹 서비스로 보냅니다. 이 이벤트는 클라우드 웹 서비스에 이 상태 정보를 보낼 때 오류가 발생했음을 나타냅니다. 이 상태 정보는 OII(개체 식별 정보) 또는 PII(개인 식별 정보) 데이터를 포함하지 않고, 순수하게 하트비트 및 기본 서비스 통계이므로 클라우드에서 서비스 상태 정보를 제공할 수 있습니다.|
 | 33001| ADUnKnownError| 이 이벤트는 Active Directory에서 알 수 없는 오류가 반환되었음을 나타냅니다. 자세한 내용은 Azure AD Connect 서버 이벤트 로그에서 ADSync 원본의 이벤트를 확인하세요.|
