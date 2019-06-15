@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692480"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
@@ -465,7 +465,7 @@ Java Spout 또는 Bolt를 포함하는 토폴로지를 제출하려면 먼저 Ja
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-여기서 **examples\\HybridTopology\\java\\target\\**은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
+여기서 **examples\\HybridTopology\\java\\target\\** 은 Java Spout/Bolt Jar 파일을 포함하는 폴더입니다.
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Java와 C\# 간의 직렬화 및 역직렬화
 SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java Spout/Bolt와 상호 작용을 하기 위해 다음 그래프에서 볼 수 있듯이 Java 쪽과 C\# 쪽 사이에서 직렬화/역직렬화를 수행해야 합니다.

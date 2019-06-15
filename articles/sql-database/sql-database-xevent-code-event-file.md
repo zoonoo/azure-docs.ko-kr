@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233766"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
@@ -62,7 +62,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 1. PowerShell 스크립트를 Notepad.exe와 같은 간단한 텍스트 편집기로 붙여 넣은 다음 확장명을 **.ps1**으로 지정하여 스크립트를 파일로 저장합니다.
 2. 관리자 권한으로 PowerShell ISE를 시작 합니다.
-3. 프롬프트에서 <br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>을 입력한 다음 Enter를 누릅니다.
+3. 프롬프트에서<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>을 입력한 다음 Enter를 누릅니다.
 4. PowerShell ISE에서 **.ps1** 파일을 엽니다. 스크립트를 실행합니다.
 5. 가장 먼저 Azure에 로그인할 수 있는 새 창이 열립니다.
    

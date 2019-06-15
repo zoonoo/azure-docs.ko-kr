@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991750"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
@@ -392,7 +392,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 축하합니다! 이제 큐를 만들고 해당 큐로 일련의 메시지를 보내고 동일한 큐에서 해당 메시지를 받았습니다.
 
 > [!NOTE]
-> 사용 하 여 Service Bus 리소스를 관리할 수 있습니다 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer/)합니다. Service Bus 탐색기를 사용 하면 Service Bus 네임 스페이스에 연결 하 고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스에서 notification hubs 및 이벤트 허브를 테스트할 수와 같은 고급 기능을 제공 합니다. 
+> [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

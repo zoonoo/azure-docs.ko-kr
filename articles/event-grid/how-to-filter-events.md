@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
 ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304222"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
@@ -191,7 +191,7 @@ az eventgrid event-subscription create \
 
 다음은 사용자 지정 토픽을 만드는 예제입니다. 사용자 지정 토픽을 구독하고 데이터 개체의 값으로 필터링합니다. 색 속성이 파란색, 빨간색 또는 녹색으로 설정된 이벤트가 구독에 전송됩니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -238,7 +238,7 @@ New-AzEventGridSubscription `
 
 필터를 테스트하려면 색 필드가 녹색으로 설정된 이벤트를 보냅니다. 녹색은 필터의 값 중 하나이므로 이벤트가 엔드포인트로 전달됩니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -277,7 +277,7 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 이벤트가 전송되지 않은 시나리오를 테스트하려면 색 필드가 노란색으로 설정된 이벤트를 보냅니다. 노란색은 구독에서 지정된 값 중 하나가 아니므로 이벤트는 구독에 배달되지 않습니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'

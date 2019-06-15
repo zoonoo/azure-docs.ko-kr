@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978717"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
@@ -32,7 +32,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Cosmos DB** 블레이드에서 API를 선택합니다. 
 3. 계정 블레이드의 왼쪽 창에서 **빠른 시작**을 클릭합니다. 
-4. 플랫폼(**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**)을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#GetCustomConnection)를 참조하세요.
+4. 플랫폼( **.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**)을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#GetCustomConnection)를 참조하세요.
 5. 코드 조각을 복사하여 MongoDB 앱에 붙여넣습니다.
 
     ![빠른 시작 블레이드](./media/connect-mongodb-account/QuickStartBlade.png)

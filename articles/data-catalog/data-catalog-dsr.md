@@ -8,10 +8,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65775676"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
@@ -458,7 +458,7 @@ ms.locfileid: "65775676"
     <tr>
       <td>Azure Data Lake Store</td>
       <td>컨테이너</td>
-      <td>Data Lake</td>
+      <td>데이터 레이크</td>
       <td>
         
             Protocol: webhdfs

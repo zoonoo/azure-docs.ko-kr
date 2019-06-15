@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125798"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob storage 사용 하 여 데이터를 전송 합니다.
 
@@ -191,10 +191,10 @@ AzCopy를 사용 합니다 [URL에서 블록 배치](https://docs.microsoft.com/
 
 ## <a name="synchronize-files"></a>파일 동기화
 
-Blob 컨테이너에 로컬 파일 시스템의 콘텐츠를 동기화 할 수 있습니다. 또한 컴퓨터에 로컬 파일 시스템에 blob 컨테이너를 동기화 할 수 있습니다. 단방향 동기화가입니다. 즉, 이러한 두 끝점 중 원본 이며 어느 대상을 선택 합니다.
+Blob 컨테이너를 사용 하 여 로컬 파일 시스템의 콘텐츠를 동기화 할 수 있습니다. 단방향 동기화가입니다. 즉, 이러한 두 끝점 중 원본 이며 어느 대상을 선택 합니다.
 
 > [!NOTE]
-> 현재 버전의 AzCopy 다른 원본과 대상 간에 동기화 하지 않습니다 (예: 파일 저장소 또는 Amazon Web Services (AWS) S3 버킷).
+> 현재이 시나리오는 계층 구조 네임 스페이스에 없는 계정에 대해서만 지원 됩니다. 현재 버전의 AzCopy 다른 원본과 대상 간에 동기화 하지 않습니다 (예: 파일 저장소 또는 Amazon Web Services (AWS) S3 버킷).
 
 `sync` 명령 비교 하 여 파일 이름 및 타임 스탬프를 마지막으로 수정 합니다. 설정 합니다 `--delete-destination` 선택적 플래그 값입니다 `true` 또는 `prompt` 해당 파일이 더 이상 원본 디렉터리에 있는 경우 대상 디렉터리에 파일을 삭제 합니다.
 
@@ -203,26 +203,24 @@ Blob 컨테이너에 로컬 파일 시스템의 콘텐츠를 동기화 할 수 �
 > [!NOTE]
 > 실수로 인 한 삭제를 방지 하려면 사용 하도록 설정 합니다 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용 하기 전에 `--delete-destination=prompt|true` 플래그입니다.
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>로컬 파일 시스템에 컨테이너를 동기화 합니다.
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>로컬 파일 시스템으로 변경 하 여 컨테이너를 업데이트 합니다.
 
-이 경우 로컬 파일 시스템 원본 되며 컨테이너는 대상입니다.
+이 경우 컨테이너 대상 이며 로컬 파일 시스템 원본입니다.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **예제** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **예제** (계층적 네임 스페이스) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>로컬 파일 시스템 컨테이너에 대 한 변경 내용으로 업데이트
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>컨테이너에 로컬 파일 시스템 동기화
-
-이 경우 컨테이너 원본 되며 로컬 파일 시스템은 대상입니다.
+이 경우 로컬 파일 시스템은 대상으로 하 고 컨테이너는 원본.
 
 |    |     |
 |--------|-----------|
 | **구문** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **예제** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **예제** (계층적 네임 스페이스) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>다음 단계
 

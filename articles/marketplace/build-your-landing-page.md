@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935596"
 ---
 # <a name="build-your-landing-page"></a>방문 페이지 빌드
@@ -24,7 +24,7 @@ ms.locfileid: "64935596"
 *   지금 솔루션 구입
 
 여러 마케팅 전략에서 방문 페이지를 참조할 수 있습니다. 다음 마케팅 전략을 사용할 수 있습니다. 
-*   이벤트
+*   Events
 *   웹 캐스트
 *   소셜 미디어
 *   백서
