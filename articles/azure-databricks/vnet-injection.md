@@ -21,8 +21,8 @@ Azure Databricks의 기본 배포는 Azure에서 완전히 관리되는 서비�
 
 * 서비스 끝점을 사용하여 더 안전한 방식으로 다른 Azure 서비스(예: Azure Storage)에 Azure Databricks를 연결합니다.
 * 사용자 정의 경로를 활용하여 Azure Databricks와 함께 사용할 온-프레미스 데이터 원본에 연결합니다.
-* 모든 아웃 바운드 트래픽을 검사에 따라 작업을 수행 하는 네트워크 가상 어플라이언스를 Azure Databricks에 연결을 허용 및 거부 규칙입니다.
-* 사용자 지정 DNS 사용 하 여 Azure Databricks를 구성 합니다.
+* 모든 아웃바운드 트래픽을 검사하고 허용, 거부 규칙에 따라 작업을 수행하는 네트워크 가상 어플라이언스로 Azure Databricks를 연결합니다.
+* 사용자 지정 DNS를 사용하기 위해 Azure Databricks를 구성합니다.
 * 송신 트래픽 제한을 지정 하려면 네트워크 보안 그룹 (NSG) 규칙을 구성 합니다.
 * 기존 가상 네트워크에서 Azure Databricks 클러스터를 배포 합니다.
 
