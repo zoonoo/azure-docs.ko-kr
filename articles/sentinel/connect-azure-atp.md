@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: f0d86a62c59df5bebd34137d0903fcaa7014573d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204267"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>데이터에서 Azure ATP Advanced Threat Protection ()에 연결
@@ -44,7 +44,7 @@ Azure ATP 배포 되 고 데이터를 수집, 의심 스러운 경고를 쉽게 
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure ATP** 바둑판식으로 배열 합니다.
 
-2. **연결**을 클릭합니다.
+2. **Connect**를 클릭합니다.
 
 6. Log Analytics에서 관련 스키마를 사용 하 여 Azure ATP 경고를 검색할 **SecurityAlert**합니다.
 
