@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595905"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"전체" Lucene 검색 구문 (Azure Search에서 고급 쿼리)를 사용 하 여 쿼리 예제
@@ -140,7 +140,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/intrafieldfilter.png)
 
-사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다 합니다 **fieldName:searchExpression** 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다. 
+사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다 합니다 **fieldName:searchExpression** 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다.
 
 - `business_title:(senior NOT junior)`
 - `state:("New York" OR "New Jersey")`

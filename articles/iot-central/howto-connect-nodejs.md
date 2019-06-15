@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888944"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
@@ -34,7 +34,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 같은 원격 분석 데이터를 추가 합니다 **측정** 페이지:
 
-| 표시 이름 | 필드 이름  | Units | Min | max | 소수 자릿수 |
+| 표시 이름 | 필드 이름  | Units | 최소값 | 최대값 | 소수 자릿수 |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | 온도  | 온도 | F     | 60  | 110 | 0              |
 | 습도     | humidity    | %     | 0   | 100 | 0              |
@@ -62,7 +62,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 다음 이벤트에 추가 합니다 **측정** 페이지:
 
-| 표시 이름 | 필드 이름  | 심각도 |
+| 표시 이름 | 필드 이름  | Severity |
 | ------------ | ----------- | -------- |
 | 과열  | overheat    | 오류    |
 
@@ -84,7 +84,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 다음을 추가 합니다 **수** 에 설정 된 **설정** 페이지:
 
-| 표시 이름    | 필드 이름     | Units | 10진수 | Min | max  | Initial |
+| 표시 이름    | 필드 이름     | Units | 10진수 | 최소값 | 최대값  | 초기 |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | 팬 속도       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | 온도 설정 | setTemperature | F     | 0        | 20  | 200  | 80      |

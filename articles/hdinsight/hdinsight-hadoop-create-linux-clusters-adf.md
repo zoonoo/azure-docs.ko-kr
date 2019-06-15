@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726875"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview) 설치 합니다.
+* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
 * Azure Active Directory 서비스 주체. 서비스 주체를 만든 후에는 연결된 문서의 지침을 사용하여 **애플리케이션 ID** 및 **인증 키**를 검색해야 합니다. 이 자습서의 뒷부분에서 이러한 값이 필요합니다. 또한 서비스 주체가 클러스터를 만든 구독 또는 리소스 그룹의 *참가자* 역할의 구성원인지 확인합니다. 필요한 값을 검색하고 적절한 역할을 할당하는 방법에 대한 지침은 [Azure Active Directory 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
@@ -254,7 +254,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     | --- | --- |
     | 이름 | [https://slack.botframework.com](`HDinisghtLinkedService`) 을 입력합니다.|
     | Type | 선택 **주문형 HDInsight**합니다. |
-    | Azure Storage 연결된 서비스 | `HDIStorageLinkedService`를 선택합니다. |
+    | Azure Storage 연결된 서비스 | `HDIStorageLinkedService`을(를) 선택합니다. |
     | 클러스터 유형 | **hadoop**을 선택합니다. |
     | TTL(Time to live) | HDInsight 클러스터를 자동으로 삭제하기 전에 사용할 수 있는 기간을 지정합니다.|
     | 서비스 주체 ID | 필수 구성 요소의 일부로 만든 Azure Active Directory 서비스 주체의 응용 프로그램 ID를 제공 합니다. |
@@ -274,7 +274,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
-1. **+**(더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다.
+1. **+** (더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다.
 
     ![Azure Data Factory에서 파이프라인 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Azure Data Factory에서 파이프라인 만들기")
 
@@ -298,7 +298,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     
         ![Hive 스크립트에 대한 매개 변수 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Hive 스크립트에 대한 매개 변수 제공")
 
-1. 파이프라인에 대한 유효성을 검사하려면 **유효성 검사**를 선택합니다. **>>**(오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다.
+1. 파이프라인에 대한 유효성을 검사하려면 **유효성 검사**를 선택합니다. **>>** (오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다.
 
     ![Azure Data Factory 파이프라인 유효성 검사](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "Azure Data Factory 파이프라인 유효성 검사")
 

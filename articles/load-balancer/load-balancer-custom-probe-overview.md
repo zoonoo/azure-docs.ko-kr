@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: kumud
 ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65415700"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
@@ -204,7 +204,7 @@ Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 A
 
 상태 프로브 실패를 테스트하거나 개별 인스턴스를 표시하려는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 상태 프로브(대상 포트 또는 [원본 IP](#probesource))를 명시적으로 차단하고 프로브 실패를 시뮬레이트할 수 있습니다.
 
-168.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
+168\.63.129.16이 포함된 Microsoft 소유의 IP 주소 범위를 사용하여 VNet을 구성하지 않도록 합니다.  이러한 구성은 상태 프로브의 IP 주소와 충돌하여 시나리오 실패를 야기할 수 있습니다.
 
 VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로브에 응답하도록 보장해야 합니다.  인터페이스당 VM에서 이 주소를 변환하려면 네트워크 주소를 소싱해야 할 수 있습니다.
 

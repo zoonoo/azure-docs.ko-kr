@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
 ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150105"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
@@ -41,7 +41,7 @@ ms.locfileid: "66150105"
 
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**               |
 | ---                      | ---                         | ---                                      |
-| **Azure Gateway SKU**    | 기본                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE 버전**          | IKEv1                       | IKEv2                                    |
 | **최대 S2S 연결** | **1**                       | 기본/표준: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
