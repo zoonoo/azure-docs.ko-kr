@@ -1,6 +1,6 @@
 ---
 title: Azure Databricks (미리 보기) 가상 네트워크에 배포
-description: 이 문서에서는 가상 네트워크에 VNet 주입 라고도 Azure Databricks를 배포 하는 방법을 설명 합니다.
+description: 이 문서에서는 가상 네트워크에 VNet 삽입이라고 하는 Azure Databricks를 배포하는 방법을 설명합니다.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -17,10 +17,10 @@ ms.locfileid: "62126684"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks (미리 보기) 가상 네트워크에 배포
 
-Azure Databricks의 기본 배포는 Azure에서 완전히 관리 되는 서비스: 가상 네트워크 (VNet)를 포함 하 여 모든 데이터 평면 리소스와 잠긴된 리소스 그룹에 배포 됩니다. 그러나 네트워크 사용자 지정에 필요한 경우 리소스를 배포 하기 Azure Databricks (또한: 이라는 VNet 주입)를 사용자 고유의 가상 네트워크의 경우 수 있습니다.
+Azure Databricks의 기본 배포는 Azure에서 완전히 관리되는 서비스입니다: 가상 네트워크(VNet)를 포함하여 모든 데이터 평면 리소스는 잠긴 리소스 그룹에 배포됩니다. 그러나 네트워크 사용자 지정이 필요한 경우 Azure Databricks를 사용자 고유의 가상 네트워크(VNet 삽입이라고도 함)에 배포할 수 있습니다.
 
-* 서비스 끝점을 사용 하 여 더 안전한 방식으로 다른 Azure 서비스 (예: Azure Storage)를 Azure Databricks를 연결 합니다.
-* 사용자 정의 경로 활용 하는 Azure Databricks를 사용 하 여 사용에 대 한 소스 온-프레미스 데이터에 연결 합니다.
+* 서비스 끝점을 사용하여 더 안전한 방식으로 다른 Azure 서비스(예: Azure Storage)에 Azure Databricks를 연결합니다.
+* 사용자 정의 경로를 활용하여 Azure Databricks와 함께 사용할 온-프레미스 데이터 원본에 연결합니다.
 * 모든 아웃 바운드 트래픽을 검사에 따라 작업을 수행 하는 네트워크 가상 어플라이언스를 Azure Databricks에 연결을 허용 및 거부 규칙입니다.
 * 사용자 지정 DNS 사용 하 여 Azure Databricks를 구성 합니다.
 * 송신 트래픽 제한을 지정 하려면 네트워크 보안 그룹 (NSG) 규칙을 구성 합니다.
