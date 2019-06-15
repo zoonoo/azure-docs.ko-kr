@@ -16,7 +16,7 @@ ms.locfileid: "66514521"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
-컨테이너 기반 접근 방식을 사용 이동 하는 응용 프로그램 개발을 오케스트레이션 하 고 리소스를 관리할 필요가 중요 합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
+컨테이너 기반 방식으로 응용 프로그램을 개발함에 따라 리소스 관리와 오케스트레이션이 중요합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
 
 이 문서에서는 *클러스터 마스터*, *노드* 및 *노드 풀*과 같은 Kubernetes 핵심 인프라 구성 요소를 소개합니다. 리소스를 *네임스페이스*로 그룹화하는 방법과 함께 *Pod*, *배포* 및 *집합*과 같은 워크로드 리소스도 소개합니다.
 
