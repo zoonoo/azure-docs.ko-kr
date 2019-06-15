@@ -172,14 +172,14 @@ ms.locfileid: "60770792"
     ping 10.179.64.4
     ```
 
-    또한 검토할 nslookup 명령을 사용할 수 있습니다.
+    또한 검토하기 위해 nslookup 명령을 사용할 수 있습니다.
 
     ```python
     %sh
     nslookup databricks-tutorial-vm.westus2.cloudapp.azure.com
     ```
 
-3. SQL Server를 성공적으로 ping 했습니다 되 면 데이터베이스 및 테이블을 쿼리할 수 있습니다. 다음 python 코드를 실행 합니다.
+3. SQL Server를 성공적으로 ping하고 나면 데이터베이스 및 테이블을 쿼리할 수 있습니다. 다음 python 코드를 실행합니다.
 
     ```python
     jdbcHostname = "10.179.64.4"
@@ -197,12 +197,12 @@ ms.locfileid: "60770792"
 
 더 이상 필요하지 않은 경우 리소스 그룹, Azure Databricks 작업 영역 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 불필요한 요금 청구를 방지합니다. 나중에 Azure Databricks 작업 영역을 사용하려는 경우 클러스터를 중지하고 나중에 다시 시작할 수 있습니다. 이 Azure Databricks 작업 영역을 계속 사용하지 않으려면 다음 단계를 사용하여 이 자습서에서 만든 모든 리소스를 삭제합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음, 만든 리소스 그룹의 이름을 클릭합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음, 생성한 리소스 그룹의 이름을 클릭합니다.
 
 2. 리소스 그룹 페이지에서 **삭제**를 선택하고, 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음, **삭제**를 다시 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-추출, 변환 및 Azure Databricks를 사용 하 여 데이터를 로드 하는 방법을 알아보려면 다음 문서로 계속 진행 하세요.
+Azure Databricks를 사용하여 데이터를 추출, 변환 및 로드하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](databricks-extract-load-sql-data-warehouse.md)
