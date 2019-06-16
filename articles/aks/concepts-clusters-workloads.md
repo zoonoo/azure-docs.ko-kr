@@ -72,7 +72,7 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 
 AKS 클러스터의 노드에 대 한 VM 이미지는 Ubuntu Linux 또는 Windows Server 2019에 따라 현재. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수행 하는 수동 구성이 없습니다. 에이전트 노드는 표준 virtual machines로 청구 되며, 사용 하는 VM 크기에 해야 할인 (포함 [Azure 예약][reservation-discounts]) 자동으로 적용 됩니다.
 
-다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 모 비 이외의 컨테이너 런타임을 사용 하려는 경우 사용할 수 있습니다 `aks-engine` 구성 하 고 현재 요구를 충족 하는 Kubernetes 클러스터를 배포 합니다.
+다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원하기 전에 기능을 릴리스하여 구성 옵션이 제공됩니다. 예를 들어 모비(Moby) 이외의 컨테이너 런타임을 사용하려면 `aks-engine`을 구성하여 Kubernetes 클러스터를 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 
