@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
 ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943447"
 ---
 # <a name="cloud-partner-portal-tour"></a>Cloud 파트너 포털 둘러보기
@@ -19,7 +19,7 @@ ms.locfileid: "64943447"
 이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com)의 콘텐츠, 탐색 메커니즘 및 기능을 소개합니다.   등록된 파트너는 이 포털을 통해 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [AppSource Marketplace](https://azuremarketplace.microsoft.com)를 위한 새 제품을 만들고, 기존 제품을 관리할 수 있습니다.  Cloud 파트너 포털은 등록된 파트너만 액세스할 수 있습니다. 자세한 내용은 [Cloud Marketplace 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 참조하세요.
 
 [![프로필 페이지가 표시된 Cloud 파트너 포털](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*이미지를 확대하려면 클릭하세요.*)
+<br/>   (*이미지를 확대하려면 클릭하세요.* )
 
 
 ## <a name="section-contents"></a>섹션 콘텐츠

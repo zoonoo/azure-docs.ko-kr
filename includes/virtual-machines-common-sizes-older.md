@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5c35cbfbd2e9d0a1655d05c1116d293fb78c9eb7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145711"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133499"
 ---
 이 섹션에서는 이전 세대의 가상 머신 크기에 정보를 제공합니다. 이러한 크기는 계속 지원 되지만 추가 용량을 받지 않습니다. 일반적으로 사용할 수 있는 최신 또는 대체 크기가 있습니다. 참조 하십시오 [Azure에서 가상 컴퓨터 크기에 대 한 Windows](../articles/virtual-machines/windows/sizes.md) 또는 [Azure에서 Linux 가상 머신 크기](../articles/virtual-machines/linux/sizes.md) VM 선택 가장 하는 크기 조정 필요 합니다.  
 
@@ -172,4 +172,47 @@ Premium Storage 캐싱:  지원됨
 <sup>1</sup> DS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.   
 <sup>2</sup> VM 제품군 다음 CPU의 중 하나에서 실행할 수 있습니다. 2.2 GHz Intel Xeon® E5 2660 v2 2.4ghz Intel Xeon® 2673 E5 v3 (Haswell) 또는 2.3ghz Intel XEON® E5 2673 v4 (Broadwell)  
 
+<br>
+
+### <a name="gs-series"></a>GS 시리즈 
+
+ACU: 180 - 240 <sup>1</sup>
+
+Premium Storage:  지원됨
+
+Premium Storage 캐싱:  지원됨
+
+| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_GS1 |2 |28 |56 |8 |10,000/100(264) |5,000/125 |2 / 2000 |
+| Standard_GS2 |4 |56 |112 |16 |20,000/200(528) |10,000/250 |2 / 4000 |
+| Standard_GS3 |8 |112 |224 |32 |40,000/400(1,056) |20,000/500 |4 / 8000 |
+| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80,000/800(2,112) |40,000/1,000 |8 / 16000 |
+| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160,000/1,600(4,224) |80,000/2,000 |8 / 20000 |
+
+<sup>1</sup> GS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
+
+<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
+
+<sup>3</sup> 사용 가능한 코어 크기 제한
+
+<br>
+
+### <a name="g-series"></a>G 시리즈
+
+ACU: 180 - 240
+
+Premium Storage:  지원되지 않음
+
+Premium Storage 캐싱:  지원되지 않음
+
+| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
+| Standard_G3  | 8         | 112         | 1,536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
+| Standard_G4  | 16        | 224         | 3,072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
+
+<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
