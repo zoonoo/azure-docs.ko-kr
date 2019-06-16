@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133171"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>사용 하도록 설정 하 고 Azure ultra Ssd (미리 보기) 배포
 
@@ -35,9 +35,10 @@ CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].loc
 
 |ResourceType  |이름  |Location  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
-|디스크     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-명령에서 응답이 없는 경우 기능에 등록 계속 중 하나는 아직 승인 되지 않음 또는 보류 합니다.
+> [!NOTE]
+> 명령에서 응답이 없는 경우 기능에 등록 계속 중 하나는 아직 승인 되지 않음 또는 보류 합니다.
 
 배포할 지역을 파악했으므로 이 문서의 배포 단계를 따라 울트라 SSD로 첫 번째 VM을 배포합니다.
 

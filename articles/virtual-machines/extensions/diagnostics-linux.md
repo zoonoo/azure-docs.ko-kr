@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710402"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
@@ -21,7 +21,7 @@ ms.locfileid: "64710402"
 이 문서에서는 3.0 이상 버전의 Linux 진단 확장에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 2.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
+> 2\.3 이하 버전에 대한 내용은 [이 문서](../linux/classic/diagnostic-extension-v2.md)를 참조하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -55,7 +55,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 * **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
-* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
+* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 

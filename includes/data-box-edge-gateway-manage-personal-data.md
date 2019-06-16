@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754299"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120491"
 ---
 - **주문 정보**합니다. 주문을 만들어질 때 배송 주소, 전자 메일 주소 및 사용자의 연락처 정보는 Azure portal에 저장 됩니다. 저장되는 정보는 다음과 같습니다.
   - 담당자 이름

@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: 601124aef37d2b285db71130f5c63b3620c7768f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735648"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Azure 앱 구성 이벤트에 대응
@@ -39,14 +39,14 @@ Azure 앱 구성 이벤트 데이터의 변경 내용에 응답 하는 데 필�
 
 > |자산|Type|설명|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |토픽|문자열|이벤트를 내보내는 응용 프로그램 구성의 전체 Azure Resource Manager id입니다.|
-> |제목|문자열|이벤트의 대상인 키-값의 URI입니다.|
+> |topic|문자열|이벤트를 내보내는 응용 프로그램 구성의 전체 Azure Resource Manager id입니다.|
+> |subject|문자열|이벤트의 대상인 키-값의 URI입니다.|
 > |eventTime|문자열|날짜/시간이 이벤트를 생성 하는 ISO 8601에서 형식을 따릅니다.|
 > |eventType|문자열|"Microsoft.AppConfiguration.KeyValueModified" 또는 "Microsoft.AppConfiguration.KeyValueDeleted"입니다.|
 > |Id|문자열|이 이벤트의 고유 식별자입니다.|
 > |dataVersion|문자열|데이터 개체의 스키마 버전입니다.|
 > |metadataVersion|문자열|최상위 속성의 스키마 버전입니다.|
-> |데이터|개체|Azure 앱 구성 특정 이벤트 데이터 수집|
+> |데이터|object|Azure 앱 구성 특정 이벤트 데이터 수집|
 > |data.key|문자열|수정 또는 삭제 된 키-값의 키입니다.|
 > |data.label|문자열|수정 또는 삭제 된 키-값의 레이블.|
 > |data.etag|문자열|에 대 한 `KeyValueModified` 새 키-값의 etag입니다. 에 대 한 `KeyValueDeleted` 삭제 된 키-값의 etag입니다.|
