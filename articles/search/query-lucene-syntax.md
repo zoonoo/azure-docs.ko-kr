@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002241"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
@@ -122,7 +122,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
  Azure Search는 텍스트 쿼리에 빈도 기반 점수 매기기([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
 
 ##  <a name="bkmk_fields"></a> 검색 필드 지정된  
-사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다는 `fieldName:searchExpression` 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다.   
+사용 하 여 필드 지정된 검색 작업을 정의할 수 있습니다는 `fieldName:searchExpression` 검색 식은 단일 단어 또는 구 또는 필요에 따라 부울 연산자를 사용 하 여 복잡 한 식에 있는 괄호 안에 수 있는 구문입니다. 몇 가지 예제는 다음과 같습니다.  
 
 - genre:jazz NOT history  
 

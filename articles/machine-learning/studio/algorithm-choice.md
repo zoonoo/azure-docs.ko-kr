@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752975"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
@@ -41,7 +41,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 
 ### <a name="how-to-use-the-cheat-sheet"></a>치트 시트를 사용하는 방법
 
-"*&lt;경로 레이블&gt;* 의 경우 *&lt;알고리즘&gt;* 을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
+" *&lt;경로 레이블&gt;* 의 경우 *&lt;알고리즘&gt;* 을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 에서는 말합니다 수많은 데이터 과학자가 확실 한 방법은 최고의 알고리즘을 찾을 수 모두 시도해 야 합니다.
 

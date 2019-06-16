@@ -1,21 +1,20 @@
 ---
-author: genlin
-ms.service: virtual-network
+author: sptramer
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: genli
-ms.openlocfilehash: 147eb5321853706b59fac7d3d49a761a251987fa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/31/2019
+ms.author: sttramer
+ms.openlocfilehash: 4152d2da91d70533801304c15345600bd625b9a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814757"
 ---
 ## <a name="prerequisite-install-the-azure-cli"></a>필수 조건: Azure CLI 설치
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](../articles/cli-install-nodejs.md)하고 [Azure에 로그인](/cli/azure/authenticate-azure-cli)해야 합니다. 
+
+이 문서의 단계를 수행 [Azure CLI를 설치](/cli/azure/install-azure-cli) 하 고 [Azure에 로그인](/cli/azure/authenticate-azure-cli)합니다. 
 
 > [!NOTE]
-> Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../articles/active-directory/fundamentals/sign-up-organization.md)에 등록합니다. 또한 작업을 완전히 수행하려면 [jq](https://stedolan.github.io/jq/) 또는 일부 다른 JSON 구문 분석 도구 또는 설치된 라이브러리가 필요합니다.
-> 
-> 
+> Azure 계정이 없는 경우 계정이 필요합니다. 등록 된 [여기서 무료 평가판](../articles/active-directory/fundamentals/sign-up-organization.md)합니다.
+> 또한 있습니다 과정을 따르려면 해야 했거나 [jq](https://stedolan.github.io/jq/) 또는 일부 다른 JSON 구문 분석 도구 또는 라이브러리를 설치 합니다.
 

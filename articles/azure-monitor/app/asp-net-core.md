@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226407"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램용 application Insights
@@ -34,7 +34,7 @@ ms.locfileid: "66226407"
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Application Insights 서버 쪽 원격 분석 (Visual Studio)를 사용 하도록 설정
 
-1. Visual Studio에서 새 프로젝트를 엽니다.
+1. Visual Studio에서 프로젝트를 엽니다.
 
     > [!TIP]
     > Not 필수 단계 동안 Application Insights에서 변경한 모든 내용을 추적할 수 있도록 프로젝트에 대 한 소스 제어를 설정 하는 데 도움이 수 있습니다. 소스 제어 선택 수 있도록 **파일** > **소스 제어에 추가**합니다.
@@ -352,7 +352,7 @@ public class HomeController : Controller
 
 ### <a name="i-have-an-aspnet-core-20-application-isnt-application-insights-automatically-enabled-without-me-doing-anything"></a>ASP.NET Core 2.0 응용 프로그램을 만들었습니다. 되지 Application Insights 자동으로 활성화 아무 작업도 하지 않았는데?
 
-`Microsoft.AspNetCore.All` 2.0 메타 패키지는 Application Insights SDK (버전 2.1.0)를 포함 하 고 Visual Studio 디버거에서 응용 프로그램을 실행 하는 경우 Visual Studio Application Insights를 사용 하면 IDE 자체에서 로컬 원격 분석을 보여 줍니다. 계측 키를 명시적으로 지정 하지 않으면 Application Insights 서비스로 원격 분석 전송 되지 않았습니다. 2.0에 대해서도 Application Insights를 사용 하도록 설정 하려면이 문서의 지침에 따라 권장 앱.
+`Microsoft.AspNetCore.All` 2.0 메타 패키지는 Application Insights SDK (버전 2.1.0)를 포함 하 고 Visual Studio 디버거에서 응용 프로그램을 실행 하는 경우 Visual Studio Application Insights를 사용 하면 IDE 자체에서 로컬 원격 분석을 보여 줍니다. 계측 키를 명시적으로 지정 하지 않으면 Application Insights 서비스로 원격 분석 전송 되지 않았습니다. 2\.0에 대해서도 Application Insights를 사용 하도록 설정 하려면이 문서의 지침에 따라 권장 앱.
 
 ### <a name="i-run-my-application-in-linux-are-all-features-supported-in-linux-as-well"></a>Linux에서 응용 프로그램을 실행 하는 필자입니다. 모든 기능에서에서 지 Linux 에서도?
 
@@ -383,7 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>비디오
 
 - 처음부터 [.NET Core 및 애플리케이션으로 Visual Studio으로 Application Insight 구성](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)에 대한 외부의 단계별 비디오입니다.
-- 에 대 한 외부 단계별 비디오 [.NET Core 및 Visual Studio Code를 사용 하 여 Application Insights 구성](https://youtu.be/ygGt84GDync) 부터.
+- 처음부터 [.NET Core 및 Visual Studio Code를 사용하여 Application Insight를 구성](https://youtu.be/ygGt84GDync)하는 것에 관한 외부 단계별 비디오입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [사용자 흐름을 탐색](../../azure-monitor/app/usage-flows.md)하여 사용자가 앱을 탐색하는 방식을 이해합니다.
