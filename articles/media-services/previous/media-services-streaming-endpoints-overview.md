@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573034"
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 엔드포인트 개요  
@@ -104,7 +104,7 @@ SLA 정보를 참조 하세요 [가격 책정 및 SLA](https://azure.microsoft.c
 
 ## <a name="migration-between-types"></a>유형 간의 마이그레이션
 
-원본 | 받는 사람 | 액션(Action)
+보낸 사람 | 수행할 작업 | 액션(Action)
 ---|---|---
 클래식|Standard|옵트인할 필요
 클래식|Premium| 크기 조정(추가 스트리밍 단위)

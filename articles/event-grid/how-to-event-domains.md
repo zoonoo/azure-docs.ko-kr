@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305023"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
@@ -31,7 +31,7 @@ ms.locfileid: "66305023"
 
 대규모 토픽 집합을 관리하려면 이벤트 도메인을 만듭니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 az eventgrid domain create \
@@ -102,7 +102,7 @@ Event Grid 서비스는 도메인 토픽에 대한 이벤트 구독 만들기 �
 
 일반적으로 이전 섹션에서 액세스 권한을 부여한 사용자가 구독을 만듭니다. 이 문서를 간소화하기 위해 구독을 만듭니다. 
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

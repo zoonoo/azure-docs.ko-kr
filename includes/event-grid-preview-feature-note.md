@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814737"
 ---
 이 기능은 미리 보기 상태입니다. 이 기능을 사용하려면 미리 보기 확장 또는 모듈을 설치해야 합니다.
 
@@ -28,11 +28,9 @@ Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이
 
 로컬 설치의 경우:
 
-1. Azure CLI를 로컬로 제거합니다.
-1. Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)을 설치합니다.
-1. 명령 창을 시작합니다.
+1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). 확인 하 여 최신 버전으로 있는지 확인 `az --version`합니다.
 1. 이전 버전의 확장 `az extension remove -n eventgrid`를 제거합니다.
-1. 확장 `az extension add -n eventgrid` 설치
+1. 설치는 `eventgrid` 확장과 `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>PowerShell 모듈 설치
 

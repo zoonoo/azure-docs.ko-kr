@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707983"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
@@ -288,7 +288,7 @@ sudo service bind9 status
 5. 다음 정보를 선택하거나 입력합니다.
 
    1. **이름**: **복제 사용**을 입력합니다.
-   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
+   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 을 입력합니다.
    3. **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
    4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
@@ -318,7 +318,7 @@ sudo service bind9 status
 |-m, --machine | 스크립트 동작이 실행되는 헤드 노드를 지정합니다. 값은 **hn0** 또는 **hn1**이며 활성 헤드 노드를 기준으로 선택되어야 합니다. HDInsight 포털 또는 Azure PowerShell에서 $0 스크립트를 스크립트 동작으로 실행하는 경우 이 옵션을 사용합니다.|
 |-cp, -copydata | 복제가 사용되는 테이블에서 기존 데이터의 마이그레이션을 사용하도록 설정합니다. |
 |-rpm, -replicate-phoenix-meta | Phoenix 시스템 테이블에서 복제를 사용하도록 설정합니다. <br><br>*이 옵션은 주의해서 사용해야 합니다.* 이 스크립트를 사용하기 전에 복제본 클러스터에서 Phoenix 테이블을 다시 만드는 것이 좋습니다. |
-|-h, --help | 사용 정보를 표시합니다. |
+|-h, --help | 사용법 정보를 표시합니다. |
 
 [스크립트](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785330"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL Database의 데이터베이스로 BACPAC 파일 가져오기
@@ -30,7 +30,7 @@ ms.locfileid: "65785330"
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Azure Portal의 BACPAC 파일에서 가져오기
 
-[Azure Portal](https://portal.azure.com)은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능‘만’ 지원합니다.
+[Azure Portal](https://portal.azure.com)은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능‘만’ 지원합니다.  
 
 > [!NOTE]
 > [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure Portal을 사용하여 BACPAC 파일에서 인스턴스 데이터베이스로 데이터베이스를 마이그레이션하는 기능을 지원하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
