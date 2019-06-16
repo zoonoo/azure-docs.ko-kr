@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602736"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
@@ -29,9 +29,9 @@ ms.locfileid: "65602736"
 
 이 문서에서는 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다. 이러한 함수는 입력 테이블의 집계된 결과로 테이블을 생성하는 `summarize` 연산자를 모두 사용합니다.
 
-## <a name="counts"></a>개수
+## <a name="counts"></a>Counts
 
-### <a name="count"></a>개수
+### <a name="count"></a>count
 필터가 적용된 후, 결과 집합의 행 수를 계산합니다. 다음 예제에서는 지난 30분 동안 _Perf_ 테이블의 총 행 수를 반환합니다. 이 결과는 특정 이름을 지정하지 않는 한, *count_* 열에 반환됩니다.
 
 

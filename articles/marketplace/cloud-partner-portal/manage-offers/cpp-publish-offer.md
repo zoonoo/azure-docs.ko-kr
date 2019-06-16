@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: pabutler
 ms.openlocfilehash: b0121be4aecffe46c9440e62372e17ac7993163c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943508"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 게시
@@ -34,7 +34,7 @@ ms.locfileid: "64943508"
 
 ## <a name="canceling-the-publishing-request"></a>게시 요청 취소
 
-게시 프로세스를 시작한 후 요청을 취소해야 할 수 있습니다. 게시 요청이 ‘게시자 확인’ 단계에 도달한 후에만 게시 요청을 취소할 수 있습니다. 취소하려면 **게시 취소**를 클릭합니다. 게시 상태가 1단계로 다시 설정되며, 다시 게시하려면 **게시**를 클릭하고 **상태** 탭의 단계를 수행해야 합니다.
+게시 프로세스를 시작한 후 요청을 취소해야 할 수 있습니다. 게시 요청이 ‘게시자 확인’ 단계에 도달한 후에만 게시 요청을 취소할 수 있습니다.  취소하려면 **게시 취소**를 클릭합니다. 게시 상태가 1단계로 다시 설정되며, 다시 게시하려면 **게시**를 클릭하고 **상태** 탭의 단계를 수행해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

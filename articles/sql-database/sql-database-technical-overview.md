@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073606"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스란 무엇입니까
@@ -39,11 +39,11 @@ Azure SQL Database는 Azure SQL 데이터베이스에 다음과 같은 옵션을
 
 SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)과 공유합니다. Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. 별도로 공지된 새로운 기능에 대한 내용은 다음을 참조하세요.
 
-- **[SQL Database에 대한 Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[SQL Database에 대한 Azure 로드맵](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   새로운 기능과 향후 제공될 기능을 확인할 수 있는 곳입니다.
 
-- **[Azure SQL Database 블로그](https://azure.microsoft.com/blog/topics/database)**:
+- **[Azure SQL Database 블로그](https://azure.microsoft.com/blog/topics/database)** :
 
   SQL Database 뉴스 및 기능에 대한 SQL Server 제품 팀 멤버 블로그를 확인할 수 있습니다.
 
@@ -110,20 +110,20 @@ Azure 가용성 영역은 고가용성 문제입니다.  단일 지역 내에서
 
 사실, Azure의 업계 선도적인 99.99% 가용성 서비스 수준 계약 [(SLA)](https://azure.microsoft.com/support/legal/sla/), 전 세계 Microsoft 관리 데이터 센터의 지원을 받아 24/7을 실행 중인 앱을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 스토리지를 단일 고성능 노드에 통합한 후 내부적으로 Always On 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
-- **[자동 백업](sql-database-automated-backups.md)**:
+- **[자동 백업](sql-database-automated-backups.md)** :
 
   SQL Database는 Azure SQL Database의 전체, 차등, 트랜잭션 로그 백업을 자동으로 수행하므로 특정 시점으로 복원할 수 있습니다. 단일 데이터베이스 및 풀링된 데이터베이스의 경우 장기 백업 보존을 위해 전체 데이터베이스 백업을 Azure Storage에 저장하도록 SQL Database를 구성할 수 있습니다. 관리되는 인스턴스의 경우 장기 백업 보존을 위해 복사 전용 백업도 수행할 수 있습니다.
 
-- **[지정 시간 복원](sql-database-recovery-using-backups.md)**:
+- **[지정 시간 복원](sql-database-recovery-using-backups.md)** :
 
   모든 SQL Database 배포 옵션은 Azure SQL 데이터베이스에 대해 자동 백업 보존 기간 내의 특정 시점으로 복구를 지원합니다.
-- **[활성 지역 복제](sql-database-active-geo-replication.md)**:
+- **[활성 지역 복제](sql-database-active-geo-replication.md)** :
 
   단일 데이터베이스 및 풀링된 데이터베이스를 사용하면 동일하거나 전역적으로 분산되어 있는 Azure 데이터 센터에 최대 4개의 읽기 가능한 보조 데이터베이스를 구성할 수 있습니다.  예를 들어 읽기 전용 동시 트랜잭션 양이 많은 카탈로그 데이터베이스와 SaaS 애플리케이션이 있는 경우 활성 지역 복제를 사용하여 세계적인 읽기 규모를 사용하도록 설정하고 읽기 워크로드로 인한 주 서버의 병목 상태를 제거합니다. 관리되는 인스턴스의 경우 자동 장애 조치(failover) 그룹을 사용합니다.
-- **[자동 장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)**:
+- **[자동 장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)** :
 
   모든 SQL Database 배포 옵션을 통해 장애 조치(failover) 그룹을 사용하면 데이터베이스, 탄력적 풀 및 관리되는 인스턴스로 이루어진 대규모 세트의 장애 조치(failover) 및 투명한 지역 복제를 포함하여 고가용성 및 부하 분산을 글로벌 규모로 활성화할 수 있습니다. 장애 조치(failover) 그룹을 사용하면 SQL Database를 통해 복잡한 모니터링, 라우팅 및 장애 조치(failover) 오케스트레이션을 처리하고 최소한의 관리 오버헤드로 전역 분산형 SaaS 애플리케이션을 만들 수 있습니다.
-- **[영역 중복 데이터베이스](sql-database-high-availability.md)**:
+- **[영역 중복 데이터베이스](sql-database-high-availability.md)** :
 
   SQL Database를 사용하면 여러 가용성 영역에서 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 탄력적 풀을 프로비전할 수 있습니다. 이러한 데이터베이스와 탄력적 풀에는 고가용성을 위한 여러 중복 복제본이 있기 때문에 이러한 복제본을 여러 가용성 영역에 배치하면 데이터 손실 없이 데이터 센터 크기 조정 실패에서 자동으로 복구하는 기능을 포함하여 더 높은 복원력을 제공합니다.
 
@@ -191,16 +191,16 @@ SQL Database는 일반 감사에 참여하고 몇 가지 준수 표준에 대해
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 설치된 도구와 기술을 사용하여 SQL Database에서 관리하고 개발할 수 있습니다.
 
-- **[Azure Portal](https://portal.azure.com/)**:
+- **[Azure Portal](https://portal.azure.com/)** :
 
   모든 Azure 서비스를 관리하는 웹 기반 애플리케이션
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리하는 체험, 다운로드 가능한 클라이언트 애플리케이션
-- **[Visual Studio의 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[Visual Studio의 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   SQL Server 관계형 데이터베이스, Azure SQL Database, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발하는 체험, 다운로드 가능한 클라이언트 애플리케이션
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Windows, macOS 및 Linux용 체험, 다운로드 가능한 오픈 소스 코드 편집기입니다.
 

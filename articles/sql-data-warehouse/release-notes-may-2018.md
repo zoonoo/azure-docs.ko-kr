@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: eb933e8085ec956be713a18602b8baff9c87084b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912193"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 5월 
@@ -73,7 +73,7 @@ ALTER VIEW test_view AS SELECT 1 [data];
 ```
 
 ## <a name="concatws"></a>CONCAT_WS
-[CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) 함수는 두 개 이상의 값을 종단 간 방식으로 연결하여 생성된 결과 문자열을 반환합니다. 연결된 값은 첫 번째 인수에 지정된 구분 기호로 구분됩니다. `CONCAT_WS` 함수는 CSV(쉼표로 구분된 값) 출력을 생성하는 데 유용합니다.
+[CONCAT_WS()](https://docs.microsoft.com/sql/t-sql/functions/concat-ws-transact-sql) 함수는 두 개 이상의 값을 엔드투엔드 방식으로 연결하여 생성된 결과 문자열을 반환합니다. 연결된 값은 첫 번째 인수에 지정된 구분 기호로 구분됩니다. `CONCAT_WS` 함수는 CSV(쉼표로 구분된 값) 출력을 생성하는 데 유용합니다.
 
 다음 예제는 정수 값 집합을 쉼표로 연결하는 방법을 보여 줍니다.
 ```sql

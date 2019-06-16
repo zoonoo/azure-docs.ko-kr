@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127248"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>구독 관리자에 대해 MFA(Multi-Factor Authentication) 적용
 
@@ -40,9 +40,9 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 - Azure Multi-Factor Authentication
 - Azure Active Directory Premium
-- Enterprise Mobility + Security E5
+- Enterprise Mobility + Security
 
 ## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
 
-사용자 또는 그룹에 대해 [2단계 인증을 요구하는 방법](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)에 나열된 절차 중 하나를 사용하여 Azure MFA 사용을 시작합니다. 모든 로그인에 대해 2단계 인증을 적용하거나 문제가 될 때만 2단계 인증을 요구하는 조건부 액세스 정책을 만들도록 선택할 수 있습니다.
+사용자 또는 그룹에 대해 [2단계 인증을 요구하는 방법](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)에 나열된 절차 중 하나를 사용하여 Azure MFA 사용을 시작합니다. 모든 로그인에 대 한 2 단계 인증을 적용 하도록 선택할 수 있습니다 또는 문제가 될 경우에 2 단계 인증을 요구 하는 조건부 액세스 정책을 만들 수 있습니다.
 

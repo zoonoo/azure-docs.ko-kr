@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873404"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
@@ -29,7 +29,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포되면 Azure portal에서\<VM 이름>-masternode를 클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다.  
+배포되면 Azure portal에서\<VM 이름>-masternode를 클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다. 
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 

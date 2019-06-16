@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921213"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 관리자 암호 다시 설정

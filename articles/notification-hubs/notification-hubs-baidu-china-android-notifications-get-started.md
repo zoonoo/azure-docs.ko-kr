@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61460812"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
@@ -65,7 +65,7 @@ Baidu를 사용하려면 Baidu 계정이 있어야 합니다. 이미 있는 경�
 
 Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 키를 받게 됩니다.
 
-1. [Baidu 포털]에 로그인한 후 **更多>>**(**추가**)를 클릭합니다.
+1. [Baidu 포털]에 로그인한 후 **更多>>** (**추가**)를 클릭합니다.
 
     ![등록 - 자세히](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 

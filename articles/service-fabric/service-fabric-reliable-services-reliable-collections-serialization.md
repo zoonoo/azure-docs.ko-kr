@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
 ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723602"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
@@ -41,7 +41,7 @@ Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환
 - byte[]
 - char
 - 문자열
-- decimal
+- Decimal
 - double
 - float
 - int

@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963236"
 ---
 # <a name="secure-azure-computing-architecture"></a>Azure 컴퓨팅 아키텍처 보안
@@ -157,7 +157,7 @@ SCCA 요구 사항을 만족 하기 때문에이 아키텍처를 좋습니다. �
             - 이 서브넷은 Vm 및 서비스 VDM에 사용 되는 배포 되는 위치입니다.
         - 신뢰할 수 없는 및 신뢰할 수 있는 서브넷
             - 이러한 서브넷은 가상 어플라이언스 배포 되는 위치입니다.
-        - 게이트웨이 서브넷 
+        - 게이트웨이 서브넷
             - 이 서브넷은 ExpressRoute 게이트웨이 배포 하는입니다.
 - 관리 점프 상자 가상 컴퓨터
     - 환경-대역외 관리 용도로 사용 되는지 합니다.

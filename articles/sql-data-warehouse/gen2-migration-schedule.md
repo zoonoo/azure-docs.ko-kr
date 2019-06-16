@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596104"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
@@ -22,7 +22,7 @@ ms.locfileid: "65596104"
 Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 절감을 지원 합니다.  낮은 쿼리 요청을 처리할 수 계층 Azure SQL Data Warehouse에 대해 제공 됩니다. 계산 합니다. 알림 전문을 읽어보세요 [낮은 계산 계층 지원 Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)합니다. 새 제공 서비스는 아래 표에 나와 있는 지역에서 사용할 수 있습니다. 지원되는 지역의 경우 다음을 통해 기존 Gen1 데이터 웨어하우스를 Gen2로 업그레이드할 수 있습니다.
 
 - **자동 업그레이드 프로세스:** 자동 업그레이드는 지역에 서비스를 사용할 수 있는 즉시 시작 되지 않습니다.  특정 지역에서 자동 업그레이드가 시작되면 선택한 유지 관리 일정 동안 개별 DW 업그레이드가 수행됩니다.
-- [**자체 Gen2로 업그레이드 합니다.**](#self-upgrade-to-gen2) Gen2로 자동 업그레이드를 수행 하 여 업그레이드 하는 시기를 제어할 수 있습니다. 지역을 아직 지원 되지 않는 경우 지원 되는 지역의 Gen2 인스턴스로 직접 복원 지점에서 복원할 수 있습니다.
+- [**자체 Gen2로 업그레이드 합니다.** ](#self-upgrade-to-gen2) Gen2로 자동 업그레이드를 수행 하 여 업그레이드 하는 시기를 제어할 수 있습니다. 지역을 아직 지원 되지 않는 경우 지원 되는 지역의 Gen2 인스턴스로 직접 복원 지점에서 복원할 수 있습니다.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>자동화 일정 및 지역 가용성 표
 
