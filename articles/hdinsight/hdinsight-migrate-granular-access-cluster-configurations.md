@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754542"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
@@ -148,7 +148,7 @@ ms.locfileid: "66754542"
 업데이트 [Az PowerShell 버전 2.0.0](https://www.powershellgallery.com/packages/Az) 또는 나중에 중단을 방지 합니다.  이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 합니다.
 - `Grant-AzHDInsightHttpServicesAccess` 이제 사용 되지 않으며 새 바뀌었습니다 `Set-AzHDInsightGatewayCredential` cmdlet.
 - `Get-AzHDInsightJobOutput` 저장소 키에 세분화 된 역할 기반 액세스를 지원 하도록 업데이트 되었습니다.
-    - HDInsight 클러스터 연산자, 참가자 또는 소유자 역할이 있는 사용자를 받지 않습니다.
+    - HDInsight 클러스터 운영자, 기여자 또는 소유자 역할이 있는 사용자는 영향을 받지 않습니다.
     - 사용자만 읽기 권한자 역할을 사용 하 여 지정 해야 합니다.는 `DefaultStorageAccountKey` 매개 변수가 명시적으로 합니다.
 - `Revoke-AzHDInsightHttpServicesAccess` 이제 사용 되지 않습니다. HTTP 이제 항상 설정 되어 있으므로이 cmdlet은 더 이상 필요 합니다.
  참조 된 [az 합니다. HDInsight 마이그레이션 가이드](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight) 대 한 자세한 내용은 합니다.
