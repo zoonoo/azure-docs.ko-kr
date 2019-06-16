@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807188"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -259,19 +259,21 @@ foreach ($deployment in $deployments){
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 템플릿 배포에 대한 알림
 
-이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
+이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 또는 API 배포 알림
 
-\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
+\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 
-보고서 또는 파트너 센터에 로그인을 사용 하 여 문제를 발생 하는 경우 여기에 파트너 센터 지원 팀을 사용 하 여 지원 요청을 만듭니다. [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+문제를 경험한에 따라 지원 채널을 두 가지가 있습니다.
+
+파트너 센터 고객 사용량 attribution 보고서를 표시 하 여 로그인 등의 문제가 발생 하는 경우 여기에 파트너 센터 지원 팀을 사용 하 여 지원 요청을 만듭니다. [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필요한 경우 다음이 단계를 수행 합니다.
+고객 사용량 특성을 설정 하는 방법과 같은 Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 지원이 일반적으로 필요한 경우 아래 단계를 수행 합니다.
 
 1. [지원 페이지](https://go.microsoft.com/fwlink/?linkid=844975)로 이동합니다.
 

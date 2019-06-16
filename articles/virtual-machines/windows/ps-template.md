@@ -17,10 +17,10 @@ ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 58c8ca9bb9b4dfd58c801eb4dd1dad95c1969c18
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127619"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기
@@ -69,7 +69,7 @@ New-AzResourceGroupDeployment `
 - Azure 가상 머신 스키마를 참조 하세요 [Azure 템플릿 참조](/azure/templates/microsoft.compute/allversions)합니다.
 - 더 많은 가상 컴퓨터 템플릿 샘플을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular)합니다.
 
-## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
 이전 스크립트에서 마지막으로 PowerShell 명령에는 가상 컴퓨터 이름이 표시 됩니다. 가상 컴퓨터에 연결 하려면을 참조 하세요 [연결에 Windows를 실행 하는 Azure 가상 머신에 로그인 하는 방법을](./connect-logon.md)합니다.
 

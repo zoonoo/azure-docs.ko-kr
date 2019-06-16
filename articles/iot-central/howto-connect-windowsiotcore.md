@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510335"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 장치 연결
@@ -106,8 +106,8 @@ IoT Central 응용 프로그램에서 몇 분 후 장치에서 원격 분석 데
 
 | Type            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 디바이스 속성 | 다이 번호   | dieNumber  | 번호    |
-| Text            | Location     | location   | N/A       |
+| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
+| 텍스트            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 

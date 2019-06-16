@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794051"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
@@ -46,7 +46,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |홍콩 특별 행정구     |✓         |✓         |
 |인도   |✓         |✓         |
 |인도네시아     |✓         |✓         |
-|마카오     |✓         |✓         |
+|마카오 특별 행정구     |✓         |✓         |
 |말레이시아     |✓         |✓         |
 |뉴질랜드     |✓         |✓         |
 |필리핀  |✓         |✓         |
@@ -105,8 +105,8 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |우크라이나     |✓         |✓         |
 |영국     |✓         |✓         |
 |+지브롤터     |✓         |✓         |
-|+ 건지 섬과 & 저지 섬     |✓         |✓         |
-|+ 맨 섬     |✓         |✓         |
+|\+ 건지 섬과 & 저지 섬     |✓         |✓         |
+|\+ 맨 섬     |✓         |✓         |
 |바티칸시   |✓         |✓         |
 
 
@@ -125,8 +125,8 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |오만     |✓         |✓         |
 |카타르     |✓         |✓         |
 |사우디아라비아     |✓         |✓         |
-|남아프리카     |✓         |✓         |
-|아랍에미리트  |✓         |✓         |
+|남아프리카 공화국     |✓         |✓         |
+|아랍 에미리트 연합국  |✓         |✓         |
 
 ## <a name="next-steps"></a>다음 단계
 

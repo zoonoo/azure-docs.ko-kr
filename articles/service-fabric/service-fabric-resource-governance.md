@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772538"
 ---
 # <a name="resource-governance"></a>리소스 관리
@@ -58,7 +58,7 @@ Service Fabric 런타임은 현재 리소스 예약을 제공하지 않습니다
 
 * *관리형 및 비관리형 서비스와 컨테이너 혼합*: 사용자가 리소스 거버넌스를 지정하지 않고 서비스를 만들면 런타임이 해당 서비스는 리소스를 소비하지 않는다고 간주하며 이 예제의 노드에 배치할 수 있습니다. 이 경우 이 새 프로세스가 이미 노드에서 실행 중인 서비스를 희생하여 일부 CPU를 효과적으로 소비하게 됩니다. 이 문제에 대한 두 가지 해결 방법이 있습니다. 관리 및 비관리 서비스를 같은 클러스터에서 혼합하지 않거나, [배치 제약 조건](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 사용하여 두 가지 종류의 서비스가 동일한 노드 집합에서 종료되지 않게 하는 것입니다.
 
-* *Service Fabric 외부에 있는 다른 프로세스가 노드에서 시작(예: 일부 OS 서비스)*: 이 경우, Service Fabric 외부의 프로세스도 기존 서비스와 CPU를 경합합니다. 이 문제의 해결 방법은 다음 섹션에서처럼 OS 오버헤드에 부합하는 노드 용량을 올바르게 설정하는 것입니다.
+* *Service Fabric 외부에 있는 다른 프로세스가 노드에서 시작(예: 일부 OS 서비스)* : 이 경우, Service Fabric 외부의 프로세스도 기존 서비스와 CPU를 경합합니다. 이 문제의 해결 방법은 다음 섹션에서처럼 OS 오버헤드에 부합하는 노드 용량을 올바르게 설정하는 것입니다.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>리소스 거버넌스를 사용하기 위한 클러스터 설정
 

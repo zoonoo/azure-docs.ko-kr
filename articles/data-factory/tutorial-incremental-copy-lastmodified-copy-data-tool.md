@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519125"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>증분 방식으로 데이터 복사 도구를 사용 하 여 LastModifiedDate에 기반 하는 새로운 기능과 변경 된 파일을 복사
@@ -63,7 +63,7 @@ ms.locfileid: "65519125"
    
    ![새 데이터 팩터리 오류 메시지](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 3. Azure를 선택 **구독** 새 데이터 팩터리를 만들 수 있습니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
@@ -97,7 +97,7 @@ ms.locfileid: "65519125"
 
     b. 아래 **작업 일정** 또는 **작업 일정**를 선택 **일정에 따라 정기적으로 실행**합니다.
 
-    다. 아래 **트리거 형식**를 선택 **Tumbling Window**합니다.
+    c. 아래 **트리거 형식**를 선택 **Tumbling Window**합니다.
     
     d. 아래 **되풀이**를 입력 **15 분**합니다. 
     
@@ -117,7 +117,7 @@ ms.locfileid: "65519125"
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    다. 에 **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 합니다 **저장소 계정 이름** 목록 및 선택한 **완료**.
+    c. 에 **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 합니다 **저장소 계정 이름** 목록 및 선택한 **완료**.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -135,7 +135,7 @@ ms.locfileid: "65519125"
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    다. 확인할 **이진 복사** 선택한 **다음**합니다.
+    c. 확인할 **이진 복사** 선택한 **다음**합니다.
     
      ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
@@ -177,7 +177,7 @@ ms.locfileid: "65519125"
     
     ![소스 컨테이너 또는 대상 컨테이너에 없는 파일](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. 빈 텍스트 파일을 만들고 이름을 **file1.txt**합니다. 이 텍스트 파일을 업로드 합니다 **원본** 저장소 계정의 컨테이너입니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
+12. 빈 텍스트 파일을 만들고 이름을 **file1.txt**합니다. 이 텍스트 파일을 업로드 합니다 **원본** 저장소 계정의 컨테이너입니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
 
     ![소스 컨테이너에 file1.txt 만들기 및 업로드](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     

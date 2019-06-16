@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61426734"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석

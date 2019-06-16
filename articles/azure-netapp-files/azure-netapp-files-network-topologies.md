@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826477"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
@@ -52,13 +52,13 @@ Azure NetApp 파일에 다음과 같은 네트워크 제한 사항이 적용 됩
 
 |    토폴로지    |    지원    |     해결 방법    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    볼륨을 로컬 VNet에 연결    |    예.    |         |
-|    볼륨 (동일한 지역) 피어 링된 된 VNet에 연결    |    예.    |         |
+|    볼륨을 로컬 VNet에 연결    |    예    |         |
+|    볼륨 (동일한 지역) 피어 링된 된 VNet에 연결    |    예    |         |
 |    볼륨 (지역 또는 전역 피어 링) 간 피어 링된 된 VNet에 연결    |    아닙니다.    |    없음    |
-|    ExpressRoute 게이트웨이 통해 볼륨에 대 한 연결    |    예.    |         |
+|    ExpressRoute 게이트웨이 통해 볼륨에 대 한 연결    |    예    |         |
 |    ExpressRoute 게이트웨이 및 VNet 게이트웨이 전송을 사용 하 여 피어 링을 통해 스포크 VNet에에서 있는 볼륨에서 온-프레미스 연결    |    아닙니다.    |    허브 VNet (게이트웨이 사용 하 여 Azure VNet)에 위임 된 서브넷 만들기    |
-|    VPN 게이트웨이 통해 스포크 VNet에에서 있는 볼륨에서 온-프레미스 연결    |    예.    |         |
-|    VPN gateway와 VNet 게이트웨이 전송을 사용 하 여 피어 링을 통해 스포크 VNet에에서 있는 볼륨에서 온-프레미스 연결    |    예.    |         |
+|    VPN 게이트웨이 통해 스포크 VNet에에서 있는 볼륨에서 온-프레미스 연결    |    예    |         |
+|    VPN gateway와 VNet 게이트웨이 전송을 사용 하 여 피어 링을 통해 스포크 VNet에에서 있는 볼륨에서 온-프레미스 연결    |    예    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>NetApp Azure Files 볼륨에 대 한 가상 네트워크

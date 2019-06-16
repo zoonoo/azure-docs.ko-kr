@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 1f20818f0b899eede9fff05d71e98c8bffb94b0a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101955"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
@@ -25,7 +25,7 @@ Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소�
 
 * 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
-* VPN 게이트웨이
+* VPN Gateway
 * 애플리케이션 게이트웨이
 
 이 문서에서는 Site Recovery를 통해 공용 IP 주소를 사용하는 방법을 설명합니다.

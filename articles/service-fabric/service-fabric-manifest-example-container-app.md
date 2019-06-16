@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719246"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
@@ -351,7 +351,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
  자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-https://hub.docker.com의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+https://hub.docker.com 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="environmentvariables-element"></a>EnvironmentVariables 요소
 환경 변수를 컨테이너 또는 exe.에 전달합니다.  자세한 내용은 [EnvironmentVariables 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
@@ -395,7 +395,7 @@ EntryPoint에서 지정한 실행 파일은 일반적으로 장기 실행 서비
 자세한 내용은 [ContainerHost 요소](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)를 참조하세요.
 
 ### <a name="imagename-element"></a>ImageName 요소
-https://hub.docker.com의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
+https://hub.docker.com 의 리포지토리 및 이미지 또는 Azure Container Registry입니다. 자세한 내용은 [ImageName 요소](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.
 
 ### <a name="commands-element"></a>Commands 요소
 쉼표로 구분된 명령 목록을 컨테이너에 전달합니다. 자세한 내용은 [Commands 요소](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)를 참조하세요.

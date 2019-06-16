@@ -4,17 +4,16 @@ description: 이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 Po
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738335"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
@@ -56,7 +55,7 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
 
 예를 들어, 다음 모든 실행 중인 서비스의 코드를 가져오는 것이 좋습니다.
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 개체는 워크플로에서 역직렬화됩니다.  즉, 이 말은 해당 속성은 사용할수 있지만 메서드는 사용할 수 없다는 의미입니다.  서비스 개체의 stop 메서드를 사용하여 서비스를 중지시키는 다음의 Powershell 코드를 예로 들 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -172,7 +171,7 @@ Parallel
 
 네트워크 대상에 여러 파일을 복사하는 다음 PowerShell 명령을 예로 들 수 있습니다.  하나의 파일이 복사가 완전히 끝나야만 다음 복사가 시작되므로 이 명령은 순차적으로 실행됩니다.
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -227,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>검사점
 
-*검사점* 은 워크플로의 현재 상태에 대한 스냅숏으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에 이라는 기능이 [공평 분배](automation-runbook-execution.md#fair-share), 다른 runbook을 실행할 수 있도록 3 시간 동안 실행 되는 모든 runbook 언로드되는 위치입니다. 결국 언로드된 runbook을 다시 로드 됩니다 하 고 runbook에서 수행 된 마지막 검사점에서 실행을 재개 되 면 합니다. Runbook 됩니다 최종적으로 완료 하는 작업을 보장 하기 위해 3 시간 미만 동안 실행 되는 간격으로 검사점을 추가 해야 합니다. 각 실행 하는 동안 새 검사점을 추가 되 고 오류로 인해 3 시간 후 runbook을 가져옵니다 제거 후 runbook 됩니다 다시 시작할 수 무기한.
+*검사점* 은 워크플로의 현재 상태에 대한 스냅샷으로, 변수의 현재 값 및 해당 지점에 생성된 모든 출력을 포함합니다. 워크플로가 오류 때문에 종료되었거나 일시 중단한 다음 실행하면 워크플로의 처음부터 시작하는 게 아니라 마지막 검사점에서 시작됩니다.  **Checkpoint-Workflow** 활동을 사용하여 워크플로에서 검사점을 설정할 수 있습니다. Azure Automation에 이라는 기능이 [공평 분배](automation-runbook-execution.md#fair-share), 다른 runbook을 실행할 수 있도록 3 시간 동안 실행 되는 모든 runbook 언로드되는 위치입니다. 결국 언로드된 runbook을 다시 로드 됩니다 하 고 runbook에서 수행 된 마지막 검사점에서 실행을 재개 되 면 합니다. Runbook 됩니다 최종적으로 완료 하는 작업을 보장 하기 위해 3 시간 미만 동안 실행 되는 간격으로 검사점을 추가 해야 합니다. 각 실행 하는 동안 새 검사점을 추가 되 고 오류로 인해 3 시간 후 runbook을 가져옵니다 제거 후 runbook 됩니다 다시 시작할 수 무기한.
 
 다음 샘플 코드에서는 Activity2 이후에 예외가 발생하여 워크플로가 끝납니다. 설정된 마지막 검사점 직후이므로 워크플로를 다시 시작하면 Activity2를 실행하는 것으로 작업이 시작됩니다.
 
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```

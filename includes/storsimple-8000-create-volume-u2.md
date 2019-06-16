@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66118317"
 ---
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
@@ -47,7 +47,7 @@ ms.locfileid: "66118317"
 
       1. **만들기**를 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-         ![만들기 클릭 ](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![만들기 클릭](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
          > [!NOTE]
          > 여기서 만든 볼륨은 보호되지 않습니다. 예약된 백업을 수행하려면 이 볼륨에 백업 정책을 만들어 연결해야 합니다. 

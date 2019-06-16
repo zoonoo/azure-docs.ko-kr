@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153415"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
@@ -158,8 +158,8 @@ Azure portal에서 또는 프로그래밍 방식으로 관리 되는 id를 검�
 
 -> Azure portal에서 관리 되는 id 정보를 찾을 수 있습니다 데이터 팩터리-> 속성:
 
-- 관리 ID 개체 ID
-- 관리 ID 테넌트
+- 개체 ID를 관리합니다.
+- 관리 되는 Id 테 넌 트
 - **응용 프로그램 ID를 관리 되는** >이 값을 복사
 
 ![관리 되는 id를 검색 합니다.](media/data-factory-service-identity/retrieve-service-identity-portal.png)

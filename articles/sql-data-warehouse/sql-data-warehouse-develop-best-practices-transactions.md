@@ -11,10 +11,10 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873638"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 트랜잭션 최적화
@@ -70,9 +70,9 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 | 힙 |모두 |**최소** |
 | 클러스터형 인덱스 |빈 대상 테이블 |**최소** |
 | 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹치지 않음 |**최소** |
-| 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹침 |전체 검사 |
+| 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹침 |전체 |
 | 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 이상 |**최소** |
-| 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 미만 |전체 검사 |
+| 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 미만 |전체 |
 
 보조 또는 비클러스터형 인덱스를 업데이트하는 모든 쓰기 작업은 항상 전체 로깅됩니다.
 
