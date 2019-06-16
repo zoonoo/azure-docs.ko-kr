@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742406"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>알림을 전송 하는 사용자 지정 규칙을 사용 하 여 Azure IoT Central 확장
@@ -64,7 +64,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 가격 책정 계층 | Basic |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
-| 위치 | 미국 동부 |
+| Location | 미국 동부 |
 | 처리량 단위 | 1 |
 
 ### <a name="stream-analytics-job"></a>Stream Analytics 작업
@@ -76,7 +76,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 이름    | 작업 이름을 선택합니다 |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | DetectStoppedDevices |
-| 위치 | 미국 동부 |
+| Location | 미국 동부 |
 | 호스팅 환경 | 클라우드 |
 | 스트리밍 단위 | 3 |
 
@@ -91,7 +91,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 리소스 그룹 | DetectStoppedDevices |
 | OS | Windows |
 | 호스팅 계획 | 소비 계획 |
-| 위치 | 미국 동부 |
+| Location | 미국 동부 |
 | 런타임 스택 | .NET |
 | Storage | 새로 만들기 |
 

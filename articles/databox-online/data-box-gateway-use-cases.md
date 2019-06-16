@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
 ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754187"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
@@ -81,7 +81,7 @@ Data Box Gateway에서 지속적인 수집을 위해 다음 단계를 수행합�
 
 1. Data Box Gateway에서 클라우드 공유를 만듭니다. 이 공유는 Azure Storage 계정에 데이터를 자동으로 업로드합니다. Data Box Gateway 리소스에서 **공유**로 이동하고 **+ 공유 추가**를 클릭합니다.
 
-    ![+ 공유 추가 클릭](media/data-box-gateway-use-cases/add-share1.png)
+    ![\+ 공유 추가 클릭](media/data-box-gateway-use-cases/add-share1.png)
 
 2. 이 공유가 시드된 데이터를 포함하는 컨테이너에 매핑되는지 확인합니다. **Blob 컨테이너 선택**에 대해 **기존 항목 사용**을 선택하고 Data Box의 데이터가 전송된 컨테이너를 찾습니다.
 

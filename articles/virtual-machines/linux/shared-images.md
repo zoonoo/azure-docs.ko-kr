@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: bb6db6e5d5e33b7c7b5ba5a8711a06d6394b71f2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226035"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지 갤러리 만들기
@@ -63,7 +63,7 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기 (미리 보기)](image-builder-overview.md) 이미지 버전 생성을 자동화할 수 있습니다, 업데이트도 사용할 수 있습니다 하 고 [기존 이미지 버전에서 새 이미지 버전을 만들](image-builder-gallery-update-image-version.md)합니다. 
+[Azure 이미지 작성기(미리 보기)](image-builder-overview.md)를 사용하여 이미지 버전 생성을 자동화할 수 있고, [기존 이미지 버전에서 새 이미지 버전을 만들고](image-builder-gallery-update-image-version.md) 업데이트할 수도 있습니다. 
 
 또한 템플릿을 사용 하 여 공유 이미지 갤러리 리소스를 만들 수 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 

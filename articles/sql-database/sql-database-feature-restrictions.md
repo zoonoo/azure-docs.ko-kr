@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: ac7a074e78def504a10b4daa07971f919f414a88
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259454"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Azure SQL Database 기능 제한 사항
@@ -67,7 +67,7 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 | 열 이름 | 데이터 형식 | 설명 |
 |-------------|-----------|-------------|
 | class       | nvarchar(128) | 제한이 적용 되는 개체의 클래스 |
-| 개체(object)      | nvarchar(256) | 제한이 적용 되는 개체의 이름 |
+| object      | nvarchar(256) | 제한이 적용 되는 개체의 이름 |
 | 기능     | nvarchar(128) | 제한 된 기능 |
 
 ## <a name="feature-restrictions"></a>기능 제한

@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127508"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
@@ -52,7 +52,7 @@ ms.locfileid: "66127508"
 
 서브넷에서는 계산 노드에서 작업을 예약하기 위해 Batch 서비스로부터의 인바운드 통신을 허용하고 Azure Storage 또는 기타 리소스와의 통신을 위해 아웃바운트 통신을 허용해야 합니다. Virtual Machine 구성의 풀에서 Batch는 VM에 연결된 NIC(네트워크 인터페이스) 수준에서 NSG를 추가합니다. 이러한 NSG는 다음 트래픽을 허용하도록 인바운드 및 아웃바운드 규칙을 자동으로 구성합니다.
 
-* 29876 및 29877 포트에서 Batch 서비스 역할 IP 주소로부터의 인바운드 TCP 트래픽  
+* 29876 및 29877 포트에서 Batch 서비스 역할 IP 주소로부터의 인바운드 TCP 트래픽 
 * 원격 액세스 허용을 위한 포트 22(Linux 노드) 또는 포트 3389(Windows 노드) 인바운드 TCP 트래픽 Batch 계산 노드를 포함 하는 서브넷에서 Ip에 대 한 SSH 포트 22 트래픽을 허용 해야 (예: MPI)는 Linux에서 다중 인스턴스 작업 유형, 특정 합니다.
 * 가상 네트워크에 대한 모든 포트의 아웃바운드 트래픽
 * 인터넷에 대한 모든 포트의 아웃바운드 트래픽
@@ -64,14 +64,14 @@ Batch 구성에는 자체 NSG가 있으므로 서브넷 수준에서 NSG를 지�
 
 **인바운드 보안 규칙**
 
-| 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | 대상 | 대상 포트 | Protocol | 액션(Action) |
+| 원본 IP 주소 | 원본 서비스 태그 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 액션(Action) |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [서비스 태그](../articles/virtual-network/security-overview.md#service-tags) | * | 모두 | 29876-29877 | TCP | 허용 |
 | 필요한 경우 계산 노드 및/또는 Linux 다중 인스턴스 작업에 대 한 계산 노드 서브넷의 원격 액세스에 대 한 사용자 원본 Ip입니다. | N/A | * | 모두 | 3389(Windows), 22(Linux) | TCP | 허용 |
 
 **아웃바운드 보안 규칙**
 
-| 원본 | 원본 포트 | 대상 | 대상 서비스 태그 | Protocol | 액션(Action) |
+| source | 원본 포트 | 대상 | 대상 서비스 태그 | 프로토콜 | 액션(Action) |
 | --- | --- | --- | --- | --- | --- |
 | 모두 | 443 | [Service 태그](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (동일한 지역의 Batch 계정 및 VNet으로)  | 모두 | 허용 |
 
@@ -97,13 +97,13 @@ Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 �
 
 **인바운드 보안 규칙**
 
-| 원본 IP 주소 | 원본 포트 | 대상 | 대상 포트 | Protocol | 액션(Action) |
+| 원본 IP 주소 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 액션(Action) |
 | --- | --- | --- | --- | --- | --- |
 모두 <br /><br />이렇게 하면 결과적으로 “모두 허용”이 필요하지만 Batch 서비스는 모든 Batch 외 서비스 IP 주소를 필터링하는 각 노드 수준에서 ACL을 적용합니다. | * | 모두 | 10100, 20100, 30100 | TCP | 허용 |
 | 선택적으로 계산 노드에 대 한 RDP 액세스를 허용 합니다. | * | 모두 | 3389 | TCP | 허용 |
 
 **아웃바운드 보안 규칙**
 
-| 원본 | 원본 포트 | 대상 | 대상 포트 | Protocol | 액션(Action) |
+| source | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 액션(Action) |
 | --- | --- | --- | --- | --- | --- |
 | 모두 | * | 모두 | 443  | 모두 | 허용 |

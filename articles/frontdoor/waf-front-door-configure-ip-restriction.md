@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 88c5c284f26203ff3d6c39810a7b2810c1ebbc5a
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 73ef16aeb9a6014e98c0d40314bc174c6b5bf307
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808342"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Azure 프런트 도어 서비스에 대 한 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 이 문서에서는 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 웹 응용 프로그램 방화벽 (WAF)의 Azure 프런트 도어 서비스에 대 한 IP 제한 규칙을 구성 하는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ az network waf-policy custom-rule create \
   --name IPAllowListRule \
   --priority 1 \
   --rule-type MatchRule \
-  --match-condition RemoteAddr IPMatch "<ip-address-range-1>","<ip-address-range-2>" \
+  --match-condition RemoteAddr IPMatch ("<ip-address-range-1>","<ip-address-range-2>") \
   --action Allow \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
@@ -138,7 +138,7 @@ Azure PowerShell을 사용 하는 cmdlet 집합을 제공 합니다 [Azure Resou
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
--MatchValue ["ip-address-range-1", "ip-address-range-2"]
+-MatchValue "ip-address-range-1", "ip-address-range-2"
 ```
 IP를 만듭니다 *모든 조건과 일치* 다음 명령을 사용 하 여 규칙:
 ```powershell

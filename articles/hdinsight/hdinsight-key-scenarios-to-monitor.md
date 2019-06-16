@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393407"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
@@ -29,7 +29,7 @@ Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 �
 
 | 색 | 설명 |
 | --- | --- |
-| 빨강 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
+| 빨간색 | 호스트에서 적어도 하나 이상의 마스터 구성 요소가 중단되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | 주황색 | 호스트에서 적어도 하나의 보조 구성 요소는 중단 되었습니다. 마우스를 가져다 대면 영향을 받는 구성 요소 목록을 나열하는 도구 설명이 표시됩니다. |
 | 노랑 | Ambari 서버가 3분 이상 호스트에서 하트비트를 수신하지 못했습니다. |
 | 녹색 | 정상적인 실행 상태입니다. |
