@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035745"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>포털에서 Azure Functions 바인딩 확장 수동 설치 또는 업데이트

@@ -10,10 +10,10 @@ ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125919"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
@@ -89,7 +89,7 @@ C에서 모듈을 개발하지 않는 한, IoT Edge 솔루션을 디버그, 실�
 
 1. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다.
 
-1. 모듈의 이미지 리포지토리 이름을 입력합니다. Visual Studio Code는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 ***\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 **\<’레지스트리 이름’\>.azurecr.io/’\<모듈 이름\>’**과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸면 됩니다.*
+1. 모듈의 이미지 리포지토리 이름을 입력합니다. Visual Studio Code는 **localhost:5000/<모듈 이름\>** 으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 * **\<레지스트리 이름\>*.azurecr.io**와 같이 표시됩니다. 최종 결과가 * *\<’레지스트리 이름’\>.azurecr.io/’\<모듈 이름\>’**과 같이 표시되도록 문자열의 **localhost:5000** 부분을 바꾸면 됩니다.* 
 
    ![Docker 이미지 리포지토리 제공](./media/how-to-develop-csharp-module/repository.png)
 
@@ -116,12 +116,12 @@ Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만
 
 솔루션과 함께 제공되는 기본 모듈 코드는 다음 위치에 있습니다.
 
-- Azure 함수(C#): **modules > ‘&lt;모듈 이름&gt;’ > &lt;모듈 이름&gt;’.cs**
-- C#: **modules > ‘&lt;모듈 이름&gt;’ > Program.cs**
-- Python: **modules > ‘&lt;모듈 이름&gt;’ > main.py**
-- Node.js: **modules > ‘&lt;모듈 이름&gt;’ > app.js**
-- Java: **modules > ‘&lt;모듈 이름&gt;’ > src > main > java > com > edgemodulemodules > App.java**
-- C: **modules > ‘&lt;모듈 이름&gt;’ > main.c**
+- Azure 함수(C#): **modules > ‘&lt;모듈 이름&gt;’ > &lt;모듈 이름&gt;’.cs**  
+- C#: **modules > ‘&lt;모듈 이름&gt;’ > Program.cs** 
+- Python: **modules > ‘&lt;모듈 이름&gt;’ > main.py** 
+- Node.js: **modules > ‘&lt;모듈 이름&gt;’ > app.js** 
+- Java: **modules > ‘&lt;모듈 이름&gt;’ > src > main > java > com > edgemodulemodules > App.java** 
+- C: **modules > ‘&lt;모듈 이름&gt;’ > main.c** 
 
 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다.
 
@@ -162,7 +162,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
      - `Program.cs` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다.
+     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다. 
 
         > [!NOTE]
         > 경우에.NET Core `TargetFramework` 의 프로그램 경로와 일치 하지 않습니다 `launch.json`에서 프로그램 경로 수동으로 업데이트 해야 `launch.json` 일치 하는 `TargetFramework` Visual Studio Code는 성공적으로 시작할 수이 있도록.csproj 파일에서 프로그램입니다.
@@ -176,11 +176,11 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
      - `app.js` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Node.js)** 를 선택합니다.
+     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Node.js)** 를 선택합니다. 
    - **Java**
      - `App.java` 파일을 열고 중단점을 추가합니다.
 
-     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Java)** 를 선택합니다.
+     - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(Java)** 를 선택합니다. 
 
 1. **디버깅 시작**을 클릭하거나 **F5** 키를 눌러 디버그 세션을 시작합니다.
 
@@ -228,7 +228,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
    ![변수 보기](media/how-to-develop-csharp-module/view-log.png)
 
-1. Visual Studio Code 디버그 보기로 이동하고 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다.
+1. Visual Studio Code 디버그 보기로 이동하고 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다. 
 
 1. **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다. 연결할 프로세스를 선택합니다.
 
@@ -316,13 +316,13 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
   - 디버그할 머신의 모듈이 실행 중이고 디버거에서 연결할 준비가 되었으며, 포트 9229에 외부적으로 액세스할 수 있는지 확인합니다. 디버거 머신에서 `http://<target-machine-IP>:9229/json`을 열어 이를 확인할 수 있습니다. 이 URL은 디버그할 Node.js 모듈에 대한 정보를 표시합니다.
   
-  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Node.js)** 프로필(또는 모듈이 Windows 컨테이너로 실행되는 경우 **&lt;모듈 이름&gt; 원격 디버그(Windows 컨테이너의 Node.js)** 프로필)의 주소 값이 디버그 중인 머신의 IP가 되도록 `launch.json`을 편집합니다.
+  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Node.js)** 프로필(또는 모듈이 Windows 컨테이너로 실행되는 경우 **&lt;모듈 이름&gt; 원격 디버그(Windows 컨테이너의 Node.js)** 프로필)의 주소 값이 디버그 중인 머신의 IP가 되도록 `launch.json`을 편집합니다.  
 
 - **Java**
 
   - `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`을 실행하여 디버그할 머신에 대한 SSH 터널을 빌드합니다.
   
-  - 개발 머신에서 Visual Studio Code를 열고 대상 머신에 연결할 수 있도록 `launch.json`의 **&lt;모듈 이름&gt; 원격 디버그(Java)** 프로필을 편집합니다. Visual Studio Code를 사용하여 `launch.json`을 편집하고 Java를 디버그하는 방법을 자세히 알아보려면 [디버거 구성](https://code.visualstudio.com/docs/java/java-debugging#_configuration) 섹션을 참조하세요.
+  - 개발 머신에서 Visual Studio Code를 열고 대상 머신에 연결할 수 있도록 `launch.json`의 **&lt;모듈 이름&gt; 원격 디버그(Java)** 프로필을 편집합니다.  Visual Studio Code를 사용하여 `launch.json`을 편집하고 Java를 디버그하는 방법을 자세히 알아보려면 [디버거 구성](https://code.visualstudio.com/docs/java/java-debugging#_configuration) 섹션을 참조하세요.
 
 - **Python**
 
@@ -330,16 +330,16 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
   - 앞에서 `main.py`에 삽입한 코드 `ptvsd.enable_attach(('0.0.0.0', 5678))`에서 **0.0.0.0**을 디버그할 머신의 IP 주소로 변경합니다. IoT Edge 모듈을 다시 빌드, 푸시 및 배포합니다.
 
-  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Python)** 프로필의 `host` 값이 `localhost` 대신 대상 머신의 IP 주소를 사용하도록 `launch.json`을 편집합니다.
+  - 개발 머신에서 Visual Studio Code를 열고 **&lt;모듈 이름&gt; 원격 디버그(Python)** 프로필의 `host` 값이 `localhost` 대신 대상 머신의 IP 주소를 사용하도록 `launch.json`을 편집합니다. 
 
 ### <a name="debug-your-module"></a>모듈 디버그
 
-1. Visual Studio Code 디버그 보기에서 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다.
+1. Visual Studio Code 디버그 보기에서 모듈의 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **‘&lt;모듈 이름&gt;’ 원격 디버그(Java)** 와 비슷해야 합니다. 
 
 1. 개발 언어의 모듈 파일을 열고 중단점을 추가합니다.
 
-   - **Azure 함수(C#)**: `<your module name>.cs` 파일에 중단점을 추가합니다.
-   - **C#**: `Program.cs` 파일에 중단점을 추가합니다.
+   - **Azure 함수(C#)** : `<your module name>.cs` 파일에 중단점을 추가합니다.
+   - **C#** : `Program.cs` 파일에 중단점을 추가합니다.
    - **Node.js**: `app.js` 파일에 중단점을 추가합니다.
    - **Java**: `App.java` 파일에 중단점을 추가합니다.
    - **Python**: `ptvsd.break_into_debugger()` 줄을 추가한 `main.py` 파일의 콜백 메서드에 중단점을 추가합니다.

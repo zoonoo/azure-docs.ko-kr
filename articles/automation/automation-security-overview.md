@@ -12,10 +12,10 @@ ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 60175a5b9309c08d5fdab997469a9d0526afaefe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737026"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure Automation의 인증 소개  
@@ -48,5 +48,5 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 | Azure 실행 계정 |Azure 리소스 관리자 |[Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md) |
 | Azure 클래식 실행 계정 |Azure 클래식 |[Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md) |
 | Windows 인증 |온-프레미스 데이터 센터 |[Hybrid Runbook Worker용 Runbook 인증](automation-hybrid-runbook-worker.md) |
-| AWS 자격 증명 |Amazon 웹 서비스 |[AWS(Amazon 웹 서비스)로 Runbook 인증](automation-config-aws-account.md) |
+| AWS 자격 증명 |Amazon Web Services |[AWS(Amazon 웹 서비스)로 Runbook 인증](automation-config-aws-account.md) |
 

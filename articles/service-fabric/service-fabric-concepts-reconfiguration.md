@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882200"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric의 재구성
@@ -32,7 +32,7 @@ ms.locfileid: "60882200"
 재구성은 두 가지 유형으로 분류할 수 있습니다.
 
 - 주 복제본이 변경 중인 재구성
-    - **장애 조치(Failover)**: 장애 조치는 실행 중인 주의 오류에 대 한 응답으로 재구성 합니다.
+    - **장애 조치(failover)** : 장애 조치는 실행 중인 주의 오류에 대 한 응답으로 재구성 합니다.
     - **SwapPrimary**: 교환에는 서비스 패브릭 부하 분산에 대 한 일반적인 응답을 실행 중인 주 노드에서 간에 이동 해야 하는 재구성 또는 업그레이드입니다.
 
 - 주 복제본이 변경되지 않는 재구성

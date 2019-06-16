@@ -6,21 +6,19 @@ ms.reviewer: jasonh
 keywords: Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115834"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
 [Apache Storm](https://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](https://hadoop.apache.org/)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm을 사용해야 하는 이유
 
@@ -38,8 +36,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 * **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
 
-    > [!NOTE]  
-    > 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
+    * 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
 
 * **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다.
 
@@ -149,7 +146,9 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 다음 Java 예제에서는 fieldsGrouping을 사용하여 구성 요소 "1", "2", "3"에서 생성된 튜플을 MyJoiner Bolt로 라우팅합니다.
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Batch
 

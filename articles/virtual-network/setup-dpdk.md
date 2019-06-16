@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731603"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
@@ -33,7 +33,7 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 ## <a name="benefit"></a>혜택
 
-**더 높은 패킷 / 초 (PPS)**: 커널 및 사용자 공간 패킷 기록 제어를 우회 컨텍스트 스위치를 제거 하 여 주기 수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
+**더 높은 패킷 / 초 (PPS)** : 커널 및 사용자 공간 패킷 기록 제어를 우회 컨텍스트 스위치를 제거 하 여 주기 수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제

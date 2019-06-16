@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119291"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -95,15 +95,15 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 ### <a name="block-legacy-authentication"></a>레거시 인증 차단
 
-자체 레거시 메서드를 사용하여 Azure AD로 인증하고 회사 데이터에 액세스하는 앱은 조직에 또 다른 위험을 제기합니다. 레거시 인증을 사용한 앱으로는 POP3, IMAP4 또는 SMTP 클라이언트가 있습니다. 레거시 인증 앱은 사용자를 대신하여 인증하고 Azure AD가 고급 보안 평가를 수행하지 못하도록 방지합니다. 대체 최신 인증은 다단계 인증 및 조건부 액세스를 지원하므로 보안 위험이 줄어듭니다. 다음과 같은 세 가지 작업이 권장됩니다.
+자체 레거시 메서드를 사용하여 Azure AD로 인증하고 회사 데이터에 액세스하는 앱은 조직에 또 다른 위험을 제기합니다. 레거시 인증을 사용한 앱으로는 POP3, IMAP4 또는 SMTP 클라이언트가 있습니다. 레거시 인증 앱은 사용자를 대신하여 인증하고 Azure AD가 고급 보안 평가를 수행하지 못하도록 방지합니다. Multi-factor authentication 및 조건부 액세스를 지원 하기 때문에 대체 하는 최신 인증을 통해 보안 위험을 줄어듭니다. 다음과 같은 세 가지 작업이 권장됩니다.
 
 1. [AD FS를 사용하는 경우 레거시 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)을 차단합니다.
 2. [최신 인증을 사용하도록 SharePoint Online 및 Exchange Online](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)을 설정합니다.
-3. [레거시 인증을 차단하는 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)을 사용합니다.
+3. 사용 하 여 [레거시 인증을 차단 하는 조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)합니다.
 
 ### <a name="block-invalid-authentication-entry-points"></a>잘못된 인증 진입점 차단
 
-위반이 발생할 때 가상 위반 사고방식을 사용하여 손상된 사용자 자격 증명의 영향을 줄여야 합니다. 사용자 환경의 각 앱의 경우 권한이 있는 그룹, 네트워크, 디바이스 및 기타 요소가 무엇인지 유효한 사용 사례를 고려한 다음, 나머지를 차단합니다. [Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하면 정의하는 특정 조건에 따라 자신의 앱 및 리소스에 권한이 부여된 사용자가 액세스하는 방법을 제어할 수 있습니다.
+위반이 발생할 때 가상 위반 사고방식을 사용하여 손상된 사용자 자격 증명의 영향을 줄여야 합니다. 사용자 환경의 각 앱의 경우 권한이 있는 그룹, 네트워크, 디바이스 및 기타 요소가 무엇인지 유효한 사용 사례를 고려한 다음, 나머지를 차단합니다. 사용 하 여 [Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), 정의한 해당 앱 및 리소스 특정 조건에 따라 어떻게 권한이 부여 된 사용자 액세스를 제어할 수 있습니다.
 
 ### <a name="block-end-user-consent"></a>최종 사용자 동의 차단
 
@@ -130,13 +130,13 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Azure AD Identity Protection을 사용하여 사용자 위험 보안 정책 구현
 
-사용자 위험은 사용자의 ID가 손상되었다는 가능성을 나타내며, 사용자의 ID와 연결된 [사용자 위험 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)를 기반으로 계산됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대해 위험 수준을 평가하는 조건부 액세스 정책입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
+사용자 위험은 사용자의 ID가 손상되었다는 가능성을 나타내며, 사용자의 ID와 연결된 [사용자 위험 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)를 기반으로 계산됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대 한 위험 수준을 평가 하는 조건부 액세스 정책이입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
 
-![위험 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps1.png)
+![위험에 대한 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Azure AD Identity Protection을 사용하여 로그인 위험 정책 구현
 
-로그인 위험은 계정 소유자가 아닌 누군가가 ID를 사용하여 로그인을 시도할 가능성을 말합니다. [로그인 위험 정책](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 특정 사용자 또는 그룹에 대해 위험 수준을 평가하는 조건부 액세스 정책입니다. 위험 수준(높음/보통/낮음)에 따라 정책은 액세스를 차단하거나 다단계 인증을 강제 적용하도록 구성할 수 있습니다. 보통 이상의 위험 로그인에서는 다단계 인증을 받도록 해야 합니다.
+로그인 위험은 계정 소유자가 아닌 누군가가 ID를 사용하여 로그인을 시도할 가능성을 말합니다. A [로그인 위험 정책](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 특정 사용자 또는 그룹에 대 한 위험 수준을 평가 하는 조건부 액세스 정책이 있습니다. 위험 수준(높음/보통/낮음)에 따라 정책은 액세스를 차단하거나 다단계 인증을 강제 적용하도록 구성할 수 있습니다. 보통 이상의 위험 로그인에서는 다단계 인증을 받도록 해야 합니다.
 
 ![익명 IP 주소에서 로그인](media/azure-ad/azure-ad-sec-steps2.png)
 
@@ -162,7 +162,7 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.
 2. 위험한 사용자 보고서는 유출된 자격 증명 발견, 여러 위치에서 로그인하여 불가능한 이동 이벤트를 발생시킨 사용자처럼 손상 가능성이 있는 사용자 계정을 보여줍니다. 
 
-![위험 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps3.png)
+![위험에 대한 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>감사 앱 및 승인된 권한
 
