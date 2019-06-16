@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821777"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>서로 다른 프로토콜(AMQP, Kafka 및 HTTPS)을 사용하는 소비자와 생산자 간의 이벤트 교환입니다.
@@ -25,10 +25,10 @@ Azure Event Hubs는 소비자와 생산자를 위한 세 가지 프로토콜 (AM
 
 이 문서에서 권장하는 경우 다음 클라이언트에 대해 구체적으로 설명하며, 코드 조각 개발에 사용된 버전도 나와 있습니다.
 
-* Kafka Java 클라이언트(https://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients)의 버전 1.1.1)
-* Java용 Microsoft Azure Event Hubs 클라이언트(https://github.com/Azure/azure-event-hubs-java)의 버전 1.1.0)
-* .NET용 Microsoft Azure Event Hubs 클라이언트(https://github.com/Azure/azure-event-hubs-dotnet)의 버전 2.1.0)
-* Microsoft Azure Service Bus(https://www.nuget.org/packages/WindowsAzure.ServiceBus)의 버전 5.0.0)
+* Kafka Java 클라이언트(https://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients) 의 버전 1.1.1)
+* Java용 Microsoft Azure Event Hubs 클라이언트(https://github.com/Azure/azure-event-hubs-java) 의 버전 1.1.0)
+* .NET용 Microsoft Azure Event Hubs 클라이언트(https://github.com/Azure/azure-event-hubs-dotnet) 의 버전 2.1.0)
+* Microsoft Azure Service Bus(https://www.nuget.org/packages/WindowsAzure.ServiceBus) 의 버전 5.0.0)
 * HTTPS(생산자만 지원)
 
 다른 AMQP 클라이언트는 약간 다르게 동작할 수 있습니다. AMQP는 잘 정의된 형식 시스템을 갖추고 있지만, 클라이언트에서 AMQP 메시지의 부분에 대한 액세스를 제공하는 방법을 수행하는 것처럼 해당 형식 시스템과의 언어별 형식 직렬화에 대한 세부 정보는 클라이언트에 따라 다릅니다.

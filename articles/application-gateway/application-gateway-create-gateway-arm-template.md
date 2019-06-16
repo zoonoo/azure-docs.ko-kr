@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135743"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 애플리케이션 게이트웨이 만들기
@@ -161,9 +161,9 @@ Azure CLI를 사용하여 다운로드한 Azure Resource Manager 템플릿을 �
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (or --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
+    **-n (or --name)** . 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *appgatewayRG*입니다.
     
-    **-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
+    **-l(또는 --location)** . 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *westus*입니다.
 
 1. `az group deployment create` cmdlet을 실행하고 이전 단계에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 가상 네트워크를 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -228,5 +228,5 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 애플리
 
 부하 분산 옵션에 대한 자세한 정보는 다음을 방문하세요.
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)

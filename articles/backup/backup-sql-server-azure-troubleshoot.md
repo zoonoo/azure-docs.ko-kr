@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306964"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
@@ -94,7 +94,7 @@ ms.locfileid: "66306964"
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| 복구에 사용 되는 로그 백업에 대량 로그 변경 내용이 포함 되어 있습니다. SQL 지침에 따라 시간 임의의 지점에서 중지를 사용할 수 없습니다. | 데이터베이스를 대량 로그 복구 모드의 경우 대량 로그 트랜잭션 및 다음 로그 트랜잭션 간에 데이터를 복구할 수 없습니다. | 복구에 대 한 시간에 다른 시점을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| 복구에 사용되는 로그 백업에 대량 로그된 변경 내용이 포함되어 있습니다. SQL 지침에 따라 임의의 시점에서 중지하도록 사용할 수 없습니다. | 데이터베이스를 대량 로그 복구 모드의 경우 대량 로그 트랜잭션 및 다음 로그 트랜잭션 간에 데이터를 복구할 수 없습니다. | 복구에 대 한 시간에 다른 시점을 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError

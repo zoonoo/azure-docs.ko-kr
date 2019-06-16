@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604186"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
@@ -74,7 +74,7 @@ Impact Analysis의 기본적인 작동 원리는 다음과 같습니다.
 
 _A_ = 첫 번째 드롭다운 목록에서 선택하는 기본 페이지 보기/사용자 지정 이벤트/요청. (**페이지 보기의 경우**).
 
-_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트(**이 다음의 사용량에 미치는 영향을 분석합니다.**).
+_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트(**이 다음의 사용량에 미치는 영향을 분석합니다.** ).
 
 Impact는 선택한 시간 범위에서 사용자의 모든 세션의 예제를 살펴봅니다. 각 세션에서, _A_의 발생을 찾습니다.
 

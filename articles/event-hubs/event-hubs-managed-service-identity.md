@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
 ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978437"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs를 통해 Azure 리소스에 관리 ID 사용

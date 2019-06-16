@@ -11,15 +11,15 @@ ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541758"
 ---
 # <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Azure Search.NET SDK 버전 9로 업그레이드
 
-7.0-preview 또는 이전 버전의 버전을 사용 하는 경우는 [Azure Search.NET SDK](https://aka.ms/search-sdk),이 문서에서는 버전 9를 사용 하도록 응용 프로그램을 업그레이드 합니다.
+7\.0-preview 또는 이전 버전의 버전을 사용 하는 경우는 [Azure Search.NET SDK](https://aka.ms/search-sdk),이 문서에서는 버전 9를 사용 하도록 응용 프로그램을 업그레이드 합니다.
 
 > [!NOTE]
 > 버전 8.0-미리 보기를 사용 하 여 아직 일반 공급 되지 않는 기능을 평가 하려는 경우에 8.0-preview 이전 버전에서 업그레이드 하려면이 문서의 지침을 따라 수 있습니다.
@@ -105,7 +105,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 ### <a name="simplified-batch-and-results-types"></a>간소화 된 일괄 처리 및 결과 형식입니다.
 
-7.0-preview와 이전 버전에서는 문서 그룹을 캡슐화 하는 다양 한 클래스는 병렬 클래스 계층 구조에 구성 되었습니다.
+7\.0-preview와 이전 버전에서는 문서 그룹을 캡슐화 하는 다양 한 클래스는 병렬 클래스 계층 구조에 구성 되었습니다.
 
   -  `DocumentSearchResult` 및 `DocumentSearchResult<T>` 에서 상속 되며, `DocumentSearchResultBase`
   -  `DocumentSuggestResult` 및 `DocumentSuggestResult<T>` 에서 상속 되며, `DocumentSuggestResultBase`
@@ -116,7 +116,7 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 제네릭 형식 매개 변수 없이 파생된 형식 "동적으로 형식화" 시나리오에서 사용할 수 있었으며의 사용을 가정 합니다 `Document` 형식입니다.
 
-8.0-preview 버전부터, 기본 클래스 및 제네릭이 아닌 파생된 클래스를 모두 제거 되었습니다. 동적으로 형식화 된 시나리오를 사용할 수 있습니다 `IndexBatch<Document>`, `DocumentSearchResult<Document>`등입니다.
+8\.0-preview 버전부터, 기본 클래스 및 제네릭이 아닌 파생된 클래스를 모두 제거 되었습니다. 동적으로 형식화 된 시나리오를 사용할 수 있습니다 `IndexBatch<Document>`, `DocumentSearchResult<Document>`등입니다.
  
 ### <a name="removed-extensibleenum"></a>제거 ExtensibleEnum
 

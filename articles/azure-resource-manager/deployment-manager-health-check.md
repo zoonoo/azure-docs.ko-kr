@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796263"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (공개 미리 보기)에 상태 통합 출시 소개
@@ -140,7 +140,7 @@ Azure Deployment Manager 상태 검사를 사용 하 여 설치를 시작 하는
 
 이 시점에서 Azure Deployment Manager에는 새로운 고객의 롤아웃에 이렇게 하려면 단계 및 서비스의 상태를 쿼리 하는 방법을 알고 있습니다. 그러나 Azure Deployment Manager는 또한 이러한 검사 타이밍 심층 구성에 대 한 허용합니다. HealthCheck 단계는 모두 구성 가능한 기간 3 개의 순차적 단계로 실행 됩니다. 
 
-1. 대기
+1. Wait
 
     1. 배포 작업이 완료 된 후 Vm을 다시 부팅 될 수 있습니다, 그리고 다시 구성 또는 기준으로 새 데이터를 처음 시작 하기도 합니다. 또한 서비스 상태 모니터링에 유용한 공급자에 따라 집계 상태 신호를 내보내기에 대 한 시간이 걸립니다. Tumultuous이 과정에서 안정적인 상태를 아직 도달 하지 않은 업데이트 하므로 서비스 상태를 확인 하는 것이 경우가 없습니다 것. 실제로 서비스 리소스를 납부 하는 대로 정상 및 비정상 상태 간에 진동 수 있습니다. 
     1. 대기 단계에서는 서비스 상태 모니터링 되지 않습니다. 배포 된 리소스를 허용 하는이 상태 확인 프로세스를 시작 하기 전에 적용 하는 시간입니다. 
