@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831729"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Azure Application Gateway를 사용 하 여 허용 목록 백 엔드에 대 한 인증서 만들기
 
-종단 간 SSL을 수행 하려면 application gateway에 백 엔드 인스턴스를 인증/신뢰할 수 있는 루트 인증서를 업로드 하 여 허용 목록에 추가할 필요 합니다. V1 SKU의 경우 인증 인증서가 필요한 v2 SKU의 경우 허용 목록에 대 한 루트 인증서는 신뢰할 수 있는. 반면 인증서
+종단 간 SSL을 수행 하려면 application gateway에 백 엔드 인스턴스를 인증/신뢰할 수 있는 루트 인증서를 업로드 하 여 허용 목록에 추가할 필요 합니다. 인증서를 허용 목록에 추가하려면 v1 SKU의 경우 인증 인증서가 필요하고, v2 SKU의 경우 신뢰할 수 있는 루트 인증서가 필요합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -57,7 +57,7 @@ SSL 인증서를에서 공개 키.cer 파일 (개인 키 아님)를 내보냅니
 
 6. **마침** 을 클릭하여 인증서를 내보냅니다.
 
-   ![Finish](./media/certificates-for-backend-authentication/finish.png)
+   ![마침](./media/certificates-for-backend-authentication/finish.png)
 
 7. 인증서가 성공적으로 내보내졌습니다.
 

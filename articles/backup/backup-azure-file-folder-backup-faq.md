@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808305"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더를 백업 하는 방법에 대 한 일반적인 질문 
 
@@ -83,11 +83,11 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 - 이전 서버 이름으로 자격 증명 모음에 백업 된 데이터를 복구 해야 할 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업에 대 한 최대 파일 경로 길이 무엇 인가요?
-MARS 에이전트 NTFS를 사용 하 여 제한 된 파일 경로 길이 사양은 사용 하 여 [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths)합니다. 보호 하려는 파일에 허용 되는 값을 초과할 경우 부모 폴더 또는 디스크 드라이브를 백업 합니다.  
+MARS 에이전트 NTFS를 사용 하 여 제한 된 파일 경로 길이 사양은 사용 하 여 [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)합니다. 보호 하려는 파일에 허용 되는 값을 초과할 경우 부모 폴더 또는 디스크 드라이브를 백업 합니다.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>파일 경로에 어떤 문자가 허용 되나요?
 
-MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/FileIO/naming-a-file#naming_conventions) 파일 이름/경로입니다.
+MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/FileIO/naming-a-file#naming-conventions) 파일 이름/경로입니다.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>"Azure Backup 구성 되지 않았습니다이 서버에 대 한" 경고가 표시 됩니다.
 이 경고는 로컬 서버에 저장 된 백업 일정 설정과 백업 자격 증명 모음에 저장 된 설정과 동일 하지 않은 경우 백업 정책을 구성한 경우에 나타날 수 있습니다.
@@ -112,7 +112,7 @@ MARS 에이전트 NTFS에 의존 하며 [문자를 지원](/windows/desktop/File
 2. 파일을 이동 하지 마십시오. 대신 캐시 공간 폴더를 충분 한 공간이 있는 다른 드라이브로 복사 합니다.
 3. 새 캐시 폴더의 경로 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.<br/>
 
-    | 레지스트리 경로 | 레지스트리 키 | Value |
+    | 레지스트리 경로 | 레지스트리 키 | 값 |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |

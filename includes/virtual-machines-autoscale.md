@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d10c3edcf64ccc66b0599d064e91270a4ad8202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160067"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814709"
 ---
 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/azure-monitor/platform/autoscale-overview.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/azure-monitor/platform/autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
@@ -33,7 +33,7 @@ Azure Monitor의 자동 크기 조정 기능은 수평으로만 확장하며, �
 
 ![자동 크기 조정 사용](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../articles/azure-monitor/platform/autoscale-common-metrics.md)에 따라 실행 중인 VM 수를 크기 조정할 수 있습니다. 기본적으로 VM은 디스크, 네트워크 및 CPU 사용량에 대한 기본 호스트 수준 메트릭을 제공합니다. 진단 확장을 사용하여 진단 데이터 컬렉션을 구성하면 디스크, CPU 및 메모리에 대한 추가 게스트 OS 성능 카운터를 사용할 수 있게 됩니다.
 

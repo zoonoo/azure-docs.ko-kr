@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60819264"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning Service에서 로깅 사용
@@ -27,7 +27,7 @@ Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 �
 > * 배포된 모델
 > * Python `logging` 설정
 
-[Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다. 사용 된 [가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 자세한 SDK.
+[Azure Machine Learning Service 작업 영역을 만듭니다](setup-create-workspace.md). 사용 된 [가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 자세한 SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>모델 학습 및 컴퓨팅 대상 로깅
 
