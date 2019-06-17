@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430775"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
@@ -116,7 +116,7 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 유형의 레�
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
 | Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
-| StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
+| StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>\- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |

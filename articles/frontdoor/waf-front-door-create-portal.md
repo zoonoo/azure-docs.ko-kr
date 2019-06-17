@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479073"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Azure portal을 사용 하 여 WAF 정책에 대 한 Azure 프런트 도어 만들기
@@ -77,5 +77,5 @@ Azure 관리 되는 기본 규칙 집합은 기본적으로 사용 됩니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 [Azure 웹 응용 프로그램 방화벽](waf-overview.md)합니다.
+- [Azure 웹 애플리케이션 방화벽](waf-overview.md)에 대해 알아봅니다.
 - 에 대해 자세히 알아보세요 [Azure 프런트 도어](front-door-overview.md)합니다.

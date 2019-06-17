@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967309"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
@@ -29,7 +29,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 다음은 프로비전된 처리량 전략을 결정하기 위한 몇 가지 지침입니다.
 
-**다음과 같은 경우 Azure Cosmos DB 데이터베이스(컨테이너 세트 포함)에 대한 처리량을 프로비전하는 것이 좋습니다.**:
+**다음과 같은 경우 Azure Cosmos DB 데이터베이스(컨테이너 세트 포함)에 대한 처리량을 프로비전하는 것이 좋습니다.** :
 
 1. Azure Cosmos 컨테이너가 몇십 개 정도 있으며 일부 또는 전체에서 처리량을 공유하려고 합니다. 
 
@@ -57,7 +57,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|키스페이스|테이블|
+|Cassandra API|Keyspace|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
 |테이블 API|데이터베이스 계정|테이블|
 

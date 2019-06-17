@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908143"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
@@ -139,6 +139,6 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 Functions에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [Azure Functions 개발자 참조](functions-reference.md)  
-   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md)  
   함수를 테스트하는 다양한 도구와 기법을 설명합니다.  

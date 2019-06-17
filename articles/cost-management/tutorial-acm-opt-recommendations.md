@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416098"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
@@ -98,7 +98,7 @@ VM 크기 조정이 성공적으로 완료되면 Azure 알림이 표시됩니다
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 방법을 학습했습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 비용 최적화 권장 사항을 검토하여 잠재적인 사용 비효율성 확인인

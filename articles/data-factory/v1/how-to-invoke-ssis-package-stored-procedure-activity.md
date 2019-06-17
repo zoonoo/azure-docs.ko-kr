@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156690"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
 
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -310,7 +310,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 
-1. 실행할 **Get AzDataFactoryRun** 특정 조각에 대 한 실행 작업의 세부 정보를 가져오려고 합니다.
+1. **Get-AzDataFactoryRun**을 실행하여 특정 조각에 대한 작업 실행의 세부 정보를 가져옵니다.
 
     ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
