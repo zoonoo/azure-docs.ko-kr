@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143168"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>SQL Data Warehouse에서 투명한 데이터 암호화(TDE) 시작
@@ -32,7 +32,7 @@ TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager
 ## <a name="enabling-encryption"></a>암호화 설정
 SQL Data Warehouse에 대한 TDE를 사용하려면 다음 단계를 따르세요.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
 4. **켜기** 설정 선택 ![][2]
@@ -42,7 +42,7 @@ SQL Data Warehouse에 대한 TDE를 사용하려면 다음 단계를 따르세�
 ## <a name="disabling-encryption"></a>암호화 비활성화
 SQL Data Warehouse에 대한 TDE를 비활성화하려면 다음 단계를 따르세요.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
 4. **끄기** 설정 선택 ![][4]

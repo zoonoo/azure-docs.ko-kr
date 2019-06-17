@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161335"
 ---
 디바이스의 성능을 모니터링하거나 일부 인스턴스에서 디바이스 문제를 해결하기 위해 메트릭을 볼 수도 있습니다.
@@ -23,7 +23,7 @@ ms.locfileid: "66161335"
 
     ![현재 리소스](media/data-box-edge-gateway-view-metrics/view-metrics-2.png)
 
-    다른 리소스를 지정하려면 해당 리소스를 선택합니다.  **리소스 선택** 블레이드에서 메트릭을 표시하려는 구독, 리소스 그룹, 리소스 종류 및 특정 리소스를 선택하고 **적용**을 선택합니다.
+    다른 리소스를 지정하려면 해당 리소스를 선택합니다. **리소스 선택** 블레이드에서 메트릭을 표시하려는 구독, 리소스 그룹, 리소스 종류 및 특정 리소스를 선택하고 **적용**을 선택합니다.
 
     ![다른 리소스 선택](media/data-box-edge-gateway-view-metrics/view-metrics-3.png)
 
