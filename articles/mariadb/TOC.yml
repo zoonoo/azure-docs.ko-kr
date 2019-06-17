@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: Backup 및 복원
           href: concepts-backup.md
-    - name: 모니터
+    - name: 모니터링 및 튜닝
       items:
         - name: 모니터
           href: concepts-monitoring.md
-        - name: 서버 로그
+        - name: 느린 쿼리 로그
           href: concepts-server-logs.md
+        - name: 감사 로그
+          href: concepts-audit-logs.md
+        - name: 쿼리 저장소
+          href: concepts-query-store.md
+        - name: 쿼리
+          href: concepts-query-performance-insight.md
+        - name: 성능 권장 사항
+          href: concepts-performance-recommendations.md
     - name: 개발
       items:
         - name: 드라이버 및 도구 호환성
@@ -75,6 +83,8 @@
       items:
         - name: 데이터 내부 복제
           href: concepts-data-in-replication.md
+        - name: 읽기 복제본
+          href: concepts-read-replicas.md
 - name: 방법 가이드
   items:
     - name: 방화벽 규칙
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: 서버 로그 액세스
       items:
-        - name: Azure portal
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+        - name: 느린 쿼리 로그
+          items:
+            - name: Azure portal
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: 감사 로그
+          items:
+            - name: Azure portal
+              href: howto-configure-audit-logs-portal.md
     - name: 모니터
       items:
         - name: 메트릭에 대한 경고 만들기
@@ -125,6 +141,8 @@
       items:
         - name: 데이터 내부 복제 구성
           href: howto-data-in-replication.md
+        - name: Azure Portal 읽기 복제본 만들기
+          href: howto-read-replicas-portal.md
     - name: 문제 해결
       items:
         - name: 연결 오류 문제 해결

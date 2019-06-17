@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: 추가 시나리오
           href: licensing-group-advanced.md
-        - name: PowerShell에서 그룹 라이선스
+        - name: PowerShell 및 Graph를 사용한 그룹 라이선싱
           href: licensing-ps-examples.md
         - name: 라이선스에 대한 서비스 계획 ID
           href: licensing-service-plan-reference.md

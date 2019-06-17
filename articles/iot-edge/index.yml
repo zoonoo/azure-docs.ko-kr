@@ -64,7 +64,9 @@ landingContent:
         links:
           - text: 투명 게이트웨이 구성
             url: how-to-create-transparent-gateway.md
-          - text: 다운스트림 디바이스 연결
+          - text: Azure IoT Hub에 다운스트림 디바이스 인증
+            url: how-to-authenticate-downstream-device.md
+          - text: 게이트웨이에 다운스트림 디바이스 연결
             url: how-to-connect-downstream-device.md
   - title: 프로덕션 시나리오 준비
     linkLists:

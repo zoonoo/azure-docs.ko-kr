@@ -6,6 +6,11 @@
   href: create-manage-support-requests-using-access-control.md
 - name: 할당량 증가 요청
   href: resource-manager-core-quotas-request.md
+  items:
+    - name: VM 시리즈 vCPU 제한 증가
+      href: per-vm-quota-requests.md
+    - name: 지역별 총 vCPU 제한 증가
+      href: regional-quota-requests.md
 - name: 지역 또는 SKU 구독 문제 해결
   href: sku-series-unavailable.md
 - name: 참고 자료

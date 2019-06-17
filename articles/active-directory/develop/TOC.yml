@@ -139,6 +139,8 @@
                   href: scenario-protected-web-api-app-registration.md
                 - name: 코드 구성
                   href: scenario-protected-web-api-app-configuration.md
+                - name: 범위 또는 앱 역할 확인
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
                 - name: 프로덕션 환경으로 이동
                   href: scenario-protected-web-api-production.md
             - name: 웹 API를 호출하는 Web API

@@ -205,7 +205,7 @@
           href: iot-accelerators-device-simulation-advanced-device.md
         - name: Time Series Insights를 사용하여 원격 분석 시각화
           href: iot-accelerators-device-simulation-time-series-insights.md
-        - name: Protbuf를 사용하여 원격 분석 직렬화
+        - name: Protobuf를 사용하여 원격 분석 직렬화
           href: iot-accelerators-device-simulation-protobuf.md
         - name: 사용자 지정 Docker 이미지 배포
           href: iot-accelerators-device-simulation-deploy-image.md
