@@ -10,10 +10,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713080"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(사용되지 않음) CoScale을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
@@ -72,7 +72,7 @@ CoScale에 로그인한 후 [에이전트 페이지](https://app.coscale.com/)�
 
 ![CoScale 에이전트 시작](./media/container-service-kubernetes-coscale/agent_script.png)
 
-이것으로 끝입니다. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. [에이전트 페이지](https://app.coscale.com/)를 방문하여 클러스터에 대한 요약을 확인하고, 추가 구성 단계를 수행하고, **Kubernetes 클러스터 개요**와 같은 대시보드를 참조합니다.
+정말 간단하죠. 에이전트가 작동 및 실행되면 몇 분 내에 콘솔에 데이터가 표시됩니다. [에이전트 페이지](https://app.coscale.com/)를 방문하여 클러스터에 대한 요약을 확인하고, 추가 구성 단계를 수행하고, **Kubernetes 클러스터 개요**와 같은 대시보드를 참조합니다.
 
 ![Kubernetes 클러스터 개요](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
