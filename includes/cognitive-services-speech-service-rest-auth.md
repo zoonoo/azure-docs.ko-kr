@@ -17,8 +17,8 @@ ms.locfileid: "66145400"
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | 예 | 아닙니다. |
-| 권한 부여: 전달자 | 예 | 예 |
+| Ocp-Apim-Subscription-Key | 예 | 아니요. |
+| Authorization: Bearer | 예 | 예 |
 
 `Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들면 다음과 같습니다.
 
