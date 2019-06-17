@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000159"
 ---
 # <a name="security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus Relay에 대 한 보안 특성
@@ -27,10 +27,10 @@ ms.locfileid: "66000159"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>|  N/A | 릴레이 웹 소켓을 이며 데이터는 유지 되지 않습니다. |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예. | 서비스에서는 TLS 합니다. |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | 서비스에서는 TLS 합니다. |
 | 암호화 키 처리 (예: CMK, BYOK)| 아닙니다. | Microsoft TLS 인증서만 사용합니다.  |
 | 열 수준 암호화 (Azure Data Services)| N/A | |
-| API 호출 암호화| 예. | HTTPS입니다. |
+| API 호출 암호화| 예 | HTTPS입니다. |
 
 ## <a name="network-segmentation"></a>네트워크 구분
 
@@ -44,25 +44,25 @@ ms.locfileid: "66000159"
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예. | |
+| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | |
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| Authentication| 예. | 통해 SAS입니다. |
-| 권한 부여|  예. | 통해 SAS입니다. |
+| Authentication| 예 | 통해 SAS입니다. |
+| 권한 부여|  예 | 통해 SAS입니다. |
 
 
 ## <a name="audit-trail"></a>감사 내역
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 제어 및 관리 평면 로깅 및 감사| 예. | 통해 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다. |
-| 데이터 평면 로깅 및 감사| 예. | 연결 성공 / 실패 및 오류 기록 합니다.  |
+| 제어 및 관리 평면 로깅 및 감사| 예 | 통해 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다. |
+| 데이터 평면 로깅 및 감사| 예 | 연결 성공 / 실패 및 오류 기록 합니다.  |
 
 ## <a name="configuration-management"></a>구성 관리
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 구성 관리 지원 (구성 등의 버전 관리 합니다.)| 예. | 통해 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다.|
+| 구성 관리 지원 (구성 등의 버전 관리 합니다.)| 예 | 통해 [Azure Resource Manager](../azure-resource-manager/index.yml)합니다.|

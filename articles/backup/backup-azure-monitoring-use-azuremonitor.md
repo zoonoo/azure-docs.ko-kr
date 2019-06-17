@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808512"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Azure Monitor를 사용 하 여 모니터링
 
@@ -257,7 +257,7 @@ Azure portal에 로그인 하 고 관련 Azure Recovery Services 자격 증명 �
 활동 로그를 통해 알림을 사용할 수 있지만 ***LA 하 여 규모 및 없습니다 활동 로그에서 다음과 같은 이유로 모니터링에 Azure Backup 서비스 좋습니다***합니다.
 
 - **제한 된 시나리오의 경우:** Azure VM 백업에만 적용 및 모든 RS 자격 증명 모음에 대해 반복 해야 합니다.
-- **에 맞게 정의:** 예약된 된 백업 작업 활동 로그의 최신 정의 사용 하 여 맞지 및 부합 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs)합니다. 아래 지정 하는 대로 활동 로그 채널을 통해 펌프 데이터가 변경 될 때 예기치 않은 영향을이 잠재 고객입니다.
+- **에 맞게 정의:** 예약된 된 백업 작업 활동 로그의 최신 정의 사용 하 여 맞지 및 부합 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)합니다. 아래 지정 하는 대로 활동 로그 채널을 통해 펌프 데이터가 변경 될 때 예기치 않은 영향을이 잠재 고객입니다.
 - **활동 로그 채널을 사용 하 여 문제:** Azure Backup에서 Recovery Services 자격 증명 모음에 활동 로그를 펌핑하는 새 모델로 전환했습니다. 그러나 이동이 차세대 Azure Sovereign Clouds에서 활동 로그에 영향을 합니다. Azure 소 버린 클라우드 사용자 생성/구성에서 Azure Monitor를 통해 활동 로그 경고가 트리거되지 않습니다 됩니다. 또한 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)에 설명된 것처럼 모든 Azure 공용 지역에서 사용자가 Recovery Services 활동 로그를 Log Analytic 작업 영역으로 수집하는 경우 이러한 로그도 나타나지 않습니다.
 
 따라서 모니터링에 대 한 로그 분석 작업 영역을 사용 하는 것은 권장 항상 및 워크 로드를 보호 하 여 모든 Azure Backup에 대 한 규모의 경고.

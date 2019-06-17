@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7e006b8bc05d00de3e5fba20985e30fd5e96c1df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708666"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "58309803"
 4. 주요 자격 증명 모음에 자체 서명된 인증서에 대한 URL 가져오기
 5. VM을 만드는 동안 자체 서명된 인증서 URL 참조
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-create-a-key-vault"></a>1단계: 주요 자격 증명 모음 만들기
 아래 명령을 사용하여 주요 자격 증명 모음을 만들 수 있습니다.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725496"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 프레임워크의 다형성
@@ -29,7 +29,7 @@ Reliable Actors 프레임워크에서는 행위자 형식으로 구현될 인터
 
 ![shape 행위자에 대한 인터페이스 계층 구조][shapes-interface-hierarchy]
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 플랫폼에 제공되는 기본 Actor 클래스에서 파생되는 행위자 형식 계층 구조를 만들 수 있습니다. 도형의 경우 상태 기본 `Shape`(C#) 또는 `ShapeImpl`(Java) 형식일 수 있습니다.
 
 ```csharp

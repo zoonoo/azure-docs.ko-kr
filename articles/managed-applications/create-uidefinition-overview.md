@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257557"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기
@@ -39,8 +39,8 @@ ms.locfileid: "66257557"
 CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다. 
 
 * 처리기
-* 버전
-* 매개 변수
+* version
+* parameters
 
 관리되는 애플리케이션의 경우 처리기는 항상 `Microsoft.Compute.MultiVm`이어야 하며, 지원되는 최신 버전은 `0.1.2-preview`여야 합니다.
 
@@ -82,6 +82,6 @@ createUiDefinition.json 파일 자체에는 간단한 스키마가 있습니다.
 - [요소](create-uidefinition-elements.md)
 - [함수](create-uidefinition-functions.md)
 
-createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json에 사용할 수 있습니다.
+createUiDefinition에 대한 현재 JSON 스키마는 https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json 에 사용할 수 있습니다.
 
 예제 사용자 인터페이스 파일의 경우 [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json)을 참조하세요.

@@ -111,7 +111,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| 형식 | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1> | string |

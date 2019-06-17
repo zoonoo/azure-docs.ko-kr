@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/22/2018
 ms.author: yegu
 ms.openlocfilehash: a93d21b07dc486f743694ee99f60018ed4ef517c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943866"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
@@ -59,9 +59,9 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
-| 특성 | Type | Default | 설명 |
+| 특성 | Type | 기본값 | 설명 |
 | --------- | ---- | ------- | ----------- |
-| *host* | 문자열 | "localhost" | Redis 서버 IP 주소 또는 호스트 이름 |
+| *호스트* | 문자열 | "localhost" | Redis 서버 IP 주소 또는 호스트 이름 |
 | *port* | 양의 정수 | 6379 (비-SSL)<br/>6380 SSL) | Redis 서버 포트 |
 | *accessKey* | 문자열 | "" | 서버 암호 redis는 Redis 인증을 사용 하는 경우. 값은 Redis 서버에 연결할 때 세션 상태 제공자를 사용 하는 모든 암호를 사용 하지 않습니다는 기본적으로 빈 문자열입니다. **Redis 서버에 Azure Redis Cache 같은 공개적으로 액세스할 수 있는 네트워크에 보안을 개선 하기 위해 Redis 권한 부여를 사용 하도록 설정 해야 하 고 안전한 암호를 지정 합니다.** |
 | *ssl* | 부울 | **false** | SSL 통해 Redis 서버에 연결할 것인지 지정 합니다. 이 값은 **false** 기본적으로 Redis는 기본적으로 SSL을 지원 하지 않기 때문입니다. **기본적으로 지 원하는 SSL를 true로 설정 해야 Azure Redis Cache를 사용 하는 경우 보안을 향상 합니다.**<br/><br/>비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 지정할 **true** SSL 포트를 사용 하도록이 설정에 대 한 합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요. |

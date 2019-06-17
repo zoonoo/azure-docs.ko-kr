@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479073"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
@@ -29,7 +29,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`.
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`
 - FedEx/DHL 계정이 있습니다. 이외의 FedEx/DHL 운송 업체를 사용 하려는 경우 Azure 데이터 상자 작업 팀에 문의 `adbops@microsoft.com`합니다.  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -115,7 +115,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기 
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
-1. [https://portal.azure.com/](https://portal.azure.com/) 에 로그온합니다.
+1. [https://portal.azure.com/](https://portal.azure.com/ ) 에 로그온합니다.
 2. **모든 서비스 > 저장소 > 작업 가져오기/내보내기**로 차례로 이동합니다. 
 
     ![가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

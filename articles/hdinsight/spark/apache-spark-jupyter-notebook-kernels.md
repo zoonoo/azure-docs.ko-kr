@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257811"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널 
@@ -71,7 +71,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
    | 매직 | 예 | 설명 |
    | --- | --- | --- |
-   | 도움말 |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
+   | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
    | info |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
    | 구성 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |세션 만들기에 대한 매개 변수를 구성합니다. 이미 세션이 만들어진 경우 강제 플래그(-f)가 필수이며 이렇게 하면 세션을 삭제 후 다시 만들 수 있습니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body) 를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |

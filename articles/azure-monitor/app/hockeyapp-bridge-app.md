@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
 ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60898755"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
@@ -51,7 +51,7 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![데이터를 기다리는 Application Insights 리소스](./media/hockeyapp-bridge-app/04.png)
 
-이것으로 끝입니다. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
+정말 간단하죠. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
 
 이제 사용할 수 있는 이러한 기능을 각각 간단히 검토하겠습니다.
 

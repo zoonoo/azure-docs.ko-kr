@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726865"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 Azure portal을 사용 하 여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행합니다  
@@ -66,7 +66,7 @@ ms.locfileid: "64726865"
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 
-  자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+  자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
 * Media Services 계정. Media Services 계정을 만들려면 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 단일 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
@@ -167,7 +167,7 @@ ms.locfileid: "64726865"
 ## <a name="watch-the-event"></a>이벤트 보기
 이벤트를 보려면 Azure 포털에서 **조사식** 을 클릭하거나 스트리밍 URL을 복사하고 선택한 플레이어를 사용합니다. 
 
-![생성일](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![만든 날짜](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다.
 

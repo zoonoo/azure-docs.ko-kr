@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
 ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472249"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 SensorTile.box 장치 연결
@@ -37,11 +37,11 @@ Azure IoT Central 응용 프로그램에서 실제 장치를 추가 합니다 **
     * 소문자 입력 **장치 ID**, 제안 된 사용할지 **장치 ID**합니다.
     * 입력 한 **장치 이름**, 제안 된 이름을 사용 하거나
 
-    ![장치 추가](media/howto-connect-sensortile/real-device.png)
+    ![디바이스 추가](media/howto-connect-sensortile/real-device.png)
 
 1. 장치 연결 세부 정보를 가져오려면 **범위 ID**, **장치 ID**, 및 **Primary key**를 선택 **Connect** 장치 페이지에서.
 
-    ![연결 세부 정보](media/howto-connect-sensortile/connect-device.png)
+    ![연결 정보](media/howto-connect-sensortile/connect-device.png)
 
 1. 연결 세부 정보를 기록해 둡니다. 일시적으로 연결이 끊긴 인터넷에서 다음 단계에 DevKit 장치를 준비 합니다.
 
