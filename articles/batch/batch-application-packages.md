@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298740"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 계산
@@ -189,7 +189,7 @@ Batch 계정의 애플리케이션을 보려면 **Batch 계정**이 표시되는
 
 ![Azure portal의 패키지 업데이트 블레이드][11]
 
-**Delete**
+**삭제**
 
 **삭제**를 클릭하면 패키지 버전을 삭제할 것인지 묻는 메시지가 나타나고, Batch가 Azure Storage에서 패키지를 삭제합니다. 애플리케이션의 기본 버전을 삭제하면 해당 애플리케이션의 **기본 버전** 설정이 제거됩니다.
 

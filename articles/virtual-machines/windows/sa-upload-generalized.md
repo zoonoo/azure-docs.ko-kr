@@ -17,11 +17,11 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250750"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715114"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Azure에 일반화된 VHD를 업로드하여 새 VM 만들기
 

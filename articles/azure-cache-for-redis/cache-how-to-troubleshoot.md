@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
 ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830010"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure Cache for Redis 문제를 해결하는 방법
@@ -202,12 +202,12 @@ StackExchange.Redis 구성 명명 된 설정을 사용 하 여 `synctimeout` 100
 | --- | --- |
 | inst |마지막 시간 조각에서 발급된 명령이 없습니다. |
 | mgr |소켓 관리자가 수행 하는 `socket.select`, 즉 OS가 할 일이 있는 소켓을 요청 합니다. 해당 할 일이 생각 관련이 있기 때문에 네트워크에서 판독기 적극적으로 읽지 못하고 |
-| 큐 |진행 중인 작업이 총 73건 있습니다. |
+| queue |진행 중인 작업이 총 73건 있습니다. |
 | qu |진행 중인 작업의 6 보내지 않은 큐에 및 아웃 바운드 네트워크에 아직 작성 하지 않은 |
 | qs |진행 중인 작업의 67 건 서버로 보내 졌지만 사용할 아직 응답 합니다. 응답은 `Not yet sent by the server` 또는 `sent by the server but not yet processed by the client.`일 수 있습니다. |
 | qc |0 또는 진행 중인 작업을 보았으나 완료 루프에서 대기 하느라 완료로 표시 아직 하지 않은 |
 | wr |활성 기록기 (보내지 않은 요청 6 무시 되지 의미) 바이트/않았음을 |
-| in |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
+| 의 |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
 
 ### <a name="steps-to-investigate"></a>조사 단계
 

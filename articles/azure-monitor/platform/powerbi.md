@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/219
 ms.author: bwren
 ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234191"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor 로그 데이터를 Power BI로 가져오기

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 5/1/2019
 ms.author: victorh
 ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146218"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리

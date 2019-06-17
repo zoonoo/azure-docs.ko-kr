@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467441"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387278"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
@@ -33,7 +33,7 @@ ms.locfileid: "61387278"
 
 다음 표에서 요약해 서 설명 및 Vm에 대 한 azure Monitor를 시작 하는 데 여러 통합 문서를 포함 합니다.
 
-| 통합 문서 | 설명 | 범위 |
+| 통합 문서 | 설명 | Scope |
 |----------|-------------|-------|
 | 성능 | Top N 목록 및 모든 설정한 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 대규모로 |
 | 성능 카운터 | 다양 한 성능 카운터에서 상위 N 차트 보기입니다. | 대규모로 |
@@ -173,7 +173,7 @@ CPU 성능의 표 시각화를 제공 하는 통합 문서로 가져온 중인 �
 
 ### <a name="using-a-text-parameter"></a>텍스트 매개 변수 사용
 
-텍스트 상자에 사용자가 직접 쿼리에서 이스케이프 없거나 인용 부호를 사용 하 여 대체 되는 값입니다. 필요한 값이 문자열인 경우 쿼리는 매개 변수에 인용 부호를 표시해야 합니다(예: **'{parameter}'**).
+텍스트 상자에 사용자가 직접 쿼리에서 이스케이프 없거나 인용 부호를 사용 하 여 대체 되는 값입니다. 필요한 값이 문자열인 경우 쿼리는 매개 변수에 인용 부호를 표시해야 합니다(예: **'{parameter}'** ).
 
 텍스트 매개 변수는 어디에 나 사용할 수 있는 텍스트 상자에 값을 허용 합니다. 테이블 이름, 열 이름, 함수 이름, 연산자 등일 수 있습니다.  Text 매개 변수 형식에는 설정이 **분석 쿼리에서 기본값 가져오기**, 통합 문서 작성자는 쿼리를 사용 하 여 해당 텍스트 상자에 대 한 기본 값을 채울 수 있습니다.
 

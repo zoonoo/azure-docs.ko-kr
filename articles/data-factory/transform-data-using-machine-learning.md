@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928081"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [현재 버전](transform-data-using-machine-learning.md)
 
@@ -66,7 +66,7 @@ Azure Data Factory를 사용 하면 쉽게 게시를 사용 하는 파이프라�
 
 JSON 정의에서 속성에 대한 설명은 [연결된 컴퓨팅 서비스](compute-linked-services.md) 문서를 참조하세요.
 
-Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 서비스를 모두 지원합니다. Data Factory에서 사용할 적합한 기능을 선택할 수 있습니다. Azure Machine Learning 연결된 서비스를 만드는 데 필요한 정보를 가져오려면 모든 새 웹 서비스 및 클래식 웹 서비스가 나열된 https://services.azureml.net으로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청**을 복사합니다.
+Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 서비스를 모두 지원합니다. Data Factory에서 사용할 적합한 기능을 선택할 수 있습니다. Azure Machine Learning 연결된 서비스를 만드는 데 필요한 정보를 가져오려면 모든 새 웹 서비스 및 클래식 웹 서비스가 나열된 https://services.azureml.net 으로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청**을 복사합니다.
 
 ![Azure Machine Learning 웹 서비스](./media/transform-data-using-machine-learning/web-services.png)
 

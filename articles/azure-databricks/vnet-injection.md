@@ -39,19 +39,19 @@ Azure Databricks 작업 영역을 배포 하는 가상 네트워크는 다음 �
 
 ### <a name="location"></a>Location
 
-가상 네트워크는 Azure Databricks 작업 영역으로 동일한 위치에 있어야 합니다.
+가상 네트워크는 Azure Databricks 작업 영역과 동일한 위치에 있어야 합니다.
 
 ### <a name="subnets"></a>서브넷
 
-가상 네트워크는 Azure Databricks에 전용 되는 두 개의 서브넷을 포함 해야 합니다.
+가상 네트워크는 Azure Databricks 전용인 두 개의 서브넷을 포함해야 합니다.
 
-   1. 클러스터 내부 통신을 허용 하는 구성 된 네트워크 보안 그룹을 사용 하 여 개인 서브넷
+   1. 클러스터 내부 통신을 허용하는 구성된 네트워크 보안 그룹이 있는 개인 서브넷
 
-   2. Azure Databricks 제어 평면으로 통신할 수 있도록 구성 된 네트워크 보안 그룹을 통해 공개 서브넷입니다.
+   2. Azure Databricks 제어 평면으로 통신할 수 있도록 구성된 네트워크 보안 그룹이 있는 공개 서브넷.
 
 ### <a name="address-space"></a>주소 공간
 
-/ 16 인 가상 네트워크에 대해/24 CIDR 블록을 사설 및 공용 서브넷에 대 한 /18/26 사이 사이의 CIDR 블록입니다.
+가상 네트워크용 /16 - /24 CIDR 블록과 사설 및 공용 서브넷에 대한 /18 - /26 사이의 CIDR 블록.
 
 ### <a name="whitelisting"></a>허용 목록
 
@@ -59,22 +59,22 @@ Azure Databricks 작업 영역을 배포 하는 가상 네트워크는 다음 �
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
-이 섹션에서는 Azure portal에서 Azure Databricks 작업 영역을 만들고 자신의 기존 가상 네트워크에 배포 하는 방법을 설명 합니다. 두 개의 새 서브넷 및 사용자가 제공 하는 CIDR 범위를 사용 하 여 네트워크 보안 그룹을 사용 하 여 가상 네트워크를 업데이트 하는 azure Databricks, 허용 목록에 인바운드 및 아웃 바운드 서브넷 트래픽을 업데이트 된 가상 네트워크에 작업 영역을 배포 합니다.
+이 섹션에서는 Azure portal에서 Azure Databricks 작업 영역을 만들고 자신의 기존 가상 네트워크에 배포 하는 방법을 설명합니다. Azure Databricks는 사용자가 제공하는 CIDR 범위를 사용하여 두 개의 새 서브넷 및 네트워크 보안 그룹을 사용하여 가상 네트워크를 업데이트하고, 허용 목록에 인바운드 및 아웃바운드 서브넷 트래픽을 추가하고 작업 공간을 업데이트된 가상 네트워크에 배포합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 가상 네트워크를 Azure Databricks 작업 영역 배포 해야 합니다. 기존 가상 네트워크를 사용 하거나 새 대시보드를 만들 수 있습니다 하지만 가상 네트워크와 Azure Databricks 작업 영역을 만들려는 동일한 지역에 있어야 합니다. / 16/24 사이의 CIDR 범위는 가상 네트워크가 필요 합니다.
 
   > [!Warning]
-  > 더 작은 가상 네트워크를 사용 하 여 작업 영역을 – 즉, 더 낮은 CIDR 범위 – 수 부족 IP 주소 (네트워크 공간) 보다 더 큰 가상 네트워크를 사용 하 여 작업 영역을 보다 신속 하 게 합니다. 예를 들어/24 사용 하 여 작업 영역 가상 네트워크 및/26 서브넷 반면 한 번에 활성 노드를 64 개까지 있을 수 있습니다는 /20을 사용 하 여 작업 영역을 가상 네트워크 및 롤아웃의 경우/22 서브넷에는 최대 1024 노드가 포함 될 수 있습니다.
+  > 더 작은 가상 네트워크가 있는 작업 영역은 – 즉, 더 낮은 CIDR 범위 – 큰 가상 네트워크가 있는 작업 영역보다 더 빨리 IP 주소(네트워크 공간)가 부족해질 수 있습니다. 예를 들어, /24 가상 네트워크 및 /26 서브넷이 있는 작업 영역은 한 번에 활성 노드를 최대 64 개까지 가질 수 있는 반면 /20 가상 네트워크 및 /22 서브넷이 있는 작업 영역은 최대 1024 노드가 포함될 수 있습니다.
 
-  서브넷을 작업 영역을 구성 하 고 기회를 구성 하는 동안 서브넷의 CIDR 범위를 제공 해야 하는 경우 자동으로 생성 됩니다.
+  작업 영역을 구성할 때 서브넷이 자동으로 생성되고, 구성하는 동안 서브넷의 CIDR 범위를 제공할 수 있는 기회가 있습니다.
 
 ## <a name="configure-the-virtual-network"></a>가상 네트워크 구성
 
 1. Azure portal에서 선택 **+ 리소스 만들기 > Analytics > Azure Databricks** Azure Databricks 서비스 대화 상자를 엽니다.
 
-2. 2 단계에서에서 설명 하는 구성 단계를 수행 합니다. 시작 하는 시작 가이드에서는 Azure Databricks 작업 영역 만들기 및 배포 하는 Azure Databricks 작업 영역에 가상 네트워크 옵션을 선택 합니다.
+2. 2 단계에서 설명하는 구성 단계를 수행합니다. 시작 가이드에서 Azure Databricks 작업 영역을 만들고 가상 네트워크에 Azure Databricks 작업 영역 배포 옵션을 선택합니다.
 
    ![Azure Databricks 서비스 만들기](./media/vnet-injection/create-databricks-service.png)
 
@@ -82,28 +82,28 @@ Azure Databricks 작업 영역을 배포 하는 가상 네트워크는 다음 �
 
    ![가상 네트워크 옵션](./media/vnet-injection/select-vnet.png)
 
-4. 두 서브넷의 경우 Azure Databricks에 전용 /18/26 사이 블록에서 CIDR 범위를 제공 합니다.
+4. Azure Databricks 전용 두 서브넷에 대해 /18 - /26 사이 블록에서 CIDR 범위를 제공합니다.
 
-   * 공용 서브넷을 Azure Databricks 제어 평면으로 통신할 수 있도록 연결 된 네트워크 보안 그룹을 사용 하 여 생성 됩니다.
-   * 클러스터 내부 통신을 허용 하는 연결 된 네트워크 보안 그룹을 사용 하 여 개인 서브넷 만들어질 수 있습니다.
+   * 공용 서브넷은 Azure Databricks 제어 평면으로 통신할 수 있도록 연결된 네트워크 보안 그룹을 사용하여 생성됩니다.
+   * 사설 서브넷은 클러스터 내부 통신을 허용 하는 연결된 네트워크 보안 그룹을 사용하여  생성됩니다.
 
-5. 클릭 **만들기** 가상 네트워크에 Azure Databricks 작업 영역을 배포 합니다.
+5. 가상 네트워크에 Azure Databricks 작업 영역을 배포하기 위해 **만들기**를 클릭합니다.
 
 ## <a name="advanced-resource-manager-configurations"></a>고급 리소스 관리자 구성
 
-사용자 고유의 보안 규칙 – 만들거나 기존 서브넷을 사용 하 여, 기존 네트워크 보안 그룹을 사용 하려면 예를 들어, 가상 네트워크의 구성을 통해 제어 하려는 경우 대신 다음 Azure Resource Manager 템플릿을 사용할 수 있습니다는 포털의 가상 네트워크 구성 및 작업 영역 배포 합니다.
+가상 네트워크의 구성을 더욱 제어하려는 경우 – 예를 들어, 사용자 고유의 보안 규칙을 만들거나 기존 네트워크 보안 그룹을 사용하거나 기존 서브넷을 사용하려면 - 포털의 가상 네트워크 구성 및 작업 영역 배포 대신 다음 Azure Resource Manager 템플릿을 사용할 수 있습니다.
 
 ### <a name="all-in-one"></a>통합형
 
-하나에서 모든 가상 네트워크, 네트워크 보안 그룹 및 Azure Databricks 작업 영역을 만들려면 사용 합니다 [Databricks VNet 삽입 작업 영역에 대 한 모든 통합 된 단일 템플릿을](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)합니다.
+가상 네트워크, 네트워크 보안 그룹 및 Azure Databricks 작업 영역을 한 번에 만들려면 [Databricks VNet 삽입된 작업 영역에 대한 통합 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/)을 사용합니다.
 
-이 템플릿을 사용 하는 경우 모든 수동 허용 목록에 추가 서브넷 트래픽 할 필요가 없습니다.
+이 템플릿을 사용하는 경우 허용 목록에 서브넷 트래픽을 수동으로 추가할 필요가 없습니다.
 
 ### <a name="network-security-groups"></a>네트워크 보안 그룹
 
 기존 가상 네트워크에 대 한 필요한 규칙을 사용 하 여 네트워크 보안 그룹을 만들기를 사용 합니다 [Databricks VNet 삽입에 대 한 네트워크 보안 그룹 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)합니다.
 
-이 템플릿을 사용 하는 경우 모든 수동 허용 목록에 추가 서브넷 트래픽 할 필요가 없습니다.
+이 템플릿을 사용하는 경우 허용 목록에 서브넷 트래픽을 수동으로 추가할 필요가 없습니다.
 
 ### <a name="virtual-network"></a>가상 네트워크
 

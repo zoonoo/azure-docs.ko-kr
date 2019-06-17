@@ -13,10 +13,10 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240878"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
@@ -63,7 +63,7 @@ ms.locfileid: "66240878"
 
 각 테넌트가 서비스를 사용하는 방법에 대해 이해하면 테넌트가 더 성공적인 성과를 거둘 수 있도록 지원하기 위한 서비스 수익화 및 서비스 개선에 대한 옵션을 알아볼 수 있습니다. 이 자습서에서는 테넌트 데이터로부터 창출할 수 있는 기본적인 정보를 다양하게 살펴볼 수 있습니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설정
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -175,7 +175,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **연결**을 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **Connect**를 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -227,7 +227,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 방법을 학습했습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기

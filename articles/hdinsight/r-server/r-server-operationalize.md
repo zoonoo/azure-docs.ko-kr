@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719758"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
@@ -72,7 +72,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
     ![one-box 조작화](./media/r-server-operationalize/diagnostic-2.png)
 
-    다. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
+    c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
     ![one-box 조작화](./media/r-server-operationalize/diagnostic-3.png)
 

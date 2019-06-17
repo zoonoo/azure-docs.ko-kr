@@ -10,10 +10,10 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466275"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
@@ -113,7 +113,7 @@ Clipper에 대한 [TypeScript](https://www.typescriptlang.org/) 정의 파일은
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 이 섹션에서는 Clipper에서 제공되는 API 화면을 설명합니다.
 
-- `ready(handler)`: Clipper를 완전히 로드하여 사용할 준비가 되면 즉시 JavaScript를 실행하는 방법을 제공합니다. 
+- `ready(handler)`: Clipper를 완전히 로드하여 사용할 준비가 되면 즉시 JavaScript를 실행하는 방법을 제공합니다.
 - `load(assets)`: 위젯 타임라인에 자산 목록을 로드합니다(assetsPanelLoaderCallback과 함께 사용하면 안 됨). 자산을 Clipper로 로드하는 방법에 대한 자세한 내용은 이 [문서](media-services-azure-media-clipper-load-assets.md)를 참조하세요.
 - `setLogLevel(level)`: 브라우저 콘솔에 표시할 로깅 수준을 설정합니다. 가능한 값: `info`, `warn`, `error`.
 - `setHeight(height)`: 위젯의 전체 높이(픽셀)입니다. 최소 높이는 자산 창 없이 600px이고 자산 창을 포함하여 850px입니다.

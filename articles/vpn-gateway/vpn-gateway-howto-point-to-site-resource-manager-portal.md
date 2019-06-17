@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157285"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. Azure portal
@@ -37,13 +37,13 @@ ms.locfileid: "66157285"
 
 * **VNet 이름:** VNet1
 * **주소 공간:** 192.168.0.0/16<br>이 예제에서는 하나의 주소 공간만 사용합니다. VNet에는 둘 이상의 주소 공간을 포함할 수 있습니다.
-* **서브넷 이름:** 프런트 엔드
+* **서브넷 이름:** FrontEnd
 * **서브넷 주소 범위:** 192.168.1.0/24
 * **구독:** 구독이 둘 이상 있는 경우 올바른 구독을 사용 중인지 확인합니다.
 * **리소스 그룹:** TestRG
 * **위치:** 미국 동부
 * **게이트웨이 서브넷:** 192.168.200.0/24<br>
-* **DNS 서버:**(선택 사항) 이름 확인에 사용할 DNS 서버의 IP 주소.
+* **DNS 서버:** (선택 사항) 이름 확인에 사용할 DNS 서버의 IP 주소.
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
 * **게이트웨이 유형:** VPN
 * **VPN 유형:** 경로 기반
@@ -155,7 +155,7 @@ VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하�
 >
 >
 
-1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **연결**을 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. **계속**을 클릭하여 상승된 권한을 사용합니다.
+1. VNet에 연결하려면 클라이언트 컴퓨터에서 VPN 연결로 이동하고 만든 VPN 연결을 찾습니다. 가상 네트워크와 같은 이름이 지정됩니다. **Connect**를 클릭합니다. 인증서 사용을 안내하는 팝업 메시지가 나타날 수 있습니다. **계속**을 클릭하여 상승된 권한을 사용합니다.
 
 2. **연결** 상태 페이지에서 **연결**을 클릭하여 연결을 시작합니다. **인증서 선택** 화면에서 표시되는 클라이언트 인증서가 연결하는 데 사용할 인증서인지 확인합니다. 그렇지 않은 경우 드롭다운 화살표를 사용하여 올바른 인증서를 선택한 다음 **확인**을 클릭합니다.
 

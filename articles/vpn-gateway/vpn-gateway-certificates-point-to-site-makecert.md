@@ -3,17 +3,16 @@ title: '지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내
 description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/01/2018
-ms.author: v-jay
+ms.date: 09/05/2018
+ms.author: cherylmc
 ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768109"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기

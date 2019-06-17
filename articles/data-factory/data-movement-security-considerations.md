@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153269"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 >
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
@@ -46,7 +46,7 @@ Data Factory는 다음에 대해 인증을 받았습니다.
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance를 확인하세요.
+Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 https://aka.ms/AzureCompliance 를 확인하세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
