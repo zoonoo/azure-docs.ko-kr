@@ -101,27 +101,27 @@ Azure Databricks 작업 영역을 배포 하는 가상 네트워크는 다음 �
 
 ### <a name="network-security-groups"></a>네트워크 보안 그룹
 
-기존 가상 네트워크에 대 한 필요한 규칙을 사용 하 여 네트워크 보안 그룹을 만들기를 사용 합니다 [Databricks VNet 삽입에 대 한 네트워크 보안 그룹 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)합니다.
+기존 가상 네트워크에 대한 필요한 규칙을 사용하여 네트워크 보안 그룹을 만들려면 [Databricks VNet 삽입에 대한 네트워크 보안 그룹 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection)을 사용합니다.
 
 이 템플릿을 사용하는 경우 허용 목록에 서브넷 트래픽을 수동으로 추가할 필요가 없습니다.
 
 ### <a name="virtual-network"></a>가상 네트워크
 
-적절 한 공용 및 개인 서브넷과 가상 네트워크를 만들려면 사용 합니다 [Databricks VNet 주입을 위한 가상 네트워크 템플릿을](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection)합니다.
+적절한 공용 및 사설 서브넷이 있는 가상 네트워크를 만들려면 [Databricks VNet 삽입을 위한 가상 네트워크 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection)을 사용합니다.
 
-또한 네트워크 보안 그룹 템플릿을 사용 하지 않고이 서식 파일을 사용 하는 경우 가상 네트워크를 사용 하는 네트워크 보안 그룹에 허용 목록 규칙을 수동으로 추가 해야 합니다.
+또한 네트워크 보안 그룹 템플릿을 사용하지 않고 이 템플릿을 사용하는 경우 가상 네트워크를 사용하는 네트워크 보안 그룹에 허용 목록 규칙을 수동으로 추가해야 합니다.
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 작업 영역
 
-Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 구성 된 네트워크 보안 그룹을 이미 설정 된 기존 가상 네트워크를 배포 하려면 사용 합니다 [Databricks VNet 주입을 위한 작업 영역 템플릿은](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)합니다.
+올바르게 구성된 네트워크 보안 그룹이 이미 설정되고 공용 및 개인 서브넷이 있는 기존 가상 네트워크에 Azure Databricks 작업 영역을 배포하려면 [Databricks VNet 삽입을 위한 작업 영역 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)을 사용합니다.
 
-또한 네트워크 보안 그룹 템플릿을 사용 하지 않고이 서식 파일을 사용 하는 경우 가상 네트워크를 사용 하는 네트워크 보안 그룹에 허용 목록 규칙을 수동으로 추가 해야 합니다.
+또한 네트워크 보안 그룹 템플릿을 사용하지 않고 이 템플릿을 사용하는 경우 가상 네트워크를 사용하는 네트워크 보안 그룹에 허용 목록 규칙을 수동으로 추가해야 합니다.
 
 ## <a name="whitelisting-subnet-traffic"></a>허용 목록 서브넷 트래픽
 
 사용 하지 않는 경우는 [Azure portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) 또는 [Azure Resource Manager 템플릿](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) 네트워크 보안 그룹을 만들려면 수동으로 해야 다음 트래픽 허용 목록을 서브넷에 있습니다.
 
-|Direction|프로토콜|source|원본 포트|대상|대상 포트|
+|방향|프로토콜|source|원본 포트|대상|대상 포트|
 |---------|--------|------|-----------|-----------|----------------|
 |인바운드|\*|VirtualNetwork|\*|\*|\*|
 |인바운드|\*|제어 평면 NAT IP|\*|\*|22|
@@ -131,7 +131,7 @@ Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 �
 |아웃바운드|\*|\*|\*|저장소 (서비스 태그)|\*|
 |아웃바운드|\*|\*|\*|VirtualNetwork|\*|
 
-다음 IP를 사용 하 여 허용 목록에 추가 서브넷 트래픽 해결 합니다. SQL (metastore)와 Storage (아티팩트 및 로그 저장소)에 대 한 Sql 및 저장소를 사용 해야 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)합니다.
+다음 IP를 사용하는 서브넷 트래픽을 허용 목록에 추가합니다. SQL(metastore)과 저장소(아티팩트 및 로그 저장소)에 대해, Sql 및 저장소 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용해야 합니다.
 
 |Azure Databricks 지역|서비스|공용 IP|
 |-----------------------|-------|---------|
@@ -166,21 +166,21 @@ Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 �
 
 사용자 지정 가상 네트워크에서 작업 영역 시작 실패 Azure Databricks에서 다음 오류를 사용 하 여 화면에 로그인 합니다. **"작업 영역을 만드는 오류가 발생 했습니다. 사용자 지정 네트워크 구성이 올바른지 확인 하 고 다시 시도 하십시오. "**
 
-이 오류는 네트워크 구성 요구 사항에 맞지 않음으로 발생 합니다. 작업 영역을 만들 때이 항목의 지침을 수행 했는지 확인 합니다.
+이 오류는 네트워크 구성이 요구 사항을 충족하지 않아 발생합니다. 작업 영역을 만들 때 이 항목의 지침을 수행했는지 확인합니다.
 
 ### <a name="cluster-creation-errors"></a>클러스터 만들기 오류
 
 **인스턴스에 연결할 수 없습니다. 리소스는 SSH를 통해 연결할 수 없습니다.**
 
-가능한 원인: 작업자 제어 평면에서 트래픽이 차단 됩니다. 인바운드 보안 규칙 요구 사항을 충족 하는지 확인 하 여 수정 합니다. 온-프레미스 네트워크에 연결 된 기존 가상 네트워크에 배포 하는 경우 온-프레미스 네트워크에 연결 하는 Azure Databricks 작업 영역에서 제공 되는 정보를 사용 하 여 설치를 검토 합니다.
+가능한 원인: 제어 평면에서 작업자로의 트래픽이 차단되었습니다. 인바운드 보안 규칙이 요구 사항을 충족하는지 확인하여 수정합니다. 온-프레미스 네트워크에 연결된 기존 가상 네트워크에 배포하는 경우, 온-프레미스 네트워크에 Azure Databricks 작업 영역 연결에서 제공되는 정보를 사용하여 설치를 검토합니다.
 
 **예기치 않은 시작 실패: 클러스터를 설정 하는 동안 예기치 않은 오류가 발생 했습니다. 다시 시도 하 고 문제가 계속 되 면 Azure Databricks에 게 문의 합니다. 내부 오류 메시지: 노드를 배치 하는 동안 시간이 초과 되었습니다.**
 
-가능한 원인: Azure Storage 끝점에 작업자에서 트래픽이 차단 됩니다. 아웃 바운드 보안 규칙 요구 사항을 충족 하는지 확인 하 여 수정 합니다. 사용자 지정 DNS 서버를 사용 하는 경우에 가상 네트워크에 DNS 서버의 상태를 확인할 수도 있습니다.
+가능한 원인: 작업자에서 Azure Storage 끝점으로의 트래픽이 차단되었습니다. 아웃바운드 보안 규칙 요구 사항을 충족하는지 확인하여 수정합니다. 사용자 지정 DNS 서버를 사용하는 경우 가상 네트워크의 DNS 서버의 상태도 확인합니다.
 
 **클라우드 공급자 시작 실패: 클러스터를 설정 하는 동안 클라우드 공급자 오류가 발생 했습니다. 자세한 내용은 Azure Databricks 가이드를 참조 하십시오. Azure 오류 코드: AuthorizationFailed/InvalidResourceReference.**
 
-가능한 원인: 가상 네트워크 또는 서브넷 더 이상 존재 하지 않습니다. 가상 네트워크 및 서브넷이 존재 하는지 확인 합니다.
+가능한 원인: 가상 네트워크 또는 서브넷이 더 이상 존재하지 않습니다. 가상 네트워크 및 서브넷이 존재하는지 확인합니다.
 
 **클러스터를 종료 합니다. 원인: Spark 시작 오류: Spark가 시간에 시작 하지 못했습니다. Hive metastore를 제대로 작동 하지 않는, 잘못 된 Spark 구성 또는 오작동 init 스크립트에서이 문제를 발생할 수 있습니다. 문제가 지속 되 면 Databricks 문의 및이 문제를 해결 하려면 Spark 드라이버 로그를 참조 합니다. 내부 오류 메시지: Spark를 시작 하지 못했습니다. 드라이버 시간에 시작 하지 못했습니다.**
 
@@ -188,13 +188,13 @@ Azure Databricks 작업 영역을 공용 및 개인 서브넷 및 올바르게 �
 
 ### <a name="notebook-command-errors"></a>Notebook 명령 오류
 
-**명령 응답 하지 않습니다.**
+**명령이 응답하지 않습니다.**
 
-가능한 원인: 작업자-작업자 통신이 차단 됩니다. 인바운드 보안 규칙 요구 사항을 충족 하는지 확인 하 여 수정 합니다.
+가능한 원인: 작업자-작업자 통신이 차단 됩니다. 인바운드 보안 규칙이 요구 사항을 충족하는지 확인하여 수정합니다.
 
-**전자 필기장 워크플로 예외와 함께 실패: com.databricks.WorkflowException: org.apache.http.conn.ConnectTimeoutException**
+**Notebook 워크플로가 다음 예외를 발생시키며 실패: com.databricks.WorkflowException: org.apache.http.conn.ConnectTimeoutException**
 
-가능한 원인: Azure Databricks Webapp 작업자에서 트래픽이 차단 됩니다. 아웃 바운드 보안 규칙 요구 사항을 충족 하는지 확인 하 여 수정 합니다.
+가능한 원인: Azure Databricks Webapp 작업자에서 트래픽이 차단 됩니다. 아웃바운드 보안 규칙 요구 사항을 충족하는지 확인하여 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/25/2019
 ms.author: atsenthi
 ms.openlocfilehash: feb82d2abb756d636aeb77042cc817b7b05f6b0c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233673"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유

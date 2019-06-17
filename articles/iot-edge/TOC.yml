@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: SQL을 사용하여 데이터 로컬에 저장
           href: tutorial-store-data-sql-server.md
+    - name: 4. 에지에 기계 학습 엔드투엔드 예제
+      items:
+        - name: 소개
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: 개발 머신 및 Azure 서비스 설정
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: 시뮬레이션된 디바이스 데이터 생성
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Azure Machine Learning 모델 학습 및 배포
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: 투명 게이트웨이 구성
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: IoT Edge 모듈 생성 및 배포
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: 투명 게이트웨이를 통해 IoT Hub에 데이터 보내기
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: 개념
   items:
     - name: IoT Edge 런타임
@@ -149,7 +165,9 @@
       items:
         - name: 투명 게이트웨이 구성
           href: how-to-create-transparent-gateway.md
-        - name: 다운스트림 장치 연결
+        - name: 다운스트림 디바이스 인증
+          href: how-to-authenticate-downstream-device.md
+        - name: 다운스트림 디바이스 연결
           href: how-to-connect-downstream-device.md
         - name: Modbus 프로토콜 게이트웨이
           href: deploy-modbus-gateway.md
