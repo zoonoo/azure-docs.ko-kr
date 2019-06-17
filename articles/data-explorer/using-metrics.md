@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826801"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Azure 데이터 탐색기 성능, 상태 및 메트릭 사용 하 여 사용량 모니터링
@@ -49,7 +49,7 @@ Azure 데이터 탐색기 클러스터에서 선택 **메트릭을** 메트릭 �
     | 수집 결과 | 카운트 | 카운트 | 성공 및 실패 하 여 수집 작업의 총 수입니다. 사용 하 여 **분할을 적용할** 를 만들고 버킷 성공 및 실패 결과 크기 분석 (**값** > **상태**).|
     | 수집 사용률 | 백분율 | Avg, Max, Min | 수집 하는 데 용량 정책에 할당 된 총 리소스에서 데이터를 수집 하는 데 사용 되는 실제 리소스의 백분율입니다. 기본 용량 정책에는 512 동시 수집 작업 또는 수집에 투자 하 고 클러스터 리소스의 75% 넘지 않습니다. 평균 수집 사용률이 80% 이하의 클러스터에 대 한 지속 가능한 상태입니다. 수집 사용률의 최대값은 100% 모든 클러스터 수집 기능이 사용 되 고 수집 큐를 발생할 수 있습니다. |
     | Mb 단위로 수집 볼륨 | 카운트 | Max, Min, Sum | 압축 하기 전에 클러스터 (MB)에 수집 된 데이터의 총 크기입니다. |
-    | 연결 유지 | 카운트 | 평균 | 클러스터의 응답성을 추적합니다. 값 1을 반환 하는 완벽 하 게 반응 형 클러스터 및 차단 되거나 연결이 끊어진 클러스터 0을 반환 합니다. |
+    | 연결 유지 | 카운트 | Avg | 클러스터의 응답성을 추적합니다. 값 1을 반환 하는 완벽 하 게 반응 형 클러스터 및 차단 되거나 연결이 끊어진 클러스터 0을 반환 합니다. |
     | 쿼리 기간 | 초 | Count, Avg, Min, Max, Sum | 총 쿼리 결과 받을 때까지 시간 (네트워크 대기 시간을 포함 하지 않습니다). |
     | | | |
 

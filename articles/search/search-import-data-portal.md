@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024771"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search의 데이터 가져오기 마법사
@@ -115,7 +115,7 @@ Azure Search를 처음 사용하세요? [빠른 시작: 가져오기, 인덱싱 
    + **정렬 가능**을 선택하면 필드를 정렬에 사용할 수 있습니다. **$Orderby** 식에 사용되는 모든 필드는 이 특성이 있어야 합니다.
    + **패싯 가능**을 통해 필드를 패싯 탐색에 사용할 수 있습니다. **필터링 가능**으로도 표시되는 필드만 **패싯 가능**으로 표시될 수 있습니다.
 
-1. 언어 강화 인덱싱 및 쿼리를 원하는 경우 **분석기**를 설정합니다. 기본값은 표준 Lucene이지만 불규칙한 명사 및 동사 형태를 확인하는 것과 같은 고급 어휘 처리에 Microsoft의 분석기를 사용하려는 경우 Microsoft 영어를 선택할 수도 있습니다.
+1. 언어 강화 인덱싱 및 쿼리를 원하는 경우 **분석기**를 설정합니다. 기본값은 표준 Lucene이지만 불규칙한 명사 및 동사 형태를 확인하는 것과 같은 고급 어휘 처리에 Microsoft의 분석기를 사용하려는 경우 Microsoft 영어를 선택할 수도 있습니다.  
 
    + **분석기** 목록을 사용하도록 설정하려면 **검색 가능**을 선택합니다.
    + 목록에 제공된 분석기를 선택합니다. 

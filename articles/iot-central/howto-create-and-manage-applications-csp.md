@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473538"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션 만들기 및 관리 
@@ -43,7 +43,7 @@ Azure IoT Central 응용 프로그램을 만들려면 선택 합니다 **새 응
 
 CSP로서 종량제 애플리케이션만 만들 수 있습니다. 고객에게 Azure IoT Central을 소개하려면 평가판 애플리케이션을 별도로 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 평가판 및 종량제 애플리케이션에 대해 자세히 알아보세요.
 
-## <a name="application-name"></a>응용 프로그램 이름
+## <a name="application-name"></a>Application Name
 
 애플리케이션 이름은 **애플리케이션 관리자** 페이지 그리고 각 Azure IoT Central 애플리케이션 내에서 표시됩니다. Azure IoT Central 애플리케이션의 이름으로 원하는 이름을 선택할 수 있습니다. 본인에게 그리고 조직 내 다른 사람들에게 의미 있는 이름을 선택하면 됩니다.
 

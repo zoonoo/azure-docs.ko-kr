@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969068"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
@@ -178,7 +178,7 @@ ms.locfileid: "65969068"
 
 15. **정책**
 
-    그림에는 없지만 일부 보고서에는 예상 비용 계산 정책이 포함됩니다. 이러한 보고서에서 **통합** 정책은 Microsoft 등록이나 AWS 지불자 등, 현재 엔터티의 모든 계정 및 구독에 대한 권장 사항을 나타냅니다. **독립형** 정책은 다른 구독이 없는 경우 한 계정 또는 구독에 대한 권장 사항을 나타냅니다.  선택한 정책은 조직에서 사용하는 최적화 전략에 따라 다릅니다. 비용 예상은 지난 30일 사용량을 기준으로 합니다.
+    그림에는 없지만 일부 보고서에는 예상 비용 계산 정책이 포함됩니다. 이러한 보고서에서 **통합** 정책은 Microsoft 등록이나 AWS 지불자 등, 현재 엔터티의 모든 계정 및 구독에 대한 권장 사항을 나타냅니다. **독립형** 정책은 다른 구독이 없는 경우 한 계정 또는 구독에 대한 권장 사항을 나타냅니다. 선택한 정책은 조직에서 사용하는 최적화 전략에 따라 다릅니다. 비용 예상은 지난 30일 사용량을 기준으로 합니다.
 
 ## <a name="save-and-schedule-reports"></a>보고서 저장 및 예약
 

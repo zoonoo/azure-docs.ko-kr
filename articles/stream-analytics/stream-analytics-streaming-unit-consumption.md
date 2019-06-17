@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916029"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
@@ -131,7 +131,7 @@ temporal 분석 함수의 소비 메모리(상태 크기)는 이벤트 속도와
 
 순서가 잘못된 버퍼의 오버플로를 수정하려면 **PARTITION BY**를 사용하여 쿼리를 확장합니다. 쿼리가 분할되면 여러 노드에 걸쳐 분산됩니다. 결과적으로, 각 노드로 들어오는 이벤트 수가 감소하여 각각의 순서 재지정 버퍼의 이벤트 수가 줄어듭니다. 
 
-## <a name="input-partition-count"></a>입력 분할 개수  
+## <a name="input-partition-count"></a>입력 분할 개수 
 작업 입력의 각 입력 파티션에는 버퍼가 있습니다. 입력 파티션 수가 클수록 이 작업이 더 많은 리소스를 소비합니다. 각 스트리밍 단위에 대해 Azure Stream Analytics는 대략 1 MB/s의 입력을 처리할 수 있습니다. 따라서 Stream Analytics 스트리밍 단위 수를 Event Hubs의 파티션 수와 일치 시켜서 최적화할 수 있습니다. 
 
 일반적으로 하나의 스트리밍 유닛으로 구성된 작업은 두 개의 파티션이 있는 Event Hub(Event Hub의 경우 최소)로 충분합니다. Event Hub에 더 많은 파티션이 있으면 Stream Analytics 작업이 더 많은 리소스를 소비하지만 Event Hub에서 제공한 추가적인 처리량을 반드시 사용하는 것은 아닙니다. 
