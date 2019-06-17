@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424657"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
@@ -104,10 +104,10 @@ applicationsScoping //this brings data from Application Insights resources
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Message |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
-| AvailabilityTestName | 이름 |
+| AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | 브라우저 | client_browser |
 | City | client_city |
@@ -116,24 +116,24 @@ applicationsScoping //this brings data from Application Insights resources
 | 국가 | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | 이름 | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Message | 
+| ExceptionMessage | message | 
 | ExceptionType | 형식 |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
-| PageViewName | 이름 | 
+| PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
 | RequestID | id | 
-| RequestName | 이름 | 
+| RequestName | name | 
 | RequestSuccess | 성공 | 
 | ResponseCode | resultCode | 
 | 역할 | cloud_RoleName |

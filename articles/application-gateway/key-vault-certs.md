@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827636"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용 하 여 SSL 종료

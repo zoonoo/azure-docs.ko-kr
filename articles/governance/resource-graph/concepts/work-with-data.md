@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137867"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
@@ -37,7 +37,7 @@ Search-AzGraph -Query "project name | order by name asc" -First 200
 
 [REST API](/rest/api/azureresourcegraph/resources/resources)에서 제어는 **$top**이며 **QueryRequestOptions**의 일부입니다.
 
-‘가장 제한적’인 제어가 적용됩니다. 예를 들어 쿼리에서 **top** 또는 **limit** 연산자를 사용하며 **First**보다 많은 레코드를 생성하는 경우 반환되는 최대 레코드 수는 **First**와 같습니다. 마찬가지로, **top** 또는 **limit**가 **First**보다 작은 경우 반환되는 레코드 집합은 **top** 또는 **limit**로 구성된 더 작은 값이 됩니다.
+‘가장 제한적’인 제어가 적용됩니다.  예를 들어 쿼리에서 **top** 또는 **limit** 연산자를 사용하며 **First**보다 많은 레코드를 생성하는 경우 반환되는 최대 레코드 수는 **First**와 같습니다. 마찬가지로, **top** 또는 **limit**가 **First**보다 작은 경우 반환되는 레코드 집합은 **top** 또는 **limit**로 구성된 더 작은 값이 됩니다.
 
 **First**의 현재 허용된 최댓값은 _5000_입니다.
 

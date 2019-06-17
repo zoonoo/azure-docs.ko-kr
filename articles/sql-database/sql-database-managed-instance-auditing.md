@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702867"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리형 인스턴스 감사 시작
@@ -26,7 +26,7 @@ ms.locfileid: "60702867"
 [관리되는 인스턴스](sql-database-managed-instance.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다. 또한
 
 - 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
-- 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. Azure에 대 한 자세한 내용은 지원 표준 규정 준수 프로그램에 대 한 참조를 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
+- 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은, SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 확인합니다.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Azure Storage로 서버에 대한 감사 설정
 
@@ -217,7 +217,7 @@ Even Hubs 또는 Azure Monitor 로그에서 관리 되는 인스턴스 감사 �
 
 감사 로그는 Azure Monitor 로그에 기록에 있는 경우 사용할 수 있는 감사 데이터에 대해 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 합니다. 시작 지점으로 고 Log Analytics 작업 영역으로 이동 *일반적인* 섹션 클릭 *로그* 와 같은 간단한 쿼리를 입력 하 고: `search "SQLSecurityAuditEvents"` 로그를 보려면 감사 합니다.  
 
-Azure Monitor 로그 통합된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보를 추가, 참조 [Azure Monitor 로그 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)합니다.
+Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대한 유용한 추가 정보를 위해서는, [Azure Monitor 로그 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 확인합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -242,7 +242,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 ## <a name="next-steps"></a>다음 단계
 
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](sql-database-auditing.md)을 참조하세요.
-- Azure에 대 한 자세한 내용은 지원 표준 규정 준수 프로그램에 대 한 참조를 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
+- 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은, SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있는 [Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 확인합니다.
 
 <!--Image references-->
 
