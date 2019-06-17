@@ -70,24 +70,24 @@ Chef VM 확장에 대한 스키마를 보여주는 JSON은 다음과 같습니�
 
 | 이름 | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | 문자열(날짜) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | 문자열 |
-| 형식 | `LinuxChefClient`(Linux), `ChefClient`(Windows) | 문자열 |
-| typeHandlerVersion | `1210.12` | 문자열(double) |
+| apiVersion | `2017-12-01` | string (date) |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient`(Linux), `ChefClient`(Windows) | string |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>설정
 
 | 이름 | 값/예제 | 데이터 형식 | Required?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 문자열(URL) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | 문자열 | Y |
-| settings/runlist | `recipe[mycookbook::default]` | 문자열 | Y |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>보호 설정
 
 | 이름 | 예 | 데이터 형식 | Required?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 문자열 | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings
