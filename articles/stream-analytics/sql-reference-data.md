@@ -110,13 +110,13 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Visual Studio의 입력 코드 숨김](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
-   "덱타로 주기적으로 새로 고침"을 선택하면 두 개의 SQL CodeBehind 파일 **[입력 별칭].snapshot.sql** 및 **[입력 별칭].delta.sql**이 생성됩니다.
+   "델타로 주기적으로 새로 고침"을 선택하면 두 개의 SQL CodeBehind 파일 **[입력 별칭].snapshot.sql** 및 **[입력 별칭].delta.sql**이 생성됩니다.
 
    ![솔루션 탐색기의 코드 숨김](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2019를 사용 하는 SQL Server Data tools를 설치한 경우 클릭 하 여 쿼리를 테스트할 수 있습니다 **Execute**합니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
+5. Visual Studio 2019를 사용 하는 SQL Server Data tools를 설치한 경우 **Execute** 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
@@ -148,7 +148,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    ```
 2. 스냅샷 쿼리를 작성합니다. 
 
-   사용 된  **\@snapshotTime** SQL 데이터베이스 temporal 테이블에서 시스템 시간에서 올바른 참조 데이터 집합을 가져오려면 Stream Analytics 런타임 매개 변수입니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
+   **\@snapshotTime** 매개 변수를 사용하여 Stream Analytics 런타임을 지시하여 시스템 시간에 유효한 SQL 데이터베이스 temporal 테이블에서 참조 데이터 집합을 가져오도록 합니다. 이 매개 변수를 제공하지 않으면 클럭 오차로 인해 부정확한 기본 참조 데이터 세트를 가져올 수 있습니다. 전체 스냅샷 쿼리 예제는 아래에 나와 있습니다.
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -157,7 +157,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
 2. 델타 쿼리를 작성합니다. 
    
-   모든 삽입 또는 시작 시간을 내에서 삭제 된 SQL database에 행을 검색 하는이 쿼리입니다  **\@deltaStartTime**, 종료 시간  **\@deltaEndTime**합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 행이 삽입 되거나 사이 삭제 하는 경우이 열을 정의  **\@deltaStartTime** 하 고  **\@deltaEndTime**합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
+   이 쿼리는 시작 시간 **\@deltaStartTime**과 종료 시간  **\@deltaEndTime** 사이에 SQL database에서 삽입 또는 삭제된 모든 행을 검색합니다. 델타 쿼리는 스냅샷 쿼리와 동일한 열뿐만 아니라 **_opdration_** 열도 반환해야 합니다. 이 열은 행이 **\@deltaStartTime**과  **\@deltaEndTime** 내에서  삽입되거나 삭제되었는지를 정의합니다. 결과 행에는 레코드가 삽입되면 **1**, 삭제되면 **2**가 태그로 지정됩니다. 
 
    업데이트된 레코드의 경우 temporal 테이블은 삽입 및 삭제 작업을 캡처하여 목록을 만듭니다. 그러면 Stream Analytics 런타임은 이전 스냅샷에 델타 쿼리 결과를 적용하여 참조 데이터를 최신 상태로 유지합니다. 델타 쿼리 예제는 다음과 같습니다.
 
@@ -174,7 +174,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅샷 쿼리를 주기적으로 실행할 수 있습니다.
 
 ## <a name="test-your-query"></a>쿼리 테스트
-   쿼리에서 참조 데이터로 사용할 Stream Analytics 작업을 예상된 데이터 집합을 반환 하는 확인 하는 것이 반드시 합니다. 쿼리를 테스트 하려면 입력 작업 토폴로지 섹션에서 포털에서으로 이동 합니다. 그런 다음 입력 하 여 SQL Database 참조에서 샘플 데이터를 선택할 수 있습니다. 샘플 사용 가능 해지면, 파일을 다운로드할 수 있으며로 반환 될 데이터 인지 확인 하려면 확인 수 있습니다. 사용 하도록 권장 되는 개발 및 테스트 반복을 최적화 하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)합니다. 쿼리가 올바른 결과 반환 하는 Azure SQL database에서 먼저 확인 하 여 Stream Analytics 작업에 사용 하 여 기본 설정의 다른 도구도 할 수 있습니다. 
+   쿼리에서 참조 데이터로 사용할 Stream Analytics 작업을 예상된 데이터 집합을 반환 하는지 확인 하는 것이 중요합니다. 쿼리를 테스트 하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동 합니다. 그런 다음 SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플이 사용 가능 해지면, 파일을 다운로드할 수 있으며 데이터가 기대한 대로 반환되는지 확인 할 수 있습니다. 개발 및 테스트 반복을 최적화 하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 쿼리가 Azure SQL database에서 올바른 결과를 반환 하는지 먼저 확인하기 위해 원하는 다른 도구를 사용한 다음 Stream Analytics 작업에 이 결과를 사용할 수 있습니다. 
 
 ## <a name="faqs"></a>FAQ
 
