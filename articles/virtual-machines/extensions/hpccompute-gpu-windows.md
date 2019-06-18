@@ -37,9 +37,9 @@ ms.locfileid: "60388678"
 
 | 배포 | Version |
 |---|---|
-| Windows 10(1803 버전까지)| 코어 |
-| Windows Server 2016 | 코어 |
-| Windows Server 2012R2 | 코어 |
+| Windows 10(1803 버전까지)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -74,8 +74,8 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | 문자열 |
-| 형식 | NvidiaGpuDriverWindows | 문자열 |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
