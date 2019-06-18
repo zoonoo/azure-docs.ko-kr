@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947116"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752009"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway의 새로운 소식
 
@@ -27,6 +27,7 @@ Azure Application Gateway는 지속적으로 업데이트됩니다. 최신 개�
 
 |기능  |설명  |추가된 날짜  |
 |---------|---------|---------|
+|WAF 사용자 지정 규칙 |Application Gateway WAF_v2는 이제 사용자 지정 규칙 만들기를 지원합니다. [Application Gateway 사용자 지정 규칙](custom-waf-rules-overview.md)을 참조하세요. |2019년 6월 |
 |자동 크기 조정, 영역 중복, 정적 VIP 지원 GA |자동 크기 조정, 영역 중복, 성능 향상, 정적 VIP, Key Vault, 헤더 다시 쓰기를 지원하는 v2 SKU의 일반 가용성. [Application Gateway 자동 크기 조정 설명서](application-gateway-autoscaling-zone-redundant.md)를 참조하세요. |2019년 4월 |
 |Key Vault 통합 |Application Gateway는 이제 HTTPS 지원 수신기에 연결된 서버 인증서에 대한 Key Vault(공개 미리 보기 상태)와의 통합을 지원합니다. [Key Vault 인증서를 사용한 SSL 종료](key-vault-certs.md)를 참조하세요. |2019년 4월 |
 |헤더 CRUD/다시 쓰기     |이제 HTTP 헤더를 다시 쓸 수 있습니다. 단계별 지침은 [자습서: 애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기](tutorial-http-header-rewrite-powershell.md)를 참조하세요.|2018년 12월|

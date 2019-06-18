@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122993"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작
@@ -114,7 +114,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **CreateTable** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **CreateTable** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -203,7 +203,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **AddEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **AddEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -298,7 +298,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **AddEntities** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **AddEntities** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -418,7 +418,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **GetSingle** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **GetSingle** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -518,7 +518,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **GetPartition** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **GetPartition** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -628,7 +628,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     }
     ```
 
-1. **DeleteEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. (*&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
+1. **DeleteEntity** 메서드 내에서 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다. ( *&lt;storage-account-name>* 을 액세스 중인 Azure Storage 계정의 이름으로 변경합니다.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

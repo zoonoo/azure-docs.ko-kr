@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968312"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
@@ -28,7 +28,7 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 Security Center는 두 계층으로 제공됩니다.
 
 - 모든 Azure 구독에서 자동으로 사용하도록 설정되는 **무료** 계층에서는 Azure 리소스를 보호할 수 있도록 보안 정책, 지속적인 보안 평가 및 실행 가능한 보안 권장 사항을 제공합니다.
-- **표준** 계층의 경우 무료 계층의 기능이 사설 클라우드 및 기타 공용 클라우드에서 실행되는 작업으로 확장 적용되며, 하이브리드 클라우드 작업 전반에 걸쳐 통합 보안 관리 및 위협 방지 기능이 제공됩니다. 또한 표준 계층에서는 기본 제공 행동 분석 및 Machine Learning을 사용하여 공격 및 제로 데이 익스플로잇을 식별하는 고급 위협 탐지 기능, 네트워크 공격과 맬웨어에 대한 노출을 줄여 주는 액세스 및 애플리케이션 컨트롤 등도 추가로 제공합니다. 표준 계층을 무료로 시도할 수 있습니다. Security Center 표준 계층 지원 Azure Vm을 포함 하 여 리소스에서 VM 확장 집합, App Service, SQL 서버 및 저장소 계정입니다. Azure Security Center 표준을 사용하는 경우 리소스 종류에 따라 지원을 옵트아웃할 수 있습니다. 
+- **표준** 계층의 경우 무료 계층의 기능이 프라이빗 클라우드 및 기타 공용 클라우드에서 실행되는 작업으로 확장 적용되며, 하이브리드 클라우드 작업 전반에 걸쳐 통합 보안 관리 및 위협 방지 기능이 제공됩니다. 또한 표준 계층에서는 기본 제공 행동 분석 및 Machine Learning을 사용하여 공격 및 제로 데이 익스플로잇을 식별하는 고급 위협 탐지 기능, 네트워크 공격과 맬웨어에 대한 노출을 줄여 주는 액세스 및 애플리케이션 컨트롤 등도 추가로 제공합니다. 표준 계층을 무료로 시도할 수 있습니다. Security Center 표준 계층 지원 Azure Vm을 포함 하 여 리소스에서 VM 확장 집합, App Service, SQL 서버 및 저장소 계정입니다. Azure Security Center 표준을 사용하는 경우 리소스 종류에 따라 지원을 옵트아웃할 수 있습니다. 
 
 
 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.

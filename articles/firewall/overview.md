@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495792"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753743"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -62,7 +62,7 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 
 ### <a name="inbound-dnat-support"></a>인바운드 DNAT 지원
 
-방화벽 공용 IP 주소로 전송되는 인바운드 네트워크 트래픽은 변환(Destination Network Address Translation)된 다음 가상 네트워크의 개인 IP 주소로 필터링됩니다. 
+방화벽 공용 IP 주소로 전송되는 인바운드 네트워크 트래픽은 변환(Destination Network Address Translation)된 다음 가상 네트워크의 개인 IP 주소로 필터링됩니다.
 
 ### <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
@@ -82,8 +82,7 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |네트워크 및 애플리케이션 규칙의 포트 범위|높은 포트가 관리 및 상태 프로브용으로 예약되어 있으므로, 포트는 64,000으로 제한됩니다. |이 제한 사항을 완화하기 위해 노력하고 있습니다.|
 |위협 인텔리전스 경고는 마스킹될 수 있습니다.|아웃바운드 필터링의 대상이 80/443인 네트워크 규칙은 위협 전용 모드로 구성되면 위협 인텔리전스 경고를 마스킹합니다.|애플리케이션 규칙을 사용하여 80/443에 대한 아웃바운드 필터링을 만듭니다. 또는 위협 인텔리전스 모드를 **경고 및 거부**로 변경합니다.|
 |Azure Firewall에서 이름 확인에 Azure DNS만 사용|Azure Firewall은 Azure DNS만 사용해서 FQDN을 확인합니다. 사용자 지정 DNS 서버는 지원되지 않습니다. 다른 서브넷의 DNS 확인에는 영향을 주지 않습니다.|이 제한 사항을 완화하기 위해 노력하고 있습니다.|
-|Azure Firewall SNAT/DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall SNAT/DNAT 지원은 인터넷 송신/수신으로 제한됩니다. 현재 개인 IP 대상에는 SNAT/DNAT를 사용할 수 없습니다. 예: 스포크-스포크.|이 문제는 조사 중입니다.
-
+|Azure Firewall SNAT/DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall SNAT/DNAT 지원은 인터넷 송신/수신으로 제한됩니다. 현재 개인 IP 대상에는 SNAT/DNAT를 사용할 수 없습니다. 예: 스포크-스포크.|향후 업데이트에서 해결할 예정입니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](tutorial-firewall-deploy-portal.md)

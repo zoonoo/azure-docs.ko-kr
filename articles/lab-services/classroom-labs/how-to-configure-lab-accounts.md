@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414048"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 구성 
@@ -59,7 +59,7 @@ Azure Lab Services의 랩 계정은 클래스 룸 랩과 같은 관리 되는 �
 - 랩 계정에 가상 네트워크 피어 링은 제공 된 주소 범위는 피어 링 된 가상 네트워크에서 주소 범위와 겹칠 수 없습니다.
 
 1. 에 **랩 계정을** 페이지에서 **Labs 구성** 왼쪽된 메뉴에서.
-2. 에 대 한 합니다 **주소 범위** 필드에서 랩에 만들어지는 Vm에 대 한 주소 범위를 지정 합니다. Classless inter-domain routing (CIDR) 표기법의 주소 범위 여야 합니다 (예: 10.20.0.0/23). 이 주소 범위에서 랩의 가상 컴퓨터가 만들어질 수 있습니다.
+2. 에 대 한 합니다 **주소 범위** 필드에서 랩에 만들어지는 Vm에 대 한 주소 범위를 지정 합니다. 주소 범위는 CIDR(Classless Inter-Domain Routing) 표기법을 따라야 합니다(예: 10.20.0.0/23). 랩의 가상 머신은 이 주소 범위에서 만들어집니다.
 3. 도구 모음에서 **저장**을 선택합니다. 
 
     ![주소 범위를 구성 합니다.](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954548"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754622"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB의 SQL API 계정을 사용하여 .NET 웹앱 빌드
 
@@ -52,33 +52,32 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스 및 컬렉션을 만들 수 있습니다. 
 
-1.  Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **데이터 탐색기**를 선택한 다음, **새 컬렉션**을 선택합니다. 
+1.  Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **Data Explorer**를 선택한 다음, **새 컬렉션**을 선택합니다. 
     
-    **컬렉션 추가** 영역을 보려면 오른쪽으로 스크롤해야 할 수도 있습니다.
+    **컨테이너 추가** 창을 보려면 오른쪽으로 스크롤해야 할 수도 있습니다.
     
     ![Azure Portal Data Explorer, 컬렉션 추가 창](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  **컬렉션 추가** 페이지에서 새 컬렉션에 대한 설정을 입력합니다.
+1.  **컨테이너 추가** 창에서 새 컬렉션의 설정을 입력합니다.
     
     |설정|제안 값|설명
     |---|---|---|
-    |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다.|
-    |**컬렉션 ID**|Items|새 컬렉션의 이름으로 *Items*를 입력합니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
-    |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.|
+    |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 
+    |**컨테이너 ID**|Items|새 컬렉션의 이름으로 *Items*를 입력합니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
+    |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.|
+
     
     이 예제의 경우 **고유 키**를 추가하지 마세요. 고유 키를 사용하면 분할 키당 하나 이상의 값의 고유성을 보장하여 데이터베이스에 데이터 무결성 레이어를 추가할 수 있습니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md)를 참조하세요.
     
-1.  **확인**을 선택합니다. 
-    데이터 탐색기는 새 데이터베이스 및 컬렉션을 표시합니다.
+1.  **확인**을 선택합니다. Data Explorer가 새 데이터베이스와 앞에서 만든 컨테이너를 표시합니다.
     
-    ![Azure Portal 데이터 탐색기, 새 데이터베이스 및 컬렉션 표시](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>데이터베이스에 데이터 추가
 
 데이터 탐색기를 사용하여 새 데이터베이스에 데이터를 추가합니다.
 
-1. **데이터 탐색기**에서 새 데이터는 **컬렉션** 창에 나타납니다. **ToDoList** 데이터베이스를 확장하고 **Items** 컬렉션을 확장하고 **문서**를 선택한 다음, **새 문서**를 선택합니다. 
+1. **Data Explorer**에서 **ToDoList** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. 다음으로, **항목**을 선택한 다음, **새 항목**을 선택합니다. 
    
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스 및 �
 
 Azure Cosmos DB 데이터를 프로그래밍 방식으로 작동하기가 얼마나 쉬운지 확인하기 위해 GitHub에서 샘플 SQL API .NET 웹앱을 복제하고 연결 문자열을 업데이트하고 앱을 실행하여 데이터를 업데이트합니다. 
 
-또한 .NET 샘플 코드를 사용하여 데이터베이스 및 컬렉션을 만들 수도 있습니다. 자세히 알아보려면 [.NET 코드 검토](#review-the-net-code)를 참조하세요.
+.NET 샘플 코드를 사용하여 데이터베이스와 컨테이너를 만들 수도 있습니다. 자세히 알아보려면 [.NET 코드 검토](#review-the-net-code)를 참조하세요.
 
 ### <a name="clone-the-sample-app"></a>샘플 앱 복제
 
@@ -139,16 +138,16 @@ Azure Cosmos DB 데이터를 프로그래밍 방식으로 작동하기가 얼마
       
       ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-dotnet/keys.png)
       
-   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하고 *web.config*의 `endpoint` 키에 붙여넣습니다. 예:  
+   1. **읽기-쓰기 키** 아래에서 오른쪽의 복사 단추를 사용하여 **URI**를 복사하고 *web.config*의 `endpoint` 키에 붙여넣습니다. 예: 
       
       `<add key="endpoint" value="https://mysqlapicosmosdb.documents.azure.com:443/" />`
       
-   1. **기본 키** 값을 복사하고 *web.config*의 `authKey` 키에 붙여넣습니다. 예: 
+   1. **기본 키** 값을 복사하고 *web.config*의 `authKey` 키에 붙여넣습니다. 예:
       
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. *web.config*의 데이터베이스 및 컬렉션 값이 이전에 만든 이름과 일치하는지 확인합니다. 
+1. *web.config*의 데이터베이스 및 컬렉션(컨테이너라고도 함) 값이 앞에서 만든 이름과 일치하는지 확인합니다. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Azure Cosmos DB 데이터를 프로그래밍 방식으로 작동하기가 얼마
 
 1. NuGet **찾아보기** 상자에 *DocumentDB*를 입력합니다.
 
-1. 결과에서 **Microsoft.Azure.DocumentDB** 라이브러리를 아직 설치하지 않은 경우 지금 설치합니다. 그러면 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 패키지 및 모든 종속성이 설치됩니다.
+1. 아직 라이브러리를 설치하지 않은 경우 결과에서 **Microsoft.Azure.DocumentDB** 라이브러리의 **2.2.3 버전**을 설치합니다. 그러면 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 패키지 및 모든 종속성이 설치됩니다.
    
    NuGet 패키지 관리자에서 일부 패키지가 솔루션에 없다는 메시지가 표시되면 **복원**을 선택하여 내부 소스에서 설치합니다. 
 
@@ -177,7 +176,7 @@ Azure Portal에서 데이터 탐색기로 다시 이동하고 새 데이터를 �
 
 ## <a name="review-the-net-code"></a>.NET 코드 검토
 
-이 단계는 선택 사항입니다. 이 빠른 시작에서는 Azure Portal에서 데이터베이스 및 컬렉션을 만들고 .NET 샘플을 사용하여 샘플 데이터를 추가했습니다. .NET 샘플을 사용하여 데이터베이스 및 컬렉션을 만들 수도 있습니다. 코드에서 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토합니다. 이 코드 조각은 모두 **todo** 프로젝트의 *DocumentDBRepository.cs* 파일에서 가져옵니다.
+이 단계는 선택 사항입니다. 이 빠른 시작에서는 .NET 샘플을 사용하여 Azure Portal에서 데이터베이스와 컨테이너를 만들고 샘플 데이터를 추가했습니다. .NET 샘플을 사용하여 데이터베이스와 컨테이너를 만들 수도 있습니다. 코드에서 데이터베이스 리소스를 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토합니다. 이 코드 조각은 모두 **todo** 프로젝트의 *DocumentDBRepository.cs* 파일에서 가져옵니다.
 
 * 이 코드는 `DocumentClient`를 초기화합니다. 
 
@@ -230,7 +229,7 @@ Azure Portal에서 데이터 탐색기로 다시 이동하고 새 데이터를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 데이터베이스 및 컬렉션을 만들고, .NET 웹앱을 실행하여 데이터를 업데이트하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, Data Explorer를 사용하여 데이터베이스 및 컨테이너를 만들고, .NET 웹앱을 실행하여 데이터를 업데이트하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)

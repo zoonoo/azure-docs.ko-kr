@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555958"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결

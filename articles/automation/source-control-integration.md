@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574111"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
@@ -93,7 +93,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 Github에서 개인용 액세스 토큰을 만드는 방법에 대 한 자세한 내용은 방문 [명령줄에 대 한 개인용 액세스 토큰을 만드는](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)합니다.
 
-|범위  |설명  |
+|Scope  |설명  |
 |---------|---------|
 |**리포지토리**     |         |
 |repo:status     | 커밋 상태 액세스         |
@@ -107,7 +107,7 @@ Github에서 개인용 액세스 토큰을 만드는 방법에 대 한 자세한
 
 Azure 리포지토리에서 개인 액세스 토큰을 만드는 방법에 대 한 자세한 내용은 방문 [개인용 액세스 토큰을 사용 하 여 액세스 인증](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)합니다.
 
-|범위  |
+|Scope  |
 |---------|
 |코드(읽기)     |
 |프로젝트 및 팀(읽기)|

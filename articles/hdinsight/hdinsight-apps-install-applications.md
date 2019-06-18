@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
 ms.openlocfilehash: b916cbf690544d5887569e052a0456ca952140c8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409533"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
@@ -26,7 +26,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |애플리케이션 |클러스터 유형 | 설명 |
 |---|---|---|
 |[AtScale 인텔리전스 플랫폼](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop은 |AtScale 쿼리에 수십억 이미, 소유 익숙하고 즐겨 사용 – Microsoft Excel, Powerbi, Tableau 소프트웨어에서 qlikview까지에서 BI 도구를 사용 하 여 대화형으로 데이터의 행 수를 확장 OLAP 서버로, HDInsight 클러스터를 설정 합니다. |
-|[HDInsight에 대 한 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |Hbase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. Requirements: 4 개의 영역 노드를 최소 D3 v2 합니다. |
+|[HDInsight에 대 한 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. Requirements: 4 개의 영역 노드를 최소 D3 v2 합니다. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop은 |Datameer의 셀프 서비스 확장성이 뛰어난 플랫폼 준비에 대 한 탐색 및 분석용 데이터 관리에 복잡 한 다중 원본 데이터는 엔터프라이즈급 규모에서 빠르고 스마트 하 게 정보를 제공 하는 중요 한 업무용으로 적합 정보로 전환 가속화 합니다. |
 |[HDInsight의 Dataiku DSS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS를 사용 하면 데이터 과학자와 데이터 분석가 엔터프라이즈 데이터 과학 플랫폼에서 공동 작업을 수행할 디자인 하 고 새 데이터 제품 및 서비스를 보다 효율적으로 실행 원시 데이터를 영향력이 강한 예측으로 설정 합니다. |
 |[WANdisco Fusion HDI 앱](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |데이터 분산된 환경에서 일관성을 유지 하는 것은 대규모 데이터 작업 문제입니다. WANdisco Fusion 엔터프라이즈급 소프트웨어 플랫폼을 모든 환경에서 구조화 되지 않은 데이터 일관성을 사용 하 여이 문제를 해결 합니다. |
@@ -86,7 +86,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
     |앱 이름 |애플리케이션 이름입니다. |
     |상태 |응용 프로그램 상태입니다. |
     |웹 페이지 |에지 노드에 배포한 웹 애플리케이션의 URL입니다. 자격 증명은 클러스터에 대해 구성한 HTTP 사용자 자격 증명과 동일합니다. |
-    |SSH 엔드포인트 |SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
+    |SSH 끝점 |SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
     |설명 | 응용 프로그램 설명입니다. |
 
 6. 애플리케이션을 삭제하려면 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **삭제**를 클릭합니다.
