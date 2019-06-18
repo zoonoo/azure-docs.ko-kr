@@ -95,7 +95,7 @@ AKS 클러스터의 노드에 대 한 VM 이미지는 Ubuntu Linux 또는 Window
     
 기본 노드 OS에는 자체 핵심 기능을 완료하는 데 필요한 소량의 CPU 및 메모리 리소스도 필요합니다.
 
-관련 모범 사례는 [AKS의 클러스터 보안 및 업그레이드 모범 사례][operator-best-practices-scheduler]를 참조하십시오.
+관련 모범 사례는 [AKS의 클러스터 보안 및 업그레이드 모범 사례][operator-best-practices-scheduler]를 참조하세요.
 
 ### <a name="node-pools"></a>노드 풀
 
