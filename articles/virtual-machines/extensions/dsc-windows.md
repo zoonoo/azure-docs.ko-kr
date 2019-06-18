@@ -102,7 +102,7 @@ Windows 용 DSC 확장은 대상 가상 머신의 Azure 외부의 위치에 저�
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
-| 형식 | DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
