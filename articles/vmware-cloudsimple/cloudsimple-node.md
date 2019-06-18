@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577362"
 ---
 # <a name="cloudsimple-nodes-overview"></a>CloudSimple 노드 개요
@@ -42,13 +42,13 @@ ms.locfileid: "64577362"
 | RAM | 256GB | 512 GB |
 | 캐시 디스크 |  1.6 TB NVMe | 3.2-TB NVMe |
 | 디스크 용량 | 5.625 원시 TB | 11.25 원시 TB |
-| 저장소 유형 | 모든 플래시 | 모든 플래시 |
+| 스토리지 유형 | 모든 플래시 | 모든 플래시 |
 
 ## <a name="limits"></a>제한
 
 사설 클라우드에는 다음과 같은 노드 제한이 적용 됩니다.
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 |----------|-------|
 | 사설 클라우드를 만드는 노드의 최소 수 | 3 |
 | 사설 클라우드 클러스터에서 노드의 최대 수 | 16 |

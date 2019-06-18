@@ -2,17 +2,17 @@
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
 description: 개념 - 백 엔드 앱용 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626663"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
@@ -24,7 +24,7 @@ ms.locfileid: "60626663"
 * 프로비전 서비스에 액세스하기 위해 백 엔드 앱에 부여할 수 있는 다양한 권한
 * 권한을 확인하기 위해 사용되는 인증 프로세스 및 토큰.
 
-### <a name="when-to-use"></a>사용하는 경우
+### <a name="when-to-use"></a>사용 시기
 
 프로비전 서비스 엔드포인트에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 백 엔드 앱은 서비스에 보내는 모든 메시지와 함께 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
@@ -75,7 +75,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 다음은 예상 값입니다.
 
-| 값 | 설명 |
+| Value | 설명 |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |

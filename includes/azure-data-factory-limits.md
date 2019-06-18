@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427587"
 ---
 Azure Data Factory는 다른 사용자의 워크 로드에서 고객 구독이 보호 되도록 되어에서 다음과 같은 기본 제한이 있는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 한도 발생 시키려면 지원에 문의 합니다.

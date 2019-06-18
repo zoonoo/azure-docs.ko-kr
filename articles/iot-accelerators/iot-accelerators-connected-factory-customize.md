@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080494"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
@@ -39,7 +39,7 @@ ms.locfileid: "61450436"
 
 ## <a name="data-sources"></a>데이터 원본
 
-연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. [게이트웨이 통해 솔루션에 연결][lnk-connect-cf]하는 사용자 고유의 OPC UA 서버를 추가할 수 있습니다.
+연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. 사용자 자신의 OPC UA 서버를 추가할 수 있는 [게이트웨이 통해 연결] [lnk-connect-cf] 솔루션에.
 
 대시보드에서 연결된 OPC UA 서버가 솔루션에 보낼 수 있는 데이터 항목을 찾아볼 수 있습니다.
 
@@ -79,8 +79,6 @@ ms.locfileid: "61450436"
 
 다음 문서를 참조하여 연결된 팩터리 솔루션 가속기에 대해 자세히 알아봅니다.
 
-* [연결된 팩터리 솔루션 가속기 연습][lnk-rm-walkthrough]
-* [연결된 팩터리에 대한 게이트웨이 배포][lnk-connect-cf]
 * [Azureiotsolutions.com 사이트에 대 한 권한][lnk-permissions]
 * [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
@@ -93,7 +91,5 @@ ms.locfileid: "61450436"
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

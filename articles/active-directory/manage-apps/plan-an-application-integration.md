@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8db7ac63aaf9ae5b1b16bb233e87ace06867309
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108230"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -91,7 +91,7 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 * [계정 공유](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 애플리케이션의 경우 [Azure Portal](https://portal.azure.com)을 통해 Single Sign-On, 조건부 액세스 및 사용자 프로비저닝에 대한 배포 계획을 다운로드할 수 있습니다. 
+자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램에서 single sign-on, 조건부 액세스 및 사용자를 통해 프로 비전에 대 한 배포 계획을 다운로드할 수 있습니다 합니다 [Azure portal](https://portal.azure.com)합니다. 
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 

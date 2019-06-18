@@ -8,10 +8,10 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209423"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprint를 사용 하 여 사용에 대 한 함수
@@ -35,7 +35,7 @@ Azure Blueprint는 보다 동적인 blueprint 정의 만드는 함수를 제공 
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | artifactName |예 |문자열 |청사진 아티팩트 이름입니다. |
 
@@ -107,14 +107,14 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 데이터를 검색 하는 몇 가지 예는 _myTemplateArtifact_ 있는 샘플:
 
-| 식 | Type | Value |
+| 식 | Type | 값 |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | 배열 | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "내 문자열 값" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | 부울 | True  |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -124,9 +124,9 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| string1 |예. |string |연결할 첫 번째 값입니다. |
+| string1 |예 |문자열 |연결할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |문자열 |연결 순서로 나타낸 추가 값 |
 
 ### <a name="return-value"></a>반환 값
@@ -141,7 +141,7 @@ Azure Blueprint는 사용할 수 있으므로 문자열을 사용 하 여 Azure 
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
@@ -149,9 +149,9 @@ Blueprint 매개 변수 값을 반환합니다. 지정된 된 이름은 가진 �
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |예. |문자열 |반환할 매개 변수의 이름입니다. |
+| parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -200,7 +200,7 @@ Azure Blueprint는 사용할 수 있으므로 blueprint 매개 변수를 사용 
 }
 ```
 
-## <a name="resourcegroup"></a>리소스 그룹
+## <a name="resourcegroup"></a>resourceGroup
 
 `resourceGroup()`
 
@@ -270,7 +270,7 @@ Azure Blueprint는 Azure Resource Manager 템플릿 함수에서 서로 다릅�
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | placeholderName |예 |문자열 |자리 표시자 이름 반환할 리소스 그룹 아티팩트입니다. |
 
@@ -324,7 +324,7 @@ Azure Blueprint는 Azure Resource Manager 템플릿 함수에서 서로 다릅�
 }
 ```
 
-## <a name="subscription"></a>구독
+## <a name="subscription"></a>subscription
 
 `subscription()`
 

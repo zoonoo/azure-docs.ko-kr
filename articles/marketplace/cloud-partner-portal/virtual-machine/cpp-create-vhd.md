@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pabutler
-ms.openlocfilehash: 6886c8a2ddc3345650d9dbb4d8ffa7eed86cf2bd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a47d16108d98c5449d57d1db4892bffcead7e5f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072619"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Azure 호환 VHD 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "64938338"
 VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함하는 Azure 승인 기본 이미지를 기반으로 해야 합니다.
 시작하려면 Microsoft Azure Portal에 있는 다음 이미지 중 하나에서 VM을 만듭니다.
 
--   Windows Server([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
+-   Windows Server([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)(Enterprise, Standard, Web)
 -   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)(Enterprise, Standard, Web)
 
@@ -61,7 +61,7 @@ Microsoft [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 �
 
    ![새 VM의 크기 블레이드](./media/publishvm_015.png)
 
-7. **설정** 블레이드에서 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.  이렇게 하면 새 VHD를 수동으로 관리할 수 있습니다. (**설정** 블레이드를 사용하면 **디스크 유형**에서 **프리미엄(SSD)** 을 선택하는 것처럼 다른 저장소 및 네트워크 옵션을 변경할 수 있습니다.)  **확인** 을 클릭하여 계속합니다.
+7. **설정** 블레이드에서 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.  이렇게 하면 새 VHD를 수동으로 관리할 수 있습니다. (**설정** 블레이드를 사용하면 **디스크 유형**에서 **프리미엄(SSD)** 을 선택하는 것처럼 다른 저장소 및 네트워크 옵션을 변경할 수 있습니다.)  계속하려면 **확인** 을 클릭합니다.
 
     ![새 VM의 설정 블레이드](./media/publishvm_016.png)
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869810"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 시작
@@ -36,7 +36,7 @@ Android Studio를 다운로드 하 고 Azure Maps Android SDK를 설치 하기 �
 
 1. 아래 **프로젝트를 선택**를 선택 **휴대폰 및 태블릿**합니다. 응용 프로그램은이 폼 팩터에서에서 실행 됩니다.
 2. 에 **휴대폰 및 태블릿** 탭을 선택 **빈 활동**를 선택한 후 **다음**합니다.
-3. 프로젝트 구성에서 최소 SDK로 `API 21: Android 5.0.0 (Lollipop)`을 선택합니다.**** Azure Maps Android SDK에서 지 원하는 가장 빠른 버전입니다.
+3. 프로젝트 구성에서 최소 SDK로 `API 21: Android 5.0.0 (Lollipop)`을 선택합니다. **** Azure Maps Android SDK에서 지 원하는 가장 빠른 버전입니다.
 4. 기본값을 그대로 `Activity Name` 하 고 `Layout Name` 선택한 **마침**합니다.
 
 참조 된 [Android Studio 설명서](https://developer.android.com/studio/intro/) 자세한 도움이 Android Studio를 설치 하 고 새 프로젝트 만들기.

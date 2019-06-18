@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953177"
 ---
 # <a name="how-to-annotate-data-sources"></a>데이터 원본에 주석을 추가하는 방법
@@ -36,7 +36,7 @@ ms.locfileid: "65953177"
 
 | 주석 | 메모 |
 | --- | --- |
-| 식별 이름 |데이터 자산 수준에서 친숙한 이름을 제공하여 데이터 자산을 보다 쉽게 이해할 수 있도록 할 수 있습니다. 친숙한 이름은 기본 개체 이름이 수수께끼, 약식일 경우 가장 유용하며 그렇지 않은 경우 사용자에게 의미가 없습니다. |
+| 친숙한 이름 |데이터 자산 수준에서 친숙한 이름을 제공하여 데이터 자산을 보다 쉽게 이해할 수 있도록 할 수 있습니다. 친숙한 이름은 기본 개체 이름이 수수께끼, 약식일 경우 가장 유용하며 그렇지 않은 경우 사용자에게 의미가 없습니다. |
 | 설명 |데이터 자산 및 특성 / 열 수준에서 설명을 제공할 수 있습니다. 설명은 데이터 자산에 대한 사용자의 관점 또는 사용을 설명하는 자유 형식의 짧은 텍스트 주석입니다. |
 | 태그(사용자 태그) |데이터 자산 및 특성 / 열 수준에서 태그를 제공할 수 있습니다. 사용자 태그는 데이터 자산 또는 특성을 분류하는데 사용할 수 있는 사용자 정의 레이블입니다. |
 | 태그(용어집 태그) |데이터 자산 및 특성 / 열 수준에서 태그를 제공할 수 있습니다. 용어집 태그는 일반적인 비즈니스 분류법을 사용하여 데이터 자산 또는 속성을 분류하는 데 사용할 수 있는 중앙에서 정의되는 용어입니다. 자세한 내용은 [관리 태그 지정을 위해 비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)을 참조하세요. |

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538129"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
@@ -86,7 +86,7 @@ HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 #### <a name="request-trigger"></a>요청 트리거
 다음은 들어오는 HTTP 요청의 트리거에 대한 입력 필드입니다.
 
-| 표시 이름 | 속성 이름 | 설명 |
+| Display name | 속성 이름 | 설명 |
 | --- | --- | --- |
 | JSON 스키마 |schema |HTTP 요청 본문의 JSON 스키마 |
 
@@ -104,7 +104,7 @@ HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 #### <a name="response-action"></a>응답 작업
 다음은 HTTP 응답 작업에 대한 입력 필드입니다. A*는 필수 필드 임을 의미합니다.
 
-| 표시 이름 | 속성 이름 | 설명 |
+| Display name | 속성 이름 | 설명 |
 | --- | --- | --- |
 | 상태 코드* |statusCode |HTTP 상태 코드 |
 | 헤더 |headers |포함할 응답 헤더의 JSON 개체 |

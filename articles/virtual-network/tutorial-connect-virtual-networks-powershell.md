@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f5c90b7d79b31c321b00869c90b0261c0b4730d3
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66727746"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
@@ -74,7 +74,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork1 | Set-AzVirtualNetwork
 ```
 
-10.1.0.0/16 주소 접두사 및 서브넷 1개를 사용하여 가상 네트워크를 만듭니다.
+10\.1.0.0/16 주소 접두사 및 서브넷 1개를 사용하여 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 # Create the virtual network.

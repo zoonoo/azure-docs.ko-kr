@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165401"
 ---
 Azure에서 가용성 그룹 수신기를 구성하는 경우 두 가지 방법을 사용하는 것을 고려해야 합니다. 이러한 방법은 수신기를 만들 때 사용하는 Azure 부하 분산 장치의 유형에 따라 달라집니다. 다음 표에 차이점이 나와 있습니다.

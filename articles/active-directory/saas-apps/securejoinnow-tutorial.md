@@ -16,10 +16,10 @@ ms.date: 07/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60340006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>자습서: SecureW2 JoinNow Connector와 Azure Active Directory 통합
@@ -199,7 +199,7 @@ a. SecureW2 JoinNow Connector 클라이언트를 열고 목록에서 해당 디�
 
 b. 기본 브라우저가 열리고 인증을 위해 Azure Portal로 리디렉션되어야 합니다.
 
-다. 성공적으로 인증하려면 SecureW2 JoinNow Connector의 초기 방문 페이지로 돌아가야 합니다.
+c. 성공적으로 인증하려면 SecureW2 JoinNow Connector의 초기 방문 페이지로 돌아가야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

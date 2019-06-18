@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: 21ad3f9baf4b8e117f881d9a36fc606af04e17a5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158433"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
@@ -57,11 +57,11 @@ apt-get -y install mysql-server-5.6
   
 설치 하는 동안 아래 MySQL 루트 암호를 설정 하 라는 메시지가 표시 대화 상자 창이 표시 됩니다 하 고 여기에 암호를 설정 해야 합니다.
   
-![Image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
 암호를 다시 입력하여 확인합니다.
 
-![Image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
+![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 ### <a name="sign-in"></a>로그인
   

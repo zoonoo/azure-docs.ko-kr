@@ -13,10 +13,10 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899292"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>원격 분석 추적: Application Insights 데이터 모델
@@ -29,7 +29,7 @@ ms.locfileid: "60899292"
 
 최대 길이: 32768자
 
-## <a name="severity-level"></a>심각도 수준
+## <a name="severity-level"></a>심각도
 
 추적 심각도 수준입니다. 값은 `Verbose`, `Information`, `Warning`, `Error`, `Critical`일 수 있습니다.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764963"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
@@ -95,7 +95,7 @@ Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단�
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >5.5 이전의 CollectD 버전의 경우 위와 같이 `oms.conf`에서 태그를 수정해야 합니다.
+    >5\.5 이전의 CollectD 버전의 경우 위와 같이 `oms.conf`에서 태그를 수정해야 합니다.
     >
 
 2. collectd.conf를 원하는 작업 영역의 omsagent 구성 디렉터리에 복사합니다.
@@ -114,7 +114,7 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 |:--|:--|
 | `host` | Computer |
 | `plugin` | 없음 |
-| `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
+| `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | `dsnames[]` | CounterName |

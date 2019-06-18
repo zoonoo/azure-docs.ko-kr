@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 667a696e96234aca33981946a5b063ab5bfb080b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075916"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. 두 개의 SQL Server-종 량 제를 호스팅하는 가상 머신 (VM)에 대 한 모델 라이선스 및 라이선스 (BYOL). 이제 Azure portal, Azure CLI 또는 PowerShell을 사용 하 여 수정할 수 있습니다 SQL Server VM을 사용 하는 라이선스 모델을 
@@ -37,7 +37,7 @@ ms.locfileid: "66393182"
  - Azure 클라우드 솔루션 파트너 (CSP) 고객은 먼저 종 량 제 VM을 배포 하 고 다음--소유-라이선스로 변환 하 여 Azure Hybrid Benefit을 이용할 수 있습니다. 
  - SQL Server VM 이미지를 사용자 지정 리소스 공급자에 등록 하는 경우 'AHUB' = 라이선스 유형을 지정 합니다. 라이선스 종료 빈 값으로 입력 하거나 '종 량 제'를 지정 하면 등록이 실패 합니다. 
  - SQL Server VM 리소스를 삭제 하면 이동 하 게 다시 이미지의 하드 코드 된 라이선스 설정 합니다. 
- - SQL Server VM을 가용성 집합에 추가 VM을 다시 필요 합니다. 이러한 모든 vm을 가용성에 추가 집합은 기본 종 량 제 라이선스 형식 돌아가서 AHB 다시 사용 하도록 설정 해야 합니다. 
+ - SQL Server VM을 가용성 집합에 추가 VM을 다시 필요 합니다. 이러한 모든 vm이 가용성에 추가 집합은 기본 종 량 제 라이선스 형식을 돌아가서 AHB 다시 사용 하도록 설정 해야 합니다. 
  - 라이선스 모델을 변경 하는 기능에는 SQL VM 리소스 공급자의 기능입니다. Azure portal 통해 marketplace 이미지를 자동으로 배포 리소스 공급자를 사용 하 여 SQL Server VM을 등록 합니다. 그러나 SQL Server 설치 하는 자체 고객 해야 수동으로 [SQL Server VM을 등록](#register-sql-server-vm-with-the-sql-vm-resource-provider)합니다. 
  
 
@@ -58,11 +58,14 @@ SQL VM 리소스 공급자를 사용하려면 SQL IaaS 확장이 필요합니다
 
 ## <a name="with-the-azure-portal"></a>Azure Portal 사용
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 포털에서 직접 라이선스 모델을 수정할 수 있습니다. 
 
-1. 내에서 SQL Server VM으로 이동 합니다 [Azure portal](https://portal.azure.com)합니다. 
-1. 선택 **SQL Server 구성** 에 **설정** 창입니다. 
-1. 선택 **편집할** 에 **SQL Server 라이선스** 라이선스를 수정 하는 창입니다. 
+1. 열기는 [Azure portal](https://portal.azure.com) 시작 하 고는 [SQL 가상 머신 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) SQL Server VM에 대 한 합니다. 
+1. 선택 **구성할** 아래에서 **설정**합니다. 
+1. 선택 된 **Azure Hybrid Benefit** 옵션 및 Software Assurance를 사용 하 여 SQL Server 라이선스가 있는지 확인 합니다. 
+1. 선택 **Apply** 맨 아래에 **구성** 페이지입니다. 
 
 ![포털에 대 한 AHB](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
@@ -75,7 +78,7 @@ Azure CLI를 사용하여 라이선스 모델을 변경할 수 있습니다.
 
 다음 코드 조각은 BYOL (또는 Azure Hybrid Benefit을 사용 하 여) 종 량 제 라이선스 모델을 전환 합니다.
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
@@ -84,18 +87,19 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 
 다음 코드 조각은 종 량 제로 bring your-own license 모델을 전환합니다. 
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 # example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
+
 ## <a name="with-powershell"></a>PowerShell 사용
 PowerShell을 사용하여 라이선스 모델을 변경할 수 있습니다.
 
 다음 코드 조각은 BYOL (또는 Azure Hybrid Benefit을 사용 하 여) 종 량 제 라이선스 모델을 전환 합니다.
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -109,7 +113,7 @@ $SqlVm | Set-AzResource -Force
 
 다음 코드 조각은 종 량 제로 BYOL 모델을 전환합니다.
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -144,7 +148,7 @@ SQL Server VM을 SQL 리소스 공급자에 등록하려면 리소스 공급자�
 #### <a name="with-azure-cli"></a>Azure CLI 사용
 다음 코드 조각은 Azure 구독에 SQL VM 리소스 공급자를 등록 됩니다. 
 
-```azurecli
+```azurecli-interactive
 # Register the new SQL resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
@@ -153,7 +157,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 
 다음 코드 조각은 Azure 구독에 SQL 리소스 공급자를 등록 됩니다.
 
-```powershell
+```powershell-interactive
 # Register the new SQL resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
@@ -162,16 +166,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 SQL VM 리소스 공급자 구독에 등록 되 면 Azure CLI를 사용 하 여 리소스 공급자를 사용 하 여 다음 SQL Server VM을 등록할 수 있습니다. 
 
 #### <a name="with-azure-cli"></a>Azure CLI 사용
-다음 코드 조각을 사용 하 여 Azure CLI를 사용 하 여 SQL Server VM을 등록 합니다. 
 
-```azurecli
+SQL Server VM을 사용 하 여 Azure CLI를 사용 하 여 등록을 아래 코드 조각: 
+
+```azurecli-interactive
 # Register your existing SQL Server VM with the new resource provider
-az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
+az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type <AHUB or PAYG>
 ```
+
 #### <a name="with-powershell"></a>PowerShell 사용
 다음 코드 조각을 사용 하 여 PowerShell을 사용 하 여 SQL Server VM을 등록 합니다.
 
-```powershell
+```powershell-interactive
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
@@ -209,7 +215,7 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 
 다음 코드를 사용하여 Azure PowerShell 버전을 확인합니다.
 
-```powershell
+```powershell-interactive
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 

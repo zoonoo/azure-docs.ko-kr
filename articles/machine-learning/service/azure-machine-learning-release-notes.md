@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065779"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -24,6 +24,51 @@ ms.locfileid: "66298477"
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2019-06-10"></a>2019-06-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning Python v1.0.43 for SDK
+
++ **새로운 기능**
+  + 이제는 azure Machine Learning 인기 있는 기계 학습 및 데이터 분석 프레임 워크 scikit-learn 최고 수준의 지원 합니다. 사용 하 여 [ `SKLearn` 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), 사용자 수 쉽게 학습 및 scikit-learn 모델을 배포 합니다.
+    + 에 대해 알아봅니다 하는 방법 [하이퍼 매개 변수 튜닝 scikit-learn 실행 HyperDrive를 사용 하 여](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb)입니다.
+  + 다시 사용할 수 있는 계산 단위를 관리 하는 모듈과 ModuleVersion 클래스와 함께 파이프라인에서 ModuleStep 만들기에 대 한 지원이 추가 되었습니다.
+  + ACI 웹 서비스는 이제 업데이트를 통해 영구 scoring_uri를 지원합니다. scoring_uri IP에서 FQDN으로 바뀝니다. FQDN에 대 한 Dns 이름 레이블은 deploy_configuration dns_name_label를 설정 하 여 구성할 수 있습니다. 
+  + 새로운 기능을 학습 하는 자동화 된 컴퓨터:
+    + 예측에 대 한 STL featurizer
+    + KMeans 클러스터링 비우기 기능에 대 한 사용 가능
+  + AmlCompute 할당량 승인 빠르게 되었습니다! 이제 임계값 내에서 할당량 요청을 승인 하는 프로세스를 자동화 된 것입니다. 할당량의 작동 방식에 대 한 자세한 내용은 알아봅니다 [할당량을 관리 하는 방법](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas)합니다.
+ 
+
++ **미리 보기 기능**
+    + 와 통합 [MLflow](https://mlflow.org) azureml mlflow 패키지를 통해 추적 1.0.0 ([예제 notebook](https://aka.ms/azureml-mlflow-examples)).
+    + Jupyter notebook 실행을 제출 합니다. [API 참조 설명서](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + 공개 미리 보기 [데이터 드리프트 탐지기](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) azureml-contrib-datadrift 패키지를 통해 ([예제 notebook](https://aka.ms/azureml-datadrift-example)). 데이터 드리프트 모델 정확도 시간에 지나면서 가치가 저하 되므로 여기서는 가장 중요 한 이유 중 하나입니다. 발생 한 경우 데이터 제공 되므로 프로덕션 환경에서 모델에 데이터 모델을 학습 한를 다릅니다. AML 데이터 드리프트 탐지기 고객 데이터 드리프트를 모니터링 하는 데 도움이 됩니다 하 고 드리프트가 검색 될 때마다 경고를 보냅니다. 
+
++ **주요 변경 내용**
+
++ **버그 수정 및 향상 된 기능**
+  + RunConfiguration 로드 하 고 저장 이전 동작에 대 한 전체 백 호환성을 사용 하 여 전체 파일 경로 지정을 지원 합니다.
+  + ServicePrincipalAuthentication, 기본적으로 해제 되어에서 캐싱을 추가 합니다.
+  + 메트릭 이름이 같은 여러 플롯 로깅을 사용 합니다.
+  + 모델 클래스 azureml.core에서 이제 제대로 가져올 (`from azureml.core import Model`).
+  + 파이프라인 단계에서 `hash_path` 매개 변수는 이제 사용 되지 않습니다. 새 동작.amlignore.gitignore에 나열 된 파일을 제외 하 고 전체 source_directory 해시 됩니다.
+  + 파이프라인 패키지에서 다양 한 `get_all` 하 고 `get_all_*` 메서드 위해 되지 `list` 및 `list_*`, 각각.
+  + azureml.core.get_run 원래 실행된 유형을 반환 하기 전에 가져와야 하는 클래스를 더 이상 필요 합니다.
+  + 웹 서비스 업데이트에 대 한 일부 호출이 업데이트에 트리거되지 않은 문제를 해결 했습니다.
+  + AKS webservices에서 제한 시간을 점수 매기기 5ms (300000ms) 사이 여야 합니다. 최대는 scoring_timeout_ms 채 점 요청에 대 일 분에서 1 분에서 추락 되었습니다에 허용 합니다.
+  + LocalWebservice 개체는 이제 `scoring_uri` 고 `swagger_uri` 속성입니다.
+  + 출력 디렉터리 만들기 및 사용자 프로세스에서 출력 디렉터리 업로드를 이동합니다. 실행된 기록 모든 사용자 프로세스에서 실행 되도록 SDK를 사용 하도록 설정 합니다. 이 배포를 학습 하 여 숙련 된 동기화 문제가 실행 해결 해야 합니다.
+  + 프로세스 이름 (분산 학습에) 및 PID에 이제 사용자 프로세스 이름에서 작성 된 azureml 로그의 이름이 포함 됩니다.
+
+### <a name="azure-machine-learning-data-prep-sdk-v115"></a>Azure Machine Learning 데이터 준비 SDK v1.1.5
+
++ **버그 수정 및 향상 된 기능**
+  + 해당 되는 2 자리 연도 형식의 해석 된 datetime 값에 대 한 유효한 연도 범위 Windows 있습니다 릴리스를 일치 하도록 업데이트 되었습니다. 1950 2049로 범위 1930 2029에서 바뀌었습니다.
+  + 읽을 때 파일 및 설정을 `handleQuotedLineBreaks=True`, `\r` 새 줄으로 간주 됩니다.
+  + 발생 시킨 버그가 `read_pandas_dataframe` 일부 경우에서 발생 합니다.
+  + 성능을 개선 `get_profile`합니다.
+  + 향상 된 오류 메시지입니다.
 
 ## <a name="2019-05-28"></a>2019-05-28
 

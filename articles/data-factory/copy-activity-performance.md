@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3ae6966ed3fa8ee57e0ac85fe34866dcbde0fb9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077258"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-copy-activity-performance.md)
 > * [현재 버전](copy-activity-performance.md)
 
@@ -306,7 +306,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성을 이
 
 Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요. 이러한 항목에서 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하고 처리량을 최대화하는 방법을 파악할 수 있습니다.
 
-* **Blob Storage에서 SQL Data Warehouse**로 데이터를 복사하는 경우에는, 성능을 높이기 위해 **PolyBase**를 사용하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+* 데이터를 복사 하는 경우 **데이터에서 Azure SQL Data Warehouse에 저장**를 사용 하는 것이 좋습니다 **PolyBase** 성능을 향상 시키기 위해. 자세한 내용은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
 * **HDFS에서 Azure Blob/Azure Data Lake Store**로 데이터를 복사할 때는 **DistCp**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [DistCp를 사용하여 HDFS에서 데이터 복사](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)를 참조하세요.
 * **Redshift에서 Azure SQL Data Warehouse/Azure BLob/Azure Data Lake Store**로 데이터를 복사할 때는 **UNLOAD**를 사용하여 성능을 높일 수 있습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
@@ -317,10 +317,8 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
 
-* **복사 동작**: **sqlSink**에 대해 설정된 속성에 따라 복사 작업은 대상 데이터베이스에 데이터를 다양한 방식으로 기록합니다.
-  * 기본적으로 데이터 이동 서비스는 대량 복사 API를 사용하여 추가 모드에 데이터를 삽입하며 이는 최상의 성능을 제공합니다.
-  * 싱크에 저장 프로시저를 구성하는 경우 데이터베이스는 대량 로드가 아닌, 한 번에 한 행씩 데이터를 적용합니다. 성능이 크게 저하됩니다. 데이터 집합이 크면 적용할 수 있을 때 **preCopyScript** 속성을 사용하도록 전환하는 것이 좋습니다.
-  * 실행한 각 복사 작업에 **preCopyScript** 속성을 구성하는 경우 서비스는 스크립트를 트리거한 다음 대량 복사 API를 사용하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제할 수 있습니다.
+* **복사 동작 및 성능 제한적인**: 데이터를 SQL 싱크에 씁니다에서 자세한 정보를 여러 가지 [모범 사례를 Azure SQL Database로 데이터를 로드 하기 위한](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database)합니다.
+
 * **데이터 패턴 및 배치 크기**:
   * 테이블 스키마는 복사본 처리량에 영향을 줍니다. 동일한 양의 데이터를 복사하려면 데이터베이스가 데이터에서 적은 배치를 보다 효율적으로 커밋할 수 있기 때문에 행 크기가 크면 행 크기가 작은 경우 보다 더 성능이 나아집니다.
   * 복사 작업은 일련의 배치로 데이터를 삽입합니다. **writeBatchSize** 속성을 사용하여 배치에서 행 수를 설정할 수 있습니다. 데이터에 작은 크기의 행이 있으면 높은 값을 가진 **writeBatchSize** 속성을 설정하여 적은 수의 배치 오버헤드와 높은 처리량의 혜택을 얻을 수 있습니다. 데이터의 행 크기가 큰 경우 **writeBatchSize**를 늘릴 때 주의하세요. 이 값이 높으면 데이터베이스에 오버로드가 발생하여 복사에 실패할 수 있습니다.

@@ -3,18 +3,18 @@ title: Azure IoT Central UI 둘러보기 | Microsoft Docs
 description: 개발자는 IoT 솔루션을 만드는 데 사용하는 Azure IoT Central UI의 주요 영역을 익힐 수 있습니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233451"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476325"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -63,7 +63,9 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 ![대시보드](media/overview-iot-central-tour/homepage.png)
 
-대시보드는 Azure IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 다른 사용자를 위해 애플리케이션 대시보드를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요. 또한 사용자는 [자신의 개인 대시보드를 만들](howto-personalize-dashboard.md) 수도 있습니다.
+* 대시보드는 Azure IoT Central 애플리케이션에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 다른 사용자를 위해 애플리케이션 대시보드를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요.
+
+* 운영자는 맞춤형 대시보드를 만들어서 기본 대시보드와 전환할 수 있습니다. 자세한 내용은 [개인 대시보드 생성 및 관리](howto-personalize-dashboard.md) 방법 문서를 참조하세요.
 
 ## <a name="device-explorer"></a>디바이스 탐색기
 
@@ -90,25 +92,32 @@ _디바이스 집합_ 페이지는 개발자가 만든 디바이스 집합을 �
 
 ![작업 페이지](media/overview-iot-central-tour/jobs.png)
 
-작업 페이지에서는 디바이스에 대한 대량 디바이스 관리 작업을 수행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 디바이스 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
+작업 페이지에서는 디바이스에 대한 대량 디바이스 관리 작업을 실행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 디바이스 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
 
 ## <a name="device-templates"></a>디바이스 템플릿
 
 ![디바이스 템플릿 페이지](media/overview-iot-central-tour/templates.png)
 
-디바이스 템플릿 페이지는 작성자가 애플리케이션에서 디바이스 템플릿을 만들고 관리하는 페이지입니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
+디바이스 템플릿 페이지는 작성자가 애플리케이션에서 디바이스 템플릿을 만들고 관리하는 페이지입니다. 디바이스 템플릿은 다음과 같은 디바이스 특성을 지정합니다.
+
+- 원격 분석, 상태 및 이벤트 측정값
+- 설정 및 속성
+- 명령
+- 이벤트 또는 원격 측정 값 기반 규칙
+
+자세한 내용은 [Azure IoT Central 애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 참조하세요.
 
 ## <a name="continuous-data-export"></a>연속 데이터 내보내기
 
 ![연속 데이터 내보내기 페이지](media/overview-iot-central-tour/export.png)
 
-연속 데이터 내보내기 페이지는 관리자가 애플리케이션에서 원격 분석 등의 데이터를 내보내는 방법을 정의하는 페이지입니다. 다른 서비스는 내보낸 데이터를 저장하거나 분석에 사용할 수 있습니다. 자세한 내용은 [Azure IoT Central에서 데이터 내보내기](howto-export-data.md) 문서를 참조하세요.
+연속 데이터 내보내기 페이지는 관리자가 애플리케이션에서 원격 분석 등의 데이터를 스트리밍하는 방법을 정의하는 페이지입니다. 다른 서비스는 내보낸 데이터를 저장하거나 분석에 사용할 수 있습니다. 자세한 내용은 [Azure IoT Central에서 데이터 내보내기](howto-export-data.md) 문서를 참조하세요.
 
 ## <a name="administration"></a>관리
 
 ![관리 페이지](media/overview-iot-central-tour/administration.png)
 
-관리 페이지에는 애플리케이션에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의). 자세한 내용은 [Azure IoT Central 애플리케이션 관리](howto-administer.md) 문서를 참조하세요.
+관리 페이지에는 애플리케이션에서 관리자가 사용하는 도구에 대한 링크가 있습니다(예: 사용자 및 역할 정의, UI 사용자 지정). 자세한 내용은 [Azure IoT Central 애플리케이션 관리](howto-administer.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

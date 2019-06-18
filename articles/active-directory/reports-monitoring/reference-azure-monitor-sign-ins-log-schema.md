@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285188"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마를 해석 합니다.
@@ -146,7 +146,7 @@ ms.locfileid: "60285188"
 | 필드 이름 | 설명 |
 |------------|-------------|
 | Time | UTC 형식의 날짜 및 시간입니다. |
-| resourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
+| ResourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
 | OperationName | 로그인의 경우 이 값은 항상 *로그인 활동*입니다. |
 | OperationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
 | Category | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 

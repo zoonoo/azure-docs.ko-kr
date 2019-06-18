@@ -6,26 +6,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068913"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
+사용 하는 [Azure portal](https://portal.azure.com)를 관리할 수 있습니다 [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight에서 클러스터. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-- Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
-## <a name="getting-started"></a>시작
+HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
+
+## <a name="getting-started"></a>시작하기
 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="showClusters"></a> 클러스터 나열 및 표시
@@ -67,21 +67,21 @@ ms.locfileid: "65859992"
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
     |SSH + 클러스터 로그인|SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여줍니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.|
     |Data Lake Storage Gen1|Data Lake Storage Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.|
-    |저장소 계정|스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.|
+    |Storage 계정|스토리지 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.|
     |애플리케이션|HDInsight 애플리케이션을 추가/제거합니다.  [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.|
     |스크립트 작업|클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.|
-    |외부 Metastore|[Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/) Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.|
+    |외부 metastore|[Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/) Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다.|
     |HDInsight 파트너|현재 HDInsight 파트너를 추가/제거합니다.|
     |properties|[클러스터 속성](#properties)을 봅니다.|
     |잠금|클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.|
-    |자동화 스크립트|클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.|
+    |템플릿 내보내기|클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.|
 
   - **모니터링 메뉴**
 
     | 항목| 설명 |
     |---|---|
     |경고|경고와 작업을 관리합니다.|
-    |메트릭|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
+    |metrics|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
     |진단 설정|진단 메트릭을 저장하는 위치에 대한 설정입니다.|
     |Operations Management Suite|Azure Operations Management Suite (OMS) 및 Azure Monitor 로그에서 클러스터를 모니터링 합니다.|
 
@@ -100,14 +100,15 @@ ms.locfileid: "65859992"
 |---|---|
 |호스트 이름|클러스터 이름.|
 |클러스터 URL|Ambari 웹 인터페이스에 대한 URL입니다.|
+|개인 끝점|클러스터에 대 한 개인 끝점입니다.|
 |SSH (보안 셸)|SSH를 통해 클러스터에 액세스할 때 사용할 사용자 이름과 호스트 이름입니다.|
 |상태|다음 중 하나입니다. 중단됨, 수락됨, 클러스터 스토리지가 프로비전됨, Azure VM 구성, HDInsight 구성, 작동 가능, 실행 중, 오류, 삭제 중, 삭제됨, 시간이 초과됨, 삭제가 큐에 대기됨, 삭제 시간이 초과됨, 삭제 오류, 패치가 큐에 대기됨, 인증서 롤오버가 큐에 대기됨, 크기가 조정되어 큐에 대기됨 또는 클러스터 사용자 지정|
 |지역|Azure 위치입니다. 지원되는 Azure 위치의 목록은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)의 **지역** 드롭다운 목록 상자를 참조하세요.|
 |만든 날짜|클러스터가 배포된 날짜입니다.|
 |운영 체제|**Windows** 또는 **Linux**입니다.|
-|Type|Hadoop, HBase, Storm, Spark입니다.|
+|TYPE|Hadoop, HBase, Storm, Spark입니다.|
 |Version|[HDInsight 버전](hdinsight-component-versioning.md) 참조|
-|구독|구독 이름|
+|구독|구독 이름입니다.|
 |기본 데이터 원본|기본 클러스터 파일 시스템입니다.|
 |작업자 노드 크기|선택한 작업자 노드의 VM 크기입니다.|
 |헤드 노드 크기|선택한 헤드 노드의 VM 크기입니다.|
@@ -138,62 +139,10 @@ ms.locfileid: "65859992"
 클러스터가 생성된 후 Azure Storage 계정 및 Azure Data Lake Storage 계정을 더 추가할 수 있습니다. 자세한 내용은 [HDInsight에 추가 저장소 계정 추가](./hdinsight-hadoop-add-storage.md)를 참조하세요.
 
 ## <a name="scale-clusters"></a>클러스터 크기 조정
+
 클러스터 크기 조정 기능을 사용하면 클러스터를 다시 만들지 않고 Azure HDInsight 클러스터에서 사용되는 작업자 노드 수를 변경할 수 있습니다.
 
-> [!NOTE]  
-> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  클러스터 나열 및 표시를 참조하세요.
-
-[클러스터 홈 페이지](#homePage)에서 다음을 수행합니다.
-
-1. **설정**에서 **클러스터 크기**를 선택합니다.
-2. 숫자 텍스트 상자에 **작업자 노드 수**를 입력합니다. 클러스터 노드 수에 대한 제한은 Azure 구독 간에 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의할 수 있습니다.  비용 정보는 노드 수에 대한 변경 내용을 반영합니다.
-3. **저장**을 선택합니다.
-
-    ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster2.png)
-
-데이터 노드 수 변경에 따른 영향은 다음과 같이 HDInsight에서 지원하는 각 클러스터 유형에 따라 다릅니다.
-
-* Apache Hadoop
-
-    모든 보류 중인 또는 실행 중인 작업에 영향을 주지 않고 실행되는 Hadoop 클러스터의 작업자 노드 수를 원활하게 늘릴 수 있습니다. 작업이 진행 중인 동안에 새 작업을 제출할 수 있습니다. 크기 조정 작업의 오류는 정상적으로 처리되므로 클러스터는 항상 기능 상태로 남아 있습니다.
-
-    데이터 노드 수를 줄여 Hadoop 클러스터를 축소하면 클러스터의 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 그러나 작업이 완료되면 작업을 다시 제출할 수 있습니다.
-* Apache HBase
-
-    HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
-
-    ```bash
-    pushd %HBASE_HOME%\bin
-    hbase shell
-    balancer
-    ```
-
-    HBase 셸을 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache HBase 예제 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요.
-
-* Apache Storm
-
-    실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 토폴로지 균형을 다시 조정해야 합니다.
-
-    다음 두 가지 방법으로 사용하여 균형을 조정할 수 있습니다.
-
-  * Storm 웹 UI
-  * 명령줄 인터페이스(CLI) 도구
-
-    자세한 내용은 [Apache Storm 설명서](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
-
-    Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
-
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
-
-    다음은 Storm 토폴로지 균형을 다시 조정하는 CLI 명령의 예제입니다.
-
-    ```cli
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
-
+참조 [확장 HDInsight 클러스터](./hdinsight-scaling-best-practices.md) 완전 한 정보에 대 한 합니다.
 
 ## <a name="pauseshut-down-clusters"></a>클러스터 일시 중지/종료
 
@@ -208,8 +157,6 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 * HDInsight .NET SDK 사용 [Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)
-
-
 
 ## <a name="upgrade-clusters"></a>클러스터 업그레이드
 
@@ -226,7 +173,7 @@ Ambari는 RESTful API에서 지원하는 직관적이고 사용하기 쉬운 Had
     ![HDInsight Hadoop 클러스터 메뉴](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
 
 1. 새 페이지에서 **Ambari 홈**을 선택합니다.
-2. 클러스터 사용자 이름 및 암호를 입력합니다.  기본 클러스터 사용자 이름은 _admin_입니다. Ambari 웹 UI는 다음과 같습니다.
+1. 클러스터 사용자 이름 및 암호를 입력합니다.  기본 클러스터 사용자 이름은 _admin_입니다.
 
 자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
@@ -261,8 +208,8 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
 
 2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 저장소 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob Storage와 같은 공용 파일 스토리지입니다. 다음 단계에서 이 URI가 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
 3. [클러스터 홈 페이지](#homePage)를 선택 **스크립트 동작** 아래 **설정**.
-4. **스크립트 동작** 블레이드에서 **새로운 항목 제출**을 선택합니다. 
-5. **스크립트 동작 제출** 블레이드에서 다음 정보를 입력합니다.
+4. **스크립트 동작** 페이지에서 **새로운 항목 제출**합니다.
+5. **스크립트 동작 제출** 페이지에서 다음 정보를 입력 합니다.
 
    | 필드 | 값 |
    | --- | --- |
@@ -295,13 +242,12 @@ Azure Resource Manager 모드에서는 각각의 HDInsight 클러스터가 Azure
 ## <a name="find-the-storage-accounts"></a>저장소 계정 찾기
 HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Storage를 사용하여 데이터를 저장합니다. 각 HDInsight 클러스터에는 하나의 기본 저장소 계정 및 여러 연결된 저장소 계정이 있을 수 있습니다. 스토리지 계정을 나열하려면 [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **스토리지 계정**을 선택합니다.
 
-
 ## <a name="monitor-jobs"></a>작업 모니터링
 [Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md#monitoring)를 참조하세요.
 
+## <a name="cluster-size"></a>클러스터 크기
 
-## <a name="monitor-cluster-usage"></a>클러스터 사용 현황 모니터링
-HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에서 사용하기 위해 구독에서 사용할 수 있는 코어 수뿐만 아니라 이 클러스터에 할당된 코어 수 및 이 클러스터 내에서 노드에 할당된 방법에 대한 정보도 표시됩니다. 클러스터 나열 및 표시를 참조하세요.
+**클러스터 크기** 에서 타일을 [클러스터 홈페이지](#homePage) 이 클러스터 내에서 노드에 할당 된 방법 및이 클러스터에 할당 된 코어 수를 표시 합니다.
 
 > [!IMPORTANT]  
 > HDInsight 클러스터에 의해 제공되는 서비스를 모니터링하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
@@ -318,13 +264,8 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
-* [Apache Ambari 웹 UI 사용에 대한 자세한 내용](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API 사용에 자세한 내용](hdinsight-hadoop-manage-ambari-rest-api.md)
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight에서 Apache Sqoop 사용](hadoop/hdinsight-use-sqoop.md)
-* [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용](hadoop/python-udf-hdinsight.md)
 * [Azure HDInsight에 포함된 Apache Hadoop 버전](hdinsight-component-versioning.md)
-
-[azure-portal]: https://portal.azure.com
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop 명령줄"

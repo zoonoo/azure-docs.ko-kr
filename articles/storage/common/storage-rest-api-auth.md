@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306655"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
@@ -65,7 +65,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
-**요청 URI**: https://myaccount.blob.core.windows.net/?comp=list는 `http://myaccount.blob.core.windows.net`(Blob Storage 계정 엔드포인트) 및 `/?comp=list`(리소스 문자열)에서 만들어집니다.
+**요청 URI**: https://myaccount.blob.core.windows.net/?comp=list 는 `http://myaccount.blob.core.windows.net` (Blob Storage 계정 엔드포인트) 및 `/?comp=list` (리소스 문자열)에서 만들어집니다.
 
 [URI 매개 변수](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix*입니다.
 

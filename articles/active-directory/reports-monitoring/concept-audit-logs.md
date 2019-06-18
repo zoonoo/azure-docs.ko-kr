@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441134"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
@@ -127,7 +127,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 합니다 **활동** 필터 기반으로 할 범주와 활동 리소스 유형 선택. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
 
-Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](reference-audit-activities.md) 문서를 참조할 수 있습니다.
+Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](reference-audit-activities.md) 문서를 참조할 수 있습니다.
 
 합니다 **상태** 필터 필터링 할 수는 감사 작업의 상태를 기반으로 합니다. 상태는 다음 중 하나일 수 있습니다.
 

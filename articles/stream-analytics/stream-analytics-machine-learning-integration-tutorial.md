@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480811"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
@@ -139,7 +139,7 @@ ms.locfileid: "61480811"
    |필드  |값  |
    |---------|---------|
    |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -159,7 +159,7 @@ ms.locfileid: "61480811"
    |필드  |값  |
    |---------|---------|
    |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -175,7 +175,7 @@ ms.locfileid: "61480811"
 
 1. Excel 통합 문서의 앞부분에서 다운로드한 웹 서비스 URL 및 API 키가 있는지 확인합니다.
 
-2. 작업 블레이드 > **함수** > **+ 추가** > **AzureML**로 이동합니다.
+2. 작업 블레이드 > **함수** >  **+ 추가** > **AzureML**로 이동합니다.
 
 3. 다음 값으로 **Azure Machine Learning 함수** 블레이드를 채웁니다.
 
@@ -183,7 +183,7 @@ ms.locfileid: "61480811"
    |---------|---------|
    | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.** 를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
-   |**키** | API 키를 붙여넣습니다. |
+   |**Key** | API 키를 붙여넣습니다. |
   
    ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     

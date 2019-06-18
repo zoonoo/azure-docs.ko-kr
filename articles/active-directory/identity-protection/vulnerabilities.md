@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108783"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 
@@ -37,11 +37,11 @@ Azure Multi-factor Authentication 사용자 인증에 대 한 보안의 두 번�
 * 모바일 앱 알림
 * OTP 인증 코드
 
-사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다. 다단계 인증은 ID 보호를 통해 사용할 수 있는 위험 기반 조건부 액세스 정책에서 중요한 역할을 합니다.
+사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다. Multi-factor authentication에서 Id 보호를 통해 사용할 수 있는 조건부 액세스 정책 위험 기반 키 역할을 합니다.
 
 자세한 내용은 [Azure Multi-Factor Authentication이란?](../authentication/multi-factor-authentication.md)을 참조하세요.
 
-## <a name="unmanaged-cloud-apps"></a>관리되지 않는 클라우드 앱
+## <a name="unmanaged-cloud-apps"></a>관리되지 않은 클라우드 앱
 
 이 취약점을 사용하면 조직에서 관리되지 않은 클라우드 앱을 식별할 수 있습니다.
 
@@ -51,7 +51,7 @@ IT 직원에 게 종종 조직에서 모든 클라우드 응용 프로그램의 
 
 자세한 내용은 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)를 참조하세요.
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management의 보안 경고
+## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management에서 보안 경고
 
 이 취약점을 사용하여 조직에서 권한있는 ID에 대한 경고를 검색하고 해결할 수 있습니다.  
 

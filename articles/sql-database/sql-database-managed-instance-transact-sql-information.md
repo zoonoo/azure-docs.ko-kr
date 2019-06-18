@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070347"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -276,6 +276,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
+- SQL Server 에이전트를 설정 하거나 해제 현재 지원 되지 않습니다에서 관리 되는 인스턴스. SQL 에이전트는 항상 실행되고 있습니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. 프로시저 `sp_set_agent_properties` 관리 되는 인스턴스에서 지원 되지 않습니다. 
 - 교육
   - T-SQL 작업 단계가 지원됩니다.
@@ -456,13 +457,13 @@ Managed Instance의 연결된 서버는 제한된 개수의 대상을 지원합�
 - `Extended stored procedures` 지원 되지 않으며, 이때 `sp_addextendedproc`  및 `sp_dropextendedproc`합니다. 참조 [확장 저장된 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)합니다.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
-## <a name="Environment"></a>Environmet 제약 조건
+## <a name="Environment"></a>환경 제약 조건
 
 ### <a name="subnet"></a>서브넷
 - 관리 되는 인스턴스에 대 한 예약 된 서브넷에서 다른 리소스 (예: 가상 머신)을 배치할 수 없습니다. 이러한 리소스는 다른 사용자에 배치할 서브넷입니다.
 - 서브넷의 사용 가능한 충분 한 수 있어야 합니다. [IP 주소](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 최소 16 이며 서브넷에서 IP 주소를 최소한 32가 권장 됩니다.
 - [서비스 끝점을 관리 되는 인스턴스의 서브넷과 연결할 수 없습니다](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다. 가상 네트워크를 만들 때 서비스 끝점 옵션은 사용 되지 않음을 확인 합니다.
-- 서브넷에 배치할 수 있는 인스턴스의 종류와 수는 일부의 [제약 조건 및 제한](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Vcore 수 및 지역에 배포할 수 있는 인스턴스 유형 중 몇 가지 [제약 조건 및 제한](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)합니다.
 - 몇 가지 [서브넷에 적용 해야 하는 보안 규칙](sql-database-managed-instance-connectivity-architecture.md#network-requirements)합니다.
 
 ### <a name="vnet"></a>VNET

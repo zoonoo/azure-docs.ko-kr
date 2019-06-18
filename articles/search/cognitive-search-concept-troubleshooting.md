@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696607"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>인식 검색을 위한 문제 해결 팁
 
@@ -84,7 +84,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 누락된 콘텐츠는 인덱싱 동안 삭제되는 문서의 결과물일 수 있습니다. 무료 및 기본 계층은 문서 크기에 대한 제한이 낮습니다. 제한을 초과하는 모든 파일은 인덱싱 동안 삭제됩니다. Azure Portal에서 삭제된 문서를 확인할 수 있습니다. 검색 서비스 대시보드에서 인덱서 타일을 두 번 클릭합니다. 성공적으로 인덱싱된 문서의 비율을 검토합니다. 100%가 아닌 경우 자세한 내용을 보려면 비율을 클릭하면 됩니다. 
 
-문제가 파일 크기와 관련이 있는 경우 다음과 같은 오류가 표시될 수 있습니다. “Blob <file-name>은 현재 서비스 계층에 대해 문서 추출을 위한 최대 크기를 초과하는 <file-size> 바이트 크기입니다.” 인덱서 제한에 대한 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
+문제가 파일 크기와 관련이 있는 경우 다음과 같은 오류가 표시될 수 있습니다. "Blob \<파일 이름 >"의 크기가 \<파일 크기 > 바이트, 현재 서비스 계층에 대 한 문서 추출에 대 한 최대 크기를 초과 합니다. " 인덱서 제한에 대한 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 콘텐츠를 표시하는 데 실패한 두 번째 이유는 관련된 입/출력 매핑 오류일 수 있습니다. 예를 들어 출력 대상 이름은 "People"이지만 인덱스 필드 이름은 소문자 "people"입니다. 실제로 필드가 비어있을 때 인덱싱이 성공한 것으로 생각하도록 시스템이 전체 파이프라인에 대한 201 성공 메시지를 반환할 수 있습니다. 
 

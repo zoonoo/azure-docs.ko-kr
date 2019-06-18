@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: df8ab370e8874e07f8985ecfb3a772848a2e2b21
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806283"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>파트너 센터 및 회사 작업 계정
@@ -23,7 +23,7 @@ ms.locfileid: "65806283"
 Azure, Microsoft Intune 또는 Office 365 같은 Microsoft 클라우드 서비스에 회사에서 구독 한 다음 이미 있는 경우 회사 전자 메일 계정 도메인 (Azure Active Directory 테 넌 트 라고도 함) 파트너 센터를 사용 하 여 사용할 수 있는 합니다.
 
 확인 하려면 다음이 단계를 수행 합니다.
-1. 에 Azure 관리 포털에 로그인 https://portal.azure.com합니다.
+1. 에 Azure 관리 포털에 로그인 https://portal.azure.com 합니다.
 2. 선택 **Azure Active Directory** 왼쪽 탐색 메뉴에서 선택 **사용자 지정 도메인 이름**합니다.
 3. 회사 계정에 이미 있는 경우 도메인 이름을 나열 됩니다.
 

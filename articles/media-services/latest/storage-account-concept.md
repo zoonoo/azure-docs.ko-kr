@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550158"
 ---
 # <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
@@ -54,14 +54,14 @@ Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 �
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 
-Media Services 계정에 대 한 "연결 끊김" 상태 계정 저장소 액세스 키에 하나 이상의 변경으로 인해 연결 된 저장소 계정에 대 한 액세스를 더 이상에 있는지를 나타냅니다. 최신 저장소 액세스 키 Media Services 계정에서 많은 작업을 수행 하기 위해 필요한 합니다.
+Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가 변경되어 해당 계정이 하나 이상의 연결된 스토리지 계정에 액세스할 수 없는 경우를 나타냅니다. Media Services가 계정에서 많은 작업을 수행하려면 최신 스토리지 액세스 키가 필요합니다.
 
-연결 된 저장소 계정에 액세스할 수 없는 경우 Media Services 계정에 될 수 있는 기본 시나리오는 다음과 같습니다. 
+다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다. 
 
 |문제|해결 방법|
 |---|---|
-|구독을 구분 하는 Media Services 계정 또는 연결 된 저장소 계정 마이그레이션 되었습니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오. |
-|Media Services 계정 처럼 초기 Media Services 계정을이 지원 다른 구독에 연결 된 저장소 계정을 사용 됩니다. 모든 초기 Media Services 계정 최신 Azure 리소스 관리자 (ARM) 기반 계정으로 변환 된 및 연결이 끊긴 상태가 됩니다. |동일한 구독에 있는 모든 수 있도록 저장소 계정 또는 Media Services 계정 마이그레이션하십시오.|
+|Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다. |
+|이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정이 최신 ARM(Azure Resources Manager) 기반 계정으로 변환되었으며 연결 끊김 상태가 됩니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113480"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -37,8 +37,8 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 이 문서의 4가지 핵심 사항은 다음과 같습니다.
 
 * 응급 액세스 계정을 사용하여 관리자 잠금을 방지합니다.
-* 사용자별 MFA 대신 CA(조건부 액세스)를 사용하여 MFA를 구현합니다.
-* 여러 CA(조건부 액세스) 제어를 사용하여 사용자 잠금을 완화합니다.
+* 사용자별 MFA를 사용 하지 않고 CA (조건부 액세스)를 사용 하 여 MFA를 구현 합니다.
+* 여러 CA (조건부 액세스) 컨트롤을 사용 하 여 사용자 잠금이 완화 합니다.
 * 각 사용자에 대해 여러 인증 방법 또는 이와 동등한 기능을 프로비전하여 사용자 잠금을 완화합니다.
 
 ## <a name="before-a-disruption"></a>중단 전
@@ -58,11 +58,11 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 ### <a name="mitigating-user-lockout"></a>사용자 잠금 완화
 
- 사용자 잠금 위험을 줄이려면 여러 제어가 포함된 조건부 액세스 정책을 사용하여 사용자가 애플리케이션 및 리소스에 액세스하는 방법을 선택할 수 있도록 합니다. 예를 들어 사용자가 MFA로 로그인 **또는** 관리 디바이스에서 로그인 **또는** 회사 네트워크에서 로그인 중에서 선택할 수 있도록 하여 액세스 제어 중 하나를 사용할 수 없는 경우 계속 작업할 수 있는 다른 옵션이 사용자에게 제공됩니다.
+ 사용자 잠금의 위험을 완화 하기 사용자가 앱 및 리소스 액세스할 방법을 선택할 수 있도록 여러 컨트롤을 사용 하 여 조건부 액세스 정책을 사용 합니다. 예를 들어 사용자가 MFA로 로그인 **또는** 관리 디바이스에서 로그인 **또는** 회사 네트워크에서 로그인 중에서 선택할 수 있도록 하여 액세스 제어 중 하나를 사용할 수 없는 경우 계속 작업할 수 있는 다른 옵션이 사용자에게 제공됩니다.
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
-조직에 대한 기존의 조건부 액세스 정책에 다음 액세스 제어를 통합합니다.
+조직에 대 한 기존 조건부 액세스 정책에서 다음 access 컨트롤을 통합 합니다.
 
 1. Microsoft Authenticator 앱(인터넷 기반), OATH 토큰(디바이스에서 생성) 및 SMS(전화)와 같이 다양한 통신 채널을 사용하는 각 사용자에 대해 여러 인증 방법을 프로비전합니다.
 2. 디바이스 로그인에서 직접 MFA 요구 사항을 충족시키기 위해 Windows 10 디바이스에 비즈니스용 Windows Hello를 배포합니다.
@@ -109,7 +109,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
-대응 조건부 액세스 정책은 Azure MFA, 타사 MFA, 위험 기반 또는 디바이스 기반 제어를 생략하는 **사용 안 함 정책**입니다. 그런 다음, 조직에서 대응 계획을 활성화하도록 결정하면 관리자는 정책을 사용하도록 설정하고 일반 제어 기반 정책을 사용하지 않도록 설정할 수 있습니다.
+조건부 액세스 정책이 대체는 **정책을 사용 하지 않도록** Azure MFA를 제 3 자 MFA 위험 기반 또는 장치 기반 컨트롤을 생략 하는 합니다. 그런 다음, 조직에서 대응 계획을 활성화하도록 결정하면 관리자는 정책을 사용하도록 설정하고 일반 제어 기반 정책을 사용하지 않도록 설정할 수 있습니다.
 
 >[!IMPORTANT]
 > 사용자에게 보안을 적용하는 정책을 일시적이라도 사용하지 않도록 설정하면 대응 계획이 있는 동안 보안 상태가 저하됩니다.
@@ -247,7 +247,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 ## <a name="emergency-options"></a>응급 옵션
 
- 긴급 상황이 발생하고 조직에서 이전에 완화 또는 대응 계획을 구현하지 않았을 때 MFA를 적용하는 조건부 액세스 정책을 이미 사용하고 있으면 [사용자 잠금 상태](#contingencies-for-user-lockout) 섹션의 추천 사항을 따릅니다.
+ 긴급 한 조직의 경우 않았습니다 적이 없는 완화 또는 대체 계획 구현 다음 권장 사항을 따르십시오 합니다 [사용자 잠금에 대 한 대비](#contingencies-for-user-lockout) 조건부 액세스를 이미 사용 하는 경우 섹션 MFA를 적용 하는 정책입니다.
 조직에서 사용자별 MFA 레거시 정책을 사용하는 경우 고려할 수 있는 대안은 다음과 같습니다.
 
 1. 회사 네트워크 아웃바운드 IP 주소가 있으면 회사 네트워크에만 인증할 수 있도록 이를 신뢰할 수 있는 IP로 추가합니다.
@@ -268,5 +268,5 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [하이브리드 Azure Active Directory 조인 디바이스를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [비즈니스용 Windows Hello 배포 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Azure Active Directory 조건부 액세스의 조건이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Azure Active Directory 조건부 액세스의 액세스 제어란?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Azure Active Directory 조건부 액세스의 조건 이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Azure Active Directory 조건부 액세스의 액세스 제어는 무엇입니까?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

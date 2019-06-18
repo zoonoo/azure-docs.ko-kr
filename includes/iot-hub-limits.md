@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238512"
 ---
 다음 표에서 각 서비스 계층 S1, S2, S3 및 F1와 관련 된 한도 나열 합니다. 각각의 비용에 대 한 자세한 *단위* 각 계층에서 참조 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)합니다.
@@ -30,16 +30,16 @@ ms.locfileid: "66238512"
 | Azure 구독당 최대 유료 IoT Hub |50 |
 | Azure 구독당 최대 무료 IoT Hub |1 |
 | 장치 ID에 있는 문자의 최대 수 | 128 |
-| 단일 호출에서 반환되는 최대 디바이스 ID<br/>  수 |1,000 |
+| 단일 호출에서 반환되는 최대 디바이스 ID<br/> 수 |1,000 |
 | 디바이스-&gt;클라우드 메시지의 IoT Hub 메시지 최대 보존 |7 일 |
 | 디바이스-&gt;클라우드 메시지의 최대 크기 |256 KB |
 | 디바이스-&gt;클라우드 배치의 최대 크기 |AMQP 및 HTTP: 전체 일괄 처리에 256KB <br/>MQTT: 각 메시지에 256KB |
 | 디바이스-&gt;클라우드 배치의 최대 메시지 |500 |
 | 클라우드->장치 메시지의 최대 크기 |64KB |
 | 클라우드->장치 메시지의 최대 TTL |2일 |
-| 클라우드->장치  <br/> 메시지의 최대 전달 수 |100 |
-| 클라우드->장치 메시지에 대한 응답에서 피드백  <br/>  메시지의 최대 전달 수 |100 |
-| 클라우드->장치 메시지에 대한 응답에서 피드백  <br/>  메시지의 최대 TTL |2일 |
+| 클라우드->장치 <br/> 메시지의 최대 전달 수 |100 |
+| 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 전달 수 |100 |
+| 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 TTL |2일 |
 | [장치 쌍의 최대 크기](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (태그, reported 속성 및 desired 속성) | 8KB |
 | 디바이스 쌍 문자열 값의 최대 크기 | 4KB |
 | [장치 쌍에서 개체의 최대 깊이](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |

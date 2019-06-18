@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb89b1ef4dbbef234fba3152d7f85bbadfbdc64a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873887"
 ---
 # <a name="known-issues-on-safari-browser-with-msaljs"></a>MSAL.js 사용 하 여 Safari 브라우저에서 알려진된 문제 
@@ -36,7 +36,7 @@ MSAL.js 숨겨진된 Iframe을 사용 하 여의 일부로 자동 토큰 획득 
 
 이 시점에서이 문제에 대 한 솔루션은 및 표준 커뮤니티를 사용 하 여 옵션을 평가 하는 것입니다.
 
-### <a name="work-around"></a>해결 방법
+### <a name="work-around"></a>해결
 
 기본적으로는 ITP 설정이 Safari 브라우저에서 사용 됩니다. 로 이동 하 여이 설정을 사용 하지 않도록 설정할 수 있습니다 **기본 설정** -> **개인 정보 취급** 선택을 취소 하 고는 **사이트 간 추적 방지** 옵션입니다.
 

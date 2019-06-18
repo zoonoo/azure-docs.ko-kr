@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113151"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 협업 사용자에 대한 조건부 액세스
+# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대 한 조건부 액세스
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>B2B 사용자에 대한 다단계 인증
 Azure AD B2B 협업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
@@ -87,17 +87,17 @@ Contoso에 App2가 아닌 App1에 대해서만 설정된 MFA 정책이 있는 �
 
 따라서 B2B 사용자의 경우 항상 초대하는 테넌트의 MFA를 요구하는 것이 좋습니다. 이렇게 하면 MFA가 2개가 될 수도 있지만 초대하는 테넌트에 액세스할 때마다 최종 사용자 경험을 예측할 수 있습니다. Sally는 초대하는 테넌트를 사용하여 MFA에 등록해야 합니다.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 사용자에 대한 디바이스 기반, 위치 기반 및 위험 기반 조건부 액세스
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 사용자에 대 한 장치 기반, 위치 기반 및 위험 기반 조건부 액세스
 
-Contoso에서 회사 데이터에 대한 디바이스 기반 조건부 액세스 정책을 적용할 수 있으면 Contoso에서 관리되지 않고 Contoso 디바이스 정책을 준수하지 않는 디바이스에서는 액세스할 수 없습니다.
+Contoso 회사 데이터에 대 한 조건부 액세스 정책을 장치 기반을 사용 하도록 설정할 때 Contoso 장치 정책을 준수 하지 않는 및 Contoso에서 관리 되지 않는 장치에서 액세스할 수 없게 됩니다.
 
-B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그렇지만 Contoso는 디바이스 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함된 제외 목록을 만들 수 있습니다.
+B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그러나 Contoso 장치 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함 된 제외 목록을 만들 수 있습니다.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>B2B에 대한 위치 기반 조건부 액세스
+#### <a name="location-based-conditional-access-for-b2b"></a>B2B에 대 한 위치 기반 조건부 액세스
 
-초대하는 조직이 파트너 조직을 정의하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있는 경우 위치 기반 조건부 액세스 정책을 B2B 사용자에게 적용할 수 있습니다.
+초대 하는 조직이 파트너 조직을 정의 하는 신뢰할 수 있는 IP 주소 범위를 만들 수 있으면 위치 기반 조건부 액세스 정책은 B2B 사용자에 게 적용할 수 있습니다.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>B2B에 대한 위험 기반 조건부 액세스
+#### <a name="risk-based-conditional-access-for-b2b"></a>B2B에 대 한 위험 기반 조건부 액세스
 
 위험 평가는 B2B 사용자의 홈 조직에서 수행되기 때문에 현재는 위험 기반 로그인 정책을 B2B 사용자에게 적용할 수 없습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 3836eb87516eed546ae6bb69f53bf64e5df00906
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: bd2a594bfd7fbac53deacc767ace3cd44484798e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058100"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> 전체 예제를 참조 하세요. 합니다 [GitHub의.NET 관리 샘플]((https://github.com/Azure-Samples/service-bus-dotnet-management/))합니다. 
+> 전체 예제를 참조 하세요. 합니다 [GitHub의.NET 관리 샘플](https://github.com/Azure-Samples/service-bus-dotnet-management/)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Microsoft.Azure.Management.ServiceBus API 참조](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

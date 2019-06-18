@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636754"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
@@ -110,8 +110,8 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 
 |    | 일반 웹 | 대용량 파일 최적화 
 --- | --- | --- 
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
-Caching: Negative <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1초 
+Caching: 양수 <br> HTTP 200, 203, 300, <br> 301, 302 및 410 | 7 일 |1일  
+Caching: 음수 <br> HTTP 204, 305, 404 <br> 및 405 | 없음 | 1 초 
 
 ### <a name="deal-with-origin-failure"></a>원본 오류 처리
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080924"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -32,18 +32,21 @@ Batch 워크로드를 설계 및 강화할 때 이 할당량에 주의합니다.
 
 Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기본값의 할당량 중 두 개 이상을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료 온라인 [고객지원 요청](#increase-a-quota) 을 개설합니다.
 
-> [!NOTE]
-> 할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
-
 ## <a name="resource-quotas"></a>리소스 할당량
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+할당량은 신용 한도액일 뿐이며 용량을 보장하는 것은 아닙니다. 대규모 용량이 필요한 경우 Azure 지원에 문의하세요.
+
+또한 할당량 하지는 값을 보장 합니다. 할당량 일괄 처리 서비스 또는 할당량 값을 변경 하는 사용자 요청에서 변경 내용에 따라 달라질 수 있습니다.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>사용자 구독 모드에서 코어 할당량
 
 풀 할당 모드가 **사용자 구독**으로 설정된 Batch 계정을 만든 경우 할당량이 다르게 적용됩니다. 이 모드에서 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 이 모드에서 생성된 계정에는 적용되지 않습니다. 대신, 지역별 계산 코어 및 기타 리소스에 대한 구독의 할당량이 적용됩니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 이러한 할당량에 대해 자세히 알아보세요.
 
 ## <a name="pool-size-limits"></a>풀 크기 제한
+
+풀 크기 제한은 Batch 서비스에 의해 설정 됩니다. 와 달리 [리소스 할당량](#resource-quotas), 이러한 값을 변경할 수 없습니다. 노드 간 통신 및 사용자 지정 이미지를 사용 하 여만 풀은 표준 할당량 다른 제한이 있습니다.
 
 | **리소스** | **최대 제한** |
 | --- | --- |
@@ -52,11 +55,13 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | Batch 구독 풀 할당 모드 | 80 |
 | **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)<sup>1</sup>의 계산 노드 수** ||
 | 전용 노드 | 2000 |
-| 낮은 우선 순위 노드 | 1000 |
+| 우선 순위가 낮은 노드 | 1000 |
 
 <sup>1</sup> 노드 간 통신을 사용하도록 설정되지 않은 풀입니다.
 
 ## <a name="other-limits"></a>기타 제한
+
+Batch 서비스에서 추가 제한이 설정 합니다. 와 달리 [리소스 할당량](#resource-quotas), 이러한 값을 변경할 수 없습니다.
 
 | **리소스** | **최대 제한** |
 | --- | --- |
@@ -84,7 +89,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 ### <a name="increase-cores-quota-in-batch"></a>일괄 처리에서 코어 할당량 증가 
 
-1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표(**?**)를 선택합니다.
+1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표( **?** )를 선택합니다.
 1. **새 기본 지원 요청** > **기본**을 클릭합니다.
 1. **기본 사항**에서
    
@@ -92,7 +97,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
    
     b. 구독을 선택합니다.
    
-    다. **할당량 유형** > **배치**
+    c. **할당량 유형** > **배치**
       
     **다음**을 선택합니다.
     

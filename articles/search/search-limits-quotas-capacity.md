@@ -11,10 +11,10 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024630"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
@@ -47,7 +47,7 @@ ms.locfileid: "65024630"
 
 ## <a name="index-limits"></a>인덱스 제한
 
-| 리소스 | 무료 | 기본&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | 무료 | 기본&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 최대 인덱스 |3 |5 또는 15 |50 |200 |200 |파티션당 1000 또는 서비스당 3000 |10 |10 |
 | 인덱스 당 최대 간단한 필드 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -76,7 +76,7 @@ ms.locfileid: "65024630"
 
 + 오스트레일리아 동부
 + 동아시아
-+ 중앙 인도
++ 인도 중부
 + 일본 서부
 + 미국 중서부
 
@@ -105,7 +105,7 @@ ms.locfileid: "65024630"
 최대 실행 시간은 잔액 및 전체 서비스 안정성을 제공 하지만 더 큰 데이터 집합의 최대 허용 된 것 보다 더 인덱싱 시간이 필요할 수 있습니다. 인덱싱 작업이 허용된 최대 시간 내에 완료될 수 없는 경우에는 일정에 따라 실행해보십시오. 스케줄러는 인덱싱 상태를 추적합니다. 어떤 이유로든 예약된 인덱싱 작업이 중단되면 다음에 예약된 실행에서 인덱서가 지난 번에 중단된 위치부터 작업을 이어갈 수 있습니다.
 
 
-| 리소스 | 무료&nbsp;<sup>1</sup> | 기본&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | 무료&nbsp;<sup>1</sup> | 기본&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | 최대 인덱서 |3 |5 또는 15|50 |200 |200 |N/A |10 |10 |
 | 최대 데이터 원본 |3 |5 또는 15 |50 |200 |200 |N/A |10 |10 |

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063267"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>자습서: Azure virtual network를 사용 하 여 Functions 통합
 
@@ -137,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 사용 하도록 설정 하는 VNet 통합을 사용 하 여 가상 네트워크에서 실행 중인 VM에 요청을 전달 하도록 함수 앱의 프록시를 만들 수 있습니다.
 
-1. 함수 앱 선택 **프록시** > **+**, 다음 이미지 아래의 표에 프록시 설정을 사용 합니다.
+1. 함수 앱 선택 **프록시** >  **+** , 다음 이미지 아래의 표에 프록시 설정을 사용 합니다.
 
     ![프록시 설정을 정의 합니다.](./media/functions-create-vnet/create-proxy.png)
 
@@ -170,4 +170,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > [!div class="nextstepaction"]
 > [함수에서 네트워킹 옵션에 자세히 알아보기](./functions-networking-options.md)
 
-[프리미엄 요금제]: functions-scale.md#premium-plan-public-preview
+[프리미엄 요금제]: functions-scale.md#premium-plan

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611355"
 ---
 # <a name="the-azure-production-network"></a>Azure 프로덕션 네트워크
@@ -54,7 +54,7 @@ Azure는 강력한 소프트웨어 보안 및 방화벽 기능을 다양한 수�
 ### <a name="azure-security-features"></a>Azure 보안 기능
 Azure는 프로덕션 네트워크 내에서 호스트 기반 소프트웨어 방화벽을 구현합니다. 몇 가지 핵심 보안 및 방화벽 기능이 핵심 Azure 환경 내에 상주합니다. 이러한 보안 기능에는 Azure 환경 내의 심층 방어 전략이 반영됩니다. Azure에서 고객 데이터는 다음 방화벽으로 보호됩니다.
 
-**하이퍼바이저 방화벽(패킷 필터)**: 이 방화벽은 하이퍼바이저에서 구현되고 FC(패브릭 컨트롤러) 에이전트에서 구성됩니다. 이 방화벽은 VM 내에서 실행되는 테넌트를 무단 액세스로부터 보호합니다. 기본적으로는 VM을 만들 때 모든 트래픽이 차단되며, FC 에이전트는 필터에 규칙 및 예외를 추가하여 권한이 부여된 트래픽을 허용합니다.
+**하이퍼바이저 방화벽(패킷 필터)** : 이 방화벽은 하이퍼바이저에서 구현되고 FC(패브릭 컨트롤러) 에이전트에서 구성됩니다. 이 방화벽은 VM 내에서 실행되는 테넌트를 무단 액세스로부터 보호합니다. 기본적으로는 VM을 만들 때 모든 트래픽이 차단되며, FC 에이전트는 필터에 규칙 및 예외를 추가하여 권한이 부여된 트래픽을 허용합니다.
 
 다음과 같은 두 가지 규칙 범주가 프로그래밍됩니다.
 

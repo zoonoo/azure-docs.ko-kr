@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477100"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
@@ -39,7 +39,7 @@ ms.locfileid: "60477100"
 
 
 
-## <a name="important-notes"></a>중요
+## <a name="important-notes"></a>중요 정보
 
 SAP HANA System Replication 및 Pacemaker와 함께 SAP HANA 스케일 아웃에 대한 모든 테스트는 SAP HANA 2.0에서만 수행되었습니다. 운영 체제 버전은 SAP 애플리케이션용 SUSE Linux Enterprise Server 12 SP3이 사용되었습니다. 최신 RPM 패키지인 SUSE의 SAPHanaSR-ScaleOut도 Pacemaker 클러스터를 설정하는 데 사용되었습니다.
 SUSE의 [성능 최적화 설정에 대한 자세한 설명][sles-hana-scale-out-ha-paper]이 게시되어 있습니다.
@@ -66,7 +66,7 @@ SUSE의 지원이 필요한 경우 [가이드][suse-pacemaker-support-log-files]
  SAP HANA 스케일 아웃 HA 확인 및 인증에 설정이 사용되었습니다. SAP HANA 노드 세 개(마스터 하나와 작업자 둘)와 시스템 두 개로 구성되었니다. 다음 테이블에는 VM 이름과 내부 IP 주소가 나열되어 있습니다. 뒤에 나오는 모든 확인 샘플은 이 VM에서 수행되었습니다. 명령 샘플에서 이러한 VM 이름과 IP 주소를 사용하면 명령과 해당 출력을 더 잘 이해할 수 있습니다.
 
 
-| 노드 유형 | VM 이름 | IP 주소 |
+| 노드 형식 | VM 이름 | IP 주소 |
 | --- | --- | --- |
 | 사이트 1의 마스터 노드 | hso-hana-vm-s1-0 | 10.0.0.30 |
 | 사이트 1의 작업자 노드 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
@@ -473,7 +473,7 @@ node.startup = automatic
 systemctl status pacemaker
 </code></pre>
 
-출력의 맨 위가 다음 샘플과 유사하게 표시됩니다. **Active**(활성) 뒤의 상태가 **loaded**(로드됨) 또는 **active (running)**(활성(실행 중))으로 표시되는 것이 중요합니다. **Loaded**(로드 됨) 후의 상태는 **enabled**(사용)로 표시되어야 합니다.
+출력의 맨 위가 다음 샘플과 유사하게 표시됩니다. **Active**(활성) 뒤의 상태가 **loaded**(로드됨) 또는 **active (running)** (활성(실행 중))으로 표시되는 것이 중요합니다. **Loaded**(로드 됨) 후의 상태는 **enabled**(사용)로 표시되어야 합니다.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager

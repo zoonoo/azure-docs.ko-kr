@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121868"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>MSAL.NET의 AuthenticationResult 속성
@@ -40,7 +40,7 @@ MSAL.NET을에서 `AuthenticationResult` 노출 합니다.
 계정의 개념을 정의 하는 MSAL.NET (통해를 `IAccount` 인터페이스). 이 주요 변경은 올바른 의미 체계, 즉 동일한 사용자가 여러 Azure AD 디렉터리에 여러 계정을 가질 수 있다는 사실을 제공합니다. 또한 MSAL.NET 홈 계정 정보를 제공 하는 대로 게스트 시나리오의 경우 더 나은 정보를 제공 합니다.
 다음 다이어그램은 구조를 보여 줍니다.는 `IAccount` 인터페이스:
 
-![Image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
+![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
 
 `AccountId` 특정 테 넌 트의 계정 클래스를 식별 합니다. 해당 속성은 다음과 같습니다.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
 ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752186"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>미리 보기-클러스터 노드 및 필요한 포트 및 Azure Kubernetes Service (AKS)에서 서비스에 대 한 액세스 제어에 대 한 송신 트래픽 제한

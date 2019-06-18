@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075769"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
@@ -94,13 +94,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a> SQL 연결 설정 변경
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 Azure Portal에서 SQL Server 가상 머신에 대한 연결 설정을 변경할 수 있습니다.
 
-1. Azure Portal에서 **Virtual Machines**를 선택합니다.
+1. Azure portal에서 선택 **SQL 가상 머신**합니다.
 
 2. SQL Server VM을 선택합니다.
 
-3. **설정** 아래에서 **SQL Server 구성**을 클릭합니다.
+3. 아래 **설정을**를 선택 **보안**합니다.
 
 4. **SQL 연결 수준**을 필요한 설정으로 변경합니다. 필요에 따라 이 영역을 사용하여 SQL Server 포트 또는 SQL 인증 설정을 변경할 수 있습니다.
 

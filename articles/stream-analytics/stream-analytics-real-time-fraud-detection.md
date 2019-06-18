@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076232"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작: 실시간 사기 감지
 
@@ -131,11 +131,12 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 
 ### <a name="start-the-app"></a>앱 시작
 1.  명령 창을 열고 TelcoGenerator 앱이 압축 해제된 폴더로 변경합니다.
+
 2.  다음 명령을 입력합니다.
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     매개 변수는 다음과 같습니다. 
 
@@ -150,7 +151,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 |**레코드**|**정의**|
 |----------|--------------|
 |`CallrecTime`|호출 시작 시간에 대한 타임스탬프 |
-|`SwitchNum`|호출 연결에 사용되는 전화 스위치. 예를 들어 스위치는 국가/지역 (미국, 중국, 영국, 독일 또는 오스트레일리아) 출처를 나타내는 문자열입니다. |
+|`SwitchNum`|호출 연결에 사용되는 전화 스위치. 이 예에서는 스위치는 발신 국가/지역(미국, 중국, 영국, 독일 또는 오스트레일리아)를 나타내는 문자열입니다. |
 |`CallingNum`|호출자의 전화번호. |
 |`CallingIMSI`|국제 모바일 구독자 ID(IMSI) 호출자의 고유 식별자 |
 |`CalledNum`|호출 수신자의 전화번호. |

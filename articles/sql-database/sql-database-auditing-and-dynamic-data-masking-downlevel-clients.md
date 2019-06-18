@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416529"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 엔드포인트 변경
@@ -65,7 +65,7 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 | 미국 동부 2 |104.209.141.31, 104.208.238.177, 191.237.131.51, 104.208.235.50 |
 | 미국 동부 |23.96.107.223, 104.41.150.122, 23.96.38.170, 104.41.146.44 |
 | 미국 동부 EUAP |52.225.190.86, 52.225.191.187 |
-| 중앙 인도 |104.211.98.219, 104.211.103.71 |
+| 인도 중부 |104.211.98.219, 104.211.103.71 |
 | 인도 남부 |104.211.227.102, 104.211.225.157 |
 | 인도 서부 |104.211.161.152, 104.211.162.21 |
 | 일본 동부 |104.41.179.1, 40.115.253.81, 23.102.64.207, 40.115.250.196 |

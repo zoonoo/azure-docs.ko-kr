@@ -11,10 +11,10 @@ ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507600"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
@@ -33,7 +33,7 @@ ms.locfileid: "66507600"
 
 ## <a name="step-1-add-authentication-support"></a>1단계: 인증 지원 추가
 
-### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
+### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1\.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
 
 1. 앞에서 만든 Visual Studio 프로젝트를 엽니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "66507600"
     [System.Convert]::ToBase64String($bytes)
     ```
 
-### <a name="step-12-install-owin-libraries"></a>1.2단계: OWIN 라이브러리 설치
+### <a name="step-12-install-owin-libraries"></a>1\.2단계: OWIN 라이브러리 설치
 
 시작하려면 Visual Studio 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
 
@@ -66,7 +66,7 @@ PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-### <a name="step-13-add-an-authentication-middleware-class"></a>1.3단계: 인증 미들웨어 클래스 추가
+### <a name="step-13-add-an-authentication-middleware-class"></a>1\.3단계: 인증 미들웨어 클래스 추가
 
 *App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이를 수행하려면:
 
@@ -190,7 +190,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     }
     ```
 
-### <a name="step-14-add-an-owin-startup-class"></a>1.4단계: OWIN 시작 클래스 추가
+### <a name="step-14-add-an-owin-startup-class"></a>1\.4단계: OWIN 시작 클래스 추가
 
 `Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이를 수행하려면:
 1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** **추가** > 를 선택한 다음 **OWIN**을 검색합니다.
@@ -216,7 +216,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     }
     ```
 
-### <a name="step-15-protect-the-identity-api-class"></a>1.5단계: ID API 클래스 보호
+### <a name="step-15-protect-the-identity-api-class"></a>1\.5단계: ID API 클래스 보호
 
 Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러 클래스에 추가합니다. 이 태그는 권한 부여 요구 사항을 충족하는 사용자에게 컨트롤러에 대한 액세스를 제한합니다.
 
@@ -230,7 +230,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다.
 
-### <a name="step-31-add-a-restful-services-client-id"></a>3.1단계: RESTful 서비스 클라이언트 ID 추가
+### <a name="step-31-add-a-restful-services-client-id"></a>3\.1단계: RESTful 서비스 클라이언트 ID 추가
 
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
@@ -252,7 +252,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 9. `B2C_1A_B2cRestClientId` 키를 만들었는지 확인합니다.
 
-### <a name="step-32-add-a-restful-services-client-secret"></a>3.2단계: RESTful 서비스 클라이언트 비밀 추가
+### <a name="step-32-add-a-restful-services-client-secret"></a>3\.2단계: RESTful 서비스 클라이언트 비밀 추가
 
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 

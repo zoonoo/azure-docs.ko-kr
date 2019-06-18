@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 1ae585322316a9c215fc32cc2f8ffba2f332ff61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cd5839520a5b85f31cbe677ad6691a3d6bacd0b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704861"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066287"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -226,6 +226,60 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
    
    ![Spark 애플리케이션 로컬 실행 결과](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
+## <a name="reader-only-role"></a>판독기 전용 역할
+사용자가 제출 판독기 전용 역할 권한 사용 하 여 클러스터에 작업을 Ambari 자격 증명이 필요 합니다.
+
+### <a name="link-cluster-from-context-menu"></a>상황에 맞는 메뉴에서 링크 클러스터
+
+1. 판독기 전용 역할 계정으로 로그인 합니다.
+       
+2. **Azure 탐색기**, 확장 **HDInsight** 구독에 있는 HDInsight 클러스터를 볼 수 있습니다. 클러스터 표시 **"역할: 읽기 권한자"** 판독기 전용 역할 권한이 합니다.
+
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+
+3. 판독기 전용 역할 권한 사용 하 여 클러스터를 마우스 오른쪽 단추로 클릭 합니다. 선택 **이 클러스터 연결** 클러스터 연결 상황에 맞는 메뉴에서. Ambari 사용자 이름 및 암호를 입력 합니다.
+
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+
+4. 클러스터에 성공적으로 연결 하는 경우 HDInsight 새로 고쳐집니다.
+   클러스터의 단계는 연결 됩니다.
+  
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+
+
+
+### <a name="link-cluster-by-expanding-jobs-node"></a>작업 노드를 확장 하 여 링크 클러스터
+
+1. 클릭 **작업** 노드를 **클러스터 작업 액세스 거부** 창이 열립니다.
+   
+2. 클릭 **이 클러스터 연결** 클러스터를 연결 합니다.
+   
+    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+
+### <a name="link-cluster-from-spark-submission-window"></a>Spark 제출 창에서 링크 클러스터
+
+1. HDInsight 프로젝트를 만듭니다.
+
+2. 패키지를 마우스 오른쪽 단추로 클릭 합니다. 선택한 **HDInsight에 Spark 응용 프로그램 제출**합니다.
+   
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+
+3. 판독기 전용 역할 권한이 있는 클러스터 선택에 대 한 **클러스터 이름**합니다. 경고 메시지 아웃 보여 줍니다. 클릭할 수 **이 클러스터 연결** 클러스터를 연결 합니다.
+   
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   
+### <a name="view-storage-accounts"></a>저장소 계정 보기
+
+* 판독기 전용 역할 권한 사용 하 여 클러스터에 대 한 클릭 **Storage 계정** 노드를 **저장소 액세스가 거부** 창이 열립니다. 
+     
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+
+* 연결 된 클러스터에 대 한 클릭 **Storage 계정** 노드를 **저장소 액세스가 거부** 창이 열립니다. 
+     
+   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+
 ## <a name="known-problems"></a>알려진 문제
 클러스터를 연결하는 경우 저장소 자격 증명을 제공하는 것이 좋습니다.
 
@@ -236,9 +290,6 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 ![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
 
 ![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
-
-## <a name="feedback"></a>사용자 의견
-의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.
 
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
@@ -257,7 +308,6 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 * [IntelliJ용 Azure 도구 키트를 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)

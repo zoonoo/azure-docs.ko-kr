@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
 ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60724095"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
@@ -54,7 +54,7 @@ Azure SQL 데이터베이스를 프로비전한 후 연결 정보를 확인하�
 **ODBC(Node.js 포함) [SQL 인증]** 문자열의 내용을 복사합니다. 이 문자열은 C++ ODBC 명령줄 인터프리터에서 연결하는 데 사용합니다. 이 문자열은 드라이버, 서버 및 다른 데이터베이스 연결 매개 변수 등의 세부 정보를 제공합니다.
 
 ## <a id="Firewall"></a>3단계:  방화벽에 IP 추가
-Database 서버 방화벽으로 이동하고 [이 단계를 사용하여 방화벽에 클라이언트 IP](sql-database-configure-firewall-settings.md)를 추가하여 다음과 같이 연결을 합니다. 
+Database 서버 방화벽으로 이동하고 [이 단계를 사용하여 방화벽에 클라이언트 IP](sql-database-configure-firewall-settings.md)를 추가하여 다음과 같이 연결을 합니다.
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
@@ -75,7 +75,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요. 
+축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a id="Linux"></a>5단계: Linux C/C++ 애플리케이션에서 연결
 아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 애플리케이션도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 머신](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다.

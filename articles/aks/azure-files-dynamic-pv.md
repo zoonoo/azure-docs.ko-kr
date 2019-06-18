@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061087"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -35,7 +35,7 @@ Kubernetes 볼륨에 대 한 자세한 내용은 참조 하세요. [AKS에서 �
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 
 > [!NOTE]
-> Azure Files는 현재 표준 저장소에서만 작동합니다. Premium Storage를 사용하는 경우 볼륨이 프로비전되지 않습니다.
+> Azure Files 1.13 이상 Kubernetes를 실행 하는 AKS 클러스터에서 premium storage를 지원 합니다.
 
 Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
 
@@ -198,7 +198,7 @@ Volumes:
 
 다음 표에 설명된 대로 Kubernetes 버전마다 기본 *fileMode* 및 *dirMode* 값이 다릅니다.
 
-| 버전 | 값 |
+| version | 값 |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

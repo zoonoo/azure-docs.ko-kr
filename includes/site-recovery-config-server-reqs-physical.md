@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160362"
 ---
 **물리적 서버 복제에 대한 구성/프로세스 서버 요구 사항**
@@ -36,7 +36,7 @@ IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대
 IP 주소 유형 | 공용 
 | 
 **액세스 설정** | 
-MYSQL | MySQL은 구성 서버에 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 배포하는 동안 설치할 수도 있습니다. Site Recovery가 설치하도록 하려면 머신이 http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi에 도달할 수 있는지 확인합니다.
+MYSQL | MySQL은 구성 서버에 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 배포하는 동안 설치할 수도 있습니다. Site Recovery가 설치하도록 하려면 머신이 http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi 에 도달할 수 있는지 확인합니다.
 URL | 구성 서버가 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해).<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> 복제 데이터 전송: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> 복제 관리: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> 저장소 액세스: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> 시간 동기화: `time.nist.gov`; `time.windows.com`<br/><br/> (선택 사항) 원격 분석: `dc.services.visualstudio.com`
 방화벽 | IP 주소 기반 방화벽 규칙은 Azure URL과의 통신을 허용해야 합니다. IP 범위를 간소화하고 제한하려면 URL 필터링을 사용하는 것이 좋습니다.<br/><br/>**상용 IP의 경우:**<br/><br/>- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.<br/><br/> - 미국 서부에 해당하는 IP 주소 범위를 허용합니다(액세스 제어 및 ID 관리에 사용됨).<br/><br/> - Azure Active Directory, 백업, 복제 및 저장소에 필요한 URL을 지원하기 위해 구독의 Azure 지역에 대한 IP 주소 범위를 허용합니다.<br/><br/> **정부를 위한 IP의 경우:**<br/><br/> - Azure Government 데이터 센터 IP 범위 및 HTTPS(443) 포트를 허용합니다.<br/><br/> - Azure Active Directory, 백업, 복제 및 저장소에 필요한 URL을 지원하기 위해 모든 US Gov 지역(버지니아, 텍사스, 아리조나 및 아이오와)에 대한 IP 주소 범위를 허용합니다.
 포트 | 443 허용(컨트롤 채널 오케스트레이션)<br/><br/> 9443 허용(데이터 전송) 

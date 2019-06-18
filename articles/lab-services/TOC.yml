@@ -50,6 +50,10 @@
       items:
         - name: DevTest Lab 개념
           href: devtest-lab-concepts.md
+        - name: 분산 및 협업 개발에 대 한 모범 사례
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: Azure DevOps와 통합
+          href: devtest-lab-dev-ops.md
         - name: 시나리오
           items:
             - name: DevTest Labs 사용을 위한 인기 있는 시나리오
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: 가상 머신의 암호 설정 또는 재설정
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: 랩 가상 머신에 대한 리소스 그룹 지정
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: 다른 랩에서 가상 머신 가져오기
           href: import-virtual-machines-from-another-lab.md
+        - name: 원격 데스크톱 게이트웨이를 사용하도록 랩 구성
+          href: configure-lab-remote-desktop-gateway.md
         - name: 이미지 팩터리 만들기
           href: image-factory-create.md
           items:

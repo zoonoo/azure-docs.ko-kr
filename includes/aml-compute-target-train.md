@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
 ms.openlocfilehash: 50905eb987defac612f1055b450b682726f0a56f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752969"
 ---
 |학습 &nbsp;대상| GPU 지원 |[자동화 된 기계 학습](../articles/machine-learning/service/concept-automated-ml.md) | [ML 파이프라인](../articles/machine-learning/service/concept-ml-pipelines.md) | [시각적 인터페이스](../articles/machine-learning/service/ui-concept-visual-interface.md)

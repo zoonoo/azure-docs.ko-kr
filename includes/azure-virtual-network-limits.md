@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 05/15/2019
+ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133373"
 ---
 <a name="virtual-networking-limits-classic"></a>네트워킹을 통해 관리 되는 리소스에 대해서만 다음과 같은 제한이 적용 된 **클래식** 구독 당 배포 모델입니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -28,9 +28,9 @@ ms.locfileid: "66238385"
 | NSG당 NSG 규칙 |1,000 |1,000 |
 | 사용자 정의 경로 테이블 |200 |200 |
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
-| 공용 IP 주소(동적) |5 |지원에 문의 |
-| 예약된 공용 IP 주소 |20 |지원에 문의 |
-| 배포당 공용 VIP |5 |지원에 문의 |
+| 공용 IP 주소(동적) |5 |지원 문의 |
+| 예약된 공용 IP 주소 |20 |지원 문의 |
+| 배포당 공용 VIP |5 |지원 문의 |
 | 배포당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |
 
@@ -81,7 +81,7 @@ ms.locfileid: "66238385"
 | 리소스당 규칙 수, 기본 | 250 |
 | 리소스당 규칙 수, 표준 | 1,500 | 
 | IP 구성당 규칙 수 | 299 |
-| NIC당 규칙 | 500 |
+| NIC당 규칙 | 300 |
 | 기본 프런트 엔드 IP 구성 | 200 |
 | 프런트 엔드 IP 구성, 표준 | 600 |
 | 백 엔드 풀 수, 기본 | 100이 고, 단일 가용성 집합 |

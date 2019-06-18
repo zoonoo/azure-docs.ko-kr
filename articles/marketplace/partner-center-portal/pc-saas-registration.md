@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
 ms.openlocfilehash: abe499c081c73d42e712d5872e121262a1a50197
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259166"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
@@ -78,7 +78,7 @@ HTTP 메서드
 
 |  **매개 변수 이름**  | **필수**  | **설명**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True           | 등록된 AAD 애플리케이션의 테넌트 ID입니다.   |
+| tenantId             | True          | 등록된 AAD 애플리케이션의 테넌트 ID입니다.   |
 |  |  |  |
 
 
@@ -86,7 +86,7 @@ HTTP 메서드
 
 |  **헤더 이름**  | **필수** |  **설명**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  콘텐츠 형식     | True          | 요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다.  |
+|  콘텐츠 형식     | True         | 요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다.  |
 |  |  |  |
 
 
@@ -94,10 +94,10 @@ HTTP 메서드
 
 | **속성 이름**   | **필수** |  **설명**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True          | 권한 부여 유형입니다. 기본값은 `client_credentials`입니다.                    |
-|  Client_id          | True          |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.                  |
-|  client_secret      | True          |  Azure AD 앱과 연결된 암호입니다.                               |
-|  Resource           | True          |  토큰이 요청된 대상 리소스입니다. 기본값은 `62d94f6c-d599-489b-a797-3e10e42fbe22`입니다. |
+|  Grant_type         | True         | 권한 부여 유형입니다. 기본값은 `client_credentials`입니다.                    |
+|  Client_id          | True         |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.                  |
+|  client_secret      | True         |  Azure AD 앱과 연결된 암호입니다.                               |
+|  Resource           | True         |  토큰이 요청된 대상 리소스입니다. 기본값은 `62d94f6c-d599-489b-a797-3e10e42fbe22`입니다. |
 |  |  |  |
 
 

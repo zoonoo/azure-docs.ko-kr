@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702480"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ Azure에서 실행되는 모든 배포에는 여러 가지 필수 구성 요소�
 * VHD에 허용되는 최대 크기는 1,023GB입니다.
 * Linux 시스템을 설치하는 경우 대부분의 설치에 대한 기본값인 LVM(논리 볼륨 관리자) 대신 표준 파티션을 사용하는 것이 좋습니다. 표준 파티션을 사용하면 특히 문제를 해결하기 위해 OS 디스크가 동일한 다른 VM에 연결되는 경우에도 LVM 이름이 복제된 VM과 충돌하지 않습니다. 데이터 디스크에서 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용할 수 있습니다.
 * UDF 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. Azure에서 처음 부팅할 때 게스트에 연결된 UDF 형식의 미디어를 사용하여 Linux VM에 프로비전 구성이 전달됩니다. Azure Linux 에이전트는 해당 구성을 읽고 VM을 프로비전하기 위해 UDF 파일 시스템을 탑재해야 합니다.
-* 2.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
+* 2\.6.37 이전 버전의 Linux 커널은 더 큰 VM 크기의 Hyper-V에서 NUMA를 지원하지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 이전 배포에 영향을 미치며, RHEL(Red Hat Enterprise Linux) 6.6(kernel-2.6.32-504)에서 해결되었습니다. 2\.6.37 이전의 사용자 지정 커널 또는 2.6.32-504 이전의 RHEL 기반 커널을 실행하는 시스템의 경우 grub.conf의 커널 명령줄에 `numa=off` 부트 매개 변수를 설정해야 합니다. 자세한 내용은 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)을 참조하세요.
 * OS 디스크에 스왑 파티션을 구성하지 않습니다. Linux 에이전트는 다음 단계에서 설명한 대로 임시 리소스 디스크에 스왑 파일을 만들도록 구성할 수 있습니다.
 * Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 원시 디스크에서 VHD로 변환하는 경우 다음 단계에서 설명한 대로 변환하기 전에 먼저 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다.
 
@@ -74,12 +74,12 @@ initrd 또는 initramfs 이미지를 다시 작성하는 메커니즘은 배포�
 ### <a name="resizing-vhds"></a>VHD 크기 조정
 Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니다.  일반적으로 Hyper-V를 사용하여 만든 VHD는 올바르게 정렬되어 있습니다.  VHD가 올바르게 정렬되지 않으면 VHD에서 이미지를 만들려고 할 때 다음과 비슷한 오류 메시지가 나타날 수 있습니다.
 
-* http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd VHD의 21,475,270,656바이트는 지원되지 않는 가상 크기입니다. 크기는 정수(MB 단위)여야 합니다.
+* VHD http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd 크기가 지원 되지 않는 가상 21475270656 바이트입니다. 크기는 정수(MB 단위)여야 합니다.
 
 이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
 > [!NOTE]
-> [2.2.1 이상의 qemu-img 버전](https://bugs.launchpad.net/qemu/+bug/1490611)에는 VHD 형식이 잘못 지정되는 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. 2.2.0 이하 또는 2.6 이상의 `qemu-img`를 사용하는 것이 좋습니다.
+> [2.2.1 이상의 qemu-img 버전](https://bugs.launchpad.net/qemu/+bug/1490611)에는 VHD 형식이 잘못 지정되는 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. 2\.2.0 이하 또는 2.6 이상의 `qemu-img`를 사용하는 것이 좋습니다.
 > 
 
 1. `qemu-img` 또는 `vbox-manage`와 같은 도구를 사용하여 직접 VHD 크기를 조정하면 VHD가 부팅되지 않을 수도 있습니다.  먼저 VHD를 RAW 디스크 이미지로 변환하는 것이 좋습니다.  VM 이미지가 RAW 디스크 이미지(KVM과 같은 일부 하이퍼바이저의 경우 기본값)로 만들어진 경우에는 이 단계를 건너뛸 수 있습니다.

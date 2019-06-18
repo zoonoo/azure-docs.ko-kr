@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595660"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
@@ -47,8 +47,8 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |c2d<br>.commands<br>.egress<br>.complete<br>.success|완료된 명령|카운트|합계|디바이스에서 성공적으로 완료한 클라우드-디바이스 명령 수|차원 없음|
 |c2d<br>.commands<br>.egress<br>.abandon<br>.success|중단된 명령|카운트|합계|디바이스에서 중단한 클라우드-디바이스 명령 수|차원 없음|
 |c2d<br>.commands<br>.egress<br>.reject<br>.success|거부된 명령|카운트|합계|디바이스에서 거부한 클라우드-디바이스 명령 수|차원 없음|
-|디바이스<br>.totalDevices|총 디바이스(사용되지 않음)|카운트|합계|IoT 허브에 등록된 디바이스 수|차원 없음|
-|디바이스<br>.connectedDevices<br>.allProtocol|연결된 디바이스(사용되지 않음) |카운트|합계|IoT 허브에 연결된 디바이스 수|차원 없음|
+|devices<br>.totalDevices|총 디바이스(사용되지 않음)|카운트|합계|IoT 허브에 등록된 디바이스 수|차원 없음|
+|devices<br>.connectedDevices<br>.allProtocol|연결된 디바이스(사용되지 않음) |카운트|합계|IoT 허브에 연결된 디바이스 수|차원 없음|
 |d2c<br>.telemetry<br>.egress<br>.success|라우팅: 배달된 원격 분석 메시지|카운트|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|차원 없음|
 |d2c<br>.telemetry<br>.egress<br>.dropped|라우팅: 삭제된 원격 분석 메시지 |카운트|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
 |d2c<br>.telemetry<br>.egress<br>.orphaned|라우팅: 분리된 원격 분석 메시지 |카운트|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
@@ -87,18 +87,18 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |twinQueries<br>.success|성공한 쌍 쿼리|카운트|합계|성공한 모든 쌍 쿼리의 수입니다.|차원 없음|
 |twinQueries<br>.failure|실패한 쌍 쿼리|카운트|합계|실패한 모든 쌍 쿼리의 수입니다.|차원 없음|
 |twinQueries<br>.resultSize|쌍 쿼리 결과 크기|바이트|평균|성공한 모든 쌍 쿼리 결과 크기의 평균, 최소값 및 최대값입니다.|차원 없음|
-|작업<br>.createTwinUpdateJob<br>.success|쌍 업데이트 작업에 대한 성공한 만들기|카운트|합계|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createTwinUpdateJob<br>.failure|쌍 업데이트 작업에 대한 실패한 만들기|카운트|합계|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createDirectMethodJob<br>.success|메서드 호출 작업에 대한 성공한 만들기|카운트|합계|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.createDirectMethodJob<br>.failure|실패한 메서드 호출 작업 만들기|카운트|합계|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
-|작업<br>.listJobs<br>.success|목록 작업에 대한 성공한 호출|카운트|합계|목록 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.listJobs<br>.failure|목록 작업에 대한 실패한 호출|카운트|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.cancelJob<br>.success|성공한 작업 취소|카운트|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.cancelJob<br>.failure|실패한 작업 취소|카운트|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.queryJobs<br>.success|성공한 작업 쿼리|카운트|합계|쿼리 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
-|작업<br>.queryJobs<br>.failure|실패한 작업 쿼리|카운트|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
-|작업<br>.completed|완료된 작업|카운트|합계|완료된 모든 작업의 수입니다.|차원 없음|
-|작업<br>.failed|실패한 작업|카운트|합계|실패한 모든 작업의 수입니다.|차원 없음|
+|jobs<br>.createTwinUpdateJob<br>.success|쌍 업데이트 작업에 대한 성공한 만들기|카운트|합계|쌍 업데이트 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
+|jobs<br>.createTwinUpdateJob<br>.failure|쌍 업데이트 작업에 대한 실패한 만들기|카운트|합계|쌍 업데이트 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
+|jobs<br>.createDirectMethodJob<br>.success|메서드 호출 작업에 대한 성공한 만들기|카운트|합계|직접 메서드 호출 작업에 대한 성공한 모든 만들기의 수입니다.|차원 없음|
+|jobs<br>.createDirectMethodJob<br>.failure|실패한 메서드 호출 작업 만들기|카운트|합계|직접 메서드 호출 작업에 대한 실패한 모든 만들기의 수입니다.|차원 없음|
+|jobs<br>.listJobs<br>.success|목록 작업에 대한 성공한 호출|카운트|합계|목록 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.listJobs<br>.failure|목록 작업에 대한 실패한 호출|카운트|합계|목록 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.cancelJob<br>.success|성공한 작업 취소|카운트|합계|작업 취소에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.cancelJob<br>.failure|실패한 작업 취소|카운트|합계|작업 취소에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.queryJobs<br>.success|성공한 작업 쿼리|카운트|합계|쿼리 작업에 대한 성공한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.queryJobs<br>.failure|실패한 작업 쿼리|카운트|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
+|jobs<br>.completed|완료된 작업|카운트|합계|완료된 모든 작업의 수입니다.|차원 없음|
+|jobs<br>.failed|실패한 작업|카운트|합계|실패한 모든 작업의 수입니다.|차원 없음|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|제한 오류 수|카운트|합계|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
 |dailyMessage<br>QuotaUsed|사용된 전체 메시지 수|카운트|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
 |deviceDataUsage|총 장치 데이터 사용|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|

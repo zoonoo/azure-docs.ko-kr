@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107671"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고에 대 한 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -146,7 +146,7 @@ ms.locfileid: "65406606"
 
 - 사용자
 
-![조건부 액세스를 사용 하 여 로그인](./media/howto-use-azure-monitor-workbooks/49.png)
+![조건부 액세스를 사용하여 로그인](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 비활성화 된 로그인에 대 한 조건부 액세스 상태별에 대 한 분석을 가져옵니다.

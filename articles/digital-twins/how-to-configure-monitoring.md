@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118780"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -68,11 +68,11 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 인스턴스에 진단 로그를 사용하려면:
 
 1. Azure Portal에서 리소스를 불러옵니다.
-1. **진단 설정**을 클릭합니다.
+1. 선택 **진단 설정**:
 
     [![진단 설정 1](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. **진단 켜기**를 클릭하여 데이터를 수집합니다(이전에 사용하도록 설정하지 않은 경우).
+1. 선택 **진단 켜기** (설정 된 적이 없는) 경우 데이터를 수집 하도록 합니다.
 1. 요청된 필드에 정보를 입력하고 데이터를 저장할 방법 위치를 선택합니다.
 
     [![진단 설정 2](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ Azure Monitor는 로깅 원본을 확인 하 고 한곳에서 분석할 수 있�
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. 아직 없는 경우는 **Log Analytics 작업 영역** 인스턴스를 클릭 하 여 작업 영역을 만들 수 있습니다 합니다 **추가** 단추:
+1. 아직 없는 경우는 **Log Analytics 작업 영역** 인스턴스를 선택 하 여 작업 영역을 만들 수 있습니다 합니다 **추가** 단추:
 
     [![OMS 만들기](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Azure Monitor는 로깅 원본을 확인 하 고 한곳에서 분석할 수 있�
 > [!NOTE]
 > 이벤트를 보낼 때 5 분 지연이 발생할 수 있습니다 **Log Analytics 작업 영역** 처음으로 합니다.
 
-Azure Monitor 로그 에서도 강력한 오류 및 경고 알림 서비스를 클릭 하 여 볼 수 있습니다 **진단 및 문제 해결**:
+Azure Monitor 로그 에서도 강력한 오류 및 경고 알림 서비스를 선택 하 여 볼 수 있습니다 **진단 및 문제 해결**:
 
    [![경고 및 오류 알림](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551294"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688848"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -25,11 +25,14 @@ Azure Content Moderator API는 자료에서 불쾌감을 주거나, 위험하거
 
 다음은 소프트웨어 개발자나 팀이 Content Moderator를 사용하는 몇 가지 시나리오입니다.
 
-- 제품 카탈로그 및 기타 사용자 생성 콘텐츠를 조정하는 온라인 마켓플레이스
-- 사용자 생성 게임 아티팩트 및 대화방을 조정하는 게임 회사
-- 사용자가 추가한 이미지, 텍스트 및 비디오를 조정하는 소셜 메시징 플랫폼
-- 중앙에서 콘텐츠를 조정하도록 구현하는 엔터프라이즈 미디어 회사
-- 학생 및 교육자에게 부적절한 콘텐츠를 필터링하는 K-12 교육 솔루션 공급자
+- 제품 카탈로그 및 기타 사용자 생성 콘텐츠를 조정하는 온라인 마켓플레이스.
+- 사용자 생성 게임 아티팩트 및 대화방을 조정하는 게임 회사.
+- 사용자가 추가한 이미지, 텍스트 및 비디오를 조정하는 소셜 메시징 플랫폼.
+- 중앙에서 콘텐츠를 조정하도록 구현하는 엔터프라이즈 미디어 회사.
+- 학생 및 교육자에게 부적절한 콘텐츠를 필터링하는 K-12 교육 솔루션 공급자.
+
+> [!NOTE]
+> Content Moderator를 사용하여 불법 아동 착취 이미지를 검색할 수 없습니다. 그러나 인증된 조직에서 [PhotoDNA 클라우드 서비스](https://www.microsoft.com/photodna "Microsoft PhotoDNA 클라우드 서비스")를 사용하여 이러한 종류의 콘텐츠를 차단할 수 있습니다.
 
 ## <a name="what-it-includes"></a>포함되는 항목
 

@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486853"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
@@ -82,8 +82,8 @@ MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data 
 
 ## <a name="activities---faq"></a>작업 - FAQ
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요?
-* [데이터 이동 작업](data-factory-data-movement-activities.md) 
-* [데이터 변환 작업](data-factory-data-transformation-activities.md) 
+* [데이터 이동 작업](data-factory-data-movement-activities.md)
+* [데이터 변환 작업](data-factory-data-transformation-activities.md)
 
 ### <a name="when-does-an-activity-run"></a>작업은 언제 실행되나요?
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 입력 데이터 세트가 지정된 경우 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지 (즉, **Ready** 상태) 검사합니다.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157121"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevOps 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합
@@ -102,7 +102,7 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
    b. **userName**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 사용자 이름을 입력합니다.
 
-   다. **password**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 암호를 입력합니다. 암호를 숨기고 보호하려면 “자물쇠” 아이콘을 사용합니다.
+   c. **password**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 암호를 입력합니다. 암호를 숨기고 보호하려면 “자물쇠” 아이콘을 사용합니다.
 
 ### <a name="create-a-vm"></a>VM 만들기
 
@@ -118,7 +118,7 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
    b. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
 
-   다. **템플릿 이름**의 경우 소스 코드 리포지토리에 저장한 템플릿 파일의 전체 경로 및 이름을 입력합니다. 다음 예와 같이 Release Management의 기본 제공 속성을 사용하여 경로를 간소화할 수 있습니다.
+   c. **템플릿 이름**의 경우 소스 코드 리포지토리에 저장한 템플릿 파일의 전체 경로 및 이름을 입력합니다. 다음 예와 같이 Release Management의 기본 제공 속성을 사용하여 경로를 간소화할 수 있습니다.
 
    ```
    $(System.DefaultWorkingDirectory)/Contoso/ARMTemplates/CreateVMTemplate.json
@@ -146,7 +146,7 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
    b. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 참조하세요.
 
-   다. **스크립트 형식**의 경우 **스크립트 파일**을 선택합니다.
+   c. **스크립트 형식**의 경우 **스크립트 파일**을 선택합니다.
  
    d. **스크립트 경로**의 경우 소스 코드 리포지토리에 저장한 스크립트의 전체 경로 및 이름을 입력합니다. 다음 예와 같이 Release Management의 기본 제공 속성을 사용하여 경로를 간소화할 수 있습니다.
       ```
@@ -175,7 +175,7 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
    b. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
 
-   다. **사용자 지정 이미지 이름**의 경우 사용자 지정 이미지에 대한 이름을 입력합니다.
+   c. **사용자 지정 이미지 이름**의 경우 사용자 지정 이미지에 대한 이름을 입력합니다.
 
    d. (선택 사항) **설명**의 경우 나중에 올바른 이미지를 쉽게 선택할 수 있도록 설명을 입력합니다.
 

@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61450667"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA 보안 클라이언트 및 OPC UA 서버 응용 프로그램 
@@ -56,10 +56,10 @@ OPC 자격 증명 모음 스크립트:
 1. 이제를 이동 하는 앞으로 `View Certificate Request Details`입니다. 이 페이지의 인증서 저장소를 프로 비전 하는 데 필요한 모든 정보를 다운로드할 수 있습니다 `opc-plc`합니다.
 
 1. 이 페이지에서:  
-    - 선택 `Certificate` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<applicationcertbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
-    - 선택 `PrivateKey` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<privatekeybase64-string>` 나중에 있습니다. `Back`를 선택합니다.
-    - 선택 `Issuer` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<addissuercertbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
-    - 선택 `Crl` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<updatecrlbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
+    - 선택 `Certificate` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<applicationcertbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
+    - 선택 `PrivateKey` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<privatekeybase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
+    - 선택 `Issuer` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<addissuercertbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
+    - 선택 `Crl` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<updatecrlbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
 
 1. 라는 변수를 PowerShell에서 이제 설정 `$env:_PLC_OPT`:
 

@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405886"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(Python)
 
@@ -94,7 +94,7 @@ Azure IoT Central 응용 프로그램에서 실제 장치를 추가 합니다 **
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | 초기 |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
@@ -102,16 +102,16 @@ Azure IoT Central 응용 프로그램에서 실제 장치를 추가 합니다 **
 
 설정 전환
 
-| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| Display name | 필드 이름 | 온 텍스트 | 오프 텍스트 | 초기 |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+| IR           | activateIR | ON      | 끄기      | 꺼짐     |
 
 ### <a name="properties"></a>properties
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | N/A       |
+| 텍스트            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 

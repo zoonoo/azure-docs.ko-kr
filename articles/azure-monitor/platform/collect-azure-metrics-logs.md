@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129702"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 Azure 서비스 로그 및 메트릭 수집
@@ -133,7 +133,7 @@ Azure Monitor에는 다음 리소스 및 로그에 대 한 Azure storage에서 �
 | --- | --- |
 | Service Fabric |ETWEvent <br> 작업 데이터 <br> 신뢰할 수 있는 행위자 이벤트 <br> 신뢰할 수 있는 서비스 이벤트 |
 | Virtual Machines |Linux Syslog <br> Windows 이벤트 <br> IIS 로그 <br> Windows ETWEvent |
-| 웹 역할  <br> 작업자 역할 |Linux Syslog <br> Windows 이벤트 <br> IIS 로그 <br> Windows ETWEvent |
+| 웹 역할 <br> 작업자 역할 |Linux Syslog <br> Windows 이벤트 <br> IIS 로그 <br> Windows ETWEvent |
 
 > [!NOTE]
 > Log Analytics 작업 영역 저장소 계정에서 데이터를 읽을 때 및 저장소 계정에 진단을 보내는 경우 저장소 및 트랜잭션에 대해 일반 Azure 데이터 요금이 청구 됩니다.

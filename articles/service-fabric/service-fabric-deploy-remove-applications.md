@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393273"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 애플리케이션 배포 및 제거
@@ -158,7 +158,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationP
 *-ApplicationPackagePathInImageStore* 매개 변수를 지정하지 않으면 애플리케이션 패키지가 이미지 저장소의 “Debug” 폴더에 복사됩니다.
 
 >[!NOTE]
->**Copy-ServiceFabricApplicationPackage**는 PowerShell 세션이 Service Fabric 클러스터에 연결되는 경우 해당 이미지 저장소 연결 문자열을 자동으로 검색합니다. 5.6보다 오래된 Service Fabric 버전에서는 **-ImageStoreConnectionString** 인수를 명시적으로 제공해야 합니다.
+>**Copy-ServiceFabricApplicationPackage**는 PowerShell 세션이 Service Fabric 클러스터에 연결되는 경우 해당 이미지 저장소 연결 문자열을 자동으로 검색합니다. 5\.6보다 오래된 Service Fabric 버전에서는 **-ImageStoreConnectionString** 인수를 명시적으로 제공해야 합니다.
 >
 >```powershell
 >PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800

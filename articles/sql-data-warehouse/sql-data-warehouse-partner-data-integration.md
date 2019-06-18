@@ -11,10 +11,10 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873791"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
@@ -24,7 +24,7 @@ ms.locfileid: "65873791"
 | 파트너 | 설명 | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma는 ETL 솔루션 데이터 팀 통합, 보강, 및 실시간에서 SQL Data Warehouse에 다양 한 데이터 사일로에서 데이터를 스트리밍할 수 있도록 합니다. |[제품 페이지][alooma_website] |
-| ![Alteryx][1] |**Alteryx**<br>  Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
 | ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam SQL Data Warehouse로 데이터를 로드 하기 위한 자동화 된 솔루션을 제공 합니다. 일괄 처리 로드 및 SQL Server, Oracle, DB2, Sybase, MySQL 등 여러 소스에서에서 데이터의 증분 복제 단순해 집니다. |[제품 페이지][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
 | ![Denodo][3] |**Denodo**<br>Denodo는 조직의 다양 한 데이터 원본에서 데이터에 대 한 실시간 액세스를 제공 합니다. 복제 하지 않고 여러 원본에서 데이터 가상화 bridge 데이터를 사용합니다. Enterprise, 빅 데이터 및 클라우드 원본 일괄 처리와 실시간으로 있는 구조적 및 비구조적 데이터에 대 한 광범위 한 액세스를 제공 합니다.|[제품 페이지][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
 | ![Fivetran][8] |**Fivetran**<br>Fivetran를 사용 하면 서로 다른 원본의 데이터를 중앙 집중화할 수 있습니다. 0 개 유지 관리, 기능 구성 데이터 0 파이프라인 목록에 모든 인기 있는 데이터 원본에 기본 제공 커넥터를 사용 하 여 제품입니다. 설치에는 데이터 원본 및 대상 data warehouse에 인증 한 후 5 분 정도 걸립니다.|[제품 페이지][fivetran_website]<br> |

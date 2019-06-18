@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 장치 관리 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 애플리케이션에서 장치를 관리하는 방법을 알아봅니다.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052985"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 장치 관리
 
@@ -44,7 +44,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 디바이스를 만들 디바이스 템플릿을 선택합니다.
 
-1. + **새로 만들기**를 선택합니다.
+1. \+ **새로 만들기**를 선택합니다.
 
 1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 장치는 Azure IoT Central 애플리케이션에 연결하는 물리적 장치입니다. 시뮬레이션된 디바이스에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다.
 
@@ -92,7 +92,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 선택 **연결**:
 
-    ![디바이스 연결](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![디바이스 연결을 클릭합니다.](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. 사용 가능한 템플릿 목록에서 템플릿을 선택 하 고 선택 **연결**합니다.
 

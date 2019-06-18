@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393665"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
@@ -54,7 +54,7 @@ Azure AD에 토큰을 요청하는 방법에 대한 일반적인 정보를 보�
 
 Azure AD에서 토큰을 수신한 후에는 다음 두 가지 필수 요청 헤더 세트를 사용하여 Azure Maps로 요청을 보낼 수 있습니다.
 
-| 요청 헤더    |    Value    |
+| 요청 헤더    |    값    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
 | 권한 부여     | Bearer eyJ0e….HNIVN |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444219"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
@@ -152,7 +152,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 5. 작업 구성 페이지에서 **Restrict where this project can be run**을 선택합니다.
 6. **Node and label menu**를 선택하고 **linux**를 선택합니다(이전 섹션에서 가상 머신 템플릿을 만들 때 이 레이블을 지정했습니다).
 7. **빌드** 섹션에서 **빌드 단계 추가**를 클릭하고 **셸 실행**을 선택합니다.
-8. 다음 스크립트를 편집하여 **{github 계정 이름}**, **{프로젝트 이름}** 및 **{프로젝트 디렉터리}** 를 적절한 값으로 대체하고, 편집한 스크립트를 표시되는 텍스트 영역에 붙여넣습니다.
+8. 다음 스크립트를 편집하여 **{github 계정 이름}** , **{프로젝트 이름}** 및 **{프로젝트 디렉터리}** 를 적절한 값으로 대체하고, 편집한 스크립트를 표시되는 텍스트 영역에 붙여넣습니다.
    
         # Clone from git repo
    

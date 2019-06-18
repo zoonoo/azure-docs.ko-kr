@@ -39,6 +39,8 @@
   items:
     - name: Azure PowerShell을 사용하여 배포
       href: deploy-ps.md
+    - name: Azure CLI를 사용하여 배포
+      href: deploy-cli.md
     - name: 템플릿을 사용하여 배포
       href: deploy-template.md
     - name: 부하 분산 장치와 통합

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123363"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
@@ -214,7 +214,7 @@ ms.locfileid: "66123363"
 
 분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure Diagnostics를 사용합니다. 여기에 설명된 대로 진단 구성을 제어합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 애플리케이션 이벤트 로그를 기록하는 정의가 포함됩니다.
 
-## <a name="deploy-diagnostics"></a>진단 배포 
+## <a name="deploy-diagnostics"></a>진단 배포
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

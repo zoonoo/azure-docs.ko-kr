@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681874"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
@@ -104,7 +104,7 @@ API의 관점에서 설명하는 API의 구체적인 수행 단계는 다음과 
    
    `202 ACCEPTED` 응답에는 다음과 같은 헤더가 포함되어야 합니다.
    
-   * 필수: Logic Apps 엔진이 API의 작업 상태를 확인할 수 있는 URL의 절대 경로를 지정하는 `location` 헤더
+   * 필수:  Logic Apps 엔진이 API의 작업 상태를 확인할 수 있는 URL의 절대 경로를 지정하는 `location` 헤더
 
    * *선택 사항*: 작업 상태에 대해 `location` URL을 확인하기 전에 엔진에서 대기해야 하는 시간(초)을 지정하는 `retry-after` 헤더 
 

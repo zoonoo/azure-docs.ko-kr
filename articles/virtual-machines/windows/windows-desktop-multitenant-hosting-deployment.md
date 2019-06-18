@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485480"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
@@ -56,7 +56,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-자세한 내용은 다음을 참조하세요. 
+추가 정보 
 * [Azure에 VHD를 업로드하는 방법](upload-generalized-managed.md)
 * [Azure에 업로드할 Windows VHD를 준비하는 방법](prepare-for-upload-vhd-image.md)
 

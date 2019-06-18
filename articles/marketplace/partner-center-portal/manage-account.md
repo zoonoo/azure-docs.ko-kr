@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752835"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 Marketplace 계정을 관리 하는 방법 
@@ -84,7 +84,7 @@ ms.locfileid: "66752835"
 
 Microsoft 계정에 연결 되어 했으므로 지급 계좌를 추가할 수 해야 합니다.
 - **결제 방법을 선택**: 은행 계좌 또는 PayPal
-- **결제 정보를 추가**: 이 포함 될 수 있습니다 (확인 또는 저축 예금) 계정 유형을 선택, 계정 소유자 이름, 계정 번호를 입력 합니다. 라우팅 번호, 대금 청구 주소, 전화 번호 또는 PayPal 전자 메일 주소입니다. * 계정 결제 방법으로 및 시장 지역에서 지원 되는지 여부를 확인 하려면 PayPal을 사용 하는 방법에 대 한 자세한 내용은 참조 [PayPal 정보](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)합니다.
+- **결제 정보를 추가**: 이 포함 될 수 있습니다 (확인 또는 저축 예금) 계정 유형을 선택, 계정 소유자 이름, 계정 번호를 입력 합니다. 라우팅 번호, 대금 청구 주소, 전화 번호 또는 PayPal 전자 메일 주소입니다. \* 계정 결제 방법으로 및 시장 지역에서 지원 되는지 여부를 확인 하려면 PayPal을 사용 하는 방법에 대 한 자세한 내용은 참조 [PayPal 정보](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)합니다.
 
 > [!IMPORTANT]
 > 지급 계좌를 변경하면 한 번의 지불 주기까지 지불을 연기할 수 있습니다. 이 지연 처음 지급 계좌를 설정할 때 수행 하는 것 처럼 계정 변경을 확인 해야 하기 때문에 발생 합니다. 계정 확인 작업이 끝난 후 여전히 전체 금액에 대해 비용을 지불해야 하는 경우 현재 지불 주기에 대한 모든 지불 대금이 다음 주기에 추가됩니다.  
@@ -174,7 +174,7 @@ United States 개별 납세자 식별 번호 (또는 뿐만) Microsoft에서 지
 
 1. 로 이동 **사용자** (아래 **계정 설정**) 선택한 **사용자를 추가할**합니다.
 2. 표시 된 목록에서 하나 이상의 사용자를 선택 합니다. 특정 사용자를 검색 하려면 검색 상자를 사용할 수 있습니다.
-* 파트너 센터 계정에 추가 하려면 둘 이상의 사용자를 선택 하는 경우 동일한 역할 또는 사용자 지정 사용 권한 집합을 할당 해야 합니다. 다른 역할 및 사용 권한을 사용 하 여 여러 사용자를 추가 하려면 각 역할 또는 사용자 지정 사용 권한 집합에 대해 이러한 단계를 반복 합니다.
+\* 파트너 센터 계정에 추가 하려면 둘 이상의 사용자를 선택 하는 경우 동일한 역할 또는 사용자 지정 사용 권한 집합을 할당 해야 합니다. 다른 역할 및 사용 권한을 사용 하 여 여러 사용자를 추가 하려면 각 역할 또는 사용자 지정 사용 권한 집합에 대해 이러한 단계를 반복 합니다.
 3.  사용자를 선택 했으면 클릭 **선택한 추가**합니다.
 5.  에 **역할** 섹션, 역할 또는 선택한 사용자에 대 한 사용자 지정된 권한을 지정 합니다.
 6.  **저장**을 선택합니다.

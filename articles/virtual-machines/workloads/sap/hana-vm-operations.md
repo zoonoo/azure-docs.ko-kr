@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 156bb4cbf43dc71627f9db785dba574f25139285
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077654"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -66,6 +66,11 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 - Azure CLI
 
 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 또는 [여기](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명되어 있습니다.
+
+>[!IMPORTANT]
+> M208xx_v2 Vm을 사용 하려면 Azure VM 이미지 갤러리의 SUSE Linux 이미지를 선택 하면 주의 해야 합니다. 세부 정보를 읽으려면 문서를 읽어보세요 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)합니다. Red Hat Mv2 제품군 Vm에서 HANA 사용에 대해 아직 지원 되지 않습니다. Q4/CY2019에서 Mv2 VM 제품군에서 HANA를 실행 하는 Red Hat 버전에 대 한 지원을 제공 하는 현재 계획 
+> 
+
 
 ### <a name="storage-configuration-for-sap-hana"></a>SAP HANA에 대 한 저장소 구성
 Azure에서 SAP HANA와 함께 사용 될 저장소 형식과 저장소 구성 문서를 읽어 [SAP HANA Azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md)

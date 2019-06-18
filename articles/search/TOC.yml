@@ -163,24 +163,28 @@
       items:
         - name: 인덱서 개요
           href: search-indexer-overview.md
-        - name: Blob Storage 인덱서
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Table Storage 인덱서
+        - name: Azure Table Storage 인덱서
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB 인덱서
+        - name: Azure SQL DB 인덱서
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Cosmos DB 인덱서
+        - name: Azure Cosmos DB 인덱서
           href: search-howto-index-cosmosdb.md
-        - name: 일대다 BLOB 인덱싱
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV Blob 인덱싱
-          href: search-howto-index-csv-blobs.md
-        - name: JSON Blob 인덱싱
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob Storage 인덱서
+          items:
+            - name: Blob 인덱서 설정
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 일대다 Blob 인덱스
+              href: search-howto-index-one-to-many-blobs.md
+            - name: 인덱스 CSV blob
+              href: search-howto-index-csv-blobs.md
+            - name: 인덱스 JSON blob
+              href: search-howto-index-json-blobs.md
+        - name: 인덱서 일정
+          href: search-howto-schedule-indexers.md
+        - name: 맵 필드
+          href: search-indexer-field-mappings.md
         - name: SQL Server VM에 연결
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: 필드 매핑
-          href: search-indexer-field-mappings.md
         - name: 일반적인 문제 해결
           href: search-indexer-troubleshooting.md
     - name: AI로 보강
@@ -229,7 +233,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis(미리 보기)
           href: search-more-like-this.md
-    - name: 데이터 필터링 및 정렬
+    - name: 필터 사용
       items:
         - name: 필터 개요
           href: search-filters.md
@@ -237,8 +241,10 @@
           href: search-filters-facets.md
         - name: 패싯 탐색 추가
           href: search-faceted-navigation.md
-        - name: 필터 및 OrderBy 식 구문과 예제
-          href: query-odata-filter-orderby-syntax.md
+        - name: 컬렉션 필터 문제 해결
+          href: search-query-troubleshoot-collection-filters.md
+        - name: 컬렉션 필터 이해
+          href: search-query-understand-collection-filters.md
     - name: 결과 처리
       items:
         - name: 페이지 관련 기능
@@ -279,6 +285,32 @@
       href: search-api-preview.md
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.search/searchservices
+    - name: OData 언어 참조
+      items:
+        - name: 개요
+          href: query-odata-filter-orderby-syntax.md
+        - name: $filter
+          href: search-query-odata-filter.md
+        - name: $orderby
+          href: search-query-odata-orderby.md
+        - name: $select
+          href: search-query-odata-select.md
+        - name: 'any, all'
+          href: search-query-odata-collection-operators.md
+        - name: 'eq, ne, gt, lt, ge, le'
+          href: search-query-odata-comparison-operators.md
+        - name: 'search.ismatch, search.ismatchscoring'
+          href: search-query-odata-full-text-search-functions.md
+        - name: 'geo.distance, geo.intersects'
+          href: search-query-odata-geo-spatial-functions.md
+        - name: 'and, or, not'
+          href: search-query-odata-logical-operators.md
+        - name: search.in
+          href: search-query-odata-search-in-function.md
+        - name: search.score
+          href: search-query-odata-search-score-function.md
+        - name: OData 언어 문법
+          href: search-query-odata-syntax-reference.md
     - name: 인식 기술 참조
       href: cognitive-search-predefined-skills.md
       items:

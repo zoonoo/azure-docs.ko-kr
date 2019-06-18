@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792626"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
@@ -28,9 +28,9 @@ ms.locfileid: "65792626"
 
 | **메시지**                                                                                                                                                                                    | **원인**                                                                                                    | **해결 방법**                                                                                                                                                                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 2019 년 6 월 30 일 평가판이 만료 되는 note 합니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
-| `gatk4-promo`를 사용해 주셔서 감사합니다. 평가판 기간이 종료되었습니다. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics에 대한 자세한 내용은                  | GATK4 평가판이 해당 연도 말에 만료되었으며 `gatk4-promo` process_name을 호출하려고 합니다.  | process_name 매개 변수를 `gatk4-promo` 대신 `gatk4`로 전환합니다. 이는 공식 gatk4 버전이며, 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                         |
-| `gatk4-promo`를 사용해 주셔서 감사합니다. 할당된 모든 실행을 사용했습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요. | GATK4에 대해 20번의 프로모션 실행을 모두 성공적으로 제출했습니다.                               | process_name 인수를 `gatk4-promo` 대신 `gatk4`로 설정된 상태에서 실행되는 새 gatk4를 제출하세요. 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                                          |        
+| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics 를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 2019 년 6 월 30 일 평가판이 만료 되는 note 합니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
+| `gatk4-promo`를 사용해 주셔서 감사합니다. 평가판 기간이 종료되었습니다. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics 에 대한 자세한 내용은                  | GATK4 평가판이 해당 연도 말에 만료되었으며 `gatk4-promo` process_name을 호출하려고 합니다.  | process_name 매개 변수를 `gatk4-promo` 대신 `gatk4`로 전환합니다. 이는 공식 gatk4 버전이며, 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                         |
+| `gatk4-promo`를 사용해 주셔서 감사합니다. 할당된 모든 실행을 사용했습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics 를 참조하세요. | GATK4에 대해 20번의 프로모션 실행을 모두 성공적으로 제출했습니다.                               | process_name 인수를 `gatk4-promo` 대신 `gatk4`로 설정된 상태에서 실행되는 새 gatk4를 제출하세요. 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                                          |        
 
 
 ## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>GATK4 프로모션에 등록하지 않고 Microsoft Genomics에서 GATK4 워크플로를 실행할 수 있나요?
@@ -91,7 +91,7 @@ msgen은 다음 형식으로 구성 파일을 이해합니다.
 
   |명령줄 인수            | 구성 파일 줄 |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 

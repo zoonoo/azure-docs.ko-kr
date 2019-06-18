@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417391"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL 데이터베이스 감사 로그 형식
@@ -78,8 +78,8 @@ ms.locfileid: "61417391"
 | server_principal_sid | server_principal_sid_s | 현재 로그인 SID | varbinary | 문자열 |
 | session_id | session_id_d | 이벤트가 발생 한 세션의 ID | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | 세션에 대 한 서버 보안 주체 | sysname | 문자열 |
-| 문 | statement_s | T-SQL 문 (있는 경우) 실행 | nvarchar(4000) | 문자열 |
-| 성공함 | succeeded_s | 이벤트를 트리거한 작업에 성공 했는지 여부를 나타냅니다. 로그인 및 일괄 처리 이외의 이벤트에 대 한만 사용 권한 검사의 성공 또는 실패의 경우 작업이 아닌 여부를 보고 합니다. 1 = 성공, 0 = 실패 | bit | 문자열 |
+| statement | statement_s | T-SQL 문 (있는 경우) 실행 | nvarchar(4000) | 문자열 |
+| 성공 | succeeded_s | 이벤트를 트리거한 작업에 성공 했는지 여부를 나타냅니다. 로그인 및 일괄 처리 이외의 이벤트에 대 한만 사용 권한 검사의 성공 또는 실패의 경우 작업이 아닌 여부를 보고 합니다. 1 = 성공, 0 = 실패 | bit | 문자열 |
 | target_database_principal_id | target_database_principal_id_d | 데이터베이스 보안 주체에 GRANT/DENY/REVOKE 작업이 수행 됩니다. 적용할 수 없는 경우 0 | int | int |
 | target_database_principal_name | target_database_principal_name_s | 작업의 대상 사용자입니다. 적용할 수 없는 경우 NULL | 문자열 | 문자열 |
 | target_server_principal_id | target_server_principal_id_d | GRANT/DENY/REVOKE 작업이 수행 되는 서버 보안 주체입니다. 적용할 수 없는 경우 0을 반환 합니다. | int | int |

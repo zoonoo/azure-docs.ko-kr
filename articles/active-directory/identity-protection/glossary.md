@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452826"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109011"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)
@@ -35,7 +35,7 @@ ms.locfileid: "60452826"
 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 Azure Active Directory의 보안 모듈입니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
-리소스에 대한 액세스를 보호하는 정책입니다. 조건부 액세스 규칙은 Azure Active Directory에 저장되고 리소스에 대한 액세스 권한을 부여하기 전에 Azure AD에서 평가됩니다.  예제 규칙은 사용자 위치, 장치 상태 또는 사용자 인증 방법에 따라 액세스를 제한하게 됩니다.
+리소스에 대한 액세스를 보호하는 정책입니다. 조건부 액세스 규칙 Azure Active Directory에 저장 되 고 리소스에 대 한 액세스 권한을 부여 하기 전에 Azure AD에서 평가 됩니다.  예제 규칙은 사용자 위치, 디바이스 상태 또는 사용자 인증 방법에 따라 액세스를 제한하게 됩니다.
 
 ### <a name="credentials"></a>자격 증명
 로컬 및 네트워크 리소스에 대한 액세스 권한을 얻는 데 사용되는 ID 및 ID의 증명을 포함하는 정보입니다. 자격 증명의 예는 사용자 이름 및 암호, 스마트 카드 및 인증서가 있습니다.
@@ -146,7 +146,7 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 위험 수준(로그인)을 참조하세요.
 
 ### <a name="sign-in-risk-policy"></a>로그인 위험 정책
-특정 로그인에 대한 위험을 평가하고 미리 정의된 조건 및 규칙에 따라 완화를 적용하는 조건부 액세스 정책입니다.
+특정 로그인에 대 한 위험을 평가 하 고 미리 정의 된 조건 및 규칙에 따라 완화를 적용 하는 조건부 액세스 정책입니다.
 
 ### <a name="user-compromise-risk"></a>사용자 손상 위험
 위험 수준(사용자 손상)을 참조하세요
@@ -155,9 +155,9 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 위험 수준(사용자 손상)을 참조하세요.
 
 ### <a name="user-risk-policy"></a>사용자 위험 정책
-로그인을 고려하고 미리 정의된 조건 및 규칙에 따라 완화를 적용하는 조건부 액세스 정책입니다.
+로그인을 고려 하 고 미리 정의 된 조건 및 규칙에 따라 완화를 적용 하는 조건부 액세스 정책입니다.
 
-### <a name="users-flagged-for-risk"></a>위험 플래그가 지정된 사용자
+### <a name="users-flagged-for-risk"></a>위험에 대한 플래그가 지정된 사용자
 활성화되거나 수정된 위험 이벤트를 가진 사용자입니다
 
 ### <a name="vulnerability"></a>취약점

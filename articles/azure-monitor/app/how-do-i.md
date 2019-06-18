@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60902109"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
@@ -35,7 +35,7 @@ ms.locfileid: "60902109"
 
 ### <a name="email-on-exceptions"></a>예외에 대해 메일 보내기
 1. [예외 모니터링 설정](../../azure-monitor/app/asp-net-exceptions.md)
-2. [경고 설정](../../azure-monitor/app/alerts.md) 
+2. [경고 설정](../../azure-monitor/app/alerts.md)
 
 ### <a name="email-on-an-event-in-my-app"></a>내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
 특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../../azure-monitor/app/alerts.md)경고를 보낼 수 있습니다.
@@ -118,7 +118,7 @@ ms.locfileid: "60902109"
 ## <a name="modify-property-names-or-values"></a>속성 이름 또는 값 수정
 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
-## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열 
+## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열
 [특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.

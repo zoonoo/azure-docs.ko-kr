@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343769"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-sap-hana-connector.md)
 > * [현재 버전](connector-sap-hana.md)
 
@@ -121,8 +121,8 @@ SAP HANA에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예. |
-| query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예. |
+| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
+| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | 예. |
 
 **예제:**
 
@@ -175,7 +175,7 @@ SAP HANA에서 데이터를 복사하는 경우 SAP HANA 데이터 형식에서 
 | REAL | Single |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| TIME | TimeSpan |
+| 시간 | TimeSpan |
 | TIMESTAMP | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |

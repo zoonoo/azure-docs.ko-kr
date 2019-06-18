@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 497134b7f3cc535f7b3f180db13cd04ef56787db
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075402"
 ---
-# <a name="scenario-web-api-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 API
+# <a name="scenario-web-api-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 Web API
 
 하기만 하면 web API 빌드를 호출 하는 웹 Api에 알아봅니다.
 

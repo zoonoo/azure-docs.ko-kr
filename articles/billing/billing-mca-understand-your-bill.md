@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372182"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Microsoft 고객 계약의 청구서 요금 이해
@@ -51,8 +51,8 @@ Microsoft 고객 계약에 대 한 대금 청구 계정, 송장 청구 모든 �
     |트랜잭션 유형     |  구매, cancel 및 사용량 요금이 같은 트랜잭션 유형  |
     |제품군     | 가상 컴퓨터에 대 한 계산 또는 Azure SQL database 용 데이터베이스와 같은 제품의 범주|
     |제품 sku     | 제품의 인스턴스를 식별 하는 고유 코드 |
-    |금액     |  트랜잭션 크기      |
-    |청구서 섹션     | 프로필의 청구서의이 섹션에는 트랜잭션 표시 |
+    |Amount     |  트랜잭션 크기      |
+    |송장 섹션     | 프로필의 청구서의이 섹션에는 트랜잭션 표시 |
     |청구 프로필     | 이 청구 프로필의이 청구서에 트랜잭션이 표시 |
 
 5. 청구서에 대 한 트랜잭션을 필터링 할 송장 ID에서 검색 합니다.
@@ -141,9 +141,9 @@ Microsoft 고객 계약에 대 한 대금 청구 계정에 요금이 송장이 �
 
  | 청구서 PDF | Azure 사용량 및 요금이 CSV |
  | --- | --- |
- |회계 부서 |InvoiceSectionName |
+ |회계 부서 |invoiceSectionName |
  |Microsoft Azure 계획 요금 |productOrderName |
- |컴퓨팅 |서비스 제품군 |
+ |컴퓨팅 |serviceFamily |
 
 1. 필터를 **invoiceSectionName** CSV 파일에 열 **회계 부서**합니다.
 2. 필터를 **productOrderName** CSV 파일에 열 **Microsoft Azure 계획**합니다.

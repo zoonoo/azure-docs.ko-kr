@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108666"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
@@ -87,7 +87,7 @@ Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* 게시된 앱에 대해 [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
+* [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md) 게시 된 앱입니다.
 * [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 
 

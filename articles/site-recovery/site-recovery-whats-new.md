@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418391"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
@@ -70,7 +70,7 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 --- | ---
 **네트워크 매핑** | Azure VM 재해 복구를 위해 복제를 사용 하도록 설정 하면 모든 사용 가능한 대상 네트워크를 이제 사용할 수 있습니다. 
 **표준 SSD** | 이제 다음을 사용 하 여 Azure Vm에 대 한 재해 복구를 설정할 수 있습니다 [표준 SSD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)합니다.
-**저장소 공간 다이렉트** | 사용 하 여 Azure VM 앱에서 실행 중인 앱에 대 한 재해 복구를 설정할 수 있습니다 [저장소 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 고가용성에 대 한 합니다.  저장소 공간 다이렉트 (s2d) Site Recovery와 함께 사용 하 여 Azure VM 워크 로드의 포괄적인 보호를 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. VM에 SAP ASCS 계층, SQL Server, 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우 특히 유용 합니다.
+**스토리지 공간 다이렉트** | 사용 하 여 Azure VM 앱에서 실행 중인 앱에 대 한 재해 복구를 설정할 수 있습니다 [저장소 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 고가용성에 대 한 합니다.  저장소 공간 다이렉트 (s2d) Site Recovery와 함께 사용 하 여 Azure VM 워크 로드의 포괄적인 보호를 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. VM에 SAP ASCS 계층, SQL Server, 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우 특히 유용 합니다.
 
 
 #### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
@@ -106,7 +106,7 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | Ubuntu, Debian, SUSE 한 RedHat 워크스테이션 6/7 및 새 커널 버전에 대 한 지원이 추가 되었습니다.
-**저장소 공간 다이렉트** | Site Recovery는 저장소 공간 다이렉트 (s2d)를 사용 하 여 Azure Vm을 지원 합니다.
+**스토리지 공간 다이렉트** | Site Recovery는 저장소 공간 다이렉트 (s2d)를 사용 하 여 Azure Vm을 지원 합니다.
 
 #### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제 
 **기능** | **세부 정보**

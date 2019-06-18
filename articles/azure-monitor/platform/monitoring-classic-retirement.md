@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069369"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
 Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나의 경고'를 지원하는 통합된 전체 스택 모니터링 서비스가 되었습니다. 자세한 내용은 [새 Azure Monitor에 대한 블로그 게시물](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)을 참조하세요. 새 Azure 모니터링 및 경고 플랫폼은 성장하고 있는 클라우드 컴퓨팅에 보조를 맞추고 Microsoft 지능형 클라우드 원칙에 맞게 더 빠르고, 더 스마트하게, 확장 가능하도록 설계되었습니다. 
 
-새 Azure 모니터링 및 플랫폼 곳에서 경고를 사용 하 여에서는 사용이 중지 됩니다 "클래식" 모니터링 및 경고에서 호스트 되는 플랫폼 *클래식 경고를 보려면* Azure 경고 섹션 **일까 지 사용할 수 Azure 공용에서 2019 년 8 월 클라우드**합니다. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)는 영향을 받지 않습니다.
+새 Azure 모니터링 및 플랫폼 곳에서 경고를 사용 하 여에서는 사용이 중지 됩니다 "클래식" 모니터링 및 경고에서 호스트 되는 플랫폼 *클래식 경고를 보려면* Azure 경고 섹션 **일까 지 사용할 수 Azure 공용에서 2019 년 8 월 클라우드**합니다. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md) 하 고 [Azure 중국](https://docs.azure.cn/) 적용 되지 것입니다.
 
 > [!NOTE]
 > 클래식 경고 마이그레이션에 대 한 사용 중지 날짜 마이그레이션 도구의 롤아웃을에서 지연으로 인해 되었습니다 [2019 년 8 월 31 일에 확장](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 년 6 월 30 일의 처음 발표 된 날짜에서.

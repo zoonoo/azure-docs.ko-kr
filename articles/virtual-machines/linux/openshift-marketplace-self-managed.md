@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
 ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233090"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
@@ -88,7 +88,7 @@ Azure portal의 왼쪽 위를 클릭 **리소스 만들기**'openshift container
 | 응용 프로그램 노드 크기 | 기본 VM 크기를 그대로 사용 하거나 클릭 **크기를 변경** 다른 VM 크기를 선택 합니다.  작업 부하에 대 한 적절 한 VM 크기 선택 |
 | 요새 호스트 크기 | 기본 VM 크기를 그대로 사용 하거나 클릭 **크기를 변경** 다른 VM 크기를 선택 합니다.  작업 부하에 대 한 적절 한 VM 크기 선택 |
 | 새 또는 기존 가상 네트워크 | (기본값) 새 vNet을 만들거나 기존 vNet 사용 |
-| CIDR 기본 설정을 선택 하거나 IP 범위 (CIDR)를 사용자 지정 | 기본 CIDR 범위 또는 선택 허용 **사용자 지정 IP 범위** 사용자 지정 CIDR 정보를 입력 합니다.  10.2.0.0/16, 서브넷 및 10.3.0.0/16 사용 하 여 계산 및 cn 서브넷 기본 설정을 10.0.0.0/14, 10.1.0.0/16, 인프라를 사용 하 여 마스터 서브넷의 CIDR을 사용 하 여 vNet 만들기는 |
+| CIDR 기본 설정을 선택 하거나 IP 범위 (CIDR)를 사용자 지정 | 기본 CIDR 범위 또는 선택 허용 **사용자 지정 IP 범위** 사용자 지정 CIDR 정보를 입력 합니다.  10\.2.0.0/16, 서브넷 및 10.3.0.0/16 사용 하 여 계산 및 cn 서브넷 기본 설정을 10.0.0.0/14, 10.1.0.0/16, 인프라를 사용 하 여 마스터 서브넷의 CIDR을 사용 하 여 vNet 만들기는 |
 | 키 자격 증명 모음 리소스 그룹 이름 | Key Vault를 포함 하는 리소스 그룹의 이름 |
 | Key Vault 이름 | 사용 하 여 암호를 포함 하는 키 자격 증명 모음의 이름을 ssh 개인 키입니다.  허용 및 3 자에서 24 자 사이 여야 하며 영숫자 문자와 대시만 |
 | 비밀 이름 | 이름을 포함 하는 암호는 ssh 개인 키입니다.  영숫자 및 대시만 허용 됩니다. |

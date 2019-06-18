@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249079"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133680"
 ---
 ## <a name="premium-ssd"></a>프리미엄 SSD
 
@@ -45,7 +45,7 @@ Azure 표준 SSD는 더 낮은 IOPS 수준에서 일관된 성능이 필요한 �
 
 ## <a name="standard-hdd"></a>표준 HDD
 
-Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행하는 VM에 안정적이고 저렴한 디스크를 지원합니다. 표준 스토리지를 사용하는 경우 데이터는 HDD(하드 디스크 드라이브)에 저장됩니다. 대기 시간, IOPS 및 표준 HDD의 처리량의 디스크는 SSD 기반 디스크를 비교 하 여 보다 광범위 하 게 달라질 수 있습니다. Vm에서 작업할 때에 덜 중요 한 워크 로드 및 개발/테스트 시나리오에 대 한 표준 HDD 디스크를 사용할 수 있습니다. 표준 Hdd 모든 Azure 지역에서 사용할 수 있으며 모든 Azure Vm에 사용 될 수 있습니다.
+Azure 표준 HDD는 대기 시간에 민감하지 않은 워크로드를 실행하는 VM에 안정적이고 저렴한 디스크를 지원합니다. 표준 스토리지를 사용하는 경우 데이터는 HDD(하드 디스크 드라이브)에 저장됩니다. 대기 시간, IOPS 및 표준 HDD의 처리량의 디스크는 SSD 기반 디스크를 비교 하 여 보다 광범위 하 게 달라질 수 있습니다. 하지만 표준 HDD 디스크 IO 크기 및 워크 로드 패턴에 따라 실제 성능과 다를 수 있습니다 20ms 대부분의 IO 작업에서 대기 시간을 읽고에서 10ms 미만의 쓰기 대기 시간을 제공 하도록 설계 되었습니다. Vm에서 작업할 때에 덜 중요 한 워크 로드 및 개발/테스트 시나리오에 대 한 표준 HDD 디스크를 사용할 수 있습니다. 표준 Hdd 모든 Azure 지역에서 사용할 수 있으며 모든 Azure Vm에 사용 될 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

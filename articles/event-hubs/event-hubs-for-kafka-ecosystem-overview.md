@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821710"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
@@ -30,9 +30,9 @@ Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 �
 
 | Kafka 개념 | Event Hubs 클러스터|
 | --- | --- |
-| 프로비전 | 네임스페이스 |
+| 클러스터 | 네임스페이스 |
 | 항목 | 이벤트 허브 |
-| 파티션 | 파티션|
+| Partition | Partition|
 | 소비자 그룹 | 소비자 그룹 |
 | Offset | Offset|
 

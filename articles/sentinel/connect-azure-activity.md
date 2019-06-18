@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 67e4bb2d0f308a3f20f0a29ec8b1f2a0d46fc082
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204350"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Azure 활동 로그에서 데이터 연결
@@ -41,7 +41,7 @@ ms.locfileid: "65204350"
 
 2. Azure 활동 로그 창에서 Azure Sentinel를 스트리밍 하려는 구독을 선택 합니다. 
 
-3. **연결**을 클릭합니다.
+3. **Connect**를 클릭합니다.
 
 4. Log Analytics에서 관련 스키마를 사용 하 여 Azure 활동 경고에 대 한를 검색 **AzureActivity**합니다.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 108a3e7d899eef4ca78ae7507bf4852b861e74d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078353"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -29,9 +29,6 @@ ms.locfileid: "64722176"
 
 * HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
 
-  > [!IMPORTANT]  
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 * Azure PowerShell이 설치된 클라이언트
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
@@ -43,7 +40,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 다음 cmdlet은 원격 HDInsight 클러스터에서 Hive 쿼리를 실행할 때 사용됩니다.
 
 * `Connect-AzAccount`: Azure 구독에 대해 Azure PowerShell을 인증합니다.
-* `New-AzHDInsightHiveJobDefinition`: 지정한 HiveQL 문을 사용하여 ‘작업 정의’를 만듭니다.
+* `New-AzHDInsightHiveJobDefinition`: 지정한 HiveQL 문을 사용하여 ‘작업 정의’를 만듭니다. 
 * `Start-AzHDInsightJob`: HDInsight에 작업 정의를 보내고 작업을 시작합니다. *작업* 개체가 반환됩니다.
 * `Wait-AzHDInsightJob`: 작업 개체를 사용하여 작업 상태를 확인합니다. 작업이 완료되거나 대기 시간이 초과될 때까지 기다립니다.
 * `Get-AzHDInsightJobOutput`: 작업의 출력을 검색하는 데 사용합니다.
@@ -60,7 +57,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
         .\hivejob.ps1
 
-    스크립트를 실행할 때 클러스터 이름 및 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
+    스크립트를 실행할 때 클러스터 이름 및 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 있습니다 Azure 구독에 로그인 하 라는 메시지도 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 

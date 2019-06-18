@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942781"
 ---
 # <a name="offer-settings-tab"></a>제품 설정 탭
@@ -36,7 +36,7 @@ ms.locfileid: "64942781"
 이 식별자는 계정과 관련이 있습니다. 조직 계정으로 로그인하고 나면 **게시자 ID**가 드롭다운 메뉴에 표시됩니다.
 
 
-### <a name="name"></a>이름*
+### <a name="name"></a>이름 *
 
 이 문자열은 AppSource 또는 Azure Marketplace에서 제품 이름으로 표시됩니다. **이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
 

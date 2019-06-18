@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
 ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598370"
 ---
 # <a name="migrate-machines-after-assessment"></a>평가 후 컴퓨터 마이그레이션
@@ -31,7 +31,7 @@ ms.locfileid: "60598370"
 2. 권장되는 마이그레이션 방법을 보려는 온-프레미스 컴퓨터 각각에 Azure Migrate 에이전트를 다운로드하여 설치합니다. [이 절차에 따라](how-to-create-group-machine-dependencies.md#prepare-for-dependency-visualization) 에이전트를 설치합니다.
 2. 리프트 앤 시프트 마이그레이션에 적합한 온-프레미스 컴퓨터를 확인합니다. 실행되는 앱에 대한 변경이 필요하지 않아 그대로 마이그레이션 가능한 VM입니다.
 3. 리프트 앤 시프트 마이그레이션에는 Azure Site Recovery를 사용하는 것이 좋습니다. [자세히 알아보기](../site-recovery/tutorial-migrate-on-premises-to-azure.md). 또는 Azure로의 마이그레이션을 지원하는 타사 도구를 사용할 수 있습니다.
-4. 리프트 앤 시프트 마이그레이션에 적합하지 않은 온-프레미스 컴퓨터, 즉 전체 VM이 아니라 특정 앱을 마이그레이션하려는 경우 다른 마이그레이션 도구를 사용할 수 있습니다. 예를 들어 SQL Server, MySQL 또는 Oracle 등의 온-프레미스 데이터베이스를 Azure로 마이그레이션하려는 경우 [Azure Database Migration 서비스](https://azure.microsoft.com/campaigns/database-migration/)를 권장합니다. 
+4. 리프트 앤 시프트 마이그레이션에 적합하지 않은 온-프레미스 컴퓨터, 즉 전체 VM이 아니라 특정 앱을 마이그레이션하려는 경우 다른 마이그레이션 도구를 사용할 수 있습니다. 예를 들어 SQL Server, MySQL 또는 Oracle 등의 온-프레미스 데이터베이스를 Azure로 마이그레이션하려는 경우 [Azure Database Migration 서비스](https://azure.microsoft.com/campaigns/database-migration/)를 권장합니다.
 
 
 ## <a name="review-suggested-migration-methods"></a>제안된 마이그레이션 방법 검토

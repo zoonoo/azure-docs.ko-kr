@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113490"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -152,7 +152,6 @@ ms.locfileid: "65823292"
    * 모든 관리자 셀프 서비스 적용 변경 암호 작업(예: 암호 만료)
    * [암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 시작되는 모든 관리자 셀프 서비스 암호 재설정
    * [Azure Portal](https://portal.azure.com)에서 관리자 시작 최종 사용자 암호 재설정
-   * 모든 관리자 시작 최종 사용자 암호를 재설정 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>지원되지 않는 쓰기 저장 작업
 
@@ -162,6 +161,7 @@ ms.locfileid: "65823292"
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
+   * 모든 관리자 시작 최종 사용자 암호를 재설정 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)
 
 > [!WARNING]
 > 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오.

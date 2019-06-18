@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113398"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>정책: 디렉터리의 사용자에 대 한
@@ -99,11 +99,11 @@ ms.locfileid: "66113398"
 
 만료 섹션에서는 액세스 패키지에는 사용자의 할당 만료 될 때 지정 합니다.
 
-1. 에 **만료** 으로 설정 **액세스 패키지가 만료 된** 에 **날짜**를 **기간 (일)**, 또는 **안 함**.
+1. 에 **만료** 으로 설정 **액세스 패키지가 만료 된** 에 **날짜**를 **기간 (일)** , 또는 **안 함**.
 
     에 대 한 **날짜에**, 나중에 만료 날짜를 선택 합니다.
 
-    에 대 한 **기간 (일)**, 0과 3660 일 사이의 숫자를 지정 합니다.
+    에 대 한 **기간 (일)** , 0과 3660 일 사이의 숫자를 지정 합니다.
 
     선택에 따라, 특정 날짜는 특정 일 수가 승인 된 후에 만료 됩니다 액세스 패키지에는 사용자의 할당 또는 사용 하지 않습니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "66113398"
 
     ![패키지 액세스 정책 만료 설정](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>정책: 정책 사용
+### <a name="policy-enable-policy"></a>정책: 정책 설정
 
 1. 정책에서 사용자에 게 즉시 사용할 수 있게 하려면 액세스 패키지, 클릭 **예** 정책을 사용 하도록 설정 합니다.
 

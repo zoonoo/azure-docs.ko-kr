@@ -9,10 +9,10 @@ ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
 ms.openlocfilehash: 8f2e956603fbb9aec81b08260eade846eb6a622c
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393306"
 ---
 자습서를 계속 진행하려면 이 빠른 시작에서 만든 리소스를 유지하세요. 다음 자습서에서 다시 사용할 수 있습니다.

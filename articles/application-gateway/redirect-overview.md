@@ -11,19 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715818"
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway 리디렉션 개요
 
-트래픽을 리디렉션할 응용 프로그램 게이트웨이 사용할 수 있습니다.  다른 수신기로 또는 외부 사이트에 하나의 수신기에서 수신 트래픽을 리디렉션할 수 있는 일반적인 리디렉션 메커니즘에 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다.
+트래픽을 리디렉션할 응용 프로그램 게이트웨이 사용할 수 있습니다.  Application Gateway는 한 수신기에서 수신한 트래픽을 다른 수신기 또는 외부 사이트로 리디렉션하는 일반적인 리디렉션 메커니즘을 갖고 있습니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다.
 
 여러 웹 응용 프로그램에 대 한 일반적인 리디렉션 시나리오는 응용 프로그램과 사용자 간의 모든 통신은 암호화 된 경로 통해 발생 되도록 자동 HTTP-HTTPS 리디렉션을 지원 하기 위해서입니다. 이전에는 HTTP에서 수신하는 요청을 HTTPS로 리디렉션하는 것이 유일한 목적인 전용 백 엔드 풀 만들기와 같은 기술을 고객이 사용했습니다. Application Gateway에서 리디렉션 지원을 통해 라우팅 규칙을 새 리디렉션 구성을 추가 하 고 대상 수신기로 HTTPS 프로토콜을 사용 하 여 다른 수신기를 지정 하 여 간단히 수행할 수 있습니다.
 
@@ -51,5 +50,3 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
 ### <a name="next-steps"></a>다음 단계
 
 [애플리케이션 게이트웨이에서 URL 리디렉션 구성](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

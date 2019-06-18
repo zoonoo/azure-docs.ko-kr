@@ -10,10 +10,10 @@ ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564024"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
@@ -89,7 +89,7 @@ az container create \
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
-[Azure Portal][portal] 또는 [Microsoft Azure Storage 탐색기][storage-explorer]와 같은 도구를 사용하여 파일 공유에 작성된 파일을 검색하고 검사할 수 있습니다.
+[Azure Portal][portal] 또는 [Microsoft Azure Storage Explorer][storage-explorer]와 같은 도구를 사용하여 파일 공유에 작성된 파일을 검색하고 검사할 수 있습니다.
 
 ## <a name="mount-multiple-volumes"></a>여러 볼륨 탑재
 

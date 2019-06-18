@@ -13,10 +13,10 @@ ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395404"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory의 Databricks를 사용하여 데이터 변환
@@ -77,7 +77,7 @@ ms.locfileid: "60395404"
 
 ## <a name="create-linked-services-and-datasets"></a>연결된 서비스 및 데이터 세트를 만듭니다.
 
-1.  Data Factory UI에서 ‘연결에 연결된 서비스 + 새로 만들기’로 이동하여 **연결된 서비스**를 새로 만듭니다.
+1.  Data Factory UI에서 ‘연결에 연결된 서비스 + 새로 만들기’로 이동하여 **연결된 서비스**를 새로 만듭니다. 
 
     1.  **원본** - 원본 데이터에 액세스하는 데 사용합니다. 이 샘플의 소스 파일을 포함하는 공용 Blob Storage를 사용할 수 있습니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "60395404"
 
 ## <a name="create-activities"></a>작업을 만듭니다.
 
-1.  원본 가용성 확인을 수행하기 위한 조회 작업 ‘**가용성 플래그**’를 만듭니다(Lookup 또는 GetMetadata를 사용할 수 있음). 2.a에서 만든 ‘sourceAvailability_Dataset’를 선택합니다.
+1.  원본 가용성 확인을 수행하기 위한 조회 작업 ‘**가용성 플래그**’를 만듭니다(Lookup 또는 GetMetadata를 사용할 수 있음). 2\.a에서 만든 ‘sourceAvailability_Dataset’를 선택합니다.
 
     ![12](media/solution-template-Databricks-notebook/Databricks-tutorial-image12.png)
 

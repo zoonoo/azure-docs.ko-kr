@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112334"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리를 구성 합니다.
 
@@ -50,10 +50,10 @@ ms.locfileid: "65988571"
 
 ## <a name="configuring-authentication-session-controls"></a>인증 세션 제어를 구성합니다.
 
-조건부 액세스는 Azure AD Premium 기능 및 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려는 경우 [Azure Active Directory의 조건부 액세스란?](overview.md#license-requirements)을 참조하세요.
+조건부 액세스는 Azure AD Premium 기능 및 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 자세히 알아보려면 싶다면 참조 [Azure Active Directory의 조건부 액세스를 란?](overview.md#license-requirements)
 
 > [!WARNING]
-> 사용 중인 경우는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 현재 공개 미리 보기 기능, 동일한 사용자 또는 앱 조합에 대 한 두 개의 서로 다른 정책 만들기는 지원 되지 않습니다는 점에 유의 하십시오:이 기능 및 사용 하 여 다른 구성 가능한 토큰 수명 기능입니다. Microsoft는 10 월 15에서 구성 가능한 토큰 수명 기능을 사용 중지 및 조건부 액세스 인증 세션 관리 기능을 사용 하 여 대체 계획입니다.  
+> 사용 중인 경우는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 현재 공개 미리 보기 기능, 동일한 사용자 또는 앱 조합에 대 한 두 개의 서로 다른 정책 만들기는 지원 되지 않습니다는 점에 유의 하십시오:이 기능 및 사용 하 여 다른 구성 가능한 토큰 수명 기능입니다. Microsoft는 11 월 1 일에서 구성 가능한 토큰 수명 기능을 사용 중지 및 조건부 액세스 인증 세션 관리 기능을 사용 하 여 대체 계획입니다.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>정책 1: 로그인 빈도 컨트롤
 
@@ -68,7 +68,7 @@ ms.locfileid: "65988571"
 1. 값 선택 **시간** 하거나 **일** 드롭다운 목록에서
 1. 정책 저장
 
-![빈도의 로그인에 대 한 구성 된 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![로그인에 대 한 간격으로 구성 하는 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 Azure AD에 등록 된 Windows 장치에 로그인 하는 장치는 프롬프트를 간주 됩니다. 예를 들어, Office 앱에 대 한 24 시간 간격으로 기호를 구성한 경우 Azure AD에서 사용자가 Windows 장치를 장치에 로그인 하 여 로그인 빈도 정책은 충족 됩니다 및 하지 묻는 메시지가 다시 Office 앱을 열 때 등록 합니다.
 
@@ -95,13 +95,13 @@ Azure AD에 등록 된 Windows 장치에 로그인 하는 장치는 프롬프트
 
 가상 도구를 사용 하 여 대상 응용 프로그램 및 정책을 구성 하는 방법에 따라 다른 조건에 사용자의 로그인을 시뮬레이션 합니다. 인증 세션 관리 제어 도구의 결과에 표시 합니다.
 
-![도구 생성 하는 경우 조건부 액세스](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![조건부 액세스 What-if 도구 결과](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>정책 배포
 
-정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 문서 참조 [Azure Active Directory에서 조건부 액세스 모범 사례](best-practices.md)합니다.
+정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 문서 참조 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 문서를 참조 하는 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA를 요구](app-based-mfa.md)합니다.
-* 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 문서를 참조 [Azure Active Directory에서 조건부 액세스 모범 사례](best-practices.md)합니다.
+* 문서를 참조 하는 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
+* 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 문서를 참조 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다.

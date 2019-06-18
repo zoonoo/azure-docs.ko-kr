@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696920"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
@@ -19,7 +19,7 @@ ms.locfileid: "64696920"
 실시간 빅 데이터 솔루션 동작 중인 데이터 작업을 수행 합니다. 일반적으로 이 데이터는 도착 시간에 가장 가치가 있습니다. 들어오는 데이터 스트림이 그 순간에 처리할 수 있는 것보다 큰 경우 리소스를 제한해야 할 수 있습니다. 또는 필요에 따라 노드를 추가하여 스트리밍 솔루션에 맞게 HDInsight 클러스터를 강화할 수 있습니다.
 
 
-스트리밍 애플리케이션에서 하나 이상의 데이터 원본이 유용한 정보를 삭제하지 않고 빠르게 수집해야 하는 이벤트(경우에 따라 수백만 개/초)를 생성합니다. 들어오는 이벤트는 서비스(예: [Apache Kafka](kafka/apache-kafka-introduction.md) 또는 [Event Hubs](https://azure.microsoft.com/services/event-hubs/))에서 ‘이벤트 큐’라고도 하는 ‘스트림 버퍼링’으로 처리됩니다. 이벤트가 수집되면 ‘스트림 처리’ 계층(예: [Apache Storm](storm/apache-storm-overview.md) 또는 [Apache Spark 스트리밍](spark/apache-spark-streaming-overview.md)) 내에서 실시간 분석 시스템을 사용하여 데이터를 분석할 수 있습니다. 처리된 데이터는 장기 스토리지 시스템(예: [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))에 저장될 수 있으며, 비즈니스 인텔리전스 대시보드(예: [Power BI](https://powerbi.microsoft.com), Tableau 또는 사용자 지정 웹 페이지)에 실시간으로 표시될 수 있습니다.
+스트리밍 애플리케이션에서 하나 이상의 데이터 원본이 유용한 정보를 삭제하지 않고 빠르게 수집해야 하는 이벤트(경우에 따라 수백만 개/초)를 생성합니다. 들어오는 이벤트는 서비스(예: [Apache Kafka](kafka/apache-kafka-introduction.md) 또는 [Event Hubs](https://azure.microsoft.com/services/event-hubs/))에서 ‘이벤트 큐’라고도 하는 ‘스트림 버퍼링’으로 처리됩니다.   이벤트가 수집되면 ‘스트림 처리’ 계층(예: [Apache Storm](storm/apache-storm-overview.md) 또는 [Apache Spark 스트리밍](spark/apache-spark-streaming-overview.md)) 내에서 실시간 분석 시스템을 사용하여 데이터를 분석할 수 있습니다.  처리된 데이터는 장기 스토리지 시스템(예: [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))에 저장될 수 있으며, 비즈니스 인텔리전스 대시보드(예: [Power BI](https://powerbi.microsoft.com), Tableau 또는 사용자 지정 웹 페이지)에 실시간으로 표시될 수 있습니다.
 
 
 ![HDInsight 스트리밍 패턴](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
@@ -38,7 +38,7 @@ Apache Storm은 내결함성이 있는 오픈 소스 분산형 계산 시스템�
 
 ## <a name="spark-streaming"></a>Spark 스트리밍
 
-Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. Storm과 달리 Spark 스트리밍은 정확히 한 번만 처리되는 상태 저장 의미 체계를 제공합니다. [Kafka 직접 API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용하는 경우 Spark 스트리밍에서 모든 Kafka 데이터를 정확히 한 번 받을 수 있으므로 단 한 번의 종단 간 보장을 얻을 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
+Spark 스트리밍은 Spark를 확장한 것으로, 일괄 처리에 사용하는 것과 동일한 코드를 재사용할 수 있도록 합니다. 일괄 처리 및 대화형 쿼리를 모두 동일한 애플리케이션에서 결합할 수 있습니다. Storm과 달리 Spark 스트리밍은 정확히 한 번만 처리되는 상태 저장 의미 체계를 제공합니다. [Kafka 직접 API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html)와 함께 사용하는 경우 Spark 스트리밍에서 모든 Kafka 데이터를 정확히 한 번 받을 수 있으므로 단 한 번의 엔드투엔드 보장을 얻을 수 있습니다. Spark 스트리밍의 장점 중 하나는 클러스터 내에서 여러 노드를 사용할 때 장애가 발생한 노드를 빠르게 복구하는 내결함성 기능입니다.
 
 자세한 내용은 [Apache Spark 스트리밍이란?](hdinsight-spark-streaming-overview.md)을 참조하세요.
 

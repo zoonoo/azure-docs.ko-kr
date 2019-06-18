@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050482"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Windows에서 Service Fabric Reliable Services 및 Reliable Actors 컨테이너화
 
@@ -119,6 +119,16 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> 기본적으로 Service Fabric 응용 프로그램은 Service Fabric 런타임, 응용 프로그램별 요청을 수락 하는 끝점의 형식에서에 대 한 액세스를 적용 합니다. 응용 프로그램이 신뢰할 수 없는 코드를 호스트 하는 경우이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 참조 하십시오 [Service Fabric 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)합니다. Service Fabric 런타임에 대 한 액세스를 사용 하지 않으려면 다음과 같이 가져온된 서비스 매니페스트에 해당 응용 프로그램 매니페스트의 정책 섹션에서 다음 설정을 추가:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. 이 애플리케이션을 테스트하려면 5.7 이상 버전을 실행하는 클러스터에 배포해야 합니다. 런타임 버전 6.1 이하의 경우에는 클러스터 설정을 편집하고 업데이트하여 이 미리 보기 기능을 사용하도록 설정해야 합니다. 이 [문서](service-fabric-cluster-fabric-settings.md)의 단계에 따라 다음에 표시된 설정을 추가합니다.
     ```

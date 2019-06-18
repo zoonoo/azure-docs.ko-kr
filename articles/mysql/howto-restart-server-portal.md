@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.openlocfilehash: a20030a1dc6cd8b89064731c283f9b462d30ec8f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61422573"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 다시 시작
@@ -30,7 +30,7 @@ ms.locfileid: "61422573"
 
 1. Azure Portal에서 Azure Database for MySQL Server를 찾습니다.
 
-2. 서버 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
+2. 서버의 **개요** 페이지의 도구 모음에서 **다시 시작**을 클릭합니다.
 
    ![Azure Database for MySQL - 개요 - 다시 시작 단추](./media/howto-restart-server-portal/2-server.png)
 

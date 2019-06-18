@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 50368175fbe563d5685f17e96dd41251a0494afd
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66728986"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>사용 하 여 Azure Time Series Insights 환경에 대 한 GA 참조 데이터를 관리 합니다.C#

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 7ea6e6be0597a114b02fad8c41e37d21ce1f6028
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942962"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure 애플리케이션 Marketplace 탭
@@ -32,7 +32,7 @@ Marketplace 탭을 사용하여 Azure 애플리케이션을 설명하고 마케�
 | **요약\***      | 제품의 간단한 요약입니다. 최대 길이는 100자입니다.           |
 | **긴 요약\*** | 제품의 더 긴 요약입니다(요약과 동일할 수 있음). 최대 길이는 256자입니다.           |
 | **설명\***  | 제품에 대한 설명입니다. 최대 길이는 3,000자입니다. &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 header 태그를 포함하는 간단한 HTML이 허용됩니다.  |
-| **마케팅 식별자\*** | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다. 서비스에 대한 짧고 친숙한 마케팅 식별자를 선택합니다. 이 제품의 Marketplace URL에서 사용됩니다. 예를 들어, 게시자 ID가 "contoso"이고 마케팅 식별자가 "sampleApp"이면 Azure Marketplace에서 제품의 URL은 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp이 됩니다.  
+| **마케팅 식별자\*** | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다. 서비스에 대한 짧고 친숙한 마케팅 식별자를 선택합니다. 이 제품의 Marketplace URL에서 사용됩니다. 예를 들어, 게시자 ID가 "contoso"이고 마케팅 식별자가 "sampleApp"이면 Azure Marketplace에서 제품의 URL은 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/contoso.sampleApp 이 됩니다.  
 | **미리 보기 구독 Id\*** | 1~100개의 미리 보기 구독 식별자를 추가합니다. 제품이 게시된 후 라이브 상태가 되기 전에 미리 보기로 사용할 수 있는 동안 이러한 허용 목록에 추가된 구독에서 해당 제품에 액세스할 수 있습니다.          |
 | **유용한 링크**    | 필요에 따라 제품, 지원, 설명서, 포럼 등의 사용자에 대 한 다양 한 리소스에 대 한 링크를 제공할 수 있습니다.  설명서에는 하나 이상의 링크를 추가 하는 것이 좋습니다.            |
 | **제안 범주 (최대 5 개)\*** | 5 개의 범주를 선택 합니다. 선택한 범주는 고객의 제품을 Azure Marketplace 및 Azure Portal에서 사용할 수 있는 제품 범주에 매핑하는 데 사용됩니다. 이러한 범주는 찾아보기 페이지 및 제품 세부 정보 페이지에 표시됩니다. |

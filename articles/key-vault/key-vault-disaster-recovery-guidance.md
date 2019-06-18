@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: barclayn
 ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236649"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
@@ -42,7 +42,7 @@ Azure Key Vault는이 고가용성 설계를 통해 유지 관리 작업에 대 
   * 암호 해독
   * 래핑
   * 래핑 취소
-  * Verify
+  * 확인
   * 로그인
   * Backup
 * 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.

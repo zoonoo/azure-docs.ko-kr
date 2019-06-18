@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713487"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
@@ -119,7 +119,7 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### <a name="probable-cause"></a>가능한 원인:
+### <a name="probable-cause"></a>예상 원인
 
 HDInsight 클러스터 규모가 매우 적은 수의 노드로 축소되었습니다. 노드 수가 HDFS 복제 계수보다 낮거나 이 계수에 가깝습니다.
 
@@ -219,7 +219,7 @@ Apache Phoenix와 연결하려면 활성 Apache ZooKeeper 노드의 IP 주소를
    ```
 
    > [!Note] 
-   > Ambari UI에서 활성 ZooKeeper 노드의 IP 주소를 가져올 수 있습니다. **HBase** > **빠른 링크** > **ZK\*(활성)** > **ZooKeeper 정보**로 이동합니다. 
+   > Ambari UI에서 활성 ZooKeeper 노드의 IP 주소를 가져올 수 있습니다. **HBase** > **빠른 링크** > **ZK\*(활성)**  > **ZooKeeper 정보**로 이동합니다. 
 
 3. sqlline.py가 Phoenix에 연결되어 있고 시간이 초과되지 않으면 다음 명령을 실행하여 Phoenix의 가용성과 상태에 대한 유효성을 검사합니다.
 
@@ -269,7 +269,7 @@ SYSTEM.CATALOG 테이블이 정상으로 전환되면 Phoenix에 대한 연결 �
 
 시작 동안 HMaster는 이러한 폴더에 대해 기본 `list` 명령을 수행합니다. 언제든지 이러한 폴더에 예기치 않은 파일이 있을 경우 예외가 발생하고 시작되지 않습니다.  
 
-### <a name="probable-cause"></a>가능한 원인:
+### <a name="probable-cause"></a>예상 원인
 
 영역 서버 로그에서 파일 생성 타임라인을 확인한 다음, 파일이 만들어진 시간에 프로세스 충돌이 있었는지 확인합니다. (HBase 지원 서비스에 문의하여 이 작업에 대한 도움을 요청하세요.) 이렇게 하면 이 버그에 연결하지 않도록 방지하고 정상적인 프로세스 종료를 보장하는 보다 강력한 메커니즘을 제공할 수 있습니다.
 
@@ -324,7 +324,7 @@ Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 �
 
 HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이블 및 영역이 있는 경우 이 문제가 발생할 수 있습니다. 다시 시작이 실패할 수 있으며 위의 오류 메시지가 표시됩니다.  
 
-### <a name="probable-cause"></a>가능한 원인:
+### <a name="probable-cause"></a>예상 원인
 
 HMaster 서비스의 알려진 문제입니다. 일반 클러스터 시작 작업이 오래 걸릴 수 있습니다. 네임스페이스 테이블이 아직 할당되지 않았으므로 HMaster가 종료됩니다. 이 오류는 플러시되지 않은 대량의 데이터가 있고 5분의 제한 시간으로는 부족한 시나리오에서만 발생합니다.
   

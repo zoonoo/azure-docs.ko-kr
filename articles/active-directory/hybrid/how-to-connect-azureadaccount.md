@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571409"
 ---
-# <a name="change-the-azure-ad-connector-account-password"></a>Azure AD 커넥터 계정 암호 변경
+# <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Connect 계정 암호 변경
 Azure AD 커넥터 계정 서비스 체험 간주 됩니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어, 실수로 전역 관리자가 PowerShell을 사용 하 여 계정의 암호를 다시 설정 합니다.
 
 ## <a name="reset-the-credentials"></a>자격 증명 다시 설정

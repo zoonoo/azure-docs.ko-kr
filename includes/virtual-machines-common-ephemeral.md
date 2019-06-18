@@ -9,10 +9,10 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391288"
 ---
 사용 후 삭제 OS 디스크는 가상 머신 (VM) 저장소에서 생성 되 고 원격 Azure Storage에 유지 되지 않습니다. 사용 후 삭제 OS 디스크는 응용 프로그램의 개별 VM 오류에 대 한 내성을 있지만 대규모 배포에 걸리는 시간 또는 개별 VM 인스턴스를 이미지로 다시 설치 하는 시간에 더 관심이 있는 상태 비저장 워크 로드에 대 한 잘 작동 합니다. Resource Manager 배포 모델로 이동 하는 클래식 배포 모델을 사용 하 여 배포 응용 프로그램에 적합 한 이기도 합니다. 사용 후 삭제되는 OS 디스크를 활용하면 OS 디스크에서 발생하는 읽기 및 쓰기 대기 시간이 줄어들고 VM의 이미지로 다시 설치 작업이 더 빨라집니다. 또한 사용 후 삭제 OS 디스크는 무료, OS 디스크에 대 한 저장소 비용 없이 발생 합니다. 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067192"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
@@ -112,7 +112,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystoreqsview"></a>query_store.qs_view
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
 
-|**이름**   |**형식** | **참조**  | **설명**|
+|**Name**   |**형식** | **참조**  | **설명**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
@@ -145,7 +145,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**이름**|  **형식**|   **설명**|
+|**Name**|  **형식**|   **설명**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 테이블의 ID|
 |query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
@@ -153,14 +153,14 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**이름**|  **형식**|   **참조**| **설명**|
+|**Name**|  **형식**|   **참조**| **설명**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
 |query_id   |bigint     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |event_type |text       ||백 엔드가 대기 중인 이벤트 유형|
 |event  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
-|calls  |정수         ||캡처된 동일한 이벤트 수|
+|calls  |정수        ||캡처된 동일한 이벤트 수|
 
 
 ### <a name="functions"></a>Functions

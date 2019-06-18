@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834809"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
@@ -102,11 +102,11 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
     | 가져오기 옵션 | **사용 가능한 구독에서 IoT Hub 사용** |
     | 구독 ID | 드롭다운에서 Azure 구독을 선택합니다. |
     | IoT Hub 이름 | **contoso-simulation7d894** 디바이스 시뮬레이션 솔루션 가속기에서 IoT 허브의 이름을 사용합니다. |
-    | IoT 허브 정책 이름 | **iothubowner** |
+    | IoT Hub 정책 이름 | **iothubowner** |
     | IoT Hub 정책 키 | 이 필드는 자동으로 채워집니다. |
     | IoT Hub 소비자 그룹 | **devicesimulationtsi** |
     | 이벤트 직렬화 형식 | **JSON** |
-    | 시간 간격 속성 이름 | 비워 둠 |
+    | 타임스탬프 속성 이름 | 비워 둠 |
 
     ![이벤트 원본 만들기](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 

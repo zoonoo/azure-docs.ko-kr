@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059345"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 엔터프라이즈 보안
 
@@ -75,7 +75,7 @@ print(primary)
 | 뷰 모델/이미지 | ✓ | ✓ | ✓ |
 | 웹 서비스 호출 | ✓ | ✓ | ✓ |
 
-기본 제공 역할이 요구 사항에 맞게 충분 하지 않은 경우에 사용자 지정 역할을 만들 수 있습니다. 작업 영역 및 Machine Learning Compute에 대 한 작업에 대 한 지원만 사용자 지정 역할에는 참고 합니다. 사용자 지정 역할 있을 읽기, 쓰기 또는 작업 영역 및 해당 작업 영역에서 계산 리소스에 대 한 권한을 삭제 합니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준에서 또는 특정 구독 수준에서 역할을 사용할 수 있습니다. 자세한 내용은 참조 하세요. [는 Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)
+기본 제공 역할이 요구 사항에 맞게 충분 하지 않은 경우에 사용자 지정 역할을 만들 수 있습니다. 작업 영역 및 Machine Learning Compute에 대 한 작업에 대 한 지원만 사용자 지정 역할은입니다. 사용자 지정 역할 있을 읽기, 쓰기 또는 작업 영역 및 해당 작업 영역에서 계산 리소스에 대 한 권한을 삭제 합니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준에서 또는 특정 구독 수준에서 역할을 사용할 수 있습니다. 자세한 내용은 참조 하세요. [는 Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>계산 및 데이터 보호
 소유자 및 참가자는 작업 영역에 연결 된 모든 계산 대상 및 데이터 저장소를 사용할 수 있습니다.  
@@ -94,7 +94,7 @@ print(primary)
 
 관리자가 관리 되는 위에 언급 된 리소스 id에 대 한 액세스를 해지 하지 않습니다 하는 것이 좋습니다. 액세스 키 다시 동기화 작업을 사용 하 여 복원할 수 있습니다.
 
-Azure Machine Learning 서비스는 모든 작업 영역 지역에 대 한 구독의 참가자 수준 액세스를 사용 하 여 추가 응용 프로그램 (aml-를 사용 하 여 이름 시작)을 만듭니다. 에 대 한 예입니다. 미국 동부에서 작업 영역 및 북유럽에서 다른 작업 영역 동일한 구독에 있는 경우 이러한 두 응용 프로그램 표시 됩니다. 계산 리소스를 Azure Machine Learning 서비스 관리할 수 있도록이 필요 합니다.
+Azure Machine Learning 서비스는 추가 응용 프로그램을 만듭니다 (이름은 시작 `aml-`) 모든 작업 영역 지역에 대 한 구독의 참가자 수준 액세스를 사용 하 여 합니다. 에 대 한 예입니다. 미국 동부에서 작업 영역 및 북유럽에서 다른 작업 영역 동일한 구독에 있는 경우 이러한 두 응용 프로그램이 표시 됩니다. 계산 리소스를 Azure Machine Learning 서비스 관리할 수 있도록이 필요 합니다.
 
 
 ## <a name="network-security"></a>네트워크 보안
@@ -113,13 +113,15 @@ Azure Blob Storage에 저장 된 데이터에 대 한 고유한 키를 가져오
 
 학습 데이터가 일반적으로 저장 됩니다 Azure Blob storage에서 교육 계산에 액세스할 수 있도록. 이 저장소는 Azure Machine Learning을 통해 관리 되는 없지만 원격 파일 시스템으로 계산에 탑재 합니다.
 
+작업 영역을 사용 하 여 사용 하는 Azure storage 계정에 대 한 액세스 키 다시 생성에 대 한 내용은 참조는 [저장소 액세스 키 다시 생성](how-to-change-storage-access-key.md) 문서.
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Azure Machine Learning 서비스는 Azure Machine Learning 서비스에서 관리 하는 Microsoft 구독에 메트릭 및 존재 하는 Cosmos DB에 대 한 메타 데이터를 저장 합니다. Cosmos DB에 저장 된 모든 데이터는 Microsoft 관리 키를 사용 하 여 미사용 암호화 됩니다.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 모든 컨테이너 레지스트리에 있는 이미지에 ACR ()는 미사용 시 암호화 됩니다. Azure는 자동으로 저장 하기 전에 이미지를 암호화 하 고 Azure Machine Learning 서비스는 이미지를 가져오고 때 즉석에서을 해독 합니다.
 
-#### <a name="machine-learning-compute"></a>Machine Learning 컴퓨팅
+#### <a name="machine-learning-compute"></a>Machine Learning 계산
 OS 디스크를 Azure Storage에 저장 된 각 계산 노드에 대 한 암호화 됩니다 Microsoft 관리 키를 사용 하 여 Azure Machine Learning 서비스 저장소 계정에서. 이 계산 후 삭제 되며 클러스터 일반적으로 축소 하는 경우 실행이 없습니다. 큐에 대기 합니다. 기본 가상 컴퓨터 프로 비전이 해제 되며 OS 디스크를 삭제 합니다. Azure 디스크 암호화는 OS 디스크에 지원 되지 않습니다.
 각 가상 컴퓨터 OS 작업에 대 한 임시 로컬 디스크가 있습니다. 이 디스크 단계 학습 데이터를 필요에 따라 수 있습니다. 이 디스크를 암호화 되지 않습니다. Azure에서 미사용 암호화 작동 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 데이터 암호화 미사용](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)합니다. 
 

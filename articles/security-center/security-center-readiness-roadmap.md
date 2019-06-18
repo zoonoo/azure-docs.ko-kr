@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703407"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
@@ -29,7 +29,7 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 
 다음 리소스를 사용하여 Security Center를 시작합니다.
 
-문서
+아티클
 * [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
@@ -65,7 +65,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 다음 리소스를 사용하여 보안 경고를 관리하고 리소스를 보호할 수 있습니다.
 
-문서    
+아티클    
 * [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 * [Azure Security Center에서 가상 머신 보호](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
 * [Azure Security Center에서 네트워크 보호](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
@@ -85,7 +85,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 * [인시던트 대응을 위한 Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [차세대 보안 작업으로 위협에 대한 신속한 대응 및 조사](https://youtu.be/e8iFCz5RM4g)
 
-문서    
+아티클    
 * [인시던트 대응에 Azure Security Center 사용](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
 * [보안 플레이 북으로 대응 자동화](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
 
@@ -99,7 +99,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [Azure Security Center – Just-In-Time VM 액세스](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - 적응형 애플리케이션 컨트롤](https://youtu.be/wWWekI1Y9ck)
 
-문서    
+아티클    
 * [Just-In-Time을 사용하여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Azure Security Center의 적응형 애플리케이션 제어](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 

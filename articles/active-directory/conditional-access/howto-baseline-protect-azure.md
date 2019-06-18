@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112377"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>기본 정책: 서비스 관리 (미리 보기)에 대해 MFA 요구
 
@@ -40,7 +40,7 @@ Azure Resource Manager를 사용 하 여 서비스를 관리 하려면 높은 �
 Connect-AzAccount
 ```
 
-실행되면 이 cmdlet은 토큰 문자열을 제공합니다. 로그인 하려면이 문자열을 복사 하 고 붙여 넣습니다 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) 브라우저에서 합니다. 그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.
+실행되면 이 cmdlet은 토큰 문자열을 제공합니다. 로그인 하려면이 문자열을 복사 하 고 붙여 넣습니다 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  브라우저에서 합니다. 그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.
 
 대화형 사용 하 여 로그인 하는 데 [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 실행 합니다 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 명령입니다.
 
@@ -84,4 +84,4 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)
+* [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)

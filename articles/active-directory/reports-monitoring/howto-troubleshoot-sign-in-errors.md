@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286577"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>방법: Azure Active Directory 보고서를 사용하여 로그인 오류 문제 해결
@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 2. **모니터링** 섹션에서 **Azure Active Directory**를 선택하고, **로그인**을 선택합니다. 
 3. 제공된 필터를 사용하여 사용자 이름 또는 개체 식별자, 애플리케이션 이름 또는 날짜에 따라 오류를 좁힐 수 있습니다. 또한 선택 **실패** 에서 합니다 **상태** 만 실패 한 로그인을 표시 하려면 드롭다운 목록입니다. 
 
-    ![필터 결과](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![결과 필터링](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. 조사 하려는 실패 한 로그인을 식별 합니다. 선택 하 여 실패 한 로그인에 대 한 자세한 정보를 사용 하 여 추가 세부 정보 창을 엽니다. **로그인 오류 코드** 및 **실패 이유**를 적어 둡니다. 
 

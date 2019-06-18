@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808565"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -62,7 +62,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>가상 네트워크 피어링 및 ExpressRoute 연결
 
-온-프레미스 연결을 제공하려면 *kubenet* 및 *Azure-CNI* 네트워크 접근 방식 둘 다 [Azure Virtual Network 피어링][vnet-peering] 또는 [ExpressRoute 연결][express-route]을 사용할 수 있습니다. 중복되거나 잘못된 트래픽 라우팅를 방지하도록 IP 주소 범위를 신중하게 계획합니다. 예를 들어, 여러 온-프레미스 네트워크는 ExpressRoute 연결을 통해 보급되는 *10.0.0.0/8* 주소 범위를 사용합니다. 이 주소 범위 외부의 Azure Virtual Network 서브넷(예: *172.26.0.0/16*)으로 AKS 클러스터를 만드는 것이 좋습니다.
+온-프레미스 연결을 제공하려면 *kubenet* 및 *Azure-CNI* 네트워크 접근 방식 둘 다 [Azure Virtual Network 피어링][vnet-peering] 또는 [ExpressRoute 연결][express-route]을 사용할 수 있습니다. 중복되거나 잘못된 트래픽 라우팅를 방지하도록 IP 주소 범위를 신중하게 계획합니다. 예를 들어, 여러 온-프레미스 네트워크는 ExpressRoute 연결을 통해 보급되는 *10.0.0.0/8* 주소 범위를 사용합니다. 와 같은 해당 주소 범위를 벗어나는 Azure 가상 네트워크 서브넷에 AKS 클러스터를 만드는 것이 좋습니다 *172.16.0.0/16*합니다.
 
 ### <a name="choose-a-network-model-to-use"></a>사용할 네트워크 모델 선택
 
@@ -92,15 +92,15 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 az group create --name myResourceGroup --location eastus
 ```
 
-사용할 기존 가상 네트워크 및 서브넷이 없으면 [az network vnet create][az-network-vnet-create] 명령을 사용하여 이러한 네트워크 리소스를 만듭니다. 다음 예제에서 가상 네트워크의 이름은 *myVnet*이고 주소 접두사는 *10.0.0.0/8*입니다. 주소 접두사 *10.240.0.0/16*을 사용하여 *myAKSSubnet*이라는 서브넷이 생성됩니다.
+사용할 기존 가상 네트워크 및 서브넷이 없으면 [az network vnet create][az-network-vnet-create] 명령을 사용하여 이러한 네트워크 리소스를 만듭니다. 다음 예제에서는 가상 네트워크의 이름은 *myVnet* 의 주소 접두사를 사용 하 여 *192.168.0.0/16*합니다. 서브넷이 명명 된 만들어집니다 *myAKSSubnet* 주소 접두사를 사용 하 여 *192.168.1.0/24*합니다.
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myAKSVnet \
-    --address-prefixes 10.0.0.0/8 \
+    --address-prefixes 192.168.0.0/16 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
+    --subnet-prefix 192.168.1.0/24
 ```
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>서비스 주체 만들기 및 사용 권한 할당
@@ -150,7 +150,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 * *--pod-cidr*은 네트워크 환경의 다른 위치에서 사용되지 않는 큰 주소 공간이어야 합니다. 이 범위에 연결 또는 Express Route 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하려고 하는 경우 모든 온-프레미스 네트워크 범위를 포함 합니다.
     * 이 주소 범위는 확장할 예정인 노드 수를 수용할만큼 충분히 커야 합니다. 추가 노드를 위해 더 많은 주소가 필요하더라도 클러스터를 배포한 후에는 이 주소 범위를 변경할 수 없습니다.
-    * Pod IP 주소 범위를 사용하여 */24* 주소 공간을 클러스터의 각 노드에 할당합니다. 다음 예제에서 *192.168.0.0/16*의 *-pod-cidr*은 첫 번째 노드 *192.168.0.0/24*, 두 번째 노드 *192.168.1.0/24*, 세 번째 노드 *192.168.2.0/24*를 할당합니다.
+    * Pod IP 주소 범위를 사용하여 */24* 주소 공간을 클러스터의 각 노드에 할당합니다. 다음 예제에서는 *-pod cidr* 의 *10.244.0.0/16* 첫 번째 노드를 할당 *10.244.0.0/24*를 두 번째 노드 *10.244.1.0/24*, 및 세 번째 노드 *10.244.2.0/24*합니다.
     * 클러스터가 확장 또는 업그레이드되면 Azure 플랫폼은 새로운 각 노드에 pod IP 주소 범위를 계속 할당합니다.
     
 * 합니다 *-docker 브리지 주소* AKS 노드의 기본 관리 플랫폼을 사용 하 여 통신할 수 있습니다. 이 IP 주소는 클러스터의 가상 네트워크 IP 주소 범위 내에 속하지 않아야 하고 네트워크에서 사용 중인 다른 주소 범위와 겹쳐서는 안 됩니다.
@@ -163,7 +163,7 @@ az aks create \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
-    --pod-cidr 192.168.0.0/16 \
+    --pod-cidr 10.244.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \

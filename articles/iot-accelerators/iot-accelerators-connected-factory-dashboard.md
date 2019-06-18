@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067924"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>연결된 팩터리 솔루션 가속기 대시보드의 기능 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "61450985"
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA 서버 찾아보기
 
-솔루션 가속기를 배포하면 대시보드에서 찾아볼 수 있는 일단의 시뮬레이션된 OPC UA 서버가 자동으로 프로비전됩니다. 시뮬레이션된 서버를 사용하면 실제 서버를 배포하지 않고도 솔루션 가속기를 쉽게 실험할 수 있습니다. 솔루션에 실제 OPC UA 서버를 연결하려면 [연결된 팩터리 솔루션 가속기에 OPC UA 디바이스 연결](iot-accelerators-connected-factory-gateway-deployment.md) 자습서를 참조하세요.
+솔루션 가속기를 배포하면 대시보드에서 찾아볼 수 있는 일단의 시뮬레이션된 OPC UA 서버가 자동으로 프로비전됩니다. 시뮬레이션된 서버를 사용하면 실제 서버를 배포하지 않고도 솔루션 가속기를 쉽게 실험할 수 있습니다.
 
 1. 대시보드 탐색 모음에서 **브라우저 아이콘**을 클릭합니다.
 
@@ -111,6 +111,5 @@ ms.locfileid: "61450985"
 
 작동하는 솔루션 가속기를 배포했으므로 다음 문서를 참고하여 IoT 솔루션 가속기를 계속 시작할 수 있습니다.
 
-* [연결된 팩터리 솔루션 가속기 연습](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [연결된 팩터리 솔루션 가속기에 디바이스 연결](iot-accelerators-connected-factory-gateway-deployment.md)
+* [연결 된 팩터리 솔루션 가속기 구성](iot-accelerators-connected-factory-configure.md)
 * [azureiotsolutions.com 사이트에 대한 사용 권한](iot-accelerators-permissions.md)

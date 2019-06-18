@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069697"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -61,7 +61,9 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 가상 머신, 가용성 집합, 애플리케이션 게이트웨이, App Services, SQL 서버 및 Azure Cache for Redis에 대한 권장 사항을 제공합니다.
+Advisor는 Application Gateway, App Services에 대 한 권장 사항을 제공 가용성 집합, Azure Cache에 Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure 공용 IP 주소, SQL Data Warehouse, SQL 서버, 저장소 계정, Traffic Manager 프로필 및 가상 컴퓨터
+
+Azure Advisor에서 권장 사항에 포함 되어 있습니다 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) 는 추가 리소스 형식에 대 한 권장 사항이 포함 될 수 있습니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 

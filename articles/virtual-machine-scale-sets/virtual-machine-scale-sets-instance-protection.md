@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
 ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416559"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>인스턴스 보호에 대 한 Azure 가상 머신 확장 집합 인스턴스 (미리 보기)

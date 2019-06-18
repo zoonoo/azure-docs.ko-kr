@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474996"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>전화 통화를 사용하도록 보안 정보(미리 보기) 설정
@@ -86,11 +86,11 @@ ms.locfileid: "60474996"
 
     ![기본 로그인 방법의 변경 링크](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화(*_your_phone_number_*)** 를 선택한 다음, **확인**을 선택합니다.
+2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화( *_your_phone_number_* )** 를 선택한 다음, **확인**을 선택합니다.
 
     ![기본 로그인 방법 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    로그인에 사용되는 기본 방법이 **전화 통화(*_your_phone_number_*)** 로 바뀝니다.
+    로그인에 사용되는 기본 방법이 **전화 통화( *_your_phone_number_* )** 로 바뀝니다.
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.

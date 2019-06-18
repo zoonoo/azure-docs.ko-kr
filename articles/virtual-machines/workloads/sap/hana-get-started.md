@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
 ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60205049"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치
@@ -189,7 +189,7 @@ SAP NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 - 중요
 - 보통
 - 낮음
-- 지정되지 않음
+- Unspecified
 
 **zypper** 명령은 설치된 패키지에 필요한 업데이트만 찾습니다. 예를 들어이 명령을 사용할 수 있습니다.
 

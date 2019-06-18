@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204489"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터 연결
@@ -36,7 +36,7 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 - 로그를 스트리밍 하려는 테 넌 트에서 전역 관리자 또는 보안 관리자 권한이 있는 사용자입니다.
 
 
-## <a name="connect-to-azure-ad"></a>Azure에 연결
+## <a name="connect-to-azure-ad"></a>Azure AD에 연결
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Active Directory** 바둑판식으로 배열 합니다.
 

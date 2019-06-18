@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586852"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
@@ -72,7 +72,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 - [풍부한 감사](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [보안 모니터링 및 경고](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다.  이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
+Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 애플리케이션에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -127,9 +127,9 @@ Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수�
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
-고객은 Virtual Network, Azure ExpressRoute, Azure Application Gateway, 부하 분산 장치 등의 개별 네트워크 리소스를 오케스트레이션하고 구성하여 Azure에서 종단 간 네트워크를 구축합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
+고객은 Virtual Network, Azure ExpressRoute, Azure Application Gateway, 부하 분산 장치 등의 개별 네트워크 리소스를 오케스트레이션하고 구성하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
 
-종단 간 네트워크는 복잡하게 구성되고 리소스 간에 상호 작용할 수 있으므로 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 통해 시나리오 기반 모니터링이 필요한 복잡한 시나리오를 발생합니다.
+엔드투엔드 네트워크는 복잡한 구성과 리소스 간에 상호 작용할 수 있습니다. [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)를 통해 시나리오 기반 모니터링이 필요한 복잡한 시나리오를 발생합니다.
 
 Network Watcher는 Azure 네트워크의 모니터링 및 진단을 간소화합니다. Network Watcher에서 제공되는 진단 및 시각화 도구를 사용하여 다음을 수행할 수 있습니다.
 

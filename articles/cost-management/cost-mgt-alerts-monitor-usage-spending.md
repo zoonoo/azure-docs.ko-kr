@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002084"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
@@ -41,9 +41,9 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 | 경고 유형 | 기업 계약 | Microsoft 고객 계약 | Web direct/종 량 제 As-You-중단 |
 |---|---|---|---|
-| 예산 | ✔ | ✔ | ✔ |
+| Budget | ✔ | ✔ | ✔ |
 | 크레딧 | ✔ |✘ | ✘ |
-| 부서 지출 할당량 | ✔ | ✘ | ✘ |
+| 부서 지출 할당액 | ✔ | ✘ | ✘ |
 
 
 

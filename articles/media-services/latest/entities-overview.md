@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732368"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
@@ -57,7 +57,7 @@ Media Services에서 지원하는 Media Services v3 엔터티에 대한 OData �
 |이름|Filter|순서|
 |---|---|---|
 |id|||
-|이름|eq, gt, lt| 오름차순 및 내림차순|
+|name|eq, gt, lt| 오름차순 및 내림차순|
 |properties.alternateId |eq||
 |properties.assetId |eq||
 |properties.container |||
@@ -144,7 +144,7 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 |이름|Filter|순서|
 |---|---|---|
 |id|||
-|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
 |properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
 |properties.description |eq, ne, ge, le, gt, lt||
 |properties.lastModified|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
@@ -152,7 +152,7 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 |properties.policyId|eq, ne||
 |형식|||
 
-### <a name="pagination"></a>페이지 매김
+### <a name="pagination"></a>페이지 매기기
 
 네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
 
@@ -178,12 +178,12 @@ REST 예제는 [콘텐츠 키 정책 - List](https://docs.microsoft.com/rest/api
 
 | 이름    | Filter                        | 순서 |
 |---------|-------------------------------|-------|
-| 이름                    | eq            | 오름차순 및 내림차순|
+| name                    | eq            | 오름차순 및 내림차순|
 | properties.state        | eq, ne        |                         |
 | properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
 | properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순| 
 
-### <a name="pagination"></a>페이지 매김
+### <a name="pagination"></a>페이지 매기기
 
 작업 페이지 매김은 Media Services v3에서 지원됩니다.
 
@@ -226,7 +226,7 @@ REST 예제는 [작업 - 목록](https://docs.microsoft.com/rest/api/media/jobs/
 |이름|Filter|순서|
 |---|---|---|
 |id |||
-|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
@@ -238,7 +238,7 @@ REST 예제는 [작업 - 목록](https://docs.microsoft.com/rest/api/media/jobs/
 |properties.streamingPolicyName |||
 |형식   |||
 
-### <a name="pagination"></a>페이지 매김
+### <a name="pagination"></a>페이지 매기기
 
 네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
 
@@ -265,7 +265,7 @@ REST 예제의 경우 [스트리밍 로케이터 - List](https://docs.microsoft.
 |이름|Filter|순서|
 |---|---|---|
 |id|||
-|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
 |properties.commonEncryptionCbcs|||
 |properties.commonEncryptionCenc|||
 |properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
@@ -274,7 +274,7 @@ REST 예제의 경우 [스트리밍 로케이터 - List](https://docs.microsoft.
 |properties.noEncryption|||
 |형식|||
 
-### <a name="pagination"></a>페이지 매김
+### <a name="pagination"></a>페이지 매기기
 
 네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
 
@@ -300,7 +300,7 @@ REST 예제의 경우 [스트리밍 정책 - 목록](https://docs.microsoft.com/
 
 | 이름    | Filter                        | 순서 |
 |---------|-------------------------------|-------|
-| 이름                    | eq            | 오름차순 및 내림차순|
+| name                    | eq            | 오름차순 및 내림차순|
 | properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
 | properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순|
 

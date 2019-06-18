@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074059"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -29,7 +29,13 @@ SAP 테이블에서 모든 지원 되는 싱크 데이터 저장소로 데이터
 
 특히이 SAP 테이블 커넥터를 지원합니다.
 
-- SAP 테이블에서 데이터 복사 **7.01 이상 버전을 사용 하 여 SAP Business Suite** (최근 SAP 지원 패키지 스택을 2015 년 이후에 출시)에서 또는 **S/4HANA**합니다.
+- SAP 테이블에서 데이터를 복사 합니다.
+
+    - **SAP ECC** 버전 7.01 또는 (스택의 상위에 최신 SAP 지원 패키지 2015 년 이후에 출시)를 사용 하 여
+    - **SAP BW** 7.01 이상 버전
+    - **SAP S/4HANA**
+    - **SAP Business Suite의 다른 제품** 7.01 이상 버전 
+
 - 둘 다에서 데이터를 복사 **투명 한 SAP 테이블** 하 고 **보기**합니다.
 - 사용 하 여 데이터 복사 **기본 인증** 하거나 **SNC** (보안 네트워크 통신) SNC 구성 된 경우.
 - 연결할 **응용 프로그램 서버** 하거나 **메시지 서버**합니다.
@@ -38,7 +44,7 @@ SAP 테이블에서 모든 지원 되는 싱크 데이터 저장소로 데이터
 
 이 SAP 테이블 커넥터를 사용 하려면를 지정 해야 합니다.
 
-- 3.17 버전 이상에 자체 호스팅 Integration Runtime을 설정 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
+- 3\.17 버전 이상에 자체 호스팅 Integration Runtime을 설정 합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
 
 - SAP 웹 사이트에서 **64비트 [SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** 을 다운로드하여 자체 호스팅 IR 컴퓨터에 설치합니다. 경우 선택적인 설정 단계 창에서 설치를 선택 해야 합니다 **GAC에 어셈블리 설치** 옵션입니다. 
 
@@ -62,7 +68,7 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapTable** | 예 |
-| 서버 | SAP 인스턴스가 상주 하는 서버의 이름입니다.<br/>에 연결 하려는 경우 해당 **SAP 응용 프로그램 서버**합니다. | 아닙니다. |
+| server | SAP 인스턴스가 상주 하는 서버의 이름입니다.<br/>에 연결 하려는 경우 해당 **SAP 응용 프로그램 서버**합니다. | 아닙니다. |
 | systemNumber | SAP 시스템의 시스템 번호입니다.<br/>에 연결 하려는 경우 해당 **SAP 응용 프로그램 서버**합니다.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 아닙니다. |
 | messageServer | SAP 메시지 서버의 호스트 이름입니다.<br/>에 연결 하려는 경우 해당 **SAP 메시지 서버**합니다. | 아닙니다. |
 | messageServerService | 서비스 이름 또는 포트 메시지 서버 수입니다.<br/>에 연결 하려는 경우 해당 **SAP 메시지 서버**합니다. | 아닙니다. |
@@ -203,7 +209,7 @@ SAP 테이블에서 데이터를 복사할에 다음 속성이 지원 됩니다.
 | 형식                             | 형식 속성으로 설정 되어 있어야 **SapTableSource**합니다.       | 예      |
 | rowCount                         | 검색할 행 수입니다.                              | 아닙니다.       |
 | rfcTableFields                   | SAP 테이블에서 복사할 필드입니다. 예: `column0, column1`. | 아닙니다.       |
-| rfcTableOptions                  | SAP 테이블에 행을 필터링 할 옵션입니다. 예: `COLUMN0 EQ 'SOMEVALUE'`. | 아닙니다.       |
+| rfcTableOptions                  | SAP 테이블에 행을 필터링 할 옵션입니다. 예: `COLUMN0 EQ 'SOMEVALUE'`. 이 표 아래의 자세한 설명을 참조 하세요. | 아닙니다.       |
 | customRfcReadTableFunctionModule | SAP 테이블에서 데이터를 읽을 수 있는 사용자 지정 RFC 함수 모듈 | 아닙니다.       |
 | partitionOption                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원 되는 옵션은 다음과 같습니다. <br/>- **없음**<br/>- **PartitionOnInt** (정수 또는 정수 값 0 패딩 0000012345 같은 왼쪽)<br/>- **PartitionOnCalendarYear** ("YYYY" 형식으로 4 자리 숫자)<br/>- **PartitionOnCalendarMonth** ("YYYYMM" 형식으로 6 자리 숫자)<br/>- **PartitionOnCalendarDate** ("YYYYMMDD" 형식의 8 자리 숫자) | 아닙니다.       |
 | partitionColumnName              | 데이터를 분할 하는 열의 이름입니다. | 아닙니다.       |
@@ -215,6 +221,18 @@ SAP 테이블에서 데이터를 복사할에 다음 속성이 지원 됩니다.
 >- SAP 테이블에 많은 양의 여러 수십억 개의 행과 같은 데이터를 사용 하 여 `partitionOption` 고 `partitionSetting` 작은 파티션으로 데이터를 분할 하려면 하나의 하 여 SAP 서버에서 검색 되는 쿼리에서 데이터를 읽은 파티션과 각 데이터 파티션에 RFC 호출입니다.<br/>
 >- 수행 `partitionOption` 으로 `partitionOnInt` 예를 들어 각 파티션의 행 수에서 계산 됩니다 (총 행 사이 속하는 *partitionUpperBound* 하 고 *partitionLowerBound*) /*maxPartitionsNumber*합니다.<br/>
 >- 추가 파티션을 복사 속도를 병렬로 실행 하려는 경우이 강력 하 게 만드는 것이 좋습니다 `maxPartitionsNumber` 값의 배수 `parallelCopies` (자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)).
+
+`rfcTableOptions`, 예를 들어 다음 일반적인 SAP 쿼리 연산자를 사용 하 여 행을 필터링 할 수 있습니다. 
+
+| 연산자 | 설명 |
+| :------- | :------- |
+| EQ | 다음과 같음 |
+| NE | 같지 않음 |
+| LT | 보다 작음 |
+| LE | 작거나 같음 |
+| GT | 다음보다 큼 |
+| GE | 크거나 같음 |
+| LIKE | LIKE 'Emma %'에서 같이 |
 
 **예제:**
 

@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164303"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
@@ -61,7 +61,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
 4. 복원에 사용할 백업을 선택한 다음, 새 데이터베이스 이름을 지정합니다.
 
-   ![복원](./media/sql-database-long-term-retention/ltr-restore.png)
+   ![복원(restore)](./media/sql-database-long-term-retention/ltr-restore.png)
 
 5. **확인**을 클릭하여 Azure SQL 저장소의 백업에서 새 데이터베이스로 데이터베이스를 복원합니다.
 

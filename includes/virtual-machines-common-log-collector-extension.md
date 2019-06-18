@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387964"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120189"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
-> 대부분의 로깅된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp에서 확인할 수 있습니다.
+> 대부분의 로깅된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp 에서 확인할 수 있습니다.
 > 
 > 
 
 수집할 파일의 유형에 따라 달라지는 두 가지 모드의 컬렉션이 있습니다.
 
-* **Azure 게스트 에이전트만 로그(GA)**. 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
-* **모든 로그(전체)**. 이 컬렉션 모드는 GA 모드의 모든 파일과 다음 정보를 수집합니다.
+* **Azure 게스트 에이전트만 로그(GA)** . 이 컬렉션 모드는 Azure 게스트 에이전트 및 기타 Azure 구성 요소와 관련된 모든 로그를 포함합니다.
+* **모든 로그(전체)** . 이 컬렉션 모드는 GA 모드의 모든 파일과 다음 정보를 수집합니다.
   
   * 시스템 및 애플리케이션 이벤트 로그
   * HTTP 오류 로그
@@ -50,7 +50,7 @@ Cloud Services의 경우 기존 Azure Powershell cmdlet인 **Set-azureserviceext
 
 Virtual Machines의 경우 기존 Azure Powershell cmdlet인 **Set-AzureVMExtension**을 사용하여 Virtual Machines에서 확장을 사용하도록 설정할 수 있습니다. 이 확장이 cmdlet을 통해 사용하도록 설정될 때마다 각 인스턴스에서 로그 수집이 트리거됩니다.
 
-내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 개인 구성에 대한 샘플 JSON의 레이아웃입니다.
+내부적으로 이 확장은 JSON 기반 PublicConfiguration 및 PrivateConfiguration을 사용합니다. 다음은 공용 및 프라이빗 구성에 대한 샘플 JSON의 레이아웃입니다.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
 

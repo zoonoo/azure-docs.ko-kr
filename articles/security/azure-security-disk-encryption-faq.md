@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068778"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -33,7 +33,7 @@ Azure Disk Encryption을 사용한 VM 디스크 암호화에 대한 요금은 �
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
 
-Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS VM을 포함하여 표준 계층 VM에서 사용할 수 있습니다. Premium Storage가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
+Azure Disk Encryption은 포함 하 여 표준 계층 Vm에서 사용할 수 있습니다 [A, D, DS, E, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS Vm입니다. Premium Storage가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
 
@@ -43,7 +43,7 @@ Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pri
 
 Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
 
-| Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
+| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
@@ -121,7 +121,9 @@ Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Acti
 최신 버전의 Azure PowerShell SDK를 사용하여 Azure Disk Encryption을 구성합니다. 최신 버전의 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 다운로드합니다. Azure SDK 버전 1.1.0에서는 Azure Disk Encryption을 지원하지 *않습니다*.
 
 > [!NOTE]
-> Linux Azure Disk Encryption 미리 보기 확장은 더 이상 사용되지 않습니다. 자세한 내용은 [Linux IaaS VM에 대한 Azure 디스크 암호화 미리 보기 확장 사용 중단](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/)을 참조하세요.
+> Linux Azure 디스크 암호화 미리 보기 확장 "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" 사용 되지 않습니다. 이 확장은 Azure 디스크 암호화 미리 보기 릴리스에 대 한 게시 되었습니다. 테스트 또는 프로덕션 배포에서 확장의 미리 보기 버전을 사용 하지 해야 합니다.
+
+> 배포 시나리오와 같은 Azure 리소스 관리자 (ARM)를 Linux IaaS VM에서 암호화를 사용 하도록 Linux VM에 대 한 Azure disk encryption 확장을 배포할 필요가 있는 Azure disk encryption 프로덕션 지원 확장을 사용 해야 합니다 " Microsoft.Azure.Security.AzureDiskEncryptionForLinux "로 설정 합니다.
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>사용자 지정 Linux 이미지에 Azure Disk Encryption을 적용할 수 있나요?
 

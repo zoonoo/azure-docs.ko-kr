@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
 ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565194"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>vCenter 검색 실패 문제 해결
@@ -20,7 +20,7 @@ ms.locfileid: "60565194"
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>MaxSnapShots 속성에서 숫자가 아닌 값
 
-9.20 이전 버전에서 vCenter의 연결을 끊습니다는 속성에 숫자가 아닌 값을 검색할 때 `snapshot.maxSnapShots` VM의 속성입니다.
+9\.20 이전 버전에서 vCenter의 연결을 끊습니다는 속성에 숫자가 아닌 값을 검색할 때 `snapshot.maxSnapShots` VM의 속성입니다.
 
 이 문제는 오류 95126 ID로 식별 됩니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "60565194"
 
 또는
 
-- 9.20 이상 버전으로 구성 서버를 업그레이드 합니다.
+- 9\.20 이상 버전으로 구성 서버를 업그레이드 합니다.
 
 ## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>VCenter 연결의 프록시 구성 문제
 

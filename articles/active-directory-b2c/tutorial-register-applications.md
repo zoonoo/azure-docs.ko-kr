@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 애플리케이션 등록 - Azure Active Directory B2C | Microsoft Docs
+title: 자습서-응용 프로그램 등록-Azure Active Directory B2C
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 웹 애플리케이션을 등록하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 380fc1633f94f2365162c1a4e4087c9113e5f663
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66511936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056290"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 애플리케이션 등록
 
@@ -40,7 +40,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 4. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapp1*과 같습니다.
 5. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
-6. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 예를 들어, `https://localhost:44316`에서 로컬로 수신하도록 설정할 수 있습니다. 포트 번호를 아직 모르는 경우 자리 표시자 값을 입력한 후 나중에 변경할 수 있습니다. 테스트 목적을 위해 조사할 토큰 내용을 표시하도록 `https://jwt.ms`로 설정할 수 있습니다. 이 자습서에서는 `https://jwt.ms`로 설정합니다. 
+6. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 예를 들어, 로컬에서 수신 하도록 설정할 수 있습니다 `https://localhost:44316`합니다. 포트 번호를 아직 모르는 경우 자리 표시자 값을 입력한 후 나중에 변경할 수 있습니다.
+
+    이 자습서와 같은 테스트용 설정할 수 있습니다 `https://jwt.ms` 검사에 대 한 토큰의 내용을 표시 합니다. 이 자습서에서는 설정 된 **회신 URL** 에 `https://jwt.ms`입니다.
 
     회신 URL은 스키마 `https`로 시작해야 하고 모든 회신 URL 값은 단일 DNS 도메인을 공유해야 합니다. 예를 들어 애플리케이션의 회신 URL이 `https://login.contoso.com`이면 이 URL `https://login.contoso.com/new`와 같이 추가할 수 있습니다. 또는 `https://new.login.contoso.com`과 같이 `login.contoso.com`의 DNS 하위 도메인을 참조할 수 있습니다. `login-east.contoso.com` 및 `login-west.contoso.com`을 회신 URL로 사용하는 애플리케이션이 필요하면 회신 URL을 다음 순서로 추가해야 합니다. `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com` 뒤의 두 개는 첫 번째 회신 URL `contoso.com`의 하위 도메인이므로 추가할 수 있습니다.
 
@@ -50,8 +52,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 응용 프로그램 토큰에 대 한 코드를 교환 하는 경우 응용 프로그램 비밀을 만들려고 해야 합니다.
 
-1. **키**를 선택한 다음, **키 생성**을 클릭합니다.
-2. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
+1. 에 **Azure AD B2C-응용 프로그램** 페이지에서 만든 응용 프로그램, 예를 들어 *webapp1*합니다.
+2. 선택 **키** 선택한 후 **키 생성**합니다.
+3. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값이 응용 프로그램 코드에서 응용 프로그램 비밀을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -61,5 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * 웹 애플리케이션 등록
 > * 클라이언트 비밀 만들기
 
+다음으로, 등록, 로그인, 사용자가 사용할 수 있도록 사용자 흐름을 만드는 방법 알아보기 하 고 해당 프로필을 관리 합니다.
+
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C에서 사용자 흐름 만들기](tutorial-create-user-flows.md)
+> [Azure Active Directory B2C에서 사용자 흐름 만들기 >](tutorial-create-user-flows.md)

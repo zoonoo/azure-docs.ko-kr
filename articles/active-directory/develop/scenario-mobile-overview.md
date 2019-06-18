@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111221"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 모바일 응용 프로그램
 
@@ -52,7 +52,7 @@ ms.locfileid: "65962372"
 
 - **사용자 환경은 키**: 사용자가 로그인을 요청 하기 전에 앱의 값을 확인할 수 있도록 하 고 필요한 사용 권한만 요청 합니다.
 - **모든 사용자 구성을 지원**: 많은 모바일 비즈니스 사용자가 장치 준수 정책 및 조건부 액세스 됩니다. 이러한 주요 시나리오를 지원 해야 합니다.
-- **구현에서 single sign-on (SSO)**: MSAL 및 Microsoft id 플랫폼 간단 하 게에서 single sign-on 사용 하도록 설정 하면 장치의 브라우저 또는 Microsoft Authenticator (및 Android에서 Intune 회사 포털)을 통해.
+- **구현에서 single sign-on (SSO)** : MSAL 및 Microsoft id 플랫폼 간단 하 게에서 single sign-on 사용 하도록 설정 하면 장치의 브라우저 또는 Microsoft Authenticator (및 Android에서 Intune 회사 포털)을 통해.
 
 ## <a name="specifics"></a>세부 정보
 

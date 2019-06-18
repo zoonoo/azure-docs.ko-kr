@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510374"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Azure portal에서 Azure Database for PostgreSQL-단일 서버에 읽기 복제본 만들기 및 관리
@@ -159,9 +159,7 @@ Azure Portal에서 서버를 삭제하려면 다음 단계를 수행합니다.
 
 1.  Azure Portal에서 마스터 Azure Database for PostgreSQL 서버를 선택합니다.
 
-
-2. **메트릭**을 선택합니다. **메트릭** 창에서 **Max Lag Across Replicas**를 선택합니다.
-
+2.  **메트릭**을 선택합니다. **메트릭** 창에서 **Max Lag Across Replicas**를 선택합니다.
 
     ![복제본 간 최대 지연 시간 모니터링](./media/howto-read-replicas-portal/select-max-lag.png)
  

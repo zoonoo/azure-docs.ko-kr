@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60867304"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
@@ -25,7 +25,7 @@ ms.locfileid: "60867304"
 Azure Machine Learning Studio에는 다음 네 가지 주요 기계 학습 모델 종류가 있습니다.
 
 * 분류
-* 클러스터링
+* Clustering
 * 회귀
 * 추천 시스템
 
@@ -174,7 +174,7 @@ Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여
 
 그림 14. 자동차 가격 회귀 문제의 웹 서비스 결과
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 **예제 실험**
 
 다시 붓꽃 데이터 집합을 사용하여 클러스터링 실험을 작성하겠습니다. 여기에서는 특징만 보유하고 클러스터링에 사용할 수 있도록 데이터 집합의 클래스 레이블을 필터링할 수 있습니다. 이 붓꽃 사용 사례에서는 학습 프로세스 중에 클러스터의 수를 2로 지정합니다. 즉, 꽃을 2클래스로 클러스터링합니다. 실험은 그림 15에 표시됩니다.

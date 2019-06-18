@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238770"
 ---
-| 계층 | 무료 | 기본 | Standard |
+| 계층 | 무료 | Basic | Standard |
 | --- | --- | --- | --- |
 | API 호출 |500,000 |단위당 1.5 백만 |단위 당 15 백만 |
 | 활성 장치 |500 |Unlimited |Unlimited |

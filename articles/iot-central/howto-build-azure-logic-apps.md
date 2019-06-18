@@ -4,20 +4,20 @@ description: Azure Logic Apps에서 IoT Central 커넥터를 사용하여 워크
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 635c8d0f149895798eece8cf3b48712ab74374ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2269ede83ad64172e316a208871ab65053b2d10e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887135"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053075"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 IoT Central 커넥터를 통해 워크플로 작성
 
-‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
+‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’ 
 
 Azure Logic Apps를 사용하여 클라우드 서비스와 온-프레미스 시스템 전반에서 앱과 데이터를 통합하는 자동화된 확장성 있는 워크플로를 작성합니다. Azure Logic Apps에는 많은 Azure 서비스, Microsoft 서비스 및 기타 SaaS(Software-as-a-Service) 제품에 걸쳐 많은 커넥터가 있습니다. Azure Logic Apps에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 커넥터의 작업을 사용하여 디바이스를 만들거나, 디바이스의 속성과 설정을 업데이트하거나, 디바이스를 삭제할 수도 있습니다.
 

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065661"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Azure Database for MariaDB 입력 데이터 복제를 구성하는 방법
 
-이 문서에서는 마스터 서버와 복제본 서버를 구성하여 Azure Database for MariaDB 서비스에서 입력 데이터 복제를 설정하는 방법을 알아봅니다. 입력 데이터 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 마스터 MariaDB 서버의 데이터를 Azure Database for MariaDB 서비스에 있는 복제본으로 동기화할 수 있습니다. 
+이 문서에서는 마스터 서버와 복제본 서버를 구성하여 Azure Database for MariaDB 서비스에서 입력 데이터 복제를 설정하는 방법을 알아봅니다. 입력 데이터 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 마스터 MariaDB 서버의 데이터를 Azure Database for MariaDB 서비스에 있는 복제본으로 동기화할 수 있습니다. 사용 하 여 데이터의 복제를 설정한 것 recommanded [전역 트랜잭션 ID](https://mariadb.com/kb/en/library/gtid/) 마스터 서버의 버전이 10.2 때 이상.
 
 이 문서에서는 이전에 MariaDB 서버 및 데이터베이스를 사용한 경험이 몇 번이라도 있다고 가정합니다.
 
@@ -116,7 +116,16 @@ ms.locfileid: "61038588"
    결과는 다음과 같아야 합니다. 이후 단계에서 사용되므로 이진 파일 이름을 적어 두세요.
 
    ![마스터 상태 결과](./media/howto-data-in-replication/masterstatus.png)
+   
+6. GTID 위치 (선택 사항, GTID 사용 하 여 복제에 필요한) 가져오기
+
+   함수를 실행할 [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) 명령을 해당 binlog 파일 이름과 오프셋 GTID 위치를 가져옵니다.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>마스터 서버 덤프 및 복원
 
 1. 마스터 서버에서 모든 데이터베이스 덤프
@@ -142,10 +151,16 @@ ms.locfileid: "61038588"
 
    모든 데이터 내부 복제 기능은 저장 프로시저에 의해 수행됩니다. [데이터 내부 복제 저장 프로시저](reference-data-in-stored-procedures.md)에서 모든 프로시저를 확인할 수 있습니다. 저장 프로시저는 MySQL 셸 또는 MySQL Workbench에서 실행할 수 있습니다.
 
-   두 서버를 연결하고 복제를 시작하려면 Azure DB for MariaDB 서비스에서 대상 복제본 서버에 로그인하고 외부 인스턴스를 마스터 서버로 설정합니다. 이 작업은 Azure DB for MariaDB 서버의 `mysql.az_replication_change_master` 저장 프로시저를 사용하여 수행합니다.
+   두 서버를 연결하고 복제를 시작하려면 Azure DB for MariaDB 서비스에서 대상 복제본 서버에 로그인하고 외부 인스턴스를 마스터 서버로 설정합니다. 사용 하 여 이렇게 합니다 `mysql.az_replication_change_master` 또는 `mysql.az_replication_change_master_with_gtid` MariaDB 서버에 대 한 Azure DB에서 저장 프로시저입니다.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   또는
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: 마스터 서버의 호스트 이름
@@ -153,6 +168,7 @@ ms.locfileid: "61038588"
    - master_password: 마스터 서버의 암호
    - master_log_file: 실행 중인 `show master status`의 이진 로그 파일 이름
    - master_log_pos: 실행 중인 `show master status`의 이진 로그 위치
+   - master_gtid_pos: 실행에서 GTID 위치 `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA 인증서의 컨텍스트. SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
        - 이 매개 변수를 변수로 전달하는 것이 좋습니다. 자세한 내용은 다음 예제를 참조하세요.
 
@@ -199,6 +215,10 @@ ms.locfileid: "61038588"
 
    `Slave_IO_Running` 및 `Slave_SQL_Running`의 상태가 “yes”이고 `Seconds_Behind_Master`의 값이 “0”이면 복제가 제대로 작동 중인 것입니다. `Seconds_Behind_Master`는 복제본이 얼마나 지연되었는지를 나타냅니다. 값이 “0”이 아니면 복제본이 업데이트를 처리 중인 것입니다. 
 
+4. 복제를 하려면 데이터에서 더 안전 하 게 (GTID 없이 복제에만 필요) 서버 변수를 해당 하는 업데이트
+    
+    MariaDB 네이티브 복제 제한으로 인해 설치 해야 [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) 하 고 [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) 변수 GTID 시나리오가 없는 복제 합니다. 슬레이브 서버를 확인 했습니다 recommand `sync_master_info` 및 `sync_relay_log_info` 변수 ot 변경 및 `1` 데이터의 복제 안정적인 인지 확인 하려는 경우.
+    
 ## <a name="other-stored-procedures"></a>기타 저장 프로시저
 
 ### <a name="stop-replication"></a>복제 중지

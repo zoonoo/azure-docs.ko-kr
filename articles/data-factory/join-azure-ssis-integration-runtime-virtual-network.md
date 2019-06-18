@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152655"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
@@ -83,11 +83,11 @@ Azure-SSIS 통합 런타임을 만드는 사용자에게는 다음 권한이 있
 
 - SSIS IR를 Azure Resource Manager 가상 네트워크에 연결하는 경우 다음 두 가지 옵션이 있습니다.
 
-  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
+  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다.  이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
 
   - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 
 
-- SSIS IR을 클래식 가상 네트워크에 연결하는 경우에는 기본 제공 ‘클래식 가상 머신 참가자’ 역할을 사용하는 것이 좋습니다. 그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
+- SSIS IR을 클래식 가상 네트워크에 연결하는 경우에는 기본 제공 ‘클래식 가상 머신 참가자’ 역할을 사용하는 것이 좋습니다.  그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
 
 ### <a name="subnet"></a> 서브넷 선택
 -   GatewaySubnet은 가상 네트워크 게이트웨이 전용이므로 Azure SSIS Integration Runtime을 배포할 때는 선택하지 마세요. 
@@ -110,7 +110,7 @@ Azure-SSIS 통합 런타임에서 조인된 가상 네트워크에서 고유한 
 ### <a name="nsg"></a> 네트워크 보안 그룹
 Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크 보안 그룹)를 구현해야 하는 경우 다음 포트를 통해 인바운드/아웃바운드 트래픽을 허용합니다. 
 
-| Direction | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 설명 |
+| Direction | 전송 프로토콜 | source | 원본 포트 범위 | 대상 | 대상 포트 범위 | 설명 |
 |---|---|---|---|---|---|---|
 | 인바운드 | TCP | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | * | VirtualNetwork | 29876, 29877(IR을 Azure Resource Manager 가상 네트워크에 조인하는 경우) <br/><br/>10100, 20100, 30100(IR을 클래식 가상 네트워크에 조인하는 경우)| Data Factory 서비스는 이러한 포트를 사용하여 가상 네트워크의 Azure-SSIS 통합 런타임 노드와 통신합니다. <br/><br/> 서브넷 수준 NSG를 만들든 그렇지 않든, Data Factory는 Azure-SSIS IR을 호스트하는 가상 머신에 연결된 NIC(네트워크 인터페이스 카드)의 수준에서 항상 NSG를 구성합니다. 지정된 포트에서 Data Factory IP 주소의 인바운드 트래픽만 해당 NIC 수준 NSG에서 허용됩니다. 서브넷 수준에서 인터넷 트래픽에 대해 이러한 포트를 여는 경우라도 Data Factory IP 주소가 아닌 IP 주소에서의 트래픽은 NIC 수준에서 차단됩니다. |
 | 아웃바운드 | TCP | VirtualNetwork | * | AzureCloud<br/>(또는 인터넷 같은 대규모 범위) | 443 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
@@ -172,7 +172,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
    b. 구독을 선택합니다. 
 
-   다. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
+   c. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
 
    !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
@@ -207,7 +207,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
     b. **역할 할당 추가**를 선택합니다.
 
-    다. **역할 할당 추가** 페이지에서 **역할**에 **클래식 가상 머신 기여자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
+    c. **역할 할당 추가** 페이지에서 **역할**에 **클래식 가상 머신 기여자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
 
     !["역할 할당 추가" 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
@@ -225,7 +225,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
    b. 구독을 선택합니다. 
 
-   다. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
+   c. 왼쪽에서 **리소스 공급자**를 선택하고 **Microsoft.Batch**가 등록된 공급자인지 확인합니다. 
 
    !["등록됨" 상태 확인](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
@@ -268,7 +268,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
    b. **형식**에서는 가상 네트워크가 클래식 가상 네트워크인지 아니면 Azure Resource Manager 가상 네트워크인지 선택합니다. 
 
-   다. **VNet 이름**에서는 해당 가상 네트워크를 선택합니다. 
+   c. **VNet 이름**에서는 해당 가상 네트워크를 선택합니다. 
 
    d. **서브넷 이름**에서는 해당 가상 네트워크의 서브넷을 선택합니다. 
 

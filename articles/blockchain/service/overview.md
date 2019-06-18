@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544711"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service 란?
@@ -51,7 +51,7 @@ Azure Blockchain 서비스 관리 되는 서비스로 blockchain 멤버의 노�
 
 또한 Azure Blockchain Service 다양 한 메트릭을 제공 Azure 모니터링 서비스를 통해 노드의 CPU, 메모리 및 저장소 사용량에 대 한 정보 뿐만 아니라 트랜잭션 및 찾은 요소와 같은 블록 체인 네트워크 활동에 대 한 유용한 정보를 제공 합니다. 트랜잭션 큐 깊이 뿐만 아니라 활성 연결.  메트릭 보기는 블록 체인 응용 프로그램에 중요 한 정보를 제공 하 여 사용자 지정할 수 있습니다.  또한 임계값은 사용자가 전자 메일 또는 문자 메시지 보내기, 논리 앱, Azure Function을 실행 또는 정의 된 사용자 지정 웹 후크 보내기 같은 작업을 트리거할 수 있도록 하는 경고를 통해 정의할 수 있습니다.
 
-![메트릭](./media/overview/metrics.png)
+![metrics](./media/overview/metrics.png)
 
 Azure Log Analytics를 통해 사용자는 쿼럼 원장에 나 트랜잭션 노드에 다른 시도 같은 중요 한 정보 연결에 관련 된 로그를 볼 수 있습니다.
 

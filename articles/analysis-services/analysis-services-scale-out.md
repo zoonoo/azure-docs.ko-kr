@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192299"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
@@ -110,12 +110,12 @@ ms.locfileid: "65192299"
 
 |코드  |설명  |
 |---------|---------|
-|-1     |  올바르지 않음       |
-|0     | 복제 중        |
+|-1     |  잘못됨       |
+|0     | 복제        |
 |1     |  리하이드레이션       |
 |2     |   Completed       |
 |3     |   실패      |
-|4     |    종료하는 중     |
+|4     |    완료 하는 중     |
 |||
 
 

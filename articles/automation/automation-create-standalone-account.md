@@ -10,10 +10,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076796"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
@@ -89,7 +89,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| 리소스 | 설명 |
+| Resource | 설명 |
 | --- | --- |
 | AzureAutomationTutorial Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 그래픽 Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
 | AzureAutomationTutorialScript Runbook |실행 계정을 사용하여 인증하는 방법을 보여주는 예제 PowerShell Runbook입니다. Runbook은 Resource Manager 리소스를 모두 가져옵니다. |
@@ -99,7 +99,7 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 
 다음 표에는 클래식 실행 계정에 대한 리소스가 요약되어 있습니다.
 
-| 리소스 | 설명 |
+| Resource | 설명 |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |예제 그래픽 Runbook Runbook은 클래식 실행 계정(인증서)을 사용하여 구독에 있는 모든 클래식 VM을 가져옵니다. 그런 다음 VM 이름 및 상태가 표시됩니다. |
 | AzureClassicAutomationTutorial Script Runbook |예제 PowerShell Runbook Runbook은 클래식 실행 계정(인증서)을 사용하여 구독에 있는 모든 클래식 VM을 가져옵니다. 그런 다음 VM 이름 및 상태가 표시됩니다. |

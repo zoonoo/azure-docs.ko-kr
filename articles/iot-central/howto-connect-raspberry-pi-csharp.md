@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714427"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(C#)
@@ -340,7 +340,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | 초기 |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
@@ -348,16 +348,16 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 설정 전환
 
-| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| Display name | 필드 이름 | 온 텍스트 | 오프 텍스트 | 초기 |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+| IR           | activateIR | ON      | 끄기      | 꺼짐     |
 
 ### <a name="properties"></a>properties
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| 텍스트            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 

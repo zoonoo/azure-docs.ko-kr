@@ -16,10 +16,10 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65511157"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
@@ -141,7 +141,7 @@ ms.locfileid: "65511157"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 데이터 디스크 크기가 조정 된를 확인 하려면 사용 하 여 `df -h`입니다. 다음 출력 예제에서는 데이터 드라이브(*/dev/sdc1*)가 이제 200GB임을 보여 줍니다.
+1. 데이터 디스크 크기가 조정 된를 확인 하려면 사용 하 여 `df -h`입니다. 다음 출력 예제에서는 데이터 드라이브( */dev/sdc1*)가 이제 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

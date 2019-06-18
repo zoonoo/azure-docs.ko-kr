@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
 ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400153"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS의 SQL server에 대 한 고급 데이터 보안
@@ -162,7 +162,7 @@ ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록�
 
 ### <a name="potential-sql-injection-attacks-coming"></a>잠재적인 SQL 삽입 공격 (발생)
 
-* **SQL 삽입에 대한 취약성**: 애플리케이션에서 데이터베이스에 잘못된 SQL 문을 생성하면 이 경고가 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 가능한 원인:
+* **SQL 삽입에 대한 취약성**: 이 경고는 데이터베이스에서 애플리케이션이 잘못된 SQL 문을 생성할 때 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 가능한 원인:
      * 잘못된 SQL문을 구성하는 애플리케이션 코드의 결함
      * 애플리케이션 코드 또는 저장 프로시저는 SQL 삽입에 악용될 수 있는 잘못된 SQL문을 생성할 때 사용자 입력을 삭제하지 않습니다.
 * **잠재적 SQL 삽입**: SQL 삽입에 대해 식별된 애플리케이션 취약성으로 인해 활성 악용이 발생하면 이 경고가 트리거됩니다. 즉 공격자가 취약한 애플리케이션 코드 또는 저장 프로시저를 사용하여 악성 SQL문을 삽입하려고 하는 것을 의미합니다.

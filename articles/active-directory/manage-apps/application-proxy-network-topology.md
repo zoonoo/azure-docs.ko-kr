@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7e236d3142ba4410b6942f9e8069e1429aae5378
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108434"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -176,5 +176,5 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 - [애플리케이션 프록시 사용](application-proxy-add-on-premises-application.md)
 - [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-- [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
+- [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md)
 - [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)

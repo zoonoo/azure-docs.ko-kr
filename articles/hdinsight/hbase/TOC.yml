@@ -264,7 +264,5 @@
   items:
     - name: Windows 클러스터
       items:
-        - name: Linux 클러스터로 Windows 클러스터 마이그레이션
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Linux 클러스터로 .NET 솔루션 마이그레이션
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

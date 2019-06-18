@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 638c06e1854504dcb7ff34b1d9df56694556c421
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939790"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric Reliable Services의 ASP.NET Core
@@ -62,9 +62,9 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 합니다 `ICommunicationListener` Kestrel 및 HTTP.sys에 대 한 구현을 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 패키지만 비슷한 사용 패턴입니다. 하지만 각 웹 서버에 따라 약간 다른 작업을 수행 합니다. 
 
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
- - **`ServiceContext serviceContext`**: 이 `ServiceContext` 실행 중인 서비스에 대 한 정보를 포함 하는 개체입니다.
- - **`string endpointName`**: 이름임을 `Endpoint` ServiceManifest.xml에서 구성 합니다. 두 통신 수신기는 다를 주로 됩니다. HTTP.sys *필요* 는 `Endpoint` Kestrel 하지 하는 동안 구성 합니다.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: 이 만들고 반환에 구현 하는 람다는 `IWebHost`합니다. 구성할 수 있습니다 `IWebHost` ASP.NET Core 응용 프로그램에서 일반적으로 하는 방법은 합니다. 생성 되는 URL을 제공 하는 람다를 사용 하 여 Service Fabric 통합 옵션에 따라 및 `Endpoint` 제공한 구성 합니다. 수정 하거나 해당 URL을 사용 하 여 웹 서버를 시작할 수 있습니다.
+ - **`ServiceContext serviceContext`** : 이 `ServiceContext` 실행 중인 서비스에 대 한 정보를 포함 하는 개체입니다.
+ - **`string endpointName`** : 이름임을 `Endpoint` ServiceManifest.xml에서 구성 합니다. 두 통신 수신기는 다를 주로 됩니다. HTTP.sys *필요* 는 `Endpoint` Kestrel 하지 하는 동안 구성 합니다.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : 이 만들고 반환에 구현 하는 람다는 `IWebHost`합니다. 구성할 수 있습니다 `IWebHost` ASP.NET Core 응용 프로그램에서 일반적으로 하는 방법은 합니다. 생성 되는 URL을 제공 하는 람다를 사용 하 여 Service Fabric 통합 옵션에 따라 및 `Endpoint` 제공한 구성 합니다. 수정 하거나 해당 URL을 사용 하 여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
 합니다 `Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에 포함 된 `UseServiceFabricIntegration` 확장 메서드를 `IWebHostBuilder` Service Fabric 인식 미들웨어를 추가 하는 합니다. 이 미들웨어는 Kestrel 또는 HTTP.sys 구성 `ICommunicationListener` Service Fabric 명명 서비스를 사용 하 여 고유한 서비스 URL을 등록 합니다. 그런 다음 클라이언트는 적절 한 서비스에 연결 되도록 클라이언트 요청을 확인 합니다. 

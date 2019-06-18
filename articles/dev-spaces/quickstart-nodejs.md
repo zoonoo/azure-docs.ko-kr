@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너, 마이크로서비스 및 Node.js를 사용하여 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5efacc38ab6b30a1a4ae45772f2b81030e76eb83
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873145"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393920"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Node.js로 개발
 
@@ -35,7 +35,7 @@ ms.locfileid: "65873145"
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
-[지원되는 지역](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)에서 AKS 클러스터를 만들어야 합니다. 아래 명령은 *MyResourceGroup*이라는 리소스 그룹과 *MyAKS*라는 AKS 클러스터를 만듭니다.
+[지원되는 지역][supported-regions]에서 AKS 클러스터를 만들어야 합니다. 아래 명령은 *MyResourceGroup*이라는 리소스 그룹과 *MyAKS*라는 AKS 클러스터를 만듭니다.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -117,7 +117,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예: 
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예:
 
 1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
 1. [`server.js`의 10줄](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10)을 다음으로 업데이트합니다.
@@ -190,7 +190,7 @@ Visual Studio Code에서 명령 팔레트를 열려면 *보기*, *명령 팔레�
 
 서비스가 시작되면 브라우저를 사용하여 서비스로 이동하여 상호 작용합니다.
 
-서비스가 실행되는 동안 VS Code로 돌아가서 `server.js`의 10줄을 업데이트합니다. 예: 
+서비스가 실행되는 동안 VS Code로 돌아가서 `server.js`의 10줄을 업데이트합니다. 예:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```
@@ -211,3 +211,6 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

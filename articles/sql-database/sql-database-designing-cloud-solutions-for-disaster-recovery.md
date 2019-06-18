@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61488189"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
@@ -118,7 +118,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 > [!NOTE]
 > 장애 조치 그룹 구성은 장애 조치에 사용할 지역을 정의합니다. 새로운 주 항목이 다른 지역에 있으므로 해당 지역이 다시 온라인이 되기 전까지는 장애 조치로 인해 OLTP와 읽기 전용 워크로드에 대한 대기 시간이 더 길어집니다.
 
-![시나리오 3. 미국 동부에서 기본으로 구성 ](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+![시나리오 3. 미국 동부에서 기본으로 구성](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
 일과를 마치면(예: 현지 시간 밤 11시) 활성 데이터베이스가 다음 지역으로 전환됩니다(북유럽). 이 작업은 [Azure 예약 서비스](../scheduler/scheduler-intro.md)로 완전히 자동화할 수 있습니다.  이 작업에는 다음 단계가 필요합니다.
 

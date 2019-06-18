@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116197"
 ---
-# <a name="sql-database-serverless-preview"></a>Azure SQL Database 서버리스(미리 보기)
+# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 서버 리스 (미리 보기)
+
+Azure SQL Database 서버 리스 (미리 보기) 자동으로 계산 워크 로드 수요 및 계산의 양에 대 한 청구서에 따라 크기가 조정 되는 단일 데이터베이스에 대 한 계산 계층은 초당 사용 합니다. 서버 리스 계산 계층 저장소 요금이 청구 됩니다 하 고 작업 반환 될 때 데이터베이스를 자동으로 다시 시작 때 비활성 기간 동안 데이터베이스를 일시 중지도 자동으로 합니다.
 
 ## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
-SQL Database 서버 리스 (미리 보기)는 자동 크기 조정 계산 되는지는 초당 사용 된 계산의 양에 대 한 요금을 청구 하는 단일 데이터베이스 계산 계층입니다. 
-
-서버리스 컴퓨팅 계층의 데이터베이스는 사용할 수 있는 컴퓨팅 범위와 자동 일시 중지 지연으로 매개 변수화됩니다.
+단일 데이터베이스에 대 한 서버 리스 계산 계층은 계산 자동 크기 조정 범위 및 autopause 지연이 발생 하 여 매개 변수화 됩니다.  이러한 매개 변수 구성 데이터베이스 성능을 경험 모양과 비용을 계산 합니다.
 
 ![서버리스 청구](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>성능
+### <a name="performance-configuration"></a>성능 구성
 
-- 최소 vcore 수 및 최대 Vcore 수는 다양 한 데이터베이스에 대해 사용할 수 있는 계산 용량을 정의 하는 구성 가능한 매개 변수. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
-- 자동 일시 중지 지연은 데이터베이스가 자동으로 일시 중지되기 전에 비활성 상태로 있어야 하는 기간을 정의하는 구성 가능한 매개 변수입니다. 다음 로그인이 수행되면 데이터베이스가 자동으로 다시 시작됩니다.
+- **최소 Vcore** 및 **최대 Vcore** 다양 한 데이터베이스에 대해 사용할 수 있는 계산 용량을 정의 하는 구성 가능한 매개 변수가 있습니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
+- 합니다 **autopause 지연** 은 자동으로 일시 중지 하기 전에 데이터베이스는 기간을 정의 하는 구성 가능한 매개 변수 활성 이어야 합니다. 다음 로그인 또는 다른 활동이 발생 하면 데이터베이스가 자동으로 다시 시작 됩니다.  또는 autopausing 비활성화할 수 있습니다.
 
-### <a name="pricing"></a>가격
+### <a name="cost"></a>비용
 
-- 서버리스 데이터베이스에 대한 총 청구 요금은 컴퓨팅 청구 요금과 스토리지 청구 요금의 합계입니다.
-컴퓨팅 청구 요금은 사용된 vCore 양과 초당 사용된 메모리 양을 기반으로 합니다.
-- 최소 컴퓨팅 청구 요금은 최소 vCore 수 및 최소 메모리 크기를 기반으로 합니다.
-- 데이터베이스가 일시 중지된 동안에는 스토리지 비용만 청구됩니다.
+- 서버 리스 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
+- 계산 사용량이 간의 최소 및 최대 한도 구성 되 면 계산 비용 기반으로 vCore 및 메모리를 사용 합니다.
+- 계산 사용량이 구성 된 최소 제한 되 면 계산 비용 기반으로 최소 vcore 수 및 최소 메모리를 구성 합니다.
+- 데이터베이스 일시 중지 하는 경우 계산 비용이 0 인 및 저장소 비용만 발생 합니다.
+- 저장소 비용을 프로 비전 된 계산 계층와 같이 동일한 방식으로 결정 됩니다.
+
+자세한 비용 정보를 참조 하세요 [청구](sql-database-serverless.md#billing)합니다.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -73,7 +76,7 @@ SQL Database 서버 리스 (미리 보기)는 자동 크기 조정 계산 되는
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscale"></a>자동 크기 조정
+## <a name="autoscaling"></a>자동 확장
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -98,9 +101,9 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 SQL 캐시를 프로 비전 된 데이터베이스와 동일한 속도 동일한 방식으로 데이터 디스크에서 인출 되는 대로 증가 합니다. 데이터베이스 사용량이 많을 캐시는 최대 메모리 한도까지 무제한 증가 하도록 허용 됩니다.
 
-## <a name="autopause-and-autoresume"></a>자동 일시 중지 및 자동 다시 시작
+## <a name="autopausing-and-autoresuming"></a>Autopausing 및 autoresuming
 
-### <a name="autopause"></a>자동 일시 중지
+### <a name="autopausing"></a>Autopausing
 
 다음 조건이 모두 참인 경우 autopause 지연 기간 Autopausing이 트리거됩니다.
 
@@ -117,7 +120,7 @@ SQL 캐시를 프로 비전 된 데이터베이스와 동일한 속도 동일한
 
 Autopausing은 데이터베이스가 온라인 상태일 필요는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 방지 됩니다.  이러한 경우 autopausing 서비스 업데이트가 완료 되 면 다시 허용 됩니다.
 
-### <a name="autoresume"></a>자동 다시 시작
+### <a name="autoresuming"></a>Autoresuming
 
 다음 조건 중 하나라도 참인 경우 언제 든 지 Autoresuming이 트리거됩니다.
 
@@ -148,7 +151,7 @@ Autoresume autopause 하지 않는 데이터베이스를 대기 시간은 일반
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>서버 리스 계산 계층으로 온 보 딩
 
-새 데이터베이스를 만들거나 기존 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 경우 프로비저닝된 컴퓨팅 계층에서 새 데이터베이스를 만드는 것과 동일한 패턴을 따르면 다음 두 단계를 수행해야 합니다.
+새 데이터베이스를 만들거나 서버 리스 계산 계층으로 기존 데이터베이스에서 새 데이터베이스를 만드는 것과 동일한 패턴을 따릅니다. 이동 계산 계층을 프로 비전 하 고 다음 두 단계로 이루어집니다.
 
 1. 서비스 목표 이름을 지정합니다. 서비스 목표는 서비스 계층, 하드웨어 세대 및 최대 vcore 수를 사용할 수 있습니다. 다음 표에는 서비스 목표 옵션이 나와 있습니다.
 
@@ -168,13 +171,15 @@ Autoresume autopause 하지 않는 데이터베이스를 대기 시간은 일반
 > [!NOTE]
 > T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>Azure portal을 사용 하 여 새 서버 리스 데이터베이스 만들기
+### <a name="create-new-database-in-serverless-compute-tier"></a>서버 리스 컴퓨팅 계층에서 새 데이터베이스 만들기 
+
+#### <a name="use-azure-portal"></a>Azure Portal 사용
 
 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
-### <a name="create-new-serverless-database-using-powershell"></a>PowerShell을 사용 하 여 새 서버 리스 데이터베이스 만들기
+#### <a name="use-powershell"></a>PowerShell 사용
 
-다음 예제에서는 최소 vCore 수 및 자동 일시 중지 지연에 대한 기본값을 사용하여 GP_S_Gen5_4라는 서비스 목표로 정의된 서버리스 컴퓨팅 계층에 새 데이터베이스를 만듭니다.
+다음 예에서는 서버 리스 컴퓨팅 계층에서 새 데이터베이스를 만듭니다.  이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>서버 리스 계산 계층에 프로 비전 된 계산 데이터베이스 이동
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>서버 리스 계산 계층에 프로 비전 된 계산 계층에서 데이터베이스를 이동
 
-다음 예제에서는 기존 단일 데이터베이스를 프로비저닝된 컴퓨팅 계층에서 서버리스 컴퓨팅 계층으로 이동시킵니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
+#### <a name="use-powershell"></a>PowerShell 사용
+
+다음 예에서는 서버 리스 계산 계층에 프로 비전 된 계산 계층에서 데이터베이스를 이동합니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>프로 비전 된 계산 계층으로 이동 하지 않는 데이터베이스
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>서버 리스 계산 계층에서 데이터베이스를 프로 비전 된 계산 계층으로 이동
 
 서버리스 데이터베이스는 프로비저닝된 컴퓨팅 데이터베이스를 서버리스 컴퓨팅 계층으로 이동하는 것과 동일한 방식으로 프로비저닝된 컴퓨팅 계층으로 이동할 수 있습니다.
 
@@ -214,13 +221,19 @@ Set-AzSqlDatabase
 
 ### <a name="maximum-vcores"></a>최대 vCore 수
 
+#### <a name="use-powershell"></a>PowerShell 사용
+
 사용 하 여 수행 됩니다 최대 vcore 수를 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `MaxVcore` 인수입니다.
 
 ### <a name="minimum-vcores"></a>최소 vCore 수
 
+#### <a name="use-powershell"></a>PowerShell 사용
+
 사용 하 여 수행 됩니다 최소 vcore 수를 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `MinVcore` 인수입니다.
 
 ### <a name="autopause-delay"></a>자동 일시 중지 지연
+
+#### <a name="use-powershell"></a>PowerShell 사용
 
 사용 하 여 수행 됩니다 autopause 지연 시간을 수정 합니다 [집합 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 PowerShell에서를 `AutoPauseDelayInMinutes` 인수입니다.
 
@@ -228,7 +241,7 @@ Set-AzSqlDatabase
 
 ### <a name="resources-used-and-billed"></a>리소스 사용 및 청구
 
-서버리스 데이터베이스의 리소스는 다음 엔터티에서 캡슐화됩니다.
+서버 리스 데이터베이스의 리소스는 앱 패키지, SQL 인스턴스 및 사용자 리소스 풀 엔터티에 의해 캡슐화 됩니다.
 
 #### <a name="app-package"></a>앱 패키지
 

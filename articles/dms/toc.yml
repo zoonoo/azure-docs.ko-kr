@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 마이그레이션 작업 모니터링
       href: how-to-monitor-migration-activity.md
-    - name: SSIS 패키지를 Azure로 마이그레이션
+    - name: Azure SQL Database에 SSIS 패키지 마이그레이션
       href: how-to-migrate-ssis-packages.md
+    - name: Azure SQL Database Managed Instance에 SSIS 패키지 마이그레이션
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 리소스
   items:
     - name: 데이터베이스 마이그레이션 시나리오 상태

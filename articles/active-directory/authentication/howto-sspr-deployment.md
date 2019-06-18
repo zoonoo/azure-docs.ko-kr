@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190359"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
@@ -57,7 +57,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 
 ## <a name="create-your-own-password-portal"></a>고유 암호 포털 만들기
 
-대부분의 고객은 웹 페이지를 호스팅하고 https://passwords.contoso.com과 같은 루트 DNS 항목을 만드는 방법을 선택합니다. 이 페이지를 다음 정보에 대한 링크로 채웁니다.
+대부분의 고객은 웹 페이지를 호스팅하고 https://passwords.contoso.com 과 같은 루트 DNS 항목을 만드는 방법을 선택합니다. 이 페이지를 다음 정보에 대한 링크로 채웁니다.
 
 * [Azure AD 암호 재설정 포털 - https://aka.ms/sspr](https://aka.ms/sspr)
 * [Azure AD 암호 재설정 등록 포털 - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)

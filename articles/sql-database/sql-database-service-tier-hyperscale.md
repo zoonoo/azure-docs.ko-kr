@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070139"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>최대 100TB의 대규모 서비스 계층
 
@@ -111,7 +111,7 @@ Azure Storage 노드는 페이지 서버에 있는 데이터의 최종 대상입
 
 하이퍼스케일 데이터베이스는 [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용하여 만들 수 있습니다. 하이퍼스케일 데이터베이스는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용해야만 사용이 가능합니다.
 
-다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다.
+다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다. 참조를 [리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) 올바른 서비스 목표의 목록은 합니다.
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Azure SQL Database 대규모 DB와 재해 복구 작업 또는 드릴, 재배치
 1. 이미 없는 적절 한 서버 있는 경우에 대상 지역에 SQL Database 서버를 만듭니다.  이 서버 원본 (원본) 서버와 동일한 구독에서 소유 해야 합니다.
 2. 지침에 따라 합니다 [지역에서 복원은](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) Azure SQL Database 자동 백업에서 복원 페이지의 항목입니다.
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>대규모 데이터베이스의 지역에서 복원은 대 한 참고 사항
-별도 하위 지역에서 원본 및 대상 이기 때문에 데이터베이스는 매우 빠르게 완료 되지 않은 지역 복원 하면 원본 데이터베이스를 사용 하 여 스냅숏 저장소를 공유할 수 없습니다.  대규모 데이터베이스의 지역 복원의 경우 대상 지역에서 복제 된 저장소의 쌍을 이루는 지역의 경우에 크기의 데이터 작업을 해당 됩니다.  즉,이 지역 복원을 수행 하는 시간이 복원할 데이터베이스의 크기에 비례 합니다.  대상 쌍을 이루는 지역에 있으면 복사 될 장거리 복사본 보다 훨씬 빠릅니다 인터넷을 통해, 데이터 센터 내에서 수 있지만 모든 비트를 계속 복사 합니다.
+> [!NOTE]
+> 별도 하위 지역에서 원본 및 대상 이기 때문에 데이터베이스는 매우 빠르게 완료 되지 않은 지역 복원 하면 원본 데이터베이스를 사용 하 여 스냅숏 저장소를 공유할 수 없습니다.  대규모 데이터베이스의 지역 복원의 경우 대상 지역에서 복제 된 저장소의 쌍을 이루는 지역의 경우에 크기의 데이터 작업을 해당 됩니다.  즉,이 지역 복원을 수행 하는 시간이 복원할 데이터베이스의 크기에 비례 합니다.  대상 쌍을 이루는 지역에 있으면 복사 될 장거리 복사본 보다 훨씬 빠릅니다 인터넷을 통해, 데이터 센터 내에서 수 있지만 모든 비트를 계속 복사 합니다.
 
 ## <a name=regions></a>사용 가능한 지역
 
@@ -225,8 +225,8 @@ Azure SQL Database 대규모 계층은 다음 지역에서 현재 사용할 수 
 
 | 문제 | 설명 |
 | :---- | :--------- |
-| 논리 서버의 백업 관리 창에 SQL 서버에서 필터링된 하이퍼스케일 데이터베이스가 표시되지 않음  | 하이퍼스케일에는 백업을 관리하는 별도의 방법이 있기 때문에 장기 보존 및 특정 시점 백업 보존 설정이 적용되지 않고 무효화됩니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
-| 지정 시간 복원 | 데이터베이스가 하이퍼스케일 서비스 계층에 마이그레이션되고 나면 마이그레이션 이전에 지정 시간으로 복원이 지원되지 않습니다.|
+| 논리 서버에 대 한 백업 관리 창에 SQL server에서 대규모 데이터베이스를 필터링 할 수는 표시 되지 않습니다.  | 하이퍼스케일에는 백업을 관리하는 별도의 방법이 있기 때문에 장기 보존 및 특정 시점 백업 보존 설정이 적용되지 않고 무효화됩니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
+| 지정 시간 복원 | 데이터베이스는 대규모 서비스 계층으로 마이그레이션되면-에-시간으로 마이그레이션 전에 복원 지원 되지 않습니다.|
 | 비-대규모 DB의 Hypserscale를 반대로 복원 | 비 대규모 데이터베이스로 대규모 데이터베이스를 복원할 수 없습니다도 아닌 대규모 데이터베이스 대규모 데이터베이스를 복원할 수 있습니다.|
 | 활성 워크로드로 인해 마이그레이션 중에 데이터베이스 파일이 커져서 파일 경계당 1TB를 넘으면 마이그레이션이 실패합니다. | 해결 방법: <br> - 가능하면 실행 중인 업데이트 워크로드가 없을 때 데이터베이스를 마이그레이션합니다.<br> - 마이그레이션을 다시 시도합니다. 마이그레이션 중에 1TB 경계를 초과하지만 않으면 성공합니다.|
 | 관리되는 인스턴스 | Azure SQL Database Managed Instance 대규모 데이터베이스를 사용 하 여 현재 지원 되지 않습니다. |

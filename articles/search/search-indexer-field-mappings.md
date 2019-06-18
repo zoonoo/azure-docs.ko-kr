@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: d3e0d876550b0c3baf89f3f13e0458fc97e11351
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025212"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search 인덱서의 필드 매핑
@@ -139,7 +139,7 @@ Azure Search에서는 HttpServerUtility URL 토큰과 URL 지원 Base64 인코�
 
 인코딩 및 디코딩을 위한 `useHttpServerUtilityUrlTokenEncode` 또는 `useHttpServerUtilityUrlTokenDecode` 매개 변수가 각각 `true`로 설정되면 `base64Encode`는 [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)처럼 작동하고, `base64Decode`는 [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)처럼 작동합니다.
 
-Azure Search 동작을 에뮬레이트하는 데 전체 .NET Framework를 사용하지 않는 경우(즉, .NET Core 또는 다른 프로그래밍 환경을 사용하는 경우) `useHttpServerUtilityUrlTokenEncode` 및 `useHttpServerUtilityUrlTokenDecode`를 `false`로 설정해야 합니다. 사용하는 라이브러리에 따라 base64 인코딩 및 디코딩 유틸리티 함수는 Azure Search와 다를 수 있습니다. 
+Azure Search 동작을 에뮬레이트하는 데 전체 .NET Framework를 사용하지 않는 경우(즉, .NET Core 또는 다른 프로그래밍 환경을 사용하는 경우) `useHttpServerUtilityUrlTokenEncode` 및 `useHttpServerUtilityUrlTokenDecode`를 `false`로 설정해야 합니다. 사용하는 라이브러리에 따라 base64 인코딩 및 디코딩 유틸리티 함수는 Azure Search와 다를 수 있습니다.
 
 다음 표에서는 문자열 `00>00?00`의 서로 다른 base64 인코딩을 비교합니다. base64 함수에 필요한 추가 처리를 판단하려면(있는 경우) `00>00?00` 문자열에서 라이브러리 인코딩 함수를 적용하고 출력을 `MDA-MDA_MDA` 예상 출력과 비교합니다.
 

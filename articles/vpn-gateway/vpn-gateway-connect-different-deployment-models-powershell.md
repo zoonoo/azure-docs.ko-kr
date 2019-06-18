@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095593"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -44,17 +44,17 @@ ms.locfileid: "62095593"
 
 **클래식 VNet 설정**
 
-VNet 이름 = ClassicVNet  <br>
+VNet 이름 = ClassicVNet <br>
 Location = West US <br>
 Virtual Network Address Spaces = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Local Network Name = RMVNetLocal <br>
- GatewayType = DynamicRouting
+GatewayType = DynamicRouting
 
 **Resource Manager VNet 설정**
 
-VNet 이름 = RMVNet  <br>
+VNet 이름 = RMVNet <br>
 Resource Group = RG1 <br>
 Virtual Network IP Address Spaces = 192.168.0.0/16 <br>
 Subnet-1 = 192.168.1.0/24 <br>
@@ -63,7 +63,7 @@ Location = East US <br>
 Gateway public IP name = gwpip <br>
 Local Network Gateway = ClassicVNetLocal <br>
 Virtual Network Gateway name = RMGateway <br>
- 게이트웨이 IP 주소 구성 = gwipconfig
+게이트웨이 IP 주소 구성 = gwipconfig
 
 ## <a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
 ### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드

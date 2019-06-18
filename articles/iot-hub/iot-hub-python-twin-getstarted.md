@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569254"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -157,7 +157,7 @@ ms.locfileid: "61442630"
 
 ## <a name="create-the-device-app"></a>디바이스 앱 만들기
 
-이 섹션에서는로 허브에 연결 하는 Python 콘솔 앱을 만든 사용자 **{장치 ID}**, 해당 장치 쌍의 reported 셀룰러 네트워크를 사용 하 여 연결 된 정보를 포함 하는 속성을 업데이트 합니다.
+이 섹션에서는로 허브에 연결 하는 Python 콘솔 앱을 만든 사용자 **{장치 ID}** , 해당 장치 쌍의 reported 셀룰러 네트워크를 사용 하 여 연결 된 정보를 포함 하는 속성을 업데이트 합니다.
 
 1. 명령 프롬프트를 열고 **Python용 Azure IoT Hub 서비스 SDK**를 설치합니다. SDK를 설치한 후 명령 프롬프트를 닫습니다.
 

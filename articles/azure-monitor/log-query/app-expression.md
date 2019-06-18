@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
 ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589243"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
@@ -35,7 +35,7 @@ ms.locfileid: "60589243"
 
 - *식별자*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
 
-| 식별자 | 설명 | 예
+| Identifier | 설명 | 예
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 앱의 이름(즉, “구성 요소 이름”) | app(“fabrikamapp”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 앱의 전체 이름 | app(‘AI-Prototype/Fabrikam/fabrikamapp’) |

@@ -1,0 +1,30 @@
+- name: 고성능 컴퓨팅 설명서
+  items:
+    - name: 개요
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: 구성
+      items:
+        - name: Linux용 최적화
+          href: configure.md
+        - name: Infiniband 사용
+          href: enable-infiniband.md
+    - name: MPI 설정
+      href: setup-mpi.md
+    - name: 애플리케이션 크기 조정
+      href: compiling-scaling-applications.md
+    - name: 가상 머신
+      items:
+        - name: HB 시리즈
+          items:
+            - name: 개요
+              href: hb-series-overview.md
+            - name: 성능
+              href: hb-series-performance.md
+        - name: HC 시리즈
+          items:
+            - name: 개요
+              href: hc-series-overview.md
+            - name: 성능
+              href: hc-series-performance.md
+        - name: HB 시리즈 및 HC 시리즈 VM의 알려진 문제
+          href: hb-hc-known-issues.md

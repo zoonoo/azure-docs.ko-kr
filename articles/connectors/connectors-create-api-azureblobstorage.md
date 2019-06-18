@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958641"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
@@ -63,7 +63,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    1. **컨테이너** 상자에서 폴더 아이콘을 선택합니다.
 
-   2. 폴더 목록에서 오른쪽 괄호(**>**)를 선택한 다음, 원하는 폴더를 찾고 선택할 때까지 찾습니다.
+   2. 폴더 목록에서 오른쪽 괄호( **>** )를 선택한 다음, 원하는 폴더를 찾고 선택할 때까지 찾습니다.
 
       ![폴더 선택](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -86,7 +86,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    ![작업 추가](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 3. 검색 상자에서 "azure blob"을 필터로 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 

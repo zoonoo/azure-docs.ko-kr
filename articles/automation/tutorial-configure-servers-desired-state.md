@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072568"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -145,6 +145,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>서비스에서 노드 제거
+
+Azure Automation 상태 구성 노드를 추가 하면 서비스 및 끌어오기 구성 및 컴퓨터를 구성 하는 필수 모듈을 사용 하 여 등록 설정은 로컬 Configuration Manager에서 설정 됩니다.
+서비스에서 노드를 제거 하려는 경우 Azure portal 또는 Az cmdlet을 사용 하 여 수행할 수 있습니다.
+
+> [!NOTE]
+> 노드는 더 이상 서비스에 연결 하도록 로컬 구성 관리자 설정을 설정만 서비스에서 노드를 등록 취소 합니다.
+> 현재 노드에 적용 되는 구성을 미치지 않습니다.
+> 현재 구성을 제거 하려면 사용 합니다 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 하거나 (이 Linux 노드에 대 한 유일한 옵션) 로컬 구성 파일을 삭제 합니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+Azure Automation에서 클릭 **상태 구성 (DSC)** 목차에서.
+다음 클릭 **노드** 서비스를 사용 하 여 등록 된 노드 목록을 볼 수 있습니다.
+제거 하려는 노드의 이름을 클릭 합니다.
+열리는 노드 보기를 클릭 **등록 취소**합니다.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell을 사용 하 여 Azure Automation 상태 구성 서비스에서 노드의 등록을 취소 하려면 cmdlet에 대 한 설명서를 따라 [등록 취소 AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

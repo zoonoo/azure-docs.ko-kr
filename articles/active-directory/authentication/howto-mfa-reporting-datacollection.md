@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359044"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
@@ -32,8 +32,8 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 
 - 타임 스탬프
 - 사용자 이름
-- 이름
-- 성
+- First Name
+- Last Name
 - 메일 주소
 - 사용자 그룹
 - 인증 방법(전화 통화, 문자 메시지, 모바일 앱, OATH 토큰)
@@ -43,7 +43,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 모바일 앱 모드(표준, PIN)
 - OATH 토큰 모드(표준, PIN)
 - 인증 유형
-- 응용 프로그램 이름
+- Application Name
 - 기본 호출 국가 코드
 - 기본 호출 전화 번호
 - 기본 호출 내선 번호
@@ -91,7 +91,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 서식이 지정된 전화 번호
 - 내선 번호
 - 새 내선 번호
-- 차단됨
+- Blocked
 - 차단 이유
 - 완료 타임스탬프
 - 완료 이유

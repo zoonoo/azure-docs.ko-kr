@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019762"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
@@ -35,7 +35,7 @@ Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합
 시나리오에 관계없이 템플릿 배포에 필요한 아티팩트가 있을 경우 해당 항목에 대한 액세스 권한을 Azure Resource Manager에 부여해야 합니다. 이러한 아티팩트에는 다음과 같은 파일이 포함될 수 있습니다.
 
 * 중첩된 템플릿
-* 구성 스크립트 및 DSC 스크립트 
+* 구성 스크립트 및 DSC 스크립트
 * 애플리케이션 이진 파일
 
 ### <a name="nested-templates-and-configuration-scripts"></a>중첩된 템플릿 및 구성 스크립트
@@ -87,11 +87,11 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 
    7. Azure 구독 ID를 모르는 경우 다음 명령 중 하나를 사용하여 확인할 수 있습니다.
       
-      PowerShell 스크립트의 경우 
+      PowerShell 스크립트의 경우
       
       `Get-AzSubscription`
       
-      Azure CLI의 경우 
+      Azure CLI의 경우
       
       `az account show`
    8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 애플리케이션 및 서비스 주체 만들기](active-directory/develop/howto-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](active-directory/develop/howto-authenticate-service-principal-powershell.md)의 절차에 따릅니다.
@@ -111,7 +111,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
    
    | 매개 변수 | 설명 |
    | --- | --- |
-   | -ResourceGroupLocation |리소스 그룹이 위치한 geo-location 값(예: **eastus** 또는 **'East US'**). 이름에 공백이 있을 경우 작은따옴표를 추가합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+   | -ResourceGroupLocation |리소스 그룹이 위치한 geo-location 값(예: **eastus** 또는 **'East US'** ). 이름에 공백이 있을 경우 작은따옴표를 추가합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
    | -ResourceGroupName |이 배포에 사용되는 리소스 그룹의 이름입니다. |
    | -UploadArtifacts |이 매개 변수가 있는 경우 로컬 시스템에서 Azure에 업로드해야 하는 아티팩트를 지정합니다. 템플릿 배포에서 PowerShell 스크립트를 사용하여 스테이징하려는 추가 아티팩트가 필요한 경우에만 이 스위치를 설정합니다(예: 구성 스크립트 또는 중첩된 템플릿). |
    | -StorageAccountName |이 배포에 대한 스테이지 아티팩트에 사용되는 저장소 계정 이름. 이 매개 변수는 배포에 대한 아티팩트를 준비하는 경우에만 사용됩니다. 이 매개 변수가 제공되는 경우 이전 배포 동안 스크립트에서 저장소 계정을 만들지 않은 경우 새 저장소 계정이 만들어집니다. 매개 변수를 지정하는 경우 저장소 계정이 이미 있어야 합니다. |
@@ -172,8 +172,8 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
    * 작업 - **리소스 그룹 만들기 또는 업데이트** 선택
    * 리소스 그룹 - 리소스 그룹을 선택하거나 배포에 대한 새 리소스 그룹의 이름 입력
    * 위치 - 리소스 그룹의 위치 선택
-   * 템플릿 - 앞에 **$(Build.StagingDirectory)** 를 추가하여 배포될 템플릿의 경로 및 이름 입력(예: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**)
-   * 템플릿 매개 변수 - 앞에 **$(Build.StagingDirectory)** 를 추가하여 사용될 매개 변수의 경로 및 이름 입력(예: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**)
+   * 템플릿 - 앞에 **$(Build.StagingDirectory)** 를 추가하여 배포될 템플릿의 경로 및 이름 입력(예: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)** )
+   * 템플릿 매개 변수 - 앞에 **$(Build.StagingDirectory)** 를 추가하여 사용될 매개 변수의 경로 및 이름 입력(예: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)** )
    * 템플릿 매개 변수 재정의 - 다음 코드를 입력하거나 복사하여 붙여 넣습니다.
      
      ```    

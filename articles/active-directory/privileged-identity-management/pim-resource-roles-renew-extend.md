@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602525"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM에서 Azure 리소스 역할 할당 확장 또는 갱신
@@ -41,7 +41,7 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 다음 단계에서는 역할 할당의 연장 또는 갱신을 요청, 해결 또는 관리에 대한 프로세스를 간략하게 설명합니다. 
 
-### <a name="member-extend"></a>구성원 확장
+### <a name="member-extend"></a>멤버 연장
 
 역할 할당의 멤버는 리소스의 **내 역할** 페이지에 있는 **적격** 또는 **활성** 탭과 PIM 포털의 최상위 **내 역할** 페이지에서 직접 만료 예정인 역할 할당을 연장하도록 요청할 수 있습니다. 멤버는 앞으로 14일 이내에 만료될 적격 및 활성(할당됨) 역할을 연장하도록 요청할 수 있습니다.
 
@@ -96,7 +96,7 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 만료된 역할 할당을 갱신하는 프로세스는 연장 요청 프로세스와 개념적으로는 유사하지만 다릅니다. 다음 단계를 사용하여 멤버와 관리자가 필요한 경우 만료된 역할에 대한 액세스를 갱신할 수 있습니다.
 
-### <a name="member-renew"></a>구성원 갱신
+### <a name="member-renew"></a>멤버 갱신
 
 리소스에 더 이상 액세스할 수 없는 멤버는 최대 30일까지 만료된 할당 내역에 액세스할 수 있습니다. 이렇게 하려면 왼쪽 창에서 **내 역할**로 이동하고 Azure 리소스 역할 섹션에서 **만료된 역할** 탭을 선택합니다.
 

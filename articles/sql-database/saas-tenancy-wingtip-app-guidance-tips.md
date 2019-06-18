@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326278"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
@@ -102,7 +102,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
    
 
 4. 2-3단계를 반복하고 카탈로그 서버에 연결(선택한 데이터베이스 테넌트 패턴에 따른 특정 서버 이름에 대해서는 아래 참조)
-    - **독립 실행형 애플리케이션:***catalog-sa-&lt;User&gt;.database.windows.net*
+    - **독립 실행형 애플리케이션:** *catalog-sa-&lt;User&gt;.database.windows.net*
     - **테넌트당 데이터베이스:** *catalog-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *catalog-mt-&lt;User&gt;.database.windows.net*
 

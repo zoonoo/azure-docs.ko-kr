@@ -16,10 +16,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136186"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
@@ -220,7 +220,7 @@ DNS 전파가 실행될 때까지 잠시 기다린 다음, **새고 고침** 단
 3.  이 파일을 도메인을 호스팅하는 웹 서버의 루트에서 업로드합니다.
 4.  **새로 고침**을 선택하여 인증서 상태를 확인합니다. 확인을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-예를 들어 도메인 확인 토큰 1234abcd로 azure.com에 대한 표준 인증서를 구입하는 경우 https://azure.com/1234abcd.html에 대해 만들어진 웹 요청은 1234abcd를 반환해야 합니다. 
+예를 들어 도메인 확인 토큰 1234abcd로 azure.com에 대한 표준 인증서를 구입하는 경우 https://azure.com/1234abcd.html 에 대해 만들어진 웹 요청은 1234abcd를 반환해야 합니다. 
 
 > [!IMPORTANT]
 > 인증서 주문 15일 내에 도메인 확인 작업을 완료해야 합니다. 15일이 지나면 인증 기관에서 인증서를 거부하고, 인증서 비용이 청구되지 않습니다. 이 경우 해당 인증서를 삭제하고 다시 시도해야 합니다.
@@ -267,7 +267,7 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
 
     **솔루션**: CNAME 또는 A 레코드가 올바르게 구성되었는지 확인합니다. 사용자 지정 도메인을 앱에 매핑하려면 CNAME 레코드 또는 A 레코드를 만듭니다. 루트 도메인을 사용하려면 A 및 TXT 레코드를 사용해야 합니다.
 
-    |레코드 형식|호스트|대상|
+    |레코드 유형|호스트|대상|
     |------|------|-----|
     |A|@|앱의 IP 주소|
     |TXT|@|`<app-name>.azurewebsites.net`|

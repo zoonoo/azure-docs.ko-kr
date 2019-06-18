@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050593"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합, IaaS 컨테이너 및 보안 취약성과 위협을 모니터링 하는 온-프레미스) (포함 비 Azure 컴퓨터에서 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent 에이전트 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -31,12 +31,11 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합, Iaa
 > [!NOTE]
 > - 계산 리소스 (Vm, 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터)에 대 한 데이터 수집만 필요 합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
 > - 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
-> - 가상 머신 확장 집합에 대한 데이터 컬렉션은 현재 지원되지 않습니다.
-> - 신규 또는 기존 작업 영역을 사용할지 여부를 Log Analytics에 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생에 대 한 자세한 가격 책정 페이지를 참조 하세요. 수도 있습니다.
+> - 신규 또는 기존 작업 영역을 사용할지 여부를 Log Analytics에 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 참조는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)합니다.
 
 ## Microsoft Monitoring Agent 자동 프로비저닝 사용 <a name="auto-provision-mma"></a>
 
-머신에서 데이터를 수집하려면 Microsoft Monitoring Agent가 설치되어 있어야 합니다.  에이전트를 자동으로 설치할 수도 있고(권장) 에이전트를 수동으로 설치하도록 선택할 수도 있습니다.  
+컴퓨터에서 데이터를 수집 하려면 Microsoft Monitoring Agent를 설치 해야 합니다.  에이전트 설치를 자동으로 수행할 수 있습니다 (권장) 하거나 에이전트를 수동으로 설치할 수 있습니다.  
 
 >[!NOTE]
 > 자동 프로비전은 기본적으로 해제되어 있습니다. 기본적으로 자동 프로비전을 설치하도록 Security Center를 설정하려면 **켜기**로 설정합니다.
@@ -88,9 +87,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 > [!NOTE]
 > Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. 체험 계층의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. 표준 계층의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
-> Log Analytics에 데이터를 저장하면 데이터 저장소 요금이 추가로 발생합니다. 자세한 내용은 가격 책정 페이지를 참조하세요.
-
-자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
+> Log Analytics에 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 참조는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)합니다.
 
 기존 log analytics 계정에 대 한 자세한 내용은 참조 하세요. [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)합니다.
 
@@ -102,7 +99,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 > [!NOTE]
 > 기존 작업 영역에서 사용하도록 설정된 솔루션은 연결된 Azure VM에 적용됩니다. 유료 솔루션의 경우 이로 인해 추가 요금이 발생할 수 있습니다. 데이터 개인 정보를 고려하여, 선택한 작업 영역이 적절한 지리적 영역에 있어야 합니다.
-> Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생에 대 한 자세한 가격 책정 페이지를 참조 하세요. 수도 있습니다.
+> Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 참조는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)합니다.
 
 기존 Log Analytics 작업 영역을 선택하려면 다음을 수행합니다.
 
@@ -150,7 +147,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 ## <a name="data-collection-tier"></a>데이터 수집 계층
 Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 스토리지에만 영향을 미칩니다. Log Analytics 에이전트는 계속 수집 하 고 (있는 경우) Log Analytics 작업 영역에 저장 하도록 선택 하면 보안 이벤트의 계층에 관계 없이, Azure Security Center의 위협 검색에 필요한 보안 이벤트를 분석. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
 > [!NOTE]
-> Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생에 대 한 자세한 가격 책정 페이지를 참조 하세요. 수도 있습니다.
+> Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 참조는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)합니다.
 > 
 > 작업 영역에 저장할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다. 
 
@@ -205,8 +202,10 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 
 - 확장 (직접 에이전트) 것이 아니라 컴퓨터에서 Microsoft Monitoring Agent가 설치<br>
 Microsoft Monitoring Agent (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center가 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring agent를 최신 버전으로 업그레이드할 수 있습니다.
-설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍 지원 됨).
+설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍은 Windows 컴퓨터에서 지원 됨).
 구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역)이 경우 설치 해야 합니다 "보안"securityFree"솔루션에 Vm 및 컴퓨터에서 이벤트 처리를 시작 하기 위해 Security Center에 대 한 해당 작업 영역에 보고 하는 /입니다.<br>
+<br>
+Linux 컴퓨터에 대 한 에이전트 멀티 호 밍 되지 않으므로 지원-따라서 기존 에이전트 설치가 검색 되 면 자동 프로 비전 발생 하지 않습니다 및 컴퓨터의 구성을 변경 되지 않습니다.
 <br>
 2019-03-17, 기존 에이전트는 감지 하면 전에 Security Center에 구독 등록의 기존 컴퓨터에 Microsoft Monitoring Agent 확장을 설치 하지 않습니다 및 컴퓨터에는 영향을 받지 않습니다. 이러한 컴퓨터를이 컴퓨터에 에이전트 설치 문제를 해결 하기 위한 "컴퓨터에서 에이전트 상태 문제 모니터링 해결" 권장 사항을 참조 하십시오.
 

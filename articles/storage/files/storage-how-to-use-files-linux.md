@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125741"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754825"
 
     SMB 3.0 암호화 지원은 Linux 커널 버전 4.11에서 도입되었으며 널리 사용되는 Linux 배포판의 이전 커널 버전에 백포트되었습니다. 이 문서를 게시하는 시점에 Azure 갤러리에서 다음 배포판이 이 테이블 헤더에서 지정된 탑재 옵션을 지원합니다. 
 
-* **해당 탑재 기능으로 최소 권장되는 버전(SMB 버전 2.1 및 SMB 버전 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>최소 권장 버전 해당 탑재 기능 (SMB 버전 2.1 및 SMB 버전 3.0)
 
-    |   | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Linux 배포판이 여기 나열되지 않은 경우 다음 명령을 사용하여 Linux 커널 버전을 확인할 수 있습니다.
+Linux 배포판이 여기 나열되지 않은 경우 다음 명령을 사용하여 Linux 커널 버전을 확인할 수 있습니다.
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**cifs-utils 패키지가 설치됩니다.**  
     cifs-utils는 원하는 Linux 배포판의 패키지 관리자를 사용하여 설치할 수 있습니다. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754825"
 
     다른 배포판에서는 적절한 패키지 관리자를 사용하거나 [소스에서 컴파일합니다](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **탑재된 공유의 디렉터리/파일 권한 결정**: 아래 예제에서는 모든 사용자에게 읽기, 쓰기 및 실행 권한을 부여하기 위해 `0777` 권한을 사용합니다. 서로 바꿀 수 있습니다 [chmod 권한](https://en.wikipedia.org/wiki/Chmod) 원하는 대로 하지만이 인해 잠재적으로 액세스를 제한 합니다. 다른 권한을 사용 하는 경우 uid 및 gid 원하는 로컬 그룹에 대 한 액세스를 유지 하기 위해 사용 하는 것이 좋습니다.
+* **탑재된 공유의 디렉터리/파일 권한 결정**: 아래 예제에서는 모든 사용자에게 읽기, 쓰기 및 실행 권한을 부여하기 위해 `0777` 권한을 사용합니다. 서로 바꿀 수 있습니다 [chmod 권한](https://en.wikipedia.org/wiki/Chmod) 원하는 대로 하지만이 인해 잠재적으로 액세스를 제한 합니다. 다른 권한을 사용 하는 경우 uid 및 gid 로컬 사용자 및 사용자가 선택한 그룹에 대 한 액세스를 유지 하기 위해 사용 하는 것이 좋습니다.
 
 > [!NOTE]
 > Dir_mode 및 file_mode 디렉터리 및 파일 권한을 명시적으로 할당 하지 않으면 0755 기본값이 됩니다.

@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785065"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 API 호출 웹 Api 코드 구성 되는
@@ -76,7 +76,7 @@ AddAccountToCacheFromJwt() 메서드 해야합니다.
 
 보호 된 web API를 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)를 제공 하므로이 흐름은 기밀 클라이언트 흐름에서 사용할 수 있습니다만 합니다 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 를 통해를 `WithClientSecret` 또는 `WithCertificate`메서드를 각각.
 
-![Image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```CSharp
 IConfidentialClientApplication app;
@@ -100,7 +100,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 `ClientAssertion` 자체 클라이언트에서 web API에서 받은 전달자 토큰에서 빌드됩니다. 가지 [두 명의 생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), 및 모든 종류의 사용자 어설션 사용 하는 JWT 전달자 토큰을 사용 하는 (다른 유형의 보안 토큰 형식을 다음 라는 추가 매개 변수에서 지정 `assertionType`).
 
-![Image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
 실제로 OBO 흐름은 자주 사용 하 여 다운스트림 API에 대 한 토큰을 획득 하 여 web API의 다른 부분에서 나중에 호출할 수 있도록 MSAL.NET 사용자 토큰 캐시에 저장 합니다 [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 의 ``AcquireTokenOnSilent`` 다운스트림 Api를 호출 합니다. 필요한 경우이 토큰을 새로 고치 효과가 있습니다.
 
@@ -138,7 +138,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 대신-의 프로토콜에 대 한 자세한 내용은 참조 하세요. [Microsoft id 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 

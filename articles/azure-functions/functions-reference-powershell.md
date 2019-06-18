@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065488"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure PowerShell 함수 개발자 가이드
 
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은 호출에 대 한 올바른 매개 변수 `Push-OutputBinding`:
 
-| Name | Type | Position | 설명 |
+| 이름 | Type | Position | 설명 |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 출력 바인딩의 사용할 값을 설정 하려면 ByValue 파이프라인에서 허용 되는 합니다. |
@@ -253,7 +253,7 @@ MyQueue                        myData
 
 ### <a name="configure-the-function-app-log-level"></a>함수 앱 로그 수준 구성
 
-함수를 사용 하면 쉽게 컨트롤 방식으로 함수 로그를 쓸 수 있도록 임계값 수준을 정의할 수 있습니다. 콘솔에 기록 되는 모든 추적에 대 한 임계값을 설정 하려면 합니다 `logging.logLevel.default` 속성에는 [ `host.json` 파일][host.json 참조]합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다.
+Azure Functions를 사용 하면 쉽게 컨트롤 방식으로 함수 로그를 쓸 수 있도록 임계값 수준을 정의할 수 있습니다. 콘솔에 기록 되는 모든 추적에 대 한 임계값을 설정 하려면 합니다 `logging.logLevel.default` 속성에는 [ `host.json` 파일][host.json 참조]합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다.
 
 다음 예제에서는 모든 함수에 대 한 자세한 정보 로깅을 사용 하도록 설정 된 임계값을 설정 하지만 라는 함수에 대 한 디버그 로깅을 사용 하도록 설정 하려면 임계값 설정 `MyFunction`:
 
@@ -304,7 +304,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 자산  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | 개체 |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 데이터를 기반으로 최상의 형식으로 serialize 됩니다. 예를 들어, 데이터가 JSON 인 경우 전달 됩니다에 해시 테이블로. 데이터 문자열인 경우에 문자열로 전달 됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | Dictionary < 문자열, 문자열 ><sup>*</sup> |
 | **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
 | **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | Dictionary < 문자열, 문자열 ><sup>*</sup> |
@@ -319,7 +319,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 자산      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
 | **`ContentType`** | 응답에 대 한 내용 유형을 설정 하는 것에 대 한 짧은 손 모양입니다. | 문자열                    |
 | **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 이나 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
@@ -598,7 +598,7 @@ Azure Functions를 개발 하는 경우는 [서버 리스 호스팅 모델](func
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>사용 하는 대신 번들 모듈 `Install-Module`
 
-스크립트는 모든 호출에서 실행 됩니다. 사용 하지 않도록 `Install-Module` 스크립트에 있습니다. 대신 사용 하 여 `Save-Module` 함수 모듈을 다운로드 하는 시간을 낭비 하지 않아도 되도록 게시 하기 전에 합니다. 콜드 함수에 영향을, 함수 앱을 배포 해 봅니다를 [App Service 계획](functions-scale.md#app-service-plan) 로 설정 *on* 또는 [프리미엄 요금제](functions-scale.md#premium-plan-public-preview)합니다.
+스크립트는 모든 호출에서 실행 됩니다. 사용 하지 않도록 `Install-Module` 스크립트에 있습니다. 대신 사용 하 여 `Save-Module` 함수 모듈을 다운로드 하는 시간을 낭비 하지 않아도 되도록 게시 하기 전에 합니다. 콜드 함수에 영향을, 함수 앱을 배포 해 봅니다를 [App Service 계획](functions-scale.md#app-service-plan) 로 설정 *on* 또는 [프리미엄 요금제](functions-scale.md#premium-plan)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

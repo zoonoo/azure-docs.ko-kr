@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770792"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
@@ -64,8 +64,10 @@ ms.locfileid: "60770792"
     
     |설정|제안 값|설명|
     |-------|---------------|-----------|
+
     |원본|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정합니다.|
     |원본 IP 주소|<your public ip\>|입력된 공용 IP 주소입니다. [bing.com](https://www.bing.com/)을 방문하여 **"내 IP"** 를 검색하여 공용 IP 주소를 찾을 수 있습니다.|
+
     |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
     |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정합니다.|
     |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
@@ -80,7 +82,9 @@ ms.locfileid: "60770792"
 
     |설정|제안 값|설명|
     |-------|---------------|-----------|
+
     |원본|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정합니다.|
+
     |원본 IP 주소|10.179.0.0/16|가상 네트워크의 주소 범위를 입력 합니다.|
     |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
     |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정합니다.|

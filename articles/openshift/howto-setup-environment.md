@@ -9,20 +9,20 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 21ccd7b2919714610dbd51c62701c4bb32d330d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808822"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
 을 빌드하고 Microsoft Azure의 Red Hat OpenShift 응용 프로그램을 실행 하려면를 해야 합니다.
 
 * Azure 가상 머신 예약 인스턴스 구입 합니다.
-* 2.0.65 버전 설치 (또는 이상)의 Azure CLI (Azure Cloud Shell을 사용 하 여).
-* 등록 된 `openshiftmanagedcluster` 기능과 연결 된 리소스 공급자입니다.
+* 2\.0.65 버전 설치 (또는 이상)의 Azure CLI (Azure Cloud Shell을 사용 하 여).
+* 등록 된 `AROGA` 기능과 연결 된 리소스 공급자입니다.
 * Azure Active Directory (Azure AD) 테 넌 트를 만듭니다.
 * Azure AD 응용 프로그램 개체를 만듭니다.
 * Azure AD 사용자를 만듭니다.
@@ -55,7 +55,7 @@ az --version
 
 ## <a name="register-providers-and-features"></a>공급자 기능 등록
 
-합니다 `Microsoft.ContainerService openshiftmanagedcluster` 기능을 `Microsoft.Solutions`, 및 `Microsoft.Network` 공급자 첫 번째 Azure Red Hat OpenShift 클러스터를 배포 하기 전에 수동으로 구독을 등록 해야 합니다.
+합니다 `Microsoft.ContainerService AROGA` 기능을 `Microsoft.Solutions`를 `Microsoft.Compute`, `Microsoft.Storage`를 `Microsoft.KeyVault` 및 `Microsoft.Network` 공급자 첫 번째 Azure Red Hat OpenShift 클러스터를 배포 하기 전에 수동으로 구독을 등록 해야 합니다.
 
 이러한 공급자와 기능을 수동으로 등록 하려면 Azure portal에서 CLI를 설치한 경우에 Bash 셸에서 또는 Azure Cloud Shell (Bash) 세션에서 다음 지침을 사용 합니다.
 
@@ -65,10 +65,10 @@ az --version
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Microsoft.ContainerService openshiftmanagedcluster 기능을 등록 합니다.
+1. Microsoft.ContainerService AROGA 기능을 등록 합니다.
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Microsoft.Storage 공급자를 등록 합니다.

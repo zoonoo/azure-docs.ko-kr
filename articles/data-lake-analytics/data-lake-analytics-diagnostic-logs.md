@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616508"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -77,7 +77,7 @@ ms.locfileid: "60616508"
                                     PT1H.json
 
    > [!NOTE]
-   >  `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는 1시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
+   > `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는 1시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
 
     예를 들어, 감사 로그에 대한 전체 경로는 다음과 같을 수 있습니다.
 
@@ -128,12 +128,12 @@ ms.locfileid: "60616508"
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
-| resourceId |String |작업이 수행되는 리소스의 식별자 |
+| ResourceId |String |작업이 수행되는 리소스의 식별자 |
 | category |String |로그 범주 예: **Requests** |
 | operationName |String |기록된 작업의 이름 예를 들어 GetAggregatedJobHistory |
 | resultType |String |작업의 상태, 예를 들어 200 |
 | callerIpAddress |String |요청한 클라이언트의 IP 주소 |
-| CorrelationId |String |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
+| correlationId |String |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
 | ID |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음 섹션(요청 로그 속성 스키마)을 참조하세요. |
 
@@ -180,7 +180,7 @@ ms.locfileid: "60616508"
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
-| resourceId |String |작업이 수행되는 리소스의 식별자 |
+| ResourceId |String |작업이 수행되는 리소스의 식별자 |
 | category |String |로그 범주 예: **Audit**. |
 | operationName |String |기록된 작업의 이름 예를 들어 JobSubmitted |
 | resultType |String |작업 상태(operationName)에 대한 하위 상태입니다. |

@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067922"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 참조 아키텍처 소개
 
 이 문서에서는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)에 대해 소개하고 [Azure IoT 솔루션 가속기](about-iot-accelerators.md)의 권장 사항 준수 방법에 대한 예를 제공합니다.
 
-오픈 소스 [원격 모니터링](iot-accelerators-remote-monitoring-sample-walkthrough.md) 및 [연결된 팩터리](iot-accelerators-connected-factory-sample-walkthrough.md) 솔루션 가속기는 다양한 참조 아키텍처 권장 사항을 따릅니다. 고유한 IoT 솔루션을 구현하기 위한 시작점으로, 또는 학습 도구로 솔루션 가속기를 사용할 수 있습니다.
+오픈 소스 [원격 모니터링](iot-accelerators-remote-monitoring-sample-walkthrough.md) 및 [연결된 팩터리](iot-accelerators-connected-factory-features.md) 솔루션 가속기는 다양한 참조 아키텍처 권장 사항을 따릅니다. 고유한 IoT 솔루션을 구현하기 위한 시작점으로, 또는 학습 도구로 솔루션 가속기를 사용할 수 있습니다.
 
 ## <a name="overview"></a>개요
 

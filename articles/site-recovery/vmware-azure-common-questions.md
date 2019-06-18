@@ -9,10 +9,10 @@ ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417782"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에 대 한 일반적인 질문에서 Azure로 복제
@@ -289,7 +289,7 @@ Recovery Services 자격 증명 모음에서 선택 **구성 서버** 에 **Site
 
 ### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>복제를 활성화 하면 프로세스 서버를 선택할 수 없는 이유는 무엇입니까?
 
-9.24 버전과 이후 표시에서 업데이트를 [복제를 사용 하도록 설정 하면 프로세스 서버의 상태](vmware-azure-enable-replication.md#enable-replication)합니다. 이 기능을 통해 프로세스 서버 제한을 방지 하는 데 비정상 프로세스 서버의 사용을 최소화 합니다.
+9\.24 버전과 이후 표시에서 업데이트를 [복제를 사용 하도록 설정 하면 프로세스 서버의 상태](vmware-azure-enable-replication.md#enable-replication)합니다. 이 기능을 통해 프로세스 서버 제한을 방지 하는 데 비정상 프로세스 서버의 사용을 최소화 합니다.
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>버전 9.24 또는 정확 하 게 상태 정보에 대 한 나중에 프로세스 서버를 업데이트 하는 방법
 

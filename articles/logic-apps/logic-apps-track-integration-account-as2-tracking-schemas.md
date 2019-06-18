@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845786"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps 통합 계정에서 AS2 메시지 및 MDN을 추적하는 스키마 만들기
@@ -76,7 +76,7 @@ ms.locfileid: "60845786"
 | outgoingHeaders |JToken의 사전 | 보내는 AS2 메시지 헤더 세부 정보입니다. (선택 사항) |
 | isNrrEnabled | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. 필수 사항입니다. |
 | isMdnExpected | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. 필수 사항입니다. |
-| mdnType | 열거형 | 허용되는 값은 **NotConfigured**, **Sync** 또는 **Async**입니다. 필수 사항입니다. |
+| mdnType | Enum | 허용되는 값은 **NotConfigured**, **Sync** 또는 **Async**입니다. 필수 사항입니다. |
 ||||
 
 ## <a name="as2-mdn-tracking-schema"></a>AS2 MDN 추적 스키마
@@ -123,8 +123,8 @@ ms.locfileid: "60845786"
 | isMessageFailed |Boolean | AS2 메시지의 실패 여부입니다. 필수 사항입니다. |
 | isMessageSigned |Boolean | AS2 메시지의 서명 여부입니다. 필수 사항입니다. |
 | isNrrEnabled | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. 필수 사항입니다. |
-| statusCode | 열거형 | 허용되는 값은 **Accepted**, **Rejected** 또는 **AcceptedWithErrors**입니다. 필수 사항입니다. |
-| micVerificationStatus | 열거형 | 허용되는 값은 **NotApplicable**, **Succeeded** 또는 **Failed**입니다. 필수 사항입니다. |
+| statusCode | Enum | 허용되는 값은 **Accepted**, **Rejected** 또는 **AcceptedWithErrors**입니다. 필수 사항입니다. |
+| micVerificationStatus | Enum | 허용되는 값은 **NotApplicable**, **Succeeded** 또는 **Failed**입니다. 필수 사항입니다. |
 | correlationMessageId | String | 상관 관계 ID입니다. 원래 메시지 ID(MDN이 구성된 메시지의 메시지 ID)입니다. (선택 사항) |
 | incomingHeaders | JToken의 사전 | 들어오는 메시지 헤더 세부 정보를 나타냅니다. (선택 사항) |
 | outgoingHeaders |JToken의 사전 | 보내는 메시지 헤더 세부 정보를 나타냅니다. (선택 사항) |

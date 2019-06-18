@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824447"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
@@ -38,7 +38,7 @@ ms.locfileid: "65824447"
 | 단일 구독의 Media Services 계정 | 25(고정) |
 | 라이브 이벤트 당 라이브 출력 |3 <sup>(3)</sup> |
 | 라이브 출력 최대 기간 | 25 시간 |
-| 저장소 계정 | 100<sup>(4)</sup>(고정) |
+| Storage 계정 | 100<sup>(4)</sup>(고정) |
 | Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2 (고정)|
 | 스트리밍 정책 | 100 <sup>(5)</sup> |
 | Media Services 계정당 변환 | 100(고정)|

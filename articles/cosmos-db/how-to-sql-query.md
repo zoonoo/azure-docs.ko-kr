@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388473"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
@@ -568,26 +568,26 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 **OR 연산자**
 
-| 또는 | True  | 거짓 | Undefined |
+| 또는 | True | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True |True |True |
-| False |True |거짓 |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| True |True |True |True |
+| False |True |False |Undefined |
+| Undefined |True |Undefined |Undefined |
 
 **AND 연산자**
 
-| AND | True  | 거짓 | Undefined |
+| AND | True | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True |거짓 |Undefined |
-| 거짓 |False |False |거짓 |
-| Undefined |Undefined |거짓 |Undefined |
+| True |True |False |Undefined |
+| False |False |False |False |
+| Undefined |Undefined |False |Undefined |
 
 **NOT 연산자**
 
 | NOT |  |
 | --- | --- |
-| True  |False |
-| False |True  |
+| True |False |
+| False |True |
 | Undefined |Undefined |
 
 ## <a name="between-keyword"></a>BETWEEN 키워드
@@ -1326,7 +1326,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다. 다음은 지원되는 기본 제공 수치 연산 함수 표입니다.
 
-| 사용 | 설명 |
+| 사용 현황 | 설명 |
 |----------|--------|
 | ABS (num_expr) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
 | CEILING (num_expr) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
@@ -1395,7 +1395,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 다음 스칼라 함수는 문자열 입력된 값에 대 한 작업을 수행 하 고 문자열, 숫자 또는 부울 값을 반환 합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
 
-| 사용 | 설명 |
+| 사용 현황 | 설명 |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
@@ -1471,7 +1471,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 다음 스칼라 함수는 배열 입력된 값에 대 한 작업을 수행 하 고 숫자, 부울 또는 배열 값을 반환 합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
-| 사용 | 설명 |
+| 사용 현황 | 설명 |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
@@ -1534,7 +1534,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 Cosmos DB는 지리 공간 쿼리를 위한 다음 Open Geospatial Consortium (OGC) 기본 제공 함수를 지원 합니다. 
 
-| 사용 | 설명 |
+| 사용 현황 | 설명 |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | 두 GeoJSON 사이의 거리를 반환 `Point`하십시오 `Polygon`, 또는 `LineString` 식입니다. |
 | T_WITHIN (point_expr, polygon_expr) | 나타내는 부울 식을 반환 여부를 첫 번째 GeoJSON 개체 (`Point`, `Polygon`, 또는 `LineString`)가 두 번째 GeoJSON 개체 내에 (`Point`, `Polygon`, 또는 `LineString`). |

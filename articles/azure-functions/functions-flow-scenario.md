@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787681"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow에서 함수 호출
@@ -231,7 +231,7 @@ PowerApps에서 동일한 함수를 호출하는 방법에 대한 내용은 [Pow
     | **제목**           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | 예. |
+    | **ServiceRequired** | 예 |
     | **EstimatedEffort** | 10 |
 
 3. **Done**을 클릭합니다.

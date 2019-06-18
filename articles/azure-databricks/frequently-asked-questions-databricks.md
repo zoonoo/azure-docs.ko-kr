@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784710"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
@@ -44,7 +44,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
 #### <a name="error-message"></a>오류 메시지
 
-“구독이 ‘Microsoft.Databricks’ 네임스페이스를 사용하도록 등록되어 있지 않습니다. 구독을 등록하는 방법은 https://aka.ms/rps-not-found를 참조하세요. (코드: MissingSubscriptionRegistration)"
+“구독이 ‘Microsoft.Databricks’ 네임스페이스를 사용하도록 등록되어 있지 않습니다. 구독을 등록하는 방법은 https://aka.ms/rps-not-found 를 참조하세요. (코드: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>해결 방법
 
@@ -71,7 +71,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 
     b. `@<your_domain>` 메일이 아닌 `@<tenant_name>.onmicrosoft.com` 메일을 사용하여 사용자를 추가합니다. Azure Portal에 있는 Azure AD의 **사용자 지정 도메인**에서 이 옵션을 찾을 수 있습니다.
     
-    다. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
+    c. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
     
     d. Azure Portal에 새 사용자로 로그인하여 Databricks 작업 영역을 찾습니다.
     
@@ -99,7 +99,7 @@ Databricks 클러스터는 노드당 하나의 공용 IP 주소를 사용합니�
 #### <a name="error-message"></a>오류 메시지
 
 "클라우드 공급자 시작 실패: 클러스터를 설정 하는 동안 클라우드 공급자 오류가 발생 했습니다. 자세한 내용은 Databricks 가이드를 참조하세요.
-Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구독이 'Microsoft.Compute' 네임스페이스를 사용하도록 등록되어 있지 않습니다. 구독을 등록하는 방법은 https://aka.ms/rps-not-found를 참조하세요.
+Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구독이 'Microsoft.Compute' 네임 스페이스를 사용 하도록 등록 되지 않았습니다. 구독을 등록하는 방법은 https://aka.ms/rps-not-found 를 참조하세요.
 
 #### <a name="solution"></a>해결 방법
 
@@ -111,7 +111,7 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>문제: Azure Databricks는 관리자만이 부여할 수 있는 조직의 리소스에에서 액세스할 수 있는 권한이 필요 합니다.
 
-#### <a name="background"></a>백그라운드
+#### <a name="background"></a>배경
 
 Azure Databricks는 Azure Active Directory와 통합됩니다. Azure AD에서 사용자를 지정하여 Azure Databricks 내에서(예: Notebooks 또는 클러스터에서) 사용 권한을 설정합니다. Azure AD에서 사용자의 이름을 나열할 수 있으려면 Azure Databricks에는 해당 정보에 대한 읽기 권한 및 동의가 필요합니다. 동의를 사용할 수 없는 경우 오류가 표시됩니다.
 

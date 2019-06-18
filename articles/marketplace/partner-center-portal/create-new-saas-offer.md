@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072626"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품을 만드는
 
@@ -72,12 +72,12 @@ Microsoft 사용자 대신 호스트 marketplace 트랜잭션 수는 더 나은 
 
 소프트웨어 목록 상용 Marketplace 파트너 센터를 사용 하 여 서비스 (SaaS)을 제공 하기 위해 다음 기준은 충족 되어야 합니다.
 
-- 제품을 Azure 클라이언트와 호환 되어야 합니다. (종종 SaaS 앱은 또한 최상의 성능 및 호환성을 위해 Azure에서 호스트 됩니다 있지만 이것이 요구 사항은 없습니다.) 
 - 제품을 사용 해야 합니다 [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) id 관리 및 인증에 대 한 합니다.
 - 제품을 사용 해야 합니다 [SaaS Fulfillment Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) Azure Marketplace에 통합할 수 있습니다.
+- 더 광범위 한 요구 사항에 대 한 참조를 [SaaS 제공 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)합니다.
 
-#### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
-SaaS 제품의 경우, 게시자로 고려해 야 사용량 요금 Azure 인프라 및 소프트웨어 라이선스 요금에 대 한 단일 비용 항목으로 합니다. 이 비용은 고객에 게 월별 고정 요금으로 표시 됩니다. Azure 인프라 사용 관리 되 고의 파트너에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 
+#### <a name="saas-on-azure-billing-infrastructure-costs"></a>Azure 청구 인프라 비용 SaaS
+SaaS 제공 서비스는 Azure에서 호스트 되는 경우, 게시자로 고려해 야 사용량 요금 Azure 인프라 및 소프트웨어 라이선스 요금에 대 한 단일 비용 항목으로 합니다. 이 비용은 고객에 게 월별 고정 요금으로 표시 됩니다. Azure 인프라 사용 관리 되 고의 파트너에 게 직접 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 일반적으로 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격 책정에 추가하는 것을 선택합니다. 
 
 소비 기반 하거나 소프트웨어 라이선스 요금을 월간, 되풀이 사이트 기반 구독 요금이 요금으로 표시 됩니다 및 측정 되지 됩니다.
 
@@ -189,7 +189,7 @@ AppSource marketplace에서 제품의 버전 번호를 식별 하는 데 사용 
 
 사용자 지정 사용 약관을 작성 하는 대신 Azure Marketplace 게시자 고객에 게 심사 하 고 동의 한 번만 해야 하는 표준 계약에 따라 해당 소프트웨어를 제공할 수 있습니다. 
 
-표준 계약을 확인할 수 있습니다: https://go.microsoft.com/fwlink/?linkid=2041178합니다.
+표준 계약을 확인할 수 있습니다: https://go.microsoft.com/fwlink/?linkid=2041178 합니다.
 
 #### <a name="terms-of-use"></a>사용 약관
 
@@ -400,9 +400,9 @@ Microsoft 호스팅 및이 유형의 테스트 드라이브를 사용 하 여 �
 
 - **시험 사용 기간** (필수): 시간을 정의 하 여 Test Drive 활성화 상태로 있는 시간의 길이 입력 합니다. 이 많은 시간 후에도 세션 종료 되며 더 이상 라이선스 중 하나를 사용 합니다. 제품의 복잡성에 따라 2 ~ 24 시간을 사용 하는 것이 좋습니다. 이 기간 수만 bet 설정할 시간 정수 (예: "2" 시간 "1.5" 유효 하지 않습니다).  사용자는 시간이 부족 하며 시험에 다시 액세스 하려고 하는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객은 고객이 시험에 주소를 시작할 URL입니다. 일반적으로 설치 하는 샘플 데이터를 사용 하 여 앱을 실행 하 여 Dynamics 365 인스턴스 URL (예: https://testdrive.crm.dynamics.com)합니다.
+- **인스턴스 URL** (필수): 고객은 고객이 시험에 주소를 시작할 URL입니다. 일반적으로 설치 하는 샘플 데이터를 사용 하 여 앱을 실행 하 여 Dynamics 365 인스턴스 URL (예: https://testdrive.crm.dynamics.com) 합니다.
 
-- **Web API URL 인스턴스** (필수): Microsoft 365 계정에 로그인 하 고 이동 하 여 Dynamics 365 인스턴스에 대 한 Web API URL 검색 **설정을** \&gt; **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 를 확인할 URL을 복사 (예: https://testdrive.crm.dynamics.com/api/data/v9.0)합니다.
+- **Web API URL 인스턴스** (필수): Microsoft 365 계정에 로그인 하 고 이동 하 여 Dynamics 365 인스턴스에 대 한 Web API URL 검색 **설정을** \&gt; **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 를 확인할 URL을 복사 (예: https://testdrive.crm.dynamics.com/api/data/v9.0) 합니다.
 
 - **역할 이름** (필수): 사용자 지정 Dynamics 365 시험에서 정의한 보안 역할 이름을 제공 합니다. 해당 테스트 드라이브 (예: 테스트-드라이브-역할) 하는 동안 사용자에 게 지정 됩니다.
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109351"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 만들기 및 공유
@@ -23,7 +23,7 @@ Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 
 
 ## <a name="create-a-studio-workspace"></a>Studio 작업 영역 만들기
 
-1.  [Azure 포털](https://portal.azure.com/)
+1. [Azure 포털](https://portal.azure.com/)
 
     > [!NOTE]
     > 로그인하여 Studio 작업 영역을 만들려면 Azure 구독 관리자여야 합니다. 

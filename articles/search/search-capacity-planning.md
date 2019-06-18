@@ -10,10 +10,10 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308759"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>쿼리 및 인덱싱 작업에서 Azure Search에 대해 파티션과 복제본 확장
@@ -29,7 +29,7 @@ ms.locfileid: "60308759"
 ## <a name="terminology-replicas-and-partitions"></a>용어: 복제본 및 파티션
 복제본 및 파티션 검색 서비스를 지지 하는 주요 리소스가 있습니다.
 
-| 리소스 | 정의 |
+| Resource | 정의 |
 |----------|------------|
 |*파티션* | 읽기/쓰기 작업(예: 인덱스를 다시 작성하거나 새로 고치는 경우)을 위한 인덱스 저장소 및 I/O를 제공합니다.|
 |*복제본* | 검색 서비스의 인스턴스로 쿼리 작업을 부하 분산하는 데 주로 사용됩니다. 각 복제본은 인덱스의 사본 하나를 항상 실행합니다. 12개의 복제본이 있는 경우 서비스에 로드된 모든 인덱스에 대한 12개의 복사본이 있습니다.|

@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577572"
 ---
 # <a name="quickstart---create-service"></a>빠른 시작-서비스 만들기
@@ -71,7 +71,7 @@ CloudSimple 서비스에 대 한 리소스 공급자를 사용 하도록 설정 
 
 서비스 생성 되어 서비스 목록에 추가 합니다.
 
-## <a name="purchase-nodes"></a>노드를 구입 합니다.
+## <a name="purchase-nodes"></a>노드 구매
 
 종 량 이동 용량 CloudSimple 사설 클라우드 환경에 대 한을 설정 하려면 먼저 Azure portal에서 노드 프로 비전 합니다.
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289623"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
@@ -55,7 +55,7 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
 1. **ID 확인**을 클릭하고 지침에 따라 추가 보안 확인을 제공합니다.
 
-    ![추가 보안 인증](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![추가 보안 확인](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. **활성화**를 클릭하여 [활성화] 창을 엽니다.
 
@@ -73,7 +73,7 @@ Azure AD 역할에서 수행 해야 할 때 사용 하 여 활성화를 요청�
 
     역할에 승인이 필요 하지 않은 경우는 **활성화 상태** 활성화 상태를 보여 주는 창이 나타납니다.
 
-    ![활성화 상태](./media/pim-how-to-activate-role/activation-status.png)
+    ![정품 인증 상태](./media/pim-how-to-activate-role/activation-status.png)
 
     모든 단계 완료 되 면 클릭 합니다 **로그 아웃** Azure portal에서 로그 아웃 링크 합니다. 포털에 다시 로그인 할 경우 역할을 이제 사용할 수 있습니다.
 

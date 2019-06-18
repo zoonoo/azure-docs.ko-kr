@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114985"
 ---
 ## <a name="deleting-personal-information"></a>개인 정보 삭제
@@ -43,6 +43,6 @@ ms.locfileid: "66114985"
   - [Azure Portal](https://portal.azure.com)에 로그인합니다.
   - *설정* 아이콘 ![Azure 설정 아이콘](media/storage-import-export-delete-personal-info/azure-settings-icon.png)을 클릭합니다.
   - *모든 설정 내보내기*를 클릭합니다(현재 설정을 `.json` 파일에 저장).
-  - *모든 설정 및 개인 대시보드 삭제*를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
+  - *모든 설정 및 프라이빗 대시보드 삭제*를 클릭하여 저장된 연락처 정보를 포함하는 모든 설정을 삭제합니다.
 
 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.

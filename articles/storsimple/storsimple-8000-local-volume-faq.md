@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319550"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 로컬로 고정된 볼륨: 질문과 대답(FAQ)
@@ -38,7 +38,7 @@ ms.locfileid: "60319550"
 
 **A** StorSimple 8000 시리즈 업데이트 3.0을 실행 중인 디바이스에서 로컬로 고정된 볼륨은 최대 8.5TB, 계층화된 볼륨은 최대 200TB까지 프로비전할 수 있습니다. 더 큰 8600 디바이스에서 로컬로 고정된 볼륨은 최대 22.5TB, 계층화된 볼륨은 최대 500TB까지 프로비전할 수 있습니다.
 
-**Q.** 최근에 8100 디바이스를 업데이트 3.0으로 업그레이드했고 로컬로 고정된 볼륨을 만들 때 사용할 수 있는 최대 크기는 6TB이며 8.5TB가 아닙니다. 8.5TB 볼륨을 만들 수 없는 이유는?
+**Q.** 최근에 8100 디바이스를 업데이트 3.0으로 업그레이드했고 로컬로 고정된 볼륨을 만들 때 사용할 수 있는 최대 크기는 6TB이며 8.5TB가 아닙니다. 8\.5TB 볼륨을 만들 수 없는 이유는?
 
 **A** 업데이트 3.0을 실행 중인 8100 디바이스에서 로컬로 고정된 볼륨은 최대 8.5TB, 계층화된 볼륨은 최대 200TB까지 프로비전할 수 있습니다. 디바이스에 계층화된 볼륨이 있는 경우 로컬로 고정된 볼륨을 만들기 위해 사용 가능한 공간은 최대 한도보다 비례적으로 낮을 수 있습니다. 예를 들어 (계층화된 용량의 절반인) 8100 디바이스에 계층화된 볼륨의 약 106TB가 이미 프로비전된 경우 8100 디바이스에서 만들 수 있는 로컬 볼륨의 최대 크기는 4TB로 줄어듭니다(로컬로 고정된 볼륨의 최대 용량에서 대략 절반).
 

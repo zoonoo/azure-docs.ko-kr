@@ -2,20 +2,19 @@
 title: SQL Data Warehouse 관리 효율성 및 모니터링 - 개요 | Microsoft Docs
 description: 리소스 사용률, 로그 및 쿼리 활동, 권장 사항, 데이터 보호(백업 및 복원)에 대 한 모니터링 및 관리 효율성 개요입니다.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 08/27/2018
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 08/27/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60747577"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 사용 시의 관리 효율성 및 모니터링

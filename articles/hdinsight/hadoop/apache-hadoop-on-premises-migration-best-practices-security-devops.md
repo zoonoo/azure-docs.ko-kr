@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: 1d13b52d253562a24946e6df2fc069f41b485fef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707900"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
@@ -64,7 +64,7 @@ ESP는 ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Intera
 
 다음 컨트롤을 사용하여 종단 간 엔터프라이즈 보안을 달성할 수 있습니다.
 
-- **보호되는 비공개 데이터 파이프라인(경계 수준 보안)**
+- **보호되는 프라이빗 데이터 파이프라인(경계 수준 보안)**
     - Azure Virtual Networks, 네트워크 보안 그룹 및 게이트웨이 서비스를 통해 경계 수준 보안을 달성할 수 있습니다.
 
 - **데이터 액세스를 위한 인증 및 권한 부여**

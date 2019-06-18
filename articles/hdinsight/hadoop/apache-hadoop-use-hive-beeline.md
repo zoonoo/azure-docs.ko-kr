@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684923"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
@@ -95,7 +95,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 ## <a id="prereq"></a>필수 조건
 
-* HDInsight에서 Hadoop 클러스터입니다. 참조 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)합니다.
+* HDInsight에서 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * 표시 된 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터의 기본 저장소에 대 한 합니다. 예를 들어 `wasb://` Azure Storage에 대 한 `abfs://` 에 대 한 Azure Data Lake 저장소 Gen2 또는 `adl://` Azure 데이터 레이크 저장소 Gen1에 대 한 합니다. 에 대해 Azure Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우 URI는 `wasbs://` 또는 `abfss://`, 각각. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)합니다.
 
@@ -248,7 +248,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
     > [!NOTE]  
     > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
-3. 파일을 저장하려면 **Ctrl**+**_X**을 사용한 다음 **Y**를 입력하고 마지막으로 **Enter** 키를 누릅니다.
+3. 파일을 저장하려면 **Ctrl**+ **_X**을 사용한 다음 **Y**를 입력하고 마지막으로 **Enter** 키를 누릅니다.
 
 4. 다음을 사용하여 Beeline을 통해 파일을 실행합니다.
 

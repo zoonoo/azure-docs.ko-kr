@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381198"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell 참조
@@ -32,7 +32,7 @@ ms.locfileid: "60381198"
 Get-ADSyncADConnectorAccount
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 이 함수는 AAD Connect에 있는 'Get-ADSyncConnector' cmdlet을 사용하여 연결 매개 변수에서 AD 커넥터 계정을 보여 주는 테이블을 검색합니다.
 
 ### <a name="examples"></a>예제
@@ -53,7 +53,7 @@ Get-ADSyncADConnectorAccount
 Get-ADSyncObjectsWithInheritanceDisabled [-SearchBase] <String> [[-ObjectClass] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 SearchBase 매개 변수에서 시작하여 AD에서 검색하고, ObjectClass 매개 변수로 필터링하여 현재 ACL 상속을 사용하지 않도록 설정된 모든 개체를 반환합니다.
 
 ### <a name="examples"></a>예제
@@ -113,7 +113,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncbasicreadpermissions"></a>Set-ADSyncBasicReadPermissions
 
@@ -134,7 +134,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncBasicReadPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 모든 하위 computer 개체의 모든 특성에 대한 읽기 속성 액세스
@@ -255,7 +255,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -270,7 +270,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -286,7 +286,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncexchangehybridpermissions"></a>Set-ADSyncExchangeHybridPermissions
 
@@ -307,7 +307,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncExchangeHybridPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 모든 하위 user 개체의 모든 특성에 대한 읽기/쓰기 속성 액세스
@@ -422,7 +422,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -437,7 +437,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -453,7 +453,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncexchangemailpublicfolderpermissions"></a>Set-ADSyncExchangeMailPublicFolderPermissions
 
@@ -475,7 +475,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
  [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncExchangeMailPublicFolderPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 모든 하위 publicfolder 개체의 모든 특성에 대한 읽기 속성 액세스
@@ -584,7 +584,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -599,7 +599,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -615,7 +615,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncmsdsconsistencyguidpermissions"></a>Set-ADSyncMsDsConsistencyGuidPermissions
 
@@ -636,7 +636,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
  [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncMsDsConsistencyGuidPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 모든 하위 user 개체의 mS-DS-ConsistencyGuid 특성에 대한 읽기/쓰기 속성 액세스
@@ -745,7 +745,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -760,7 +760,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -776,7 +776,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncpasswordhashsyncpermissions"></a>Set-ADSyncPasswordHashSyncPermissions
 
@@ -796,7 +796,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnec
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncPasswordHashSyncPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 디렉터리 변경 내용 복제
@@ -866,7 +866,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -881,7 +881,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -897,7 +897,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncpasswordwritebackpermissions"></a>Set-ADSyncPasswordWritebackPermissions
 
@@ -918,7 +918,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
  [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncPasswordWritebackPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 하위 user 개체의 암호 재설정
@@ -1031,7 +1031,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1046,7 +1046,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1062,7 +1062,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncrestrictedpermissions"></a>Set-ADSyncRestrictedPermissions
 
@@ -1078,7 +1078,7 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
  [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncRestrictedPermissions 함수는 제공된 계정에 대한 권한을 강화합니다.
 권한 강화에 포함되는 단계는 다음과 같습니다.
 1.
@@ -1162,7 +1162,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1177,7 +1177,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1193,7 +1193,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="set-adsyncunifiedgroupwritebackpermissions"></a>Set-ADSyncUnifiedGroupWritebackPermissions
 
@@ -1214,7 +1214,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 Set-ADSyncUnifiedGroupWritebackPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
 모든 그룹 Object 유형 및 SubObjects에 대한 일반 읽기/쓰기, 삭제, 트리 삭제 및 자식 만들기/삭제
@@ -1324,7 +1324,7 @@ Accept wildcard characters: False
 
 #### <a name="-whatif"></a>-WhatIf
 cmdlet을 실행할 경우 발생하는 일을 표시합니다.
-cmdlet은 실행되지 않습니다.
+cmdlet이 실행되지 않습니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1339,7 +1339,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-confirm"></a>-Confirm
-cmdlet을 실행하기 전에 확인을 요청합니다.
+cmdlet을 실행하기 전에 확인 메시지가 표시됩니다.
 
 ```yaml
 Type: SwitchParameter
@@ -1355,7 +1355,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.
 
 ## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
 
@@ -1368,7 +1368,7 @@ Accept wildcard characters: False
 Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>설명
+### <a name="description"></a>DESCRIPTION
 이 함수는 매개 변수 -ADobjectDN에 제공된 특정 AD 개체에 대해 현재 설정된 모든 AD 권한을 반환합니다.
 ADobjectDN은 DistinguishedName 형식으로 제공해야 합니다.
 
@@ -1398,4 +1398,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216) 를 참조하세요.

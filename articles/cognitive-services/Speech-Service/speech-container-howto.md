@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388681"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752432"
 ---
 # <a name="install-and-run-speech-service-containers"></a>설치 하 고 음성 서비스 컨테이너를 실행 합니다.
 
@@ -172,7 +172,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수이지만 사용되지 않는 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint). 
+1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
@@ -260,7 +260,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-컨테이너 REST 끝점을 찾을 수 있는 Api를 제공 [같습니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) 샘플을 확인할 수 있습니다 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)합니다.
+컨테이너 REST 끝점을 찾을 수 있는 Api를 제공 [같습니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) 샘플을 확인할 수 있습니다 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)합니다.
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

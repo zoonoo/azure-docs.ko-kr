@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362791"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
@@ -47,7 +47,7 @@ StorSimple 디바이스에서 CHAP 설정은 다음과 같은 방법으로 구�
 
 1. Azure Portal에서 StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 클릭하고 CHAP를 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
    
-    ![CHAP 개시 장치](./media/storsimple-8000-configure-chap/configure-chap5.png)
+    ![CHAP 초기자](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. **CHAP** 블레이드의 **CHAP 초기자** 섹션에서 다음을 수행합니다.
    
    1. CHAP 초기자에 대한 사용자 이름을 입력합니다.

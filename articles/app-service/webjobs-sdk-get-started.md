@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418233"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
@@ -95,7 +95,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
    * `Microsoft.Extensions.Logging` - 로깅 프레임워크입니다.
    * `Microsoft.Extensions.Logging.Console` 콘솔 로그를 보내면-콘솔 공급자입니다.
 
-   2.2.0 버전에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+   2\.2.0 버전에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging -version 2.2.0
@@ -344,7 +344,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |이름  |Value  |
+   |이름  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -502,7 +502,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
    ![Blob 업로드 단추](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   다. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
+   c. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
 
 1. 메시지 텍스트로 *Program.cs*가 포함된 큐 메시지를 앞에서 만든 큐에 만듭니다.
 

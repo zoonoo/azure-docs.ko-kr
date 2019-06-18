@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808592"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -58,7 +58,7 @@ ms.locfileid: "66455798"
 6.  디스크를 준비하려면 다음 명령을 실행합니다. **데이터 크기에 따라 몇 시간에서 며칠이 걸릴 수 있습니다.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     저널 파일이 도구를 실행한 폴더와 동일한 폴더에 만들어집니다. *.xml* 파일(도구를 실행하는 폴더)과 *drive-manifest.xml* 파일(데이터가 있는 폴더)의 두 개의 다른 파일도 만들어집니다.
     
@@ -74,7 +74,7 @@ ms.locfileid: "66455798"
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/blobtype:     |이 옵션 데이터를 가져오려는 blob 유형을 지정 합니다. 이 블록 blob에 대 한 `BlockBlob` 이므로 페이지 blob에 대 한 `PagaBlob`합니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
-    |/enablecontentmd5:     |옵션을 사용 하도록 설정 하면 azure 블록 blob 업로드할 때 MD5 계산 되는 것을 확인 합니다.          |
+    |/enablecontentmd5:     |옵션을 사용 하도록 설정 하면 MD5 계산 및로 설정 하면 `Content-md5` 각 blob의 속성입니다. 사용 하려는 경우에이 옵션을 사용 합니다 `Content-md5` 데이터를 Azure에 업로드 한 후 필드입니다. <br> 이 옵션 (발생 하는 기본적으로) 데이터 무결성 검사에 영향을 주지 않습니다. 설정은 데이터를 클라우드로 업로드 하는 데 걸리는 시간이 증가지 않습니다.          |
 7. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
     
     > [!IMPORTANT]
@@ -84,7 +84,7 @@ ms.locfileid: "66455798"
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 
-1. [https://portal.azure.com/](https://portal.azure.com/) 에 로그온합니다.
+1. [https://portal.azure.com/](https://portal.azure.com/ ) 에 로그온합니다.
 2. **모든 서비스 > 저장소 > 작업 가져오기/내보내기**로 차례로 이동합니다. 
     
     ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

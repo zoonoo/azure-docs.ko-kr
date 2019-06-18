@@ -14,20 +14,20 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462414"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-onprem-oracle-connector.md)
 > * [버전 2(현재 버전)](../connector-oracle.md)
 
 > [!NOTE]
-> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Azure Data Factory 서비스를 사용 중인 경우, [V2의 Oracle 커넥터](../connector-oracle.md)를 참조하세요.
+> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Azure Data Factory 서비스를 사용 중인 경우, [V2의 Oracle 커넥터](../connector-oracle.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Oracle 데이터베이스에서 다른 곳으로 또는 그 반대로 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md)을 기반으로 합니다.
@@ -55,7 +55,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 이 Oracle 커넥터는 다음 두 가지 버전의 드라이버를 지원합니다.
 
-- **Oracle용 Microsoft 드라이버(권장)**: 데이터 관리 게이트웨이 버전 2.7부터 Oracle용 Microsoft 드라이버가 게이트웨이와 함께 자동으로 설치됩니다. Oracle에 대한 연결을 설정하기 위해 드라이버를 설치하거나 업데이트할 필요가 없습니다. 또한 이 드라이버를 사용하면 더 나은 복사 성능을 경험할 수 있습니다. 아래 Oracle 데이터베이스 버전이 지원됩니다.
+- **Oracle용 Microsoft 드라이버(권장)** : 데이터 관리 게이트웨이 버전 2.7부터 Oracle용 Microsoft 드라이버가 게이트웨이와 함께 자동으로 설치됩니다. Oracle에 대한 연결을 설정하기 위해 드라이버를 설치하거나 업데이트할 필요가 없습니다. 또한 이 드라이버를 사용하면 더 나은 복사 성능을 경험할 수 있습니다. 아래 Oracle 데이터베이스 버전이 지원됩니다.
   - Oracle 12c R1(12.1)
   - Oracle 11g R1, R2(11.1, 11.2)
   - Oracle 10g R1, R2(10.1, 10.2)

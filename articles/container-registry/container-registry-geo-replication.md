@@ -6,18 +6,18 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/10/2018
+ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541862"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384114"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
-로컬 상태나 핫 백업이 필요한 기업은 둘 이상의 Azure 지역에서 서비스를 실행하도록 선택할 수 있습니다. 이미지가 실행되는 각 지역에 컨테이너 레지스트리를 배치하면 네트워크와 가까운 곳에서 작업하여 이미지 레이어를 빠르고 안정적으로 전송할 수 있습니다. 지리적 복제를 사용하면 Azure Container Registry가 단일 레지스트리로 기능하여 다중 마스터 지역 레지스트리가 있는 둘 이상의 지역에 서비스를 제공할 수 있습니다.
+로컬 상태나 핫 백업이 필요한 기업은 둘 이상의 Azure 지역에서 서비스를 실행하도록 선택할 수 있습니다. 이미지가 실행되는 각 지역에 컨테이너 레지스트리를 배치하면 네트워크와 가까운 곳에서 작업하여 이미지 레이어를 빠르고 안정적으로 전송할 수 있습니다. 지리적 복제를 사용하면 Azure Container Registry가 단일 레지스트리로 기능하여 다중 마스터 지역 레지스트리가 있는 둘 이상의 지역에 서비스를 제공할 수 있습니다. 
 
 지리적 복제된 레지스트리는 다음과 같은 이점을 제공합니다.
 
@@ -60,10 +60,11 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 * 모든 지역에서 단일 레지스트리 관리: `contoso.azurecr.io`
 * 모든 지역에서 동일한 이미지 URL을 사용하므로 모든 이미지 배포에 대해 단일 구성 관리 가능: `contoso.azurecr.io/public/products/web:1.2`
-* 단일 레지스트리로 밀어넣기. 로컬 알림을 위한 지역별 webhook을 비롯한 지리적 복제는 ACR이 관리
+* 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. 특정 복제본의 이벤트를 알리도록 지역별 [webhook](container-registry-webhook.md)를 구성할 수 있습니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
-지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다.
+
+지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. 또한 Azure CLI의 [az acr replication](/cli/azure/acr/replication) 명령을 포함한 도구를 사용하여 지역 복제를 관리할 수 있습니다.
 
 지리적 복제는 [Premium 레지스트리](container-registry-skus.md) 전용 기능입니다. Basic 및 Standard 레지스트리를 사용 중인 경우, [Azure Portal](https://portal.azure.com)에서 Premium으로 변경할 수 있습니다.
 
@@ -91,15 +92,19 @@ Azure Container Registry로 이동하여 **복제**:
 
 ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동기화가 완료되면 포털에 *준비*라고 표시됩니다. 포털의 복제본 상태는 자동으로 업데이트되지 않습니다. 업데이트된 상태를 보려면 새로 고침 단추를 클릭합니다.
 
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>지역 복제 레지스트리 사용 시 고려 사항
+
+* 지역 복제 레지스트리의 각 Azure 지역은 일단 설정되면 서로 독립적입니다. 지역 복제된 각 Azure 지역에는 Azure Container Registry SLA가 적용됩니다.
+* 지역 복제된 레지스트리의 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 가장 가까운 레지스트리에 요청을 보냅니다.
+* 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
+* 지역 복제 레지스트리에 푸시 업데이트를 사용하는 워크플로를 관리하려면 푸시 이벤트에 응답하는 [webhook](container-registry-webhook.md)를 구성하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
+
+
 ## <a name="geo-replication-pricing"></a>지역에서 복제 가격 책정
 
 지리적 복제 기능은 Azure Container Registry의 [Premium SKU](container-registry-skus.md) 기능입니다. 레지스트리를 원하는 지역으로 복제하면 각 지역별로 Premium 레지스트리 요금이 발생합니다.
 
 앞의 예에서 Contoso는 미국 동부, 캐나다 중부, 유럽 서부에 복제본을 추가하여 두 개의 레지스트리를 하나로 통합했습니다. Contoso는 지금부터 매월 4배의 프리미엄 요금을 지불하게 되며, 구성 또는 관리에 추가로 부과되는 요금은 없습니다. 각 지역은 이제 로컬에서 이미지를 가져오기 때문에 성능과 안정성이 개선되며, 미국 서부에서 캐나다와 미국 동부로 네트워크 송신 요금이 발생하지 않습니다.
-
-## <a name="summary"></a>요약
-
-지리적 복제를 사용하면 지역 데이터 센터를 하나의 글로벌 클라우드로서 관리할 수 있습니다. 이미지는 여러 Azure 서비스에서 사용되기 때문에 하나의 관리 평면에서 간편하게 관리하고 네트워크와 가까운 곳에서 빠르고 안정적으로 로컬 이미지를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

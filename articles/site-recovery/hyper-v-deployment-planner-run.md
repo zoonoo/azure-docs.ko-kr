@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748965"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
@@ -42,7 +42,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 | -ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예제:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(선택 사항) 이 작업 중에 생성된 데이터를 저장하기 위한 UNC(범용 명명 규칙) 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-OutputFile| (선택 사항) Hyper-V 서버에서 가져온 VM 목록이 들어 있는 파일이 저장됩니다. 이름이 언급되지 않으면 세부 정보는 VMList.txt에 저장됩니다.  프로파일링할 필요가 없는 VM을 제거한 후 파일을 사용하여 프로파일링을 시작합니다.|
-|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 검색
 
@@ -95,7 +95,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfDaysToProfile |프로파일링을 실행할 시간(일)입니다. 7일 이상 프로파일링하는 것이 좋습니다. 지정된 기간 동안 사용자 환경에서 워크로드 패턴을 관찰하고 정확한 권장 사항을 제공하는 데 사용하도록 하는 것이 좋습니다.|
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링 도중 생성된 프로파일링 데이터를 저장하기 위한 UNC 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 |-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다.|
 |-StorageAccountKey|(선택 사항) 저장소 계정에 액세스하는 데 사용되는 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 저장소 계정용 기본 액세스 키)로 이동합니다.|
 |-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 21Vianet 때 매개 변수를 사용 합니다.|
@@ -174,8 +174,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 | -User | (선택 사항) Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다. 사용자 및 암호는 보고서에 사용할 디스크 수, 코어 수, NIC 수 등과 같은 VM의 최신 구성 정보를 페치하는 데 사용됩니다. 이 값이 제공되지 않으면 프로파일링 중에 수집된 구성 정보가 사용됩니다.|
-|-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
-| -DesiredRPO | (선택 사항) 원하는 RPO(복구 지점 목표) (분)입니다. 기본값은 15분입니다.|
+|-암호|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
+| -DesiredRPO | (선택 사항) 원하는 RPO(복구 지점 목표) (분)입니다. 기본값은 15 분입니다.|
 | -Bandwidth | (선택 사항) 초당 메가비트 대역폭입니다. 이 매개 변수는 지정된 대역폭에서 달성할 수 있는 RPO를 계산하는 데 사용합니다. |
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 단위의 시작 날짜 및 시간 형식입니다. StartDate는 EndDate와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 형식의 종료 날짜 및 시간입니다. EndDate는 StartDate와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |

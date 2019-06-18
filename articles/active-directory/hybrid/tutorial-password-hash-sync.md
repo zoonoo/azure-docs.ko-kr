@@ -1,5 +1,5 @@
 ---
-title: '자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트를 Azure에 통합 | Microsoft Docs'
+title: '자습서:  PHS를 사용하여 단일 AD 포리스트를 Azure에 통합'
 description: 암호 해시 동기화를 사용하여 하이브리드 ID 환경을 설정하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103233"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474008"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>자습서:  PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트 통합
 

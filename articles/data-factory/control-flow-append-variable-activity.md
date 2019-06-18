@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557225"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 추가 작업
@@ -26,7 +26,7 @@ ms.locfileid: "60557225"
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
-이름 | 파이프라인의 작업 이름 | 예
+name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | no
 형식 | 활동 유형은 AppendVariable입니다. | 예
 값 | 지정된 변수에 추가하는 데 사용되는 문자열 리터럴 또는 표현식 개체 값 | 예

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
 ms.openlocfilehash: ca69424ecbddc068fdaf8bb5839a647701ee27fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686603"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
@@ -57,7 +57,7 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Apache Mahout를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive 및 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
-* [Apache Hive 및 Azure Machine Learning 엔드 투 엔드](../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive 및 Azure Machine Learning 엔드투엔드](../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [HDInsight에서 Apache Spark를 사용하는 Machine Learning](../machine-learning/team-data-science-process/spark-overview.md)
 
 ### <a name="deep-learning-resources"></a>딥 러닝 리소스

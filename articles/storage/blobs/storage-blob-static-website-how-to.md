@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 7a1aef14a2a32266c893933482527c361f17d7fb
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428562"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071443"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -181,11 +181,13 @@ Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트를 호스트 하�
 다음 명령을 사용 하 여 URL을 찾으려면
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-대체는 `<subscription-id>` 구독의 ID 사용 하 여 자리 표시자 값입니다.
+* 대체는 `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름입니다.
+
+* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 <a id="metrics" />
 

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153932"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics 메트릭 (클래식)
@@ -141,7 +141,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 ||||  
 |-|-|-|  
 |**Metrics**(메트릭)|**테이블 이름**|**참고 사항**|  
-|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블 라고 했습니다.<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
+|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블 라고 했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용 하 여 설정할 수 있습니다. 또는 프로그래밍 방식으로 합니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |용량|$MetricsCapacityBlob|Blob service만 해당 합니다.|  
 

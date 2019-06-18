@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139429"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808488"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>연결 문자열 만들기
 
-다음 문자열을 이전에 사용한 *\<server_name>*, *\<db_username>* 및 *\<db_password>* 로 바꿉니다.
+다음 문자열을 이전에 사용한 *\<server_name>* , *\<db_username>* 및 *\<db_password>* 로 바꿉니다.
 
 ```
 Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
@@ -371,7 +371,7 @@ git push azure master
 
 ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를 Cloud Shell에 파이프할 수 있습니다. 이 방법으로 애플리케이션 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
-샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)의 지침을 따릅니다.
+샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
 
 - *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
 - *Startup.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.

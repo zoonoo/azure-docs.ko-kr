@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
 ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743051"
 ---
 # <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사용자 지정 규칙을 사용 하 여 웹 응용 프로그램 방화벽 구성

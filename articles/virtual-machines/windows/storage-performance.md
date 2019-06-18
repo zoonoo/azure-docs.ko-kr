@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: f84e81a5a9e9c9cf6f477adefa0869d776f7dd71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6a6ea5d00d43f6dffa3aabc367d94ebb8db198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075601"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2-시리즈 virtual machines에서 성능 최적화
 
@@ -24,7 +24,7 @@ Lsv2-시리즈 virtual machines는 다양 한 광범위 한 응용 프로그램 
 
 Lsv2-시리즈 Virtual Machines (Vm)의 디자인 프로세서, 메모리, NVMe 장치 및 Vm 간에 최상의 성능을 제공 하기 위해 AMD EPYC™ 7551 프로세서를 최대화 합니다. 하드웨어 성능을 최대화 하는 것 외에도 Lsv2 시리즈 Vm은 하드웨어 및 소프트웨어를 사용 하 여 성능 향상을 위해 Windows 및 Linux 운영 체제의 요구에 따라 작동 하도록 설계 되었습니다.
 
-최적화 된 버전에서 발생 한 소프트웨어 및 하드웨어 튜닝 [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview)Lsv2 시리즈 NVMe 장치에서 최대 성능을 지 원하는 Azure Marketplace에 12 월 2018 년 초에 출시 Vm입니다.
+최적화 된 버전에서 발생 한 소프트웨어 및 하드웨어 튜닝 [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)Lsv2 시리즈 NVMe 장치에서 최대 성능을 지 원하는 Azure Marketplace에 12 월 2018 년 초에 출시 Vm입니다.
 
 이 문서에서는 팁 및 워크 로드 및 응용 프로그램을 확인 하기 위한 제안을 Vm에 최대 성능을 얻을 수 있습니다. Azure Marketplace에 자세한 Lsv2 액세스에 최적화 된 이미지를 추가할 때이 페이지의 정보는 지속적으로 업데이트 됩니다.
 
@@ -44,7 +44,7 @@ Lsv2 시리즈 Vm Zen 마이크로 아키텍처에 기반을 둔 AMD EYPC™ 서
 
 ## <a name="utilizing-local-nvme-storage"></a>로컬 NVMe 저장소를 활용 하 여
 
-1.92 TB NVMe 디스크에 모든 Lsv2 Vm 로컬 저장소는 사용 후 삭제 합니다. VM의 성공적인 표준 재부팅을 하는 동안 로컬 NVMe 디스크의 데이터가 유지 됩니다. VM 다시 배포, 할당 취소 하거나 삭제 한 경우 데이터는 NVMe에서 유지 되지 않습니다. 다른 문제로 인해 VM 또는 실행 중인 하드웨어에에 비정상 상태가 되는 경우에 데이터 유지 되지 않습니다. 이 경우 이전 호스트의 모든 데이터가 안전 하 게 지워집니다.
+1\.92 TB NVMe 디스크에 모든 Lsv2 Vm 로컬 저장소는 사용 후 삭제 합니다. VM의 성공적인 표준 재부팅을 하는 동안 로컬 NVMe 디스크의 데이터가 유지 됩니다. VM 다시 배포, 할당 취소 하거나 삭제 한 경우 데이터는 NVMe에서 유지 되지 않습니다. 다른 문제로 인해 VM 또는 실행 중인 하드웨어에에 비정상 상태가 되는 경우에 데이터 유지 되지 않습니다. 이 경우 이전 호스트의 모든 데이터가 안전 하 게 지워집니다.
 
 VM 계획 된 유지 관리 작업을 하는 동안 예를 들어, 다른 호스트 컴퓨터로 이동 해야 하는 경우 사례도 됩니다. 계획 된 유지 관리 작업 및 일부 하드웨어 오류를 사용 하 여 예측할 수 있습니다 [예약 된 이벤트](scheduled-events.md)합니다. 모든 예측된 유지 관리 및 복구 작업에서 업데이트를 유지할 예약 된 이벤트를 사용 해야 합니다.
 

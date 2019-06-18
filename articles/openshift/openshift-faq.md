@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122957"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -49,7 +49,11 @@ Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift
 
 기본적으로 미사용 암호화에 있습니다. Azure Storage 플랫폼 및 해독 검색 전 해당 데이터를 유지 하기 전에 데이터를 자동으로 암호화 합니다. 참조 [미사용 데이터에 대 한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 세부 정보에 대 한 합니다.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Prometheus/Grafana를 사용 하 여 컨테이너를 모니터링 하 고 용량을 관리할 수 있습니다?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>내 응용 프로그램을 모니터링 한 Prometheus/Grafana를 사용할 수 있나요?
+
+예, 네임 스페이스에서 네임 스페이스 및 모니터 응용 프로그램에서 Prometheus를 배포할 수 있습니다.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>클러스터 상태 및 용량 관련 된 메트릭을 모니터링 하려면 Prometheus/Grafana를 사용할 수 있나요?
 
 아니요, 현재 시간에 없습니다.
 
@@ -80,3 +84,7 @@ Azure는 고객이 아닌 경우 [영업 팀에 문의](https://aka.ms/openshift
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>Open Service Broker에 대 한 Azure (OSBA) 지원 인지 확인 합니다.
 
 예. Azure Red Hat OpenShift를 사용 하 여 OSBA를 사용할 수 있습니다. 참조 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 자세한 내용은 합니다.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 고 했지만 시작 `Failed to get vnet CIDR` 오류입니다.
+
+가상 네트워크가 있는 구독에 등록할 수 있는지 확인 `Microsoft.ContainerService` 공급자 `az provider register -n Microsoft.ContainerService --wait` 

@@ -11,16 +11,16 @@ ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
 ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540816"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search 기술 저장소에는 프로젝션과 함께 작업
 
 > [!Note]
-> 저장소 기술 미리 보기로 제공 되며 프로덕션 사용에 대 한 용도 아니지만 경우 합니다 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 이 기능을 제공 합니다. 이 이번에는.NET SDK 지원은 없습니다.
+> 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
 >
 
 Azure Search에 AI cognitive 기술과 인덱싱의 일부로 사용자 지정 기술 콘텐츠 보강할 수 있습니다. 강화를 문서 구조를 추가 및 검색 하는 것 보다 효율적입니다. 많은 경우 풍부한 문서 검색, 예: 기술 마이닝 이외의 시나리오에 유용합니다.

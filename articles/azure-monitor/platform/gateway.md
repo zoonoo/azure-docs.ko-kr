@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60396431"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
@@ -75,7 +75,7 @@ Log Analytics 게이트웨이를 실행할 지정 된 컴퓨터에는 다음과 
 
 Log Analytics 게이트웨이 이러한 언어로 제공 됩니다.
 
-- 중국어 간체
+- 중국어 (간체)
 - 중국어 (번체)
 - 체코어
 - 네덜란드어
@@ -141,7 +141,7 @@ Azure portal에서 Log Analytics 게이트웨이 가져오려면 다음이 단�
 
    b. 게이트웨이 설치한 서버를 프록시를 통해 통신 해야 하는 경우는 프록시 주소를 입력 게이트웨이에서 연결 해야 합니다. 예를 들어 `http://myorgname.corp.contoso.com:80`을 입력합니다.  이 필드를 비워 두면 게이트웨이 직접 인터넷에 연결 하려고 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
 
-   다. **다음**을 선택합니다.
+   c. **다음**을 선택합니다.
 
    ![게이트웨이 프록시에 대 한 구성의 스크린샷](./media/gateway/gateway-wizard02.png)
 
@@ -162,8 +162,8 @@ Azure portal에서 Log Analytics 게이트웨이 가져오려면 다음이 단�
 |PORTNUMBER | 게이트웨이에 대 한 TCP 포트 번호에서 수신 대기를 |
 |프록시 | 프록시 서버의 IP 주소 |
 |INSTALLDIR | 게이트웨이 소프트웨어 파일의 설치 디렉터리를 지정 하려면 정규화 된 경로 |
-|사용자 이름 | 프록시 서버를 사용 하 여 인증 하려면 사용자 Id |
-|암호 | 프록시를 사용 하 여 인증 하는 Id 사용자의 암호 |
+|USERNAME | 프록시 서버를 사용 하 여 인증 하려면 사용자 Id |
+|PASSWORD | 프록시를 사용 하 여 인증 하는 Id 사용자의 암호 |
 |LicenseAccepted | 값을 지정 **1** 사용권 계약에 동의 확인 하려면 |
 |HASAUTH | 값을 지정 **1** 사용자 이름/암호 매개 변수를 지정 하는 경우 |
 |HASPROXY | 값을 지정 **1** 에 대 한 IP 주소를 지정 하는 경우 **프록시** 매개 변수 |
@@ -310,7 +310,7 @@ Log Analytics와의 통합을 완료 한 후 실행 하 여 변경 내용을 제
 
 **작업 런타임 데이터 서비스 Url**
 
-| **위치**: | **URL** |
+| **Location**: | **URL** |
 | --- | --- |
 | 미국 중북부 |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net |
@@ -319,13 +319,13 @@ Log Analytics와의 통합을 완료 한 후 실행 하 여 변경 내용을 제
 | 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net |
 | 유럽 북부 |ne-jobruntimedata-prod-su1.azure-automation.net |
 | 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net |
-| 중앙 인도 |cid-jobruntimedata-prod-su1.azure-automation.net |
+| 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net |
 | 일본 |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | 오스트레일리아 |ase-jobruntimedata-prod-su1.azure-automation.net |
 
 **에이전트 서비스 URL**
 
-| **위치**: | **URL** |
+| **Location**: | **URL** |
 | --- | --- |
 | 미국 중북부 |ncus-agentservice-prod-1.azure-automation.net |
 | 서유럽 |we-agentservice-prod-1.azure-automation.net |
@@ -334,7 +334,7 @@ Log Analytics와의 통합을 완료 한 후 실행 하 여 변경 내용을 제
 | 캐나다 중부 |cc-agentservice-prod-1.azure-automation.net |
 | 유럽 북부 |ne-agentservice-prod-1.azure-automation.net |
 | 동남아시아 |sea-agentservice-prod-1.azure-automation.net |
-| 중앙 인도 |cid-agentservice-prod-1.azure-automation.net |
+| 인도 중부 |cid-agentservice-prod-1.azure-automation.net |
 | 일본 |jpe-agentservice-prod-1.azure-automation.net |
 | 오스트레일리아 |ase-agentservice-prod-1.azure-automation.net |
 
@@ -364,7 +364,7 @@ Log Analytics 게이트웨이의 구성 설정을 업데이트 하는 작업을 
 | **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |키(필수) <br> Value |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |(자동으로 다운로드 로컬로 구성 되어 허용 된 호스트, 호스트 허용)에 현재 허용 된 호스트 가져오기 |`Get-OMSGatewayAllowedHost` | 
@@ -406,7 +406,7 @@ Log Analytics 게이트웨이의 구성 설정을 업데이트 하는 작업을 
 | **Name** | **설명** |
 | --- | --- |
 | Log Analytics 게이트웨이/활성 클라이언트 연결 |활성 클라이언트 네트워크(TCP) 연결의 수 |
-| Log Analytics 게이트웨이/오류 수 |오류 개수 |
+| Log Analytics 게이트웨이/오류 수 |오류 수 |
 | Log Analytics 게이트웨이/연결된 클라이언트 |연결된 클라이언트 수 |
 | Log Analytics 게이트웨이/오류 수 |TLS 유효성 검사 오류로 인한 거부 횟수 |
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
 ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60403944"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
@@ -96,7 +96,7 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>수신 작업 확인
 
-수신 작업의 경우 Service Bus API 클라이언트에서 두 가지 명시적 모드인 ‘수신 및 삭제’와 ‘보기-잠금’을 사용하도록 설정합니다.
+수신 작업의 경우 Service Bus API 클라이언트에서 두 가지 명시적 모드인 ‘수신 및 삭제’와 ‘보기-잠금’을 사용하도록 설정합니다.  
 
 [수신 및 삭제](/dotnet/api/microsoft.servicebus.messaging.receivemode) 모드는 수신 클라이언트로 송신하는 모든 메시지를 송신 시 확인된 상태로 간주하도록 브로커에 지시합니다. 즉, 메시지는 브로커가 송신하는 즉시 사용된 것으로 간주됩니다. 메시지 전송이 실패할 경우 메시지는 손실됩니다.
 

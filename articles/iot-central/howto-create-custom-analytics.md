@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e039e2b8d9c183b5bfee1bee47e4addc4c873bf7
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743442"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>사용자 지정 분석을 사용 하 여 Azure IoT Central 확장
@@ -63,7 +63,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 가격 책정 계층 | Basic |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | IoTCentralAnalysis |
-| 위치 | 미국 동부 |
+| Location | 미국 동부 |
 | 처리량 단위 | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 작업 영역
@@ -75,7 +75,7 @@ IoT Central 응용 프로그램에서 만들기를 [Azure IoT Central-내 응용
 | 작업 영역 이름    | 작업 영역 이름 선택 |
 | 구독 | 사용자의 구독 |
 | 리소스 그룹 | IoTCentralAnalysis |
-| 위치 | 미국 동부 |
+| Location | 미국 동부 |
 | 가격 책정 계층 | Standard |
 
 필요한 리소스를 만들었으면 하 **IoTCentralAnalysis** 다음 스크린샷과 같은 리소스 그룹은:

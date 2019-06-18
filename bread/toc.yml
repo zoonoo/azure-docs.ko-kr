@@ -581,6 +581,10 @@
     - name: 보안
       tocHref: /azure/security/
       topicHref: /azure/security/
+      items:
+        - name: 개발
+          tocHref: /azure/security/develop/
+          topicHref: /azure/security/develop/
     - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
@@ -653,6 +657,9 @@
           tocHref: /azure/virtual-machines/workloads/
           topicHref: /azure/virtual-machines/workloads/workloads
           items:
+            - name: 고성능 컴퓨팅
+              tocHref: /azure/virtual-machines/workloads/hpc/
+              topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
             - name: SAP
               tocHref: /azure/virtual-machines/workloads/sap/
               topicHref: /azure/virtual-machines/workloads/sap/get-started

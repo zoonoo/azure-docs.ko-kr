@@ -85,9 +85,10 @@
           items:
             - name: 성능 최적화
               href: storage-performance.md
-        - name: GPU에 최적화
-          href: sizes-gpu.md
+        - name: 컴퓨팅 가속화
           items:
+            - name: GPU에 최적화
+              href: sizes-gpu.md
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
         - name: 고성능 계산

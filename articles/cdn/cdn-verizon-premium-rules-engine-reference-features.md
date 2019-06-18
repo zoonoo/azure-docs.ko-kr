@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481476"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080779"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon 프리미엄의 규칙 엔진 기능에서 azure CDN
 
@@ -338,7 +338,7 @@ Query-String Caching 페이지에서 "no-cache" 쿼리 문자열 캐싱 동작�
 
 이 기능에 대한 다음 샘플 사용은 샘플 요청 및 기본 캐시 키를 제공합니다.
 
-- **샘플 요청:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **샘플 요청:** http://wpc.0001.&lt ;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **기본 cache-key:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>포함
@@ -516,8 +516,8 @@ application/javascript|JavaScript
 
 헤더 형식|형식|예
 -|-|-
-요청 헤더|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
-응답 헤더|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+요청 헤더|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+응답 헤더|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 주요 정보:
 

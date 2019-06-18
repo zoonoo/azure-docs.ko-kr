@@ -19,10 +19,10 @@ ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296302"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
@@ -84,7 +84,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
    
     b. **유형**으로 **웹 애플리케이션 및/또는 Web API**를 선택합니다.
    
-    다. **로그온 URL** 텍스트 상자에 `http://localhost`을(를) 입력합니다.
+    c. **로그온 URL** 텍스트 상자에 `http://localhost`을(를) 입력합니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -143,7 +143,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
     
     b. **기간**으로 **1년**을 선택합니다.
 
-    다. **저장**을 클릭합니다.
+    c. **저장**을 클릭합니다.
    
     d. 키 값을 복사한 다음 안전한 위치에 붙여넣습니다.   
    

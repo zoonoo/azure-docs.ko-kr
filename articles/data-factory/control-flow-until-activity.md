@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155162"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
@@ -54,11 +54,11 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 
 자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Until` 작업의 이름입니다. | String | 예.
-형식 | **Until**로 설정해야 합니다. | String | 예.
-식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예.
+name | `Until` 작업의 이름입니다. | String | 예
+형식 | **Until**로 설정해야 합니다. | String | 예
+식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
 시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최댓값은 90일입니다. | 아닙니다.
-활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예.
+활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1
 

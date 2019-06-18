@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234120"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
@@ -269,7 +269,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>삽입 시 TenantId를 자동으로 채우도록 기본 제약 조건 추가
 
-행을 삽입할 때 자동으로 SESSION\_CONTEXT에 현재 저장된 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예제는 다음과 같습니다.
+행을 삽입할 때 자동으로 SESSION\_CONTEXT에 현재 저장된 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the

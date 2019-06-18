@@ -74,8 +74,9 @@
     - name: 테넌트 수준 표시 유형
       href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
-      href: security-center-recommendations.md
       items:
+        - name: 보안 권장 사항이란?
+          href: security-center-recommendations.md
         - name: 보안 상태 강화
           href: security-center-monitoring.md
         - name: 머신 및 응용 프로그램 보호
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: 사용자 데이터 관리
       href: security-center-privacy.md
+    - name: IoT 관리
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: FAQ
       href: security-center-faq.md
     - name: Azure Security

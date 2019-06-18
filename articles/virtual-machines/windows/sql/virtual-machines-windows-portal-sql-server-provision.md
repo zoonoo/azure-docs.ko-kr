@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6723adb3fb8987a127eee419c9ac188c7a33d50b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076089"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구성된 여러 이미지 중 하나를 선택할 수 있습니다. 다음 단계에서는 SQL Server 2017 이미지 중 하나를 선택하는 방법을 보여줍니다.
 
-1. 사용자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **리소스 만들기**를 클릭합니다. 포털에 **새** 창이 열립니다.
 
@@ -180,7 +180,7 @@ SQL Server 가상 컴퓨터를 구성 하는 것에 대 한 여러 탭이 있습
 인터넷을 통해 데이터베이스 엔진에 대한 연결을 사용하도록 설정하지 않으려면 다음 옵션 중 하나를 선택합니다.
 
 * **로컬(VM 내부만)** 을 선택합니다.
-* **사설(Virtual Network 내)** 을 선택합니다.
+* **프라이빗(Virtual Network 내부)** 은 동일한 가상 네트워크의 머신 또는 서비스에서 SQL Server로의 연결을 허용합니다.
 
 일반적으로, 시나리오에 허용되는 가장 제한적인 연결을 선택하여 보안을 개선합니다. 하지만 모든 옵션은 네트워크 보안 그룹 및 SQL/Windows 인증을 통해 보안을 설정할 수 있습니다. VM이 만들어진 후에 네트워크 보안 그룹을 편집할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](virtual-machines-windows-sql-security.md)을 참조하세요.
 
@@ -188,9 +188,9 @@ SQL Server 가상 컴퓨터를 구성 하는 것에 대 한 여러 탭이 있습
 
 ### <a name="authentication"></a>Authentication
 
-SQL Server 인증이 필요하도록 지정하려면 **사용** under **사용**을 방문하십시오.
+SQL Server 인증에 필요한 경우 클릭 **사용 하도록 설정** 아래에서 **SQL 인증** 에 **SQL Server 설정을** 탭 합니다.
 
-![공개](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
+![SQL Server 인증](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 > [!NOTE]
 > 인터넷(공용 연결 옵션)을 통해 SQL Server에 액세스하려는 경우 여기에서 SQL 인증을 사용해야 합니다. SQL Server에 대한 공용 액세스를 위해서는 SQL 인증을 사용해야 합니다.
@@ -199,17 +199,16 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 
 SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리자 계정을 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.
 
-![SQL Server 인증](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault 통합
 
-Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vault 통합**을 클릭하고 **사용**을 클릭합니다.
+Azure에 암호화에 대 한 보안 암호를 저장 하려면 선택 **SQL Server 설정을**, 아래로 스크롤하여 **Azure key vault 통합**합니다. 선택 **사용** 요청된 된 정보를 입력 합니다. 
 
-![Azure Key Vault 통합](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Azure Key Vault 통합](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 다음 표에서는 Azure Key Vault 통합을 구성하는 데 필요한 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | DESCRIPTION | 예제 |
 | --- | --- | --- |
 | **주요 자격 증명 모음 URL** |주요 자격 증명 모음의 위치입니다. |https:\//contosokeyvault.vault.azure.net/ |
 | **주체 이름** |Azure Active Directory 서비스 주체 이름. 이 이름을 클라이언트 ID라고도 합니다. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -220,7 +219,7 @@ Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vau
 
 ### <a name="storage-configuration"></a>Storage 구성
 
-아래 **저장소 구성**를 선택 **구성 변경** 저장소 요구 사항을 지정 합니다.
+에 **SQL Server 설정을** 탭 **저장소 구성을**를 선택 **구성 변경** 저장소 요구 사항을 지정 하려면.
 
 
 > [!NOTE]
@@ -264,14 +263,16 @@ SQL 자동화된 백업을 사용하도록 설정하면 다음 설정을 구성�
 * 시스템 데이터베이스 Backup
 * 백업 일정 구성
 
-백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다.
+백업을 암호화하려면 **사용**을 클릭합니다. 그 다음 **암호**를 지정합니다. Azure에서는 백업을 암호화할 인증서를 만들고 지정된 암호를 사용하여 인증서를 보호합니다. 기본적으로 일정은 자동으로 설정 되지만 수동 일정을 선택 하 여 만들 수 있습니다 **수동**합니다. 
+
+![SQL VM에 자동화 된 백업](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
 
 ### <a name="r-services-advanced-analytics"></a>R Services (고급 분석)
 
-사용 하도록 설정 하는 옵션이 있습니다 [SQL Server R Services (고급 분석)](/sql/advanced-analytics/r/sql-server-r-services/)합니다. 이 옵션을 사용하면 SQL Server 2017로 고급 분석을 사용할 수 있습니다. **SQL Server 설정** 창에서 **사용**을 클릭합니다.
+사용 하도록 설정 하는 옵션이 있습니다 [SQL Server R Services (고급 분석)](/sql/advanced-analytics/r/sql-server-r-services/)합니다. 이 옵션을 사용하면 SQL Server 2017로 고급 분석을 사용할 수 있습니다. 선택 **을 사용 하도록 설정** 에 **SQL Server 설정** 창입니다.
 
 
 ## <a name="4-review--create"></a>4. 검토 + 만들기

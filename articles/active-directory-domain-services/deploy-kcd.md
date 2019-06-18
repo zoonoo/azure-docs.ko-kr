@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: mstephen
 ms.openlocfilehash: 287aea990664cf01caf83e1871acf69e48210226
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246166"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성
@@ -47,7 +47,7 @@ Windows Server 2012 이후부터 서비스 관리자는 제한된 위임을 자�
 리소스 기반 KCD는 PowerShell을 사용하여 구성됩니다. 가장하는 계정이 컴퓨터 계정인지 아니면 사용자 계정/서비스 계정인지에 따라 `Set-ADComputer` 또는 `Set-ADUser` cmdlet을 사용합니다.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>관리되는 도메인에서 컴퓨터 계정에 대한 리소스 기반 KCD 구성
-컴퓨터 'contoso100-webapp.contoso100.com'에서 실행되는 웹앱이 있다고 가정합니다.  도메인 사용자의 컨텍스트에서 리소스('contoso100-api.contoso100.com'에서 실행되는 웹 API)에 대한 액세스가 필요합니다. 이 시나리오에서 리소스 기반 KCD를 설정하는 방법은 다음과 같습니다.
+컴퓨터 'contoso100-webapp.contoso100.com'에서 실행되는 웹앱이 있다고 가정합니다. 도메인 사용자의 컨텍스트에서 리소스('contoso100-api.contoso100.com'에서 실행되는 웹 API)에 대한 액세스가 필요합니다. 이 시나리오에서 리소스 기반 KCD를 설정하는 방법은 다음과 같습니다.
 
 1. [사용자 지정 OU를 만듭니다](create-ou.md). 이 사용자 지정 OU를 관리할 수 있는 권한을 관리되는 도메인 내의 사용자에게 위임할 수 있습니다.
 2. 두 가상 머신(하나는 웹앱 실행, 다른 하나는 웹 API 실행)을 관리되는 도메인에 가입합니다. 사용자 지정 OU에 이러한 컴퓨터 계정을 만듭니다.

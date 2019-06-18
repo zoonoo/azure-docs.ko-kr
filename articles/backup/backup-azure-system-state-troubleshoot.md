@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059781"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
 이 문서에서는 시스템 상태 백업을 사용 하는 동안 발생할 수 있는 문제에 대 한 솔루션을 설명 합니다.
+
+## <a name="basic-troubleshooting"></a>기본 문제 해결
+수행 하는 것이 좋습니다는 아래 유효성 검사를 시작 하기 전에 시스템 상태 백업 문제 해결:
+
+- [Microsoft Azure Recovery Services (MARS) 에이전트를 최신 상태로 유지](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](https://aka.ms/AB-A4dp50)
+- Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](https://aka.ms/AB-AA4dwtt)
+- [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](https://aka.ms/AB-AA4dwtk)
+- [예약 백업은 실패하지만 수동 백업은 작동](https://aka.ms/ScheduledBackupFailManualWorks)
+- OS에 최신 업데이트가 설치되었는지 확인
+- [백업에서 지원 되지 않는 드라이브 및 지원 되지 않는 특성을 사용 하 여 파일을 제외 하십시오](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- 보호되는 시스템의 **시스템 클록**이 올바른 표준 시간대로 구성되었는지 확인 <br>
+- [서버에 적어도 .Net Framework 버전 4.5.2 이상이 설치되었는지 확인](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- 자격 증명 모음에 **서버를 다시 등록**하려는 경우: <br>
+  - 에이전트가 서버에서 제거되고 포털에서 삭제되었는지 확인 <br>
+  - 처음 서버 등록에 사용한 것과 동일한 암호 사용 <br>
+- 오프 라인 백업의 경우, 오프 라인 백업 작업을 시작 하기 전에 Azure PowerShell 버전 3.7.0 소스와 복사 컴퓨터에 설치 되어 있는지 확인
+- [Backup 에이전트가 Azure 가상 머신에서 실행 되 고 때 고려 사항](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>제한 사항
+- Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
+- 이 기능을 Azure Vm에 사용할 수 없습니다, 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다.
 
 ## <a name="pre-requisite"></a>필수 구성 요소
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055570"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -85,7 +85,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 - **비준수**: 중요 또는 보안 업데이트가 하나 이상 누락된 컴퓨터입니다.
 
-- **평가되지 않음**: 예상 기간 내에 컴퓨터의 업데이트 평가 데이터를 받지 못했습니다. Linux 컴퓨터의 경우, 예상 시간 범위는 지난 3시간입니다. Windows 컴퓨터의 경우, 예상 시간 범위는 지난 12시간입니다.
+- **평가되지 않음**: 예상 기간 내에 컴퓨터의 업데이트 평가 데이터를 받지 못했습니다. Linux 컴퓨터의 경우 예상 기간은 지난 1 시간입니다. Windows 컴퓨터의 경우, 예상 시간 범위는 지난 12시간입니다.
 
 에이전트의 상태를 보려면 **업데이트 에이전트 준비** 열에서 링크를 선택합니다. 이 옵션을 선택하면 **Hybrid Worker** 창이 열리고 Hybrid Worker의 상태가 표시됩니다. 다음 그림에서는 확대된 시간 동안 업데이트 관리에 연결되지 않은 에이전트의 예제를 보여 줍니다.
 
@@ -116,7 +116,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 이내에 업데이트 준수 검사가 시작됩니다.
 
-Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
+Linux 컴퓨터에 대 한 준수 검사가 기본적으로 매시간 수행 됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 
@@ -130,7 +130,7 @@ Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩�
 
 - **이름**: 업데이트 배포를 식별하는 고유 이름을 제공합니다.
 - **운영 체제**: **Windows** 또는 **Linux**를 선택합니다.
-- **업데이트할 그룹(미리 보기)**: 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
+- **업데이트할 그룹(미리 보기)** : 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
 - **업데이트할 머신**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
 
   ![새 업데이트 배포 창](./media/manage-update-multi/update-select-computers.png)
@@ -154,7 +154,7 @@ Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩�
    ![일정 설정 대화 상자](./media/manage-update-multi/update-set-schedule.png)
 
 - **사전 스크립트 + 사후 스크립트**: 배포 전후에 실행할 스크립트를 선택합니다. 자세한 내용은 [사전 및 사후 스크립트 관리](pre-post-scripts.md)를 참조하세요.
-- **유지 관리 기간(분)**: 업데이트 배포가 수행될 기간을 지정합니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
+- **유지 관리 기간(분)** : 업데이트 배포가 수행될 기간을 지정합니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
 - **다시 부팅 컨트롤** - 이 설정은 업데이트 배포에 대해 다시 부팅을 처리하는 방법을 결정합니다.
 

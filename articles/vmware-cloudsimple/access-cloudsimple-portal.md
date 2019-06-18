@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30882899e5be4101ae3d77f9840d8bdef567e53f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 8c7bb080b350742d0722cdb4e07b82a6881ba05b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676985"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073662"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Azure portal에서 CloudSimple 포털에서 VMware 솔루션에 액세스
 
 Single sign on CloudSimple 포털에 대 한 액세스에 지원 됩니다. Azure portal에 로그인 한 후 다시 로그인 하지 않고 CloudSimple 포털에 액세스할 수 있습니다. 권한을 부여 하 라는 메시지가 CloudSimple 포털에 액세스할 처음 합니다 [CloudSimple 서비스 권한 부여](#consent-to-cloudsimple-service-authorization-application) 응용 프로그램입니다.  권한 부여는 일회성 작업입니다.
+
+## <a name="before-you-begin"></a>시작하기 전에
+
+기본 제공 된 사용자만 **소유자** 하 고 **참가자** 역할 CloudSimple 포털에 액세스할 수 있습니다.  역할은 구독에서 구성 되어야 합니다.  사용자의 역할을 검사 하는 방법은 참조 하세요 [역할 할당 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access) 문서.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

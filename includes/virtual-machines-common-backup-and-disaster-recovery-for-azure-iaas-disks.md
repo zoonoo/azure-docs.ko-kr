@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65535873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67119116"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
 
@@ -105,7 +105,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 비관리 디스크의 경우 IaaS 디스크에 대해 로컬 중복 스토리지 유형을 사용할 수 있지만, 복구 서비스 자격 증명 모음에 대해 Azure Backup이 지역 중복 스토리지 옵션과 함께 사용되는지 확인합니다.
 
 > [!NOTE]
-> Unmanaged Disks에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md) 또는 [읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 옵션을 사용하는 경우 백업 및 DR에 대해 일관성 있는 스냅숏도 필요합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
+> Unmanaged Disks에 대해 [지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md) 또는 [읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 옵션을 사용하는 경우 백업 및 DR에 대해 일관성 있는 스냅샷도 필요합니다. [Azure Backup](https://azure.microsoft.com/services/backup/) 또는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) 중 하나를 사용합니다.
 
  다음 표는 DR에 사용할 수 있는 솔루션의 요약입니다.
 
@@ -117,14 +117,14 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 | 관리되지 않은 지역 중복 저장소 디스크 | 지역 간([지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
 | 관리되지 않은 읽기 액세스 지역 중복 저장소 디스크 | 지역 간([읽기 액세스 지역 중복 저장소](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅숏](#alternative-solution-consistent-snapshots) |
 
-Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우에 가장 고가용성이 충족됩니다. Unmanaged Disks를 사용하는 경우 DR에 Azure Backup을 계속 사용할 수 있습니다. Azure Backup을 사용할 수 없는 경우 백업 및 DR을 위한 대안 솔루션은 이후의 섹션에서 설명하는 [일관성 있는 스냅숏](#alternative-solution-consistent-snapshots)을 사용하는 것입니다.
+Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우에 가장 고가용성이 충족됩니다. Unmanaged Disks를 사용하는 경우 DR에 Azure Backup을 계속 사용할 수 있습니다. Azure Backup을 사용할 수 없는 경우 백업 및 DR을 위한 대안 솔루션은 이후의 섹션에서 설명하는 [일관성 있는 스냅샷](#alternative-solution-consistent-snapshots)을 사용하는 것입니다.
 
 애플리케이션 또는 인프라 수준에서 고가용성, 백업 및 DR을 선택하는 경우 다음과 같이 나타낼 수 있습니다.
 
 | Level |   고가용성   | 백업 또는 DR |
 | --- | --- | --- |
 | 애플리케이션 | SQL Server AlwaysOn | Azure Backup |
-| 인프라    | 가용성 집합  | 일관된 스냅숏을 사용하는 지역 중복 저장소 |
+| 인프라    | 가용성 집합  | 일관된 스냅샷을 사용하는 지역 중복 저장소 |
 
 ### <a name="using-azure-backup"></a>Azure Backup 사용 
 
@@ -134,7 +134,7 @@ Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우�
 
 ![Azure Backup 흐름][1]
 
-Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치된 백업 확장을 트리거하여 특정 시점의 스냅숏을 만듭니다. 이 스냅숏은 가상 머신을 종료하지 않고도 가상 머신의 디스크에 대한 일관된 스냅숏을 가져오도록 볼륨 섀도 서비스와 조정되어 생성됩니다. VM의 백업 확장은 모든 디스크에 대한 일관성 있는 스냅숏을 만들기 전에 모든 쓰기를 플러시합니다. 스냅숏을 만든 후에는 Azure Backup에서 백업 자격 증명 모음으로 데이터를 전송합니다. 백업 프로세스의 효율성을 높이기 위해 Azure 백업 서비스는 마지막 백업 후에 변경된 데이터 블록만 식별하여 전송합니다.
+Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치된 백업 확장을 트리거하여 특정 시점의 스냅샷을 만듭니다. 이 스냅샷은 가상 머신을 종료하지 않고도 가상 머신의 디스크에 대한 일관된 스냅샷을 가져오도록 볼륨 섀도 서비스와 조정되어 생성됩니다. VM의 백업 확장은 모든 디스크에 대한 일관성 있는 스냅샷을 만들기 전에 모든 쓰기를 플러시합니다. 스냅샷을 만든 후에는 Azure Backup에서 백업 자격 증명 모음으로 데이터를 전송합니다. 백업 프로세스의 효율성을 높이기 위해 Azure 백업 서비스는 마지막 백업 후에 변경된 데이터 블록만 식별하여 전송합니다.
 
 복원하려면 Azure Backup을 통해 사용할 수 있는 백업을 확인한 다음 복원을 시작할 수 있습니다. [Azure Portal](https://portal.azure.com/), [PowerShell](../articles/backup/backup-azure-vms-automation.md) 또는 [Azure CLI](/cli/azure/)를 사용하여 Azure Backup을 만들고 복원할 수 있습니다.
 
@@ -172,17 +172,17 @@ VM을 복구하거나 다시 작성해야 하는 경우 자격 증명 모음의 
 
 PowerShell을 사용하여 [복원된 디스크에서 새 VM을 만들](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 수도 있습니다.
 
-## <a name="alternative-solution-consistent-snapshots"></a>대체 솔루션: 일관성 있는 스냅숏
+## <a name="alternative-solution-consistent-snapshots"></a>대체 솔루션: 일관성 있는 스냅샷
 
-Azure Backup을 사용할 수 없는 경우 스냅숏을 사용하여 사용자 고유의 백업 메커니즘을 구현할 수 있습니다. VM에서 사용하는 모든 디스크에 대해 일관성 있는 스냅숏을 만든 다음 다른 지역에 해당 스냅숏을 복제하는 것은 복잡합니다. 이러한 이유로 Azure는 사용자 지정 솔루션을 빌드하는 것보다 Backup 서비스를 사용하는 것이 더 나은 선택이라고 인식합니다.
+Azure Backup을 사용할 수 없는 경우 스냅샷을 사용하여 사용자 고유의 백업 메커니즘을 구현할 수 있습니다. VM에서 사용하는 모든 디스크에 대해 일관성 있는 스냅샷을 만든 다음, 다른 지역에 해당 스냅샷을 복제하는 것은 복잡합니다. 이러한 이유로 Azure는 사용자 지정 솔루션을 빌드하는 것보다 Backup 서비스를 사용하는 것이 더 나은 선택이라고 인식합니다.
 
-디스크에 읽기 액세스 지역 중복 저장소/지역 중복 저장소를 사용하는 경우 스냅숏은 자동으로 보조 데이터 센터에 복제됩니다. 디스크에 로컬 중복 저장소를 사용하는 경우 데이터를 직접 복제해야 합니다. 자세한 내용은 [증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../articles/virtual-machines/windows/incremental-snapshots.md)을 참조하세요.
+디스크에 읽기 액세스 지역 중복 저장소/지역 중복 저장소를 사용하는 경우 스냅샷은 자동으로 보조 데이터 센터에 복제됩니다. 디스크에 로컬 중복 저장소를 사용하는 경우 데이터를 직접 복제해야 합니다. 자세한 내용은 [증분 스냅샷을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../articles/virtual-machines/windows/incremental-snapshots.md)을 참조하세요.
 
-스냅숏은 특정 시점의 개체 표현입니다. 스냅숏은 저장된 데이터의 증분 크기에 대한 대금 청구를 발생시킵니다. 자세한 내용은 [Blob 스냅숏 만들기](../articles/storage/blobs/storage-blob-snapshots.md)를 참조하세요.
+스냅샷은 특정 시점의 개체 표현입니다. 스냅샷은 저장된 데이터의 증분 크기에 대한 대금 청구를 발생시킵니다. 자세한 내용은 [Blob 스냅샷 만들기](../articles/storage/blobs/storage-blob-snapshots.md)를 참조하세요.
 
-### <a name="create-snapshots-while-the-vm-is-running"></a>VM이 실행되는 동안 스냅숏 만들기
+### <a name="create-snapshots-while-the-vm-is-running"></a>VM이 실행되는 동안 스냅샷 만들기
 
-스냅숏은 언제든지 가져올 수 있지만, VM이 실행 중이면 데이터가 디스크로 여전히 스트리밍되고 진행 중에 있던 일부 작업이 스냅숏에 포함될 수 있습니다. 또한 관련된 디스크가 여러 개 있는 경우 서로 다른 디스크의 스냅숏이 서로 다른 시간에 발생했을 수 있습니다. 이러한 시나리오에서는 스냅숏이 불균형 상태가 될 수 있습니다. 특히 백업 중에 변경되면 파일이 손상될 수 있는 스트라이프 볼륨의 경우 이러한 불균형 상태가 문제가 됩니다.
+스냅샷은 언제든지 가져올 수 있지만, VM이 실행 중이면 데이터가 디스크로 여전히 스트리밍되고 진행 중에 있던 일부 작업이 스냅샷에 포함될 수 있습니다. 또한 관련된 디스크가 여러 개 있는 경우 서로 다른 디스크의 스냅샷이 서로 다른 시간에 발생했을 수 있습니다. 이러한 시나리오에서는 스냅샷이 불균형 상태가 될 수 있습니다. 특히 백업 중에 변경되면 파일이 손상될 수 있는 스트라이프 볼륨의 경우 이러한 불균형 상태가 문제가 됩니다.
 
 이러한 상황을 방지하려면 백업 프로세스에서 다음 단계를 구현해야 합니다.
 
@@ -192,44 +192,44 @@ Azure Backup을 사용할 수 없는 경우 스냅숏을 사용하여 사용자 
 
 1.  모든 디스크에 대해 [Blob 스냅숏을 만듭니다](../articles/storage/blobs/storage-blob-snapshots.md).
 
-SQL Server와 같은 일부 Windows 애플리케이션에서는 볼륨 섀도 서비스를 통해 조정된 백업 메커니즘을 제공하여 애플리케이션 일치 백업을 만듭니다. Linux에서 디스크를 조정하기 위해 *fsfreeze*와 같은 도구를 사용할 수 있습니다. 이 도구는 애플리케이션에 일관된 스냅숏이 아닌 파일에 일관된 백업을 제공합니다. 이 프로세스는 복잡하므로 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) 또는 이 절차를 이미 구현한 타사 백업 솔루션을 사용하는 것이 좋습니다.
+SQL Server와 같은 일부 Windows 애플리케이션에서는 볼륨 섀도 서비스를 통해 조정된 백업 메커니즘을 제공하여 애플리케이션 일치 백업을 만듭니다. Linux에서 디스크를 조정하기 위해 *fsfreeze*와 같은 도구를 사용할 수 있습니다. 이 도구는 애플리케이션에 일관된 스냅샷이 아닌 파일에 일관된 백업을 제공합니다. 이 프로세스는 복잡하므로 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) 또는 이 절차를 이미 구현한 타사 백업 솔루션을 사용하는 것이 좋습니다.
 
-이전 프로세스를 수행하면 VM의 특정 시점 보기를 나타내는 모든 VM 디스크에 대해 조정된 스냅숏 모음이 만들어집니다. 이 시점은 VM에 대한 백업 복원 지점입니다. 예약된 간격으로 프로세스를 반복하여 정기적으로 백업을 만들 수 있습니다. DR에 대한 스냅숏을 다른 지역으로 복사하는 단계는 [다른 지역에 백업 복사](#copy-the-snapshots-to-another-region)를 참조하세요.
+이전 프로세스를 수행하면 VM의 특정 시점 보기를 나타내는 모든 VM 디스크에 대해 조정된 스냅샷 모음이 만들어집니다. 이 시점은 VM에 대한 백업 복원 지점입니다. 예약된 간격으로 프로세스를 반복하여 정기적으로 백업을 만들 수 있습니다. DR에 대한 스냅샷을 다른 지역으로 복사하는 단계는 [다른 지역에 백업 복사](#copy-the-snapshots-to-another-region)를 참조하세요.
 
-### <a name="create-snapshots-while-the-vm-is-offline"></a>VM이 오프라인 상태인 동안 스냅숏 만들기
+### <a name="create-snapshots-while-the-vm-is-offline"></a>VM이 오프라인 상태인 동안 스냅샷 만들기
 
-일관성 있는 백업을 만드는 또 다른 옵션은 VM을 종료하고 각 디스크의 Blob 스냅숏을 만드는 것입니다. Blob 스냅숏을 만드는 작업은 실행 중인 VM의 스냅숏을 조정하는 것보다 쉽지만 몇 분 정도의 가동 중지 시간이 필요합니다.
+일관성 있는 백업을 만드는 또 다른 옵션은 VM을 종료하고 각 디스크의 Blob 스냅샷을 만드는 것입니다. Blob 스냅샷을 만드는 작업은 실행 중인 VM의 스냅샷을 조정하는 것보다 쉽지만 몇 분 정도의 가동 중지 시간이 필요합니다.
 
 1. VM을 종료합니다.
 
-1. 몇 초 안에 각 가상 하드 드라이브 Blob의 스냅숏을 만듭니다.
+1. 몇 초 안에 각 가상 하드 드라이브 Blob의 스냅샷을 만듭니다.
 
-    스냅숏을 만들려면 [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/) 또는 [.NET용 스토리지 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/hh488361.aspx)와 같은 Azure Storage 클라이언트 라이브러리 중 하나를 사용할 수 있습니다.
+    스냅샷을 만들려면 [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/) 또는 [.NET용 스토리지 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/hh488361.aspx)와 같은 Azure Storage 클라이언트 라이브러리 중 하나를 사용할 수 있습니다.
 
 1. 가동 중지 시간이 종료된 VM을 시작합니다. 일반적으로 전체 프로세스는 몇 분 안에 완료됩니다.
 
-이 프로세스에서는 모든 디스크에 대해 일관성 있는 스냅숏 모음을 만들어 VM에 대한 백업 복원 지점을 제공합니다.
+이 프로세스에서는 모든 디스크에 대해 일관성 있는 스냅샷 모음을 만들어 VM에 대한 백업 복원 지점을 제공합니다.
 
-### <a name="copy-the-snapshots-to-another-region"></a>스냅숏을 다른 지역에 복사
+### <a name="copy-the-snapshots-to-another-region"></a>스냅샷을 다른 지역에 복사
 
-스냅숏을 만드는 데 DR만으로 충분하지 않을 수도 있습니다. 또한 스냅숏 백업을 다른 지역에 복제해야 합니다.
+스냅샷을 만드는 데 DR만으로 충분하지 않을 수도 있습니다. 또한 스냅샷 백업을 다른 지역에 복제해야 합니다.
 
-디스크에 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소를 사용하는 경우 스냅숏은 자동으로 보조 지역에 복제됩니다. 복제하기 전에 몇 분 정도가 지연될 수 있습니다. 스냅숏이 복제를 완료하기 전에 기본 데이터 센터가 중단되면 보조 데이터 센터에서 스냅숏에 액세스할 수 없습니다. 이 경우는 거의 발생하지 않습니다.
+디스크에 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소를 사용하는 경우 스냅샷은 자동으로 보조 지역에 복제됩니다. 복제하기 전에 몇 분 정도가 지연될 수 있습니다. 스냅샷이 복제를 완료하기 전에 기본 데이터 센터가 중단되면 보조 데이터 센터에서 스냅샷에 액세스할 수 없습니다. 이 경우는 거의 발생하지 않습니다.
 
 > [!NOTE]
-> 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소 계정에 디스크가 있는 경우에만 VM 재해로부터 VM이 보호되지 않습니다. 또한 조정된 스냅숏을 만들거나 Azure Backup을 사용해야 합니다. 이는 VM을 일관성 있는 상태로 복구하는 데 필요합니다.
+> 지역 중복 저장소 또는 읽기 액세스 지역 중복 저장소 계정에 디스크가 있는 경우에만 VM 재해로부터 VM이 보호되지 않습니다. 또한 조정된 스냅샷을 만들거나 Azure Backup을 사용해야 합니다. 이는 VM을 일관성 있는 상태로 복구하는 데 필요합니다.
 
-로컬 중복 저장소를 사용하는 경우 스냅숏을 만든 직후 다른 저장소 계정에 해당 스냅숏을 복사해야 합니다. 복사 대상은 다른 지역에 있는 로컬 중복 저장소 계정일 수 있으므로 복사본이 원격 지역에 있게 됩니다. 동일한 지역의 읽기 액세스 지역 중복 저장소 계정에 스냅숏을 복사할 수도 있습니다. 이 경우에 스냅숏은 원격 보조 지역에 지연 복제됩니다. 복사 및 복제가 완료된 후에 기본 사이트의 재해로부터 백업이 보호됩니다.
+로컬 중복 저장소를 사용하는 경우 스냅샷을 만든 직후 다른 저장소 계정에 해당 스냅샷을 복사해야 합니다. 복사 대상은 다른 지역에 있는 로컬 중복 저장소 계정일 수 있으므로 복사본이 원격 지역에 있게 됩니다. 동일한 지역의 읽기 액세스 지역 중복 저장소 계정에 스냅샷을 복사할 수도 있습니다. 이 경우에 스냅샷은 원격 보조 지역에 지연 복제됩니다. 복사 및 복제가 완료된 후에 기본 사이트의 재해로부터 백업이 보호됩니다.
 
-DR에 대한 증분 스냅숏을 효율적으로 복사하려면 [증분 스냅숏을 사용하여 관리되지 않는 VM 디스크 백업](../articles/virtual-machines/windows/incremental-snapshots.md)에 있는 지침을 검토하세요.
+DR에 대한 증분 스냅샷을 효율적으로 복사하려면 [증분 스냅샷을 사용하여 관리되지 않는 VM 디스크 백업](../articles/virtual-machines/windows/incremental-snapshots.md)에 있는 지침을 검토하세요.
 
-![증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업][2]
+![증분 스냅샷을 사용하여 Azure 관리되지 않는 VM 디스크 백업][2]
 
-### <a name="recovery-from-snapshots"></a>스냅숏에서 복구
+### <a name="recovery-from-snapshots"></a>스냅샷에서 복구
 
-스냅숏을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅숏을 복사하는 경우 스냅숏의 기본 Blob에 스냅숏을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅숏으로 되돌립니다. 이 프로세스는 스냅숏 승격이라고 합니다. 읽기 액세스 지역 중복 저장소 계정의 경우 보조 계정에서 스냅숏 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 또는 AzCopy 유틸리티를 사용하여 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)을 참조하세요.
+스냅샷을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅샷을 복사하는 경우 스냅샷의 기본 Blob에 스냅샷을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅샷으로 되돌립니다. 이 프로세스는 스냅샷 승격이라고 합니다. 읽기 액세스 지역 중복 저장소 계정의 경우 보조 계정에서 스냅샷 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](../articles/storage/common/storage-powershell-guide-full.md) 또는 AzCopy 유틸리티를 사용하여 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)을 참조하세요.
 
-여러 디스크가 있는 VM의 경우 조정된 동일한 복원 지점의 일부인 모든 스냅숏을 복사해야 합니다. 쓰기 가능한 VHD Blob에 스냅숏을 복사한 후에 VM에 대한 템플릿을 사용하여 VM을 다시 만드는 데 Blob을 사용할 수 있습니다.
+여러 디스크가 있는 VM의 경우 조정된 동일한 복원 지점의 일부인 모든 스냅샷을 복사해야 합니다. 쓰기 가능한 VHD Blob에 스냅샷을 복사한 후에 VM에 대한 템플릿을 사용하여 VM을 다시 만드는 데 Blob을 사용할 수 있습니다.
 
 ## <a name="other-options"></a>기타 옵션
 
@@ -239,7 +239,7 @@ VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Bl
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
-이 문서에서는 VM 및 해당 디스크의 스냅숏을 백업하거나 가져와서 재해 복구를 지원하고 해당 백업 또는 스냅숏을 사용하여 데이터를 복구하는 방법에 대해 설명했습니다. Azure Resource Manager 모델을 사용하면 Azure에서 많은 사람들이 템플릿을 사용하여 VM 및 기타 인프라를 만들 수 있습니다. 템플릿을 사용하여 매번 동일한 구성을 갖는 VM을 만들 수 있습니다. VM을 만드는 데 사용자 지정 이미지를 사용하는 경우 이미지를 저장할 읽기 액세스 지역 중복 저장소 계정을 사용하여 해당 이미지를 보호해야 합니다.
+이 문서에서는 VM 및 해당 디스크의 스냅샷을 백업하거나 가져와서 재해 복구를 지원하고 해당 백업 또는 스냅샷을 사용하여 데이터를 복구하는 방법에 대해 설명했습니다. Azure Resource Manager 모델을 사용하면 Azure에서 많은 사람들이 템플릿을 사용하여 VM 및 기타 인프라를 만들 수 있습니다. 템플릿을 사용하여 매번 동일한 구성을 갖는 VM을 만들 수 있습니다. VM을 만드는 데 사용자 지정 이미지를 사용하는 경우 이미지를 저장할 읽기 액세스 지역 중복 저장소 계정을 사용하여 해당 이미지를 보호해야 합니다.
 
 따라서 백업 프로세스는 다음 두 항목의 조합이 될 수 있습니다.
 
@@ -254,7 +254,7 @@ Azure에 있는 저장소 계정의 경우 재해 복구와 관련하여 세 가
 
 로컬 중복 저장소는 동일한 데이터 센터에서 세 개의 데이터 복사본을 유지합니다. VM이 데이터를 작성할 때 성공이 호출자에게 반환되기 전에 세 복사본 모두가 업데이트되어 동일하다는 것을 알 수 있습니다. 세 복사본이 모두 동시에 영향을 받을 가능성이 별로 없기 때문에 디스크가 로컬 오류로부터 보호됩니다. 로컬 중복 저장소의 경우 지역 중복이 없으므로 전체 데이터 센터 또는 저장소 유닛에 영향을 줄 수 있는 치명적인 오류로부터 디스크가 보호될 수 없습니다.
 
-지역 중복 저장소 및 읽기 액세스 지역 중복 저장소를 사용하면 사용자가 선택한 기본 지역에 데이터의 세 가지 복사본이 유지됩니다. 추가로 세 개의 데이터 복사본이 Azure에서 설정한 해당 보조 지역에 유지됩니다. 예를 들어 미국 서부에 데이터를 저장하면 미국 동부에 데이터가 복제됩니다. 데이터 보존은 비동기적으로 수행되며, 주 지역 및 보조 사이트에 대한 업데이트 사이에 약간의 지연이 있습니다. 보조 사이트의 디스크 복제본은 디스크마다 일관성이 있지만(지연 포함), 여러 활성 디스크의 복제본은 서로 동기화되지 않을 수 있습니다. 여러 디스크에서 일관성 있는 복제본을 유지하려면 일관성 있는 스냅숏이 필요합니다.
+지역 중복 저장소 및 읽기 액세스 지역 중복 저장소를 사용하면 사용자가 선택한 기본 지역에 데이터의 세 가지 복사본이 유지됩니다. 추가로 세 개의 데이터 복사본이 Azure에서 설정한 해당 보조 지역에 유지됩니다. 예를 들어 미국 서부에 데이터를 저장하면 미국 동부에 데이터가 복제됩니다. 데이터 보존은 비동기적으로 수행되며, 주 지역 및 보조 사이트에 대한 업데이트 사이에 약간의 지연이 있습니다. 보조 사이트의 디스크 복제본은 디스크마다 일관성이 있지만(지연 포함), 여러 활성 디스크의 복제본은 서로 동기화되지 않을 수 있습니다. 여러 디스크에서 일관성 있는 복제본을 유지하려면 일관성 있는 스냅샷이 필요합니다.
 
 지역 중복 저장소 및 읽기 액세스 지역 중복 저장소 간의 주요 차이점은 읽기 액세스 지역 중복 저장소를 사용하면 언제든지 보조 복사본을 읽을 수 있다는 점입니다. 주 지역의 데이터를 액세스할 수 없게 렌더링하는 문제가 있는 경우 Azure 팀은 액세스를 복원하기 위해 모든 노력을 다할 것입니다. 읽기 액세스 지역 중복 저장소를 사용하도록 설정하면 기본 데이터 센터가 작동 중단되어 있는 동안에도 보조 데이터 센터의 데이터에 액세스할 수 있습니다. 따라서 기본 데이터 센터에 액세스할 수 없는 동안에 복제본을 읽으려는 경우 읽기 액세스 지역 중복 저장소를 고려해야 합니다.
 

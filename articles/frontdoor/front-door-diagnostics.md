@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736811"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링합니다.
@@ -25,7 +25,7 @@ Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 
 - **메트릭**. 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
 - **로그**합니다. 활동 및 진단 로그는 성능, 액세스 및 기타 데이터를 저장 하거나 모니터링을 위해 리소스에서 사용할 수 있습니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 메트릭은 포털에서 성능 카운터를 볼 수 있도록 하는 특정 Azure 리소스에 대 한 기능입니다. 다음은 첫 번째 관문 메트릭을 사용할 수 있습니다.
 

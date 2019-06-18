@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059623"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -232,6 +232,27 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 3. SDK를 통해 이러한 새 설정이 선택되도록 프로세스를 다시 시작
 
 4. 완료되면 이러한 변경 내용을 되돌립니다.
+
+
+## <a name="PerfView"></a> PerfView 사용 하 여 로그를 수집 합니다.
+[PerfView](https://github.com/Microsoft/perfview) 수집 하 고 여러 원본에서 진단 정보를 시각화 하 여 CPU, 메모리 및 기타 문제를 격리 하는 데 도움이 되는 사용 가능한 진단 및 성능 분석 도구입니다.
+
+Application Insights SDK PerfView에서 캡처할 수 있는 EventSource 자체 문제 해결 로그를 기록 합니다.
+
+로그를 수집 하려면 PerfView를 다운로드 하 고이 명령을 실행 합니다.
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+필요에 따라 이러한 매개 변수를 수정할 수 있습니다.
+
+- **MaxCollectSec**. PerfView에서 무기한으로 실행 하 고 서버의 성능에 영향을 주지 않으려면이 매개 변수를 설정 합니다.
+- **OnlyProviders**합니다. 만 SDK의 로그를 수집 하려면이 매개 변수를 설정 합니다. 특정 조사에 따라이 목록을 사용자 지정할 수 있습니다. 
+
+
+자세한 내용은
+- [PerfView 사용 하 여 성능 추적을 기록](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)합니다.
+- [Application Insights 이벤트 원본](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

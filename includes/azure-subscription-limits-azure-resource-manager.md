@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146234"
 ---
 | Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-|  [구독](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> 지역당 합니다. |지역당 25,000 합니다. |
+| [구독](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> 지역당 합니다. |지역당 25,000 합니다. |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |20<sup>1</sup> 지역당 합니다. | 지원에 문의 |
 | VM 시리즈, Dv2, F 등 당 코어 당 [구독](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> 지역당 합니다. | 지원에 문의 |
 | [공동](../articles/billing-add-change-azure-subscription-administrator.md) 구독 당 |무제한. |무제한. |
@@ -27,8 +27,8 @@ ms.locfileid: "66146234"
 | Azure Resource Manager API 요청 크기 |4,194,304 바이트 수입니다. |4,194,304 바이트 수입니다. |
 | 구독 당 태그 수<sup>2</sup> |무제한. |무제한. |
 | 구독 당 고유한 태그 계산<sup>2</sup> | 10000 | 10000 |
-| [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
-| [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
+| [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md) |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
+| [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
 | [구독 수준 배포](../articles/azure-resource-manager/deploy-to-subscription.md) 위치 당 | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>기본 제한은 무료 평가판에서 종 량 제 등의 제품 범주 유형에 따라 다릅니다 시리즈, Dv2, F 및 7. 예:

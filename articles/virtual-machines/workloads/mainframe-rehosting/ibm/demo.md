@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925684"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>설정 하는 응용 프로그램 개발자가 제어 배포 (ADCD) IBM zD & T v1
@@ -165,7 +165,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 다음 단계는 IBM �
 
 7. 다음 화면에서 VM (즉, 없습니다 ztadmin 자격 증명)에 대 한 자격 증명을 제공 합니다.
 
-8. 속성 창에서 입력 수가 **중앙 프로세서 (CPs)**, 양을 **시스템 메모리 (GB)**, 및 **배포 디렉터리** 실행 중인 이미지에 대 한 합니다. 데모 이므로 작게 유지 합니다.
+8. 속성 창에서 입력 수가 **중앙 프로세서 (CPs)** , 양을 **시스템 메모리 (GB)** , 및 **배포 디렉터리** 실행 중인 이미지에 대 한 합니다. 데모 이므로 작게 유지 합니다.
 
 9. 에 대 한 확인란을 선택 했는지 **z/OS 후 문제 IPL 명령을 자동으로 배포**합니다.
 

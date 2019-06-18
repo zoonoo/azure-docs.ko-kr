@@ -18,10 +18,10 @@ ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369594"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>무료 평가판 또는 Azure 스타터 구독을 종 량 제로 업그레이드
@@ -34,7 +34,7 @@ ms.locfileid: "60369594"
 
 평가판 구독에서 업그레이드하는 경우 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 1. 검색 **구독 합니다.**
 
     ![검색을 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
@@ -65,7 +65,7 @@ ms.locfileid: "60369594"
 
 다음 단계를 수행할 때 하겠습니다 있습니다 자격이 있는 경우 무료 평가판으로 업그레이드 하는 옵션.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 1. 검색 **구독 합니다.**
 
     ![검색을 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)

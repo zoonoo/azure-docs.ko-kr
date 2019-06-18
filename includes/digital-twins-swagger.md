@@ -9,10 +9,10 @@ ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 35078d9cf705351a9f64f52738c9eaca90814f7a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157908"
 ---
 > [!TIP]
@@ -25,7 +25,7 @@ ms.locfileid: "66157908"
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 다음 항목으로 교체 |
+| 이름 | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Azure Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |

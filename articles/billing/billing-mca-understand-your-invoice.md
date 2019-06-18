@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604044"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서에서 용어 이해
@@ -46,7 +46,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 | 구매처 |청구 계정 속성에서 찾을 법인의 주소|
 | 청구지 |대금 청구 주소, 청구 프로필 속성에 있는 송장을 받은 청구 프로필|
 | 청구 프로필 |송장을 받은 청구 프로필의 이름 |
-| P.O. 번호 |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
+| P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적용으로 사용할를 고유 하 고 Microsoft에서 생성 된 청구서 번호 |
 | 청구서 날짜 |청구서 생성 되는 일반적으로 5 ~ 12 일 후 청구 주기 종료 날짜입니다. 청구 프로필 속성에 송장 날짜를 확인할 수 있습니다.|
 | 지불 조건 |Microsoft 청구서에 대 한 지불 방법입니다. *30 일 동안 net* 송장 일 로부터 30 일 이내에 지불을 의미 합니다. |
@@ -59,14 +59,14 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 | 용어 | 설명 |
 | --- | --- |
-| 요금|마지막 청구 기간 이후이 청구 프로필에 대 한 Microsoft 요금은의 총 수 |
+| Charges|마지막 청구 기간 이후이 청구 프로필에 대 한 Microsoft 요금은의 총 수 |
 | 크레딧 |반환에서 받은 크레딧 |
 | Azure 크레딧은 적용 | Azure 크레딧은 적용 되는 자동으로 Azure 비용 각 청구 기간 |
 | 소계 |세 전 금액 |
 | 세금 |형식 및 청구 프로필의 국가/지역에 따라 지불 하는 세금입니다. 세금을 납부 하지 않아도 세금 청구서에 표시 되지 않습니다. |
 | 총 절감 비용 예상 |유효 할인에서 저장 하는 예상된 총 공간입니다. 해당 하는 경우 유효 할인 요금이 청구서 섹션으로 구매 품목 세부 정보에서 아래에 나열 됩니다. |
 
-### <a name="invoice-sections"></a>청구서 섹션
+### <a name="invoice-sections"></a>송장 섹션
 
 청구 프로필에서 각 송장 섹션에 대 한 요금은, 적용 하는 Azure 크레딧의 금액, 세금 및 총 금액 표시 됩니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237928"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751816"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "66237928"
 
 **주요 변경 내용** 
 
-*   [절전 모드 해제 단어 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) 되었습니다 간체, 이제 앱의 일부 이며 별도 장치에 설치할 필요가 없습니다.
+*   [절전 모드 해제 단어 설치](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 되었습니다 간체, 이제 앱의 일부 이며 별도 장치에 설치할 필요가 없습니다.
 *   절전 모드 해제 단어 인식 변경 하 고 두 이벤트는 지원 합니다.
     - RecognizingKeyword 합니다 (확인 되지 않은) 키워드 텍스트를 포함 하는 음성 결과 나타냅니다.
     - RecognizedKeyword, 지정 된 키워드가 인식 완료 하는 키워드 인식을 나타냅니다.

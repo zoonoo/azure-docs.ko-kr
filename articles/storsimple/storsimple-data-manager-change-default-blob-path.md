@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723801"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
@@ -60,7 +60,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
 5. **함수**를 선택하고 **+ 새 함수**를 클릭합니다.
 
-    ![+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
+    ![\+ 새 함수 클릭](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
 6. 언어로 **C#** 을 선택합니다. 템플릿 타일 배열의 **QueueTrigger-CSharp** 타일에서 **C#** 을 선택합니다.
 

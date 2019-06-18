@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370359"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
@@ -33,7 +33,7 @@ ms.locfileid: "60370359"
 
 다음 섹션에서는 미국 동부 지역에서 Standard_DS1_v2 Windows VM을 실행하고 예약 VM 인스턴스 정보가 다음 표와 같다고 가정합니다.
 
-| 필드 | Value |
+| 필드 | 값 |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |수량 |1|
@@ -68,16 +68,16 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
-| 필드 | Value |
+| 필드 | 값 |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |수량 |2|
-|제품| SQL Database Gen 4(2개 코어)|
+|Product| SQL Database Gen 4(2개 코어)|
 |지역 | eastus |
 
 ### <a name="statement-section-of-csv-file"></a>CSV 파일의 명령문 섹션
 
-**예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
+**예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL 데이터베이스 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
 ![SQL Database 예약된 용량에 대한 CSV 파일](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ef65f09a4e7513738a6cc6b277d06cd4cb4da8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052380"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -98,7 +98,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
    ![클라이언트 ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>인증서 및 암호
-데몬이 응용 프로그램이 Azure AD로 인증 하도록 두 가지 형태의 자격 증명을 사용할 수 있습니다: 인증서 및 응용 프로그램 비밀입니다.  인증서를 사용 하는 것이 좋습니다 하지만 새 응용 프로그램 비밀을 만들 수도 있습니다.
+디먼 응용 프로그램 Azure AD로 인증 하도록 두 가지 형태의 자격 증명을 사용할 수 있습니다: 인증서 및 응용 프로그램 비밀입니다.  인증서를 사용 하는 것이 좋습니다 하지만 새 응용 프로그램 비밀을 만들 수도 있습니다.
 
 ### <a name="upload-a-certificate"></a>인증서 업로드
 

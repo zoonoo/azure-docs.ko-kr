@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160187"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
@@ -85,7 +85,7 @@ ESXi 호스트는 사설 클라우드의 고가용성을 보장 하는 클러스
 
 ### <a name="vsphere-cluster-limits"></a>vSphere 클러스터 제한
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 |----------|-------|
 | 사설 클라우드를 만드는 노드의 최소 수 (첫 번째 vSphere 클러스터) | 3 |
 | VSphere에서 노드의 최대 수는 사설 클라우드에서 클러스터 | 16 |

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151696"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Windows IoT Edge에서 Linux 컨테이너 실행
@@ -66,7 +66,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 2. PowerShell을 관리자 권한으로 실행합니다.
 
    >[!NOTE]
-   >IoT Edge를 하지 PowerShell (x86)를 설치 하는 AMD64 세션의 PowerShell 사용 합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행 합니다.
+   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]

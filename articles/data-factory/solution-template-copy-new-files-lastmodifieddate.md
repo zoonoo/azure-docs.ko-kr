@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312816"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 LastModifiedDate에서 새로운 기능과 변경 된 파일 복사
@@ -60,8 +60,8 @@ ms.locfileid: "60312816"
     ![파이프라인 표시](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. 선택 **디버그**에 대 한 값을 쓸 합니다 **매개 변수** 선택한 **마침**합니다.  아래 그림에서 다음과 같이 매개 변수를 설정 합니다.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
@@ -86,10 +86,10 @@ ms.locfileid: "60312816"
     ![트리거 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. 에 대 한 값을 쓸 합니다 **트리거 실행 매개 변수** 으로 선택한 다음 **완료**합니다.
-    - **FolderPath_Source** = **/source/**.  원본 데이터 저장소의 폴더를 사용 하 여 바꿀 수 있습니다.
-    - **FolderPath_Destination** = **/destination/**.  대상 데이터 저장소의 폴더를 사용 하 여 바꿀 수 있습니다.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  트리거의 경우 파이프라인을 마지막으로 트리거된 시간을 결정 하는 시스템 변수는 것입니다.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  파이프라인이 이번 트리거될 때 시간을 결정 하는 트리거에서 시스템 변수로 것입니다.
+    - **FolderPath_Source** =  **/source/** .  원본 데이터 저장소의 폴더를 사용 하 여 바꿀 수 있습니다.
+    - **FolderPath_Destination** =  **/destination/** .  대상 데이터 저장소의 폴더를 사용 하 여 바꿀 수 있습니다.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  트리거의 경우 파이프라인을 마지막으로 트리거된 시간을 결정 하는 시스템 변수는 것입니다.
+    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  파이프라인이 이번 트리거될 때 시간을 결정 하는 트리거에서 시스템 변수로 것입니다.
     
     ![입력 매개 변수](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

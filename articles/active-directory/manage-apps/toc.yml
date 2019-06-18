@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: 최종 사용자 포털
       href: end-user-experiences.md
+    - name: 한 번 클릭 SSO
+      items:
+        - name: 한 번 클릭 SSO란?
+          href: one-click-sso-tutorial.md
 - name: 방법 가이드
   items:
     - name: 클라우드 앱 추가

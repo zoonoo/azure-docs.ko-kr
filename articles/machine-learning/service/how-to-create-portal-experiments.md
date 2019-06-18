@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990145"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>작성 및 자동화 된 machine learning 실험 (미리 보기)는 Azure 포털을 탐색 합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "65990145"
 
     필드|설명
     ---|---
-    컴퓨팅 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
+    계산 이름| 계산 컨텍스트를 식별 하는 고유한 이름을 입력 합니다.
     가상 머신 크기| 컴퓨터에 대 한 가상 머신 크기를 선택 합니다.
     추가 설정| *최소 노드*: 컴퓨터에 대 한 최소 노드 수를 입력 합니다. AML 계산에 대 한 노드의 최소 수는 0입니다. 데이터 프로 파일링을 사용 하려면 하나 이상의 노드가 있어야 합니다. <br> *최대 노드*: 컴퓨터에 대 한 최대 노드 수를 입력 합니다. 기본값은 6 개 노드는 AML Compute에 대 한 합니다.
 

@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573515"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Azure Security Center에서 보안 이벤트 모니터링 및 처리
 이벤트 대시보드에서는 시간별로 수집된 보안 이벤트 수의 개요와, 확인해야 할 수 있는 주목할 만한 이벤트의 목록이 제공됩니다.  
 
 > [!NOTE]
-> 이 기능을 사용하려면 작업 영역이 Log Analytics 버전 2를 실행해야 하며, Security Center 표준 계층이 적용되어 있어야 합니다. 표준 계층에 대한 자세한 내용은 Security Center [가격 책정 페이지](security-center-pricing.md)를 참조하세요.
->
->
+> 보안 이벤트 대시보드는 2019 년 7 월 31 일에 만료 됩니다. 자세한 내용 및 대체 서비스를 참조 하세요 [Security Center의 사용 중지 기능 (2019 년 7 월)](security-center-features-retirement-july2019.md#menu_events)합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>보안 이벤트란?
 Security Center에서는 Microsoft Monitoring Agent를 사용하여 컴퓨터에서 다양한 보안 관련 구성과 이벤트를 수집한 다음 작업 영역에 저장합니다. 이러한 데이터의 예로는 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, Security Center와 통합된 보안 솔루션의 이벤트 등이 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
+
+## <a name="requirements"></a>요구 사항
+이 기능을 사용하려면 작업 영역이 Log Analytics 버전 2를 실행해야 하며, Security Center 표준 계층이 적용되어 있어야 합니다. 표준 계층에 대한 자세한 내용은 Security Center [가격 책정 페이지](security-center-pricing.md)를 참조하세요.
 
 ## <a name="events-processed-dashboard"></a>처리된 이벤트 대시보드
 Security Center 주 메뉴 또는 Security Center **개요** 블레이드에서 **이벤트** 대시보드에 액세스합니다.  

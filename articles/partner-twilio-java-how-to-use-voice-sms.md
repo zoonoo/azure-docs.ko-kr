@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623955"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -42,17 +42,17 @@ API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는
 
 다음은 Twilio 동사의 목록입니다.
 
-* **&lt;전화&gt;**: 발신자를 다른 전화에 연결합니다.
-* **&lt;수집&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
-* **&lt;전화 끊기&gt;**: 통화를 끝냅니다.
-* **&lt;재생&gt;**: 오디오 파일을 재생합니다.
-* **&lt;큐&gt;**: 호출자 큐에 추가합니다.
-* **&lt;일시 중시&gt;**: 지정된 시간(초) 동안 무음으로 대기합니다.
-* **&lt;녹음&gt;**: 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
-* **&lt;리디렉션&gt;**: 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
-* **&lt;거부&gt;**: 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
-* **&lt;통화&gt;**: 통화 시 텍스트를 음성으로 변환합니다.
-* **&lt;Sms&gt;**: SMS 메시지를 보냅니다.
+* **&lt;전화&gt;** : 발신자를 다른 전화에 연결합니다.
+* **&lt;수집&gt;** : 전화 키패드에 입력된 숫자를 수집합니다.
+* **&lt;전화 끊기&gt;** : 통화를 끝냅니다.
+* **&lt;재생&gt;** : 오디오 파일을 재생합니다.
+* **&lt;큐&gt;** : 호출자 큐에 추가합니다.
+* **&lt;일시 중시&gt;** : 지정된 시간(초) 동안 무음으로 대기합니다.
+* **&lt;녹음&gt;** : 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
+* **&lt;리디렉션&gt;** : 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
+* **&lt;거부&gt;** : 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
+* **&lt;통화&gt;** : 통화 시 텍스트를 음성으로 변환합니다.
+* **&lt;Sms&gt;** : SMS 메시지를 보냅니다.
 
 ### <a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -158,7 +158,7 @@ JSP(Java Server Page) 원본 파일의 경우
 **Message.creator** 메서드에 전달된 매개 변수에 대한 자세한 내용은 [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]를 참조하세요.
 
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-애플리케이션에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [https://twimlets.com/message][twimlet_message_url]를 클릭하여 빈 **&lt;Response&gt;** 요소를 확인합니다. 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world]를 클릭하여 **&lt;Say&gt;** 요소를 포함하는 **&lt;Response&gt;** 요소를 확인합니다.)
+애플리케이션에서 Twilio API 호출을 시작하면(예: **CallCreator.create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 웹 서비스에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [https://twimlets.com/message][twimlet_message_url]를 클릭하여 빈 **&lt; Response&gt;** 요소를 확인합니다. 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world]를 클릭하여 **&lt; Say&gt;** 요소를 포함하는 **&lt; Response&gt;** 요소를 확인합니다.)
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 JSP 페이지에서 URL을 호스팅한다고 가정합니다.
 

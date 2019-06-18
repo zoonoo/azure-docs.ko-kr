@@ -1,25 +1,25 @@
 ---
 title: Azure Database for MySQL의 서버 로그
-description: Azure Database for MySQL에서 사용할 수 있는 로그와, 다양한 로깅 수준을 활성화하는 데 사용할 수 있는 매개 변수에 대해 설명합니다.
+description: MySQL 및 다양 한 로깅 수준을 사용 하도록 설정 하는 것에 대 한 사용 가능한 매개 변수에 대 한 Azure Database에서 사용할 수 있는 느린 쿼리 로그를 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525834"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062408"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 로그
-Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>MySQL 용 Azure Database에서 느린 쿼리 로그
+Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
 
 MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서의 [느린 쿼리 로그 섹션](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)을 참조하세요.
 
-## <a name="access-server-logs"></a>서버 로그 액세스
-Azure Portal 및 Azure CLI를 사용하여 Azure Database for MySQL 서버 로그를 나열 및 다운로드할 수 있습니다.
+## <a name="access-slow-query-logs"></a>느린 쿼리 로그 액세스
+목록 및 Azure portal 및 Azure CLI를 사용 하 여 MySQL 느린 쿼리 로그에 대 한 Azure Database를 다운로드할 수 있습니다.
 
 Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터링** 머리글 아래에서 **서버 로그** 페이지를 선택합니다.
 
@@ -30,8 +30,7 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 
 즉, 24시간이 지나거나 전체 크기가 7GB를 초과할 때마다(먼저 해당되는 쪽) 로그가 가장 오래된 파일부터 삭제됩니다.
 
-
-## <a name="configure-logging"></a>로깅 구성 
+## <a name="configure-slow-query-logging"></a>느린 쿼리 로깅 구성 
 기본적으로 느린 쿼리 로그는 비활성화됩니다. 활성화하려면 slow_query_log를 ON으로 설정합니다.
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
@@ -41,7 +40,7 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
 - **log_throttle_queries_not_using_indexes**: 이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 인덱스가 아닌 쿼리 수의 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
 
-느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요. 
+느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보내는 것을 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요.
@@ -73,7 +72,7 @@ Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQ
 | `rows_sent_s` | 전송된 행 수 |
 | `rows_examined_s` | 검사된 행 수 |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | ID 삽입 |
+| `insert_id_s` | ID를 삽입 합니다. |
 | `sql_text_s` | 전체 쿼리 |
 | `server_id_s` | 서버 ID |
 | `thread_id_s` | 스레드 ID |

@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f5f3fe32e03a9a2bb0186854a83917f8918c6647
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66358125"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple 보안 개요
@@ -35,7 +35,7 @@ Microsoft 디자인, 빌드 및 Azure를 지 원하는 물리적 시설을 운�
 
 완전 복구 하드웨어 장비에 사설 클라우드를 실행 하는 Azure 데이터 센터 위치에서 호스트 됩니다.  여기서는 장비는, 케이지도 액세스 생체 인식 기반된 2 단계 인증이 필요 합니다.
 
-## <a name="dedicated-hardware"></a>전용된 하드웨어
+## <a name="dedicated-hardware"></a>전용 하드웨어
 
 CloudSimple 서비스의 일부로 모든 CloudSimple 고객 전용된 베어 메탈 호스트를 다른 테 넌 트 하드웨어에서 물리적으로 격리 된 로컬 연결 된 디스크를 사용 하 여 가져옵니다. VSAN 사용 하 여 ESXi 하이퍼바이저는 모든 노드에서 실행 됩니다. 노드는 전용 고객 VMware vCenter 및 NSX 통해 관리 됩니다. 테 넌 트 간에 하드웨어를 공유 하지 않는 격리 및 보안 보호 추가 계층을 제공 합니다.
 

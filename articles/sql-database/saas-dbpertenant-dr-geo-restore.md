@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557071"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
@@ -80,7 +80,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 복구 프로세스를 시작하기 전에 애플리케이션의 정상 상태를 검토합니다.
 
-1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, replace &lt;user&gt;를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
+1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net, replace &lt; user&gt; 를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
     
    페이지 아래쪽으로 스크롤하여 바닥글에서 카탈로그 서버 이름과 위치를 확인합니다. 위치는 앱을 배포한 지역입니다.    
 
@@ -200,7 +200,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
  
     ![복구 프로세스](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
+  * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
 
     ![복구 프로세스](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 3. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall)를 새로 고치고, Seriously Strauss 이벤트가 누락되어 있는지 확인합니다.
+4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall)를 새로 고치고, Seriously Strauss 이벤트가 누락되어 있는지 확인합니다.
 
 자습서의 이 시점에서는 이제 복구 지역에서 실행되는 애플리케이션을 복구했습니다. 복구 지역에 새 테넌트를 프로비전하고 복원된 테넌트 중 하나의 데이터를 수정했습니다.  
 
@@ -330,7 +330,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
     새 PowerShell 창에서 복구 스크립트를 실행하려면 F5 키를 누릅니다. 송환에는 몇 분 정도 걸리며, PowerShell 창에서 모니터링할 수 있습니다.
 
-3. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)를 새로 고칩니다.
+3. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)를 새로 고칩니다.
 
     모든 테넌트가 온라인 상태이며 이 프로세스를 통해 액세스할 수 있습니다.
 

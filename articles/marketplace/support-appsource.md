@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
 ms.openlocfilehash: 788a50b85b47b104f12c22ea3d4c39627c412cc2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937538"
 ---
 # <a name="support-for-appsource"></a>AppSource 지원  
 AppSource에 대한 지원 옵션입니다.  
 
-## <a name="technical"></a>기술  
+## <a name="technical"></a>기술적  
 
 | 지원 채널 | 설명 |  
 |:--- |:--- |  

@@ -12,10 +12,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 05fc742bba535ea3968e60cd0f40c80b812c09fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61043069"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
@@ -74,7 +74,7 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 - 그룹 계정에 **프로젝트 템플릿 리포지토리**를 만들고 Microsoft TDSP 팀에서 개발한 프로젝트 템플릿 리포지토리에서 시드합니다. Microsoft의 TDSP 프로젝트 템플릿 리포지토리는
     - 데이터, 코드 및 문서에 대한 디렉터리를 포함하여 **표준화된 디렉터리 구조**를 제공합니다.
     - **표준화된 문서 템플릿** 집합을 제공하여 효율적인 데이터 과학 프로세스를 안내합니다.
-- **유틸리티 리포지토리**를 만들고 Microsoft TDSP 팀에서 개발한 유틸리티 리포지토리에서 시드합니다. Microsoft의 TDSP 유틸리티 리포지토리는 
+- **유틸리티 리포지토리**를 만들고 Microsoft TDSP 팀에서 개발한 유틸리티 리포지토리에서 시드합니다. Microsoft의 TDSP 유틸리티 리포지토리는
     - 대화형 데이터 탐색, 분석 및 보고에 대한 유틸리티와 기준 모델링 및 보고에 대한 유틸리티를 비롯하여 유용한 유틸리티 집합을 제공하여 데이터 과학자가 더 효율적으로 작업하게 합니다.
 - 그룹 계정에서 이 두 리포지토리의 **보안 제어 정책**을 설정합니다.
 

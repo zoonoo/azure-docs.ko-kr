@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3448a5e89f6930a5bdcb7d0d77b92576e58fc90b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5eac6cd60b9e58dea8901fad076bb481d5f2eb06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078316"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 사용
 
@@ -28,9 +28,6 @@ SSH(Secure Shell) 연결에서 HDInsight로 MapReduce 작업을 제출하는 방
 
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 
-  > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
 * SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a id="ssh"></a>SSH를 사용하여 연결
@@ -41,7 +38,7 @@ SSH를 사용하여 클러스터에 연결합니다. 예를 들어, 다음 명�
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**SSH 인증을 위해 인증서 키를 사용하는 경우** 클라이언트 시스템에서 개인 키의 위치를 지정해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
+**SSH 인증을 위해 인증서 키를 사용하는 경우** 클라이언트 시스템에서 프라이빗 키의 위치를 지정해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```bash
 ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net

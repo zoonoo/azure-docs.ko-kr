@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754593"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077170"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽 (미리 보기)를 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성
 
@@ -52,20 +52,22 @@ Azure 방화벽을 사용 하 여 기존에 HDInsight에서의 송신을 잠그�
 
 에 **응용 프로그램 규칙 컬렉션 추가** 화면에서 다음 단계를 완료 합니다.
 
-1. 입력을 **이름을**, **우선 순위**, 클릭 **허용** 에서 합니다 **작업** 드롭다운 메뉴.
-1. 다음 규칙을 추가 합니다.
-    1. HDInsight 및 Windows 업데이트 트래픽을 허용 하는 규칙:
-        1. 에 **FQDN 태그** 섹션에서 제공을 **이름**, 설정 및 **원본 주소** 에 `*`입니다.
-        1. 선택 **HDInsight** 하며 **WindowsUpdate** 에서 합니다 **FQDN 태그** 드롭다운 메뉴입니다.
-    1. Windows 로그인 작업을 허용 하는 규칙:
-        1. 에 **대상 Fqdn** 섹션에서 제공을 **이름**, 설정 및 **원본 주소** 에 `*`입니다.
-        1. 입력 `https:443` 아래에서 **프로토콜: 포트** 하 고 `login.windows.net` 아래 **FQDN 대상**합니다.
-    1. 클러스터 WASB에서 지 원하는, 하는 경우 다음 WASB에 대 한 규칙을 추가 합니다.
-        1. 에 **대상 Fqdn** 섹션에서 제공을 **이름**, 설정 및 **원본 주소** 에 `*`입니다.
-        1. 입력 `http:80,https:443` 아래에서 **프로토콜: 포트** 아래에서 저장소 계정 url **대상 FQDN**합니다. 형식은 < storage_account_name.blob.core.windows.net > 비슷하게 됩니다. 만 https를 사용 하도록 연결 했는지 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 저장소 계정에서 사용 하도록 설정 됩니다.
+1. 입력을 **이름**, **우선 순위**, 클릭 **허용** 에서 **작업** 드롭다운 메뉴에서 다음 규칙은 에입력**FQDN 태그 섹션** :
+
+   | **Name** | **소스 주소** | **FQDN 태그** | **참고 사항** |
+   | --- | --- | --- | --- |
+   | Rule_1 | * | HDInsight 및 WindowsUpdate | HDI 서비스에 필요한 |
+
+1. 다음 규칙을 추가 합니다 **대상 Fqdn 섹션** :
+
+   | **Name** | **소스 주소** | **Protocol:Port** | **대상 FQDN** | **참고 사항** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 활동 수 |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 클러스터는 WASB에서 지 원하는, 하는 경우 WASB에 대 한 규칙을 추가 합니다. 만 https를 사용 하도록 연결 했는지 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 저장소 계정에서 사용 하도록 설정 됩니다. |
+
 1. **추가**를 클릭합니다.
 
-![제목: 응용 프로그램 규칙 컬렉션 세부 정보를 입력 합니다.](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![제목: 응용 프로그램 규칙 컬렉션 세부 정보를 입력 합니다.](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>네트워크 규칙을 사용 하 여 방화벽을 구성 합니다.
 
@@ -74,37 +76,24 @@ HDInsight 클러스터를 올바르게 구성 하도록 네트워크 규칙을 �
 1. 새 방화벽 선택 **테스트 FW01** Azure portal에서 합니다.
 1. 클릭 **규칙** 아래에서 **설정** > **네트워크 규칙 컬렉션** > **네트워크 규칙 컬렉션 추가**합니다.
 1. 에 **네트워크 규칙 컬렉션을 추가** 화면에서 입력을 **이름**, **우선 순위**, 클릭 **허용** 에서 **작업** 드롭다운 메뉴입니다.
-1. 다음 규칙을 만듭니다.
-    1. NTP를 사용 하 여 클록 동기화를 수행 하려면 클러스터를 허용 하는 IP 주소 섹션에는 네트워크 규칙.
-        1. 에 **규칙** 섹션에서 제공을 **이름** 선택한 **UDP** 에서 **프로토콜** 드롭다운 합니다.
-        1. 설정할 **원본 주소** 하 고 **대상 주소** 에 `*`입니다.
-        1. 설정할 **대상 포트** 123으로 합니다.
-    1. 엔터프라이즈 보안 패키지 (ESP)를 사용 하는 경우 다음 ESP 클러스터에 대 한 AAD DS와의 통신을 허용 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다.
-        1. 도메인 컨트롤러에 대 한 두 개의 IP 주소를 확인 합니다.
-        1. 다음 행에는 **규칙** 섹션에서 제공을 **이름** 선택한 **모든** 에서 합니다 **프로토콜** 드롭다운 합니다.
-        1. 설정할 **원본 주소** `*`합니다.
-        1. 도메인 컨트롤러에 대 한 모든 IP 주소를 입력 **대상 주소** 쉼표로 구분 합니다.
-        1. 설정할 **대상 포트** 에 `*`입니다.
-    1. Azure Data Lake Storage를 사용 하는 네트워크 규칙을 ADLS Gen1 Gen2와 SNI 문제를 해결 하려면 IP 주소 섹션에서 추가할 수 있습니다. 이 옵션은 대량의 데이터 로드에 대 한 높은 비용이 발생 시킬 수 있는 방화벽에 트래픽이 라우팅되 하지만 트래픽이 기록 되 고 방화벽 로그에서 감사 됩니다.
-        1. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. 와 같은 powershell 명령을 사용할 수 있습니다 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` IP 주소에 FQDN을 확인할 수 있습니다.
-        1. 다음 행에는 **규칙** 섹션에서 제공을 **이름** 선택한 **TCP** 에서 합니다 **프로토콜** 드롭다운 합니다.
-        1. 설정할 **원본 주소** `*`합니다.
-        1. 저장소 계정에 대 한 IP 주소를 입력 **대상 주소**합니다.
-        1. 설정할 **대상 포트** 에 `*`입니다.
-    1. (선택 사항) Log Analytics를 사용 하는 경우 Log Analytics 작업 영역을 사용 하 여 통신할 수 있도록 IP 주소 섹션에서 네트워크 규칙을 만듭니다.
-        1. 다음 행에는 **규칙** 섹션에서 제공을 **이름** 선택한 **TCP** 에서 합니다 **프로토콜** 드롭다운 합니다.
-        1. 설정할 **원본 주소** `*`합니다.
-        1. 설정할 **대상 주소** 에 `*`입니다.
-        1. 설정할 **대상 포트** 에 `12000`입니다.
-    1. SQL을 사용 하면 로그인 하 고 SQL 트래픽 감사 방화벽을 바이패스 하는 HDInsight 서브넷의 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다.
-        1. 다음 행에는 **규칙** 섹션에서 제공을 **이름** 선택한 **TCP** 에서 합니다 **프로토콜** 드롭다운 합니다.
-        1. 설정할 **원본 주소** `*`합니다.
-        1. 설정할 **대상 주소** 에 `*`입니다.
-        1. 선택 **Sql** 에서 합니다 **서비스 태그** 드롭다운 합니다.
-        1. 설정할 **대상 포트** 에 `1433,11000-11999,14000-14999`입니다.
+1. 다음 규칙을 만들 합니다 **IP 주소** 섹션:
+
+   | **Name** | **프로토콜** | **소스 주소** | **대상 주소** | **대상 포트** | **참고 사항** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_1 | UDP | * | * | `123` | 시간 서비스 |
+   | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 엔터프라이즈 보안 패키지 (ESP)를 사용 하는 경우 다음 ESP 클러스터에 대 한 AAD DS와의 통신을 허용 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 포털에서 AAD DS 섹션에서 도메인 컨트롤러의 IP 주소를 찾을 수 있습니다. | 
+   | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 네트워크 규칙을 ADLS Gen1 Gen2와 SNI 문제를 해결 하려면 IP 주소 섹션에서 추가할 수 있습니다. 이 옵션은 대량의 데이터 로드에 대 한 높은 비용이 발생 시킬 수 있는 방화벽에 트래픽이 라우팅되 하지만 트래픽이 기록 되 고 방화벽 로그에서 감사 됩니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. 와 같은 powershell 명령을 사용할 수 있습니다 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` IP 주소에 FQDN을 확인할 수 있습니다.|
+   | Rule_4 | TCP | * | * | `12000` | (선택 사항) Log Analytics를 사용 하는 경우 Log Analytics 작업 영역을 사용 하 여 통신할 수 있도록 IP 주소 섹션에서 네트워크 규칙을 만듭니다. |
+
+1. 다음 규칙을 만들 합니다 **서비스 태그** 섹션:
+
+   | **Name** | **프로토콜** | **소스 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | SQL을 사용 하면 로그인 하 고 SQL 트래픽 감사 방화벽을 바이패스 하는 HDInsight 서브넷의 SQL Server에 대 한 서비스 끝점을 구성 하지 않은 경우에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
+
 1. 클릭 **추가** 네트워크 규칙 컬렉션 만들기를 완료 합니다.
 
-![제목: 응용 프로그램 규칙 컬렉션 세부 정보를 입력 합니다.](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![제목: 응용 프로그램 규칙 컬렉션 세부 정보를 입력 합니다.](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>만들기 및 경로 테이블을 구성 합니다.
 
@@ -162,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Azure Monitor 로그로 Azure 방화벽 통합 먼저 모든 응용 프로그램 종속성의 인식할 수 없는 경우는 응용 프로그램 작업을 시작 하는 경우 유용 합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
-방화벽 설치를 성공적으로 알게 된 후 내부 끝점을 사용할 수 있습니다 (`https://<clustername>-int.azurehdinsight.net`) VNET 내에서 Ambari에 액세스할 수 있습니다. 공용 끝점을 사용 하도록 (`https://<clustername>.azurehdinsight.net`) 또는 ssh 끝점 (`<clustername>-ssh.azurehdinsight.net`), 경로 테이블의 올바른 경로 있고 NSG 규칙 설명 asymetric 라우팅 문제를 방지 하려면 설치 했는지 [여기](https://docs.microsoft.com/azure/firewall/integrate-lb)합니다.
+방화벽 설치를 성공적으로 알게 된 후 내부 끝점을 사용할 수 있습니다 (`https://<clustername>-int.azurehdinsight.net`) VNET 내에서 Ambari에 액세스할 수 있습니다. 공용 끝점을 사용 하도록 (`https://<clustername>.azurehdinsight.net`) 또는 ssh 끝점 (`<clustername>-ssh.azurehdinsight.net`), 오른쪽 경로 경로 테이블에 고 설명한 비대칭 라우팅 문제를 방지 하려면 NSG 규칙을 설정 했는지 [여기](https://docs.microsoft.com/azure/firewall/integrate-lb)합니다.
 
 ## <a name="configure-another-network-virtual-appliance"></a>다른 네트워크 가상 어플라이언스를 구성 합니다.
 

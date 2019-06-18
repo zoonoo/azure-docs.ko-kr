@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783979"
 ---
 # <a id="troubleshooting"></a> Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 스냅숏 보기 문제 해결
@@ -41,7 +41,7 @@ ms.locfileid: "60783979"
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
-스냅숏 디버거를 통해 활성화 된 경우는 [포털의 Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), 응용 프로그램은 이미 실행 되 고 최신 NuGet 패키지를 합니다. 스냅숏 디버거를 포함 하 여 활성화 된 경우는 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 최신 버전을 사용 하는 되도록 사용 하 여 Visual Studio의 NuGet 패키지 관리자 Microsoft.ApplicationInsights.SnapshotCollector 합니다. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167에 있습니다.
+스냅숏 디버거를 통해 활성화 된 경우는 [포털의 Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), 응용 프로그램은 이미 실행 되 고 최신 NuGet 패키지를 합니다. 스냅숏 디버거를 포함 하 여 활성화 된 경우는 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 최신 버전을 사용 하는 되도록 사용 하 여 Visual Studio의 NuGet 패키지 관리자 Microsoft.ApplicationInsights.SnapshotCollector 합니다. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167 에 있습니다.
 
 ## <a name="check-the-uploader-logs"></a>업로더 로그 확인
 

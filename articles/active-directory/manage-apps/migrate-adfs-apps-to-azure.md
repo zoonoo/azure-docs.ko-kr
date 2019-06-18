@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108248"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 애플리케이션 이동 
 
@@ -46,7 +46,7 @@ ms.locfileid: "65824615"
 조직에서 이미 AD FS, Ping 또는 다른 온-프레미스 인증 공급자를 사용하는 경우, 앱을 Azure AD로 이동하면 다음과 같은 이점이 있습니다.
 
 **더 안전한 액세스**
-- [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 Azure Multi-Factor Authentication을 포함한 세부적인 응용 프로그램별 액세스 제어를 구성합니다. 이 정책은 Office 365와 동일한 방식으로 SaaS 및 사용자 지정 앱에 적용할 수 있습니다.
+- 세부적인 응용 프로그램별 액세스 제어를 사용 하 여 Azure Multi-factor Authentication을 비롯 한 구성 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)합니다. 이 정책은 Office 365와 동일한 방식으로 SaaS 및 사용자 지정 앱에 적용할 수 있습니다.
 - 위험한 트래픽을 식별하는 기계 학습 및 추론에 따라 위협을 탐지하고 로그온을 보호하려면 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용합니다.
 
 **Azure AD B2B 공동 작업**
@@ -155,7 +155,7 @@ SAML 2.0 애플리케이션은 Marketplace의 Azure AD 애플리케이션을 통
 - 사용자 지정 클레임. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
 
 사용자 지정 클레임 및 **NameID** 요소 외에도, Azure AD에서 마이그레이션의 일부로 추가 구성 단계가 필요한 구성은 다음과 같습니다.
-- AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 구성합니다.
+- AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. 사용 하 여 구성 하는 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능입니다.
 - 여러 SAML 엔드포인트가 있는 앱. PowerShell을 사용하여 Azure AD에서 구성합니다. (이 기능은 포털에서 사용할 수 없습니다.)
 - SAML 버전 1.1 토큰이 필요한 WS-Federation 앱(예: SharePoint 앱). PowerShell을 사용하여 수동으로 구성해야 합니다.
 
@@ -204,7 +204,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 !["할당 추가" 창](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 https://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
+액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 https://myapps.microsoft.com 에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
 
 ![Salesforce 및 ServiceNow 앱이 있는 액세스 패널의 예](media/migrate-adfs-apps-to-azure/migrate8.png)
 

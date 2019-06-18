@@ -11,15 +11,15 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811502"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
-**[Azure AI Gallery](https://gallery.azure.ai)**.
+**[Azure AI Gallery](https://gallery.azure.ai)** .
 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
@@ -121,7 +121,7 @@ Studio 내에서 리소스를 다운로드하려면
 * 실험 이름
 * 요약 또는 설명
 * 태그들
-* Image
+* 이미지
 * 표시 여부 설정(**공개** 또는 **비공개**)
 
 갤러리에서 실험을 삭제할 수도 있습니다.

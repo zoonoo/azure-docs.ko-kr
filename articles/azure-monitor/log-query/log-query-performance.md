@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: bwren
 ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519379"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Azure Monitor에서 효율적인 로그 쿼리 작성
@@ -58,7 +58,7 @@ requests | where timestamp between (ago(1h) .. ago(30m))
    
 ### <a name="get-only-the-latest-records"></a>최신 레코드만 가져오기
 
-최신 레코드만 반환하려면 다음 쿼리와 같이 traces 테이블에 기록된 최신 10개 레코드를 반환하는 top 연산자를 사용합니다.
+최신 레코드만 반환하려면 다음 쿼리와 같이  traces 테이블에 기록된 최신 10개 레코드를 반환하는 top 연산자를 사용합니다. 
 
 ``` Kusto
 traces | top 10 by timestamp
@@ -66,7 +66,7 @@ traces | top 10 by timestamp
 
    
 ### <a name="filter-records"></a>레코드 필터링
-지정된 조건과 일치하는 로그만 검토하려면 다음 쿼리와 같이 _severityLevel_ 값이 0보다 큰 레코드만 반환하는 where 연산자를 사용합니다.
+지정된 조건과 일치하는 로그만 검토하려면 다음 쿼리와 같이 _severityLevel_ 값이 0보다 큰 레코드만 반환하는 where 연산자를 사용합니다. 
 
 ``` Kusto
 traces | where severityLevel > 0

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125779"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3 버킷에서 데이터 복사
 
@@ -50,6 +50,9 @@ AzCopy는 저장소 계정 간에서 blob 또는 파일을 복사 하는 데 사
 
 AzCopy를 사용 합니다 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, AWS S3 및 저장소 서버 간에 직접 데이터를 복사 하도록 합니다. 이러한 복사 작업에는 컴퓨터의 네트워크 대역폭 사용 하지 마세요.
 
+> [!IMPORTANT]
+> 이 기능은 현재 미리 보기로 제공됩니다. 복사 작업 후에 S3 버킷에서 데이터를 제거 하려는 경우에 데이터를 제거 하기 전에 데이터를 저장소 계정으로 복사 제대로 되었는지 확인 해야 합니다.
+
 ### <a name="copy-an-object"></a>개체를 복사 합니다.
 
 |    |     |
@@ -62,7 +65,7 @@ AzCopy를 사용 합니다 [URL에서 블록 배치](https://docs.microsoft.com/
 >
 > 가상 호스트 스타일 Url을 사용할 수도 있습니다 (예: `http://bucket.s3.amazonaws.com`). 
 >
-> 버킷 가상 호스팅에 대 한 자세한 내용은 [가상 호스팅의 버킷이 표시]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)합니다.
+> 버킷 가상 호스팅에 대 한 자세한 내용은 [가상 호스팅의 버킷이 표시]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 합니다.
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
 ms.openlocfilehash: 9398815ea75c0eacd99a6e40c569254fac671cbb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234028"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Azure에서 솔루션을 모니터링 하는 것에 대 한 인벤토리 및 데이터 수집 세부 정보
@@ -59,8 +59,8 @@ ms.locfileid: "66234028"
 | [Azure 네트워크 보안 그룹 분석(사용되지 않음)](azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | [Azure SQL Analytics(미리 보기)](azure-sql.md) | Windows | | | | | | 1분 |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 알림 시 |
-| [용량 및 성능(미리 보기)](capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |도착 시 |
-| [변경 내용 추적](../../automation/change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [용량 및 성능(미리 보기)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |도착 시 |
+| [변경 내용 추적](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [변경 내용 추적](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [컨테이너](containers.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 3분 |
 | [Key Vault 분석](azure-key-vault.md) |Windows | | | | | |알림 시 |

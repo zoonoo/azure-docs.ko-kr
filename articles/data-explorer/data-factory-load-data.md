@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447877"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure 데이터 탐색기로 데이터 복사 
@@ -22,8 +22,8 @@ Azure 데이터 탐색기는 대용량 IoT 장치, 응용 프로그램 및 웹 �
 Azure Data Factory는 Azure 데이터 탐색기로 데이터를 로드 하기 위한 다음과 같은 이점을 제공 합니다.
 
 * **간편한 설정**: 스크립팅이 필요 없는 직관적인 5 단계 마법사.
-* **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소에 대 한 기본 제공 지원 합니다. 자세한 목록은 [지원되는 데이터 저장소](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) 표를 참조하세요.
-* **보안 및 규정 준수**: 데이터가는 HTTPS 또는 ExpressRoute를 통해 전송 됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소에 대한 기본 지원을 제공합니다. 자세한 목록은 [지원되는 데이터 저장소](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터는 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
 * **고성능**: 최대 1 GB/s 데이터 Azure 데이터 탐색기로 로드 속도입니다. 자세한 내용은 [복사 작업 성능](/azure/data-factory/copy-activity-performance)을 참조하세요.
 
 이 문서에서는 Amazon S3에서 Azure 데이터 탐색기로 데이터를 로드 하려면 Data Factory 데이터 복사 도구를 사용 하는 방법을 보여 줍니다. 와 같은 다른 데이터 저장소에서 데이터를 복사 하는 유사한 단계를 따르면 [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage), [Azure SQL Database](/azure/data-factory/connector-azure-sql-database)하십시오 [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery)하십시오[Oracle](/azure/data-factory/connector-oracle), 및 [파일 시스템](/azure/data-factory/connector-file-system)입니다.
@@ -50,7 +50,7 @@ Azure Data Factory는 Azure 데이터 탐색기로 데이터를 로드 하기 �
     | **구독** | 데이터 팩터리를 만들 Azure 구독을 선택합니다. |
     | **리소스 그룹** | 선택 **새로 만들기** 새 리소스 그룹의 이름을 입력 합니다. 선택 **기존 항목 사용**기존 리소스 그룹이 있는 경우. |
     | **버전** | **V2**를 선택합니다. |
-    | **위치**: | 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용 되는 데이터 저장소는 다른 위치 또는 지역 수 있습니다. |
+    | **Location**: | 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용 되는 데이터 저장소는 다른 위치 또는 지역 수 있습니다. |
     | | |
 
 1. 만들기 프로세스를 모니터링 하려면 도구 모음에서 알림을 선택 합니다. 만들기가 완료 되 면 사용자가 만든 데이터 팩터리로 이동 합니다. 합니다 **Data Factory** 홈 페이지가 열립니다.
@@ -158,7 +158,7 @@ Azure 데이터 탐색기의 새 연결 된 서비스는 아래에 지정 된 Az
     * 이 테이블 형식 데이터는 Azure 데이터 탐색기로 수집 하는 경우 두 번째 매핑이 발생 합니다. 매핑은에 따라 수행 됩니다 [CSV 매핑 규칙](/azure/kusto/management/mappings#csv-mapping)합니다. 원본 데이터를 CSV 형식으로 없습니다, 경우에 ADF가 데이터를 테이블 형식으로 변환, CSV 매핑은이 단계에만 관련 매핑을 따라서 note 합니다.
         * 아래 **Azure 데이터 탐색기 (Kusto) 싱크 속성** 관련 추가 **수집 매핑 이름** (선택 사항) 하므로 해당 열 매핑을 사용할 수 있습니다.
         * 하는 경우 **수집 매핑 이름** 에 정의 된 "이름 으로" 매핑 순서 지정 되지 않은 **열 매핑** 섹션 발생 합니다. "이름 으로" 매핑이 실패 하면 Azure 데이터 탐색기 (지도에서 위치 기본값으로) "에서 열 위치" 순서로 데이터를 수집 하려고 합니다.
-    * 선택 **다음**
+    * **다음**을 선택합니다.
 
     ![대상 데이터 집합 열 매핑](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

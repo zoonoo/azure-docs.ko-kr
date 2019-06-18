@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Active Directory B2C 테넌트 만들기 | Microsoft Docs
+title: 자습서-Azure Active Directory B2C 테 넌 트 만들기
 description: Azure Portal을 사용하여 Azure Active Directory B2C 테넌트를 만들어서 애플리케이션 등록을 준비하는 방법을 알아봅니다.
 services: B2C
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e2568bca8f8ecf170c82c5388823193b8b0457cf
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 711b9152f9f3fa1b3573e39d1950f18b628c268a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056325"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -34,23 +34,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 구독을 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 구독이 포함된 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테 넌 트를 포함 하는 것과 다릅니다.
+2. 구독을 포함 하는 디렉터리 사용 했는지 확인 합니다. 클릭 합니다 **디렉터리 및 구독 필터** 위쪽 메뉴에서 구독을 포함 하는 디렉터리를 선택 합니다. 이 디렉터리는 Azure AD B2C 테 넌 트를 포함 하는 것과 다릅니다.
 
-    ![구독 디렉터리로 전환](./media/tutorial-create-tenant/switch-directory-subscription.png)
+    ![구독 디렉터리로 전환](./media/tutorial-create-tenant/switch-directory-subscription.PNG)
 
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 4. **Active Directory B2C**를 검색하여 선택하고 **만들기**를 클릭합니다.
-5. 선택할 **새 Azure AD B2C 테 넌 트를 만들**, 조직 이름 및 테 넌 트 이름에서 사용 되는 초기 도메인 이름에를 입력, 국가/지역 (변경할 수 없습니다 나중)를 선택 하 고 클릭 **만들기** .
+5. 선택 **새 Azure AD B2C 테 넌 트 만들기** 된 조직 이름 및 초기 도메인 이름을 입력 합니다. 국가/지역 (변경할 수 없습니다 나중)를 선택한 다음 클릭 **만들기**합니다.
 
-    ![테넌트 만들기](./media/tutorial-create-tenant/create-tenant.png)
+    초기 도메인 이름은 테 넌 트 이름 부분으로 사용 됩니다. 이 예제에서는 테 넌 트 이름은 *contoso0926Tenant.onmicrosoft.com*:
 
-    이 예제에서 테넌트 이름은 contoso0926Tenant.onmicrosoft.com입니다.
+    ![테넌트 만들기](./media/tutorial-create-tenant/create-tenant.PNG)
 
-6. **새 B2C 테넌트 만들기 또는 기존 테넌트에 연결** 페이지에서 **내 Azure 구독에 기존 Azure AD B2C 테넌트 연결**을 선택하고 만든 테넌트를 선택한 다음, 구독을 선택하고 **새로 만들기**를 클릭합니다.
-7. 테넌트를 포함할 리소스 그룹의 이름을 입력한 다음, 위치를 선택하고 **만들기**를 클릭합니다.
-8. 새 테넌트 사용을 시작하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택하여 Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하도록 지정합니다.
+6. 에 **만들기 새 B2C 테 넌 트 또는 기존 테 넌 트에 연결할** 페이지에서 **내 Azure 구독에 연결 된 기존 Azure AD B2C 테 넌 트**합니다.
 
-    ![테넌트 디렉터리로 전환](./media/tutorial-create-tenant/switch-directories.png)
+    만든 테 넌 트를 선택 하 고 구독을 선택 합니다.
+
+    리소스 그룹 선택 **새로 만들기**합니다. 테넌트를 포함할 리소스 그룹의 이름을 입력한 다음, 위치를 선택하고 **만들기**를 클릭합니다.
+1. 새 테 넌 트 사용을 시작 하려면 클릭 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다 **디렉터리 및 구독 필터** 최상위 메뉴 및 포함 된 디렉터리를 선택 합니다.
+
+    처음에 새 Azure B2C 테 넌 트 목록에 보이지 않으면 경우 브라우저 창을 새로 고침을 선택 합니다 **디렉터리 및 구독 필터** 최상위 메뉴에서 다시 합니다.
+
+    ![테넌트 디렉터리로 전환](./media/tutorial-create-tenant/switch-directories.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -60,5 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * Azure AD B2C 테넌트 만들기
 > * 구독에 테넌트 연결
 
+다음으로, 새 테 넌 트에서 웹 응용 프로그램을 등록 하는 방법에 알아봅니다.
+
 > [!div class="nextstepaction"]
-> [애플리케이션 등록](tutorial-register-applications.md)
+> [응용 프로그램 등록 >](tutorial-register-applications.md)

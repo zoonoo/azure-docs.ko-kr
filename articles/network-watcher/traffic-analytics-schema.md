@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691426"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석의 스키마 및 데이터 집계
@@ -58,7 +58,7 @@ ms.locfileid: "64691426"
 | FlowEndTime_t | 날짜 및 시간 (UTC) | 흐름 (집계 가져오기지 것입니다)의 마지막 발생 흐름 로그 처리 간격 "FlowIntervalStartTime_t" 및 "FlowIntervalEndTime_t"입니다. 흐름 로그 v2를 기준으로이 필드에 동일한 네 튜플을 사용 하 여 마지막 흐름 (에서 표시 "B" 원시 흐름 레코드) 시작 된 시간 |
 | FlowType_s |  * IntraVNet <br> * InterVNet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * 알 수 없는 개인 <br> * 알 수 없음 | 정보 테이블 아래에 정의 |
 | SrcIP_s | 원본 IP 주소 | AzurePublic 시 비어 있게 됩니다 및 ExternalPublic 흐름 |
-| DestIP_s | 대상 IP 주소  | AzurePublic 시 비어 있게 됩니다 및 ExternalPublic 흐름 |
+| DestIP_s | 대상 IP 주소 | AzurePublic 시 비어 있게 됩니다 및 ExternalPublic 흐름 |
 | VMIP_s | VM의 IP | AzurePublic 및 ExternalPublic 흐름에 사용 되는 |
 | PublicIP_s | 공용 IP 주소 | AzurePublic 및 ExternalPublic 흐름에 사용 되는 |
 | DestPort_d | 대상 포트 | 트래픽을 수신 되는 포트 | 

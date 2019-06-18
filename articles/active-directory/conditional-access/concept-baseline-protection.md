@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112581"
 ---
 # <a name="what-are-baseline-policies"></a>기본 정책 이란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "66003298"
 [관리자에 대 한 MFA를 요구할](howto-baseline-protect-administrators.md) multi-factor authentication (MFA)을 요구 하는 기준 정책을 다음 디렉터리 역할의 경우 Azure AD 역할은 가장 권한이 있는 것으로 간주 됩니다.
 
 * 전역 관리자
-* SharePoint administrator
+* SharePoint 관리자
 * Exchange 관리자
 * 조건부 액세스 관리자
 * 보안 관리자
@@ -95,7 +95,7 @@ ms.locfileid: "66003298"
 자세한 내용은 다음을 참조하세요.
 
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)
+* [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)
 * [관리자에 대해 MFA 요구](howto-baseline-protect-administrators.md)
 * [최종 사용자 보호 (미리 보기)](howto-baseline-protect-end-users.md)
 * [블록 레거시 인증 (미리 보기)](howto-baseline-protect-legacy-auth.md)

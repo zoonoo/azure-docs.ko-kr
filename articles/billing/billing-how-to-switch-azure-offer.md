@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570990"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제안으로 Azure 종량제 구독 변경
@@ -30,7 +30,7 @@ ms.locfileid: "64570990"
 
 ## <a name="whats-supported"></a>지원되는 내용:
 
-| 원본 | 받는 사람 |
+| 보낸 사람 | 수행할 작업 |
 | --- | --- |
 | Pay-As-You-Go |[종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Pay-As-You-Go |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |

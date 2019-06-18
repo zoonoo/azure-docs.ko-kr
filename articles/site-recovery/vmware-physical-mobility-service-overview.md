@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565585"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
@@ -47,7 +47,7 @@ ms.locfileid: "60565585"
     a. 응용 프로그램 일관성 있는 요소를 생성, 참조 [지침](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) Site Recovery VSS 공급자 설치를 수동으로 완료 합니다. </br>
     b.  응용 프로그램 일치 포인트를 생성 하지 않으려면 [복제 정책을 수정할](vmware-azure-set-up-replication.md#create-a-policy) 응용 프로그램 일관성 지점을 사용 하지 않으려면입니다.
 
-### <a name="before-922-versions"></a>9.22 버전 하기 전에
+### <a name="before-922-versions"></a>9\.22 버전 하기 전에
 
 1. 원본 컴퓨터에 에이전트를 푸시합니다. 원본 컴퓨터에 에이전트를 복사 하는 여러 환경 오류로 인해 실패할 수 있습니다. 방문 [지침](vmware-azure-troubleshoot-push-install.md) 를 푸시 설치 오류를 해결 합니다.
 2. 에이전트에 성공적으로 복사 된 후 서버 필수 조건 검사를 서버에서 수행 됩니다. 하나 이상의 경우 설치가 실패 합니다 [필수 구성 요소](vmware-physical-azure-support-matrix.md) 충족 되지 않으면. 모든 필수 조건이 충족 하는 경우 설치가 트리거됩니다.
@@ -156,7 +156,7 @@ ms.locfileid: "60565585"
 --- | ---
 사용 현황 | . /-d 설치 <Install Location> -r < MS/MT >-v VmWare-q
 -r | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
-일시 중지되고 | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
+-d | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
 -v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다.
 -q | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 

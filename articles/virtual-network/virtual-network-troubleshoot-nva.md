@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723014"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -74,7 +74,14 @@ PowerShell 사용
 3. **EnableIPForwarding** 속성을 확인합니다.
 4. IP 전달을 사용하도록 설정되지 않은 경우 다음 명령을 실행하여 사용하도록 설정합니다.
 
-   $nic2 Get AzNetworkInterface-ResourceGroupName = <ResourceGroupName> -이름 <NicName> $nic2 합니다. EnableIPForwarding = 1 집합 AzNetworkInterface NetworkInterface $nic2 실행: $nic2 #and 예상 된 출력을 확인 합니다. EnableIPForwarding: NetworkSecurityGroup true: null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
 **표준 SKU Pubilc IP를 사용 하는 경우 NSG에 대 한 확인** 표준 SKU 및 공용 Ip를 사용할 때 있어야 만든 NSG 및 규칙을 명시적 nva는 트래픽을 허용 하도록 합니다.
 

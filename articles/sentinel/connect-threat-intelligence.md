@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233755"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자에서 데이터 연결 
@@ -46,7 +46,7 @@ Azure Sentinel에 데이터를 스트리밍하려면 후 보강할 수 해당 �
 
 2. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **위협 인텔리전스** 바둑판식으로 배열 합니다.
 
-3. **연결**을 클릭합니다. 
+3. **Connect**를 클릭합니다. 
 
 4. Log Analytics에서 관련 스키마를 사용 하 여 위협 인텔리전스 피드를 검색할 **ThreatIntelligenceIndicator**합니다. 
 

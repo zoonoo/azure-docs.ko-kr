@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233531"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>변칙 검색 및 Azure 데이터 탐색기에서 예측
@@ -52,7 +52,7 @@ demo_make_series2
 
 ## <a name="time-series-anomaly-detection"></a>시계열 변칙 검색
 
-함수 [ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction) 시계열 집합에서 비정상적인 요소를 찾습니다. 이 함수를 호출 `series_decompose()` 분해 모델 및 다음 실행을 만들려고 [ `series_outliers()` ](/azure/kusto/query/series-outliersfunction) 잔여 구성 요소입니다. `series_outliers()` fence은 Tukey의 테스트를 사용 하 여 잔여 구성 요소의 각 요소에 대 한 이상 점수를 계산 합니다. 1.5 보다 높거나 낮은-1.5 변칙 점수에는 각각 거부 또는 가벼운 이상 증가 나타냅니다. 변칙 점수 3.0 위 또는 아래-3.0입니다. 강력한 변칙을 나타냅니다. 
+함수 [ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction) 시계열 집합에서 비정상적인 요소를 찾습니다. 이 함수를 호출 `series_decompose()` 분해 모델 및 다음 실행을 만들려고 [ `series_outliers()` ](/azure/kusto/query/series-outliersfunction) 잔여 구성 요소입니다. `series_outliers()` fence은 Tukey의 테스트를 사용 하 여 잔여 구성 요소의 각 요소에 대 한 이상 점수를 계산 합니다. 1\.5 보다 높거나 낮은-1.5 변칙 점수에는 각각 거부 또는 가벼운 이상 증가 나타냅니다. 변칙 점수 3.0 위 또는 아래-3.0입니다. 강력한 변칙을 나타냅니다. 
 
 다음 쿼리를 사용 하면 변칙을 검색할 내부 웹 서비스 트래픽이 있습니다.
 

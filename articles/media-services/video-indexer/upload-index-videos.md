@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799201"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
@@ -58,7 +58,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사용되는 URL입니다.
 
 - 인덱싱 상태 변경 
-    - 속성:    
+    - 속성    
     
         |이름|설명|
         |---|---|

@@ -9,17 +9,17 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160507"
 ---
 구독 내에서 여러 서비스를 만들 수 있습니다. 각각 특정 계층에 프로 비전 할 수 있습니다. 각 계층에서 허용 되는 서비스의 수로만 제한 될 뿐입니다. 예를 들어, 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 12개의 다른 서비스를 만들 수 있습니다. 계층에 대 한 자세한 내용은 참조 하세요. [Azure Search에 대 한 SKU 또는 계층 선택](../articles/search/search-sku-tier.md)합니다.
 
 최대 서비스 제한은 요청 시 설정할 수 있습니다. 동일한 구독 내에서 더 많은 서비스에 필요한 경우 Azure 지원에 문의 합니다.
 
-| Resource            | 무료<sup>1</sup> | 기본 | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource            | 무료<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | 최대 서비스    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | 검색 단위 (SU)의 최대 크기<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |

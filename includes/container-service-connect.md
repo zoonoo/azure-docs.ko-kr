@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202824"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808914"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Kubernetes, DC/OS 또는 Docker Swarm 클러스터에 원격 연결
 Azure Container Service 클러스터를 만든 후에 클러스터에 연결하여 워크로드를 배포하고 관리해야 합니다. 이 문서에서는 원격 컴퓨터에서 클러스터의 마스터 VM에 연결하는 방법을 설명합니다. 
@@ -32,7 +32,7 @@ DC/OS 및 Docker Swarm의 경우 로컬 컴퓨터에서 클러스터 관리 시�
 > 
 
 ### <a name="install-kubectl"></a>kubectl 설치
-이 도구를 설치 하는 방법은 사용 하는 것은 `az acs kubernetes install-cli` Azure CLI 명령입니다. 이 명령을 실행 하려면 있습니다 [설치](/cli/azure/install-az-cli2) 최신 버전의 Azure CLI는 Azure 계정에 로그인 하 고 (`az login`).
+이 도구를 설치 하는 방법은 사용 하는 것은 `az acs kubernetes install-cli` Azure CLI 명령입니다. 이 명령을 실행 하려면 [Azure CLI를 설치](/cli/azure/install-azure-cli) 사용 하 여 Azure 계정에 로그인 하 고 `az login`입니다.
 
 ```azurecli
 # Linux or macOS
@@ -78,7 +78,7 @@ kubectl proxy
 
 이제 Kubernetes UI는 `http://localhost:8001/ui`에서 사용 가능합니다.
 
-자세한 내용은 [Kubernetes 빠른 시작](http://kubernetes.io/docs/user-guide/quick-start/)을 참조하세요.
+자세한 내용은 참조는 [Kubernetes 빠른 시작](http://kubernetes.io/docs/user-guide/quick-start/)합니다.
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>DC/OS 또는 Swarm 클러스터에 연결
 

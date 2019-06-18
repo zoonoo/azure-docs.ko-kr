@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074017"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -215,7 +215,7 @@ Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | F
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>액세스 허용
+## <a name="grant-access"></a>액세스 권한 부여
 
 RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+오류 메시지가 표시: "제공된 된 정보는 역할 할당에 매핑되지 않는 경우"를 지정 해야 합니다 `-Scope` 또는 `-ResourceGroupName` 매개 변수입니다. 자세한 내용은 [Azure 리소스에 대 한 문제를 해결 하는 RBAC](troubleshooting.md#role-assignments-without-a-security-principal)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

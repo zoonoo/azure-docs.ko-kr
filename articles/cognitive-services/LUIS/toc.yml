@@ -200,24 +200,14 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: 봇 사용
+        - name: Application Insights 사용 봇
           items:
-            - name: 웹앱 봇
-              items:
-                - name: Node.js
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
-                - name: 'C#'
-                  displayName: 'ABS, azure bot, service'
-                  href: luis-csharp-tutorial-build-bot-framework-sample.md
-            - name: Application Insights
-              items:
-                - name: Node.js
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-function-appinsights.md
-                - name: 'C#'
-                  displayName: 'Application insight, kusto'
-                  href: luis-tutorial-bot-csharp-appinsights.md
+            - name: Node.js
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
+            - name: 'C#'
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-csharp-appinsights.md
     - name: 예측 정확도 개선
       items:
         - name: 대시보드 사용

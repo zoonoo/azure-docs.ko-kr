@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507990"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
@@ -198,7 +198,7 @@ Set-AzKeyVaultAccessPolicy `
 
 템플릿을 배포하고 매개 변수 파일을 전달합니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli
 az group create --name $resourceGroupName --location $location
@@ -323,7 +323,7 @@ New-AzResourceGroupDeployment `
 
 이전 템플릿을 배포하고 매개 변수에 값을 제공합니다. GitHub에서 예제 템플릿을 사용할 수 있지만 사용자 환경에 매개 변수 값을 제공해야 합니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli
 az group create --name $resourceGroupName --location $location

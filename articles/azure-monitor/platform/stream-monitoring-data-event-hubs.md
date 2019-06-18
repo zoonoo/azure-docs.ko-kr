@@ -1,19 +1,19 @@
 ---
 title: Event Hubs로 Azure 모니터링 데이터 스트리밍
 description: 데이터를 파트너 SIEM 또는 분석 도구로 가져올 이벤트 허브로 Azure 모니터링 데이터를 스트림 하는 방법에 알아봅니다.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069327"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -43,8 +43,8 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 * 처리량 단위 수를 사용하여 이벤트 허브에 대한 처리량 비율을 높일 수 있습니다. 파티션 수를 사용하면 많은 소비자 간에 소비량의 균형을 이룰 수 있습니다. 단일 파티션으로 최대 20MBps, 초당 약 20,000개의 메시지까지 처리할 수 있습니다. 데이터를 소비하는 도구에 따라, 여러 파티션을 통한 소비를 지원할 수도있 고 지원하지 않을 수도 있습니다. 설정할 파티션 수를 잘 모를 경우 4개의 파티션부터 시작하는 것이 좋습니다.
 * 이벤트 허브의 메시지 보존 기간을 7일로 설정하는 것이 좋습니다. 소비 도구가 하루 넘게 다운될 경우 이러한 기능을 통해 도구가 중단된 지점을 선택하도록 할 수 있습니다(최대 7일이 경과된 이벤트).
 * 이벤트 허브에 대한 기본 소비자 그룹을 사용하는 것이 좋습니다. 2개의 다른 도구에서 동일한 이벤트 허브의 동일한 데이터를 소비하려는 경우가 아니면, 다른 소비자 그룹을 만들거나 별도의 소비자 그룹을 사용할 필요가 없습니다.
-* Azure 활동 로그에 대 한 Event Hubs 네임 스페이스를 선택 하 고 Azure Monitor ' insights-로그-operationallogs'를 호출 하는 네임 스페이스 내에서 이벤트 허브를 만들고 다른 로그 형식의 경우, 기존 이벤트 허브에서 선택하거나(동일한 insights-logs-operationallogs 이벤트 허브를 재사용할 수 있음) Azure Monitor에서 로그 범주별로 이벤트 허브를 만들도록 할 수 있습니다.
-* 일반적으로 이벤트 허브의 데이터를 사용하는 컴퓨터에서 포트 5671 및 5672를 열어야 합니다.
+* Azure 활동 로그에 대 한 Event Hubs 네임 스페이스를 선택 하 고 Azure Monitor ' insights--운영-로그 합니다.'를 호출 하는 네임 스페이스 내에서 이벤트 허브를 만들고 다른 로그 형식에 대해 선택할 수 있습니다 (동일한 insights--운영-로그 이벤트 허브를 재사용할 수 있음) 기존 이벤트 허브 또는 Azure monitor에서 로그 범주별으로 이벤트 허브를 만듭니다.
+* 일반적으로 컴퓨터 또는 이벤트 허브에서 데이터를 사용 하는 VNET에서 아웃 바운드 포트 5671 및 5672를 열어야 합니다.
 
 [Azure Event Hubs FAQ](../../event-hubs/event-hubs-faq.md)도 참조하세요.
 

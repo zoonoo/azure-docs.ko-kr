@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: dfb85b0f9f1dda611c613cb296177cf28391adc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318853"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
@@ -62,7 +62,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-URI는 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**과 비슷합니다.
+URI는 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** 과 비슷합니다.
 
 ## <a name="delete-existing-vm"></a>기존 VM 삭제
 가상 하드 디스크와 VM은 Azure의 두 가지 별개의 리소스입니다. 가상 하드 디스크에는 운영 체제 자체, 애플리케이션 및 구성이 저장됩니다. VM 자체는 크기 또는 위치를 정의하고 가상 하드 디스크 또는 가상 네트워크 인터페이스 카드(NIC)와 같은 리소스를 참조하는 메타데이터일 뿐입니다. 각 가상 하드 디스크에는 VM에 연결할 때 할당된 임대가 있습니다. VM을 실행하는 동안에도 데이터 디스크를 연결하고 분리할 수 있지만, VM 리소스를 삭제하지 않는 한 OS 디스크를 분리할 수 없습니다. 해당 VM이 중지 및 할당 취소된 상태에 있을 때에도 임대는 OS 디스크와 VM을 계속 연결합니다.
@@ -154,7 +154,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
         --query '[].{Disk:vhd.uri}' --output table
     ```
 
-    기존 가상 하드 디스크의 이름을 적어둡니다. 예를 들어 URI(**https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**)를 포함하는 디스크의 이름은 **myVHD**입니다. 
+    기존 가상 하드 디스크의 이름을 적어둡니다. 예를 들어 URI( **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** )를 포함하는 디스크의 이름은 **myVHD**입니다. 
 
     [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk) VM에서 데이터 디스크를 분리합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMRecovery`에서 디스크 `myVHD`을 분리합니다.
 
@@ -189,8 +189,8 @@ az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployed
 
 ## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>새 OS 디스크를 연결하여 Managed Disk VM 문제 해결
 1. 영향을 받는 VM을 중지합니다.
-2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅숏을 만듭니다](../linux/snapshot-copy-managed-disk.md).
-3. [스냅숏에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅샷을 만듭니다](../linux/snapshot-copy-managed-disk.md).
+3. [스냅샷에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
 4. [VM의 데이터 디스크로서 관리 디스크를 연결합니다](../windows/attach-disk-ps.md).
 5. [4단계의 데이터 디스크를 OS 디스크로 변경합니다](../windows/os-disk-swap.md).
 

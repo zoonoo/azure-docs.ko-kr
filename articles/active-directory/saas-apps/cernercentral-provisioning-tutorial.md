@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964207"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cerner Central 구성
@@ -85,7 +85,7 @@ Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 
 
    * 프로덕션: https://cernercentral.com/system-accounts/
 
-4. 마지막으로, 구성을 완료하려면 Cerner에서 샌드박스와 프로덕션 환경에 대한 사용자 명단 영역 ID를 획득해야 합니다. 이를 획득하는 방법에 대한 정보는 https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM을 참조하세요. 
+4. 마지막으로, 구성을 완료하려면 Cerner에서 샌드박스와 프로덕션 환경에 대한 사용자 명단 영역 ID를 획득해야 합니다. 이를 획득하는 방법에 대한 정보는 https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM 을 참조하세요. 
 
 5. 이제 Cerner로 사용자 계정을 프로비전하도록 Azure AD를 구성할 수 있습니다. [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 

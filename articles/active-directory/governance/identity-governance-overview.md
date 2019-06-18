@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109585"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Id 거 버 넌 스 란?
 
@@ -60,7 +60,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../manage-apps/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
 
-사용자가 애플리케이션에 액세스하려고 하는 경우 Azure AD는 [조건부 액세스](/azure/active-directory/conditional-access/) 정책을 적용합니다. 예를 들어, 조건부 액세스 정책에는 애플리케이션에 액세스하기 전에 [사용 약관](../conditional-access/terms-of-use.md)을 표시하고 [사용자가 해당 약관에 동의했는지 확인](../conditional-access/require-tou.md)하는 작업이 포함될 수 있습니다.
+Azure AD는 사용자가 응용 프로그램에 액세스 하려고 하는 경우 [조건부 액세스](/azure/active-directory/conditional-access/) 정책입니다. 예를 들어, 조건부 액세스 정책을 표시 포함 될 수 있습니다는 [사용 약관](../conditional-access/terms-of-use.md) 하 고 [해당 약관에 동의한 사용자를 확인](../conditional-access/require-tou.md) 응용 프로그램에 액세스 하기 위해서는 먼저 합니다.
 
 ## <a name="privileged-access-lifecycle"></a>권한 있는 액세스 수명 주기
 
@@ -68,7 +68,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ![권한 있는 액세스 수명 주기](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  다단계 인증 및 조건부 액세스 외에도 Just-In-Time 액세스 및 Azure AD PIM에서 제공된 역할 변경 내용 경고 기능은 포괄적인 집합의 거버넌스 제어를 제공하여 회사의 리소스(디렉터리, Office 365 및 Azure 리소스 역할)를 보호하는 데 도움이 됩니다. 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
+PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  Just in time 액세스 및 역할 경고 multi-factor authentication 및 조건부 액세스 하는 것 외에도, Azure AD PIM에서 제공 하는 기능 변경, 포괄적인 집합을 거 버 넌 스 제어 하는 데 보안 회사 리소스 (디렉터리를 제공 합니다. Office 365 및 Azure 리소스 역할). 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 

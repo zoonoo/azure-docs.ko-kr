@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991441"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
@@ -169,7 +169,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 #### <a name="availability"></a>가용성
 
-데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
+데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/ 로 이동하여 MEDIA 테이블로 스크롤합니다.
 
 ### <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
@@ -177,7 +177,7 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 #### <a name="availability"></a>가용성
 
-|Name|상태|데이터 센터
+|이름|상태|데이터 센터
 |---|---|---|
 |Standard|GA|모두|
 |Premium|GA|모두|
@@ -197,7 +197,7 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
 |미디어 인코더 표준|GA|모두|
-|Media Encoder Premium Workflow|GA|중국을 제외한 모든 지역|
+|미디어 인코더 Premium 워크플로|GA|중국을 제외한 모든 지역|
 
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
 

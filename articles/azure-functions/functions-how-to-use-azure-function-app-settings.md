@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957400"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
@@ -26,7 +26,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-특히 개요 페이지에서 함수 앱을 관리 하는 데 필요한 모든 이동할 수 있습니다 합니다 **[응용 프로그램 설정](#settings)** 하 고 **[플랫폼기능](#platform-features)**.
+특히 개요 페이지에서 함수 앱을 관리 하는 데 필요한 모든 이동할 수 있습니다 합니다 **[응용 프로그램 설정](#settings)** 하 고 **[플랫폼기능](#platform-features)** .
 
 ## <a name="settings"></a>애플리케이션 설정
 

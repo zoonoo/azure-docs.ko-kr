@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128972"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
@@ -160,11 +160,11 @@ SAP HANA 서비스 정보(CPU, 메모리 등)는 **HANA\_Services\_Statistics**.
 
 ![SAP HANA 서비스 정보는 [HANA\_Services\_Statistics].](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-SAP HANA 인스턴스에 대한 일반적인 정보는 **HANA\_Configuration\_Overview\_Rev110+**.
+SAP HANA 인스턴스에 대한 일반적인 정보는 **HANA\_Configuration\_Overview\_Rev110+** .
 
 ![SAP HANA 인스턴스에 대한 일반적인 정보는 [HANA\_Configuration\_Overview\_Rev110+].](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-SAP HANA 매개 변수를 확인하려면 **HANA\_Configuration\_Parameters\_Rev70+**.
+SAP HANA 매개 변수를 확인하려면 **HANA\_Configuration\_Parameters\_Rev70+** .
 
 ![SAP HANA 매개 변수를 확인하려면 [HANA\_Configuration\_Parameters\_Rev70+].](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

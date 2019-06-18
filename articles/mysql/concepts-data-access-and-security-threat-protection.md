@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60526035"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL Advanced Threat Protection
@@ -20,7 +20,7 @@ Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유
 > [!NOTE]
 > Advanced Threat Protection 공개 미리 보기로 제공 됩니다.
 
-Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. [Azure portal](https://portal.azure.com)이나 [REST API](/rest/api/mysql/serversecurityalertpolicies)를 통해 Advanced Threat Protection을 액세스하고 관리할 수 있습니다. 기능은 범용 및 메모리에 최적화된 서버에 대해 사용할 수 있습니다.
+Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. [Azure portal](https://portal.azure.com)이나 [REST API](/rest/api/mysql/serversecurityalertpolicies)를 통해 Advanced Threat Protection을 액세스하고 관리할 수 있습니다. 이 기능은 범용 및 메모리에 최적화된 서버에 대해 사용할 수 있습니다.
 
 > [!NOTE]
 > 다음 Azure Government 및 소버린 클라우드 지역에서는 Advanced Threat Protection 기능을 사용할 수 **없습니다**: US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
@@ -37,8 +37,8 @@ Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유
 - **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 Azure Database for MySQL 서버에 로그온하여 해당 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
 - **비정상적인 Azure 데이터 센터에서 액세스**: 최근 Azure Database for MySQL 서버에 표시된 비정상적인 Azure 데이터 센터에서 누군가가 해당 서버에 로그온하여 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 경고가 Azure, Power BI, Azure Database for MySQL Query Editor의 새 애플리케이션이 수행하는 합법적 작업을 검색하는 경우도 있습니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
 - **알 수 없는 보안 주체에서 액세스**: 비정상적인 보안 주체(Azure Database for MySQL 사용자)를 사용해 누군가가 Azure Database for MySQL 서버에 로그온하여 해당 서버의 액세스 패턴이 변경되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
-- **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하여 공격을 검색합니다.
-- **Azure Database for MySQL 자격 증명에 대한 무차별 암호 대입 공격**: 자격 증명이 다른 로그인의 실패 횟수가 비정상적으로 많으면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
+- **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 감지합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하여 공격을 검색합니다.
+- **Azure Database for MySQL 자격 증명에 대한 무차별 암호 대입 공격**: 자격 증명이 다른 로그인의 실패 횟수가 비정상적으로 많으면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 감지합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

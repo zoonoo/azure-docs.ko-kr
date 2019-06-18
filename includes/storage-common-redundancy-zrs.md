@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d25efa8c666fa91c7bd652a7cf931ea6ca379aa2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133454"
 ---
-ZRS(영역 중복 저장소)는 단일 지역에 있는 3개의 저장소 클러스터에서 데이터를 동기적으로 복제합니다. 각 스토리지 클러스터는 다른 스토리지 클러스터와 물리적으로 분리되어 있으며 자체 AZ(가용성 영역)에 위치합니다. 각 가용성 영역&mdash; 및 그&mdash; 안에 포함된 ZRS 클러스터는 자율적으로 사용되며, 별도의 유틸리티와 네트워킹 기능을 포함합니다.
+ZRS(영역 중복 저장소)는 단일 지역에 있는 3개의 저장소 클러스터에서 데이터를 동기적으로 복제합니다. 각 스토리지 클러스터는 다른 스토리지 클러스터와 물리적으로 분리되어 있으며 자체 AZ(가용성 영역)에 위치합니다. 각 가용성 영역&mdash; 및 그&mdash; 안에 포함된 ZRS 클러스터는 자율적으로 사용되며, 별도의 유틸리티와 네트워킹 기능을 포함합니다. 데이터는 3 개의 클러스터에서 모든 복제본에 기록 해야만 ZRS 저장소 계정에 쓰기 요청을 성공적으로 반환 합니다.
 
 ZRS 복제를 사용하여 스토리지 계정에 데이터를 저장하는 경우 가용성 영역을 사용할 수 없으면 데이터 액세스 및 관리를 계속할 수 있습니다. ZRS는 뛰어난 성능과 짧은 대기 시간을 제공하며, [LRS(로컬 중복 스토리지)](../articles/storage/common/storage-redundancy-lrs.md)와 동일한 [확장성 대상](../articles/storage/common/storage-scalability-targets.md)을 제공합니다.
 

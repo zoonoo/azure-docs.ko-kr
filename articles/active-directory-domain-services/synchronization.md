@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246691"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에서 동기화
@@ -60,7 +60,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>관리되는 도메인에 특정 특성이 동기화되는 방식
 다음 표에는 몇 가지 공통 특성이 나열되어 있으며 이러한 특성이 관리되는 도메인에 동기화되는 방식이 설명되어 있습니다.
 
-| 관리되는 도메인의 특성 | 원본 | 메모 |
+| 관리되는 도메인의 특성 | source | 메모 |
 |:--- |:--- |:--- |
 | UPN |Azure AD 테넌트의 사용자 UPN 특성 |Azure AD 테넌트의 UPN 특성은 있는 그대로 관리되는 도메인에 동기화됩니다. 따라서 관리되는 도메인에 로그인하는 가장 안정적인 방법은 UPN을 사용하는 것입니다. |
 | SAMAccountName |Azure AD 테넌트에서 사용되거나 자동 생성된 사용자의 mailNickname |SAMAccountName 특성은 Azure AD 테넌트의 mailNickname 특성에서 제공됩니다. 여러 사용자 계정에 동일한 mailNickname 특성이 있으면 SAMAccountName이 자동으로 생성됩니다. 사용자의 mailNickname 또는 UPN 접두사가 20자 보다 긴 경우에는 SAMAccountName 특성에 대한 20자 제한을 충족하기 위해 SAMAccountName이 자동으로 생성됩니다. |
@@ -88,7 +88,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName(자동 생성되는 경우도 있음) |
 | mobile |mobile |
-| objectid |msDS-AzureADObjectId |
+| objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
@@ -109,7 +109,7 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | displayName |SAMAccountName(자동 생성되는 경우도 있음) |
 | 메일 |메일 |
 | mailNickname |msDS-AzureADMailNickname |
-| objectid |msDS-AzureADObjectId |
+| objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 

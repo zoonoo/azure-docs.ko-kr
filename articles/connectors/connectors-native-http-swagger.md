@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448639"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
@@ -60,7 +60,7 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 
 3. Blob에 Swagger 파일을 업로드합니다. 
 
-   [Azure Portal](https://portal.azure.com) 또는 [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
+   [Azure Portal](https://portal.azure.com) 또는 [Azure Storage Explorer](https://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
 
 4. Azure Blob Storage의 문서에 대한 HTTPS 링크를 참조합니다. 
 
@@ -72,14 +72,14 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 이 HTTP + Swagger 커넥터가 지원하는 트리거 및 동작에 대한 세부 정보는 다음과 같습니다.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 트리거
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다.  HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다. [트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
+트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다. [트리거에 대해 자세히 알아보세요.](../connectors/apis-list.md)
 
 | 트리거 | 설명 |
 | --- | --- |
 | HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 동작
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.  HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. [작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
+동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. [작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
 
 | 액션(Action) | 설명 |
 | --- | --- |
@@ -92,7 +92,7 @@ HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. 다음�
 Swagger 메타데이터를 지원하는 HTTP 아웃바운드 요청을 만듭니다.
 별표(*)는 필수 필드를 의미합니다.
 
-| 표시 이름 | 속성 이름 | 설명 |
+| Display name | 속성 이름 | 설명 |
 | --- | --- | --- |
 | Method* |메서드 |사용할 HTTP 동사 |
 | URI* |uri |HTTP 요청에 대한 URI |
@@ -113,10 +113,10 @@ HTTP 응답
 ### <a name="http-responses"></a>HTTP 응답
 다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.
 
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | 200 |확인 |
-| 202 |수락됨 |
+| 202 |동의함 |
 | 400 |잘못된 요청 |
 | 401 |권한 없음 |
 | 403 |사용할 수 없음 |

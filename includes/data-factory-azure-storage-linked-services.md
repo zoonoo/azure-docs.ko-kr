@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146906"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
@@ -16,7 +16,7 @@ ms.locfileid: "66146906"
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureStorage** |예 |
 | connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 Azure Storage에 대 한 계정 키를 확인/복사 하는 단계 다음 섹션을 참조 하세요. [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys)합니다.
@@ -49,7 +49,7 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureStorageSas** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureStorageSas** |예 |
 | sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |예 |
 
 **예제:**

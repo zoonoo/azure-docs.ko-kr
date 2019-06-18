@@ -11,10 +11,10 @@ ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507774"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
@@ -83,10 +83,10 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 6. **확인**을 선택하여 프로젝트를 만듭니다.
 
 ## <a name="step-2-create-mvc-view"></a>2단계: MVC 뷰 만들기
-### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1단계: B2C 기본 제공 HTML5 템플릿 다운로드
+### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2\.1단계: B2C 기본 제공 HTML5 템플릿 다운로드
 사용자 지정 HTML5 템플릿은 Azure AD B2C 기본 제공 HTML5 템플릿을 기반으로 합니다. [unified.html 파일](https://login.microsoftonline.com/static/tenant/default/unified.cshtml)을 다운로드하거나 [시작 팩](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip)에서 템플릿을 다운로드할 수 있습니다. 이 HTML5 파일을 사용하여 통합된 등록 또는 로그인 페이지를 만듭니다.
 
-### <a name="step-22-add-the-mvc-view"></a>2.2단계: MVC 뷰 추가
+### <a name="step-22-add-the-mvc-view"></a>2\.2단계: MVC 뷰 추가
 1. Views/Home 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 클릭합니다.
 
     ![MVC 새 항목 추가](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
@@ -119,13 +119,13 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
     ![HTML5를 추가한 후 unified.cshtml 파일](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
 
-### <a name="step-23-change-the-background-image"></a>2.3단계: 배경 이미지 변경
+### <a name="step-23-change-the-background-image"></a>2\.3단계: 배경 이미지 변경
 
 `ID` 값 *background_background_image*가 포함된 `<img>` 요소를 찾은 다음, `src` 값을 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 또는 사용하려는 다른 배경 이미지로 바꿉니다.
 
 ![페이지 배경 변경](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
-### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2.4단계: MVC 컨트롤러에 보기 추가
+### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2\.4단계: MVC 컨트롤러에 보기 추가
 
 1. **Controllers\HomeController.cs**를 열고 다음 메서드를 추가합니다. 
 
@@ -143,7 +143,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. 웹앱을 디버그하여 _unified_ 페이지(예: `http://localhost:<Port number>/Home/unified`)에 액세스할 수 있도록 합니다.
 
-### <a name="step-25-publish-to-azure"></a>2.5단계: Azure에 게시
+### <a name="step-25-publish-to-azure"></a>2\.5단계: Azure에 게시
 1. **솔루션 탐색기**에서 **Contoso.AADB2C.UI** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
     ![Microsoft Azure App Service에 게시](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -242,7 +242,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 ## <a name="step-8-add-dynamic-content"></a>8단계: 동적 콘텐츠 추가
 _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 애플리케이션(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다. 
 
-### <a name="step-81-add-a-content-definition-parameter"></a>8.1단계: 콘텐츠 정의 매개 변수 추가
+### <a name="step-81-add-a-content-definition-parameter"></a>8\.1단계: 콘텐츠 정의 매개 변수 추가
 
 다음을 수행하여 `ContentDefinitionParameters` 요소를 추가합니다.
 1. 정책의 *SignUpOrSignin* 파일(예: *SignUpOrSignin.xml*)을 엽니다.
@@ -261,7 +261,7 @@ _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운�
     </RelyingParty>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2단계: 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8\.2단계: 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
 HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 수락합니다. 그런 다음 메서드는 매개 변수 값을 확인하고 `ViewData["background"]` 변수를 적절하게 설정합니다.
 
 1. *Controllers\HomeController.cs* 파일을 열어서 다음 코드 조각을 추가하여 `unified` 메서드를 변경합니다.
@@ -325,7 +325,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     b. 파일 내용을 복사합니다.
 
-    다. 새 보기 *selfasserted*를 만듭니다.
+    c. 새 보기 *selfasserted*를 만듭니다.
 
     d. *selfasserted*를 **Home** 컨트롤러에 추가합니다.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241700"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
@@ -27,8 +27,8 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 | 특성 | Type | 설명 |
 | --- | --- | --- |
-| `Display name` |string |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
-| `Value`        |string |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
+| `Display name` |문자열 |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
+| `Value`        |문자열 |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
 | `Secret`       |부울|값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.|
 | `Tags`         |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
 
@@ -38,9 +38,9 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 | 이름 | Value | Secret | Tags |
 | --- | --- | --- | --- |
-| ContosoHeader |TrackingId |거짓 |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |거짓 | |
+| ContosoHeader |TrackingId |False |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## <a name="to-add-and-edit-a-property"></a>속성을 추가하고 편집하려면
 

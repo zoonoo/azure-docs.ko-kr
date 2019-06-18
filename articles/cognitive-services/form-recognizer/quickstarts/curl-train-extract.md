@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235602"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475273"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - Form Recognizer 제한된 액세스 미리 보기에 대한 액세스 권한. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요.
 - [cURL](https://curl.haxx.se/windows/) 설치
-- 동일한 형식의 5개 이상 양식으로 구성된 세트. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다.
+- 동일한 형식의 5개 이상 양식으로 구성된 세트. 이 데이터를 사용하여 모델을 학습합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Blob Storage 계정의 루트에 데이터를 업로드합니다.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -47,7 +47,7 @@ Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스
 
 ## <a name="train-a-form-recognizer-model"></a>Form Recognizer 모델 학습
 
-먼저 학습 데이터 세트가 필요합니다. Azure Blob 데이터 또는 사용자 고유의 로컬 학습 데이터를 사용할 수 있습니다. 주 입력 데이터와 동일한 형식/구조의 샘플 양식(PDF 문서 및/또는 이미지)이 5개 이상 있어야 합니다. 또는 하나의 빈 양식을 사용할 수 있습니다. 양식의 파일 이름에 "empty"이라는 단어가 포함되어야 합니다.
+먼저 Azure Storage Blob의 학습 데이터 세트가 필요합니다. 주 입력 데이터와 동일한 형식/구조의 샘플 양식(PDF 문서 및/또는 이미지)이 5개 이상 있어야 합니다. 또는 두 개의 채워진 양식이 있는 단일 빈 양식을 사용할 수 있습니다. 빈 양식의 파일 이름에 "empty"라는 단어가 포함되어야 합니다.
 
 Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학습시키려면 뒤에 나오는 cURL 명령을 실행하여 **Train** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 

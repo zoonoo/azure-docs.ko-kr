@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253721"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
@@ -40,7 +40,7 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |
 | | 가상 머신 참가자 | VM 리소스 |
 | VM의 주문형 백업 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
-| VM 복원 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | 참가자 | VM이 배포될 리소스 그룹 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
 | 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
@@ -48,7 +48,7 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | | Storage 계정 참가자 | 디스크가 복원되는 Storage 계정 리소스 |
 | VM 백업에서 관리 디스크 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
-| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정  |
+| | Storage 계정 참가자 | 복원 과정의 일부로 선택한 관리 디스크로 전환하기 전에 자격 증명 모음에서 데이터를 보관하도록 선택된 임시 Storage 계정 |
 | | 참가자 | 관리 디스크가 복원될 리소스 그룹 |
 | VM 백업에서 개별 파일 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
@@ -67,15 +67,15 @@ Azure Backup은 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 
 | 관리 작업 | 필요한 역할 | 리소스 |
 | --- | --- | --- |
-| Azure 파일 공유의 백업을 사용 하도록 설정 | Backup 참가자 | 복구 서비스 자격 증명 모음 |
+| Azure 파일 공유의 백업을 사용 하도록 설정 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 | 참가자 저장소 계정 리소스 |
-| VM의 주문형 백업 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
-| 파일 공유를 복원 합니다. | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| VM의 주문형 백업 | Backup 운영자 | Recovery Services 자격 증명 모음 |
+| 파일 공유를 복원 합니다. | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 | 복원 원본 및 대상 파일 공유 사용 되는 저장소 계정 리소스 |
-| 개별 파일 복원 | Backup 운영자 | 복구 서비스 자격 증명 모음 |
+| 개별 파일 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 |   복원 원본 및 대상 파일 공유 사용 되는 저장소 계정 리소스 |
-| 보호 중지 | Backup 참가자 | 복구 서비스 자격 증명 모음 |      
-| 저장소 계정 자격 증명 모음에서 등록 취소 |   Backup 참가자 | 복구 서비스 자격 증명 모음 |
+| 보호 중지 | Backup 참가자 | Recovery Services 자격 증명 모음 |      
+| 저장소 계정 자격 증명 모음에서 등록 취소 |   Backup 참가자 | Recovery Services 자격 증명 모음 |
 | | Storage 계정 참가자 | 저장소 계정 리소스|
 
 

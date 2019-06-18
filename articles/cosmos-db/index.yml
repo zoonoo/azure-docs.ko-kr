@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: Azure Cosmos DB의 API for MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Azure Table Storage에서 Azure Cosmos DB의 프리미엄 테이블 제품으로 데이터를 마이그레이션하는 경우 Table API를 사용합니다.</p>
-            image:
-              src: media/index/table-api.svg
-            title: 테이블 API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Cassandra에서 Azure Cosmos DB의 완벽히 관리된 서비스로 데이터를 마이그레이션하는 경우 Cassandra API를 사용합니다.</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra API
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Azure Table Storage에서 Azure Cosmos DB의 프리미엄 테이블 제품으로 데이터를 마이그레이션하는 경우 Table API를 사용합니다.</p>
+            image:
+              src: media/index/table-api.svg
+            title: 테이블 API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Apache Spark에 내장된 지원을 사용하여 Azure Cosmos 계정에 저장된 데이터에 대한 분석을 실행합니다. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Apache Spark를 사용한 기본 제공 분석
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Azure Cosmos DB 컨테이너 내에서 정렬된 문서 목록을 수정된 순서대로 읽고 변경 피드로 실시간 분석을 수행합니다. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: 변경 피드
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> Etcd API를 사용하면 Azure Cosmos DB를 Azure Kubernetes의 백 엔드 저장소로 사용할 수 있습니다.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd API
   - title: 5분 빠른 시작
     items:
       - type: paragraph

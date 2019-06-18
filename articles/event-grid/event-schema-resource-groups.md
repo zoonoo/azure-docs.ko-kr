@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561696"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 리소스 그룹에 대한 이벤트 스키마
@@ -241,7 +241,7 @@ VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹�
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| data | object | 리소스 그룹 이벤트 데이터입니다. |
+| 데이터 | object | 리소스 그룹 이벤트 데이터입니다. |
 | dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
@@ -251,7 +251,7 @@ VM을 만들거나 저장소 계정을 삭제할 때와 같이 리소스 그룹�
 | -------- | ---- | ----------- |
 | authorization | object | 작업에 대해 요청된 권한입니다. |
 | claims | object | 클레임의 속성입니다. 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요. |
-| correlationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
+| CorrelationId | 문자열 | 문제 해결을 위한 작업 ID입니다. |
 | httpRequest | object | 작업의 세부 정보입니다. 이 개체는 기존 리소스를 업데이트하거나 리소스를 삭제하는 경우에만 포함됩니다. |
 | resourceProvider | 문자열 | 작업에 대한 리소스 공급자입니다. |
 | resourceUri | 문자열 | 작업에서 리소스의 URI입니다. |

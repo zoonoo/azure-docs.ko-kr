@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080651"
 ---
 # <a name="routing-events-and-messages"></a>이벤트 라우팅 및 메시지
 
@@ -21,7 +21,7 @@ IoT 솔루션은 스토리지, 분석 등을 비롯한 몇 가지 강력한 서�
 
 ## <a name="route-types"></a>경로 형식  
 
-Azure Digital Twins는 IoT 이벤트를 다른 Azure 서비스 또는 비즈니스 애플리케이션에 통합하는 두 가지 방법을 제공합니다.
+Azure 디지털 쌍은 다른 Azure 서비스 또는 비즈니스 응용 프로그램을 사용 하 여 IoT 이벤트를 연결 하는 두 가지 방법을 제공 합니다.
 
 * **Azure Digital Twins 이벤트 라우팅**: 변경된 공간 그래프의 개체, 수신된 원격 분석 데이터, 미리 정의된 조건에 따라 알림을 만드는 사용자 정의 함수는 Azure Digital Twins 이벤트를 트리거할 수 있습니다. 사용자는 이러한 이벤트를 추가로 처리하기 위해 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus 토픽](https://azure.microsoft.com/services/service-bus/) 또는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)로 보낼 수 있습니다.
 

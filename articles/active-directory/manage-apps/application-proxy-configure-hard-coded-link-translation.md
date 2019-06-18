@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956892"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
@@ -97,14 +97,14 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 * iframe
 * 이미지
 * input
-* 링크
+* link
 * menuitem
 * meta
-* 개체
+* object
 * script
 * source
 * 추적
-* 비디오
+* video
 
 또한 CSS 내 URL 특성 또한 변환 됩니다.
 

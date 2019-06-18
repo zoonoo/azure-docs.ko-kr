@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922125"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제의 모바일 서비스의 자동 업데이트
@@ -49,7 +49,7 @@ Site Recovery에서 다음과 같은 방법으로 업데이트 관리를 허용�
 
 사용 하도록 설정한 경우 VM의 복제를 시작 하거나 [VM 보기에서](azure-to-azure-quickstart.md) 하거나 [recovery services 자격 증명 모음에서](azure-to-azure-how-to-enable-replication.md), Site Recovery는 Site Recovery 확장에 대 한 업데이트를 관리 하거나 관리를 허용 하거나 수동으로.
 
-![확장 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
+![확장 프로그램 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>자격 증명 모음 내에서 확장 업데이트 설정 전환
 
@@ -520,7 +520,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 자동 업데이트를 사용 하지 못했습니다 다음 일반적인 오류 및 권장된 작업을 참조 하세요.
 
-- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 참가자 역할을 부여할 수 있는 권한이 없습니다.
+- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 기여자 역할을 부여할 수 있는 권한이 없습니다.
 
    **권장 조치**: 참가자로 로그인 계정이 할당 되어 있는지 확인 하 고 다시 시도 하세요. 에 필요한 사용 권한 섹션을 참조 하세요 [포털을 사용 하 여 Azure AD 리소스에 액세스할 수 있는 응용 프로그램 및 서비스 주체를 만들려면](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 합니다.
  

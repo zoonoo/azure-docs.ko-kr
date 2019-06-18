@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python 및 Azure Search REST Api'
 description: 만들기, 로드 및 Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056676"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>빠른 시작: Jupyter Python 노트북을 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
    반면, 빈 인덱스 컬렉션을이 응답을 반환 합니다. `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> 무료 서비스에 대해 3 개의 인덱스, 인덱서 및 데이터 원본 제한 됩니다. 이 빠른 시작의 각 파일을 만듭니다. 계속 진행 하기 전에 새 개체를 만들 공간이 있는지 확인 합니다.
-
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
 포털을 사용 하지 않는 데이터를 로드 하려면 먼저 인덱스 서비스에 있어야 합니다. 이 단계에서는 합니다 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) 인덱스 스키마를 서비스에 적용할 합니다.
 
 인덱스의 필수 요소는 이름, 필드 컬렉션 및 키를 포함 합니다. 구조를 정의 하는 필드 컬렉션을 *문서*합니다. 각 필드에 이름, 형식 및 필드가 사용 되는 방법을 결정 하는 특성 (예를 들어 인지 전체 텍스트 검색 가능, 필터링 가능, 검색 결과에서 검색 가능). 형식의 필드를 인덱스 `Edm.String` 로 지정 해야 합니다 *키* 문서 id에 대 한 합니다.
 
-이 인덱스 "호텔 py" 라는 있고 아래 표시 된 필드 정의 합니다. 보다 넓은 범위의 일부입니다 [호텔 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) 다른 연습에서 사용 합니다. 이 빠른 시작에서는 간단한 설명을 위해 잘립니다 했습니다.
+이 인덱스 "호텔-빠른 시작" 라는 있고 아래 표시 된 필드 정의 합니다. 보다 넓은 범위의 일부입니다 [호텔 인덱스](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) 다른 연습에서 사용 합니다. 이 빠른 시작에서는 간단한 설명을 위해 잘립니다 했습니다.
 
 1. 다음 셀에서 다음 예제에서는 스키마를 제공 하는 셀에 붙여 넣습니다. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     }
     ```   
 
-2. 다른 셀에서 요청을 작성 합니다. 이 POST 요청 py 호텔 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 제공 하는 문서를 푸시합니다.
+2. 다른 셀에서 요청을 작성 합니다. 이 POST 요청 호텔-빠른 시작 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 제공 하는 문서를 푸시합니다.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 이 단계를 사용 하 여 인덱스를 쿼리 하는 방법을 보여 줍니다.는 [검색 문서 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)합니다.
 
+1. 셀에는 빈 검색을 실행 하는 쿼리 식을 제공 (검색 = *), unranked는 목록을 반환 (검색 점수 = 1.0) 임의의 문서. 기본적으로 Azure Search는 한 번에 50 일치를 반환합니다. 구조화 된으로이 쿼리는 전체 문서 구조 및 값을 반환합니다. 추가 $count = true를 결과에 모든 문서의 개수를 가져옵니다.
 
-1. 새 셀에는 쿼리 식을 제공 합니다. 다음 예제에서는 "호텔" 및 "wifi"를 검색 합니다. 반환 합니다는 *개수* 일치 하는 문서 및 *선택* 검색 결과에 포함할 필드를 합니다.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. 새 셀에 용어 "호텔" 및 "wifi"를 검색 하려면 다음 예제를 제공 합니다. 검색 결과에 포함할 필드를 지정 하는 $select을 추가 합니다.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. 다른 셀에서 요청을 작성 합니다. 이 GET 요청 py 호텔 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 지정 된 쿼리를 연결 합니다.
+1. 다른 셀에서 요청을 작성 합니다. 이 GET 요청 호텔-빠른 시작 인덱스의 문서 컬렉션을 대상으로 하 고 이전 단계에서 지정 된 쿼리를 연결 합니다.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. 각 단계를 실행 합니다. 결과 다음 출력과 유사 합니다. 
+1. 각 단계를 실행 합니다. 결과 다음 출력과 유사 합니다. 
 
     ![인덱스 검색](media/search-get-started-python/search-index.png "인덱스 검색")
 
-4. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 다음 예제에서는 searchstring 바꿉니다 수 있으며 다음 검색 요청을 다시 실행 하십시오. 
+1. 구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 다음 예제에서는 searchstring 바꿉니다 수 있으며 다음 검색 요청을 다시 실행 하십시오. 
 
    필터를 적용 합니다. 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    상위 두 결과 수행 합니다.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     특정 필드를 기준으로 정렬 합니다.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>정리 
 
-더 이상 필요한 경우 인덱스를 삭제 해야 합니다. 무료 서비스는 세 가지 인덱스 제한 됩니다. 다른 자습서에 대 한 공간을 확보 하는 데 적극적으로 사용 하지 않는 모든 인덱스를 삭제 하려고 할 수 있습니다.
+더 이상 필요한 경우 인덱스를 삭제 해야 합니다. 무료 서비스는 세 가지 인덱스 제한 됩니다. 다른 자습서에 대 한 공간을 확보 하는 데 적극적으로 사용 하지 않는 모든 인덱스를 삭제 해야 합니다.
+
+개체를 삭제 하는 가장 쉬운 방법은 포털을 통해 이지만 구문을 동일한 결과가 Python 빠른 시작 이므로:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-기존 인덱스의 목록을 반환 하 여 인덱스 삭제를 확인할 수 있습니다. 호텔 py 사라집니다 인 성공 요청을 알 수 있습니다.
+기존 인덱스의 목록을 요청 하 여 인덱스 삭제를 확인할 수 있습니다. 호텔-빠른 시작 사라집니다 인 성공 요청을 알 수 있습니다.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

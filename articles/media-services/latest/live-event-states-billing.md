@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074887"
 ---
 # <a name="live-event-states-and-billing"></a>라이브 이벤트 상태 및 청구
 
 Azure Media Services에서 라이브 이벤트는 상태가 **실행 중**으로 전환되는 즉시 청구를 시작합니다. 라이브 이벤트가 청구되지 않도록 하려면 라이브 이벤트를 중지해야 합니다.
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)의 **LiveEventEncodingType**이 표준으로 설정된 경우 Media Services는 입력 피드가 손실된 후 12시간 동안 여전히 **실행 중** 상태이며 실행 중인 **라이브 출력**이 없는 라이브 이벤트를 모두 자동 종료합니다. 그러나 라이브 이벤트가 **실행 중** 상태였던 시간에 대한 요금은 청구됩니다.
+때 **LiveEventEncodingType** 에 사용자 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) Standard 또는 Premium1080p, 자동 여전히 된 라이브 이벤트를 종료 하는 Media Services로 설정 됩니다는 **실행** 12 상태 입력된 피드가 손실 된 후 가지 시간 없음 **Live 출력**s를 실행 합니다. 그러나 라이브 이벤트가 **실행 중** 상태였던 시간에 대한 요금은 청구됩니다.
 
 ## <a name="states"></a>상태
 

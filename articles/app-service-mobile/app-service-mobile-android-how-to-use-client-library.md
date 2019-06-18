@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859395"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
@@ -399,7 +399,7 @@ List<ToDoItem> results = mToDoTable
 
 ### <a name="selection"></a>특정 열 선택
 
-다음 코드는 **ToDoItems** 테이블에서 모든 항목을 반환하지만 **완료** 및 **텍스트** 필드만 표시하는 방법을 보여 줍니다.  **mToDoTable** 은 이전에 만든 백 엔드 테이블에 대한 참조입니다.
+다음 코드는 **ToDoItems** 테이블에서 모든 항목을 반환하지만 **완료** 및 **텍스트** 필드만 표시하는 방법을 보여 줍니다. **mToDoTable** 은 이전에 만든 백 엔드 테이블에 대한 참조입니다.
 
 ```java
 List<ToDoItemNarrow> result = mToDoTable
@@ -1109,10 +1109,10 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
 
 3. 애플리케이션에 아래 코드를 추가하여 다음과 같이 대체합니다.
 
-    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
+    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다.
     * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
     * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
-    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
+    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
 
 ```java
 private AuthenticationContext mContext;

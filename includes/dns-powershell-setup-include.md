@@ -8,12 +8,12 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 682b3d3fee4ff1cdbed6e05a51fd8828b6eb155f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133433"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS를 위한 Azure PowerShell 설정
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
-PowerShell 콘솔을 열고 계정에 연결합니다. 자세한 내용은 [로그인](/powershell/azure/install-az-ps?view=azps-1.4.0#sign-in)합니다.
+PowerShell 콘솔을 열고 계정에 연결합니다. 자세한 내용은 [AzureRM 로그인](/powershell/azure/azurerm/authenticate-azureps)합니다.
 
 ```powershell
 Connect-AzureRmAccount

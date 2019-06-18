@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8e9e5b96eaf5a25661af721950029a670d0df5f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063239"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure Functions를 로컬로 디버그
 
@@ -99,7 +99,7 @@ Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설�
 
 * [Visual Studio Code 용 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
 * [Visual Studio Code용 Azure Functions 확장](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell#powershell-core)
+* [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 이러한 종속성을 설치한 후 기존 PowerShell Functions 프로젝트를 로드 하거나 [첫 번째 PowerShell 함수 프로젝트를 만들](functions-create-first-function-powershell.md)합니다.
 

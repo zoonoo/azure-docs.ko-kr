@@ -17,10 +17,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883673"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
@@ -90,10 +90,10 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 | 연산자                 |
 |--------------------------|
-| 초과             |
-| 다음보다 크거나 같음 |
-| 다음보다 적음                |
-| 다음보다 작거나 같음    |
+| 다음보다 큼             |
+| 크거나 같음 |
+| 보다 작음                |
+| 작거나 같음    |
 | 다음과 같음                 |
 | 다음과 같지 않음             |
 

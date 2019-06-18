@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f78685ee5fa340ec22c63e3e7f057bef122474
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048525"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -32,7 +32,7 @@ ms.locfileid: "60311899"
 
 Azure Key Vault에 저장된 자격 증명을 참조하려면 다음을 수행해야 합니다.
 
-1. **데이터 팩터리를 관리 되는 id를 검색** "서비스 ID 응용 프로그램 ID"의 팩터리와 함께 생성 된 값을 복사 하 여 합니다. 관리 되는 id 응용 프로그램 ID는 Azure Key Vault 연결 된 서비스 만들기 창에 표시할 UI를 작성 하는 ADF를 사용 하는 경우 검색할 수도 있습니다 Azure portal에서 참조 [데이터 팩터리 검색 관리 id](data-factory-service-identity.md#retrieve-managed-identity)합니다.
+1. **데이터 팩터리를 관리 되는 id를 검색** "관리 되는 응용 프로그램 ID" 팩터리와 함께 생성 된 값을 복사 하 여 합니다. 관리 되는 id 응용 프로그램 ID는 Azure Key Vault 연결 된 서비스 만들기 창에 표시할 UI를 작성 하는 ADF를 사용 하는 경우 검색할 수도 있습니다 Azure portal에서 참조 [데이터 팩터리 검색 관리 id](data-factory-service-identity.md#retrieve-managed-identity)합니다.
 2. **Azure Key Vault를 관리 되는 id 액세스를 부여 합니다.** 키 자격 증명 모음-> 액세스 정책-> 새로 만들기->이 권한을 부여 하려면 응용 프로그램 ID를 관리 하는 검색 추가 **가져올** 비밀 권한 드롭다운에서 사용 권한. 그러면 이 지정된 팩터리가 키 자격 증명 모음에 있는 비밀에 액세스할 수 있습니다.
 3. **Azure Key Vault를 가리키는 연결된 서비스를 만듭니다.** [Azure Key Vault 연결된 서비스](#azure-key-vault-linked-service)를 참조합니다.
 4. **해당 비밀을 키 자격 증명 모음에 저장한 참조 내에서 데이터 저장소 연결된 서비스를 만듭니다.** [키 자격 증명 모음에 저장된 참조 비밀](#reference-secret-stored-in-key-vault)을 참조하세요.
@@ -48,7 +48,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 **제작 UI 사용:**
 
-**연결** -> **연결된 서비스** -> **+새로 만들기**를 클릭하고 "Azure Key Vault"에 대해 검색합니다.
+**연결** -> **연결된 서비스** ->  **+새로 만들기**를 클릭하고 "Azure Key Vault"에 대해 검색합니다.
 
 ![AKV 검색](media/store-credentials-in-key-vault/search-akv.png)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520022"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
@@ -28,17 +28,17 @@ ms.locfileid: "65520022"
 
 | 파일 형식(파일 확장명) | 지원됨 |
 | --- | --- |
-| FLV(H.264 및 AAC 코덱 포함)(.flv) |예. |
-| MXF(.mxf) |예. |
-| GXF(.gxf) |예. |
-| MPEG2-PS, MPEG2-TS, 3GP(.ts, .ps, .3gp, .3gpp, .mpg) |예. |
-| WMV(Windows Media Video)/ASF(.wmv, .asf) |예. |
-| AVI(압축되지 않은 8비트/10비트)(.avi) |예. |
-| MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv) |예. |
-| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |예. |
-| Matroska/WebM(.mkv) |예. |
-| WAVE/WAV(.wav) |예. |
-| QuickTime(.mov) |예. |
+| FLV(H.264 및 AAC 코덱 포함)(.flv) |예 |
+| MXF(.mxf) |예 |
+| GXF(.gxf) |예 |
+| MPEG2-PS, MPEG2-TS, 3GP(.ts, .ps, .3gp, .3gpp, .mpg) |예 |
+| WMV(Windows Media Video)/ASF(.wmv, .asf) |예 |
+| AVI(압축되지 않은 8비트/10비트)(.avi) |예 |
+| MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv) |예 |
+| [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |예 |
+| Matroska/WebM(.mkv) |예 |
+| WAVE/WAV(.wav) |예 |
+| QuickTime(.mov) |예 |
 
 > [!NOTE]
 > 
@@ -58,37 +58,37 @@ ms.locfileid: "65520022"
 | 입력 비디오 코덱 | 지원됨 |
 | --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |
-| Avid DNxHD(MXF) |예. |
-| DVCPro/DVCProHD(MXF) |예. |
-| DV(디지털 비디오)(AVI 파일) |예. |
-| JPEG 2000 |예. |
+| Avid DNxHD(MXF) |예 |
+| DVCPro/DVCProHD(MXF) |예 |
+| DV(디지털 비디오)(AVI 파일) |예 |
+| JPEG 2000 |예 |
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
-| MPEG-1 |예. |
-| VC-1/WMV9 |예. |
+| MPEG-1 |예 |
+| VC-1/WMV9 |예 |
 | Canopus HQ/HQX |아닙니다. |
-| Mpeg-4 2부 |예. |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |예. |
-| 압축되지 않은 YUV420 또는 mezzanine |예. |
-| Apple ProRes 422 |예. |
-| Apple ProRes 422 LT |예. |
-| Apple ProRes 422 HQ |예. |
-| Apple ProRes Proxy |예. |
-| Apple ProRes 4444 |예. |
-| Apple ProRes 4444 XQ |예. |
+| Mpeg-4 2부 |예 |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
+| 압축되지 않은 YUV420 또는 mezzanine |예 |
+| Apple ProRes 422 |예 |
+| Apple ProRes 422 LT |예 |
+| Apple ProRes 422 HQ |예 |
+| Apple ProRes Proxy |예 |
+| Apple ProRes 4444 |예 |
+| Apple ProRes 4444 XQ |예 |
 | HEVC/H.265| 기본 프로필|
 
 ## <a name="input-audio-codecs"></a>입력 오디오 코덱
 | 입력 오디오 코덱 | 지원됨 |
 | --- | --- |
-| AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예. |
-| MPEG Layer 2 |예. |
-| MP3(MPEG-1 Audio Layer 3) |예. |
-| Windows Media 오디오 |예. |
-| WAV/PCM |예. |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |예. |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예. |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예. |
-| AMR(Adaptive Multi-Rate) |예. |
+| AAC(AAC-LC, AAC-HE 및 AAC-HEv2, 최대 5.1) |예 |
+| MPEG Layer 2 |예 |
+| MP3(MPEG-1 Audio Layer 3) |예 |
+| Windows Media 오디오 |예 |
+| WAV/PCM |예 |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |예 |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
+| AMR(Adaptive Multi-Rate) |예 |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아닙니다. |
 | Dolby® E |아닙니다. |
 | Dolby® Digital(AC3) |아닙니다. |

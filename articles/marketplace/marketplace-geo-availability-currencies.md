@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938264"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
@@ -66,7 +66,7 @@ ms.locfileid: "64938264"
 | 피지                                | FJ        | AUD          |
 | 핀란드                             | FI        | EUR          |
 | 프랑스                              | FR        | EUR          |
-| 조지아                             | GE        | USD          |
+| 그루지야                             | GE        | USD          |
 | 독일                             | DE        | EUR          |
 | 가나                               | GH        | USD          |
 | 그리스                              | GR        | EUR          |
@@ -95,7 +95,7 @@ ms.locfileid: "64938264"
 | 리히텐슈타인                       | LI        | EUR          |
 | 리투아니아                           | LT        | EUR          |
 | 룩셈부르크                          | LU        | EUR          |
-| 마카오                           | MO        | USD          |
+| 마카오 특별 행정구                           | MO        | USD          |
 | 북마케도니아                     | MK        | USD          |
 | 말레이시아                            | MY        | USD          |
 | 몰타                               | MT        | EUR          |
@@ -134,7 +134,7 @@ ms.locfileid: "64938264"
 | 싱가포르                           | SG        | USD          |
 | 슬로바키아                            | SK        | EUR          |
 | 슬로베니아                            | SI        | EUR          |
-| 남아프리카                        | ZA        | USD          |
+| 남아프리카 공화국                        | ZA        | USD          |
 | 스페인                               | ES        | EUR          |
 | 스리랑카                           | LK        | USD          |
 | 스웨덴                              | SE        | SEK          |
@@ -151,7 +151,7 @@ ms.locfileid: "64938264"
 | 미국령 버진아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
-| 아랍에미리트                | AE        | USD          |
+| 아랍 에미리트 연합국                | AE        | USD          |
 | 영국                      | GB        | GBP          |
 | 미국                       | US        | USD          |
 | 우루과이                             | UY        | USD          |

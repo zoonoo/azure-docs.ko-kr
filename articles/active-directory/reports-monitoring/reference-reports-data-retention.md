@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781052"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 보고 데이터를 저장 하는 기간
@@ -66,7 +66,7 @@ ms.locfileid: "65781052"
 
 **작업 보고서**    
 
-| 보고                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고서                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | 감사 로그             | 7 일        |  7 일        | 30일             | 30일             |
 | 로그인               | N/A           |  N/A           | 30일             | 30일             |
@@ -76,7 +76,7 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 **보안 신호**
 
-| 보고         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고서         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
 | 위험에 노출된 사용자  | 7 일        | 7 일         | 30일             | 90일             |
 | 위험한 로그인 | 7 일        | 7 일         |  30일            | 90일             |

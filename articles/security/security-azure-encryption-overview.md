@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444519"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
@@ -39,7 +39,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="client-side-encryption"></a>클라이언트 쪽 암호화
 
-클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다.  다음을 포함합니다.
+클라이언트 쪽 암호화는 Azure 외부에서 수행됩니다. 다음을 포함합니다.
 
 - 고객의 데이터 센터에서 실행 중인 애플리케이션 또는 서비스 애플리케이션으로 암호화된 데이터.
 - Azure에서 수신될 때 이미 암호화된 데이터입니다.
