@@ -106,7 +106,7 @@ GitHub 또는 Azure Storage와 같은 외부 스크립트를 다운로드 해야
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| 형식 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |

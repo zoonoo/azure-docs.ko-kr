@@ -123,7 +123,7 @@ ms.locfileid: "60800295"
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| 형식 | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
