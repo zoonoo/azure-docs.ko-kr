@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657852"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
@@ -28,7 +28,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 이 섹션의 템플릿을 통해 개발자 포털에서 API 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
   
 -   [API 목록](#APIList)  
--   [작업](#Product)  
+-   [연산](#Product)  
 -   [코드 샘플](#CodeSamples)  
     -   [Curl](#Curl)  
     -   [C#](#CSharp)  
@@ -349,7 +349,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |`apiName`|문자열|API 이름입니다.|  
 |`apiDescription`|문자열|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
-|`operation`|[작업](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
+|`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
 |`sampleUrl`|문자열|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  

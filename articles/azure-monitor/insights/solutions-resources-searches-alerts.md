@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104833"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
@@ -123,7 +123,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
+| enabled       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
 | interval      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
 | queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
 
@@ -272,7 +272,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
 | 형식 | 예 | 작업의 유형입니다. 웹후크 작업의 **웹후크**가 됩니다. |
-| 이름 | 예 | 작업의 표시 이름입니다. 콘솔에 표시되지 않습니다. |
+| name | 예 | 작업의 표시 이름입니다. 콘솔에 표시되지 않습니다. |
 | webhookUri | 예 | 웹후크의 Uri입니다. |
 | customPayload | 아닙니다. | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
 

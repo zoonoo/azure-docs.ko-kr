@@ -16,10 +16,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782960"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거  
@@ -66,9 +66,9 @@ Kerberos 제한 위임을 사용하는 애플리케이션이 기록한 개인 �
 - 온-프레미스 SAM(보안 계정 관리자) 계정 이름 
 
 
-### <a name="delete-specific-data"></a>특정 데이터 삭제 
+### <a name="delete-specific-data"></a>특정 데이터 삭제
 
-특정 데이터를 삭제하려면 
+특정 데이터를 삭제하려면
 
 1. Microsoft Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작하여 새 로그 파일을 생성합니다. 새 로그 파일이 있으면 기존 로그 파일을 삭제하거나 수정할 수 있습니다. 
 2. 앞서 설명한 [특정 데이터 보기 또는 내보내기](#view-or-export-specific-data) 프로세스에 따라 삭제해야 하는 정보를 찾습니다. 모든 커넥터 로그를 검색합니다.

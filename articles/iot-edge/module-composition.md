@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389360"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
@@ -135,7 +135,7 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 모든 경로에는 원본 및 싱크가 필요하지만 조건은 메시지를 필터링하는 데 사용할 수 있는 선택적 요소입니다. 
 
 
-### <a name="source"></a>원본
+### <a name="source"></a>source
 
 원본은 메시지가 발생한 위치를 지정합니다. IoT Edge 모듈에서 메시지를 라우팅할 수도 있고 장치 리프 수 있습니다. 
 
@@ -143,7 +143,7 @@ IoT Sdk를 사용 하 여 모듈 ModuleClient 클래스를 사용 하 여 해당
 
 원본 속성은 다음 값 중 하나일 수 있습니다.
 
-| 원본 | 설명 |
+| source | 설명 |
 | ------ | ----------- |
 | `/*` | 모든 모듈 또는 리프 디바이스의 모든 디바이스-클라우드 메시지 또는 쌍 변경 알림 |
 | `/twinChangeNotifications` | 모든 모듈 또는 리프 디바이스에서 발생하는 모든 쌍 변경(보고된 속성) |

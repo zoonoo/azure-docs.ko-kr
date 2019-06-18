@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577047"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 사설 클라우드 개요
@@ -119,7 +119,7 @@ Azure 위치에서 전용된 노드를 배포할 수 있습니다. 그런 다음
 
 아래 표는 사설 클라우드의 리소스에 노드 한도 보여줍니다.
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 |----------|-------|
 | 사설 클라우드를 만드는 노드의 최소 수 | 3 |
 | 사설 클라우드 클러스터에서 노드의 최대 수 | 16 |

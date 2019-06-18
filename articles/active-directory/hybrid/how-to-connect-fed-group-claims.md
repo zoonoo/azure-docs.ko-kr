@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138751"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (공개 미리 보기)를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
@@ -66,7 +66,7 @@ AD FS에서 앱을 수신할 토큰 맞도록 그룹의 Azure Active Directory o
 
 Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Active Directory를 구성 하는 방법은 다음 두 단계가 있습니다.
 
-1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   1.2.70 버전 이전의 Azure AD Connect는 Active Directory에서 그룹 개체를 동기화 하지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
+1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   1\.2.70 버전 이전의 Azure AD Connect는 Active Directory에서 그룹 개체를 동기화 하지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
 
 2. **응용 프로그램 등록 토큰에서 그룹 클레임을 포함 하도록 Azure Active Directory에서 구성** 그룹 클레임 수 갤러리 또는 비 갤러리 SAML SSO 응용 프로그램의 경우 포털의 엔터프라이즈 응용 프로그램 섹션에서 구성 또는 응용 프로그램 등록 섹션에서 응용 프로그램 매니페스트를 사용합니다.  응용 프로그램 매니페스트 참조 "Azure Active Directory 응용 프로그램 등록 그룹 특성에 대 한 구성" 아래에서 그룹 클레임을 구성 합니다.
 

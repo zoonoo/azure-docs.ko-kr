@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597200"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과 설정 하 여 모의 데이터를 사용 하 여 논리 앱 테스트
@@ -38,7 +38,7 @@ ms.locfileid: "65597200"
 
 1. 정적 결과 설정 하려는 동작에서 다음이 단계를 수행 합니다. 
 
-   1. 작업의 오른쪽 위 모서리에서 줄임표를 선택 (*...* ) 단추를 선택한 **정적 결과**예를 들어:
+   1. 작업의 오른쪽 위 모서리에서 줄임표를 선택 ( *...* ) 단추를 선택한 **정적 결과**예를 들어:
 
       !["정적 결과" 선택 > "정적 결과 사용 하도록 설정"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: d00aa35437f93c010ce48f3036b4a684910702c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160422"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 MySQL 서버용 Azure 데이터베이스를 다시 시작
@@ -32,7 +32,7 @@ ms.locfileid: "66160422"
 
 ## <a name="restart-the-server"></a>서버 다시 시작
 
-다음 명령 사용 하 여 서버를 다시 시작 합니다.
+다음 명령을 사용하여 서버를 다시 시작 합니다.
 
 ```azurecli-interactive
 az mysql server restart --name mydemoserver --resource-group myresourcegroup

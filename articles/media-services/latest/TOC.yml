@@ -27,6 +27,7 @@
       items:
         - name: .NET 사용
           href: stream-live-tutorial-with-api.md
+          displayName: 'Live Events, Live Outputs, ingest'
     - name: 비디오 분석
       items:
         - name: .NET 사용
@@ -122,6 +123,7 @@
           href: live-streaming-overview.md
         - name: 라이브 이벤트 및 라이브 출력
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: 권장되는 라이브 인코더
           href: recommended-on-premises-live-encoders.md
         - name: 클라우드 DVR 사용

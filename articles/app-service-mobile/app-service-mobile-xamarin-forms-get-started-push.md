@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098729"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
@@ -118,9 +118,9 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 애플리케이션을 인증하는 보안 토큰 생성을 담당합니다. 애플리케이션이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 메서드는 FCM에서 비동기적으로 업데이트되는 `FirebaseInstanceId.Instance.Token` 속성에서 토큰을 검색합니다. 토큰은 애플리케이션을 설치하거나 제거할 때, 사용자가 애플리케이션 데이터를 삭제할 때, 애플리케이션이 인스턴스 ID를 지울 때 또는 토큰의 보안이 손상되었을 때만 업데이트되므로 `OnTokenRefresh` 메서드는 드물게 호출됩니다. 또한 FCM 인스턴스 ID 서비스는 애플리케이션에서 해당 토큰을 정기적으로, 일반적으로 6개월마다 새로 고치도록 요청합니다.
+    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 애플리케이션을 인증하는 보안 토큰 생성을 담당합니다. 애플리케이션이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 토큰을 검색 하는 메서드는 `FirebaseInstanceId.Instance.Token` FCM에서 비동기적으로 업데이트 되는 속성입니다. `OnTokenRefresh` 메서드가 자주 호출 되 면 토큰은 응용 프로그램을 설치 하거나 제거, 사용자 응용 프로그램의 인스턴스 ID를 지울 때 응용 프로그램 데이터를 삭제 하는 경우에 업데이트 되므로 또는 토큰의 보안 된 경우 손상 됩니다. 또한 FCM 인스턴스 ID 서비스를 사용 하는 응용 프로그램 토큰 새로 고침의 정기적으로, 일반적으로 6 개월 마다 요청 합니다.
 
-    `OnTokenRefresh` 메서드는 또한 사용자의 등록 토큰을 Azure 알림 허브에 연결하는 데 사용되는 `SendRegistrationTokenToAzureNotificationHub` 메서드를 호출합니다.
+    합니다 `OnTokenRefresh` 메서드는 호출을 `SendRegistrationTokenToAzureNotificationHub` Azure 알림 허브를 사용 하 여 사용자의 등록 토큰을 연결 하는 데 사용 되는 메서드.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Azure 알림 허브 등록
 
@@ -220,7 +220,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    애플리케이션이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시되는 알림과 함께 애플리케이션이 실행되는 동안 시작되는 로컬 알림으로 변환합니다.
+    애플리케이션이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시 되는 알림과 사용 하 여 응용 프로그램이 실행 되는 동안 실행 되는 로컬 알림으로 변환 합니다.
 
 이제 Android 디바이스 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
 
@@ -232,7 +232,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 디바이스에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
 3. Visual Studio 또는 Xamarin Studio에서 **Droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 4. **실행**을 클릭하여 프로젝트를 빌드하고 Android 디바이스 또는 에뮬레이터에서 앱을 시작합니다.
-5. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
+5. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
 6. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>iOS 프로젝트 구성 및 실행(선택 사항)
@@ -326,7 +326,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-3. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
+3. 앱에서 작업을 입력한 다음 더하기( **+** ) 아이콘을 클릭합니다.
 4. 알림이 수신되는지 확인한 다음 **확인**을 클릭하여 알림을 해제합니다.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Windows 프로젝트 구성 및 실행(선택 사항)
@@ -398,14 +398,14 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 1. Visual Studio에서 Windows 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다.
 2. **실행** 단추를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
-3. 앱에서 새 todoitem에 대한 이름을 입력한 다음 더하기(**+**) 아이콘을 클릭하여 추가합니다.
+3. 앱에서 새 todoitem에 대한 이름을 입력한 다음 더하기( **+** ) 아이콘을 클릭하여 추가합니다.
 4. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 푸시 알림에 대해 자세히 알아봅니다.
 
-* [Azure Mobile Apps에서 푸시 알림 보내기](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
+* [Azure 모바일 앱에서 푸시 알림을 보내기](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Firebase Cloud Messaging을 사용하여 원격 알림](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md)  
@@ -414,7 +414,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 다음 자습서 중 하나를 계속 진행할 수도 있습니다.
 
 * [앱에 인증 추가](app-service-mobile-xamarin-forms-get-started-users.md)  
-   ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+  ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 

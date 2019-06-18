@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077371"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대 한 시각적 인터페이스는 무엇입니까? 
 
@@ -27,7 +27,7 @@ Azure Machine Learning 서비스를 사용 하는 시각적 인터페이스 [작
 + 아티팩트를 작성 [실험](#experiment) 작업 영역으로 실행 합니다.
 + 액세스 [데이터 집합](#dataset)합니다.
 + 사용 된 [계산 리소스](#compute) 실험을 실행 하려면 작업 영역에서 합니다. 
-+ 등록할 [모델](concept-azure-machine-learning-architecture.md#model)합니다.
++ 등록할 [모델](concept-azure-machine-learning-architecture.md#models)합니다.
 + [배포](#deployment) 모델에서 웹 서비스 작업 영역에서 리소스를 계산 합니다.
 
 ![시각적 인터페이스 개요](media/ui-concept-visual-interface/overview.png)

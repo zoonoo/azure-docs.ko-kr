@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922772"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
@@ -52,7 +52,7 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | 매개 변수 | 설명 |
 |:--- |:--- |
 | CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
-| 리소스 |API 리소스 이름: /api/logs |
+| Resource |API 리소스 이름: /api/logs |
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
 ### <a name="request-headers"></a>헤더 요청

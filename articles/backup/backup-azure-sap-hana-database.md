@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237809"
 ---
 # <a name="back-up-an-sap-hana-database"></a>SAP HANA 데이터베이스 백업
@@ -40,7 +40,7 @@ ms.locfileid: "65237809"
 - 15 분 마다 데이터베이스 로그를 백업할 수 있습니다. 로그 백업을 데이터베이스에 대 한 전체 백업을 성공적으로 완료 된 후 흐름에 시작 합니다.
 - 전체 및 차등 백업을 수행할 수 있습니다. 증분 백업은 현재 지원 되지 않습니다.
 - SAP HANA 백업에 적용 한 후 백업 정책을 수정할 수 없습니다. 다른 설정을 사용 하 여 백업 하려는 경우 새 정책을 만들거나 다른 정책을 할당 합니다. 
-    - 새 정책을 만들려면 클릭에 자격 증명 모음에서 **정책을** > **Backup 정책** > **+ 추가** > **에서 SAP HANA Azure VM**, 정책 설정을 지정 합니다.
+    - 새 정책을 만들려면 클릭에 자격 증명 모음에서 **정책을** > **Backup 정책** >  **+ 추가** > **에서 SAP HANA Azure VM**, 정책 설정을 지정 합니다.
     - 데이터베이스를 실행 하는 VM의 속성에 다른 정책을 할당 하려면 현재 정책 이름을 클릭 합니다. 그런 다음 합니다 **백업 정책** 페이지는 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
 

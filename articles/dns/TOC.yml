@@ -4,6 +4,8 @@
   items:
     - name: Azure DNS란?
       href: dns-overview.md
+    - name: Azure 프라이빗 DNS란?
+      href: private-dns-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
       href: dns-web-sites-custom-domain.md
     - name: 프라이빗 DNS 영역 및 레코드 만들기
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Traffic Manager에 대한 별칭 레코드
       href: tutorial-alias-tm.md
     - name: 공용 IP 주소에 대한 별칭 레코드
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: 개념
   items:
+    - name: 프라이빗 DNS
+      items:
+        - name: FAQ - 프라이빗 DNS
+          href: dns-faq-private.md
+        - name: 프라이빗 DNS 시나리오
+          href: private-dns-scenarios.md
     - name: 영역 및 레코드
       href: dns-zones-records.md
     - name: 별칭 레코드
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: FAQ
       href: dns-faq.md
-    - name: 프라이빗 DNS 영역 사용
-      href: private-dns-overview.md
-    - name: 프라이빗 DNS 시나리오
-      href: private-dns-scenarios.md
     - name: DNS 메트릭 및 경고
       href: dns-alerts-metrics.md
     - name: 역방향 DNS
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 방법
   items:
-    - name: 프라이빗 DNS 영역 및 레코드 만들기 - Azure CLI
-      href: private-dns-getstarted-cli.md
+    - name: 프라이빗 DNS
+      items:
+        - name: 프라이빗 영역 만들기 - CLI
+          href: private-dns-getstarted-cli.md
+        - name: 프라이빗 영역 만들기 - PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: 부하 분산 웹앱에 대한 별칭 레코드
       href: dns-alias-appservice.md
     - name: DNS 영역 관리

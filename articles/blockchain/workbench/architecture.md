@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 989c5c1cd9474999400177293d896b96c79c32b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060911"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
@@ -45,7 +45,7 @@ Workbench는 자동으로 생성된 웹 및 모바일(iOS, Android)용 클라이
 * 자체 스마트 계약을 업로드하고 배포합니다.
 * 특정 역할의 컨텍스트에서 스마트 계약에 대한 사용자 액세스 권한을 할당합니다.
 
-배포에 대한 자세한 내용은 [GitHub의 Azure Blockchain Workbench 샘플 클라이언트 애플리케이션](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client)을 참조하세요.
+배포에 대한 자세한 내용은 [GitHub의 Azure Blockchain Workbench 샘플 클라이언트 애플리케이션](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile)을 참조하세요.
 
 ## <a name="gateway-service-api"></a>게이트웨이 서비스 API
 

@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: faa93b75bde3a14e48baa7d27a3eb6439a137e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145416"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482234"
 ---
-1. Visual Studio 2017을 시작합니다.
+1. Visual Studio 2019를 시작합니다.
 
 1. **유니버설 Windows 플랫폼 개발** 워크로드를 사용할 수 있는지 확인합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하도록 설정한 경우 대화 상자를 닫습니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "66145416"
 
     ![새 프로젝트 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Speech SDK를 사용하려면 애플리케이션을 Windows 10 Fall Creators Update 이상용으로 빌드해야 합니다. 팝업되는 **새 유니버설 Windows 플랫폼 프로젝트** 창에서 **Windows 10 Fall Creators Update(10.0; Build 16299)** 를 **최소 버전**으로 선택합니다. **대상 버전** 상자에서 이 이상 버전을 선택한 다음, **확인**을 클릭합니다.
+1. Speech SDK를 사용하려면 애플리케이션을 Windows 10 Fall Creators Update 이상용으로 빌드해야 합니다. 팝업되는 **새 유니버설 Windows 플랫폼 프로젝트** 창에서 **Windows 10 Fall Creators Update(10.0; Build 16299)** 를 **최소 버전**으로 선택합니다. **대상 버전** 상자에서 이 버전 또는 이후 버전을 선택한 다음, **확인**을 클릭합니다.
 
     ![새 유니버설 Windows 플랫폼 프로젝트 창의 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

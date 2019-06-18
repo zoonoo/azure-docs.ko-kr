@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372263"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 추적합니다
@@ -47,7 +47,7 @@ Azure portal에서 Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 
 
    | 용어               | 정의                           |
    |--------------------|--------------------------------------------------------|
-   | 예상 잔액  | 모든 고려 청구 후 및 보류 중인 트랜잭션이 있는 크레딧의 예상된 크기 |
+   | 예상된 분산  | 모든 고려 청구 후 및 보류 중인 트랜잭션이 있는 크레딧의 예상된 크기 |
    | 현재 잔액    | 마지막 청구서부터 크레딧 양입니다. 보류 중인 트랜잭션이 포함 되지 않습니다. |
    | 트랜잭션       | Azure 크레딧 잔액을 받는 모든 청구 트랜잭션 |
 
@@ -59,10 +59,10 @@ Azure portal에서 Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 
 
    | 용어                 | 정의                           |
    |----------------------|--------------------------------------------------------|
-   | 원본               | 크레딧 획득 원본 |
+   | source               | 크레딧 획득 원본 |
    | 시작 날짜           | 크레딧을 획득 하는 경우 날짜 |
-   | 만료일      | 크레딧 만료 날짜 |
-   | 잔액              | 마지막 청구서 기준으로 분산 |
+   | 만료 날짜      | 크레딧 만료 날짜 |
+   | Balance              | 마지막 청구서 기준으로 분산 |
    | 원래 크기      | 크레딧의 금액을 원래 |
    | 상태               | 크레딧의 현재 상태입니다. 사용, 만료 되었거나 만료 상태 활성화 수 있습니다. |
 

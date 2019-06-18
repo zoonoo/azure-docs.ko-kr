@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410122"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>vFXT 클러스터로 데이터 이동 - 병렬 데이터 수집 
@@ -259,7 +259,7 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 
 ## <a name="use-the-msrsync-utility-to-populate-cloud-volumes"></a>msrsync 유틸리티를 사용하여 클라우드 볼륨 채우기
 
-``msrsync`` 도구도 데이터를 Avere 클러스터용 백 엔드 코어 파일러로 이동하는 데 사용할 수 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 https://github.com/jbd/msrsync에서 사용할 수 있습니다.
+``msrsync`` 도구도 데이터를 Avere 클러스터용 백 엔드 코어 파일러로 이동하는 데 사용할 수 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 https://github.com/jbd/msrsync 에서 사용할 수 있습니다.
 
 ``msrsync``는 원본 디렉터리를 별도의 "버킷"으로 분할한 다음, 각 버킷에서 ``rsync`` 프로세스를 개별적으로 실행합니다.
 
@@ -272,7 +272,7 @@ msrsync를 사용하여 Azure 클라우드 볼륨을 Avere 클러스터로 채�
 1. msrsync 및 해당 필수 구성 요소(rsync 및 Python 2.6 이상)를 설치합니다.
 1. 복사할 파일 및 디렉터리의 총 수를 결정합니다.
 
-   예를 들어 ```prime.py --directory /path/to/some/directory``` 인수와 함께 ``prime.py`` Avere 유틸리티(URL https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py)을 다운로드하여 사용 가능)를 사용합니다.
+   예를 들어 ```prime.py --directory /path/to/some/directory``` 인수와 함께 ``prime.py`` Avere 유틸리티(URL https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py) 을 다운로드하여 사용 가능)를 사용합니다.
 
    ``prime.py``를 사용하지 않는 경우 다음과 같이 ``find`` Gnu 도구를 사용하여 항목의 수를 계산할 수 있습니다.
 

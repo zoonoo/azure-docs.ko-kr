@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
 ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925571"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
@@ -150,7 +150,7 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 
 ### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
 
-9.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+9\.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
 ### <a name="the-boot-disk-is-not-available-errorid-95310"></a>부팅 디스크를 사용할 수 없음(ErrorID: 95310)
 
@@ -162,7 +162,7 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>여러 디스크에 있는 시스템 파티션(ErrorID: 95313)
 
-9.20 이전 버전에서는 여러 디스크에 배치된 루트 파티션 또는 볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+9\.20 이전 버전에서는 여러 디스크에 배치된 루트 파티션 또는 볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(ErrorID: 95320)
 
@@ -204,9 +204,9 @@ Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그�
 > [!TIP]
 >유지 관리 기간에 업그레이드 일정에서 모범 사례에 대 한 참조를 [최신 OS/커널 버전에 대 한 지원을](https://aka.ms/v2a_asr_upgrade_practice) Azure Site Recovery에서 서비스 업데이트에서.
 
-## <a name="lvm-support-from-920-version"></a>9.20 버전의 LVM 지원
+## <a name="lvm-support-from-920-version"></a>9\.20 버전의 LVM 지원
 
-9.20 이전 버전에서는 데이터 디스크에 대해서만 LVM이 지원되었습니다. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.
+9\.20 이전 버전에서는 데이터 디스크에 대해서만 LVM이 지원되었습니다. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.
 
 [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 [LVM의 OS 디스크](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)가 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 

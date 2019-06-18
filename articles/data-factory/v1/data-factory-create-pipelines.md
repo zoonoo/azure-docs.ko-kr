@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487421"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-create-pipelines.md)
 > * [버전 2(현재 버전)](../concepts-pipelines-activities.md)
 
@@ -136,7 +136,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | --- | --- | --- |
 | 이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description | 활동의 용도를 설명하는 텍스트입니다. |예 |
-| type | 활동의 형식입니다. 다른 형식의 활동에 대해서는 [데이터 이동 활동](#data-movement-activities) 및 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요. |예 |
+| 형식 | 활동의 형식입니다. 다른 형식의 활동에 대해서는 [데이터 이동 활동](#data-movement-activities) 및 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |예 |
 | linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 작업 및 Azure Machine Learning Batch 평가 작업의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201666"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
@@ -150,7 +150,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. SQL 데이터 동기화 클라이언트 에이전트 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
     b. 검색 상자에 **services.msc**를 입력합니다.  
-    다. 검색 결과에서 **서비스**선택합니다.  
+    c. 검색 결과에서 **서비스**선택합니다.  
     d. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **중지**를 선택합니다.
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **속성**을 선택합니다.

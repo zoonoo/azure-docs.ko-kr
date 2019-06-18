@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>자습서: 23 Video와 Azure Active Directory 통합
@@ -132,7 +132,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     ![Configure Single Sign-On](./media/23video-tutorial/tutorial_23video_configure.png) 
 
-7. **23 Video** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [23 Video 지원 팀](mailto:support@23company.com)으로 보내야 합니다. 
+7. **23 Video** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** , **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [23 Video 지원 팀](mailto:support@23company.com)으로 보내야 합니다. 
 
 
 > [!TIP]
@@ -165,7 +165,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  

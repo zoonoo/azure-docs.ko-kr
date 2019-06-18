@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118694"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -266,7 +266,7 @@ Storage 탐색기는 Ubuntu 18.04, 14.04 및 16.04에 공식적으로 지원 됩
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Storage 탐색기 최신 버전의.NET Core에 대 한 패치 
 .NET core 2.0 설치 및 Storage 탐색기 1.7.0 버전을 실행 하는 보다 큰 또는 이전 버전이 있는 경우 다음 단계를 완료 하 여 Storage 탐색기를 패치 하는 가능성이 필요 합니다.
-1. 1.5.43 StreamJsonRpc의 버전을 다운로드 [nuget에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾아보십시오.
+1. 1\.5.43 StreamJsonRpc의 버전을 다운로드 [nuget에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾아보십시오.
 2. 패키지를 다운로드 한 후 해당 파일 확장명을 변경 `.nupkg` 를 `.zip`
 3. 패키지를 압축을 풉니다.
 4. `streamjsonrpc.1.5.43/lib/netstandard1.1/`으로 이동합니다.

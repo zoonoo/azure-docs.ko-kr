@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083390"
 ---
 # <a name="vpn-gateways-overview"></a>VPN gateway 개요
 
@@ -52,7 +52,7 @@ VPN gateway에서 온-프레미스 사설 클라우드에 서비스를 사용할
 | IKE 버전 | IKEv1 | IKEv1 | IKEv1 |
 | 암호화 | AES 128 | AES 256 | AES 256 |
 | 해시 알고리즘| SHA 256 | SHA 256 | SHA 1 |
-| Diffie Hellman 그룹 (DH 그룹) | 1 | 1 | 1 |
+| Diffie Hellman 그룹 (DH 그룹) | 2 | 2 | 2 |
 | 수명 | 28,800초 | 28,800초 | 28,800초 |
 | 데이터 크기 | 4GB | 4GB | 4GB |
 

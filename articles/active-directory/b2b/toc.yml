@@ -51,6 +51,8 @@
     - name: 방법 가이드
       expanded: true
       items:
+        - name: B2B 공유 관리
+          href: delegate-invitations.md
         - name: 초대 관리
           items:
             - name: B2B 사용자를 추가하는 관리자
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: 일회성 암호 인증
               href: one-time-passcode.md
-            - name: B2B 공유 정책
-              href: delegate-invitations.md
             - name: 초대 허용 또는 차단
               href: allow-deny-list.md
             - name: 초대 없이 B2B 사용자 추가

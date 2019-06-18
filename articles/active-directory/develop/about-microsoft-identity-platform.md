@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472726"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751904"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
@@ -58,7 +58,7 @@ Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플
 
 ### <a name="msal-libraries"></a>MSAL 라이브러리
 
-MSAL 라이브러리를 사용하여 모든 Microsoft ID를 인증하는 애플리케이션을 빌드할 수 있습니다. .NET의 MSAL 라이브러리는 현재 일반 공급됩니다. JavaScript, iOS 및 Android용 MSAL 라이브러리는 미리 보기로 제공되며 프로덕션 환경에서 사용하기에 적합합니다. 현재 일반 공급되는 MSAL 및 ADAL 버전과 동일한 수준의 프로덕션 수준 지원이 MSAL 라이브러리 미리 보기에도 제공됩니다.
+MSAL 라이브러리를 사용하여 모든 Microsoft ID를 인증하는 애플리케이션을 빌드할 수 있습니다. .NET의 MSAL 라이브러리와 JavaScript는 현재 일반 공급됩니다. iOS 및 Android용 MSAL 라이브러리는 미리 보기로 제공되며 프로덕션 환경에서 사용하기에 적합합니다. 현재 일반 공급되는 MSAL 및 ADAL 버전과 동일한 수준의 프로덕션 수준 지원이 MSAL 라이브러리 미리 보기에도 제공됩니다.
 
 또한 MSAL 라이브러리를 사용하여 애플리케이션을 Azure AD B2C와 통합할 수 있습니다.
 

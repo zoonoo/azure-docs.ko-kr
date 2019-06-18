@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792106"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
@@ -748,7 +748,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
 6. 추가 질문/의견은 어디에 공유하나요?
-   * https://feedback.azure.com에 대한 의견을 보내주세요.
+   * https://feedback.azure.com 에 대한 의견을 보내주세요.
 7. Virtual Machine Scale Set 인스턴스에 작동하나요?
    * 예, 메타데이터 서비스는 확장 집합 인스턴스에 사용할 수 있습니다.
 8. 서비스에 대한 지원을 받으려면 어떻게 하나요?

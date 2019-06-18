@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784288"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -87,7 +87,7 @@ ms.locfileid: "65784288"
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |이 특성은 현재 그룹에 사용되지 않습니다. |
-| 이니셜 |X |X | | |
+| Initials |X |X | | |
 | L |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -153,7 +153,7 @@ ms.locfileid: "65784288"
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| ProxyAddresses |X |X |X | |
+| proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 동기화 및 페더레이션 모두 사용됩니다. |
 | reportToOriginator | | |X | |
@@ -236,7 +236,7 @@ ms.locfileid: "65784288"
 | postalCode |X |X | | |
 | postOfficeBox |X |X | |이 특성은 현재 SharePoint Online에 사용되지 않습니다. |
 | preferredLanguage |X | | | |
-| ProxyAddresses |X |X |X | |
+| proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
@@ -291,7 +291,7 @@ ms.locfileid: "65784288"
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| ProxyAddresses |X |X |X | |
+| proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
@@ -313,7 +313,7 @@ ms.locfileid: "65784288"
 | 메일 |X |X |X |메일 주소 전체입니다. |
 | 멤버 | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| ProxyAddresses |X |X |X |기계적 속성입니다. Azure AD에서 사용됩니다. 사용자에 대한 모든 보조 메일 주소를 포함합니다. |
+| proxyAddresses |X |X |X |기계적 속성입니다. Azure AD에서 사용됩니다. 사용자에 대한 모든 보조 메일 주소를 포함합니다. |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
@@ -331,7 +331,7 @@ ms.locfileid: "65784288"
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| ProxyAddresses |X |X |X | |
+| proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
@@ -389,7 +389,7 @@ ms.locfileid: "65784288"
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| ProxyAddresses |X |X |X | |
+| proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
@@ -431,7 +431,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |필터링: 온-프레미스 필터링 및 클라이어트에서 안전하게 차단된 보낸 사람의 온라인 데이터를 다시 씁니다. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |UM(통합 메시징) - 온라인 음성 메일 사용: Microsoft Lync Server 통합에서 사용자의 온라인 서비스에 음성 메일이 있음을 Lync Server 온-프레미스에 알리는 데 사용합니다. |
 | msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |소송 보존: 클라우드 서비스에서 소송 보존 상태에 있는 사용자를 확인하도록 설정합니다. |
-| ProxyAddresses| ProxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
+| proxyAddresses| proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
@@ -443,7 +443,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | 메일 | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
-| ProxyAddresses | X |  |
+| proxyAddresses | X |  |
 | targetAddress | X |  |
 
 ## <a name="device-writeback"></a>디바이스 쓰기 저장

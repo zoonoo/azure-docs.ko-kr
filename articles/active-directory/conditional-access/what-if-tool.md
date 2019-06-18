@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory 조건부 액세스의 what if 도구란?
-description: 조건부 액세스 정책이 환경에 미치는 영향을 이해하는 방법을 알아봅니다.
+title: Azure Active Directory 조건부 액세스에서 도구 란 무엇 경우?
+description: 환경에서 조건부 액세스 정책의 영향을 이해할 수 하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,28 +18,28 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0f1fa0630a58054a138b730141b982af427475
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111930"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 what if 도구란?
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에서 도구 란 무엇 경우?
 
-[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있게 해 주는 Azure AD(Azure Active Directory)의 기능입니다. 환경에서 조건부 액세스 정책을 통해 예상되는 결과를 어떻게 알 수 있나요? 이 질문에 답변하기 위해 **조건부 액세스 what if 도구**를 사용할 수 있습니다.
+[조건부 액세스](../active-directory-conditional-access-azure-portal.md) 하는 방법을 제어할 수 있는 Azure Active Directory (Azure AD)의 기능을 클라우드 앱에 사용자 액세스 권한이 부여 됩니다. 어떻게 알 수 폼 예상 되는 조건부 액세스 정책을 환경의? 이 질문에 답하기 위해 사용할 수 있습니다 합니다 **조건부 액세스 what if 도구**합니다.
 
-이 문서에서는 이 도구를 사용하여 조건부 액세스 정책을 테스트하는 방법을 설명합니다.
+이 문서에서는 조건부 액세스 정책을 테스트 하려면이 도구를 사용 하는 방법을 설명 합니다.
 
 ## <a name="what-it-is"></a>정의
 
-**조건부 액세스 what if 정책 도구**를 사용하여 사용자 환경에 조건부 액세스 정책이 미치는 영향을 이해할 수 있습니다. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해보는 대신, 이 도구를 사용하여 사용자의 시뮬레이트된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다. 이 보고서는 적용된 조건부 액세스 정책뿐만 아니라 [클래식 정책](policy-migration.md#classic-policies)(있는 경우)도 나열합니다.    
+합니다 **조건부 액세스 what if 정책 도구** 환경에서 조건부 액세스 정책의 영향을 이해할 수 있습니다. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해보는 대신, 이 도구를 사용하여 사용자의 시뮬레이트된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다. 보고서에만 적용 된 조건부 액세스 정책을 나타나지 뿐만 [클래식 정책](policy-migration.md#classic-policies) 있을 경우.    
 
 또한 what if 도구는 특정 사용자에게 적용되는 정책을 빠르게 확인하는 방법을 제공합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.  
 
 ## <a name="how-it-works"></a>작동 방법
 
-**조건부 액세스 what if 도구**에서, 먼저 시뮬레이트하려는 로그인 시나리오의 설정을 구성해야 합니다. 이러한 설정에는 다음이 포함됩니다.
+에 **조건부 액세스 what if 도구**, 먼저 시뮬레이트하려는 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정은 다음과 같습니다.
 
 - 테스트하려는 사용자 
 
@@ -56,7 +56,7 @@ ms.locfileid: "60354335"
 
 ## <a name="running-the-tool"></a>도구 실행
 
-Azure Portal의 **[조건부 액세스 - 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** 페이지에서 **what if** 도구를 찾을 수 있습니다.
+찾을 수 있습니다는 **경우에 어떻게** 도구를 **[조건부 액세스-정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** Azure 포털에서 페이지.
 
 이 도구를 시작하려면 정책 목록 맨 위에 있는 도구 모음에서 **What if**를 클릭합니다.
 
@@ -102,7 +102,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 이 설정은 [로그인 위험 조건](conditions.md#sign-in-risk)을 모방합니다.   
 
 
-## <a name="evaluation"></a>평가판 
+## <a name="evaluation"></a>Evaluation 
 
 **What if**를 클릭하여 평가를 시작합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
 
@@ -123,8 +123,8 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+- 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
 
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조를 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 
 
 - 클래식 정책을 마이그레이션하려는 경우 [Azure Portal에서 클래식 정책 마이그레이션](policy-migration.md)을 참조하세요.  

@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory에서 조건부 액세스를 사용하여 클라우드 앱 액세스에 대한 승인된 클라이언트 앱을 요청하는 방법 | Microsoft Docs
-description: Azure Active Directory에서 조건부 액세스를 사용하여 클라우드 앱 액세스에 대한 승인된 클라이언트 앱을 요청하는 방법을 알아봅니다.
+title: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱을 요구 하는 방법 | Microsoft Docs
+description: Azure Active Directory의 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱을 요구 하는 방법에 알아봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,28 +18,28 @@ ms.date: 06/13/2018
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdd3b49dfbba29da084aec777ce022d003a8de86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112715"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 승인된 클라이언트 앱 필요 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱 필요 
 
-직원은 개인 및 회사 작업에 대해 모바일 디바이스를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 승인된 클라이언트 앱으로 제한할 수 있습니다.  
+직원은 개인 및 회사 작업에 대해 모바일 디바이스를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure Active Directory (Azure AD) 조건부 액세스를 사용 하 여 회사 데이터를 보호할 수 있는 승인 된 클라이언트 앱에 클라우드 앱에 대 한 액세스를 제한할 수 있습니다.  
 
 이 항목에서는 승인된 클라이언트 앱을 필요로 하는 조건부 액세스 정책을 구성하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
 
-[Azure AD 조건부 액세스](overview.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 디바이스로 제한할 수 있습니다.
+사용 하 여 [Azure AD 조건부 액세스](overview.md)를 미세 조정할 수 있습니다 권한이 있는 사용자가 리소스를 액세스 하는 방법입니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 디바이스로 제한할 수 있습니다.
 
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책은 디바이스 관리 솔루션에 디바이스를 등록하거나 등록하지 않고 회사의 데이터를 보호할 수 있도록 하는 MDM(모바일 디바이스 관리) 솔루션이 필요하지 않습니다.
 
-Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 액세스를 Intune 앱 보호 정책을 지원하는 클라이언트 앱으로 제한할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
+Azure Active Directory 조건부 액세스 사용 Intune 앱 보호 정책을 지 원하는 클라이언트 앱에 클라우드 앱에 대 한 액세스를 제한 합니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
 
-조건부 액세스 용어에서 이러한 클라이언트 앱을 **승인된 클라이언트 앱**이라고 합니다.  
+조건부 액세스 용어에서 이러한 클라이언트 앱으로 알려져 **승인 된 클라이언트 앱**합니다.  
 
 
 ![조건부 액세스](./media/app-based-conditional-access/05.png)
@@ -48,7 +48,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
 
 
-앱 기반 조건부 액세스 정책을 [디바이스 기반 조건부 액세스 정책](require-managed-devices.md)과 같은 다른 정책과 결합하여 개인 및 회사 디바이스 모두에 대한 데이터를 보호하는 방법에 유연성을 제공할 수 있습니다.
+와 같은 다른 정책 사용 하 여 앱 기반 조건부 액세스 정책을 결합할 수 있습니다 [장치 기반 조건부 액세스 정책](require-managed-devices.md) 개인 및 회사 장치에 대 한 데이터를 보호 하는 방법에 유연성을 제공 합니다.
 
  
 
@@ -60,21 +60,21 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 - [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement) 기술 참조.
 
 
-- [Azure Active Directory의 조건부 액세스](overview.md)에 대한 기본 개념.
+- 기본 개념 [Azure Active Directory의 조건부 액세스](overview.md)합니다.
 
-- [조건부 액세스 정책을 구성하는](app-based-mfa.md) 방법.
+- 하는 방법 [조건부 액세스 정책을 구성할](app-based-mfa.md)합니다.
 
-- [조건부 액세스 정책의 마이그레이션](best-practices.md#policy-migration).
+- 합니다 [조건부 액세스 정책의 마이그레이션](best-practices.md#policy-migration)합니다.
  
 
 ## <a name="prerequisites"></a>필수 조건
 
-앱 기반 조건부 액세스 정책을 만들기 위해 Enterprise Mobility + Security 또는 Azure Active Directory Premium 구독이 있어야 하며 사용자에게 EMS 또는 Azure AD에 대한 라이선스가 있어야 합니다. 
+앱 기반 조건부 액세스 정책을 만들려면 해야 Enterprise Mobility + Security 또는 Azure Active Directory premium 구독을 및 EMS 또는 Azure AD에 대 한 사용자 라이선스를 취득 해야 합니다. 
 
 
 ## <a name="exchange-online-policy"></a>Exchange Online 정책 
 
-이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 조건부 액세스 정책으로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스 하기 위한 앱 기반 조건부 액세스 정책으로 구성 됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -101,15 +101,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ### <a name="configuration"></a>구성 
 
-**1단계 - Exchange Online에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계-Exchange Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/01.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online**을 선택해야 합니다.
 
@@ -130,15 +130,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
     ![조건부 액세스](./media/app-based-conditional-access/05.png)
  
 
-**2단계 - EAS(Exchange Online with Active Sync)에 대한 Azure AD 조건부 액세스 정책 구성**
+**2 단계-Exchange online Active Sync (EAS) 사용 하 여 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/06.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online**을 선택해야 합니다.
@@ -166,7 +166,7 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ## <a name="exchange-online-and-sharepoint-online-policy"></a>Exchange Online 및 SharePoint Online 정책
 
-이 시나리오는 승인된 앱을 통한 Exchange Online 및 SharePoint Online에 대한 액세스를 위해 모바일 앱 관리 정책을 사용한 조건부 액세스로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스 하기 위한 모바일 앱 관리 정책 사용한 조건부 액세스 및 승인 된 앱을 사용 하 여 SharePoint Online으로 구성 됩니다.
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
@@ -181,15 +181,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ### <a name="configuration"></a>구성
 
-**1단계 - Exchange Online 및 SharePoint Online에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계-Exchange Online 및 SharePoint Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/71.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online** 및 **Office 365 SharePoint Online**을 선택해야 합니다. 
@@ -213,15 +213,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 
 
-**2단계 - EAS(Exchange Online with Active Sync)에 대한 Azure AD 조건부 액세스 정책 구성**
+**2 단계-Exchange online Active Sync (EAS) 사용 하 여 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/06.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online**을 선택해야 합니다. 온라인 
 
@@ -250,7 +250,7 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 또는 준수 디바이스 정책
 
-이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 또는 준수 디바이스 조건부 액세스 정책으로 구성됩니다.
+이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 기반 또는 준수 장치 조건부 액세스 정책으로 구성 됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -266,15 +266,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ### <a name="configuration"></a>구성
 
-**1단계 - Exchange Online 및 SharePoint Online에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계-Exchange Online 및 SharePoint Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/62.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online** 및 **Office 365 SharePoint Online**을 선택해야 합니다. 
 
@@ -302,15 +302,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 
 
-**2단계 - EAS(Exchange Online with Active Sync)에 대한 Azure AD 조건부 액세스 정책 구성**
+**2 단계-Exchange online Active Sync (EAS) 사용 하 여 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/61.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online**을 선택해야 합니다. 
 
@@ -342,7 +342,7 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 및 준수 디바이스 정책
 
-이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 및 준수 디바이스 조건부 액세스 정책으로 구성됩니다.
+이 시나리오는 Exchange Online에 대 한 액세스에 대 한 앱 기반 및 준수 장치 조건부 액세스 정책으로 구성 됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -362,15 +362,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ### <a name="configuration"></a>구성
 
-**1단계 - Exchange Online 및 SharePoint Online에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계-Exchange Online 및 SharePoint Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/62.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online** 및 **Office 365 SharePoint Online**을 선택해야 합니다. 
 
@@ -398,15 +398,15 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 
 
-**2단계 - EAS(Exchange Online with Active Sync)에 대한 Azure AD 조건부 액세스 정책 구성**
+**2 단계-Exchange online Active Sync (EAS) 사용 하 여 Azure AD 조건부 액세스 정책 구성**
 
-이 단계의 조건부 액세스 정책의 경우 다음 구성 요소를 구성해야 합니다.
+이 단계에서는 조건부 액세스 정책의 다음 구성 요소를 구성 해야 합니다.
 
 ![조건부 액세스](./media/app-based-conditional-access/61.png)
 
-1. 조건부 액세스 정책의 **이름**.
+1. 합니다 **이름을** 조건부 액세스 정책입니다.
 
-2. **사용자 및 그룹**: 각 조건부 액세스 정책에는 선택한 사용자 또는 그룹이 하나 이상 있어야 합니다.
+2. **사용자 및 그룹**: 각 조건부 액세스 정책을 사용자 또는 선택한 그룹을 하나 이상 있어야 합니다.
 
 3. **클라우드 앱:** 클라우드 앱으로 **Office 365 Exchange Online**을 선택해야 합니다. 
 
@@ -445,6 +445,6 @@ Intune 앱 보호 정책이 회사 데이터에는 액세스 시 활성화 하 �
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
 
-사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조를 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591708"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
@@ -62,7 +62,7 @@ ms.locfileid: "60591708"
 
 가상 네트워크의 각 VM에 대해 보조 NIC에 대한 IP 구성을 추가합니다.  
 
-1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com 로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 위에 있는 **리소스 그룹** 아이콘을 선택합니다. 그런 다음 VM이 있는 리소스 그룹(예: **contosofabrikam**)을 선택합니다. **리소스 그룹** 창에 VM의 모든 리소스와 NIC가 표시됩니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "60591708"
 
 구성에 대한 부하 분산 장치를 만듭니다.
 
-1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com 로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다. 다음 **만들기**를 선택합니다.
 

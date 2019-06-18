@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477147"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
@@ -33,11 +33,11 @@ SQL Server 2016에는 여러 새 기능이 포함되어 있습니다. [파일-�
 SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 같습니다. 여기에는 저장소 관리, 저장소 오류 위험, 오프사이트 저장소에 대한 액세스, 하드웨어 구성 등이 포함됩니다. 이러한 문제 대부분은 SQL Server 백업을 위해 Azure Blob 저장소 서비스를 사용하여 지정됩니다. 다음과 같은 이점을 고려합니다.
 
 * **사용 편의성**: Azure Blob 서비스에 백업을 저장하면 오프사이트 옵션에 쉽고 간편하며 유연하게 액세스할 수 있습니다. SQL Server 백업을 위한 오프사이트 저장소를 만들 때 **BACKUP TO URL** 구문을 사용하면 기존 스크립트/작업을 수정하는 것만큼 쉽습니다. 오프사이트와 프로덕션 데이터베이스 위치 둘 다에 영향을 줄 수 있는 단일 재해를 방지하려면 오프사이트 저장소는 일반적으로 프로덕션 데이터베이스 위치와 충분히 멀리 떨어져 있어야 합니다. [Azure Blob에 대해 지역에서 복제](../../../storage/common/storage-redundancy.md)를 선택하면 전 지역에 영향을 줄 수 있는 재해가 발생하는 경우에도 추가적인 보호 방법을 확보할 수 있습니다.
-* **백업 보관**: Azure Blob Storage 서비스는 백업을 보관하는 데 흔히 사용되는 테이프 옵션보다 탁월한 대안을 제공합니다. 테이프 저장소를 사용하려면 미디어를 보호하기 위해 오프사이트 시설 및 수단까지 테이프를 물리적으로 운반해야 할 수 있습니다. Azure Blob Storage에 백업 저장은 즉각적이고 내구성 있는 고가용성 보관 옵션을 제공합니다.
+* **백업 보관**: Azure Blob Storage 서비스는 백업을 보관하는 데 흔히 사용되는 테이프 옵션보다 탁월한 대안을 제공합니다. 테이프 스토리지를 사용하려면 오프사이트 시설로 물리적 이동과 미디어 보호 조치가 필요합니다. Azure Blob Storage에 백업 저장은 즉각적이고 내구성 있는 고가용성 보관 옵션을 제공합니다.
 * **관리되는 하드웨어**: Azure 서비스를 사용하면 하드웨어 관리의 오버헤드가 없습니다. Azure 서비스에서 하드웨어를 관리하며 하드웨어 오류 방지와 중복을 위해 지역에서 복제 옵션을 제공합니다.
-* **무제한 스토리지**: Azure Blob에 직접 백업할 수 있도록 설정하면 무제한 스토리지에 가상으로 액세스할 수 있습니다. 또는 Azure 가상 머신 디스크로 백업하면 컴퓨터 크기에 따라 제한이 적용됩니다. 백업을 위해 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 매우 큰 인스턴스의 경우 16개의 디스크로 제한되고 작은 인스턴스의 경우에는 디스크의 수가 더 적습니다.
+* **무제한 스토리지**: Azure Blob에 직접 백업할 수 있도록 설정하면 무제한 스토리지에 가상으로 액세스할 수 있습니다. 또는 Azure 가상 머신 디스크로 백업하면 컴퓨터 크기에 따라 제한이 적용됩니다. 백업을 위해 Azure 가상 머신에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 초대형 인스턴스의 경우 16개이며, 그보다 작은 인스턴스의 경우 더 적습니다.
 * **Backup 가용성**: Azure Blob에 저장된 Backup은 데이터베이스 연결/분리 또는 VHD 다운로드 및 연결 과정 없이도 언제 어디서나 사용 가능하며 온-프레미스 SQL Server 또는 Azure Virtual Machine에서 실행되는 다른 SQL Server에 대한 복원을 위해 쉽게 액세스할 수 있습니다.
-* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션으로 비용 효율성을 추구할 수 있습니다. 자세한 내용은 [Azure 가격 계산기](https://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator") 및 [Azure 가격 책정 문서](https://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article")를 참조하세요.
+* **비용**: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션만큼 비용 효율적일 수 있습니다. 자세한 내용은 [Azure 가격 계산기](https://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator") 및 [Azure 가격 책정 문서](https://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article")를 참조하세요.
 * **스토리지 스냅숏**: 데이터베이스 파일이 Azure Blob에 저장되고 SQL Server 2016을 사용하는 경우 [파일-스냅숏 백업](https://msdn.microsoft.com/library/mt169363.aspx) 을 사용하여 거의 즉각적인 백업 및 매우 빠른 복원을 수행할 수 있습니다.
 
 자세한 내용은 [Azure Blob Storage 서비스로 SQL Server 백업 및 복원](https://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.

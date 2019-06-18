@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 13bf27fd58530c357e3bb83f7cbc503855d40304
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226236"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075327"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 또는 원격 분석 모듈 및 이니셜라이저를 사용 하지 않도록 설정를 그 중 일부에 대 한 매개 변수를 설정 합니다.
@@ -37,7 +37,7 @@ Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [
 
 각 모듈에 대해 구성 파일에 노드가 있습니다. 모듈을 사용하지 않으려면 노드를 삭제하거나 주석으로 처리합니다.
 
-### <a name="dependency-tracking"></a>종속성 추적 
+### <a name="dependency-tracking"></a>종속성 추적
 [종속성 추적](../../azure-monitor/app/asp-net-dependencies.md) 은 앱이 데이터베이스 및 외부 서비스와 데이터베이스에 수행하는 호출에 대한 원격 분석을 수집합니다. 이 모듈이 IIS 서버에서 작동하도록 하려면 [상태 모니터를 설치][redfield]해야 합니다. Azure 웹앱 또는 VM에서 사용하려면 [Application Insights 확장을 선택](azure-web-apps.md)합니다.
 
 [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)를 사용하여 종속성 추적 코드를 작성할 수 있습니다.
@@ -142,7 +142,7 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 할 수 있습니다 [사용자 고유의 원격 분석 프로세서를 작성할](../../azure-monitor/app/api-filtering-sampling.md#filtering)합니다.
 
 #### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>적응 샘플링 원격 분석 프로세서 (2.0.0-beta3)에서
-이 옵션은 기본적으로 사용하도록 설정되어 있습니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
+이 기능은 기본적으로 사용됩니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
 
 ```xml
 

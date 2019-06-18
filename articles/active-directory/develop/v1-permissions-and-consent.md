@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545206"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
@@ -31,7 +31,7 @@ ms.locfileid: "65545206"
 
 Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다.
 
-범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.
+범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.  
 
 ## <a name="types-of-permissions"></a>권한 형식
 

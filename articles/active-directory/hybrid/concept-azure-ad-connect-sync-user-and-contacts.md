@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245487"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
@@ -55,7 +55,7 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
       
       * Active Directory 그룹을 해당 proxyAddress 속성의 값을 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"을 (를)* Azure AD에서 메일을 사용할 수도 있습니다.
 
-## <a name="contacts"></a>담당자
+## <a name="contacts"></a>연락처
 연락처가 다른 포리스트의 사용자를 나타내게 하는 것은 GALSync 솔루션이 둘 이상의 Exchange 포리스트 사이를 연결하는 M&A 후에 일반적입니다. 연락처 개체는 항상 메일 특성을 사용하여 커넥터 공간에서 메타 버스로 조인됩니다. 이미 연락처 개체나 동일한 메일 주소를 가진 사용자 개체가 있다면 이들 개체가 함께 조인됩니다. 이것은 **In from AD – 연락처 조인**규칙에서 구성됩니다. **AD에서 들어오기 – 연락처 일반**이라는 규칙도 있는데 **sourceObjectType** 메타 버스 특성에 대한 특성 흐름과 **연락처** 상수를 가지고 있습니다. 이 규칙은 우선 순위가 매우 낮으므로 어떤 사용자 개체가 동일한 메타버스 개체에 조인된 경우에는 **In from AD – 사용자 일반** 규칙이 User 값을 이 특성에 제공합니다. 이 규칙을 사용할 경우 조인된 사용자가 없으면 이 특성이 연락처 값을 갖게 되며, 최소 1명의 사용자가 발견되면 사용자 값을 갖습니다.
 
 Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sourceObjectType**이 **연락처**로 설정되면 아웃바운드 규칙 **AAD로 나가기 – 연락처 조인**이 연락처 개체를 생성합니다. 이 특성이 **User**로 설정되면 **AAD로 나가기 – 사용자 조인** 규칙이 대신 사용자 개체를 만듭니다.

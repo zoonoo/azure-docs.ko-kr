@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885519"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>디바이스-클라우드 통신 지침
@@ -34,8 +34,8 @@ ms.locfileid: "60885519"
 | 시나리오 | 원격 분석 시계열 및 알림 예를 들어 256KB의 센서 데이터 배치는 5분마다 전송합니다. | 사용할 수 있는 기능 및 조건 예를 들어 셀룰러 또는 WiFi와 같은 현재 디바이스 연결 모드입니다. 구성 및 소프트웨어 업데이트와 같이 장기 실행 워크플로 동기화 | 미디어 파일. 대형(일반적으로 압축됨) 원격 분석 일괄 처리 |
 | 저장 및 검색 | IoT Hub에서 일시적으로 최대 7일 동안 저장합니다. 순차 읽기만 | IoT Hub에서 디바이스 쌍에 저장합니다. [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)를 사용하여 검색할 수 있습니다. | 사용자 제공 Azure Storage 계정에 저장됩니다. |
 | 크기 | 최대 256KB 메시지입니다. | 최대 reported 속성 크기는 8KB입니다. | Azure Blob Storage에서 지원하는 최대 파일 크기 |
-| Frequency(빈도) | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
-| Protocol | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 디바이스에 HTTPS가 필요합니다. |
+| 빈도 | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
+| 프로토콜 | 모든 프로토콜에서 사용할 수 있습니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 프로토콜을 사용할 때 사용할 수 있지만 디바이스에 HTTPS가 필요합니다. |
 
 애플리케이션이 원격 분석 시계열 또는 경고로 정보를 보내고 장치 쌍에도 제공해야 할 수 있습니다. 이 시나리오에서는 다음 옵션 중 하나를 선택할 수 있습니다.
 

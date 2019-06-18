@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978786"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의에서 TTL ()를 지속 시간 
@@ -22,7 +22,7 @@ ms.locfileid: "65978786"
 
 시간 제한 값 (초), 집합과 항목을 마지막으로 수정한 시간 델타로 해석 됩니다. TTL(Time to Live)은 컨테이너 또는 컨테이너 내 항목에서 설정할 수 있습니다.
 
-1. **컨테이너에서 TTL(Time to Live)**(`DefaultTimeToLive` 사용하여 설정):
+1. **컨테이너에서 TTL(Time to Live)** (`DefaultTimeToLive` 사용하여 설정):
 
    - 누락(또는 null로 설정)되는 경우 항목이 자동으로 삭제되지 않습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "65978786"
 
    - 표시 되 고 값을 특정 수로 설정 되어 있으면 *"n"* – 항목이 만료 됩니다 *"n"* 가 마지막으로 수정한 시간 후 시간 (초)입니다.
 
-2. **항목에서 TTL(Time to Live)**(`ttl` 사용하여 설정):
+2. **항목에서 TTL(Time to Live)** (`ttl` 사용하여 설정):
 
    - 이 속성은 `DefaultTimeToLive`가 표시되고 부모 컨테이너에 대해 null로 설정되지 않은 경우에만 적용할 수 있습니다.
 

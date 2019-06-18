@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307447"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
@@ -87,7 +87,7 @@ ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다. 이 사용 권한은 A
 
 ### <a name="external-tables"></a>외부 테이블
 
-주문 데이터베이스에서 고객 정보 테이블의 정의와 일치하는 외부 테이블을 만듭니다. 
+주문 데이터베이스에서 고객 정보 테이블의 정의와 일치하는 외부 테이블을 만듭니다.
 
     CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
     ( [CustomerID] [int] NOT NULL,

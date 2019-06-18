@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217259"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
@@ -50,7 +50,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 > 
 
 ## <a name="billing-implications"></a>요금 청구
-라이브 인코딩 채널은 상태가 API를 통한 "실행 중"으로 전환되면 그 즉시 청구되기 시작됩니다.   또한 Azure Portal 또는 Azure Media Services 탐색기 도구(https://aka.ms/amse)에서 상태를 볼 수도 있습니다.
+라이브 인코딩 채널은 상태가 API를 통한 "실행 중"으로 전환되면 그 즉시 청구되기 시작됩니다.   또한 Azure Portal 또는 Azure Media Services 탐색기 도구(https://aka.ms/amse) 에서 상태를 볼 수도 있습니다.
 
 다음 표에서는 채널 상태가 API 및 Azure Portal에서 청구 상태에 매핑되는 방식을 보여줍니다. API와 포털 UX의 상태는 서로 약간 다릅니다. 채널이 API를 통한 "실행 중" 상태 또는 Azure Portal의 "준비" 또는 "스트리밍" 상태에 있는 한, 요금이 청구됩니다.
 채널이 요금을 청구하지 못하게 하려면 API를 통해 또는 Azure Portal에서 채널을 중지해야 합니다.

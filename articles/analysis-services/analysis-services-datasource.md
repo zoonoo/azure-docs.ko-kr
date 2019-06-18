@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142557"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
@@ -21,16 +21,16 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 소스  |메모리 내  |DirectQuery  |
+|데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예.      |    예      |
-|Azure SQL 데이터 웨어하우스     |   예      |   예.       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예.       |    아닙니다.      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예.       |    아닙니다.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예.        |  아닙니다.        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예.       |    아닙니다.      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예.     |   아닙니다.       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예.       |   아닙니다.       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
+|Azure SQL 데이터 웨어하우스     |   예      |   예       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아닙니다.      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아닙니다.      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아닙니다.        |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아닙니다.      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아닙니다.       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아닙니다.       |
 ||||
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
@@ -48,7 +48,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ### <a name="in-memory-and-directquery"></a>메모리 내 및 DirectQuery
 
-|데이터 소스 | 메모리 내 공급자 | DirectQuery 공급자 |
+|데이터 원본 | 메모리 내 공급자 | DirectQuery 공급자 |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
@@ -58,7 +58,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ### <a name="in-memory-only"></a>메모리 내 전용
 
-|데이터 소스  |  
+|데이터 원본  |  
 |---------|
 |Access 데이터베이스     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  

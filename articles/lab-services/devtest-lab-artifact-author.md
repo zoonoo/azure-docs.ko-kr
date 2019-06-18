@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399211"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
@@ -60,7 +60,7 @@ ms.locfileid: "66399211"
 | description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
 | iconUri |아닙니다. |랩에 표시되는 아이콘의 URI입니다. |
 | targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
-| 매개 변수 |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
+| parameters |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
 | runCommand |예 |VM에서 실행되는 아티팩트 설치 명령입니다. |
 
 ### <a name="artifact-parameters"></a>아티팩트 매개 변수

@@ -14,19 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051685"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
 * 외부
 * 내부
 
-API Management를 내부 가상 네트워크 모드로 배포하는 경우 모든 서비스 엔드포인트(게이트웨이, 개발자 포털, Azure Portal, 직접 관리 및 Git)는 액세스를 제어하는 가상 네트워크 내부에서만 볼 수 있습니다. 서비스 엔드포인트는 공용 DNS 서버에 등록되지 않습니다.
+API Management를 내부 가상 네트워크 모드로 배포, 모든 서비스 끝점 (프록시 게이트웨이, 개발자 포털, 직접 관리 및 Git)은 표시에 대 한 액세스를 제어 하는 가상 네트워크 내 에서만 있습니다. 서비스 엔드포인트는 공용 DNS 서버에 등록되지 않습니다.
+
+> [!NOTE]
+> 서비스 끝점에 대 한 DNS 항목이 없는 이기 때문에 이러한 끝점에 액세스할 수 없습니다 될 때까지 [DNS가 구성 된](#apim-dns-configuration) 가상 네트워크에 대 한 합니다.
 
 내부 모드에서 API Management를 사용하면 다음 시나리오를 달성할 수 있습니다.
 
@@ -116,10 +119,12 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 2. 그런 다음 DNS 서버에 레코드를 만들어 가상 네트워크 내에서만 액세스할 수 있는 이러한 엔드포인트에 액세스할 수 있습니다.
 
 ## <a name="routing"> </a> 라우팅
-+ 서브넷 범위의 부하 분산된 개인 가상 IP 주소는 예약되며 VNet 내에서 API Management 서비스 엔드포인트에 액세스하는 데 사용됩니다.
-+ 부하 분산된 VIP(공용 IP 주소)도 포트 3443 통해서만 관리 서비스 엔드포인트에 액세스하도록 하기 위해 예약됩니다.
-+ 서브넷 IP 범위의 IP 주소(DIP)는 VNet 내의 리소스에 액세스하는 데 사용되고, 공용 IP 주소(VIP)는 VNet 외부 리소스에 액세스하는 데 사용됩니다.
-+ 부하 분산된 공용 및 개인 IP 주소는 Azure Portal의 개요/기본 정보 블레이드에서 확인할 수 있습니다.
+
+* 부하 분산 *개인* 가상 IP 주소 서브넷 범위에서 예약 및 가상 네트워크 내에서 API Management 서비스 끝점에 액세스 하는 데 사용 됩니다. 이렇게 *개인* Azure portal에서 서비스에 대 한 개요 블레이드에서 IP 주소를 찾을 수 있습니다. 이 주소는 가상 네트워크에서 사용 하는 DNS 서버를 사용 하 여 등록 되어야 합니다.
+* 부하 분산 *공용* IP 주소 (VIP)는도 포트 3443에서 관리 서비스 끝점에 대 한 액세스를 제공 하도록 예약 됩니다. 이렇게 *공용* Azure portal에서 서비스에 대 한 개요 블레이드에서 IP 주소를 찾을 수 있습니다. *공용* 대 한 트래픽 제어 평면에만 IP 주소를 사용 합니다 `management` 조치 끝점 포트 3443 및으로 잠글 수 있습니다는 [ApiManagement] [ ServiceTags] servicetag .
+* 서브넷 IP 범위 (DIP)에서 IP 주소는 서비스의 각 VM에 할당 됩니다 및 가상 네트워크 내의 리소스에 액세스 하는 데 사용 됩니다. 가상 네트워크 외부의 리소스에 액세스 하는 공용 IP 주소 (VIP) 사용 됩니다. IP 제한 나열 가상 네트워크 내에서 리소스 보안 유지를 사용 하는 경우 여기서 API Management 서비스를 배포 해야 하는 서브넷에 대 한 전체 범위 권한을 부여 하거나 서비스에서 액세스를 제한 하려면 지정 합니다.
+* 부하 분산 된 공용 및 개인 IP 주소는 Azure portal의 개요 블레이드에서 찾을 수 있습니다.
+* 서비스가에서 제거 되 고 그런 다음 가상 네트워크에 다시 추가 하는 경우 공용 및 개인 액세스에 할당 된 IP 주소를 변경할 수 있습니다. 이 경우 DNS 등록, 라우팅 규칙 및 가상 네트워크 내에서 IP 제한 목록을 업데이트 해야 할 수도 있습니다.
 
 ## <a name="related-content"> </a>관련 콘텐츠
 자세한 내용은 다음 문서를 참조하세요.

@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883201"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
@@ -20,7 +20,7 @@ ms.locfileid: "60883201"
 
 ![회로 워크플로](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-다음 그림 및 해당 단계는 종단 간 프로비전된 ExpressRoute 회로를 보유하기 위해 수행해야 하는 작업을 표시합니다. 
+다음 그림 및 해당 단계는 엔드투엔드 프로비전된 ExpressRoute 회로를 보유하기 위해 수행해야 하는 작업을 표시합니다. 
 
 1. PowerShell을 사용하여 ExpressRoute 회로를 구성합니다. 자세한 세부 사항은 [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 문서의 지침을 수행합니다.
 2. 서비스 공급자에서 연결을 정렬합니다. 이 프로세스는 다양합니다. 연결을 정렬하는 방법에 대한 자세한 내용은 연결 공급자에게 문의합니다.
@@ -95,7 +95,7 @@ PowerShell cmdlet을 실행하여 ExpressRoute 회로를 만드는 즉시 다음
 ## <a name="routing-session-configuration-state"></a>라우팅 세션 구성 상태
 BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사용하는지를 알 수 있습니다. 상태는 피어링을 사용할 수 있도록 활성화되어야 합니다.
 
-특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태*를 호출하는 다른 상태가 있습니다. BGP 세션이 가동되고 라우팅이 종단 간에 작동하기 위해 보급된 공용 접두사 상태는 *구성된* 상태에 있어야 합니다. 
+특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태*를 호출하는 다른 상태가 있습니다. BGP 세션이 가동되고 라우팅이 엔드투엔드에 작동하기 위해 보급된 공용 접두사 상태는 *구성된* 상태에 있어야 합니다. 
 
 보급된 공용 접두사 상태가 *유효성 검사가 필요한* 상태로 설정된 경우 보급된 접두사가 라우팅 레지스트리의의 AS 번호와 일치하지 않기 때문에 BGP 세션을 사용하지 않습니다. 
 

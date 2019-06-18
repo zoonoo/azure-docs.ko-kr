@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119081"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
@@ -46,7 +46,7 @@ Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용
 
 | 자산 | Switch | 설명 |
 | --- | --- | --- |
-| 이름 |-n, --name |Azure Cache for Redis의 이름입니다. |
+| name |-n, --name |Azure Cache for Redis의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
 | location |-l, --location |캐시를 만드는 위치입니다. |
 | size |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |

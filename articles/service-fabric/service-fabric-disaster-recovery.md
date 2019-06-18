@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60948521"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
@@ -137,7 +137,7 @@ Service Fabric에는 시드 노드라는 개념이 있습니다. 이러한 노�
 독립 실행형 Service Fabric 클러스터 및 Azure 둘 다에서 "주 노드 유형"은 시드를 실행하는 노드입니다. 주 노드 유형을 정의할 때 Service Fabric은 각 시스템 서비스에 대해 최대 9개의 시드 노드와 7개의 복제본을 만들어 제공되는 노드 수를 자동으로 활용합니다. 해당 시스템 서비스 복제본의 과반수에서 임의 오류가 동시에 발생할 경우 시스템 서비스는 위에 설명된 것처럼 쿼럼 손실 상태가 됩니다. 시드 노드 과반수가 손실되면 클러스터는 즉시 종료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
--  [테스트 용이성 프레임워크](service-fabric-testability-overview.md)
+- [테스트 용이성 프레임워크](service-fabric-testability-overview.md)
 - 다른 재해 복구 및 고가용성 리소스를 참고합니다. Microsoft는 이 항목에 많은 양의 지침을 게시했습니다. 이러한 문서 중 일부가 다른 제품에서 사용하는 특정 기술을 가리키지만 서비스 패브릭 컨텍스트에서 적용할 수 있는 많은 일반적인 모범 사례를 포함합니다.
   - [가용성 검사 목록](../best-practices-availability-checklist.md)
   - [재해 복구 훈련 수행](../sql-database/sql-database-disaster-recovery-drills.md)

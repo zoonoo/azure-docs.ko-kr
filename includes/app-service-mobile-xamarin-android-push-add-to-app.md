@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140315"
 ---
 1. `ToDoBroadcastReceiver`(이)라는 프로젝트에서 새 클래스를 만듭니다.
@@ -66,7 +66,7 @@ ms.locfileid: "66140315"
     이 클래스는 **GcmServiceBase**에서 파생되며 **Service** 특성이 이 클래스에 적용되어야 합니다.
 
     > [!NOTE]
-    > **GcmServiceBase** 클래스는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
+    > **GcmServiceBase** 클래스는 **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
 
 6. **OnRegistered** 이벤트 처리기를 재정의하는 **PushHandlerService** 클래스에 다음 코드를 추가합니다.
 

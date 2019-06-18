@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455141"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory와 동기화되지 않는 개체 문제 해결
@@ -44,7 +44,7 @@ ms.locfileid: "60455141"
 ### <a name="synchronization-steps"></a>**동기화 단계**
 동기화 프로세스에서 다음 단계가 진행됩니다.
 
-1. **AD에서 가져오기:**: Active Directory 개체를 Active Directory CS로 가져옵니다.
+1. **AD에서 가져오기:** : Active Directory 개체를 Active Directory CS로 가져옵니다.
 
 2. **Azure AD에서 가져오기:** Azure AD 개체를 Azure AD CS로 가져옵니다.
 
@@ -75,7 +75,7 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 
 | 상태 | 주석 |
 | --- | --- |
-| stopped- *  |실행을 완료할 수 없습니다. 예를 들어 원격 시스템이 다운되어 연결할 수 없는 경우 이 상태가 나타날 수 있습니다. |
+| stopped- * |실행을 완료할 수 없습니다. 예를 들어 원격 시스템이 다운되어 연결할 수 없는 경우 이 상태가 나타날 수 있습니다. |
 | stopped-error-limit |5000개보다 많은 오류가 있습니다. 많은 오류로 인해 실행이 자동으로 중지되었습니다. |
 | completed-\*-errors |실행이 완료되었지만 조사해야 할 오류가 있습니다(5,000개 미만). |
 | completed-\*-warnings |실행이 완료되었지만 일부 데이터가 예상된 상태가 아닙니다. 오류가 발생하는 경우 이 메시지는 일반적으로 증상일 뿐입니다. 오류를 해결할 때까지 경고를 조사하지 않습니다. |

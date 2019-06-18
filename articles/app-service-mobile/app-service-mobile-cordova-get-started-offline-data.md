@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110992"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova 모바일 앱에 대해 오프라인 동기화 사용
@@ -33,7 +33,7 @@ ms.locfileid: "62110992"
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>오프라인 동기화를 빠른 시작 솔루션에 추가
 오프라인 동기화 코드를 앱에 추가해야 합니다. 오프라인 동기화에는 cordova-sqlite-storage 플러그 인이 필요하며 이는 Azure Mobile Apps 플러그 인이 프로젝트에 포함될 때 앱에 자동으로 추가됩니다. 빠른 시작 프로젝트에는 이러한 플러그 인이 모두 포함됩니다.
 
-1. Visual Studio의 솔루션 탐색기에서 index.js를 열고 다음 코드를 이 코드로 
+1. Visual Studio의 솔루션 탐색기에서 index.js를 열고 다음 코드를 이 코드로
 
         var client,            // Connection to the Azure Mobile App backend
            todoItemTable;      // Reference to a table endpoint on backend

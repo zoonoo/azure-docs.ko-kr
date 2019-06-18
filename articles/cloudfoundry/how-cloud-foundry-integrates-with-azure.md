@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198980"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
@@ -29,7 +29,7 @@ ms.locfileid: "60198980"
 
 ![Azure 통합 아키텍처의 Cloud Foundry](media/CFOnAzureEcosystem-colored.png)
 
-## <a name="1-high-availability-and-scalability"></a>1. 고가용성 및 확장성 
+## <a name="1-high-availability-and-scalability"></a>1. 고가용성 및 확장성
 ### <a name="managed-disk"></a>관리 디스크:
 Bosh는 디스크 만들기 및 삭제 루틴에 대 한 Azure CPI (클라우드 공급자 인터페이스)를 사용합니다. 기본적으로 관리되지 않는 디스크가 사용됩니다. 고객이 수동으로 저장소 계정을 만든 다음, CF 매니페스트 파일에서 계정을 구성해야 합니다. 저장소 계정당 디스크 수에 대 한 제한은 때문입니다.
 이제 [관리 디스크](https://azure.microsoft.com/services/managed-disks/)를 사용할 수 있으므로 가상 머신에 대해 관리되는 안전하고 신뢰할 수 있는 디스크 저장소를 제공합니다. 고객은 더 이상 크기 조정 및 HA에서 저장소 계정을 사용하지 않아도 됩니다. Azure에서는 디스크를 자동으로 정렬합니다. 새 또는 기존 배포 든이 Azure CPI 만들거나 CF 배포 동안 관리 디스크의 마이그레이션을 처리 합니다. PCF 1.11를 사용 하 여 지원 됩니다. 참조는 오픈 소스 Cloud Foundry [관리 디스크 지침](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks)을 탐색할 수도 있습니다. 

@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff5232c4569e94322d76928f19f202c8bad1a39a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544195"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428512"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: Connector/C++를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 C++ 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C++를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
+이 빠른 시작에서는 C++ 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C++을 사용하여 개발하는 데 익숙하고 Azure Database for MySQL을 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "53544195"
 
 다음과 같은 작업도 필요합니다.
 - [.NET Framework](https://www.microsoft.com/net/download) 설치
--  [Visual Studio](https://www.visualstudio.com/downloads/)
+- [Visual Studio](https://www.visualstudio.com/downloads/)
 - [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 설치 
 - [부스트](https://www.boost.org/) 설치
 
@@ -33,8 +33,8 @@ ms.locfileid: "53544195"
 이 섹션의 단계에서는 개발자가 .NET을 사용한 개발에 익숙하다고 가정합니다.
 
 ### <a name="windows"></a>**Windows**
-- Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 애플리케이션, 클라우드 서비스를 위한 최신 애플리케이션을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE인 Visual Studio 2017 Community를 설치합니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 두 단계를 건너뜁니다.
-   1. [Visual Studio 2017 설치 관리자](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 다운로드합니다. 
+- Visual Studio 2019 Community를 설치합니다. Visual Studio 2019 Community는 완전한 기능을 갖춘 확장 가능한 무료 IDE입니다. 이 IDE를 사용하여 Android, iOS, Windows, 웹 및 데이터베이스 애플리케이션 및 클라우드 서비스용 최신 애플리케이션을 만들 수 있습니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 두 단계를 건너뜁니다.
+   1. [Visual Studio 2019 설치 관리자](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 다운로드합니다. 
    2. 설치 관리자를 실행하고 설치 메시지에 따라 설치를 완료합니다.
 
 ### <a name="configure-visual-studio"></a>**Visual Studio 구성**
@@ -57,7 +57,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **CREATE TABLE** 및 **INSERT INTO** SQL 문을 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요. 이 코드는 connect() 메서드가 포함된 sql::Driver 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그리고 createStatement() 메서드와 execute() 메서드를 사용하여 데이터베이스 명령을 실행합니다. 
 
-Host, DBName, User 및 Password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요. 
+호스트, DBName, 사용자 및 암호 매개 변수를 바꿉니다. 서버 및 데이터베이스를 만들 때 지정한 값으로 매개 변수를 바꿀 수 있습니다. 
 
 ```c++
 #include <stdlib.h>
@@ -131,7 +131,7 @@ int main()
 
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 connect() 메서드가 포함된 sql::Driver 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음 prepareStatement() 메서드와 executeQuery() 메서드를 사용하여 select 명령을 실행합니다. 다음으로 next()를 사용하여 결과의 레코드로 이동합니다. 마지막으로 getInt() 및 getString()을 사용하여 레코드의 값을 구문 분석합니다.
 
-Host, DBName, User 및 Password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요. 
+호스트, DBName, 사용자 및 암호 매개 변수를 바꿉니다. 서버 및 데이터베이스를 만들 때 지정한 값으로 매개 변수를 바꿀 수 있습니다. 
 
 ```c++
 #include <stdlib.h>
@@ -190,7 +190,7 @@ int main()
 ## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 connect() 메서드가 포함된 sql::Driver 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음 prepareStatement() 메서드와 executeQuery() 메서드를 사용하여 update 명령을 실행합니다. 
 
-Host, DBName, User 및 Password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요. 
+호스트, DBName, 사용자 및 암호 매개 변수를 바꿉니다. 서버 및 데이터베이스를 만들 때 지정한 값으로 매개 변수를 바꿀 수 있습니다. 
 
 ```c++
 #include <stdlib.h>
@@ -248,7 +248,7 @@ int main()
 ## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 이 코드는 connect() 메서드가 포함된 sql::Driver 클래스를 사용하여 MySQL에 대한 연결을 설정합니다. 그런 다음 prepareStatement() 메서드와 executeQuery() 메서드를 사용하여 delete 명령을 실행합니다.
 
-Host, DBName, User 및 Password 매개 변수는 서버 및 데이터베이스를 만들 때 지정한 값으로 바꾸세요. 
+호스트, DBName, 사용자 및 암호 매개 변수를 바꿉니다. 서버 및 데이터베이스를 만들 때 지정한 값으로 매개 변수를 바꿀 수 있습니다. 
 
 ```c++
 #include <stdlib.h>

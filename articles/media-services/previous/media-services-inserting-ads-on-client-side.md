@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002970"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
@@ -276,7 +276,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 `<AdBreak>` 요소
     </vmap:VMAP>
 ```
 
-<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf를 참조하세요.
+<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf 를 참조하세요.
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>MAST(Media Abstract Sequencing Template) 파일 사용
 MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리거를 지정할 수 있습니다. 재생 전 광고, 재생 중 광고 및 재생 후 광고에 대한 트리거를 포함하는 예제 MAST 파일은 다음과 같습니다.

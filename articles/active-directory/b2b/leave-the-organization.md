@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5164130c5850b37d1e1323d172f9f9c46b4b30
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26d9eb883cc014c1bea092a12e22b6d144a37994
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112976"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>게스트 사용자로써 조직 나가기
 
 Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 조직의 앱을 사용하거나 연결을 유지하지 않아도 되는 경우 언제든지 조직을 나가도록 결정할 수 있습니다. 사용자는 관리자에게 문의하지 않고도 직접 조직을 나갈 수 있습니다.
 
+> [!NOTE]
+> 게스트 사용자의 홈 테 넌 트 또는 리소스 테 넌 트에 해당 계정이 비활성화 된 경우 조직을 벗어날 수 없습니다. 해당 계정이 비활성화 된 게스트 사용자를 게스트 계정을 삭제 하거나 사용자 조직을 나갈 수 있도록 게스트 계정을 사용 하는 테 넌 트 관리자에 게 문의 해야 합니다.
+
 ## <a name="leave-an-organization"></a>조직 나가기
 
 조직 나가기를 하려면 다음이 단계를 수행 합니다.
 
-1. 다음 중 하나를 수행 하 여 액세스 패널 프로필 페이지로 이동 합니다.
+1. 다음 단계 중 하나를 수행 하 여 액세스 패널 프로필 페이지로 이동 합니다.
    
    - 에 [Azure portal](https://portal.azure.com)오른쪽 상단에서 이름을 클릭 하 고 선택 **계정 보기**합니다.
    - 오픈 프로그램 [액세스 패널](https://myapps.microsoft.com), 위에 오른쪽 옆에 있는 이름을 클릭 **조직**, 설정 (기어) 아이콘을 선택 합니다.
@@ -44,7 +47,7 @@ Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 �
 
 ## <a name="account-removal"></a>계정 제거
 
-사용자가 조직을 나가면 사용자 계정은 디렉터리에서 "일시 삭제"됩니다. 기본적으로 사용자 개체는 Azure AD에서 **삭제된 사용자** 영역으로 이동하지만 30일 동안 영구적으로 삭제되지 않습니다. 이 일시 삭제를 사용하면 사용자가 30일 기간 내에 계정을 복원하도록 요청하는 경우 관리자가 사용자 계정(그룹 및 사용 권한 포함)을 복원할 수 있습니다.
+사용자가 조직을 나가면 사용자 계정은 디렉터리에서 "일시 삭제"됩니다. 기본적으로 사용자 개체를 이동 합니다 **삭제 된 사용자** Azure AD에서 영역 되지만 30 일에 대 한 영구적으로 삭제 되지 않습니다. 이 일시 삭제를 사용하면 사용자가 30일 기간 내에 계정을 복원하도록 요청하는 경우 관리자가 사용자 계정(그룹 및 사용 권한 포함)을 복원할 수 있습니다.
 
 원하는 경우 테넌트 관리자는 30일의 기간 중 언제든지 계정을 영구적으로 삭제할 수 있습니다. 다음을 수행합니다.
 

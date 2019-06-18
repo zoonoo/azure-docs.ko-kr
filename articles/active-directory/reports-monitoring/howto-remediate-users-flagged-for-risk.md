@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286668"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
@@ -67,7 +67,7 @@ Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할
 
     b. 사서함 대리자를 제거합니다.
 
-    다. 외부 도메인에 대한 메일 전달 규칙을 사용하지 않도록 설정합니다.
+    c. 외부 도메인에 대한 메일 전달 규칙을 사용하지 않도록 설정합니다.
 
     d. 사서함에서 전역 메일 전달 속성을 제거합니다.
 

@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784353"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory ID 보호 알림
@@ -60,7 +60,7 @@ Azure AD ID 보호는 두 가지 유형의 자동화된 알림 전자 메일을 
 ## <a name="weekly-digest-email"></a>주간 다이제스트 전자 메일
 
 주 단위 요약 메일은 새로운 위험 이벤트의 요약을 포함합니다.  
- 다음을 포함합니다.
+다음을 포함합니다.
 
 - 위험에 노출된 사용자
 

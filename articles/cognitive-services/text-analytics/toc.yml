@@ -8,6 +8,7 @@
     - name: 사용자 시나리오 예
       href: text-analytics-user-scenarios.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: REST API
       items:
@@ -33,6 +34,8 @@
           href: quickstarts/go-sdk.md
         - name: Ruby
           href: quickstarts/ruby-sdk.md
+        - name: Node.js
+          href: quickstarts/nodejs-sdk.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석

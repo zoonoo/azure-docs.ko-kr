@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052676"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [응용 프로그램 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -96,7 +96,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-Service Fabric 서비스 **엔드포인트**는 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+Service Fabric 서비스 **끝점** 은 서비스 패브릭 리소스의 예입니다. 서비스 패브릭 리소스를 컴파일된 코드를 변경 하지 않고 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
 
 <!--
@@ -163,7 +163,11 @@ For more information about other features supported by service manifests, refer 
 
 **인증서**(이전 예제에서 설정되지 않음)는 [HTTPS 엔드포인트 설정](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) 또는 [애플리케이션 매니페스트의 비밀 암호화](service-fabric-application-secret-management.md)에 사용되는 인증서를 선언합니다.
 
-**정책**(이전 예제에서 설정되지 않음)은 애플리케이션 레벨에서 설정되는 로그 컬렉션, [기본 실행](service-fabric-application-runas-security.md), [상태](service-fabric-health-introduction.md#health-policies) 및 [보안 액세스](service-fabric-application-runas-security.md) 정책을 설명합니다.
+**정책을** (앞의 예제에서 설정 되지 않음) 로그 컬렉션에 설명 합니다 [기본 실행](service-fabric-application-runas-security.md)를 [상태](service-fabric-health-introduction.md#health-policies), 및 [보안 액세스](service-fabric-application-runas-security.md) 정책에 설정 하는 응용 프로그램 수준에서 서비스는 서비스 패브릭 런타임에서에 액세스할 수 있는지 여부를 포함 합니다.
+
+> [!NOTE] 
+> Service Fabric 응용 프로그램을 기본적으로는 Service Fabric 런타임, 응용 프로그램별 요청과 패브릭 및 응용 프로그램 관련 파일을 포함 하는 호스트의 파일 경로 가리키는 환경 변수를 수락 하는 끝점의 형식에서에 대 한 액세스 적용 . 응용 프로그램이 신뢰할 수 없는 코드 (즉, 해당 provenance 알려지지 않은 또는 실행 해도 안전할 필요가 알고 응용 프로그램 소유자)를 호스트 하는 경우이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 자세한 내용은 참조 하십시오 [Service Fabric 보안 모범 사례](service-fabric-best-practices-security.md#platform-isolation)합니다. 
+>
 
 **보안 주체**(이전 예제에서 설정되지 않음)는 [서비스 및 보안 서비스 리소스 실행](service-fabric-application-runas-security.md)에 필요한 보안 주체(사용자 또는 그룹)를 설명합니다.  보안 주체는 **정책** 섹션에서 참조됩니다.
 

@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155186"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS Integration Runtime 만들기
@@ -51,7 +51,7 @@ Azure-SSIS IR을 프로비전하는 경우 Azure Feature Pack for SSIS 및 Acces
 
     Azure SQL Database 서버/Managed Instance에 SSISDB가 없어야 합니다. Azure-SSIS IR 프로비전은 기존 SSISDB 사용을 지원하지 않습니다.
 
-- **Azure Resource Manager 가상 네트워크(선택 사항)**. 다음 조건 중 하나 이상에 해당하는 경우 Azure Resource Manager 가상 네트워크가 있어야 합니다.
+- **Azure Resource Manager 가상 네트워크(선택 사항)** . 다음 조건 중 하나 이상에 해당하는 경우 Azure Resource Manager 가상 네트워크가 있어야 합니다.
 
   - 가상 네트워크 내의 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database 서버에서 SSISDB를 호스팅하고 있습니다.
   - Azure-SSIS IR에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.

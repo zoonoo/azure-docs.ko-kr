@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345144"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure Machine Learning Studio 웹 서비스 배포
@@ -103,7 +103,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 를 선택합니다.
 3. 웹 서비스 대시보드에서 API 키를 찾습니다. 나중에 사용할 수 있게 복사한 다음 저장합니다.
 4. **기본 엔드포인트** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
-5. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
+5. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
 6. API 도움말 페이지 맨 아래에서 **샘플 코드** 섹션을 찾습니다.
 7. 를 스토리지 계정의 이름으로 바꾸고 을 File Storage 공유의 이름으로 바꿉니다.
 8. *apiKey* 변수의 값을 이전에 저장된 API 키로 업데이트합니다.
@@ -132,7 +132,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 3. 실험 배포 페이지에서 웹 서비스의 이름을 입력하고 가격 책정 계획을 선택한 후 **배포**를 클릭합니다.
 4. **빠른 시작** 페이지에서 **사용**을 클릭합니다.
 5. **샘플 코드** 섹션에서 **Batch**를 클릭합니다.
-6. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
+6. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
 7. C# 샘플 코드를 복사하고 Program.cs 파일에 붙여 넣습니다.
 8. *apiKey* 변수 값을 **기본 사용량 정보** 섹션에 있는 **기본 키**로 업데이트합니다.
 9. *scoreRequest* 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.

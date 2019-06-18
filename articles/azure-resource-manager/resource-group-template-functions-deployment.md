@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128673"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
@@ -158,16 +158,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="parameters" />
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 매개 변수 값을 반환합니다. 템플릿의 매개 변수 섹션에서 지정된 매개 변수 이름을 정의해야 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |예. |문자열 |반환할 매개 변수의 이름입니다. |
+| parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -193,7 +193,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ]
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)에서는 매개 변수 함수의 간소화된 사용을 보여줍니다.
 
@@ -281,9 +281,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| variableName |예. |String |반환할 변수의 이름입니다. |
+| variableName |예 |String |반환할 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -313,7 +313,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ],
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)은 각기 다른 변수 값을 반환합니다.
 

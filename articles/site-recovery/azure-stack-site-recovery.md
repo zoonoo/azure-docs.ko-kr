@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399590"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
@@ -68,7 +68,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> \- 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)를 검토합니다. 
 **Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다. 
 
 
@@ -326,7 +326,7 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 3. Azure Portal에서 VM으로 이동합니다(VM 이름 사용).
 4. **디스크**에서 디스크 이름을 클릭하고 설정을 수집합니다.
 
-    - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
+    - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd 를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
         - Storage 계정: 502055westcentralus
         - 컨테이너: wahv9b8d2ceb284fb59287
         - VHD 이름: copied-3676553984.vhd

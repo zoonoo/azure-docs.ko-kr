@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898919"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053299"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -158,7 +158,7 @@ ms.locfileid: "60898919"
 | internal.data.documentVersion |문자열 | |
 | internal.data.id |문자열 | 항목이 Application Insights에 수집된 경우 할당된 고유 ID |
 
-## <a name="events"></a>이벤트
+## <a name="events"></a>Events
 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
 | path | Type | 메모 |
@@ -296,7 +296,7 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 | availability [0] testRunId |문자열 | |
 | availability [0] testTimestamp |문자열 | |
 
-## <a name="metrics"></a>메트릭
+## <a name="metrics"></a>metrics
 TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.

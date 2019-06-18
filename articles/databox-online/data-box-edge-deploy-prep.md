@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924765"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476782"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>자습서: Azure Data Box Edge 배포 준비  
-
 
 이 문서는 Azure Data Box Edge를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Data Box Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
 
@@ -31,7 +30,6 @@ ms.locfileid: "64924765"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-
 ### <a name="get-started"></a>시작하기
 
 Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참조하세요.
@@ -42,7 +40,7 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 | 2. |**[Data Box Edge 설치](data-box-edge-deploy-install.md)**|Data Box Edge 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결합니다.  |
 | 3. |**[Data Box Edge 연결, 설정 및 활성화](data-box-edge-deploy-connect-setup-activate.md)** |로컬 웹 UI에 연결하고 디바이스 설정을 완료한 다음, 디바이스를 활성화합니다. 디바이스에서 SMB 또는 NFS 공유를 설정할 준비가 되었습니다.  |
 | 4. |**[Data Box Edge를 사용하여 데이터 전송](data-box-edge-deploy-add-shares.md)** |공유를 추가하고 SMB 또는 NFS를 통해 공유에 연결합니다. |
-| 5. |**[Data Box Edge를 사용하여 데이터 변환](data-box-edge-deploy-configure-compute.md)** |디바이스에서 Edge 모듈을 구성하여 Azure로 이동할 때 데이터를 변환합니다. |
+| 5. |**[Data Box Edge를 사용하여 데이터 변환](data-box-edge-deploy-configure-compute.md)** |디바이스에서 컴퓨팅 모듈을 구성하여 Azure로 이동할 때 데이터를 변환합니다. |
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
@@ -55,7 +53,11 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 시작하기 전에 다음 사항을 확인합니다.
 
 - Data Box Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. 종량제 구독은 지원되지 않습니다.
-- 구독에 대한 소유자 또는 기여자 액세스 권한이 있습니다.
+- Data Box Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
+
+    - Data Box Edge/Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+    - IoT Hub 리소스를 만들려면 해당 Microsoft.Devices 공급자가 등록되어 있는지 확인합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
+    - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
 - Azure Active Directory Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)를 참조하세요.
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
@@ -64,7 +66,7 @@ Data Box Edge를 배포하려면 다음 자습서를 지정된 순서대로 참�
 물리적 디바이스를 배포하기 전에 먼저 다음 사항을 확인합니다.
 
 - 배송 패키지에 포함된 안전 정보를 검토했습니다.
-- 데이터 센터의 표준 19" 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다. 
+- 데이터 센터의 표준 19” 랙에 디바이스를 랙에 탑재할 수 있는 하나의 1U 슬롯이 있습니다.
 - 디바이스가 안전하게 있을 수 있는 평평하고 안정된 수평 작업대를 사용할 수 있습니다.
 - 디바이스를 설치하려는 사이트에 독립적인 전원의 표준 AC 전원 디바이스가 있거나 UPS(무정전 전원 공급 디바이스)가 장착된 PDU(랙 전원 분배 디바이스)가 있습니다.
 - 물리적 디바이스에 대한 액세스 권한이 있습니다.
@@ -112,7 +114,7 @@ Data Box Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수�
 
     |설정  |값  |
     |---------|---------|
-    |Name   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
+    |이름   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
     |지역     |이 릴리스는 미국 동부, 동남 아시아 및 서유럽에 리소스를 배포할 수 있습니다. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
     ![프로젝트 및 인스턴스 세부 정보](media/data-box-edge-deploy-prep/data-box-edge-resource.png)

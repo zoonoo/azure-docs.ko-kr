@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
 ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597688"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
@@ -27,13 +27,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 단계에 대 한 합니다.
+Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
-1. Azure 구독에 로그인 합니다. Azure Cloud Shell을 사용 하도록 선택 하기만 하면 계획 이라면 **사용해** 코드 블록의 오른쪽 위 모퉁이에서. 그렇지 않은 경우 아래 명령을 입력 합니다.
+1. Azure 구독에 로그인 합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택하기만 하면 됩니다. 그렇지 않은 경우 아래 명령을 입력합니다.
 
     ```azurecli-interactive
     az login
@@ -42,7 +42,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 환경 변수를 설정 합니다. 이 문서에서 변수 사용은 Bash를 기반으로 합니다. 다른 환경에 대 한 약간의 변형이 필요 합니다. 참조 [az-hdinsight 만들기](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 클러스터 생성에 대 한 가능한 매개 변수의 전체 목록은 합니다.
+2. 환경 변수를 설정합니다. 이 문서에서 변수 사용은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 참조 [az-hdinsight 만들기](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 클러스터 생성에 대 한 가능한 매개 변수의 전체 목록은 합니다.
 
     |매개 변수 | 설명 |
     |---|---|
@@ -138,7 +138,7 @@ Azure CLI. Azure CLI를 설치 하지 않은 경우 [Azure CLI 설치](https://d
 
 이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다.
 
-전체 또는 일부 리소스를 제거 하려면 다음 명령을 입력 합니다.
+리소스를 제거하려면 다음 명령의 전체 또는 일부를 입력합니다.
 
 ```azurecli-interactive
 # Remove cluster

@@ -9,13 +9,13 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148969"
 ---
-| Resource | 기본 | 표준 | Premium |
+| Resource | Basic | 표준 | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10GiB | 100GiB| 500GiB |
 | 최대 이미지 계층 크기 | 200 GiB | 200 GiB | 200 GiB |

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342139"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 뷰 만들기
@@ -60,7 +60,7 @@ Azure Monitor에서 표시 되는 보기 **개요** Azure 포털의 페이지입
 | 새로 고침   | 최신 데이터로 보기를 새로 고칩니다. | 
 | 로그      | 열립니다는 [Log Analytics](../log-query/portals.md) 로그 쿼리를 사용 하 여 데이터를 분석 합니다. |
 | 편집       | 뷰 디자이너에서 보기를 열어서 내용과 구성을 편집합니다.  |
-| 복제      | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
+| 복제      | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다.  |
 | 날짜 범위 | 보기에 포함된 데이터의 날짜와 시간 범위 필터를 설정합니다. 이 날짜 범위는 보기의 쿼리에서 데이터 범위가 설정되기 전에 적용됩니다.  |
 | +          | 보기에 대해 정의된 사용자 지정 필터를 정의합니다. |
 
@@ -108,7 +108,7 @@ Log Analytics 작업 영역의 메뉴에서 **뷰 디자이너**를 선택하여
 | 보기 삭제 | 보기를 삭제합니다. |
 | 내보내기      | 다른 작업 영역으로 가져올 수 있는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)으로 보기를 내보냅니다. 파일 이름은 보기 이름이며 확장명은 *omsview*입니다. |
 | 가져오기      | 다른 작업 영역에서 내보낸 *omsview* 파일을 가져옵니다. 이렇게 하면 기존 보기의 구성을 덮어씁니다. |
-| 복제       | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
+| 복제       | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정 보기에 [타일](view-designer-tiles.md) 추가

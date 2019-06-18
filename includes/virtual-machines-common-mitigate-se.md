@@ -9,10 +9,10 @@ ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735208"
 ---
 **마지막 문서 업데이트**: 4 월 2019 3 오후 시 PST입니다.

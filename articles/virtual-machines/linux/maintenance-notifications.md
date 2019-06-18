@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
 ms.openlocfilehash: 40ae8f0fb9c0c5980c4db1471b2bbad56a57d486
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410492"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux 가상 머신에 대한 계획된 유지 관리 처리
@@ -84,7 +84,7 @@ az vm get-instance-view -g rgName -n vmName
 
 MaintenanceRedeployStatus의 다음과 같은 값이 반환됩니다. 
 
-| Value | 설명   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -144,7 +144,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **Q: 계획된 유지 관리에 관한 알림은 어떻게 받나요?**
 
-**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 이메일 알림이 구독 소유자에게 전달됩니다(구독당 1개 이메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다.  계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
+**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 이메일 알림이 구독 소유자에게 전달됩니다(구독당 1개 이메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
 
 **Q: 포털, Powershell 또는 CLI에서 계획된 유지 관리의 표시가 전혀 나타나지 않습니다. 무엇이 문제인가요?.**
 

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: eab45948b5f931377396d93d93e8955ba0f3e767
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792850"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
@@ -52,7 +52,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
--  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
@@ -117,7 +117,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 방법을 학습했습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기

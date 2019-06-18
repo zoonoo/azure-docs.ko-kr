@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194050"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure 방화벽 위협 인텔리전스 기반 필터링-공개 미리 보기
@@ -47,7 +47,7 @@ ms.locfileid: "60194050"
 }
 ```
 
-## <a name="testing"></a>테스트하는 중
+## <a name="testing"></a>테스트
 
 - **아웃 바운드 테스트** -환경의 손상 된 것 처럼 아웃 바운드 트래픽 경고는 드물게 발생 해야 합니다. 하는 데 테스트 아웃 바운드 경고도 작업 하는 경고를 트리거하는 테스트 FQDN을 만들었습니다. 사용 하 여 **testmaliciousdomain.eastus.cloudapp.azure.com** 아웃 바운드 테스트 합니다.
 

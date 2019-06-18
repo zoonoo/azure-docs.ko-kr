@@ -13,18 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787507"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076895"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure Virtual Machines의 SQL Server 릴리스 정보
 
 Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 배포할 수 있습니다. 이 문서에서는 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 최신 릴리스에 제공되는 새 기능과 향상된 기능을 요약합니다. 이 문서에는 릴리스와 직접적인 관련은 없지만 동일한 시간대에 게시된 주목할 만한 콘텐츠 업데이트도 나열되어 있습니다. 다른 Azure 서비스의 개선 사항은 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="april-2019"></a>2019 년 4 월
+## <a name="may-2019"></a>2019년 5월
+
+### <a name="service-improvements"></a>서비스 개선 사항
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+| **Azure portal에서 새 SQL VM 관리** | Azure portal에서 SQL Server VM을 관리 하는 새로운 방법이 되었습니다. 자세한 내용은 [Azure portal에서 SQL Server VM 관리](virtual-machines-windows-sql-manage-portal.md)합니다.  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>설명서 개선
+
+| 문서화 | 세부 정보 |
+| --- | --- |
+| **새 SQL VM 포털 관리** | 새 SQL VM 관리 포털 환경과 십 문서가 업데이트 되었습니다. | 
+| &nbsp; | &nbsp; |
+
+
+## <a name="april-2019"></a>2019년 4월
 
 ### <a name="service-improvements"></a>서비스 개선 사항
 
@@ -33,9 +50,6 @@ Azure를 사용하면 SQL Server 이미지가 기본 제공된 가상 머신을 
 | **SQL Server 2008/2008R2에 대해서는 지원 확장** | [지원을 확장할](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server 2008 및 SQL Server 2008 R2 마이그레이션 *으로-는* Azure VM에 있습니다. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>설명서 개선
-
-없음
 
 ## <a name="march-2019"></a>2019 년 3 월
 

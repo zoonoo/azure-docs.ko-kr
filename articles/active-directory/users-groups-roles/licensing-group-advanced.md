@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471899"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
@@ -188,7 +188,7 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
    > ```
 
 3. 모든 사용자의 변경 내용을 포함하여 그룹 처리 방법의 전체 로그를 확인하려면 다음 필터를 설정합니다.
-   - **초기자(작업자)**: "Microsoft Azure AD 그룹 기반 라이선스"
+   - **초기자(작업자)** : "Microsoft Azure AD 그룹 기반 라이선스"
    - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
 
 이 샘플 출력은 처리 시작, 모든 사용자 변경 내용 결과 및 처리 완료를 표시합니다.

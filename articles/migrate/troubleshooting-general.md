@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533218"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
@@ -195,7 +195,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
 ### <a name="error-unabletoconnecttoserver"></a>UnableToConnectToServer 오류
 
-다음 오류로 인해 vCenter Server "Servername.com:9443"에 연결할 수 없습니다. https://Servername.com:9443/sdk를 수신 대기 중인 메시지를 수락할 수 있는 엔드포인트가 없습니다.
+다음 오류로 인해 vCenter Server "Servername.com:9443"에 연결할 수 없습니다. https://Servername.com:9443/sdk 를 수신 대기 중인 메시지를 수락할 수 있는 엔드포인트가 없습니다.
 
 수집기 어플라이언스가 최신 버전인지 확인하고, 최신 버전이 아니면 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector)으로 업그레이드합니다.
 

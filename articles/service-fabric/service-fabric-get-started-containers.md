@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428107"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
@@ -338,7 +338,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### <a name="configure-cluster-wide-credentials"></a>클러스터 전체의 자격 증명 구성
 
-6.3 런타임부터 Service Fabric을 사용하면 애플리케이션에서 기본 리포지토리 자격 증명으로 사용할 수 있는 클러스터 전체의 자격 증명을 구성할 수 있습니다.
+6\.3 런타임부터 Service Fabric을 사용하면 애플리케이션에서 기본 리포지토리 자격 증명으로 사용할 수 있는 클러스터 전체의 자격 증명을 구성할 수 있습니다.
 
 `true` 또는 `false` 값을 통해 `UseDefaultRepositoryCredentials` 특성을 ApplicationManifest.xml의 `ContainerHostPolicies`에 추가하여 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
@@ -460,7 +460,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 
 **게시**를 클릭합니다.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 Service Fabric 클러스터에서 애플리케이션 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/로 이동하여 애플리케이션 배포를 수행합니다. 애플리케이션이 배포되지만 이미지가 클러스터 노드에 다운로드될 때까지 오류 상태입니다(이미지 크기에 따라 약간의 시간이 걸릴 수 있음). ![오류][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 Service Fabric 클러스터에서 애플리케이션 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ 로 이동하여 애플리케이션 배포를 수행합니다. 애플리케이션이 배포되지만 이미지가 클러스터 노드에 다운로드될 때까지 오류 상태입니다(이미지 크기에 따라 약간의 시간이 걸릴 수 있음). ![오류][1]
 
 애플리케이션이 ```Ready``` 상태이면 사용할 준비가 되었습니다. ![준비][2]
 
@@ -713,7 +713,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>사용자 지정 인수로 Docker 디먼 시작
 
-6.2 버전 이상의 Service Fabric 런타임에서는 사용자 지정 인수로 Docker 디먼을 시작할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 `--pidfile` 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서, `--pidfile`을 인수로 전달하지 말아야 합니다. 또한, 인수는 Service Fabric이 디먼과 통신할 수 있도록 Docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다. 사용자 지정 인수는 다음 코드 조각과 같이 **ContainerServiceArguments**의 **Hosting** 섹션 아래에 있는 클러스터 매니페스트에 전달됩니다. 
+6\.2 버전 이상의 Service Fabric 런타임에서는 사용자 지정 인수로 Docker 디먼을 시작할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 `--pidfile` 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서, `--pidfile`을 인수로 전달하지 말아야 합니다. 또한, 인수는 Service Fabric이 디먼과 통신할 수 있도록 Docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다. 사용자 지정 인수는 다음 코드 조각과 같이 **ContainerServiceArguments**의 **Hosting** 섹션 아래에 있는 클러스터 매니페스트에 전달됩니다. 
  
 
 ```json

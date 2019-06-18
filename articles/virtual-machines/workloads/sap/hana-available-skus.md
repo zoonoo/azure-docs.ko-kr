@@ -15,10 +15,10 @@ ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794015"
 ---
 # <a name="available-skus-for-hli"></a>HLI에 사용 가능한 SKU
@@ -69,7 +69,7 @@ SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로�
 
 선택한 특정 구성은 워크로드, CPU 리소스 및 원하는 메모리에 따라 달라집니다. OLTP 워크로드에서 OLAP 워크로드에 최적화된 SKU를 사용할 수 있습니다. 
 
-고객 특정 규모 프로젝트 단위를 제외하고 제공되는 하드웨어 기준은 SAP HANA TDI 인증입니다.  SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
+고객 특정 규모 프로젝트 단위를 제외하고 제공되는 하드웨어 기준은 SAP HANA TDI 인증입니다. SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
 - SKU의 '유형 I 클래스': S72, S72m, S96, S144, S144m, S192, S192m 및 S192xm
 - SKU의 '유형 II 클래스': S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm 및 S960m

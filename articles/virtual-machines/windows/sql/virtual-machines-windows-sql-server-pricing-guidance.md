@@ -17,10 +17,10 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393850"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
@@ -57,7 +57,7 @@ ms.locfileid: "66393850"
 
 | SQL Server 버전 | 워크로드 |
 |-----|-----|
-| Web | 작은 웹 사이트 |
+| 웹 | 작은 웹 사이트 |
 | Standard | 소규모~중간 규모 작업 |
 | Enterprise | 대규모 또는 중요 업무용 작업|
 
@@ -135,7 +135,7 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 
 불필요 한 비용을 방지하기 위해 최적의 가상 컴퓨터 규모를 선택하고 비연속 워크로드에 대해서는 일시적인 종료를 고려합니다.
 
-### <a id="machinesize"></a>정확한 VM 크기 
+### <a id="machinesize"></a>정확한 VM 크기
 
 SQL Server 라이선싱 비용은 vCPU 수와 직접적인 관련이 있습니다. 예상되는 CPU, 메모리, 저장소 및 I/O 대역폭에 부합하는 VM 크기를 선택합니다. 전체 컴퓨터 크기 옵션 목록은 [Windows VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 및 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 

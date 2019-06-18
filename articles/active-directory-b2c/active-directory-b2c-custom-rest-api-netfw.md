@@ -11,10 +11,10 @@ ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510714"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
@@ -76,7 +76,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>2단계: REST API 엔드포인트 준비
 
-### <a name="step-21-add-data-models"></a>2.1단계: 데이터 모델 추가
+### <a name="step-21-add-data-models"></a>2\.1단계: 데이터 모델 추가
 모델은 RESTful 서비스에서 입력 클레임 및 출력 클레임 데이터를 나타냅니다. 코드에서는 입력 클레임 모델을 JSON 문자열에서 C# 개체(모델)로 역직렬화하여 입력 데이터를 읽습니다. ASP.NET Web API는 자동으로 출력 클레임 모델을 다시 JSON으로 역직렬화하고 HTTP 응답 메시지의 본문에 직렬화된 데이터를 기록합니다.
 
 다음을 수행하여 입력 클레임을 나타내는 모델을 만듭니다.
@@ -133,7 +133,7 @@ Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험�
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>2.2단계: 컨트롤러 추가
+### <a name="step-22-add-a-controller"></a>2\.2단계: 컨트롤러 추가
 Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨트롤러는 출력 클레임을 반환하거나 이름이 유효하지 않은 경우 충돌 HTTP 오류 메시지를 throw합니다.
 
 1. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **컨트롤러**를 차례로 선택합니다.

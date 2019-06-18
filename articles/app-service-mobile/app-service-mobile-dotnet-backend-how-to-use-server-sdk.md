@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119525"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
@@ -469,7 +469,7 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
 앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 애플리케이션 설정을 애플리케이션 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey*를 애플리케이션의 서명 키의 값으로 설정해야 합니다.
 서명 키를 가져오려면:
 
-1.  [Azure Portal]
+1. [Azure Portal]
 2. **도구**, **Kudu**, **이동**을 클릭합니다.
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.

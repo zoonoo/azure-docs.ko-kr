@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808625"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Microsoft Azure 및 Oracle 클라우드 인프라 (미리 보기)를 통합 하는 oracle 응용 프로그램 솔루션
 
@@ -45,7 +45,7 @@ Azure 인프라에서 완전히 Oracle 솔루션을 배포 하려는 경우 참�
 * Oracle 소매 응용 프로그램
 * Oracle Hyperion 재무 관리
 
-다음 다이어그램은 연결 된 솔루션의 대략적인 개요입니다. 간단히 하기 위해 다이어그램에는 응용 프로그램 계층과 데이터 계층 보여 줍니다. 응용 프로그램 architecutre에 따라 솔루션이 Azure에서 웹 계층 등 추가 계층을 포함할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
+다음 다이어그램은 연결 된 솔루션의 대략적인 개요입니다. 간단히 하기 위해 다이어그램에는 응용 프로그램 계층과 데이터 계층 보여 줍니다. 응용 프로그램 아키텍처에 따라 솔루션이 Azure에서 웹 계층 등 추가 계층을 포함할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ![Azure OCI 솔루션 개요](media/oracle-oci-overview/crosscloud.png)
 

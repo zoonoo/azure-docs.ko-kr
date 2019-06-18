@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 287e4ee53a108d1e2b83d4a8b11a98a2c7727721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111297"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -53,7 +53,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다. |
 | AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
-| AADSTS50005 | DevicePolicyError - 사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 디바이스에 로그인하려고 했습니다. |
+| AADSTS50005 | DevicePolicyError-사용자는 조건부 액세스 정책을 통해 현재 지원 되지 않는 플랫폼에서 장치에 로그인을 시도 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 Microsoft에서 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50008 | InvalidSamlToken - 토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요. |
@@ -105,7 +105,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50127 | BrokerAppNotInstalled - 사용자는 이 콘텐츠에 액세스하기 위해 broker 앱을 설치해야 합니다. |
 | AADSTS50128 | 도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. |
 | AADSTS50129 | DeviceIsNotWorkplaceJoined - 작업 공간 연결에는 디바이스를 등록해야 합니다. |
-| AADSTS50131 | ConditionalAccessFailed - Windows 디바이스 상태 불량, 의심스러운 활동으로 인해 차단된 요청, 액세스 정책 또는 보안 정책 결정과 같은 다양한 조건부 액세스 오류를 나타냅니다. |
+| AADSTS50131 | ConditionalAccessFailed-잘못 된 Windows 장치 상태, 의심 스러운 활동, 액세스 정책 또는 보안 정책 결정으로 인해 차단 된 요청 등 다양 한 조건부 액세스 오류를 나타냅니다. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - 암호 만료 또는 최근 암호 변경으로 인해 세션이 유효하지 않습니다. |
 | AADSTS50133 | SsoArtifactRevoked - 암호 만료 또는 최근 암호 변경으로 인해 세션이 유효하지 않습니다. |
 | AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - 데이터 센터가 잘못되었습니다. OAuth 2.0 디바이스 흐름에서 앱이 시작한 요청을 승인하려면 권한 부여 파티가 원래 요청이 있는 동일한 데이터 센터에 있어야 합니다. |
@@ -134,10 +134,10 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS51005 | TemporaryRedirect - 요청된 정보가 위치 헤더에 지정된 URI에 있음을 나타내는 HTTP 상태 307과 동일합니다. 이 상태를 수신하면 응답과 관련된 위치 헤더 뒤에 나옵니다. 원래의 요청 메서드가 POST인 경우 리디렉션된 요청도 POST 메서드를 사용합니다. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - 통합 Windows 인증이 필요합니다. 사용자가 통합 Windows 인증 클레임이 누락된 세션 토큰을 사용하여 로그인했습니다. 사용자가 다시 로그인하도록 요청합니다. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - 사용자가 LinkedIn 리소스에 대한 액세스 동의를 제공하지 않았습니다. |
-| AADSTS53000 | DeviceNotCompliant - 조건부 액세스 정책에는 준수 디바이스가 필요하고 디바이스는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다. |
-| AADSTS53001 | DeviceNotDomainJoined - 조건부 액세스 정책에 도메인 가입 디바이스가 필요하며 디바이스가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다. |
-| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - 사용된 앱이 조건부 액세스에 대해 승인된 앱이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
-| AADSTS53003 | BlockedByConditionalAccess - 조건부 액세스 정책에 의해 액세스가 차단되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
+| AADSTS53000 | 장치가 규정을 준수 하지 않으면 DeviceNotCompliant-조건부 액세스 정책을 준수 장치가 필요 하며 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다. |
+| AADSTS53001 | DeviceNotDomainJoined-조건부 액세스 정책이 도메인 가입된 장치 필요 하 고 장치가 도메인에 가입 되지 않았습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다. |
+| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp-사용 되는 앱은 조건부 액세스에 대 한 승인된 된 앱 없습니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
+| AADSTS53003 | 조건부 액세스 정책에 의해 BlockedByConditionalAccess-액세스 차단 되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - 사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. |

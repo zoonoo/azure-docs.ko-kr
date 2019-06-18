@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: genli
 ms.openlocfilehash: 65187c3ef6debfa27c8c4fea62bcd31b857b4171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319906"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제 해결
@@ -175,8 +175,8 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 
 ## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>새 OS 디스크를 연결하여 Managed Disk VM 문제 해결
 1. 영향을 받는 VM을 중지합니다.
-2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅숏을 만듭니다](../windows/snapshot-copy-managed-disk.md).
-3. [스냅숏에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅샷을 만듭니다](../windows/snapshot-copy-managed-disk.md).
+3. [스냅샷에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
 4. [VM의 데이터 디스크로서 관리 디스크를 연결합니다](../windows/attach-disk-ps.md).
 5. [4단계의 데이터 디스크를 OS 디스크로 변경합니다](../windows/os-disk-swap.md).
 

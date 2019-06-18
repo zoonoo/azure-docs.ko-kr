@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f0224c215c1d5f6e0c36402926a594dcd79d2af0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057243"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>호출 웹 Api 코드 구성 되는 데스크톱 앱
 
@@ -45,7 +45,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-사용 하려는 위에 표시 된 것 처럼 대화형 인증을 사용 하려면는 `.WithRedirectUri` 한정자:
+사용 하려는 하려는 경우 대화형 인증 또는 장치 코드 흐름을 사용 하 여 위의 예제와 같이는 `.WithRedirectUri` 한정자:
 
 ```CSharp
 IPublicClientApplication app;

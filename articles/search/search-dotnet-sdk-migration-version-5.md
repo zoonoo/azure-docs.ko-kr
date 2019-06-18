@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147487"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK 버전 5로 업그레이드
@@ -26,7 +26,7 @@ ms.locfileid: "65147487"
 Azure Search .NET SDK 버전 5에는 이전 버전에서 변경된 사항이 일부 포함되어 있습니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.
 
 > [!NOTE]
-> 2.0-preview 또는 이전 버전을 사용하는 경우 먼저 버전 3으로 업그레이드한 후 버전 5로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 3으로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.
+> 2\.0-preview 또는 이전 버전을 사용하는 경우 먼저 버전 3으로 업그레이드한 후 버전 5로 업그레이드해야 합니다. 지침은 [Azure Search .NET SDK 버전 3으로 업그레이드](search-dotnet-sdk-migration.md)를 참조하세요.
 >
 > Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 

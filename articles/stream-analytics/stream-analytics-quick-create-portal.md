@@ -4,16 +4,16 @@ description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493365"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -44,7 +44,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![IoT Hub 만들기](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. **다음: 크기 및 규모 설정**을 선택합니다.
+4. 완료되면 **다음: 크기 및 규모 설정**을 선택합니다.
 
 5. **가격 책정 및 규모 계층**을 선택합니다. 이 빠른 시작의 경우 구독에서 아직 사용할 수 있다면 **F1 - 무료** 계층을 선택합니다. 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
@@ -72,7 +72,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Storage 계정 개요](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **개인(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
+4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **프라이빗(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
 
    ![Blob 컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -82,7 +82,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.  
 
-3. 결과 목록에서 **데이터+Analytics** > **Stream Analytics 작업**을 선택합니다.  
+3. 결과 목록에서 **Analytics** > **Stream Analytics 작업**을 선택합니다.  
 
 4. Stream Analytics 작업 페이지를 다음 정보로 채웁니다.
 
@@ -93,7 +93,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |리소스 그룹   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
-   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT 에지 디바이스에 배포할 수 있습니다. |
+   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT Edge 디바이스에 배포할 수 있습니다. |
 
    ![작업 만들기](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -127,7 +127,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 2. **출력** > **추가** > **Blob Storage**를 선택합니다.  
 
-3. 다음과 같은 값으로 **Blob 저장소** 페이지를 채웁니다.
+3. 다음과 같은 값으로 **Blob Storage** 페이지를 채웁니다.
 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
@@ -187,7 +187,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 통해서도 Stream Analytics 작업을 배포할 수 있습니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-vs-code.md)를 사용하여 Stream Analytics 작업을 배포할 수도 있습니다.
 
 다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
 

@@ -17,17 +17,17 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251068"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693823"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>저장소 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
-두 가지가 있습니다.
+다음 두 가지 옵션을 사용할 수 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 

@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119717"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "66119717"
 | `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |   |
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 아닌 경우 클레임에 포함 되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
 | `nickname`    | 애칭                        | 이름 및 성과는 별개인 사용자의 추가 이름입니다. | 
-| `family_name` | 성                       | 사용자 개체에 정의 된 대로 마지막 이름, 성 또는 사용자의 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 AAD에서 지원   |
+| `family_name` | Last Name                       | 사용자 개체에 정의 된 대로 마지막 이름, 성 또는 사용자의 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 AAD에서 지원   |
 | `given_name`  | 이름                      | 첫 번째 제공 또는 "지정 된" 사용자의 이름을 사용자 개체에 설정 합니다.<br>"given_name": "Frank"                   | MSA 및 AAD에서 지원  |
 | `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
 

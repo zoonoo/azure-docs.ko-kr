@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738846"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
@@ -273,7 +273,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 다음 섹션에서는 [포털](#configure-rbac-using-the-azure-portal) 및 [PowerShell](#configure-rbac-using-powershell)을 통해 Automation 계정에서 RBAC를 구성하는 방법을 보여 줍니다.
 
-### <a name="configure-rbac-using-the-azure-portal"></a>Azure Portal을 사용한 RBAC 구성 
+### <a name="configure-rbac-using-the-azure-portal"></a>Azure Portal을 사용한 RBAC 구성
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Automation 계정 페이지에서 Automation 계정을 엽니다.
 2. 왼쪽 위 모서리에 있는 **액세스 제어(IAM)** 컨트롤을 클릭합니다. 그러면 새 사용자, 그룹, 애플리케이션을 추가하여 Automation 계정을 관리하고 Automation 계정에 구성 가능한 기존 역할을 볼 수 있는 **액세스 제어(IAM)** 페이지가 열립니다.
@@ -313,7 +313,7 @@ Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에�
 
    ![사용자 제거](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>PowerShell을 사용한 RBAC 구성 
+### <a name="configure-rbac-using-powershell"></a>PowerShell을 사용한 RBAC 구성
 
 다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 

@@ -50,7 +50,7 @@ ms.locfileid: "58137847"
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 

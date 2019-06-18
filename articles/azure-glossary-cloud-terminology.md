@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325428"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
@@ -69,7 +69,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 [Azure SQL Database의 활성 지역 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>Image
+## <a name="image"></a>image
 개수에 관계없이 여러 가상 머신을 만드는 데 사용할 수 있는 운영 체제 및 애플리케이션 구성을 포함하는 파일입니다. Azure에는 두 가지 유형의 이미지, 즉 VM 이미지와 OS 이미지가 있습니다. VM 이미지에는 운영 체제 및 이미지를 만들 때 가상 머신에 연결된 모든 디스크가 포함됩니다. OS 이미지에는 데이터 디스크 구성 없이 일반화된 운영 체제만 포함되어 있습니다.  
 [PowerShell 또는 CLI로 Azure의 Windows 가상 머신 이미지 이동 및 선택](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
@@ -85,16 +85,16 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="offer"></a>제품
 Azure 구독에 적용되는 가격 책정, 신용 및 관련 조건입니다.  
- [Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
+[Azure 제안 세부 정보 페이지](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
 Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털입니다.
 
-## <a name="region"></a>영역
+## <a name="region"></a>영역(region)
 국경을 넘지 않으면서 하나 이상의 데이터 센터를 포함하는 지역 내의 영역입니다. 가격 책정, 지역 서비스 및 제공 사항 유형은 지역 수준에서 노출됩니다. 지역은 일반적으로 최대 수백 킬로미터까지도 떨어질 수 있는 다른 지역과 쌍으로 연결되어 있습니다. 지역 쌍은 재해 복구 및 고가용성 시나리오에 대한 메커니즘으로 사용할 수 있습니다. *위치*라고도 합니다.  
 [Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
 
-## <a name="resource"></a>리소스
+## <a name="resource"></a>resource
 Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   
 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md)를 참조하세요.
 

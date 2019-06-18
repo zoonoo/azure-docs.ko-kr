@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331344"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry 웹후크 참조
@@ -46,7 +46,7 @@ Azure Container Registry에 대한 웹후크를 구성하는 방법에 대한 �
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
 |`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
-|[요청](#request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
+|[request](#request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="target"></a>target
 
@@ -160,7 +160,7 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 |`timestamp`|DateTime|웹후크 이벤트가 트리거된 시점의 시간입니다.|
 |`action`|String|웹후크 이벤트가 트리거된 작업입니다.|
 |[대상](#delete_target)|복합 형식|웹후크 이벤트를 트리거한 이벤트의 대상입니다.|
-|[요청](#delete_request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
+|[request](#delete_request)|복합 형식|웹후크 이벤트를 생성한 요청입니다.|
 
 ### <a name="delete_target"></a> 대상
 

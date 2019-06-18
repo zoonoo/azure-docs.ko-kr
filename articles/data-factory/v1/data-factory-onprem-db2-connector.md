@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824017"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-onprem-db2-connector.md)
 > * [버전 2(현재 버전)](../connector-db2.md)
 
@@ -298,7 +298,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-## <a name="type-mapping-for-db2"></a> DB2에 대한 형식 매핑
+## <a name="type-mapping-for-db2"></a>DB2에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 활동에서는 다음 2단계 접근 방법을 사용하여 source 형식에서 sink 형식으로의 자동 형식 변환을 수행합니다.
 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
@@ -309,7 +309,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | DB2 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
 | SmallInt |Int16 |
-| 정수  |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -319,8 +319,8 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
-| 타임 스탬프 |Datetime |
-| Xml |Byte[] |
+| Timestamp |Datetime |
+| xml |Byte[] |
 | Char |String |
 | VarChar |String |
 | LongVarChar |String |
@@ -335,7 +335,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Blob |Byte[] |
 | DbClob |String |
 | SmallInt |Int16 |
-| 정수  |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -345,8 +345,8 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | Numeric |Decimal |
 | Date |DateTime |
 | Time |TimeSpan |
-| 타임 스탬프 |Datetime |
-| Xml |Byte[] |
+| Timestamp |Datetime |
+| xml |Byte[] |
 | Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cherylmc
 ms.openlocfilehash: f2ee442d0d6fecf34449ad28f058615a1274bbea
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159277"
 ---
 레거시(이전) VPN 게이트웨이 SKU는 다음과 같습니다.
 
-* 기본
+* Basic
 * Standard
 * HighPerformance
 

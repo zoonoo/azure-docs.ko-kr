@@ -15,10 +15,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766270"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>인증서 및 App Service Environment 
@@ -65,7 +65,7 @@ ASE에서 호스팅되는 앱은 다중 테넌트 App Service에서 사용할 �
 - IP 기반 SSL - 외부 ASE에서만 지원되며,  ILB ASE는 IP 기반 SSL을 지원하지 않습니다.
 - KeyVault 호스팅 인증서 
 
-이러한 인증서를 업로드하고 관리하기 위한 지침은 App Service SSL 자습서(https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
+이러한 인증서를 업로드하고 관리하기 위한 지침은 App Service SSL 자습서(https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl )에서 사용할 수 있습니다.  웹앱에 할당한 사용자 지정 도메인 이름과 일치하도록 인증서를 간단히 구성하는 경우 이러한 지침만으로도 충분합니다. 기본 도메인 이름을 사용하여 ILB ASE 웹앱에 대한 인증서를 업로드하는 경우 앞에서 설명한 대로 인증서의 SAN에 scm 사이트를 지정합니다. 
 
 ## <a name="tls-settings"></a>TLS 설정 
 

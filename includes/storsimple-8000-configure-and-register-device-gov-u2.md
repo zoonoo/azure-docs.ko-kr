@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66118149"
 ---
 ### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
@@ -79,7 +79,7 @@ ms.locfileid: "66118149"
 15. Azure Government 포털로 돌아가서 다음 단계를 완료합니다.
     
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
-    2. **디바이스**를 클릭합니다. 디바이스 목록에서 배포 중인 디바이스를 식별합니다. 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **온라인**이어야 합니다.
+    2. **장치**를 클릭합니다. 디바이스 목록에서 배포 중인 디바이스를 식별합니다. 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **온라인**이어야 합니다.
             
         디바이스 상태가 **오프라인**이면 디바이스가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
        

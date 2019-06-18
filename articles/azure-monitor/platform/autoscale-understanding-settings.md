@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787498"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
@@ -310,3 +310,4 @@ ms.locfileid: "60787498"
 * [Azure Monitor 자동 크기 조정에 대한 모범 사례](../../azure-monitor/platform/autoscale-best-practices.md)
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+

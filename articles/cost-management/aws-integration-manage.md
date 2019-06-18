@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870314"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>AWS 비용 및 Azure에서 사용 현황을 관리합니다
@@ -83,7 +83,7 @@ AWS를 보려는 통합된 계정 비용 범위 선택기를 열고 선택한는
 | 미터 범주 | lineItem/ProductCode | 모두 |   |
 | 미터 하위 범주 | lineitem/UsageType | 모두 |   |
 | 작업(Operation) | lineItem/Operation | 모두 |   |
-| 리소스 | lineItem/ResourceId | 모두 |   |
+| Resource | lineItem/ResourceId | 모두 |   |
 | 리소스 종류 | product/instanceType | 모두 | 제품/instanceType null 인 경우 lineItem/UsageType 사용 됩니다. |
 | ResourceGuid | N/A | 모두 | Azure 미터 GUID입니다. |
 | 서비스 이름 | product/ProductName | 모두 | 제품/ProductName null 인 경우 lineItem/ProductCode 사용 됩니다. |
@@ -91,8 +91,8 @@ AWS를 보려는 통합된 계정 비용 범위 선택기를 열고 선택한는
 | 구독 ID | lineItem/UsageAccountId | 통합된 계정 및 관리 그룹 |   |
 | 구독 이름 | N/A | 통합된 계정 및 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
 | 태그 | resourceTags/\* | 모두 | 합니다 _사용자:_ 접두사 클라우드 간 태그 수 있도록 사용자 정의 태그에서 제거 됩니다. 합니다 _aws:_ 접두사는 그대로 유지 됩니다. |
-| 청구 계정 ID | bill/PayerAccountId | 관리 그룹 |   |
-| 청구 계정 이름 | N/A | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
+| 대금 청구 계정 ID | bill/PayerAccountId | 관리 그룹 |   |
+| 대금 청구 계정 이름 | N/A | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
 | 공급자 | N/A | 관리 그룹 | AWS 또는 Azure입니다. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>AWS 범위 집합 예산

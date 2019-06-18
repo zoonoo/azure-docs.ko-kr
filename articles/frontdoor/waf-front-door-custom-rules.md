@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459711"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Azure 프런트 도어를 사용 하 여 웹 응용 프로그램 방화벽에 대 한 사용자 지정 규칙
@@ -45,7 +45,7 @@ ms.locfileid: "61459711"
     - IPMatch: RemoteAddr 변수에 대 한 IP 제한 정의
     - GeoMatch: 정의 지역 RemoteAddr 변수에 대 한 필터링
     - 같음
-    - contains
+    - 포함
     - LessThan: 크기 제약 조건
     - GreaterThan: 크기 제약 조건
     - LessThanOrEqual: 크기 제약 조건
@@ -61,7 +61,7 @@ ms.locfileid: "61459711"
 - POST
 - PUT
 - HEAD
-- 삭제
+- DELETE
 - 잠금
 - 잠금 해제
 - 프로필

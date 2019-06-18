@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 25ed9cb624474d5da56d385f4e9c155918ec8eab
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428339"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Security Center에서 모니터링 azure 보안 정책
@@ -79,7 +79,7 @@ Security Center에서 모니터링 되는 기본 제공 정책에 대 한 자세
 |\[미리 보기]: 소유자 권한이 있는 사용 되지 않는 계정은 구독에서 제거 해야|소유자 권한이 있는 사용 되지 않는 계정은 구독에서 제거 해야 합니다. 사용 되지 않는 계정 로그인에서 차단 되었습니다.|
 |\[미리 보기]: 사용 되지 않는 계정은 구독에서 제거 해야|더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다. 사용 되지 않는 계정 로그인에서 차단 되었습니다.|
 |\[미리 보기]: 소유자 권한이 있는 외부 계정은 구독에서 제거 해야|소유자 권한이 있는 외부 계정 권한 액세스를 방지 하기 위해 구독에서 제거 해야 합니다.|
-|\[미리 보기]: 구독에서 제거 해야 하는 사용 권한을 쓰기를 사용 하 여 외부 계정|이 있는 외부 계정 모니터링 되지 않는 액세스를 방지 하기 위해 구독에서 제거 해야 하는 권한을 작성 합니다.|
+|\[미리 보기]: 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.|이 있는 외부 계정 모니터링 되지 않는 액세스를 방지 하기 위해 구독에서 제거 해야 하는 권한을 작성 합니다.|
 |\[미리 보기]: 읽기 권한이 있는 외부 계정은 구독에서 제거 해야|모니터링 되지 않는 액세스를 방지 하기 위해 구독에서 읽기 권한이 있는 외부 계정은 제거 해야 합니다.|
 
 

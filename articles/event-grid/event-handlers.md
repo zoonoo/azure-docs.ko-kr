@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080548"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -78,9 +78,45 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 
 참고 하는 동안 Service Bus 공개 미리 보기에서 처리기는 설치 해야 합니다 CLI 또는 PowerShell 확장 이벤트 구독을 만드는 것을 사용 하는 경우.
 
-### <a name="using-cli"></a>CLI 사용
+### <a name="install-extension-for-azure-cli"></a>Azure CLI 확장 설치
 
-다음 예제에서는 Azure CLI에 대 한 구독을 연결 및 Service Bus 큐에 대 한 Event Grid 항목:
+Azure CLI의 경우 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)이 필요합니다.
+
+[CloudShell](/azure/cloud-shell/quickstart)에서:
+
+* 확장을 이전에 설치한 경우 업데이트 하 여 `az extension update -n eventgrid`입니다.
+* 이전에 확장을 설치 하지 않은 경우 사용 하 여 설치 `az extension add -n eventgrid`합니다.
+
+로컬 설치의 경우:
+
+1. [Azure CLI를 설치합니다](/cli/azure/install-azure-cli). 확인 하 여 최신 버전으로 있는지 확인 `az --version`합니다.
+1. 이전 버전을 사용 하 여 확장 제거 `az extension remove -n eventgrid`합니다.
+1. 설치 합니다 `eventgrid` 확장과 `az extension add -n eventgrid`합니다.
+
+### <a name="install-module-for-powershell"></a>PowerShell 모듈 설치
+
+PowerShell의 경우 [AzureRM.EventGrid 모듈](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview)이 필요합니다.
+
+[CloudShell](/azure/cloud-shell/quickstart-powershell)에서:
+
+* 사용 하 여 모듈을 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+로컬 설치의 경우:
+
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다.
+1. 사용 하 여 모듈을 설치 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+`-AllowPrerelease` 매개 변수를 사용할 수 없는 경우 다음 단계를 사용합니다.
+
+1. `Install-Module PowerShellGet -Force`을 실행합니다.
+1. `Update-Module PowerShellGet`을 실행합니다.
+1. PowerShell 콘솔을 닫습니다.
+1. 관리자 권한으로 PowerShell을 다시 시작 합니다.
+1. 모듈을 설치 합니다 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`합니다.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>CLI를 사용 하 여 Service Bus 처리기를 추가 하려면
+
+Azure cli의 경우 다음 예제에서는 구독 및 Event Grid 토픽을 Service Bus 큐에 연결:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806358"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용량 및 insights 보고서
@@ -45,7 +45,7 @@ ms.locfileid: "65806358"
 2. 올바른 디렉터리를 선택한 다음 선택 **Azure Active Directory** 선택한 **Enterprise 응용 프로그램**합니다.
 3. **활동** 섹션에서 **사용량 및 insights** 보고서를 엽니다. 
 
-![사용량 및 Insights 보고서](./media/concept-usage-insights-report/main-menu.png)
+![사용량 및 인사이트 보고서](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>보고서 사용
@@ -58,7 +58,7 @@ ms.locfileid: "65806358"
 
 응용 프로그램 사용 현황 그래프에서 날짜를 선택 하면 응용 프로그램에 대 한 로그인 활동의 자세한 목록을 가져옵니다.  
 
-![사용량 및 Insights 보고서](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![사용량 및 인사이트 보고서](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>다음 단계
 

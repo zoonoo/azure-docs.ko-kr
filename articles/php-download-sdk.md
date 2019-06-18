@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411585"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>PHP용 Azure SDK 다운로드
@@ -28,9 +28,9 @@ ms.locfileid: "65411585"
 PHP용 Azure SDK에는 Azure용 PHP 애플리케이션을 개발, 배포 및 관리할 수 있는 구성 요소가 포함되어 있습니다. 구체적으로 말해서 PHP용 Azure SDK에는 다음이 포함되어 있습니다.
 
 * **Azure용 PHP 클라이언트 라이브러리**. 이러한 클래스 라이브러리는 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다.
-* **Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)**. Azure Websites 및 Azure Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI는 Mac, Linux 및 Windows를 포함한 모든 플랫폼에서 작동합니다.
-* **Azure PowerShell(Windows에만 해당)**. Cloud Services 및 Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다.
-* **Azure 에뮬레이터(Windows에만 해당)**. 컴퓨팅 및 스토리지 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
+* **Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)** . Azure Websites 및 Azure Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI는 Mac, Linux 및 Windows를 포함한 모든 플랫폼에서 작동합니다.
+* **Azure PowerShell(Windows에만 해당)** . Cloud Services 및 Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다.
+* **Azure 에뮬레이터(Windows에만 해당)** . 컴퓨팅 및 스토리지 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
 
 아래 섹션에서는 위에서 언급한 구성 요소를 다운로드하고 설치하는 방법에 대해 설명합니다.
 

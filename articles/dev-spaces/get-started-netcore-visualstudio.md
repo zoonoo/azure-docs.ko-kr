@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: 39948479cc563d2f622763ea7b4d09910ffc494c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779864"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399247"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -36,7 +36,7 @@ ms.locfileid: "65779864"
 1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Kubernetes Service** > **만들기**를 선택합니다.
 
-   *Kubernetes 클러스터 만들기* 양식의 각 머리글 아래에서 다음 단계를 수행하고 선택한 [지역에서 Azure Dev Spaces를 지원](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)하는지 확인합니다.
+   *Kubernetes 클러스터 만들기* 양식의 각 머리글 아래에서 다음 단계를 수행하고 선택한 [지역에서 Azure Dev Spaces를 지원][supported-regions]하는지 확인합니다.
 
    - **프로젝트 세부 정보**: Azure 구독과 새로운 또는 기존 Azure 리소스 그룹을 선택합니다.
    - **클러스터 세부 정보**: AKS 클러스터의 이름, 지역, 버전 및 DNS 이름 접두사를 입력합니다.
@@ -54,10 +54,7 @@ ms.locfileid: "65779864"
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio 도구 가져오기
-1. 최신 버전의 [Visual Studio 2017](https://www.visualstudio.com/vs/) 설치
-1. Visual Studio 설치 관리자에서 다음 워크로드가 선택되어 있는지 확인합니다.
-    * ASP.NET 및 웹 개발
-1. [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio) 설치
+최신 버전의 [Visual Studio](https://www.visualstudio.com/vs/)를 설치합니다. Windows에서 Visual Studio 2019를 사용하려면 Azure Development 워크로드를 설치해야 합니다. Windows에서 Visual Studio 2017을 사용하려면 [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)뿐만 아니라 ASP.NET 및 웹 개발 워크로드를 설치해야 합니다.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
 
@@ -65,7 +62,7 @@ ms.locfileid: "65779864"
 
 ### <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기
 
-Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
+Visual Studio에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 '**webfrontend**'로 지정합니다.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -150,3 +147,6 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 > [!div class="nextstepaction"]
 > [다중 서비스 개발에 대해 알아보기](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

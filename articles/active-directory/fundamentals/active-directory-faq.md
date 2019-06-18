@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06112361434a8217df6714a70d0059c175e98ac8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: df20c8b863a6abb1cdb4d53c0057b223fe9fdaf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110439"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -196,7 +196,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: 특정 애플리케이션에 액세스하는 사용자의 Multi-Factor Authentication을 어떻게 요청하나요?**
 
-**A:** Azure AD 조건부 액세스에서는 각 애플리케이션에 대한 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
+**A:** Azure AD 조건부 액세스를 사용 하 여 각 응용 프로그램에 대 한 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
 
 자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
 
@@ -210,4 +210,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q:  Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:**  아니요. Azure AD 지원 하지 않습니다 LDAP Lightweight Directory Access Protocol () 프로토콜 또는 보안 LDAP를 직접. 그러나 LDAP 연결을 위해 Azure Networking을 통해 올바르게 구성 된 네트워크 보안 그룹을 사용 하 여 Azure AD 테 넌 트에서 Azure AD Domain Services (Azure AD DS) 인스턴스를 사용 하도록 설정 하는 것이 같습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap을 참조하세요.
+**A:**  아니요. Azure AD 지원 하지 않습니다 LDAP Lightweight Directory Access Protocol () 프로토콜 또는 보안 LDAP를 직접. 그러나 LDAP 연결을 위해 Azure Networking을 통해 올바르게 구성 된 네트워크 보안 그룹을 사용 하 여 Azure AD 테 넌 트에서 Azure AD Domain Services (Azure AD DS) 인스턴스를 사용 하도록 설정 하는 것이 같습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap 을 참조하세요.

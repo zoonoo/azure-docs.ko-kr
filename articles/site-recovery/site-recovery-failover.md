@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399965"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>VM 및 물리적 서버 장애 조치 
@@ -91,7 +91,7 @@ Site Recovery를 사용하여 보호되는 가상 머신/물리적 서버는 **�
 
 경우에 따라 가상 머신의 장애 조치(failover)에는 추가적인 중간 단계가 필요하며 일반적으로 완료하는 데 8 ~ 10분 정도가 소요됩니다. 다음과 같은 경우에 장애 조치에 걸리는 시간은 평소보다 길어집니다.
 
-* 9.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 머신
+* 9\.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 머신
 * 물리적 서버
 * VMware Linux 가상 머신
 * 물리적 서버로 보호되는 Hyper-V 가상 머신

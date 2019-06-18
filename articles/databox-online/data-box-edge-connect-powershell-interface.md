@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717493"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure 데이터 상자 Edge 장치를 관리 합니다.
@@ -43,7 +43,7 @@ Azure 데이터 가장자리가 상자의 솔루션을 사용 하 여 데이터�
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-또한 IoT Edge 장치와 연결할 수는 다운스트림 장치 간의 보안 연결을 사용 하려면 IoT Edge 인증서를 업로드할 수 있습니다. 세 가지 IoT Edge 인증서 (*.pem* 형식)를 설치 해야 하는:
+또한 IoT Edge 장치와 연결할 수는 다운스트림 장치 간의 보안 연결을 사용 하려면 IoT Edge 인증서를 업로드할 수 있습니다. 세 가지 IoT Edge 인증서 ( *.pem* 형식)를 설치 해야 하는:
 
 - 루트 CA 인증서 또는 CA 소유자
 - 디바이스 CA 인증서

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956166"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Node.js 앱 구성
@@ -178,7 +178,7 @@ kuduscript --node --scriptType bash --suppressPrompt
 이 섹션에서는 실행 끝나는 `npm install --production`합니다. 필요한 도구를 실행 해야 하는 코드 섹션을 추가 *끝* 의 `Deployment` 섹션:
 
 - [Bower](#bower)
-- [gulp](#gulp)
+- [Gulp](#gulp)
 - [Grunt](#grunt)
 
 참조를 [MEAN.js 샘플에서 예제](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)배포 스크립트를 사용자 지정도 실행 되는 위치, `npm install` 명령입니다.

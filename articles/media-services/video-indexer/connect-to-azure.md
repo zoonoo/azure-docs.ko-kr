@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799837"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
@@ -139,13 +139,13 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 |설정|설명|
 |---|---|
-|Video Indexer 계정 영역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
+|Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
 |AAD(Azure Active Directory) 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스**를 클릭하고 "구독"을 검색합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
 |애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
-|응용 프로그램 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
+|애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="considerations"></a>고려 사항
 
@@ -162,7 +162,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 * 새 Media Services 계정에 연결하면 Video Indexer가 그 안에서 자동으로 기본 **스트리밍 엔드포인트**를 시작합니다.
 
-    ![Media Services 스트리밍 엔드포인트](./media/create-account/ams-streaming-endpoint.png)
+    ![Media Services 스트리밍 끝점](./media/create-account/ams-streaming-endpoint.png)
 
     스트리밍 엔드포인트의 시작 시간이 깁니다. 따라서 계정을 Azure에 연결하는 시점부터 Video Indexer 웹 애플리케이션에서 비디오를 스트리밍하고 시청할 수 있게 되는 시점까지 몇 분 정도 걸릴 수 있습니다.
 

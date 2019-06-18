@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872024"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
@@ -89,7 +89,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 �
 
 자세한 정보:
 
-* [Azure Key Vault란?](../key-vault/key-vault-overview.md)
+* [Azure 키 자격 증명 모음이란?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화

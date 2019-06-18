@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
 ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565500"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
@@ -87,7 +87,7 @@ New-AzureRmEventGridTopic `
 
 사용자 지정 항목을 구독할 경우 이벤트를 수신하는 데 사용할 스키마를 지정합니다. CloudEvents 스키마, 사용자 지정 이벤트 스키마 또는 Event Grid 스키마를 지정합니다. 기본값은 Event Grid 스키마입니다.
 
-다음 예제에서는 Event Grid 토픽을 구독하고 Event Grid 스키마를 사용합니다. Azure CLI의 경우 
+다음 예제에서는 Event Grid 토픽을 구독하고 Event Grid 스키마를 사용합니다. Azure CLI의 경우
 
 ```azurecli-interactive
 topicid=$(az eventgrid topic show --name demoTopic -g myResourceGroup --query id --output tsv)
@@ -137,7 +137,7 @@ New-AzureRmEventGridSubscription `
 
 이제 사용자 지정 토픽에 이벤트를 보내고 매핑의 결과 확인할 준비가 되었습니다. 다음 스크립트는 [예제 스키마](#original-event-schema)에서 이벤트를 게시합니다.
 
-Azure CLI의 경우 
+Azure CLI의 경우
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64918489"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
@@ -39,7 +39,7 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 디바이스 개체 및 컨테이너에 대한 쓰기 권한입니다. |
+| 디바이스 쓰기 저장(writeback) |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 디바이스 개체 및 컨테이너에 대한 쓰기 권한입니다. |
 | 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell 모듈 사용 
@@ -295,8 +295,8 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 |Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |SYSTEM |모든 권한 |이 개체 
-|허용 |엔터프라이즈 관리자 |모든 권한 |이 개체 
-|허용 |도메인 관리자 |모든 권한 |이 개체 
+|허용 |Enterprise Admins |모든 권한 |이 개체 
+|허용 |Domain Admins |모든 권한 |이 개체 
 |허용 |관리자 |모든 권한 |이 개체 
 |허용 |엔터프라이즈 도메인 컨트롤러 |내용 보기 |이 개체 
 |허용 |엔터프라이즈 도메인 컨트롤러 |모든 속성 읽기 |이 개체 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258971"
 ---
 # <a name="register-in-dev-center"></a>Dev Center에 등록  
@@ -144,7 +144,7 @@ Dev Center 등록 관련 문제가 있는 경우 다음 단계를 수행하여 �
   > 개발자 센터 계정은 Microsoft에서 거래 나열 형식에 대한 게시자 대신 고객에게 요금을 청구하는 데 필요합니다. 개발자 센터 계정을 등록하면 Microsoft가 회사의 법률, 세금 및 은행 정보의 유효성을 검사할 수 있습니다. 자세히 알아보려면 [여기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 클릭하세요.
 
 * **개발자 센터 등록을 시작하려면 어떻게 할까요?**
-  > 중복을 방지하려면 회사에 등록된 개발자 센터 계정이 없는지 확인합니다. 개발자 계정과 연결하려는 Microsoft 계정으로 로그인해야 합니다. Microsoft 계정이 아직 없다면 [여기](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1)에서 새 계정을 만들 수 있습니다. (예: contoso_marketplace@live.com) 로그인하고 등록하려면 https://dev.windows.com/en-us/registration?accountProgram=Azure로 이동합니다.
+  > 중복을 방지하려면 회사에 등록된 개발자 센터 계정이 없는지 확인합니다. 개발자 계정과 연결하려는 Microsoft 계정으로 로그인해야 합니다. Microsoft 계정이 아직 없다면 [여기](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1)에서 새 계정을 만들 수 있습니다. (예: contoso_marketplace@live.com) 로그인하고 등록하려면 https://dev.windows.com/en-us/registration?accountProgram=Azure 로 이동합니다.
   > <br>등록 프로세스에 대한 자세한 내용에 대해 알아보려면 [여기](https://docs.microsoft.com/azure/marketplace/register-dev-center)를 클릭하세요.</br>
 
 * **'개인' 또는 '회사' 계정 형식 중에 무엇을 선택해야 하나요?**
@@ -163,7 +163,7 @@ Dev Center 등록 관련 문제가 있는 경우 다음 단계를 수행하여 �
   > verify@microsoft.com에서 제목 줄이 “필요한 작업: Microsoft를 사용하여 이메일 계정 확인”인 이메일을 찾습니다. 등록을 완료하려면 시간이 중요한 확인 링크를 클릭합니다. *24시간 내에 이메일을 받지 못한 경우 스팸 폴더를 확인하세요.*
 
 * **개발자 센터를 확인한 후에 다음 단계는 무엇인가요?**
-  > "사용자 프로그램"(https://developer.microsoft.com/dashboard/Account/Programs)으로 이동하고 개발자 센터 계정에 로그인합니다. Azure가 등록된 프로그램으로 표시되지 않을 경우 “권장 프로그램” 아래에서 Azure를 찾은 다음 “시작”을 선택합니다.
+  > "사용자 프로그램"(https://developer.microsoft.com/dashboard/Account/Programs) 으로 이동하고 개발자 센터 계정에 로그인합니다. Azure가 등록된 프로그램으로 표시되지 않을 경우 “권장 프로그램” 아래에서 Azure를 찾은 다음 “시작”을 선택합니다.
 
 * **내 개발자 센터 계정을 Cloud 파트너 포털 게시자 프로필에 연결하려면 어떻게 하나요?**
   > 게시하기 전의 최종 단계는 개발자 센터 계정을 Cloud 파트너 포털 [프로필](https://cloudpartner.azure.com/#profile)에 연결하는 것입니다. 개발자 센터 계정이 [Cloud 파트너 포털](https://cloudpartner.azure.com/#alloffers)의 계정과 다른 경우 Cloud 파트너 포털에서 개발자 센터 계정을 새 [사용자](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users)로 추가합니다. 개발자 센터 계정으로 [Cloud 파트너 포털](https://cloudpartner.azure.com/#alloffers)에 로그인합니다. 웹 브라우저의 오른쪽 위에 있는 메뉴에서 게시자 프로필을 선택합니다. 개발자 센터 계정 연결을 선택합니다.

@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614169"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse (MFA에 대 한 SSMS 지원)
@@ -29,7 +29,7 @@ Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버�
  
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자 완료")  
 
-## <a name="the-five-authentication-options"></a>5가지 인증 옵션   
+## <a name="the-five-authentication-options"></a>5가지 인증 옵션  
 
 Active Directory 유니버설 인증에는 두 가지 비 대화형 인증 방법을 지원합니다.
     - `Active Directory - Password` 인증

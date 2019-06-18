@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754238"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059691"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -53,7 +53,7 @@ Azure DNS 별칭 레코드는 DNS 레코드 집합에서 한정됩니다. DNS �
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 애플리케이션 호스트
 
-DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인이 contoso.com인 경우 somelable.contoso.com에 대한 CNAME 레코드를 만들 수 있지만 contoso.com 자체에 대해서는 CNAME을 만들 수 없습니다.
+DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인 contoso.com; 인 경우 somelabel.contoso.com;에 대 한 CNAME 레코드를 만들 수 있습니다. 하지만 자체 contoso.com에 대 한 CNAME을 만들 수 없습니다.
 이 제한은 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 뒤에 워크로드가 분산된 애플리케이션이 있는 애플리케이션 소유자에게 문제가 됩니다. Traffic Manager 프로필을 사용 하 여 CNAME 레코드를 만들 필요를 하므로 영역 루트에서 Traffic Manager 프로필을 가리키도록 수는 없습니다.
 
 별칭 레코드를 사용 하 여이 문제는 해결 됩니다. CNAME 레코드를 달리 별칭 레코드 영역 apex에 만들어지고 응용 프로그램 소유자가 해당 영역의 apex 레코드 외부 끝점을 Traffic Manager 프로필을 가리키도록에 사용할 수 있습니다. 응용 프로그램 소유자가 해당 DNS 영역 내에서 다른 도메인에 사용 되는 동일한 Traffic Manager 프로필을 가리킵니다.

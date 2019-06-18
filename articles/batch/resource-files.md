@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
 ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65405648"
 ---
 # <a name="creating-and-using-resource-files"></a>만들기 및 리소스 파일 사용
@@ -80,7 +80,7 @@ SAS URL을 생성 하는 대신 컨테이너 및 Azure Blob storage에서 해당
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
 
-### <a name="web-endpoint"></a>웹 엔드포인트
+### <a name="web-endpoint"></a>웹 끝점
 
 데이터를 Azure Storage에 업로드 되지 않습니다 여전히 리소스 파일을 만드는 데 사용할 수 있습니다. 입력된 데이터가 포함 된 모든 올바른 HTTP URL을 지정할 수 있습니다. Batch API에 제공 된 URL은 하 고 데이터는 리소스 파일을 만드는 데 다음 키를 누릅니다.
 

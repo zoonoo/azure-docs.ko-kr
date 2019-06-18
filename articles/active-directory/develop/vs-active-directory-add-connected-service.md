@@ -15,10 +15,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414004"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이
 
     ![소개 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 목록에는 Visual Studio의 계정 설정 대화 상자(**파일 > 계정 설정...**)에 나열된 계정으로 액세스할 수 있는 모든 도메인이 포함됩니다. 대신, 도메인을 찾을 수 없는 경우 `mydomain.onmicrosoft.com` 등과 같은 도메인 이름을 입력할 수 있습니다. Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
+1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 목록에는 Visual Studio의 계정 설정 대화 상자(**파일 > 계정 설정...** )에 나열된 계정으로 액세스할 수 있는 모든 도메인이 포함됩니다. 대신, 도메인을 찾을 수 없는 경우 `mydomain.onmicrosoft.com` 등과 같은 도메인 이름을 입력할 수 있습니다. Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
 
     ![Single Sign-On 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

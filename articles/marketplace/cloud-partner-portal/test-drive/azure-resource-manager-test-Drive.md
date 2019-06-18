@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606442"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
@@ -358,11 +358,11 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 **(선택한 지역 수 x 핫 인스턴스) + (선택한 지역 수 x 웜 인스턴스) + (선택한 지역 수 x 콜드 인스턴스)**
 
-**시험 사용 기간(시간) -** ‘필수’ 시험 사용을 활성 상태로 유지할 기간(시간)입니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다.
+**시험 사용 기간(시간) -** ‘필수’ 시험 사용을 활성 상태로 유지할 기간(시간)입니다.  이 기간이 끝나면 시험 사용이 자동으로 종료됩니다.
 
-**시험 사용 Resource Manager 템플릿 -** ‘필수’ 여기서 Resource Manager 템플릿을 업로드합니다. 이 파일은 위의 이전 섹션에서 빌드한 파일입니다. 기본 템플릿 파일의 이름을 “main-template.json”으로 지정하고, Resource Manager 템플릿에 필요한 키 변수에 대한 출력 매개 변수가 포함되어 있는지 확인합니다. 파일은 .zip 형식이어야 합니다.
+**시험 사용 Resource Manager 템플릿 -** ‘필수’ 여기서 Resource Manager 템플릿을 업로드합니다.  이 파일은 위의 이전 섹션에서 빌드한 파일입니다. 기본 템플릿 파일의 이름을 “main-template.json”으로 지정하고, Resource Manager 템플릿에 필요한 키 변수에 대한 출력 매개 변수가 포함되어 있는지 확인합니다. 파일은 .zip 형식이어야 합니다.
 
-**액세스 정보 -** ‘필수’ 고객이 시험 사용을 가져오면 액세스 정보가 고객에게 표시됩니다. 이러한 지침은 시험 사용 Resource Manager 템플릿의 유용한 출력 매개 변수를 공유하기 위한 것입니다. 출력 매개 변수를 포함하려면 **{{outputname}}** 과 같이 이중 중괄호를 사용합니다. 그러면 매개 변수가 해당 위치에 올바르게 삽입됩니다. 프런트 엔드에서 렌더링될 수 있도록 여기서는 HTML 문자열 서식을 사용하는 것이 좋습니다.
+**액세스 정보 -** ‘필수’ 고객이 시험 사용을 가져오면 액세스 정보가 고객에게 표시됩니다.  이러한 지침은 시험 사용 Resource Manager 템플릿의 유용한 출력 매개 변수를 공유하기 위한 것입니다. 출력 매개 변수를 포함하려면 **{{outputname}}** 과 같이 이중 중괄호를 사용합니다. 그러면 매개 변수가 해당 위치에 올바르게 삽입됩니다. 프런트 엔드에서 렌더링될 수 있도록 여기서는 HTML 문자열 서식을 사용하는 것이 좋습니다.
 
 ### <a name="test-drive-deployment-subscription-details"></a>시험 사용 배포 구독 세부 정보
 
@@ -370,11 +370,11 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 ![시험 사용 배포 구독 세부 정보](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**Azure 구독 ID -** ‘필수’ Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. **별도**의 시험 사용 전용 Azure 구독이 없으면 새로 만드세요. Azure Portal에 로그인하여 왼쪽 메뉴의 구독으로 이동하면 Azure 구독 ID를 확인할 수 있습니다(예: “a83645ac-1234-5ab6-6789-1h234g764ghty”).
+**Azure 구독 ID -** ‘필수’ Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다.  해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. **별도**의 시험 사용 전용 Azure 구독이 없으면 새로 만드세요. Azure Portal에 로그인하여 왼쪽 메뉴의 구독으로 이동하면 Azure 구독 ID를 확인할 수 있습니다(예: “a83645ac-1234-5ab6-6789-1h234g764ghty”).
 
 ![Azure 구독](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**Azure AD 테넌트 ID -** ‘필수’ 테넌트 ID가 이미 있는 경우 다음 그림과 같이 속성 -\> 디렉터리 ID에서 확인할 수 있습니다.
+**Azure AD 테넌트 ID -** ‘필수’ 테넌트 ID가 이미 있는 경우 다음 그림과 같이 속성 -\> 디렉터리 ID에서 확인할 수 있습니다. 
 
 ![Azure Active Directory 속성](./media/azure-resource-manager-test-drive/subdetails3.png)
 
@@ -386,7 +386,7 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 ![선택 항목을 확인합니다.](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다. 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
+**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다.  이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
 
 1. 새로 만든 디렉터리 또는 이미 있는 디렉터리로 이동하여 필터 창에서 Azure Active Directory를 선택합니다.
 2. “앱 등록”을 검색한 다음, “추가”를 클릭합니다.
@@ -411,7 +411,7 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
     ![사용 권한 추가](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. **저장**을 클릭합니다.
 
-**Azure AD 앱 키 -** ‘필수’ 최종 필드에서는 인증 키를 생성합니다. 키 아래에 키 설명을 추가하고 지속 기간을 사용 기간 제한 없음으로 설정한 다음, 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음, 필요한 시험 사용 필드에 붙여넣습니다.
+**Azure AD 앱 키 -** ‘필수’ 최종 필드에서는 인증 키를 생성합니다.  키 아래에 키 설명을 추가하고 지속 기간을 사용 기간 제한 없음으로 설정한 다음, 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음, 필요한 시험 사용 필드에 붙여넣습니다.
 
 ![Azure AD 애플리케이션에 대한 키를 표시합니다.](./media/azure-resource-manager-test-drive/subdetails8.png)
 

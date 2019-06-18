@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399366"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
@@ -54,7 +54,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 
 이 메커니즘을 설명하는 예는 다음과 같습니다. 뉴욕과 시카고 두 위치에 있는 조직을 보겠습니다.
 
-**위치**: | **VMM 서버** | **VM 네트워크** | **다음으로 매핑**
+**Location**: | **VMM 서버** | **VM 네트워크** | **다음으로 매핑**
 ---|---|---|---
 뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  |  | VMNetwork2-뉴욕 | 매핑되지 않음
@@ -79,7 +79,7 @@ SilverCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>Log
 
 ### <a name="logical-and-vm-network-settings"></a>논리 및 VM 네트워크 설정
 
-**위치**: | **논리 네트워크** | **연결된 VM 네트워크**
+**Location**: | **논리 네트워크** | **연결된 VM 네트워크**
 ---|---|---
 뉴욕 | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
 시카코 | LogicalNetwork1-시카고 | VMNetwork1-시카고

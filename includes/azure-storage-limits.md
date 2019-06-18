@@ -9,10 +9,10 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114533"
 ---
 다음 표에 Azure 범용 v1, v2 및 Blob storage 계정에 대 한 기본 제한이 있습니다. 합니다 *수신* 제한은 저장소 계정에 전송 되는 요청에서 모든 데이터를 가리킵니다. 합니다 *송신* 제한은 저장소 계정에서 수신 되는 응답에서 모든 데이터를 가리킵니다.

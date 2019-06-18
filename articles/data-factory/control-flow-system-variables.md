@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235634"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
@@ -28,7 +28,7 @@ ms.locfileid: "65235634"
 | 변수 이름 | 설명 |
 | --- | --- |
 | @pipeline().DataFactory |안에서 파이프라인 실행이 진행 중인 데이터 팩터리의 이름 |
-| @pipeline().Pipeline |파이프라인의 이름  |
+| @pipeline().Pipeline |파이프라인의 이름 |
 | @pipeline().RunId | 특정 파이프라인 실행의 ID |
 | @pipeline().TriggerType | (수동, 스케줄러) 파이프라인을 호출하는 트리거 유형 |
 | @pipeline().TriggerId| 파이프라인을 호출하는 트리거 ID |

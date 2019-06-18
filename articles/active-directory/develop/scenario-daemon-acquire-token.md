@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075372"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>토큰을 획득 하는 웹 Api를 호출 하는 데몬 앱
@@ -65,7 +65,7 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 > [!IMPORTANT]
 > Azure AD v1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 MSAL ((v2.0 끝점)에 대 한 마지막 슬래시 앞에 나오는 모든 가져오고 리소스 식별자로 사용 하 여 요청된 된 범위에서 원하는 대상을 구문 분석 합니다.
-> 따라서 Azure SQL과 같은 경우 ( **https://database.windows.net** ) 리소스는 슬래시로 끝나는 대상 (Azure SQL에 대 한: `https://database.windows.net/`), 범위를 요청 해야 `https://database.windows.net//.default` (이중 슬래시 참고). MSAL.NET를 참조 하세요. 문제가 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql 인증 실패를 발생 시킨 리소스 url의 후행 슬래시는 생략 됩니다.
+> 따라서 Azure SQL과 같은 경우 ( **https://database.windows.net** ) 리소스는 슬래시로 끝나는 대상 (Azure SQL에 대 한: `https://database.windows.net/` ), 범위를 요청 해야 `https://database.windows.net//.default` (이중 슬래시 참고). MSAL.NET를 참조 하세요. 문제가 [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql 인증 실패를 발생 시킨 리소스 url의 후행 슬래시는 생략 됩니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 

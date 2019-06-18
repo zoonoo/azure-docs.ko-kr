@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.openlocfilehash: 8d7731480b6239c572d39f52b6a0217d2ac48d25
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240254"
 ---
 1. (.Sln) 클라이언트 프로젝트에서 솔루션 파일을 찾아 Visual Studio를 사용 하 여 엽니다.
@@ -17,7 +17,7 @@ ms.locfileid: "66240254"
 
 3. 파일을 열고 `ToDoActivity.java` ZUMOAPPNAME/app/src/main/java/com/예제/zumoappname-이 폴더에 있습니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
 
-4. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net합니다.
+4. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net 합니다.
 
 5. 로 이동 합니다 `index.js` ZUMOAPPNAME/www/js/index.js 및 파일 `onDeviceReady()` 메서드를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 매개 변수입니다.
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072128"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -39,7 +39,7 @@ Azure Service Bus가 Azure Event Grid와의 새로운 통합을 시작했습니�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>참가자 액세스 권한이 있는지 확인
-Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, **역할 할당**을 차례로 선택합니다. 네임스페이스에 대한 기여자 액세스 권한이 있는지 확인합니다. 
+Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)** , **역할 할당**을 차례로 선택합니다. 네임스페이스에 대한 기여자 액세스 권한이 있는지 확인합니다. 
 
 ### <a name="events-and-event-schemas"></a>이벤트 및 이벤트 스키마
 
@@ -146,12 +146,14 @@ Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, *
  ```azurecli-interactive
 az login
 
-az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s "<Azure subscription name>"
 
-$namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
+namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
 
-az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
+
+BASH를 사용 하는 경우 
 
 ## <a name="powershell-instructions"></a>PowerShell 지침
 
@@ -168,7 +170,7 @@ Install-Module Az.ServiceBus
 $NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
 여기서 다른 설치 옵션을 살펴볼 수도 있고 해당 이벤트가 흐르고 있는지 테스트할 수도 있습니다.

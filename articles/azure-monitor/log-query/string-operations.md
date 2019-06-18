@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424706"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
@@ -98,7 +98,7 @@ countof(text, search [, kind])
 - `search` - text 내에서 일치하는 일반 문자열 또는 정규식입니다.
 - `kind` - _normal_ | _regex_(기본값: normal).
 
-### <a name="returns"></a>반환
+### <a name="returns"></a>반환 값
 
 검색 문자열이 컨테이너에서 일치시킬 수 있는 횟수입니다. 일반 문자열 일치는 겹칠 수 있으며, 정규식 일치는 겹칠 수 없습니다.
 
@@ -123,7 +123,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 ```
 
 
-## <a name="extract"></a>extract
+## <a name="extract"></a>추출
 
 지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 또한 필요에 따라 추출된 부분 문자열을 지정된 형식으로 변환합니다.
 
@@ -140,7 +140,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` - 검색할 문자열입니다.
 - `typeLiteral` - 선택적 형식 리터럴(예: typeof(long))입니다. 제공된 경우 추출된 부분 문자열이 이 형식으로 변환됩니다.
 
-### <a name="returns"></a>반환
+### <a name="returns"></a>반환 값
 지시된 캡처 그룹 captureGroup에 대해 일치된 부분 문자열, 선택적으로 typeLiteral로 변환됩니다.
 일치 항목이 없거나 형식 변환에 실패한 경우 null을 반환합니다.
 

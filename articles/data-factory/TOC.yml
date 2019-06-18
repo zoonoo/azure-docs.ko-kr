@@ -486,6 +486,8 @@
           href: control-flow-expression-language-functions.md
         - name: 시스템 변수
           href: control-flow-system-variables.md
+        - name: 데이터 흐름 매개 변수
+          href: parameters-data-flow.md
     - name: 보안
       items:
         - name: 데이터 이동 보안 고려 사항
@@ -516,7 +518,7 @@
       items:
         - name: Azure 통합 런타임
           href: create-azure-integration-runtime.md
-        - name: 자체 호스팅된 통합 런타임
+        - name: 자체 호스팅 통합 런타임
           href: create-self-hosted-integration-runtime.md
         - name: Azure SSIS 통합 런타임
           href: create-azure-ssis-integration-runtime.md
@@ -546,6 +548,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Elastic Database 작업을 사용하여 SSISDB 로그 정리
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Azure-SSIS IR의 패키지 실행 문제 해결
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: 트리거 만들기
       items:
         - name: 이벤트 기반 트리거 만들기

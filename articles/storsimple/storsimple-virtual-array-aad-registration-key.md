@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: alkohli
 ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387657"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
@@ -78,7 +78,7 @@ AAD 서비스 등록 키를 생성하려면 다음 단계를 수행합니다.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>AAD 서비스 등록 키를 생성하려면
 
-1. **StorSimple 디바이스 관리자**에서 **관리 &gt;****키**로 이동합니다.
+1. **StorSimple 디바이스 관리자**에서 **관리 &gt;** **키**로 이동합니다.
     
     ![키로 이동](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 

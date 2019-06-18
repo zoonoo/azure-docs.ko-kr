@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078158"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -49,9 +49,11 @@ Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니�
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure 파일 동기화의 크기 조정 목표
 
-Azure 파일 동기화를 사용하면 최대한 무제한으로 사용할 수 있도록 디자인하려고 했지만 가능한 것은 아닙니다. 아래 표에서는 테스트의 한계 및 실제적인 목표인 하드 한도를 나타냅니다.
+Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 무제한 사용이 가능하지 않은 경우도 있습니다. 아래 표에는 Microsoft의 테스트 경계와 하드 한도인 목표가 표시되어 있습니다.
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 

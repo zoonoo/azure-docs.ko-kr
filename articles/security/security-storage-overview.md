@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792774"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
@@ -109,7 +109,7 @@ Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관
 * [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
 * [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
 
-## <a name="advanced-threat-protection"></a>Advanced Threat Protection
+## <a name="advanced-threat-protection"></a>고급 위협 보호
 
 Azure Storage는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 위해 Advanced Threat Protection을 제공합니다. Advanced Threat Protection은 Azure Storage 진단 로그에서 Blob Storage에 대한 의심스러운 읽기, 쓰기 또는 삭제 요청을 모니터링합니다.
 

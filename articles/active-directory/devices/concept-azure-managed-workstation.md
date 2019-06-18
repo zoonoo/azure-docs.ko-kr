@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357043"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110693"
 ---
 # <a name="building-secure-workstations"></a>보안 워크스테이션을 구축
 
 보안된 격리 된 워크스테이션은 관리자, 개발자 및 중요 한 서비스의 연산자와 같은 중요 한 역할의 보안을 위해 매우 중요 합니다. 다른 많은 보안 컨트롤 및 보증은 실패 또는 기본 클라이언트 워크스테이션 보안이 손상 된 경우 효과가 없습니다.
 
 이 문서에서는 보안 제어를 시작 하 게 설정 하는 방법 등 자세한 단계별 지침을 사용 하 여 안전한 클라이언트 워크스테이션을 구축 하는 데 걸리는 설명 합니다. 이 유형의 워크스테이션 때때로 권한 있는 액세스 워크스테이션 (PAW)이이 참조가 사용 되며 기반 이라고 합니다. 그러나 지침은은 서비스를 관리 하려면 클라우드 기반 기술로 수 있는지 확인 하 고 Windows 10RS5, Microsoft Defender ATP, Azure Active Directory 및 Intune부터 도입 된 보안 기능을 소개 합니다.
+
+> [!NOTE]
+> 이 문서에서는 보안 워크스테이션 및 해당 중요도의 개념을 설명 합니다. 이미 익숙한 개념을 건너뛰려면 배포를 읽어보세요 [보안 워크스테이션을 배포 하는 방법을](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation)합니다.
 
 ## <a name="why-securing-workstation-access-is-important"></a>왜 중요 한지 워크스테이션 액세스 보안
 

@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310420"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 복원 
@@ -34,7 +34,7 @@ ms.locfileid: "60310420"
 
 ## <a name="restore-through-powershell"></a>PowerShell을 통해 복원
 
-## <a name="install-powershell"></a>PowerShell 설치 
+## <a name="install-powershell"></a>PowerShell 설치
 SQL Data Warehouse에서 Azure PowerShell을 사용하려면 Azure PowerShell을 설치해야 합니다.  **Get-module-ListAvailable-Name Az**를 실행하여 버전을 확인할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][How to install and configure Azure PowerShell]을 참조하세요.
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>PowerShell을 사용한 활성 또는 일시 중지된 데이터베이스 복원

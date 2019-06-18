@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
 ms.openlocfilehash: 234bff5049babf0c4b1d036b40201720b2736228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714720"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
@@ -120,8 +120,8 @@ Output:
 ```
 
 ## <a name="next-steps"></a>다음 단계
-*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
 * [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->

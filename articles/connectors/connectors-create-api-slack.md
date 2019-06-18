@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105652"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Slack을 모니터링 및 관리
@@ -56,7 +56,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
    작업 목록에서 원하는 작업을 선택합니다.
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. Slack에 로그인하라는 메시지가 표시되면 Slack 작업 영역에 로그인합니다. 
 

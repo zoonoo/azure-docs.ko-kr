@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160825"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication 사용 하 여 Azure SQL Database에 연결
@@ -122,7 +122,7 @@ C# 프로그램이 성공적으로 실행되려면 정적 필드에 적절한 �
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **사용자** > **새 게스트 사용자** |
 | Initial_DatabaseName | "myDatabase" | **SQL 서버** > **SQL 데이터베이스** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **앱 등록** > **이름별로 검색** > **애플리케이션 ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **앱 등록** > **이름별으로 검색** > *[Your-앱-등록]*  >  **설정** > **RedirectURIs**<br /><br />이 문서에 대 한 유효한 값 이므로 한 RedirectUri를 세밀 하 게 여기 사용 되지 않습니다. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **앱 등록** > **이름별으로 검색** >  *[Your-앱-등록]*  >  **설정** > **RedirectURIs**<br /><br />이 문서에 대 한 유효한 값 이므로 한 RedirectUri를 세밀 하 게 여기 사용 되지 않습니다. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>SQL Server Management Studio를 사용 하 여 확인 합니다.

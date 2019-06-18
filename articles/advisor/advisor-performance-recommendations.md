@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254662"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
@@ -106,7 +106,7 @@ Azure Advisor는 읽기 쓰기 서버에서 읽기 집약적인 워크 로드를
 
 Azure Advisor는 워크 로드 패턴에 따라 사용자 지정 인덱싱 정책을에서 이점을 얻을 수 있지만 기본 인덱싱 정책을 사용 하는 Cosmos DB 컨테이너를 식별 합니다. 기본 인덱싱 정책을 모든 속성 인덱싱하지만 Ru 및 인덱싱에 사용 된 저장소를 쿼리 필터에 사용 되는 명시적으로 포함 되거나 제외 된 경로 사용 하 여 사용자 지정 인덱싱 정책을 사용 하 여 줄일 수 있습니다. [인덱스 정책 수정에 대해 자세히 알아보기](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기 (MaxItemCount)-1로 구성 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Azure Cosmos DB 쿼리 페이지 크기(MaxItemCount)를 -1로 구성 
 
 Azure Advisor는 100의 쿼리 페이지 크기를 사용 하 고 빠르게 검색에 대 한-1의 페이지 크기를 사용 하는 것이 좋습니다 있는 Azure Cosmos DB 컨테이너를 식별 합니다. [최대 항목 수에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

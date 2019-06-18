@@ -10,60 +10,54 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/02/2016
+ms.date: 06/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 9da52e5a9dfa3b55431d66ed3162172226f71a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256253"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073283"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
-Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 애플리케이션의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
 
-리소스를 만든 후에 해당 계측 키를 가져오고 이 키를 사용하여 애플리케이션에서 SDK를 구성합니다. 리소스 키는 원격 분석을 리소스로 연결합니다.
+Azure Application Insights는 Microsoft Azure *리소스*에 애플리케이션에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후에 계측 키를 가져옵니다 하 고 Application Insights SDK 구성에 사용할 수 있습니다. 계측 키를 리소스에 원격 분석을 연결합니다.
 
-## <a name="sign-up-to-microsoft-azure"></a>Microsoft Azure에 등록
-[Microsoft 계정이 없는 경우 계정을 만듭니다](https://live.com). Outlook.com, OneDrive, Windows Phone 또는 XBox Live 등의 서비스를 이용하는 경우 Microsoft 계정이 이미 있습니다.
+## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 
-또한 [Microsoft Azure](https://azure.com)를 구독해야 합니다. 팀 또는 조직이 Azure를 구독하는 경우 소유자가 사용자의 Windows Live ID를 사용하여 사용자를 구독에 추가할 수 있습니다. 사용하는 구독에 대해서만 요금이 부과됩니다. 기본 계획은 무료로 일정 시험 사용을 허용합니다.
-
-구독에 액세스할 수 있으면 [https://portal.azure.com](https://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
-[portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.
 
-![새로 만들기, Application Insights 클릭](./media/create-new-resource/01-new.png)
+에 로그인 합니다 [Azure portal](https://portal.azure.com), Application Insights 리소스를 만듭니다.
 
-* **애플리케이션 유형**은 개요 블레이드에 표시되는 내용 및 [메트릭 탐색기][metrics]에서 사용할 수 있는 속성에 영향을 줍니다. 앱 유형이 표시되지 않으면 일반을 선택합니다.
-* **구독** 은 Azure의 지불 계정입니다.
-* **리소스 그룹** 은 액세스 제어와 같은 속성을 관리하기 위한 편의 기능입니다. 이미 다른 Azure 리소스를 만든 경우 동일한 그룹에 이 새 리소스를 두도록 선택할 수 있습니다.
-* **위치** 는 데이터를 보관하는 곳입니다.
-* **대시보드에 고정**은 Azure 홈 페이지의 리소스에 대한 빠른 액세스 타일을 넣습니다. 권장됩니다.
+![왼쪽된 위 모퉁이에 '+' 기호를 클릭 합니다. 뒤에 Application Insights는 개발자 도구를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
 
-앱이 만들어지면 새 블레이드가 열립니다. 이 블레이드에서 앱의 성능 및 사용량 데이터를 볼 수 있습니다. 
+   | 설정        |  값           | 설명  |
+   | ------------- |:-------------|:-----|
+   | **Name**      | 전역적으로 고유한 값 | 모니터링 하는 앱을 식별 하는 이름입니다. |
+   | **리소스 그룹**     | myResourceGroup      | App Insights 데이터를 호스트 하는 새 또는 기존 리소스 그룹 이름입니다. |
+   | **Location**: | 미국 동부 | 가까운 위치를 선택 하거나 앱 호스팅되는 거의 합니다. |
 
-다음에 Azure에 로그인할 때 이곳으로 다시 돌아오려면 시작 보드(홈 화면)에서 앱의 빠른 시작 타일을 찾습니다. 또는 찾아보기를 클릭하여 찾습니다.
+필수 필드에 적절 한 값을 입력 하 고 선택한 **검토 + 만들기**합니다.
+
+![필수 필드에 값을 입력 하 고 "검토 + 만들기"를 선택 합니다.](./media/create-new-resource/review-create.png)
+
+앱을 만든 경우 새 창이 열립니다. 이 창은 응용 프로그램 모니터링된에 대 한 성능 및 사용 현황 데이터 참조 되는 위치입니다. 
 
 ## <a name="copy-the-instrumentation-key"></a>계측 키 복사
-계측 키는 사용자가 만든 리소스를 식별합니다. SDK를 제공하기 위해 필요합니다.
 
-![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/create-new-resource/02-props.png)
+계측 키를 사용 하 여 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 응용 프로그램의 코드를 계측 키를 추가 하는 복사를 해야 합니다.
+
+![클릭 하 고 계측 키 복사](./media/create-new-resource/instrumentation-key.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>응용 프로그램에 SDK를 설치합니다.
-Application Insights SDK를 애플리케이션에 설치합니다. 이 단계는 애플리케이션의 형식에 따라 크게 달라 집니다. 
+
+Application Insights SDK를 애플리케이션에 설치합니다. 이 단계는 애플리케이션의 형식에 따라 크게 달라 집니다.
 
 계측 키를 사용하여 [애플리케이션에 설치한 SDK][start]를 구성합니다.
 
-SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할 때 코드를 작성할 필요가 없습니다. 사용자 작업을 추적하거나 문제를 보다 세부적으로 진단하려면 [API를 사용][api]하여 사용자 고유의 원격 분석을 보내도록 합니다.
-
-## <a name="monitor"></a>원격 분석 데이터 보기
-빠른 시작 블레이드를 닫으면 Azure 포털의 사용자 애플리케이션 블레이드로 돌아갑니다.
-
-검색 타일을 클릭하여 첫 번째 이벤트가 표시되는 [진단 검색][diagnostic]을 확인합니다. 
-
-더 많은 데이터를 보려면 몇 초 후에 **새로 고침**을 클릭합니다.
+SDK에는 추가 코드를 작성 하지 않고도 원격 분석을 전송 하는 표준 모듈이 포함 됩니다. 사용자 작업을 추적하거나 문제를 보다 세부적으로 진단하려면 [API를 사용][api]하여 사용자 고유의 원격 분석을 보내도록 합니다.
 
 ## <a name="creating-a-resource-automatically"></a>자동으로 리소스 만들기
 리소스를 자동으로 만드는 [PowerShell 스크립트](../../azure-monitor/app/powershell.md) 를 작성할 수 있습니다.
@@ -79,4 +73,3 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

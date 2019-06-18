@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473030"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
@@ -137,7 +137,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 5. 모든 개체를 포함하려면 **범위 지정 필터**를 비워 둡니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
     |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 주 지역에서 |
 
@@ -174,7 +174,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
 6. **변환** 탭으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
     | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 주 지역에서 |
 
@@ -218,7 +218,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
         a. **범위**를 **보류 중인 내보내기**로 설정합니다.<br>
         b. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.<br>
-        다. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
+        c. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
         d. 필요한 변경 내용인지 확인합니다.
 
 6. **Azure AD Connector**에서 **내보내기** 실행

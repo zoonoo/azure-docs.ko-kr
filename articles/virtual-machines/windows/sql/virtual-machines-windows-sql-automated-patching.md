@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4893076da47528cb6765efc32f46e76819a915b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4f0d681c93ab7ac7fef941892a95282a2fd59b89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075753"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
@@ -81,20 +81,20 @@ Azure 포털을 사용하여 프로비전 중에 또는 기존 VM에 대해 자�
 ### <a name="new-vms"></a>새 VM
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server Virtual Machine을 만들 때 자동화된 패치를 구성합니다.
 
-**SQL Server 설정** 블레이드에서 **자동화된 패치**를 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
+에 **SQL Server 설정을** 탭을 선택 **구성 변경** 아래 **자동화 된 패치**합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 패치** 블레이드를 보여 줍니다.
 
 ![Azure 포털에서 SQL 자동화된 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
 ### <a name="existing-vms"></a>기존 VM
-기존 SQL Server 가상 머신에 대한 해당 SQL Server 가상 머신을 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+기존 SQL Server virtual machines에 대 한 열에 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) 선택한 **패치** 아래의 **설정**합니다. 
 
 ![기존 VM에 대한 SQL 자동 패치](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-**SQL Server 구성** 블레이드에서 자동화된 패치 섹션의 **편집** 단추를 클릭합니다.
-
-![기존 VM에 대한 SQL 자동 패치 구성](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 완료되면 **SQL Server 구성** 블레이드 아래쪽의 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
 
@@ -108,8 +108,7 @@ SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-
-    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server 서비스가 다시 시작됩니다.

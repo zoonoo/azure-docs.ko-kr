@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3cbdfa590583da59a5083f52595d54cc7f4f86
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b4e3f64cb6aefb35c3f85bafc2bb408f998626d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767209"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112826"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 협업
 
@@ -45,5 +45,5 @@ Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구
 
 - [B2B 공동 작업 사용자 속성](user-properties.md)
 - [역할에 B2B 공동 작업 사용자 추가](add-guest-to-role.md)
-- [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)
+- [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)
 

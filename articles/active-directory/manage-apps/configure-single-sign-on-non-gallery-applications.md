@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989189"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Microsoft id 플랫폼에서 비 갤러리 응용 프로그램에서 single sign-on 구성
@@ -129,7 +129,7 @@ Azure AD를 설정 하려면로 이동 합니다 **기본 SAML 구성** 제목�
 
 - **릴레이 상태**합니다. 응용 프로그램이 인증 후 사용자를 리디렉션할 위치를 지시 하는 saml에서 릴레이 상태를 지정할 수 있습니다. 값은 URL 또는 URL을 응용 프로그램 내의 특정 위치로 사용자를 사용 하는 경로입니다.
 
-- **로그 아웃 URL**합니다. 이 값은 응용 프로그램에 SAML 로그 아웃 응답을 보내는 데 있습니다.
+- **로그아웃 URL** 이 값은 응용 프로그램에 SAML 로그 아웃 응답을 보내는 데 있습니다.
 
 자세한 내용은 [Single sign-on SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)합니다.
 
@@ -231,7 +231,7 @@ SAML 응용 프로그램을 테스트 하기 전에 있어야 이미 Azure AD �
 
    캡처된 로그인 필드를 저장 하 라는 메시지가 됩니다.
 8. **확인**을 선택합니다. 탭을 닫습니다, 메시지를 사용 하 여 캡처 상태 페이지를 업데이트 하는 브라우저 확장을 **응용 프로그램에 대 한 메타 데이터가 업데이트 된**, 및 해당 브라우저 탭도 닫습니다.
-9. Azure ad에서 **sign on 구성** 페이지에서 **앱에 성공적으로 로그인 적용할 수 있었으며,**.
+9. Azure ad에서 **sign on 구성** 페이지에서 **앱에 성공적으로 로그인 적용할 수 있었으며,** .
 10. **확인**을 선택합니다.
 
 로그인 페이지의 캡처를 후 사용자 및 그룹을 할당할 수 있습니다 및 일반 마찬가지로 자격 증명 정책을 설정할 수 있습니다 [암호 SSO 응용 프로그램](what-is-single-sign-on.md)합니다.

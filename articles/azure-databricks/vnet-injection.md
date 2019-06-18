@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126684"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Azure Databricks (미리 보기) 가상 네트워크에 배포
@@ -20,7 +20,9 @@ ms.locfileid: "62126684"
 Azure Databricks의 기본 배포는 Azure에서 완전히 관리되는 서비스입니다: 가상 네트워크(VNet)를 포함하여 모든 데이터 평면 리소스는 잠긴 리소스 그룹에 배포됩니다. 그러나 네트워크 사용자 지정이 필요한 경우 Azure Databricks를 사용자 고유의 가상 네트워크(VNet 삽입이라고도 함)에 배포할 수 있습니다.
 
 * 서비스 끝점을 사용하여 더 안전한 방식으로 다른 Azure 서비스(예: Azure Storage)에 Azure Databricks를 연결합니다.
+
 * 사용자 정의 경로를 활용하여 Azure Databricks와 함께 사용할 온-프레미스 데이터 원본에 연결합니다.  
+
 * 모든 아웃바운드 트래픽을 검사하고 허용, 거부 규칙에 따라 작업을 수행하는 네트워크 가상 어플라이언스로 Azure Databricks를 연결합니다.
 * 사용자 지정 DNS를 사용하기 위해 Azure Databricks를 구성합니다.
 * 송신 트래픽 제한을 지정 하려면 네트워크 보안 그룹 (NSG) 규칙을 구성 합니다.
@@ -85,7 +87,9 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 4. Azure Databricks 전용 두 서브넷에 대해 /18 - /26 사이 블록에서 CIDR 범위를 제공합니다.
 
    * 공용 서브넷은 Azure Databricks 제어 평면으로 통신할 수 있도록 연결된 네트워크 보안 그룹을 사용하여 생성됩니다.
+
    * 사설 서브넷은 클러스터 내부 통신을 허용 하는 연결된 네트워크 보안 그룹을 사용하여 생성됩니다.
+
 
 5. 가상 네트워크에 Azure Databricks 작업 영역을 배포하기 위해 **만들기**를 클릭합니다.
 
@@ -115,13 +119,17 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 
 올바르게 구성된 네트워크 보안 그룹이 이미 설정되고 공용 및 개인 서브넷이 있는 기존 가상 네트워크에 Azure Databricks 작업 영역을 배포하려면 [Databricks VNet 삽입을 위한 작업 영역 템플릿](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection)을 사용합니다.
 
+
 네트워크 보안 그룹 템플릿을 사용하지 않고 이 템플릿을 사용하는 경우 가상 네트워크에 사용하는 네트워크 보안 그룹에 허용 목록 규칙을 수동으로 추가해야 합니다.
+
 
 ## <a name="whitelisting-subnet-traffic"></a>허용 목록 서브넷 트래픽
 
 사용 하지 않는 경우는 [Azure portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) 또는 [Azure Resource Manager 템플릿](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) 네트워크 보안 그룹을 만들려면 수동으로 해야 다음 트래픽 허용 목록을 서브넷에 있습니다.
 
+
 |방향|프로토콜|원본|원본 포트|대상|대상 포트|
+
 |---------|--------|------|-----------|-----------|----------------|
 |인바운드|\*|VirtualNetwork|\*|\*|\*|
 |인바운드|\*|제어 평면 NAT IP|\*|\*|22|
@@ -148,7 +156,7 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 |영국 남부|제어 평면 NAT </br></br>웹 앱|51.140.203.27/32 </br></br>51.140.204.4/32|
 |서유럽|제어 평면 NAT </br></br>웹 앱|23.100.0.135/32 </br></br>52.232.19.246/32|
 |유럽 북부|제어 평면 NAT </br></br>웹 앱|23.100.0.135/32 </br></br>52.232.19.246/32|
-|중앙 인도|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
+|인도 중부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |인도 남부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |인도 서부|제어 평면 NAT </br></br>웹 앱|104.211.89.81/32 </br></br>104.211.101.14/32|
 |동남아시아|제어 평면 NAT </br></br>웹 앱|52.187.0.85/32 </br></br>52.187.145.107/32|
@@ -190,11 +198,13 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 
 **명령이 응답하지 않습니다.**
 
+
 가능한 원인: 작업자-작업자 통신이 차단되었습니다. 인바운드 보안 규칙이 요구 사항을 충족하는지 확인하여 수정합니다.
 
 **Notebook 워크플로가 다음 예외를 발생시키며 실패: com.databricks.WorkflowException: org.apache.http.conn.ConnectTimeoutException**
 
 가능한 원인: 작업자에서 Azure Databricks Webapp으로의 트래픽이 차단되었습니다. 아웃바운드 보안 규칙이 요구 사항을 충족하는지 확인하여 수정합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

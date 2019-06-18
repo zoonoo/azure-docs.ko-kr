@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473478"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
@@ -115,7 +115,7 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 솔루션 가속기가 더 이상 필요하지 않은 경우 해당 가속기를 선택한 다음, [솔루션 삭제]를 클릭하여 [프로비전된 솔루션] 페이지에서 삭제합니다.
 
-![솔루션삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

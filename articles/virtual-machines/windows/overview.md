@@ -17,10 +17,10 @@ ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506836"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
@@ -101,13 +101,13 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="related-resources"></a>관련 리소스
 이 표에 있는 리소스는 VM에서 사용하며, VM을 만들 때 이미 존재하거나 만들어야 합니다.
 
-| 리소스 | 필수 | 설명 |
+| Resource | 필수 | 설명 |
 | --- | --- | --- |
-| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예. |VM은 리소스 그룹에 포함되어야 합니다. |
-| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예. |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
-| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예. |VM은 가상 네트워크의 구성원이어야 합니다. |
+| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
+| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
+| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아닙니다. |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
-| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예. |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
+| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아닙니다. |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법
@@ -129,7 +129,7 @@ VM을 만들기 위한 몇 가지 옵션이 있습니다. 선택 옵션은 속�
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>만든 VM을 관리하는 방법
 VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구로 관리하거나 REST API를 통해 직접 관리할 수 있습니다. 수행 가능한 몇 가지 일반 관리 작업으로 VM 관련 정보 가져오기, VM에 로그인, 가용성 관리 및 백업 만들기가 있습니다.
 
-### <a name="get-information-about-a-vm"></a>VM에 대한 정보 가져오기
+### <a name="get-information-about-a-vm"></a>VM 관련 정보 가져오기
 아래 표에서는 VM에 대한 정보를 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
 | 방법 | 설명 |
@@ -146,7 +146,7 @@ Azure 포털의 연결 단추를 사용하여 [RDP(원격 데스크톱) 세션�
 ### <a name="manage-availability"></a>가용성 관리
 애플리케이션의 [높은 가용성을 보장](manage-availability.md)하는 방법을 이해하는 것이 중요합니다. 이렇게 구성하면 여러 VM을 만들어 하나 이상 실행되도록 합니다.
 
-99.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+99\.95 VM SLA(서비스 수준 계약)에 적합한 배포가 되도록 [가용성 집합](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에서 워크로드를 실행하는 VM을 둘 이상 배포해야 합니다. 이렇게 구성하면 VM이 여러 오류 도메인 간에 분산되고, 다양한 유지 관리 창을 사용하는 호스트에 배포됩니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ### <a name="back-up-the-vm"></a>VM 백업
 [Recovery Services 자격 증명 모음](../../backup/backup-introduction-to-azure-backup.md)은 Azure Backup 및 Azure Site Recovery 서비스 모두에서 데이터와 자산을 보호하는 데 사용됩니다. Recovery Services 자격 증명 모음을 사용하면 [PowerShell을 통해 Resource Manager 배포 VM에 대한 백업을 배포하고 관리할 수 있습니다](../../backup/backup-azure-vms-automation.md). 

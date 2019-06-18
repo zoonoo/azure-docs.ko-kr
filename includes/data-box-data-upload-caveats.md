@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b159ec8620fa8c93e4917f73be9b9898e1b4fbcc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244666"
 ---
 - Precreated 공유 중 하나에 직접 파일을 복사 하지 마십시오. 공유에서 폴더를 만들고 해당 폴더에 파일을 복사 해야 합니다.

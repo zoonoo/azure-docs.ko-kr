@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058052"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -30,6 +30,21 @@ ASE에는 여러 가지 인바운드 종속성이 있습니다. 인바운드 관
 ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)를 사용하여 ASE의 아웃바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
 
 아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 디바이스를 사용하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
+
+## <a name="system-architecture"></a>시스템 아키텍처
+
+아웃 바운드 트래픽은 방화벽 장치를 통해을 사용 하 여 ASE를 배포할 ASE 서브넷에 경로 변경 해야 합니다. 경로 IP 수준에서 작동합니다. 경로 정의 하는 주의 해 서 없는 경우에 TCP 회신 트래픽이 다른 주소에서 소스를 강제할 수 있습니다. 비대칭 라우팅 이것을 하 고 TCP가 해제 됩니다.
+
+경로 정의에 추가 된 동일한 방식으로 트래픽을 ASE로의 인바운드 트래픽을 다시 회신 해야 합니다. 인바운드 관리 요청에 대 한 true 이며 인바운드 응용 프로그램 요청에 대 한 맞습니다.
+
+다음 규칙으로 준수 해야 ASE 간의 트래픽
+
+* Azure SQL, 저장소 및 이벤트 허브는 트래픽은 방화벽 장치를 사용 하 여 지원 되지 않습니다. 이 트래픽은 해당 서비스에 직접 전송 되어야 합니다. 발생 하는 확인 하는 방법은 이러한 세 가지 서비스에 대 한 서비스 끝점을 구성 하는 것입니다. 
+* 경로 테이블 규칙이 인바운드 관리 트래픽이 출처에서 다시 전송 하는 정의 되어야 합니다.
+* 경로 테이블 규칙이 인바운드 응용 프로그램 트래픽을 출처에서 다시 전송 하는 정의 되어야 합니다. 
+* ASE를 종료 하는 다른 모든 트래픽은 경로 테이블 규칙을 사용 하 여 방화벽 장치에 보낼 수 있습니다.
+
+![Azure Firewall 연결 흐름 포함 ASE][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>ASE를 사용하여 Azure Firewall 구성 
 
@@ -68,8 +83,6 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 애플리케이션에 종속성이 있으면 Azure Firewall에 추가해야 합니다. 다른 모든 항목에 대해 HTTP/HTTPS 트래픽 및 네트워크 규칙을 허용하는 애플리케이션 규칙을 만듭니다. 
 
 애플리케이션 요청 트래픽이 제공되는 주소 범위를 알고 있는 경우 ASE 서브넷에 할당된 경로 테이블에 이를 추가할 수 있습니다. 주소 범위가 크거나 지정되지 않은 경우 Application Gateway와 같은 네트워크 어플라이언스를 사용하여 경로 테이블에 추가할 하나의 주소를 제공할 수 있습니다. ILB ASE를 사용하여 Application Gateway를 구성하는 방법에 대한 자세한 내용은 [ILB ASE와 Application Gateway 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)을 참조하세요.
-
-![Azure Firewall 연결 흐름 포함 ASE][5]
 
 이러한 Application Gateway의 사용은 시스템을 구성하는 방법의 한 예일 뿐입니다. 이 경로를 따른 경우 ASE 서브넷 경로 테이블에 경로를 추가해야 Application Gateway로 전송된 회신 트래픽이 직접 이동하게 됩니다. 
 

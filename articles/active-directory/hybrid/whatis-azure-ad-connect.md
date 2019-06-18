@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784472"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
@@ -64,7 +64,7 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 |멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect를 사용 하는 것에 대 한 라이선스 요구 사항
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Azure AD Connect 사용을 위한 라이선스 요구 사항
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 

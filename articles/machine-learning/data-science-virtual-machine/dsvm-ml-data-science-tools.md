@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502102"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
@@ -35,7 +35,7 @@ Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있�
 | 지원되는 버전     | Windows(conda 환경: AzureML), Linux(conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 ML 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
+| 사용/실행 방법      | Python SDK 및 Azure CLI의 경우. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.       |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
 | 관련 도구      | Visual Studio Code, Jupyter   |
 

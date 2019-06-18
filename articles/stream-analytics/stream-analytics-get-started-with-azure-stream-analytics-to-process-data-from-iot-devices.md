@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077722"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 디바이스에서 데이터를 처리하도록 Azure Stream Analytics 시작
-이 자습서에서는 IoT(사물 인터넷) 디바이스에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
+
+이 자습서의 IoT (사물 인터넷) 장치에서 데이터를 수집 하는 스트림 처리 논리를 만드는 방법을 알아봅니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 샘플 쿼리 및 데이터 파일은 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## <a name="scenario"></a>시나리오
+
 Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완전히 자동화했습니다. 이 공장의 기계에는 실시간으로 데이터 스트림을 내보낼 수 있는 센서가 있습니다. 이 시나리오에서 생산 작업장 관리자는 센서 데이터로부터 실시간으로 정보를 얻어 패턴을 파악하고 조치를 취하고 싶어합니다. 센서 데이터에 대해 SAQL(Stream Analytics 쿼리 언어)를 사용하여 들어오는 스트림 데이터에서 주목할 만한 패턴을 파악합니다.
 
 여기서 데이터는 Texas Instrument 센서 태그 디바이스에서 생성됩니다. 데이터의 페이로드는 JSON 형식이며 다음과 같습니다.

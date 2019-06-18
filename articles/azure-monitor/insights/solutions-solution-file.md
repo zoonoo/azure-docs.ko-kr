@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595759"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
@@ -224,7 +224,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 | 자산 | 설명 |
 |:--- |:--- |
-| 이름 |솔루션의 이름입니다. |
+| name |솔루션의 이름입니다. |
 | 버전 |솔루션 버전은 작성자가 결정합니다. |
 | product |솔루션을 식별하는 고유 문자열입니다. |
 | publisher |솔루션의 게시자입니다. |

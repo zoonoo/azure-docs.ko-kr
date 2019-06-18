@@ -13,15 +13,15 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318481"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-http-connector.md)
 > * [버전 2(현재 버전)](../connector-http.md)
 
@@ -68,7 +68,7 @@ ms.locfileid: "60318481"
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예. |
+| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**username**)의 암호입니다. | 예. |
 
 **예제: Basic, Digest 또는 Windows 인증 사용**

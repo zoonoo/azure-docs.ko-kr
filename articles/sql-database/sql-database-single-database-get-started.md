@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 85bbd14c8d2bcd8e3699e5f5efdae9f52acd63e5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389083"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808561"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -137,4 +137,4 @@ AdventureWorksLT 샘플 데이터를 포함하는 단일 데이터베이스를 �
   - [Azure Data Studio를 사용하여 연결 및 쿼리](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Azure CLI를 사용하여 프로비저닝된 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [Azure CLI 샘플](sql-database-cli-samples.md)을 참조하세요.
 - Azure PowerShell을 사용하여 프로비저닝된 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [Azure PowerShell 샘플](sql-database-powershell-samples.md)을 참조하세요.
-- Azure Powershell을 사용하여 서버리스 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [PowerShell을 사용하여 서버리스 데이터베이스 만들기](sql-database-serverless.md#create-new-serverless-database-using-powershell)를 참조하세요.
+- Azure Powershell을 사용하여 서버리스 컴퓨팅 계층에서 단일 데이터베이스를 만들려면 [PowerShell을 사용하여 서버리스 데이터베이스 만들기](sql-database-serverless.md#create-new-database-in-serverless-compute-tier-using-powershell)를 참조하세요.

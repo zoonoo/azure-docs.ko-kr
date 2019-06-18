@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823949"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-onprem-mysql-connector.md)
 > * [버전 2(현재 버전)](../connector-mysql.md)
 
@@ -70,11 +70,11 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 | --- | --- | --- |
 | type |type 속성을 다음으로 설정해야 합니다. **OnPremisesMySql** |예 |
 | server |MySQL 서버의 이름입니다. |예 |
-| database |MySQL 데이터베이스의 이름입니다. |예 |
+| 데이터베이스 |MySQL 데이터베이스의 이름입니다. |예 |
 | schema |데이터베이스에서 스키마의 이름입니다. |아닙니다. |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
-| userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
+| 사용자 이름 |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| 암호 |지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성

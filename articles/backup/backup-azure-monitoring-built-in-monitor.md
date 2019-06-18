@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236440"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드를 모니터링합니다.
@@ -34,7 +34,7 @@ Azure Backup은 기본 제공 모니터링 및 경고는 Azure Backup으로 보�
   - Azure VM 백업
   - Azure 파일 백업
   - SQL 등 azure 워크 로드 백업
-  - Azure Backup 에이전트 (MAB)
+  - Azure Backup 에이전트(MAB)
 
 작업에서 System Center Data Protection Manager (SC-DPM)에서 Microsoft Azure Backup Server (MABS) 표시 되지 않습니다.
 
@@ -49,7 +49,7 @@ Azure Backup은 기본 제공 모니터링 및 경고는 Azure Backup으로 보�
 다음 시나리오는 경고 시나리오도 서비스에 의해 정의 됩니다.
 
   - 백업/복원 실패
-  - Azure Backup 에이전트 (MAB)에 대 한 경고를 사용 하 여 백업 성공
+  - Azure Backup 에이전트(MAB)에 대한 경고와 함께 백업 성공
   - 데이터 삭제를 사용 하 여 데이터/중지 보호를 유지 하는 사용 하 여 보호 중지
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>예외는 경고가 발생 하는 경우
@@ -65,8 +65,8 @@ Azure Backup은 기본 제공 모니터링 및 경고는 Azure Backup으로 보�
 
   - Azure VM 백업
   - Azure 파일 백업
-  - SQL 등 azure 워크 로드 백업
-  - Azure Backup 에이전트 (MAB)
+  - SQL 같은 Azure 워크로드 백업
+  - Azure Backup 에이전트(MAB)
 
 > [!NOTE]
 > 경고에서 System Center Data Protection Manager (SC-DPM)에서 Microsoft Azure Backup Server (MABS) 여기 표시 되지 않습니다.

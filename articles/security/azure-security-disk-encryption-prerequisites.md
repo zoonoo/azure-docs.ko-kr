@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874258c31d4dd7d2a0aa0042624ee57616c0a89
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 16a556264cda3ed4eb93e8fb738765ddcb379f69
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068566"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -39,7 +39,7 @@ Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정
 ## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM에 대한 추가 필수 구성 요소 
 
 - Linux용 Azure Disk Encryption에는 [지원되는 이미지](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)에서 OS 디스크 암호화를 사용하도록 설정하기 위해 VM에 7GB의 RAM이 필요합니다. OS 디스크 암호화 프로세스가 완료되면 VM을 적은 메모리로 실행하도록 구성할 수 있습니다.
-- Azure Disk Encryption에서는 vfat 모듈 시스템에 있어야 합니다.  제거 하거나 기본 이미지에서이 모듈을 사용 하지 않도록 설정 하면 시스템 키 볼륨을 읽고 후속 다시 부팅 후에 디스크를 잠금 해제 하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거 하는 시스템 강화 단계 Azure Disk Encryption을 사용 하 여 호환 되지 않습니다. 
+- Azure Disk Encryption dm 암호화에 필요 하 고 vfat 될 모듈을 시스템에 제공 합니다. 제거 하거나 기본 이미지에서 vfat를 사용 하지 않도록 설정에 시스템에서 키 볼륨을 읽고 후속 다시 부팅 후에 디스크를 잠금 해제 하는 데 필요한 키를 가져온 하지 것입니다. 시스템에서 vfat 모듈을 제거 하는 시스템 강화 단계 Azure Disk Encryption을 사용 하 여 호환 되지 않습니다. 
 - 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. "/dev/sdX" 형식의 디바이스 이름은 특히 암호화가 적용된 후 다시 부팅할 때 동일한 디스크에 연결될 수 없으므로 이 항목에 영구 블록 디바이스 이름을 사용합니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md)을 참조하세요.
 - /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 드라이브가 여전히 탑재되어 있는지 확인합니다. 
   - 암호화를 사용하도록 설정하기 전에 /etc/fstab 파일에서 드라이브를 올바르게 탑재하지 않으면 Azure Disk Encryption에서 해당 드라이브를 올바르게 탑재할 수 없습니다.
@@ -61,9 +61,9 @@ Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정
 **그룹 정책:**
  - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [bitlocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
+-  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [사용자 저장소 구성의 BitLocker 복구 정보 허용 256 비트 복구 키->](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
 
-- Azure Disk Encryption은 도메인 수준 그룹 정책에는 Bitlocker에서 사용 되는 AES-CBC 알고리즘을 차단 하는 경우 실패 합니다.
+- Azure Disk Encryption은 도메인 수준 그룹 정책에는 BitLocker에서 사용 되는 AES-CBC 알고리즘을 차단 하는 경우 실패 합니다.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -243,7 +243,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
 4. **저장**을 클릭합니다.
 
-![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
+    ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> 키 암호화 키 설정(선택 사항)

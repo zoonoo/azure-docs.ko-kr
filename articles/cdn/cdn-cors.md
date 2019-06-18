@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077420"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
@@ -85,7 +85,7 @@ Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*
 ![정규식을 사용하는 규칙 예제](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>각 원본에 대한 요청 헤더 규칙입니다.
-정규식을 사용하는 대신, **요청 헤더 와일드카드** [일치 조건](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1)을 사용하여 허용하려는 각 원본에 대해 별도의 규칙을 만들 수 있습니다. 정규식 방법을 사용할 때처럼 규칙 엔진은 단독으로 CORS 헤더를 설정합니다. 
+정규식을 사용하는 대신, **요청 헤더 와일드카드** [일치 조건](/previous-versions/azure/mt757336(v=azure.100)#match-conditions)을 사용하여 허용하려는 각 원본에 대해 별도의 규칙을 만들 수 있습니다. 정규식 방법을 사용할 때처럼 규칙 엔진은 단독으로 CORS 헤더를 설정합니다. 
 
 ![정규식을 사용하지 않는 규칙 예제](./media/cdn-cors/cdn-cors-no-regex.png)
 

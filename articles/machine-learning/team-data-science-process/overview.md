@@ -12,10 +12,10 @@ ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429419"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
@@ -40,7 +40,7 @@ TDSP(Team Data Science Process)는 데이터 과학 프로젝트의 개발을 �
 
 다른 데이터 과학의 수명 주기(예: [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) 또는 조직의 사용자 지정 프로세스)를 사용하는 경우 개발 수명 주기의 맥락에서 작업 기반 TDSP를 계속 사용할 수 있습니다 . 상위 수준에서 이러한 다양한 방법에는 많은 공통점이 있습니다. 
 
-이 수명 주기는 지능형 애플리케이션의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 애플리케이션은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 또는 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 경우 설명하는 단계 중 일부는 필요하지 않을 수도 있습니다.     
+이 수명 주기는 지능형 애플리케이션의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 애플리케이션은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 또는 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 경우 설명하는 단계 중 일부는 필요하지 않을 수도 있습니다.    
 
 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 

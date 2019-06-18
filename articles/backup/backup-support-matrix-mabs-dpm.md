@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254647"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM 백업 하기 위한 지원 매트릭스
@@ -53,7 +53,7 @@ DPM/MABS 및 Azure Backup을 사용 하 여 백업을 다음과 같이 작동 �
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오 
 
-**시나리오** | **에이전트** | **위치**:
+**시나리오** | **에이전트** | **Location**:
 --- | --- | ---
 **온-프레미스 머신/워크로드 백업**: | DPM/MABS 보호 에이전트를 백업 하려는 컴퓨터에서 실행 됩니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트입니다. | DPM/MABS를 온-프레미스 실행 되어야 합니다.
 **Azure VM/워크로드 백업** | 보호 된 컴퓨터에 DPM/MABS 보호 에이전트입니다.<br/><br/> DPM/MABS 서버의 MARS 에이전트입니다. | DPM/MABS는 Azure VM에서 실행되어야 합니다.
@@ -75,7 +75,7 @@ Azure Backup은 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 **시나리오** | **DPM/MABS** 
 --- | --- 
-**Azure VM의 MABS** |  Windows Server 2012 R2입니다.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Marketplace에서 이미지를 사용 하 여 시작 하는 것이 좋습니다.<br/><br/> 최소의 A2 Standard 2 코어 및 3.5GB RAM. 
+**Azure VM의 MABS** | Windows Server 2012 R2입니다.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Marketplace에서 이미지를 사용 하 여 시작 하는 것이 좋습니다.<br/><br/> 최소의 A2 Standard 2 코어 및 3.5GB RAM. 
 **Azure VM의 DPM** | System Center 2012 R2 업데이트 3 이상<br/><br/> [System Center에 필요한](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) Windows 운영 체제<br/><br/> Marketplace에서 이미지를 사용 하 여 시작 하는 것이 좋습니다.<br/><br/> 최소의 A2 Standard 2 코어 및 3.5GB RAM. 
 **MABS 온-프레미스** | 지원되는 64비트 운영 체제:<br/><br/> MABS v3 이상: Windows Server (Standard, Datacenter, Essentials) 2019 합니다. <br/><br/> MABS v2 이상: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> 모든 MABS 버전: Windows Server 2012 R2, Windows Server 2012 (Standard, Datacenter, Foundation).<br/><br/>모든 MABS 버전: Windows Storage Server 2012 R2, Windows Server 2012 (Standard, Workgroup).
 **DPM 온-프레미스** | 물리적 서버/Hyper-V VM: System Center 2012 SP1 이상<br/><br/> VMware VM: System Center 2012 R2 업데이트 5 이상 

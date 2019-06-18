@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036746"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
@@ -56,7 +56,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
-   다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
+   c. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
    d. **보존 기간(일)** 에서 복제본을 보존할 기간을 일 단위로 지정합니다.
 
@@ -66,9 +66,9 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 4. 원본 환경에 대한 값을 입력하면 표시된 출력에는 다음이 포함됩니다.
 
-   * **델타 복제에 필요한 대역폭(메가비트/초)**: 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
-   * **초기 복제에 필요한 대역폭(메가비트/초)**: 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에 대해 계산됩니다.
-   * **필요한 스토리지(GB)**: 필요한 총 Azure 스토리지입니다.
+   * **델타 복제에 필요한 대역폭(메가비트/초)** : 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
+   * **초기 복제에 필요한 대역폭(메가비트/초)** : 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에 대해 계산됩니다.
+   * **필요한 스토리지(GB)** : 필요한 총 Azure 스토리지입니다.
    * **Standard Storage의 총 IOPS**: 이 수치는 총 Standard Storage 계정의 8K IOPS 단위 크기를 기반으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
    * **필요한 Standard Storage 계정 수**: VM을 보호하는 데 필요한 총 Standard Storage 계정 수입니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있습니다. 디스크당 최대 500 IOPS가 지원됩니다.
    * **필요한 Blob 디스크 수**: Azure Storage에서 생성된 디스크 수입니다.
@@ -94,7 +94,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
-   다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
+   c. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 
    d. **총 저장소(GB)** 에는 VM 저장소의 총 크기를 지정합니다. 예를 들어 원본 서버에 각각 크기가 500GB인 디스크가 3개 있으면 총 저장소 크기는 1500GB입니다.
 

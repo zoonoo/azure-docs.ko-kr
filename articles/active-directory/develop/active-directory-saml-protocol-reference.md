@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07d07f73412e889b018c1f667a500d7625912751
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546157"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD에서 SAML 프로토콜을 사용하는 방법
@@ -37,7 +37,7 @@ Azure AD는 클라우드 서비스의 **메타데이터 URI**를 사용하여 �
 
 Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single sign-on 및 single sign-out 엔드포인트를 노출합니다. 이러한 URL은 단순히 식별자가 아니라 주소 지정이 가능한 위치를 나타내므로 엔드포인트로 이동하여 메타데이터를 읽을 수 있습니다.
 
-* 테넌트별 엔드포인트는 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 합니다  *\<TenantDomainName >* 자리 표시자는 등록 된 도메인 이름 또는 Azure AD 테 넌 트의 TenantID GUID를 나타냅니다. 예를 들어 contoso.com 테넌트의 페더레이션 메타데이터는 https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml에 있습니다.
+* 테넌트별 엔드포인트는 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 합니다  *\<TenantDomainName >* 자리 표시자는 등록 된 도메인 이름 또는 Azure AD 테 넌 트의 TenantID GUID를 나타냅니다. 예를 들어 contoso.com 테넌트의 페더레이션 메타데이터는 https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml 에 있습니다.
 
 * 테넌트 독립적 엔드포인트는 `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 이 엔드포인트 주소에는 테넌트 도메인 이름 또는 ID 대신 **common**이 나타납니다.
 

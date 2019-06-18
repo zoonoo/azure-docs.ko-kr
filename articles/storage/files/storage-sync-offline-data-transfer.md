@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700265"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Azure File Sync로 대량 데이터 마이그레이션
@@ -49,7 +49,7 @@ Azure Data Box와 같은 대량 마이그레이션 도구와 호환 되는 방�
 
 ![Azure File Sync를 설정 하는 방법을 보여 주는 다이어그램](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| 단계 | 세부 정보 |
+| 단계 | Detail |
 |---|---------------------------------------------------------------------------------------|
 | ![1단계](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. Data Box 제품군 제품 [여러 제품](https://azure.microsoft.com/services/storage/databox/data) 요구 사항에 맞게 합니다. 데이터 상자에를 받게 되 면에 따라 해당 [데이터를 복사 하는 설명서](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) Data Box의이 UNC 경로로:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>* 합니다. 이때 *ShareName* 준비 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
 | ![2단계](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 임시 준비 공유로 선택한 Azure 파일 공유에 파일이 표시 될 때까지 기다립니다. *이러한 공유에 동기화를 사용 하지 마십시오.* |

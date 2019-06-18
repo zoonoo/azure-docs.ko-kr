@@ -1,6 +1,6 @@
 ---
 title: ID 관리에 도움이 되는 Azure 보안 기능 | Microsoft Docs
-description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 Multi-Factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 애플리케이션 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. "
+description: " 이 문서는 ID 관리에 도움이 되는 핵심 Azure 보안 기능의 개요를 제공합니다. Microsoft id 및 액세스 관리 솔루션 도움말 IT 보호 응용 프로그램 및 리소스에 대 한 액세스를 회사 데이터 센터 및 클라우드로 추가 수준의 유효성 검사와 같은 Multi-factor Authentication 및 조건부 액세스를 사용 하도록 설정 정책입니다. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 758ed2e44718da709acec1379cfc79936c8b7cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083631"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
- ID 관리는 [보안 주체](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호는 Multi-Factor Authentication 및 조건부 액세스 정책 등 유효성 검사의 추가 수준을 사용하도록 설정합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+ ID 관리는 [보안 주체](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호에는 Multi-factor Authentication 및 조건부 액세스 정책과 같은 유효성 검사의 추가 수준을 사용합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure AD 애플리케이션 프록시를 사용하면 [SharePoint](https://suppo
 * [Azure AD 애플리케이션 프록시 사용](../active-directory/manage-apps/application-proxy-enable.md)
 * [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../active-directory/active-directory-application-proxy-publish.md)
 * [애플리케이션 프록시를 사용하는 Single Sign-On](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [조건부 액세스로 작업하기](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [조건부 액세스 사용](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -129,9 +129,9 @@ Azure AD B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google,
 
 ## <a name="device-registration"></a>디바이스 등록
 
-Azure AD Device Registration은 디바이스 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-device-registration-overview.md) 시나리오의 기초입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용하는 ID와 함께 디바이스를 제공합니다. 그런 다음, 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 애플리케이션에 조건부 액세스 정책을 적용할 수 있습니다.
+Azure AD device registration은 기초에 대 한 장치 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-device-registration-overview.md) 시나리오입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용하는 ID와 함께 디바이스를 제공합니다. 인증 된 장치 및 장치의 특성을 클라우드 및 온-프레미스에서 호스트 되는 응용 프로그램에 대 한 조건부 액세스 정책을 적용할 사용할 수 있습니다.
 
-Intune과 같은 모바일 디바이스 관리 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 그런 다음, 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
+Intune과 같은 모바일 디바이스 관리 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 다음 보안 및 규정 준수 표준을 충족 하는 장치에서 액세스를 적용 하는 조건부 액세스 규칙을 만들 수 있습니다.
 
 자세한 정보:
 

@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? | Microsoft Docs
+title: Azure Active Directory 조건부 액세스에서 정책 마이그레이션 란? | Microsoft Docs
 description: Azure Portal에서 클래식 정책을 마이그레이션하기 위해 알아야 하는 작업을 자세히 살펴봅니다.
 services: active-directory
-keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
+keywords: Azure AD에서 회사 리소스에 조건부 액세스 정책에 대 한 보안 액세스를 사용 하 여 조건부 액세스 앱에 조건부 액세스
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,17 +18,17 @@ ms.date: 07/24/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3246a7efa36e6c6ef0dac93e659a73dac17090a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25161a6317392274ccce8865f7cc0071f0ec89b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112177"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에서 정책 마이그레이션 란? 
 
 
-[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있게 해 주는 Azure AD(Azure Active Directory)의 기능입니다. 그 목적은 동일하지만 조건부 액세스가 작동하는 방식이 크게 개선된 새로운 Azure Portal 릴리스가 도입되었습니다.
+[조건부 액세스](../active-directory-conditional-access-azure-portal.md) 하는 방법을 제어할 수 있는 Azure Active directory (Azure AD)의 기능을 클라우드 앱에 사용자 액세스 권한이 부여 됩니다. 그 목적은 여전히 동일한, 새 Azure portal의 출시가 조건부 액세스의 작동 원리를 크게 향상 되었습니다.
 
 Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 고려해야 하는 이유는 다음과 같습니다.
 
@@ -36,22 +36,22 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 - 통합하여 관리해야 하는 정책의 수를 줄일 수 있습니다.   
 
-- 중앙의 단일 위치에서 모든 조건부 액세스 정책을 관리할 수 있습니다.
+- 하나의 중앙 위치에서 모든 조건부 액세스 정책을 관리할 수 있습니다.
 
 - Azure 클래식 포털의 사용이 중지됩니다.   
 
-이 문서에서는 기존 조건부 액세스 정책을 새 프레임워크로 마이그레이션하기 위해 알아야 하는 작업에 대해 설명합니다.
+이 문서에서는 기존 조건부 액세스 정책을 새 프레임 워크를 마이그레이션하도록 알아야 할 사항을 설명 합니다.
  
 ## <a name="classic-policies"></a>클래식 정책
 
-[Azure Portal](https://portal.azure.com)의 [조건부 액세스 - 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 페이지가 조건부 액세스 정책에 대한 진입점이 됩니다. 그러나 이 페이지를 사용하여 만들지 않은 조건부 액세스 정책도 사용자 환경에 포함될 수 있습니다. 이러한 정책은 *클래식 정책*이라고 합니다. 클래식 정책은 조건부 액세스 정책이며 다음 위치에서 만들어집니다.
+에 [Azure portal](https://portal.azure.com), [조건부 액세스-정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 페이지는 정책을 조건부 액세스에 대 한 진입점입니다. 그러나 사용자 환경에서 해야 할 수 있습니다이 페이지를 사용 하 여 만들지 않은 조건부 액세스 정책입니다. 이러한 정책은 *클래식 정책*이라고 합니다. 클래식 정책을 조건부 액세스 정책이 며에서 만들었습니다.
 
 - Azure 클래식 포털
 - Intune 클래식 포털
 - Intune 앱 보호 포털
 
 
-**조건부 액세스** 페이지에서 **관리** 섹션의 [**클래식 정책(미리 보기)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)을 클릭하여 클래식 정책에 액세스할 수 있습니다. 
+에 **조건부 액세스** 페이지에서 클래식 정책을 클릭 하 여 액세스할 수 있습니다 [ **클래식 정책 (미리 보기)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 에 **관리** 섹션입니다. 
 
 
 ![Azure Active Directory](./media/policy-migration/71.png)
@@ -82,21 +82,21 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 ## <a name="azure-ad-conditional-access-policies"></a>Azure AD 조건부 액세스 정책
 
-Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치에서 모든 정책을 관리할 수 있습니다. 조건부 액세스 구현 방식이 크게 변경되었으므로 클래식 정책을 마이그레이션하기 전에 기본 개념을 숙지해야 합니다.
+Azure portal에서 조건부 액세스를 사용 하 여 하나의 중앙 위치에서 모든 정책을 관리할 수 있습니다. 구현 하는 방법의 조건부 액세스 크게 변경 되었으므로 잘 이해 해야 기본 개념을 사용 하 여 클래식 정책을 마이그레이션하기 전에 합니다.
 
 참조:
 
-- [Azure Active Directory 조건부 액세스란?](../active-directory-conditional-access-azure-portal.md)에서 기본 개념과 용어에 대해 알아봅니다.
+- [Azure Active Directory의 조건부 액세스를 란](../active-directory-conditional-access-azure-portal.md) 기본 개념과 용어에 대해 자세히 알아보려면 합니다.
 
-- [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md) - 조직의 조건부 액세스 배포에 대한 지침을 제공합니다.
+- [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md) 조직에서 조건부 액세스를 배포 하는 방법에 몇 가지 지침을 확인 합니다.
 
-- [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하여 Azure Portal의 사용자 인터페이스에 익숙해지도록 합니다.
+- [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 mfa](app-based-mfa.md) 를 Azure portal에서 사용자 인터페이스를 잘 이해 합니다.
 
 
  
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
 
-이 문서에서는 Azure AD 조건부 액세스 정책을 *새 정책*이라고도 합니다.
+이 문서에서는 Azure AD 조건부 액세스 정책 또한 이라고 *새 정책*합니다.
 클래식 정책도 사용하지 않도록 설정하거나 제거할 때까지 새 정책과 함께 계속 작동합니다. 
 
 정책 통합 컨텍스트에서 중요한 사항은 다음과 같습니다.
@@ -171,6 +171,6 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+- 조건부 액세스 정책을 구성 하는 방법을 알고 싶다면 [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대 한 MFA 필요](app-based-mfa.md)합니다.
 
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+- 사용자 환경에 대 한 조건부 액세스 정책 구성 준비 인 경우 참조를 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)합니다. 

@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979543"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
@@ -505,7 +505,7 @@ Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 
 'Normal' 별칭은 단일 값으로 필드를 나타냅니다. 이 필드는 더 이상 및 더 작은 값의 전체 집합 정의 된 대로 정확 하 게 해야 하는 경우 정확 하 게 일치 비교 시나리오에 대 한 합니다.
 
-합니다 **[\*]** 별칭을 사용 하면 배열에 있는 각 요소의 값 및 각 요소의 특정 속성에 대해 비교할 수 있습니다. 이 이렇게 하면 요소 속성을 비교 하 여 '없으면', '있는 경우 의' 또는 ' 모든 경우의 ' 시나리오입니다. 사용 하 여 **ipRules [\*]**, 예로 유효성을 검사 하는 모든 _동작_ 됩니다 _거부_, 얼마나 많은 규칙이 나 IP 걱정하지않지만_값_ 됩니다. 이 샘플 규칙의 일치 항목을 검사 **ipRules [\*].value** 에 **10.0.4.1** 적용 합니다 **effectType** 적어도 하나의 일치 항목을 찾지 못하면 해당 하는 경우에:
+합니다 **[\*]** 별칭을 사용 하면 배열에 있는 각 요소의 값 및 각 요소의 특정 속성에 대해 비교할 수 있습니다. 이 이렇게 하면 요소 속성을 비교 하 여 '없으면', '있는 경우 의' 또는 ' 모든 경우의 ' 시나리오입니다. 사용 하 여 **ipRules [\*]** , 예로 유효성을 검사 하는 모든 _동작_ 됩니다 _거부_, 얼마나 많은 규칙이 나 IP 걱정하지않지만_값_ 됩니다. 이 샘플 규칙의 일치 항목을 검사 **ipRules [\*].value** 에 **10.0.4.1** 적용 합니다 **effectType** 적어도 하나의 일치 항목을 찾지 못하면 해당 하는 경우에:
 
 ```json
 "policyRule": {
@@ -614,4 +614,4 @@ Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 - 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](../how-to/programmatically-create.md)합니다.
 - 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](../how-to/getting-compliance-data.md)합니다.
 - 설명 하는 방법 [비준수 리소스를 수정](../how-to/remediate-resources.md)합니다.
-- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695961"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
@@ -74,7 +74,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 | 자산 | 설명 |
 | -- | -- |
 | AutoCommit | `autoCommit`이 Phoenix 트랜잭션에 사용되도록 설정되어 있는지 여부를 나타내는 부울입니다. |
-| ReadOnly | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
+| 읽기 전용 | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |
 | TransactionIsolation | JDBC 사양에 따른 트랜잭션 격리 수준을 나타내는 정수입니다. 다음 표를 참조하세요.|
 | 카탈로그 | 연결 속성을 가져올 때 사용할 카탈로그의 이름입니다. |
 | 스키마 | 연결 속성을 가져올 때 사용할 스키마의 이름입니다. |

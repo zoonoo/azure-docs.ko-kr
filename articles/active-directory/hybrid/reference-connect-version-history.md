@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109168"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -252,7 +252,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 - SQL 연결 문제 및 다양한 다른 문제 해결 유틸리티 문제를 해결하는 데 사용할 수 있는 ADSyncTools.psm1이라는 새 PowerShell 모듈이 추가되었습니다. ADSyncTools 모듈에 대한 자세한 내용은 [여기](tshoot-connect-tshoot-sql-connectivity.md)를 참조하세요. 
 - 새 "디바이스 옵션 구성" 추가 작업이 추가되었습니다. 이 작업을 사용하여 구성할 수 있는 두 가지 작업은 다음과 같습니다. 
   - **하이브리드 Azure AD 조인**: 사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 디바이스를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 디바이스입니다.
-  - **디바이스 쓰기 저장**: 디바이스 쓰기 저장은 AD FS(2012 R2 이상) 보호 디바이스에 대한 디바이스에 따라 조건부 액세스를 사용하도록 설정하는 데 사용됩니다.
+  - **디바이스 쓰기 저장**: 장치 쓰기 저장은 AD FS에 대 한 장치 기반 조건부 액세스를 사용 하는 데 사용 됩니다 (2012 R2 이상) 장치를 보호 합니다.
 
     >[!NOTE] 
     > - 동기화 사용자 지정 옵션에서 디바이스 쓰기 저장을 사용하도록 설정하는 옵션이 회색으로 표시됩니다. 
@@ -411,8 +411,8 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 Type     | 이름                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
-허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
-허용    | 도메인 관리자                 | 모든 권한         | 이 개체  |
+허용    | Enterprise Admins             | 모든 권한         | 이 개체  |
+허용    | Domain Admins                 | 모든 권한         | 이 개체  |
 허용    | 관리자                | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 도메인 컨트롤러 | 내용 보기        | 이 개체  |
 허용    | 엔터프라이즈 도메인 컨트롤러 | 모든 속성 읽기  | 이 개체  |
@@ -508,7 +508,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
 > [!NOTE]
-> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정하려는 고객은 [기본 제공 스케줄러(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler))를 사용해야 합니다.
+> 참고: 동기화 서비스에는 사용자 지정 스케줄러를 개발할 수 있는 WMI 인터페이스가 있습니다. 이 인터페이스는 현재 사용되지 않으며 향후 2018년 6월 30일 이후에 출시되는 Azure AD Connect 이후 버전에서 제거될 예정입니다. 동기화 일정을 사용자 지정하려는 고객은 [기본 제공 스케줄러(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler) )를 사용해야 합니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
 * Azure AD Connect 마법사가 온-프레미스 Active Directory의 변경 내용을 동기화하는 데 필요한 AD Connector 계정을 만들면 해당 계정에 PublicFolder 개체를 읽는 데 필요한 권한이 올바르게 할당되지 않습니다. 이 문제는 기본 설치와 사용자 지정 설치 모두에 영향을 줍니다. 이 변경으로 문제가 해결됩니다.
@@ -1072,8 +1072,8 @@ AD FS 관리
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) 기능
 * 설치 마법사에서 Azure Multi-Factor Authentication 및 Privileged Identity Management를 사용하여 전역 관리자를 지원합니다.
-  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com에 대한 트래픽을 허용하도록 설정해야 합니다.
-  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
+  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com 에 대한 트래픽을 허용하도록 설정해야 합니다.
+  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com 을 추가해야 합니다.
 * 초기 설치 후 사용자의 로그인 방법 변경을 허용합니다.
 * 설치 마법사에서 [도메인 및 OU 필터링](how-to-connect-install-custom.md#domain-and-ou-filtering) 을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
 * 동기화 엔진에 [Scheduler](how-to-connect-sync-feature-scheduler.md)가 기본 제공됩니다.
@@ -1173,7 +1173,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 * [AD FS 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) 가능
 * [DirSync에서 업그레이드](how-to-dirsync-upgrade-get-started.md) 가능
 * [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-*  [스테이징 모드](how-to-connect-sync-staging-server.md)
+* [스테이징 모드](how-to-connect-sync-staging-server.md)
 
 **새로운 미리 보기 기능:**
 
@@ -1255,7 +1255,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 
 **AADSync 1.0 GA에서 업그레이드**
 
-Azure AD Sync가 이미 설치되어 있는 경우 기본적인 동기화 규칙을 하나라도 변경했다면 실행해야 하는 단계가 하나 더 있습니다. 1.0.470.1023 릴리스로 업그레이드한 후에는 수정한 동기화 규칙이 중복됩니다. 수정된 각 동기화 규칙에 대해 다음을 수행합니다.
+Azure AD Sync가 이미 설치되어 있는 경우 기본적인 동기화 규칙을 하나라도 변경했다면 실행해야 하는 단계가 하나 더 있습니다. 1\.0.470.1023 릴리스로 업그레이드한 후에는 수정한 동기화 규칙이 중복됩니다. 수정된 각 동기화 규칙에 대해 다음을 수행합니다.
 
 1. 수정한 동기화 규칙을 찾아 변경 내용을 기록해둡니다.
 1. 해당 동기화 규칙을 삭제합니다.

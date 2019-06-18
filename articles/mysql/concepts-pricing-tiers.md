@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062419"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -28,7 +28,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 가격 책정 계층을 선택하려면 시작 지점으로 다음 표를 사용합니다.
 
-| 가격 책정 계층  | 대상 워크로드 |
+| 가격 책정 계층 | 대상 워크로드 |
 |:-------------|:-----------------|
 | 기본 | 간단한 계산 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
@@ -54,6 +54,25 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 중 및 서버를 만든 후 추가 저장소 용량을 추가 하 고 시스템 저장소 워크 로드의 저장소 사용량에 따라 자동으로 증가 하도록 허용 합니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
+
+### <a name="large-storage-preview"></a>대용량 저장소 (미리 보기)
+
+우리는 우리의 범용 및 메모리 최적화 계층에서 저장소 한도 증가 합니다. 서버를 새로 만든 해당 옵트인 미리 보기에 프로 비전 할 수 최대 16TB의 저장소입니다. IOPS는 3:1 비율로 최대 20,000 개의 IOPS를 확장 합니다. 현재 일반 공급 저장소와 마찬가지로 서버를 만든 후 추가 저장소 용량을 추가할 수 있으며 시스템 워크 로드의 저장소 사용량에 따라 자동으로 저장소 성장을 수 있습니다.
+
+|              | **범용** | **메모리 최적화** |
+|:-------------|:--------------------|:---------------------|
+| 저장소 유형 | Azure Premium Storage | Azure Premium Storage |
+| 저장소 크기 | 16TB를 32GB| 16 32 TB |
+| 저장소 증분 크기 | 1 GB | 1 GB |
+| IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS| 3IOPS/GB<br/>최소 100IOPS<br/>최대 20,000 IOPS |
+
+> [!IMPORTANT]
+> 대용량 저장소는 현재 다음 지역에서 공개 미리 보기: 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 서 부 2, 북유럽, 유럽 서 부, 동남 아시아, 일본 동부, 한국 중부, 오스트레일리아 동부입니다.
+>
+> 현재 큰 저장소 미리 보기 지원 하지 않습니다.
+>
+> * 지역 중복 백업
+> * 교차 지역 복제
 
 ### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
 

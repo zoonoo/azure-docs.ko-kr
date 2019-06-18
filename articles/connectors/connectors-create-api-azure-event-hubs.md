@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720048"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 모니터링, 수신 및 전송
@@ -120,7 +120,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 1. 트리거 또는 작업에서 선택 **새 단계**합니다.
 
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 검색 상자에 필터로 “event hubs”를 입력합니다.
 작업 목록에서이 작업을 선택 합니다. **Event Hubs-이벤트 보내기**
@@ -137,7 +137,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
    |----------|----------|-------------|
    | **이벤트 허브 이름** | 예 | 이벤트 허브 이벤트를 전송 하려는 위치 |
    | **콘텐츠** | 아닙니다. | 전송하려는 이벤트의 콘텐츠 |
-   | **Properties** | 아닙니다. | 보낼 앱 속성 및 값 |
+   | **속성** | 아닙니다. | 보낼 앱 속성 및 값 |
    | **파티션 키** | 아닙니다. | 합니다 [파티션](../event-hubs/event-hubs-features.md#partitions) 이벤트를 보낼 위치에 대 한 ID |
    ||||
 

@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e670c00e7d43c449947908ac1d89587c8435b0a7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129505"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742901"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -48,7 +48,7 @@ ms.locfileid: "62129505"
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
 
   > [!NOTE]
-  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](manage-custom-dns-buy-domain.md)하는 것이 좋습니다. 
+  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](manage-custom-dns-buy-domain.md)하는 것이 좋습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
 
@@ -119,7 +119,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 #### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
-CNAME 레코드를 추가하여 하위 도메인을 앱의 기본 호스트 이름(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`은 사용자 앱의 이름)에 매핑합니다.
+CNAME 레코드를 추가하여 하위 도메인을 앱의 기본 도메인 이름(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`은 사용자 앱의 이름)에 매핑합니다.
 
 `www.contoso.com` 도메인 예제의 경우 `www` 이름을 `<app_name>.azurewebsites.net`에 매핑하는 CNAME 레코드를 추가합니다.
 
@@ -129,34 +129,34 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure에서 CNAME 레코드 매핑 사용
 
-Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
 ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 앱의 **사용자 지정 도메인** 페이지에서 정규화된 사용자 지정 DNS 이름(`www.contoso.com`)을 목록에 추가합니다.
 
-**호스트 이름 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
 
 ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-`www.contoso.com`과 같이 CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다. 
+`www.contoso.com`과 같이 CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다.
 
 **유효성 검사**를 선택합니다.
 
-**호스트 이름 추가** 페이지가 표시됩니다. 
+**사용자 지정 도메인 추가** 페이지가 표시됩니다.
 
 **호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
 
-**호스트 이름 추가**를 선택합니다.
+**사용자 지정 도메인 추가**를 선택합니다.
 
 ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-새 호스트 이름이 앱의 **사용자 지정 도메인** 페이지에 반영되는 데에는 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -166,7 +166,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ### <a name="map-an-a-record"></a>A 레코드 매핑
 
-자습서의 예제에서는 루트 도메인(예: `contoso.com`)에 대한 A 레코드를 추가합니다. 
+자습서의 예제에서는 루트 도메인(예: `contoso.com`)에 대한 A 레코드를 추가합니다.
 
 <a name="info"></a>
 
@@ -174,7 +174,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 A 레코드를 매핑하려면 앱의 외부 IP 주소가 필요합니다. 이 IP 주소는 Azure Portal에서 보여 주는 해당 앱의 **사용자 지정 도메인** 페이지에서 찾을 수 있습니다.
 
-Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
 ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -191,9 +191,9 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 앱에 A 레코드를 매핑하려면 App Service에 다음 **두** 개의 DNS 레코드가 필요합니다.
 
 - 앱의 IP 주소에 매핑할 **A** 레코드
-- 앱의 기본 호스트 이름(`<app_name>.azurewebsites.net`)에 매핑할 **TXT** 레코드 - App Service에서 구성할 때만 이 레코드를 사용하여 사용자 지정 도메인을 소유하고 있는지 확인합니다. App Service에서 사용자 지정 도메인의 유효성을 검사하고 해당 도메인을 구성한 후에는 이 TXT 레코드를 삭제할 수 있습니다. 
+- 앱의 기본 도메인 이름 `<app_name>.azurewebsites.net`에 매핑할 **TXT** 레코드 App Service에서 구성할 때만 이 레코드를 사용하여 사용자 지정 도메인을 소유하고 있는지 확인합니다. App Service에서 사용자 지정 도메인의 유효성을 검사하고 해당 도메인을 구성한 후에는 이 TXT 레코드를 삭제할 수 있습니다.
 
-`contoso.com` 도메인 예제의 경우 다음 표에 따라 A 및 TXT 레코드를 만듭니다(`@`는 일반적으로 루트 도메인을 나타냄). 
+`contoso.com` 도메인 예제의 경우 다음 표에 따라 A 및 TXT 레코드를 만듭니다(`@`는 일반적으로 루트 도메인을 나타냄).
 
 | 레코드 형식 | 호스트 | 값 |
 | - | - | - |
@@ -219,28 +219,28 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌아가서 정규화된 사용자 지정 DNS 이름(예: `contoso.com`)을 목록에 추가합니다.
 
-**호스트 이름 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
 
-![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 `contoso.com`과 같이 A 레코드를 구성한 정규화된 도메인 이름을 입력합니다.
 
 **유효성 검사**를 선택합니다.
 
-**호스트 이름 추가** 페이지가 표시됩니다. 
+**사용자 지정 도메인 추가** 페이지가 표시됩니다.
 
 **호스트 이름 레코드 형식**이 **A 레코드(example.com)** 로 설정되어 있는지 확인합니다.
 
-**호스트 이름 추가**를 선택합니다.
+**사용자 지정 도메인 추가**를 선택합니다.
 
 ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-새 호스트 이름이 앱의 **사용자 지정 도메인** 페이지에 반영되는 데에는 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
 ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -250,7 +250,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 
 ### <a name="map-a-wildcard-domain"></a>와일드카드 도메인 매핑
 
-이 자습서의 예제에서는 CNAME 레코드를 추가하여 [와일드카드 DNS 이름](https://en.wikipedia.org/wiki/Wildcard_DNS_record)(예: `*.contoso.com`)을 App Service 앱에 매핑합니다. 
+이 자습서의 예제에서는 CNAME 레코드를 추가하여 [와일드카드 DNS 이름](https://en.wikipedia.org/wiki/Wildcard_DNS_record)(예: `*.contoso.com`)을 App Service 앱에 매핑합니다.
 
 #### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
 
@@ -258,7 +258,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 
 #### <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
-CNAME 레코드를 추가하여 와일드카드 이름을 앱의 기본 호스트 이름(`<app_name>.azurewebsites.net`)에 매핑합니다.
+CNAME 레코드를 추가하여 와일드카드 이름을 앱의 기본 도메인 이름(`<app_name>.azurewebsites.net`)에 매핑합니다.
 
 `*.contoso.com` 도메인 예제의 경우 CNAME 레코드에서는 `*` 이름을 `<app_name>.azurewebsites.net`에 매핑합니다.
 
@@ -268,34 +268,34 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>앱에서 CNAME 레코드 매핑 사용
 
-이제 와일드카드 이름과 일치하는 모든 하위 도메인을 앱에 추가할 수 있습니다(예: `sub1.contoso.com`과 `sub2.contoso.com`은 `*.contoso.com`과 일치함). 
+이제 와일드카드 이름과 일치하는 모든 하위 도메인을 앱에 추가할 수 있습니다(예: `sub1.contoso.com`과 `sub2.contoso.com`은 `*.contoso.com`과 일치함).
 
-Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
 ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-**호스트 이름 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
 
 ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 와일드카드 도메인과 일치하는 정규화된 도메인 이름(예: `sub1.contoso.com`)을 입력한 다음 **유효성 검사**를 선택합니다.
 
-**호스트 이름 추가** 단추가 활성화됩니다. 
+**사용자 지정 도메인 추가** 단추가 활성화됩니다.
 
 **호스트 이름 레코드 형식**이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다.
 
-**호스트 이름 추가**를 선택합니다.
+**사용자 지정 도메인 추가**를 선택합니다.
 
 ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-새 호스트 이름이 앱의 **사용자 지정 도메인** 페이지에 반영되는 데에는 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
-**+** 아이콘을 다시 선택하여 와일드카드 도메인과 일치하는 다른 호스트 이름을 추가합니다. 예를 들어 `sub2.contoso.com`을 추가합니다.
+**+** 아이콘을 다시 선택하여 와일드카드 도메인과 일치하는 또 다른 사용자 지정 도메인을 추가합니다. 예를 들어 `sub2.contoso.com`을 추가합니다.
 
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 ## <a name="test-in-browser"></a>브라우저에서 테스트
 
@@ -322,11 +322,11 @@ App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리�
 
 이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **애플리케이션 설정**을 선택합니다. 
 
-페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다. 
+페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다.
 
 ![가상 디렉터리 사용자 지정](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com))에서 오른쪽 페이지를 반환해야 합니다.
+작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com) )에서 오른쪽 페이지를 반환해야 합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
@@ -339,23 +339,23 @@ App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리�
 ```bash 
 az webapp config hostname add \
     --webapp-name <app_name> \
-    --resource-group <resource_group_name> \ 
-    --hostname <fully_qualified_domain_name> 
+    --resource-group <resource_group_name> \
+    --hostname <fully_qualified_domain_name>
 ``` 
 
-자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/cli-configure-custom-domain.md)을 참조하세요. 
+자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/cli-configure-custom-domain.md)을 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다. 
+다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다.
 
 ```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
 ```
 
 자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/powershell-configure-custom-domain.md)을 참조하세요.

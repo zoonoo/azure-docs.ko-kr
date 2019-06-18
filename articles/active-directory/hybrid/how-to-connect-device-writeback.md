@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109495"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -32,9 +32,9 @@ ms.locfileid: "65785724"
 다음 설명서에서는 Azure AD Connect에서 디바이스 쓰기 저장 기능을 사용하는 방법에 대한 정보를 제공합니다. 쓰기 저장 디바이스를 다음과 같은 시나리오에서 사용합니다.
 
 * 사용 하도록 설정 [Windows Hello 인증서 신뢰 하이브리드 배포를 사용 하 여 비즈니스에 대 한](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
-* 디바이스에 따라 ADFS(2012 R2 이상) 보호된 애플리케이션에 조건부 액세스를 사용하도록 설정합니다(신뢰 당사자 트러스트).
+* ADFS에 대 한 장치 기반 조건부 액세스 사용 (2012 R2 이상) 보호 된 응용 프로그램 (신뢰 당사자 트러스트).
 
-애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조하세요.
+애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대 한 자세한 내용은 참조 하세요. [조건부 액세스를 사용 하 여 위험 관리](../active-directory-conditional-access-azure-portal.md) 하 고 [Azure Active Directory Device Registration을 사용 하 여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)합니다.
 
 > [!IMPORTANT]
 > <li>디바이스는 사용자와 동일한 포리스트에 있어야 합니다. 디바이스가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -82,7 +82,7 @@ ms.locfileid: "65785724"
 
    ![Active Directory 관리 센터 등록 디바이스 목록](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
-## <a name="enable-conditional-access"></a>조건부 액세스 사용
+## <a name="enable-conditional-access"></a>조건부 액세스를 사용 하도록 설정
 이 시나리오를 사용하기 위한 자세한 지침은 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)내에서 사용할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결

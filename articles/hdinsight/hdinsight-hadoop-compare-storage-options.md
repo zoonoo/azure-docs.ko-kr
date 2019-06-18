@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fb25386ef9282a922866e39353d84f0e339caee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479150"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122127"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -34,7 +34,7 @@ HDInsight 클러스터를 만들 때 몇 가지 서로 다른 Azure 저장소 �
 |Azure Storage| Blob Storage** | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
 |Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | N/A | 해당 사항 없음 | N/A | 3.6에만 해당 | HBase를 제외한 모든 |
 
-* * HDInsight 클러스터에 대 한 계정에만 보조 저장소는 blob Storage 형식일 수 있습니다.
+\* * HDInsight 클러스터에 대 한 계정에만 보조 저장소는 blob Storage 형식일 수 있습니다.
 
 Azure 저장소 계정 유형에 대 한 자세한 내용은 참조 하세요. [Azure storage 계정 개요](../storage/common/storage-account-overview.md)
 
@@ -55,7 +55,7 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 참조 하세요. 
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아닙니다. |
 | 4.0 | Data Lake Storage Gen1 | 모두 | 아닙니다. |
 
-* =으로 클러스터 액세스에 대 한 관리 되는 동일한 id를 사용 하려면 모든 설정 하는 하나 이상의 Data Lake 저장소 Gen2 계정 수 있습니다.
+\* =으로 클러스터 액세스에 대 한 관리 되는 동일한 id를 사용 하려면 모든 설정 하는 하나 이상의 Data Lake 저장소 Gen2 계정 수 있습니다.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hadoop에서 Azure Data Lake Storage Gen2 사용
 
@@ -217,7 +217,7 @@ Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하�
 
 | **기능** | **설명** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능에는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 애플리케이션 사용 모니터링, 보안 모니터링 및 경고 등이 포함됩니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
+| Authentication |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능은 multi-factor authentication, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 하 고 포함 합니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
 | Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](../data-lake-store/data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요. |
 

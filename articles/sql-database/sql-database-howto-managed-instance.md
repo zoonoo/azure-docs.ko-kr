@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60340794"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 Managed Instance를 사용하는 방법
@@ -38,7 +38,7 @@ ms.locfileid: "60340794"
 - [네트워크 구성 동기화](sql-database-managed-instance-sync-network-configuration.md) - [Azure Virtual Network와 앱을 통합](../app-service/web-sites-integrate-with-vnet.md)했는데 Managed Instance로의 연결을 설정할 수 없는 상황이 발생할 수 있습니다. 시도할 수 있는 방법은 서비스 계획에 대한 네트워킹 구성을 새로 고치는 것입니다.
 - [관리 끝점 IP 주소를 찾으려면](sql-database-managed-instance-find-management-endpoint-ip-address.md) – 관리 되는 인스턴스 관리 목적을 위해 공용 끝점을 사용 합니다. 여기에 설명된 스크립트를 사용하여 관리 엔드포인트의 IP 주소를 확인할 수 있습니다.
 - [기본 제공 방화벽 보호 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) - Managed Instance는 필요한 포트에서만 트래픽을 허용하는 기본 제공 방화벽으로 보호됩니다. 이 가이드에 설명된 스크립트를 사용하여 기본 제공 방화벽 규칙을 확인할 수 있습니다.
-- [애플리케이션 연결](sql-database-managed-instance-connect-app.md) - Managed Instance는 개인 IP 주소를 사용하여 고유한 개인 Azure VNet에 배치됩니다. 애플리케이션을 Managed Instance에 연결하는 데 사용할 수 있는 다양한 패턴에 대해 알아보세요.
+- [애플리케이션 연결](sql-database-managed-instance-connect-app.md) - Managed Instance가 개인 IP 주소를 사용하여 고유한 프라이빗 Azure VNet에 배치됩니다. 애플리케이션을 Managed Instance에 연결하는 데 사용할 수 있는 다양한 패턴에 대해 알아보세요.
 
 ## <a name="feature-configuration"></a>기능 구성
 

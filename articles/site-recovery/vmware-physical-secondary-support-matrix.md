@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418245"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
@@ -30,7 +30,7 @@ ms.locfileid: "66418245"
 
 **운영 체제** | **세부 정보**
 --- | ---
-vCenter Server | vCenter 5.5, 6.0 및 6.5<br/><br/> 6.0 또는 6.5를 실행하는 경우 5.5 기능만 지원됩니다.
+vCenter Server | vCenter 5.5, 6.0 및 6.5<br/><br/> 6\.0 또는 6.5를 실행하는 경우 5.5 기능만 지원됩니다.
 
 
 ## <a name="replicated-vm-support"></a>복제된 VM 지원

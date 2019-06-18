@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492845"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050652"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 네트워킹 옵션 함수
 
@@ -25,13 +25,13 @@ ms.locfileid: "66492845"
 
 * 다양 한 수준의 가상 네트워크 연결 및 확장 옵션을 사용 하 여 다중 테 넌 트 인프라를에서 실행 되는 계획 옵션의 집합이 있는:
     * 합니다 [소비 계획](functions-scale.md#consumption-plan), 부하에 동적으로 조정 하며 최소한의 네트워크 격리 옵션을 제공 합니다.
-    * 합니다 [프리미엄 요금제](functions-scale.md#premium-plan-public-preview), 또한 확장 되는 동적으로 보다 포괄적인 네트워크 격리를 제공 하는 동안.
+    * 합니다 [프리미엄 요금제](functions-scale.md#premium-plan), 또한 확장 되는 동적으로 보다 포괄적인 네트워크 격리를 제공 하는 동안.
     * Azure [App Service 계획](functions-scale.md#app-service-plan), 고정된 크기에서 작동 하며 프리미엄 요금제에 유사한 네트워크 격리를 제공 합니다.
 * 함수를 실행할 수 있습니다는 [App Service Environment](../app-service/environment/intro.md)합니다. 이 메서드는 가상 네트워크에 함수를 배포 하 고 전체 네트워크 제어 및 격리를 제공 합니다.
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
-|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 계획 (미리 보기)](functions-scale.md#premium-plan-public-preview)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 계획 (미리 보기)](functions-scale.md#premium-plan)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[인바운드 IP 제한](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[아웃 바운드 IP 제한](#private-site-access)|❌No| ❌No|❌No|✅Yes|

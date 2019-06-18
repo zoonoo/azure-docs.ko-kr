@@ -5,37 +5,53 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133783"
 ---
-다음 제한은 구독 당 Azure Log Analytics 리소스에 적용 합니다.
+현재 사용량 기반 가격 책정 계층 2018 년 4 월에에서 도입 된 각 Log Analytics 작업 영역에는 다음과 같은 제한이 적용 됩니다.
 
-| Resource | 기본 제한 | 설명
-| --- | --- | --- |
-| 구독당 무료 작업 영역의 수 | 10 | 이 제한을 늘릴 수 없습니다. |
-| 구독당 유료 작업 영역의 수 | N/A | 리소스 그룹 내 리소스 수가 구독 당 리소스 그룹의 수를 제한 하 고 있습니다. | 
+|     | 2018 GB 당 |
+| --- | --- | 
+| 하루에 수집된 데이터 볼륨 | 없음 |
+| 데이터 보존 기간 | 부터 730 30 일<sup>1</sup> |
+
+가격 책정 계층 최근 레거시 각 Log Analytics 작업 영역에는 다음과 같은 제한이 적용 됩니다.
+
+|  | 무료 | 독립 실행형 (GB 당) | 노드당 (OMS) |
+| --- | --- | --- | --- | --- | --- |--- |
+| 하루에 수집된 데이터 볼륨 |500MB<sup>2</sup> |없음 |없음 |
+| 데이터 보존 기간 |7 일 | 부터 730 30 일<sup>1</sup> | 부터 730 30 일<sup>1</sup> |
+
+가장 오래 된 레거시 가격 책정 계층을 각 Log Analytics 작업 영역에는 다음과 같은 제한이 적용 됩니다.
+
+|  | Standard | Premium | 
+| --- | --- | --- | --- | --- | --- |--- |
+| 하루에 수집된 데이터 볼륨 | 없음 | 없음 | 
+| 데이터 보존 기간 |30일 | 365일 |
+
+<sup>1</sup>31 일이 지난 데이터 보존은 추가 비용에 대해 사용할 수 있습니다. [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 자세히 알아봅니다.
+
+<sup>2</sup>작업 영역 데이터 분석을 500MB 일별 데이터 전송 제한에 도달 하면 중지 하 고 다음 날의 시작 부분에 다시 시작 합니다. 1일은 UTC를 기준으로 합니다.
 
 >[!NOTE]
->2018 년 4 월 2 일부 터 새 구독에서 새 작업 영역을 자동으로 사용 합니다 *GB 당* 가격 책정 계획 합니다. 4 월 2 일 전에 만들어진 기존 구독 또는 기존 기업 계약 등록과 연결 된 구독에 대 한 새 작업 영역에 대 한 세 가지 가격 책정 계층에서 선택 계속 수 있습니다. 
+>기간까지 사용한 Log Analytics에 따라 레거시 가격 책정 계층에 대 한 액세스를 할 수 있습니다. 에 대해 자세히 알아보세요 [Log Analytics 레거시 가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers)합니다. 
 >
 
-각 Log Analytics 작업 영역에는 다음과 같은 제한이 적용 됩니다.
+다음 제한은 구독 당 Azure Log Analytics 리소스 (작업 영역)에 적용 합니다.
 
-|  | 무료 | Standard | Premium | 독립 실행형 | OMS | GB당 |
-| --- | --- | --- | --- | --- | --- |--- |
-| 하루에 수집된 데이터 볼륨 |500MB<sup>1</sup> |없음 |없음 | 없음 | 없음 | 없음
-| 데이터 보존 기간 |7 일 |1개월 |12개월 | 1개월<sup>2</sup> | 1개월<sup>2</sup>| 1개월<sup>2</sup>|
+| 가격 책정 계층    | 구독 당 작업 영역의 수 | 설명
+| --- | --- | --- |
+| 무료 계층  | 10 | 이 제한을 늘릴 수 없습니다. |
+| 무료 이외의 모든 계층 | N/A | 리소스 그룹 내 리소스 수가 구독 당 리소스 그룹의 수를 제한 하 고 있습니다. | 
 
-<sup>1</sup>500MB 일별 데이터 전송 제한, 데이터 분석 해당 고객에 게 도달 하는 경우 중지 하 고 다음 날의 시작 부분에 다시 시작 합니다. 1일은 UTC를 기준으로 합니다.
-
-<sup>2</sup>독립 실행형, OMS 및 GB 당 가격 책정 계획에 대 한 데이터 보존 기간을 730 일로 늘릴 수 있습니다.
+Log Analytics Api에는 다음과 같은 제한이 적용 됩니다.
 
 | Category | 제한 | 설명
 | --- | --- | --- |

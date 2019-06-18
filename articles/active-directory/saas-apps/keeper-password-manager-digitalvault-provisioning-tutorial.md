@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508509"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Keeper Password Manager & Digital Vault 구성
@@ -45,7 +45,7 @@ Keeper Password Manager & Digital Vault와 Azure AD 자동 사용자 프로 비�
 
 **Azure AD 응용 프로그램 갤러리에서 Keeper Password Manager & Digital Vault를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. 에  **[Azure portal](https://portal.azure.com)**, 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
+1. 에  **[Azure portal](https://portal.azure.com)** , 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 

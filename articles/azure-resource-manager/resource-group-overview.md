@@ -2,22 +2,18 @@
 title: Azure 리소스 관리자 개요 | Microsoft Docs
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225910"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514334"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
@@ -51,13 +47,15 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 * 리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
 * 같은 태그를 공유하는 리소스 그룹에 대한 비용을 확인하여 조직의 청구를 명확히 할 수 있습니다.
 
-## <a name="understand-management-scope"></a>관리 범위 이해
+## <a name="understand-scope"></a>범위 이해
 
-Azure는 네 가지 관리 범위 수준인 [관리 그룹](../governance/management-groups/index.md), 구독, [리소스 그룹](#resource-groups) 및 리소스를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
+Azure는 [관리 그룹](../governance/management-groups/index.md), 구독, [리소스 그룹](#resource-groups) 및 리소스라는 네 가지 수준의 범위를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 
 ![범위](./media/resource-group-overview/scope-levels.png)
 
 이러한 범위 수준에서 관리 설정을 적용합니다. 선택한 수준은 설정이 적용되는 범위를 결정합니다. 하위 수준은 상위 수준의 설정을 상속합니다. 예를 들어 구독에 [정책](../governance/policy/overview.md)을 적용하면 해당 정책이 구독의 모든 리소스 그룹 및 리소스에 적용됩니다. 리소스 그룹에 정책을 적용하면 해당 정책이 리소스 그룹 및 모든 리소스에 적용됩니다. 그러나 다른 리소스 그룹에는 해당 정책 할당이 적용되지 않습니다.
+
+템플릿은 관리 그룹, 구독 또는 리소스 그룹에 배포할 수 있습니다.
 
 ## <a name="guidance"></a>지침
 
@@ -85,7 +83,7 @@ Resource Manager 템플릿을 만드는 방법에 대한 권장 사항은 [Azure
 
 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
-리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 위험을 최소화하려면 동일한 지역에 있는 리소스 그룹 및 리소스를 찾습니다.
+리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/reliability/)을 참조하세요.
 
 ## <a name="resource-providers"></a>리소스 공급자
 

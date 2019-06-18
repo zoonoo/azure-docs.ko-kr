@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117888"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
@@ -65,13 +65,13 @@ Data Factory를 사용 하면 거의 80 네이티브 커넥터에 권한이 있�
 
 에 **최적화** 소스 변환에 대 한 탭 표시 될 수 있습니다를 **원본** 파티션 유형입니다. 이 옵션은 원본 Azure SQL Database 인 경우에 사용할 수 있습니다. 이 Data Factory에서 SQL Database 원본에 대해 대규모 쿼리를 실행 하는 병렬 연결을 확인 하려고 시도 했기 때문입니다.
 
-![원본 파티션 설정](media/data-flow/sourcepart2.png "분할")
+![원본 파티션 설정](media/data-flow/sourcepart3.png "분할")
 
 원본에 따라 SQL Database에 데이터를 분할할 필요가 있지만 파티션은 큰 쿼리에 유용 합니다. 열 또는 쿼리 기반 파티션에 만들 수 있습니다.
 
 ### <a name="use-a-column-to-partition-data"></a>데이터를 분할할 열을 사용 하 여
 
-원본 테이블에서의 파티션에 열을 선택 합니다. 최대 연결 수를 설정할 수도 있습니다.
+원본 테이블에서의 파티션에 열을 선택 합니다. 파티션 수를 설정할 수도 있습니다.
 
 ### <a name="use-a-query-to-partition-data"></a>데이터를 분할 하는 쿼리를 사용 합니다.
 
@@ -84,9 +84,39 @@ Data Factory를 사용 하면 거의 80 네이티브 커넥터에 권한이 있�
 ![새 원본 설정은](media/data-flow/source2.png "새 설정")
 
 * **와일드 카드 경로**: 원본 폴더에서 일련의 패턴과 일치 하는 파일을 선택 합니다. 이 설정은 데이터 집합 정의에서 모든 파일을 덮어씁니다.
+
+와일드 카드 예제:
+
+* ```*``` 문자 집합을을 나타냅니다.
+* ```**``` 재귀 디렉터리 중첩을 나타냅니다.
+* ```?``` 한 문자 대체
+* ```[]``` 괄호 안의 자세한 문자 중 하 나와 일치
+
+* ```/data/sales/**/*.csv``` /Data/sales 아래의 모든 csv 파일을 가져옵니다.
+* ```/data/sales/20??/**``` 20 세기에 모든 파일을 가져옵니다.
+* ```/data/sales/2004/*/12/[XY]1?.csv``` 2004 년 12 월에서 시작 하 여에서 모든 csv 파일을 가져옵니다 또는 Y 2 자리 숫자를 붙일
+
+컨테이너는 데이터 집합에서 지정 해야 합니다. 따라서 와일드 카드 경로 루트 폴더에서 폴더 경로도 포함 해야 합니다.
+
 * **파일 목록을**: 파일 집합입니다. 처리할 파일 상대 경로 목록을 포함 하는 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
 * **파일 이름을 저장할 열을**: 소스 파일의 이름을 데이터의 열에 저장 합니다. 파일 이름 문자열을 저장하려면 여기에 새 이름을 입력합니다.
 * **완료 된 후**: 소스 파일을 사용 하 여 아무 것도 수행 하는 데이터 흐름 실행, 소스 파일을 삭제 하거나 원본 파일을 이동 하려면 선택 합니다. 이동에 대 한 경로 상대적입니다.
+
+소스 파일에 다른 위치 사후 처리를 이동 하려면 먼저 파일 작업에 대 한 "이동"를 선택 합니다. 그런 다음 "에서" 디렉터리를 설정 합니다. 프로그램 경로 대 한 와일드 카드를 사용 하지 않는 경우 해당 "에서" 설정에 원본 폴더와 동일한 폴더 됩니다.
+
+와일드 카드의 원본 경로 예 있는 경우:
+
+```/data/sales/20??/**/*.csv```
+
+으로 "from"을 지정할 수 있습니다.
+
+```/data/sales```
+
+및로 "to"
+
+```/backup/priorSales```
+
+이 경우 모든 하위 디렉터리에서 소싱 된는 /data/sales /backup/priorSales 기준으로 이동 됩니다.
 
 ### <a name="sql-datasets"></a>SQL 데이터 집합
 

@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714142"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
 Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
-* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**. 이러한 로그에는 작업에서 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)** . 이러한 로그에는 작업에서 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)** . 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
 

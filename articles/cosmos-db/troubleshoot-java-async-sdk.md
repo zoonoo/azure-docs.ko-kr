@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519974"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
@@ -177,7 +177,7 @@ mvn dependency:tree
 ```
 자세한 내용은 참조는 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)합니다.
 
-1.2.2 RxJava 식별 한 후은 pom 파일에 제외 RxJava 전이적 종속성 lib는 전이적 종속성은 다른 프로젝트의 종속성에 대 한 종속성을 수정할 수 있습니다.
+1\.2.2 RxJava 식별 한 후은 pom 파일에 제외 RxJava 전이적 종속성 lib는 전이적 종속성은 다른 프로젝트의 종속성에 대 한 종속성을 수정할 수 있습니다.
 
 ```xml
 <dependency>

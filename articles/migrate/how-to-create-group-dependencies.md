@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596880"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
@@ -134,7 +134,7 @@ Kusto 쿼리를 실행 합니다.
 
 ## <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
 
-다음 샘플 쿼리는 종속성 데이터를 추출하는 데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기 위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
+다음 샘플 쿼리는 종속성 데이터를 추출하는데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기 위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 

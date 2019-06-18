@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 장치 데이터 분석 | Micr
 description: Azure IoT Central 애플리케이션에서 장치 데이터를 분석하는 방법을 설명합니다.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffe8b350c1b5cea23aeb65092c7912c6d6c1ed89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052962"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>분석을 사용하여 디바이스 데이터를 분석하는 방법
 
@@ -40,7 +40,7 @@ Azure IoT Central은 디바이스에서 들어오는 대량의 데이터를 이�
 
 * **단위:** 디바이스에서 한 번에 최대 10개의 서로 다른 원격 분석 항목을 표시하거나 숨기도록 선택할 수 있습니다. 단위는 온도, 습도 등입니다.
 
-* **집계:**. 데이터는 기본적으로 평균으로 집계하지만, 데이터 집계를 요구 사항에 맞게 다른 항목으로 변경하도록 선택할 수 있습니다.
+* **집계:** . 데이터는 기본적으로 평균으로 집계하지만, 데이터 집계를 요구 사항에 맞게 다른 항목으로 변경하도록 선택할 수 있습니다.
 
    ![분석 시각화 분할 기준](media/howto-create-analytics/analytics-splitby.png)
 

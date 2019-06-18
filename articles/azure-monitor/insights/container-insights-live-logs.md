@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075259"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>실시간 (미리 보기) 로그 및 이벤트를 보는 방법
-컨테이너에 대 한 azure Monitor는 현재 미리 보기로 kubectl 명령을 실행 하지 않고도 Azure Kubernetes Service (AKS) 컨테이너 로그 (stdout/stderr) 및 이벤트에 실시간 보기를 제공 하는 기능을 포함 합니다. 두 옵션 중 하나를 선택 하면 새 창이 표 아래에 표시 성능 데이터에는 **노드**를 **컨트롤러**, 및 **컨테이너** 보기. 실시간 로깅 및 더 많은 도움을 실시간으로 문제를 해결 컨테이너 엔진에 의해 생성 된 이벤트를 보여 줍니다. 
+컨테이너에 대 한 azure Monitor는 현재 미리 보기로 kubectl 명령을 실행 하지 않고도 Azure Kubernetes Service (AKS) 컨테이너 로그 (stdout/stderr) 및 이벤트에 실시간 보기를 제공 하는 기능을 포함 합니다. 두 옵션 중 하나를 선택 하면 새 창이 표 아래에 표시 성능 데이터에는 **노드**를 **컨트롤러**, 및 **컨테이너** 보기. 실시간 로깅 및 더 많은 도움을 실시간으로 문제를 해결 컨테이너 엔진에 의해 생성 된 이벤트를 보여 줍니다.
 
 >[!NOTE]
 >**참가자** 클러스터 리소스에 대 한 액세스는이 기능이 작동 하기 위해 필요 합니다.
@@ -29,9 +29,9 @@ ms.locfileid: "66514319"
 
 실시간 로그는 로그에 대 한 액세스를 제어 하는 세 가지 방법을 지원 합니다.
 
-1. Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS 
+1. Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS
 2. Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
-3. AKS에서 사용 하 여 Azure AD (Active Directory) SAML 기반 single sign을 사용 하도록 설정 
+3. AKS에서 사용 하 여 Azure AD (Active Directory) SAML 기반 single sign을 사용 하도록 설정
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>RBAC를 사용하도록 설정되지 않은 Kubernets 클러스터
  
@@ -66,21 +66,21 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. 다음 명령을 실행 하 여 클러스터 규칙 바인딩을 만든 경우 처음으로 구성 됩니다. `kubectl create -f LogReaderRBAC.yaml`합니다. 실시간 로그에 구성을 업데이트 하려면 라이브 이벤트 로그를 도입 했습니다 전에 미리 보기에 대 한 지원 하도록 이전에 설정한 경우 다음 명령을 실행: `kubectl apply -f LogReaderRBAC.yml`합니다. 
+2. 다음 명령을 실행 하 여 클러스터 규칙 바인딩을 만든 경우 처음으로 구성 됩니다. `kubectl create -f LogReaderRBAC.yaml`합니다. 실시간 로그에 구성을 업데이트 하려면 라이브 이벤트 로그를 도입 했습니다 전에 미리 보기에 대 한 지원 하도록 이전에 설정한 경우 다음 명령을 실행: `kubectl apply -f LogReaderRBAC.yml`합니다.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Azure Active Directory를 사용하여 AKS 구성
-사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음으로 구성 된 경우 참조 [통합 Azure Active Directory와 Azure Kubernetes Service](../../aks/azure-ad-integration.md)합니다. 만드는 단계는 [클라이언트 응용 프로그램](../../aks/azure-ad-integration.md#create-client-application)를 두 개를 지정 해야 **리디렉션 URI** 항목입니다. 두 Uri는 다음과 같습니다.
 
-- https://ininprodeusuxbase.microsoft.com/*
-- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
+사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음으로 구성 된 경우 참조 [통합 Azure Active Directory와 Azure Kubernetes Service](../../aks/azure-ad-integration.md)합니다. 만드는 단계는 [클라이언트 응용 프로그램](../../aks/azure-ad-integration.md#create-the-client-application), 다음을 지정:
+
+- **리디렉션 URI (선택 사항)** : 이 **웹** 응용 프로그램 유형 및 기본 URL 값을 해야 `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`합니다.
+- 응용 프로그램에서 등록 한 후 합니다 **개요** 페이지 선택 **인증** 왼쪽 창에서. 에 **인증** 페이지의 **고급 설정** 암시적으로 부여 **액세스 토큰** 및 **ID 토큰** 저장 및 프로그램 변경 내용입니다.
 
 >[!NOTE]
->Single Sign-On을 위해 Azure Active Directory를 사용하여 인증을 구성하는 작업은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다. 인증을 구성 해야 **앱 등록 (레거시)** 옵션 및 uri에서 와일드 카드 사용을 지원 하기 위해 Azure ad에서로 등록 하 여 목록에 추가 된 **네이티브** 앱.
-> 
+>Single sign-on에 대 한 Azure Active Directory를 사용 하 여 인증을 구성할 새 AKS 클러스터의 초기 배포 동안 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.
 
 ## <a name="view-live-logs-and-events"></a>실시간 로그 보기 및 이벤트
 
-컨테이너 엔진에서 생성 될 때 실시간 로그 이벤트를 볼 수 있습니다 합니다 **노드가**, **컨트롤러**, 및 **컨테이너** 보기. 속성 창에서 선택 **라이브 데이터 (미리 보기)를 확인** 창과 옵션 연속 스트림으로 로그 및 이벤트를 볼 수는 있는 성능 데이터 표 아래에 표시 됩니다. 
+컨테이너 엔진에서 생성 될 때 실시간 로그 이벤트를 볼 수 있습니다 합니다 **노드가**, **컨트롤러**, 및 **컨테이너** 보기. 속성 창에서 선택 **라이브 데이터 (미리 보기)를 확인** 창과 옵션 연속 스트림으로 로그 및 이벤트를 볼 수는 있는 성능 데이터 표 아래에 표시 됩니다.
 
 ![노드 속성 창 보기 실시간 로그 옵션](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
@@ -100,9 +100,11 @@ AAD를 사용하여 AKS 클러스터를 SSO로 구성하면 해당 브라우저 
     
   ![데이터가 검색되는 라이브 로그 창](./media/container-insights-live-logs/live-logs-pane-01.png)  
 
-검색 창에서 맨 오른쪽의 검색 표시줄에 로그 또는 이벤트에 해당 텍스트를 강조 표시 키 word에서 필터링 할 수 있습니다, 그리고 필터 아웃 일치 하는 얼마나 많은 결과가 표시 됩니다.   
+검색 창에서 맨 오른쪽의 검색 표시줄에 로그 또는 이벤트에 해당 텍스트를 강조 표시 키 word에서 필터링 할 수 있습니다, 그리고 필터 아웃 일치 하는 얼마나 많은 결과가 표시 됩니다.
 
   ![라이브 로그 창의 필터링 예](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
+
+이벤트를 보면서 또한를 제한할 수 있습니다 사용 하 여 결과 **필터** 필 검색 표시줄의 오른쪽에 찾을 수 있습니다. 선택한 어떤 리소스에 따라을 알면서도 pod, 네임 스페이스에서 선택한 클러스터를 나열 합니다.  
 
 자동 스크롤을 일시 중단 하 고 창의 동작을 제어 수동으로 새 데이터 읽기를 스크롤할 수를 클릭 합니다 **스크롤** 옵션입니다. 자동 스크롤을 다시 활성화 하려면 클릭할 합니다 **스크롤** 다시 옵션입니다. 클릭 하 여 로그 또는 이벤트 데이터를 검색할을 일시 중지할 수도 있습니다는 **일시 중지** 옵션을 다시 시작할 준비가 때 클릭할 **재생**합니다.  
 

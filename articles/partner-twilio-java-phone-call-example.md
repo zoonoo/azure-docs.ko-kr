@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422666"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
@@ -183,7 +183,7 @@ Azure에 배포할 준비가 되면 클라우드에 배포에 대해 다시 컴�
 
 * 웹 양식을 사용하는 대신, Azure 저장소 Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Java에서 Azure 스토리지 Blob 사용에 대한 내용은 [Java에서 Blob Storage 서비스를 사용하는 방법][howto_blob_storage_java]을 참조하십시오. 
 * makecall.jsp에서 값을 하드 코딩하는 대신, **RoleEnvironment.getConfigurationSettings** 를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. **RoleEnvironment** 클래스에 대한 자세한 내용은 [JSP에서 Azure 서비스 런타임 라이브러리 사용][azure_runtime_jsp] 및 Azure 서비스 런타임 패키지 설명서([http://dl.windowsazure.com/javadoc][azure_javadoc])를 참조하세요.
-* makecall.jsp 코드는 Twilio 제공 URL인 [https://twimlets.com/message][twimlet_message_url]를 **Url** 변수에 할당합니다. 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환되는 TwiML에는 통화 수신자에게 말하는 텍스트에 나타나는 **&lt;Say&gt;** 동사가 포함될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml]에서, **&lt;Say&gt;** 및 기타 Twilio 동사에 대한 정보는 [https://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
+* makecall.jsp 코드는 Twilio 제공 URL인 [https://twimlets.com/message][twimlet_message_url]를 **Url** 변수에 할당합니다. 이 URL은 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어, 반환되는 TwiML에는 통화 수신자에게 말하는 텍스트에 나타나는 **&lt;Say&gt;** 동사가 포함될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_java]을 참조하세요. TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml]에서, **&lt; Say&gt;** 및 기타 Twilio 동사에 대한 정보는 [https://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
 * [https://www.twilio.com/docs/security][twilio_docs_security]에서 Twilio 보안 지침을 읽어보세요.
 
 Twilio에 대한 추가 정보는 [https://www.twilio.com/docs][twilio_docs]를 참조하세요.

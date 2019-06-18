@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235873"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
@@ -210,9 +210,9 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 #### <a name="states"></a>상태 
 | 이름          | Display name   | 정상 | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨강    | 
+| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨간색    | 
 
-#### <a name="events"></a>이벤트 
+#### <a name="events"></a>Events 
 | 이름             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
@@ -221,7 +221,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 숫자 설정
 
-| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | 초기 |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
@@ -229,9 +229,9 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 설정 전환
 
-| Display name | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| Display name | 필드 이름 | 온 텍스트 | 오프 텍스트 | 초기 |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | 꺼짐     |
+| IR           | activateIR | ON      | 끄기      | 꺼짐     |
 
 ### <a name="properties"></a>properties
 

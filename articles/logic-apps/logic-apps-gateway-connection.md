@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546269"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
@@ -68,7 +68,7 @@ ms.locfileid: "65546269"
    | **Name** | 게이트웨이 리소스의 이름입니다. | 
    | **구독** | 논리 앱과 동일한 구독이어야 하는 Azure 구독의 이름입니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기준으로 합니다. | 
    | **리소스 그룹** | 관련 리소스를 구성하기 위한 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. | 
-   | **위치**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
+   | **Location**: | Azure에서는 이 위치를 [게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md) 중에 게이트웨이 클라우드 서비스에 대해 선택한 동일한 지역으로 제한합니다. <p>**참고**: 이 게이트웨이 리소스 위치가 게이트웨이 클라우드 서비스 위치와 일치하는지 확인합니다. 그렇지 않은 경우 게이트웨이 설치는 다음 단계에서 선택하도록 설치된 게이트웨이 목록에 나타나지 않을 수 있습니다. 게이트웨이 리소스 및 논리 앱에 서로 다른 지역을 사용할 수 있습니다. | 
    | **설치 이름** | 게이트웨이 설치가 선택되어 있지 않으면 이전에 설치한 게이트웨이를 선택합니다. | 
    | | | 
 

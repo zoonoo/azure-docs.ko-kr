@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618628"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
@@ -49,7 +49,7 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 
 PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM 인스턴스를 사용자 지정할 수 있습니다. 다음 예제를 참조하세요.
 
-- VM 인스턴스가 GitHub에서 DSC 패키지를 다운로드하도록 지시합니다(*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*).
+- VM 인스턴스가 GitHub에서 DSC 패키지를 다운로드하도록 지시합니다( *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip* ).
 - 설치 스크립트를 실행하도록 확장을 설정합니다(`configure-http.ps1`).
 - [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합에 대한 정보를 가져옵니다.
 - [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용하여 VM 인스턴스에 확장을 적용합니다.

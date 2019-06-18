@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048584"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -29,7 +29,7 @@ Azure SQL Database Managed Instance에서 지원되는 싱크 데이터 저장�
 
 특히 이 Azure SQL Database Managed Instance 커넥터는 다음을 지원합니다.
 
-- SQL 또는 Windows 인증을 사용한 데이터 복사
+- SQL 인증을 사용 하 여 데이터를 복사 합니다.
 - 쿼리 또는 저장 프로시저를 사용하여 데이터 검색(원본)
 - 싱크로, 복사 중에 대상 테이블에 데이터를 추가하거나 사용자 지정 논리를 사용하여 저장 프로시저 호출(싱크)
 
@@ -37,9 +37,9 @@ SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-database
 
 ## <a name="prerequisites"></a>필수 조건
 
-가상 네트워크에 있는 Azure SQL Database Managed Instance에서 데이터 복사를 사용하려면 데이터베이스에 액세스할 수 있는 자체 호스팅 통합 런타임을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 참조하세요.
+Azure SQL Database Managed Instance 액세스할  **[공용 끝점](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)** 를 관리 하는 ADF Azure IR.를 사용할 수 있습니다 뿐만 아니라 공용 엔드포인트를 사용 하도록 설정 해도 ADF에 따라 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에서 공용 끝점 트래픽을 허용 하는지 확인 [이 지침은](../sql-database/sql-database-managed-instance-public-endpoint-configure.md)합니다.
 
-Managed Instance와 동일한 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비전하는 경우 통합 런타임 컴퓨터가 Managed Instance와 다른 서브넷에 있는지 확인합니다. Managed Instance와 다른 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비전하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+Azure SQL Database Managed Instance 액세스할 **개인 끝점**설정는 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 데이터베이스에 액세스할 수 있는 합니다. 관리 되는 인스턴스와 같은 가상 네트워크에서 자체 호스팅된 integration runtime을 프로 비전 하는 경우에 통합 런타임 컴퓨터에 다른 관리 되는 인스턴스 서브넷에 있는지 확인 합니다. Managed Instance와 다른 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비전하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 ## <a name="get-started"></a>시작하기
 
@@ -54,13 +54,8 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **SqlServer**로 설정해야 합니다. | 예. |
-| connectionString |이 속성은 SQL 인증 또는 Windows 인증을 사용하여 Managed Instance에 연결하는 데 필요한 connectionString 정보를 지정합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예. |
-| userName |Windows 인증을 사용하는 경우 이 속성은 사용자 이름을 지정합니다. **domainname\\username**을 예로 들 수 있습니다. |아니요. |
-| password |이 속성은 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정합니다. connectionString 정보를 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)하려면 **SecureString**을 선택합니다. |아니요. |
-| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. Managed Instance와 동일한 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비전합니다. |예. |
-
->[!TIP]
->오류 코드 "UserErrorFailedToConnectToSqlServer" 및 "데이터베이스의 세션 제한(XXX)에 도달했습니다."와 같은 메시지가 표시될 수 있습니다. 이 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
+| connectionString |이 속성에는 SQL 인증을 사용 하 여 관리 되는 인스턴스에 연결 하는 데 필요한 connectionString 정보를 지정 합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예. |
+| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. (공용 엔드포인트가 하 고 ADF 액세스를 허용 하는 관리 되는 인스턴스) 경우 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예. |
 
 **예제 1: SQL 인증 사용**
 
@@ -72,7 +67,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -102,32 +97,6 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**예제 3: Windows 인증 사용**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
             }
         },
         "connectVia": {
@@ -278,6 +247,9 @@ GO
 
 ### <a name="azure-sql-database-managed-instance-as-a-sink"></a>Azure SQL Database Managed Instance(싱크)
 
+> [!TIP]
+> 지원 되는 쓰기 동작, 구성 및에서 모범 사례에 자세히 알아보세요 [모범 사례 데이터를 Azure SQL Database Managed Instance 로드](#best-practice-for-loading-data-into-azure-sql-database-managed-instance)합니다.
+
 Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlSink**로 설정합니다. 복사 작업 sink 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 자산 | 설명 | 필수 |
@@ -286,12 +258,9 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 | writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Data Factory는 행의 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다.  |아닙니다. |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)을 지정할 수 있습니다. |아니요. |
 | preCopyScript |이 속성은 Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업용 SQL 쿼리를 지정하며 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요. |
-| sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 고유한 비즈니스 논리를 사용하여 upsert 또는 변환을 수행하는 프로시저를 예로 들 수 있습니다. <br/><br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행되며 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요. |
+| sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행되며 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요. |
 | storedProcedureParameters |저장 프로시저에 사용되는 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자는 저장 프로시저 매개변수의 이름 및 대/소문자와 일치해야 합니다. |아니요. |
 | sqlWriterTableType |이 속성은 저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요. |
-
-> [!TIP]
-> Azure SQL Database Managed Instance로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. upsert 또는 추가 비즈니스 논리를 수행하려면 SqlSink에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
 **예제 1: 데이터 추가**
 
@@ -325,9 +294,9 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 ]
 ```
 
-**예제 2: upsert를 위한 복사 중에 저장 프로시저 호출**
+**복사 중 저장된 프로시저를 호출 하는 예 2:**
 
-자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
+자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
 
 ```json
 "activities":[
@@ -364,80 +333,69 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>대상 데이터베이스의 ID 열
+## <a name="best-practice-for-loading-data-into-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance로 데이터를 로드 하기 위한 모범 사례
 
-이 예제에서는 ID 열이 없는 원본 테이블에서 ID 열이 있는 대상 테이블로 데이터를 복사합니다.
+Azure SQL Database Managed Instance로 데이터를 복사할 때 다른 쓰기 동작이 필요할 수 있습니다.
 
-**원본 테이블**
+- **[추가](#append-data)** : 원본 데이터에만 새 레코드가;에 있는
+- **[Upsert](#upsert-data)** : 내 원본 데이터에 삽입 및 업데이트
+- **[덮어쓰기](#overwrite-entire-table)** : 각 시간 전체 차원 테이블을 다시 로드 하려고 하는 경우
+- **[사용자 지정 논리를 사용 하 여 작성할](#write-data-with-custom-logic)** : 대상 테이블에 최종 삽입 전에 추가 처리가 필요합니다.
+
+참조 된 ADF 및 모범 사례를 구성 하는 방법에 각각 섹션입니다.
+
+### <a name="append-data"></a>데이터를 추가 합니다.
+
+이 Azure SQL Database Managed Instance 싱크 연결선의 기본 동작이 며 ADF 수행 **대량 삽입** 테이블에 효율적으로 작성 합니다. 단순히 소스를 구성할 수 있으며 그에 따라 싱크 복사 활동의 합니다.
+
+### <a name="upsert-data"></a>데이터 Upsert
+
+**I 옵션** (있는 경우 특히 큰 데이터 복사를 제안): 합니다 **대부분의 성능이 뛰어난 방법을** upsert를 수행 하는 다음: 
+
+- 첫째, 활용을 [임시 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) 대량 복사 작업을 사용 하 여 모든 레코드를 로드 하 합니다. 임시 테이블에 대 한 작업은 기록 되지 대로 초에서 수백만 개의 레코드를 로드할 수 있습니다.
+- 저장 프로시저 작업을 적용 하는 ADF에서 실행을 [병합](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (또는 삽입/업데이트) 문 및 temp 왕복을 줄이는 모든을 수행 하는 소스를 단일 트랜잭션으로 삽입 하거나 업데이트 하는 대로 테이블 및 작업 기록 사용 합니다. 저장 프로시저 작업의 끝 다음 upsert 주기에 대 한 준비로 임시 테이블을 자를 수 있습니다. 
+
+예를 들어 Azure Data Factory를 만들 수 있습니다 사용 하는 파이프라인을 **복사 활동** 연계 하 여를 **저장 프로시저 작업** 성공 합니다. 이전의 복사 데이터 원본 저장소에서 임시 테이블을 예를 들어 " **##UpsertTempTable**" 데이터 집합의 테이블 이름으로 다음 두 번째 호출 임시 테이블의 원본 데이터를 대상 테이블로 병합 하 고 정리 하는 저장 프로시저 임시 테이블입니다.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+데이터베이스에 위의 저장 프로시저 활동에서 가리키는 다음과 같은 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상 가정 **마케팅** 세 열이 있는 테이블: **ProfileID**, **상태**, 및 **범주**를 기준으로 upsert를 수행 합니다 **ProfileID** 열입니다.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**대상 테이블**
+**옵션 II:** 또는를 선택할 수 있습니다 [복사 작업 내에서 저장된 프로시저 호출](#invoking-stored-procedure-for-sql-sink),이 이렇게 대량을 활용 하는 대신 원본 테이블의 각 행에 대해 실행 되는 참고 하는 동안 기본 접근 방식으로 삽입 따라서 복사 활동의 대규모 upsert에 대해 맞지 않는 것입니다.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>전체 테이블 덮어쓰기
 
-대상 테이블에 ID 열이 있는지 확인합니다.
+구성할 수 있습니다 **preCopyScript** 속성 복사 활동의 sink, 이때 각 복사 작업 실행에 대 한 ADF 스크립트를 실행 먼저 데이터를 삽입 하려면 복사본을 실행 합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제할 수 있습니다.
 
-**원본 데이터 세트 JSON 정의**
+### <a name="write-data-with-custom-logic"></a>사용자 지정 논리를 사용 하 여 데이터를 작성 합니다.
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
+에 설명 된 것과 유사 [Upsert 데이터](#upsert-data) 섹션에서는 대상 테이블에 원본 데이터의 최종 삽입 전에 추가 처리를 적용 해야 할 수 있습니다는) 대규모 임시 테이블로 로드 한 후 저장 된 호출 프로시저 또는 b) 복사 중 저장된 프로시저를 호출 합니다.
 
-**대상 데이터 세트 JSON 정의**
+## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL 싱크에서 저장 프로시저 호출
 
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
+Azure SQL Database Managed Instance로 데이터를 복사할 때 구성 수 및 추가 매개 변수를 사용 하 여 사용자 지정 저장된 프로시저를 호출 해야 합니다.
 
-원본 및 대상 테이블의 스키마는 서로 다릅니다. 대상 테이블에 ID 열이 있습니다. 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 세트 정의에서 "structure" 속성을 지정합니다.
+> [!TIP]
+> 저장된 프로시저를 호출 하는 데이터에서 행 대규모 복사본에 대 한 추천 하지 않습니다는 대량 작업을 대신 처리 합니다. 자세히 알아보세요 [모범 사례 데이터를 Azure SQL Database Managed Instance 로드](#best-practice-for-loading-data-into-azure-sql-database-managed-instance)합니다.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> SQL 싱크에서 저장 프로시저 호출
-
-Azure SQL Database Managed Instance로 데이터를 복사할 때 저장 프로시저를 구성하고 지정한 추가 매개 변수를 사용하여 호출할 수 있습니다.
-
-기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 저장 프로시저는 일반적으로 대상 테이블에 원본 데이터를 최종 삽입하기 전에 upsert(업데이트+삽입) 또는 추가 처리를 수행해야 할 때 사용됩니다. 추가 처리에는 열 병합, 추가 값 조회, 여러 테이블에 삽입 등이 포함될 수 있습니다.
+기본 제공 메커니즘이 용도 적합 하지 않습니다 하는 경우에 저장된 프로시저를 사용할 수 있습니다 예를 들어 대상 테이블에 원본 데이터의 최종 삽입 전에 추가 처리를 적용 합니다. 몇 가지 추가 처리 예제로 열 병합, 추가 값 조회, 두 개 이상의 테이블에 삽입 등이 있습니다.
 
 다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 **Marketing** 테이블을 가정해 보겠습니다. **ProfileID**, **State** 및 **Category**. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
 
@@ -514,14 +472,14 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| Image |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -530,7 +488,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
@@ -541,7 +499,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| xml |Xml |
 
 >[!NOTE]
 > 10진수 중간 형식으로 매핑되는 데이터 형식의 경우 Azure Data Factory는 현재 최대 28자리의 데이터를 지원합니다. 자릿수가 28자리를 초과하는 데이터가 있으면 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

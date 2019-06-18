@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078341"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
 
@@ -24,9 +24,6 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
-
-  > [!IMPORTANT]  
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * REST 클라이언트 이 문서에서는 Windows PowerShell 및 [Curl](https://curl.haxx.se/) 예제를 사용합니다.
 

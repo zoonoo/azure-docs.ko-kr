@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
 ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515736"
 ---
 # <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
@@ -154,7 +154,7 @@ CDN 통합은 중국 및 연방 정부 지역을 제외한 모든 Azure 데이�
 
 ### <a name="determine-if-dns-change-has-been-made"></a>DNS 변경 된 내용이 있는지 확인 합니다.
 
-사용 하 여 스트리밍 끝점 (Azure CDN에 트래픽을 보내지는)에 DNS 변경이 수행 되었을 경우를 확인할 수 있습니다 https://www.digwebinterface.com합니다. 결과 결과에 azureedge.net 도메인 이름이 있으면 트래픽은 이제를 가리키는지 CDN 합니다.
+사용 하 여 스트리밍 끝점 (Azure CDN에 트래픽을 보내지는)에 DNS 변경이 수행 되었을 경우를 확인할 수 있습니다 https://www.digwebinterface.com 합니다. 결과 결과에 azureedge.net 도메인 이름이 있으면 트래픽은 이제를 가리키는지 CDN 합니다.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

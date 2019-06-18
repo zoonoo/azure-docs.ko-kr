@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708798"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
@@ -55,10 +55,10 @@ ms.locfileid: "64708798"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|Default|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |username|기본 자격 증명의 사용자 이름을 지정합니다.|예|N/A|  
-|암호|기본 자격 증명의 비밀번호를 지정합니다.|예|N/A|  
+|password|기본 자격 증명의 비밀번호를 지정합니다.|예|N/A|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -95,7 +95,7 @@ ms.locfileid: "64708798"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|Default|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|중 하나 `thumbprint` 또는 `certificate-id` 있어야 합니다.|N/A|  
 |인증서 id|인증서 리소스 이름입니다.|중 하나 `thumbprint` 또는 `certificate-id` 있어야 합니다.|N/A|  
@@ -130,11 +130,11 @@ ms.locfileid: "64708798"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|Default|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |resource|문자열입니다. Azure Active Directory에서 대상 웹 API (보안된 리소스)의 앱 ID URI입니다.|예|N/A|  
 |output-token-variable-name|문자열입니다. 개체 형식으로 토큰 값을 받는 컨텍스트 변수의 이름을 `string`입니다.|아닙니다.|N/A|  
-|ignore-error|부울 값입니다. 경우 설정 `true`, 정책 파이프라인 계속 액세스 토큰을 가져오지 않은 경우에 실행 됩니다.|아닙니다.|false|  
+|ignore-error|Boolean입니다. 경우 설정 `true`, 정책 파이프라인 계속 액세스 토큰을 가져오지 않은 경우에 실행 됩니다.|아닙니다.|false|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  

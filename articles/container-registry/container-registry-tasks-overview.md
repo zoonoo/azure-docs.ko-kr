@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: danlep
 ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977209"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
@@ -41,7 +41,7 @@ ms.locfileid: "65977209"
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예제 |
+| 컨텍스트 위치 | 설명 | 예 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942925"
 ---
 # <a name="container-skus-tab"></a>컨테이너 SKU 탭
 
-**새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU를 사용하여 기능 집합, 청구 모델 또는 다른 특성에 따라 솔루션을 구별할 수 있습니다.
+**새 제안** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제안에 연결할 수 있습니다.  다양한 SKU를 사용하여 기능 집합, 청구 모델 또는 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
 ## <a name="sku-settings"></a>SKU 설정
 

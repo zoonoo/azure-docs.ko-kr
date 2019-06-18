@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
 ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551036"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
@@ -227,8 +227,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 이미지를 만들었으므로 만들 수도 있고 호스트 풀 업데이트. 호스트 풀 만들기 및 업데이트 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
 
-- [Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기](create-host-pools-arm-template.md)
-- [자습서: Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
-- [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)
+- [Azure Resource Manager 템플릿으로 호스트 풀 만들기](create-host-pools-arm-template.md)
+- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
+- [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
 - [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md)
 - [Windows 가상 데스크톱 부하 분산 방법 구성](configure-host-pool-load-balancing.md)

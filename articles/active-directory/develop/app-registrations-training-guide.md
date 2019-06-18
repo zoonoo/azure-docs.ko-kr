@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 118c6ecb16d325a384246a0b3d9e685f6f6f04ee
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870119"
 ---
 # <a name="training-guide-app-registrations-in-the-azure-portal"></a>학습 가이드: Azure portal에서 앱 등록  
@@ -34,7 +34,7 @@ ms.locfileid: "64870119"
 - 레거시 환경 지원 앱에 로그인 하는 조직 (Azure AD) 계정만 합니다. 앱은 단일 테 넌 트 (지원 앱에 등록 된 디렉터리에서만 조직 계정)으로 등록 된 다중 테 넌 트 (모든 조직 계정 지원)를 수정할 수 없습니다. 새로운 환경의 사용 하면 앱 수 이러한 옵션을 모두 지원 뿐만 아니라 세 번째 옵션을 등록할 수 있습니다: 모든 조직 계정 뿐 아니라 개인 Microsoft 계정입니다.
 - 레거시 경험 조직 계정을 사용 하 여 Azure portal에 로그인 할 때 사용할 수 있었습니다. 새 환경 디렉터리와 연결 되어 있지 않은 개인 Microsoft 계정을 사용할 수 있습니다.
 
-## <a name="list-of-applications"></a>응용 프로그램 목록
+## <a name="list-of-applications"></a>애플리케이션 목록
 
 - 레거시 앱을 통해 등록 된 응용 프로그램을 표시 하는 새 앱은 앱 뿐만 아니라 Azure 포털 (Azure AD 계정에 로그인 하는 앱)에 등록 환경을 통해 등록 합니다 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/) (Azure AD에 로그인 하는 앱과 개인용 Microsoft 계정).
 - 새 앱 목록에 없는 **응용 프로그램 종류** 열 (단일 앱을 등록 하는 여러 유형이 될 수 있음) 하므로 두 개의 추가 열 및:는 **에서 만든** 열 및 **인증서 & 비밀** 앱에서 등록 된 자격 증명 (현재, 곧 만료 되거나 만료 된) 상태를 표시 하는 열입니다.
@@ -60,7 +60,7 @@ ms.locfileid: "64870119"
 
 ## <a name="reply-urlsredirect-urls"></a>회신 Url/리디렉션 Url
 
-레거시 환경에서 앱 했습니다를 **회신 Url** 페이지입니다. 새로운 환경에 회신 Url을 앱에서 찾을 수 있습니다 **인증** 섹션입니다. 또한 이러한 이라고 **리디렉션 Uri**합니다. 또한 리디렉션에 대 한 형식 Uri 변경 되었습니다. 앱 유형 (웹 또는 공용)으로 연결 되도록 필요한 경우 또한 보안상의 이유로 와일드 카드 및 http:// 스키마는 지원 되지 않습니다 (제외 http://localhost)합니다.
+레거시 환경에서 앱 했습니다를 **회신 Url** 페이지입니다. 새로운 환경에 회신 Url을 앱에서 찾을 수 있습니다 **인증** 섹션입니다. 또한 이러한 이라고 **리디렉션 Uri**합니다. 또한 리디렉션에 대 한 형식 Uri 변경 되었습니다. 앱 유형 (웹 또는 공용)으로 연결 되도록 필요한 경우 또한 보안상의 이유로 와일드 카드 및 http:// 스키마는 지원 되지 않습니다 (제외 http://localhost) 합니다.
 
 ## <a name="keyscertificates--secrets"></a>키/인증서 및 암호
 

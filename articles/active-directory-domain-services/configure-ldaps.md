@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: ergreenl
 ms.openlocfilehash: e961b6c4b97103668c591e319a81d20f533b4acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246376"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
@@ -52,7 +52,7 @@ ms.locfileid: "66246376"
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>작업 1 - 보안 LDAP를 위한 인증서 가져오기
-첫 번째 태스크는 관리되는 도메인에 대한 보안 LDAP 액세스에 사용할 인증서를 얻는 것입니다. 두 가지가 있습니다.
+첫 번째 태스크는 관리되는 도메인에 대한 보안 LDAP 액세스에 사용할 인증서를 얻는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * 공용 CA 또는 엔터프라이즈 CA에서 인증서를 가져옵니다.
 * 자체 서명된 인증서를 만듭니다.

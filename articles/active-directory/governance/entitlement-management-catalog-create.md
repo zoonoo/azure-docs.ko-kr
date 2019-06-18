@@ -17,16 +17,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541617"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)의 카탈로그를 만들고 설정 합니다.
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -34,11 +34,11 @@ ms.locfileid: "64541617"
 
 카탈로그는 리소스 및 액세스 패키지의 컨테이너입니다. 관련 된 리소스 그룹 및 패키지에 액세스 하려는 경우에 카탈로그를 만듭니다. 첫 번째 카탈로그 소유자가 됩니다 누구 든 지 카탈로그를 만듭니다. 카탈로그 소유자 추가 카탈로그 소유자를 추가할 수 있습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자 또는 카탈로그를 만든
+**필수 역할:** 사용자 관리자 또는 카탈로그를 만든
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그**합니다.
 
@@ -62,9 +62,9 @@ ms.locfileid: "64541617"
 
 리소스는 리소스에 액세스 패키지를 포함 하려면 카탈로그에 존재 해야 합니다. 추가할 수 있는 리소스의 유형은 그룹, 응용 프로그램 및 SharePoint Online 사이트입니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그** 다음 리소스를 추가 하려는 카탈로그를 엽니다.
 
@@ -88,9 +88,9 @@ ms.locfileid: "64541617"
 
 카탈로그에서 리소스를 제거할 수 있습니다. 카탈로그의 액세스 패키지에서 사용 하지 않으면 카탈로그에서 리소스를 제거할만 있습니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그** 다음 리소스를 제거 하려면 카탈로그를 엽니다.
 
@@ -98,15 +98,15 @@ ms.locfileid: "64541617"
 
 1. 제거 하려는 리소스를 선택 합니다.
 
-1. 클릭 **제거할** (하거나 줄임표 (**...** )을 클릭 한 다음 **리소스를 제거할**).
+1. 클릭 **제거할** (하거나 줄임표 ( **...** )을 클릭 한 다음 **리소스를 제거할**).
 
 ## <a name="add-catalog-owners-or-access-package-managers"></a>카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스
 
 카탈로그 또는 카탈로그에 액세스 패키지 관리를 위임 하려는 경우에 카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스 합니다. 첫 번째 카탈로그 소유자가 됩니다 누구 든 지 카탈로그를 만듭니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그** 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
 
@@ -120,9 +120,9 @@ ms.locfileid: "64541617"
 
 이름 및 카탈로그에 대 한 설명을 편집할 수 있습니다. 사용자는 액세스 패키지의 세부 정보에서이 정보를 참조 하세요.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그** 을 편집 하려면 카탈로그를 엽니다.
 
@@ -136,9 +136,9 @@ ms.locfileid: "64541617"
 
 모든 액세스 패키지에 없는 경우에만 카탈로그를 삭제할 수 있습니다.
 
-**필수 구성 요소 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **카탈로그** 을 삭제 하려면 카탈로그를 엽니다.
 

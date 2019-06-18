@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476026"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더를 다시 작성
@@ -20,7 +20,7 @@ ms.locfileid: "66476026"
 
 HTTP 헤더에는 클라이언트와 서버 요청 또는 응답을 사용 하 여 추가 정보를 전달할 수 있습니다. 이러한 헤더를 다시 작성 하 여, HSTS 같은 / X XSS 보호 보안 관련 헤더 필드를 추가 하 고, 중요 한 정보를 표시할 수 있는 응답 헤더 필드를 제거 하 고, 포트 정보를 제거와 같은 중요 한 작업을 수행할 수 있습니다. X-전달 기능에 대 한 헤더입니다.
 
-Application Gateway를 사용 하면 추가, 제거 또는 요청 하는 동안 HTTP 요청 및 응답 헤더를 업데이트할 수 있습니다 하 고 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. 및 지정 된 헤더는 특정 조건이 충족 될 경우에 다시 작성 하도록 조건을 추가할 수 있습니다.
+Application Gateway는 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 뿐만 아니라 특정 조건이 충족되는 경우에만 지정된 헤더를 다시 쓸 수 있도록 조건을 추가할 수 있습니다.
 
 Application Gateway에 여러 항목을 지원 [서버 변수](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) 요청 및 응답에 대 한 추가 정보를 저장 하는 데 도움이 되도록 합니다. 이렇게 하면 보다 쉽게 강력한 다시 쓰기 규칙을 만들 수 있습니다.
 
@@ -73,7 +73,7 @@ Application gateway는 이러한 서버 변수를 지원 합니다.
 | cookie_*name*              | 합니다 *이름을* 쿠키입니다.                                            |
 | http_method                | URL 요청을 확인 하는 데 사용 된 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status                | 세션 상태입니다. 예를 들어, 200, 400, 또는 403.                       |
-| http_version               | 요청 프로토콜입니다. 1.0 일반적으로 HTTP, HTTP/1.1, 또는 HTTP/2.0. |
+| http_version               | 요청 프로토콜입니다. 1\.0 일반적으로 HTTP, HTTP/1.1, 또는 HTTP/2.0. |
 | query_string               | 다음에 나오는 변수/값 쌍의 목록은 "?" 요청된 된 URL의 합니다. |
 | received_bytes             | 요청 (요청 줄, 헤더 및 요청 본문 포함)의 길이입니다. |
 | request_query              | 요청 줄에는 인수입니다.                                |

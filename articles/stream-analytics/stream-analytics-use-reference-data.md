@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure Stream Analytics 작업의 쿼리 디자�
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393130"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066778"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
+
 참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 
 
 Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure Blob 스토리지 및 Azure SQL Database를 지원합니다. 또한 참조 데이터를 Azure Data Factory에서 Blob Storage로 변환 및/또는 복사하여 [여러 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)를 사용할 수 있습니다.
@@ -43,7 +43,7 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 
 ### <a name="static-reference-data"></a>정적 참조 데이터
 
-참조 데이터가 변경될 필요가 없으면 입력 구성에 정적 경로를 지정하여 정적 참조 데이터에 대한 지원을 사용하도록 설정할 수 있습니다. Azure Stream Analytics는 지정된 경로에서 Blob을 선택합니다. {date} 및 {time} 대체 토큰이 필요하지 않습니다. 참조 데이터는 Stream Analytics에서 변경할 수 없습니다. 따라서 정적 참조 데이터 Blob을 덮어쓰지 않는 것이 좋습니다.
+참조 데이터가 변경될 필요가 없으면 입력 구성에 정적 경로를 지정하여 정적 참조 데이터에 대한 지원을 사용하도록 설정할 수 있습니다. Azure Stream Analytics는 지정된 경로에서 Blob을 선택합니다. {date} 및 {time} 대체 토큰이 필요하지 않습니다. 참조 데이터를 Stream Analytics에서 변경할 수 없는 때문에 대 한 정적 참조 데이터 blob을 덮어쓰지 권장 되지 않습니다.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>일정에 따라 참조 데이터 생성
 
@@ -54,7 +54,7 @@ Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob�
 > [!NOTE]
 > 현재 Stream Analytics 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17-30/products.csv`를 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 마지막으로 검색된 것보다 이전에 인코딩된 시간으로 Blob을 찾지 *않습니다* .
 > 
-> 예: 작업이 Blob `sample/2015-04-16/17-30/products.csv`를 발견하면 2015년 4월 16일 오후 5시 30분 이전에 인코딩된 날짜의 모든 파일을 무시합니다. 따라서 늦게 도착하는 `sample/2015-04-16/17-25/products.csv` Blob이 동일한 컨테이너에 만들어지는 경우 작업은 이를 사용하지 않습니다.
+> 예를 들어 작업 blob 발견 되 면 `sample/2015-04-16/17-30/products.csv` 2015 년 4 월 16 일 오후 5시 30분 분 이전에 인코딩된 날짜를 사용 하 여 모든 파일을 무시 늦게 도착 하는 경우 `sample/2015-04-16/17-25/products.csv` blob 만들어지는 동일한 컨테이너에 작업을 사용 하지 않을 것입니다.
 > 
 > 마찬가지로 `sample/2015-04-16/17-30/products.csv`가 2015년 4월 16일 오후 10시 3분에 생성되었지만 컨테이너에 이전 날짜의 Blob이 없는 경우 작업은 2015년 4월 16일 오후 10시 3분에 시작하는 이 파일을 사용하고 그때까지 이전 참조 데이터를 사용합니다.
 > 

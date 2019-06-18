@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147881"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133352"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -33,7 +33,7 @@ Azure 관리 디스크는 현재 네 개의 디스크 유형을 제공하고 있
 
 ## <a name="ultra-ssd-preview"></a>울트라 SSD(미리 보기)
 
-Azure 울트라 SSD(미리 보기)는 Azure IaaS VM에 대한 높은 처리량, 높은 IOPS 및 일관된 짧은 대기 시간 디스크 스토리지를 제공합니다. 울트라 SSD의 몇 가지 추가 이점에는 가상 머신을 다시 시작하지 않고도 워크로드와 함께 디스크의 성능을 동적으로 변경할 수 있다는 것이 포함됩니다. 울트라 SSD는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적 워크로드와 같은 데이터 집약적 워크로드에 적합합니다. 울트라 SSD는 데이터 디스크로만 사용할 수 있습니다. 프리미엄 SSD는 OS 디스크로 사용하는 것이 좋습니다.
+Azure ultra SSD (미리 보기)는 Azure IaaS Vm에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공합니다. 울트라 SSD의 몇 가지 추가 이점에는 가상 머신을 다시 시작하지 않고도 워크로드와 함께 디스크의 성능을 동적으로 변경할 수 있다는 것이 포함됩니다. Ultra SSDs는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 작업이 많은 워크 로드와 같은 데이터 집약적인 워크 로드에 적합 합니다. 울트라 SSD는 데이터 디스크로만 사용할 수 있습니다. 프리미엄 SSD는 OS 디스크로 사용하는 것이 좋습니다.
 
 ### <a name="performance"></a>성능
 
@@ -73,7 +73,8 @@ Ultra Ssd에 대 한 각 I/O 작업이 적은 보다 작거나 256 3:n2}kib/ 처
 - ES/DS v3 VM에서만 지원됨
 - 데이터 디스크로만 사용 가능하며 4k 물리적 섹터 크기만 지원함  
 - 빈 디스크로만 만들 수 있음  
-- 현재 Azure Resource Manager 템플릿, CLI 및 Python SDK를 통해서만 배포할 수 있습니다.
+- 현재만 배포할 수 있습니다 Azure Resource Manager 템플릿, CLI, PowerShell 및 Python SDK를 사용 하 여.
+- 아직 Azure portal을 사용 하 여 배포할 수 없습니다.
 - 디스크 스냅샷, VM 이미지, 가용성 집합, 가상 머신 확장 집합 및 Azure 디스크 암호화는 아직 지원하지 않습니다.
 - Azure Backup 또는 Azure Site Recovery와의 통합은 아직 지원하지 않습니다.
 -  [대부분의 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)와 마찬가지로, 이 기능은 GA(일반 공급) 이후에만 프로덕션 워크로드에서 사용할 수 있습니다.

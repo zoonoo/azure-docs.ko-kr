@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075845"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 Backup(Resource Manager)
 
@@ -77,21 +77,19 @@ Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2014 V
 
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 2014 Virtual Machine을 만들 때 자동화된 Backup을 구성합니다.
 
-**SQL Server 설정** 창에서 **자동화된 백업**을 선택합니다. 다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
+에 **SQL Server 설정을** 탭, 아래로 스크롤하여 **자동화 된 백업** 선택한 **사용**합니다. 에서는 보존 기간 및 저장소 계정으로 사용 하도록 설정 하면 암호화를 시스템 데이터베이스 백업 및 백업 일정 구성도 지정할 수 있습니다.  다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
 
 ![Azure Portal에서 SQL 자동화된 Backup 구성](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>기존 VM 구성
 
-기존 SQL Server 가상 머신에 대한 해당 SQL Server 가상 머신을 선택합니다. 그런 다음, VM **설정**의 **SQL Server 구성** 섹션을 선택합니다.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+기존 SQL Server virtual machines로 이동 합니다 [SQL 가상 컴퓨터 리소스](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) 선택한 후 **백업을**. 
 
 ![기존 VM에 대한 SQL 자동화된 Backup](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-**SQL Server 구성** 창에서 자동화된 백업 섹션의 **편집** 단추를 클릭합니다.
-
-![기존 VM에 대한 SQL 자동화된 Backup 구성](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-작업을 마쳤으면 **SQL Server 구성** 설정의 맨 아래에 있는 **확인** 단추를 클릭하여 변경 내용을 저장합니다.
+완료 되 면 선택 합니다 **적용** 아래쪽에 단추를 **백업을** 변경 내용을 저장 하려면 페이지입니다.
 
 처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState**가 "Succeeded"로 표시되어야 합니다.
 
-설치되지 않았거나 프로비전되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역(**$region**)도 지정해야 합니다.
+설치되지 않았거나 프로비전되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region**)도 지정해야 합니다.
 
 ```powershell
 $region = "EASTUS2"

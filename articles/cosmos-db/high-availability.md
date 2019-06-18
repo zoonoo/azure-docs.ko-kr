@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063571"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -76,7 +76,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성할 때 없이 영�
 
 다음 표에서 다양 한 계정 구성의 고가용성 기능을 보여 줍니다. 
 
-|KPI  |가용성 영역 (비-AZ) 없이 단일 지역  |가용성 영역 (AZ)를 사용 하 여 단일 지역  |가용성 영역 (AZ, 2 개 하위 지역이) – 가장 권장 설정을 사용 하 여 다중 지역 |
+|KPI  |가용성 영역 (비-AZ) 없이 단일 지역  |단일 지역 가용성 영역 (AZ) 사용 하 여  |다중 지역 가용성 영역 (AZ, 2 개 하위 지역이)를 사용 하 여 작성 – 대부분 권장 설정 |
 |---------|---------|---------|---------|
 |쓰기 가용성 SLA     |   99.99%      |    99.99%     |  99.999%  |
 |가용성 SLA 읽기   |   99.99%      |   99.99%      |  99.999%       |

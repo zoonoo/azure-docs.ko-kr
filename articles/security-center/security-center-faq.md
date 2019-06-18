@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050515"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -126,8 +126,10 @@ Monitoring Agent 확장으로 설치 될 때만 단일 작업 영역에 보고 �
 
 ### Microsoft Monitoring Agent 했습니다 어떻게 확장 (직접 에이전트) 것이 아니라 컴퓨터에서 직접 설치 되어 있습니까?<a name="directagentinstalled"></a>
 Microsoft Monitoring Agent (을 Azure 확장이 아니라) VM에 직접 설치 되어 있으면 Security Center가 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring agent를 최신 버전으로 업그레이드할 수 있습니다.
-설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍 지원 됨).
+설치 된 에이전트는 계속 해당 이미 구성 된 작업 영역에 보고 하 고 또한 Security Center에서 구성 된 작업 영역에 보고 됩니다 (멀티 호 밍은 Windows 컴퓨터에서 지원 됨).
 설치 해야 구성된 된 작업 영역 사용자 작업 영역 (없습니다 Security Center의 기본 작업 영역) 인 경우는 "보안"SecurityCenterFree"Vm 및 컴퓨터에서 이벤트 처리를 시작 하려면 Security center에 솔루션을 보고 / 작업 영역입니다.
+
+Linux 컴퓨터에 대 한 에이전트 멀티 호 밍 되지 않으므로 지원-따라서 기존 에이전트 설치가 검색 되 면 자동 프로 비전 발생 하지 않습니다 및 컴퓨터의 구성을 변경 되지 않습니다.
 
 2019-03-17, 기존 에이전트는 감지 하면 전에 Security Center에 구독 등록의 기존 컴퓨터에 Microsoft Monitoring Agent 확장을 설치 하지 않습니다 및 컴퓨터에는 영향을 받지 않습니다. 이러한 컴퓨터를이 컴퓨터에 에이전트 설치 문제를 해결 하는 "컴퓨터에서 에이전트 상태 문제 모니터링 해결" 권장 사항이 참조 하세요.
 
@@ -144,7 +146,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 1. 표준 계층에 대한 구독이 구성된 경우 해당 구독에 대한 보안 정책을 열고 **체험** 계층을 선택합니다.
 
-   ![가격 책정 계층 ][1]
+   ![가격 책정 계층][1]
 
 2. 다음으로 **보안 정책 - 데이터 수집** 블레이드에서 **끄기**를 선택하여 자동 프로비저닝을 해제합니다.
    ![데이터 수집][2]
@@ -175,7 +177,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
 
 에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 'Security' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 블레이드를 통해 가격 책정 계층을 적용합니다.
 
-   ![가격 책정 계층 ][1]
+   ![가격 책정 계층][1]
 
 Security Center는 선택한 가격 책정 계층을 기반으로 작업 영역에 올바른 솔루션을 사용하도록 설정합니다.
 

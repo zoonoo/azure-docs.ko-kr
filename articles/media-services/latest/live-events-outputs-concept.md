@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732978"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114663"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -54,14 +54,14 @@ H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-
 
 ![라이브 인코딩](./media/live-streaming/live-encoding.svg)
 
-Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 전송률 비디오를 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 Mp4 프로토콜 사용)하도록 온-프레미스 라이브 인코더를 구성합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률이 있는 비디오 스트림](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 인코딩하고 MPEG-DASH, HLS, 부드러운 스트리밍 등과 같은 프로토콜을 통해 디바이스를 재생하도록 이 스트림을 전달 가능하게 만듭니다. 이 형식의 라이브 이벤트를 만들 경우 인코딩 형식을 **표준**(LiveEventEncodingType.Standard)으로 지정합니다.
+Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 전송률 비디오를 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 Mp4 프로토콜 사용)하도록 온-프레미스 라이브 인코더를 구성합니다. 다음 설정 하는 라이브 이벤트는 들어오는 단일 비트 전송률 인코딩하도록에 스트리밍하는 [여러 비트 전송률 비디오 스트림을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), 출력을 배달 MPEG DASH, HLS와 같은 프로토콜을 통해 장치를 재생 하 고 원활 하 게 하는 데 사용할 수 있도록 설정 스트리밍입니다.
 
-H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 1080p의 해상도 및 초당 30프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md) 문서를 참조하세요.
+Live encoding을 사용 하는 경우 30 프레임/H.264/AVC 비디오 코덱 및 AAC를 사용 하 여 둘째, 프레임 속도로 1080p 해상도로 해상도 피드 기여도 보낼 수 있습니다 (AAC LC, HE-AACv1 또는 그 AACv2) 오디오 코덱 합니다. 통과 하는 라이브 이벤트를 지원할 수 있는지 해상도 4k 60으로 최대 초당 프레임 note 합니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md) 문서를 참조하세요.
 
-라이브 인코딩을 사용 하는 경우(라이브 이벤트를 **표준**으로 설정) 인코딩 사전 설정은 수신 스트림을 다중 비트 전송률 또는 레이어로 인코딩하는 방법을 정의합니다. 자세한 내용은 [시스템 미리 설정](live-event-types-comparison.md#system-presets)을 참조하세요.
+해상도 및 비트 전송률 라이브 인코더의 출력에 포함 된 사전 설정에 의해 결정 됩니다. 사용 하는 경우는 **표준** 라이브 인코더 (LiveEventEncodingType.Standard) 해당 *Default720p* 사전 설정에서 200kbps 192 p 아래로 3.5Mbps 720p에서 이동 6 해상도/비트 비율 쌍의 집합을 지정 합니다. 사용 하는 경우는 **Premium1080p** 라이브 인코더 (LiveEventEncodingType.Premium1080p) 해당 *Default1080p* 3.5Mbps에서 1080p에서 이동 6 해상도/비트 비율 쌍의 집합을 지정 하는 사전 설정 200kbps 180 p 아래로. 자세한 내용은 [시스템 미리 설정](live-event-types-comparison.md#system-presets)을 참조하세요.
 
 > [!NOTE]
-> 현재 표준 형식의 라이브 이벤트에 허용되는 유일한 미리 설정 값은 *Default720p*입니다. 사용자 지정 라이브 인코딩 미리 설정을 사용해야 하는 경우 amshelp@microsoft.com으로 문의하세요. 원하는 해상도 및 비트 전송률 표를 지정해야 합니다. 720p에서 레이어가 하나만 있고, 6레이어 이하인지 확인합니다.
+> 라이브 인코딩 사전 설정을 사용자 지정 해야 하는 경우 Azure portal 통해 지원 티켓을 여세요. 원하는 해상도 및 비트 전송률 표를 지정해야 합니다. 않습니다 (Premium1080p 라이브 인코더에 대 한 사전 설정을 요청) 하는 경우에 1080p, 또는 720p (표준 라이브 인코더에 대 한 사전 설정을 요청) 하는 경우 하나의 계층 및 계층에 최대 6 인지 확인 합니다.
 
 ## <a name="live-event-creation-options"></a>라이브 이벤트 만들기 옵션
 
@@ -93,6 +93,14 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
     액세스 토큰을 데이터 센터에서 고유 해야 합니다. 응용 프로그램을 베 니 티 URL을 사용 해야 하는 경우 항상 (모든 기존 GUID를 다시 사용) 대신 액세스 토큰에 대 한 새 GUID 인스턴스를 만드는 것이 좋습니다. 
 
+    다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 유효한 GUID로 액세스 토큰을 설정 (예를 들어 `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |언어|베 니 티 URL을 사용 하도록 설정|액세스 토큰 설정|
+    |---|---|---|
+    |REST (영문)|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).<br/>

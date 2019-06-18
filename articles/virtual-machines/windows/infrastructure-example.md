@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60540405"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM에 대한 Azure 인프라 연습 예제
@@ -55,8 +55,8 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 * Adventure Works Cycles는 **[IT 작업]-[위치]-[Azure 리소스]** 를 접두사로 사용합니다.
   * 이 예제에서 "**azos**"(Azure 온라인 저장소)는 IT 워크로드 이름이고 "**use**"(미국 동부 2)는 위치입니다.
 * 가상 네트워크는 AZOS-USE-VN **[숫자]** 를 사용합니다.
-* 가용성 집합은 azos-use-as-**[역할]** 을 사용합니다.
-* 가상 머신 이름은 azos-use-vm-**[VM 이름]** 을 사용합니다.
+* 가용성 집합은 azos-use-as- **[역할]** 을 사용합니다.
+* 가상 머신 이름은 azos-use-vm- **[VM 이름]** 을 사용합니다.
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 구독 및 계정
 Adventure Works Cycles는 이 IT 작업에 대한 청구를 제공하기 위해 Adventure Works Enterprise Subscription이라는 엔터프라이즈 구독을 사용합니다.
@@ -85,22 +85,22 @@ Azure 포털을 사용하여 다음 설정을 포함한 클라우드 전용 가�
 ## <a name="availability-sets"></a>가용성 집합
 온라인 스토어에서 모든 네 개 계층의 고가용성을 유지하기 위해 Adventure Works Cycles는 다음과 같은 네 개의 가용성 집합으로 결정했습니다.
 
-* **azos-use-as-web** 
+* **azos-use-as-web**
 * 애플리케이션 서버용 **azos-use-as-app**
-* **azos-use-as-sql** 
-* **azos-use-as-dc** 
+* **azos-use-as-sql**
+* **azos-use-as-dc**
 
 ## <a name="virtual-machines"></a>가상 머신
 Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다.
 
-* **azos-use-vm-web01** 
-* **azos-use-vm-web02** 
+* **azos-use-vm-web01**
+* **azos-use-vm-web02**
 * 첫 번째 애플리케이션 서버용 **azos-use-vm-app01**
 * 두 번째 애플리케이션 서버용 **azos-use-vm-app02**
-* **azfae-use-vm-sql01** 
-* **azfae-use-vm-sql02** 
-* **azos-use-vm-dc01** 
-* **azos-use-vm-dc02** 
+* **azfae-use-vm-sql01**
+* **azfae-use-vm-sql02**
+* **azos-use-vm-dc01**
+* **azos-use-vm-dc02**
 
 다음은 결과 구성입니다.
 

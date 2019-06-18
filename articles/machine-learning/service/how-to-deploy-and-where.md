@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059225"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -108,6 +108,16 @@ ms.locfileid: "66753113"
 * `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 웹 서비스에 대 한 Docker 컨테이너를 시작할 때 한 번만 실행 됩니다.
 
 * `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다.
+
+#### <a name="what-is-getmodelpath"></a>Get_model_path 란?
+모델을 등록 하면 레지스트리에서 모델 관리에 사용 되는 모델 이름을 제공 합니다. 로컬 파일 시스템에 모델 파일의 경로 반환 하는 API get_model_path이이 이름을 사용 합니다. 폴더 또는 파일의 컬렉션을 등록 하는 경우이 API 해당 파일이 포함 된 디렉터리 경로 반환 합니다.
+
+모델을 등록 하면 있습니다 이름을 해당 하는 모델 위치를 로컬 또는 서비스 배포 중에 있습니다.
+
+아래 예제에서는 돌아갑니다 경로 라는 단일 파일 'sklearn_mnist_model.pkl' ('sklearn_mnist' 이름으로 등록 된) 있음
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(선택 사항) 자동으로 Swagger 스키마 생성
 
@@ -248,7 +258,9 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 * 합니다 [엔트리 스크립트가](#script), 배포 된 서비스에 전송 하는 웹 요청을 처리 하는 데 사용 되는
 * 유추 하는 데 필요한 Python 패키지를 설명 하는 conda 파일
 
-InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-config) 섹션입니다.
+InferenceConfig 기능에 대 한 내용은 참조는 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 참조 합니다.
+
+유추 구성을 사용 하 여 사용자 지정 Docker 이미지 사용에 대 한 내용은 참조 하세요 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법을](how-to-deploy-custom-docker-image.md)합니다.
 
 ### <a name="3-define-your-deployment-configuration"></a>3. 배포 구성 정의
 
@@ -265,6 +277,15 @@ InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
+
+### <a name="optional-profile-your-model"></a>선택 사항: 모델을 프로 파일링
+서비스 모델을 배포 하기 전에 최적의 CPU 및 메모리 요구 사항을 확인 하는 프로 파일링 하는 것이 좋습니다.
+SDK 또는 CLI를 통해이 수행할 수 있습니다.
+
+자세한 내용은 여기 SDK 설명서를 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+실행 개체 모델 프로 파일링 결과 내보냅니다.
+모델 프로필 스키마에 대 한 세부 사항은 확인할 수 있습니다. https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>고급 설정 
-
-**<a id="customimage"></a> 사용자 지정 기본 이미지를 사용 하 여**
-
-내부적으로 InferenceConfig 모델 및 서비스에 필요한 기타 자산을 포함 하는 Docker 이미지를 만듭니다. 지정 하지 않으면 기본 기본 이미지가 사용 됩니다.
-
-유추 구성을 사용 하는 이미지를 만들 때 이미지에는 다음 요구 사항을 충족 해야 합니다.
-
-* Ubuntu 16.04 이상입니다.
-* Conda 4.5. # 이상.
-* Python 3.5. # 또는 3.6. #.
-
-사용자 지정 이미지를 사용 하려면 설정의 `base_image` 이미지의 주소로 유추 구성의 속성입니다. 다음 예제에서는 두 공용 및 개인 Azure 컨테이너 레지스트리에서 이미지를 사용 하는 방법을 보여 줍니다.
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-다음 이미지 Uri Microsoft에서 제공 하는 이미지에 대 한 중 이며 사용자 이름 또는 암호 값을 제공 하지 않고 사용할 수 있습니다.
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-이러한 이미지를 사용 하려면 설정의 `base_image` 위의 목록에서 uri입니다. `base_image_registry.address`을 `mcr.microsoft.com`로 설정합니다.
-
-> [!IMPORTANT]
-> Microsoft 이미지 CUDA 또는 TensorRT 사용 하는 Microsoft Azure 서비스에만 사용 되어야 합니다.
-
-사용자 고유의 이미지를 Azure Container Registry에 업로드에 대 한 자세한 내용은 참조 하세요. [개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)합니다.
-
-모델은 Azure Machine Learning Compute에서 학습을 사용 하 여 __1.0.22 버전 이상__ Azure Machine Learning SDK의 이미지를 학습 하는 동안 만들어집니다. 다음 예제에서는이 이미지를 사용 하는 방법을 보여 줍니다.
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>리소스 정리
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
@@ -547,6 +520,7 @@ image_config.base_image = run.properties["AzureML.DerivedImageName"]
 자세한 내용은 참조 설명서를 참조 하세요 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), 및 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)합니다.
 
 ## <a name="next-steps"></a>다음 단계
+* [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)

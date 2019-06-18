@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61222062"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
@@ -47,7 +47,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 >
 >자세한 내용은 [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline)(빌드 파이프라인 만들기)을 참조하세요.
 
-1. Azure DevOps 조직 로그인 (**https:\//dev.azure.com/{your 조직} /**) 하 고 IoT Edge 솔루션 리포지토리를 포함 하는 프로젝트를 엽니다.
+1. Azure DevOps 조직 로그인 (**https:\//dev.azure.com/{your 조직} /** ) 하 고 IoT Edge 솔루션 리포지토리를 포함 하는 프로젝트를 엽니다.
 
    이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다. 해당 리포지토리에는 **filtermodule** 모듈의 코드가 있는 **IoTEdgeSolution**이 포함됩니다. 
 
@@ -77,7 +77,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
     
      ![빌드 에이전트 풀 구성](./media/how-to-ci-cd/configure-env.png)
 
-5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호(**+**)를 선택하여 작업(job)에 다음 세 개의 작업(task)을 추가합니다. **Azure IoT Edge** 두 번 및 **빌드 아티팩트 게시** 한 번. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
+5. 파이프라인은 **에이전트 작업 1**이라는 작업으로 미리 구성됩니다. 더하기 기호( **+** )를 선택하여 작업(job)에 다음 세 개의 작업(task)을 추가합니다. **Azure IoT Edge** 두 번 및 **빌드 아티팩트 게시** 한 번. 각 작업 이름을 가리키면 **추가** 단추가 표시됩니다.
 
    ![Azure IoT Edge 작업 추가](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
    * **표시 이름**: 기본 **Azure IoT Edge - 모듈 이미지 빌드**를 그대로 사용합니다.
    * **작업**: 기본 **모듈 이미지 빌드**를 그대로 사용합니다. 
-   * **.template.json 파일**: 줄임표(**...**)를 선택하고 IoT Edge 솔루션이 포함된 리포지토리의 **deployment.template.json** 파일로 이동합니다. 
+   * **.template.json 파일**: 줄임표( **...** )를 선택하고 IoT Edge 솔루션이 포함된 리포지토리의 **deployment.template.json** 파일로 이동합니다. 
    * **기본 플랫폼**: 대상 IoT Edge 디바이스에 따라 모듈에 적합한 플랫폼을 선택합니다. 
    * **출력 변수**: 출력 변수에는 deployment.json 파일이 생성될 파일 경로를 구성하는 데 사용할 수 있는 참조 이름이 포함됩니다. 참조 이름을 **edge**와 같이 기억하기 쉬운 이름을 설정합니다. 
 
@@ -98,7 +98,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
    * **표시 이름**: 작업 필드가 변경되면 표시 이름이 자동으로 업데이트됩니다. 
    * **작업**: 드롭다운 목록을 사용하여 **모듈 이미지 푸시**를 선택합니다. 
    * **컨테이너 레지스트리 유형**: 모듈 이미지를 저장하는 데 사용할 컨테이너 레지스트리 유형을 선택합니다. 선택한 레지스트리 유형에 따라 양식이 변경됩니다. **Azure Container Registry**를 선택하는 경우에는 드롭다운 목록을 사용하여 Azure 구독 및 컨테이너 레지스트리 이름을 선택합니다. **일반 컨테이너 레지스트리**를 선택하는 경우에는 **새로 만들기**를 선택하여 레지스트리 서비스 연결을 만듭니다. 
-   * **.template.json 파일**: 줄임표(**...**)를 선택하고 IoT Edge 솔루션이 포함된 리포지토리의 **deployment.template.json** 파일로 이동합니다. 
+   * **.template.json 파일**: 줄임표( **...** )를 선택하고 IoT Edge 솔루션이 포함된 리포지토리의 **deployment.template.json** 파일로 이동합니다. 
    * **기본 플랫폼**: 빌드된 모듈 이미지와 동일한 플랫폼을 선택합니다.
 
    모듈 이미지를 호스트하는 컨테이너 레지스트리가 여러 개 있는 경우 이 작업을 복제하고 다른 컨테이너 레지스트리를 선택한 다음, 고급 설정의 **모듈 무시**를 사용하여 이 특정 레지스트리에 해당되지 않는 이미지를 무시해야 합니다.
@@ -152,7 +152,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
 8. QA 스테이지에서 기본 **에이전트 작업**이 표시되어야 합니다. 에이전트 작업(job)의 세부 정보를 구성할 수 있지만, 배포 작업(task)은 플랫폼을 구분하지 않으므로 **에이전트 풀**(또는 직접 관리하는 다른 에이전트)에서 **Hosted VS2017** 또는 **Hosted Ubuntu 1604**를 사용할 수 있습니다. 
 
-9. 더하기 기호(**+**)를 선택하여 하나의 작업을 추가합니다. **Azure IoT Edge**를 검색하고 추가합니다. 
+9. 더하기 기호( **+** )를 선택하여 하나의 작업을 추가합니다. **Azure IoT Edge**를 검색하고 추가합니다. 
 
     ![QA에 대한 작업 추가](./media/how-to-ci-cd/add-task-qa.png)
 

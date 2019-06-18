@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629308"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
@@ -52,7 +52,7 @@ ms.locfileid: "60629308"
 | --- | --- |
 | 최소 가상 프로세서(코어) 수 |4 |
 | 최소 메모리(RAM) |8GB <br> 파일 서버의 경우 2백만 개 미만의 파일에 대해 8GB, 2-4백만 개 파일에 대해 16GB|
-| 디스크 공간<sup>1</sup> |OS 디스크 - 80GB  <br></br>데이터 디스크 - 500GB~8TB |
+| 디스크 공간<sup>1</sup> |OS 디스크 - 80GB <br></br>데이터 디스크 - 500GB~8TB |
 | 최소 네트워크 인터페이스 수 |1 |
 | 인터넷 대역폭<sup>2</sup> |필요한 최소 대역폭: 5Mbps <br> 권장 대역폭: 100Mbps <br> 데이터 전송 속도는 인터넷 대역폭에 따라 다릅니다. 예를 들어, 100GB의 데이터는 5Mbps로 전송하는 데 2일이 걸리며 일일 백업이 하루 안에 완료되지 않으므로 백업 실패로 이어질 수 있습니다. 100Mbps 대역폭, 100GB 데이터는 2.5시간에 전송할 수 있습니다.   |
 
@@ -72,7 +72,7 @@ ms.locfileid: "60629308"
 
 | **지원되는 운영 체제** | **필요한 버전** | **추가 요구 사항/메모** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다. StorSimple iSCSI 볼륨은 다음에 대해서만 지원합니다:  <ul><li>Windows 기본 디스크의 단순 볼륨.</li><li>볼륨 포맷을 위한 Windows NTFS.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다. StorSimple iSCSI 볼륨은 다음에 대해서만 지원합니다: <ul><li>Windows 기본 디스크의 단순 볼륨.</li><li>볼륨 포맷을 위한 Windows NTFS.</li> |
 
 다음 소프트웨어 요구 사항은 StorSimple 가상 배열(파일 서버로 구성됨)에 액세스하는 SMB 클리이언트에 대한 것입니다.
 

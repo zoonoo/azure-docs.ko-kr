@@ -11,10 +11,10 @@ ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509600"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
@@ -108,7 +108,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
 3.  메시지가 표시되면 다음을 지정합니다. a.  스토리지 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
     b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
-    다.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
+    c.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
     d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
 
 이전 단계를 따랐다면 **wingtiptoys**라는 가상의 회사에 대한 *UI-Customization-Pack*의 HTML5 및 CSS 파일은 이제 사용자의 저장소 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 창을 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
@@ -119,8 +119,8 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 콘텐츠를 호스팅하는 저장소에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. https://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
+1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
+2. https://test-cors.org 로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65607230"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 데이터 오류
@@ -43,7 +43,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
 * 원인: 선택한 압축 입력된 형식에는 데이터가 일치 하지 않습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 이벤트 허브에 대 한 식별자가 PartitionId, 오프셋 및 시퀀스 번호입니다.
@@ -57,7 +57,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
 * 원인: 입력된 데이터의 헤더가 잘못 되었습니다. 예를 들어, CSV 이름이 중복 된 열이 있습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 
@@ -72,7 +72,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
 * 원인: TIMESTAMP BY를 통해 또는 CREATE TABLE을 사용 하 여 정의 된 입력된 열이 존재 하지 않습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 
@@ -92,7 +92,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
 * 원인: CREATE TABLE 문에서 지정 된 형식에 대 한 입력을 변환할 수 없습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 
@@ -111,7 +111,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
 * 원인: 입력된 데이터가 올바른 형식이 아닙니다. 예를 들어, 입력에 유효한 JSON 하지 않습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 
@@ -130,7 +130,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
 * 원인: TIMESTAMP BY 식의 값을 datetime로 변환할 수 없습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 메시지 식별자를 입력 합니다. 
@@ -146,7 +146,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
 * 원인: TIMESTAMP BY OVER timestampColumn의 값은 NULL입니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 몇 킬로바이트 최대 실제 페이로드입니다.
@@ -206,7 +206,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
 * 원인: 출력에 필요한 열이 존재 하지 않습니다. 예를 들어, Azure 테이블 PartitionKey 않는으로 정의 된 열이 존재 합니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 열 및 레코드 식별자 또는 레코드의 일부분의 이름입니다.
@@ -220,7 +220,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
 * 원인: 출력을 사용 하 여 열 값을 준수 하지 않습니다. 예를 들어 열 이름에는 유효한 Azure 표 열 하지 않습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 열 및 레코드 식별자 또는 레코드의 일부분의 이름입니다.
@@ -234,7 +234,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
 * 원인: 열 출력에 유효한 형식으로 변환할 수 없습니다. 예를 들어, 열의 값 제약 조건 또는 SQL 테이블에 정의 된 형식을 사용 하 여 호환 되지 않습니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 열의 이름입니다.
@@ -249,7 +249,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
 * 원인: 메시지의 값이 지원 되는 출력 크기 보다 큽니다. 예를 들어, 레코드를 이벤트 허브 출력에 대 한 1MB 보다 큽니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 레코드 식별자 또는 레코드의 일부입니다.
@@ -263,7 +263,7 @@ Azure Stream Analytics 작업에서 처리 되는 데이터에 차이가 있으�
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
 * 원인: 레코드는 시스템 열 이름이 같은 열에 이미 있습니다. 예를 들어 열을 사용 하 여 CosmosDB 출력 라는 다른 열에 ID 열이 ID입니다.
-* 포털 알림을 제공 합니다. 예.
+* 포털 알림을 제공 합니다. 예
 * 진단 로그 수준: Warning
 * 로그 세부 정보
    * 열의 이름입니다.

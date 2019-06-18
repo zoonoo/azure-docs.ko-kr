@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048646"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor에서 솔루션을 모니터링 하는 azure 네트워킹
 
@@ -126,7 +126,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
   * 각 Application Gateway의 시간당 요청
   * 각 Application Gateway의 시간당 실패한 요청
   * Application Gateway에 대한 사용자 에이전트별 오류
-* Application Gateway 성능 
+* Application Gateway 성능
   * Application Gateway에 대한 호스트 상태
   * Application Gateway 실패한 요청에 대해 최댓값 및 95번째 백분위수
 
@@ -191,10 +191,10 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 
 * 네트워크 보안 그룹 차단 흐름
   * 차단된 흐름이 있는 네트워크 보안 그룹 규칙
-  * 차단된 흐름이 있는 MAC 주소 
+  * 차단된 흐름이 있는 MAC 주소
 * 네트워크 보안 그룹 허용 흐름
   * 허용된 흐름이 있는 네트워크 보안 그룹 규칙
-  * 허용된 흐름이 있는 MAC 주소 
+  * 허용된 흐름이 있는 MAC 주소
 
 ![Azure 네트워크 보안 그룹 분석 대시보드 이미지](media/azure-networking-analytics/log-analytics-nsg01.png)
 
@@ -221,8 +221,8 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 
      | 다음 위치 대신 | 사용: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; 여기서 ResourceType "APPLICATIONGATEWAYS" 및 OperationName = = "ApplicationGatewayAccess" = = |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; 여기서 ResourceType "APPLICATIONGATEWAYS" 및 OperationName = = "ApplicationGatewayPerformance" = = |
      | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.

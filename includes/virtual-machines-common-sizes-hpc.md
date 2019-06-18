@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
 ms.openlocfilehash: 9b4bdee19c883252e7de140ac7b19babd43d1df8
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755191"
 ---
 Azure H 시리즈 virtual machines (Vm)는 다양 한 실제 HPC 워크 로드에 대 한 효율성 비용과 리더십 수준의 성능, MPI 확장성을 제공 하도록 설계 되었습니다.

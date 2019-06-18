@@ -37,6 +37,9 @@
       href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
     - name: 아티팩트 보호
       href: resource-manager-tutorial-secure-artifacts.md
+    - name: Azure Pipelines를 사용한 연속 통합
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
     - name: 안전한 배포 사례 사용
       displayName: adm
       href: deployment-manager-tutorial.md

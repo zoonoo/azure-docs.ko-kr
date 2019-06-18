@@ -5,18 +5,24 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 4dcbaf159fce6b5f5495a6a25a2a3420cad9e5e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/11/2019
+ms.openlocfilehash: 0fc4eb90d9bed3877b4618fd839d9e8bf1608718
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65067252"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063733"
 ---
 # <a name="supported-postgresql-database-versions"></a>지원되는 PostgreSQL 데이터베이스 버전
 Microsoft는 PostgreSQL-단일 서버에 대 한 Azure Database의 PostgreSQL 엔진 n-2 버전을 지원 하려고 합니다. 버전은 Azure(n)의 현재 주요 버전과 두 개의 이전 주요 버전(-2)이 됩니다.
 
 PostgreSQL용 Azure 데이터베이스는 현재 다음 버전을 지원합니다.
+
+## <a name="postgresql-version-112"></a>PostgreSQL 버전 11.2
+이 부 버전의 향상된 기능 및 수정 내용에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-2.html)를 참조하세요.
+
+>[!NOTE]
+> PostgreSQL 버전 11 미리 보기로 제공 됩니다. Azure portal을 사용 하 여 만들기에 대 한 지원을 롤아웃하는 아직 못할 지역의 하며 사용할 수는 [Azure CLI](quickstart-create-server-database-azure-cli.md) 서버를 만들려면 Postgres 11 모든 지역에서. 예: `az postgres server create -g group -n server -u username -p password -l westeurope --sku-name GP_Gen5_2 --version 11`.
 
 ## <a name="postgresql-version-107"></a>PostgreSQL 버전 10.7
 이 부 버전의 향상된 기능 및 수정 내용에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/10/static/release-10-7.html)를 참조하세요.

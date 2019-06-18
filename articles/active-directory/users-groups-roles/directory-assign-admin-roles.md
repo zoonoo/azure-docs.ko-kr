@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083931"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -91,24 +91,26 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 모든 Intune 감사 데이터 확인
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음<br>파일 정책을 생성/수정하고 파일 거버넌스 작업을 허용할 수 있음<br> 데이터 관리에서 모든 기본 제공 보고서를 확인할 수 있음
 
-<!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
+* **[준수 데이터 관리자](#compliance-data-administrator)** : 이 역할이 할당 된 사용자 권한을 보호 하 고 Microsoft 365 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적 합니다. 또한 사용자는 Exchange 관리 센터, 준수 관리자, Teams 및 비즈니스용 Skype 관리 센터 내의 모든 기능을 관리하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다.
 
-  In | Can do
+  그런 다음 | 가능한 작업
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
--->
-* **[조건부 액세스 관리자](#conditional-access-administrator)** : 이 역할을 가진 사용자는 Azure Active Directory 조건부 액세스 설정을 관리할 수 있습니다.
+  [Microsoft 365 규정 준수 센터](https://protection.office.com) | Microsoft 365 서비스에서 정책 준수와 관련 된 모니터링<br>규정 준수 경고 관리
+  [준수 관리자](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 조직의 규정 준수 활동 추적, 할당, 확인
+  [Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 데이터 거버넌스 관리<br>법적 조사/데이터 조사 수행<br>데이터 주체 요청 관리
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 모든 Intune 감사 데이터 확인
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음<br>파일 정책을 생성/수정하고 파일 거버넌스 작업을 허용할 수 있음<br> 데이터 관리에서 모든 기본 제공 보고서를 확인할 수 있음
+
+* **[조건부 액세스 관리자](#conditional-access-administrator)** : 이 역할의 사용자는 Azure Active Directory 조건부 액세스 설정을 관리할 수가 있습니다.
   > [!NOTE]
-  > Azure에서 Exchange ActiveSync 조건부 액세스 정책을 배포하려면 사용자도 글로벌 관리자여야 합니다.
+  > Azure에서 Exchange ActiveSync 조건부 액세스 정책을 배포 하려면 사용자는 전역 관리자를 수도 있어야 합니다.
   
 * **[고객 Lockbox 액세스 승인자](#customer-lockbox-access-approver)** : 조직에서 [고객 Lockbox 요청](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests)을 관리합니다. 이러한 고객 Lockbox 요청에 대한 이메일 알림을 수신하고 Microsoft 365 관리 센터에서 요청을 승인 및 거부할 수 있습니다. 고객 Lockbox 기능을 켜거나 끌 수도 있습니다. 글로벌 관리자만 이 역할에 할당된 사용자의 암호를 재설정할 수 있습니다.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[디바이스 관리자](#device-administrators)** : 이 역할은 [디바이스 설정](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)의 추가 로컬 관리자로서 할당을 위해서만 사용할 수 있습니다. 이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 디바이스에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 디바이스 개체를 관리하는 기능이 없습니다. 
+* **[데스크톱 분석 관리자](#desktop-analytics-administrator)** : 이 역할의 사용자 데스크톱 분석 및 Office 사용자 지정 및 정책 서비스를 관리할 수 있습니다. 데스크톱 분석에 대 한 자산 인벤토리를 보기, 배포 계획을 만들고, 배포 및 상태를 확인 하는 기능이 포함 됩니다. Office 사용자 지정 및 정책 서비스에 대 한이 역할에는 Office 정책을 관리 하는 사용자 수 있습니다.
+
+* **[장치 관리자](#device-administrators)** : 이 역할은 [디바이스 설정](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)의 추가 로컬 관리자로서 할당을 위해서만 사용할 수 있습니다. 이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 디바이스에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 디바이스 개체를 관리하는 기능이 없습니다. 
 
 * **[디렉터리 읽기 권한자](#directory-readers)** : 이 지원 하지 않는에 레거시 응용 프로그램 할당 되어야 하는 역할을 [동의 프레임 워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)합니다. 사용자에 게 할당 하지 마세요.
 
@@ -210,19 +212,20 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다.
   [Office 365 서비스 상태](https://docs.microsoft.com/office365/enterprise/view-service-health) | Office 365 서비스의 상태 확인
 
-<!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
+* **[보안 연산자](#security-operator)** : 이 역할의 사용자는 경고를 관리할 수 있으며 모든 정보를 포함 하 여 Microsoft 365 보안 센터에서 Azure Active Directory, Identity Protection, Privileged Identity Management 및 Office 365의 보안 관련 기능에 대 대 한 전역 읽기 전용 액세스를 가질 Security & Compliance Center입니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)에서 제공됩니다.
 
-  In | Can do
+  그런 다음 | 가능한 작업
   --- | ---
-  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-  Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-  [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
--->
+  [Microsoft 365 보안 센터](https://protection.office.com) | 보안 읽기 권한자 역할의 모든 권한<br>보기, 조사 및 보안 위협 경고에 대응
+  ID 보호 센터 | 보안 읽기 권한자 역할의 모든 권한<br>암호 재설정을 제외한 모든 ID 보호 센터 작업을 수행하는 기능도 있음
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 보안 읽기 권한자 역할의 모든 권한
+  [Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 읽기 권한자 역할의 모든 권한<br>보기, 조사 및 보안 경고에 대응
+  Windows Defender ATP 및 EDR | 보안 읽기 권한자 역할의 모든 권한<br>보기, 조사 및 보안 경고에 대응
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 보안 읽기 권한자 역할의 모든 권한
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 보안 읽기 권한자 역할의 모든 권한
+  [Office 365 서비스 상태](https://docs.microsoft.com/office365/enterprise/view-service-health) | Office 365 서비스의 상태 확인
+<!--* **[Security Operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
+
 * **[보안 읽기 권한자](#security-reader)** : 이 역할의 사용자에게는 Microsoft 365 보안 센터, Azure Active Directory, ID 보호, Privileged Identity Management의 모든 정보를 비롯한 보안 관련 기능에 대한 전역 읽기 전용 액세스 권한이 있습니다. 또한 Azure Active Directory 로그인 보고서와 감사 로그 읽기 권한 및 Office 365 보안 및 준수 센터의 읽기 권한도 있습니다. Office 365 사용 권한에 대한 자세한 정보는 [Office 365 보안 및 규정 준수 센터의 사용 권한](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)에서 제공됩니다.
 
   그런 다음 | 가능한 작업
@@ -406,22 +409,6 @@ Azure Information Protection 서비스의 모든 측면을 관리할 수 있습�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="desktop-analytics-administrator"></a>데스크톱 분석 관리자
-데스크톱 분석 및 Office 사용자 지정 및 정책 서비스를 관리할 수 있습니다. 데스크톱 분석에 대 한 자산 인벤토리를 보기, 배포 계획을 만들고, 배포 및 상태를 확인 하는 기능이 포함 됩니다. Office 사용자 지정 및 정책 서비스에 대 한이 역할에는 Office 정책을 관리 하는 사용자 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
-  >
-  >
-
-| **actions** | **설명** |
-| --- | --- |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | 데스크톱 분석의 모든 측면을 관리합니다. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="cloud-application-administrator"></a>클라우드 애플리케이션 관리자
 앱 프록시를 제외한 앱 등록 및 엔터프라이즈 앱의 모든 측면을 만들고 관리할 수 있습니다.
@@ -565,6 +552,28 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
+### <a name="compliance-data-administrator"></a>준수 데이터 관리자
+만들고 준수 콘텐츠를 관리 합니다.
+
+  > [!NOTE]
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | 읽고 Microsoft Cloud App Security를 구성 합니다. |
+| microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면을 관리합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| microsoft.office365.complianceManager/allEntities/allTasks | Office 365 준수 관리자의 모든 측면을 관리합니다. |
+| microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+
 ### <a name="conditional-access-administrator"></a>조건부 액세스 관리자
 조건부 액세스 기능을 관리할 수 있습니다.
 
@@ -608,6 +617,23 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.lockbox/allEntities/allTasks | Office 365 고객 Lockbox의 모든 측면을 관리합니다. |
+
+### <a name="desktop-analytics-administrator"></a>데스크톱 분석 관리자
+데스크톱 분석 및 Office 사용자 지정 및 정책 서비스를 관리할 수 있습니다. 데스크톱 분석에 대 한 자산 인벤토리를 보기, 배포 계획을 만들고, 배포 및 상태를 확인 하는 기능이 포함 됩니다. Office 사용자 지정 및 정책 서비스에 대 한이 역할에는 Office 정책을 관리 하는 사용자 수 있습니다.
+
+  > [!NOTE]
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | 데스크톱 분석의 모든 측면을 관리합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="device-administrators"></a>디바이스 관리자
 이 역할에 할당 된 사용자는 Azure AD 가입 장치에서 로컬 administrators 그룹에 추가 됩니다.
@@ -1081,6 +1107,25 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 | microsoft.office365.protectionCenter/allEntities/update | microsoft.office365.protectionCenter에서 모든 리소스를 업데이트합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
+### <a name="security-operator"></a>보안 연산자
+만들고 보안 이벤트를 관리 합니다.
+
+  > [!NOTE]
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | 읽고 Microsoft Cloud App Security를 구성 합니다. |
+| microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | 페이지를 읽고 Azure AD의 Advanced Threat Protection을 구성 합니다. |
+| microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | 읽고 보안 및 규정 준수 센터를 구성 합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | 읽고 Windows Defender Advanced Threat Protection을 구성 합니다. |
+
 ### <a name="security-reader"></a>보안 판독기
 Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습니다.
 
@@ -1261,14 +1306,15 @@ B2C 사용자 흐름 특성 관리자 | B2C 사용자 흐름 특성 관리자 | 
 B2C IEF 키 집합 관리자 | B2C IEF 키 집합 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF 정책 관리자 | B2C IEF 정책 관리자 | 3edaf663-341e-4475-9f94-5c398ef6c070
 대금 청구 관리자 | 대금 청구 관리자 | b0f54661-2d74-4c50-afa3-1ec803f12efe
-데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 클라우드 애플리케이션 관리자 | 클라우드 애플리케이션 관리자 | 158c047a-c907-4556-b7ef-446551a6b5f7
 클라우드 디바이스 관리자 | 클라우드 디바이스 관리자 | 7698a772-787b-4ac8-901f-60d6b08affd2
 회사 관리자 | 전역 관리자 | 62e90394-69f5-4237-9190-012177145e10
 규정 준수 관리자 | 규정 준수 관리자 | 17315797-102d-40b4-93e0-432062caca18
+준수 데이터 관리자 | 준수 데이터 관리자 | e6d1a23a-da11-4be4-9570-befc86d067a7
 조건부 액세스 관리자 | 조건부 액세스 관리자 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787879f96a
 고객 LockBox 액세스 승인자 | 고객 Lockbox 액세스 승인자 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 디바이스 관리자 | 장치 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 디바이스 연결 | 장치 연결 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 디바이스 관리 | 장치 관리자 | 2b499bcd-da44-4968-8aec-78e1674fa64d
@@ -1295,6 +1341,7 @@ Power BI 서비스 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edc
 검색 관리자 | 검색 관리자 | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 검색 편집기 | 검색 편집기 | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 보안 관리자 | 보안 관리자 | 194ae4cb-b126-40b2-bd5b-6091b380977d
+보안 연산자 | 보안 연산자 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 보안 판독기 | 보안 판독기 | 5d6b6bb7-de71-4623-b4af-96380a352509
 서비스 지원 관리자 | 서비스 관리자 | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint 서비스 관리자 | Sharepoint 관리자 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

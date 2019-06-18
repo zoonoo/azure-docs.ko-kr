@@ -17,10 +17,10 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: df60b31ce950cc6c242c8077e59d90c41771e4c3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66239563"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
@@ -47,7 +47,7 @@ Azure Portal, PowerShell, Azure 템플릿 또는 Azure CLI를 사용하여 가�
 
 ![Azure Portal에 표시된 Azure Virtual Network의 주소 공간](./media/hana-overview-connectivity/image1-azure-vnet-address-space.png)
 
-10.16.0.0/16 사용 하 여 이전 예제에서는 Azure virtual network는 크고 넓은 IP 주소 범위를 사용 하 여 제공 되었습니다. 따라서 Virtual Network 내의 후속 서브넷의 모든 IP 주소 범위가 주소 공간 내에 자체 범위를 포함할 수 있습니다. 일반적으로 Azure에서는 단일 가상 네트워크에 대해 이러한 대규모 주소 범위를 사용하는 것이 권장되지 않습니다. 하지만 Azure Virtual Network에 정의된 서브넷은 살펴보겠습니다.
+10\.16.0.0/16 사용 하 여 이전 예제에서는 Azure virtual network는 크고 넓은 IP 주소 범위를 사용 하 여 제공 되었습니다. 따라서 Virtual Network 내의 후속 서브넷의 모든 IP 주소 범위가 주소 공간 내에 자체 범위를 포함할 수 있습니다. 일반적으로 Azure에서는 단일 가상 네트워크에 대해 이러한 대규모 주소 범위를 사용하는 것이 권장되지 않습니다. 하지만 Azure Virtual Network에 정의된 서브넷은 살펴보겠습니다.
 
 ![Azure Virtual Network 서브넷 및 해당 IP 주소 범위](./media/hana-overview-connectivity/image2b-vnet-subnets.png)
 

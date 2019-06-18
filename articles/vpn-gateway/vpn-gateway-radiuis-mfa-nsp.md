@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458127"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Multi-Factor Authentication을 위한 NPS 서버와 Azure VPN Gateway RADIUS 인증 통합 
@@ -55,7 +55,7 @@ MFA를 사용하려면 사용자가 Azure AD(Azure Active Directory)에 있어�
 2. NSP 콘솔을 열고 **RADUIS 클라이언트**를 마우스 오른쪽 단추로 클릭한 후 **새로 만들기**를 선택합니다. 다음 설정을 지정하여 RADUIS 클라이언트를 만듭니다.
 
     - **친숙한 이름**: 이름을 입력합니다.
-    - **주소(IP 또는 DNS)**: 1단계에서 만든 게이트웨이 서브넷을 입력합니다.
+    - **주소(IP 또는 DNS)** : 1단계에서 만든 게이트웨이 서브넷을 입력합니다.
     - **공유 비밀**: 비밀 키를 입력하고 나중에 사용할 수 있도록 기억합니다.
 
       ![RADUIS 클라이언트 설정에 대한 이미지](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)

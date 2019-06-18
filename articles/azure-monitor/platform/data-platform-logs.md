@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244849"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
@@ -66,7 +66,7 @@ Azure Monitor 로그에서 데이터를 사용 하 여 검색 됩니다는 [로�
 
 오픈 [Application Insights에서 Log Analytics](../app/analytics.md) Application Insights 데이터를 분석 합니다.
 
-![Application Insights Analytics](media/data-platform-logs/app-insights-analytics.png)
+![Application Insights 분석](media/data-platform-logs/app-insights-analytics.png)
 
 사용 하 여 로그 데이터를 검색할 수도 있습니다는 [Log Analytics API](https://dev.loganalytics.io/documentation/overview) 하며 [Application Insights REST API](https://dev.applicationinsights.io/documentation/overview)합니다.
 
@@ -87,7 +87,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 |:---|:---|
 | 리소스 진단 | Log Analytics 작업 영역에 대 한 메트릭을 비롯 하 여 진단 데이터를 쓸 진단 설정을 구성 합니다. 참조 [Log Analytics로 Azure 진단 로그를 Stream](diagnostic-logs-stream-log-store.md)합니다. |
 | 모니터링 솔루션 | 모니터링 솔루션 Log Analytics 작업 영역에이 솔루션은 수집한 데이터를 씁니다. 참조 [Azure의 관리 솔루션에 대 한 데이터 수집 세부 정보](../insights/solutions-inventory.md) 솔루션의 목록은 합니다. 참조 [Azure Monitor에서 솔루션 모니터링](../insights/solutions.md) 설치 하 고 솔루션을 사용 하 여 대 한 자세한 내용은 합니다. |
-| 메트릭 | 플랫폼 메트릭을 Azure Monitor 리소스에 대 한 로그 데이터를 장기간 보존을 사용 하 여 다른 데이터 형식을 사용 하 여 복잡 한 분석을 수행 하는 Log Analytics 작업 영역으로 보낼 합니다 [Kusto 쿼리 언어](/azure/kusto/query/)합니다. 참조 [Log Analytics로 Azure 진단 로그를 Stream](diagnostic-logs-stream-log-store.md)합니다. |
+| metrics | 플랫폼 메트릭을 Azure Monitor 리소스에 대 한 로그 데이터를 장기간 보존을 사용 하 여 다른 데이터 형식을 사용 하 여 복잡 한 분석을 수행 하는 Log Analytics 작업 영역으로 보낼 합니다 [Kusto 쿼리 언어](/azure/kusto/query/)합니다. 참조 [Log Analytics로 Azure 진단 로그를 Stream](diagnostic-logs-stream-log-store.md)합니다. |
 | Azure Table Storage | 일부 Azure 리소스를 작성할 수 있는 Azure storage에서 데이터를 수집할 데이터를 모니터링 합니다. 참조 [Log Analytics를 사용 하 여 이벤트에 대 한 IIS와 Azure table storage에 대 한 사용 하 여 Azure blob storage](azure-storage-iis-table.md)합니다. |
 
 ### <a name="virtual-machines"></a>Virtual Machines

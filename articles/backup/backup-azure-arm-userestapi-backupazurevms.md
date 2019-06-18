@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646778"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
@@ -41,7 +41,7 @@ POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>응답
+#### <a name="responses"></a>Responses
 
 '새로 고침' 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
@@ -50,7 +50,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 |이름  |형식  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
-|202 수락됨     |         |     수락됨    |
+|202 수락됨     |         |     동의함    |
 
 ##### <a name="example-responses"></a>예제 응답
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요없습니다.
 
-#### <a name="responses"></a>응답
+#### <a name="responses"></a>Responses
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 `{sourceResourceId}`는 [보호 가능한 항목 목록의 응답](#example-responses-1)의 위에서 설명한 `{virtualMachineId}`입니다.
 
-#### <a name="responses"></a>응답
+#### <a name="responses"></a>Responses
 
 보호된 항목 만들기는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
@@ -217,7 +217,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 |이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
-|202 수락됨     |         |     수락됨    |
+|202 수락됨     |         |     동의함    |
 
 ##### <a name="example-responses"></a>예제 응답
 
@@ -319,7 +319,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses"></a>응답
+### <a name="responses"></a>Responses
 
 주문형 백업의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
@@ -327,7 +327,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 |이름  |형식  |설명  |
 |---------|---------|---------|
-|202 수락됨     |         |     수락됨    |
+|202 수락됨     |         |     동의함    |
 
 #### <a name="example-responses"></a>예제 응답
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>응답
+### <a name="responses"></a>Responses
 
 보호 *DELETE* 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
@@ -448,7 +448,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 |이름  |형식  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202 수락됨     |         |     수락됨    |
+|202 수락됨     |         |     동의함    |
 
 ## <a name="next-steps"></a>다음 단계
 

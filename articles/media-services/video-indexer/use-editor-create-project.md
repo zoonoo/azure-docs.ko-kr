@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518148"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer 편집기를 사용 하 여 프로젝트를 만들려면
@@ -55,7 +55,7 @@ ms.locfileid: "65518148"
 
     선택 하 여 결과 필터링 할 수 있습니다 **결과 필터링**합니다. 에 특정 사용자를 포함 하는 비디오를 표시 하거나 있는지만 확인 하려는 비디오 결과 지정 하려면 필터링 할 수 있습니다를 특정 언어로 특정 소유자 또는 합니다. <br/> 또한 쿼리의 범위를 지정할 수 있습니다. 에 OCR "GitHub"를 검색 하려는 경우 선택 하는 예를 들어 **시각적 텍스트**합니다.
 
-    ![필터](./media/video-indexer-view-edit/visual-text.png)
+    ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
     쿼리에 여러 필터를 넣을 수 있습니다. 사용 된 **+** / **-** 필터를 추가/제거 하는 단추입니다. 사용 하 여 **필터를 지우려면** 모든 필터를 제거 합니다.
 1. 비디오를 추가 하려면 모두 선택 하 고 선택한 **추가**합니다.
@@ -73,7 +73,7 @@ ms.locfileid: "65518148"
 
 1. 선택 **정보 보기** 참조 및를 보지 않으려면 하려는 insights를 사용자 지정할 수 있습니다. 
 
-    ![인사이트 보기](./media/video-indexer-view-edit/insights.png)
+    ![정보 보기](./media/video-indexer-view-edit/insights.png)
 1. 특정 클립에 대 한 쿼리를 만들려면 "검색 기록, 시각적 텍스트, 사람 및 레이블이" 라는 검색 상자를 사용 합니다.
 1. 추가 선택 하 여 원하는 어떤 장면에서 세부 정보를 지정 하는 필터를 추가할 **필터 옵션**합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "65518148"
     
     비디오 및 선택 옆에 있는 목록 메뉴 옵션을 클릭 하 여 비디오의 모든 세그먼트를 추가할 **모든 세그먼트가 선택**합니다. 
 
-    ![모두 추가](./media/video-indexer-view-edit/add-all.png)
+    ![모든 추가](./media/video-indexer-view-edit/add-all.png)
 
     선택 영역 지우기를 선택 하 여 모든 선택 항목을 지울 수 있습니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "65518148"
 
     이 프로젝트를 선택 하는 경우에 모든 정보 및이 프로젝트의 타임 라인 것이 표시 됩니다. 선택 하는 경우 **비디오 편집기**,이 프로젝트에 편집 작업을 계속할 수 있습니다. 편집에는 추가 또는 비디오 및 클립을 제거 하거나 프로젝트 이름 바꾸기 포함 됩니다.
 
-    ![동영상 편집기](./media/video-indexer-view-edit/video-editor.png)
+    ![비디오 편집](./media/video-indexer-view-edit/video-editor.png)
      
 ## <a name="create-a-project-from-your-video"></a>비디오에서 프로젝트 만들기
 

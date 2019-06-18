@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2a4bdaba45c466b7f1f6fb8e91033f9a7665e034
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253079"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730542"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -113,6 +113,8 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 사용자가 Windows 10 디바이스 로그인 화면에서 암호를 재설정하면 “defaultuser1”이라는 낮은 권한의 임시 계정이 생성됩니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. 여러 개의 “defaultuser” 프로필이 있을 수 있지만 무시해도 무방합니다.
 
 ## <a name="limitations"></a>제한 사항
+
+계정 잠금 해제, 모바일 앱 알림 및 모바일 앱 코드는 Windows 10용 SSPR에서 지원되지 않습니다.
 
 Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 링크가 표시되지 않습니다.
 

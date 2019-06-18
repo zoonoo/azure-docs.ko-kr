@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002021"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
@@ -96,7 +96,7 @@ Cloudyn의 메일 주소를 Azure의 기본 주소에서 변경하면 계정이 
 
 Cloudyn 포털에 로그인할 수 없는 경우 올바른 URL을 사용하여 Cloudyn에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
 
-Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
+Cloudyn 직접 URL https://app.cloudyn.com 은 사용하지 마세요.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법
 

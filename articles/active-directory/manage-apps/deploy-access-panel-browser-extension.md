@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b6f069489738e9dceeee350a36aa2b45715a314
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825025"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
@@ -67,7 +67,7 @@ ms.locfileid: "65825025"
     ![새 GPO 만들기](./media/deploy-access-panel-browser-extension/create-gpo.png)
 5. **새 GPO** 프롬프트에 새 그룹 정책 개체의 이름을 입력합니다.
    
-    ![새 GPO 이름 지정 ](./media/deploy-access-panel-browser-extension/name-gpo.png)
+    ![새 GPO 이름 지정](./media/deploy-access-panel-browser-extension/name-gpo.png)
 6. 만든 그룹 정책 개체를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
    
     ![새 GPO 편집](./media/deploy-access-panel-browser-extension/edit-gpo.png)

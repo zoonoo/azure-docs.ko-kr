@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456180"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
@@ -133,7 +133,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 
-사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
+사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -161,7 +161,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ## <a name="performance-monitor-counters"></a>성능 모니터 카운터
 
-인증 에이전트를 모니터링하는 다른 방법은 인증 에이전트가 설치된 각 서버에서 특정 성능 모니터 카운터를 추적하는 것입니다. 다음 전역 카운터(**# PTA 인증**, **#PTA 실패 인증** 및 **#PTA 성공 인증**) 및 오류 카운터(**# PTA 인증 오류**)를 사용합니다.
+인증 에이전트를 모니터링하는 다른 방법은 인증 에이전트가 설치된 각 서버에서 특정 성능 모니터 카운터를 추적하는 것입니다. 다음 전역 카운터( **# PTA 인증**, **#PTA 실패 인증** 및 **#PTA 성공 인증**) 및 오류 카운터( **# PTA 인증 오류**)를 사용합니다.
 
 ![통과 인증 성능 모니터 카운터](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

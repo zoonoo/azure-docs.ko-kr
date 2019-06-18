@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825611"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환  
@@ -45,8 +45,8 @@ ms.locfileid: "60825611"
 | 특성 이름 | 설명 |
 | --- | --- |
 |AdvancedOutput| AdvancedOutput을 true로 설정하면 JSON 출력에는 모든 단일 단어(구 및 지역 외에)에 대해 위치 데이터가 포함됩니다. 이러한 세부 정보를 표시하지 않으려면 flag를 false로 설정합니다. 기본값은 False입니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)를 참조하세요.|
-| 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. 다음 중 하나 AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish |
-| TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  다음 중 하나 AutoDetect(기본값), Up, Right, Down, Left |
+| 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. 다음 중 하나일 수 있습니다. AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish |
+| TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  다음 중 하나일 수 있습니다. AutoDetect(기본값), Up, Right, Down, Left |
 | TimeInterval |(선택 사항) 샘플링 속도를 설명합니다.  기본값은 1/2초 간격입니다.<br/>JSON 형식 – HH:mm:ss.SSS(기본값 00:00:00.500)<br/>XML 형식 – W3C XSD 기간 기본 형식(기본 PT0.5) |
 | DetectRegions |(선택 사항) 텍스트를 검색할 비디오 프레임 내의 영역을 지정하는 DetectRegion 개체의 배열입니다.<br/>DetectRegion 개체는 다음 4개 정수 값으로 구성됩니다.<br/>Left - 왼쪽 여백에서 픽셀<br/>Top - 위쪽 여백에서 픽셀<br/>Width – 영역 너비(픽셀)<br/>Height – 영역 높이(픽셀) |
 
@@ -107,15 +107,15 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 | --- | --- |
 | 시간 간격 |동영상의 초당 "틱" |
 | Offset |타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항상 0입니다. |
-| 프레임 속도 |동영상의 초당 프레임 수 |
+| Framerate |동영상의 초당 프레임 수 |
 | width |픽셀 단위의 동영상 너비 |
 | height |픽셀 단위의 동영상 높이 |
-| 조각 |메타데이터가 청크되는 시간 기반 비디오 청크 배열 |
+| Fragments |메타데이터가 청크되는 시간 기반 비디오 청크 배열 |
 | start |"틱" 단위의 조각 시작 시간 |
 | duration |"틱" 단위의 조각 길이 |
 | interval |지정된 조각 내의 각 이벤트 간격 |
 | events |영역을 포함하는 배열 |
-| region |검색된 단어 또는 구를 나타내는 개체 |
+| 영역(region) |검색된 단어 또는 구를 나타내는 개체 |
 | 언어 |지역 내에서 검색된 텍스트의 언어 |
 | orientation |지역 내에서 검색된 텍스트의 방향 |
 | lines |지역 내에서 검색된 텍스트의 줄 배열 |

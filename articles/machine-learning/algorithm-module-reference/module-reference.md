@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145145"
 ---
 # <a name="algorithm--module-reference-overview"></a>알고리즘 및 모듈 참조 개요
@@ -37,12 +37,12 @@ ms.locfileid: "65145145"
 | Python 모듈 | 코드를 작성 하 고 실험과 함께 Python을 통합 하는 모듈에 포함 해야 합니다. | [Python 스크립트 실행](execute-python-script.md)   <br/> [Python 모델 만들기](create-python-model.md)
 |  | **기계 학습 알고리즘**: | |
 | 분류 | 클래스를 예측 합니다.  이진 (2 클래스)에서 선택 하거나 다중 클래스 알고리즘입니다.| [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md)  <br/>  [2 클래스 로지스틱 회귀](two-class-logistic-regression.md)  <br/>[2 클래스 평균된 퍼셉트론](two-class-averaged-perceptron.md) <br/> [2 클래스&nbsp;승격&nbsp;의사 결정&nbsp;트리](two-class-boosted-decision-tree.md)  <br/> [2 클래스 의사 결정 포리스트](two-class-decision-forest.md)  <br/> [2 클래스 신경망](two-class-neural-network.md)  <br/> [두&#8209;클래스&nbsp;지원&nbsp;벡터&nbsp;컴퓨터](two-class-support-vector-machine.md) 
-| 클러스터링 | 데이터를 그룹화 합니다.| [K-means 클러스터링](k-means-clustering.md)
+| Clustering | 데이터를 그룹화 합니다.| [K-means 클러스터링](k-means-clustering.md)
 | 회귀 | 값을 예측 합니다. | [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md)  <br/> [향상 된&nbsp;의사 결정&nbsp;트리&nbsp;회귀](boosted-decision-tree-regression.md)
 |  | **빌드 및 모델 평가**: | |
 | 학습   | 알고리즘을 통해 데이터를 실행 합니다. | [모델 학습](train-model.md)  <br/> [클러스터링 모델 학습](train-clustering-model.md)    |
 | 모델 평가 | 학습된 된 모델의 정확도 측정 합니다. |  [모델 평가](evaluate-model.md)
-| Score | 방금 학습 된 모델에서 예측을 가져옵니다. | [변환 적용](apply-transformation.md)<br/>[할당할&nbsp;데이터&nbsp;에&nbsp;클러스터](assign-data-to-clusters.md) <br/>[모델 점수 매기기](score-model.md)
+| 점수 | 방금 학습 된 모델에서 예측을 가져옵니다. | [변환 적용](apply-transformation.md)<br/>[할당할&nbsp;데이터&nbsp;에&nbsp;클러스터](assign-data-to-clusters.md) <br/>[모델 점수 매기기](score-model.md)
 
 ## <a name="error-messages"></a>오류 메시지
 

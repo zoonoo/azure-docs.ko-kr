@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823337"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
@@ -165,7 +165,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
 * BOOLEAN
-* 정수 
+* 정수
 * Double
 * DateTime
 

@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073791"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
@@ -48,6 +48,9 @@ ms.locfileid: "65073791"
 ## <a name="prepare-your-app"></a>앱 준비
 
 이 문서에서는 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함하는 Azure 투표 애플리케이션 예제를 사용합니다. 자동화된 배포를 위해 Jenkins 및 AKS를 통합하기 전에 먼저 수동으로 Azure 투표 애플리케이션을 준비하고 AKS 클러스터에 배포합니다. 이 수동 배포는 애플리케이션의 버전 1이고 이를 통해 작동 중인 애플리케이션을 볼 수 있습니다.
+
+> [!NOTE]
+> 샘플 Azure 투표 응용 프로그램을 Linux 노드에서 실행 되도록 예약 된 Linux pod를 사용 합니다. 이 문서에 설명 된 흐름이 Windows 서버 노드에서 예약 된 Windows Server pod 에서도 작동 합니다.
 
 애플리케이션 예제([https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis))의 다음 GitHub 리포지토리를 포크합니다. 사용자 고유의 GitHub 계정에 리포지토리를 분기하려면 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.
 
@@ -172,7 +175,7 @@ Jenkins 환경 변수는 ACR 로그인 서버 이름을 저장하는 데 사용�
 
 ## <a name="create-a-jenkins-credential-for-acr"></a>ACR의 Jenkins 자격 증명 만들기
 
-Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다. 이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다. CI/CD 프로세스 중에 Jenkins는 애플리케이션 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다. 역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
+Jenkins가 업데이트된 컨테이너 이미지를 빌드한 후 ACR에 푸시할 수 있게 하려면 ACR의 자격 증명을 지정해야 합니다. 이 인증에는 Azure Active Directory 서비스 주체를 사용할 수 있습니다. 필수 구성 요소로 ACR 레지스트리에 대한 ‘읽기 권한자’ 권한이 있는 AKS 클러스터의 서비스 주체를 구성했습니다.  이러한 권한을 사용하면 AKS 클러스터가 ACR 레지스트리에서 이미지를 ‘풀’할 수 있습니다.  CI/CD 프로세스 중에 Jenkins는 애플리케이션 업데이트를 기반으로 새 컨테이너 이미지를 빌드하고 이후 해당 이미지를 ACR 레지스트리로 ‘푸시’해야 합니다.  역할 및 권한을 구분하기 위해 이제 ACR 레지스트리에 대한 *Contributor* 권한이 있는 Jenkins의 서비스 주체를 구성합니다.
 
 ### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>ACR를 사용할 Jenkins의 서비스 주체 만들기
 
@@ -208,7 +211,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Azure에서 만든 역할 할당을 사용하여 이제 ACR 자격 증명을 Jenkins 자격 증명 개체에 저장합니다. 이러한 자격 증명은 Jenkins 빌드 작업 중에 참조됩니다.
 
-다시 Jenkins 포털의 왼쪽에서 **자격 증명** > **Jenkins** > **전역 자격 증명(무제한)** > **자격 증명 추가**를 클릭합니다.
+다시 Jenkins 포털의 왼쪽에서 **자격 증명** > **Jenkins** > **전역 자격 증명(무제한)**  > **자격 증명 추가**를 클릭합니다.
 
 자격 증명 종류가 **사용자 이름 및 암호**인지 확인하고 다음 항목을 입력합니다.
 
@@ -277,7 +280,7 @@ GitHub 커밋을 기반으로 작업을 자동화하기 전에 먼저 수동으�
 
 1. 웹 브라우저에서 포크된 GitHub 리포지토리로 이동합니다.
 1. **설정**을 선택한 다음, 왼쪽에 있는 **웹후크**를 선택합니다.
-1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 `http://<publicIp:8080>/github-webhook/`를 입력합니다. 여기서 `<publicIp>`는 Jenkins 서버의 IP 주소입니다. 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
+1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 `http://<publicIp:8080>/github-webhook/`를 입력합니다. 여기서 `<publicIp>`는 Jenkins 서버의 IP 주소입니다.  후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
 1. **웹후크 추가**를 선택합니다.
 
     ![Jenkins의 GitHub 웹후크 만들기](media/aks-jenkins/webhook.png)

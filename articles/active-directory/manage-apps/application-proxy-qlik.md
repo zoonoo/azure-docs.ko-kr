@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859547"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
@@ -56,7 +56,7 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 **10단계:** SSO를 설정하지 않고 **Single Sign-On을 사용하도록 설정하지 않고** 내버려 둡니다.
  
  
-## <a name="testing"></a>테스트하는 중 
+## <a name="testing"></a>테스트 
 애플리케이션을 테스트할 준비가 되었습니다. 애플리케이션 #1에 QlikSense를 게시하는 데 사용되는 외부 URL에 액세스하고 두 애플리케이션에 할당된 사용자 권한으로 로그인합니다.  
 
 ## <a name="additional-references"></a>추가 참조

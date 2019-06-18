@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111127"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 리소스 만들기
@@ -42,12 +42,12 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 다음 절차에서는 표준 계층 Service Bus 네임스페이스와, 네임스페이스 안의 큐를 만드는 Azure Resource Manager 템플릿을 PowerShell을 사용하여 배포하는 방법을 설명합니다. 이 예제는 [큐가 있는 Service Bus 네임스페이스 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) 템플릿을 기초로 합니다. 대략적인 워크플로 다음과 같습니다.
 
 1. PowerShell을 설치합니다.
-2. 템플릿 및 매개 변수 파일(옵션)을 만듭니다. 
+2. 템플릿 및 매개 변수 파일(옵션)을 만듭니다.
 3. PowerShell에서 Azure 계정에 로그인합니다.
 4. 새 리소스 그룹이 아직 없으면 만듭니다.
 5. 배포를 테스트합니다.
@@ -56,7 +56,7 @@ Azure Resource Manager 템플릿을 통해 솔루션에 사용할 리소스를 �
 
 Azure Resource Manager 배포 템플릿에 대한 모든 내용은 [Azure Resource Manager 템플릿으로 리소스 배포][Deploy resources with Azure Resource Manager templates]를 참조하세요.
 
-### <a name="install-powershell"></a>PowerShell 설치 
+### <a name="install-powershell"></a>PowerShell 설치
 
 [Azure PowerShell 시작하기](/powershell/azure/get-started-azureps)의 지침을 따라서 Azure PowerShell을 설치합니다.
 

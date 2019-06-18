@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496205"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor의 컨테이너 모니터링 솔루션
@@ -49,12 +49,12 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원
 다음 표에서의 Docker 오케스트레이션 및 Azure Monitor를 사용 하 여 모니터링 되는 컨테이너 인벤토리, 성능 및 로그의 지원 운영 체제를 간략하게 설명 합니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | Image<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
+| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| 서비스<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| 서비스<br>패브릭 | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(독립 실행형) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux 서버<br>(독립 실행형) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -580,9 +580,9 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 
 대시보드의 각 영역은 수집된 데이터에서 실행되는 검색을 시각적으로 나타냅니다.
 
-![컨테이너 대시보드 ](./media/containers/containers-dash01.png)
+![컨테이너 대시보드](./media/containers/containers-dash01.png)
 
-![컨테이너 대시보드 ](./media/containers/containers-dash02.png)
+![컨테이너 대시보드](./media/containers/containers-dash02.png)
 
 **컨테이너 상태** 영역에서 아래 그림과 같이 위쪽 영역을 클릭합니다.
 
@@ -619,7 +619,7 @@ Log Analytics가 열리고 컨테이너 상태에 대 한 정보를 표시 합�
 - **ContainerLog** – 특정 오류 로그 정보와 항목을 찾으려 할 때 이 유형을 사용합니다.
 - **ContainerNodeInventory_CL** 컨테이너가 상주하는 호스트/노드에 대한 정보를 얻으려면 이 유형을 사용합니다. Docker 버전, 오케스트레이션 형식, 저장소 및 네트워크 정보를 제공합니다.
 - **ContainerProcess_CL** 컨테이너 내에서 실행 중인 프로세스를 신속하게 확인하려면 이 형식을 사용합니다.
-- **ContainerServiceLog** – 시작, 중지, 삭제, 끌어오기 명령 등과 같이 Docker 데몬의 감사 추적 정보를 찾으려 할 때 이 유형을 사용합니다. 
+- **ContainerServiceLog** – 시작, 중지, 삭제, 끌어오기 명령 등과 같이 Docker 데몬의 감사 추적 정보를 찾으려 할 때 이 유형을 사용합니다.
 - **KubeEvents_CL** Kubernetes 이벤트를 확인하려면 이 형식을 사용합니다.
 - **KubePodInventory_CL** 클러스터 계층 구조 정보를 이해하려면 이 형식을 사용합니다.
 

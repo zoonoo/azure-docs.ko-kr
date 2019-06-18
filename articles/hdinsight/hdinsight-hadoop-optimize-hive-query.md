@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059393"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
@@ -39,7 +39,7 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Map Reduce 대신 Apache Tez 사용
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
+[Apache Tez](https://tez.apache.org/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 * **컨테이너를 다시 사용**합니다. 가능할 때마다 Tez가 컨테이너를 다시 시작하여 컨테이너 시작으로 인한 대기 시간이 줄어듭니다.
 * **연속 최적화 기술**. 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
 
-이러한 개념에 대한 자세한 내용은 [Apache TEZ](https://hortonworks.com/hadoop/tez/)를 참조하세요.
+이러한 개념에 대한 자세한 내용은 [Apache TEZ](https://tez.apache.org/)를 참조하세요.
 
 다음 설정 명령을 사용하여 쿼리를 접두사로 지정하면 Tez가 사용되는 Hive 쿼리를 원하는 대로 만들 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709518"
 ---
 # <a name="encoding-error-codes"></a>Encoding 오류 코드
 
@@ -30,7 +30,7 @@ ms.locfileid: "61463906"
 | 알 수 없음 |작업을 실행하는 동안 알 수 없는 오류입니다. |
 | ErrorDownloadingInputAssetMalformedContent |잘못된 파일 이름, 길이가 0 인 파일, 잘못된 형식 등 입력 자산을 다운로드하는 동안 발생하는 오류를 포함하는 오류 범주입니다. |
 | ErrorDownloadingInputAssetServiceFailure |다운로드하는 동안 발생하는 네트워크 또는 저장소 오류 등 서비스 쪽의 문제를 포함하는 오류 범주입니다. |
-| ErrorParsingConfiguration |구성이 잘못된 시스템 기본 설정이거나 잘못된 XML이 포함된 경우 등 작업 <see cref="MediaTask.PrivateData"/>(구성)가 잘못된 경우의 오류 범주입니다. |
+| ErrorParsingConfiguration |오류 범주입니다 여기서 작업 \<cref="MediaTask.PrivateData"/ 참조 > (구성) 올바르지 않습니다., 예를 들어 구성 되었거나 유효한 시스템 미리 설정에 잘못 된 XML입니다. |
 | ErrorExecutingTaskMalformedContent |입력 미디어 파일 내의 문제로 인해 실패가 발생한 작업을 실행하는 동안 발생하는 오류 범주입니다. |
 | ErrorExecutingTaskUnsupportedFormat |미디어 프로세서가 지정한 미디어 형식이 지원되지 않는 파일을 처리할 수 없거나 구성과 일치하지 않는 경우의 오류 범주입니다. 예를 들어 비디오만 사용할 수 있는 자산에서 오디오 전용 출력을 생성하려고 하는 경우 |
 | ErrorProcessingTask |콘텐츠와 관련되지 않은 작업을 처리하는 동안 미디어 프로세서에서 발생하는 기타 오류 범주입니다. |

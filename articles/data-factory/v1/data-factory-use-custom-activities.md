@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910824"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](data-factory-use-custom-activities.md)
 > * [버전 2(현재 버전)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -370,7 +370,7 @@ public IDictionary<string, string> Execute(
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**, **솔루션 빌드**를 차례로 클릭합니다.
 
     > [!IMPORTANT]
-    > 4.5.2 버전의 .NET Framework를 프로젝트의 대상 프레임워크로 설정합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭하여 대상 프레임워크를 설정합니다. 데이터 팩터리는 .NET Framework 4.5.2 이후 버전에 대해 컴파일된 사용자 지정 작업을 지원하지 않습니다.
+    > 4\.5.2 버전의 .NET Framework를 프로젝트의 대상 프레임워크로 설정합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭하여 대상 프레임워크를 설정합니다. 데이터 팩터리는 .NET Framework 4.5.2 이후 버전에 대해 컴파일된 사용자 지정 작업을 지원하지 않습니다.
 
 11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\debug** 또는 **bin\release** 폴더로 이동합니다.
 12. \<project folder\>\bin\Debug 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 있는 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 **MyDotNetActivity.pdb** 파일을 포함합니다.
@@ -707,7 +707,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름�
     Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral,
     ```
 
-    4.3.0 버전의 Azure Storage 패키지를 사용할 수 있는 경우 4.3.0 이후 버전의 Azure Storage 패키지에 대한 기존 참조를 제거합니다. 그런 다음 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
+    4\.3.0 버전의 Azure Storage 패키지를 사용할 수 있는 경우 4.3.0 이후 버전의 Azure Storage 패키지에 대한 기존 참조를 제거합니다. 그런 다음 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
 
     ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0

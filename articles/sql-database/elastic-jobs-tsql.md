@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475816"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
@@ -456,7 +456,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 [ **\@enabled =** ] enabled  
 작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
-[ **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 기본값은 Once이고, 다음 값 중 하나일 수 있습니다.
 - 'Once',
 - 'Minutes',
@@ -1279,7 +1279,7 @@ GO
 |**step_name**  |nvarchar(128)  |이 작업의 단계에 대한 고유 이름입니다.|
 |**command_type**   |nvarchar(50)   |작업 단계에서 실행할 명령의 유형입니다. v1의 경우 값은 기본값인 'TSql'과 같아야 합니다.|
 |**command_source** |nvarchar(50)|  명령의 위치입니다. v1의 경우 'Inline'이 기본값이며, 허용되는 유일한 값입니다.|
-|**command**|   nvarchar(max)|  command_type을 통해 탄력적 작업에서 실행할 명령입니다.|
+|**명령**|   nvarchar(max)|  command_type을 통해 탄력적 작업에서 실행할 명령입니다.|
 |**credential_name**|   nvarchar(128)   |작업 실행에 사용된 데이터베이스 범위 자격 증명의 이름입니다.|
 |**target_group_name**| nvarchar(128)   |대상 그룹의 이름입니다.|
 |**target_group_id**|   uniqueidentifier|   대상 그룹의 고유 ID입니다.|
@@ -1340,7 +1340,7 @@ GO
 
 ## <a name="resources"></a>리소스
 
- - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 표기 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>다음 단계

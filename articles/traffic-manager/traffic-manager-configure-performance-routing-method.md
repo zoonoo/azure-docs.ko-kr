@@ -2,21 +2,22 @@
 title: Azure Traffic Manager를 사용한 성능 트래픽 라우팅 방법 구성 | Microsoft Docs
 description: 이 문서에서는 가장 낮은 대기 시간으로 트래픽을 엔드포인트로 라우팅하도록 Traffic Manager를 구성하는 방법에 설명합니다.
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048468"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
 ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258366"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
@@ -54,23 +54,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="create-vms-for-running-websites"></a>웹 사이트 운영을 위한 VM 만들기
 
-이 섹션에서는 2 개의 Vm을 만듭니다 *myIISVMEastUS* 및 *myIISVMWestEurope* 에 **미국 동부** 및 **유럽 서 부** Azure 지역입니다.
+이 섹션에서는 **미국 동부**와 **서유럽** Azure 지역에 *myIISVMEastUS* 및 *myIISVMWestEurope*이라는 두 개의 VM을 만듭니다.
 
-1. 위에서 선택한 Azure portal의 상단 왼쪽 **리소스 만들기** > **계산** > **Windows Server 2019 Datacenter**합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2019 Datacenter**를 선택합니다.
 2. **가상 머신 만들기**의 **기본** 탭에서 다음 값을 입력하거나 선택합니다.
 
-   - **구독** > **리소스 그룹**: 선택 **새로 만들기** 차례로 **myResourceGroupTM1**합니다.
-   - **인스턴스 정보** > **가상 머신 이름**: 형식 *myIISVMEastUS*합니다.
-   - **인스턴스 세부 정보** > **지역**:  **미국 동부**를 선택합니다.
-   - **관리자 계정** > **Username**:  선택한 사용자 이름을 입력합니다.
+   - **구독** > **리소스 그룹**: **새로 만들기**를 선택한 다음, **myResourceGroupTM1**을 입력합니다.
+   - **인스턴스 정보** > **가상 머신 이름**: *myIISVMEastUS*를 입력합니다.
+   - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부**를 선택합니다.
+   - **관리자 계정** > **사용자 이름**:  선택한 사용자 이름을 입력합니다.
    - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
    - **인바운드 포트 규칙** > **공용 인바운드 포트**: **선택한 포트 허용**을 선택합니다.
-   - **인바운드 포트 규칙** > **인바운드 포트 선택**: 선택 **RDP** 하 고 **HTTP** 끌어오기 드롭다운 상자에서에서.
+   - **인바운드 포트 규칙** > **인바운드 포트 선택**: 풀다운 상자에서 **RDP** 및 **HTTP**를 선택합니다.
 
-3. 선택 된 **Management** 누르거나 탭 **다음: 디스크**, **다음: 네트워킹**, 다음 **다음: 관리**합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다.
+3. **관리** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹**, **다음: 관리**를 선택합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다.
 4. **검토 + 만들기**를 선택합니다.
-5. 설정을 검토 한 다음 클릭 **만들기**합니다.  
-6. 이라는 두 번째 VM을 만드는 단계를 따릅니다 *myIISVMWestEurope*를 사용 하 여를 **리소스 그룹** 이름 *myResourceGroupTM2*, **위치**의 *유럽 서 부*, 및 다른 모든 설정은 동일 *myIISVMEastUS*합니다.
+5. 설정을 검토한 다음, **만들기**를 클릭합니다.  
+6. 단계에 따라 **리소스 그룹** 이름은 *myResourceGroupTM2*이고, **위치**는 *서유럽*이고, 나머지 설정은 *myIISVMEastUS*와 동일한 *myIISVMWestEurope*이라는 두 번째 VM을 만듭니다.
 7. VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들어질 때까지 나머지 단계를 수행하지 마세요.
 
    ![VM 만들기](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -104,32 +104,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>IIS를 실행하는 VM의 DNS 이름 구성
 
-Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사용자 트래픽을 라우팅합니다. 이 섹션에서는 IIS 서버에 대 한 DNS 이름을 구성한 *myIISVMEastUS* 하 고 *myIISVMWestEurope*합니다.
+Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사용자 트래픽을 라우팅합니다. 이 섹션에서는 IIS 서버 *myIISVMEastUS* 및 *myIISVMWestEurope*의 DNS 이름을 구성합니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupTM1* 리소스 그룹에 있는 *myIISVMEastUS*를 선택합니다.
 2. **개요** 페이지의 **DNS 이름**에서 **구성**을 선택합니다.
 3. **구성** 페이지의 DNS 이름 레이블 아래에서 고유 이름을 추가한 다음, **저장**을 선택합니다.
-4. 명명 된 VM에 대해 1 ~ 3 단계를 반복 *myIISVMWestEurope* 에 있는 합니다 *myResourceGroupTM2* 리소스 그룹입니다.
+4. *myResourceGroupTM2* 리소스 그룹에 있는 *myIISVMWestEurope* VM에 대해 1-3단계를 반복합니다.
 
 ### <a name="create-test-vms"></a>테스트 VM 만들기
 
-이 섹션에서는 VM을 만들 (*myVMEastUS* 하 고 *myVMWestEurope*) 각 Azure 지역에서 (**미국 동부** 고 **유럽 서 부**). 이 VM을 사용하여 사용자가 웹 사이트를 탐색할 때 Traffic Manager가 가장 가까운 IIS 서버로 트래픽을 라우팅하는 방식을 테스트합니다.
+이 섹션에서는 각 Azure 지역(**미국 동부** 및 **서유럽**)에 VM(*myVMEastUS* 및 *myVMWestEurope*)을 만듭니다. 이 VM을 사용하여 사용자가 웹 사이트를 탐색할 때 Traffic Manager가 가장 가까운 IIS 서버로 트래픽을 라우팅하는 방식을 테스트합니다.
 
-1. 위에서 선택한 Azure portal의 상단 왼쪽 **리소스 만들기** > **계산** > **Windows Server 2019 Datacenter**합니다.
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2019 Datacenter**를 선택합니다.
 2. **가상 머신 만들기**의 **기본** 탭에서 다음 값을 입력하거나 선택합니다.
 
    - **구독** > **리소스 그룹**: **myResourceGroupTM1**을 선택합니다.
-   - **인스턴스 정보** > **가상 머신 이름**: 형식 *myVMEastUS*합니다.
-   - **인스턴스 세부 정보** > **지역**:  **미국 동부**를 선택합니다.
-   - **관리자 계정** > **Username**:  선택한 사용자 이름을 입력합니다.
+   - **인스턴스 정보** > **가상 머신 이름**: *myVMEastUS*를 입력합니다.
+   - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부**를 선택합니다.
+   - **관리자 계정** > **사용자 이름**:  선택한 사용자 이름을 입력합니다.
    - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
    - **인바운드 포트 규칙** > **공용 인바운드 포트**: **선택한 포트 허용**을 선택합니다.
-   - **인바운드 포트 규칙** > **인바운드 포트 선택**: 선택 **RDP** 끌어오기 드롭다운 상자에서에서.
+   - **인바운드 포트 규칙** > **인바운드 포트 선택**: 풀다운 상자에서 **RDP**를 선택합니다.
 
-3. 선택 된 **Management** 누르거나 탭 **다음: 디스크**, **다음: 네트워킹**, 다음 **다음: 관리**합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다.
+3. **관리** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹**, **다음: 관리**를 선택합니다. **모니터링**에서 **부트 진단**을 **끄기**로 설정합니다.
 4. **검토 + 만들기**를 선택합니다.
-5. 설정을 검토 한 다음 클릭 **만들기**합니다.  
-6. 이라는 두 번째 VM을 만드는 단계를 따릅니다 *myVMWestEurope*를 사용 하 여를 **리소스 그룹** 이름 *myResourceGroupTM2*, **위치** *유럽 서 부*, 및 다른 모든 설정은 동일 *myVMEastUS*합니다.
+5. 설정을 검토한 다음, **만들기**를 클릭합니다.  
+6. 단계에 따라 **리소스 그룹** 이름은 *myResourceGroupTM2*이고, **위치**는 *서유럽*이고, 나머지 설정은 *myVMEastUS*와 동일한 *myVMWestEurope*이라는 두 번째 VM을 만듭니다.
 7. VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들어질 때까지 나머지 단계를 수행하지 마세요.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
@@ -178,7 +178,7 @@ IIS를 실행 하는 두 개의 Vm을 추가 서버- *myIISVMEastUS* & *myIISVMW
 1. Traffic Manager 프로필의 DNS 이름을 확인합니다.
 2. 실행 중인 Traffic Manager를 보는 방법은 다음과 같습니다.
     - **미국 동부** 지역에 있는 테스트 VM(*myVMEastUS*)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾아서 이동합니다.
-    - 테스트 VM에서에서 (*myVMWestEurope*)에 있는 합니다 **유럽 서 부** 지역 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾습니다.
+    - **서유럽** 지역에 있는 테스트 VM(*myVMWestEurope*)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾습니다.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Traffic Manager 프로필의 DNS 이름 확인
 

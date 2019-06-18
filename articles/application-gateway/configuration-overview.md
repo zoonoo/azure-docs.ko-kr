@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073973"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -74,6 +74,9 @@ V1 SKU에 대 한 사용자 정의 경로 (Udr) 엔드-투-엔드 요청/응답 
 V2 SKU에 대 한 Udr은 Application Gateway 서브넷에서 지원 되지 않습니다. 자세한 내용은 [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)합니다.
 
 > [!NOTE]
+> Udr v2 SKU에 대 한 지원 되지 않습니다.  Udr을 해야 하는 경우에 v1 SKU 배포를 계속 해야 합니다.
+
+> [!NOTE]
 > 상태를 사용 하면 Application Gateway 서브넷에서 Udr을 사용 하 여 [백 엔드 상태 보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) "알 수 없습니다."로 표시 Application Gateway 로그 및 메트릭을 실패 생성이 됩니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 Udr을 사용 하지 않는 것이 좋습니다.
 
 ## <a name="front-end-ip"></a>프런트 엔드 IP
@@ -84,7 +87,7 @@ V2 SKU에 대 한 Udr은 Application Gateway 서브넷에서 지원 되지 않�
 
 1 개인 IP 주소 또는 공용 IP 주소를 하나만 지원 됩니다. Application gateway를 만들 때에 프런트 엔드 IP를 선택 합니다.
 
-- 공용 IP에 대 한 새 공용 IP 주소를 만들 수도 있고 기존 공용 IP를 사용 하 여 application gateway와 동일한 위치에 키를 누릅니다. (정적 또는 동적) 새 공용 IP를 선택 하는 IP 주소 유형을 만드는 경우 나중에 변경할 수 없습니다. 자세한 내용은 [동적 공용 IP 주소와 정적](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address)합니다.
+- 공용 IP에 대 한 새 공용 IP 주소를 만들 수도 있고 기존 공용 IP를 사용 하 여 application gateway와 동일한 위치에 키를 누릅니다. (정적 또는 동적) 새 공용 IP를 선택 하는 IP 주소 유형을 만드는 경우 나중에 변경할 수 없습니다. 자세한 내용은 [동적 공용 IP 주소와 정적](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)합니다.
 
 - 개인 IP에 대 한 application gateway가 만들어지는 서브넷의 개인 IP 주소를 지정할 수 있습니다. 하나를 지정 하지 않으면, 임의의 IP 주소 서브넷에서 자동으로 선택 됩니다. 자세한 내용은 [내부 부하 분산 장치를 사용 하 여 응용 프로그램 게이트웨이 만들기](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)합니다.
 
@@ -124,7 +127,7 @@ HTTP 또는 HTTPS를 선택 합니다.
 
 - HTTP를 선택 하면 클라이언트 및 application gateway 간의 트래픽은 암호화 되지 않습니다.
 
-- 원하는 경우 HTTPS를 선택 [SSL 종료](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) 하거나 [종단 간 SSL 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화 됩니다. 및 application gateway에서 SSL 연결을 종료 합니다. 종단 간 SSL 암호화를 사용 하도록 하려는 경우 HTTPS를 선택 하 고 구성 해야 합니다 **백 엔드 HTTP** 설정 합니다. 이렇게 하면 응용 프로그램 게이트웨이에서 백 엔드에 데이터가 이동할 때 트래픽을 다시 암호화 됩니다.
+- 원하는 경우 HTTPS를 선택 [SSL 종료](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) 하거나 [종단 간 SSL 암호화](https://docs.microsoft.com/azure/application-gateway/ssl-overview)합니다. 클라이언트와 응용 프로그램 게이트웨이 간의 트래픽이 암호화 됩니다. 및 application gateway에서 SSL 연결을 종료 합니다. 종단 간 SSL 암호화를 사용 하도록 하려는 경우 HTTPS를 선택 하 고 구성 해야 합니다 **백 엔드 HTTP** 설정 합니다. 이렇게 하면 응용 프로그램 게이트웨이에서 백 엔드에 데이터가 이동할 때 트래픽을 다시 암호화 됩니다.
 
 SSL 종료 및 종단 간 SSL 암호화를 구성 하려면 대칭 키를 파생 하려면 application gateway를 사용 하도록 설정 하려면 수신기에 인증서를 추가 해야 합니다. SSL 프로토콜 사양에 의해 결정 됩니다. 대칭 키에서 게이트웨이로 전송 되는 트래픽 암호화 및 해독에 사용 됩니다. 게이트웨이 인증서는 개인 정보 교환 (PFX) 형식 이어야 합니다. 이 형식에는 게이트웨이 사용 하 여 트래픽 암호화 및 해독 하는 개인 키를 내보낼 수 있습니다.
 
@@ -172,7 +175,7 @@ SSL 프로토콜 버전을 제어 하는 SSL 정책을 구성할 수 있습니�
 
 ### <a name="rule-type"></a>규칙 유형
 
-선택할 규칙을 만들면 [ *기본* 하 고 *경로 기반*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule)합니다.
+선택할 규칙을 만들면 [ *기본* 하 고 *경로 기반*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)합니다.
 
 - 연결 된 수신기에 대 한 모든 요청에 전달 하려는 경우 기본 선택 (예를 들어 *블로그<i></i>.contoso.com/\*)* 단일 백 엔드 풀에 있습니다.
 - 경로 기반 라우팅 특정 백 엔드 풀을 특정 URL 경로에서 요청 하려는 경우 선택 합니다. 경로 패턴은 해당 쿼리 매개 변수 필요가 URL의 경로에 적용 됩니다.
@@ -245,7 +248,7 @@ HTTP-HTTPS 리디렉션이 대 한 자세한 내용은 다음을 참조 하세�
 이 설정을 추가, 제거 하거나 HTTP 요청 및 응답 헤더를 요청 하는 동안 업데이트 및 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. PowerShell 통해이 기능에만 구성할 수 있습니다. Azure portal 및 CLI 지원은 아직 사용할 수 없습니다. 자세한 내용은 다음을 참조하세요.
 
  - [HTTP 헤더 개요를 다시 작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [HTTP 헤더 다시 쓰기를 구성 합니다.](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [HTTP 헤더 다시 쓰기를 구성 합니다.](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP 설정
 

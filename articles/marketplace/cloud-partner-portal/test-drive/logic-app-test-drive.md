@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940017"
 ---
 <a name="logic-app-test-drive"></a>논리 앱 Test Drive
@@ -61,11 +61,11 @@ ms.locfileid: "64940017"
 
 ![Test Drive 기술 정보 구성](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **지역** - *[필수 필드]* Test Drive 논리 앱 리소스가 배포된 지역을 선택합니다.
+- **지역** -  *[필수 필드]* Test Drive 논리 앱 리소스가 배포된 지역을 선택합니다.
 
     *참고:* 논리 앱이 특정 지역에 저장된 사용자 지정 리소스를 포함하는 경우 여기서 해당 지역을 선택해야 합니다. 이 필드에 지역을 입력하기 전에 **포털에서 Azure 구독에 논리 앱을 로컬로 완전히 배포한 다음 논리 앱이 작동하는지 확인**하는 방식이 가장 효율적입니다.
 
-- **최대 동시 Test Drive 수** - *[필수 필드]* 선택한 지역에 이미 배포되어 있으며 액세스 대기 중인 Test Drive 인스턴스의 수입니다. 고객은 배포를 기다리지 않고 이 시험 사용에 즉시 액세스할 수 있습니다.
+- **최대 동시 Test Drive 수** -  *[필수 필드]* 선택한 지역에 이미 배포되어 있으며 액세스 대기 중인 Test Drive 인스턴스의 수입니다. 고객은 배포를 기다리지 않고 이 시험 사용에 즉시 액세스할 수 있습니다.
 
     *참고:* 학생 N명이 모두 Test Drive를 진행하도록 할 웨비나/수업을 진행하고 있다면 핫 인스턴스 N개를 게시한 다음, 수업이 끝난 후 원래 핫 인스턴스 수로 다시 게시하는 것이 좋습니다.
 

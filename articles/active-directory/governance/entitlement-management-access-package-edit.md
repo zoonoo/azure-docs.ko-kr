@@ -17,16 +17,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833219"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>편집 및 Azure AD 권한 관리 (미리 보기)의 기존 액세스 패키지 관리
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) 권한 관리는 현재 공개 미리 보기로 제공 됩니다.
+> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -38,9 +38,9 @@ ms.locfileid: "65833219"
 
 리소스 역할은 권한 리소스와 연결 된 컬렉션입니다. 사용자가 요청에 사용할 수 있는 리소스를 확인 하는 방법은 액세스 패키지에 리소스 역할을 추가 하는 것입니다. 그룹, 응용 프로그램 및 SharePoint 사이트에 대 한 리소스 역할을 추가할 수 있습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -136,9 +136,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 ## <a name="remove-resource-roles"></a>리소스 역할 제거
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -146,7 +146,7 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 1. 리소스 역할의 목록에서 제거 하려는 리소스 역할을 찾습니다.
 
-1. 줄임표 (**...** )을 클릭 한 다음 **제거 리소스 역할**입니다.
+1. 줄임표 ( **...** )을 클릭 한 다음 **제거 리소스 역할**입니다.
 
     기존 할당 액세스 패키지에 있는 모든 사용자를 제거할 때이 리소스 역할에 취소에 대 한 액세스를 자동으로 포함 됩니다.
 
@@ -158,9 +158,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 ![정책 프로세스 만들기](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -178,9 +178,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 언제 든 지 정책을 편집할 수 있습니다. 정책에 대 한 만료 날짜를 변경 하는 경우 보류 중인 승인이 이미 있는 또는 상태를 승인 하는 요청에 대 한 만료 날짜는 변경 되지 않습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -200,9 +200,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 경우에 따라 직접 사용자 액세스 패키지 요청 프로세스를 통해 이동 하지 액세스 패키지에 특정 사용자를 할당 하는 것이 좋습니다. 사용자에 직접 할당 하려면 액세스 패키지 관리자 직접 할당을 허용 하는 정책이 있어야 합니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -228,9 +228,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 ## <a name="view-who-has-an-assignment"></a>할당 권한이 있는 사용자 보기
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -248,9 +248,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 ## <a name="view-requests"></a>요청 보기
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -260,9 +260,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 ## <a name="view-a-requests-delivery-errors"></a>요청의 배달 오류 보기
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -280,9 +280,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 아직 제공 되지 않았습니다 하는 보류 중인 요청을 취소할 수 있습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -296,15 +296,15 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 디렉터리에서 대부분의 사용자는 내 액세스 포털에 로그인 하 고 자동으로 요청할 수 있습니다 액세스 패키지 목록을 보려면 수 있습니다. 그러나 아직 디렉터리에 없는 외부 비즈니스 파트너 사용자에 대 한 액세스 패키지를 요청 하는 데 사용할 수 있는 링크를 보낼 해야 됩니다. 으로 외부 사용자에 대 한 액세스 패키지를 사용 하 고 외부 사용자의 디렉터리에 대 한 정책이 있는, 외부 사용자 액세스 패키지를 요청 하려면 내 액세스 포털 링크를 사용할 수 있습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
 1. 개요 페이지에 복사 합니다 **내 액세스 포털 링크**합니다.
 
-    ![액세스 패키지 개요-내 액세스 포털 링크](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![액세스 패키지 개요 - 내 액세스 포털 링크](./media/entitlement-management-shared/my-access-portal-link.png)
 
 1. 전자 메일 또는 외부 비즈니스 파트너에 링크를 보냅니다. 패키지 액세스를 요청 하려면 해당 사용자를 사용 하 여 링크를 공유할 수 있습니다.
 
@@ -312,9 +312,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 액세스 패키지 기본적으로 검색할 수 있습니다. 이 정책에서는 사용자 액세스 패키지를 요청 하는 경우 자동으로 표시 될 액세스 패키지의 내 액세스 포털에 나열 된 것을 의미 합니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 
@@ -330,9 +330,9 @@ Azure AD 자동으로 사용자 액세스를 할당할 수는 SharePoint Online 
 
 액세스 패키지를 현재 사용자 할당이 있는 경우에 삭제할 수 있습니다.
 
-**필수 구성 요소 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure 포털에서 클릭 **Azure Active Directory** 을 클릭 한 다음 **Identity 거 버 넌 스**합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽된 메뉴에서 클릭 **패키지에 액세스할** 액세스 패키지를 엽니다.
 

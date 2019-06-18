@@ -43,6 +43,8 @@
         - name: 오프라인 평가
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: 확장성 및 성능
+      href: concepts-scalability-performance.md
 - name: 방법 가이드
   items:
     - name: Personalizer 만들기 및 구성

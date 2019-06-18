@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c28c87339bbfda7cc47e329c8fe6cebdee4a7843
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127183"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 소개 보안에 도움이 되는 Azure에서 서비스 데이터, 리소스 및 클라우드에서 응용 프로그램 보호 및 비즈니스 보안 요구 사항을 충족 합니다.
@@ -52,7 +52,7 @@ Azure에서는 사용자 ID 및 자격 증명을 관리하고 액세스를 제�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 활성화하여 회사 데이터 센터에 걸친 애플리케이션 및 리소스에 대한 액세스 및 클라우드로 액세스를 보호하도록 도움을 줍니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 수천 개의 클라우드 앱에서 single sign-on을 제공 하 고 온-프레미스를 실행 하는 웹 앱에 액세스 합니다.
+Microsoft id 및 액세스 관리 솔루션 도움말 IT 보호 응용 프로그램 및 리소스에 대 한 액세스를 회사 데이터 센터 및 클라우드로 추가 수준의 유효성 검사와 같은 multi-factor authentication 및 조건부 액세스를 사용 하도록 설정 정책입니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 수천 개의 클라우드 앱에서 single sign-on을 제공 하 고 온-프레미스를 실행 하는 웹 앱에 액세스 합니다.
 
 Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을 포함합니다.
 
@@ -124,9 +124,9 @@ Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Fac
 
 #### <a name="device-registration"></a>디바이스 등록
 
-[Azure AD 디바이스 등록](https://docs.microsoft.com/azure/active-directory/device-management-introduction)은 디바이스 기반 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오의 기초입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. 그런 다음, 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 애플리케이션에 조건부 액세스 정책을 적용할 수 있습니다.
+[Azure AD 장치 등록](https://docs.microsoft.com/azure/active-directory/device-management-introduction) 는 장치 기반 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. 인증 된 장치 및 장치의 특성을 클라우드 및 온-프레미스에서 호스트 되는 응용 프로그램에 대 한 조건부 액세스 정책을 적용할 사용할 수 있습니다.
 
-Intune과 같은 [MDM(모바일 디바이스 관리)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 솔루션과 함께 사용할 경우 Azure Active Directory의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
+Intune과 같은 [MDM(모바일 디바이스 관리)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 솔루션과 함께 사용할 경우 Azure Active Directory의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이 통해 보안 및 규정 준수 표준을 충족 하는 장치에서 액세스를 적용 하는 조건부 액세스 규칙을 만들 수 있습니다.
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 

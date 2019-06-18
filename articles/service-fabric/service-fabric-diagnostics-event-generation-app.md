@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393098"
 ---
-# <a name="application-logging"></a>응용 프로그램 로깅
+# <a name="application-logging"></a>애플리케이션 로깅
 
 코드를 계측하는 것은 사용자에 대한 인사이트를 얻는 방법일 뿐만 아니라 애플리케이션에 문제가 있는지 여부도 알 수 있고 수정해야 할 항목을 진단할 수 있는 방법입니다. 기술적으로 디버거를 프로덕션 서비스에 연결할 수도 있지만 일반적인 방법은 아닙니다. 따라서 자세한 계측 데이터를 갖는 것이 중요합니다.
 

@@ -517,6 +517,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Windows에서 Linux 클러스터 설정
               href: service-fabric-local-linux-cluster-windows.md
+            - name: VS에서 원격 Linux 클러스터에 .NET Core 애플리케이션 배포
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Linux/Eclipse 개발 환경에서 작업
           items:
             - name: Java 개발을 위해 Eclipse 플러그인 시작
@@ -842,8 +844,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 문제 해결 가이드
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: 릴리스 정보
+      href: release-notes.md
     - name: 샘플 코드
       href: 'https://aka.ms/servicefabricsamples'
     - name: 지원 옵션
@@ -852,5 +854,7 @@
       href: service-fabric-versions.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: 문제 해결 가이드
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

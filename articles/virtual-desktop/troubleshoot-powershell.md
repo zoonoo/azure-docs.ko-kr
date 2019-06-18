@@ -8,13 +8,13 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927509"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows 가상 데스크톱 PowerShell
+# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 이 문서를 사용 하 여 Windows 가상 데스크톱을 사용 하 여 PowerShell을 사용 하는 경우 오류 및 문제 해결. 원격 데스크톱 서비스 PowerShell에 대 한 자세한 내용은 참조 하세요. [Windows 가상 데스크톱 Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/)합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867905"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
@@ -77,7 +77,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아닙니다. |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
+| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |8시간 |
 | 슬레이트 삽입 지원 |아닙니다. |예 |
 | 광고 신호 지원 |아닙니다. |예 |

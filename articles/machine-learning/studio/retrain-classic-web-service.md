@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234052"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>클래식 Studio 웹 서비스 학습 및 배포
@@ -25,7 +25,7 @@ ms.locfileid: "65234052"
 
 이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](/azure/machine-learning/studio/retrain-machine-learning-model)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      
-## <a name="add-a-new-endpoint"></a>새 끝점 추가
+## <a name="add-a-new-endpoint"></a>새 엔드포인트 추가
 
 배포한 예측 웹 서비스는 원래의 학습 및 점수 매기기 실험 학습된 모델과 동기화를 유지하는 기본 점수 매기기 엔드포인트를 포함합니다. 새로 학습된 모델을 사용하여 웹 서비스를 업데이트하려면 새 점수 매기기 엔드포인트를 만들어야 합니다.
 

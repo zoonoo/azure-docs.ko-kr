@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620483"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage Explorer 릴리스 정보
@@ -128,7 +128,7 @@ ms.locfileid: "65620483"
 * [버전 0.7.20160105.0](#version-07201601050)
 * [버전 0.7.20151116.0](#version-07201511160)
 
-## <a name="version-180"></a>1.8.0 버전 이상
+## <a name="version-180"></a>1\.8.0 버전 이상
 5/1/2019
 
 ### <a name="download-azure-storage-explorer-180"></a>Azure Storage 탐색기 1.8.0 다운로드
@@ -185,7 +185,7 @@ ms.locfileid: "65620483"
 
 * Linux에서 Storage 탐색기를 실행 하려면 특정 종속성을 먼저 설치 해야 합니다. Storage 탐색기 확인 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) 자세한 내용은 합니다.
 
-## <a name="version-170"></a>1.7.0 버전
+## <a name="version-170"></a>1\.7.0 버전
 3/5/2019
 
 ### <a name="download-azure-storage-explorer-170"></a>Azure Storage 탐색기 1.7.0 다운로드
@@ -208,10 +208,10 @@ ms.locfileid: "65620483"
 * 이제 AzCopy 사용 하는 경우로 업로드 하려는 blob 유형을 선택할 수 있습니다. #1111
 * 이전에 ADLS Gen2 저장소 계정에 대 한 정적 웹 사이트를 사용할 수 있어 다음 이름 및 키를 사용 하 여 연결을 하는 경우 Storage 탐색기가 감지 않습니다 계층적 네임 스페이스를 사용 하도록 설정 된 합니다. 이 문제가 해결되었습니다. #1081
 * Blob 편집기에서 중 남은 일 수 보존 또는 상태별으로 정렬 중단 되었습니다. 이 문제가 해결되었습니다. #1106
-* 1.5.0, 후 Storage 탐색기 이상 기다리는 서버 쪽 복사본을 바꾸거나 복사 하는 동안 성공 보고 하기 전에 완료에 붙여 넣습니다. 이 문제가 해결되었습니다. #976
+* 1\.5.0, 후 Storage 탐색기 이상 기다리는 서버 쪽 복사본을 바꾸거나 복사 하는 동안 성공 보고 하기 전에 완료에 붙여 넣습니다. 이 문제가 해결되었습니다. #976
 * 실험적 AzCopy 기능을 사용 하는 경우 "명령을 클립보드로 복사"를 클릭 한 후 복사 명령을 하지 않은 경우가 많았고 자체적으로 실행 가능 합니다. 이제 전송을 수동으로 실행 하는 데 필요한 모든 명령은 복사 됩니다. #1079
-* 이전에 ADLS Gen2 blob 프록시 뒤에 있는 경우에 액세스할 수 없습니다. Storage SDK를 사용한 새로운 네트워킹 라이브러리의 버그 때문 이었습니다. 1.7.0이이 문제를 완화 하기 위해 내용이 있지만 일부 사용자는 문제를 확인 하려면 계속 될 수 있습니다. 전체 수정은 향후 업데이트에서 출시 됩니다. #1090
-* 1.7.0 저장에서에서 파일 대화 상자 올바로 기억 됩니다 마지막 위치에 파일을 저장 합니다. #16
+* 이전에 ADLS Gen2 blob 프록시 뒤에 있는 경우에 액세스할 수 없습니다. Storage SDK를 사용한 새로운 네트워킹 라이브러리의 버그 때문 이었습니다. 1\.7.0이이 문제를 완화 하기 위해 내용이 있지만 일부 사용자는 문제를 확인 하려면 계속 될 수 있습니다. 전체 수정은 향후 업데이트에서 출시 됩니다. #1090
+* 1\.7.0 저장에서에서 파일 대화 상자 올바로 기억 됩니다 마지막 위치에 파일을 저장 합니다. #16
 * 속성 창에서 저장소 계정 SKU 계층 된 계정의 종류로 표시 됩니다. 이 문제가 해결되었습니다. #654
 * 경우에 따라 수 없습니다 blob의 임대를 중단 하는 blob의 이름을 잘못 입력 하는 경우에 합니다. 이 문제가 해결되었습니다. #1070
 
@@ -259,9 +259,9 @@ ms.locfileid: "65620483"
 1/9/2019
 
 ### <a name="hotfixes"></a>핫픽스
-* 1.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* 1\.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
 * ADLS Gen2 스토리지 계정에 컨테이너가 없고 이름 및 키를 사용하여 연결된 경우 Storage Explorer는 스토리지 계정이 ADLS Gen2임을 감지하지 못합니다. 이 문제가 해결되었습니다. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
-* 1.6.0에서는 복사 및 붙여넣기 동안 발생한 충돌을 해결할 필요가 없습니다. 대신, 충돌한 복사가 단순히 실패합니다. 이제 첫 번째 충돌 시 해결 방법을 묻는 메시지가 표시됩니다. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
+* 1\.6.0에서는 복사 및 붙여넣기 동안 발생한 충돌을 해결할 필요가 없습니다. 대신, 충돌한 복사가 단순히 실패합니다. 이제 첫 번째 충돌 시 해결 방법을 묻는 메시지가 표시됩니다. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * API 제한으로 인해 액세스 관리 대화 상자의 모든 ObjectId 유효성 검사를 사용할 수 없습니다. 이제 사용자 UPN에 대해서만 유효성 검사가 수행됩니다. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * ADLS Gen2 액세스 관리 대화 상자에서 그룹에 대한 권한을 수정할 수 없습니다. 이 문제가 해결되었습니다. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * 끌어서 놓기 업로드 지원이 ADLS Gen2 편집기에 추가되었습니다. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -269,11 +269,11 @@ ms.locfileid: "65620483"
 * ADLS Gen2 컨테이너, 파일 또는 폴더의 현재 사용 권한을 가져오지 못할 경우 이제 활동 로그에 오류가 제대로 표시됩니다. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Windows에서 MAX_PATH보다 긴 경로 만들 가능성을 줄이기 위해 파일을 열 때 만드는 임시 경로를 단축했습니다. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * 이제 로그인한 사용자가 없고 연결된 리소스가 없는 경우 연결 대화 상자가 올바르게 표시됩니다. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * SAS가 사용되고 SAS에 읽기 권한이 없으면 HNS가 아닌 Blob 컨테이너에 폴더를 업로드하지 못했습니다. 이 문제가 해결되었습니다. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy 전송을 취소할 수 없었습니다. 이 문제가 해결되었습니다. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* 1\.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
 ### <a name="new"></a>새 문자
 
@@ -338,11 +338,11 @@ ms.locfileid: "65620483"
 * ADLS Gen2 컨테이너, 파일 또는 폴더의 현재 사용 권한을 가져오지 못할 경우 이제 활동 로그에 오류가 제대로 표시됩니다. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * Windows에서 MAX_PATH보다 긴 경로 만들 가능성을 줄이기 위해 파일을 열 때 만드는 임시 경로를 단축했습니다. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * 이제 로그인한 사용자가 없고 연결된 리소스가 없는 경우 연결 대화 상자가 올바르게 표시됩니다. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0에서는 비 HNS Blob 및 파일의 속성을 저장하면 모든 속성의 값이 인코딩되었습니다. 이로 인해 ASCII 문자만 포함하는 값이 불필요하게 인코딩되었습니다. 이제 비 ASCII 문자를 포함하는 값만 인코딩됩니다. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * SAS가 사용되고 SAS에 읽기 권한이 없으면 HNS가 아닌 Blob 컨테이너에 폴더를 업로드하지 못했습니다. 이 문제가 해결되었습니다. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * AzCopy 전송을 취소할 수 없었습니다. 이 문제가 해결되었습니다. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * 폴더 이름에 공백이 있을 때 ADLS Gen2 Blob 컨테이너에서 폴더를 다운로드하려고 하면 AzCopy가 실패합니다. 이 문제가 해결되었습니다. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
-* 1.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+* 1\.6.0에서는 CosmosDB 편집기가 제대로 작동되지 않았습니다. 이제 이 문제가 해결되었습니다. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
 ### <a name="new"></a>새 문자
 
@@ -749,7 +749,7 @@ ms.locfileid: "65620483"
 ### <a name="new"></a>새 문자
 * 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
+* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/ 로 변경되었습니다.
 * 접근성: 화면 판독기가 활성이 되면 키보드 탐색이 오른쪽에 항목을 표시하는 데 사용되는 테이블과 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>수정 프로그램
@@ -1109,7 +1109,7 @@ ms.locfileid: "65620483"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-092"></a>0.9.2 버전
+## <a name="version-092"></a>0\.9.2 버전
 11/01/2017
 
 ### <a name="hotfixes"></a>핫픽스
@@ -1141,7 +1141,7 @@ ms.locfileid: "65620483"
 * 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 Storage Explorer는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 Storage Explorer는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage Explorer를 수동으로 다운로드할 수 있습니다.
+* 0\.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Microsoft Azure Storage Explorer를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 * Storage Explorer는 ADFS 계정을 지원하지 않습니다.
@@ -1197,7 +1197,7 @@ ms.locfileid: "65620483"
 * 잘못된 Windows 파일 이름을 포함한 Blob을 열거나 다운로드하려고 하면 작업에 실패합니다. 이제 Storage Explorer는 Blob 이름이 잘못되었는지를 감지하고 Blob을 인코딩할지 아니면 건너뛸지를 묻습니다. 또한 Storage Explorer는 파일 이름이 인코딩되어 표시되는지를 감지하고 업로드하기 전에 디코딩할지를 묻습니다.
 * Blob 업로드 중에 대상 Blob 컨테이너의 편집기는 경우에 따라 올바르게 새로 고쳐지지 않습니다. 이 문제가 해결되었습니다.
 * 여러 형태의 연결 문자열 및 SAS URI에 대한 지원이 회귀되었습니다. 모든 알려진 문제를 해결했지만 추가 문제가 발생하면 사용자 의견을 보내주세요.
-* 0.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Storage Explorer를 수동으로 다운로드할 수 있습니다.
+* 0\.9.0를 사용하는 일부 사용자에게는 업데이트 알림이 중단되었습니다. 이 문제를 해결했습니다. 버그의 영향을 받는 경우 [여기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 버전의 Storage Explorer를 수동으로 다운로드할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 * Storage Explorer는 ADFS 계정을 지원하지 않습니다.
@@ -1229,7 +1229,7 @@ ms.locfileid: "65620483"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816"></a>0.8.16 버전
+## <a name="version-0816"></a>0\.8.16 버전
 8/21/2017
 
 ### <a name="new"></a>새 문자
@@ -1358,7 +1358,7 @@ ms.locfileid: "65620483"
 
 #### <a name="known-issues"></a>알려진 문제
 
-* 0.8.10으로 업그레이드한 후에는 모든 자격 증명을 새로 고쳐야 합니다.
+* 0\.8.10으로 업그레이드한 후에는 모든 자격 증명을 새로 고쳐야 합니다.
 * 확대하거나 축소하는 동안 확대/축소 수준이 잠시 동안 기본 수준으로 다시 설정될 수 있습니다.
 * 4개 이상의 Blob 또는 파일 그룹을 동시에 업로드하면 오류가 발생할 수 있습니다.
 * 계정 설정 패널에 구독을 필터링하려면 자격 증명을 다시 입력하라는 메시지가 표시될 수 있습니다.

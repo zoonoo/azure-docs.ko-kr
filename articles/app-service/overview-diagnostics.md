@@ -16,10 +16,10 @@ ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539909"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
@@ -38,7 +38,7 @@ Azure functions의 위쪽 탐색 모음에 함수 앱으로 이동, 클릭 **플
 
 App Service 진단 홈 페이지에서 각 홈 페이지 타일에서 키워드를 사용 하 여 앱을 사용 하 여 문제를 설명 하는 범주를 선택할 수 있습니다. 또한이 페이지를 찾을 수 있습니다 **진단 도구** Windows 앱에 대 한 합니다. 참조 [진단 도구 (Windows 앱)에 해당](#diagnostic-tools-only-for-windows-app)합니다.
 
-![홈 페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![홈페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>대화형 인터페이스
 
@@ -48,7 +48,7 @@ App Service 진단 홈 페이지에서 각 홈 페이지 타일에서 키워드�
 
 이러한 타일을 클릭 하면 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 항목은 전체 보고서에서 주목할 만한 정보 조각을 제공합니다. 추가로 문제를 조사 하려면 다음이 항목 중 하나에서 클릭할 수 있습니다. 또한을 클릭할 수 있습니다 **전체 보고서 보기** 단일 페이지에 있는 모든 항목을 소개 합니다.
 
-![주제](./media/app-service-diagnostics/application-logs-insights-3.png)
+![항목](./media/app-service-diagnostics/application-logs-insights-3.png)
 
 ![전체 보고서 보기](./media/app-service-diagnostics/view-full-report-4.png)
 

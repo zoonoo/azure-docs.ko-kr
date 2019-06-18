@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050681"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Azure DevOps를 사용한 연속 배달
 
@@ -36,9 +36,7 @@ Azure 파이프라인에서 앱을 빌드하는 앱의 프로그래밍 언어에
 .NET 앱을 작성 하기 위해 YAML 파일을 만들려면 다음 샘플을 사용할 수 있습니다.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -69,9 +67,7 @@ steps:
 JavaScript 앱을 작성 하기 위해 YAML 파일을 만들려면 다음 샘플을 사용할 수 있습니다.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -99,9 +95,7 @@ steps:
 다음 샘플을 사용 하 여 Python 앱을 빌드하려면 YAML 파일 만들기, Python Linux Azure Functions 에서만 지원 됩니다.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -118,6 +112,25 @@ steps:
     source worker_venv/bin/activate
     pip3.6 install setuptools
     pip3.6 install -r requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
+#### <a name="powershell"></a>PowerShell
+
+다음 샘플을 사용 하 여 PowerShell 앱을 패키지 하 여 YAML 파일을 만들 수 있습니다, 그리고 PowerShell은 Windows Azure Functions에만 지원 됩니다.
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -175,6 +188,10 @@ Azure 파이프라인에서 앱을 빌드하는 앱의 프로그래밍 언어에
 
 ![Azure Functions 빌드 템플릿](media/functions-how-to-azure-devops/build-templates.png)
 
+일부 경우에 빌드 아티팩트를 특정 폴더 구조가 있고 확인 해야 합니다 **보관 파일 경로에 루트 폴더 이름 앞에 추가** 옵션입니다.
+
+![루트 폴더를 추가 합니다.](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### <a name="javascript-apps"></a>JavaScript 앱
 
 JavaScript 앱 Windows 네이티브 모듈에 대 한 종속성을 업데이트 해야 합니다.
@@ -182,10 +199,6 @@ JavaScript 앱 Windows 네이티브 모듈에 대 한 종속성을 업데이트 
 - 에이전트 풀 버전을 **호스팅된 VS2017**
 
   ![OS 빌드 에이전트를 변경 합니다.](media/functions-how-to-azure-devops/change-agent.png)
-
-- 스크립트를 **확장 프로그램을 작성할** 템플릿을 단계 `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![변경 스크립트](media/functions-how-to-azure-devops/change-script.png)
 
 ### <a name="deploy-your-app"></a>앱 배포
 
@@ -206,7 +219,7 @@ JavaScript 앱 Windows 네이티브 모듈에 대 한 종속성을 업데이트 
 
     - 충분 한 권한이 있는 GitHub 개인 액세스 토큰을 만드는 권한이 있습니다. [GitHub PAT 권한 요구 사항입니다.](https://aka.ms/azure-devops-source-repos)
 
-    - 자동으로 생성 된 YAML 파일을 커밋하려면 GitHub 리포지토리의 마스터 분기에 대 한 커밋 권한이 있습니다.
+    - 자동 생성 된 YAML 파일을 커밋하려면 GitHub 리포지토리의 마스터 분기에 대 한 커밋 권한이 있습니다.
 
 - 코드 리포지토리에서 Azure 경우:
 

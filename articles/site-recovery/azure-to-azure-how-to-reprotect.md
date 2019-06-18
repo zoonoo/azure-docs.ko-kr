@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472151"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
@@ -84,7 +84,7 @@ ms.locfileid: "65472151"
 1.  원본 VM 데이터 삭제, 손상 또는 리소스 그룹 같은 몇 가지 이유로 인해 액세스할 수 없는 경우 사용 하 여 원본 지역에서 사용할 수 있는 데이터가 없는으로 변경/삭제 완료 IR 다시 보호 하는 동안 다음 발생 합니다.
 2.  VM 데이터 소스에 액세스할 수 그런 다음 차등만 두 디스크를 비교 하 여 계산 하 고 전송 됩니다. 확인 예상된 시간을 가져오기 위해 테이블 아래 
 
-|* * 예제 상황 * * | * * 다시 보호 하는 데 걸린 시간 * * |
+|\* * 예제 상황 * * | \* * 다시 보호 하는 데 걸린 시간 * * |
 |--- | --- |
 |소스 영역에는 1 TB 표준 디스크를 사용 하 여 1 VM<br/>-127GB 데이터만 사용 되 고 디스크의 나머지 부분은 비어 있습니다.<br/>-디스크 유형은 표준 60 초 처리량으로<br/>-장애 조치 후 데이터 변경을 없음| 대략적인 시간 45 분-1.5 시간<br/> -다시 보호 하는 동안 Site Recovery는 127gb로 전체 데이터의 체크섬 채워집니다 45 / Mb ~ 45 분<br/>-일부 오버 헤드 시간은 20 ~ 30 분 배율을 자동 수행 Site Recovery에 대 한 필수<br/>-송신 요금 |
 |소스 영역에는 1 TB 표준 디스크를 사용 하 여 1 VM<br/>-127GB 데이터만 사용 되 고 디스크의 나머지 부분은 비어 있습니다.<br/>-디스크 유형은 표준 60 초 처리량으로<br/>-장애 조치 후 45 GB 데이터 변경 내용| 대략적인 시간 1 시간 – 2 시간<br/>-다시 보호 하는 동안 Site Recovery는 127gb로 전체 데이터의 체크섬 채워집니다 45 / Mb ~ 45 분<br/>--45 GB는 45GB의 변경 내용을 적용 하는 시간을 전송 하는 중 45 / MBps ~ 17 분<br/>-체크섬에 대 한 없습니다 45 GB 데이터에 대해서만 송신 요금이 것|

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050741"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -89,7 +89,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 
 ## <a name="configure-the-project-for-local-development"></a>로컬 개발에 대한 프로젝트 구성
 
-함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 함수 앱은 프로젝트에 필요한 **AzureWebJobsStorage** 연결 설정에 [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수도 있습니다. 에뮬레이터를 사용하려면 **AzureWebJobsStorage** 값을 `UseDevelopmentStorage=true`로 설정합니다. 배포하기 전에 이 설정을 실제 저장소 연결으로 변경해야 합니다.
+함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 함수 앱은 프로젝트에 필요한 **AzureWebJobsStorage** 연결 설정에 [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수도 있습니다. 에뮬레이터를 사용하려면 **AzureWebJobsStorage** 값을 `UseDevelopmentStorage=true`로 설정합니다. 이 설정을 배포 하기 전에 실제 저장소 연결으로 변경 합니다.
 
 저장소 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
@@ -184,6 +184,10 @@ Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functi
 ## <a name="publish-to-azure"></a>Azure에 게시
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+
+### <a name="deployment-technology"></a>배포 기술
+
+Visual Studio에서 게시할 때 두 가지 기술 중 하나를 배포 하는 데 사용 됩니다. [웹 배포](functions-deployment-technologies.md#web-deploy-msdeploy) 하 고 [Zip 배포 실행-에서-패키지 설정 (권장)](functions-deployment-technologies.md#zip-deploy)합니다.
 
 ## <a name="function-app-settings"></a>함수 앱 설정
 

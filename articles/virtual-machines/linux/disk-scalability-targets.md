@@ -1,5 +1,5 @@
 ---
-title: " Linux - Microsoft Azure의 VM 디스크에 대한 확장성 및 성능 목표 | Microsoft Docs"
+title: Linux - Microsoft Azure의 VM 디스크에 대한 확장성 및 성능 목표 | Microsoft Docs
 description: Linux 기반의 VM에 연결된 가상 머신 디스크의 확장성 및 성능 목표를 알아봅니다.
 services: virtual-machines-linux,storage
 author: roygara
@@ -10,10 +10,10 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: 39e0a36b50a9e222e6016140967336ccda167514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771637"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 기반 VM 디스크의 확장성 및 성능 목표

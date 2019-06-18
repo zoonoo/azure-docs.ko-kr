@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479468"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용 하 여 Azure HDInsight 클러스터를 사용자 지정
@@ -430,7 +430,7 @@ Ambari 웹 UI를 사용하여 스크립트 동작에서 기록한 정보를 볼 
 
 ### <a name="the-apache-ambari-web-ui"></a>Apache Ambari 웹 UI
 
-1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
+1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
     메시지가 표시되면 클러스터에 대한 관리자 계정 이름(**admin**)과 암호를 입력합니다. 웹 양식에서 관리자 자격 증명을 다시 입력해야 할 수도 있습니다.
 

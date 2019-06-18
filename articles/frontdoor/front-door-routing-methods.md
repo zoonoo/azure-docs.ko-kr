@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736227"
 ---
 # <a name="front-door-routing-methods"></a>Front Door 라우팅 메서드
@@ -39,7 +39,7 @@ Front Door에서 사용 가능한 트래픽 라우팅에 대한 4가지 주요 �
 
 다음은 전체 의사 결정 흐름입니다.
 
-| 사용할 수 있는 백 엔드 | 우선 순위 | 대기 시간 신호(상태 프로브 기반) | Weights |
+| 사용할 수 있는 백 엔드 | 우선 순위 | 대기 시간 신호(상태 프로브 기반) | 가중치 |
 |-------------| ----------- | ----------- | ----------- |
 | 먼저, 상태 브로브에 대해 활성화되어 양호한 것으로 보고된(200 OK) 모든 백 엔드를 선택합니다. 예를 들어, 6개의 백 엔드 A, B, C, D, E 및 F가 있으며 이들 중 C는 상태가 양호하지 않고 E는 비활성화되어 있습니다. 따라서 사용 가능한 백 엔드 목록은 A, B, D 및 F입니다.  | 다음으로, 사용 가능한 것 중 우선 순위가 가장 높은 백 엔드가 선택됩니다. 예를 들어, 백 엔드 A, B 및 D의 우선 순위는 1이며, 백 엔드 F의 우선 순위는 2입니다. 따라서 선택된 백 엔드는 A, B 및 D가 됩니다.| 대기 시간 범위로 백 엔드를 선택합니다(최저 대기 시간 및 지정된 ms에서 대기 시간 민감도). 예를 들어, 요청이 도착한 Front Door 환경에서 A가 15ms, B가 30ms 및 D가 60ms 거리에 있고 대기 시간 감도가 30ms인 경우 D가 가장 가까운 백 엔드인 A와 30ms 이상 거리에 있으므로, 최저 대기 시간 풀은 백 엔드 A와 B로 구성됩니다. | 마지막으로, Front Door는 지정된 가중치 비율에서 최종 선택된 백 엔드 풀 중에서 트래픽을 라운드 로빈합니다. 예를 들어, 백 엔드 A의 가중치가 5이고 백 엔드 B의 가중치가 8인 경우 트래픽은 백 엔드 5와 8 사이에서 5:8 비율로 분산됩니다. |
 

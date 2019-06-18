@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648502"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
@@ -78,7 +78,7 @@ module.exports = df.orchestrator(function*(context) {
 
 완료 시 이전에 표시된 함수의 기록은 Azure Table Storage에서 다음과 비슷합니다(이해를 돕기 위해 약어로 표시).
 
-| PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | 이름             | 결과                                                    | 상태 |
+| PartitionKey(InstanceId)                     | 이벤트 유형             | 타임 스탬프               | 입력 | 이름             | 결과                                                    | 상태 |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |

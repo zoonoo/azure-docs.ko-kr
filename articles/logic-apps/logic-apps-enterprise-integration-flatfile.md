@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
 ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61467312"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 플랫 파일 인코딩 또는 디코딩
@@ -33,7 +33,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
-    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    c. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    
     d. 목록에서 **플랫 파일 Encoding** 옵션을 선택합니다.   
    ![플랫 파일 Encoding 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -63,7 +63,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
-    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    c. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    
     d. 목록에서 **플랫 파일 디코딩** 옵션을 선택합니다.   
    ![플랫 파일 디코딩 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   

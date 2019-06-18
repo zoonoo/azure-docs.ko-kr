@@ -17,22 +17,22 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110603"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
-사용자에 게 비슷한 방법으로 장치를 다른 핵심 id 보호를 모든 위치와 언제 든 지 리소스를 보호 하는 데 사용 하려는 경우 이 목표를 가져오고 다음 방법 중 하나를 사용 하 여 Azure AD에서 장치 id를 관리 하 여 수행할 수 있습니다.
+사용자와 마찬가지로, 디바이스는 보호가 필요한 또 다른 핵심 ID이며, 언제 어디서나 디바이스를 사용하여 리소스를 보호해야 합니다. 다음 방법 중 하나를 사용하여 디바이스 ID를 Azure AD로 가져와서 관리하면 이 목표를 달성할 수 있습니다.
 
 - Azure AD 조인
 - 하이브리드 Azure AD 조인
 - Azure AD 등록
 
-Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소스에서 SSO(Single Sign-On)를 통해 사용자의 생산성을 극대화할 수 있습니다. 이와 동시에 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 클라우드 및 온-프레미스 리소스에 대한 액세스를 보호할 수 있습니다.
+Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소스에서 SSO(Single Sign-On)를 통해 사용자의 생산성을 극대화할 수 있습니다. 동시에 사용 하 여 클라우드 및 온-프레미스 리소스에 대 한 액세스를 보호할 수 있습니다 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)합니다.
 
 온-프레미스 Active Directory (AD) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 조인 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
@@ -113,7 +113,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 
 ### <a name="managed-environment"></a>관리 환경
 
-관리 되는 환경 수를 통해 배포할 [암호 해시 동기화 (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 또는 [전달를 통해 인증 PTA ()](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 사용 하 여 [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)합니다.
+관리형 환경은 [Seamless Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)을 사용하여 [PHS(암호 해시 동기화)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 또는 [PTA(통과 인증)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)를 통해 배포할 수 있습니다.
 
 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
 

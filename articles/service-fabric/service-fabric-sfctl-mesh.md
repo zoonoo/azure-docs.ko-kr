@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556834"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
@@ -34,7 +34,7 @@ Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 | [network](service-fabric-sfctl-mesh-network.md) | 메시 네트워크 리소스를 가져오고 삭제합니다. |
 | [암호](service-fabric-sfctl-mesh-secret.md) | 메시 비밀 리소스를 가져오고 삭제합니다. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | 메시 비밀 값 리소스를 가져오고 삭제합니다. |
-| [service](service-fabric-sfctl-mesh-service.md) | 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다. |
+| [서비스](service-fabric-sfctl-mesh-service.md) | 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다. |
 | [service-replica](service-fabric-sfctl-mesh-service-replica.md) | 복제본 세부 정보를 가져오고 애플리케이션 리소스에 있는 지정된 서비스의 복제본을 나열합니다. |
 | [volume](service-fabric-sfctl-mesh-volume.md) | 볼륨 리소스를 가져오고 삭제합니다. |
 

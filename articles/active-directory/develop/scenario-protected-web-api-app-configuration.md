@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e206cb29338445e30a7462bcbaf0079236e75510
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bdd68d9ec5d0dd83df4628f39785ce255482245d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111160"
 ---
 # <a name="protected-web-api---code-configuration"></a>보호 된 web API-코드 구성
 
@@ -159,4 +159,4 @@ Web apps에서 OpenID Connect 미들웨어와 같은 JwtBearer 미들웨어에�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [프로덕션으로 이동](scenario-protected-web-api-production.md)
+> [범위 및 코드에서 앱 역할 확인](scenario-protected-web-api-verification-scope-app-roles.md)

@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762302"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
@@ -114,7 +114,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="event-grid"></a>이벤트 표
+### <a name="event-grid"></a>Event Grid
 
 작업의 진행률을 보려면 사용할지 **Event Grid**합니다. 또한 Media Services는 라이브 이벤트 유형을 내보냅니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 
 

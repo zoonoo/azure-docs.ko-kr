@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059659"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -529,13 +529,13 @@ Event Grid 함수를 로컬로 실행합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
 * 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
 * Event Grid 트리거 함수의 URL에 게시 합니다.
-  * 2.x에 대 한 패턴을 사용 합니다.
+  * 2\.x에 대 한 패턴을 사용 합니다.
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * 1.x 사용:
+  * 1\.x 사용:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -555,7 +555,7 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="local-testing-with-ngrok"></a>ngrok를 사용한 로컬 테스트
 
-Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [ngrok](https://ngrok.com/)이라는 오픈 소스 도구를 사용하여 이 작업을 수행할 수 있습니다.
+Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. 와 같은 도구를 사용 하 여 이렇게 [ngrok](https://ngrok.com/):
 
 1. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
 1. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071600"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구 작동 원리를 이해합니다
 
@@ -55,10 +55,11 @@ ms.locfileid: "66015599"
 - PercentTimeoutError
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 백분율 기준에 대 한 규칙을 마이그레이션해야 하는 클래식 경고에 따라 [이전 및 새 storage 메트릭 간의 매핑을](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics)합니다. 임계값을 사용할 수 있는 새 메트릭 항목을 절대 이므로 적절 하 게 수정 해야 합니다.
 
-동일한 기능을 제공 하는 결합 된 메트릭이 없습니다 있기 때문에 대해 AnonymousThrottlingError에 SASThrottlingError 클래식 경고 규칙 두 개의 새 경고도 분할 해야 합니다. 임계값을 적절 하 게 적응 해야 합니다.
+클래식 경고 규칙에 AnonymousThrottlingError를 SASThrottlingError ThrottlingError 동일한 기능을 제공 하는 결합 된 메트릭이 없습니다 있기 때문에 두 개의 새 경고도 분할 해야 합니다. 임계값을 적절 하 게 적응 해야 합니다.
 
 ## <a name="rollout-phases"></a>출시 단계
 

@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303966"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
@@ -721,7 +721,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 [데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
 
-**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net입니다.
+**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net 입니다.
 
 **Hadoop 사용자 계정 이름**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름 아님).
 

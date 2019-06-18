@@ -16,10 +16,10 @@ ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475226"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
@@ -147,7 +147,7 @@ Azure App Service 도메인에 대 한 정보를 가격에 대 한 참조를 [Ap
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> A **참고 보안** 레이블 브라우저에 따라 경고 및 오류 또는 사용자 지정 도메인은 의미는 SSL 인증서에 아직 바인딩되어 모든 HTTPS 요청을 브라우저에서 사용자 지정 도메인을 받게 됩니다. SSL 바인딩을 구성 하려면 [구입 및 Azure App Service에 대 한 SSL 인증서 구성](web-sites-purchase-ssl-web-site.md)합니다.
+> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 구성 하려면 [구입 및 Azure App Service에 대 한 SSL 인증서 구성](web-sites-purchase-ssl-web-site.md)합니다.
 >
 
 호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 이전 스크린샷의 예에서 탐색 하 려 _kontoso.net_ 하 고 _www\.kontoso.net_합니다.

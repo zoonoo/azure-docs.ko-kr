@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080468"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "66387111"
 * 테스트 스테이션
 * 포장 스테이션
 
-이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음을 포함합니다.
+이러한 OPC UA 서버에는 OPC UA 노드가 있으며 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)는 연결된 팩터리를 이러한 노드 값을 보냅니다. 다음 내용이 포함됩니다.
 
 * 현재 전력 소비와 같은 현재 작동 상태
 * 생산된 제품의 수와 같은 프로덕션 정보
@@ -266,7 +266,7 @@ ms.locfileid: "66387111"
 
 * 이름
 * 설명
-* Image
+* 이미지
 * Location
 * Units
 * 표시
@@ -340,4 +340,4 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로 [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-accelerators-connected-factory-gateway-deployment.md)를 학습하는 것이 좋습니다.
+에 대해 알아보려면 다음 단계는 권장 하는 방법 [연결 된 팩터리 솔루션 사용자 지정](iot-accelerators-connected-factory-customize.md)합니다.

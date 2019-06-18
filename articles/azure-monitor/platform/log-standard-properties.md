@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d7c1d9b59e802343f6d8fe258e8e4ac961bb2df
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061013"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Azure Monitor 로그 레코드의 표준 속성
 Azure Monitor의 로그 데이터는 각각 고유한 속성 집합이 있는 특정 데이터 형식의 [레코드 세트로 저장](../log-query/log-query-overview.md)됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
@@ -136,6 +136,26 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
+구독 당 수집 하는 청구 가능한 이벤트의 크기를 보려면 다음 쿼리를 사용 합니다.
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+리소스 그룹 단위로 수집 되는 청구 가능한 이벤트의 크기를 보려면 다음 쿼리를 사용 합니다.
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
+
 컴퓨터당 수집된 이벤트 수를 보려면 다음 쿼리를 사용합니다.
 
 ```Kusto
@@ -151,7 +171,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-특정 컴퓨터로 데이터를 전송하는 청구 가능 데이터 형식 수를 확인하려면 다음 쿼리를 사용합니다.
+특정 컴퓨터에서 청구 가능한 데이터 형식의 수를 보려면 다음 쿼리를 사용 합니다.
 
 ```Kusto
 union withsource = tt *
@@ -159,7 +179,6 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last 
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

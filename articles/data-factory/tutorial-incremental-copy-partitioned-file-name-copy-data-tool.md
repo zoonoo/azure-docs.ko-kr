@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61099083"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>증분 방식으로 데이터 복사 도구를 사용 하 여 분할 된 파일 이름에 따라 새 파일을 복사
@@ -43,18 +43,18 @@ ms.locfileid: "61099083"
 
 자습서의이 단계를 수행 하 여 Blob 저장소를 준비 합니다.
 
-1. 라는 컨테이너를 만듭니다 **원본**합니다.  폴더 경로를 만듭니다 **2019/02/26/14** 컨테이너에서. 빈 텍스트 파일을 만들고 이름을 **file1.txt**합니다. 폴더 경로 file1.txt 업로드할 **원본/2019/02/26/14** 저장소 계정에 있습니다.  [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
+1. 라는 컨테이너를 만듭니다 **원본**합니다.  폴더 경로를 만듭니다 **2019/02/26/14** 컨테이너에서. 빈 텍스트 파일을 만들고 이름을 **file1.txt**합니다. 폴더 경로 file1.txt 업로드할 **원본/2019/02/26/14** 저장소 계정에 있습니다.  [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
     
     ![파일 업로드](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
     > UTC 시간을 사용 하 여 폴더 이름을 조정 하십시오.  예를 들어, 현재 UTC 시간이 2019 년 2 월 26 일 오후 2 03 경우 폴더 경로를 만들 수 **원본/2019/02/26/14/** 의 규칙에 의해 **원본 / {Year} / {Month} / {Day} / {Hour} /** 합니다.
 
-2. 라는 컨테이너를 만듭니다 **대상**합니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
+2. 라는 컨테이너를 만듭니다 **대상**합니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "61099083"
    
    ![새 데이터 팩터리 오류 메시지](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 3. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
@@ -100,7 +100,7 @@ ms.locfileid: "61099083"
 
     b. 아래 **작업 흐름 또는 작업 일정**를 선택 **일정에 따라 정기적으로 실행**합니다.
 
-    다. 아래 **유형을 트리거**를 선택 **Tumbling Window**합니다.
+    c. 아래 **유형을 트리거**를 선택 **Tumbling Window**합니다.
     
     d. 아래 **되풀이**를 입력 **1 시간**합니다. 
     
@@ -119,7 +119,7 @@ ms.locfileid: "61099083"
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
-    다. 에 **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 합니다는 **저장소 계정 이름** 목록을 연 다음 클릭 **마침**합니다.
+    c. 에 **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 합니다는 **저장소 계정 이름** 목록을 연 다음 클릭 **마침**합니다.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -136,7 +136,7 @@ ms.locfileid: "61099083"
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    다. 동적 폴더 경로를 작성할 **원본 / {year} / {month} / {day} / {hour} /**, 형식은 다음으로 변경:
+    c. 동적 폴더 경로를 작성할 **원본 / {year} / {month} / {day} / {hour} /** , 형식은 다음으로 변경:
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
@@ -152,11 +152,11 @@ ms.locfileid: "61099083"
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. 동적 폴더 경로를 작성할 **원본 / {year} / {month} / {day} / {hour} /**, 형식은 다음으로 변경:
+    b. 동적 폴더 경로를 작성할 **원본 / {year} / {month} / {day} / {hour} /** , 형식은 다음으로 변경:
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    다. **다음**을 클릭합니다.
+    c. **다음**을 클릭합니다.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. **설정** 페이지에서 **다음**을 선택합니다. 
@@ -179,7 +179,7 @@ ms.locfileid: "61099083"
     Azure Storage 탐색기를 사용 하 여 동일한도 확인할 수 있습니다 (https://storageexplorer.com/) 파일을 검색 합니다.
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. 새 이름으로 다른 빈 텍스트 파일을 만듭니다 **file2.txt**합니다. 폴더 경로에 file2.txt 파일을 업로드할 **원본/2019/02/26/15** 저장소 계정에 있습니다.   [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
+12. 새 이름으로 다른 빈 텍스트 파일을 만듭니다 **file2.txt**합니다. 폴더 경로에 file2.txt 파일을 업로드할 **원본/2019/02/26/15** 저장소 계정에 있습니다.   [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     

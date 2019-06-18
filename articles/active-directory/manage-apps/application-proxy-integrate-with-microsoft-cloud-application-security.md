@@ -1,6 +1,6 @@
 ---
 title: Cloud App Security와 온-프레미스 앱 통합 - Azure Active Directory | Microsoft Docs
-description: MCAS(Microsoft Cloud App Security)를 사용하여 작동하도록 Azure Active Directory에서 온-프레미스 애플리케이션을 구성합니다. MCAS 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 및 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
+description: MCAS(Microsoft Cloud App Security)를 사용하여 작동하도록 Azure Active Directory에서 온-프레미스 애플리케이션을 구성합니다. 조건부 액세스 정책에 따라 실시간 모니터링 및 제어 세션에 MCAS 조건부 액세스 앱 제어를 사용 합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c614d636e572eb261ec28c55ac49fec0e2b58b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108440"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성
-실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS는 조건부 액세스 앱 제어를 사용하여 조건부 액세스 정책에 따라 실시간으로 세션을 모니터링 및 제어합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
+실시간 모니터링을 위해 MCAS(Microsoft Cloud App Security)를 사용하도록 Azure AD(Azure Active Directory)에서 온-프레미스 애플리케이션을 구성합니다. MCAS 조건부 액세스 앱 제어를 사용 하 여 모니터링 및 제어 세션을 실시간으로 조건부 액세스 정책에 따라 합니다. Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 이러한 정책을 적용할 수 있습니다.
 
 MCAS를 사용하여 만들 수 있는 몇 가지 정책 유형의 예제는 다음과 같습니다.
 

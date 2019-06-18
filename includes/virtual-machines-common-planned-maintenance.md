@@ -9,10 +9,10 @@ ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155922"
 ---
 Azure는 주기적으로 안정성, 성능 및 가상 머신에 대 한 호스트 인프라의 보안을 개선 하기 위해 해당 플랫폼을 업데이트 합니다. 이러한 업데이트의 목적은 범위에서 네트워킹 구성 요소 업그레이드 하거나 하드웨어 서비스 해제 호스팅 환경의 소프트웨어 구성 요소를 패치 하는 것입니다. 
@@ -46,7 +46,7 @@ VM 내에서 예정 된 유지 관리에 대 한 알림을 가져올 수 있습�
 실시간 마이그레이션에는 다시 부팅이 필요 하지 않습니다 하 고 VM에 대 한 메모리를 유지 하는 작업입니다. 일시 중지 또는 중지, 일반적으로 5 초 동안 지속 되 발생 합니다. G를 제외 하 고 모든 infrastructure as a service (IaaS) Vm, M, N 및 H 시리즈 실시간 마이그레이션이 가능합니다. 적합 한 Vm을 Azure 전체 조직에 배포 된 IaaS Vm의 90% 이상 나타냅니다. 
 
 다음 시나리오에서 실시간 마이그레이션을 시작 하는 Azure 플랫폼:
-- 계획된 유지 관리
+- 계획된 유지 보수
 - 하드웨어 오류
 - 할당 최적화
 

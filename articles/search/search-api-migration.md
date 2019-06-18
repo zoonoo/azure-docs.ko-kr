@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540687"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>최신 Azure Search Service REST API 버전으로 업그레이드
@@ -39,7 +39,7 @@ ms.locfileid: "65540687"
 
 몇 가지 미리 보기 기능 릴리스에이 일반적으로 사용 가능한 업데이트와 일치합니다. 새 미리 보기 기능 목록을 참조 하세요 [검색 REST api-버전 2019-05-06-미리 보기](search-api-preview.md)합니다.
 
-## <a name="breaking-changes"></a>호환성이 손상되는 변경
+## <a name="breaking-changes"></a>주요 변경 내용
 
 Api 버전에는 다음과 같은 기능을 포함 하는 기존 코드의 연결이 끊어집니다 2019-05-06 =.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870509"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 미리 보기에서 위임 된 액세스
@@ -25,7 +25,7 @@ Windows 가상 데스크톱 액세스 지원 역할 할당의 각 요소에 대�
     * 서비스 원칙
 * 역할 정의
     * 기본 제공 역할
-* 범위
+* Scope
     * 테 넌 트 그룹
     * 테 넌 트
     * 호스트 풀

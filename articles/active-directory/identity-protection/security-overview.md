@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452950"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - 보안 개요
@@ -47,7 +47,7 @@ ms.locfileid: "60452950"
 
 이 차트는 선택된 기간에 탐지된 위험한 로그인 수를 보여 줍니다. 로그인 위험 유형(실시간 또는 집계) 또는 로그인 위험 수준(낮음, 중간, 높음)을 기준으로 이 차트의 보기를 필터링할 수 있습니다. 보호되지 않는 로그인은 MFA가 요청되지 않은 성공한 실시간 위험 로그인입니다. (참고: 오프라인 탐지로 인해 위험한 로그인은 로그인 위험 정책에 따라 실시간으로 보호할 수 없음) UTC 날짜 증분을 가리키면 해당 날짜에 탐지된 위험한 로그인 수가 표시됩니다. 이 차트를 클릭하면 ‘위험한 로그인’ 보고서로 이동됩니다.
 
-## <a name="tiles"></a>큰 아이콘
+## <a name="tiles"></a>타일
  
 ### <a name="high-risk-users"></a>위험 수준이 높은 사용자
 

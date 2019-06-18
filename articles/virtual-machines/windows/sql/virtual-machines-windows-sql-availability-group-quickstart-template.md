@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591343"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure 빠른 시작 템플릿을 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
@@ -44,7 +44,7 @@ ms.locfileid: "60591343"
 ## <a name="permissions"></a>권한
 Azure 빠른 시작 템플릿을 사용 하 여 Always On 가용성 그룹을 구성 하는 데 필요한 권한은 다음 같습니다. 
 
-- 기존 도메인 사용자 계정 도메인의 컴퓨터 개체 만들기 ' 권한이 있는 합니다.  예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
+- 기존 도메인 사용자 계정 도메인의 컴퓨터 개체 만들기 ' 권한이 있는 합니다.  예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다. 
 - SQL Server 서비스를 제어 하는 도메인 사용자 계정입니다. 
 
 
@@ -64,7 +64,7 @@ SQL Server VM이 SQL VM 새 리소스 공급자에 등록되고 나면 SQL Serve
    | **기존 VM 목록** | 가용성 그룹에 참여하고 새 클러스터의 일부로 포함하려는 SQL Server VM입니다. 이러한 값을 쉼표와 공백으로 구분합니다(예: SQLVM1, SQLVM2). |
    | **SQL Server 버전**: | 드롭다운에서 SQL Server VM의 SQL Server 버전을 선택합니다. 현재 SQL 2016 및 SQL 2017 이미지만 지원됩니다. |
    | **기존 정규화된 도메인 이름** | SQL Server VM이 있는 도메인의 기존 FQDN입니다. |
-   | **기존 도메인 계정** | 템플릿 배포 중에 [CNO](/windows-server/failover-clustering/prestage-cluster-adds)가 생성될 때 도메인에 ‘컴퓨터 개체를 만들’ 수 있는 권한이 있는 기존 도메인 사용자 계정입니다. 예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.| 
+   | **기존 도메인 계정** | 템플릿 배포 중에 [CNO](/windows-server/failover-clustering/prestage-cluster-adds)가 생성될 때 도메인에 ‘컴퓨터 개체를 만들’ 수 있는 권한이 있는 기존 도메인 사용자 계정입니다. 예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다. | 
    | **도메인 계정 암호** | 이전에 언급한 도메인 사용자 계정의 암호입니다. | 
    | **기존 SQL 서비스 계정** | 가용성 그룹 배포 중에 [SQL Server 서비스](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions)를 제어하는 도메인 사용자 계정입니다(예: account@domain.com). |
    | **SQL 서비스 암호** | SQL Server 서비스를 제어하는 도메인 사용자 계정에서 사용하는 암호입니다. |
@@ -105,7 +105,7 @@ Always On 가용성 그룹 (AG) 수신기는 내부 Azure 부하 분산 장치 (
    | **개인 IP 주소** | 서브넷에서 사용 가능한 IP 주소를 지정합니다. |
    | **구독** |구독이 여러 개인 경우 이 필드가 나타날 수 있습니다. 이 리소스와 연결할 구독을 선택합니다. 일반적으로 가용성 그룹에 대한 모든 리소스와 동일한 구독입니다. |
    | **리소스 그룹** |SQL Server 인스턴스가 있는 리소스 그룹을 선택합니다. |
-   | **위치**: |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
+   | **Location**: |SQL Server 인스턴스가 있는 Azure 위치를 선택합니다. |
    | &nbsp; | &nbsp; |
 
 6. **만들기**를 선택합니다. 
@@ -142,7 +142,7 @@ ILB를 구성하고 AG 수신기를 만들려면 다음을 수행합니다.
    | **수신기** | 수신기에 할당할 DNS 이름입니다. 기본적으로 이 템플릿은 ‘aglistener’라는 이름을 지정하지만 변경할 수 있습니다. 이름은 15자를 초과할 수 없습니다. |
    | **수신기 포트** | 수신기에서 사용할 포트입니다. 일반적으로 이 포트는 기본 포트인 1433이어야 하므로, 해당 포트 번호가 이 템플릿에서 지정됩니다. 그러나 기본 포트가 변경된 경우에는 수신기 포트에서 해당 값을 대신 사용해야 합니다. | 
    | **수신기 IP** | 수신기에서 사용할 IP입니다.  이 IP 주소는 템플릿 배포 중에 생성되므로, 아직 사용되지 않은 IP 주소를 제공합니다.  |
-   | **기존 서브넷** | SQL Server VM의 내부 서브넷 ‘이름’(예: default)입니다. 이 값은 **리소스 그룹**으로 이동하여 **VNet**을 선택하고 **설정** 창 아래에서 **서브넷**을 선택한 다음, **이름** 아래의 값을 복사하여 확인할 수 있습니다. |
+   | **기존 서브넷** | SQL Server VM의 내부 서브넷 ‘이름’(예: default)입니다.  이 값은 **리소스 그룹**으로 이동하여 **VNet**을 선택하고 **설정** 창 아래에서 **서브넷**을 선택한 다음, **이름** 아래의 값을 복사하여 확인할 수 있습니다. |
    | **기존 내부 Load Balancer** | 3단계에서 만든 ILB의 이름입니다. |
    | **프로브 포트** | ILB에서 사용하려는 프로브 포트입니다. 템플릿은 기본적으로 59999를 사용하지만 이 값을 변경할 수 있습니다. |
    | &nbsp; | &nbsp; |

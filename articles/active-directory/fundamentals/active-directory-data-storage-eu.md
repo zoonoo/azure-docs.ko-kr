@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235158"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
@@ -28,9 +28,7 @@ Id 데이터는 Azure AD에서 Office 365 및 Azure 같은 Microsoft 온라인 �
     
 - 전화 통화를 사용 하 여 모든 2 단계 인증 또는 SMS 미국 데이터 센터에서 시작 하 고 전역 공급자도 라우팅됩니다.
 - 미국 데이터 센터에서 앱 시작 Microsoft Authenticator를 사용 하 여 알림을 푸시하십시오. 또한 장치 공급 업체 특정 서비스 play 및 유럽 외부 아마도 이러한 서비스에도 가져올 수 있습니다.
-- OATH 코드는 미국에서 항상 유효성이 검사됩니다.
-
-Azure Multi-factor Authentication (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 되는 사용자 정보에 대 한 자세한 내용은 참조 하세요. [Azure Multi-factor Authentication 사용자 데이터 컬렉션](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)합니다.
+- OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

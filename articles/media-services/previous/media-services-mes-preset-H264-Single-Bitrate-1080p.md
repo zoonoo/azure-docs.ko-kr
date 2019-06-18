@@ -1,8 +1,8 @@
 ---
 title: H264 단일 비트 전송률 1080p Media Encoder Standard 사전 설정-Azure | Microsoft Docs
 description: 이 항목은 **H264 단일 비트 전송률 1080p** 태스크 미리 설정에 대한 개요를 제공합니다.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/19/2019
+ms.author: juliako
 ms.openlocfilehash: 04333e54566d8535f3d5ba98f32650d30f5fbfc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463585"
 ---
 # <a name="h264-single-bitrate-1080p"></a>H264 단일 비트 전송률 1080p

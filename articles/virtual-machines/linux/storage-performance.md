@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
 ms.openlocfilehash: 7be86c8934b8766217f9fca432327d254204f0c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738947"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2-시리즈 virtual machines에서 성능 최적화
@@ -46,7 +46,7 @@ Lsv2 시리즈 Vm Zen 마이크로 아키텍처에 기반을 둔 AMD EYPC™ 서
 
 ## <a name="utilizing-local-nvme-storage"></a>로컬 NVMe 저장소를 활용 하 여
 
-1.92 TB NVMe 디스크에 모든 Lsv2 Vm 로컬 저장소는 사용 후 삭제 합니다. VM의 성공적인 표준 재부팅을 하는 동안 로컬 NVMe 디스크의 데이터가 유지 됩니다. VM 다시 배포, 할당 취소 하거나 삭제 한 경우 데이터는 NVMe에서 유지 되지 않습니다. 다른 문제로 인해 VM 또는 실행 중인 하드웨어에에 비정상 상태가 되는 경우에 데이터 유지 되지 않습니다. 이 경우 이전 호스트의 모든 데이터가 안전 하 게 지워집니다.
+1\.92 TB NVMe 디스크에 모든 Lsv2 Vm 로컬 저장소는 사용 후 삭제 합니다. VM의 성공적인 표준 재부팅을 하는 동안 로컬 NVMe 디스크의 데이터가 유지 됩니다. VM 다시 배포, 할당 취소 하거나 삭제 한 경우 데이터는 NVMe에서 유지 되지 않습니다. 다른 문제로 인해 VM 또는 실행 중인 하드웨어에에 비정상 상태가 되는 경우에 데이터 유지 되지 않습니다. 이 경우 이전 호스트의 모든 데이터가 안전 하 게 지워집니다.
 
 VM 계획 된 유지 관리 작업을 하는 동안 예를 들어, 다른 호스트 컴퓨터로 이동 해야 하는 경우 사례도 됩니다. 계획 된 유지 관리 작업 및 일부 하드웨어 오류를 사용 하 여 예측할 수 있습니다 [예약 된 이벤트](scheduled-events.md)합니다. 모든 예측된 유지 관리 및 복구 작업에서 업데이트를 유지할 예약 된 이벤트를 사용 해야 합니다.
 

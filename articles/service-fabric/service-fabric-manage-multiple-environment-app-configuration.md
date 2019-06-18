@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719229"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리
@@ -42,7 +42,7 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 
 > [!NOTE]
 > 애플리케이션 및 서비스 매니페스트 파일의 모든 특성이 매개 변수를 지원하지는 않습니다.
-> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Azure DevOps에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
+> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Azure DevOps에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens 와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>애플리케이션 생성 중에 매개 변수 지정

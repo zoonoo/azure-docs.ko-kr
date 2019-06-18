@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/06/2019
 ms.author: alinast
-ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071450"
 ---
 # <a name="egress-and-endpoints"></a>송신 및 엔드포인트
 
@@ -51,7 +51,7 @@ Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지
 | --- | --- | --- |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
-| data | object | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
+| data | 개체(object) | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |

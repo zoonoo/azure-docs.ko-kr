@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724472"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
@@ -23,7 +23,7 @@ ms.locfileid: "64724472"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight에서 Hadoop 클러스터입니다. 참조 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)합니다.
+* HDInsight에서 Hadoop 클러스터입니다. [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 저장소 계정 이름과 키입니다. 참조 [Azure portal에서 저장소 계정 설정을 관리](../storage/common/storage-account-manage.md)합니다.
 * [대/소문자 올바르게 클러스터 이름](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)합니다.
 * PowerShell을 사용 하는 경우 AZ 모듈이 필요 합니다.  참조 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview)합니다.

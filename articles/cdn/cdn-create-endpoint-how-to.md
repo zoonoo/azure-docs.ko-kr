@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679574"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
@@ -44,7 +44,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
    
     ![[엔드포인트 추가] 페이지](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. **이름**에 새 CDN 엔드포인트의 고유한 이름을 입력합니다. 이 이름은 도메인의 캐시 된 리소스에 액세스 하는 데 사용 됩니다  _\<endpointname >_. azureedge.net 합니다.
+3. **이름**에 새 CDN 엔드포인트의 고유한 이름을 입력합니다. 이 이름은 도메인의 캐시 된 리소스에 액세스 하는 데 사용 됩니다  _\<endpointname >_ . azureedge.net 합니다.
 
 4. **원본 형식**으로는 다음 원본 형식 중 하나를 선택합니다. 
    - Azure Storage용 **스토리지**
@@ -62,7 +62,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
    > Azure Storage 및 Web Apps 등 일부 유형의 원본은 해당 원본의 도메인과 일치하는 호스트 헤더가 필요합니다. 해당 도메인과 다른 호스트 헤더를 필요로 하는 원본이 아니면 기본값을 유지해야 합니다.
    > 
     
-8. **프로토콜** 및 **원본 포트**에서는 원본 서버의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다. CDN 제공 도메인을 사용 하 여 (_\<endpointname >_. azureedge.net) HTTPS 콘텐츠에 액세스 합니다. 
+8. **프로토콜** 및 **원본 포트**에서는 원본 서버의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다. CDN 제공 도메인을 사용 하 여 ( _\<endpointname >_ . azureedge.net) HTTPS 콘텐츠에 액세스 합니다. 
    
    > [!NOTE]
    > **원본 포트** 값은 엔드포인트가 원본 서버에서 정보를 검색하는 데 사용하는 포트에만 영향을 줍니다. 엔드포인트 자체는 **원본 포트** 값에 관계없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에만 사용할 수 있습니다.  

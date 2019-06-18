@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 27536b0a3d7e0858a5660b4c7b33cb6679b5fbf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60874565"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용하여 보안 푸시 알림 보내기
@@ -32,7 +32,7 @@ ms.locfileid: "60874565"
 ## <a name="overview"></a>개요
 
 > [!IMPORTANT]
-> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
+> 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하십시오.
 
 Microsoft Azure의 푸시 알림 지원을 통해 간편하게 사용할 수 있는 다중 플랫폼의 확장형 푸시 메시지 인프라에 액세스할 수 있습니다. 이 인프라에서는 모바일 플랫폼용 소비자 애플리케이션 및 엔터프라이즈 애플리케이션에 사용할 푸시 알림을 매우 간단하게 구현할 수 있습니다.
 

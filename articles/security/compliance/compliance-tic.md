@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608094"
 ---
 # <a name="trusted-internet-connections-guidance"></a>TIC(Trusted Internet Connections) 지침
@@ -80,7 +80,7 @@ TIC 준수를 지원하는 가장 간단한 시나리오는 가상 머신 또는
 
 Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 서브넷에 경로를 할당합니다. 시스템 경로는 만들거나 제거할 수 없지만, 일부 시스템 경로는 사용자 지정 경로를 사용하여 재정의할 수 있습니다. Azure는 각 서브넷에 대한 기본 시스템 경로를 만듭니다. Azure는 특정 Azure 기능을 사용하는 경우 특정 서브넷 또는 모든 서브넷에 선택적 기본 경로를 추가합니다. 이 유형의 라우팅은 다음을 보장합니다.
 - 가상 네트워크 내에서 예정된 트래픽은 가상 네트워크 내에서 유지됩니다.
-- 10.0.0.0/8과 같이 IANA에서 지정한 프라이빗 주소 공간은 가상 네트워크 주소 공간에 포함되지 않으면 삭제됩니다.
+- 10\.0.0.0/8과 같이 IANA에서 지정한 프라이빗 주소 공간은 가상 네트워크 주소 공간에 포함되지 않으면 삭제됩니다.
 - "마지막 수단"으로 가상 네트워크 인터넷 엔드포인트에 0.0.0.0/0을 라우팅합니다.
 
 ![TIC 강제 터널링](media/tic-diagram-c.png)

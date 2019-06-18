@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055288"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -24,7 +24,7 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
-
+ 
 * 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각난 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 LiveEvent에 전송합니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
 
 Media Services를 사용하는 라이브 인코딩에 대한 자세한 내용은 [Media Services v3을 사용하는 라이브 스트리밍](live-streaming-overview.md)을 참조하세요.
@@ -127,7 +127,7 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 
 ### <a name="email-your-recorded-settings"></a>기록된 설정을 이메일로 보내기
 
-마지막으로, 메일을 통해 기록된 설정 및 라이브 보관 매개 변수를 amsstreaming@microsoft.com의 Azure Media Services에 모든 자체 확인 검사가 통과되었다는 알림으로 보냅니다. 또한 후속 작업을 위해 연락처 정보를 기재해 주세요. 이 프로세스와 관련된 질문이 있는 경우 Azure Media Services 팀에 문의할 수 있습니다.
+마지막으로, 메일을 통해 기록된 설정 및 라이브 보관 매개 변수를 amslived@microsoft.com의 Azure Media Services에 모든 자체 확인 검사가 통과되었다는 알림으로 보냅니다. 또한 후속 작업을 위해 연락처 정보를 기재해 주세요. 이 프로세스와 관련된 질문이 있는 경우 Azure Media Services 팀에 문의할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

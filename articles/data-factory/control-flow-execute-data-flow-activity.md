@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077317"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업을 실행 합니다.
 트리거된 파이프라인 실행 및 파이프라인 디버그 (샌드박스) 실행 ADF 데이터 흐름을 실행 하려면 실행 데이터 흐름 작업을 사용 합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "66235855"
 
 ### <a name="staging-area"></a>준비 영역
 
-Azure Data Warehouse로 데이터를 싱크는, Polybase 일괄 처리 부하에 대 한 스테이징 위치를 선택 해야 합니다.
+Azure Data Warehouse로 데이터를 싱크는, Polybase 일괄 처리 부하에 대 한 스테이징 위치를 선택 해야 합니다. 준비 설정만 Azure 데이터 웨어하우스 워크 로드에 적용 됩니다.
 
 ## <a name="parameterized-datasets"></a>매개 변수가 있는 데이터 집합
 

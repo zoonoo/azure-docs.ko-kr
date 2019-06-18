@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620603"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
@@ -199,4 +199,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | 사용 해제 오류 | 서비스를 제거하지 못했습니다 |
 | 120 | 제거 오류 | 서비스를 중지하지 못했습니다. |
 
-도움이 더 필요하면 https://support.stackify.com에서 Stackify 지원 팀에 문의하세요.
+도움이 더 필요하면 https://support.stackify.com 에서 Stackify 지원 팀에 문의하세요.

@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132841"
 ---
 1. 캐시를 만들려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, **리소스 만들기** > **데이터베이스** > **Azure Cache for Redis**를 선택합니다.

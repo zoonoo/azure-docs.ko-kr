@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071623"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -36,6 +36,8 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 - 임계값: 70
 
 경고 규칙이 만들어진 시점 이후 모니터는 1분 간격으로 실행되며 지난 5분 간의 메트릭 값을 살펴 이 평균이 70을 초과하는지 확인합니다. 조건에 부합하면, 즉 지난 5분의 평균 백분율 CPU가 70을 초과하면 경고 규칙에서 활성화된 알림을 생성합니다. 경고 규칙과 연결된 작업 그룹에서 이메일이나 웹후크 작업을 구성한 경우 모두 활성화된 알림을 받게 됩니다.
+
+사용할 때 여러 조건을 하나의 규칙에서 규칙 "ands" 조건 함께 합니다.  즉, 경고는 경고의 모든 조건이 true로 평가 하 고 때 조건 중 하나가 더 이상 true 해결 하는 경우에 발생 합니다. 이 유형의 경고의 예 및 경우 경고 "90% 보다 높은 CPU" 및 "큐 길이 300 개 이상의 항목"입니다. 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>동적 조건 형식이 있는 경고 규칙
 

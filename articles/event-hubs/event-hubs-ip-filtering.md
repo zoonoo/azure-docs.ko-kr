@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821671"
 ---
 # <a name="use-firewall-rules"></a>방화벽 규칙 사용
 
 잘 알려진 특정 사이트에서 Azure Event Hubs만이 액세스 가능한 시나리오의 경우 방화벽 규칙을 사용하면 특정 IPv4 주소에서 시작된 트래픽을 허용하는 규칙을 구성할 수 있습니다. 예를 들어 이 주소는 회사 NAT 게이트웨이의 주소일 것입니다.
 
-## <a name="when-to-use"></a>사용하는 경우
+## <a name="when-to-use"></a>사용 시기
 
 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Event Hubs 네임스페이스를 설정하려는 경우 *방화벽 규칙*을 활용하여 다른 IP 주소의 Event Hub 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express Route][express-route]와 함께 Event Hubs를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽을 제한하는 *방화벽 규칙*을 만들 수 있습니다.
 

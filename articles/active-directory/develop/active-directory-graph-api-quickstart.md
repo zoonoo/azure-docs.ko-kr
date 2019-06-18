@@ -20,10 +20,10 @@ ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544675"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
@@ -39,7 +39,7 @@ Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD
 
 Graph API에서 디렉터리 데이터 및 CRUD 작업을 수행하려는 개체(즉, 리소스 또는 엔터티)에 액세스하려면 OData(개방형 데이터) 프로토콜을 기반으로 하는 URL을 사용할 수 있습니다. Graph API에서 사용되는 URL은 서비스 루트, 테넌트 식별자, 리소스 경로 및 쿼리 문자열 옵션의 네 가지 주요 부분으로 구성됩니다. `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. 다음 URL을 예로 들어보겠습니다. `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net입니다.
+* **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net 입니다.
 * **테넌트 식별자**: 이 섹션은 위 예제에서 contoso.com이라는 확인된(등록된) 도메인 이름일 수 있습니다. 테넌트 개체 ID나 "myorganization" 또는 "me" 별칭일 수도 있습니다. 자세한 내용은 [Azure AD Graph API의 엔터티 및 작업 주소 지정](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)을 참조하세요.
 * **리소스 경로**: URL의 이 섹션에서는 상호 작용할 리소스(사용자, 그룹, 특정 사용자 또는 특정 그룹 등)를 식별합니다. 위의 예제에서는 해당 리소스 집합의 주소를 지정하는 최상위 "그룹"입니다. 특정 엔터티 주소를 지정할 수도 있습니다(예: "users/{objectId}" 또는 "users/userPrincipalName").
 * **쿼리 매개 변수**: 물음표(?)는 리소스 경로 섹션과 쿼리 매개 변수 섹션을 구분합니다. Azure AD Graph API의 모든 요청에는 "api-version" 쿼리 매개 변수가 필요합니다. 또한 Azure AD Graph API는 OData 쿼리 옵션, 즉 **$filter**, **$orderby**, **$expand**, **$top** 및 **$format**을 지원합니다. **$count**, **$inlinecount** 및 **$skip** 쿼리 옵션은 현재 지원되지 않습니다. 자세한 내용은 [Azure AD Graph API에서 지원되는 쿼리, 필터 및 페이징 옵션](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)을 참조하세요.
@@ -126,5 +126,5 @@ Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-*  [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-*  [Azure AD Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+* [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+* [Azure AD Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)

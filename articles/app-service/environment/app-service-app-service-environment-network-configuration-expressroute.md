@@ -16,10 +16,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130673"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
@@ -116,7 +116,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 `Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
-0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
+0.0.0.0/0은 광범위한 주소 범위입니다. 이 범위는 ExpressRoute에서 보급하는 더 구체적인 주소 범위로 재정의됩니다. 0\.0.0.0/0 경로가 있는 UDR은 0.0.0.0/0만 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
 
 대신 Azure에서 사용 중인 포괄적인 최신 CIDR 범위 목록을 다운로드합니다. 모든 Azure IP 주소 범위에 대한 XML 파일은 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 사용할 수 있습니다.  
 

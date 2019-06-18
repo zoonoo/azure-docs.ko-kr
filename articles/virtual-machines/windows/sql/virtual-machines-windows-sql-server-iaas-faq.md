@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
 ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477266"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
@@ -77,7 +77,7 @@ ms.locfileid: "61477266"
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
-   두 가지 방법으로 이 작업을 수행할 수 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 따라서, BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+   그런 경우 두 가지 방법이 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 따라서, BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**

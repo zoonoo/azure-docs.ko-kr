@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135645"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048706"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -155,8 +155,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 ### <a name="access-log"></a>액세스 로그
 
-이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. Application Gateway의 액세스는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
-
+이전 단계에서 설명한 대로 액세스 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 저장소 계정에 저장됩니다. Application Gateway의 액세스는 각각 v1에 대 한 다음 예제와 같이 JSON 형식으로 기록 됩니다.
 
 |값  |설명  |
 |---------|---------|
@@ -193,6 +192,58 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+Application Gateway를 WAF v2에 대 한 로그에 더 많은 정보가 표시 합니다.
+
+|값  |설명  |
+|---------|---------|
+|instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
+|clientIP     | 요청에 대한 원래 IP        |
+|clientPort     | 요청에 대한 원래 포트       |
+|httpMethod     | 요청에서 사용된 HTTP 메서드       |
+|requestUri     | 받은 요청의 URI        |
+|RequestQuery     | **Server-Routed**: 요청을 보낸 백 엔드 풀 인스턴스입니다.</br>**X-AzureApplicationGateway-LOG-ID**: 요청에 사용되는 상관 관계 ID입니다. 백 엔드 서버에서 트래픽 문제를 해결하는 데 사용할 수 있습니다. </br>**SERVER-STATUS**: Application Gateway에서 백 엔드로부터 받은 HTTP 응답 코드입니다.       |
+|UserAgent     | HTTP 요청 헤더의 사용자 에이전트        |
+|httpStatus     | Application Gateway에서 클라이언트로 반환한 HTTP 상태 코드       |
+|httpVersion     | 요청의 HTTP 버전        |
+|receivedBytes     | 받은 패킷의 크기(바이트)        |
+|sentBytes| 보낸 패킷의 크기(바이트)|
+|timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
+|sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
+|sslCipher| (SSL 사용) 하는 경우 SSL 통신에 사용 되는 암호 그룹입니다.|
+|sslProtocol| SSL 프로토콜 (SSL 사용) 하는 경우 사용 합니다.|
+|serverRouted| 백 엔드 서버 해당 응용 프로그램 게이트웨이에 대 한 요청을 라우팅합니다.|
+|serverStatus| 백 엔드 서버가 HTTP 상태 코드입니다.|
+|serverResponseLatency| 백 엔드 서버에서 응답의 대기 시간입니다.|
+|host| 요청의 호스트 헤더에 나열 된 주소입니다.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```

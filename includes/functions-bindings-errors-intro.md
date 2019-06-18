@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132478"
 ---
 Azure Functions [트리거 및 바인딩](../articles/azure-functions/functions-triggers-bindings.md)은 다양한 Azure 서비스와 통신합니다. 이러한 서비스와 통합하는 경우 기본 Azure 서비스의 API에서 발생하는 오류가 있을 수 있습니다. REST 또는 클라이언트 라이브러리를 사용하여 함수 코드에서 다른 서비스와 통신을 시도하는 경우에도 오류가 발생할 수 있습니다. 데이터 손실을 방지하고 함수의 올바른 작동을 보장하려면 두 가지 원본 중 한 곳에서 오류를 처리하는 것이 중요합니다.

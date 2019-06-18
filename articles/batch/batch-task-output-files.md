@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595283"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
@@ -72,7 +72,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 태스크에 대한 출력 파일을 지정하려면 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 개체의 컬렉션을 만들고 태스크를 만들 때 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 속성에 이 컬렉션을 할당합니다.
 
-다음 C# 코드 예제에서는 `output.txt`라는 파일에 임의의 숫자를 쓰는 태스크를 만듭니다. 이 예제에서는 `output.txt`라는 출력 파일을 만들어 컨테이너에 씁니다. 또한 `std*.txt` 파일 패턴(_, 예:_ , `stdout.txt` 및 `stderr.txt`)과 일치하는 모든 로그 파일에 대한 출력 파일도 만듭니다. 컨테이너 URL에는 이전에 컨테이너에 대해 만든 SAS가 필요합니다. Batch 서비스에서는 이 SAS를 사용하여 컨테이너에 대한 액세스를 인증합니다.
+다음 C# 코드 예제에서는 `output.txt`라는 파일에 임의의 숫자를 쓰는 태스크를 만듭니다. 이 예제에서는 `output.txt`라는 출력 파일을 만들어 컨테이너에 씁니다. 또한 `std*.txt` 파일 패턴( _, 예:_ , `stdout.txt` 및 `stderr.txt`)과 일치하는 모든 로그 파일에 대한 출력 파일도 만듭니다. 컨테이너 URL에는 이전에 컨테이너에 대해 만든 SAS가 필요합니다. Batch 서비스에서는 이 SAS를 사용하여 컨테이너에 대한 액세스를 인증합니다.
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: e4906bf9f2aead69c315ddb7b2e3b10489378d87
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259076"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>자습서: Azure IoT Hub 메시지 강화 (미리 보기)를 사용 하 여
@@ -69,7 +69,7 @@ ms.locfileid: "66259076"
 
 스크립트에서 만든 리소스는 다음과 같습니다. **보강** 강화를 사용 하 여 메시지에 대 한 리소스를 의미 합니다. **원래** 보강 되지 되는 메시지에 대 한 리소스를 의미 합니다.
 
-| 이름 | Value |
+| 이름 | 값 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 컨테이너 이름 | 원문 언어  |
@@ -250,7 +250,7 @@ az iot hub route create \
 
 2. ContosoStorageEndpointEnriched 끝점에 대 한 목록에 이러한 값을 추가 합니다.
 
-   | 이름 | Value | 끝점 (드롭다운 목록) |
+   | 이름 | 값 | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | 디바이스 위치 | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |

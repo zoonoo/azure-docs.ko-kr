@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7e9b7c8f2cf86245322679198b84b50d2c5edce8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464664"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-Means  클러스터링
@@ -75,7 +75,7 @@ K-means는 가장 간단 하 고 가장 잘 알려진 *자율* 학습 알고리�
 
          이 메서드는 또한 호출 된 *임의 파티션* 메서드.  
   
-    -   **K-Means++**: 이것이 클러스터를 초기화 하기 위한 기본 방법입니다.  
+    -   **K-Means++** : 이것이 클러스터를 초기화 하기 위한 기본 방법입니다.  
   
          합니다 **K-+ +** 알고리즘 David Arthur와 Sergei Vassilvitskii 표준 k-means 알고리즘의 불량 클러스터링을 방지 하 여 2007에 제안 했습니다. **K-+ +** 는 초기 클러스터 중심을 선택 하기 위한 다른 방법을 사용 하 여 표준 k-means 특징을 향상 합니다.  
   

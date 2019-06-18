@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60196617"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
@@ -29,7 +29,7 @@ ms.locfileid: "60196617"
 * Data Lake Storage Gen1에 대해 **Azure 구독을 사용하도록 설정**합니다. [지침](data-lake-store-get-started-portal.md)을 참조하세요.
 * **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 자습서에서는 Data Lake Storage Gen1 계정 **datacatalogstore**를 만듭니다.
 
-    계정을 만든 후에 그 계정에 샘플 데이터 집합을 업로드합니다. 이 자습서에서는, **Azure Data Lake Git 리포지토리** 의 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)폴더에 있는 모든 .csv 파일을 업로드하겠습니다. [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
+    계정을 만든 후에 그 계정에 샘플 데이터 집합을 업로드합니다. 이 자습서에서는, **Azure Data Lake Git 리포지토리** 의 [AmbulanceData](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/)폴더에 있는 모든 .csv 파일을 업로드하겠습니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 클라이언트를 사용하여 Blob 컨테이너에 데이터를 업로드할 수 있습니다.
 * **Azure Data Catalog**. 조직용 Azure Data Catalog가 이미 생성되어 있어야 합니다. 각 조직에는 카탈로그가 하나만 허용됩니다.
 
 ## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Data Lake Storage Gen1을 Data Catalog의 원본으로 등록
@@ -56,7 +56,7 @@ ms.locfileid: "60196617"
 
     b. **사용 가능한 개체** 상자에 **AmbulanceData** 폴더의 하위 파일과 폴더가 나열됩니다.
 
-    다. **등록할 개체** 상자에는 Azure Data Catalog에 등록할 파일과 폴더가 나열됩니다.
+    c. **등록할 개체** 상자에는 Azure Data Catalog에 등록할 파일과 폴더가 나열됩니다.
 
     ![데이터 구조 보기](./media/data-lake-store-with-data-catalog/view-data-structure.png "데이터 구조 보기")
 1. 이 자습서에서는, 디렉터리의 모든 파일을 등록합니다. 이를 위해, (![개체 이동](./media/data-lake-store-with-data-catalog/move-objects.png "개체 이동")) 단추를 클릭하여 모든 파일을 **등록할 개체** 상자로 이동합니다.

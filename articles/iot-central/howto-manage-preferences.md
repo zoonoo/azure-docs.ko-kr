@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236328"
 ---
 # <a name="manage-your-application-preferences"></a>애플리케이션 기본 설정 관리
@@ -32,7 +32,7 @@ IoT Central은 여러 언어에서 지원 됩니다. 사용 하 여 원하는 �
 ![IoT Central 테마 선택](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> 밝은 테마와 어두운 테마 중에서 선택할 수 있는 옵션을 관리자가 응용 프로그램에 대 한 사용자 지정 테마를 구성 하는 경우에 사용할 수 없습니다.
+> 관리자가 애플리케이션에 대해 사용자 지정 테마를 구성하면 밝은 테마와 어두운 테마 중에서 선택할 수 있는 옵션을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

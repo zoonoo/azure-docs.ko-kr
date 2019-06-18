@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055644"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Linux 노드에 Azure Kubernetes Service (AKS)에서 보안 및 커널 업데이트 적용
 
@@ -58,12 +58,13 @@ AKS에 클러스터를 *업그레이드*할 수 있는 추가 프로세스가 �
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+```
 
-You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
+Prometheus 또는 Slack과 통합과 같은 `kured`에 대한 추가 매개 변수를 구성할 수도 있습니다. 추가 구성 매개 변수에 대한 자세한 내용은 [kured 설치 문서][kured-install]를 참조하세요.
 
-## Update cluster nodes
+## <a name="update-cluster-nodes"></a>클러스터 노드 업데이트
 
-By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
+AKS의 Linux 노드는 기본적으로 매일 저녁 업데이트에 대 한 확인합니다. 기다리지 않으려는 경우 `kured`가 올바르게 실행되는지 확인하도록 업데이트를 수동으로 수행할 수 있습니다. 먼저 단계에 따라 [AKS 노드 중 하나에 SSH][aks-ssh]합니다. Linux 노드에 SSH 연결을 만든 후 업데이트 확인 하 고 다음과 같이 적용 합니다.
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

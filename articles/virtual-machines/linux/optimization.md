@@ -18,10 +18,10 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473912"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
@@ -31,7 +31,7 @@ Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 
 이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
-Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크(**/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 저장소를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
+Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크( **/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 저장소를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>크기 및 성능 대상에 디스크 추가
 VM 크기에 따라 A 시리즈에 16개, D 시리즈에 32개 및 G 시리즈에 64개의 디스크를 최대로 연결할 수 있고 각각 최대 크기는 1TB입니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크의 성능 목표는 Standard Storage의 경우 최대 500IOps이며 Premium Storage의 경우 디스크당 최대 5000IOps입니다.
@@ -51,7 +51,7 @@ Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks�
  
 
 ## <a name="your-vm-temporary-drive"></a>VM 임시 드라이브
-기본적으로 VM을 만들 때 Azure는 OS 디스크(**/dev/sda**)와 임시 디스크(**/dev/sdb**)를 제공합니다.  추가한 모든 추가 디스크는 **/dev/sdc**, **/dev/sdd**, **/dev/sde** 등으로 나타납니다. 임시 디스크(**/dev/sdb**)의 모든 데이터는 영구적이지 않으며 VM 크기 조정, 다시 배포 또는 유지 관리와 같은 특정 이벤트가 강제로 VM을 다시 시작하는 경우 손실될 수 있습니다.  임시 디스크의 크기 및 유형은 배포 시에 선택한 VM 크기와 관련이 있습니다. 모든 프리미엄 크기 VM(DS, G 및 DS_V2 시리즈)의 경우 임시 드라이브는 최대 48,000IOps의 추가 성능을 가진 로컬 SSD에서 지원됩니다. 
+기본적으로 VM을 만들 때 Azure는 OS 디스크( **/dev/sda**)와 임시 디스크( **/dev/sdb**)를 제공합니다.  추가한 모든 추가 디스크는 **/dev/sdc**, **/dev/sdd**, **/dev/sde** 등으로 나타납니다. 임시 디스크( **/dev/sdb**)의 모든 데이터는 영구적이지 않으며 VM 크기 조정, 다시 배포 또는 유지 관리와 같은 특정 이벤트가 강제로 VM을 다시 시작하는 경우 손실될 수 있습니다.  임시 디스크의 크기 및 유형은 배포 시에 선택한 VM 크기와 관련이 있습니다. 모든 프리미엄 크기 VM(DS, G 및 DS_V2 시리즈)의 경우 임시 드라이브는 최대 48,000IOps의 추가 성능을 가진 로컬 SSD에서 지원됩니다. 
 
 ## <a name="linux-swap-file"></a>Linux 스왑 파일
 Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 사용하여 cloud-config를 cloud-init으로 보낼 수 있습니다. cloud-init를 사용하는 [사용자 지정 Linux 이미지를 업로드](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)한 경우에도 cloud-init를 사용하여 스왑 파티션을 구성할 수 있습니다.
@@ -78,7 +78,7 @@ Swap:       524284          0     524284
 ```
 
 ## <a name="io-scheduling-algorithm-for-premium-storage"></a>Premium Storage에 대한 I/O 일정 알고리즘
-2.6.18 Linux 커널로 기본 I/O 일정 알고리즘은 최종 기한에서 CFQ로 변경되었습니다(완전히 공정한 큐 대기 알고리즘). 임의 액세스 I/O 패턴의 경우 CFQ와 최종 기한 간의 성능 차이의 차이는 무시할 수 있는 정도입니다.  디스크 I/O 패턴이 대부분 순차적인 SSD 기반 디스크의 경우 NOOP 또는 최종 기한 알고리즘으로 다시 전환하면 I/O 성능을 높일 수 있습니다.
+2\.6.18 Linux 커널로 기본 I/O 일정 알고리즘은 최종 기한에서 CFQ로 변경되었습니다(완전히 공정한 큐 대기 알고리즘). 임의 액세스 I/O 패턴의 경우 CFQ와 최종 기한 간의 성능 차이의 차이는 무시할 수 있는 정도입니다.  디스크 I/O 패턴이 대부분 순차적인 SSD 기반 디스크의 경우 NOOP 또는 최종 기한 알고리즘으로 다시 전환하면 I/O 성능을 높일 수 있습니다.
 
 ### <a name="view-the-current-io-scheduler"></a>현재 I/O 스케줄러 보기
 다음 명령을 사용합니다.  

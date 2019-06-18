@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069992"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>고성능 계산 가상 머신 크기
 
@@ -72,7 +72,7 @@ Azure Marketplace에 RDMA 연결을 지 원하는 많은 Linux 배포판:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  MPI를 설정 하는 InfiniBand를 사용 하도록 설정 하는 방법은 참조 하세요. [InfiniBand를 사용 하도록 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov)합니다.
+  MPI를 설정 하는 InfiniBand를 사용 하도록 설정 하는 방법은 참조 하세요. [InfiniBand를 사용 하도록 설정](../workloads/hpc/enable-infiniband.md)합니다.
 
 
 ### <a name="cluster-configuration-options"></a>클러스터 구성 옵션
@@ -107,5 +107,5 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 설정, 최적화 및 크기를 조정 하는 방법에 자세히 알아보려면 [HPC 워크 로드](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) Azure에서.
+- 설정, 최적화 및 크기를 조정 하는 방법에 자세히 알아보려면 [HPC 워크 로드](../workloads/hpc/configure.md) Azure에서.
 - [ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

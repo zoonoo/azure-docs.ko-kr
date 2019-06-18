@@ -11,10 +11,10 @@ ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399827"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
@@ -81,7 +81,7 @@ Azure 개발 공간에 상호 작용 하는 두 가지 구성 요소가: 컨트�
 
 AKS 클러스터를 준비 하는 작업에 포함 됩니다.
 * 확인에 AKS 클러스터가 지역의 [Azure 개발 공간에서 지 원하는][supported-regions]합니다.
-* 1.10.3 Kubernetes를 실행 하는 확인 이상.
+* 1\.10.3 Kubernetes를 실행 하는 확인 이상.
 * 사용 하 여 클러스터에서 Azure 개발 공간을 사용 하도록 설정 `az aks use-dev-spaces`
 
 만들기 및 Azure 개발 공간에 대 한 AKS 클러스터를 구성 하는 방법에 대 한 자세한 내용은 시작 가이드 중 하나를 참조 합니다.
@@ -210,7 +210,7 @@ azds up
 1. 응용 프로그램에 대 한 컨테이너를 만듭니다.
 1. 응용 프로그램 개발 공간을 배포합니다.
 1. 구성 된 경우 응용 프로그램 끝점에 공개적으로 액세스할 수 있는 DNS 이름을 만듭니다.
-1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://locahost합니다.
+1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://locahost 합니다.
 1. Stdout 및 stderr을 클라이언트 쪽 도구에 전달합니다.
 
 
@@ -225,7 +225,7 @@ azds up
 1. 컨트롤러 대체 합니다 *$(tag)* 고유한 세션 ID 및 서비스에 대 한 Helm 차트 설치를 사용 하 여 Helm 차트에 자리 표시자입니다. Helm 차트에 고유한 세션 ID에 대 한 참조는 컨테이너를 사용 하면 추가 세션 요청에 다시 연결 하려면이 특정 세션에 대 한 AKS 클러스터에 배포 하 고 관련 정보입니다.
 1. Helm 차트를 설치 하는 동안 Kubernetes 웹 후크 입학 허가 서버 계측 및 프로젝트의 소스 코드에 대 한 액세스에 대 한 응용 프로그램 pod에 추가 컨테이너를 추가합니다. Devspaces 프록시와 devspaces-프록시-init 컨테이너 HTTP 추적 및 공간 라우팅을 제공 하기 위해 추가 됩니다. Devspaces 빌드 컨테이너 응용 프로그램의 컨테이너를 빌드하기 위한 Docker 인스턴스 및 프로젝트 소스 코드에 대 한 액세스를 사용 하 여 pod를 제공에 추가 됩니다.
 1. 응용 프로그램의 pod를 시작할 때 devspaces 빌드 컨테이너 및 devspaces-프록시-init 컨테이너 응용 프로그램 컨테이너 빌드에 사용 됩니다. 그런 다음 응용 프로그램 컨테이너 및 devspaces 프록시 컨테이너 시작 됩니다.
-1. Kubernetes 클라이언트 쪽 기능을 사용 하 여 응용 프로그램 컨테이너 시작 되 면 *포트 정방향* 를 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 하는 기능이 http://localhost합니다. 이 포트 전달을 개발 공간에서 서비스를 개발 컴퓨터를 연결합니다.
+1. Kubernetes 클라이언트 쪽 기능을 사용 하 여 응용 프로그램 컨테이너 시작 되 면 *포트 정방향* 를 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 하는 기능이 http://localhost 합니다. 이 포트 전달을 개발 공간에서 서비스를 개발 컴퓨터를 연결합니다.
 1. Pod의 모든 컨테이너를 시작한 서비스 실행 중입니다. 이 시점에서 클라이언트 쪽 기능을 HTTP 추적, stdout 및 stderr를 스트림 하기 시작 합니다. 이 정보는 개발자를 위한 클라이언트 쪽 기능으로 표시 됩니다.
 
 ### <a name="updating-a-running-service"></a>실행 중인 서비스 업데이트
@@ -272,7 +272,7 @@ Dockerfile, csproj 파일, Helm 차트의 일부 등 프로젝트 파일에 대 
 
 ### <a name="how-routing-works"></a>라우팅의 작동 원리
 
-개발자는 AKS을 기반으로 공백과에서는 동일한 [네트워킹 개념](../aks/concepts-network.md)합니다. Azure 개발 공간 역시 중앙 집중식 *ingressmanager* 서비스 및 AKS 클러스터에는 자체 수신 컨트롤러를 배포 합니다. 합니다 *ingressmanager* 서비스에서 모니터링 AKS 개발 공간을 사용 하 여 클러스터 및 응용 프로그램 pod에 라우팅에 대 한 수신 개체를 사용 하 여 클러스터에서 Azure 개발 공간 수신 컨트롤러를 보강 합니다. 각 pod에서 devspaces 프록시 컨테이너 추가 `azds-route-as` HTTP 헤더를 개발 공간 HTTP 트래픽에 대 한 URL을 기반으로 합니다. 예를 들어 URL로 요청 *http://azureuser.s.default.serviceA.fedcba09...azds.io* 사용 하 여 HTTP 헤더를 얻게 `azds-route-as: azureuser`합니다. Devspaces 프록시 컨테이너를 추가 하지 것입니다는 `azds-route-as` 이미 있는 경우 헤더입니다.
+개발자는 AKS을 기반으로 공백과에서는 동일한 [네트워킹 개념](../aks/concepts-network.md)합니다. Azure 개발 공간 역시 중앙 집중식 *ingressmanager* 서비스 및 AKS 클러스터에는 자체 수신 컨트롤러를 배포 합니다. 합니다 *ingressmanager* 서비스에서 모니터링 AKS 개발 공간을 사용 하 여 클러스터 및 응용 프로그램 pod에 라우팅에 대 한 수신 개체를 사용 하 여 클러스터에서 Azure 개발 공간 수신 컨트롤러를 보강 합니다. 각 pod에서 devspaces 프록시 컨테이너 추가 `azds-route-as` HTTP 헤더를 개발 공간 HTTP 트래픽에 대 한 URL을 기반으로 합니다. 예를 들어 URL로 요청 *http://azureuser.s.default.serviceA.fedcba09...azds.io* 사용 하 여 HTTP 헤더를 얻게 `azds-route-as: azureuser` 합니다. Devspaces 프록시 컨테이너를 추가 하지 것입니다는 `azds-route-as` 이미 있는 경우 헤더입니다.
 
 클러스터 외부에서 서비스에 대 한 HTTP 요청이 이루어지면 요청 수신 컨트롤러를 이동 합니다. 수신 컨트롤러는 해당 수신 개체 및 규칙에 따라 적절 한 pod에 직접 요청을 라우팅합니다. Pod에 devspaces 프록시 컨테이너는 요청을 받고 추가 `azds-route-as` 헤더 URL을 기반으로 한 후 응용 프로그램 컨테이너를 요청을 라우팅합니다.
 

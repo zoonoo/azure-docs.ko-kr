@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067151"
 ---
-# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버
 이 문서에서는 Azure Database for PostgreSQL - 단일 서버 작업에 대한 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버란?

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101491"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073761"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 azure Storage 확장성 및 성능 목표
 
@@ -43,6 +43,9 @@ ms.locfileid: "62101491"
 
 Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조하세요.
 
+> [!IMPORTANT]
+> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="premium-files-scale-targets"></a>프리미엄 파일 확장 대상
@@ -53,27 +56,7 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 
 #### <a name="premium-file-share-limits"></a>프리미엄 파일 공유 제한
 
-> [!IMPORTANT]
-> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
-
-|영역  |대상  |
-|---------|---------|
-|프로 비전 하는 최소 크기                        |100GiB      |
-|최대 크기를 프로 비전                        |100tib      |
-|최소 크기 증가/감소    |1 GiB      |
-|기준 IOPS    |최대 100,000 개 GiB 당 1 개 IOPS|
-|버스팅 IOPS    |최대 100,000 개 GiB 당 3 x IOPS|
-|송신 속도         |60 초 + 0.06 * GiB 프로 비전        |
-|수신 속도| 40 초 + 0.04 * GiB 프로 비전 |
-|최대 스냅숏 수        |200       |
-
-#### <a name="premium-file-limits"></a>프리미엄 파일 제한
-
-|영역  |대상  |
-|---------|---------|
-|크기                  |1TiB         |
-|파일당 최대 IOPS     |5,000         |
-|동시 핸들 수    |2,000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure 파일 동기화의 크기 조정 목표
 

@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60281918"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
@@ -47,7 +47,7 @@ Azure AD를 사용하여 자동 사용자 프로비전을 위해 BlueJeans를 �
 
 **Azure AD 애플리케이션 갤러리에서 BlueJeans를 추가하려면 다음 단계를 수행합니다.**
 
-1. 에  **[Azure portal](https://portal.azure.com)**, 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
+1. 에  **[Azure portal](https://portal.azure.com)** , 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 

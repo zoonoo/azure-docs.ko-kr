@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64920252"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
@@ -67,7 +67,7 @@ ms.locfileid: "64920252"
 ### <a name="get-the-current-list-of-selected-users"></a>선택한 사용자의 현재 목록을 가져옵니다.
 
 1. 관리자 계정으로 Microsoft 365에 로그인 합니다.
-1. https://linkedinselectedusermigration.azurewebsites.net/로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
+1. https://linkedinselectedusermigration.azurewebsites.net/ 로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
 1. 목록을 CSV 파일로 내보냅니다.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>현재 선택된 된 개별 사용자를 그룹으로 이동
@@ -98,7 +98,7 @@ ms.locfileid: "64920252"
   
    시스템 상태 | 결과
    ------ | ------
-   **사용** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
+   **Enabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
    **사용 안 함** | Office 2016 옵션의 **Office 응용 프로그램에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
 
 이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 해제, Office 365에서 LinkedIn 기능을 계속 볼 수 있습니다.

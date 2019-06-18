@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148096"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
@@ -101,7 +101,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
     ![관리 그룹 세부 정보 스크린샷](./media/security-center-management-groups/management-group-details.PNG)
  
-1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
+1. **액세스 제어(IAM)** , **역할 할당**을 차례로 클릭합니다.
 
 1. **역할 할당 추가**를 클릭합니다.
 

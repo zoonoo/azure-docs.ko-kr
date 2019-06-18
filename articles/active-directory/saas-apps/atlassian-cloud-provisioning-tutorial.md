@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692229"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Atlassian Cloud 구성
@@ -48,7 +48,7 @@ Atlassian Cloud에 대 한 자동 사용자를 Azure AD 프로 비전을 구성 
 
 **Azure AD 응용 프로그램 갤러리에서 Atlassian Cloud를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. 에  **[Azure portal](https://portal.azure.com)**, 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
+1. 에  **[Azure portal](https://portal.azure.com)** , 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057483"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -36,7 +36,7 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>HDInsight에서 Hadoop 구성 요소의 가용성 확인
 
-각 HDInsight 버전은 HDP(Hortonworks Data Platform) 버전의 클라우드 배포판이며 Hadoop 에코 시스템 구성 요소의 집합으로 구성됩니다. 모든 HDInsight 구성 요소 및 해당 현재 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md)를 참조하세요.
+각 HDInsight 버전은 클라우드 배포판의 Hadoop 에코 시스템 구성 요소 집합입니다. 모든 HDInsight 구성 요소 및 해당 현재 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md)를 참조하세요.
 
 또한 Apache Ambari UI 또는 Ambari REST API를 사용하여 HDInsight에서 Hadoop 구성 요소 및 버전을 확인할 수 있습니다.
 

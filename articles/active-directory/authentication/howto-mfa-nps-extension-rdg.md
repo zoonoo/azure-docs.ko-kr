@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873418"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
@@ -33,7 +33,7 @@ NPS(네트워크 정책 및 액세스 서비스)는 조직에 다음과 같은 �
 
 * 연결할 수 있는 사용자, 연결이 허용되는 시간, 연결 기간 및 클라이언트에서 연결에 사용해야 하는 보안 수준 등을 지정하여 네트워크 요청을 관리하고 제어할 수 있는 중앙 위치를 정의합니다. 이러한 정책은 각 VPN 또는 RD(원격 데스크톱) 게이트웨이 서버에 지정하는 대신 중앙 위치에 한 번만 지정하면 됩니다. RADIUS 프로토콜은 중앙 집중식 AAA(인증, 권한 부여 및 계정 관리)를 제공합니다.
 * 디바이스가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
-* 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.
+* 802\.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.
 
 일반적으로 조직 간소화 하 고 VPN 정책 관리를 중앙 집중화 NPS (RADIUS)를 사용 합니다. 그러나 많은 조직에서는 NPS를 사용하여 RD CAP(원격 데스크톱 연결 권한 부여 정책) 관리를 단순화하고 중앙 집중화합니다.
 

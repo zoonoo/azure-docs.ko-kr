@@ -69,6 +69,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> Gen5 하드웨어 세대에서 vcore 4 개</a>'
+          - html: '사용 하 여 구독에 대 한 지원을 <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Visual Studio 구독자를 위한 월간 Azure 크레딧 </a>'
+          - html: '에 대 한 지원 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 및 SharePoint 2019 </a> 고 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">표준 시간대 구성</a> 인스턴스 생성 중입니다.'
           - html: '사용 하 여 인스턴스를 만듭니다 <a href="https://aka.ms/managed-instance-collation">서버 수준 데이터 정렬을 선택한</a>합니다.'
           - html: '지역 복원 기능을 사용 하면 수 있습니다 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용 하 여 다른 데이터 센터로 데이터베이스를 복원</a>합니다.'

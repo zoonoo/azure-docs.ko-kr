@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916671"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808258"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
-DevTest Labs에서 VM 만들기 또는 VM을 만든 후에 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트 도구 또는 VM에 설치 하려는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 VSTS Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다. 
+DevTest Labs에서 VM 만들기 또는 VM을 만든 후에 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트 도구 또는 VM에 설치 하려는 응용 프로그램 일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드 된 JSON 파일에 정의 됩니다. 
 
 합니다 [공용 아티팩트 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)DevTest Labs에서 유지 관리, Windows 및 Linux에 대 한 여러 공통 도구를 제공 합니다. 이 리포지토리에 대 한 링크를 랩에 자동으로 추가 됩니다. 공용 아티팩트 리포지토리에서 사용할 수 없는 특정 도구를 사용 하 여 사용자 고유의 아티팩트 리포지토리를 만들 수 있습니다. 사용자 지정 아티팩트 만들기에 대 한 자세한 참조 [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)합니다.
 

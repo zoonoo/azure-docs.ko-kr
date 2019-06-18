@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156240"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역 및 가용성
@@ -40,10 +40,10 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 지역 쌍 예제는 다음과 같습니다.
 
-| 주 | 보조 |
+| 보조 | 주 |
 |:--- |:--- |
 | 미국 서부 |미국 동부 |
-| 북유럽 |서유럽 |
+| 유럽 북부 |서유럽 |
 | 동남아시아 |동아시아 |
 
 [여기에서 전체 지역 쌍 목록](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)을 확인할 수 있습니다.
@@ -63,7 +63,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
   * 저장소 계정을 만든 지역 내에서 데이터를 3번 복제합니다.
 * ZRS(영역 중복 저장소)
   * 단일 지역 내에서 또는 2개 지역에 걸쳐 2~3개 시설에서 데이터를 3번 복제합니다.
-* GRS(지역 중복 스토리지)
+* GRS(지역 중복 저장소)
   * 기본 지역에서 수백 마일 떨어져 있는 보조 영역에 데이터를 복제합니다.
 * RA-GRS(읽기 액세스 지역 중복 저장소)
   * GRS를 사용할 경우와 마찬가지로 보조 지역에 데이터를 복제하지만 보조 위치의 데이터에 대해 읽기 전용 액세스를 제공합니다.
@@ -72,8 +72,8 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |아닙니다. |예 |예 |예. |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아닙니다. |아니요 |아니요 |예. |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |아닙니다. |예 |예 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아닙니다. |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.

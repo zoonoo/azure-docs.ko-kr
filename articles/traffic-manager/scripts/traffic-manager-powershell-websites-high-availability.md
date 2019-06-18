@@ -3,8 +3,8 @@ title: Azure PowerShell 스크립트 샘플 - 애플리케이션 고가용성을
 description: Azure PowerShell 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
+author: asudbring
+manager: twooley
 editor: ''
 tags: azure-infrastructure
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: kumud
-ms.openlocfilehash: db84de194832180b8e153cf6aa7e6c9fab5e6d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 1c04859e2fe8841eb679f0b3e22b54ce71f88230
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66147428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050961"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 고가용성을 위해 트래픽 라우팅
 
@@ -52,7 +52,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 | 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | 앱 서비스 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [집합 AzResource](/powershell/module/az.resources/new-azresource) | App Service 계획 내에서 Azure 웹앱을 만듭니다. |
 | [새 AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Azure Traffic Manager 프로필을 만듭니다. |

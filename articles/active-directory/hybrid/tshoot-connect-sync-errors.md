@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298750"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
@@ -42,7 +42,7 @@ Azure AD로 내보내는 중 오류는 Azure Active Directory에서 Azure AD Con
 ## <a name="data-mismatch-errors"></a>데이터 불일치 오류
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
 #### <a name="description"></a>설명
-* Azure AD Connect \(동기화 엔진\)이 Azure Active Directory에 개체 추가 또는 업데이트를 지시하면 Azure AD는 **sourceAnchor** 특성을 사용하여 들어오는 개체를 Azure AD 개체의 **immutableId** 특성과 일치시킵니다.  이 일치를 **하드 일치**라고 합니다.
+* Azure AD Connect \(동기화 엔진\)이 Azure Active Directory에 개체 추가 또는 업데이트를 지시하면 Azure AD는 **sourceAnchor** 특성을 사용하여 들어오는 개체를 Azure AD 개체의 **immutableId** 특성과 일치시킵니다. 이 일치를 **하드 일치**라고 합니다.
 * Azure AD가 **immutableId** 특성과 들어오는 개체의 **sourceAnchor** 특성이 일치하는 개체를 **찾지 못하면** 새 개체를 프로비전하기 전에 다시 ProxyAddresses 및 UserPrincipalName 특성을 사용하여 일치를 찾습니다. 이 일치를 **소프트 일치**라고 합니다. 소프트 일치는 Azure AD에 이미 있는 개체(Azure AD가 출처)를, 온-프레미스에서 동일한 엔터티(사용자, 그룹)를 나타내는 동기화 중에 추가/업데이트되는 새 개체와 일치시키도록 설계되었습니다.
 * **InvalidSoftMatch** 오류는 하드 일치에서 일치하는 개체를 찾지 **못했고,** 소프트 매치에서는 일치하는 개체를 찾았으나 이 개체에 이미 수신 개체의 *SourceAnchor*와 다른 *immutableId* 값이 있어 이 일치하는 개체가 온-프레미스 Active Directory의 다른 개체와 동기화되었음을 나타내는 경우에 발생합니다.
 
@@ -101,7 +101,7 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 동기화를 위한 Azure AD Connect Health 내 동기화 오류 보고서는 30분 간격으로 업데이트되며 최신 동기화 시도에서의 오류를 포함합니다.
 
 > [!NOTE]
-> ImmutableId는 기본적으로 개체의 수명 주기 동안 변경되지 않아야 합니다. Azure AD Connect가 위 목록의 시나리오와 상당 부분 다르게 구성된 경우, 결국 계속 사용하려는 기존 Azure AD 개체가 있는 동일한 엔터티(동일한 사용자/그룹/연락처 등)를 나타내는 AD 개체에 대해 Azure AD Connect가 다른 SourceAnchor 값을 계산하는 상황일 수 있습니다. 
+> ImmutableId는 기본적으로 개체의 수명 주기 동안 변경되지 않아야 합니다. Azure AD Connect가 위 목록의 시나리오와 상당 부분 다르게 구성된 경우, 결국 계속 사용하려는 기존 Azure AD 개체가 있는 동일한 엔터티(동일한 사용자/그룹/연락처 등)를 나타내는 AD 개체에 대해 Azure AD Connect가 다른 SourceAnchor 값을 계산하는 상황일 수 있습니다.
 >
 >
 

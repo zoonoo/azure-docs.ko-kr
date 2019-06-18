@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fc638c515af59f6872f2dae262a6910318abdd0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110771"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -50,7 +50,7 @@ Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
 |![확인][1]|애플리케이션 및 리소스에 대한 고려 사항 이해|
 |![확인][1]|프로비전 옵션 이해|
 |![확인][1]|엔터프라이즈 상태 로밍 구성|
-|![확인][1]|조건부 액세스 구성|
+|![확인][1]|조건부 액세스를 구성 합니다.|
 
 
 
@@ -349,13 +349,13 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 **권장 사항**: 하이브리드 Azure AD 조인 디바이스에도 이 설정을 사용하세요.
 
 
-## <a name="configure-conditional-access"></a>조건부 액세스 구성
+## <a name="configure-conditional-access"></a>조건부 액세스를 구성 합니다.
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
 ![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
-이 구현을 사용하여 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구](../conditional-access/require-managed-devices.md)할 수 있습니다.
+이 구현을 사용할 수 있습니다 [조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위해 관리 되는 장치가](../conditional-access/require-managed-devices.md)합니다.
 
 
 

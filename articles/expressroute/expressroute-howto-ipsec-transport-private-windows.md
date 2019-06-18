@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367274"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
@@ -181,8 +181,8 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
    [![31]][31]
 9. IP 필터 목록을 봅니다.  IP 필터 목록 **azure-onpremises-HTTP8080**의 구성은 다음 조건과 일치하는 모든 트래픽의 암호화를 트리거합니다.
 
-   * 10.0.1.0/24(Azure Subnet2)의 원본 주소
-   * 10.2.27.0/25(온-프레미스 서브넷)의 대상 주소
+   * 10\.0.1.0/24(Azure Subnet2)의 원본 주소
+   * 10\.2.27.0/25(온-프레미스 서브넷)의 대상 주소
    * TCP 프로토콜
    * 대상 포트 8080
 

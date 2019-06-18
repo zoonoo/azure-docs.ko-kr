@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457877"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061602"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -106,7 +106,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대한 자세한 내용은 **GCM 서버 구현** 문서의 [페이로드](https://developer.android.com/google/gcm/server.html#payload) 섹션을 참조하세요.
+페이로드 형식에 대한 자세한 내용은 **GCM 서버 구현** 문서의 [페이로드](https://developers.google.com/cloud-messaging/) 섹션을 참조하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 

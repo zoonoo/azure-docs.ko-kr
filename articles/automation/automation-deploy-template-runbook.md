@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
 ms.openlocfilehash: 2008ba697665baa0e8cf73564ec31d6267425404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61073749"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
@@ -240,7 +240,7 @@ Get-AzureRmStorageAccount
 
 ## <a name="summary"></a>요약
 
-이것으로 끝입니다. 이제 Azure Automation, Azure Storage 및 Resource Manager 템플릿을 사용하여 모든 Azure 리소스를 배포할 수 있습니다.
+정말 간단하죠. 이제 Azure Automation, Azure Storage 및 Resource Manager 템플릿을 사용하여 모든 Azure 리소스를 배포할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

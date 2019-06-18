@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029762"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>예외 및 알고리즘 및 모듈 참조에 대 한 오류 코드
@@ -1192,7 +1192,7 @@ Machine learning 위해 Hive 쿼리를 사용 하 여 도움말에 대 한 다�
   
  보고 모듈 예외에 의해 생성 된 SQL 메시지 인 경우 보고 된 오류에 따라 조치를 취하십시오. 예를 들어, 오류 메시지를 가능성이 높은 오류에 대 한 특정 지침을 포함 하는 경우에 따라:
 + *이러한 열 또는 누락 된 데이터베이스가*, 수 입력 했는지 잘못 된 열 이름을 나타내는입니다. 열 이름이 올바른지 확인 했으면 하는 경우, 대괄호 또는 따옴표를 사용 하 여 열 식별자를 묶습니다.
-+ *SQL 논리 오류 근처 \<SQL 키워드\>*, 지정 된 키워드 앞에 구문 오류가 있을 수 있음을 나타내는
++ *SQL 논리 오류 근처 \<SQL 키워드\>* , 지정 된 키워드 앞에 구문 오류가 있을 수 있음을 나타내는
 
   
 |예외 메시지|  
@@ -1879,7 +1879,7 @@ Azure Machine Learning에서이 오류는 지원 되지 않는 메서드를 사�
 |예외 메시지|  
 |------------------------|  
 |지정 된 파일이 없습니다. int zip 파일을 찾을 수 있습니다.|  
-|지정된 파일을 찾을 수 없습니다. 다음 파일을 참조 하십시오. {0}|  
+|지정된 된 파일을 찾을 수 없습니다. 다음 파일을 참조 하십시오. {0}|  
   
 
 ## <a name="error-0134"></a>0134 오류

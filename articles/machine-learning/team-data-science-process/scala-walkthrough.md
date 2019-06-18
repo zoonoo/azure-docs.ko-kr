@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589485"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
@@ -498,7 +498,7 @@ MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이
 ### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>기계 학습 모델에 대한 입력으로 사용할 기능과 대상을 자동으로 범주화 및 벡터화
 Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 기능을 범주화합니다. 이 코드는 다음 두 작업을 완료합니다.
 
-* 0.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
+* 0\.5의 임계값을 사용하는 0과 1 사이의 각 데이터 요소에 0 또는 1 값을 할당하여 분류의 이진 대상을 만듭니다.
 * 기능을 자동으로 범주화합니다. 기능에 대한 고유 숫자 값이 32보다 작은 경우 해당 기능은 범주화됩니다.
 
 이러한 두 작업에 대한 코드는 다음과 같습니다.

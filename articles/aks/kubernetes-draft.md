@@ -2,17 +2,16 @@
 title: AKS 및 Azure Container Registry에서 Draft 사용
 description: AKS 및 Azure Container Registry에서 Draft 사용
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 05/13/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465162"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
@@ -77,7 +76,7 @@ AKS와 ACR 간에 트러스트 관계가 있으므로 AKS 클러스터에서 ACR
 1. Draft 구성 설정 *레지스트리* 값을 설정합니다. 다음 명령에서 `<acrName>`을 ACR 레지스트리의 이름으로 바꿉니다.
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. [az acr login][az-acr-login]을 사용하여 ACR 레지스트리에 로그온합니다.
@@ -271,4 +270,4 @@ Draft 사용에 대한 자세한 내용은 Github의 Draft 문서를 참조하�
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

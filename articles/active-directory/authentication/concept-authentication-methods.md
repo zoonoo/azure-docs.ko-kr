@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119357"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
@@ -26,14 +26,14 @@ ms.locfileid: "66119357"
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
-|인증 방법|사용|
+|인증 방법|사용 현황|
 | --- | --- |
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
 | 메일 주소 | SSPR만 |
 | Microsoft Authenticator 앱 | MFA 및 SSPR용 공개 미리 보기 |
 | OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
-| SMS | MFA 및 SSPR |
+| sms | MFA 및 SSPR |
 | 음성 통화 | MFA 및 SSPR |
 | 앱 암호 | 특정 경우 MFA만 |
 
@@ -60,15 +60,15 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 
 ### <a name="predefined-questions"></a>미리 정의된 질문
 
-* 첫 번째 배우자/애인을 만난 도시는 어디였습니까?
+* 배우자/파트너를 처음 만난 도시는 어디인가요?
 * 부모님이 처음 만난 도시는 어디인가요?
 * 가장 가까운 형제 자매가 사는 도시는 어디인가요?
 * 아버지가 출생하신 도시는 어디인가요?
 * 첫 직장이 있는 도시는 어디인가요?
 * 어머니가 출생하신 도시는 어디인가요?
-* 2000년 새해 첫 날 어느 도시에 있었습니까?
-* 고등학교에서 가장 좋아하는 선생님의 성은 무엇입니까?
-* 지원했지만 다니지 않은 대학의 이름은 무엇입니까?
+* 2000년에 새해를 맞은 도시는 어디인가요?
+* 고등학교에서 가장 좋아했던 선생님의 성은 무엇인가요?
+* 지원했지만 다니지 않은 대학의 이름은 무엇인가요?
 * 첫 번째 결혼 피로연을 열었던 장소의 이름은 무엇인가요?
 * 아버지의 중간 이름은 무엇인가요?
 * 가장 좋아하는 음식은 무엇인가요?
@@ -94,7 +94,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 * 첫 번째 직업은 무엇인가요?
 * 어린 시절 전화 번호의 마지막 4자리는 무엇인가요?
 * 어린 시절 자라서 되고 싶었던 것은 무엇인가요?
-* 지금까지 만난 사람 중에 가장 유명한 사람은 누구입니까?
+* 지금까지 만난 가장 유명한 사람은 누구인가요?
 
 미리 정의된 모든 보안 질문은 모두 사용자의 브라우저 로캘을 기반으로 Office 365 언어의 전체 집합으로 번역 및 지역화됩니다.
 
@@ -126,7 +126,7 @@ Microsoft Authenticator 앱은 Microsoft 계정의 Azure AD 회사 또는 학교
 Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자에게는 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록하는 옵션이 없습니다. 대신에 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다. 
+> 사용자에게는 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록하는 옵션이 없습니다. 대신에 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.
 >
 
 ### <a name="notification-through-mobile-app"></a>모바일 앱을 통한 알림
@@ -144,7 +144,7 @@ Microsoft Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알
 > [!NOTE]
 > 조직에서는 직원 작업 또는 중국으로 이동 하는 **모바일 앱을 통한 알림** 메서드를 **Android 장치** 해당 국가에서 작동 하지 않습니다. 대체 메서드는 사용자 제공 이루어져야 합니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 
 Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 사용자 이름 및 암호를 입력한 후 앱에서 제공한 코드를 로그인 화면에 입력합니다. 확인 코드는 두 번째 인증 형식을 제공합니다.
 
@@ -180,7 +180,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
 
-## <a name="mobile-phone"></a>모바일 폰
+## <a name="mobile-phone"></a>휴대폰
 
 휴대폰 사용자에게는 두 옵션이 제공됩니다.
 
@@ -222,7 +222,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 ## <a name="app-passwords"></a>앱 암호
 
-특정 비 브라우저 앱은 다단계 인증을 지원하지 않으며, 다단계 인증에 대해 활성화되어 있는 사용자가 비 브라우저 앱을 사용하려 하면 인증할 수 없습니다.  앱 암호는 사용자가 인증을 계속할 수 있게 합니다.
+특정 비 브라우저 앱은 다단계 인증을 지원하지 않으며, 다단계 인증에 대해 활성화되어 있는 사용자가 비 브라우저 앱을 사용하려 하면 인증할 수 없습니다. 앱 암호는 사용자가 인증을 계속할 수 있게 합니다.
 
 사용자별 MFA를 통하지 않고 조건부 액세스 정책을 통해 Multi-Factor Authentication을 적용하는 경우 앱 암호를 만들 수 없습니다. 조건부 액세스 정책을 사용하여 액세스를 제어하는 애플리케이션은 앱 암호가 필요하지 않습니다.
 

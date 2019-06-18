@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787316"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
@@ -110,13 +110,13 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | context |예 |크기 자동 조정 작업 컨텍스트입니다. |
 | timestamp |예 |크기 자동 조정 작업이 트리거된 타임스탬프입니다. |
 | id |예 |자동 크기 조정 설정의 Resource Manager ID |
-| 이름 |예 |크기 자동 조정 설정의 이름입니다. |
+| name |예 |크기 자동 조정 설정의 이름입니다. |
 | 세부 정보 |예 |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다. |
 | subscriptionId |예 |크기 조정 중인 대상 리소스의 구독 ID입니다. |
 | resourceGroupName |예 |크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다. |
 | resourceName |예 |크기 조정 중인 대상 리소스의 이름입니다. |
 | resourceType |예 |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets/"Microsoft.Web/serverfarms" - Web App |
-| resourceId |예 |크기 조정 중인 대상 리소스의 Resource Manager ID |
+| ResourceId |예 |크기 조정 중인 대상 리소스의 Resource Manager ID |
 | portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
 | oldCapacity |예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |yes |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |

@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b6c203583a082228c2ba1f4c5f6fdb04d059be
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111183"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>웹 Api를 호출 하는 모바일 앱 웹 API를 호출 합니다.
 
@@ -131,7 +131,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 동일한 API를 여러 번 호출 하는 경우 또는 여러 Api를 호출 하는 경우 응용 프로그램을 빌드할 때 고려 사항에는 다음을 수행 합니다.
 
 - **증분 동의**: Microsoft id 플랫폼에는 앱을 사용 권한은 필요한 것이 아니라 때 시작할 때 모든 사용자 동의 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 사용 해야 하는 범위만 요청 해야 합니다.
-- **조건부 액세스**: 특정 시나리오에서 몇 가지 API 요청을 하는 경우 추가 조건부 액세스 요구 사항에 발생할 수 있습니다. 이 첫 번째 요청에 적용 된 조건부 액세스 정책이 없습니다 및 앱을 자동으로 조건부 액세스 해야 하는 새 API에 액세스 하려고 하는 경우 발생할 수 있습니다. 이 시나리오를 처리 하려면 사용할 자동 요청에서 오류를 catch 하 고 대화형 요청을 수행 하도록 준비 해야 합니다.  자세한 내용은 참조 하세요 [조건부 액세스를 위한 지침](conditional-access-dev-guide.md)합니다.
+- **조건부 액세스**: 특정 시나리오에서 몇 가지 API 요청을 하는 경우 조건부 액세스의 추가 요구 사항이 발생할 수 있습니다. 이 첫 번째 요청에 적용 된 조건부 액세스 정책이 없습니다 및 앱을 자동으로 조건부 액세스 해야 하는 새 API에 액세스 하려고 하는 경우 발생할 수 있습니다. 이 시나리오를 처리 하려면 사용할 자동 요청에서 오류를 catch 하 고 대화형 요청을 수행 하도록 준비 해야 합니다.  자세한 내용은 참조 하세요 [조건부 액세스를 위한 지침](conditional-access-dev-guide.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

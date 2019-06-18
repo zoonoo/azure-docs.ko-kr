@@ -17,15 +17,15 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825496"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 응용 프로그램 프록시 응용 프로그램과 상호 작용을 사용 하는 방법
 
-Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 여 웹 앱을 게시 하지만 사용할 수 있습니다 사용 하 여 Azure AD 인증 라이브러리 (ADAL)를 구성 된 네이티브 클라이언트 응용 프로그램을 게시 합니다. 네이티브 클라이언트 응용 프로그램 웹 앱은 브라우저를 통해 액세스 하는 동안 장치에 설치 하는 웹 앱에서 다릅니다.
+Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 여 웹 앱을 게시 하지만 사용할 수 있습니다 사용 하 여 Azure AD 인증 라이브러리 (ADAL)를 구성 된 네이티브 클라이언트 응용 프로그램을 게시 합니다. 네이티브 클라이언트 애플리케이션은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다.
 
 네이티브 클라이언트 응용 프로그램을 지원 하려면 응용 프로그램 프록시는 헤더에 전송 되는 Azure AD에서 발급 한 토큰을 허용 합니다. 응용 프로그램 프록시 서비스는 사용자에 대 한 인증을 수행합니다. 이 솔루션 인증에 대 한 응용 프로그램 토큰을 사용 하지 않습니다.
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시를 사용 하 �
    - 내부 조직에 있는 계정만 대상으로 선택 **만이 조직 디렉터리의 계정**합니다.
    - 비즈니스 또는 교육용 고객을 대상으로 선택 **모든 조직 디렉터리의 계정**합니다.
    - 광범위 한 Microsoft id 집합을 대상으로 선택 **계정이 모든 조직 디렉터리에 개인 Microsoft 계정**합니다.
-7. 에 **리디렉션 URI** 을 선택 **공용 클라이언트 (모바일 및 데스크톱)**, 응용 프로그램의 리디렉션 URI를 입력 합니다.
+7. 에 **리디렉션 URI** 을 선택 **공용 클라이언트 (모바일 및 데스크톱)** , 응용 프로그램의 리디렉션 URI를 입력 합니다.
 8. 선택 하 여 읽어 합니다 **Microsoft 플랫폼 정책을**를 선택한 후 **등록**합니다. 새 응용 프로그램 등록에 대 한 개요 페이지 생성 되어 표시 됩니다.
 
 새 응용 프로그램 등록을 만드는 방법은 자세한 [Azure Active Directory와 응용 프로그램 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)합니다.

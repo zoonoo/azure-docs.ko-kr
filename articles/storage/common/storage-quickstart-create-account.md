@@ -10,15 +10,15 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234157"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정에서 액세스할 수 있는 아무 곳 이나 전 세계에서 HTTP 또는 HTTPS를 통해 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는에서 내구성 및 고가용성, 안전 하 고 대규모로 확장 가능한 경우
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
 이 방법 문서에서는 사용 하 여 저장소 계정을 만드는 방법 합니다 [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)합니다 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), 또는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)합니다.  
 
@@ -137,9 +137,9 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard-LRS         |
-|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
-|GRS(지역 중복 스토리지)     |Standard_GRS         |
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -175,9 +175,9 @@ az storage account create \
 
 |복제 옵션  |sku 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard-LRS         |
-|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
-|GRS(지역 중복 스토리지)     |Standard_GRS         |
+|LRS(로컬 중복 저장소)     |Standard_LRS         |
+|ZRS(영역 중복 저장소)     |Standard_ZRS         |
+|GRS(지역 중복 저장소)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
@@ -220,7 +220,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 열고 **리소스 그룹**을 선택하여 리소스 그룹 목록을 표시합니다.
-2. 삭제할 리소스 그룹을 찾아 목록 오른쪽에 있는 **자세히** 단추(**...** )를 마우스 오른쪽 단추로 클릭합니다.
+2. 삭제할 리소스 그룹을 찾아 목록 오른쪽에 있는 **자세히** 단추( **...** )를 마우스 오른쪽 단추로 클릭합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

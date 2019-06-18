@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058602"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger에 대 한 ApplicationInsightsLoggerProvider 로그
 
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ASP.NET Core 앱에서 Startup.cs에서 Program.cs ILogger 로그 캡처
+
+> [!NOTE]
+> ASP.NET Core 3.0 이상 버전에서는 더 이상를 주입할 수 `ILogger` Startup.cs Program.cs에 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353 을 참조하세요.
 
 새 ApplicationInsightsLoggerProvider 응용 프로그램 시작 파이프라인 초기에 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider (버전 2.7.0-beta3부터 시작) 하는 Application Insights에서 자동으로 활성화 되어, 있지만 파이프라인의 뒷부분에 나오는까지 설정 하는 계측 키가 필요는 없습니다. 따라서에서 로그만 **컨트롤러**/ 다른 클래스 캡처됩니다. 부터 모든 로그를 캡처하려면 **Program.cs** 하 고 **Startup.cs** 자체에 명시적으로 설정 해야 계측 키 ApplicationInsightsLoggerProvider에 대 한 합니다. 또한 *TelemetryConfiguration* 에서 로그 하도록 완전히 설정 되지 않습니다 **Program.cs** 하거나 **Startup.cs** 자체입니다. 따라서 이러한 로그 InMemoryChannel, 샘플링 없음 고 표준 원격 분석 이니셜라이저 또는 프로세서를 사용 하는 최소 구성을 해야 합니다.
 

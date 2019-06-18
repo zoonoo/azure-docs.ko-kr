@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: sngun
 ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151299"
 ---
 웹앱과 Azure Cosmos DB 계정을 모두 사용했으면 추가로 비용을 지불하지 않도록 만든 Azure 리소스를 삭제할 수 있습니다. 리소스를 삭제하려면:

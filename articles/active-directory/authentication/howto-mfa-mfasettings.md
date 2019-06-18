@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113453"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -191,7 +191,7 @@ Office 2010 이전 버전 및 iOS 11 이전의 Apple Mail과 같은 일부 애�
 Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원됩니다. Outlook을 포함한 Office 2013 클라이언트는 최신 인증 프로토콜을 지원하고 2단계 인증과 함께 사용할 수 있습니다. 클라이언트가 사용하도록 설정된 후에는 클라이언트에 대해 앱 암호가 필요하지 않습니다.
 
 >[!NOTE]
->앱 암호는 조건부 액세스 기반 Multi-Factor Authentication 정책 및 최신 인증과 작동하지 않습니다.
+>앱 암호는 multi-factor authentication 정책을 기반으로 하는 조건부 액세스 및 최신 인증을 사용 하 여 작동 하지 않습니다.
 
 ### <a name="considerations-about-app-passwords"></a>앱 암호에 대한 고려 사항
 
@@ -259,7 +259,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리되는 또는 페더레이션된 테넌트의 관리자가 사용합니다. 이 기능은 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스합니다. 이 기능은 관리자용 무료 버전이 아닌 Azure Multi-Factor Authentication의 정식 버전에서 사용할 수 있습니다. Azure Multi-Factor Authentication의 정식 버전을 가져오는 방법에 대한 자세한 내용은 [Azure Multi-Factor Authentication](multi-factor-authentication.md)을 참조하세요.
 
 > [!NOTE]
-> MFA에서 신뢰할 수 있는 IP 및 locations라는 조건부 액세스는 IPV4 주소에만 작동합니다.
+> MFA Ip 및 조건부 액세스 명명 된 위치 에서만 IPV4 주소를 사용 하 여 작동 하는 신뢰할 수 있는 합니다.
 
 조직에서 온-프레미스 애플리케이션 참고에 MFA를 제공하도록 NPS 확장을 배포하면 원본 IP 주소는 인증 시도가 통과하는 NPS 서버를 항상 나타냅니다.
 
@@ -280,20 +280,20 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 신뢰할 수 있는 IP 기능이 사용하도록 설정되었는지 여부와 상관없이 브라우저 흐름에는 2단계 인증이 필요합니다. 이전 리치 클라이언트 애플리케이션에는 앱 암호가 필요합니다.
 
-### <a name="enable-named-locations-by-using-conditional-access"></a>조건부 액세스를 사용하여 명명된 위치를 사용하도록 설정
+### <a name="enable-named-locations-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 명명 된 위치를 사용 하도록 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 선택합니다.
+2. 왼쪽에서 선택 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**합니다.
 3. **새 위치**를 선택합니다.
 4. 위치에 대한 이름을 입력합니다.
 5. **신뢰할 수 있는 위치로 표시**를 선택합니다.
 6. CIDR 표기법으로 IP 범위를 지정합니다(예: **192.168.1.1/24**).
 7. **만들기**를 선택합니다.
 
-### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>조건부 액세스를 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정
+### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 신뢰할 수 있는 Ip 기능을 사용 하도록 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **조건부 액세스** > **명명된 위치**를 선택합니다.
+2. 왼쪽에서 선택 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**합니다.
 3. **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
 4. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중에서 선택합니다.
 
@@ -367,7 +367,7 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 
 비 브라우저 애플리케이션에는 앱이 최신 인증을 지원하는지 여부와 상관없이 **X일 동안 다시 묻지 않음** 옵션이 표시되지 않습니다. 이러한 앱에서는 1시간마다 새로운 액세스 토큰을 제공하는 _새로 고침 토큰_을 사용합니다. 새로 고침 토큰의 유효성이 확인되면 Azure AD가 마지막 2단계 인증이 지정된 일 수 내에 발생했는지 확인합니다.
 
-이 기능을 사용하면 일반적으로 매번 메시지를 표시하는 웹앱의 인증 횟수가 감소합니다. 하지만 최신 인증 클라이언트에서는 인증 횟수가 늘어납니다(일반적으로 90일마다 메시지 표시). 조건부 액세스 정책과 결합될 경우 인증 수가 증가할 수도 있습니다.
+이 기능을 사용하면 일반적으로 매번 메시지를 표시하는 웹앱의 인증 횟수가 감소합니다. 하지만 최신 인증 클라이언트에서는 인증 횟수가 늘어납니다(일반적으로 90일마다 메시지 표시). 조건부 액세스 정책과 결합 하는 경우 인증 수를 늘릴 수도 있습니다.
 
 >[!IMPORTANT]
 >사용자가 Azure Multi-Factor Authentication 서버 또는 제3자 다단계 인증 솔루션을 통해 AD FS에 대해 2단계 인증을 수행하는 경우 **Multi-Factor Authentication 저장** 기능은 AD FS의 **로그인 유지** 기능과 호환되지 않습니다.

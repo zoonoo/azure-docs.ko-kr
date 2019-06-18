@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947231"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
@@ -111,7 +111,7 @@ VM을 수동으로 추가하려면:
 
     b. **IaaS 크기(선택)**
 
-    다. **저장소 유형(표준/프리미엄)**
+    c. **저장소 유형(표준/프리미엄)**
 
     d. **VM 총 저장소 크기(GB)**
 
@@ -125,7 +125,7 @@ VM을 수동으로 추가하려면:
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
-1. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)**, **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
+1. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)** , **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
 
 1. **비용 다시 계산**을 선택하여 비용을 업데이트합니다.
 
@@ -133,17 +133,17 @@ VM을 수동으로 추가하려면:
 
 **VM 수**: 구성과 일치하는 VM의 수입니다. 유사한 구성 VM이 프로파일링되지 않지만 보호되는 경우 기존 VM 수를 업데이트할 수 있습니다.
 
-**IaaS 크기(권장)**: 도구에서 권장하는 호환 가능한 VM의 VM 역할 크기입니다. 
+**IaaS 크기(권장)** : 도구에서 권장하는 호환 가능한 VM의 VM 역할 크기입니다. 
 
-**IaaS 크기(선택)**: 기본적으로 권장되는 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 계산 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
+**IaaS 크기(선택)** : 기본적으로 권장되는 VM 역할 크기와 같습니다. 요구 사항에 따라 역할을 변경할 수 있습니다. 계산 비용은 사용자가 선택한 VM 역할 크기를 기반으로 합니다.
 
 **스토리지 유형**: VM에 사용되는 스토리지 유형입니다. 표준 또는 Premium Storage입니다.
 
-**VM 총 스토리지 크기(GB)**: VM의 총 스토리지입니다.
+**VM 총 스토리지 크기(GB)** : VM의 총 스토리지입니다.
 
 **연간 DR 드릴 횟수**: 1년 동안 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다. 
 
-**각 DR 드릴 기간(일)**: 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
+**각 DR 드릴 기간(일)** : 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
  
 **OS 유형**: VM의 OS(운영 체제) 유형입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
@@ -155,7 +155,7 @@ VM을 수동으로 추가하려면:
 
 **안정적 상태 복제 비용**: 복제에 대한 스토리지 비용입니다.
 
-**총 DR 드릴 비용(평균)**: DR 드릴에 대한 컴퓨팅 및 스토리지 비용입니다.
+**총 DR 드릴 비용(평균)** : DR 드릴에 대한 컴퓨팅 및 스토리지 비용입니다.
 
 **Azure Site Recovery 라이선스 비용**: Site Recovery 라이선스 비용입니다.
 

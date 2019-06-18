@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422358"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -44,16 +44,16 @@ API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는
 
 다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](https://www.twilio.com/docs/api/twiml)(영문)에서 알아보십시오.
 
-* **&lt;전화&gt;**: 발신자를 다른 전화에 연결합니다.
-* **&lt;수집&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
-* **&lt;전화 끊기&gt;**: 통화를 끝냅니다.
-* **&lt;재생&gt;**: 오디오 파일을 재생합니다.
-* **&lt;일시 중시&gt;**: 지정된 시간(초) 동안 무음으로 대기합니다.
-* **&lt;녹음&gt;**: 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
-* **&lt;리디렉션&gt;**: 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
-* **&lt;거부&gt;**: 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
-* **&lt;통화&gt;**: 통화 시 텍스트를 음성으로 변환합니다.
-* **&lt;Sms&gt;**: SMS 메시지를 보냅니다.
+* **&lt;전화&gt;** : 발신자를 다른 전화에 연결합니다.
+* **&lt;수집&gt;** : 전화 키패드에 입력된 숫자를 수집합니다.
+* **&lt;전화 끊기&gt;** : 통화를 끝냅니다.
+* **&lt;재생&gt;** : 오디오 파일을 재생합니다.
+* **&lt;일시 중시&gt;** : 지정된 시간(초) 동안 무음으로 대기합니다.
+* **&lt;녹음&gt;** : 발신자의 음성을 녹음하고 녹음이 포함된 파일의 URL을 반환합니다.
+* **&lt;리디렉션&gt;** : 통화 또는 SMS에 대한 제어를 다른 URL의 TwiML로 전송합니다.
+* **&lt;거부&gt;** : 요금을 청구하지 않고 Twilio 번호로 걸려 오는 전화를 거부합니다.
+* **&lt;통화&gt;** : 통화 시 텍스트를 음성으로 변환합니다.
+* **&lt;Sms&gt;** : SMS 메시지를 보냅니다.
 
 ### <a id="TwiML"></a>TwiML
 TwiML은 Twilio에 통화 또는 SMS 처리 방법을 알려 주는 Twilio 동사를 사용하는 XML 기반 명령 집합입니다.
@@ -84,7 +84,7 @@ Twilio/PHP 애플리케이션을 빌드하여 Azure에 배포하는 방법에 �
 
 1. GitHub의 PHP용 Twilio 라이브러리([https://github.com/twilio/twilio-php][twilio_php])를 다운로드하고 애플리케이션에 **Services** 디렉터리를 추가합니다.
    
-    또는
+    -또는-
 2. PHP용 Twilio 라이브러리를 PEAR 패키지로 설치합니다. 다음 명령을 사용하여 설치할 수 있습니다.
    
         $ pear channel-discover twilio.github.com/pear

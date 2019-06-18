@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075056"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -89,7 +89,7 @@ Azure Logic Apps는 모든 성공 및 실패 한 작업 실행으로 측정합�
 
 ## <a name="integration-accounts"></a>통합 계정
 
-소비 가격에 적용 됩니다 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 고 수 있는 탐색, 개발, 테스트 합니다 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 하 고 [XML 처리](logic-apps-enterprise-integration-xml.md) 없이 Azure Logic Apps의 기능 추가 비용입니다.
+고정된 가격 책정 모델에 적용 됩니다 [통합 계정](logic-apps-enterprise-integration-create-integration-account.md) 고 수 있는 탐색, 개발, 테스트 합니다 [B2B 및 EDI](logic-apps-enterprise-integration-b2b.md) 하 고 [XML 처리](logic-apps-enterprise-integration-xml.md) 없이 Azure Logic Apps의 기능 추가 비용입니다.
 각 Azure 지역에서 통합 계정이 있습니다. 각 통합 계정은 거래 업체, 규약, 맵, 스키마, 어셈블리, 인증서, 일괄 처리 구성 등을 포함하는 특정 [아티팩트 수](../logic-apps/logic-apps-limits-and-config.md)까지 저장할 수 있습니다.
 
 Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공합니다. 기본 및 표준 계층에서 지원 됩니다 Logic Apps 서비스 수준 계약 (SLA)에서 무료 계층은 SLA로 지원 되지 않으며 제한이 있지만 처리량 및 사용 현황.

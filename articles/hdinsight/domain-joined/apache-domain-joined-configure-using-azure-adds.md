@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126225"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -27,7 +27,7 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
 > [!NOTE]  
-> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소에 Data Lake 저장소 (ADLS (Azure) 인지 Gen1 또는 Gen2 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 하는 데 필요한 사용자에 대해서만 Multi-factor Authentication (MFA)를 해제 해야 합니다. [신뢰할 수 있는 IP](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 [조건부 액세스](../../active-directory/conditional-access/overview.md)를 사용하여 HDInsight 클러스터 VNET IP 범위에 액세스하는 경우 특정 사용자에 대해서만 MFA를 비활성화할 수 있습니다. 조건부 액세스를 사용하는 경우 AD 서비스 엔드포인트가 HDInsight VNET에서 활성화되었는지 확인하세요.
+> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 저장소에 Data Lake 저장소 (ADLS (Azure) 인지 Gen1 또는 Gen2 기본 Kerberos 인증을 사용 하 여 클러스터에 액세스 하는 데 필요한 사용자에 대해서만 Multi-factor Authentication (MFA)를 해제 해야 합니다. 사용할 수 있습니다 [신뢰할 수 있는 Ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) 하거나 [조건부 액세스](../../active-directory/conditional-access/overview.md) 특정 사용자에 대 한 MFA를 사용 하지 않도록 설정 하려면만 경우에 액세스 하는 HDInsight 클러스터 VNET IP 범위입니다. 사용 중인 경우 조건부 액세스 하세요 확인 있는지 AD 서비스 끝점에 사용 하도록 설정 하는 HDInsight vnet입니다.
 >
 > 클러스터 스토리지가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 

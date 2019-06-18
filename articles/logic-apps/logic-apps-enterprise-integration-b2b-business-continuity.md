@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967753"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 통합 계정을 위한 지역 간 재해 복구
@@ -112,7 +112,7 @@ EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합
 
 6. **X12**를 검색하고 **X12 - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
 
-   ![컨트롤 번호 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![제어 번호를 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. 작업을 보조 지역 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 *보조 지역 통합 계정*을 선택한 후 **만들기**를 선택합니다. 
 

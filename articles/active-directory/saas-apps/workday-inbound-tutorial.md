@@ -16,10 +16,10 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827287"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
@@ -443,7 +443,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
 
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
@@ -596,7 +596,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -693,7 +693,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 

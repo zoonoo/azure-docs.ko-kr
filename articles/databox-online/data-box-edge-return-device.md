@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468606"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>Azure 데이터 상자 Edge 장치를 반환 합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "65468606"
 3. 전원 케이블을 분리 하 고 장치에서 모든 네트워크 케이블을 제거 합니다.
 4. 직접 또는 Azure에서 받은 빈 상자를 사용 하 여 배송 패키지를 준비 합니다. 장치 및 상자에서 장치를 사용 하 여 제공 된 전원 코드를 배치 합니다.
 5. 접사 패키지에 대해 Azure에서 제공 된 배송 레이블을 확인해 보십시오.
-6. 해당 지역 통신 업체를 사용 하 여는 픽업을 예약 합니다. 이동 통신사 미국에서 장치를 반환, 경우 UPS입니다. 픽업을 예약하려면 다음을 수행합니다.
+6. 해당 지역 운송업체에서 픽업하도록 예약합니다. 이동 통신사 미국에서 장치를 반환, 경우 UPS입니다. 픽업을 예약하려면 다음을 수행합니다.
 
     1. 로컬 UPS(국가별 무료 전화 번호)에 전화합니다.
     2. 호출에서 추적 번호 인쇄 레이블에 표시 된 것 처럼 역방향 배송을 인용 합니다.

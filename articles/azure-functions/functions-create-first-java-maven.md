@@ -190,7 +190,7 @@ Hello AzureFunctions!
 
 ## <a name="make-changes-and-redeploy"></a>변경 및 재배포
 
-생성된 프로젝트에서 `src/main.../Function.java` 원본 파일을 편집하여 함수 앱에서 반환된 텍스트를 변경합니다. 이 줄 변경:
+생성된 프로젝트에서 `src/main.../Function.java` 원본 파일을 편집하여 함수 앱에서 반환된 텍스트를 변경합니다. 다음과 같이 변경합니다.
 
 ```java
 return request.createResponse(200, "Hello, " + name);
@@ -208,7 +208,7 @@ return request.createResponse(200, "Hi, " + name);
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
-업데이트된 출력:
+업데이트된 출력은 다음과 같습니다.
 
 ```Output
 Hi, AzureFunctionsTest

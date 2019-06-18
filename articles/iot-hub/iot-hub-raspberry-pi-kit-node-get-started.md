@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597264"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
@@ -111,7 +111,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
    b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
-   다. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
+   c. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
 
    d. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
 
@@ -230,7 +230,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    nano config.json
    ```
 
-   ![구성 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Config 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    이 파일에는 사용자가 구성할 수 있는 두 개 항목이 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `interval`입니다. 두 번째는 시뮬레이트된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 

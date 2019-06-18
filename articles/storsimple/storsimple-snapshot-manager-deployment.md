@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61077747"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple 스냅샷 관리자 MMC 스냅인 배포
@@ -66,7 +66,7 @@ Microsoft Management Console(MMC)용 StorSimple 스냅샷 관리자 스냅인을
    * 미러된 동적 볼륨(RAID 1)
    * 클러스터 공유 볼륨
      
-     StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 볼륨을 만드는 방법에 대한 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)에서 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)를 참조하세요.
+     StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 볼륨을 만드는 방법에 대한 자세한 내용은 온-프레미스 StorSimple 디바이스 배포에서 [6단계: 볼륨 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)를 참조하세요.
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>새 StorSimple 스냅샷 관리자 설치
 StorSimple 스냅샷 관리자를 설치하기 전에 StorSimple 디바이스 또는 StorSimple 가상 디바이스에서 만든 볼륨이 [필수 조건 구성](#configure-prerequisites)에서 설명한 대로 탑재, 초기화 및 포맷되어 있는지 확인합니다.

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b25c09b140102c0788a939c48f48300242fc6ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285046"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>문제 해결: Azure Active Directory 활동 로그의 데이터 누락 
@@ -38,10 +38,10 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 작업이 활동 로그에 즉시 나타나지 않습니다. 아래 표에는 활동 로그의 대기 시간 숫자가 나열되어 있습니다. 
 
-| 보고 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
+| 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 활동 | &nbsp; | 2분 | 5분 | 
+| 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
 ### <a name="resolution"></a>해결 방법
 
@@ -59,10 +59,10 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 작업이 활동 로그에 즉시 나타나지 않습니다. 아래 표에는 활동 로그의 대기 시간 숫자가 나열되어 있습니다. 
 
-| 보고 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
+| 보고서 | &nbsp; | 대기 시간(P95) | 대기 시간(P99) |
 |--------|--------|---------------|---------------|
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
-| 로그인 활동 | &nbsp; | 2분 | 5분 | 
+| 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
 ### <a name="resolution"></a>해결 방법
 
@@ -80,7 +80,7 @@ Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 
 
 Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 동안 작업 보고서를 저장합니다.
 
-| 보고           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
 | 로그인 작업 | &nbsp; | 사용할 수 없습니다. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |

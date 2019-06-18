@@ -16,11 +16,11 @@ ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717944"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 계산 노드의 사용량 극대화 
 
@@ -33,7 +33,7 @@ Azure Batch 풀의 각 계산 노드에서 동시에 둘 이상의 작업을 실
 * **노드 숫자 제한 완화** . 현재 노드 간 통신에 대해 구성된 풀은 계산 노드가 50개로 제한됩니다. 이러한 풀의 각 노드가 병렬로 태스크를 실행할 수 있으면 더 많은 수의 태스크를 동시에 실행할 수 있습니다.
 * 최초로 컴퓨팅 환경을 Azure로 이동하는 경우 등 **온-프레미스 계산 클러스터 복제**. 현재 온-프레미스 솔루션이 계산 노드당 여러 태스크를 실행하는 경우 최대 노드 태스크 수를 늘려 해당 구성을 보다 자세히 미러링할 수 있습니다.
 
-## <a name="example-scenario"></a>예제 시나리오 
+## <a name="example-scenario"></a>예제 시나리오
 병렬 태스크 실행의 이점을 보여 주는 한 예로서, 태스크 애플리케이션에 [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) 노드로 충분한 CPU 및 메모리 요구 사항이 있다고 가정해 보겠습니다. 하지만 주어진 시간에 작업을 완료하기 위해 이러한 노드가 1,000개 필요합니다.
 
 1개 CPU 코어가 있는 Standard\_D1 노드를 사용하는 대신 각각 16개 코어가 있는 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 노드를 사용하여 병렬 태스크 실행을 구현할 수 있습니다. 따라서 사용되는 *노드 수가 1/16로 줄기 때문에* 필요한 노드 수는 1000개가 아니라 63개입니다. 또한 대규모 애플리케이션 파일 또는 참조 데이터가 각 노드에 대해 필요한 경우 데이터가 63개의 노드로 복사되기 때문에 작업 기간 및 효율성은 다시 개선됩니다.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117016"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
@@ -35,9 +35,9 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을 사용하는 경우, 엔드포인트 코드가 Event Grid를 통해 핸드셰이크 유효성 검사에 참여해야 합니다. Event Grid는 두 가지 방법의 구독 유효성 검사를 지원합니다.
 
-1. **ValidationCode 핸드셰이크(프로그래밍 방식)**: 엔드포인트의 소스 코드를 제어하는 경우 이 방법이 권장됩니다. 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 Event Grid로 유효성 검사 코드를 에코합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
+1. **ValidationCode 핸드셰이크(프로그래밍 방식)** : 엔드포인트의 소스 코드를 제어하는 경우 이 방법이 권장됩니다. 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 Event Grid로 유효성 검사 코드를 에코합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
 
-2. **ValidationURL 핸드셰이크(수동)**: 경우에 따라 ValidationCode 핸드셰이크를 구현하기 위한 엔드포인트의 소스 코드에 액세스할 수 없습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답하지 못할 수 있습니다.
+2. **ValidationURL 핸드셰이크(수동)** : 경우에 따라 ValidationCode 핸드셰이크를 구현하기 위한 엔드포인트의 소스 코드에 액세스할 수 없습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답하지 못할 수 있습니다.
 
    버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾은 후 GET 요청을 수동으로 전송합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
@@ -204,7 +204,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 
 [사용자 또는 그룹에 이러한 역할을 할당](../role-based-access-control/quickstart-assign-role-user-portal.md)할 수 있습니다.
 
-**EventGrid EventSubscription 기여자(미리 보기)**: Event Grid 구독 작업 관리
+**EventGrid EventSubscription 기여자(미리 보기)** : Event Grid 구독 작업 관리
 
 ```json
 [
@@ -240,7 +240,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 ]
 ```
 
-**EventGrid EventSubscription 읽기 권한자(미기 보기)**: Event Grid 구독 읽기
+**EventGrid EventSubscription 읽기 권한자(미기 보기)** : Event Grid 구독 읽기
 
 ```json
 [

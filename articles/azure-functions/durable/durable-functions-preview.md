@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596070"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>영 속 Functions 2.0 미리 보기 (Azure Functions)
@@ -26,7 +26,7 @@ Durable Functions는 Azure Functions의 GA (일반 공급) 기능 하지만 현�
 > [!NOTE]
 > 현재는 지 속성 함수 2.0 릴리스의 일부인이 미리 보기 기능을 **알파 품질 릴리스** 몇 가지 주요 변경 내용으로 합니다. Azure Functions 지 속성 확장 패키지 빌드 형식의 버전을 사용 하 여 nuget.org에서 찾을 수 **2.0.0-alpha**합니다. 이러한 빌드 모든 프로덕션 워크 로드에 적합 하지 않으며 후속 릴리스에서 추가 주요 변경 내용에 포함 될 수 있습니다.
 
-## <a name="breaking-changes"></a>호환성이 손상되는 변경
+## <a name="breaking-changes"></a>주요 변경 내용
 
 몇 가지 주요 변경 사항이 지 속성 함수 2.0에 도입 됩니다. 기존 응용 프로그램은 코드 변경 없이 지 속성 함수 2.0과 호환 되도록 사용할 수 없습니다. 이 섹션에서는 일부 변경 내용을 나열합니다.
 
@@ -154,8 +154,8 @@ public static async Task Counter(
 엔터티에 대 한 작업의 실행 컨텍스트 개체에서 이러한 멤버를 호출할 수 있습니다 (`IDurableEntityContext` .net에서):
 
 * **OperationName**: 작업의 이름을 가져옵니다.
-* **GetInput\<T >**: 작업에 대 한 입력을 가져옵니다.
-* **GetState\<T >**: 엔터티의 현재 상태를 가져옵니다.
+* **GetInput\<T >** : 작업에 대 한 입력을 가져옵니다.
+* **GetState\<T >** : 엔터티의 현재 상태를 가져옵니다.
 * **SetState**: 엔터티의 상태를 업데이트 합니다.
 * **SignalEntity**: 엔터티의에 단방향 메시지를 보냅니다.
 * **자체**: 엔터티의 ID를 가져옵니다.
@@ -172,7 +172,7 @@ public static async Task Counter(
 
 영구 엔터티를 통해 일반 함수에서 호출할 수는 `orchestrationClient` 바인딩 (`IDurableOrchestrationClient` .NET에서). 다음 메서드가 지원 됩니다.
 
-* **ReadEntityStateAsync\<T >**: 엔터티의 상태를 읽습니다.
+* **ReadEntityStateAsync\<T >** : 엔터티의 상태를 읽습니다.
 * **SignalEntityAsync**: 엔터티를 단방향 메시지를 보내고 큐에 넣을 수 되기를 기다립니다.
 
 이러한 메서드 일관성 보다 성능을 우선: `ReadEntityStateAsync` 유효 하지 않은 값을 반환할 수 있습니다 및 `SignalEntityAsync` 작업이 완료 되기 전에 반환할 수 있습니다. 반면에 (설명한 다음) 엔터티 오케스트레이션에 서 호출는 강력한 일관성입니다.
@@ -183,7 +183,7 @@ public static async Task Counter(
 
 * **SignalEntity**: 엔터티의에 단방향 메시지를 보냅니다.
 * **CallEntityAsync**: 엔터티를 메시지를 보내고 응답 표시 하는 작업이 완료 될 때까지 대기 합니다.
-* **CallEntityAsync\<T >**: 엔터티를 메시지를 보내고 T. 형식의 결과 포함 하는 응답 대기
+* **CallEntityAsync\<T >** : 엔터티를 메시지를 보내고 T. 형식의 결과 포함 하는 응답 대기
 
 양방향 통신을 사용할 경우 작업을 실행 하는 동안 throw 된 예외도 호출 오케스트레이션으로 전송 되며 다시 throw 합니다. 반면, 실행 후 제거를 사용 하는 경우 예외 관찰 되지 됩니다.
 

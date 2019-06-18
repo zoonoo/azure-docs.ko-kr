@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729647"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
@@ -300,7 +300,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\.contoso.com입니다.
+예를 들어 다른 도메인에 주소를 변경 http://www.contoso.org 는 트래픽이 www의 수신기로 다시 리디렉션 되었다고는 표시 및\. contoso.com입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

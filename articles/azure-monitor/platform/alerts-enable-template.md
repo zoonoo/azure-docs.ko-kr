@@ -9,10 +9,10 @@ ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
 ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776442"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
@@ -403,6 +403,6 @@ Resource Manager 템플릿에서의 경고는 리소스를 만드는 동안 경�
 
 ## <a name="next-steps"></a>다음 단계
 * [경고에 대해 알아보기](alerts-overview.md)
-* [진단 설정 추가](../../azure-monitor/platform/diagnostic-logs-stream-template.md) 
+* [진단 설정 추가](../../azure-monitor/platform/diagnostic-logs-stream-template.md)
 * JSON 구문 및 속성의 경우 [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) 템플릿 참조를 참조하세요.
 

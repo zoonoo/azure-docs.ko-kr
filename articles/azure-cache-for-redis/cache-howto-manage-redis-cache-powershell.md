@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097932"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
@@ -130,26 +130,26 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | 이름 |캐시의 이름 | |
 | Location |캐시의 위치 | |
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
-| 크기 |캐시의 크기. 유효한 값은 다음과 같습니다. P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
-| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값은 다음과 같습니다. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |캐시의 SKU를 지정합니다. 유효한 값은 다음과 같습니다. Basic, Standard, Premium |Standard |
+| 크기 |캐시의 크기. 유효한 값은 P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| ShardCount |클러스터링을 사용하는 프리미엄 캐시를 만들 때 만들 분할된 데이터베이스 수. 유효한 값은 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |캐시의 SKU를 지정합니다. 유효한 값은 Basic, Standard, Premium |Standard |
 | RedisConfiguration |Redis 구성 설정을 지정합니다. 각 설정에 대한 자세한 내용은 다음 [RedisConfiguration 속성](#redisconfiguration-properties) 테이블을 참조하세요. | |
-| EnableNonSslPort |비 SSL 포트를 사용하는지 여부를 나타냅니다. |거짓 |
+| EnableNonSslPort |비 SSL 포트를 사용하는지 여부를 나타냅니다. |False |
 | MaxMemoryPolicy |이 매개 변수는 더 이상 사용되지 않으며 대신 RedisConfiguration을 사용합니다. | |
 | StaticIP |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. | |
 | 서브넷 |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. | |
 | VirtualNetwork |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 VNET의 리소스 ID를 지정합니다. | |
-| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값은 다음과 같습니다. Primary, Secondary | |
+| KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값은 Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 속성
 | 자산 | 설명 | 가격 책정 계층 |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 |프리미엄 전용 |
-| rdb-storage-connection-string | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
-| rdb-backup-frequency | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
+| rdb-storage-connection-string |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
+| rdb-backup-frequency |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
 | maxmemory-reserved |비 캐시 프로세스를 위해 [예약되는 메모리](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 를 구성합니다 |표준 및 프리미엄 |
 | maxmemory-policy |캐시에 대한 [제거 정책](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 을 구성합니다 |모든 가격 책정 계층 |
-| notify-keyspace-events | [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) |표준 및 프리미엄 |
+| notify-keyspace-events |[Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) |표준 및 프리미엄 |
 | hash-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | hash-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | set-max-intset-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](https://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |

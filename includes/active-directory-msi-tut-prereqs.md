@@ -9,10 +9,10 @@ ms.date: 11/13/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 5e4181c8b88b7321e525846ee60fd6916d796503
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226455"
 ---
 - Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](../articles/active-directory/msi-overview.md)를 참조하세요. Azure 계정이 없으면 계속하기 전에 [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.

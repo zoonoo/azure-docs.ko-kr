@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8977e6bb8b665705af7183ff0cdcfae22a19c759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965935"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성
@@ -99,7 +99,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 11. **관리자 자격 증명** 아래에서 다음 필드를 입력합니다.
 
-    * **테넌트 URL** 필드에 https://api.linkedin.com을 입력합니다.
+    * **테넌트 URL** 필드에 https://api.linkedin.com 을 입력합니다.
 
     * **비밀 토큰** 필드에 1단계에서 생성한 액세스 토큰을 입력하고 **연결 테스트**를 클릭합니다.
 

@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727043"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
@@ -32,7 +32,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| 형식   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
+| type   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
 | 함수 앱 URL | Azure Function App의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 Function App을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
 | 기능 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키**를 복사합니다. 자세한 내용은 다음을 참조하세요. [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 예 |
 |   |   |   |
@@ -41,7 +41,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성**  | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| 이름  | 파이프라인의 작업 이름입니다.  | String | 예 |
+| name  | 파이프라인의 작업 이름입니다.  | String | 예 |
 | 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure Function App에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
 | 함수 이름  | Azure Function App에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |

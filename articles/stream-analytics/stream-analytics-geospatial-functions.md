@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479986"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
@@ -43,7 +43,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|latitude|longitude|  
+|위도(latitude)|경도(longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -70,7 +70,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|latitude|longitude|  
+|위도(latitude)|경도(longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -97,7 +97,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|latitude|longitude|  
+|위도(latitude)|경도(longitude)|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  

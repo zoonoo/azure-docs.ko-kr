@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066447"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -82,7 +82,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
    b. **프로젝트 구조** 창에서 **아티팩트**를 선택합니다.  
 
-   다. 아티팩트를 확인한 후 **취소**를 선택합니다.
+   c. 아티팩트를 확인한 후 **취소**를 선택합니다.
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
 
@@ -94,7 +94,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
    ![프로젝트에서 Scala 클래스를 만들기 위한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   다. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체**를 선택한 다음, **확인**을 선택합니다.
+   c. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체**를 선택한 다음, **확인**을 선택합니다.
 
      ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -183,7 +183,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
     
-        ![Hdinsight 클러스터 대화 연결](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![HdInsight 클러스터 대화 연결](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy 서비스**  
   
@@ -457,12 +457,12 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 
 ![클러스터가 사용 중인 경우 Intellij에 오류가 발생합니다.](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## <a name="feedback-and-known-issues"></a>사용자 의견 및 알려진 문제
+## <a name="known-issues"></a>알려진 문제
+
 현재 직접 Spark 출력 보기는 지원되지 않습니다.
 
-제안 또는 피드백이 있거나 이 플러그 인을 사용할 때 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.
-
 ## <a name="seealso"></a>다음 단계
+
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>데모
@@ -482,7 +482,6 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)

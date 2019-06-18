@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192599"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>IoT 필수 구성 요소에 대 한 azure Security Center
@@ -41,7 +41,7 @@ ms.locfileid: "65192599"
 
 ASC IoT insights 및 보고에 대 한 Azure IoT Hub 및 Azure Security Center를 사용 하 여 사용할 수 있습니다. Azure IoT Hub를 사용 하 여 계정에 IoT 용 ASC를 사용 하도록 설정 하려면 **소유자** 수준 권한이 필요 합니다. IoT Hub에 IoT 용 ASC를 활성화 한 후 ASC IoT insights 용으로 표시 됩니다는 **Security** 및 Azure IoT Hub의 기능 **IoT** Azure Security Center에서. 
 
-## <a name="supported-service-regions"></a>지원 되는 서비스 영역 
+## <a name="supported-service-regions"></a>지원되는 서비스 지역 
 
 ASC IoT에 대 한 Azure 지역에 IoT Hub에 대 한 현재 지원 됩니다.
   - 미국 중부

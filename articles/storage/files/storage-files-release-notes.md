@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c90e466bb7798fae3008dd72a4a4a0e2a0e7a0b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125748"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| 2019 년 5 월 업데이트 롤업- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 년 5 월 7 일 | 지원됨(권장 버전) |
+| 2019 년 6 월 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 년 6 월 13 일 | 지원됨(권장 버전) |
+| 2019 년 5 월 업데이트 롤업- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 년 5 월 7 일 | 지원됨 |
 | V6 릴리스- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 년 4 월 21 일 | 지원됨 |
 | 2019 년 4 월 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 년 4 월 4 일 | 지원됨 |
 | 2019 년 3 월 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원됨 |
@@ -41,6 +42,14 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6200"></a>에이전트 버전 6.2.0.0
+다음 릴리스 정보는 2019 년 6 월 13 일 릴리스된 Azure File Sync 에이전트의 버전 6.2.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.
+
+이 릴리스에서 해결된 문제 목록:  
+- 서버 엔드포인트를 만든 후 높은 CPU 사용량 백그라운드 회수는 서버에 파일을 다운로드할 때 발생할 수 있습니다.
+- 동기화 및 클라우드 계층화 작업 토큰 만료로 인해 ECS_E_SERVER_CREDENTIAL_NEEDED 오류로 실패할 수 있습니다.
+- 파일을 다운로드 하는 URL 예약 된 문자를 포함 하는 경우 실패할 수 있습니다는 파일을 회수 
 
 ## <a name="agent-version-6100"></a>에이전트 버전 6.1.0.0
 다음 릴리스 정보는 2019 년 5 월 6 일 릴리스된 Azure File Sync 에이전트의 버전 6.1.0.0 합니다. 이러한 정보는 6.0.0.0 버전에 대해 나열 된 릴리스 정보입니다.

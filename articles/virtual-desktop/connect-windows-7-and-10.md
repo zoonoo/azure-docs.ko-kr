@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145981"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 또는 Windows 7에서 연결
@@ -51,7 +51,7 @@ ms.locfileid: "65145981"
 
 를 구독 한 후 세부 정보 창에 액세스 하 여 피드에 대 한 추가 정보를 볼 수 있습니다.
 
-1. 클라이언트의 기본 페이지에서 줄임표를 선택 (**...** ) 피드 이름 오른쪽에 있습니다.
+1. 클라이언트의 기본 페이지에서 줄임표를 선택 ( **...** ) 피드 이름 오른쪽에 있습니다.
 1. 드롭다운 메뉴에서 선택 **세부 정보**합니다.
 1. 세부 정보 창 클라이언트의 오른쪽에 표시 됩니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "65145981"
 
 이 섹션에서 피드를 구독 취소 하는 방법을 배우게 됩니다. 다른 계정을 사용 하 여 다시 등록 하거나 시스템에서 리소스를 제거 하도록 구독을 취소할 수 있습니다.
 
-1. 클라이언트의 기본 페이지에서 줄임표를 선택 (**...** ) 피드 이름 오른쪽에 있습니다.
+1. 클라이언트의 기본 페이지에서 줄임표를 선택 ( **...** ) 피드 이름 오른쪽에 있습니다.
 1. 드롭다운 메뉴에서 선택 **Unsubscribe**합니다.
 1. 검토 및 선택 **계속** 대화 상자에서.
 

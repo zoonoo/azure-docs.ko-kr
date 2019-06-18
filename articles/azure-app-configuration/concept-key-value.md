@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408736"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393597"
 ---
 # <a name="keys-and-values"></a>키 및 값
 
@@ -27,7 +27,7 @@ Azure App Configuration은 구성 데이터를 키-값 쌍으로 저장합니다
 
 키는 키-값 쌍의 이름 역할을 하며 해당 값을 저장 및 검색하는 데 사용됩니다. `/` 또는 `:`과 같은 문자 구분 기호를 사용하여 키를 계층 구조 네임스페이스에 구성하는 일반적인 방식입니다. 애플리케이션에 가장 적합한 규칙을 사용합니다. App Configuration은 전체적으로 키를 처리합니다. 키를 구문 분석하여 키 이름을 구성하는 방법을 파악하거나 규칙을 적용하지 않습니다.
 
-애플리케이션 프레임워크 내에서 구성 저장소를 사용하면 키 값에 대한 특정 명명 체계를 지정할 수 있습니다. 예를 들어 Java의 Spring Cloud 프레임워크는 *애플리케이션 이름*과 *프로필*을 포함한 변수로 매개 변수화되도록 Spring 애플리케이션에 설정을 제공하는 `Environment` 리소스를 정의합니다. Spring Cloud 관련 구성 데이터에 대한 키는 일반적으로 구분 기호로 구분된 이러한 두 가지 요소로 시작합니다.
+애플리케이션 프레임워크 내에서 구성 데이터를 사용하면 키 값에 대한 특정 명명 체계를 지정할 수 있습니다. 예를 들어 Java의 Spring Cloud 프레임워크는 *애플리케이션 이름*과 *프로필*을 포함한 변수로 매개 변수화되도록 Spring 애플리케이션에 설정을 제공하는 `Environment` 리소스를 정의합니다. Spring Cloud 관련 구성 데이터에 대한 키는 일반적으로 구분 기호로 구분된 이러한 두 가지 요소로 시작합니다.
 
 App Configuration에 저장된 키는 대/소문자를 구분하는 유니코드 기반의 문자열입니다. *app1* 및 *App1* 키는 앱 구성 저장소에서 고유합니다. 일부 프레임워크에서 구성 키의 대/소문자를 구분하지 않고 처리하므로 애플리케이션 내에서 구성 설정을 사용하는 경우 이 점에 유념하세요. 예를 들어 ASP.NET Core 구성 시스템에서는 대/소문자를 구분하지 않는 문자열로 키를 처리합니다. ASP.NET Core 애플리케이션 내에서 App Configuration을 쿼리할 때 예기치 않은 동작을 방지하려면 대/소문자만 다른 키를 사용하지 마세요.
 
@@ -104,5 +104,5 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [지정 시간 스냅숏](./concept-point-time-snapshot.md)  
+* [지정 시간 스냅샷](./concept-point-time-snapshot.md)  
 * [기능 관리](./concept-feature-management.md)  

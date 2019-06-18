@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415624"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
@@ -24,7 +24,7 @@ SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페�
 
 |     |
 | --- |
-| Azure AD SSPR(Self-service Password Reset)에 대한 모바일 앱 알림 및 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다.  미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Azure AD SSPR(Self-service Password Reset)에 대한 모바일 앱 알림 및 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>암호 재설정 포털의 작동 원리
@@ -64,7 +64,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 * 모바일 앱 알림(미리 보기)
 * 모바일 앱 코드(미리 보기)
 * Email
-* 모바일 폰
+* 휴대폰
 * 사무실 전화
 * 보안 질문
 
@@ -152,7 +152,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>다른 관리자가 암호를 재설정하면 모든 관리자에게 알림
 
-이 옵션을 **예**로 설정하면 '모든 관리자'가 Azure AD의 파일에 있는 기본 이메일 주소로 전자 메일을 받습니다. 전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
+이 옵션을 **예**로 설정하면 '모든 관리자'가 Azure AD의 파일에 있는 기본 이메일 주소로 전자 메일을 받습니다.  전자 메일은 사용자에게 다른 관리자가 SSPR을 사용하여 암호를 변경했음을 알려줍니다.
 
 예제: 환경에 4명의 관리자가 있습니다. A 관리자는 SSPR을 사용하여 암호를 다시 설정합니다. B, C 및 D 관리자는 암호 재설정을 알려주는 이메일을 받습니다.
 
@@ -178,7 +178,7 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 * 스위치를 **예**로 설정하면 쓰기 저장이 사용하도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 있습니다.
 * 스위치를 **아니요**로 설정하면 쓰기 저장을 사용하지 않도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 없습니다.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 암호를 재설정하지 않고 계정을 잠금 해제할 수 있음
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 해당 암호를 재설정하지 않고 계정의 잠금을 해제할 수 있음
 
 이 컨트롤은 암호 재설정 포털을 방문하는 사용자에게 암호를 다시 설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있는 옵션을 제공하는지 여부를 지정합니다. 기본적으로 Azure AD는 암호 재설정을 수행할 때 계정을 잠금 해제합니다. 이 설정을 사용하여 다음 두 가지 작업을 구분합니다.
 
@@ -197,7 +197,7 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 * 셀프 서비스 등록을 통해 **로그인한 사용자**: 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
 * **B2B 사용자**: 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 이메일을 통해 암호를 다시 설정할 수 있습니다.
 
-이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
+이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com 으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
 
 > [!NOTE]
 > Hotmail.com, Outlook.com 또는 기타 개인 이메일 주소와 같이 Azure AD 테넌트에 게스트 액세스 권한이 부여된 Microsoft 계정은 Azure AD SSPR을 사용할 수 없습니다. [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에 있는 정보를 사용하여 암호를 다시 설정해야 합니다.

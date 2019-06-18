@@ -17,10 +17,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800005"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
@@ -180,4 +180,4 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 ## <a name="next-steps"></a>다음 단계
 * 진단 확장을 포함하는 Windows 가상 머신의 전체 샘플 템플릿은 [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)을 참조하세요.   
 * [Azure PowerShell](../windows/ps-template.md) 또는 [Azure 명령줄](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure Resource Manager 템플릿 배포
-*  [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md)
+* [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md)

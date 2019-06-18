@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834280"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478586"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
@@ -63,7 +63,9 @@ ms.locfileid: "65834280"
 
 ### <a name="model-update-frequency"></a>모델 업데이트 빈도
 
-**모델 업데이트 빈도**는 새 Personalizer 모델을 다시 학습시키는 빈도를 설정합니다. 
+모든 활성 이벤트의 Reward API 호출에서 학습된 최신 모델은 Personalizer Rank 호출에서 자동으로 사용되지 않습니다. **모델 업데이트 빈도**는 Rank 호출에서 사용하는 모델의 업데이트 빈도를 설정합니다. 
+
+높은 모델 업데이트 빈도는 사용자 동작에서 변경 사항을 밀접하게 추적하려는 상황에 유용합니다. 라이브 뉴스, 바이럴 콘텐츠 또는 라이브 상품 입찰에서 실행하는 사이트를 예로 들 수 있습니다. 이러한 시나리오에서 15분 빈도를 사용할 수 있습니다. 대부분 사용 사례의 경우 낮은 업데이트 빈도가 효과적입니다. 1분 업데이트 빈도는 Personalizer를 사용하여 애플리케이션의 코드 디버깅, 데모 실행 또는 Machine Learning 측면을 대화형으로 테스트할 때 유용합니다.
 
 ![모델 업데이트 빈도는 새 Personalizer 모델을 다시 학습시키는 빈도를 설정합니다.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ ms.locfileid: "65834280"
 
 ## <a name="export-the-personalizer-model"></a>Personalizer 모델 내보내기
 
-**모델 및 정책**의 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토하고 현재 모델을 내보냅니다.
+**모델 및 정책**의 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토하고 현재 모델을 내보냅니다. Azure Portal 또는 Personalizer API를 사용하여 보관을 위해 모델 파일을 내보낼 수 있습니다. 
 
 ![현재 Personalizer 모델 내보내기](media/settings/export-current-personalizer-model.png)
 

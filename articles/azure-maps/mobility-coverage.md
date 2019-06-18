@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735618"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps Mobility 검사
@@ -47,7 +47,7 @@ Azure Maps는 동일한 수준의 정보 및 모든 도시 및 국가/지역에 
 | 푸에르토리코 | 산후안 |
 | 우루과이 | 몬테비데오, 푼 del Este |
 | 미합중국 | <p>올버니 (뉴욕), Albuquerque (NM) (AK) Anchorage Appleton 오쉬코쉬 Neenah (WI), Asheville (NC), (OH) 아테네, 애틀랜타 (GA), 오스틴 (텍사스), Bakersfield (CA), Baltimore), bellevue로 변경 (WA) "," Berkshire County (MA) "," 버밍엄 (AL) "," 블루 밍 톤 (IN) "," 보이시 (ID), 보스턴 ( MA)를 볼더의 (CO) Brevard County (FL), Buffalo (뉴욕), (MT) Butte 케이프 Cod), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), VA Charlottesville, Chattanooga (TN), 샤이엔 (WY), (IL) 시카고, Cincinnati (OH) Citrus County (FL), 개가 (OH), Coachella Valley (CA), Colorado 스프링 (CO), Columbia (TN), 콜 롬 버스 (OH), 코 퍼스 Christi (텍사스), (텍사스) 가치가 댈러스/등, Dayton (OH), 적용, 덴버, (CO), Des Moines (IA), (MI) Detroit, 미네소타 주 덜루스 (MN), El Paso (텍사스), Eugene (OR )를 Bay (WI) "," Greensboro (NC) "," Greenville (SC) "," Gunnison (CO) "," Hampton도 VA (녹색 표시 Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), 플린트 (MI) 요새 Collins (CO), 요새 Wayne (IN), Fresno (CA), Gainesville (FL), 그랜드 포크 (ND) 그랜드 Rapids (MI) )를 Hanford (CA), Hartford (CT), Hernando 군 (FL), 브라 티 (HI), Houston (텍사스), Humboldt 군 (CA), Huntsville (AL), 인디애나폴리스 (IN), Ithaca (뉴욕), Jackson (MS), Jackson (TN), 잭슨빌에-세인트 존스 County (FL), Johnson 도시 (TN) Jonesboro (AR) Joplin (월), Juneau (AK), Kalamazoo (MI), 캔자스 시티 (월), Kauai (HI), Ketchum (ID), 녹스빌 (TN), Lafayette (IN), 랭 커스터 (PA), Lansing (MI), 라스베이거스 (NV), Lawrence (KS), Lee County (FL), 렉 (KY), Lincoln County (OR), Los Angeles (만듭니다 Rock (AR) CA) 루이빌 (KY), Madison (WI), McAllen (텍사스), (TN) 회원이, 마이애미 (FL), Milwaukee/Waukesha (WI), 이끌고 St. Paul (MN), Missoula (MT), Modesto (미국), Moline (IL), 미국 먼로 카운티 (PA), Montgomery (AL), Morgantown (WV), (TN) 내슈빌, 나바호 국가)를 새 Haven (CT), New Orleans (LA) NYC NJ) Ocala (FL), Okaloosa County (FL), 있고 오클라호마 도시 (정상), 오마하 (NE), Orlando (FL), 파나마 도시 (FL), Pensacola (FL), 팔리고 (IL), 필라델피아 (PA), Phoenix (AZ), Pittsburgh (PA), (ME) 포틀랜드, 포틀랜드 (OR), Racine (WI) 사무국 (NC), Redding (CA), Reno & Lake Tahoe (NV), Roanoke Valley VA-Lynchburg Rochester (뉴욕) 바위 Mountain 국립공원) Valley (OR), Roseburg (OR), Roseville (CA), Sacramento (CA), Salem (OR), 솔트레이크시티에서 (UT), 샌안토니오 (텍사스) 샌디에이고 (불량 CA), San Luis Obispo (CA), 산타 Barbara (CA), 산타 Fe (NM), Sarasota (FL), 사바나 (GA), Seacoast 지역 (NH) 시애틀 Tacoma Bellevue (WA) SF 베이 영역 (CA), Sioux 도시 (IA), 토리 (SD), Sitka (AK), Spokane (WA), (IL) Springfield, Springfield (대용량) 세인트 George (UT), 세인트루이스 (월), (CA) 페르 Syracuse-Utica (뉴욕), Tallahassee (FL), 탬파에-상트페테르부르크 (FL), Terre Haute (IN), 톨레도 (OH), Topeka (KS), 트래버스 도시 (MI), Tucson (AZ), Tulsa (정상), 버몬트, Victorville (CA), Volusia County (FL), Waco (텍사스) 워싱턴 (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), 야키마 (WA), York County (PA), Yuma County (AZ)</p>|
-| + 미국 미국령 버진 아일랜드 | 미국 미국령 버진 아일랜드 * |
+| \+ 미국 미국령 버진 아일랜드 | 미국 미국령 버진 아일랜드 * |
 
 
 ## <a name="asia-pacific"></a>아시아 태평양
@@ -90,8 +90,8 @@ Azure Maps는 동일한 수준의 정보 및 모든 도시 및 국가/지역에 
 | 에스토니아   | Estonia* |   
 | 핀란드   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | 프랑스    | <p>Amberieu-en-Bugey 아미 앙, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, 지휘할, Bordeaux, 도메인 이름 얻기 Boulogne Mer Brest, Briançon, 프랑스, 칸, 땐-en-Châlons 샴페인 Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le 렌즈, Lille, Lorient, Lyon, MAC, 마르세유에 및 Provence, 메스, Millau, Mont-de-Marsan, 몽펠리에 Mulhouse, Nancy mans Nantes 유용한 Nimes, 노르망디, Nyons, 파리, 푸아티에, Privas, Quimper, Rennes, 세인트 Malo, 세인트 Étienne, Saint-Nazaire, Saintes Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse를 둘러보고</P> | 
-| + 프랑스령 기아나 | 카옌 |
-| + 뉴칼레도니아 | Nouméa  |
+| \+ 프랑스령 기아나 | 카옌 |
+| \+ 뉴칼레도니아 | Nouméa  |
 | 그루지야 | 트빌리시 | 
 | 독일 | <p>베를린, 브란덴부르크, Bremen & Niedersachsen, Cologne, Eisenach, 프랑크푸르트, 함부르크, Karlsruhe, Mainz, München-Neustadt-뮌헨, Rhein Neckar 지역 Rhein Ruhr Stuttgart, 지역 Titisee, Ulm</P> | 
 | 그리스 | <p>아테네, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, 로도스, 산토리니, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |

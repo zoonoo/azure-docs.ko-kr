@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071675"
 ---
 # <a name="overview-of-azure-activity-log"></a>Azure 활동 로그 개요
 
@@ -30,10 +30,10 @@ ms.locfileid: "66245017"
 
 
 > [!NOTE]
-> Azure 활동 로그는 주로 Azure Resource Manager에서 발생하는 활동을 대상으로 합니다. Ugresources Classic/RDFE 모델을 사용 하는 추적 하지 않습니다. 일부 클래식 리소스 유형(예: Microsoft.ClassicCompute)에는 Azure Resource Manager의 프록시 리소스 공급자가 있습니다. 이러한 프록시 리소스 공급자를 사용하는 Azure Resource Manager를 통해 클래식 리소스 유형과 상호 작용하면 작업이 활동 로그에 표시됩니다. Azure Resource Manager 프록시 외부의 클래식 리소스 유형과 상호 작용할 경우 사용자 작업은 작업 로그에만 기록됩니다. 작업 로그는 포털의 별도 섹션에서 탐색할 수 있습니다.
+> Azure 활동 로그는 주로 Azure Resource Manager에서 발생하는 활동을 대상으로 합니다. 클래식/RDFE 모델을 사용하여 리소스를 추적하지 않습니다. 일부 클래식 리소스 유형(예: Microsoft.ClassicCompute)에는 Azure Resource Manager의 프록시 리소스 공급자가 있습니다. 이러한 프록시 리소스 공급자를 사용하는 Azure Resource Manager를 통해 클래식 리소스 유형과 상호 작용하면 작업이 활동 로그에 표시됩니다. Azure Resource Manager 프록시 외부의 클래식 리소스 유형과 상호 작용할 경우 사용자 작업은 작업 로그에만 기록됩니다. 작업 로그는 포털의 별도 섹션에서 탐색할 수 있습니다.
 
 ## <a name="activity-log-retention"></a>활동 로그 보관
-활동 로그 이벤트는 90 일 동안 저장 됩니다. 더 긴 기간에 대 한이 데이터를 저장할 [Azure Monitor에서 수집](activity-log-collect.md) 또는 [storage 또는 Event Hubs로 내보내기](activity-log-export.md)합니다.
+만들어지면 활동 로그 항목 하지 수정 하거나 시스템에서 삭제 합니다. 또한 인터페이스 또는 프로그래밍 방식으로 변경할 수 없습니다. 활동 로그 이벤트는 90 일 동안 저장 됩니다. 더 긴 기간에 대 한이 데이터를 저장할 [Azure Monitor에서 수집](activity-log-collect.md) 또는 [storage 또는 Event Hubs로 내보내기](activity-log-export.md)합니다.
 
 ## <a name="view-the-activity-log"></a>활동 로그를 보려면
 모든 리소스에 대 한 활동 로그를 보려면 합니다 **모니터** Azure portal의 메뉴. 특정 리소스에 대 한 활동 로그를 보려면 합니다 **활동 로그** 해당 리소스 메뉴의 옵션입니다. 또한 PowerShell, CLI 또는 REST API를 사용 하 여 활동 로그 레코드를 검색할 수 있습니다.  참조 [뷰와 검색 Azure 활동 로그 이벤트](activity-log-view.md)합니다.

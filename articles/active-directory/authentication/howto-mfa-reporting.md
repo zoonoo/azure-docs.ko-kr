@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988e8982b6f06fb1210330c5cafdb696892794fe
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113391"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -59,7 +59,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 있습니다.
 
-**MFA 필요:** 로그인에 MFA가 필요한지 여부입니다. MFA는 사용자별 MFA, 조건부 액세스 또는 기타 이유로 필요할 수 있습니다. 가능한 값은 **예** 또는 **아니요**입니다.
+**MFA 필요:** 로그인에 MFA가 필요한지 여부입니다. MFA는 사용자별 MFA, 조건부 액세스 또는 기타 이유로 인해 필요할 수 있습니다. 가능한 값은 **예** 또는 **아니요**입니다.
 
 **MFA 결과:** MFA 충족 여부에 대한 추가 정보입니다.
 
@@ -115,7 +115,7 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 
 **MFA 인증 세부 정보:** 전화 번호의 삭제된 버전(예: +X XXXXXXXX64)입니다.
 
-**조건부 액세스** 다음을 포함하여 로그인 시도에 영향을 미친 조건부 액세스 정책에 대한 정보를 찾아보세요.
+**조건부 액세스** 비롯 하 여 로그인 시도 영향을 주는 조건부 액세스 정책에 대 한 정보를 찾습니다.
 
 - 정책 이름
 - 권한 부여 컨트롤

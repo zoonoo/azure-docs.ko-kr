@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575336"
 ---
 # <a name="glossary"></a>용어
@@ -37,11 +37,11 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="antimeridian"></a> **반대자오선**: 180<sup>번째</sup> 자오선이라고 알려진 180도와 경도 180도가 만나는 지점입니다. 지구의 본초자오선과 반대입니다.
 
-<a name="application-programming-interface-api"></a> **API(애플리케이션 프로그래밍 인터페이스)**: 개발자가 애플리케이션을 만들 수 있는 사양입니다.
+<a name="application-programming-interface-api"></a> **API(애플리케이션 프로그래밍 인터페이스)** : 개발자가 애플리케이션을 만들 수 있는 사양입니다.
 
 <a name="api-key"></a> **API 키**: Azure Maps 키를 참조하세요.
 
-<a name="area-of-interest-aoi"></a> **AOI(관심 영역)**: 지도 또는 데이터베이스 생산에 대한 포커스 영역을 정의하는 데 사용되는 익스텐트입니다.
+<a name="area-of-interest-aoi"></a> **AOI(관심 영역)** : 지도 또는 데이터베이스 생산에 대한 포커스 영역을 정의하는 데 사용되는 익스텐트입니다.
 
 <a name="asset-tracking"></a> **자산 추적**: 사용자, 차량 또는 일부 다른 개체와 같은 자산의 위치를 추적하는 프로세스입니다.
 
@@ -51,7 +51,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="autosuggest"></a> **자동 제안**: 사용자가 입력할 내용의 논리적 가능성을 예측하는 애플리케이션의 기능입니다.
 
-<a name="azure-location-based-services-lbs"></a> **Azure LBS(Location Based Services)**: 미리 보기 상태로 제공되었을 때 Azure Maps의 이전 이름입니다.
+<a name="azure-location-based-services-lbs"></a> **Azure LBS(Location Based Services)** : 미리 보기 상태로 제공되었을 때 Azure Maps의 이전 이름입니다.
 
 <a name="azure-maps-key"></a> **Azure Maps 키**: Azure Maps 키는 사용자의 Azure Maps 애플리케이션 또는 서비스 요청을 인증하는 데 사용되는 고유 문자열입니다. 
 
@@ -109,7 +109,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="dbf-file"></a> **DBF 파일**: 셰이프 파일(SHP)과 함께 사용되는 데이터베이스 파일 서식입니다.
 
-<a name="degree-minutes-seconds-dms"></a> **DMS(도 분 초)**: 위도 및 경도를 설명하는 측정 단위입니다. 도는 원의 1/360<sup>번째</sup>입니다. 도는 60분으로 나눠지고, 분은 60초로 나눠집니다.
+<a name="degree-minutes-seconds-dms"></a> **DMS(도 분 초)** : 위도 및 경도를 설명하는 측정 단위입니다. 도는 원의 1/360<sup>번째</sup>입니다. 도는 60분으로 나눠지고, 분은 60초로 나눠집니다.
 
 <a name="delaunay-triangulation"></a> **드로네 삼각기법**: 요소의 데이터 세트에서 겹치지 않는 연속 삼각형의 메시를 만드는 기술입니다. 각 삼각형의 외접구에는 내부에 있는 데이터 세트의 지점이 없습니다.
 
@@ -117,7 +117,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="destination"></a> **대상**: 사용자가 여행하는 엔드포인트 또는 위치입니다.
 
-<a name="digital-elevation-model-dem"></a> **DEM(디지털 권한 상승 모델)**: 지표에 관련된 상승 값 데이터 세트로 일반 데이터를 사용하여 정기적으로 영역을 통해 캡처됩니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
+<a name="digital-elevation-model-dem"></a> **DEM(디지털 권한 상승 모델)** : 지표에 관련된 상승 값 데이터 세트로 일반 데이터를 사용하여 정기적으로 영역을 통해 캡처됩니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
 
 <a name="dijkstra's-algorithm"></a> **다익스트라의 알고리즘**: 두 지점 간에 최단 경로 찾기 위해 네트워크의 연결을 검사하는 알고리즘입니다.
 
@@ -127,7 +127,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="elevation"></a> **상승**: 참조 지표 또는 자료(일반적으로 평균 해면) 위아래에 있는 지점 또는 개체의 세로 거리입니다. 일반적으로 상승은 토지의 세로 높이를 가리킵니다.
 
-<a name="envelope"></a> **봉투(Envelope)**: [경계 상자](#bounding-box)를 참조하세요.
+<a name="envelope"></a> **봉투(Envelope)** : [경계 상자](#bounding-box)를 참조하세요.
 
 <a name="extended-postal-code"></a> **확장된 우편 번호**: 추가 정보를 포함할 수 있는 우편 번호입니다. 예를 들어 미국에서 우편 번호는 5자리 숫자이지만, 확장된 우편 번호(zip+4라고도 함)는 네 자리 숫자를 추가로 포함합니다. 이러한 추가 자릿수는 도시 블록, 아파트의 그룹 또는 사서함 등 5자리 숫자 배달 영역 내에서 지리적 세그먼트를 식별하는 데 사용됩니다. 그러면 메일을 효율적으로 분류하고 배달하는 데 도움이 됩니다.
 
@@ -185,7 +185,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="great-circle-distance"></a> **대권거리**: 지구의 지표에서 두 지점 사이의 최단 거리입니다.
 
-<a name="greenwich-mean-time-gmt"></a> **GMT(그리니치 표준시)**: 영국 그리니치에서에서 왕립 관측소를 통해 실행하는 본초 자오선의 시간입니다.
+<a name="greenwich-mean-time-gmt"></a> **GMT(그리니치 표준시)** : 영국 그리니치에서에서 왕립 관측소를 통해 실행하는 본초 자오선의 시간입니다.
 
 <a name="guid"></a> **GUID**: 전역적으로 고유한 식별자입니다. 인터페이스, 클래스, 형식 라이브러리, 구성 요소 범주 또는 레코드를 고유하게 식별하는 데 사용되는 문자열입니다.
 
@@ -273,7 +273,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="point"></a> **지점**: 맵에서 단일 위치를 나타내는 기하 도형입니다. 
 
-<a name="points-of-interest-poi"></a> **POI(관심 지점)**: 관심 있는 비즈니스, 랜드마크 또는 일반적인 장소입니다.
+<a name="points-of-interest-poi"></a> **POI(관심 지점)** : 관심 있는 비즈니스, 랜드마크 또는 일반적인 장소입니다.
 
 <a name="polygon"></a> **다각형**: 지도에서 영역을 나타내는 입체 기하 도형입니다. 
 
@@ -297,7 +297,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="quadtree"></a> **Quadtree**: 각 노드에 정확히 네 개의 자식 항목이 있는 데이터 구조입니다. Azure Maps에서 사용되는 타일링 시스템은 사용자가 한 수준을 확대하면 각 지도 타일이 4개의 하위 타일로 분할되는 4분할 구조를 사용합니다.  자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md) 설명서를 참조하세요.
 
-<a name="queries-per-second-qps"></a> **QPS(초당 쿼리)**: 1초 이내에 서비스 또는 플랫폼에 수행할 수 있는 쿼리 또는 요청 수입니다. 
+<a name="queries-per-second-qps"></a> **QPS(초당 쿼리)** : 1초 이내에 서비스 또는 플랫폼에 수행할 수 있는 쿼리 또는 요청 수입니다. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="route"></a> **경로**: 둘 이상의 위치 간에 경로이며, 경로에 따른 중간 지점에 대한 지침과 같은 추가 정보가 포함될 수도 있습니다.
 
-<a name="requests-per-second-rps"></a> **RPS(초당 요청 수)**: [QPS(초당 쿼리 수)](#queries-per-second-qps)를 참조하세요. 
+<a name="requests-per-second-rps"></a> **RPS(초당 요청 수)** : [QPS(초당 쿼리 수)](#queries-per-second-qps)를 참조하세요. 
 
 <a name="rss"></a> **RSS**: 원본에 따라 Really Simple Syndication, RDF(Really Simple Syndication) Site Summary 또는 Rich Site Summary의 약어입니다. 여러 웹 사이트에서 콘텐츠를 공유하는 간단하고 구조화된 XML 서식입니다. RSS 문서에는 작성자, 날짜, 제목, 간략한 설명 및 하이퍼텍스트 링크 등 키 메타데이터 요소가 포함됩니다. 이 정보는 사용자(또는 RSS 게시자 서비스)가 추가 정보가 필요한 자료를 결정하는 데 도움이 됩니다.
 
@@ -329,9 +329,9 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="satellite-imagery"></a> **위성 이미지**: 바로 아래쪽을 향하는 비행기 및 위성에서 캡처된 이미지입니다.
 
-<a name="software-development-kit-sdk"></a> **SDK(소프트웨어 개발 키트)**: 개발자가 API를 사용하여 앱을 빌드할 수 있는 설명서, 샘플 코드 및 샘플 앱의 컬렉션입니다.
+<a name="software-development-kit-sdk"></a> **SDK(소프트웨어 개발 키트)** : 개발자가 API를 사용하여 앱을 빌드할 수 있는 설명서, 샘플 코드 및 샘플 앱의 컬렉션입니다.
 
-<a name="shapefile-shp"></a> **셰이프 파일(SHP)**: ESRI 셰이프 파일이라고도 하고, 지리적 기능의 위치, 모양 및 특성을 저장하는 벡터 데이터 저장소 서식입니다. 셰이프 파일은 관련된 파일 집합에 저장됩니다.
+<a name="shapefile-shp"></a> **셰이프 파일(SHP)** : ESRI 셰이프 파일이라고도 하고, 지리적 기능의 위치, 모양 및 특성을 저장하는 벡터 데이터 저장소 서식입니다. 셰이프 파일은 관련된 파일 집합에 저장됩니다.
 
 <a name="spherical-mercator-projection"></a> **구형 메르카토르 도법**: [웹 메르카토르](#web-mercator)를 참조하세요. 
 
@@ -364,7 +364,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="transformation"></a> **변환**: 다른 지리적 좌표계 간에 데이터를 변환하는 프로세스입니다. 예를 들어 영국에서 캡처되고 OSGB 1936 지리 좌표계에 기반한 일부 데이터가 있을 수 있습니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다. 따라서 데이터를 올바르게 표시하려면 여러 시스템 간에 좌표를 변환해야 합니다.
 
-<a name="traveling-salesmen-problem-tsp"></a> **TSP(세일즈 외판원 문제)**:  외판원이 일련의 목적지를 방문한 다음, 시작 지점으로 돌아오는 가장 효율적인 방법을 찾아야 하는 Hamiltonian 회로 문제입니다.  
+<a name="traveling-salesmen-problem-tsp"></a> **TSP(세일즈 외판원 문제)** :  외판원이 일련의 목적지를 방문한 다음, 시작 지점으로 돌아오는 가장 효율적인 방법을 찾아야 하는 Hamiltonian 회로 문제입니다.  
 
 <a name="trilateration"></a> **삼변 측량**: 세 점 사이의 거리를 측정하여 다른 두 지점을 기준으로 지표면에 있는 지점의 위치를 결정하는 프로세스입니다.
 
@@ -376,7 +376,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="vector-tile"></a> **벡터 타일**: 지도 컨트롤과 동일한 타일 시스템을 사용하여 지리 공간적 벡터 데이터를 저장하는 개방형 데이터 사양입니다. [타일 계층](#tile-layer)을 참조하세요.
 
-<a name="vehicle-routing-problem-vrp"></a> **VRP(차량 라우팅 문제)**: 제약 조건 집합으로 고려하는 동안 차량의 선단에 대해 정렬된 경로 집합이 계산되는 문제의 클래스입니다. 이러한 제약 조건에는 배달 시간, 다중 경로 기능 및 이동 기간 제약 조건 등이 포함될 수 있습니다.
+<a name="vehicle-routing-problem-vrp"></a> **VRP(차량 라우팅 문제)** : 제약 조건 집합으로 고려하는 동안 차량의 선단에 대해 정렬된 경로 집합이 계산되는 문제의 클래스입니다. 이러한 제약 조건에는 배달 시간, 다중 경로 기능 및 이동 기간 제약 조건 등이 포함될 수 있습니다.
 
 <a name="voronoi-diagram"></a> **보로노이 다이어그램**: 기하학적 개체(일반적으로 지점 기능) 집합을 둘러싸고 있는 영역 또는 셀의 공간 파티션입니다. 이러한 셀 또는 다각형은 드로네 삼각형의 조건을 충족해야 합니다. 영역 내의 모든 위치는 집합의 다른 개체보다 둘러싸고 있는 개체에 더 가깝습니다. 보로노이 다이어그램은 지리적 기능에 영향을 주는 영역을 나타내는 데 자주 사용됩니다. 
 
@@ -386,7 +386,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="waypoint-optimization"></a> **중간 지점 최적화**: 모든 제공된 중간 지점을 통과하는 데 필요한 이동 시간 및 거리를 최소화하기 위해 중간 지점 집합을 다시 정렬하는 프로세스입니다. 최적화의 복잡성에 따라 [세일즈 외판원 문제](#traveling-salesmen-problem-tsp) 또는 [차량 라우팅 문제](#vehicle-routing-problem-vrp)라고도 합니다.
 
-<a name="web-map-service-wms"></a> **WMS(웹 지도 서비스)**: WMS는 이미지 기반 지도 서비스를 정의하는 OGC(Open Geographic Consortium) 표준입니다. WMS 서비스는 주문형 지도 내에서 특정 영역에 대한 지도 이미지를 제공합니다. 이미지는 미리 렌더링된 기호를 포함하고 서비스에서 정의하는 경우 몇 가지 명명된 스타일 중 하나로 렌더링될 수 있습니다.
+<a name="web-map-service-wms"></a> **WMS(웹 지도 서비스)** : WMS는 이미지 기반 지도 서비스를 정의하는 OGC(Open Geographic Consortium) 표준입니다. WMS 서비스는 주문형 지도 내에서 특정 영역에 대한 지도 이미지를 제공합니다. 이미지는 미리 렌더링된 기호를 포함하고 서비스에서 정의하는 경우 몇 가지 명명된 스타일 중 하나로 렌더링될 수 있습니다.
 
 <a name="web-mercator"></a> **웹 메르카토르**: 구형 메르카토르 도법이라고도 하며, 웹 기반 매핑 프로그램에서 주로 사용한 메르카토르 도법을 약간 변형한 것입니다. 소규모 지도에 사용되는 표준 메르카토르 도법과 동일한 수식을 사용합니다. 그러나 대규모 메르카토르 지도가 일반적으로 타원의 투영 형식을 사용하는 반면 웹 메르카토르 도법은 모든 규모에서 구형 수식을 사용합니다. 글로벌 규모에서는 다른 점을 감지할 수 없지만 로컬 영역 지도가 같은 규모의 타원 메르카토르 지도에서 약간 벗어나게 됩니다.
 

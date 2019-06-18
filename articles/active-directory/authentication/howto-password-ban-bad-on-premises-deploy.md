@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057292"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -36,6 +36,7 @@ ms.locfileid: "65506867"
 
 ## <a name="deployment-requirements"></a>배포 요구 사항
 
+* 라이선싱 요구 사항은 문서에서 Azure AD 암호 보호를 확인할 수 있습니다 [조직에서 잘못 된 암호를 제거](concept-password-ban-bad.md#license-requirements)합니다.
 * Windows Server 2012를 실행 해야 설치 하는 Azure AD 암호 보호에 대 한 서비스 이상 DC 에이전트를 받는 모든 도메인 컨트롤러입니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트에 Windows Server 2012 도메인 또는 포리스트 기능 수준에서 수도 있어야 하는 것을 의미 하지 않습니다. 설명 했 듯이 [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles), 최소 DFL 또는 중 하나는 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 FFL 필요 하지 않습니다.
 * DC 에이전트 서비스가 설치 되어 있는 모든 컴퓨터에.NET 4.5가 설치 되어 있어야 합니다.
 * 설치 하는 Azure AD 암호 보호는 Windows Server 2012 R2를 실행 해야 하는 한 서비스 이상 프록시를 받는 모든 컴퓨터입니다.

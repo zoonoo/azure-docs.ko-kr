@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
 ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60541389"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
@@ -38,20 +38,20 @@ Azure Cache for Redis는 [Redis에서 구현된](https://redis.io/topics/cluster
 
 Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 경우 각 분할에는 Azure Cache for Redis 서비스에서 관리하는 복제가 있는 주/복제 쌍이 있습니다. 
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 클러스터링은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에서 사용하도록 설정합니다. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 클러스터링은 **Redis 클러스터** 블레이드에 구성됩니다.
 
-![클러스터링][redis-cache-clustering]
+![Clustering][redis-cache-clustering]
 
 클러스터에서 최대 10개의 분할된 데이터베이스를 사용할 수 있습니다. **사용**을 클릭하고 슬라이더를 밀거나 **분할 개수**에 1에서 10 사이의 숫자를 입력하고 **확인**을 클릭합니다.
 
 각각의 분할된 데이터베이스는 Azure에서 관리하는 주/복제본 캐시 쌍이며, 캐시의 총 크기는 분할된 데이텁베이스 수에 가격 책정 계층에서 선택한 캐시 크기를 곱하여 산출합니다. 
 
-![클러스터링][redis-cache-clustering-selected]
+![Clustering][redis-cache-clustering-selected]
 
 일단 캐시가 생성되면 이 캐시에 연결하여 클러스터되지 않은 캐시처럼 사용할 수 있으며, Redis에서 캐시 분할 데이터베이스 전체에 데이터를 배포합니다. 진단이 [사용](cache-how-to-monitor.md#enable-cache-diagnostics)으로 설정되면 메트릭이 각 분할별로 개별적으로 캡처되며 Azure Cache for Redis 블레이드에 [표시](cache-how-to-monitor.md)됩니다. 
 
@@ -104,9 +104,9 @@ Azure Cache for Redis 클러스터링에 대해 자주 묻는 질문과 대답�
   자세한 내용은 [Redis 클러스터 사양 - 구현된 하위 집합](https://redis.io/topics/cluster-spec#implemented-subset)을 참조하세요.
 * [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트, 포트 및 키](cache-configure.md#properties) 를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
   
-  * 다른 클라이언트는 다른 요구 사항이 있을 수 있습니다.  [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
+  * 다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
 * 애플리케이션이 단일 명령으로 배치되는 다중 키 작업을 사용하면 동일한 분할에 모든 키가 위치해야 합니다. 동일한 분할된 데이터베이스에서 키를 찾으려면 [클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)을 참조하세요.
-* Redis ASP.NET 세션 상태 제공자를 사용하는 경우 2.0.1 이상을 사용해야 합니다.  [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+* Redis ASP.NET 세션 상태 제공자를 사용하는 경우 2.0.1 이상을 사용해야 합니다. [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있나요?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>클러스터에서 키를 분산하는 방법
 키스페이스는 Redis [키 배포 모델](https://redis.io/topics/cluster-spec#keys-distribution-model) 설명서에 따라 16,384개의 슬롯으로 분할됩니다. 각 키는 이러한 슬롯 중 하나에 해시되고 할당되며 클러스터의 노드에 분산됩니다. 키의 어느 부분이 해시되는지 구성하여 여러 키가 해시 태그를 사용하여 동일한 분할에 위치하도록 합니다.

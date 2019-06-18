@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110853"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -163,7 +163,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 ### <a name="error-response-example"></a>오류 응답 예제
 
-다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 애플리케이션에 전달하여 클라이언트 애플리케이션이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+다운스트림 API에는 조건부 액세스 정책 (예: 다단계 인증) 설정 하는 경우, 다운스트림 API에 대 한 액세스 토큰을 획득 하려고 할 때 토큰 끝점에서 오류 응답이 반환 됩니다. 클라이언트 응용 프로그램에 조건부 액세스 정책을 충족 사용자 상호 작용을 제공할 수 있도록 중간 계층 서비스 클라이언트 응용 프로그램이 오류를 노출 해야 합니다.
 
 ```
 {

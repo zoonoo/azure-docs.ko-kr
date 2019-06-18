@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329493"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
@@ -110,7 +110,7 @@ Twilio는 다음과 같이 .NET 개발자를 위한 5가지 라이브러리를 �
 ### <a id="use_nuget"></a>Visual Studio 프로젝트에 Twilio 라이브러리를 추가하려면
 1. Visual Studio에서 솔루션을 엽니다.
 2. **참조**를 마우스 오른쪽 단추로 클릭합니다.
-3.  **NuGet 패키지 관리...**
+3. **NuGet 패키지 관리...**
 4. **온라인**을 클릭합니다.
 5. 온라인 검색 상자에 *twilio*를 입력합니다.
 6. Twilio 패키지에서 **설치** 를 클릭합니다.
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 애플리케이션에서 Twilio API 호출을 시작하면(예: **CallResource.Create** 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. [방법: 발신 전화 걸기](#howto_make_call)의 예제에서는 Twilio 제공 URL([https://twimlets.com/message][twimlet_message_url])을 사용하여 응답을 반환합니다.
 
 > [!NOTE]
-> TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [https://twimlets.com/message][twimlet_message_url]를 클릭하여 빈 `<Response>` 요소를 확인합니다. 또 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하여 &lt;Say&gt; 요소를 포함하는 `<Response>` 요소를 확인합니다.
+> TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [https://twimlets.com/message][twimlet_message_url]를 클릭하여 빈 `<Response>` 요소를 확인합니다. 또 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하여 &lt; Say&gt; 요소를 포함하는 `<Response>` 요소를 확인합니다.
 >
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.

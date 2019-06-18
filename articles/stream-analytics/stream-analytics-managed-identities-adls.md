@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148469"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 되는 id를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 Stream Analytics를 인증 합니다.
@@ -180,7 +180,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 1. **다중 테 넌 트 액세스**: 지정된 된 Stream Analytics 작업에 대해 만든 서비스 주체는 Azure Active Directory 테 넌 트 작업을 만든 시간 및 다른 Azure Active Directory 테 넌 트에 있는 리소스에 대해 사용할 수 없습니다에 저장 됩니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory를 테 넌 트 내에 있는 ADLS Gen 1 리소스에만 MSI를 사용할 수 있습니다. 
 
-2. **[사용자 할당 Id](../active-directory/managed-identities-azure-resources/overview.md)**: 지원 되지 않습니다. 즉, 사용자가 Stream Analytics 작업에서 사용할 고유한 서비스 주체를 삽입할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성 됩니다.
+2. **[사용자 할당 Id](../active-directory/managed-identities-azure-resources/overview.md)** : 지원 되지 않습니다. 즉, 사용자가 Stream Analytics 작업에서 사용할 고유한 서비스 주체를 삽입할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

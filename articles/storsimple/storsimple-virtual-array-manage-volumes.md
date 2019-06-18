@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125800"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>StorSimple Device Manager 서비스를 사용하여 StorSimple Virtual Array에서 볼륨 관리
@@ -111,7 +111,7 @@ StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된
 3. 호스트의 볼륨이 오프라인이 되면 다음 단계를 수행하여 배열의 볼륨을 오프라인으로 전환합니다.
    
    * StorSimple 서비스 요약 블레이드의 **볼륨** 설정에서 오프라인으로 전환하려는 볼륨이 상주하는 가상 배열을 선택합니다.
-   * 볼륨을 **선택**하고 **...**(또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **오프라인으로 전환**을 선택합니다.
+   * 볼륨을 **선택**하고 **...** (또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **오프라인으로 전환**을 선택합니다.
      
         ![오프라인 볼륨](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
    * **오프라인** 블레이드에서 정보를 검토하고 작업에 대한 동의를 확인합니다. **오프라인으로 전환**을 클릭하여 볼륨을 오프라인으로 전환합니다. 진행 중인 작업의 알림이 표시됩니다.
@@ -131,7 +131,7 @@ StorSimple 서비스 요약 블레이드의 **볼륨** 메뉴에서는 지정된
 #### <a name="to-delete-a-volume"></a>볼륨을 삭제하려면
 
 1. StorSimple 서비스 요약 블레이드의 **볼륨** 설정에서 삭제하려는 볼륨이 상주하는 가상 배열을 선택합니다.
-2. 볼륨을 **선택**하고 **...**(또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
+2. 볼륨을 **선택**하고 **...** (또는 이 행의 오른쪽)를 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
    
     ![볼륨 삭제](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. 삭제하려는 볼륨의 상태를 확인합니다. 삭제하려는 볼륨이 오프라인 상태가 아닌 경우 [볼륨을 오프라인으로 전환](#take-a-volume-offline)의 단계를 따라 먼저 오프라인 상태로 전환합니다.

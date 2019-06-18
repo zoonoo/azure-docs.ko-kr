@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
 ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60709986"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
@@ -38,9 +38,9 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-mon
 
 코드 또는 사용자 지정 도구에서 클래식 API를 호출하는지 확실하지 않은 경우 다음을 확인합니다.
 
-- 코드 또는 도구에서 참조된 URI를 검토합니다. 클래식 API는 URI https://management.core.windows.net를 사용합니다. Resource Manager 기반 API의 경우 https://management.azure.com/으로 시작하는 최신 URI를 사용해야 합니다.
+- 코드 또는 도구에서 참조된 URI를 검토합니다. 클래식 API는 URI https://management.core.windows.net 를 사용합니다. Resource Manager 기반 API의 경우 https://management.azure.com/ 으로 시작하는 최신 URI를 사용해야 합니다.
 
-- 머신의 어셈블리 이름을 비교합니다. 이전 클래식 어셈블리는 https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/에 있습니다.
+- 머신의 어셈블리 이름을 비교합니다. 이전 클래식 어셈블리는 https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ 에 있습니다.
 
 - 인증서 인증을 사용하여 메트릭 또는 자동 크기 조정 API에 액세스하는 경우 클래식 엔드포인트 및 라이브러리를 사용하고 있습니다. 최신 Resource Manager API에는 서비스 주체 또는 사용자 계정을 통한 Azure Active Directory 인증이 필요합니다.
 

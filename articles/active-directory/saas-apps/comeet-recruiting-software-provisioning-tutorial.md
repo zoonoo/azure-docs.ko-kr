@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470414"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Comeet Recruiting 소프트웨어 구성
@@ -45,7 +45,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 Comeet Recru
 
 **Azure AD 응용 프로그램 갤러리에서 Comeet 채용 소프트웨어를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. 에  **[Azure portal](https://portal.azure.com)**, 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
+1. 에  **[Azure portal](https://portal.azure.com)** , 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 

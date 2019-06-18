@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 447116267e53f8c4df1e882ca30c6a2e906d314c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494229"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114301"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
 
@@ -116,6 +116,24 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 자산 필터를 만들었습니다.
 
 자산 필터 만들기 또는 업데이트 방법에 대한 자세한 내용은 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate)를 참조하세요. [필터에 대한 JSON 예제](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter)도 참조하세요. 
+
+## <a name="associate-filters-with-streaming-locator"></a>스트리밍 로케이터를 사용 하 여 연결 필터
+
+스트리밍 로케이터를 사용 하 여 적용할 자산 또는 계정 필터 목록을 지정할 수 있습니다. 합니다 [동적 Packager (스트리밍 끝점)](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
+
+만들고 REST를 사용 하 여 스트리밍 로케이터를 사용 하 여 필터를 연결 하려면 사용 합니다 [스트리밍 로케이터-만들기](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API 지정 `properties.filters` 에 [요청 본문](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다.
+                                
+## <a name="stream-using-filters"></a>필터를 사용 하 여 Stream
+
+필터를 정의하고 나면 클라이언트가 스트리밍 URL에 필터를 사용할 수 있습니다. 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. Apple HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍
+
+다음 표에서는 필터가 있는 URL의 몇 가지 예제를 보여 줍니다.
+
+|프로토콜|예|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|부드러운 스트리밍|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>다음 단계
 

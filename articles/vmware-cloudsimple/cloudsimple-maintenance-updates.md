@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4dde358f10e9ac5054297ff68a0971404c0dc135
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160247"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
@@ -38,7 +38,7 @@ CloudSimple는 지속적으로 가동 시간 및 가용성에 대 한 다음 Vm�
 * 물리적 NIC 포트
 * 서버
 * 팬
-* 거듭제곱
+* Power
 * 스위치
 * 스위치 포트
 

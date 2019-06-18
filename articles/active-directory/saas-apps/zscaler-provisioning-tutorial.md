@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67049285"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>자습서: Zscaler에 자동 사용자 프로 비전 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "59275485"
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
 >
 
-> 이 커넥터는 현재 공개 미리 보기로 제공 됩니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
+> 이 커넥터는 현재 공개 미리 보기로 있습니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -94,7 +94,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 2. 애플리케이션 목록에서 **Zscaler**를 선택합니다.
 
-    ![응용 프로그램 목록의 Zscaler 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Zscaler 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 

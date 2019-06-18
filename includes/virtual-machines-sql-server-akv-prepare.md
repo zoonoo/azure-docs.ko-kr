@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075991"
 ---
 ## <a name="prepare-for-akv-integration"></a>AKV 통합 준비
 Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가지 필수 조건이 있습니다. 
@@ -32,7 +32,7 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Azure PowerShell 설치
-최신 Azure PowerShell SDK를 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+최신 Azure PowerShell 모듈을 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ### <a id="register"></a> Azure Active Directory 내 애플리케이션 등록
 
@@ -58,7 +58,7 @@ Azure Key Vault를 사용하여 암호화에 사용할 키를 VM에 저장하려
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-주요 자격 증명 모음 만들기 단계에 이르면 반환된 **vaultUri** 속성을 잘 살펴보세요. 이 속성은 주요 자격 증명 모음 URL입니다. 아래와 같이 해당 단계에 제공된 예에서 주요 자격 증명 모음 이름이 ContosoKeyVault이므로 주요 자격 증명 모음 URL은 https://contosokeyvault.vault.azure.net/입니다.
+주요 자격 증명 모음 만들기 단계에 이르면 반환된 **vaultUri** 속성을 잘 살펴보세요. 이 속성은 주요 자격 증명 모음 URL입니다. 아래와 같이 해당 단계에 제공된 예에서 주요 자격 증명 모음 이름이 ContosoKeyVault이므로 주요 자격 증명 모음 URL은 https://contosokeyvault.vault.azure.net/ 입니다.
 
 주요 자격 증명 모음 URL은 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$akvURL** 매개 변수에 할당됩니다.
 

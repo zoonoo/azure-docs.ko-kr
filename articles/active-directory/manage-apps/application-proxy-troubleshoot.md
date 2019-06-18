@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbdccf3b7a3ba1b8e55befa0fdc24eeff3e403da
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108359"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>애플리케이션 프록시 문제 및 오류 메시지 문제 해결
 게시된 애플리케이션에 액세스할 때나 애플리케이션을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 애플리케이션 프록시가 올바르게 작동하는지 확인합니다.
@@ -48,7 +48,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 이벤트 로그에서 커넥터 오류를 찾으면 일반적인 오류 테이블을 사용하여 문제를 해결합니다.
 
-| 오류 | 권장 단계 |
+| 오류 | 권장되는 단계 |
 | ----- | ----------------- |
 | 커넥터를 등록하지 못함: Azure 관리 포털에서 애플리케이션 프록시를 활성화했으며 Active Directory 사용자 이름과 암호를 올바르게 입력했는지 확인합니다. 오류: ‘하나 이상의 오류가 발생했습니다.’ | Azure AD에 로그인하지 않고 등록 창을 닫은 경우 커넥터 마법사를 다시 실행하고 커넥터를 등록합니다. <br><br> 등록 창이 열리고 로그인을 허용하지 않고 즉시 창이 닫히는 경우 이 오류가 나타날 것입니다. 시스템에 네트워킹 오류가 있을 때 이 오류가 발생합니다. 브라우저에서 공용 웹사이트에 연결할 수 있으며 포트가 [애플리케이션 프록시 사전 요구 사항](application-proxy-add-on-premises-application.md)에 지정된대로 열려 있는지 확인합니다. |
 | 등록 창에 명확한 오류가 표시됩니다. 설치를 진행할 수 없습니다. | 이 오류가 표시되고 창이 닫힌 경우 잘못된 사용자 이름 또는 암호를 입력했습니다. 다시 시도하세요. |
@@ -61,7 +61,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 이 테이블은 Kerberos 설정 및 구성에서 발생한 일반적인 오류에 대해 설명하고 해결하기 위한 제안을 포함합니다.
 
-| 오류 | 권장 단계 |
+| 오류 | 권장되는 단계 |
 | ----- | ----------------- |
 | PowerShell 스크립트의 실행을 위한 현재 실행 정책을 검색하지 못했습니다. | 커넥터 설치에 실패한다면 PowerShell 실행 정책이 비활성화되어 있지 않은지 확인하세요.<br><br>1. 그룹 정책 편집기를 엽니다.<br>2. **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **Windows PowerShell**로 이동한 다음 **스크립트 실행 켜기**를 두 번 클릭합니다.<br>3. 실행 정책은 **구성 안 함** 또는 **사용**으로 설정될 수 있습니다. **사용**으로 설정했다면 옵션에 있는 실행 정책을 **로컬 스크립트 및 원격 서명된 스크립트 허용** 또는 **모든 스크립트 허용**으로 설정했는지 확인합니다. |
 | 12008-Azure AD가 백 엔드 서버에 허용되는 Kerberos 인증 시도의 최대 횟수를 초과합니다. | 이 오류는 Azure AD와 백 엔드 애플리케이션 서버 간의 잘못된 구성 또는 두 머신 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 백 엔드 서버가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 애플리케이션 서버가 올바르게 구성되어 있는지 확인합니다. Azure AD 및 백 엔드 애플리케이션 서버상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. |
@@ -74,7 +74,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 이 목록에서는 최종 사용자가 앱에 액세스하는 데 실패한 경우 발생할 수 있는 오류에 대해 설명합니다. 
 
-| 오류 | 권장 단계 |
+| 오류 | 권장되는 단계 |
 | ----- | ----------------- |
 | 웹 사이트에서 페이지를 표시할 수 없습니다. | 애플리케이션이 IWA 애플리케이션인 경우 게시된 앱에 사용자가 액세스를 시도하는 경우 이 오류가 발생할 수 있습니다. 이 애플리케이션에 대해 정의된 SPN이 올바르지 않을 수 있습니다. IWA 앱의 경우 이 애플리케이션에 대해 구성된 SPN이 올바른지 확인합니다. |
 | 웹 사이트에서 페이지를 표시할 수 없습니다. | 애플리케이션이 OWA 애플리케이션인 경우 게시된 앱에 사용자가 액세스를 시도하는 경우 이 오류가 발생할 수 있습니다. 이는 다음 중 하나 때문일 수 있습니다.<br><li>이 애플리케이션에 대해 정의된 SPN이 올바르지 않습니다. 이 애플리케이션에 대해 구성된 SPN이 올바른지 확인합니다.</li><li>이 애플리케이션에 액세스하려고 하는 사용자가 적절한 기업 계정이 아닌 Microsoft 계정을 사용하거나 사용자가 게스트 사용자입니다. 사용자가 게시된 애플리케이션의 도메인과 일치하는 기업 계정을 사용하여 로그인하는지 확인합니다. Microsoft 계정 사용자 및 게스트가 IWA 애플리케이션에 액세스할 수 없습니다.</li><li>응용 프로그램에 액세스 하려고 했습니다. 사용자는 온-프레미스 쪽에서이 응용 프로그램에 대 한 제대로 정의 되지 않았습니다. 온-프레미스 컴퓨터에서이 백 엔드 응용 프로그램에 대해 정의 된 대로이 사용자에 적절 한 권한이 있는지 확인 합니다. |
@@ -91,7 +91,7 @@ Azure AD 애플리케이션 프록시에 이 문제 해결 가이드에 나열�
 * [Azure Active Directory에 대한 애플리케이션 프록시 사용](application-proxy-add-on-premises-application.md)
 * [애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)
 * [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
+* [조건부 액세스를 사용 하도록 설정](application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

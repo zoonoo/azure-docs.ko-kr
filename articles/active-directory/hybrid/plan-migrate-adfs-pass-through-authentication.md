@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109348"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -128,9 +128,9 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
-| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)와 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)을 조합하여 이전 버전의 인증 클라이언트를 차단하는 AD FS 컨트롤을 대체하는 것이 좋습니다. |
+| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다 [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 하 고 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)합니다. |
 | 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인이 변환되면 다단계 인증에 Azure Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure Multi-Factor Authentication을 사용하지 않는 경우 일회성 사용자 등록 단계를 수행해야 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
-| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 이러한 정책을 동등한 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
+| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 해당 Azure AD를 사용 하 여 정책을 대체 하는 것이 좋습니다 [조건부 액세스 정책을](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 하 고 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)합니다.|
 
 ### <a name="common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정
 
@@ -142,13 +142,13 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 도메인이 통과 인증으로 변환되면 **InsideCorporateNetwork** 클레임을 사용할 수 없습니다. 이 기능은 [Azure AD에서 명명된 위치](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)를 사용하여 대체할 수 있습니다.
 
-명명된 위치가 구성되면 **모든 신뢰할 수 있는 위치** 또는 **MFA에서 신뢰할 수 있는 IP** 네트워크 값을 포함하거나 제외하도록 구성된 모든 조건부 액세스 정책을 업데이트해야 합니다.
+명명 된 위치를 구성한 후 포함 하거나 제외할 네트워크에 구성 된 모든 조건부 액세스 정책을 업데이트 해야 합니다 **신뢰할 수 있는 모든 위치** 하거나 **MFA에서 신뢰할 수 있는 Ip** 값 새 명명 된 위치를 반영 합니다.
 
-조건부 액세스의 **위치** 조건에 대한 자세한 내용은 [Active Directory 조건부 액세스 위치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)를 참조하세요.
+에 대 한 자세한 내용은 합니다 **위치** 조건부 액세스의 조건, 참조 [Active Directory 조건부 액세스 위치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)합니다.
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인 디바이스
 
-디바이스를 Azure AD에 조인할 때 해당 디바이스가 보안 및 규정 준수를 위한 액세스 표준을 충족하도록 강제로 적용하는 조건부 액세스 규칙을 만들 수 있습니다. 또한 사용자가 개인 계정 대신 회사 조직 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다. 하이브리드 Azure AD 조인 디바이스를 사용하는 경우 Active Directory 도메인 조인 디바이스를 Azure AD에 조인할 수 있습니다. 페더레이션 환경에서 이 기능을 사용하도록 설정되었을 수 있습니다.
+Azure AD에 장치를 가입 시킬 때 장치 보안 및 규정 준수에 대 한 액세스 표준을 충족을 적용 하는 조건부 액세스 규칙을 만들 수 있습니다. 또한 사용자가 개인 계정 대신 회사 조직 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다. 하이브리드 Azure AD 조인 디바이스를 사용하는 경우 Active Directory 도메인 조인 디바이스를 Azure AD에 조인할 수 있습니다. 페더레이션 환경에서 이 기능을 사용하도록 설정되었을 수 있습니다.
 
 도메인이 통과 인증으로 변환된 후 도메인에 조인된 모든 디바이스에서 하이브리드 조인이 계속 작동하도록 하려면 Windows 10 클라이언트의 경우 Azure AD Connect를 사용하여 Active Directory 컴퓨터 계정을 Azure AD와 동기화해야 합니다.
 

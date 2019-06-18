@@ -2,35 +2,60 @@
 title: Azure 리소스의 여러 인스턴스 배포 | Microsoft Docs
 description: Azure 리소스 관리자 템플릿에서 복사 작업 및 배열을 사용하여 여러 번 반복하는 방법을 설명합니다.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807374"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>리소스, 속성 또는 Azure Resource Manager 템플릿의 변수 반복
 
-이 문서에서는 Azure Resource Manager 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다. 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
+이 문서에서는 Azure Resource Manager 템플릿에서 리소스, 변수 또는 속성의 둘 이상의 인스턴스를 만드는 방법을 보여 줍니다. 여러 인스턴스를 만들려면 추가 `copy` 템플릿에 개체입니다.
 
-자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
+리소스를 사용 하는 경우 복사 개체의 형식은:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+변수 또는 속성을 사용 하는 경우 복사 개체의 형식은:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+모두 사용 하 여가이 문서에 자세히 설명 되어 있습니다. 자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
+
+리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
+
+## <a name="copy-limits"></a>복사 제한
+
+반복 횟수를 지정 하려면 count 속성에 대 한 값을 제공 합니다. 개수는 800을 초과할 수 없습니다.
+
+수는 음수일 수 없습니다. REST API 버전을 사용 하 여 템플릿을 배포 하는 경우 **2019-05-10** 하거나 나중에 개수를 0으로 설정할 수 있습니다. REST API의 이전 버전에는 개수에 0을 지원 하지 않습니다. 현재, Azure CLI 또는 PowerShell 지원 하지 않습니다 개수에 0을 해당 지원은 향후 릴리스에 추가 될 예정입니다.
+
+개수에 대 한 제한 리소스, 변수 또는 속성을 사용 하 여 사용 여부를 나타내는 동일 합니다.
 
 ## <a name="resource-iteration"></a>리소스 반복
 
-배포 중 리소스의 인스턴스를 하나 이상 만들지 결정해야 할 경우에는 `copy` 요소를 리소스 종류에 추가합니다. copy 요소에서 이 루프의 반복 횟수와 이름을 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다. 
+배포 중 리소스의 인스턴스를 하나 이상 만들지 결정해야 할 경우에는 `copy` 요소를 리소스 종류에 추가합니다. 복사 요소에서이 루프에 대 한 이름과 반복의 수를 지정 합니다.
 
 다음 형식으로 리소스를 여러 번 만듭니다.
 
@@ -71,7 +96,7 @@ ms.locfileid: "65205966"
 * storage1
 * storage2
 
-인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 수행할 반복 수는 복사 요소에서 지정되지만 copyIndex의 값이 지정된 값 만큼 오프셋됩니다. 따라서 예제는 다음과 같습니다.
+인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 반복 횟수는 복사 요소에서 지정 되지만 copyIndex의 값이 지정된 된 값 만큼 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ ms.locfileid: "65205966"
 리소스의 속성에 대해 여러 값을 만들려면 속성 요소에서 `copy` 배열을 추가합니다. 이 배열에는 개체가 포함되어 있으며 각 개체에는 다음 속성이 포함되어 있습니다.
 
 * name - 여러 값을 만들 속성의 이름
-* count - 만들 값 수 count 값은 양의 정수여야 하며 800을 초과할 수 없습니다.
+* count - 만들 값 수
 * input - 속성에 할당할 값이 포함된 개체  
 
 다음 예제는 가상 머신에서 `copy`를 dataDisks 속성에 적용하는 방법을 보여 줍니다.

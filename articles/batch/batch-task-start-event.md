@@ -2,7 +2,7 @@
 title: Azure Batch 태스크 시작 이벤트 | Microsoft Docs
 description: Batch 태스크 시작 이벤트에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/15/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549872"
 ---
 # <a name="task-start-event"></a>태스크 시작 이벤트
@@ -84,5 +83,3 @@ ms.locfileid: "60549872"
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
 |retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|
-
-<!-- Update_Description: update metedata properties -->
