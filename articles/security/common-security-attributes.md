@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66474543"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure 서비스에 대 한 보안 특성
@@ -195,7 +195,7 @@ ms.locfileid: "66474543"
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | Log Analytics는 진단 로그를 통해 지원됩니다. 자세한 내용은 Log Analytics를 사용하여 Azure Backup 보호 워크로드 모니터링(https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)을 참조하세요. |
+| Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | Log Analytics는 진단 로그를 통해 지원됩니다. 자세한 내용은 Log Analytics를 사용하여 Azure Backup 보호 워크로드 모니터링(https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) 을 참조하세요. |
 
 ### <a name="identity-and-access-management"></a>ID 및 액세스 관리
 

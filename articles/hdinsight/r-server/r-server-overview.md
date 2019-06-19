@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130627"
 ---
-# <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight의 ML Services 란
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
 Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services**라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 집합에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 애플리케이션은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
 
@@ -35,7 +33,7 @@ Azure HDInsight에 ML Services 클러스터를 만들려면 Azure Portal을 사�
 
 HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
 
-### <a name="ai-innovation-from-microsoft-and-open-source"></a>Microsoft 및 오픈-소스의 AI 혁신 
+### <a name="ai-innovation-from-microsoft-and-open-source"></a>Microsoft 및 오픈-소스의 AI 혁신
 
   ML Services에는 [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package) 및 [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package)과 같이 실제 메모리보다 더 큰 데이터에 작동할 수 있고, 광범위한 플랫폼에서 분산 방식으로 실행될 수 있는 고도로 확장 가능한 풍부한 분산 알고리즘 집합을 포함합니다. 이 제품에 포함되어 있는 Microsoft의 사용자 지정 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) 및 [Python 패키지](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) 모음에 대해 자세히 알아보세요.
   
@@ -145,5 +143,5 @@ ML Services HDInsight 클러스터와 연관된 요금은 다른 HDInsight 클�
 HDInsight 클러스터에서 ML Services를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [HDInsight에서 ML Services 클러스터 시작](r-server-get-started.md)
-* [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [HDInsight에서 ML Services 클러스터에 대한 저장소 옵션](r-server-storage.md)
