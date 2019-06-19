@@ -69,7 +69,7 @@ Windows용 Network Watcher 에이전트 확장은 Windows Server 2008 R2, 2012, 
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| 형식 | NetworkWatcherAgentWindows |
+| type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
