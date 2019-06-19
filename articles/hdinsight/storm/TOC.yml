@@ -4,6 +4,11 @@
   items:
     - name: HDInsight의 Apache Storm이란?
       href: apache-storm-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: HDInsight에서 Apache Storm 토폴로지 만들기
+      href: ./apache-storm-quickstart.md
 - name: 시작하기
   items:
     - name: Apache Storm 클러스터 만들기

@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: 개요
   items:
-    - name: HDInsight의 Apache Hadoop 정보
+    - name: HDInsight의 Apache Hadoop이란?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: HDInsight의 Apache Hadoop 아키텍처
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: HDInsight의 Apache Hadoop 구성 요소
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: 빠른 시작
   items:
     - name: Apache Hadoop 클러스터 만들기 - 포털
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Apache Hadoop 클러스터 만들기 - Resource Manager 템플릿
+    - name: Apache Hadoop 클러스터 만들기 - 템플릿
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: 자습서
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: 개념
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: HDInsight의 Apache Hadoop 아키텍처
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: HDInsight의 Apache Hadoop 구성 요소
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Windows 클러스터
       items:
-        - name: Linux 클러스터로 Windows 클러스터 마이그레이션
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Linux 클러스터로 .NET 솔루션 마이그레이션
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

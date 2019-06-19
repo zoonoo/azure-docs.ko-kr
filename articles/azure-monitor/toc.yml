@@ -115,12 +115,8 @@
       href: visualizations.md
     - name: 파트너 통합
       href: platform/partners.md
-    - name: OMS 포털 전환
-      items:
-        - name: 개요
-          href: platform/oms-portal-transition.md
-        - name: 일반적인 질문
-          href: platform/oms-portal-faq.md
+    - name: OMS 포털 사용 중단
+      href: platform/oms-portal-transition.md
     - name: FAQ
       items:
         - name: Log Analytics
@@ -249,6 +245,8 @@
               items:
                 - name: Log Analytics VM 확장
                   href: platform/vmext-troubleshoot.md
+                - name: Log Analytics Windows 에이전트
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Log Analytics Linux 에이전트
                   href: platform/agent-linux-troubleshoot.md
         - name: 에이전트 데이터 원본
@@ -985,6 +983,8 @@
           href: app/nuget.md
         - name: 플랫폼 지원
           href: app/platforms.md
+        - name: 엔드포인트 재정의
+          href: app/custom-endpoints.md
     - name: Application Insights 데이터 모델
       items:
         - name: 개요

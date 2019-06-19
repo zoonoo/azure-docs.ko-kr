@@ -11,7 +11,7 @@
       href: apache-kafka-get-started.md
     - name: Apache Kafka 클러스터 만들기 - PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: Apache Kafka 클러스터 만들기 - Resource Manager 템플릿
+    - name: Apache Kafka 클러스터 만들기 - 템플릿
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: 자습서

@@ -37,7 +37,7 @@ ms.locfileid: "65466438"
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 

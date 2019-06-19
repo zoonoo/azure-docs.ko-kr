@@ -85,12 +85,24 @@
           displayName: roles
         - name: 자유 형식 데이터 추출
           href: luis-tutorial-pattern-any.md
-    - name: V4 Bot Framework 사용
+    - name: 봇으로 사용
       items:
         - name: 'C# 사용'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. 기본 봇 만들기
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Application Insights에 원격 분석 추가
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Node.js 사용
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. 기본 봇 만들기
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Application Insights에 원격 분석 추가
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -200,14 +212,6 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: Application Insights 사용 봇
-          items:
-            - name: Node.js
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
-            - name: 'C#'
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-csharp-appinsights.md
     - name: 예측 정확도 개선
       items:
         - name: 대시보드 사용
