@@ -30,7 +30,7 @@ Kubernetes 클러스터를 인증하고 보호하는 여러 가지 방법이 있
 
 Kubernetes의 기본 사용자 유형 중 하나는 *서비스 계정*입니다. 서비스 계정은 Kubernetes API에서 보유하고 관리합니다. 서비스 계정에 대한 자격 증명은 Kubernetes 비밀로 저장되어 권한 있는 Pod에서 API 서버와 통신하는 데 사용할 수 있습니다. 대부분의 API 요청은 서비스 계정 또는 일반 사용자 계정에 대한 인증 토큰을 제공합니다.
 
-일반 사용자 계정은 서비스 및 프로세스뿐만 아니라 사용자 관리자 또는 개발자에게도 더 일반적인 액세스를 허용합니다. Kubernetes 자체는 일반 사용자 계정 및 암호가 저장 되는 id 관리 솔루션을 제공 하지 않습니다. 대신, 외부 ID 솔루션이 Kubernetes에 통합될 수 있습니다. AKS 클러스터의 경우 이 통합 ID 솔루션은 Azure Active Directory입니다.
+일반 사용자 계정은 서비스 및 프로세스뿐만 아니라 사용자 관리자 또는 개발자에게도 더 일반적인 액세스를 허용합니다. Kubernetes 자체는 일반 사용자 계정 및 암호가 저장 되는 id 관리 솔루션을 제공 하지 않습니다. 대신, 외부 ID 솔루션이 Kubernetes에 통합될 수 있습니다. AKS 클러스터의 경우, 통합 ID 솔루션은 Azure Active Directory 입니다.
 
 Kubernetes의 ID 옵션에 대한 자세한 내용은 [Kubernetes 인증][kubernetes-authentication]을 참조하세요.
 
