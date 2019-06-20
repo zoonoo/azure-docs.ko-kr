@@ -58,7 +58,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
+| convertToArray |예 |int, string, array 또는 object |배열로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
