@@ -7,8 +7,28 @@
       href: Welcome.md
     - name: 언어 지원
       href: language-support.md
+- name: 컨테이너 지원
+  items:
     - name: 컨테이너 지원
       href: cognitive-services-container-support.md
+    - name: 컨테이너 레시피
+      items:
+        - name: 컨테이너 다시 사용
+          href: ./containers/container-reuse-recipe.md
+        - name: Azure Container Instances에 배포
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Azure Kubernetes에 배포
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Docker Compose를 사용하여 배포
+          href: ./containers/docker-compose-recipe.md
+    - name: 기타 컨테이너 서비스
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 빠른 시작
   items:
     - name: 계정 만들기

@@ -18,7 +18,7 @@ ms.locfileid: "61479665"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Stream Analytics 작업에서 입력 및 출력을 위한 로그인 자격 증명 순환
 
-Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다시 생성할 때마다 새 자격 증명으로 작업을 업데이트해야 합니다. 자격 증명을 업데이트하기 전에 작업을 중지해야 하며, 작업이 실행되는 동안에는 자격 증명을 바꿀 수 없습니다. 작업 중지 및 다시 시작 간의 지연 시간을 줄이기 위해 Stream Analytics는 마지막 출력에서 작업을 다시 시작하도록 지원합니다. 이 항목에서는 로그인 자격 증명을 순환하고 새 자격 증명으로 작업을 다시 시작하는 과정을 설명합니다.
+Stream Analytics 작업의 입력 또는 출력에 대한 자격 증명을 다시 생성할 때마다 새 자격 증명으로 작업을 업데이트해야 합니다. 자격 증명을 업데이트하기 전에 작업을 중지해야 하며, 작업이 실행되는 동안에는 자격 증명을 바꿀 수 없습니다. 작업 중지 및 다시 시작 간의 지연 시간을 줄이기 위해 Stream Analytics는 마지막 출력에서 작업을 다시 시작하도록 지원합니다. 이 항목에서는 로그인 자격 증명을 교대하고 새 자격 증명으로 작업을 다시 시작하는 과정을 설명합니다.
 
 ## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>새 자격 증명을 다시 생성하고 새 자격 증명으로 작업 업데이트 
 

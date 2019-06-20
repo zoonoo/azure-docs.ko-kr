@@ -116,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 편집기에서 SQL 파일을 열고 SQL 쿼리를 작성합니다.
 
-5. Visual Studio 2019를 사용 하는 SQL Server Data tools를 설치한 경우 클릭 하 여 쿼리를 테스트할 수 있습니다 **Execute**합니다. SQL Database에 연결하는 데 도움이 되는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
+5. Visual Studio 2019를 사용하는 SQL Server Data tools를 설치한 경우 **Execute** 클릭하여 쿼리를 테스트할 수 있습니다. SQL Database 연결을 돕는 마법사 창이 팝업되고 쿼리 결과가 아래쪽 창에 나타납니다.
 
 ### <a name="specify-storage-account"></a>스토리지 계정 지정
 
@@ -174,7 +174,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
    Stream Analytics 런타임은 검사점을 저장하는 델타 쿼리 외에, 스냅샷 쿼리를 주기적으로 실행할 수 있습니다.
 
 ## <a name="test-your-query"></a>쿼리 테스트
-   쿼리에서 참조 데이터로 사용할 Stream Analytics 작업을 예상된 데이터 집합을 반환 하는 확인 하는 것이 반드시 합니다. 쿼리를 테스트 하려면 입력 작업 토폴로지 섹션에서 포털에서으로 이동 합니다. 그런 다음 입력 하 여 SQL Database 참조에서 샘플 데이터를 선택할 수 있습니다. 샘플 사용 가능 해지면, 파일을 다운로드할 수 있으며로 반환 될 데이터 인지 확인 하려면 확인 수 있습니다. 사용 하도록 권장 되는 개발 및 테스트 반복을 최적화 하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)합니다. 쿼리가 올바른 결과 반환 하는 Azure SQL database에서 먼저 확인 하 여 Stream Analytics 작업에 사용 하 여 기본 설정의 다른 도구도 할 수 있습니다. 
+   쿼리가 Stream Analytics 작업이 참조 데이터로 사용할 예상된 데이터 집합을 반환하는지 확인하는 것이 중요합니다. 쿼리를 테스트하려면 포털의 작업 토폴로지 섹션 아래의 입력으로 이동합니다. 그런 다음 SQL Database 참조 입력에서 샘플 데이터를 선택할 수 있습니다. 샘플이 사용 가능해지면, 파일을 다운로드할 수 있으며 데이터가 기대한 대로 반환되는지 확인할 수 있습니다. 개발 및 테스트 반복을 최적화하려는 경우는 [Visual Studio 용 Stream Analytics 도구](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)를 사용하는 것이 좋습니다. 또한 쿼리가 Azure SQL database에서 올바른 결과를 반환하는지 먼저 확인하기 위해 원하는 다른 도구를 사용한 다음 Stream Analytics 작업에 이 결과를 사용할 수 있습니다. 
 
 ## <a name="faqs"></a>FAQ
 

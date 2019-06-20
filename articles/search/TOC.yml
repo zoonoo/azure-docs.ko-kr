@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: 자습서
   items:
+    - name: 첫 번째 앱 만들기
+      items:
+        - name: 1 - 기본 검색 페이지
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - 결과 페이징 추가
+          href: tutorial-csharp-paging.md
+        - name: 3 - 자동 완성 추가
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: Azure SQL Database 인덱싱
       href: search-indexer-tutorial.md
     - name: Azure JSON Blob 인덱싱

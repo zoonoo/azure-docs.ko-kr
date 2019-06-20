@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기
 
-1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하십시오. 이 연습에서는 CSharp 언어를 사용하여 [Azure Functions에서 함수 앱 및 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
+1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하세요. 이 연습에서는 C# 언어를 사용하여 함수 앱 및 [Azure Functions의 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
 
 2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. ("\<Azure Cache for Redis 연결 문자열이 여기에 표시됩니다.\>"를 이전 섹션에서 검색한 Azure Cache for Redis 기본 연결 문자열로 바꿉니다.)  
 
