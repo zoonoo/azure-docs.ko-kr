@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: 4d9d0f132a2cc754cd9f69bb54ef4dbb78a2c493
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66145243"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182468"
 ---
 1. 연결 정보에 대한 메시지가 표시되면 다음과 같은 세부 정보를 입력합니다.
 

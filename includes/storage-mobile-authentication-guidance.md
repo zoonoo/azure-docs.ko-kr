@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158597"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181882"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 애플리케이션 구성
 Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 가지 방법이 있습니다.

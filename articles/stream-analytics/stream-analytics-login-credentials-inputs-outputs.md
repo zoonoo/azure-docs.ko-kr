@@ -36,7 +36,7 @@ Stream Analytics 작업의 입력 또는 출력에 대한 자격 증명을 다�
    ![키 편집 후 알림](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. [마지막으로 중지된 시간부터 작업 시작](#start-your-job-from-the-last-stopped-time) 섹션을 계속 진행합니다.
 
-### <a name="event-hubs"></a>이벤트 허브(영문)
+### <a name="event-hubs"></a>이벤트 허브
 
 1. Azure Portal에 로그인하고 Stream Analytics 작업에 대한 입/출력으로 사용한 이벤트 허브로 이동합니다.    
 2. 설정 섹션에서 **공유 액세스 정책**을 열고 필요한 액세스 정책을 선택합니다. **기본 키** 및 **보조 키** 중에서 작업에서 사용되지 않은 키를 선택하고 다시 생성합니다.  

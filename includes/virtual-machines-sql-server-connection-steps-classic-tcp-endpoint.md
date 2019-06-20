@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165496"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182146"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>가상 컴퓨터용 TCP 엔드포인트 만들기
 인터넷에서 SQL 서버에 연결하려면, 가상 머신에 들어오는 TCP 통신을 수신하는 엔드포인트가 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 머신에 액세스 가능한 TCP 포트로 보냅니다.
