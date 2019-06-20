@@ -104,7 +104,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 | `CommitMode`     | Enum  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
 | `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 | `RetryCount`     | Int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
-| `Objects`        | 배열 | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
+| `Objects`        | Array | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
 CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 데이터 세트의 초기 로드를 수행하는 경우에 사용됩니다. 하나 이상의 일괄 처리를 성공적으로 커밋한 후 새로 고침 작업이 실패하면, 성공적으로 커밋된 일괄 처리는 커밋된 상태로 유지됩니다(성공적으로 커밋된 일괄 처리는 롤백되지 않음).
 
