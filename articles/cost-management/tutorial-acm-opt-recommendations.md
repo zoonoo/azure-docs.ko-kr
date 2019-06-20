@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416098"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164486"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -54,7 +54,7 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 높은 영향 권장 사항은 다음과 같습니다.
 - [종 량 제 비용 보다 비용 절약에 예약 된 가상 머신 인스턴스 구매](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
 - [최적화 크기를 조정 하거나 사용률이 낮은 인스턴스를 종료 하 여 가상 머신 소비](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [관리 디스크 스냅숏을 저장할 표준 저장소 사용 ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [관리 디스크 스냅숏을 저장할 표준 저장소 사용](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
 중간 영향 권장 사항은 다음과 같습니다.
 - [실패 하는 Azure Data Factory 파이프라인을 삭제 합니다.](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)

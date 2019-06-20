@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137867"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274423"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
 Azure Resource Graph는 Azure 환경의 리소스로 작업하고 해당 정보를 가져오기 위한 것입니다. Resource Graph를 사용하면 수천 개의 레코드를 쿼리하는 경우에도 이 데이터를 빠르게 가져올 수 있습니다. Resource Graph에는 이러한 큰 데이터 세트 작업을 위한 여러 가지 옵션이 있습니다.
+
+빈도가 높은에서 쿼리를 사용 하 여 작업에 대 한 지침을 참조 하세요 [스로틀 된 요청에 대 한 지침](./guidance-for-throttled-requests.md)합니다.
 
 ## <a name="data-set-result-size"></a>데이터 세트 결과 크기
 
@@ -84,6 +86,6 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 
 ## <a name="next-steps"></a>다음 단계
 
-- [시작 쿼리](../samples/starter.md)에 사용되는 언어 알아보기
-- [고급 쿼리](../samples/advanced.md)의 고급 사용법 알아보기
-- [리소스 탐색](explore-resources.md)에 대해 알아보기
+- 사용 중인 언어 참조 [스타터 쿼리](../samples/starter.md)합니다.
+- 고급 참조에서는 [고급 쿼리](../samples/advanced.md)합니다.
+- 하는 방법을 알아봅니다 [리소스를 탐색](explore-resources.md)합니다.

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108195"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164946"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single sign-on 배포 계획
 
@@ -61,9 +61,9 @@ SSO 구현을 페더레이션 프로토콜을 기반으로 보안, 안정성 및
 
 암호 기반 SSO에 대 한 Azure AD를 사용 하 여 안전 하 게 자격 증명을 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. 사용 하 여 대규모 확장을 배포 하는 메커니즘을 정의 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)합니다. 다음 옵션을 사용할 수 있습니다.
 
-- [Internet Explorer에 대 한 그룹 정책 ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Internet Explorer 용 system Center Configuration Manager (SCCM) ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [다운로드 및 Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 구성을 기반 사용자 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [Internet Explorer 용 system Center Configuration Manager (SCCM)](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [다운로드 및 Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 구성을 기반 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 자세한 내용은 참조 하세요 [암호 single sign-on을 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery)합니다.
 

@@ -44,6 +44,10 @@
       href: ../hdinsight-sdk-python-samples.md
 - name: 개념
   items:
+    - name: IntelliJ를 사용하여 Apache Spark 쿼리 실행
+      href: apache-spark-intellij-tool-plugin.md
+    - name: VSCode를 사용하여 Apache Spark 쿼리 실행
+      href: ../hdinsight-for-vscode.md
     - name: HDInsight의 Apache Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
@@ -58,74 +62,74 @@
           href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
         - name: Azure Data Lake Storage Gen1 사용
           href: ../hdinsight-hadoop-use-data-lake-store.md
-    - name: 개발
-      items:
-        - name: 대화형 Apache Spark Shell 사용
-          href: apache-spark-shell.md
-        - name: Apache Livy를 사용하는 원격 작업
-          href: apache-spark-livy-rest-interface.md
-        - name: Eclipse를 사용하여 앱 만들기
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: IntelliJ를 사용하여 앱 만들기
-          href: apache-spark-intellij-tool-plugin.md
-        - name: IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 작업 디버그
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 작업 디버그
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-        - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
-          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-    - name: HDInsight 도구 사용
-      items:
-        - name: Visual Studio용 도구
-          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-        - name: VSCode용 도구
-          href: ../hdinsight-for-vscode.md
-        - name: IntelliJ용 도구
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Eclipse용 도구
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: VSCode의 PySpark
-          href: ../set-up-pyspark-interactive-environment.md
-        - name: IntelliJ에서 Apache Spark 디버그
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-    - name: Apache Spark와 함께 Notebook 사용
-      items:
-        - name: 로컬 Jupyter Notebook 사용
-          href: apache-spark-jupyter-notebook-install-locally.md
-        - name: Jupyter Notebook 커널
-          href: apache-spark-jupyter-notebook-kernels.md
-        - name: 셀 매직을 사용하는 Jupyter에서 외부 패키지 사용
-          href: apache-spark-jupyter-notebook-use-external-packages.md
-        - name: 스크립트 작업을 사용하는 Jupyter에서 외부 패키지 사용
-          href: apache-spark-python-package-installation.md
-        - name: Apache Zeppelin Notebook 사용
-          href: apache-spark-zeppelin-notebook.md
-    - name: 다른 Azure 서비스와 함께 사용
-      items:
-        - name: Data Lake Storage와 함께 사용
-          href: apache-spark-use-with-data-lake-store.md
-        - name: Azure SQL 데이터베이스에 연결
-          href: apache-spark-connect-to-sql-database.md
-        - name: Apache Spark 및 Cosmos DB를 사용하여 람다 아키텍처 구현
-          href: ../../cosmos-db/lambda-architecture.md
-        - name: AutoML로 Azure ML 워크로드 실행
-          href: apache-spark-run-machine-learning-automl.md
-    - name: Apache Spark 스트리밍
-      items:
-        - name: 스트리밍 개요
-          href: apache-spark-streaming-overview.md
-        - name: 구조화된 스트리밍 개요
-          href: apache-spark-structured-streaming-overview.md
-        - name: Apache Hadoop YARN에서 고가용성 Apache Spark Streaming 작업 만들기
-          href: apache-spark-streaming-high-availability.md
-        - name: Apache Kafka를 사용하는 구조적 스트림
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-        - name: Apache Kafka에서 CosmosDB로의 구조적 스트림
-          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-        - name: Apache Kafka를 사용하는 Spark 스트림(DStream)
-          href: ../hdinsight-apache-spark-with-kafka.md
-        - name: 이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
-          href: apache-spark-streaming-exactly-once.md
+        - name: 개발
+          items:
+            - name: 대화형 Apache Spark Shell 사용
+              href: apache-spark-shell.md
+            - name: Apache Livy를 사용하는 원격 작업
+              href: apache-spark-livy-rest-interface.md
+            - name: Eclipse를 사용하여 앱 만들기
+              href: apache-spark-eclipse-tool-plugin.md
+            - name: IntelliJ를 사용하여 앱 만들기
+              href: apache-spark-intellij-tool-plugin.md
+            - name: IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 작업 디버그
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+            - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 작업 디버그
+              href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
+            - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
+              href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+        - name: HDInsight 도구 사용
+          items:
+            - name: Visual Studio용 도구
+              href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
+            - name: VSCode용 도구
+              href: ../hdinsight-for-vscode.md
+            - name: IntelliJ용 도구
+              href: apache-spark-intellij-tool-plugin.md
+            - name: Eclipse용 도구
+              href: apache-spark-eclipse-tool-plugin.md
+            - name: VSCode의 PySpark
+              href: ../set-up-pyspark-interactive-environment.md
+            - name: IntelliJ에서 Apache Spark 디버그
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Apache Spark와 함께 Notebook 사용
+          items:
+            - name: 로컬 Jupyter Notebook 사용
+              href: apache-spark-jupyter-notebook-install-locally.md
+            - name: Jupyter Notebook 커널
+              href: apache-spark-jupyter-notebook-kernels.md
+            - name: 셀 매직을 사용하는 Jupyter에서 외부 패키지 사용
+              href: apache-spark-jupyter-notebook-use-external-packages.md
+            - name: 스크립트 작업을 사용하는 Jupyter에서 외부 패키지 사용
+              href: apache-spark-python-package-installation.md
+            - name: Apache Zeppelin Notebook 사용
+              href: apache-spark-zeppelin-notebook.md
+        - name: 다른 Azure 서비스와 함께 사용
+          items:
+            - name: Data Lake Storage와 함께 사용
+              href: apache-spark-use-with-data-lake-store.md
+            - name: Azure SQL 데이터베이스에 연결
+              href: apache-spark-connect-to-sql-database.md
+            - name: Apache Spark 및 Cosmos DB를 사용하여 람다 아키텍처 구현
+              href: ../../cosmos-db/lambda-architecture.md
+            - name: AutoML로 Azure ML 워크로드 실행
+              href: apache-spark-run-machine-learning-automl.md
+        - name: Apache Spark 스트리밍
+          items:
+            - name: 스트리밍 개요
+              href: apache-spark-streaming-overview.md
+            - name: 구조화된 스트리밍 개요
+              href: apache-spark-structured-streaming-overview.md
+            - name: Apache Hadoop YARN에서 고가용성 Apache Spark Streaming 작업 만들기
+              href: apache-spark-streaming-high-availability.md
+            - name: Apache Kafka를 사용하는 구조적 스트림
+              href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+            - name: Apache Kafka에서 CosmosDB로의 구조적 스트림
+              href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+            - name: Apache Kafka를 사용하는 Spark 스트림(DStream)
+              href: ../hdinsight-apache-spark-with-kafka.md
+            - name: 이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
+              href: apache-spark-streaming-exactly-once.md
     - name: Apache Spark 및 Machine Learning
       items:
         - name: 식품 검사 결과 예측
@@ -138,173 +142,173 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
         - name: Apache Spark 기계 학습 파이프라인 만들기
           href: apache-spark-creating-ml-pipelines.md
-    - name: 빅 데이터 분석
-      items:
-        - name: Apache Hive와 Apache Spark
-          href: ../interactive-query/apache-hive-warehouse-connector.md
-        - name: Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
-          href: ../hdinsight-using-spark-query-hbase.md
-        - name: Application Insights 원격 분석 로그 분석
-          href: apache-spark-analyze-application-insight-logs.md
-    - name: 클러스터 확장
-      items:
-        - name: 부트스트랩을 사용하여 클러스터 사용자 지정
-          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-        - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
-          href: ../hdinsight-hadoop-customize-cluster-linux.md
-        - name: 스크립트 작업 개발
-          href: ../hdinsight-hadoop-script-actions-linux.md
-        - name: Presto 설치 및 사용
-          href: ../hdinsight-hadoop-install-presto.md
-        - name: Apache Hive 라이브러리 추가
-          href: ../hdinsight-hadoop-add-hive-libraries.md
-        - name: Apache Giraph 사용
-          href: ../hdinsight-hadoop-giraph-install-linux.md
-        - name: Hue 사용
-          href: ../hdinsight-hadoop-hue-linux.md
-        - name: 빈 에지 노드 사용
-          href: ../hdinsight-apps-use-edge-node.md
-        - name: HDInsight 애플리케이션 빌드
+        - name: 빅 데이터 분석
           items:
-            - name: 사용자 지정 앱 설치
-              href: ../hdinsight-apps-install-custom-applications.md
-            - name: REST를 사용하여 앱 설치
-              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
-            - name: Azure Marketplace에 HDInsight 앱 게시
-              href: ../hdinsight-apps-publish-applications.md
-    - name: 보안
-      items:
-        - name: HDInsight와 함께 SSH 사용
-          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-        - name: SSH 터널링 사용
-          href: ../hdinsight-linux-ambari-ssh-tunnel.md
-        - name: 데이터에 액세스 제한
-          href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-        - name: 사용자에게 Apache Ambari Views에 대한 권한 부여
-          href: ../hdinsight-authorize-users-to-ambari.md
-    - name: 관리
-      items:
-        - name: 클러스터 리소스 관리
-          href: apache-spark-resource-manager.md
-        - name: 확장된 기록 서버를 사용하여 Apache Spark 애플리케이션 관리
-          href: apache-azure-spark-history-server.md
-        - name: Apache Spark 설정 구성
-          href: apache-spark-settings.md
-        - name: Apache Spark 작업 최적화
-          href: apache-spark-perf.md
-        - name: IO 캐시로 캐싱 사용
-          href: apache-spark-improve-performance-iocache.md
-        - name: 클러스터 용량 계획
-          href: ../hdinsight-capacity-planning.md
-        - name: HDInsight 클러스터 만들기
-          href: ../hdinsight-hadoop-provision-linux-clusters.md
+            - name: Apache Hive와 Apache Spark
+              href: ../interactive-query/apache-hive-warehouse-connector.md
+            - name: Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
+              href: ../hdinsight-using-spark-query-hbase.md
+            - name: Application Insights 원격 분석 로그 분석
+              href: apache-spark-analyze-application-insight-logs.md
+        - name: 클러스터 확장
           items:
-            - name: Azure Portal 사용
-              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-            - name: Azure 리소스 관리자 템플릿 사용
-              displayName: 'resource manager template, arm template, resource manager group'
-              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: .NET용 SDK 사용
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
-            - name: Python용 SDK 사용
-              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
-            - name: Java용 SDK 사용
-              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
-            - name: Azure PowerShell 사용
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-            - name: cURL 및 Azure REST API 사용
-              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-            - name: Azure CLI 사용
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-            - name: 주문형 클러스터 만들기
-              href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-        - name: HDInsight 클러스터 관리
-          href: ../hdinsight-administer-use-portal-linux.md
+            - name: 부트스트랩을 사용하여 클러스터 사용자 지정
+              href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+            - name: 스크립트 작업을 사용하여 클러스터 사용자 지정
+              href: ../hdinsight-hadoop-customize-cluster-linux.md
+            - name: 스크립트 작업 개발
+              href: ../hdinsight-hadoop-script-actions-linux.md
+            - name: Presto 설치 및 사용
+              href: ../hdinsight-hadoop-install-presto.md
+            - name: Apache Hive 라이브러리 추가
+              href: ../hdinsight-hadoop-add-hive-libraries.md
+            - name: Apache Giraph 사용
+              href: ../hdinsight-hadoop-giraph-install-linux.md
+            - name: Hue 사용
+              href: ../hdinsight-hadoop-hue-linux.md
+            - name: 빈 에지 노드 사용
+              href: ../hdinsight-apps-use-edge-node.md
+            - name: HDInsight 애플리케이션 빌드
+              items:
+                - name: 사용자 지정 앱 설치
+                  href: ../hdinsight-apps-install-custom-applications.md
+                - name: REST를 사용하여 앱 설치
+                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                - name: Azure Marketplace에 HDInsight 앱 게시
+                  href: ../hdinsight-apps-publish-applications.md
+        - name: 보안
           items:
-            - name: .NET용 SDK 사용
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
-            - name: Python용 SDK 사용
-              href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-            - name: Java용 SDK 사용
-              href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
-            - name: Go용 SDK 사용(미리 보기)
-              href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
-            - name: Azure PowerShell 사용
-              href: ../hdinsight-administer-use-powershell.md
-            - name: Azure CLI 사용
-              href: ../hdinsight-administer-use-command-line.md
-        - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
-          href: ../hdinsight-hadoop-manage-ambari.md
+            - name: HDInsight와 함께 SSH 사용
+              href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+            - name: SSH 터널링 사용
+              href: ../hdinsight-linux-ambari-ssh-tunnel.md
+            - name: 데이터에 액세스 제한
+              href: ../hdinsight-storage-sharedaccesssignature-permissions.md
+            - name: 사용자에게 Apache Ambari Views에 대한 권한 부여
+              href: ../hdinsight-authorize-users-to-ambari.md
+        - name: 관리
           items:
-            - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
-              href: ../hdinsight-changing-configs-via-ambari.md
-            - name: Apache Ambari REST API 사용
-              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        - name: HDInsight 클러스터에 대한 로그 관리
-          href: ../hdinsight-log-management.md
-        - name: 저장소 계정 추가
-          href: ../hdinsight-hadoop-add-storage.md
-        - name: Apache Hadoop 작업용 데이터 업로드
-          href: ../hdinsight-upload-data.md
-        - name: Data Lake Storage가 있는 다중 HDInsight 클러스터
-          href: ../hdinsight-multiple-clusters-data-lake-store.md
-        - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
-          href: ../hadoop/hdinsight-use-sqoop.md
+            - name: 클러스터 리소스 관리
+              href: apache-spark-resource-manager.md
+            - name: 확장된 기록 서버를 사용하여 Apache Spark 애플리케이션 관리
+              href: apache-azure-spark-history-server.md
+            - name: Apache Spark 설정 구성
+              href: apache-spark-settings.md
+            - name: Apache Spark 작업 최적화
+              href: apache-spark-perf.md
+            - name: IO 캐시로 캐싱 사용
+              href: apache-spark-improve-performance-iocache.md
+            - name: 클러스터 용량 계획
+              href: ../hdinsight-capacity-planning.md
+            - name: HDInsight 클러스터 만들기
+              href: ../hdinsight-hadoop-provision-linux-clusters.md
+              items:
+                - name: Azure Portal 사용
+                  href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+                - name: Azure 리소스 관리자 템플릿 사용
+                  displayName: 'resource manager template, arm template, resource manager group'
+                  href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+                - name: .NET용 SDK 사용
+                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
+                - name: Python용 SDK 사용
+                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster'
+                - name: Java용 SDK 사용
+                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
+                - name: Azure PowerShell 사용
+                  href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+                - name: cURL 및 Azure REST API 사용
+                  href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+                - name: Azure CLI 사용
+                  href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+                - name: 주문형 클러스터 만들기
+                  href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+            - name: HDInsight 클러스터 관리
+              href: ../hdinsight-administer-use-portal-linux.md
+              items:
+                - name: .NET용 SDK 사용
+                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
+                - name: Python용 SDK 사용
+                  href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
+                - name: Java용 SDK 사용
+                  href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
+                - name: Go용 SDK 사용(미리 보기)
+                  href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
+                - name: Azure PowerShell 사용
+                  href: ../hdinsight-administer-use-powershell.md
+                - name: Azure CLI 사용
+                  href: ../hdinsight-administer-use-command-line.md
+            - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
+              href: ../hdinsight-hadoop-manage-ambari.md
+              items:
+                - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
+                  href: ../hdinsight-changing-configs-via-ambari.md
+                - name: Apache Ambari REST API 사용
+                  href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+            - name: HDInsight 클러스터에 대한 로그 관리
+              href: ../hdinsight-log-management.md
+            - name: 저장소 계정 추가
+              href: ../hdinsight-hadoop-add-storage.md
+            - name: Apache Hadoop 작업용 데이터 업로드
+              href: ../hdinsight-upload-data.md
+            - name: Data Lake Storage가 있는 다중 HDInsight 클러스터
+              href: ../hdinsight-multiple-clusters-data-lake-store.md
+            - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
+              href: ../hadoop/hdinsight-use-sqoop.md
+              items:
+                - name: SSH를 사용하여 연결
+                  href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+                - name: cURL을 사용하여 실행
+                  href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+                - name: .NET 용 SDK를 사용하여 실행
+                  href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+                - name: Azure PowerShell을 사용하여 실행
+                  href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+            - name: 워크플로에 대해 Apache Oozie 사용
+              href: ../hdinsight-use-oozie-linux-mac.md
+            - name: 클러스터 및 서비스 포트와 URI
+              href: ../hdinsight-hadoop-port-settings-for-services.md
+            - name: 리소스 관리자 개발 도구로 마이그레이션
+              href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
+            - name: 가용성 및 안정성
+              href: ../hdinsight-high-availability-linux.md
+            - name: HDInsight 클러스터를 최신 버전으로 업그레이드
+              href: ../hdinsight-upgrade-cluster.md
+            - name: HDInsight 클러스터의 OS 패치
+              href: ../hdinsight-os-patching.md
+        - name: 문제 해결
           items:
-            - name: SSH를 사용하여 연결
-              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
-            - name: cURL을 사용하여 실행
-              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-            - name: .NET 용 SDK를 사용하여 실행
-              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
-            - name: Azure PowerShell을 사용하여 실행
-              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-        - name: 워크플로에 대해 Apache Oozie 사용
-          href: ../hdinsight-use-oozie-linux-mac.md
-        - name: 클러스터 및 서비스 포트와 URI
-          href: ../hdinsight-hadoop-port-settings-for-services.md
-        - name: 리소스 관리자 개발 도구로 마이그레이션
-          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-        - name: 가용성 및 안정성
-          href: ../hdinsight-high-availability-linux.md
-        - name: HDInsight 클러스터를 최신 버전으로 업그레이드
-          href: ../hdinsight-upgrade-cluster.md
-        - name: HDInsight 클러스터의 OS 패치
-          href: ../hdinsight-os-patching.md
-    - name: 문제 해결
-      items:
-        - name: Apache Spark 작업 디버그
-          href: apache-spark-job-debugging.md
-        - name: 작업 그래프를 통해 Apache Spark 작업 디버그
-          href: apache-azure-spark-history-server.md
-        - name: IntelliJ를 사용하여 Apache Spark 작업 디버그
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
-          href: ../hdinsight-troubleshoot-failed-cluster.md
-        - name: Apache Spark 문제 해결
-          href: apache-troubleshoot-spark.md
-        - name: Apache Hadoop HDFS 문제 해결
-          href: ../hdinsight-troubleshoot-hdfs.md
-        - name: Apache Hadoop YARN 문제 해결
-          href: ../hdinsight-troubleshoot-yarn.md
-        - name: 알려진 문제
-          href: apache-spark-known-issues.md
-        - name: 리소스
-          items:
-            - name: Linux에서 HDInsight 사용에 관한 정보
-              href: ../hdinsight-hadoop-linux-information.md
-            - name: Apache Hadoop 메모리 및 성능
-              href: ../hdinsight-hadoop-stack-trace-error-messages.md
-            - name: Linux에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
-              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-            - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
-              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-            - name: WebHCat 오류 이해 및 해결
-              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-            - name: Apache Hive 설정 수정 메모리 부족 오류
-              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-            - name: Apache Hive 쿼리 최적화
-              href: ../hdinsight-hadoop-optimize-hive-query.md
+            - name: Apache Spark 작업 디버그
+              href: apache-spark-job-debugging.md
+            - name: 작업 그래프를 통해 Apache Spark 작업 디버그
+              href: apache-azure-spark-history-server.md
+            - name: IntelliJ를 사용하여 Apache Spark 작업 디버그
+              href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+            - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
+              href: ../hdinsight-troubleshoot-failed-cluster.md
+            - name: Apache Spark 문제 해결
+              href: apache-troubleshoot-spark.md
+            - name: Apache Hadoop HDFS 문제 해결
+              href: ../hdinsight-troubleshoot-hdfs.md
+            - name: Apache Hadoop YARN 문제 해결
+              href: ../hdinsight-troubleshoot-yarn.md
+            - name: 알려진 문제
+              href: apache-spark-known-issues.md
+            - name: 리소스
+              items:
+                - name: Linux에서 HDInsight 사용에 관한 정보
+                  href: ../hdinsight-hadoop-linux-information.md
+                - name: Apache Hadoop 메모리 및 성능
+                  href: ../hdinsight-hadoop-stack-trace-error-messages.md
+                - name: Linux에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
+                  href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+                - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
+                  href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+                - name: WebHCat 오류 이해 및 해결
+                  href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+                - name: Apache Hive 설정 수정 메모리 부족 오류
+                  href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+                - name: Apache Hive 쿼리 최적화
+                  href: ../hdinsight-hadoop-optimize-hive-query.md
 - name: 참고 자료
   items:
     - name: 코드 샘플

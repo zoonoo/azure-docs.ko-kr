@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427493"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146727"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
@@ -35,9 +35,7 @@ ms.locfileid: "66427493"
 
 다음은 이 프로세스를 사용하여 Azure 모듈을 업데이트할 때 고려해야 하는 몇 가지 사항입니다.
 
-* 이 runbook만 업데이트를 지원 합니다 **Azure** 하 고 **AzureRm** 현재 모듈입니다. [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az) Automation 계정에서 지원 되지만이 runbook을 사용 하 여 업데이트할 수 없습니다. 사용 하는 경우 고려해 야 할 중요 한 요인이 있습니다 합니다 `Az` 자세한 내용은 Automation 계정의 모듈 참조 [Automation 계정에서 사용 하 여 Az 모듈](az-modules.md)합니다.
-
-* Az 모듈이 포함된 Automation 계정에서 이 Runbook을 시작하지 마세요.
+* 이 runbook 업데이트를 지원 합니다 **Azure** 하 고 **AzureRm** 기본적으로 모듈입니다. 이 runbook 업데이트를 지원 합니다 **Az** 모듈입니다. 검토 합니다 [Azure 모듈 runbook 추가 정보](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 업데이트 하는 방법은 `Az` 이 runbook 사용 하 여 모듈입니다. 사용 하는 경우 고려해 야 할 다른 중요 한 요소를 가지는 `Az` 자세한 내용은 Automation 계정의 모듈 참조 [Automation 계정에서 사용 하 여 Az 모듈](az-modules.md)합니다.
 
 * 이 Runbook을 시작하기 전에 Automation 계정에 [Azure 실행 계정 자격 증명](manage-runas-account.md)이 만들어져 있는지 확인합니다.
 

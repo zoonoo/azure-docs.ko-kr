@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541617"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190236"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)의 카탈로그를 만들고 설정 합니다.
 
@@ -60,9 +60,9 @@ ms.locfileid: "64541617"
 
 ## <a name="add-resources-to-a-catalog"></a>카탈로그에 리소스 추가
 
-리소스는 리소스에 액세스 패키지를 포함 하려면 카탈로그에 존재 해야 합니다. 추가할 수 있는 리소스의 유형은 그룹, 응용 프로그램 및 SharePoint Online 사이트입니다.
+리소스는 리소스에 액세스 패키지를 포함 하려면 카탈로그에 존재 해야 합니다. 추가할 수 있는 리소스의 유형은 그룹, 응용 프로그램 및 SharePoint Online 사이트입니다. 그룹 클라우드 만든 Office 365 그룹 또는 Azure 클라우드를 만들 수 AD 보안 그룹입니다. 응용 프로그램은 SaaS 응용 프로그램과 Azure AD에 페더레이션 응용 프로그램을 포함 하 여 Azure AD 엔터프라이즈 응용 프로그램을 수 있습니다. 사이트는 SharePoint Online 사이트 또는 SharePoint Online 사이트 모음 수 있습니다.
 
-**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 참조 [역할 리소스 카탈로그를 추가 하는 데 필요한](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -74,9 +74,7 @@ ms.locfileid: "64541617"
 
 1. 리소스 종류를 클릭 합니다. **그룹**하십시오 **응용 프로그램**, 또는 **SharePoint 사이트**합니다.
 
-    카탈로그를 만든 경우에 모든 Office 365 그룹 또는 카탈로그를 소유 하는 Azure AD 보안 그룹을 추가할 수 있습니다. 사용자에 게 할당 하려는 그룹 이지만 그룹을 소유 하지 않은 경우에 카탈로그에 해당 그룹을 추가 하는 사용자 관리자에 게 해야 합니다.
-
-    카탈로그를 만든 경우에 소유 하 고 카탈로그를 Azure AD에 페더레이션 SaaS 응용 프로그램 및 응용 프로그램 모두를 포함 하 여 Azure AD 엔터프라이즈 응용 프로그램을 추가할 수 있습니다. 응용 프로그램을 사용자에 게 할당 하려고 하지만 소유 하지 않은 경우에 해당 응용 프로그램 카탈로그에 추가 사용자 관리자가 해야 합니다. 응용 프로그램 카탈로그의 일부가 되 면 액세스 패키지의 응용 프로그램의 역할 중 하나를 선택할 수 있습니다.
+    추가 하려는 리소스를이 표시 되지 않는 경우 리소스를 추가할 수 없는 했는지 필요한 Azure AD 디렉터리 역할 및 권한 관리 역할입니다. 다른 사람이에 필요한 역할을 사용 하 여 리소스 카탈로그를 추가 해야 합니다. 자세한 내용은 [역할을 카탈로그 리소스를 추가 하는 데 필요한](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)합니다.
 
 1. 카탈로그에 추가 하려면 원하는 종류의 하나 이상의 리소스를 선택 합니다.
 
@@ -88,7 +86,7 @@ ms.locfileid: "64541617"
 
 카탈로그에서 리소스를 제거할 수 있습니다. 카탈로그의 액세스 패키지에서 사용 하지 않으면 카탈로그에서 리소스를 제거할만 있습니다.
 
-**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
+**필수 역할:** 참조 [역할 리소스 카탈로그를 추가 하는 데 필요한](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -99,22 +97,6 @@ ms.locfileid: "64541617"
 1. 제거 하려는 리소스를 선택 합니다.
 
 1. 클릭 **제거할** (하거나 줄임표 ( **...** )을 클릭 한 다음 **리소스를 제거할**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스
-
-카탈로그 또는 카탈로그에 액세스 패키지 관리를 위임 하려는 경우에 카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스 합니다. 첫 번째 카탈로그 소유자가 됩니다 누구 든 지 카탈로그를 만듭니다.
-
-**필수 역할:** 카탈로그 소유자 또는 사용자 관리자
-
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
-
-1. 왼쪽된 메뉴에서 클릭 **카탈로그** 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
-
-1. 왼쪽된 메뉴에서 클릭 **역할과 관리자**합니다.
-
-1. 클릭 **소유자 추가** 또는 **액세스 패키지 관리자를 추가** 이러한 역할에 대 한 구성원을 선택 합니다.
-
-1. 클릭 **선택** 이러한 멤버를 추가 합니다.
 
 ## <a name="edit-a-catalog"></a>카탈로그를 편집 합니다.
 
@@ -148,4 +130,5 @@ ms.locfileid: "64541617"
 
 ## <a name="next-steps"></a>다음 단계
 
+- [카탈로그 작성자를 추가 합니다.](entitlement-management-delegate.md#add-a-catalog-creator)
 - [액세스 패키지 만들기 및 관리](entitlement-management-access-package-create.md)

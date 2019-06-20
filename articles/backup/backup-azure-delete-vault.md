@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492784"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275643"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -24,8 +24,8 @@ ms.locfileid: "66492784"
 
 시작 하기 전에 서버가 있는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다는 이해, 등록 또는 백업 데이터를 보유 하는 중요 한 것입니다.
 
-- 서버의 등록을 취소 자격 증명 모음을 정상적으로 삭제 하려면 자격 증명 모음 데이터 제거 및 자격 증명 모음을 삭제 합니다.
-- 여전히 종속성이 포함 된 자격 증명 모음을 삭제 하려고 하면 오류 메시지가 발급 됩니다. 및 포함 하 여 자격 증명 모음 종속성을 수동으로 제거 해야 합니다.
+- 자격 증명 모음을 정상적으로 삭제 하려면 포함 된 서버의 등록을 취소 자격 증명 모음 데이터를 제거한 다음 자격 증명 모음을 삭제 합니다.
+- 자격 증명 모음을 삭제 하려고 하면는 아직 종속성, 오류 메시지가 발생 합니다 및 포함 하 여 자격 증명 모음 종속성을 수동으로 제거 해야 합니다.
     - 백업 된 항목
     - 보호 된 서버
     - Backup 관리 서버 (Azure Backup Server, DPM) ![해당 대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
@@ -40,7 +40,7 @@ ms.locfileid: "66492784"
 
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-오류가 발생 하는 경우 제거 [backup 항목](#remove-backup-items)를 [인프라 서버](#remove-backup-infrastructure-servers), 및 [복구 지점을](#remove-azure-backup-agent-recovery-points), 한 다음 자격 증명 모음을 삭제 합니다.
+오류가 발생 하는 경우 제거 [backup 항목](#remove-backup-items)를 [인프라 서버](#remove-azure-backup-management-servers), 및 [복구 지점을](#remove-azure-backup-agent-recovery-points), 한 다음 자격 증명 모음을 삭제 합니다.
 
 ![자격 증명 모음 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "66492784"
 1. 설치에서 chocolatey [여기](https://chocolatey.org/) 실행 ARMClient를 설치 하 여 아래 명령을:
 
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
-2. 실행 하는 Azure 계정에 로그인 하 여 아래 명령을
+2. Azure 계정에 로그인 하 고이 명령을 실행 합니다.
 
     ` ARMClient.exe login [environment name] `
 
@@ -78,7 +78,7 @@ ms.locfileid: "66492784"
 
 ## <a name="remove-vault-items-and-delete-the-vault"></a>자격 증명 모음 항목을 제거 하 고 자격 증명 모음 삭제
 
-이러한 프로시저는 백업 데이터 및 인프라 서버 제거에 대 한 몇 가지 예제를 제공 합니다. 모든 자격 증명 모음에서 제거 된 후에이 삭제할 수 있습니다.
+이러한 절차는 백업 데이터 및 인프라 서버 제거에 대 한 몇 가지 예제를 제공 합니다. 모든 자격 증명 모음에서 제거 된 후에이 삭제할 수 있습니다.
 
 ### <a name="remove-backup-items"></a>백업 항목 제거
 
@@ -109,7 +109,7 @@ ms.locfileid: "66492784"
       ![백업 데이터 삭제](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### <a name="remove-backup-infrastructure-servers"></a>백업 인프라 서버 제거
+### <a name="remove-azure-backup-management-servers"></a>Azure Backup 관리 서버를 제거 합니다.
 
 1. 자격 증명 모음 대시보드 메뉴에서 클릭 **Backup 인프라**합니다.
 2. 클릭 **Backup 관리 서버** 서버를 표시 합니다.
@@ -117,15 +117,25 @@ ms.locfileid: "66492784"
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. 항목을 마우스 오른쪽 단추로 클릭 > **삭제**합니다.
-4. 삭제 작업이 완료 되었는지 확인 하려면 Azure 메시지 확인 ![백업 데이터 삭제](./media/backup-azure-delete-vault/messages.png).
-5. 서비스 작업이 완료 되 면 메시지를 보냅니다: **백업 프로세스가 중지 되 고 백업 데이터가 삭제**합니다.
-6. 목록의 항목을 삭제 한 후를 **Backup 인프라** 메뉴에서 클릭 **새로 고침** 자격 증명 모음에서 항목을 표시 합니다.
+4. 에 **삭제할** 메뉴에서 서버 이름을 입력 하 고 클릭 **삭제**합니다.
+
+     ![백업 데이터 삭제](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  필요에 따라 데이터를 삭제 하는 이유는 이유를 제공 하 고 주석을 추가 합니다.
+
+> [!NOTE]
+> 파일을 보호 된 서버의 MARS 콘솔에서 또는 관리 서버 콘솔에서 항목을 제거 하려면 보호를 중지 하 고 백업을 삭제 합니다. 백업 항목을 유지 하는 경우 삭제 하 고 서버 등록을 취소 하려고 할 때 다음 오류가 표시 됩니다.
+> 
+>![삭제 하지 못했습니다.](./media/backup-azure-delete-vault/deletion-failed.png)
+
+6. 삭제 작업이 완료 되었는지 확인 하려면 Azure 메시지 확인 ![백업 데이터 삭제](./media/backup-azure-delete-vault/messages.png).
+7. 서비스 작업이 완료 되 면 메시지를 보냅니다: **백업 프로세스가 중지 되 고 백업 데이터가 삭제**합니다.
+8. 목록의 항목을 삭제 한 후를 **Backup 인프라** 메뉴에서 클릭 **새로 고침** 자격 증명 모음에서 항목을 표시 합니다.
 
 
 ### <a name="remove-azure-backup-agent-recovery-points"></a>Azure Backup 에이전트 복구 지점을 제거합니다
 
 1. 자격 증명 모음 대시보드 메뉴에서 클릭 **Backup 인프라**합니다.
-2. 클릭 **Backup 관리 서버** 인프라 서버를 표시 합니다.
+2. 클릭 **보호 된 서버** 인프라 서버를 표시 합니다.
 
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -141,11 +151,18 @@ ms.locfileid: "66492784"
 
     ![선택한 대시보드 삭제](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. **삭제** 메뉴에서 항목의 이름을 입력하고 **삭제**를 클릭합니다.
+6. 에 **삭제할** 메뉴에서 서버 이름을 입력 하 고 클릭 **삭제**합니다.
 
      ![백업 데이터 삭제](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
 7. 필요에 따라 데이터를 삭제 하는 이유는 이유를 제공 하 고 주석을 추가 합니다.
+
+> [!NOTE]
+> 이러한 서버의 등록을 삭제 하기 전에 백업 관리 서버 또는 Azure Backup Agent 서버에 연결 된 백업 항목을 삭제 되어야 합니다. 백업 항목을 제거 하려면 해당 하는 경우 서버에서 MARS 관리 콘솔, SC DPM 및 MABS에 이동 하 고 보호를 중지 하 고 백업을 삭제 하는 관련 옵션을 선택 합니다. 백업 항목에 계속 연결 되어 있으면 다음 오류가 표시 됩니다.
+> 
+> 
+>![삭제 하지 못했습니다.](./media/backup-azure-delete-vault/deletion-failed.png)
+
 8. 삭제 작업이 완료 되었는지 확인 하려면 Azure 메시지 확인 ![백업 데이터 삭제](./media/backup-azure-delete-vault/messages.png).
 9. 목록의 항목을 삭제 한 후를 **Backup 인프라** 메뉴에서 클릭 **새로 고침** 자격 증명 모음에서 항목을 표시 합니다.
 

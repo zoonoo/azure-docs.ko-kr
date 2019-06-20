@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: 53810e8d3cad73b35514beab75d8f65d0ca3b3d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a52041f773529c2a72c8019da27d56f98b6b53d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051107"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147477"
 ---
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell 열기
 
@@ -22,5 +22,5 @@ Azure Cloud Shell에서 이 문서에 포함된 코드를 실행하려면 Cloud 
 | 옵션 | 예제/링크 |
 |-----------------------------------------------|---|
 | 코드 블록의 오른쪽 위 모서리에서 **사용**을 선택합니다. 이것으로 Cloud Shell로 텍스트가 자동 복사되는 것은 __아닙니다__. | ![Azure Cloud Shell에 대한 사용 예제](./media/cloud-shell-try-it/cli-try-it.png) |
-| 브라우저에서 [Azure Cloud Shell](https://shell.azure.com)을 엽니다. | <a href="https://shell.azure.com" title="Azure Cloud Shell 시작"><img src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
+| 브라우저에서 [Azure Cloud Shell](https://shell.azure.com)을 엽니다. | <a href="https://shell.azure.com" title="Azure Cloud Shell 시작"><img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
 | [Azure Portal](https://portal.azure.com) 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 단추를 선택합니다. | ![Azure Portal의 Cloud Shell 단추](./media/cloud-shell-try-it/cloud-shell-menu.png) |

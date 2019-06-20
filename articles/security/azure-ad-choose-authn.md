@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119303"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274286"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -101,7 +101,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 * **고려 사항**. 암호 해시 동기화는 현재 온-프레미스 계정 상태에서 변경 내용을 즉시 적용하지 않습니다. 이 경우 사용자는 사용자 계정 상태가 Azure AD와 동기화될 때까지 클라우드 앱에 대한 액세스 권한을 가집니다. 조직에서는 관리자가 계정을 사용하지 않도록 설정하는 등 온-프레미스 사용자 계정 상태에 대한 대량 업데이트를 수행한 후 새 동기화 주기를 실행하여 이 제한을 해결하려고 할 수 있습니다.
 
 > [!NOTE]
-> 암호 만료 및 계정 잠김 상태는 현재, Azure AD Connect를 사용하여 Azure AD에 동기화되지 않습니다. 
+> 암호 만료 및 계정 잠김 상태는 현재, Azure AD Connect를 사용하여 Azure AD에 동기화되지 않습니다. 사용자의 암호를 변경 하는 경우 설정 합니다 *사용자는 다음 로그온 할 때 암호를 변경 해야* 플래그를 암호 해시를 동기화 할 수 없는 Azure AD Connect 사용 하 여 Azure AD 사용자가 암호를 변경할 때까지 합니다.
 
 배포 단계에 대해서는 [암호 해시 동기화 구현](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)을 참조하세요.
 
