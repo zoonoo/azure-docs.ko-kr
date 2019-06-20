@@ -45,10 +45,12 @@
       href: search-semi-structured-data.md
     - name: AI로 보강(Cognitive Search)
       items:
-        - name: REST (영문)
-          href: cognitive-search-tutorial-blob.md
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
+        - name: REST (영문)
+          href: cognitive-search-tutorial-blob.md
+        - name: Python
+          href: cognitive-search-tutorial-blob-python.md
 - name: 샘플
   items:
     - name: Azure 코드 샘플

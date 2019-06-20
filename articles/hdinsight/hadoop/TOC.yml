@@ -20,9 +20,6 @@
     - name: 주문형 클러스터 만들기
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
-      href: ../hdinsight-cluster-availability.md
-      maintainContext: true
 - name: 샘플
   items:
     - name: .NET 샘플
@@ -36,6 +33,9 @@
       maintainContext: true
 - name: 개념
   items:
+    - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true

@@ -16,14 +16,14 @@
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: 자습서
   items:
-    - name: Apache Spark 구조적 스트리밍 사용
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-    - name: Apache Storm과 함께 Apache Kafka에서 쓰기/읽기
-      href: ../hdinsight-apache-storm-with-kafka.md
     - name: Apache Kafka 생산자 및 소비자 API 사용
       href: apache-kafka-producer-consumer-api.md
     - name: Apache Kafka Streams API를 사용하여 앱 개발
       href: apache-kafka-streams-api.md
+    - name: Apache Spark 구조적 스트리밍 사용
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Apache Storm과 함께 Apache Kafka에서 쓰기/읽기
+      href: ../hdinsight-apache-storm-with-kafka.md
 - name: 개념
   items:
     - name: 용량 계획

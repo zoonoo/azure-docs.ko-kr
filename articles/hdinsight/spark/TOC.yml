@@ -20,8 +20,6 @@
   items:
     - name: Apache Spark 클러스터에서 쿼리 실행
       href: apache-spark-load-data-run-query.md
-    - name: VSCode를 사용하여 Apache Spark 쿼리 실행
-      href: ../hdinsight-for-vscode.md
     - name: IntelliJ를 사용하여 Apache Spark 쿼리 실행
       href: apache-spark-intellij-tool-plugin.md
     - name: BI 도구를 사용하여 데이터 분석
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: IntelliJ에서 Apache Spark 앱 만들기
       href: apache-spark-create-standalone-application.md
+    - name: VSCode를 사용하여 Apache Spark 쿼리 실행
+      href: ../hdinsight-for-vscode.md
     - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
       href: ../hdinsight-cluster-availability.md
 - name: 샘플
