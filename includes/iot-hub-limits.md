@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238512"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182598"
 ---
 다음 표에서 각 서비스 계층 S1, S2, S3 및 F1와 관련 된 한도 나열 합니다. 각각의 비용에 대 한 자세한 *단위* 각 계층에서 참조 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)합니다.
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381148"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204488"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 동기화: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -89,7 +89,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### <a name="bitand"></a>BitAnd
 **설명:**  
 BitAnd 함수는 값에 지정된 비트를 설정합니다.
@@ -111,7 +111,7 @@ BitAnd 함수는 값에 지정된 비트를 설정합니다.
 `BitAnd(&HF, &HF7)`  
 16진법 "F" AND "F7"로 이 값을 계산했기 때문에 7을 반환합니다.
 
-- - -
+---
 ### <a name="bitor"></a>BitOr
 **설명:**  
 BitOr 함수는 값에 지정된 비트를 설정합니다.
@@ -124,7 +124,7 @@ BitOr 함수는 값에 지정된 비트를 설정합니다.
 **설명**  
 이 함수는 두 개의 모든 매개 변수를 이진 표현으로 변환하고 마스크 및 플래그 내의 해당 비트가 둘 중에 하나 혹은 둘 다 1일 경우 1로, 해당 비트 모두 0일 경우 0으로 설정합니다. 즉, 두 매개 변수의 해당 비트가 0일 경우를 제외하는 모든 경우에 1을 반환합니다.
 
-- - -
+---
 ### <a name="cbool"></a>CBool
 **설명:**  
 CBool 함수는 계산된 식에 따라 부울을 반환합니다.
@@ -140,7 +140,7 @@ CBool 함수는 계산된 식에 따라 부울을 반환합니다.
 
 두개의 속성이 같은 동일한 값을 가지면 True로 반환합니다.
 
-- - -
+---
 ### <a name="cdate"></a>CDate
 **설명:**  
 CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시간은 동기화 내의 네이티브 특성 형식이 아니지만 일부 함수에서 사용됩니다.
@@ -161,7 +161,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 "2013-01-11 12:00 AM"을 나타내는 날짜/시간을 반환합니다.
 
 
-- - -
+---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **설명:**  
 인증서 개체의 중요한 모든 확장의 Oid 값을 반환합니다.
@@ -170,7 +170,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certformat"></a>CertFormat
 **설명:**  
 이 X.509v3 인증서의 형식 이름을 반환합니다.
@@ -179,7 +179,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 `str CertFormat(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **설명:**  
 인증서와 관련된 별칭을 반환합니다.
@@ -188,7 +188,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 `str CertFriendlyName(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certhashstring"></a>CertHashString
 **설명:**  
 X.509v3 인증서의 SHA1 해시 값을 16진수 문자열로 반환합니다.
@@ -197,7 +197,7 @@ X.509v3 인증서의 SHA1 해시 값을 16진수 문자열로 반환합니다.
 `str CertHashString(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certissuer"></a>CertIssuer
 **설명:**  
 X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
@@ -206,7 +206,7 @@ X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
 `str CertIssuer(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **설명:**  
 인증서 발급자의 고유 이름을 반환합니다.
@@ -215,7 +215,7 @@ X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
 `str CertIssuerDN(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certissueroid"></a>CertIssuerOid
 **설명:**  
 인증서 발급자의 Oid를 반환합니다.
@@ -224,7 +224,7 @@ X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
 `str CertIssuerOid(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **설명:**  
 이 X.509v3 인증서의 키 알고리즘 정보를 문자열로 반환합니다.
@@ -233,7 +233,7 @@ X.509v3 인증서를 발급한 인증 기관의 이름을 반환합니다.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **설명:**  
 X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반환합니다.
@@ -242,7 +242,7 @@ X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certnameinfo"></a>CertNameInfo
 **설명:**  
 인증서의 주체 및 발급자 이름을 반환합니다.
@@ -253,7 +253,7 @@ X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반
 *   X509NameType: 주체에 대한 X509NameType 값입니다.
 *   includesIssuerName: 발급자 이름을 포함하면 true이고, 그렇지 않으면 false입니다.
 
-- - -
+---
 ### <a name="certnotafter"></a>CertNotAfter
 **설명:**  
 인증서가 더 이상 유효하지 않은 이후의 현지 시간으로 날짜를 반환합니다.
@@ -262,7 +262,7 @@ X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반
 `dt CertNotAfter(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certnotbefore"></a>CertNotBefore
 **설명:**  
 인증서가 유효한 현지 시간으로 날짜를 반환합니다.
@@ -271,7 +271,7 @@ X.509v3 인증서의 키 알고리즘 매개 변수를 16진수 문자열로 반
 `dt CertNotBefore(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **설명:**  
 X.509v3 인증서에 대한 공개 키의 Oid를 반환합니다.
@@ -280,7 +280,7 @@ X.509v3 인증서에 대한 공개 키의 Oid를 반환합니다.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **설명:**  
 X.509v3 인증서에 대한 공개 키 매개 변수의 Oid를 반환합니다.
@@ -289,7 +289,7 @@ X.509v3 인증서에 대한 공개 키 매개 변수의 Oid를 반환합니다.
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **설명:**  
 X.509v3 인증서의 일련 번호를 반환합니다.
@@ -298,7 +298,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertSerialNumber(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **설명:**  
 인증서의 서명을 만드는 데 사용된 알고리즘의 Oid를 반환합니다.
@@ -307,7 +307,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certsubject"></a>CertSubject
 **설명:**  
 인증서의 고유한 주체 이름을 가져옵니다.
@@ -316,7 +316,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertSubject(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **설명:**  
 인증서의 고유한 주체 이름을 반환합니다.
@@ -325,7 +325,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **설명:**  
 인증서의 주체 이름에 대한 Oid를 반환합니다.
@@ -334,7 +334,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certthumbprint"></a>CertThumbprint
 **설명:**  
 인증서의 지문을 반환합니다.
@@ -343,7 +343,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="certversion"></a>CertVersion
 **설명:**  
 인증서의 X.509 형식 버전을 반환합니다.
@@ -352,7 +352,7 @@ X.509v3 인증서의 일련 번호를 반환합니다.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
 
-- - -
+---
 ### <a name="cguid"></a>CGuid
 **설명:**  
 CGuid 함수는 GUID의 문자열 표현을 이진 표현으로 변환합니다.
@@ -362,7 +362,7 @@ CGuid 함수는 GUID의 문자열 표현을 이진 표현으로 변환합니다.
 
 * 이 패턴에서 문자열 서식: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 또는 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### <a name="contains"></a>포함
 **설명:**  
 Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
@@ -386,7 +386,7 @@ Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP:”)를 가질 경우 proxyAddress 특성이 반환되며, 그 외에는 오류가 반환됩니다.
 
-- - -
+---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **설명:**  
 ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
@@ -404,7 +404,7 @@ ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열�
 
 두 예제 모두 "*Hello world!* "를 반환합니다.
 
-- - -
+---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **설명:**  
 ConvertFromUTF8Hex 함수는 지정된 UTF8 16진수 인코딩 값을 문자열로 변환합니다.
@@ -422,7 +422,7 @@ ConvertFromUTF8Hex 함수는 지정된 UTF8 16진수 인코딩 값을 문자열�
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 "*Hello world!* "를 반환합니다.
 
-- - -
+---
 ### <a name="converttobase64"></a>ConvertToBase64
 **설명:**  
 ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환합니다.  
@@ -435,7 +435,7 @@ ConvertToBase64 함수는 문자열을 유니코드 base64 문자열로 변환�
 `ConvertToBase64("Hello world!")`  
 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"를 반환합니다.
 
-- - -
+---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **설명:**  
 ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환합니다.
@@ -450,7 +450,7 @@ ConvertToUTF8Hex 함수는 문자열을 UTF8 16진수 인코딩 값으로 변환
 `ConvertToUTF8Hex("Hello world!")`  
 48656C6C6F20776F726C6421을 반환합니다.
 
-- - -
+---
 ### <a name="count"></a>개수
 **설명:**  
 Count 함수는 다중값 특성의 요소 수를 반환합니다.
@@ -458,7 +458,7 @@ Count 함수는 다중값 특성의 요소 수를 반환합니다.
 **구문:**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### <a name="cnum"></a>CNum
 **설명:**  
 CNum 함수는 문자열을 숫자 데이터 형식으로 반환합니다.
@@ -466,7 +466,7 @@ CNum 함수는 문자열을 숫자 데이터 형식으로 반환합니다.
 **구문:**  
 `num CNum(str value)`
 
-- - -
+---
 ### <a name="cref"></a>CRef
 **설명:**  
 문자열을 참조 특성으로 변환합니다.
@@ -477,7 +477,7 @@ CNum 함수는 문자열을 숫자 데이터 형식으로 반환합니다.
 **예제:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### <a name="cstr"></a>CStr
 **설명:**  
 CStr 함수는 문자열 데이터 형식으로 변환합니다.
@@ -493,7 +493,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 `CStr([dn])`  
 "cn=Joe,dc=contoso,dc=com"을 반환할 수 있습니다.
 
-- - -
+---
 ### <a name="dateadd"></a>DateAdd
 **설명:**  
 지정된 시간 간격이 추가된 날짜를 포함하는 날짜를 반환합니다.
@@ -519,7 +519,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 3개월을 추가하고 "2001-04-01"을 나타내는 날짜/시간을 반환합니다.
 
-- - -
+---
 ### <a name="datefromnum"></a>DateFromNum
 **설명:**  
 DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변환합니다.
@@ -532,7 +532,7 @@ DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변�
 `DateFromNum(129699324000000000)`  
 2012-01-01 23:00:00을 나타내는 날짜/시간을 반환합니다.
 
-- - -
+---
 ### <a name="dncomponent"></a>DNComponent
 **설명:**  
 DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환합니다.
@@ -547,7 +547,7 @@ DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환�
 `DNComponent(CRef([dn]),1)`  
 dn이 "cn=Joe,ou=…"인 경우 Joe를 반환합니다.
 
-- - -
+---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **설명:**  
 DNComponentRev 함수는 오른쪽(끝)부터 지정된 DN 구성 요소의 값을 반환합니다.
@@ -566,7 +566,7 @@ dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우
 `DNComponentRev(CRef([dn]),1,"DC")`  
 모두 US를 반환합니다.
 
-- - -
+---
 ### <a name="error"></a>오류
 **설명:**  
 Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
@@ -578,7 +578,7 @@ Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 accountName 특성이 없는 경우 개체에서 오류가 throw됩니다.
 
-- - -
+---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **설명:**  
 EscapeDNComponent 함수는 DN의 한 구성 요소를 받고 LDAP에 나타낼 수 있도록 이스케이프합니다.
@@ -590,7 +590,7 @@ EscapeDNComponent 함수는 DN의 한 구성 요소를 받고 LDAP에 나타낼 
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 LDAP 디렉터리 내에서, displayName 특성에 LDAP에서 이스케이프된 문자가 포함된 경우에도 개체가 생성될 수 있음을 확인합니다.
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **설명:**  
 FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구성하는 데 사용됩니다.
@@ -612,7 +612,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 "20140905081453.0Z"를 반환할 수 있습니다.
 
-- - -
+---
 ### <a name="guid"></a>Guid
 **설명:**  
 함수 Guid는 임의의 GUID를 새로 생성합니다.
@@ -620,7 +620,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 **구문:**  
 `str Guid()`
 
-- - -
+---
 ### <a name="iif"></a>IIF
 **설명:**  
 IIF 함수는 지정된 조건에 따라 가능한 값 집합 중 하나를 반환합니다.
@@ -636,7 +636,7 @@ IIF 함수는 지정된 조건에 따라 가능한 값 집합 중 하나를 반�
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  사용자가 인턴일 경우 사용자 별칭 앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭 그대로 반환합니다.
 
-- - -
+---
 ### <a name="instr"></a>InStr
 **설명:**  
 InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 찾습니다.
@@ -662,7 +662,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 `InStr("repEated","e",3,vbBinaryCompare)`  
 7로 계산합니다.
 
-- - -
+---
 ### <a name="instrrev"></a>InStrRev
 **설명:**  
 InStrRev 함수는 문자열에서 부분 문자열이 마지막으로 나오는 경우를 찾습니다.
@@ -684,7 +684,7 @@ InStrRev 함수는 문자열에서 부분 문자열이 마지막으로 나오는
 `InStrRev("abbcdbbbef","bb")`  
 7을 반환합니다.
 
-- - -
+---
 ### <a name="isbitset"></a>IsBitSet
 **설명:**  
 IsBitSet 함수는 비트 설정 여부를 테스트합니다.
@@ -698,7 +698,7 @@ IsBitSet 함수는 비트 설정 여부를 테스트합니다.
 `IsBitSet(&HF,4)`  
 비트 "4"는 16진수 값 "F" 안에 설정되어 있으므로 True를 반환합니다.
 
-- - -
+---
 ### <a name="isdate"></a>IsDate
 **설명:**  
 식이 날짜/시간 형식으로 계산될 경우 IsDate 함수는 True로 계산됩니다.
@@ -709,7 +709,7 @@ IsBitSet 함수는 비트 설정 여부를 테스트합니다.
 **설명**  
 CDate()가 정상적으로 수행될 수 있는지 결정하는 데 사용됩니다.
 
-- - -
+---
 ### <a name="iscert"></a>IsCert
 **설명:**  
 원시 데이터를 .NET X509Certificate2 인증서 개체로 직렬화할 수 있으면 true를 반환합니다.
@@ -717,7 +717,7 @@ CDate()가 정상적으로 수행될 수 있는지 결정하는 데 사용됩니
 **구문:**  
 `bool CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: X.509 인증서의 바이트 배열 표현입니다. 바이트 배열에는 DER (이진) 인코딩 또는 Base64로 인코딩된 X.509 데이터 수 있습니다.
-- - -
+---
 ### <a name="isempty"></a>IsEmpty
 **설명:**  
 특성이 CS 또는 MV에서 나타나지만 빈 문자열로 계산될 경우 IsEmpty 함수는 True로 계산됩니다.
@@ -725,7 +725,7 @@ CDate()가 정상적으로 수행될 수 있는지 결정하는 데 사용됩니
 **구문:**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### <a name="isguid"></a>IsGuid
 **설명:**  
 문자열을 GUID로 변환할 수 있는 경우 IsGuid 함수는 True로 계산합니다.
@@ -742,7 +742,7 @@ CGuid()가 성공적으로 수행될 수 있는지 여부를 결정하는데 사
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 StrAttribute가 GUID 형식을 가질 경우, 이진 표현으로 반환되며, 아닐 경우 Null을 반환합니다.
 
-- - -
+---
 ### <a name="isnull"></a>IsNull
 **설명:**  
 식이 Null로 계산되면 IsNull 함수는 true를 반환합니다.
@@ -757,7 +757,7 @@ StrAttribute가 GUID 형식을 가질 경우, 이진 표현으로 반환되며, 
 `IsNull([displayName])`  
 CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 
-- - -
+---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **설명:**  
 식이 null 또는 빈 문자열일 경우 IsNullOrEmpty 함수는 true를 반환합니다.
@@ -773,7 +773,7 @@ CS 또는 MV에 특성이 없을 경우 True를 반환합니다.
 `IsNullOrEmpty([displayName])`  
 특성이 없거나 CS 또는 MV에서 빈 문자열인 경우 True를 반환합니다.
 
-- - -
+---
 ### <a name="isnumeric"></a>IsNumeric
 **설명:**  
 IsNumeric 함수에는 숫자 형식으로 식이 계산될 수 있는지 여부를 나타내는 부울 값을 반환합니다.
@@ -784,7 +784,7 @@ IsNumeric 함수에는 숫자 형식으로 식이 계산될 수 있는지 여부
 **설명**  
 CNum()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결정할 때 사용됩니다.
 
-- - -
+---
 ### <a name="isstring"></a>IsString
 **설명:**  
 식이 문자열 형식으로 계산될 수 있는 경우 IsString 함수는 True로 계산됩니다.
@@ -795,7 +795,7 @@ CNum()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결�
 **설명**  
 CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결정할 때 사용됩니다.
 
-- - -
+---
 ### <a name="ispresent"></a>IsPresent
 **설명:**  
 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 IsPresent 함수는 true를 반환합니다.
@@ -809,7 +809,7 @@ CStr()이 식을 구문 분석하는 데 성공할 수 있는지 여부를 결�
 **예제:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### <a name="item"></a>항목
 **설명:**  
 Item 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니다.
@@ -829,7 +829,7 @@ Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Co
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 기본 전자 메일 주소를 반환합니다.
 
-- - -
+---
 ### <a name="itemornull"></a>ItemOrNull
 **설명:**  
 ItemOrNull 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니다.
@@ -845,7 +845,7 @@ ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하
 
 인덱스가 범위를 초과하는 경우 Null 값을 반환합니다.
 
-- - -
+---
 ### <a name="join"></a>Join
 **설명:**  
 Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정된 구분 기호를 삽입하여 단일 값 문자열을 반환합니다.
@@ -864,7 +864,7 @@ Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일
 `Join([proxyAddresses],",")`  
 "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"을 반환할 수 있습니다.
 
-- - -
+---
 ### <a name="lcase"></a>LCase
 **설명:**  
 LCase 함수는 문자열의 모든 문자를 소문자로 변환합니다.
@@ -876,7 +876,7 @@ LCase 함수는 문자열의 모든 문자를 소문자로 변환합니다.
 `LCase("TeSt")`  
 "test"를 반환합니다.
 
-- - -
+---
 ### <a name="left"></a>Left
 **설명:**  
 Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다.
@@ -900,7 +900,7 @@ Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다
 `Left("John Doe", 3)`  
 "Joh"를 반환합니다.
 
-- - -
+---
 ### <a name="len"></a>Len
 **설명:**  
 Len 함수는 문자열의 문자 수를 반환합니다.
@@ -912,7 +912,7 @@ Len 함수는 문자열의 문자 수를 반환합니다.
 `Len("John Doe")`  
 8을 반환합니다.
 
-- - -
+---
 ### <a name="ltrim"></a>LTrim.
 **설명:**  
 LTrim 함수는 문자열에서 선행 공백을 제거합니다.
@@ -924,7 +924,7 @@ LTrim 함수는 문자열에서 선행 공백을 제거합니다.
 `LTrim(" Test ")`  
 "Test"를 반환합니다.
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **설명:**  
 Mid 함수는 문자열의 지정된 위치부터 지정된 수의 문자를 반환합니다.
@@ -955,7 +955,7 @@ Mid 함수는 문자열의 지정된 위치부터 지정된 수의 문자를 반
 `Mid("John Doe", 6, 999)`  
 "Doe"를 반환합니다.
 
-- - -
+---
 ### <a name="now"></a>Now
 **설명:**  
 Now 함수는 컴퓨터의 시스템 날짜 및 시간에 따라 현재 날짜 및 시간을 지정하는 날짜/시간을 반환합니다.
@@ -963,7 +963,7 @@ Now 함수는 컴퓨터의 시스템 날짜 및 시간에 따라 현재 날짜 �
 **구문:**  
 `dt Now()`
 
-- - -
+---
 ### <a name="numfromdate"></a>NumFromDate
 **설명:**  
 NumFromDate 함수는 AD 날짜 형식으로 날짜를 반환합니다.
@@ -975,7 +975,7 @@ NumFromDate 함수는 AD 날짜 형식으로 날짜를 반환합니다.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 129699324000000000을 반환합니다.
 
-- - -
+---
 ### <a name="padleft"></a>padLeft
 **설명:**  
 PadLeft 함수는 제공된 채움 문자를 사용하여 문자열을 지정된 길이로 왼쪽 채움합니다.
@@ -1000,7 +1000,7 @@ PadLeft 함수는 제공된 채움 문자를 사용하여 문자열을 지정된
 `PadLeft("User", 10, "0")`  
 "000000User"를 반환합니다.
 
-- - -
+---
 ### <a name="padright"></a>PadRight
 **설명:**  
 PadRight 함수는 제공된 채움 문자를 사용하여 지정된 길이로 문자열을 오른쪽 채움합니다.
@@ -1025,7 +1025,7 @@ PadRight 함수는 제공된 채움 문자를 사용하여 지정된 길이로 �
 `PadRight("User", 10, "0")`  
 "User000000"을 반환합니다.
 
-- - -
+---
 ### <a name="pcase"></a>PCase
 **설명:**  
 PCase 함수는 문자열내의 각 공백으로 구분된 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
@@ -1044,7 +1044,7 @@ PCase 함수는 문자열내의 각 공백으로 구분된 단어의 첫 문자�
 `PCase(LCase("TEST"))`  
 "Test"를 반환합니다.
 
-- - -
+---
 ### <a name="randomnum"></a>RandomNum
 **설명:**  
 RandomNum 함수는 지정된 간격 사이의 난수를 반환합니다.
@@ -1059,7 +1059,7 @@ RandomNum 함수는 지정된 간격 사이의 난수를 반환합니다.
 `Random(100,999)`  
 734를 반환할 수 있습니다.
 
-- - -
+---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **설명:**  
 RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고유하게 만듭니다.
@@ -1071,7 +1071,7 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 `RemoveDuplicates([proxyAddresses])`  
 모든 중복 값을 제거한 삭제된 proxyAddress 특성을 반환합니다.
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **설명:**  
 Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열로 바꿉니다.
@@ -1094,7 +1094,7 @@ Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열�
 `Replace([address],"\r\n",", ")`  
 CRLF를 쉼표와 공백으로 바꾸고 "One Microsoft Way, Redmond, WA, USA"로 나타낼 수 있습니다.
 
-- - -
+---
 ### <a name="replacechars"></a>ReplaceChars
 **설명:**  
 ReplaceChars 함수는 ReplacePattern 문자열에 해당 문자가 나오는 모든 경우를 바꿉니다.
@@ -1127,7 +1127,7 @@ Raksmorgas를 반환합니다.
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 "ONeil"을 반환합니다. 단일 틱이 제거 대상으로 정의됩니다.
 
-- - -
+---
 ### <a name="right"></a>Right
 **설명:**  
 Right 함수는 문자열의 오른쪽(끝)부터 지정된 수의 문자를 반환합니다.
@@ -1153,7 +1153,7 @@ Right 함수는 문자열의 오른쪽(끝)부터 지정된 수의 문자를 반
 `Right("John Doe", 3)`  
 "Doe"를 반환합니다.
 
-- - -
+---
 ### <a name="rtrim"></a>RTrim
 **설명:**  
 RTrim 함수는 문자열에서 후행 공백을 제거합니다.
@@ -1165,7 +1165,7 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 `RTrim(" Test ")`  
 "Test"를 반환합니다.
 
-- - -
+---
 ### <a name="select"></a>여기서
 **설명:**  
 지정된 함수에 기반하여 다중값 특성(또는 식 출력)의 모든 값을 처리합니다.
@@ -1183,7 +1183,7 @@ RTrim 함수는 문자열에서 후행 공백을 제거합니다.
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 하이픈(-)을 제거한 후에 otherPhone 다중값 특성의 모든 값을 반환합니다.
 
-- - -
+---
 ### <a name="split"></a>분할
 **설명:**  
 Split 함수는 구분 기호로 구분된 문자열을 다중값 문자열로 만듭니다.
@@ -1200,7 +1200,7 @@ Split 함수는 구분 기호로 구분된 문자열을 다중값 문자열로 �
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 proxyAddress 특성에 유용한 2개 이상의 요소가 있는 다중값 문자열을 반환합니다.
 
-- - -
+---
 ### <a name="stringfromguid"></a>StringFromGuid
 **설명:**  
 StringFromGuid 함수는 이진 GUID를 문자열로 변환합니다.
@@ -1208,7 +1208,7 @@ StringFromGuid 함수는 이진 GUID를 문자열로 변환합니다.
 **구문:**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### <a name="stringfromsid"></a>StringFromSid
 **설명:**  
 StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자열로 변환합니다.
@@ -1216,7 +1216,7 @@ StringFromSid 함수는 보안 식별자를 포함한 바이트 배열을 문자
 **구문:**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **설명:**  
 Switch 함수는 계산 조건에 따라 단일 값을 반환하는 데 사용됩니다.
@@ -1245,7 +1245,7 @@ Switch 함수 인수 목록은 식과 값의 쌍으로 구성됩니다. 식은 �
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 일부 주요 도시에서 사용하는 언어를 반환하지만 그 외의 경우에는 오류를 반환합니다.
 
-- - -
+---
 ### <a name="trim"></a>Trim
 **설명:**  
 Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
@@ -1260,7 +1260,7 @@ Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 `Trim([proxyAddresses])`  
 proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
-- - -
+---
 ### <a name="ucase"></a>UCase
 **설명:**  
 UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
@@ -1272,7 +1272,7 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 `UCase("TeSt")`  
 "test"를 반환합니다.
 
-- - -
+---
 ### <a name="where"></a>Where
 
 **설명:**  
@@ -1290,7 +1290,7 @@ UCase 함수는 문자열의 모든 문자를 대문자로 변환합니다.
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 만료되지 않은 userCertificate 다중값 특성의 인증서 값을 반환합니다.
 
-- - -
+---
 ### <a name="with"></a>With
 **설명:**  
 With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수로 표현하여 복합 식을 단순화하는 방법을 제공합니다.
@@ -1308,7 +1308,7 @@ With 함수는 복합 식에서 한 번 이상 나타나는 하위 식을 변수
 userCertificate 특성에서 만료되지 않은 인증서 값만 반환합니다.
 
 
-- - -
+---
 ### <a name="word"></a>Word
 **설명:**  
 Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 문자열 내에 포함된 단어와 반환할 단어 수를 반환합니다.

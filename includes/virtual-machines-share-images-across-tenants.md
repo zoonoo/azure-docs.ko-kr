@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66145895"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182167"
 ---
 공유 이미지 갤러리에서는 RBAC를 사용 하 여 공유 이미지 있습니다. RBAC를 사용 하 여 테 넌 트 외부의 개인을 테 넌 트 내에서 이미지를 공유할 수 있습니다. 하지만 Azure 테 넌 트를 대규모로 외부에 있는 이미지를 공유 하려는 경우 공유를 용이 하 게 하려면 앱 등록을 만들어야 합니다.  앱 등록을 사용 하 여 같은 복잡 한 공유 시나리오를 설정할 수 있습니다. 
 

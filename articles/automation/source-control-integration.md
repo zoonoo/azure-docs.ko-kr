@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce41ae73a0c55a2b5c27cbdce4d4c16853acf59e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574111"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273200"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
-소스 제어를 사용 하면 runbook을 유지할 수 있습니다 자동화 계정에 GitHub 또는 Azure 리포지토리 소스 제어 리포지토리에서 스크립트를 사용 하 여 최신 상태입니다. 원본 제어를 사용하면 팀과 쉽게 공동 작업하고 변경 내용을 추적하며 이전 버전의 Runbook으로 롤백할 수 있습니다. 예를 들어, 소스 제어를 사용하면 소스 제어의 여러 다른 분기를 개발, 테스트 또는 프로덕션 Automation 계정과 동기화할 수 있습니다. 이렇게 하면 개발 환경에서 테스트한 코드를 프로덕션 Automation 계정으로 쉽게 승격할 수 있습니다. Automation 사용 하 여 소스 제어 통합 소스 제어 리포지토리에서 단방향 동기화를 지원 합니다.
+소스 제어를 사용 하면 Automation 계정의 runbook을 Azure 리포지토리 또는 GitHub 소스 제어 리포지토리에서 스크립트를 사용 하 여 최신 상태로 유지할 수 있습니다. 원본 제어를 사용하면 팀과 쉽게 공동 작업하고 변경 내용을 추적하며 이전 버전의 Runbook으로 롤백할 수 있습니다. 예를 들어, 소스 제어를 사용하면 소스 제어의 여러 다른 분기를 개발, 테스트 또는 프로덕션 Automation 계정과 동기화할 수 있습니다. 이렇게 하면 개발 환경에서 테스트한 코드를 프로덕션 Automation 계정으로 쉽게 승격할 수 있습니다. Automation 사용 하 여 소스 제어 통합 소스 제어 리포지토리에서 단방향 동기화를 지원 합니다.
 
 Azure Automation에서는 세 가지 유형의 소스 제어를 지원합니다.
 

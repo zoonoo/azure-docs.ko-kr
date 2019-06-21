@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203095"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304294"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -20,7 +20,7 @@ ms.locfileid: "67203095"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-이전에 암호를 얻을 수는 HDInsight API를 통해 소유자, 참가자 또는 읽기 권한자를 소유 하는 클러스터 사용자 [RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)처럼 가진 사람이 면 누구나 사용할 수 있었던는 `*/read` 권한이 필요 했습니다.
+이전에 암호를 얻을 수는 HDInsight API를 통해 소유자, 참가자 또는 읽기 권한자를 소유 하는 클러스터 사용자 [RBAC 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)처럼 가진 사람이 면 누구나 사용할 수 있었던는 `*/read` 권한.
 앞으로 이러한 비밀에 액세스 해야 합니다는 `Microsoft.HDInsight/clusters/configurations/*` 권한, 즉 읽기 권한자 역할을 사용 하 여 사용자가 더 이상 액세스할 수 없습니다. 암호는 사용자의 역할 보다 더 높은 액세스를 가져오는 데 사용할 수 있는 값을 허용 해야 하는 대로 정의 됩니다. 여기에 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키 및 데이터베이스 자격 증명 등의 값이 포함 됩니다.
 
 새 도입 [HDInsight 클러스터 연산자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 참가자 또는 소유자의 관리 권한을 부여 하지 않고 암호를 검색할 수 있는 역할입니다. 요약하면

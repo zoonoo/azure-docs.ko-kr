@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793633"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165963"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -401,5 +401,5 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
 
 * [디자인 패턴: 패싯 탐색](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [패싯 검색 – 1 부를 구현 하는 경우 프런트 엔드 문제 ](https://articles.uie.com/faceted_search2/)
+* [패싯 검색 – 1 부를 구현 하는 경우 프런트 엔드 문제](https://articles.uie.com/faceted_search2/)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: dff3605a8d7855cfb0d5d6cb62ffc389492a1a4e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: fb57d8322cfd3f72862dc8edd1d2e231338a66de
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295949"
+ms.locfileid: "67305309"
 ---
 일부의 제한이 있습니다 메트릭 및 응용 프로그램에서 초당 이벤트 수에, 계측 키 기준입니다. 선택하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "67295949"
 | 일당 총 데이터 | 100GB | 한도를 설정하여 데이터를 줄일 수 있습니다. 더 많은 데이터가 필요한 경우 포털에서 최대 1,000GB로 한도를 늘릴 수 있습니다. 1,000GB 보다 큰 용량에 대 한 전자 메일을 보내 AIDataCap@microsoft.com합니다.
 | 제한 | 32,000 개 이벤트/초 | 제한은 분을 기준으로 측정됩니다.
 | 데이터 보존 | 90일 | 이 리소스는 [검색](../articles/azure-monitor/app/diagnostic-search.md), [분석](../articles/azure-monitor/app/analytics.md) 및 [메트릭 탐색기](../articles/azure-monitor/app/metrics-explorer.md)의 경우입니다.
-| [가용성 다단계 테스트](../articles/azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 90일 | 이 리소스는 각 단계의 자세한 결과를 제공합니다.
+| [가용성 다단계 테스트](../articles/azure-monitor/app/availability-multistep.md) 자세한 결과 보존 | 90일 | 이 리소스는 각 단계의 자세한 결과를 제공합니다.
 | 최대 이벤트 크기 | 64,000 |
 | 속성 및 메트릭 이름 길이 | 150 | [형식 스키마](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)를 참조하세요.
 | 속성 값 문자열 길이 | 8,192 | [형식 스키마](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)를 참조하세요.

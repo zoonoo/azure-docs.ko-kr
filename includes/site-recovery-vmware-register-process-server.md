@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66169970"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182730"
 ---
 1. 프로세스 서버를 실행 하는 컴퓨터에 원격 데스크톱 연결을 설정 합니다. 
 2. Azure Site Recovery 프로세스 서버 구성 도구를 시작 하려면 cspsconfigtool.exe를 실행 합니다.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067702"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147295"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능이 및 앱 설정 하는 방법을 설명 합니다 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)합니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다.  
@@ -102,6 +102,10 @@ VNet 통합 앱과 동일한 지역에 있는 Vnet을 사용 하는 경우에 �
 VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그러면 웹앱이 다시 시작됩니다. 
 
 새 VNet 통합 기능을 사용하면 서비스 엔드포인트를 사용할 수 있습니다.  앱에서 서비스 엔드 포인트를 사용하려면 새 VNet 통합을 사용하여 선택한 VNet에 연결한 다음, 통합에 사용한 서브넷에서 서비스 엔드포인트를 구성합니다. 
+
+#### <a name="web-app-for-containers"></a>Web App for Containers
+
+Linux의 App Service를 사용 하 여 기본 제공 이미지를 사용 하 여 지역 VNet 통합 기능의 추가 변경 없이 작동 합니다. 컨테이너용 웹 앱을 사용 하는 경우 VNet 통합을 사용 하려면 docker 이미지를 수정 해야 합니다. Docker 이미지에 하드 코드 된 포트 번호를 사용 하는 대신 주 웹 서버의 수신 대기 포트와 포트 환경 변수를 사용 합니다. PORT 환경 변수가 컨테이너 시작 시간에 App Service 플랫폼에서 자동으로 설정 됩니다.
 
 ### <a name="how-vnet-integration-works"></a>VNet 통합의 작동 방식
 

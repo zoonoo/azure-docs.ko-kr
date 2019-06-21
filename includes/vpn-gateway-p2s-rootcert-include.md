@@ -9,11 +9,11 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157399"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182063"
 ---
 엔터프라이즈 솔루션을 사용하여 생성된 루트 인증서를 사용하거나(추천) 자체 서명된 인증서를 생성합니다. 루트 인증서가 만들어지면 공용 인증서 데이터(프라이빗 키 아님)를 Base64 인코딩된 X.509 .cer 파일로 내보냅니다. 그런 다음, 공용 인증서 데이터를 Azure 서버에 업로드합니다.
 
