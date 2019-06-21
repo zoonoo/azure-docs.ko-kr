@@ -20,7 +20,7 @@ ms.locfileid: "65237108"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
-음성 서비스는 [합성된 음성으로 텍스트 변환](#convert-text-to-speech)과 REST Api 집합을 사용하여 영역에 대한 [지원 되는 음성의 목록 가져오기](#get-a-list-of-voices)를 가능하게 합니다. 사용 가능한 각 끝점은 지역과 연결 됩니다. 사용 하려는 끝점/지역에 대한 구독 키가 필요 합니다.
+음성 서비스를 사용하여 [합성된 음성으로 텍스트를 변환](#convert-text-to-speech)하고 REST API 집합을 사용하여 영역에 대한 [지원 되는 음성의 목록 가져오기](#get-a-list-of-voices)를 할 수 있습니다. 사용 가능한 각 끝점은 지역과 연결됩니다. 사용하려는 끝점/지역에 대한 구독 키가 필요합니다.
 
 텍스트 음성 변환 REST API는 인공신경망 및 표준 텍스트 음성 변환 보이스를 지원하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "65237108"
 > [!IMPORTANT]
 > 비용은 표준, 사용자 지정 및 인공신경망 음성별로 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
-이 API를 사용하기 전에 다음을 이해 합니다.
+이 API를 사용하기 전에 다음을 이해합니다.
 
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
@@ -66,7 +66,7 @@ ms.locfileid: "65237108"
 
 ### <a name="request-headers"></a>요청 헤더
 
-이 표에서 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
+아래 표는 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
@@ -74,7 +74,7 @@ ms.locfileid: "65237108"
 
 ### <a name="request-body"></a>요청 본문
 
-이 끝점에 대한 `GET` 요청에는 본문이 필요 하지 않습니다.
+이 끝점에 대한 `GET` 요청에는 본문이 필요하지 않습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 
@@ -147,7 +147,7 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="convert-text-to-speech"></a>텍스트-음성 변환
 
-`v1` 끝점을 사용하면 [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)을 사용하여 텍스트 음성 변환이 가능합니다.
+`v1` 끝점을 사용하면 [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)를 사용하여 텍스트 음성 변환이 가능합니다.
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
@@ -168,7 +168,7 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="audio-outputs"></a>오디오 출력
 
-각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스는 24 KHz, 16 KHz 및 8khz 오디오 출력을 지원합니다.
+각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에는 전송률 및 인코딩 형식이 포함됩니다. 음성 서비스는 24KHz, 16KHz 및 8khz 오디오 출력을 지원합니다.
 
 |||
 |-|-|
@@ -209,7 +209,7 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-언어별 예제에 대한 빠른 시작을 참조 하세요.
+언어별 예제에 대한 빠른 시작을 참조하세요.
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
