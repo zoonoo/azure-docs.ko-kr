@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 852a3b00e8513f9ce68c5aae54c974505d0c9af6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140126"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182701"
 ---
 1. Mac에서 **Keychain Access**를 시작합니다. 왼쪽 탐색 모음의 **범주** 아래에서 **내 인증서**를 엽니다. 이전 섹션에서 다운로드한 SSL 인증서를 찾은 다음, 해당 콘텐츠를 공개합니다. 인증서만 선택합니다.(프라이빗 키를 선택하지 않습니다.) 그런 다음, [내보내기](https://support.apple.com/kb/PH20122?locale=en_US) 합니다.
 2. [Azure Portal](https://portal.azure.com/)에서 **모두 찾아보기** > **App Services**를 선택합니다. 그런 다음, Mobile Apps 백엔드를 선택합니다. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693406"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203938"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈과부터 종속성 배포
 
@@ -200,52 +200,6 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
    ```
 
    장치 ID 매개 변수는 대/소문자 구분 합니다. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
-
-## <a name="run-and-debug-locally"></a>실행 및 로컬 디버그
-
-문제 해결 및 디버깅은 사용 하 여 로컬로 Edge 모듈을 실행 하는 데 유용 합니다 [IoT Edge 개발 시뮬레이터](https://github.com/Azure/iotedgehubdev)합니다.  만들기, 개발, 테스트, 실행 및 Azure IoT Edge 모듈 및 프로덕션 환경에서 사용 되는 동일한 비트/코드를 사용 하는 솔루션 디버깅에 대 한 시뮬레이터를 사용 하 여 로컬 개발 환경을 제공 합니다.
-
-### <a name="prerequisites"></a>필수 조건
-
-1. OPC 쌍 배포할 [종속성](howto-opc-twin-deploy-dependencies.md)합니다.
-
-2. 설치 [Docker CE (18.02.0+)](https://www.docker.com/community-edition) 온 [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) 하거나 [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)합니다.
-
-3. 설치할 [Docker Compose (1.20.0+)](https://docs.docker.com/compose/install/#install-compose) (에 필요 **Linux**합니다. Compose 설치 된 Windows/macOS Docker CE에에서 이미 포함 되어)
-
-4. 설치 [Python (2.7 / 3.5+) 및 Pip](https://www.python.org/)
-
-5. Iotedgehubdev 아래 터미널에서 명령 실행 하 여 설치
-
-   ```bash
-   pip install --upgrade iotedgehubdev
-   ```
-
-> [!NOTE]
-> 설치 `iotedgehubdev` 하 **루트** Linux/macOS에서 (*사용 하지 않는 '-사용자 ' 옵션 'pip 설치' 명령에서*).
-> 동일한 포트 필요 하므로 iotedgehubdev 사용 하 여 동일한 컴퓨터에서 실행 중인 Azure IoT Edge 런타임이 없습니다 인지 확인 합니다.
-
-### <a name="quickstart"></a>빠른 시작
-
-1. 지침에 따라 [Azure portal에서 Edge 장치 만들기](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)합니다.  Edge 장치 연결 문자열을 복사 합니다.
-
-2. Edge 연결 문자열을 사용 하 여 시뮬레이터를 설정 합니다.
-
-    ```bash
-    iotedgehubdev setup -c <edge-device-connection-string>
-    ```
-
-3. 매니페스트를 위의 복사는 `deployment.json` 동일한 폴더에 파일입니다.  배포를 사용 하 여 시뮬레이터 시작
-
-    ```bash
-    iotedgehubdev start -d deployment.json
-    ```
-
-4. 사용 하 여 시뮬레이터를 중지 합니다.
-
-   ```bash
-   iotedgehubdev stop
-   ```
 
 ## <a name="next-steps"></a>다음 단계
 

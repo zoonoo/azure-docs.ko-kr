@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463007"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -73,7 +73,7 @@ SAP LaMa는 많은 고객이 SAP 환경을 운영 및 모니터링하는 데 사
 
 Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최신 지원 패키지 및 패치를 항상 설치하는 것이 좋습니다. Azure 커넥터는 서비스 주체를 사용하여 Microsoft Azure에 대한 권한 부여합니다. 다음 단계에 따라 SAP LaMa(Landscape Management)에 대한 서비스 주체를 생성합니다.
 
-1. https://portal.azure.com으로 이동합니다.
+1. https://portal.azure.com 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 추가를 클릭합니다.
@@ -86,7 +86,7 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 액세스하려면 서비스 주체에 권한을 부여해야 합니다.
 
-1. https://portal.azure.com으로 이동합니다.
+1. https://portal.azure.com 으로 이동합니다.
 1. 리소스 그룹 블레이드를 엽니다.
 1. 사용하려는 리소스 그룹을 선택합니다.
 1. 액세스 제어(IAM) 클릭

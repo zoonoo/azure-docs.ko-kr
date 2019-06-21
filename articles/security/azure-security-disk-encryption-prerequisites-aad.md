@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234296"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294878"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -28,26 +28,61 @@ ms.locfileid: "66234296"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> 지원되는 운영 체제
-Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016
-  - Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows 업데이트에서 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 사용하여 설치합니다.    
+### <a name="windows"></a>Windows
+
+- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core 및 Windows Server 2016 Server core.
+Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows Server 2008 R2 x64 기반 시스템 (KB2901983) 용 Microsoft.NET Framework 4.5.2 선택적 업데이트를 사용 하 여 Windows 업데이트에서 설치 하세요.
+- Windows Server 2012 R2 Core 및 Windows Server 2016 Core bdehdcfg 구성 요소는 VM에 설치 되 면 Azure Disk Encryption에서 지원 됩니다.
 - Windows 클라이언트 버전: Windows 8 클라이언트 및 Windows 10 클라이언트
-- Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다. 현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
+
+### <a name="linux"></a>Linux 
+
+하위 집합에 대해 azure Disk Encryption은 지원 합니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 Linux 서버 가능한 모든 배포판의 일부입니다.
+
+![Azure 디스크 암호화를 지 원하는 벤 다이어그램의 Linux 서버 배포판](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
+
+| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
+| --- | --- |--- |
+| Ubuntu | 18.04| OS 및 데이터 디스크 |
+| Ubuntu | 16.04| OS 및 데이터 디스크 |
+| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.3 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
+| RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
+| CentOS | 7.6 | OS 및 데이터 디스크 |
+| CentOS | 7.5 | OS 및 데이터 디스크 |
+| CentOS | 7.4 | OS 및 데이터 디스크 |
+| CentOS | 7.3 | OS 및 데이터 디스크 |
+| CentOS | 7.2n | OS 및 데이터 디스크 |
+| CentOS | 6.8 | 데이터 디스크 |
+| openSUSE | 42.3 | 데이터 디스크 |
+| SLES | 12-SP4 | 데이터 디스크 |
+| SLES | 12-SP3 | 데이터 디스크 |
+
+> [!NOTE]
+> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 내용은 합니다.
+
 - Azure Disk Encryption은 Key Vault 및 VM이 동일한 Azure 하위 지역 및 구독에 있어야 합니다. 별도 하위 지역에서 리소스를 구성하면 Azure Disk Encryption 기능 사용 시 오류가 발생합니다.
 
-## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM에 대한 추가 필수 구성 요소 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux IaaS Vm에 대 한 추가 필수 구성 요소 
 
-- Linux용 Azure Disk Encryption에는 [지원되는 이미지](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)에서 OS 디스크 암호화를 사용하도록 설정하기 위해 VM에 7GB의 RAM이 필요합니다. OS 디스크 암호화 프로세스가 완료되면 VM을 적은 메모리로 실행하도록 구성할 수 있습니다.
+- Azure Disk Encryption dm 암호화에 필요 하 고 vfat 될 모듈을 시스템에 제공 합니다. 제거 하거나 기본 이미지에서 vfat를 사용 하지 않도록 설정에 시스템에서 키 볼륨을 읽고 후속 다시 부팅 후에 디스크를 잠금 해제 하는 데 필요한 키를 가져온 하지 것입니다. 시스템에서 vfat 모듈을 제거 하는 시스템 강화 단계 Azure Disk Encryption을 사용 하 여 호환 되지 않습니다. 
 - 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. "/dev/sdX" 형식의 디바이스 이름은 특히 암호화가 적용된 후 다시 부팅할 때 동일한 디스크에 연결될 수 없으므로 이 항목에 영구 블록 디바이스 이름을 사용합니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md)을 참조하세요.
-- /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 원하는 드라이브가 여전히 탑재되어 있는지 확인합니다. 
+- /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 드라이브가 여전히 탑재되어 있는지 확인합니다. 
   - 암호화를 사용하도록 설정하기 전에 /etc/fstab 파일에서 드라이브를 올바르게 탑재하지 않으면 Azure Disk Encryption에서 해당 드라이브를 올바르게 탑재할 수 없습니다.
   - Azure Disk Encryption 프로세스는 암호화 프로세스의 일환으로 탑재 정보를 /etc/fstab에서 자체의 구성 파일로 이동합니다. 데이터 드라이브 암호화가 완료된 후 /etc/fstab에서 누락된 항목을 보고 놀라지 마세요.
-  -  다시 부팅한 후 Azure Disk Encryption 프로세스에서 새로 암호화된 디스크를 탑재하는 데 시간이 걸립니다. 이러한 디스크는 다시 부팅한 후 즉시 사용할 수 없습니다. 다른 프로세스가 액세스할 수 있게 되기 전에 이 프로세스에서 암호화된 드라이브를 시작, 잠금 해제 및 탑재하는 데 시간이 필요합니다. 이 프로세스는 시스템 특성에 따라 다시 부팅 후 2분 이상 걸릴 수 있습니다.
+  - 중지 해야 암호화를 시작 하기 전에 모든 서비스 및 프로세스에 쓸 수 있는 데이터 디스크를 탑재 및 수 없도록 하는 자동으로 다시 부팅 한 후 시작 되지 않습니다. 이러한 수를 열어 파일 암호화 실패 하면 다시 탑재 하는 암호화 절차 방지이 파티션에서 합니다. 
+  - 다시 부팅한 후 Azure Disk Encryption 프로세스에서 새로 암호화된 디스크를 탑재하는 데 시간이 걸립니다. 이러한 디스크는 다시 부팅한 후에 즉시 사용할 수 없습니다. 다른 프로세스가 액세스할 수 있게 되기 전에 이 프로세스에서 암호화된 드라이브를 시작, 잠금 해제 및 탑재하는 데 시간이 필요합니다. 이 프로세스는 시스템 특성에 따라 다시 부팅 후 2분 이상 걸릴 수 있습니다.
 
-데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 197-205번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205)에 있습니다. 
-
+데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 244-248번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248)에 있습니다. 
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024886"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303432"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 
@@ -25,7 +25,7 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 
 데이터 수집을 위한 유일한 방법으로 인덱서를 사용하거나, 인덱서 사용이 포함된 기술의 조합을 통해 인덱스의 일부 필드만 로드할 수 있습니다.
 
-요청 시 또는 15분 간격으로 반복되는 데이터 새로 고침 예약에 따라 인덱서를 실행할 수 있습니다. 더 자주 업데이트하려면 Azure Search와 외부 데이터 소스의 데이터를 동시에 업데이트하는 푸시 모델이 필요합니다.
+요청 시 인덱서 실행 수도 있고 반복 되는 데이터에서 5 분 마다 만큼 자주 실행 되는 일정을 새로 고칩니다. 더 자주 업데이트하려면 Azure Search와 외부 데이터 소스의 데이터를 동시에 업데이트하는 푸시 모델이 필요합니다.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>인덱서를 만들고 관리하는 접근 방식
 

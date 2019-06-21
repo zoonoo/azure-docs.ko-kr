@@ -1,0 +1,42 @@
+- name: Bastion 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Bastion 정보
+      href: bastion-overview.md
+- name: 방법 가이드
+  items:
+    - name: 요새 호스트 만들기
+      href: bastion-create-host-portal.md
+    - name: 가상 머신에 연결
+      items:
+        - name: SSH(Linux)
+          href: bastion-connect-vm-ssh.md
+        - name: RDP(Windows)
+          href: bastion-connect-vm-rdp.md
+    - name: 가상 머신 세션 사용
+      items:
+        - name: 복사 및 붙여넣기
+          href: bastion-vm-copy-paste.md
+        - name: 전체 화면 보기
+          href: bastion-vm-full-screen.md
+    - name: NSG 사용
+      href: bastion-nsg.md
+- name: 참고 자료
+  items:
+    - name: REST (영문)
+      href: 'https://docs.microsoft.com/rest/api/network-gateway'
+- name: 리소스
+  items:
+    - name: Bastion FAQ
+      href: bastion-faq.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: SLA 미리 보기
+      href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

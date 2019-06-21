@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068334"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190470"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 
@@ -32,7 +32,7 @@ Azure functions에 대 한 배포 단위는 함수 앱입니다. 이 함수 앱�
 
 ## <a name="requirements-for-continuous-deployment"></a>연속 배포를 위한 요구 사항
 
-성공 하려면 연속 배포에 대 한 디렉터리 구조 호환 되어야 Azure Functions가 필요로 하는 다음 기본 폴더 구조:
+성공 하려면 연속 배포에 대 한 디렉터리 구조 Azure Functions가 필요로 하는 다음 기본 폴더 구조를 사용 하 여 호환 되어야 합니다.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Azure functions에 대 한 배포 단위는 함수 앱입니다. 이 함수 앱�
 
     ![배포 센터](./media/functions-continuous-deployment/platform-features.png)
 
-2. 에 **배포 센터**를 선택 **GitHub** 에 대 한 **소스 제어** > **Authorize**합니다.
+2. 에 **배포 센터**를 선택 **GitHub**를 선택한 후 **권한 부여**합니다. 또는 GitHub에 이미 부여한 경우 선택할 **계속**합니다. 
 
     ![배포 센터](./media/functions-continuous-deployment/github.png)
 
-3. 선택 **AzureAppService 권한 부여** > **계속**합니다.
+3. GitHub에서 선택 **권한을 부여 AzureAppService**합니다. 
 
     ![권한 부여](./media/functions-continuous-deployment/authorize.png)
+    
+    Azure portal에서 **Deployment Center**를 선택 **계속**합니다.
 
 4. 다음 빌드 공급자 중 하나를 선택 합니다.
 

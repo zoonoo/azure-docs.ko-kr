@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074547"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150218"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>사용자-앱 등록에서에서 로그인 하는 웹 앱
 
@@ -48,14 +48,14 @@ ms.locfileid: "65074547"
 1. 둘 이상의 테 넌 트에 대 한 액세스, 오른쪽 위 모서리에서 계정을 선택 하 고 원하는 Azure ad 포털 세션을 설정 하 여 계정에서는 테 넌 트 경우.
 1. 왼쪽 탐색 창에서 선택 합니다 **Azure Active Directory** 서비스를 선택한 후 **앱 등록** > **새 등록**합니다.
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   - 응용 프로그램에 대해 지원 되는 계정 유형 선택 (참조 [지원 되는 계정 유형](./v2-supported-account-types.md))
-   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `AspNetCore-WebApp`)을 입력합니다.
-   - **회신 URL**, 예를 들어 앱에 대 한 회신 URL을 추가 `https://localhost:44321/`를 선택 하 고 **등록**합니다.
+   1. 응용 프로그램에 대해 지원 되는 계정 유형 선택 (참조 [지원 되는 계정 유형](./v2-supported-account-types.md))
+   1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `AspNetCore-WebApp`)을 입력합니다.
+   1. **리디렉션 URI**응용 프로그램 종류를 추가 하 고 허용 하는 URI 대상을 성공적으로 인증 한 후 토큰 응답을 반환 합니다. 예: `https://localhost:44321/`  **등록**을 선택합니다.
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
-- **회신 URL**에 `https://localhost:44321/signin-oidc`을 추가하고 **등록**을 선택합니다.
-- 에 **고급 설정** 으로 설정 **로그 아웃 URL** 에 `https://localhost:44321/signout-oidc`입니다.
-- **암시적 권한 부여**에서 **ID 토큰**을 선택합니다.
-- **저장**을 선택합니다.
+   1. **회신 URL**에 추가 `https://localhost:44321/signin-oidc`합니다.
+   1. **고급 설정** 섹션에서 **로그아웃 URL**을 `https://localhost:44321/signout-oidc`으로 설정합니다.
+   1. **암시적 권한 부여**에서 **ID 토큰**을 선택합니다.
+   1. **저장**을 선택합니다.
 
 ### <a name="register-an-app-using-powershell"></a>PowerShell을 사용 하 여 앱 등록
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075097"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190654"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>흐름 변환을 최적화 데이터 매핑 탭
 
@@ -45,7 +45,7 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속�
 
 ### <a name="fixed-range"></a>고정 범위
 
-분할된 데이터 열의 값에 대해 고정 범위를 제공하는 식을 작성해야 합니다. 파티션 기울이기를 방지하기 위해 이 옵션을 사용하기 전에 데이터를 잘 파악해야 합니다. 식에 대해 입력한 값이 파티션 함수의 일부로 사용됩니다. 물리적 파티션 수를 설정할 수 있습니다.
+분할된 데이터 열의 값에 대해 고정 범위를 제공하는 식을 작성해야 합니다. 파티션 기울이기를 방지하기 위해 이 옵션을 사용하기 전에 데이터를 잘 파악해야 합니다. 식에 대해 입력 하는 값은 파티션 함수의 일부로 사용 됩니다. 물리적 파티션 수를 설정할 수 있습니다.
 
 ### <a name="key"></a>키
 

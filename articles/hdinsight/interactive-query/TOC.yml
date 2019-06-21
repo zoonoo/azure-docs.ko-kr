@@ -2,11 +2,8 @@
   href: /azure/hdinsight
 - name: 개요
   items:
-    - name: HDInsight의 Apache Hadoop 구성 요소
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: HDInsight의 대화형 쿼리란?
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: 빠른 시작
   items:
@@ -14,8 +11,6 @@
       href: ./hdinsight-connect-hive-zeppelin.md
 - name: 시작하기
   items:
-    - name: 대화형 쿼리 시작
-      href: ./apache-interactive-query-get-started.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

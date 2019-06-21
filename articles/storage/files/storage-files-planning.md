@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237668"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150334"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -76,8 +76,23 @@ Azure 파일 공유에 액세스하기 위해 Azure 파일 동기화를 사용�
 
 Azure Files는 두 가지 성능 계층이 제공: 표준 및 프리미엄입니다.
 
-* **표준 파일 공유**는 범용 파일 공유, 개발/테스트 환경 등 성능 가변성의 영향을 그다지 받지 않는 IO 워크로드에 대해 안정적인 성능을 제공하는 회전식 HDD(하드 디스크 드라이브)를 통해 지원되며 종량제 청구 모델에서만 제공됩니다.
-* **프리미엄 파일 공유(미리 보기)** 는 IO를 가장 많이 사용하는 워크로드에서 수행하는 대다수 IO 작업에 대해 우수한 성능과 짧은 대기 시간(몇 밀리초 단위)을 일관되게 제공하는 SSD(반도체 디스크)를 통해 지원됩니다. 따라서 데이터베이스, 웹 사이트 호스팅, 개발 환경 등의 다양한 워크로드에 적합합니다. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유는 표준 파일 공유에서 별도 배포 모델을 사용합니다.
+### <a name="standard-file-shares"></a>표준 파일 공유
+
+표준 파일 공유는 Hdd (하드 디스크 드라이브)에 의해 지원 됩니다. 표준 파일 공유에는 일반 용도의 파일 공유 및 개발/테스트 환경과 같이 성능 변화에 덜 민감하고 IO 워크 로드에 대 한 신뢰할 수 있는 성능을 제공 합니다. 종량제 청구 모델에서만 제공됩니다.
+
+최대 크기에서는 5tib 표준 파일 공유는 GA 제품으로 사용할 수 있습니다. 더 큰 파일을 공유 하는 동안 100tib 최대 5tib 보다 큰 모든 공유는 현재 미리 보기 제품으로 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> - (확장할 수 없습니다 기존 저장소 계정을) 새 범용 저장소 계정을 만드는 데 필요 합니다.
+> - 만 LRS를 사용 하 여 제공 됩니다.
+> - 3 개 지역에서 사용할 수 있습니다. 미국 서 부 2, 유럽 서 부 및 동남 아시아 지역 중에서 선택 합니다.
+> - 더 큰 파일 공유 미리 보기 구독 수락 된 후 만든 새로운 storage 계정에 가능한 LRS에서 GRS 계정 변환 되지 않습니다.
+
+이러한 큰 파일 공유 크기의 미리 보기에 등록 하려면 원하는 경우이 제출 [폼](https://aka.ms/azurefilesatscalesurvey)합니다. 
+
+### <a name="premium-file-shares-preview"></a>프리미엄 파일 공유(미리 보기)
+
+프리미엄 파일 공유 (미리 보기)는 반도체 디스크 (Ssd)에 의해 지원 됩니다. 프리미엄 파일 공유는 일관 된 고성능 및 짧은 대기 시간, IO 집약적 워크 로드에 대 한 대부분의 IO 작업에 대 한 자리 밀리초 내에 제공합니다. 따라서 데이터베이스, 웹 사이트 호스팅, 개발 환경 등의 다양한 워크로드에 적합합니다. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유는 표준 파일 공유에서 별도 배포 모델을 사용합니다.
 
 Azure Backup은 premium 파일 공유에 사용할 수 있는 및 Azure Kubernetes Service 버전 1.13 이상 premium 파일 공유를 지원 합니다.
 
@@ -180,7 +195,7 @@ GRS가 활성화 된 저장소 계정에 대 한 모든 데이터는 먼저 로�
 
 ## <a name="data-growth-pattern"></a>데이터 증가 패턴
 
-현재 Azure 파일 공유의 최대 크기는 5tib (공개 미리 보기로 제공 되는 premium 파일 공유에 대 한 100 TiB). 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
+현재 Azure 파일 공유의 최대 크기는 5tib (100 TiB 미리 보기 상태에서). 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
 
 Azure 파일 동기화를 사용하여 여러 Azure 파일 공유를 하나의 Windows 파일 서버에 동기화할 수 있습니다. 이를 통해 온-프레미스가 있을 수 있는 이전의 큰 파일 공유를 Azure 파일 동기화로 가져올 수 있습니다. 자세한 내용은 [Azure 파일 동기화 배포 계획](storage-files-planning.md)을 참조하세요.
 

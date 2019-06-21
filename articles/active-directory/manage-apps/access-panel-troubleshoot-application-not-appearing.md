@@ -16,12 +16,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d16efbd8ea2fa37ac9572e9dc1ba3ef67deaeaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784388"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272749"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>할당한 애플리케이션이 액세스 패널에 표시되지 않음
 
@@ -399,7 +399,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 짧은 시간 후에 애플리케이션의 구성 창을 볼 수 있습니다.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 애플리케이션 구성
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> 암호 single sign-on에 대 한 응용 프로그램 구성
 
 애플리케이션에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
 

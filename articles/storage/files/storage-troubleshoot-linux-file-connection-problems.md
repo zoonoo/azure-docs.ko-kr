@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118723"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295063"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -191,6 +191,40 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Azure 파일 공유에 연결하거나 탑재할 수 없음
+
+### <a name="cause"></a>원인
+
+이 문제에 대한 일반적인 원인은 다음과 같습니다.
+
+- 호환되지 않는 Linux 배포 클라이언트를 사용하고 있습니다. 다음 Linux 배포를 사용하여 Azure 파일 공유에 연결하는 것이 좋습니다.
+
+    |   | SMB 2.1 <br>(동일한 Azure 지역 내에서 VM에 탑재) | SMB 3.0 <br>(온-프레미스 및 지역 간 탑재) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- CIFS 유틸리티 (cifs 유틸리티) 클라이언트에 설치 되지 않습니다.
+- 최소 SMB/CIFS 버전 2.1은 클라이언트에 설치되지 않았습니다.
+- SMB 3.0 암호화는 클라이언트에서 지원되지 않습니다. SMB 3.0 암호화는 Ubuntu 16.4 이상 버전과 함께 SUSE 12.3 이상 버전에서 사용할 수 있습니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
+- 지원되지 않는 TCP 포트 445를 통해 스토리지 계정에 연결하려고 합니다.
+- Azure VM에서 Azure 파일 공유에 연결하려고 하며, VM이 스토리지 계정과 동일한 지역에 있지 않습니다.
+- 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.0을 사용하는 연결만 허용합니다.
+
+### <a name="solution"></a>해결 방법
+
+이 문제를 해결하려면 [Linux에서 Azure Files 탑재 오류에 대한 문제 해결 도구](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)를 사용합니다. 이 도구는 다음과 같은 작업을 수행합니다.
+
+* 클라이언트 실행 환경의 유효성을 검사하는 데 도움이 됩니다.
+* Azure Files에 대한 액세스 실패를 일으키는 호환되지 않는 클라이언트 구성을 검색합니다.
+* 자체 수정에 대한 규범적인 지침을 제공합니다.
+* 진단 추적을 수집합니다.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: '&lt;path&gt;에 액세스할 수 없음': 입/출력 오류
 

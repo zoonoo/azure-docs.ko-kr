@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116329"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182584"
 ---
 >[!NOTE]
 >고정 되지 않는 리소스에 대 한 할당량 증가 요청 하려면 지원 티켓을 엽니다. 더 높은 한도 가져오려고 시도할 때 추가 Azure Media Services 계정을 만들지 마세요.

@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python 및 Azure Search REST Api'
 description: 만들기, 로드 및 Python, Jupyter 노트북 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
-ms.date: 06/11/2019
+ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056676"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302286"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>빠른 시작: Jupyter Python 노트북을 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67056676"
 > * [포털](search-create-index-portal.md)
 > 
 
-만듭니다, 로드 및 Python을 사용 하 여 Azure Search 인덱스를 쿼리 하는 Jupyter 노트북을 빌드 및 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 빌드 노트북을 단계별로부터 시작 하는 방법에 설명 합니다. 또는 완성 된 notebook을 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 [Azure Search-python 샘플 리포지토리](https://github.com/Azure-Samples/azure-search-python-samples)합니다.
+만듭니다, 로드 및 Python을 사용 하 여 Azure Search 인덱스를 쿼리 하는 Jupyter 노트북을 빌드 및 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 빌드 노트북을 단계별로부터 시작 하는 방법에 설명 합니다. 또는 완성 된 notebook을 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 합니다[azure aearch-python 샘플 리포지토리](https://github.com/Azure-Samples/azure-search-python-samples)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

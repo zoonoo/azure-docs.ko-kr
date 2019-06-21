@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1583ccf04b68f81a71bd2f63779680427ce3362
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068778"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294922"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -29,43 +29,6 @@ Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerS
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure Disk Encryption 비용은 얼마인가요?
 
 Azure Disk Encryption을 사용한 VM 디스크 암호화에 대한 요금은 청구되지 않으나, Azure Key Vault 사용과 관련된 요금은 청구됩니다. Azure Key Vault 요금에 대한 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 페이지를 참조하세요.
-
-
-## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
-
-Azure Disk Encryption은 포함 하 여 표준 계층 Vm에서 사용할 수 있습니다 [A, D, DS, E, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS Vm입니다. Premium Storage가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
-
-## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
-
-하위 집합에 대해 azure Disk Encryption은 지원 합니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 Linux 서버 가능한 모든 배포판의 일부입니다.
-
- ![Azure 디스크 암호화를 지 원하는 벤 다이어그램의 Linux 서버 배포판](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
-
-| Linux 배포 | Version | 암호화에 지원되는 볼륨 유형|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS 및 데이터 디스크 |
-| Ubuntu | 16.04| OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
-| RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.3 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
-| RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
-| RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
-| CentOS | 7.5 | OS 및 데이터 디스크 |
-| CentOS | 7.4 | OS 및 데이터 디스크 |
-| CentOS | 7.3 | OS 및 데이터 디스크 |
-| CentOS | 7.2n | OS 및 데이터 디스크 |
-| CentOS | 6.8 | 데이터 디스크 |
-| openSUSE | 42.3 | 데이터 디스크 |
-| SLES | 12-SP4 | 데이터 디스크 |
-| SLES | 12-SP3 | 데이터 디스크 |
-
-> [!NOTE]
-> 새 ADE 구현은 RHEL OS 및 데이터 디스크 RHEL7 종 량 제 이미지에 대 한 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 참조 [Linux 용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 자세한 내용은 합니다.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 

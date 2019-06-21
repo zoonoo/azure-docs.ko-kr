@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Bastion 설명서
+metadata:
+  document_id: null
+  title: Bastion
+  meta.description: Learn how to use Azure Bastion
+  author: cherylmc
+  ms.service: Bastion
+  ms.topic: landing-page
+  ms.date: 06/13/2019
+  ms.author: cherylmc
+abstract:
+  description: Azure Bastion을 사용하여 가상 머신에 연결하는 방법을 알아봅니다. SSL을 통해 Azure Portal에서 가상 머신에 안전하고 원활한 RDP/SSH 연결을 직접 구성합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: 'https://go.microsoft.com/fwlink/?linkid=2095604'
+      width: 250
+    title: 'Azure Bastion 사용(1:03)'
+    href: 'https://go.microsoft.com/fwlink/?linkid=2095517'
+    width: 250
+sections:
+  - title: Azure Bastion 생성 및 관리(미리 보기)
+    items:
+      - type: paragraph
+        text: 'Azure Bastion 호스트를 구성한 다음, 가상 머신에 연결하는 방법을 알아봅니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/bastion/bastion-create-host-portal">Azure Bastion 호스트 생성 및 수정</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Windows 가상 머신에 연결</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Linux 가상 머신에 연결</a>
+          - html: <a href="/azure/bastion/bastion-faq">Azure Bastion FAQ 읽기</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST (영문)
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API 참조</a></p>'

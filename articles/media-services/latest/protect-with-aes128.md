@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142519"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273287"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>자습서: AES-128 동적 암호화 및 키 전달 서비스 사용
+
+> [!NOTE]
+> 이 자습서에서는 사용 하는 경우에 합니다 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예는 일반적인 단계는 동일 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)를 [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), 또는 지원 되는 기타 [Sdk](media-services-apis-overview.md#sdks) .
 
 Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화된 HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍을 배달할 수 있습니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. Media services 동적으로 비디오를 암호화 하려는 경우 스트리밍 로케이터를 사용 하 여 암호화 키를 연결 하 고 콘텐츠 키 정책을 구성할 수도 있습니다. 플레이어가 스트림을 요청 될 때 Media Services AES-128로 콘텐츠를 동적으로 암호화 하는 지정 된 키를 사용 합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 콘텐츠 키 정책을 평가합니다.
 

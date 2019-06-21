@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428092"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734493"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -57,7 +57,7 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 
 **호스트된 컨테이너 및 애플리케이션** 템플릿에서 **컨테이너**를 선택합니다.
 
-**이미지 이름**에 "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", [Windows Server Core 서버 및 IIS 기본 이미지](https://hub.docker.com/r/microsoft-windows-servercore-iis)를 입력합니다.
+**이미지 이름**에 "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", [Windows Server Core 서버 및 IIS 기본 이미지](https://hub.docker.com/_/microsoft-windows-servercore-iis)를 입력합니다.
 
 포트 80의 서비스로 들어오는 요청이 컨테이너의 포트 80에 매핑되도록 컨테이너 포트와 호스트 포트 간 매핑을 구성합니다.  **컨테이너 포트**를 "80"으로, **호스트 포트**를 "80"으로 설정합니다.  
 
@@ -77,14 +77,14 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-서비스 매니페스트는 nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`에 대한 하나의 이미지만을 계속해서 지정합니다.
+서비스 매니페스트는 nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`에 대한 하나의 이미지만을 계속해서 지정합니다.
 
 또한 *ApplicationManifest.xml* 파일에서 **PasswordEncrypted**를 **false**로 변경합니다. Docker Hub에 있는 공개 컨테이너 이미지의 경우 계정 및 암호가 비어 있으므로 암호화를 해제합니다. 빈 암호를 암호화하면 빌드 오류가 발생하기 때문입니다.
 

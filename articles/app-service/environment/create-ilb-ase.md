@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f571342b02084ceb8d67fbb889e030194663489
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493828"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734681"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 
@@ -109,7 +109,7 @@ DNS를 구성하려면 다음을 수행합니다.
 
 - *&lt;ASE 이름&gt;.appserviceenvironment.net* 영역 만들기
 - 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기 
-- *&lt;ASE 이름&gt;.appserviceenvironment.net*에 scm이라는 영역 만들기
+- *&lt;ASE 이름&gt;.scm.appserviceenvironment.net*에 scm이라는 영역 만들기
 - scm 영역에 ILB IP 주소를 가리키는 A 레코드 만들기
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시

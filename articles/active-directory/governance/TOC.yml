@@ -46,6 +46,8 @@
           href: entitlement-management-request-access.md
         - name: 요청 승인
           href: entitlement-management-request-approve.md
+        - name: 작업 위임
+          href: entitlement-management-delegate.md
         - name: 보고서 및 로그 보기
           href: entitlement-management-reports.md
         - name: 문제 해결

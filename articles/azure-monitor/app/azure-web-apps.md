@@ -9,11 +9,11 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65408230"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
@@ -138,7 +138,7 @@ Application Insights로 원격 분석 수집을 사용 하도록 설정 하기 �
 
 ### <a name="application-settings-definitions"></a>응용 프로그램 설정 정의
 
-|앱 설정 이름 |  정의 | Value |
+|앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  기본 모드에 필수적인 기능 최적의 성능을 보장 하기 위해 사용 됩니다. | `default` 또는 `recommended`입니다. |
@@ -274,7 +274,7 @@ Application Insights에 대해 구성 된 응용 프로그램 설정 사용 하 
             "type": "string"
         }
     },
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -301,7 +301,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 ### <a name="upgrading-from-versions-289-and-up"></a>및 2.8.9 버전에서 업그레이드
 
-2.8.9 버전에서 업그레이드 하는 추가 작업 없이 자동으로 발생 합니다. 대상 app service 백그라운드에서 새 모니터링 비트 전달할지 및 응용 프로그램 다시 시작에는 픽업 됩니다.
+2\.8.9 버전에서 업그레이드 하는 추가 작업 없이 자동으로 발생 합니다. 대상 app service 백그라운드에서 새 모니터링 비트 전달할지 및 응용 프로그램 다시 시작에는 픽업 됩니다.
 
 방문을 실행 중인 확장의 버전을 확인 하려면 `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -318,7 +318,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
     1. 응용 프로그램 설정을 ApplicationInsightsAgent 미리 설치 된 사이트 확장을 사용 하도록 설정 합니다. 참조 [powershell을 통해 사용 하도록 설정 하면](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell)합니다.
     2. Azure App Service에 대 한 Application Insights 확장 라는 개인 사이트 확장을 수동으로 제거 합니다.
 
-2.5.1 이전 버전에서 업그레이드가 완료 되 면 응용 프로그램 bin 폴더에서 ApplicationInsigths dll가 제거 되었는지 확인 [문제 해결 단계를 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)합니다.
+2\.5.1 이전 버전에서 업그레이드가 완료 되 면 응용 프로그램 bin 폴더에서 ApplicationInsigths dll가 제거 되었는지 확인 [문제 해결 단계를 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -33,26 +33,33 @@
           href: learn/quick-collect-windows-computer.md
 - name: 자습서
   items:
-    - name: 로그 분석에서 데이터 분석
-      href: learn/tutorial-viewdata.md
-    - name: 로그 분석에서 데이터 시각화
-      href: learn/tutorial-logs-dashboards.md
+    - name: 로그
+      items:
+        - name: Log Analytics
+          href: log-query/get-started-portal.md
+        - name: 로그 쿼리
+          href: log-query/get-started-queries.md
+        - name: 로그 데이터 시각화
+          href: learn/tutorial-logs-dashboards.md
+        - name: 로그 데이터에 대한 경고
+          href: learn/tutorial-response.md
+    - name: Application Insights
+      items:
+        - name: 애플리케이션 런타임 예외 찾기
+          href: learn/tutorial-runtime-exceptions.md
+        - name: 응용 프로그램 성능 문제 찾기
+          href: learn/tutorial-performance.md
+        - name: 응용 프로그램 상태에 대한 경고
+          href: learn/tutorial-alert.md
+        - name: 응용 프로그램 사용자 이해
+          href: learn/tutorial-users.md
+        - name: 사용자 지정 대시보드 만들기
+          href: learn/tutorial-app-dashboards.md
+        - name: Application Insights
     - name: 보관 플랫폼 메트릭 및 로그 데이터
       href: learn/tutorial-archive-data.md
-    - name: 로그 데이터에 대한 경고
-      href: learn/tutorial-response.md
     - name: 성능 및 일정에 대한 자동 크기 조정
       href: learn/tutorial-autoscale-performance-schedule.md
-    - name: 응용 프로그램 런타임 예외 찾기
-      href: learn/tutorial-runtime-exceptions.md
-    - name: 응용 프로그램 성능 문제 찾기
-      href: learn/tutorial-performance.md
-    - name: 응용 프로그램 상태에 대한 경고
-      href: learn/tutorial-alert.md
-    - name: 응용 프로그램 사용자 이해
-      href: learn/tutorial-users.md
-    - name: 사용자 지정 대시보드 만들기
-      href: learn/tutorial-app-dashboards.md
 - name: 샘플
   items:
     - name: Azure PowerShell
@@ -115,12 +122,8 @@
       href: visualizations.md
     - name: 파트너 통합
       href: platform/partners.md
-    - name: OMS 포털 전환
-      items:
-        - name: 개요
-          href: platform/oms-portal-transition.md
-        - name: 일반적인 질문
-          href: platform/oms-portal-faq.md
+    - name: OMS 포털 사용 중단
+      href: platform/oms-portal-transition.md
     - name: FAQ
       items:
         - name: Log Analytics
@@ -203,6 +206,8 @@
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 사용자 지정 데이터 원본 상관 관계 만들기
               href: app/custom-data-correlation.md
+            - name: 서비스 알림 보기
+              href: platform/service-notifications.md
         - name: 에이전트 설치 및 구성
           items:
             - name: 모니터링 에이전트 개요
@@ -249,6 +254,8 @@
               items:
                 - name: Log Analytics VM 확장
                   href: platform/vmext-troubleshoot.md
+                - name: Log Analytics Windows 에이전트
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Log Analytics Linux 에이전트
                   href: platform/agent-linux-troubleshoot.md
         - name: 에이전트 데이터 원본
@@ -667,6 +674,99 @@
               href: insights/solutions.md
             - name: 대상 솔루션
               href: insights/solution-targeting.md
+    - name: 데이터 분석
+      items:
+        - name: 메트릭
+          items:
+            - name: 메트릭 탐색기로 시작
+              href: platform/metrics-getting-started.md
+            - name: 메트릭 탐색기의 고급 기능
+              href: platform/metrics-charts.md
+            - name: 메트릭 차트의 예
+              href: platform/metric-chart-samples.md
+            - name: 메트릭 차트 문제 해결
+              href: platform/metrics-troubleshoot.md
+        - name: 로그
+          items:
+            - name: 로그 쿼리 개요
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: 자습서
+              items:
+                - name: Log Analytics 자습서
+                  href: log-query/get-started-portal.md
+                - name: 로그 쿼리 자습서
+                  href: log-query/get-started-queries.md
+            - name: 로그 데이터
+              items:
+                - name: 로그 데이터 구조
+                  href: log-query/logs-structure.md
+                - name: 쿼리 범위
+                  href: log-query/scope.md
+                - name: 표준 속성
+                  href: platform/log-standard-properties.md
+            - name: 쿼리 언어
+              items:
+                - name: 언어 설명서 쿼리
+                  href: log-query/query-language.md
+                - name: 언어 차이
+                  href: log-query/data-explorer-difference.md
+                - name: 유용한 연산자
+                  href: log-query/functions.md
+                - name: Functions
+                  href: log-query/useful-operators.md
+                - name: 로그 검색에서 전환
+                  href: log-query/log-search-transition.md
+                - name: 단원
+                  items:
+                    - name: 문자열 작업
+                      href: log-query/string-operations.md
+                    - name: 날짜 및 시간 작업
+                      href: log-query/datetime-operations.md
+                    - name: 집계 함수
+                      href: log-query/aggregations.md
+                    - name: 고급 집계
+                      href: log-query/advanced-aggregations.md
+                    - name: 조인
+                      href: log-query/joins.md
+                    - name: JSON 및 데이터 구조
+                      href: log-query/json-data-structures.md
+                    - name: 고급 쿼리 작성
+                      href: log-query/advanced-query-writing.md
+                    - name: 차트 및 다이어그램
+                      href: log-query/charts.md
+                    - name: 검색 쿼리
+                      href: log-query/search-queries.md
+                - name: Cheatsheets
+                  items:
+                    - name: SQL
+                      href: log-query/sql-cheatsheet.md
+                    - name: Splunk
+                      href: log-query/splunk-cheatsheet.md
+            - name: 리소스 간
+              items:
+                - name: 교차 리소스 쿼리
+                  href: log-query/cross-workspace-query.md
+                - name: 앱 식
+                  href: log-query/app-expression.md
+                - name: 작업 영역 식
+                  href: log-query/workspace-expression.md
+                - name: 애플리케이션 데이터 리소스 통합
+                  href: log-query/unify-app-resource-data.md
+            - name: 예제 및 지침
+              items:
+                - name: 로그 쿼리 예제
+                  href: log-query/examples.md
+                - name: 스마트 분석 예제
+                  href: log-query/smart-analytics.md
+                - name: 효율적인 쿼리 작성
+                  href: log-query/log-query-performance.md
+                - name: 텍스트 데이터 구문 분석
+                  href: log-query/parse-text.md
+            - name: 컴퓨터 그룹
+              href: platform/computer-groups.md
+            - name: 흐름 커넥터
+              href: platform/flow-tutorial.md
     - name: 데이터 가상화
       items:
         - name: 뷰
@@ -683,106 +783,12 @@
           items:
             - name: 로그 데이터 내보내기
               href: platform/powerbi.md
-            - name: 응용 프로그램 데이터 내보내기
+            - name: 애플리케이션 데이터 내보내기
               href: app/export-power-bi.md
+        - name: 대시보드
+          href: app/app-insights-dashboards.md
         - name: 데이터를 Grafana에 보내기
           href: platform/grafana-plugin.md
-    - name: 데이터 분석
-      items:
-        - name: 메트릭
-          items:
-            - name: 메트릭 탐색기로 시작
-              href: platform/metrics-getting-started.md
-            - name: 메트릭 탐색기의 고급 기능
-              href: platform/metrics-charts.md
-            - name: 메트릭 차트의 예
-              href: platform/metric-chart-samples.md
-            - name: 메트릭 차트 문제 해결
-              href: platform/metrics-troubleshoot.md
-        - name: 로그
-          items:
-            - name: 로그 쿼리
-              href: log-query/log-query-overview.md
-            - name: 로그 쿼리 포털
-              href: log-query/portals.md
-            - name: 언어 설명서 쿼리
-              href: log-query/query-language.md
-            - name: 언어 차이
-              href: log-query/data-explorer-difference.md
-            - name: 로그 검색에서 전환
-              href: log-query/log-search-transition.md
-            - name: 시작하기
-              items:
-                - name: Analytics 포털 시작
-                  href: log-query/get-started-portal.md
-                - name: 쿼리 시작
-                  href: log-query/get-started-queries.md
-                - name: 검색 쿼리
-                  href: log-query/search-queries.md
-                - name: 유용한 연산자
-                  href: log-query/useful-operators.md
-            - name: 단원
-              items:
-                - name: 문자열 작업
-                  href: log-query/string-operations.md
-                - name: 날짜 및 시간 작업
-                  href: log-query/datetime-operations.md
-                - name: 집계 함수
-                  href: log-query/aggregations.md
-                - name: 고급 집계
-                  href: log-query/advanced-aggregations.md
-                - name: 조인
-                  href: log-query/joins.md
-                - name: JSON 및 데이터 구조
-                  href: log-query/json-data-structures.md
-                - name: 고급 쿼리 작성
-                  href: log-query/advanced-query-writing.md
-                - name: 차트 및 다이어그램
-                  href: log-query/charts.md
-                - name: Functions
-                  href: log-query/functions.md
-            - name: Cheatsheets
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-            - name: 쿼리 언어
-              items:
-                - name: 예
-                  href: log-query/examples.md
-                - name: 효율적인 쿼리 작성
-                  href: log-query/log-query-performance.md
-                - name: 스마트 분석
-                  href: log-query/smart-analytics.md
-                - name: 교차 리소스 검색
-                  href: log-query/cross-workspace-query.md
-                - name: 앱 식
-                  href: log-query/app-expression.md
-                - name: 작업 영역 식
-                  href: log-query/workspace-expression.md
-            - name: 로그 데이터
-              items:
-                - name: 애플리케이션 데이터
-                  href: app/analytics.md
-                - name: 애플리케이션 데이터 리소스 통합
-                  href: log-query/unify-app-resource-data.md
-                - name: 표준 속성
-                  href: platform/log-standard-properties.md
-                - name: 텍스트 데이터 구문 분석
-                  href: log-query/parse-text.md
-            - name: 검색 결과에서 작업 수행
-              href: log-query/take-action.md
-            - name: 컴퓨터 그룹
-              href: platform/computer-groups.md
-            - name: 흐름 커넥터
-              href: platform/flow-tutorial.md
-            - name: 로그 검색 API
-              href: 'https://dev.loganalytics.io/'
-        - name: 활동 로그의 이벤트 보기
-          href: ../azure-resource-manager/resource-group-audit.md
-        - name: 서비스 알림 보기
-          href: platform/service-notifications.md
     - name: 인시던트에 대응
       items:
         - name: 경고
@@ -933,6 +939,8 @@
           items:
             - name: REST API를 사용하여 연습
               href: platform/rest-api-walkthrough.md
+            - name: 로그 검색 API
+              href: 'https://dev.loganalytics.io/'
             - name: 알림 API
               href: platform/api-alerts.md
         - name: 응용 프로그램
@@ -975,6 +983,8 @@
               href: platform/runbook-datacollect.md
 - name: 참고 자료
   items:
+    - name: 서비스 제한
+      href: service-limits.md
     - name: Application Insights
       items:
         - name: 종속성 자동 수집
@@ -985,6 +995,8 @@
           href: app/nuget.md
         - name: 플랫폼 지원
           href: app/platforms.md
+        - name: 엔드포인트 재정의
+          href: app/custom-endpoints.md
     - name: Application Insights 데이터 모델
       items:
         - name: 개요

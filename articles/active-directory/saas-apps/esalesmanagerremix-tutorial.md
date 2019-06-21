@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65406969"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
@@ -156,9 +156,9 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     
     a. **PC 버전** 확인란을 선택합니다.
     
-    b. **공동 작업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
+    b. **협업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
 
-    c. **공동 작업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. **협업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
     d. **발급자(엔터티 ID)** 상자에 이전에 Azure Portal의 **E Sales Manager Remix 도메인 및 URL** 섹션에서 복사한 식별자 값을 붙여넣습니다.
 

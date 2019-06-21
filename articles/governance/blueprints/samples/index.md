@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 04/22/2019
+ms.date: 06/13/2019
 ms.author: dacoulte
-ms.openlocfilehash: 03813bb440e90dd7a1d2caec543756f7fffc221b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685576"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272197"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -24,6 +24,7 @@ ms.locfileid: "64685576"
 |---------|---------|
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
+| [영국 공식 거버넌스](./ukofficial/control-mapping.md) | 영국 공식 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

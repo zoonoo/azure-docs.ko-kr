@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150282"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182075"
 ---
 1. 포털의 **모든 리소스**에서 **+ 추가**를 클릭합니다.
 2. **모든 항목** 페이지 검색 상자에서 **로컬 네트워크 게이트웨이**를 입력한 다음 후 클릭하여 리소스 목록을 반환합니다. **로컬 네트워크 게이트웨이**를 클릭하여 페이지를 열고 **만들기**를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.

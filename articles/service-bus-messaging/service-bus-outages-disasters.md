@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589737"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274839"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 
@@ -54,9 +54,9 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 ### <a name="active-replication"></a>능동 복제
 능동 복제는 모든 작업에서 양쪽 네임스페이스의 엔터티를 사용합니다. 메시지를 보내는 클라이언트는 동일한 메시지의 두 복사본을 보냅니다. 첫 번째 복사본은 기본 엔터티(예: **contosoPrimary.servicebus.windows.net/sales**)로 전송되고, 메시지의 두 번째 복사본은 보조 엔터티(예: **contosoSecondary.servicebus.windows.net/sales**)로 전송됩니다.
 
-클라이언트는 두 큐에서 모두 메시지를 받습니다. 수신자는 메시지의 첫 번째 복사본을 처리하고 두 번째 복사본은 표시하지 않습니다. 중복 메시지를 표시하지 않기 위해 발송자는 각 메시지에 고유 식별자로 태그를 지정해야 합니다. 메시지의 두 복사본 모두 동일한 식별자로 태그가 지정되어야 합니다. 메시지에 태그를 지정하기 위해 [BrokeredMessage.MessageId][BrokeredMessage.MessageId]나 [BrokeredMessage.Label][BrokeredMessage.Label] 속성 또는 사용자 지정 속성을 사용할 수 있습니다. 수신자는 이미 받은 메시지의 목록을 유지해야 합니다.
+클라이언트는 두 큐에서 모두 메시지를 받습니다. 수신자는 메시지의 첫 번째 복사본을 처리하고 두 번째 복사본은 표시하지 않습니다. 중복 메시지를 표시하지 않기 위해 발송자는 각 메시지에 고유 식별자로 태그를 지정해야 합니다. 메시지의 두 복사본 모두 동일한 식별자로 태그가 지정되어야 합니다. 사용할 수는 [BrokeredMessage.MessageId][BrokeredMessage.MessageId] 하거나 [BrokeredMessage.Label][BrokeredMessage.Label] 속성 또는 메시지에 태그를 사용자 지정 속성입니다. 수신자는 이미 받은 메시지의 목록을 유지해야 합니다.
 
-[Service Bus 표준 계층을 사용한 지역 복제][Geo-replication with Service Bus Standard Tier] 샘플을 통해 메시징 엔터티를 능동 복제하는 방법을 볼 수 있습니다.
+합니다 [Service Bus 표준 계층을 사용 하 여 지역에서 복제][Geo-replication with Service Bus Standard Tier] 샘플에서는 메시징 엔터티를 능동 복제를 보여 줍니다.
 
 > [!NOTE]
 > 능동 복제 방식은 작업의 수가 두 배이므로 그만큼 비용이 많이 소요됩니다.
@@ -75,10 +75,10 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 * **메시지 지연 또는 손실**: 발신자가 메시지 m1을 기본 큐로 보낸 다음, 수신자가 m1을 받기 전에 큐가 사용할 수 없는 상태가 되었다고 가정해 보겠습니다. 발신자는 후속 메시지 m2를 보조 큐로 보냅니다. 기본 큐가 일시적으로 사용할 수 없는 상태였다면 수신자는 큐가 다시 사용 가능하게 된 후에 m1을 받게 됩니다. 재해가 발생한 경우라면 수신자가 m1을 아예 받지 못할 수도 있습니다.
 * **중복 수신**: 발신자가 메시지 m을 기본 큐로 보낸다고 가정해 보겠습니다. Service Bus에서 성공적으로 m을 처리했지만 응답을 보내는 데는 실패합니다. 보내기 작업 시간이 초과된 후, 발신자는 m의 동일한 복사본을 보조 큐에 보냅니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 있었다면, 수신자는 거의 동일한 시기에 두 복사본을 받게 됩니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 없었다면, 수신자는 먼저 m의 두 번째 복사본만 받게 되고, 기본 큐가 다시 사용할 수 있게 되면 첫 번째 복사본도 받게 됩니다.
 
-[Service Bus 표준 계층을 사용한 지역 복제][Geo-replication with Service Bus Standard Tier] 샘플을 통해 메시징 엔터티를 수동 복제하는 방법을 볼 수 있습니다.
+합니다 [Service Bus 표준 계층을 사용 하 여 지역에서 복제][Geo-replication with Service Bus Standard Tier] 샘플에서는 메시징 엔터티의 수동 복제를 보여 줍니다.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>데이터센터 가동 중단 또는 재해로부터 릴레이 엔드포인트 보호
-릴레이 엔드포인트의 지역 복제를 사용하면 Service Bus 가동 중단 시에도 릴레이 엔드포인트가 있는 서비스에 연결할 수 있습니다. 지역 복제를 하려면 서비스에서 서로 다른 네임스페이스에 두 릴레이 엔드포인트를 만들어야 합니다. 네임스페이스는 서로 다른 데이터센터에 있어야 하고 두 엔드포인트 이름이 서로 달라야 합니다. 예를 들어, 기본 엔드포인트는 **contosoPrimary.servicebus.windows.net/myPrimaryService**에서 연결할 수 있고 이에 상응하는 보조 엔드포인트는 **contosoSecondary.servicebus.windows.net/mySecondaryService**에서 연결할 수 있습니다.
+지역 간 복제 [Azure Relay](../service-bus-relay/relay-what-is-it.md) 끝점에는 Service Bus 가동 중단 연결할 수는 릴레이 끝점을 노출 하는 서비스 수 있습니다. 지역 복제를 하려면 서비스에서 서로 다른 네임스페이스에 두 릴레이 엔드포인트를 만들어야 합니다. 네임스페이스는 서로 다른 데이터센터에 있어야 하고 두 엔드포인트 이름이 서로 달라야 합니다. 예를 들어, 기본 엔드포인트는 **contosoPrimary.servicebus.windows.net/myPrimaryService**에서 연결할 수 있고 이에 상응하는 보조 엔드포인트는 **contosoSecondary.servicebus.windows.net/mySecondaryService**에서 연결할 수 있습니다.
 
 서비스는 두 엔드포인트를 모두를 수신하고, 클라이언트는 두 엔드포인트 중 어디를 통해서든 서비스를 호출할 수 있습니다. 클라이언트 애플리케이션은 기본 엔드포인트에서 임의로 하나의 릴레이를 선택하고, 활성 엔드포인트로 요청을 보냅니다. 오류 코드가 표시되고 작업이 실패하면, 이 오류는 릴레이 엔드포인트를 사용할 수 없음을 나타냅니다. 애플리케이션은 백업 엔드포인트로의 채널을 열고, 요청을 다시 발송합니다. 이때 활성 엔드포인트와 백업 엔드포인트의 역할이 서로 바뀝니다. 클라이언트 애플리케이션은 이전 활성 엔드포인트를 새 백업 엔드포인트로, 이전 백업 엔드포인트를 새 활성 엔드포인트로 간주합니다. 두 보내기 작업이 모두 실패하면, 두 엔터티의 역할이 바뀌지 않고 유지되며 오류가 반환됩니다.
 

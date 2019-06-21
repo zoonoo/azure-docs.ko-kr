@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119512"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182021"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
@@ -62,7 +62,7 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 디바이스에 다음 경로�
 
 아니요. Virtual Network 주소 접두사와 동일한 접두사의 보급은 Azure 플랫폼에서 차단되거나 필터링됩니다. 그러나 Virtual Network 내에 포함된 접두사의 상위 집합에 해당하는 접두사를 보급할 수 있습니다. 
 
-예를 들어 가상 네트워크에서 10.0.0.0/16 주소 공간을 사용하는 경우 10.0.0.0/8은 보급할 수 있지만, 10\.0.0.0/16 또는 10.0.0.0/24는 보급할 수 없습니다.
+예를 들어 가상 네트워크에서 10.0.0.0/16 주소 공간을 사용하는 경우 10.0.0.0/8은 보급할 수 있지만, 10.0.0.0/16 또는 10.0.0.0/24는 보급할 수 없습니다.
 
 ### <a name="can-i-use-bgp-with-my-vnet-to-vnet-connections"></a>내 VNet-VNet 연결에 BPG를 사용할 수 있나요?
 예. 크로스 프레미스 연결과 VNet-VNet 연결에 모두 BGP를 사용할 수 있습니다.

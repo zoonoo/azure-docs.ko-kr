@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571409"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204525"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Connect 계정 암호 변경
 Azure AD 커넥터 계정 서비스 체험 간주 됩니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어, 실수로 전역 관리자가 PowerShell을 사용 하 여 계정의 암호를 다시 설정 합니다.
@@ -39,12 +39,12 @@ Azure AD 커넥터 계정 인증 문제로 인해 Azure AD에 연결할 수 없�
 ## <a name="known-issues-these-steps-can-solve"></a>이 단계에서 해결할 수 있다고 알려진 문제
 이 섹션은 Azure AD 커넥터 계정에서 다시 설정 하는 자격 증명으로 해결 된 고객이 보고 한 오류 목록입니다.
 
-- - -
+---
 이벤트 6900  
 서버가 암호 변경 알림을 처리하는 동안 예기치 않은 오류가 발생했습니다.  
 AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS50054: 이전 암호가 인증에 사용되었습니다.
 
-- - -
+---
 이벤트 659  
 암호 정책 동기화 구성을 검색하는 도중 오류 발생. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS50054: 이전 암호가 인증에 사용되었습니다.

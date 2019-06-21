@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362274"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700455"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
@@ -45,7 +45,7 @@ ms.locfileid: "60362274"
   
   1. 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**으로 이동합니다.
 
-  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\**로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
+  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\** 로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
 
   1. VMM 서비스 계정과 동일한 사용자 권한 수준을 갖는 사용자 계정으로 스크립트를 테스트합니다. 이렇게 하면 스크립트를 독립형 테스트 환경에서 실행할 때도 복구 계획과 동일한 환경으로 테스트할 수 있습니다. VMM 서버에서 실행 정책을 다음과 같이 우회로 설정합니다.
 

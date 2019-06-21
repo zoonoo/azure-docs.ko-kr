@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204400"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190758"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
@@ -36,21 +36,33 @@ DNS 로그 연결을 사용 하도록 설정 하면 다음 작업을 수행할 �
 - DNS 서버에서 요청 부하 보기
 - 동적 DNS 등록 오류 보기
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="connected-sources"></a>연결된 소스
 
-DNS 연결 DNS 컴퓨터의 에이전트를 설치 하 여 수행 됩니다. 에이전트는 DNS에서 이벤트를 가져오는 및 Log Analytics에 전달 합니다.
+다음 표는 이 솔루션이 지원하는 연결된 원본을 설명합니다.
+
+| **연결된 원본** | **지원** | **설명** |
+| --- | --- | --- |
+| [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure 저장소 계정](../azure-monitor/platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage가 솔루션에서 사용되지 않습니다. |
+
+### <a name="data-collection-details"></a>데이터 수집 세부 정보
+
+솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
+
 
 ## <a name="connect-your-dns-appliance"></a>DNS 어플라이언스를 연결 합니다.
 
 1. Sentinel Azure portal에서 선택 **데이터 커넥터** 선택 합니다 **DNS** 바둑판식으로 배열 합니다.
 1. DNS 컴퓨터를 Azure의 경우:
-    1. 클릭 **Windows 가상 머신에 대 한 에이전트 다운로드 및 설치**합니다.
+    1. 클릭 **Azure Windows 가상 컴퓨터에 에이전트 설치**합니다.
     1. 에 **가상 머신** 목록 Azure Sentinel를 스트리밍 하려는 DNS 컴퓨터를 선택 합니다. Windows VM이 있는지 확인 합니다.
     1. 해당 VM에 대해 열리는 창에서 클릭 **Connect**합니다.  
     1. 클릭 **을 사용 하도록 설정** 에 **DNS 커넥터** 창입니다. 
 
 2. DNS 컴퓨터는 Azure VM 없는 경우:
-    1. 클릭 **Windows 비 Azure 컴퓨터에 대 한 에이전트 다운로드 및 설치**합니다.
+    1. 클릭 **비 Azure 컴퓨터에 에이전트 설치**합니다.
     1. 에 **직접 에이전트** 창 중 하나를 선택 **다운로드 Windows 에이전트 (64 비트)** 하거나 **다운로드 Windows 에이전트 (32 비트)** 합니다.
     1. DNS 컴퓨터에 에이전트를 설치 합니다. 복사 합니다 **작업 영역 ID**를 **기본 키**, 및 **보조 키** 및 설치 하는 동안 메시지가 표시 되 면 사용 합니다.
 

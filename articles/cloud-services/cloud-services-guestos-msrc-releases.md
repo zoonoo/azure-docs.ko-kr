@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743047"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150994"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="june-2019-guest-os"></a>2019 년 6 월 게스트 OS
+
+>[!NOTE]
+>게스트 OS 6 월 현재 롤아웃하는 자동 업데이트에 대해 구성 된 클라우드 서비스 Vm에 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음 패치가 게스트 OS 6 월에에서 포함 됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10 보안   |  6.8  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 보안   |  5.32  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4503290]  |  Windows 보안   |  4.67  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4503263]  |  Windows 보안   |  3.74  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4503269]  |  Windows 보안   |  2.87  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4494174]  |  마이크로코드 업데이트   |  6.8  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4494175]  |  마이크로코드 업데이트   |  5.32  |  2019 년 6 월 3 일  |
+|  Rel 19-06   |  [4503308]  |  깜박임   |  3.74, 4.67, 5.32, 6.8  |  2019 년 6 월 11 일  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  2019 년 6 월 13 일  |
+|  N/A  |  [4499164]  |  비보안 월 ' 19  |  2.87  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495606]  |  5 월 ' 19.NET 3.5-보안  |  2.87  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495596]  |  .NET 4.5 월 ' 19 비보안  |  2.87  |  2019 년 5 월 20 일  |
+|  N/A  |  [4499171]  |  비보안 월 ' 19  |  3.74  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495602]  |  5 월 ' 19.NET 3.5-보안  |  3.74  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495594]  |  5 월 ' 19.NET 4.x 비보안  |  4.67  |  2019 년 5 월 14 일  |
+|  N/A  |  [4499151]  |  비보안 월 ' 19  |  4.67  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495608]  |  5 월 ' 19.NET 3.5-보안  |  4.67  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495592]  |  .NET 4.5.2 월 ' 19 비보안  |  4.67  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495610]  |  5 월 ' 19.NET 4.8 누적  |  6.8  |  2019 년 5 월 14 일  |
+|  N/A  |  [4495618]  |  5 월 ' 19.NET 4.8 누적  |  6.8  |  2019 년 5 월 14 일  |
+|  N/A  |  [4501226]  |  팔레스타인 자치 정부 기관 및 모로코에 대 한 표준 시간대 DST 업데이트  |  2.87, 3.74, 4.67  |  2019 년 5 월 23 일  |
+|  N/A  |  [4490128]  |  상투메 프린시페 및 크질오르다 DST 표준 시간대 업데이트  |  2.87, 3.74, 4.67  |  2019 년 4 월 17 일  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>2019 년 5 월 게스트 OS
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 14 일  |
-|  Rel 19-05   |  [4505050]  |  IE 롤업 될 수 있습니다.   |  2,86, 3.73, 4.66  |  2019 년 5 월 18 일  |
+|  Rel 19-05   |  [4498206]  |  IE 롤업 될 수 있습니다.   |  2.86, 3.73, 4.66  |  2019 년 5 월 14 일  |
+|  Rel 19-05   |  [4505050]  |  IE 롤업 될 수 있습니다.   |  2.86, 3.73, 4.66  |  2019 년 5 월 18 일  |
 |  Rel 19-05   |  [4497932]  |  업데이트를 깜박일 수 있습니다.   |  3.73, 4.66, 5.31  |  2019 년 5 월 14 일  |
 |  Rel 19-05   |  [4499175]  |  5 월 보안 롤업   |  2.86  |  2019 년 5 월 14 일  |
 |  Rel 19-05   |  [4495612]  |  5 월 보안 롤업.NET 3.5   |  2.86  |  2019 년 5 월 14 일  |
@@ -1715,36 +1768,36 @@ ms.locfileid: "66743047"
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

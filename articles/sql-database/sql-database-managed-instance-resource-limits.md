@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070366"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272234"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>개요 Azure SQL Database 관리 인스턴스 리소스 제한
 
@@ -105,7 +105,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 세대의 하드웨어에 �
 
 \* 배포를 계획할 때 (으로 인해 추가 중복) 비즈니스 중요 한 (BC) vCore 일반 용도 (GP) vCore 보다 더 많은 용량 4x를 사용 하는 것이 좋습니다. 따라서 계산, GP vCore 1 개 vCore 단위 및 1 BC vCore 1 개 = = 4 vCore 단위입니다. 기본 제한 값에 대 한 사용량 분석을 단순화 하기 위해 여러 지역에 있는 관리 되는 인스턴스에 배포 된 인스턴스 단위 제한 구독 유형에 대 한 결과 비교 하는 모든 서브넷 vCore 단위 요약 되어 있습니다. **VCore 단위의 최대 수** 제한은 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 하는 모든 vcore 수의 합계는 작거나 여야 합니다. 개별 서브넷 당 제한이 있기 **vCore 단위의 최대**합니다.
 
-\* * 더 큰 서브넷 및 vCore 제한은 사용 가능한 다음 지역에서 다음과 같습니다. 오스트레일리아 동부, 미국 동부, 미국 동부 2, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 유럽 서 부, 미국 서 부 2입니다.
+\*\* 더 큰 서브넷 및 vCore 제한은 사용 가능한 다음 지역에서 다음과 같습니다. 오스트레일리아 동부, 미국 동부, 미국 동부 2, 유럽 북부, 미국 중남부, 동남 아시아, 영국 남부, 유럽 서 부, 미국 서 부 2입니다.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>관리 되는 인스턴스를 SQL에 대 한 더 많은 할당량을 가져오지
 

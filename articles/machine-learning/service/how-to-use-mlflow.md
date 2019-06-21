@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 934e9b705ab5f399d29f24c915b4c60a3b06138b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082574"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144018"
 ---
 # <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스 (미리 보기)를 사용 하 여 MLflow를 사용 하는 방법
 
@@ -145,7 +145,7 @@ run = exp.submit(src)
 
 ## <a name="example-notebooks"></a>노트북 예제
 
-합니다 [Azure ML notebook 사용 하 여 MLflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow) 이 문서의 개념을 보여 줍니다.
+합니다 [Azure ML notebook 사용 하 여 MLflow](https://aka.ms/azureml-mlflow-examples) 이 문서의 개념을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

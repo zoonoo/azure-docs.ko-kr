@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
 ms.openlocfilehash: cd29ec2f2d27a01abeb001cb49cb2c3cd372497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444387"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64716732"
 ---
 # <a name="azure-security-overview"></a>Azure 보안 개요
 
@@ -41,7 +41,7 @@ Azure 보안 정보 사이트에서는 현재 다음과 같은 범주를 다루�
 * 네트워크 보안
 * 저장소 보안
 * 가상 머신 보안
-* 엔드포인트 보호
+* Endpoint Protection
 * 보안 관리 및 모니터링
 * ID 관리
 * PaaS 서비스

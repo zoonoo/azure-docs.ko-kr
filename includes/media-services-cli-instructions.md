@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 8439da94c770bee313a1ae1d1da5df30683cd2ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814887"
 ---
 ## <a name="cli-shell"></a>CLI 셸
 
 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 사용하여 CLI 명령을 실행하는 것이 좋습니다. **Cloud Shell**은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 계정에서 사용할 수 있도록 공용 Azure 도구가 Cloud Shell에 사전 설치 및 구성되어 있습니다. 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다. Linux 사용자는 Bash 환경을 선택할 수 있으며, Windows 사용자는 PowerShell을 선택할 수 있습니다.
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. 
+CLI를 로컬로 설치할 수도 있습니다. 플랫폼과 관련된 지침은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-### <a name="login"></a>로그인
+### <a name="sign-in"></a>로그인
 
-CLI 셸 사용을 시작하려면(클라우드에서 또는 로컬로) `az login`을 실행하여 Azure로 연결을 만듭니다.
+CLI를 로컬로 설치하려면 Azure에 로그인해야 합니다. Azure Cloud Shell에서는 이 단계가 필요 없습니다. `az login` 명령을 사용하여 로그인합니다.
 
-CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않은 경우, 브라우저 페이지를 열고 명령줄의 지침에 따라 브라우저에서 https://aka.ms/devicelogin으로 이동한 후 권한 부여 코드를 입력합니다.
+CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않은 경우, 브라우저 페이지를 열고 명령줄의 지침에 따라 브라우저에서 https://aka.ms/devicelogin 으로 이동한 후 권한 부여 코드를 입력합니다.
 
 ### <a name="specify-location-of-files"></a>파일의 위치 지정
 

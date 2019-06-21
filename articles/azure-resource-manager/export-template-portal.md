@@ -4,20 +4,22 @@ description: 구독의 리소스에서 Azure Resource Manager 템플릿 내보�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296317"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Azure portal에서 템플릿에 단일 및 다중 리소스 내보내기
 
 Azure Resource Manager 템플릿 생성을 지원 하기 위해 기존 리소스에서 템플릿을 내보낼 수 있습니다. 내보낸된 템플릿을 JSON 구문 및 리소스를 배포 하는 속성을 이해 하도록 도와줍니다. 향후 배포를 자동화 하려면 내보낸된 템플릿을 사용 하 여 시작 하 고 시나리오에 대 한 수정 합니다.
 
 Resource Manager를 사용 하면을 템플릿으로 내보내기에 대 한 하나 이상의 리소스를 선택할 수 있습니다. 정확 하 게 필요한 리소스를 템플릿에 집중할 수 있습니다.
+
+이 문서에서는 포털을 통해 템플릿을 내보내는 방법을 보여 줍니다. 사용할 수도 있습니다 [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates)하십시오 [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), 또는 [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>오른쪽 내보내기 옵션을 선택 합니다.
 
@@ -114,7 +116,7 @@ Resource Manager를 사용 하면을 템플릿으로 내보내기에 대 한 하
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Resource Manager에 알아보려면 [Azure Resource Manager 개요](./resource-group-overview.md)합니다.
+- 사용 하 여 템플릿을 내보내는 방법을 알아봅니다 [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates)하십시오 [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), 또는 [REST API](/rest/api/resources/resourcegroups/exporttemplate)합니다.
 - Resource Manager 템플릿 구문에 알아보려면 [구조 및 Azure Resource Manager 템플릿의 구문 이해](./resource-group-authoring-templates.md)합니다.
 - 템플릿을 개발 하는 방법에 알아보려면 참조를 [단계별 자습서](/azure/azure-resource-manager/)합니다.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)합니다.

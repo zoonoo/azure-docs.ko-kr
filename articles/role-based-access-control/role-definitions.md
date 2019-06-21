@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074001"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275050"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
@@ -52,7 +52,8 @@ AssignableScopes []
 | ------------------- | ------------------- |
 | `*` | 와일드카드 문자는 문자열과 일치하는 모든 작업에 대한 액세스 권한을 부여합니다. |
 | `read` | 읽기 작업(GET)을 사용하도록 설정합니다. |
-| `write` | 쓰기 작업(PUT, POST 및 PATCH)을 사용하도록 설정합니다. |
+| `write` | 하면 쓰기 작업 (PUT 또는 PATCH). |
+| `action` | Virtual machines (POST) 다시 시작 하는 등 사용자 지정 작업을 실행할 수 있습니다. |
 | `delete` | 삭제 작업(DELETE)을 사용하도록 설정합니다. |
 
 JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있습니다. `Actions`에 포함된 와일드카드(`*`) 작업은 이 역할에 할당된 주체가 모든 작업을 수행할 수 있음, 즉 모든 항목을 관리할 수 있음을 나타냅니다. 여기에는 나중에 Azure에서 새 리소스 종류를 추가함에 따라 정의되는 작업이 포함됩니다. `NotActions`에 속한 작업은 `Actions`에서 제외됩니다. [기여자](built-in-roles.md#contributor) 역할의 경우 `NotActions`는 리소스에 대한 액세스를 관리하고 할당하는 이 역할의 기능을 제거합니다.
@@ -79,7 +80,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>관리 및 데이터 작업(미리 보기)
+## <a name="management-and-data-operations"></a>관리 및 데이터 작업
 
 관리 작업에 대한 역할 기반 액세스 제어는 역할 정의의 `Actions` 및 `NotActions` 속성에 지정됩니다. Azure의 관리 작업에 대한 몇 가지 예는 다음과 같습니다.
 
@@ -89,7 +90,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 관리 액세스 권한은 데이터에 상속되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 저장소 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
 
-이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업(현재 미리 보기)으로 확장되었습니다.
+이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용 되는 동일한 역할 기반 액세스 제어 권한 부여 모델 데이터 작업으로 확장 되었습니다.
 
 데이터 작업을 지원하기 위해 새로운 데이터 속성이 역할 정의 구조에 추가되었습니다. 데이터 작업은 `DataActions` 및 `NotDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `DataActions` 및 `NotDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
 
@@ -169,11 +170,7 @@ Bob의 권한은 제한만 `Actions` 하 고 `DataActions` 에 지정 된 된 [S
 
 REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개 변수를 다음 버전 이상으로 설정해야 합니다.
 
-- 2018-01-01-preview
-
-Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 콘텐츠를 찾아보고 관리할 수 있습니다. 큐 또는 Blob 컨테이너 콘텐츠를 보고 관리하려면 스토리지 계정 개요에서 **Azure AD 미리 보기를 사용하여 데이터 알아보기**를 클릭합니다.
-
-![Azure AD 미리 보기를 사용하여 큐 및 Blob 컨테이너 알아보기](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>작업
 
@@ -195,7 +192,7 @@ Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 
 > 사용자에게 `NotActions`에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. `NotActions`는 거부 규칙이 아니며, 특정 작업을 제외해야 할 경우 허용되는 작업 집합을 만드는 편리한 방법일 뿐입니다.
 >
 
-## <a name="dataactions-preview"></a>DataActions(미리 보기)
+## <a name="dataactions"></a>DataActions
 
 `DataActions` 권한은 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정합니다. 예를 들어 사용자가 저장소 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 저장소 계정 내의 Blob을 읽을 수 있습니다. `DataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
 
@@ -206,7 +203,7 @@ Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | 메시지 반환 |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | 메시지 또는 메시지 작성/삭제 결과를 반환합니다. |
 
-## <a name="notdataactions-preview"></a>NotDataActions(미리 보기)
+## <a name="notdataactions"></a>NotDataActions
 
 `NotDataActions` 권한은 허용된 `DataActions`에서 제외되는 데이터 작업을 지정합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `DataActions` 작업에서 `NotDataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696607"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303462"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>인식 검색을 위한 문제 해결 팁
 
@@ -94,7 +94,10 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 최대 실행 시간은 무료 계층에는 몇 분 인덱싱, 청구 가능 계층에는 24시간 인덱싱 등 계층에 따라 다릅니다. 요청 시 처리를 위해 처리를 24시간 내에 완료하지 못하면 인덱서가 중단된 경우 처리를 선택할 수 있도록 일정을 전환합니다. 
 
-예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대한 자세한 내용은 [3단계: 인덱서 만들기](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)를 참조하세요.
+예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대한 자세한 내용은 [3단계: 인덱서를 만들기](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) 보거나 [Azure search 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)합니다.
+
+> [!NOTE]
+> 인덱서는 특정 일정에 설정 되어 반복적으로 동일한 실패 문서화 반복 해 서 될 때마다 실행 하지만 인덱서 시작 하는 경우 성공적으로 될 때까지 (최대 24 시간 마다 한 번 이상)를 보다 긴 간격으로 실행 진행률 aga을 사용 하는 .  무엇이 든 특정 지점에서 멈춰 있을 인덱서의 발생 하는 문제를 해결 한 있습니다을 생각 하는 경우 인덱서에서 요청 시 실행을 수행할 수 있습니다 하는 경우는 성공적으로 수행 진행률 인덱서 돌아갑니다 집합 일정 간격이 다시 합니다.
 
 포털 기반 인덱싱의 경우(빠른 시작에서 설명한 대로) "한 번 실행" 인덱서 옵션을 선택하면 처리 시간을 1시간(`"maxRunTime": "PT1H"`)으로 제한합니다. 처리 창을 조금 더 길게 확장하고 싶을 수 있습니다.
 

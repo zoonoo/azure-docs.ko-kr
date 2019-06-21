@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/12/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053335"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154168"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure 응용 프로그램 게이트웨이 마이그레이션 및 웹 v1에서 v2로 응용 프로그램 방화벽
 
@@ -133,7 +133,7 @@ Az Azure 모듈이 설치 된 경우를 확인 하려면 실행 `Get-InstalledMo
       -sslCertificates $Certs `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceName "MyPublicIP" `
+      -publicIpResourceId "MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

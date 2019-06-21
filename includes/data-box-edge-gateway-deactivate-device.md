@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67125626"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182664"
 ---
 장치를 재설정 하려면 장치의 부팅 디스크 및 데이터 디스크의 모든 데이터가 안전 하 게 초기화 해야 합니다. 
 

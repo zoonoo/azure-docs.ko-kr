@@ -49,6 +49,11 @@
         - name: 배포 단계
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: 영국 공식
+      items:
+        - name: 컨트롤 매핑
+          displayName: 'standards, uk official'
+          href: ./samples/ukofficial/control-mapping.md
 - name: 개념
   items:
     - name: 청사진 수명 주기

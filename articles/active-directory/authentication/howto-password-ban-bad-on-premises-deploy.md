@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057292"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293027"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -145,7 +145,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
    > 이 cmdlet은 특정 Azure 테 넌 트에 대해 실행 되는 처음으로 완료 되기 전에 현저한 지연이 있을 수 있습니다. 오류가 보고 된 경우가 아니면이 지연에 대 한 걱정 하지 마세요.
 
 1. 포리스트를 등록합니다.
-   * 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. Cmdlet는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요합니다. 또한 포리스트 루트 도메인의 온-프레미스 Active Directory 도메인 관리자 권한이 필요합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
+   * 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다는 `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. Cmdlet는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
 
       `Register-AzureADPasswordProtectionForest` cmdlet은 다음 세 가지 인증 모드를 지원 합니다.
 
@@ -219,7 +219,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
    두 경우 모두 대체 `http://yourhttpproxy.com:8080` 특정 HTTP 프록시 서버 포트와 주소입니다.
 
-   HTTP 프록시에 구성 된 경우 저희에 게 권한 부여 정책에 부여 해야 암호 보호에 대 한 프록시 서비스를 호스팅하는 컴퓨터의 Active Directory 컴퓨터 계정에 대 한 액세스.
+   HTTP 프록시를 권한 부여 정책을 사용 하도록 구성 된 경우 암호 보호에 대 한 프록시 서비스를 호스팅하는 컴퓨터의 Active Directory 컴퓨터 계정에 대 한 액세스를 부여 해야 합니다.
 
    중지 하 고 만들기 또는 업데이트 한 후에 프록시 서비스를 다시 시작 하는 것이 좋습니다 합니다 *AzureADPasswordProtectionProxy.exe.config* 파일입니다.
 

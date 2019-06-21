@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824447"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293437"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -44,6 +44,7 @@ ms.locfileid: "65824447"
 | Media Services 계정당 변환 | 100(고정)|
 | 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(6)</sup> (고정) |
 | 콘텐츠 키 정책에 따라 옵션 |30 | 
+| 각 Media Services에서 DRM 형식에 대 한 월별 라이선스 키 배달 서비스 계정당|1,000,000|
 
 <sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. Media services 서비스에서 사용 되는 VM 크기에 따라 추가 제한이 적용 됩니다. 크기 제한에 업로드 하는 파일 및 처리 (인코딩 또는 분석) 하는 Media Services의 결과로 생성 된 파일에 적용 됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
 

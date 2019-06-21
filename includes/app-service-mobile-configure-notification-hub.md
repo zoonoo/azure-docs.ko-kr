@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: da3793c428c624ce3a224cbd7606ab26c4a50803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140230"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182706"
 ---
 Azure App Service의 Mobile Apps 기능은 [Azure Notification Hubs]를 사용하여 푸시를 보내므로 모바일 앱에 대해 알림 허브가 구성됩니다.
 

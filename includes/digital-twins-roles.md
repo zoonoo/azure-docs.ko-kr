@@ -9,11 +9,11 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 7e4760990229433b2ea40fadd0d17de0b52fcb36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162131"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182838"
 ---
 다음 표에서는 Azure Digital Twins에서 사용할 수 있는 역할에 대해 설명합니다.
 

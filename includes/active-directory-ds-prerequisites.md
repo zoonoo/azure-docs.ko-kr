@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
 ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111394"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182785"
 ---
 > [!IMPORTANT]
 > **이 문서의 작업을 완료하기 전에 Azure AD Domain Services에 대한 암호 해시 동기화를 사용하도록 설정합니다.**

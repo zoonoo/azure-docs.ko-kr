@@ -9,11 +9,11 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121309"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181938"
 ---
 > [!IMPORTANT]
 > 2017년 3월 1일부터 클래식 배포 모델에서 새 ExpressRoute 회로를 만들 수 없습니다.

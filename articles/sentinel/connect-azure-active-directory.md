@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204489"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190450"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터 연결
 
@@ -34,6 +34,8 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 - Active Directory에서 로그인 데이터를 내보낼 하려는 경우에 Azure AD P1 또는 P2 라이선스가 있어야 합니다.
 
 - 로그를 스트리밍 하려는 테 넌 트에서 전역 관리자 또는 보안 관리자 권한이 있는 사용자입니다.
+
+- 연결 상태를 볼 수, Azure AD에 대 한 진단 정보를 액세스할 수 있는 권한이 있어야 합니다. 
 
 
 ## <a name="connect-to-azure-ad"></a>Azure AD에 연결

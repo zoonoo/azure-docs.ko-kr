@@ -9,17 +9,17 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160497"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182583"
 ---
 저장소는 디스크 공간이나 인덱스, 문서 또는 기타 고급 리소스의 *최대 수*의 하드 제한 중에서 먼저 충족되는 조건에 따라 제한됩니다. 다음 표에서는 저장소 제한에 대해 설명합니다. 인덱스, 문서 및 기타 개체의 최대 제한에 대해서 [리소스별 제한](../articles/search/search-limits-quotas-capacity.md#index-limits)합니다.
 
 | Resource | 무료 | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 서비스 수준 계약 (SLA)<sup>3</sup>  |아닙니다. |예 |예 |예 |예 |예 |예 |예. |
+| 서비스 수준 계약 (SLA)<sup>3</sup>  |아닙니다. |예 |예 |예 |예 |예 |예 |예 |
 | 파티션당 저장소 |50MB |2 GB |25GB |100GB |200GB |200GB |1TB |2TB |
 | 서비스당 파티션 |N/A |1 |12 |12 |12 |3 |12 |12 |
 | 파티션 크기 |N/A |2GB |25GB |100GB |200GB |200GB |1TB |2TB |

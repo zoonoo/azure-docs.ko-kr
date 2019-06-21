@@ -9,11 +9,11 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115439"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182418"
 ---
 Azure Storage는 Microsoft 관리 키 또는 고객 관리 키를 사용 하 여 휴지 상태의 암호화를 지원 합니다. 고객 관리 키를 사용 하 여 만들기, 회전, 해제 및 액세스 제어를 취소할 수 있습니다.
 

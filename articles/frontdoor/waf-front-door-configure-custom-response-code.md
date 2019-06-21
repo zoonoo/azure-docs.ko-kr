@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: d6d73055abe972cd3b6fee253b6bdb2b082ceca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242980"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165366"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답을 구성 합니다.
 
@@ -65,7 +65,7 @@ New-AzFrontDoorWafPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-사용자 지정 응답 코드 또는 응답 본문 설정을 기존 WAF 정책의 수정를 사용 하 여 [업데이트 AzFrontDoorFireWallPolicy ](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy)합니다.
+사용자 지정 응답 코드 또는 응답 본문 설정을 기존 WAF 정책의 수정를 사용 하 여 [업데이트 AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy)합니다.
 
 ```azurepowershell
 # modify WAF response code

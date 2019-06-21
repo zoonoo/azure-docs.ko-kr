@@ -1,22 +1,17 @@
 ---
 title: Azure 부모 리소스 오류 | Microsoft Docs
 description: 부모 리소스 사용 시 발생하는 오류를 해결하는 방법을 설명합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 19642138105f3de0e2bda3f0f80e12cf74a35709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61059993"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205399"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
 

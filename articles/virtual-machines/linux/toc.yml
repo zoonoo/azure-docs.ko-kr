@@ -119,8 +119,8 @@
           href: ephemeral-os-disks.md
     - name: 네트워킹
       href: network-overview.md
-    - name: 자동 크기 조정 애플리케이션
-      href: autoscale.md
+    - name: 확장 집합
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 인프라 자동화
       href: infrastructure-automation.md
     - name: 보안 및 정책
@@ -411,8 +411,6 @@
           href: freebsd-pf-nat.md
         - name: 데이터베이스
           items:
-            - name: MySQL
-              href: mysql-install.md
             - name: SUSE의 MySQL
               href: mysql-on-opensuse.md
             - name: MongoDB

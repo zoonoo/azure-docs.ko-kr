@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690565"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203463"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -113,6 +113,15 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 5. 다음을 사용하여 Hyper-V 호스트가 사이트에 등록되었는지 확인합니다.
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고 다음 단계를 수행합니다.
+1. 이 명령을 실행 하 여 로컬 디렉터리로 AzureSiteRecoveryProvider.exe에서 파일을 추출 합니다. ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 실행 ```.\setupdr.exe /i``` 결과 %Programdata%\ASRLogs\DRASetupWizard.log 기록 됩니다.
+
+3. 다음 명령을 실행하여 서버를 등록합니다.
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>6단계: 복제 정책 만들기
 

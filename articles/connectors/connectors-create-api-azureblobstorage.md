@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60958641"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296634"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -30,12 +30,21 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 >
 > * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
-커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage 커넥터 참조</a>를 참조하세요.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](/connectors/azureblobconnector/)를 참조하세요.
+
+## <a name="limits"></a>제한
+
+* 기본적으로 Azure Blob Storage 작업 읽거나 쓸 수 있는 파일 *50MB 작거나*합니다. Azure Blob Storage 작업을 지원 하지만 최대 1024MB 50MB 보다 큰 파일을 처리 하려면 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)합니다. 합니다 **Get blob 콘텐츠** 작업 청크 암시적으로 사용 합니다.
+
+* Azure Blob Storage 트리거 청크를 지원 하지 않습니다. 트리거 50MB 있는 파일만 선택 파일 콘텐츠를 요청할 경우 하거나 축소 합니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
+
+  * 와 같은 파일 속성을 반환 하는 Azure Blob Storage 트리거를 사용 하 여 **blob 추가 되거나 (속성만)를 수정할 때**합니다.
+
+  * Azure Blob Storage를 사용 하 여 트리거를 따릅니다 **Get blob 콘텐츠** 전체 파일을 읽고 암시적으로 청크를 사용 하는 작업입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [Azure 저장소 계정 및 저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -47,13 +56,13 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
 Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 통해 시작되어야 합니다. 트리거가 실행될 때마다 Logic Apps 엔진에서 논리 앱 인스턴스를 만들고 앱의 워크플로를 실행하기 시작합니다.
 
-이 예제는 Blob의 속성이 스토리지 컨테이너에서 추가되거나 업데이트될 때 **Azure Blob Storage - Blob이 추가되거나 수정된 경우(속성만)** 트리거를 사용하여 논리 앱 워크플로를 시작하는 방법을 보여줍니다. 
+이 예제에서는 어떻게 사용 하 여 논리 앱 워크플로 시작할 수 있습니다 합니다 **blob 추가 되거나 (속성만)를 수정할 때** blob 속성을 가져옵니다 추가 하거나 저장소 컨테이너에 업데이트할 때 트리거.
 
-1. Azure Portal 또는 Visual Studio에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 이 예에서는 Azure Portal을 사용합니다.
+1. 에 [Azure portal](https://portal.azure.com) 또는 Visual Studio에서 논리 앱 디자이너를 열 수 있는 빈 논리 앱을 만듭니다. 이 예에서는 Azure Portal을 사용합니다.
 
 2. 검색 상자에서 "azure blob"을 필터로 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
 
-   이 예제에서는이 트리거를 사용합니다. **Azure Blob Storage-blob 추가 되거나 (속성만)를 수정 하는 경우**
+   이 예제에서는이 트리거를 사용합니다. **Blob이 추가 하는 경우 또는 수정된 (속성만)**
 
    ![트리거 선택](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -79,22 +88,22 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)은 트리거 또는 다른 작업을 수행하는 워크플로의 한 단계입니다. 이 예제의 경우 논리 앱은 [되풀이 트리거](../connectors/connectors-native-recurrence.md)로 시작합니다.
 
-1. Azure Portal 또는 Visual Studio에서 논리 앱 디자이너에서 논리 앱을 엽니다. 이 예에서는 Azure Portal을 사용합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다. 이 예에서는 Azure Portal을 사용합니다.
 
-2. 논리 앱 디자이너의 트리거 또는 작업 아래에서 **새 단계** > **작업 추가**를 차례로 선택합니다.
+2. 트리거 또는 작업을 논리 앱 디자이너에서 선택 **새 단계**합니다.
 
    ![작업 추가](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
-   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 더하기 기호를 선택 ( **+** )는 표시 되 고 선택 **작업 추가**합니다.
 
 3. 검색 상자에서 "azure blob"을 필터로 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
-   이 예제에서는이 작업을 사용합니다. **Azure Blob Storage-blob 콘텐츠 가져오기**
+   이 예제에서는이 작업을 사용합니다. **Blob 콘텐츠 가져오기**
 
-   ![작업 선택](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
+   ![작업 선택](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
-4. 연결 세부 정보를 묻는 메시지가 표시되면 [이제 Azure Blob Storage 연결을 만듭니다](#create-connection). 또는 연결이 이미 존재하는 경우 작업에 대한 필요한 정보를 제공합니다.
+4. 연결 세부 정보를 묻는 메시지가 표시되면 [이제 Azure Blob Storage 연결을 만듭니다](#create-connection).
+또는 연결이 이미 존재하는 경우 작업에 대한 필요한 정보를 제공합니다.
 
    이 예제의 경우 원하는 파일을 선택합니다.
 
@@ -120,11 +129,6 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 ## <a name="connector-reference"></a>커넥터 참조
 
 트리거, 작업 및 커넥터의 공개 API에 설명 된 대로 제한 등의 기술 세부 정보에 대 한 (이전의 Swagger) 파일, 참조를 [커넥터의 참조 페이지](/connectors/azureblobconnector/)합니다.
-
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
