@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171209"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235385"
 ---
 다음 표에 Azure Service Bus 메시징 관련 할당량 정보가 있습니다. 가격 책정에 대 한 정보 및 Service Bus에 대 한 다른 할당량 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)합니다.
 
 | 할당량 이름 | Scope | 메모 | 값 |
 | --- | --- | --- | --- |
 | Azure 구독 당 기본 또는 표준 네임 스페이스 최대 수 |네임스페이스 |Azure portal에서 기본 또는 표준 네임 스페이스를 추가 하기 위한 후속 요청이 거부 됩니다. |100|
-| Azure 구독 당 프리미엄 네임 스페이스의 최대 수 |네임스페이스 |추가 프리미엄 네임 스페이스에 대 한 후속 요청은 포털에서 거부 됩니다. |25 |
+| Azure 구독 당 프리미엄 네임 스페이스의 최대 수 |네임스페이스 |추가 프리미엄 네임 스페이스에 대 한 후속 요청은 포털에서 거부 됩니다. |50 |
 | 큐 또는 토픽 크기 |엔터티 |큐 또는 토픽을 만들 때 정의 됩니다. <br/><br/> 이후에 들어오는 메시지는 거부 되 고 호출 코드에서 예외가 수신 됩니다. |1, 2, 3, 4GB 또는 5GB<br /><br />프리미엄 SKU에서 사용 하 여 표준 SKU [분할](/azure/service-bus-messaging/service-bus-partitioning) 활성화 최대 큐 또는 토픽 크기는 80GB입니다. |
 | 네임스페이스에 대한 동시 연결 수 |네임스페이스 |추가 연결에 대 한 후속 요청은 거부 되 고 호출 코드에서 예외가 수신 됩니다. REST 작업은 동시 TCP 연결 방향으로 계산 되지 않습니다. |NetMessaging: 1,000.<br /><br />AMQP: 5,000. |
 | 큐, 토픽 또는 구독 엔터티에서 요청을 수신 하는 동시에 실행 수 |엔터티 |후속 수신 요청은 거부 되 고 호출 코드에서 예외가 수신 됩니다. 이 할당량은 항목의 모든 구독 전반에 걸쳐 종합된 동시 수신 명령 수에 적용됩니다. |5,000 |

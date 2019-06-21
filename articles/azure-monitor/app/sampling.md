@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388381"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136889"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -53,7 +53,7 @@ ms.locfileid: "66388381"
 
 적응 샘플링은 Application Insights SDK ASP.NET v 2.0.0-beta3 이상에서는 Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1에 사용할 수 있는 이상에서는 기본적으로 사용 됩니다.
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨의 트래픽 지정 된 최대 속도로 내로 유지 하도록 자동으로 조정 됩니다 및 설정을 통해 제어 됩니다 `MaxTelemetryItemsPerSecond`합니다. 항목 볼륨은 아래와 샘플링 하지 낮은 사용량으로 인 한 또는 디버깅할 때와 같은 응용 프로그램 원격 분석의 양이 생성 `MaxTelemetryItemsPerSecond`합니다. 원격 분석 증가 된 볼륨으로 샘플링 주기는 대상 볼륨을 달성 하도록 조정 됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨의 트래픽 지정 된 최대 속도로 내로 유지 하도록 자동으로 조정 됩니다 및 설정을 통해 제어 됩니다 `MaxTelemetryItemsPerSecond`합니다. 볼륨은 아래와 샘플링 프로세서에서 항목을 삭제 하지 않습니다 낮은 사용량으로 인 한 또는 디버깅할 때와 같은 응용 프로그램 원격 분석의 양이 생성 하는 경우 `MaxTelemetryItemsPerSecond`합니다. 원격 분석 증가 된 볼륨으로 샘플링 주기는 대상 볼륨을 달성 하도록 조정 됩니다.
 
 목표량을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다.
 

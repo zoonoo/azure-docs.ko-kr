@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755382"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302239"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Azure search 인덱서를 예약 하는 방법
 일반적으로 인덱서를 만든 후에 즉시 한 번 실행 합니다. 포털, REST API 또는.NET SDK를 사용 하 여 요청 시 해당 작업을 다시 실행할 수 있습니다. 또한 일정에 따라 주기적으로 실행 하기 위한 인덱서를 구성할 수 있습니다.
@@ -43,6 +43,9 @@ ms.locfileid: "66755382"
 * 첫 번째 인덱서 실행 2019 년 6 월 1 년 8:00 AM UTC 시경에 시작합니다. 이 실행에 20분(또는 1시간 미만의 기간)이 걸리는 것으로 가정합니다.
 * 두 번째 실행 시작 2019 년 6 월 1, 오전 9:00 시경 UTC입니다. 이 실행 되는 70 분-1 시간 넘게-오전 10시 10분 UTC까지 완료 되지 것입니다 만든다고 가정 합니다.
 * 세 번째 실행 오전 10시 UTC에 시작 되도록 설정 되어 있지만 시점 이전에 실행 한 계속 실행 합니다. 이 예약 된 실행을 건너뜀 합니다. 다음 인덱서 실행은 오전 11시 UTC까지 시작 되지 않습니다.
+
+> [!NOTE]
+> 인덱서는 특정 일정에 설정 되어 반복적으로 동일한 실패 문서화 반복 해 서 될 때마다 실행 하지만 인덱서 시작 하는 경우 성공적으로 될 때까지 (최대 24 시간 마다 한 번 이상)를 보다 긴 간격으로 실행 진행률 aga을 사용 하는 .  무엇이 든 특정 지점에서 멈춰 있을 인덱서의 발생 하는 문제를 해결 한 있습니다을 생각 하는 경우 인덱서에서 요청 시 실행을 수행할 수 있습니다 하는 경우는 성공적으로 수행 진행률 인덱서 돌아갑니다 집합 일정 간격이 다시 합니다.
 
 <a name="portal"></a>
 

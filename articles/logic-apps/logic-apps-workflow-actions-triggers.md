@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596950"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274182"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic apps 워크플로 정의 언어에서 트리거 및 작업 형식에 대 한 참조
 
@@ -2389,7 +2389,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 트리거 및 작업에 대한 기본 동작을 트리거 또는 작업 정의의 `operationOptions` 속성을 사용하여 변경할 수 있습니다.
 
-| 작업 옵션 | Type | 설명 | 트리거 또는 작업 | 
+| 작업 옵션 | 형식 | 설명 | 트리거 또는 작업 | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | 비동기가 아닌 동기적으로 HTTP 기반 작업을 실행합니다. <p><p>이 옵션을 설정하려면 [동기적으로 작업 실행](#asynchronous-patterns)을 참조하세요. | 작업: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[응답](#response-action) | 
 | `OptimizedForHighThroughput` | String | 5분당 작업 실행 수에 대한 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)을 [최대 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)으로 변경합니다. <p><p>이 옵션을 설정하려면 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조하세요. | 모든 작업 | 
@@ -2624,7 +2624,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ### <a name="run-in-high-throughput-mode"></a>높은 처리량 모드에서 실행
 
-단일 논리 앱 실행의 경우 5분마다 실행되는 작업 수에는 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)이 적용됩니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다. 
+단일 논리 앱 정의 5 분 마다 실행 되는 작업 수에는 [기본 제한은](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)합니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다. 
 
 > [!NOTE]
 > 높은 처리량 모드는 미리 보기로 제공됩니다. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 분산할 수도 있습니다.

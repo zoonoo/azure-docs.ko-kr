@@ -1,6 +1,6 @@
 ---
-title: VM용 Azure Monitor(미리 보기)를 사용하여 모니터링을 사용하지 않도록 설정하는 방법 | Microsoft Docs
-description: 이 문서에서는 VM용 Azure Monitor를 사용하여 가상 머신의 모니터링을 중단하는 방법을 설명합니다.
+title: Vm (미리 보기)에 대 한 Azure Monitor의 모니터링 사용 안 함 | Microsoft Docs
+description: 이 문서에서는 Azure Monitor에서 가상 컴퓨터를 Vm에 대 한 모니터링을 중지 하는 방법을 설명 합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522129"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155695"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링을 사용하지 않도록 설정하는 방법
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Azure Monitor에서 Vm의 Vm (미리 보기)에 대 한 모니터링 사용 안 함
 
-가상 머신의 모니터링을 사용하도록 설정한 후 VM용 Azure Monitor를 사용하여 해당 가상 머신을 더 이상 모니터링하지 않기로 한 경우 모니터링을 사용하지 않도록 설정할 수 있습니다. 이 문서에서는 단일 또는 여러 VM에 대해 이 작업을 수행하는 방법을 보여줍니다.  
+가상 컴퓨터 (Vm)의 모니터링을 활성화 한 후에 Vm에 대 한 Azure Monitor의 모니터링을 사용 하지 않도록 설정 하려면 나중에 선택할 수 있습니다. 이 문서에는 하나 이상의 Vm에 대 한 모니터링을 사용 하지 않도록 설정 하는 방법을 보여 줍니다.  
 
-현재 VM용 Azure Monitor는 VM의 모니터링을 선택적으로 비활성화하는 방법을 지원하지 않습니다. 이 솔루션 및 기타 솔루션을 지원할 뿐만 아니라 기타 모니터링 데이터를 수집하도록 Log Analytics 작업 영역을 구성하는 경우 계속 진행하기 전에 아래에 설명된 영향 및 메서드를 이해하는 것이 중요합니다.
+현재 Vm에 대 한 Azure Monitor는 선택적 비활성화 VM 모니터링을 지원 하지 않습니다. Log Analytics 작업 영역 Vm 및 다른 솔루션에 대 한 Azure Monitor를 지원할 수 있습니다. 기타 모니터링 데이터를 수집할 수도 있습니다. Log Analytics 작업 영역에서 이러한 서비스를 제공 하는 경우 적용 및 모니터링을 시작 하기 전에 사용 하지 않도록 설정 하는 메서드를 이해 해야 합니다.
 
 VM용 Azure Monitor는 해당 환경을 제공하기 위해 다음 구성 요소를 사용합니다.
 
-* VM 및 기타 원본에서 수집한 모니터링 데이터를 저장하는 Log Analytics 작업 영역.
-* 작업 영역에 연결하는 모든 VM의 모니터링 구성을 업데이트하는 작업 영역에서 구성된 성능 카운터의 컬렉션.
-* 작업 영역에서 구성된 두 개의 모니터링 솔루션 - 작업 영역에 연결된 모든 VM의 모니터링 구성을 업데이트하는 **InfrastructureInsights** 및 **ServiceMap**.
-* 데이터를 수집해 작업 영역에 전송하는 두 Azure 가상 머신 확장 **MicrosoftMonitoringAgent** 및 **DependencyAgent**.
+* Log Analytics 작업 영역을 Vm 및 기타 원본에서 모니터링 데이터를 저장 합니다.
+* 컬렉션 작업 영역에서 구성 하는 성능 카운터입니다. 컬렉션 작업 영역에 연결 된 모든 Vm에 모니터링 구성을 업데이트 합니다.
+* `InfrastructureInsights` 및 `ServiceMap`, 작업 영역에서 구성 된 솔루션을 모니터링 하는입니다. 이러한 솔루션에는 작업 영역에 연결 된 모든 Vm에 모니터링 구성을 업데이트 합니다.
+* `MicrosoftMonitoringAgent` 및 `DependencyAgent`에 Azure VM 확장 합니다. 이러한 확장 수집 하 고 작업 영역에 데이터를 보냅니다.
 
-VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신의 모니터링을 비활성화하도록 준비하는 경우 다음을 고려합니다.
+Vm의 모니터링을 사용 하지 않도록 설정할 준비가 이러한 사항을 고려 하십시오.
 
-* 단일 VM으로 평가하고 미리 선택된 기본 Log Analytics 작업 영역을 허용한 경우 VM에서 종속성 에이전트를 제거하고 이 작업 영역에서 Log Analytics 에이전트의 연결을 해제하여 모니터링을 비활성화할 수 있습니다. 이 접근 방식은 다른 용도로 VM을 사용하고 나중에 다른 작업 영역에 VM을 다시 연결하려는 경우에 적합합니다.
-* 기타 원본에서 데이터 컬렉션 및 기타 모니터링 솔루션을 지원하기 위해 Log Analytics 작업 영역을 사용하고 있는 경우 작업 영역을 중단하거나 작업 영역에 영향을 주지 않고 작업 영역에서 VM용 Azure Monitor 솔루션 구성을 제거할 수 있습니다.  
-
->[!NOTE]
-> 작업 영역에서 솔루션 구성 요소를 제거한 후에는 Azure VM의 성능 상태, 특히 포털에서 보기로 이동할 경우 성능 및 맵 데이터를 계속 확인할 수 있습니다. 결국 데이터는 잠시 후 성능 및 맵 보기에서 표시되지 않지만 상태 보기는 VM에 대한 성능 상태를 계속 표시합니다. **지금 시도** 옵션은 향후 모니터링을 다시 활성화할 수 있도록 선택한 Azure VM에서 사용할 수 있습니다.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>VM용 Azure Monitor의 완전한 제거
-
-다음 단계에서는 Log Analytics 작업 영역이 계속 필요한 경우 VM용 Azure Monitor를 완전히 제거하는 방법을 설명합니다. 작업 영역에서 **InfrastructureInsights** 및 **ServiceMap** 솔루션을 제거하도록 하겠습니다.  
+* 단일 VM을 사용 하 여 확인 하 고 미리 선택 된 기본 Log Analytics 작업 영역을 사용 하는 경우 VM에서 종속성 에이전트를 제거 하 고이 작업 영역에서 Log Analytics 에이전트를 연결을 해제 하 여 모니터링을 비활성화할 수 있습니다. 이 방법은 VM을 다른 용도로 사용 하 고 나중에 다른 작업 영역에 다시 연결 하려는 경우에 적합 합니다.
+* 다른 원본에서 데이터 수집 및 기타 모니터링 솔루션을 지 원하는 기존 Log Analytics 작업 영역을 선택한 경우에 중단 또는 작업 영역에 영향을 주지 않고 작업 영역에서 솔루션 구성 요소를 제거할 수 있습니다.  
 
 >[!NOTE]
->VM용 Azure Monitor를 사용하도록 설정하기 전에 서비스 맵 모니터링 솔루션을 여전히 사용하는 경우 아래 6단계에 설명된 대로 해당 솔루션을 제거하지 마세요.  
+> 작업 영역에서 솔루션 구성 요소를 제거한 후에 Azure Vm의 상태를 확인 하려면 계속 될 수 있습니다. 특히 성능이 하 고 포털의 보기 중 하나를 수행할 때 데이터를 매핑합니다. 데이터는 결국 나타나는 중지 합니다 **성능** 하 고 **지도** 뷰. 하지만 **상태** 보기 계속 Vm에 대 한 상태 표시 됩니다. 합니다 **지금** 모니터링 나중에 다시 사용할 수 있도록 옵션 선택된 된 Azure VM에서 사용할 수 있습니다.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Vm에 대 한 Azure Monitor를 완전히 제거
+
+Log Analytics 작업 영역을 계속 해야 하는 경우에 Vm에 대 한 Azure Monitor를 완전히 제거 하려면 다음이 단계를 수행 합니다. 제거 된 `InfrastructureInsights` 및 `ServiceMap` 작업 영역에서 솔루션입니다.  
+
+>[!NOTE]
+>Vm에 대 한 Azure Monitor를 사용 하도록 설정 하 고에 여전히 의존 하기 전에 솔루션을 모니터링 하는 서비스 맵을 사용한 경우 다음 절차의 마지막 단계에 설명 된 대로 해당 솔루션을 제거 하지 마세요.  
 >
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 Log Analytics를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
-3. Log Analytics 작업 영역 목록에서 VM용 Azure Monitor를 온보딩할 때 선택한 작업 영역을 선택합니다.
-4. 왼쪽 창에서 **솔루션**을 선택합니다.  
-5. 솔루션 목록에서 **InfrastructureInsights(작업 영역 이름)** 를 선택한 다음, 솔루션에 대한 **개요** 페이지에서 **삭제**를 클릭합니다.  확인하라는 메시지가 나타나면 **예**를 클릭합니다.  
-6. 솔루션 목록에서 **ServiceMap(작업 영역 이름)** 을 선택한 다음, 솔루션에 대한 **개요** 페이지에서 **삭제**를 클릭합니다.  확인하라는 메시지가 나타나면 **예**를 클릭합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 입력에 따라 제안 목록을 필터링 합니다. **Log Analytics**를 선택합니다.
+3. Log Analytics 작업 영역 목록에 작업 영역을 선택 했다면, Vm에 대 한 Azure Monitor를 사용 하면 됩니다.
+4. 왼쪽에서 선택 **솔루션**합니다.  
+5. 솔루션의 목록에서 선택 **InfrastructureInsights (작업 영역 이름)** 합니다. 에 **개요** 솔루션을 선택에 대 한 페이지 **삭제**합니다. 선택 확인 대화 상자가 나타나면 **예**합니다.  
+6. 솔루션의 목록에서 선택 **(작업 영역 이름)은 ServiceMap**합니다. 에 **개요** 솔루션을 선택에 대 한 페이지 **삭제**합니다. 선택 확인 대화 상자가 나타나면 **예**합니다.  
 
-VM용 Azure Monitor를 온보딩하기 전에 작업 영역에서 Windows 또는 Linux 기반 VM에 [사용하도록 설정된 성능 카운터를 수집](vminsights-enable-overview.md#performance-counters-enabled)하지 않는 경우 [여기](../platform/data-sources-performance-counters.md#configuring-performance-counters)에 설명된 단계를 따라 Linux 및 Windows에 대한 해당 규칙을 사용하지 않도록 설정해야 합니다.
+그렇지 않은 경우 Vm에 대 한 Azure Monitor를 사용 하기 전에 [성능 카운터를 수집](vminsights-enable-overview.md#performance-counters-enabled) 작업 영역에서 Windows 기반 또는 Linux 기반 Vm에 대 한 [규칙을 사용 하지 않도록 설정](../platform/data-sources-performance-counters.md#configuring-performance-counters) Linux 및 Windows에 대 한 합니다.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Azure VM에 대한 모니터링을 사용하지 않도록 설정하고 작업 영역 보존  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>작업 영역을 두고 모니터링 사용 안 함  
 
-다음 단계에서는 VM용 Azure Monitor를 평가하도록 설정된 가상 머신에 대한 모니터링을 사용하지 않도록 설정하는 방법을 설명합니다. 그러나 Log Analytics 작업 영역은 다른 원본에서 모니터링을 여전히 지원해야 합니다. Azure VM인 경우 해당 VM에서 직접 Windows/linux용 종속성 에이전트 VM 확장 및 Log Analytics 에이전트 VM 확장을 제거해야 합니다. 
+Log Analytics 작업 영역에서 계속 하는 경우 Vm에 대 한 Azure Monitor를 평가 하는 데 사용 하는 VM에 모니터링을 사용 하지 않도록 설정 하려면 다음이 단계를 따라 다른 원본에서 모니터링을 지원 해야 합니다. Azure Vm에 대 한 VM에서 직접 종속성 에이전트 VM 확장 및 Log Analytics 에이전트 VM 확장 Windows 또는 Linux에 제거할 수 있습니다. 
 
 >[!NOTE]
->프로세스를 오케스트레이션하거나 구성을 관리하거나 업데이트를 관리하기 위해 가상 머신을 Azure Automation에서 관리하거나, 보안 관리 및 위협 감지를 위해 Azure Security Center에서 관리하는 경우 Log Analytics 에이전트를 제거하지 말아야 합니다. 그렇지 않은 경우 해당 서비스 및 솔루션이 사전에 VM을 관리하는 것을 방지합니다. 
+>경우에 Log Analytics 에이전트를 제거 하지 않습니다. 
+>
+> * Azure Automation 구성 또는 업데이트 관리 또는 프로세스를 오케스트레이션 하는 VM을 관리 합니다. 
+> * Azure Security Center는 보안 및 위협 검색에 대 한 VM을 관리 합니다. 
+>
+> Log Analytics 에이전트를 제거한 경우 해당 서비스 및 솔루션을 수 없게 됩니다에서 사전에 VM을 관리 합니다. 
 
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Azure Portal에서 **Virtual Machines**를 선택합니다. 
 3. 목록에서 VM을 선택합니다. 
-4. 왼쪽 창에서 **확장**을 선택하고 **확장** 페이지에서 **DependencyAgent**를 선택합니다.
-5. 확장 속성 페이지에서 **제거**를 클릭합니다.
-6. **확장** 페이지에서 **MicrosoftMonitoringAgent**를 선택하고 확장 속성 페이지에서 **제거**를 클릭합니다.  
+4. 왼쪽에서 선택 **확장**합니다. 에 **Extensions** 페이지에서 **DependencyAgent**합니다.
+5. 확장 속성 페이지에서 선택 **제거**합니다.
+6. 에 **Extensions** 페이지에서 **MicrosoftMonitoringAgent**합니다. 확장 속성 페이지에서 선택 **제거**합니다.  

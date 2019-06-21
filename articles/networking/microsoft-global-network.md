@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247291"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144147"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
@@ -33,8 +33,10 @@ Microsoft는 소유 하 고 전 세계에서 가장 큰 백본 네트워크 중 
  
 에 대 한 옵션을 [환경을 모범](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) Microsoft 클라우드를 사용 하면 쉽습니다. 고객 트래픽을 전략적으로 배치 된에 지 노드를 통해 글로벌 네트워크를 입력 하는 경우 현재 데이터 깜짝할 근처에 최적화 된 경로 통과 합니다. 이렇게 하면 최상의 성능을 위해 최적의 대기 시간. 이러한에 지 노드 3500 개 이상의 고유 인터넷 파트너 (피어) 수천 개의 연결을 통해 둘 145 위치에 상호 연결 된 모든 상호 연결 전략의 토대를 제공 합니다. 
  
-런던에 도쿄, 또는 Los angeles 워싱턴 DC에서에 연결 하는지 여부를 네트워크 성능은 정량화 이며 등 대기 시간, 지터, 패킷 손실 및 처리량에 영향 됩니다.  Microsoft는 것이 좋습니다 전송 링크 대신 사용 하 여 직접 상호 연결, 이렇게 하면 응답 트래픽을 대칭 및 홉, 파티 및 짧고 간단 하 게 경로 피어 링을 유지할 수 있습니다. Premium 이렇게 라고도 [콜드 potato 라우팅](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), 고객에 게 전달 했습니다 전에 최대한 오랫동안 Microsoft 네트워크 내에 트래픽을 유지 네트워크는 확인 합니다.  
- 
+런던에 도쿄, 또는 Los angeles 워싱턴 DC에서에 연결 하는지 여부를 네트워크 성능은 정량화 이며 등 대기 시간, 지터, 패킷 손실 및 처리량에 영향 됩니다.  Microsoft는 것이 좋습니다 전송 링크 대신 사용 하 여 직접 상호 연결, 이렇게 하면 응답 트래픽을 대칭 및 홉, 파티 및 짧고 간단 하 게 경로 피어 링을 유지할 수 있습니다. 
+
+예를 들어, London에 있는 사용자 인터넷 트래픽에 가장자리 중 하나로 London에 있는 입력 도쿄에서 서비스에 액세스 하려고, 이동 Microsoft wan을 통해 프랑스, 인도 유럽 사이 다음 서비스가 호스팅되는 일본 우리의 Trans 아라비아 경로 합니다. 응답 트래픽은 대칭입니다. 이 때때로 이라고 [콜드 potato 라우팅](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) 트래픽이 Microsoft에 유지 됩니다. 즉 네트워크 최대한 오랫동안 전에 전달 했습니다.  
+  
 따라서 의미 입니까 모든 트래픽이 Microsoft 서비스를 사용 하는 경우? 예, Microsoft Azure 내에서 또는 가상 컴퓨터, Office 365, XBox, SQL Db, Storage와 같은 Microsoft 서비스 간에 데이터 사이 트래픽을 전혀 센터 및 가상 네트워크 최적화 하도록 공용 인터넷을 통해 없습니다 및 전역 네트워크 내에서 라우팅됩니다. 성능과 무결성 제공 합니다.  
  
 파이버 용량과 메트로 지상, 및 해저 경로에서 다양성에 대 한 대규모 투자는 일관적이 고 높은 서비스 수준 주도하는 클라우드 및 온라인 서비스의 극단적인 증가 지를 확인 하는 동안 유지 하기 위한 중요 합니다. 전역 네트워크에 대 한 최신 추가 우리의 [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) 해저 케이블, 업계에서 첫 번째 열기 줄 시스템 (OLS) 들이 빌바오 스페인 사이의 버지니아 Beach, 버지니아, 미국 subsea 통해 뿐만 [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)뉴욕, 미국 사이의 더블린, 아일랜드 및 [태평양 (NCP) 간 새](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) 도쿄, 일본, 사이의 포틀랜드, Oregon, 미국. 

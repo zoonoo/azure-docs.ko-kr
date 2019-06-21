@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 33682727b84713b515bb68d34aa5cf8b72ce44fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ac1eb484d5e301a9090ea5a11165ba321b0aaa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65862485"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274952"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.locfileid: "65862485"
 | 아프리카 | 케이프타운, 남아프리카 공화국<br />남아프리카공화국 요하네스버그 | 남아프리카공화국 요하네스버그 | 남아프리카 공화국 |
 | 중동 | Dubai, United Arab Emirates | 무스카트, 오만<br />푸지라, 아랍에미리트 | 카타르<br />아랍 에미리트 연합국 |
 | 인도 | 첸나이, 인도<br />바드, 인도<br />뭄바이, 인도<br />뉴델리, 인도 | Bengaluru (방갈로 르), 인도<br />첸나이, 인도<br />뭄바이, 인도<br />뉴델리, 인도<br /> | 인도 |
-| 아시아 | 홍콩<br />오사카, 일본<br />도쿄, 일본<br />콸라룸푸르, 말레이시아<br />마닐라, 필리핀<br />싱가포르<br />부산, 대한민국<br />서울, 대한민국<br />타이베이, 대만<br />방콕, 태국 | 홍콩<br />바탐, 인도네시아<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />부산, 대한민국<br />서울, 대한민국<br />가오슝, 대만 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
+| 아시아 | 홍콩<br />오사카, 일본<br />도쿄, 일본<br />콸라룸푸르, 말레이시아<br />마닐라, 필리핀<br />싱가포르<br />부산, 대한민국<br />서울, 대한민국<br />타이베이, 대만<br />방콕, 태국 | 홍콩<br />바탐, 인도네시아<br />자카르타, 인도네시아<br />오사카, 일본<br />도쿄, 일본<br />싱가포르<br />서울, 대한민국<br />가오슝, 대만 | 홍콩<br />인도네시아<br />이스라엘<br />일본<br />마카오<br />말레이시아<br />필리핀<br />싱가포르<br />대한민국<br />대만<br />태국<br />터키<br />베트남 |
 | 오스트레일리아 및 뉴질랜드 | 브리즈번, 오스트레일리아<br />멜버른, 오스트레일리아<br />오스트레일리아의 퍼스에서<br />시드니, 오스트레일리아<br />오클랜드, 뉴질랜드 | 멜버른, 오스트레일리아<br />시드니, 오스트레일리아<br />오클랜드, 뉴질랜드 | 오스트레일리아<br />뉴질랜드 |
 
 

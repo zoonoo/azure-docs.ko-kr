@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118269"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165993"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Azure 리소스에 대한 거부 할당 이해
 
@@ -34,7 +34,7 @@ ms.locfileid: "67118269"
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>역할 할당을 비교 하 고 할당 거부
 
-할당을 거부 하지만 몇 가지 차이점이 있지만 수도 할당에 따라 비슷한 패턴을를 거부 합니다.
+할당 역할 할당으로 비슷한 패턴을 따르지만 수도 다음 몇 가지 차이점을 거부 합니다.
 
 | 기능 | 역할 할당 | 할당 거부 |
 | --- | --- | --- |

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417935"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303566"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -399,7 +399,7 @@ Microsoft Edge 브라우저를 사용 하는 경우에 최대 100 리포지토�
 
 #### <a name="windows-containers"></a>Windows 컨테이너
 
-127\.0.0.1: 8888 Docker 프록시 구성
+127.0.0.1: 8888 Docker 프록시 구성
 
 #### <a name="linux-containers"></a>Linux 컨테이너
 
@@ -440,6 +440,85 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub 작업](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
+## <a name="error-references-for-az-acr-check-health"></a>에 대 한 오류 참조 `az acr check-health`
+
+### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
+
+이 오류는 CLI 찾을 수 없습니다, docker 버전 찾기, docker 디먼 상태를 평가 하 고 docker pull 명령으로 실행할 수 있도록 속하는 대 한 docker 클라이언트를 의미 합니다.
+
+*잠재적 해결 방법을*: docker 클라이언트 설치 중; docker 경로 시스템 변수를 추가 합니다.
+
+### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
+
+이 오류는 docker 데몬 상태를 사용할 수 없는 것 없습니다 수에 도달 하지 않았음을 CLI를 사용 하 여 의미 합니다. 즉, docker 작업 (예: 로그인, 끌어오기) CLI를 통해 사용할 수 없게 됩니다.
+
+*잠재적 해결 방법을*: Docker 디먼을 다시 시작 하거나 제대로 설치 되어 있는지 확인 합니다.
+
+### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
+
+이 오류는 CLI 명령을 실행할 수 없음을 의미 `docker --version`합니다.
+
+*잠재적 해결 방법을*: 명령을 수동으로 실행을 시도 하세요. 최신 CLI 버전을 하 고 오류 메시지를 조사 해야 합니다.
+
+### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
+
+이 오류는 CLI 환경에 샘플 이미지를 끌어올 수 없음을 의미 합니다.
+
+*잠재적 해결 방법을*: 이미지를 풀 하는 데 필요한 모든 구성 요소가 제대로 실행 되 고 있는지 확인 합니다.
+
+### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
+
+이 오류는 helm 클라이언트 helm 작업도 속하는 CLI에서 찾을 수 없습니다 것을 의미 합니다.
+
+*잠재적 해결 방법을*: 해당 helm 확인 클라이언트를 설치 하 고 해당 경로 시스템 환경 변수에 추가 됩니다.
+
+### <a name="helmversionerror"></a>HELM_VERSION_ERROR
+
+이 오류는 CLI 설치 Helm 버전을 확인할 수 없음을 의미 합니다. 이 경우에 발생할 수 있습니다 Azure CLI 버전 (또는 경우 helm 버전) 되는 사용 되지 않습니다.
+
+*잠재적 해결 방법을*: 권장 되는 helm 버전 또는 최신 Azure CLI 버전 업데이트 명령을 수동으로 실행 하 고 오류 메시지를 조사 합니다.
+
+### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
+
+이 오류는 지정 된 레지스트리 로그인 서버에 대 한 DNS ping이 발송 된에 응답 하지 않아를 사용할 수 없는 즉 않았음을 의미 합니다. 이 일부 연결 문제를 나타낼 수 있습니다. 이 수는 레지스트리 존재 하지 않는 사용자 권한 (해당 로그인 서버를 올바르게 검색)을 레지스트리에 없거나 대상 레지스트리 아닌 다른 클라우드에서 중에서 사용 되는 Azure CLI를 의미 하기도 합니다.
+
+*잠재적 해결 방법을*: 연결 유효성을 검사 레지스트리의 철자를 확인 하 고 해당 레지스트리 exists, 사용자의 적절 한 권한이 있는지 및 레지스트리의 cloud가 Azure CLI에서 사용 되는 동일한 지 확인 합니다.
+
+### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
+
+이 특정된 레지스트리에 대 한 챌린지 끝점 403 사용할 수 없음 HTTP 상태로 응답는 것을 의미 합니다. 이 사용자를 VNET 구성으로 인해 가장 가능성이 높은 레지스트리에 액세스할 수 없는 것을 의미 합니다.
+
+*잠재적 해결 방법을*: VNET 규칙을 제거 하거나 현재 클라이언트 IP 허용된 목록에 추가 합니다.
+
+### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
+
+이 오류는 대상 레지스트리 챌린지 끝점 챌린지를 실행 하지 않았으므로 의미 합니다.
+
+*잠재적 해결 방법을*: 잠시 후 다시 시도 하세요. 오전 문제 여세요. 오류가 계속 되 면 https://aka.ms/acr/issues 합니다.
+
+### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
+
+이 오류 대상 레지스트리 챌린지 끝점 챌린지 발급 레지스트리 AAD 로그인을 지원 하지 않습니다 않았음을 의미 합니다.
+
+*잠재적 해결 방법을*: 로그인, 예를 들어, 관리자 자격 증명의 다른 방법을 시도해 봅니다. 사용자가 AAD 지원 하 여 로그인 하려는 경우 오전 문제를 여십시오 https://aka.ms/acr/issues 합니다.
+
+### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
+
+즉, 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 하는 새로 고침 토큰을 사용 하 여 레지스트리 로그인 서버 응답 하지 않았습니다. 이 사용자는 레지스트리 권한이 없는 경우 또는 Azure CLI에 대 한 사용자 자격 증명이 사용 되지 않는 경우 발생할 수 있습니다.
+
+*잠재적 해결 방법을*: 레지스트리에서 사용자에 게 적절 한 권한이 있는지 확인; 실행 `az login` 권한, 토큰 및 자격 증명을 새로 고쳐야 합니다.
+
+### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
+
+즉, 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 하는 액세스 토큰을 사용 하 여 레지스트리 로그인 서버 응답 하지 않았습니다. 이 사용자는 레지스트리 권한이 없는 경우 또는 Azure CLI에 대 한 사용자 자격 증명이 사용 되지 않는 경우 발생할 수 있습니다.
+
+*잠재적 해결 방법을*: 레지스트리에서 사용자에 게 적절 한 권한이 있는지 확인; 실행 `az login` 권한, 토큰 및 자격 증명을 새로 고쳐야 합니다.
+
+### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
+
+즉, CLI 지정 레지스트리의 로그인 서버를 찾을 수 없습니다. 현재 클라우드에 대 한 기본 접미사가 없습니다를 찾을 수 있습니다. 이 레지스트리에 없으면 사용자에 없는 경우 적절 한 권한이 레지스트리를에서 레지스트리의 클라우드와 현재 Azure CLI cloud 일치 하지 않는 경우 또는 Azure CLI 버전은 사용 되지 않는 경우 발생할 수 있습니다.
+
+*잠재적 해결 방법을*: 및 확인 한 맞춤법 올바른지는 레지스트리 존재 하며이 사용자에 게 레지스트리를에서 적절 한 권한이 있는지 확인 하는 레지스트리 및 CLI 환경 클라우드 일치는 Azure CLI 최신 버전으로 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

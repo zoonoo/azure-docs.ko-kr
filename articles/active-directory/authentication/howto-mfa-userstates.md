@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057431"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164810"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
 2단계 인증이 필요한 두 가지 방법 중 하나를 수행할 수 있습니다. 두 방법 모두 글로벌 관리자 계정을 사용해야 합니다. 첫 번째 옵션은 각 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 디바이스_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 2단계 인증을 수행합니다. 특정 조건에서 2 단계 인증을 요구 하는 조건부 액세스 정책을 설정 하려면 두 번째 옵션이입니다.
 
 > [!TIP]
-> 두 가지 방법 중 하나를 선택하여 2단계 인증을 요구합니다. Azure Multi-factor Authentication에 대 한 사용자를 사용 하도록 설정 하면 모든 조건부 액세스 정책을 재정의 합니다.
+> Azure Multi-factor Authentication을 사용 하도록 설정 하면 조건부 액세스 정책을 사용 하 여 것이 좋습니다. 라이선스 사용자가 로그인 할 때마다 MFA를 수행 해야 하는 대로 조건부 액세스를 포함 하지 마십시오 하지 않으면 더 이상 권장 되지 사용자 상태를 변경 합니다.
 
 ## <a name="choose-how-to-enable"></a>사용하도록 설정하는 방법 선택
 

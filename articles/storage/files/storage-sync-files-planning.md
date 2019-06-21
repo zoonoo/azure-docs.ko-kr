@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: bc9f8e29a744a3a40d17b3814c7124eb37c1543b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597086"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269425"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -174,6 +174,15 @@ Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사�
 
 **Windows Server 2012 R2 또는 이전 에이전트 버전**  
 클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다.
+
+**참고 사항**
+- Azure File Sync 에이전트를 설치 하기 전에 데이터 중복 제거를 설치 하는 경우 다시 시작은 데이터 중복 제거와 같은 볼륨에 계층화 하는 클라우드를 지원 해야 합니다.
+- 클라우드 후 볼륨에 데이터 중복 제거를 사용 하는 경우 계층화가 사용, 초기 중복 제거 최적화 작업이 이미 계층화 하지 않아도 되는 클라우드에서 다음 영향을 주지는 볼륨에 파일을 최적화를 계층화 합니다.
+    - 열 지도 사용 하 여 볼륨에서 사용 가능한 공간에 따라 계층 파일 공간 정책 계속 됩니다.
+    - 날짜 정책 계층화 되었을 수도 있는 그렇지 않은 경우 파일에 액세스 하는 중복 제거 최적화 작업으로 인해 계층화에 적합 한 파일을 건너뜁니다.
+- 중복 제거 최적화 작업의 진행 중인 경우 클라우드 계층화가 날짜 정책과 가져오기 지연 데이터 중복 제거에 의해 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 설정, 파일을 계층화 하지 않아도 됩니다. 
+    - 예제: MinimumFileAgeDays 설정을 7 일 이며 클라우드 계층화 날짜 정책을 30 일을 하는 경우 날짜 정책 37 일이 지나면 파일을 계층화 됩니다.
+    - 참고: Azure File Sync에서 파일을 계층화 할 경우 되 면 중복 제거 최적화 작업에서 파일을 건너뜁니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.

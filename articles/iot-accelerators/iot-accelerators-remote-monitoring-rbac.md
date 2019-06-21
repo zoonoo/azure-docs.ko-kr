@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203146"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -91,11 +91,11 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 1. Azure Portal에서 솔루션에 대한 **앱 등록**을 찾습니다. 애플리케이션 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 애플리케이션 표시 이름은 **contoso-rm4**입니다.
 
-    ![앱 등록](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![앱 등록](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. 애플리케이션을 선택한 다음, **매니페스트**를 클릭합니다. 애플리케이션에 대해 정의된 기존 [앱 역할](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) 두 개가 표시됩니다.
 
-    ![매니페스트 보기](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![매니페스트 보기](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. 다음 코드 조각처럼 매니페스트를 편집하여 **ManageDevices**라는 역할을 추가합니다. 새 역할 ID에 대한 GUID와 같은 고유 문자열이 필요합니다. 새 GUID는 [Online GUID Generator](https://www.guidgenerator.com/)와 같은 서비스를 사용하여 생성할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937838"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202674"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
@@ -39,14 +39,14 @@ ms.locfileid: "64937838"
 | 11 | 솔루션 지원 및 도움말 | 다음 중 하나 이상에 대한 링크: <br>o 전화 번호 <br>o 메일 지원 <br>o 채팅 에이전트 <br>o 커뮤니티 포럼 |<br>• 모든 지원 방법이 나열됨: 전화 및 메일 지원 <br>• 평가판 또는 시험 사용 기간 동안 유료 지원이 무료로 제공됨 | 
 | 12 | 법적 정보 | 공용 URL을 통해 정책 또는 사용 약관이 제공됨 |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>평가판 제품 요구 사항
 
 |  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
 |  | 목록 상태 | 링크를 클릭하면 고객 주도 평가판 체험으로 이동함 | 기타 CTA(예: 지금 구입)도 사용할 수 있음 | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>SaaS 앱 요구 사항
 
 |  | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
@@ -63,7 +63,7 @@ ms.locfileid: "64937838"
 | 10 | 연락처: 솔루션 지원 및 도움말 | <br>• 엔지니어링 연락처 이름: 앱의 엔지니어링 연락처 이름을 입력합니다. 이 연락처는 Microsoft에서 기술 관련 통신을 받게 됩니다.<br>• 엔지니어링 연락처 이메일:  앱의 엔지니어링 연락처 이메일 주소를 입력합니다.<br>• 엔지니어링 연락처 전화: 엔지니어링 연락처의 전화 번호를 입력합니다. ISO 전화 번호 표기법이 지원됩니다. 자세한 내용은 https://en.wikipedia.org/wiki/E.123 을 참조하세요.<br>• 지원 연락처 이름: 앱의 지원 연락처 이름을 입력합니다. 이 연락처는 Microsoft에서 지원 관련 통신을 받게 됩니다.<br>• 지원 연락처 이메일: 앱의 지원 연락처 이일 주소를 입력합니다. <br>• 지원 연락처 전화 번호: 지원 연락처의 전화 번호를 입력합니다. ISO 전화 번호 표기법이 지원됩니다. 자세한 내용은 https://en.wikipedia.org/wiki/E.123 을 참조하세요. <br>• 지원 URL: 지원 페이지의 URL을 입력합니다. | <br>• 모든 지원 방법이 나열됨: 전화 및 메일 지원 <br>• 평가판 또는 시험 사용 기간 동안 유료 지원이 무료로 제공됨 |
 | 11 | 법적 정보 |<br>• 개인정보처리방침 URL: CPP의 개인정보처리방침 URL 필드에 앱의 개인정보처리방침 URL을 입력합니다. <br>• 사용 약관: 앱 사용 약관을 입력합니다. 고객은 이러한 사용 약관에 동의해야 앱을 사용할 수 있습니다. |  공용 URL 사이트를 통해 정책 또는 사용 약관이 제공됨 |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>컨테이너 제품 요구 사항
 
@@ -74,7 +74,7 @@ ms.locfileid: "64937838"
 | 3 | Marketplace 아티팩트 | 로고가 올바르게 표시됨 |<br>• 로고가 Azure Portal의 큰 형식 이미지에 해당하는 “대표 이미지”를 포함함 <br>• 로고: 소형(48x48) 및 대형(216x216)은 요구 사항임 <br>• 대표 이미지 요구 사항: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• 스크린샷(최대 5개):  CPP를 사용하면 1280 x 720 해상도의 .png 이미지가 필요합니다.|
 | 4 | 잠재 고객 관리 |<br>• 잠재 고객 관리: 잠재 고객을 저장할 시스템 선택 <br>• [여기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)에서 CRM 시스템을 연결하는 방법 알아보기 | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>컨설팅 제품 요구 사항
 
@@ -97,6 +97,3 @@ ms.locfileid: "64937838"
 ## <a name="next-steps"></a>다음 단계
 * Marketplace의 다양한 제품 유형에 대해 알아봅니다. <br>[SaaS 앱](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[컨테이너](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[컨설팅 서비스](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [솔루션에 대한 열거 유형 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
-
- 
----

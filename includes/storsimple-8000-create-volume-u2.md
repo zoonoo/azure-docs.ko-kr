@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118317"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182256"
 ---
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
 1. **디바이스** 블레이드의 테이블 형식 디바이스 목록에서 디바이스를 선택합니다. **+ 볼륨 추가**를 클릭합니다.

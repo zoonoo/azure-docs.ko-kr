@@ -9,11 +9,11 @@ ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133783"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293458"
 ---
 현재 사용량 기반 가격 책정 계층 2018 년 4 월에에서 도입 된 각 Log Analytics 작업 영역에는 다음과 같은 제한이 적용 됩니다.
 

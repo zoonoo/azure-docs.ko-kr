@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ed626dddddb8f2b434d6a7acebc5381607b7d3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482440"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304229"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
@@ -44,8 +44,8 @@ ms.locfileid: "60482440"
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-   ```
-1. ApplicationManifest.xml 파일의 `ServiceManifestImport` 섹션에서 구성 패키지, 섹션 및 매개 변수를 참조하는 `ConfigOverride` 요소를 추가하세요.
+  ```
+1. 에 `ServiceManifestImport` 섹션 ApplicationManifest.xml 파일의 추가 `ConfigOverrides` 및 `ConfigOverride` 요소를 구성 패키지, 섹션 및 매개 변수를 참조 합니다.
 
    ```xml
     <ConfigOverrides>

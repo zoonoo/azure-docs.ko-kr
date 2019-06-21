@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239036"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269293"
 ---
 # <a name="access-data-from-your-datastores"></a>사용자 데이터 저장소에서 데이터에 액세스
 
@@ -59,7 +59,19 @@ ds = ws.get_default_datastore()
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>작업 영역을 사용 하 여 사용자 고유의 데이터 저장소를 등록 합니다.
 
-기존 Azure Storage가 있는 경우에는 작업 영역의 데이터 저장소로 등록할 수 있습니다.   모든 등록 방법에는 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스 및 폼 register_azure_ * 있어야 합니다. 
+기존 Azure Storage가 있는 경우에는 작업 영역의 데이터 저장소로 등록할 수 있습니다. 
+
+<a name="store"></a>
+
+####  <a name="storage-guidance"></a>저장소 지침
+
+Blob 저장소 및 blob 데이터 저장소를 사용 하는 것이 좋습니다. 표준 및 프리미엄 저장소 blob에 대해 사용할 수 있습니다. 하지만 premium storage 교육의 속도 향상 시킬 수 있는 처리량 빠르며 인해 실행 particlularly 큰 데이터 집합에 대해 학습 하는 경우 비용이 많이 듭니다 제안 합니다. 참조 된 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) 비용 정보는 저장소 계정에 대 한 합니다.
+
+>[!NOTE]
+> Azure Machine Learning 서비스는 특정 시나리오에 유용할 수 있는 다른 유형의 데이터 저장소 등을 지원 합니다. 예를 들어 데이터베이스에 저장 된 데이터를 사용 하 여 학습 해야 할 경우 AzureSQLDatabaseDatastore 또는 AzurePostgreSqlDatastore를 사용할 수 있습니다. 참조 [이 테이블](#matrix) 사용 가능한 데이터 저장소 유형에 대 한 합니다.
+
+#### <a name="register-your-datastore"></a>데이터 저장소를 등록 합니다.
+모든 등록 방법에는 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스 및 폼 register_azure_ * 있어야 합니다.
 
 다음 예제에서는 표시를 데이터 저장소로 Azure Blob 컨테이너 또는 Azure 파일 공유를 등록할 수 있습니다.
 
@@ -178,6 +190,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > 모든 `ds` 하거나 `ds.path` 개체 이름을 확인 하는 환경 변수 형식의 `"$AZUREML_DATAREFERENCE_XXXX"` 값인 대상 계산의 탑재/다운로드 경로 나타냅니다. 대상 컴퓨터에서 데이터 저장소 경로 학습 스크립트의 실행 경로와 동일한 수 없습니다.
 
+<a name="matrix"></a>
 ### <a name="training-compute-and-datastore-matrix"></a>교육 계산 및 데이터 저장소 매트릭스
 
 다음 매트릭스는 서로 다른 학습 계산 대상 및 데이터 저장소 시나리오에 대 한 사용 가능한 데이터 액세스 기능을 표시합니다. 에 대 한 자세한 정보는 [학습 Azure Machine Learning에 대 한 대상 계산](how-to-set-up-training-targets.md#compute-targets-for-training)합니다.
@@ -194,7 +207,7 @@ ds.path('./bar').as_download()
 | Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> 큰 데이터 프로세스 빠르게 사용 하 여 실행 빈도가 높은 시나리오가 있을 수 있습니다 [`as_download()`] 대신 [`as_mount()`]; 갔다가 검사할 수 있습니다.
+> 큰 데이터 프로세스 빠르게 사용 하 여 실행 빈도가 높은 시나리오가 있을 `as_download()` 대신 `as_mount()`; 갔다가 검사할 수 있습니다.
 
 ### <a name="examples"></a>예 
 

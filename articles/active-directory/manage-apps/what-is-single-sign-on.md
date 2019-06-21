@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824160"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190281"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 
@@ -95,7 +95,7 @@ HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션
 - Windows 7 이상 및 Mac OS X 이상 Chrome
 - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
 
-암호 기반 Single Sign-On에 대해 클라우드 애플리케이션을 구성하려면 [암호 Single Sign-On에 대한 애플리케이션 구성](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on)을 참조하세요.
+암호 기반 Single Sign-On에 대해 클라우드 애플리케이션을 구성하려면 [암호 Single Sign-On에 대한 애플리케이션 구성](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso)을 참조하세요.
 
 애플리케이션 프록시를 통해 Single Sign-On에 대한 온-프레미스 애플리케이션을 구성하려면 [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-configure-single-sign-on-password-vaulting.md)을 참조하세요
 

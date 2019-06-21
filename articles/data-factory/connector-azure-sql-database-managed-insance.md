@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9208ceeb760bba97c12b23a1b6e5bdff7efc9020
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048584"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274825"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -33,7 +33,11 @@ Azure SQL Database Managed Instance에서 지원되는 싱크 데이터 저장�
 - 쿼리 또는 저장 프로시저를 사용하여 데이터 검색(원본)
 - 싱크로, 복사 중에 대상 테이블에 데이터를 추가하거나 사용자 지정 논리를 사용하여 저장 프로시저 호출(싱크)
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)는 이제 지원되지 않습니다. 
+>[!NOTE]
+>Azure SQL Database Managed Instance **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** 이제이 커넥터에서 지원 되지 않습니다. 이 문제를 해결 하려면 사용할 수 있습니다 [제네릭 ODBC 커넥터](connector-odbc.md) 및 자체 호스팅 통합 런타임을 통해 SQL Server ODBC 드라이버. 따릅니다 [이 지침은](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) ODBC 드라이버 다운로드 하 고 연결 문자열 구성으로 합니다.
+
+>[!NOTE]
+>서비스 주체와 관리 되는 id 인증 현재 지원 되지 않습니다 즉시 사용할 수 있도록 계획 및이 커넥터에서. 문제를 해결 하려면 현재 Azure SQL Database 커넥터 및 수동으로 관리 되는 인스턴스 서버를 지정할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +61,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 | connectionString |이 속성에는 SQL 인증을 사용 하 여 관리 되는 인스턴스에 연결 하는 데 필요한 connectionString 정보를 지정 합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예. |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. (공용 엔드포인트가 하 고 ADF 액세스를 허용 하는 관리 되는 인스턴스) 경우 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예. |
 
-**예제 1: SQL 인증 사용**
+**예제 1: SQL 인증을 사용 하 여** 기본 포트는 1433입니다. SQL 관리 되는 인스턴스를 공용 끝점을 사용 하 여 사용 하는 경우 포트 3342 명시적으로 지정 합니다.
 
 ```json
 {
@@ -67,7 +71,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -78,7 +82,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-**예제 2: Azure Key Vault의 암호를 사용하는 SQL 인증 사용**
+**예제 2: Azure Key Vault에 암호를 사용 하 여 SQL 인증을 사용 하 여** 기본 포트는 1433입니다. SQL 관리 되는 인스턴스를 공용 끝점을 사용 하 여 사용 하는 경우 포트 3342 명시적으로 지정 합니다.
 
 ```json
 {
@@ -88,7 +92,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

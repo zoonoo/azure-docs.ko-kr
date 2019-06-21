@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356188"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165341"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>실험 및 Azure virtual network 내에서 유추를 안전 하 게 실행
 
@@ -35,9 +35,13 @@ Azure Machine Learning Service는 다른 Azure 서비스를 통해 컴퓨팅 리
 ## <a name="storage-account-for-your-workspace"></a>작업 영역에 대한 스토리지 계정
 
 > [!IMPORTANT]
-> 실험을 수행 하는 동안에 가상 네트워크 뒤 Azure Machine Learning 서비스 작업 영역에 연결 된 저장소 계정에 넣을 수 있습니다. 유추는 저장소 계정에 대 한 무제한 액세스를 해야합니다. 관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 유추 하는 동안 모든 네트워크에서 액세스를 허용 또는 점수 매기기 모델에 단계를 따르세요.
+> 합니다 __기본 저장소 계정__ Azure Machine Learning에 대 한 서비스에에서 배치할 수 있습니다 가상 네트워크 __실험을 수행 하는 동안에__합니다.
+>
+> 에 대 한 __실험에 대 한 기본이 아닌 저장소 계정__에 대 한 저장소 계정을 사용 하는 경우 또는 __유추__에 있어야 __저장소계정에무제한으로액세스할__.
+> 
+> 관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 유추 하는 동안 모든 네트워크에서 액세스를 허용 또는 점수 매기기 모델에 단계를 따르세요.
 
-Azure Storage를 사용 하 여 Azure Machine Learning 실험 기능을 사용 하 여 가상 네트워크 뒤를 하려면 다음 단계를 수행 합니다.
+가상 네트워크에서 작업 영역에 대 한 기본 Azure Storage 계정 위치를 사용 하도록 다음 단계를 사용 합니다.
 
 1. 예를 실험 계산을 만듭니다. 가상 네트워크 뒤 Learning Compute를 컴퓨터 또는 ex 작업 영역에는 실험 계산을 연결 합니다. HDInsight 클러스터 또는 가상 컴퓨터입니다. 자세한 내용은 [사용 하 여 Machine Learning Compute](#use-machine-learning-compute) 하 고 [가상 머신 또는 HDInsight 클러스터를 사용 하 여](#use-a-virtual-machine-or-hdinsight-cluster) 이 문서의 섹션
 2. 작업 영역에 연결 된 저장소로 이동 합니다. ![Azure Machine Learning 서비스 작업 영역에 연결 된 Azure Storage를 보여 주는 Azure portal의 이미지](./media/how-to-enable-virtual-network/workspace-storage.png)
