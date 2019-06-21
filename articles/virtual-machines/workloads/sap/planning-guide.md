@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e983a3f8e29108bd642fd23d5afcb564065d9fc1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409779"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203906"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -524,7 +524,7 @@ Microsoft Azure Virtual Machines는 다양한 저장소 유형을 활용합니�
 
 VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 다시 부팅하면 해당 드라이브의 모든 콘텐츠가 초기화됩니다. 따라서 데이터베이스의 데이터 파일과 로그/다시 실행 파일은 어떤 경우에도 이러한 비영구 드라이브에 배치하면 안됩니다. 이러한 비영구 드라이브가 tempdb 및 temp 테이블 공간에 적합할 수 있는 일부 데이터베이스에는 예외가 있을 수 있습니다. 그러나 이러한 비영구 드라이브는 해당 VM 제품군의 처리량으로 제한되므로 A 시리즈 VM에는 해당 드라이브를 사용하지 마세요. 자세한 내용은 [Azure에서 Windows VM의 임시 드라이브 이해](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) 문서를 참조하세요.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > Azure VM의 드라이브 D:\는 Azure 계산 노드의 일부 로컬 디스크에서 지원하는 비지속형 드라이브입니다. 비지속형이기 때문에 VM을 다시 부팅하면 D:\ 드라이브의 변경 내용이 손실됩니다. 즉 저장된 파일, 만들어진 디렉터리, 설치된 애플리케이션 등과 같은 "모든 변경 내용"이 손실됩니다.
@@ -535,7 +535,7 @@ VM이 배포되면 Azure VM에서 비영구 디스크를 제공합니다. VM을 
 > 
 > 
 
-- - -
+---
 
 Microsoft Azure Storage는 영구 스토리지와 SAN 스토리지에서 확인되는 일반적인 수준의 보호 및 중복성을 제공합니다. Azure Storage를 기준으로 하는 디스크는 Azure Storage 서비스에 있는 VHD(가상 하드 디스크)입니다. 로컬 OS 디스크(Windows C:\, Linux/dev/sda1)는 Azure Storage에 저장되고, VM에 탑재된 추가 볼륨/디스크도 여기에 저장됩니다.
 
@@ -835,7 +835,7 @@ Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 
 
 OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketplace에 제공된 이미지가 용도에 맞지 않을 수 있습니다. 따라서 자체 프라이빗 OS/DBMS VM 이미지를 사용하는 VM을 만들어 이후 여러 번 배포할 수 있습니다. 중복성 유지를 위해 이러한 프라이빗 이미지를 준비하려면 다음 항목을 고려해야 합니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 자세한 내용은 다음 항목을 참조하세요. <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> sysprep 명령을 통해 Windows 설정(예: Windows SID 및 호스트 이름)을 온-프레미스 VM에서 추상화/일반화해야 합니다.
@@ -847,7 +847,7 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 >
 >
 
-- - -
+---
 온-프레미스 VM(특히 2계층 시스템)에 SAP 콘텐츠를 이미 설치한 경우 Azure VM 배포 후 SAP Software Provisioning Manager에서 지원하는 인스턴스 이름 변경 절차를 통해 SAP 시스템 설정을 적용할 수 있습니다(SAP Note [1619720]). 온-프레미스 준비 단계 및 Azure로 일반화된 VM 업로드에 대해서는 이 문서의 [SAP용 고객별 이미지를 사용하여 VM 배포 준비][planning-guide-5.2.2] 및 [온-프레미스에서 Azure로 VHD 업로드][planning-guide-5.3.2] 장을 참조하세요. Azure에서 이러한 이미지를 배포하는 자세한 단계에 대해서는 [시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포][deployment-guide-3.3]([배포 가이드][deployment-guide]) 장을 참조하세요.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Azure Marketplace에서 VM 배포
@@ -870,7 +870,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 * Microsoft 기술 지원 서비스에서 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 애플리케이션이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 이 시나리오에서는 Azure에서 VM을 업로드 및 배포하기 위해 VM의 일반화(sysprep)가 필요하지 않습니다.
@@ -884,7 +884,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>SAP용 고객별 이미지를 사용하여 VM 배포 준비
 
 일반화된 OS를 포함하는 VHD 파일은 Azure Storage 계정의 컨테이너에 저장되거나 관리 디스크 이미지로 저장됩니다. [시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포][deployment-guide-3.3]([배포 가이드][deployment-guide]) 장에서 설명한 대로 배포 템플릿 파일에서 VHD 또는 관리 디스크 이미지를 원본으로 참조하여 이러한 이미지에서 새 VM을 배포할 수 있습니다.
@@ -897,7 +897,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 * 이미지에 SAP NetWeaver의 설치가 포함되어 있고 Azure 배포 시에 호스트 이름을 원래 이름에서 다르게 변경할 가능성이 있는 경우 SAP Software Provisioning Manager DVD의 최신 버전을 템플릿으로 복사하는 것이 좋습니다. 이렇게 하면 새 복사가 시작되는 즉시, SAP 제공 이름 바꾸기 기능을 사용하여 배포된 VM 이미지 내에서 변경된 호스트 이름을 손쉽게 조정하고 SAP 시스템의 SID를 변경할 수 있습니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > D:\ 드라이브가 사용되지 않는지 확인하고 이 문서의 [연결된 디스크에 대한 자동 탑재 설정][planning-guide-5.5.3] 장에서 설명한 대로 연결된 디스크에 대해 디스크 자동 탑재를 설정하세요.
@@ -908,14 +908,14 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 >
 >
 
-- - -
+---
 * SAP GUI(관리 및 설치용)를 이러한 템플릿에 미리 설치할 수 있습니다.
 * 크로스-프레미스 시나리오에서 VM을 성공적으로 실행하는 데 필요한 기타 소프트웨어가 VM의 이름 바꾸기 기능에서 문제 없이 작동되면 설치해도 됩니다.
 
 VM이 범용으로 준비되고, 결과적으로 대상 Azure 배포 시나리오에서 사용할 수 없는 계정/사용자와 독립될 경우 이러한 이미지 일반화의 마지막 준비 단계가 수행됩니다.
 
 ##### <a name="generalizing-a-vm"></a>VM 일반화
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 마지막 단계는 관리자 계정을 사용하여 VM에 로그인하는 것입니다. *관리자* 권한으로 Windows 명령 창을 엽니다. %windir%\windows\system32\sysprep로 이동하여 sysprep.exe를 실행합니다.
@@ -928,7 +928,7 @@ VM이 범용으로 준비되고, 결과적으로 대상 Azure 배포 시나리�
 >
 >
 
-- - -
+---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>온-프레미스와 Azure 간에 VM 및 VHD 전송
 Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 수 없으므로 Azure PowerShell cmdlet 또는 CLI를 사용해야 합니다. 'AzCopy' 도구를 사용할 수도 있습니다. 이 도구는 온-프레미스와 Azure 간에 VHD를 복사할 수 있습니다(양방향으로). 또한 Azure 지역 간에 VHD를 복사할 수도 있습니다. AzCopy의 다운로드 및 사용에 대해서는 [이 설명서][storage-use-azcopy]를 참조하세요.
 
@@ -1188,7 +1188,7 @@ az storage blob show --name <target blob name> --container <target container nam
 ![SAP용 Azure IaaS VM의 참조 구성][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 많은 고객에게서 OS가 설치된 c:\ 드라이브에 SAP 및 DBMS 바이너리가 설치되지 않은 구성을 볼 수 있었습니다. 그 이유는 다양하지만 10~15년 전에는 근본적으로는 드라이브가 작고 OS 업그레이드를 하려면 추가 공간이 필요했기 때문일 것입니다. 두 조건이 오늘날에는 그렇게 많지 않은 편입니다. 현재는 c:\ 드라이브를 큰 볼륨의 디스크나 VM에 매핑할 수 있습니다. 구조 내에서 배포를 단순하게 유지하려면 Azure의 SAP NetWeaver 시스템에 대해 다음 배포 패턴을 따르는 것이 좋습니다.
@@ -1214,14 +1214,14 @@ sudo service waagent restart
 
 권장 스왑 파일 크기에 대한 자세한 내용은 SAP 정보 [1597355] 를 읽어보세요.
 
-- - -
+---
 이러한 디스크가 호스트되는 Azure Storage의 형식과 DBMS 데이터 파일에 사용되는 디스크의 수는 IOPS 요구 사항 및 필요한 대기 시간에 따라 결정되어야 합니다. 정확한 할당량에 대한 설명은 [이 문서(Linux)][virtual-machines-sizes-linux]와 [이 문서(Windows)][virtual-machines-sizes-windows]에 있습니다.
 
 지난 2년 동안의 SAP 배포 경험을 통해 다음과 같은 몇 가지 교훈을 얻었습니다.
 
 * 기존 고객 시스템에는 SAP 데이터베이스를 나타내는 다양한 크기의 데이터 파일이 있을 수 있으므로 여러 다른 데이터 파일에 대한 IOPS 트래픽이 항상 동일한 것은 아닙니다. 따라서 여러 디스크를 사용하여 데이터 파일 LUN을 분리해서 배치하는 것보다 RAID 구성을 사용하는 것이 더 나은 것으로 확인되었습니다. 특히 IOPS 속도가 DBMS 트랜잭션 로그에 대한 단일 디스크의 할당량에 도달하는 Azure Standard Storage에서 이러한 경우가 확인되었습니다. 이러한 시나리오에서는 Premium Storage를 사용하거나 소프트웨어 스트라이프를 사용하여 여러 Standard Storage 디스크를 집계하는 것이 좋습니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례][virtual-machines-sql-server-performance-best-practices]
@@ -1234,7 +1234,7 @@ sudo service waagent restart
 >
 >
 
-- - -
+---
 * Premium Storage는 중요한 트랜잭션 로그 쓰기에서 특히 더 나은 성능을 나타냅니다. 프로덕션 수준의 성능을 제공할 것으로 기대되는 SAP 시나리오에서는 Azure Premium Storage를 활용할 수 있는 VM 시리즈를 사용하는 것이 강력히 권장됩니다.
 
 OS와 SAP의 바이너리 및 데이터베이스(기본 VM)도 포함하는 디스크는 더 이상 127GB로 제한되지 않습니다. 이제 최대 1TB의 크기가 가능합니다. 이 크기는 SAP 일괄 작업 로그 등을 비롯하여 필요한 모든 파일을 보관하는 데 충분한 공간이어야 합니다.
@@ -1255,7 +1255,7 @@ OS와 SAP의 바이너리 및 데이터베이스(기본 VM)도 포함하는 디�
 
 **중요**: Azure Standard Storage에서 호스트 캐싱을 사용하지 **않도록** 합니다. 호스트 캐시 기본 설정을 기본값인 NONE으로 유지해야 합니다. Azure Premium Storage를 사용하는 경우 I/O 특성이 데이터베이스 데이터 파일에 대한 일반적인 I/O 트래픽으로 해석되는 경우 읽기 캐싱을 사용하도록 설정해야 합니다. 데이터베이스 트랜잭션 로그 파일의 경우 캐싱 없음이 권장됩니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Azure Portal에서 데이터 디스크를 연결하는 방법][virtual-machines-linux-attach-disk-portal]
@@ -1268,7 +1268,7 @@ OS와 SAP의 바이너리 및 데이터베이스(기본 VM)도 포함하는 디�
 >
 >
 
-- - -
+---
 새 디스크가 비어 있는 디스크이면 포맷도 필요합니다. 포맷 시, 특히 DBMS 데이터 및 로그 파일의 경우, DBMS 완전 배포의 경우와 동일한 권장 지침이 적용됩니다.
 
 이미 [Microsoft Azure Virtual Machine 개념][planning-guide-3.2] 장에서 언급한 대로 Azure Storage 계정은 I/O 볼륨, IOPS 및 데이터 볼륨 측면에서 무한 리소스를 제공하지 않습니다. 일반적으로 DBMS VM이 그 영향을 가장 많이 받게 됩니다. Azure Storage 계정 볼륨의 제한을 벗어나지 않기 위해서는 배포할 높은 I/O 볼륨 VM이 거의 없을 경우 각 VM에 대해 별도 Storage 계정을 사용하는 것이 가장 좋을 수 있습니다. 그렇지 않으면 각 단일 Storage 계정 제한에 도달하지 않으면서 개별 Storage 계정 간에 이러한 VM을 골고루 분산하는 방법을 찾아야 합니다. 자세한 내용은 [DBMS 배포 가이드][dbms-guide]를 참조하세요. 또한 순수한 SAP 애플리케이션 서버 VM 또는 결과적으로는 추가 VHD를 요구할 수 있는 기타 VHD의 경우에도 이러한 제한에 유의해야 합니다. 관리 디스크를 사용하는 경우에는 이러한 제한이 적용되지 않습니다. Premium Storage를 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
@@ -1278,7 +1278,7 @@ Storage 계정과 관련된 또 다른 주제는 Storage 계정의 VHD가 지역
 Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, VM의 여러 VHD에 걸쳐 시간순으로 IO를 복제하지 않습니다. 따라서 기본 VM을 나타내는 VHD와 VM에 연결된 추가 VHD는 서로 독립적으로 복제됩니다. 즉, 여러 다른 VHD에서 변경된 내용은 동기화되지 않습니다. IO가 기록된 순서와는 별도로 복제된다는 사실은 여러 VHD에 걸쳐 데이터베이스가 분산되어 있는 데이터베이스 서버의 경우에는 지역에서 복제 기능이 의미가 없음을 나타냅니다. DBMS 외에도 다른 VHD에서 데이터를 쓰거나 조작하는 프로세스의 애플리케이션이나 변경 순서가 중요한 애플리케이션도 있을 수 있습니다. 이러한 경우가 요구되면 Azure의 지역에서 복제 기능을 사용하지 않도록 설정해야 합니다. 다른 VM 집합이 아닌 특정 VM 집합에 대해 지역에서 복제 기능이 필요한지 또는 이 기능을 원하는지에 따라, 이미 VM 및 관련된 VHD를 지역에서 복제 기능이 사용되거나 사용되지 않도록 설정된 다른 Storage 계정으로 분류할 수 있습니다.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>연결된 디스크에 대한 자동 탑재 설정
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 자체 이미지나 디스크에서 만든 VM의 경우 automount 매개 변수를 확인하고 설정해야 합니다. 이 매개 변수를 설정하면 Azure에서 VM을 다시 시작하거나 재배포한 후에 VM이 연결/탑재된 드라이브를 자동으로 다시 탑재할 수 있습니다.
@@ -1300,7 +1300,7 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 >
 >
 
-- - -
+---
 ### <a name="final-deployment"></a>최종 배포
 
 최종 배포 및 정확한 단계(특히 SAP 확장 모니터링의 배포와 관련된 정보)는 [배포 가이드][deployment-guide]를 참조하세요.
@@ -1328,7 +1328,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 
 SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신에서 방화벽을 구성해야 할 수도 있습니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 기본적으로 Azure 배포 VM 내의 Windows 방화벽은 켜져 있습니다. 이제 SAP 포트가 열리도록 허용해야 하며 그러지 않으면 SAP GUI에 연결할 수 없게 됩니다.
@@ -1352,7 +1352,7 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 >
 >
 
-- - -
+---
 #### <a name="security-recommendations"></a>보안 권장 사항
 
 SAP GUI는 실행 중인 어떤 SAP 인스턴스(포트 32xx)에도 직접 연결되지 않으며 먼저 열린 포트를 통해 SAP 메시지 서버 프로세스(포트 36xx)로 연결됩니다. 이전에는 애플리케이션 인스턴스에 대한 내부 통신을 위해 메시지 서버에서 동일한 포트가 사용되었습니다. 온-프레미스 애플리케이션 서버가 Azure의 메시지 서버와 우연히 통신하는 일을 방지하기 위해 통신 포트를 변경할 수 있습니다. SAP 메시지 서버와 해당 애플리케이션 인스턴스 간의 내부 통신을 온-프레미스 시스템에서 복제된 시스템(프로젝트 테스트를 위한 개발 복제본 등)의 다른 포트 번호로 변경할 것을 강력히 권장합니다. 이 작업은 기본 프로필 매개 변수를 사용하여 수행할 수 있습니다.
@@ -1655,7 +1655,7 @@ Microsoft는 vCPU 수, 메모리 또는 좀 더 중요하게 VM이 실행되는 
 
 Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정하는 것은 VPN 사이트 간 터널 또는 ExpressRoute 연결을 설정했다고 가정할 경우 회사 네트워크에서 작업하는 경우와 전반적으로 동일합니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 다음을 수행합니다.
@@ -1674,7 +1674,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 >
 >
 
-- - -
+---
 ![네트워크 인쇄][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>프레미스 간 시나리오에서 SMB를 통한 호스트 기반 프린터(공유 프린터)
@@ -1690,7 +1690,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 
 방법:
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 로컬 프린터를 공유합니다.
@@ -1706,19 +1706,19 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 >
 >
 
-- - -
+---
 ##### <a name="usb-printer-printer-forwarding"></a>USB 프린터(프린터 전달)
 
 Azure에서는 원격 세션에서 사용자가 로컬 프린터 디바이스에 액세스할 수 있도록 하는 원격 데스크톱 서비스의 기능을 사용할 수 없습니다.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Windows를 통한 인쇄에 대한 자세한 내용은 <https://technet.microsoft.com/library/jj590748.aspx>를 참조하세요.
 >
 >
 
-- - -
+---
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>프레미스 간에 SAP Azure 시스템을 Correction and Transport System(TMS)에 통합
 
 SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송 요청을 내보내고 가져오도록 구성되어야 합니다. QA(품질 보증) 및 PRD(생산 시스템)은 온-프레미스에 있지만 SAP 시스템의 DEV(개발) 인스턴스는 Azure에 있다고 가정해 보겠습니다. 또한 중앙 전송 디렉터리가 있다고 가정합니다.

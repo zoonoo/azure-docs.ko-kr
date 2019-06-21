@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236875"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204447"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -34,9 +34,9 @@ SQL Server 데이터베이스는 낮은 복구 지점 목표 (RPO) 및 장기 �
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
 1. 식별 또는 만들기를 [Recovery Services 자격 증명 모음](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) 동일한 지역 또는 SQL Server 인스턴스를 호스팅하는 VM으로 로캘.
-2. 확인 합니다 [필요한 VM 권한](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) SQL 데이터베이스를 백업 하려면.
-3. VM에 있는지 확인 하십시오 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)합니다.
-4. SQL Server 데이터베이스에 따라 있는지 확인 합니다 [Azure Backup에 대 한 명명 지침 데이터베이스](#database-naming-guidelines-for-azure-backup)합니다.
+2. VM에 있는지 확인 하십시오 [네트워크 연결](backup-sql-server-database-azure-vms.md#establish-network-connectivity)합니다.
+3. SQL Server 데이터베이스에 따라 있는지 확인 합니다 [Azure Backup에 대 한 명명 지침 데이터베이스](#database-naming-guidelines-for-azure-backup)합니다.
+4. SQL 2008 및 2008 R2에 맞게 [레지스트리 키 추가](#add-registry-key-to-enable-registration) 서버 등록을 사용 하도록 설정 합니다. 이 단계 수 됩니다 필요한 기능은 일반 공급 하는 경우.
 5. 데이터베이스에서 활성화 되어 다른 백업 솔루션이 없는지 확인 합니다. 데이터베이스를 백업 하기 전에 다른 모든 SQL Server 백업을 사용 하지 않도록 설정 합니다.
 
 > [!NOTE]
@@ -79,16 +79,6 @@ NSG 서비스 태그를 사용 합니다. | 범위 변경 내용이 자동으로
 태그를 사용 하 여 Azure 방화벽 FQDN | 필요한 Fqdn은 자동으로 관리 되는 관리 하기가 쉬워집니다 | Azure 방화벽을 사용 하 여만 사용할 수 있습니다.
 HTTP 프록시 사용 | 저장소는 프록시에 세부적으로 제어 Url 허용 <br/><br/> Vm에 대 한 단일 지점 인터넷 액세스 <br/><br/> Azure IP 주소 변경이 적용 되지 않는 | 프록시 소프트웨어를 사용 하 여 VM을 실행 하는 추가 비용이
 
-### <a name="set-vm-permissions"></a>VM 권한 설정
-
-SQL Server 데이터베이스에 대 한 백업을 구성한 경우 Azure Backup에서는 다음과 같은
-
-- AzureBackupWindowsWorkload 확장을 추가합니다.
-- 가상 머신에서 데이터베이스를 검색할 NT SERVICE\AzureWLBackupPluginSvc 계정을 만듭니다. 이 계정은 백업에 사용 됩니다, 복원 및 SQL sysadmin 권한이 필요 합니다.
-- VM에서 실행 되는 데이터베이스를 검색 합니다. Azure Backup에는 NT AUTHORITY\SYSTEM 계정을 사용 합니다. 이 계정은 SQL에서 공용 로그인 이어야 합니다.
-
-Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 UserErrorSQLNoSysadminMembership 라는 오류가 표시 될 수 있습니다. 자세한 내용은 참조 기능 고려 사항 및 제한 사항 섹션에서 찾을 [Azure Vm에서 SQL Server 백업에 대 한](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)합니다.
-
 ### <a name="database-naming-guidelines-for-azure-backup"></a>데이터베이스를 Azure Backup에 대 한 명명 지침
 
 데이터베이스 이름에 다음 요소를 사용 하지 마십시오.
@@ -101,6 +91,22 @@ Azure Marketplace에서 SQL Server VM을 만들지 않은 경우 UserErrorSQLNoS
 
 별칭 지정은 지원 되지 않는 문자에 사용할 수 있지만 방지 하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
 
+### <a name="add-registry-key-to-enable-registration"></a>등록을 사용 하도록 레지스트리 키 추가
+
+1. Regedit 열기
+2. 레지스트리 디렉터리 경로를 만듭니다. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (해야 WorkloadBackup 다시 Microsoft 아래에 생성 해야 하는 아래에 있는 'Key' TestHook 만들기).
+3. 레지스트리 디렉터리 경로에서 새 값을 만들고 ' 문자열 ' 문자열 이름을 사용 하 여 **AzureBackupEnableWin2K8R2SP1** 값: **True**
+
+    ![RegEdit 등록을 사용 하도록 설정](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+또는 다음 명령을 사용 하 여.reg 파일을 실행 하 여이 단계를 자동화할 수 있습니다.
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -141,7 +147,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법.
     - Azure Backup은 VM에서 서비스 계정을 NT Service\AzureWLBackupPluginSvc를 만듭니다.
       - 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다.
       - NT Service\AzureWLBackupPluginSvc SQL sysadmin 권한이 필요합니다. Marketplace에서 만든 모든 SQL Server Vm 설치 SqlIaaSExtension 함께 제공 됩니다. AzureBackupWindowsWorkload 확장 된 SQLIaaSExtension를 사용 하 여 자동으로 필요한 권한을 얻습니다.
-    - Marketplace에서 VM을 만들지 않은 경우 VM에 설치 된 SqlIaaSExtension 없습니다 하 고 검색 작업 UserErrorSQLNoSysAdminMembership 오류 메시지와 함께 실패 합니다. 이 문제를 해결 하려면 다음을 수행 합니다 [지침](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)합니다.
+    - Marketplace에서 VM을 만들지 않은 경우, SQL 2008 및 2008 R2에 있는 경우에 VM에 설치 된 SqlIaaSExtension 없을 하 고 검색 작업 UserErrorSQLNoSysAdminMembership 오류 메시지와 함께 실패 합니다. 이 문제를 해결 하려면 지침을 따릅니다 [사용 권한 집합 VM](backup-azure-sql-database.md#set-vm-permissions)합니다.
 
         ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 몰입형 판독기 설명서
+metadata:
+  title: '몰입형 판독기 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs'
+  description: 애플리케이션에서 몰입형 판독기를 사용하는 방법을 알아봅니다.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: '몰입형 판독기는 신흥 독자, 언어 학습자 및 학습 차이가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 도구입니다. 몰입형 판독기 SDK를 사용하여 웹 애플리케이션에서 몰입형 판독기를 사용할 수 있습니다.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>몰입형 판독기 그리고 이를 애플리케이션에 통합하는 방법에 대해 알아보기</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 몰입형 판독기란?
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>몰입형 판독기 Javascript SDK에 대해 알아보기</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 몰입형 판독기 SDK 사용
+  - title: 5분 빠른 시작
+    items:
+      - type: paragraph
+        text: '몰입형 판독기로 시작:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'C# 로고'
+            href: quickstart
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: 몰입형 판독기를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Node.js를 사용하여 몰입형 판독기 시작</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDK
+            html: <p><a href="reference.md">Javascript</a></p>

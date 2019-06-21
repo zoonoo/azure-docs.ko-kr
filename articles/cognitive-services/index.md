@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/17/2019
+ms.date: 06/20/2019
 ms.topic: hub-page
-ms.openlocfilehash: d7234ca2441310867aa2f60936de0e3f44342ee8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203996"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295396"
 ---
 <div id="main" class="v2">
 <h1>Azure Cognitive Services 설명서</h1>
@@ -61,7 +61,7 @@ ms.locfileid: "67203996"
                 <div class="card">
                     <div class="cardText">
                         <h3>언어 API</h3>
-                        <p><a href="/azure/cognitive-services/luis/">LUIS(Language Understanding)</a></p>
+                        <p><a href="/azure/cognitive-services/immersive-reader"><span>몰입형 판독기&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">LUIS(Language Understanding)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">텍스트 분석</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
