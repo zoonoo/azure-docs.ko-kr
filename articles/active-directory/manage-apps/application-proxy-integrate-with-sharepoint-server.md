@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473767"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164105"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -129,7 +129,7 @@ KCD를 구성했으므로 이제 Azure AD 애플리케이션 프록시를 구성
    1. 포털의 애플리케이션 페이지에서 **Single Sign-On**을 선택합니다.
    2. Single Sign-On 모드로 **Windows 통합 인증**을 선택합니다.
    3. 내부 애플리케이션 SPN을 이전에 설정한 값으로 설정합니다. 이 예제에서는 **HTTP/SharePoint**입니다.
-   4. “위임된 로그인 ID”에서 **온-프레미스 SAM 계정 이름**을 선택합니다.
+   4. "위임 된 로그인 Id", Active Directory 포리스트 구성에 가장 적합 한 옵션을 선택 합니다. 예를 들어 단일 AD 도메인 선택 포리스트에 있는 경우 **온-프레미스 SAM 계정 이름** (표시 된 것 처럼 아래)를 사용자가 SharePoint와 동일한 도메인에 없는 및 앱 프록시 커넥터 서버를 선택한 경우  **온-프레미스 사용자 계정 이름** (표시 되지 않음).
 
    ![SSO용 통합 Windows 인증 구성](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

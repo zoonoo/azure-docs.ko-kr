@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5ae97b17d06fa0a9934a58ac662ef12116cce4f6
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859970"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137396"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
 
@@ -85,7 +85,7 @@ az group delete --name RESOURCE_GROUP_NAME
 사용 하 여 [az hdinsight의 크기를 조정](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 를 지정한 크기에 지정된 된 HDInsight 클러스터를 조정 합니다. 명령을 편집 하 여 아래 바꿔 `RESOURCE_GROUP_NAME`, 및 `CLUSTER_NAME` 관련 정보를 사용 하 여 합니다. 대체 `TARGET_INSTANCE_COUNT` 원하는 클러스터에 대 한 작업자 노드의 수입니다. 클러스터 크기 조정 하는 방법에 대 한 자세한 내용은 참조 하세요. [확장 HDInsight 클러스터](./hdinsight-scaling-best-practices.md)합니다. 다음 명령을 입력합니다.
 
 ```azurecli-interactive
-az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>다음 단계

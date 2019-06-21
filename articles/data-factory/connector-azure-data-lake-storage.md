@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057943"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203306"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -60,6 +60,9 @@ Azure Data Lake 저장소 Gen2 커넥터는 다음 인증 유형을 지원합니
 - [서비스 주체 인증](#service-principal-authentication)
 - [Azure 리소스 인증용 관리 ID](#managed-identity)
 
+>[!NOTE]
+>PolyBase를 사용 하 여 Data Lake 저장소 Gen2 원본 가상 네트워크 엔드포인트를 사용 하 여 구성 된 경우 SQL Data Warehouse로 데이터 로드를 PolyBase에서 필요에 따라 관리 되는 id 인증을 사용 해야 합니다. 참조 된 [관리 되는 id 인증](#managed-identity) 자세한 필수 구성 요소를 사용 하 여 섹션입니다.
+
 ### <a name="account-key-authentication"></a>계정 키 인증
 
 저장소 계정 키 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
@@ -103,10 +106,10 @@ Azure Data Lake 저장소 Gen2 커넥터는 다음 인증 유형을 지원합니
     - 애플리케이션 키
     - 테넌트 ID
 
-2. 서비스 주체 적절 한 권한을 부여 합니다.
+2. 서비스 주체 적절 한 권한을 부여 합니다. 사용 권한에서 Data Lake 저장소 Gen2에서 작동 하는 방법에 대해 자세히 알아보려면 [파일 및 디렉터리의 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **원본으로**: Azure Storage 탐색기에서 부여 적어도 **읽기 + 실행** 권한을 나열 하 고 파일 폴더 및 하위 폴더에 복사 합니다. 또는 단일 파일을 복사할 수 있는 **읽기** 권한을 부여할 수 있습니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 판독기** 역할입니다.
-    - **싱크로**: Storage 탐색기에서 부여 적어도 **쓰기 + 실행** 폴더의 자식 항목을 만들 수 있는 권한이 있습니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 기여자** 역할입니다.
+    - **원본으로**: Storage 탐색기에서 부여 적어도 **Execute** 와 함께 소스 파일 시스템에서 시작 하는 사용 권한 **읽기** 복사할 파일에 대 한 권한을 합니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 판독기** 역할입니다.
+    - **싱크로**: Storage 탐색기에서 부여 적어도 **Execute** 함께 싱크 파일 시스템에서 시작 하는 권한 **작성** 싱크 폴더에 대 한 사용 권한. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 기여자** 역할입니다.
 
 >[!NOTE]
 >목록에 부여 된 서비스 주체의 사용 권한을 설정 해야 하는 계정 수준에서 또는 연결 테스트를 시작 하는 폴더가 **IAM에서 "저장소 Blob 데이터 읽기 권한자" 권한이 있는 저장소 계정을**합니다. 다음을 사용하는 경우에도 적용됩니다.
@@ -157,10 +160,10 @@ Azure 리소스 인증에 대 한 관리 되는 id를 사용 하려면 다음이
 
 1. [Data Factory 관리 id 정보를 검색할](data-factory-service-identity.md#retrieve-managed-identity) 의 값을 복사 하 여 합니다 **응용 프로그램 ID 서비스** 팩터리와 함께 생성 합니다.
 
-2. 관리 되는 id 적절 한 권한을 부여 합니다.
+2. 관리 되는 id 적절 한 권한을 부여 합니다. 사용 권한에서 Data Lake 저장소 Gen2에서 작동 하는 방법에 대해 자세히 알아보세요 [파일 및 디렉터리의 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)합니다.
 
-    - **원본으로**: Storage 탐색기에서 부여 적어도 **읽기 + 실행** 권한을 나열 하 고 파일 폴더 및 하위 폴더에 복사 합니다. 또는 단일 파일을 복사할 수 있는 **읽기** 권한을 부여할 수 있습니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 판독기** 역할입니다.
-    - **싱크로**: Storage 탐색기에서 부여 적어도 **쓰기 + 실행** 폴더의 자식 항목을 만들 수 있는 권한이 있습니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 기여자** 역할입니다.
+    - **원본으로**: Storage 탐색기에서 부여 적어도 **Execute** 와 함께 소스 파일 시스템에서 시작 하는 사용 권한 **읽기** 복사할 파일에 대 한 권한을 합니다. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 판독기** 역할입니다.
+    - **싱크로**: Storage 탐색기에서 부여 적어도 **Execute** 함께 싱크 파일 시스템에서 시작 하는 권한 **작성** 싱크 폴더에 대 한 사용 권한. 또는 액세스 제어 (IAM)를 부여 적어도 **Storage Blob 데이터 기여자** 역할입니다.
 
 >[!NOTE]
 >목록에 관리 되는 id에 부여 된 사용 권한을 설정 해야 하는 계정 수준에서 또는 연결 테스트를 시작 하는 폴더가 **IAM에서 "저장소 Blob 데이터 읽기 권한자" 권한이 있는 저장소 계정을**합니다. 다음을 사용하는 경우에도 적용됩니다.
@@ -169,7 +172,7 @@ Azure 리소스 인증에 대 한 관리 되는 id를 사용 하려면 다음이
 >계정 수준에서 권한을 부여 하는 방법에 대 한 관련 있는 경우 제작 하는 동안 연결 테스트 및 입력된 경로 수동으로 건너뛸 수 있습니다. 복사 작업으로 관리 되는 id 복사 될 파일에 적절 한 권한이 부여 되에 계속 작동 합니다.
 
 >[!IMPORTANT]
->PolyBase를 사용 하 여 Data Lake 저장소 Gen2 관리 id 인증을 사용 하는 경우 Data Lake 저장소 Gen2에서 데이터를 SQL Data Warehouse로 로드 하는 경우의 1-2 단계를 수행 수도 있는지 확인 [이 지침은](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. Azure Active Directory (Azure AD)를 사용 하 여 SQL Database 서버를 등록 하려면 지침을 따릅니다. 또한 SQL Database 서버에 역할 기반 액세스 제어를 사용 하 여 Storage Blob 데이터 기여자 역할을 할당합니다. 나머지는 Data Factory에 의해 처리 됩니다. Data Lake 저장소 Gen2에 PolyBase를 사용 하 여 데이터를 로드 하는 Azure Virtual Network 끝점을 사용 하 여 구성 된 경우 관리 되는 id 인증을 사용 해야 합니다.
+>PolyBase를 사용 하 여 Data Lake 저장소 Gen2에 관리 되는 id 인증을 사용 하는 경우 Data Lake 저장소 Gen2에서 데이터를 SQL Data Warehouse로 로드 하는 경우의 1-2 단계를 수행 수도 있는지 확인 [이 지침은](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL 등록 Azure Active Directory (Azure AD)를 사용 하 여 데이터베이스 서버 및 2) SQL Database 서버;에 저장소 Blob 데이터 기여자 역할 할당 나머지는 Data Factory에 의해 처리 됩니다. 에 Data Lake 저장소 Gen2를 Azure Virtual Network 끝점을 사용 하 여 구성 된 경우 PolyBase에서 필요에 따라 관리 되는 id 인증을 사용 하에 PolyBase를 사용 하 여 데이터를 로드 해야 합니다.
 
 이러한 속성은 연결된 된 서비스에 대 한 지원 됩니다.
 

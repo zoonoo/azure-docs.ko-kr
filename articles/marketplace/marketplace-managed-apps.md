@@ -2,18 +2,18 @@
 title: Azure 애플리케이션 관리되는 애플리케이션 제품 게시 가이드
 description: 이 아티클에서는 관리되는 애플리케이션을 Marketplace에 게시하기 위한 요구 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937794"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154939"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리형 애플리케이션 제품 게시 가이드
 
@@ -32,9 +32,8 @@ Marketplace를 통해 배포되고 청구되는 트랜잭션 제품은 다음과
 
 |요구 사항 |세부 정보  |
 |---------|---------|
-|고객의 Azure 구독에 배포 | 관리되는 앱은 고객의 구독에 배포되어야 하고 타사에서 관리될 수 있습니다. | 
-|청구 및 계량    |  고객의 Azure 구독에서 리소스를 프로비전합니다. 종량제(PAYGO) 가상 머신은 Microsoft를 통해 고객과 거래되고 고객의 Azure 구독(PAYGO)을 통해 청구됩니다. 
-BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 발생하는 인프라 비용을 청구하는 동안 소프트웨어 라이선스 요금을 고객과 직접 거래합니다.        |
+|고객의 Azure 구독에 배포 | 관리 되는 앱은 고객의 구독에 배포 되어야 합니다 및 타사에서 관리할 수 있습니다. | 
+|청구 및 계량    |  고객의 Azure 구독에서 리소스를 프로비전합니다. PAYGO(종량제) 가상 머신은 Microsoft를 통해 고객과 거래되고 고객의 Azure 구독(PAYGO)을 통해 청구됩니다. <br> Microsoft는 고객 구독에서 발생 하는 인프라 비용을 청구 하는 동안 bring your-라이선스를의 경우 소프트웨어 요금이 고객에 게 직접 라이선스를 &#40;transact는 있습니다.        |
 |Azure 호환 VHD(가상 하드 디스크)    |   VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |
 
 >[!NOTE]
@@ -50,4 +49,4 @@ BYOL(사용자 라이선스 필요)의 경우 Microsoft가 고객 구독에서 �
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
+- [클라우드 파트너 포털에 로그인](https://cloudpartner.azure.com) 만들거나 제품을 완료 합니다.

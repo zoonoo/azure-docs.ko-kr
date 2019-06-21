@@ -9,11 +9,11 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66166267"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182856"
 ---
 ## <a name="create-a-module-identity"></a>모듈 ID 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "66166267"
 
     ![Visual Studio 솔루션 만들기](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 
-2. **Azure IoT Hub .NET 장치 SDK V1.16.0-preview-001 설치** - 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 서비스 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 1.16.0-preview-001 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
+2. **Azure IoT Hub .NET 장치 SDK V1.16.0-preview-001 설치** - 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 서비스 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 1\.16.0-preview-001 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 
     ![Azure IoT Hub .NET 서비스 SDK V1.16.0-preview-001 설치](./media/iot-hub-get-started-create-module-identity-csharp/install-sdk.png)
 

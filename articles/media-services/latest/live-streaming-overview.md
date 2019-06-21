@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556216"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295669"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -31,7 +31,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 - Media Services의 구성 요소. 이러한 구성 요소를 사용하여 라이브 이벤트를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
 이 문서에서는 개요 및 Media Services 및 다른 관련 된 문서에 대 한 링크를 사용 하 여 라이브 스트리밍의 지침을 제공 합니다.
-
+ 
 > [!NOTE]
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용하세요.
 
@@ -49,27 +49,27 @@ Media Services를 사용 하 여 활용을 걸릴 수 있습니다 [동적 패�
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
-라이브 이벤트는 두 가지 유형 중 하나일 수 있습니다: 통과 및 라이브 인코딩. Media Services v3의 라이브 스트리밍에 대 한 자세한 내용은 참조 하세요 [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)합니다.
+[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트는 두 가지 유형 중 하나일 수 있습니다: 통과 및 라이브 인코딩. Media Services v3의 라이브 스트리밍에 대 한 자세한 내용은 참조 하세요 [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)합니다.
 
 ### <a name="pass-through"></a>통과
 
 ![pass-through(통과)](./media/live-streaming/pass-through.svg)
 
-통과 **라이브 이벤트**를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 실행 시간이 긴 라이브 이벤트에 대 한 이러한 통과 라이브 이벤트를 최적화 하거나 24 x 365 선형 라이브 스트리밍. 
+통과 사용 하는 경우 **라이브 이벤트**, 여러 비트 전송률 비디오 스트림의 생성 하 고 (RTMP 또는 조각화 된 MP4 입력된 프로토콜을 사용 하 여) 라이브 이벤트에 대 한 기여도를 피드는 보내는 온-프레미스 라이브 인코더에 의존 합니다. 라이브 이벤트는 다음 모든 추가 트랜스 코딩 없이 동적 packager (스트리밍 끝점)에 들어오는 비디오 스트림을 통해 전달합니다. 실행 시간이 긴 라이브 이벤트에 대 한 이러한 통과 라이브 이벤트를 최적화 하거나 24 x 365 선형 라이브 스트리밍. 
 
 ### <a name="live-encoding"></a>라이브 인코딩  
 
 ![라이브 인코딩](./media/live-streaming/live-encoding.svg)
 
-Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 전송률 비디오를 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 Mp4 프로토콜 사용)하도록 온-프레미스 라이브 인코더를 구성합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률이 있는 비디오 스트림](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 인코딩하고 MPEG-DASH, HLS, 부드러운 스트리밍 등과 같은 프로토콜을 통해 디바이스를 재생하도록 이 스트림을 전달 가능하게 만듭니다. 
+Media Services를 사용 하 여 클라우드 인코딩을 사용 하는 경우 구성 하는 온-프레미스 라이브 인코더에 대 한 기여도를 단일 비트 전송률 비디오 보낼 32Mbps 집계) (최대 피드 라이브 이벤트 (RTMP 또는 조각화 된 MP4 입력된 프로토콜을 사용 하 여). 로 스트리밍 라이브 이벤트는 들어오는 단일 비트 전송률 [여러 비트 전송률 비디오 스트림에](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) 배달을 개선 하기 위해 다양 한 해상도에서 업계 표준 프로토콜을 통해 재생 장치에 배달에 사용할 수 있도록 하 고 MPEG DASH, Apple HTTP 라이브 스트리밍 (HLS) 및 Microsoft 부드러운 스트리밍 등 
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 
 Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저 검토 해야 하 고 다음 개념을 이해: 
 
-- [스트리밍 끝점 API](streaming-endpoint-concept.md)
-- [라이브 이벤트 및 라이브 출력 API](live-events-outputs-concept.md)
-- [스트리밍 로케이터 API](streaming-locators-concept.md)
+- [스트리밍 엔드포인트](streaming-endpoint-concept.md)
+- [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
+- [스트리밍 로케이터](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>일반 단계
 
@@ -79,7 +79,7 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 4. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
 5. 새 **자산** 개체를 만듭니다.
 6. **라이브 출력**을 만들고 만든 자산 이름을 사용합니다.<br/>**라이브 출력**은 스트림을 **자산**에 보관합니다.
-7. **스트리밍 정책** 유형이 기본 제공된 **스트리밍 로케이터**를 만듭니다.<br/>콘텐츠를 암호화하려면 [콘텐츠 보호 개요](content-protection-overview.md)를 검토하세요.
+7. 만들기는 **스트리밍 로케이터** 사용 하 여는 [기본 제공 정책 스트리밍 유형](streaming-policy-concept.md)
 8. **스트리밍 로케이터**의 경로를 나열하여 사용할 URL(결정적)을 다시 가져옵니다.
 9. 에 대 한 호스트 이름 가져오기 합니다 **스트리밍 끝점** 에서 스트리밍 하려는 (원점).
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.

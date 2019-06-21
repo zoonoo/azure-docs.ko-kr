@@ -70,14 +70,17 @@
     - name: OS 기능
       href: operating-system-functionality.md
     - name: 보안
-      href: overview-security.md
       items:
+        - name: 권장 사항
+          href: security-recommendations.md
         - name: 인증 및 권한 부여
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
         - name: 보안 특성
           href: app-service-security-attributes.md
+        - name: 보안 개요
+          href: overview-security.md
     - name: 네트워킹 기능
       href: networking-features.md
     - name: 인바운드 및 아웃바운드 IP

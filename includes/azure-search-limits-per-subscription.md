@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160507"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182582"
 ---
 구독 내에서 여러 서비스를 만들 수 있습니다. 각각 특정 계층에 프로 비전 할 수 있습니다. 각 계층에서 허용 되는 서비스의 수로만 제한 될 뿐입니다. 예를 들어, 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 12개의 다른 서비스를 만들 수 있습니다. 계층에 대 한 자세한 내용은 참조 하세요. [Azure Search에 대 한 SKU 또는 계층 선택](../articles/search/search-sku-tier.md)합니다.
 

@@ -17,12 +17,12 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204509"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -42,7 +42,7 @@ Microsoft는 10년 넘게 클라우드 기반 ID를 보호하고 있습니다. A
 
 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure Active Directory는 적응 Machine Learning 알고리즘 및 추론을 사용하여 잠재적으로 손상된 ID를 나타낼 수 있는 비정상 상태 및 의심스러운 인시던트를 검색합니다. ID 보호는 이 데이터를 사용하여 검색된 문제를 평가하고 적절한 완화 또는 수정 작업을 수행할 수 있도록 하는 보고서 및 경고를 생성합니다.
 
-Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. 이러한 정책은 Azure Active Directory 및 EMS([Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/))에서 제공되는 다른 조건부 액세스 제어 정책과 더불어 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 시작할 수 있습니다.
+Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다. Azure Active Directory에서 제공 되는 다른 조건부 액세스 제어 외에도 이러한 정책 및 [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS)에 자동으로 차단 하거나 포함 하는 적응형 수정 작업을 시작 합니다. 암호 재설정 및 multi-factor authentication 적용 합니다.
 
 ### <a name="identity-protection-capabilities"></a>ID 보호 기능
 
@@ -59,7 +59,7 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 - 기본 워크플로를 제공하여 조사 추적
 - 암호 재설정 등 수정 작업에 쉬운 액세스 제공
 
-**위험 기준 조건부 액세스 정책:**
+**위험 기반 조건부 액세스 정책:**
 
 - 로그인을 차단하거나 다단계 인증 질문을 요구하여 위험한 로그인을 완화하는 정책입니다.
 - 위험한 사용자 계정 차단 및 보호 정책

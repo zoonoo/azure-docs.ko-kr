@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd2552cdfde19995413f4665f04c41c295304d50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e070b80f86cb6c8b1d9e7575e19022b5cb08f340
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082600"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165564"
 ---
 # <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 Keras 모델 등록
 
@@ -27,12 +27,20 @@ Keras는 고급 신경망 네트워크 API 개발 간소화 하기 위해 다른
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
-- [Azure Python SDK 학습 컴퓨터 설치](setup-create-workspace.md#sdk)
-- [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
-- [샘플 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` 및 `utils.py`
+이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-완료 된 찾을 수도 있습니다 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) GitHub 샘플 페이지에서이 가이드의 합니다. Notebook 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 notebook 위젯 확장된 섹션을 포함 합니다.
+ - Azure Machine Learning Notebook VM-다운로드 나 설치 필요 없이
+
+     - 완료 합니다 [클라우드 기반 notebook 퀵 스타트](quickstart-run-cloud-notebook.md) SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 전용된 노트북 서버를 만들려면.
+    - Notebook 서버에 샘플 폴더에서이 디렉터리로 이동 하 여 완료 되 고 확장 된 notebook을 찾습니다: **방법으로-사용-azureml > 학습 된 심층 학습 > train-hyperparameter-tune-deploy-with-keras** 폴더입니다. 
+ 
+ - 사용자 고유의 Jupyter Notebook 서버
+
+     - [Azure Python SDK 학습 컴퓨터 설치](setup-create-workspace.md#sdk)
+    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
+    - [샘플 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` 및 `utils.py`
+     
+    완료 된 찾을 수도 있습니다 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) GitHub 샘플 페이지에이 가이드의 합니다. Notebook 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 notebook 위젯 확장된 섹션을 포함 합니다.
 
 ## <a name="set-up-the-experiment"></a>실험을 설정
 
@@ -105,12 +113,24 @@ exp = Experiment(workspace=ws, name='keras-mnist')
     shutil.copy('./utils.py', script_folder)
     ```
 
-## <a name="get-the-default-compute-target"></a>기본 계산 대상을 가져오기
+## <a name="create-a-compute-target"></a>계산 대상 만들기
 
-각 작업 영역에 두는, 기본 계산 대상: gpu 기반 계산 대상 및 cpu 기반 계산 대상입니다. 기본 계산 대상을 사용 될 때까지 할당 되지 않습니다 즉 0으로 설정 하는 자동 크기 조정 합니다. 이 예제에서는 wIn, 기본 GPU 계산 대상을 사용 합니다.
+실행 하 여 TensorFlow 작업에 대 한 계산 대상을 만듭니다. 이 예제에서는 Azure Machine Learning GPU 가능 계산 클러스터를 만듭니다.
 
 ```Python
-compute_target = ws.get_default_compute_target(type="GPU")
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 계산 대상에 대 한 자세한 내용은 참조는 [계산 대상을 란](concept-compute-target.md) 문서.

@@ -165,7 +165,7 @@ ms.locfileid: "60770792"
 
     ![새 Databricks notebook 설정](./media/vnet-injection-sql-server/create-notebook.png)
 
-2. 다음 명령을 사용 하 여 SQL Server 가상 컴퓨터의 내부 IP 주소를 ping 합니다. 이 ping 성공 해야 합니다. 그렇지 않은 경우 컨테이너를 실행 하 고 구성을 검토 하 여 네트워크 보안 그룹 (NSG)을 확인 하십시오.
+2. 다음 명령을 사용하여 SQL Server 가상 머신의 내부 IP 주소를 ping합니다. 이 ping은 성공해야 합니다. 그렇지 않은 경우 컨테이너가 실행 중인지 확인하고 네트워크 보안 그룹(NSG) 구성을 검토합니다.
 
     ```python
     %sh

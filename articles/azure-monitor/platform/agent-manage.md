@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139258"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146300"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -300,4 +300,6 @@ System Center Operations Manager 관리 그룹에 보고하도록 Linux용 Log A
 
 ## <a name="next-steps"></a>다음 단계
 
-에이전트를 설치하거나 관리하는 중에 문제가 발생하면 [Troubleshooting the Linux agent](agent-linux-troubleshoot.md)(Linux 에이전트 문제 해결)를 참조하세요.
+- 검토 [Linux 에이전트 문제 해결](agent-linux-troubleshoot.md) 설치 또는 Linux 에이전트를 관리 하는 동안 문제가 발생 한 경우.
+
+- 검토 [Windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 설치 하거나 Windows 에이전트를 관리 하는 동안 문제가 발생 한 경우.

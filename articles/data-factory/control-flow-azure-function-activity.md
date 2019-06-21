@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727043"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144124"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 
@@ -64,6 +64,10 @@ Azure 함수 작업은 **라우팅**을 지원합니다. 예를 들어 Azure Fun
 
 에 지 속성 함수에 자세히 알아보려면 [이 문서에서는](../azure-functions/durable/durable-functions-overview.md)합니다. 와 같은 다른 URI 사용 하 여 응답을 반환 하는 지 속성 함수를 호출 하는 Azure 함수 작업을 설정할 수 있습니다 [이 예제에서는](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery)합니다. 때문에 `statusQueryGetUri` HTTP 상태 202 함수 하는 동안 실행 되 고, 웹 작업을 사용 하 여 함수의 상태를 폴링할 수를 반환 합니다. 웹 작업을 사용 하 여 간단히 설정 합니다 `url` 필드 설정 `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`합니다. 지 속성 함수에는 다음이 완료 되 면 함수는 출력 웹 작업의 출력이 됩니다.
 
+
+## <a name="sample"></a>샘플
+
+Tar 파일의 콘텐츠를 추출 하는 Azure 함수를 사용 하는 Data Factory의 샘플을 찾을 수 있습니다 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

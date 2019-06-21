@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133504"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148442"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -29,4 +29,4 @@ ms.locfileid: "67133504"
 | 액세스 패널 |<ul><li>사용자당 액세스 패널에서 볼 수 있는 애플리케이션의 수는 제한이 없습니다. 이는 Azure AD Premium 또는 Enterprise Mobility Suite용 라이선스가 할당된 사용자에게 적용됩니다.</li><li>각 사용자는 액세스 패널에서 최대 10개의 앱 타일을 볼 수 있습니다. 이러한 제한은 Azure Active Directory의 무료 또는 Azure AD 기본 버전용 라이선스가 할당된 사용자에게 적용됩니다. 앱 타일의 예로는 Box, Salesforce 또는 Dropbox가 있습니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | 개체는 30개 이하 관리 단위의 멤버일 수 있습니다. |
-| 관리자 역할 및 권한 | <ul><li>그룹을 추가할 수 없습니다는 [소유자](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)합니다.</li><li>그룹에 할당할 수 없습니다는 [역할](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles)입니다.</li><li>사용자가 다른 사용자의 디렉터리 정보를 읽을 수는 테 넌 트 수준 스위치 (권장 하지 않음) 모든 디렉터리 정보에 대 한 모든 관리자가 아닌 사용자의 액세스를 사용 하지 않도록 설정 하려면 외부에서 제한할 수 없습니다. 기본 권한에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)합니다.</li><li>최대 15 분이 걸릴 수 있습니다 하거나 아웃/서명 관리 하기 전에 서명 역할 멤버 자격 추가 및 해지가 적용 합니다.</li></ul> |
+| 관리자 역할 및 권한 | <ul><li>그룹을 추가할 수 없습니다는 [소유자](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)합니다.</li><li>그룹에 할당할 수 없습니다는 [역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)입니다.</li><li>사용자가 다른 사용자의 디렉터리 정보를 읽을 수는 테 넌 트 수준 스위치 (권장 하지 않음) 모든 디렉터리 정보에 대 한 모든 관리자가 아닌 사용자의 액세스를 사용 하지 않도록 설정 하려면 외부에서 제한할 수 없습니다. 기본 권한에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)합니다.</li><li>최대 15 분이 걸릴 수 있습니다 하거나 아웃/서명 관리 하기 전에 서명 역할 멤버 자격 추가 및 해지가 적용 합니다.</li></ul> |

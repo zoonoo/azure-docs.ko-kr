@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082847"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274042"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 사설 DNS FAQ
 
@@ -88,6 +88,13 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 ## <a name="is-there-portal-support-for-private-zones"></a>프라이빗 영역에 대한 포털 지원이 있나요?
 
 Api, PowerShell, CLI 및 Sdk를 통해 이미 만든 개인 영역과 예, Azure portal에 표시 됩니다.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>왜 내 기존 사설 DNS 영역에에서 표시 되지 새로운 포털 환경을?
+
+미리 보기 갱신 버전 릴리스의 일환으로 개인 DNS 영역에 대 한 새 리소스 모델을 출시 합니다. 기존 사설 DNS 영역을 새 포털 환경에서 표시할 수 있습니다 이러한 전에 새 리소스 모델에 마이그레이션할 수 해야 합니다. 새 리소스 모델을 마이그레이션하는 방법에 대 한 지침은 아래를 참조 하세요.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>새 모델로 기존 사설 DNS 영역 내 마이그레이션하려면 어떻게 해야 하나요?
+마이그레이션하는 새로운 리소스 모델이 가능한 한 빨리 하는 것이 좋습니다. 그러나 레거시 리소스 모델에 지원 될 예정, 추가 기능 하지 개발이 모델을 기반으로 합니다. 나중에 새 리소스 모델을 위해 사용 하는 중단 하려고 합니다. 기존 사설 DNS를 마이그레이션하는 방법에 대 한 지침에 대 한 영역에 새 리소스 모델 참조[Azure DNS 개인 영역에 대 한 마이그레이션 가이드](private-dns-migration-guide.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

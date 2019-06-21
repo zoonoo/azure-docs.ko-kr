@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111217"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204641"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>시나리오: Web API를 호출하는 데스크톱 앱
 
@@ -53,7 +53,7 @@ ms.locfileid: "67111217"
 
   ![데스크톱 응용 프로그램](media/scenarios/desktop-app.svg)
 
-- 작성 하는 이식 가능한 명령줄 도구-아마도 Linux 또는 Mac에서 실행 되는.NET Core 응용 프로그램을 모두 대화형 인증을 사용할 수 없습니다 경우 (.NET Core 제공 하지는 [웹 브라우저](https://aka.ms/msal-net-uses-web-browser)), 및 통합 Windows 인증입니다. 가장 좋은 방법은 장치 코드 흐름을 사용 하는 예제의 경우. 이 흐름 없이 iOT 응용 프로그램과 같은 브라우저 응용 프로그램에도 사용 됩니다.
+- 작성 하는 이식 가능한 명령줄 도구-아마도 Linux 또는 Mac에서 실행 되는.NET Core 응용 프로그램을 경우 대화형 인증을 사용할 수 없습니다 (.NET Core 제공 하지는 [웹 브라우저](https://aka.ms/msal-net-uses-web-browser)), 또는 통합 Windows 인증입니다. 가장 좋은 방법은 장치 코드 흐름을 사용 하는 예제의 경우. 이 흐름 없이 IoT 응용 프로그램과 같은 브라우저 응용 프로그램에도 사용 됩니다.
 
   ![Browserless 응용 프로그램](media/scenarios/device-code-flow-app.svg)
 

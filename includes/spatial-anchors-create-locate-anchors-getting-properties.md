@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c5ca85c0dfe8d601821a78c02b2230c0909c8003
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66110813"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181914"
 ---
 서비스에서 생성 된-새 앵커를 만들고 새 위치를 추적을 삭제 해야 하는 일단의 앵커 위치를 업데이트할 수 없습니다.
 

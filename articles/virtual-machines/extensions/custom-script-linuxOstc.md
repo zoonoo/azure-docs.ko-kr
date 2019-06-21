@@ -122,14 +122,14 @@ ms.locfileid: "60800295"
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.OSTCExtensions | 문자열 |
-| 형식 | CustomScriptForLinux | 문자열 |
+| publisher | Microsoft.OSTCExtensions | string |
+| 형식 | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | 문자열 |
-| enableInternalDNSCheck | true | 부울 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
+| enableInternalDNSCheck | true | boolean |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 

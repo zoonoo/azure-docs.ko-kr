@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751973"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146310"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터를 수집 합니다.
 
 Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent) 또는 OMS Linux 에이전트)는 온-프레미스 머신, [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)로 모니터링되는 컴퓨터, 클라우드에 있는 가상 머신을 종합적으로 관리하기 위해 개발되었습니다. Windows 및 Linux 에이전트는 Azure Monitor에 연결 및 Log Analytics 작업 영역 뿐만 아니라 모든 고유한 로그 또는 메트릭 모니터링 솔루션에 정의 된 대로 다양 한 원본에서 수집 된 로그 데이터를 저장 합니다. 
 
@@ -34,11 +34,11 @@ Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent
 
 Linux 및 Windows 용 에이전트는 TCP 포트 443 통해 Azure Monitor 서비스에 아웃 바운드 통신 하 고 인터넷을 통해 통신 하도록 방화벽 또는 프록시 서버를 통해 컴퓨터를 연결 하는 경우 네트워크 구성을 이해 하려면 아래 요구 사항을 검토합니다 필수. IT 보안 정책에는 인터넷에 연결할 네트워크의 컴퓨터를 허용 하지 않으면, 설정할 수 있습니다는 [Log Analytics gateway](gateway.md) 다음 Azure Monitor 로그로 게이트웨이 통해 연결 하 고 에이전트를 구성 합니다. 다음 에이전트 구성 정보를 수신 하 고 작업 영역에서 활성화 한 솔루션을 모니터링 및 수집 규칙 데이터에 따라 수집 된 데이터 전송 수 있습니다. 
 
-System Center Operations Manager 2012 R2 이상과 함께 컴퓨터를 모니터링 하는 경우 수 데이터를 수집 하 고 서비스에 전달에서 계속 모니터링 Azure Monitor 서비스와 멀티홈 [Operations Manager](../../azure-monitor/platform/om-agents.md)합니다. Linux 컴퓨터를 사용 하 여 에이전트와 Windows 에이전트는 정보는 수집 되 고 대신 하 여 관리 서버에서 처리 상태 서비스 구성 요소를 포함 하지 않습니다. Linux 컴퓨터를 Operations Manager를 사용 하 여 다르게 모니터링 때문에 수행 하지 수신 구성 또는 직접 데이터를 수집 하며 Windows 에이전트 관리 시스템에서와 같은 관리 그룹을 통해 전달 합니다. 결과적으로,이 시나리오는 Operations Manager에 보고 하는 Linux 컴퓨터를 사용 하 여 지원 되지 않습니다.  
+System Center Operations Manager 2012 R2 이상과 함께 컴퓨터를 모니터링 하는 경우 수 데이터를 수집 하 고 서비스에 전달에서 계속 모니터링 Azure Monitor 서비스와 멀티홈 [Operations Manager](../../azure-monitor/platform/om-agents.md)합니다. Linux 컴퓨터를 사용 하 여 에이전트와 Windows 에이전트는 정보는 수집 되 고 대신 하 여 관리 서버에서 처리 상태 서비스 구성 요소를 포함 하지 않습니다. Linux 컴퓨터를 Operations Manager를 사용 하 여 다르게 모니터링 때문에 수행 하지 수신 구성 또는 직접 데이터를 수집 하며 Windows 에이전트 관리 시스템에서와 같은 관리 그룹을 통해 전달 합니다. 결과적으로,이 시나리오는 Operations Manager에 보고 하는 Linux 컴퓨터를 사용 하 여 지원 되지 않습니다 및 Linux 컴퓨터를 구성 해야 [Operations Manager 관리 그룹에 보고](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) 및 두 개의 Log Analytics 작업 영역 단계입니다.
 
 Windows 에이전트는 최대 4개의 Log Analytics 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
-Linux 및 Windows 용 에이전트는 Azure Monitor로 연결에 대해서만, Azure Automation Hybrid Runbook worker 역할 및 기타 서비스와 같은 호스트에 지원 [변경 내용 추적](../../automation/change-tracking.md) 고 [업데이트관리](../../automation/automation-update-management.md). Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows 용 에이전트는 Azure Monitor로 연결에 대해서만, Azure Automation Hybrid Runbook worker 역할 및 기타 서비스와 같은 호스트에 지원 [변경 내용 추적](../../automation/change-tracking.md), [업데이트관리](../../automation/automation-update-management.md), 및 [Azure Security Center](../../security-center/security-center-intro.md)합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.

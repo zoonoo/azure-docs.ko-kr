@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118063"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>VCore 기반 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -146,7 +146,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |TempDB 크기(GB)|32|64|128|
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
-|대상 IOPS(64KB)|250|500|1000|
+|대상 IOPS(64KB)|500|1000|2000|
 |로그 속도 제한 (MBps)|2.5|5.6|10|
 |최대 동시 작업자(요청)|75|150|300|
 |허용되는 최대 세션 수|30000|30000|30000|

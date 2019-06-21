@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161080"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182651"
 ---
 디바이스는 인터넷 연결이 느리거나 중단되는 경우에도 계속 작동되도록 설계되었습니다. 정상적인 작동 조건에서 다음을 사용하는 것이 좋습니다. 
 

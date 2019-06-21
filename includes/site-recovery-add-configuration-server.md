@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116048"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181917"
 ---
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
 2. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택합니다.

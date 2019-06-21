@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9961129805d133c4512e40e4c8be80185316a1ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074917"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165552"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>학습 및 Azure Machine Learning 서비스를 사용 하 여 대규모로 TensorFlow 모델을 등록 합니다.
 
@@ -27,12 +27,20 @@ TensorFlow는 deep neural network DNN ()를 만드는 데 일반적으로 오픈
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
-- [Azure Python SDK 학습 컴퓨터 설치](setup-create-workspace.md#sdk)
-- [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
-- [샘플 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` 및 `utils.py`
+이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-완료 된 찾을 수도 있습니다 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) GitHub 샘플 페이지에서이 가이드의 합니다. Notebook 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 notebook 위젯 확장된 섹션을 포함 합니다.
+ - Azure Machine Learning Notebook VM-다운로드 나 설치 필요 없이
+
+     - 완료 합니다 [클라우드 기반 notebook 퀵 스타트](quickstart-run-cloud-notebook.md) SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 전용된 노트북 서버를 만들려면.
+    - Notebook 서버에 샘플 폴더에서이 디렉터리로 이동 하 여 완료 되 고 확장 된 notebook을 찾습니다: **방법-을-사용-azureml > 학습 된 심층 학습 > train-hyperparameter-tune-deploy-with-tensorflow**폴더입니다. 
+ 
+ - 사용자 고유의 Jupyter Notebook 서버
+
+     - [Azure Python SDK 학습 컴퓨터 설치](setup-create-workspace.md#sdk)
+    - [작업 영역 구성 파일 만들기](setup-create-workspace.md#write-a-configuration-file)
+    - [샘플 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` 및 `utils.py`
+     
+    완료 된 찾을 수도 있습니다 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) GitHub 샘플 페이지에이 가이드의 합니다. Notebook 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 notebook 위젯 확장된 섹션을 포함 합니다.
 
 ## <a name="set-up-the-experiment"></a>실험을 설정
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165483"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182148"
 ---
 이 단계에서는 동일한 네트워크에서 실행 중인 클라이언트 애플리케이션을 사용하여 가용성 그룹 수신기를 테스트합니다.
 

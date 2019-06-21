@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7219a457a2631f9ff6beee06eff34bce0ff5a23f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66110658"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181905"
 ---
 와 같은 액세스 토큰을 사용 하 여 Azure AD 토큰을 설정 하지 않으면 TokenRequired 이벤트를 처리 하거나 구현 해야 tokenRequired 메서드 대리자 프로토콜.
 

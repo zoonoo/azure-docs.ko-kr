@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165516"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182147"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>가상 컴퓨터의 DNS 이름 확인
 다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 머신의 DNS(Domain Name System) 이름을 알아야 합니다. 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.  
@@ -32,5 +32,5 @@ ms.locfileid: "66165516"
 3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
 4. **로그인** 상자에, 이전 작업에서 만든 로그인 이름을 입력합니다.
 5. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
-6. **연결**을 클릭합니다.
+6. **Connect**를 클릭합니다.
 

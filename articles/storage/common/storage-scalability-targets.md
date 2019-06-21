@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073761"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151240"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 azure Storage 확장성 및 성능 목표
 
@@ -45,6 +45,9 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 
 > [!IMPORTANT]
 > 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
+>
+> 표준 파일 공유 5tib 보다 큰 미리 보기 상태 이며 특정 제한 사항이 있습니다.
+> 제한 사항 및 이러한 파일 공유 크기의 미리 보기에 등록 하는 목록에 대 한 참조를 [표준 파일 공유](../files/storage-files-planning.md#standard-file-shares) Azure Files 계획 섹션에 나와 있습니다.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

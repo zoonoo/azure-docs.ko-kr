@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160950"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182617"
 ---
 작업은 검색 및 추적된 얼굴에 대한 메타데이터를 포함하는 JSON 출력 파일을 생성합니다. 메타데이터는 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 얼굴의 위치를 나타내는 좌표를 포함합니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
 

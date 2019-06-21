@@ -1,22 +1,22 @@
 ---
 title: 인증 방법-Azure Active Directory
-description: MFA 및 SSPR에 대해 Azure AD에서 사용할 수 있는 인증 방법
+description: MFA 및 SSPR에 대 한 Azure AD에서 사용 가능한 인증 방법
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119357"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164836"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -180,7 +180,9 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
 
-## <a name="mobile-phone"></a>휴대폰
+## <a name="phone-options"></a>전화 옵션
+
+### <a name="mobile-phone"></a>휴대폰
 
 휴대폰 사용자에게는 두 옵션이 제공됩니다.
 
@@ -193,18 +195,18 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 >
 > 암호 재설정은 전화 번호 확장을 지원하지 않습니다. +1 4255551234X12345 형식에서도 전화를 걸지 전에 확장이 제거됩니다.
 
-### <a name="text-message"></a>문자 메시지
+#### <a name="text-message"></a>문자 메시지
 
 확인 코드가 담긴 SMS가 휴대폰 번호로 전송됩니다. 계속하려면 로그인 인터페이스에 제공한 확인 코드를 입력합니다.
 
-### <a name="phone-call"></a>전화 통화
+#### <a name="phone-call"></a>전화 통화
 
 제공한 전화 번호에 자동으로 음성 전화를 겁니다. 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다.
 
 > [!IMPORTANT]
 > 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
 
-## <a name="office-phone"></a>사무실 전화
+### <a name="office-phone"></a>사무실 전화
 
 제공한 전화 번호에 자동으로 음성 전화를 겁니다. 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다.
 
@@ -219,6 +221,25 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 > 국가 번호와 전화 번호 사이에 공백이 필요합니다.
 >
 > 암호 재설정은 전화 번호 확장을 지원하지 않습니다. +1 4255551234X12345 형식에서도 전화를 걸지 전에 확장이 제거됩니다.
+
+### <a name="troubleshooting-phone-options"></a>전화 옵션 문제 해결
+
+전화 번호를 사용 하 여 인증 방법에 관련 된 일반적인 문제:
+
+* 단일 장치에서 차단 된 호출자 ID
+   * 장치 문제 해결
+* 잘못 된 전화 번호, 잘못 된 국가 코드, 업무용 전화 번호 및 집 전화 번호
+   * 사용자 개체의 문제 해결 하 고 인증 방법을 구성 합니다. 등록 된 올바른 전화 번호를 확인 합니다.
+* 잘못 된 PIN 입력
+   * 사용자가 Azure MFA 서버에 등록 된 올바른 PIN을 사용 하는 것을 확인 합니다.
+* 음성 전달 된 호출
+   * 사용자에 게 전화를 설정 하 고 해당 영역에서 서비스를 사용할 수 있는지 확인 하거나 대체 메서드를 사용 합니다.
+* 사용자가 차단됨
+   * Azure portal에서 사용자를 차단 해제 하는 관리자를 있습니다.
+* SMS 장치에 등록 되어 있지 않습니다.
+   * 메서드를 변경 하거나 장치에서 SMS 활성화 사용자가.
+* 잘못 된 통신 공급자 (폰 입력 없음 검색, DTMF 소리 문제를 여러 장치에서 차단 된 호출자 ID 또는 여러 장치에서 SMS 차단)
+   * Microsoft 여러 통신 공급자를 사용 하 여 전화 통화 및 인증에 대 한 SMS 메시지를 라우팅합니다. 위의 문제가 표시 되는 경우 5 분 내에 5 번 이상 메서드를 사용 하 고 해당 사용자의 정보를 사용할 수 있는 경우 Microsoft 지원에 문의 하려는 사용자 시도가 있습니다.
 
 ## <a name="app-passwords"></a>앱 암호
 

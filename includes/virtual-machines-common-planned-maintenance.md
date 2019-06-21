@@ -9,11 +9,11 @@ ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155922"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182183"
 ---
 Azure는 주기적으로 안정성, 성능 및 가상 머신에 대 한 호스트 인프라의 보안을 개선 하기 위해 해당 플랫폼을 업데이트 합니다. 이러한 업데이트의 목적은 범위에서 네트워킹 구성 요소 업그레이드 하거나 하드웨어 서비스 해제 호스팅 환경의 소프트웨어 구성 요소를 패치 하는 것입니다. 
 

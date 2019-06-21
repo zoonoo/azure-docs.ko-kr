@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
 ms.openlocfilehash: f76ad3f91c2d05508d700e6ef40c9d342b87b5e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238794"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182600"
 ---
 Azure Database Migration Service는 Azure 데이터 플랫폼 최소 가동 중지 시간으로 여러 데이터베이스 소스에서 원활 하 게 마이그레이션할 수 있도록 설계 된 완전히 관리 되는 서비스입니다.
 

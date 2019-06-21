@@ -50,8 +50,8 @@ Azure Backup을 조율하 고 관리할 백업 Recovery Services 자격 증명 �
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 3 번 백업<br/><br/> 응용 프로그램 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
-**DPM 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업됩니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
-**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업됩니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
+**DPM 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
+**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Linux Vm (Hyper-v/VMware)에 대 한 지원<br/><br/> Oracle 지원 되지 않습니다
 
 ## <a name="azure-vm-backup-support"></a>Azure VM 백업 지원
 

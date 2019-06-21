@@ -22,12 +22,12 @@ Azure Blueprint는 보다 동적인 blueprint 정의 만드는 함수를 제공 
 
 - [artifacts](#artifacts)
 - [concat](#concat)
-- [매개 변수](#parameters)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
 - [subscription](#subscription)
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -37,7 +37,7 @@ Azure Blueprint는 보다 동적인 blueprint 정의 만드는 함수를 제공 
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| artifactName |예 |문자열 |청사진 아티팩트 이름입니다. |
+| artifactName |예 |string |청사진 아티팩트 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -109,7 +109,7 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 | 식 | Type | 값 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | 배열 | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "내 문자열 값" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
@@ -126,7 +126,7 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| string1 |예 |문자열 |연결할 첫 번째 값입니다. |
+| string1 |예 |string |연결할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |문자열 |연결 순서로 나타낸 추가 값 |
 
 ### <a name="return-value"></a>반환 값
@@ -151,7 +151,7 @@ Blueprint 매개 변수 값을 반환합니다. 지정된 된 이름은 가진 �
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |예 |문자열 |반환할 매개 변수의 이름입니다. |
+| parameterName |예 |string |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -272,7 +272,7 @@ Azure Blueprint는 Azure Resource Manager 템플릿 함수에서 서로 다릅�
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| placeholderName |예 |문자열 |자리 표시자 이름 반환할 리소스 그룹 아티팩트입니다. |
+| placeholderName |예 |string |자리 표시자 이름 반환할 리소스 그룹 아티팩트입니다. |
 
 ### <a name="return-value"></a>반환 값
 

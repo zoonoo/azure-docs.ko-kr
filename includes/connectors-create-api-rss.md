@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: c381d12ce0db8e940b543a71d09030c4205a9771
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103732"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202792"
 ---
 ### <a name="prerequisites"></a>필수 조건
 * [RSS](https://wikipedia.org/wiki/RSS) 계정  

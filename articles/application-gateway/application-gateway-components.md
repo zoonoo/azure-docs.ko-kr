@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831851"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273225"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -26,7 +26,9 @@ ms.locfileid: "60831851"
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>정적 및 동적 공용 IP 주소
 
-Azure Application Gateway v2 SKU는 v1 SKU는 정적 내부 IP 주소만 지원 하지만 두 정적 내부 및 정적 공용 IP 주소를 지원 합니다. 응용 프로그램 게이트웨이 중지 및 시작 된 가상 IP (VIP) 주소를 변경할 수 있습니다.
+Azure Application Gateway V2 SKU 중 모두 고정 내부 IP 주소 및 고정 공용 IP 주소 또는 정적 공용 IP 주소만 지원 하도록 구성할 수 있습니다. 고정 내부 IP 주소만 지원 하도록 구성할 수 없습니다.
+
+고정 내부 IP 주소 및 동적 공용 IP 주소를 지원 하도록 V1 SKU를 구성할 수 있습니다만 정적 내부 IP 주소 또는 동적 공용 IP 주소만 합니다. 실행 중인 게이트웨이에서 Application Gateway의 동적 IP 주소가 변경 되지 않습니다. 중지 하거나 게이트웨이 시작 하는 경우에 변경할 수 있습니다. 이 변경 되지 않는 시스템 오류, 업데이트, Azure 호스트 업데이트 등입니다. 
 
 Application gateway와 연결 된 DNS 이름을 gateway의 수명 주기 동안 변경 되지 않습니다. 결과적으로, CNAME 별칭을 사용 하 고 응용 프로그램 게이트웨이의 DNS 주소를 가리키도록 해야 합니다.
 

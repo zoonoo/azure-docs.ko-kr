@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bf58256b05c6c1260078c0dba547295e08328ef5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073692"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147861"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>구성, 최적화 및 AzCopy 문제 해결
 
@@ -32,7 +32,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 설정의 `https_proxy` �
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트 사용: `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell 사용: `$env:https_proxy=<proxy IP>:<proxy port>`|
+| **Windows** | 명령 프롬프트 사용: `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell 사용: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 

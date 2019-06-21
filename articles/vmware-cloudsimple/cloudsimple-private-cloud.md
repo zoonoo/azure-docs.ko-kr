@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577047"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165755"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 사설 클라우드 개요
 
@@ -63,7 +63,7 @@ CloudSimple 변환 하 고 몇 분 안에 공용 클라우드에 VMware 워크 �
 
 Azure 위치에서 전용된 노드를 배포할 수 있습니다. 그런 다음 Azure와 CloudSimple 관리할 수 있습니다. 사설 클라우드 하나 이상의 vSphere 클러스터 구성 되며 각 클러스터에 3 ~ 16 노드가 포함 되어 있습니다.
 
-사설 클라우드를 사용 하 여 노드를 구입을 만들 수 있습니다.
+프로 비전 된 노드를 사용 하 여 사설 클라우드를 만들 수 있습니다.
 
 * 종 량 제 노드
 * 예약 된, 전용 노드

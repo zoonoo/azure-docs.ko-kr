@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605632"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734733"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 그룹에 대한 명명 정책
 
@@ -31,12 +31,12 @@ ms.locfileid: "65605632"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Azure Portal을 사용하여 테넌트에 대한 그룹 명명 정책 구성(미리 보기)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Azure Portal을 사용하여 테넌트의 그룹 명명 정책 구성
 
 1. 사용자 관리자 계정을 사용하여 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 1. **그룹**을 선택한 다음, **명명 정책**을 선택하여 명명 정책 페이지를 엽니다.
 
-    ![관리 센터에서 명명 정책 페이지 열기](./media/groups-naming-policy/policy-preview.png)
+    ![관리 센터에서 명명 정책 페이지 열기](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>접두사-접미사 명명 정책 보기 또는 편집
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **명명 정책** 페이지에서 **차단된 단어**를 선택합니다.
 
-    ![명명 정책에서 차단된 단어 목록 편집 및 업로드](./media/groups-naming-policy/blockedwords-preview.png)
+    ![명명 정책에서 차단된 단어 목록 편집 및 업로드](./media/groups-naming-policy/blockedwords.png)
 
 1. **다운로드**를 선택하여 사용자 지정 차단 단어의 현재 목록을 보거나 편집합니다.
 1. 파일 아이콘을 선택하여 사용자 지정 차단 단어의 새로운 목록을 업로드합니다.
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Azure Portal을 사용하여 명명 정책 제거(미리 보기)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Azure Portal을 사용하여 명명 정책 제거
 
 1. **명명 정책** 페이지에서 **정책 삭제**를 선택합니다.
 1. 삭제를 확인한 후 모든 접두사-접미사 명명 정책 및 모든 사용자 지정 차단 단어를 비롯한 명명 정책이 제거됩니다.

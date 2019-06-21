@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540936"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203430"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery의 서비스 업데이트
 조직으로서 계획되거나 계획되지 않은 정전이 발생한 경우 데이터 그리고 실행 중인 앱/워크로드를 안전하게 유지하는 방법을 알아야 합니다. Azure Site Recovery는 사이트의 작동이 중단된 경우에도 VM 및 물리적 서버에서 실행 중인 앱을 계속 사용할 수 있도록 하여 BCDR 전략에 기여합니다. Site Recovery는 VM 및 물리적 서버에서 실행 중인 워크로드를 복제하여 기본 사이트를 사용할 수 없게 된 경우 보조 위치에서 계속 사용할 수 있도록 합니다. 사이트가 복구되어 다시 실행되면 워크로드를 기본 사이트로 복구합니다.
@@ -33,6 +33,17 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 
 > [!IMPORTANT]
 > 업그레이드에 대한 공식 지원은 N-4 미만부터 N 버전(N이 최신 버전임)까지입니다. N-6인 경우 먼저 N-4로 업그레이드한 후 N으로 업그레이드해야 합니다.
+
+## <a name="expiry-of-components"></a>구성 요소는 만료
+Site Recovery 구성 요소 만료 날짜에 가까운 고객에 게 알립니다 또는 (에 귀하가) 하는 경우 전자 메일 알림을 통해 이미 만료 또는 포털에서 자격 증명 모음 대시보드. 자격 증명 모음 대시보드 알림을 현재 소문 rV VM을 보호 하는 경우에 사용할 수 없습니다. 또한 시나리오에 대 한 해당 인프라 보기로 이동 하는 경우 최신 버전 다운로드에 대 한 연결으로 리디렉션하는 구성 요소 옆에 있는 '업데이트 사용 가능' 단추를 됩니다.
+
+구성 요소를 곧 만료 되는 경우 전자 메일 알림의 빈도 다음과 같습니다.
+- 구성 요소가 만료 되기 전에 60 일: 한 번 격주 별
+- 53 일: 매주 한 번
+- 지난 7 일: 매일 1 번
+- 해당 만료 된 후: 한 번 격주 별
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>현재 버전과 최신 릴리스 버전 간의 차이가 4보다 큰 경우 업그레이드
 
@@ -118,15 +129,16 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 
 |업데이트 롤업  |공급자  |통합 설치| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[업데이트 롤업 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[업데이트 롤업 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[업데이트 롤업 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[ 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - 핫픽스     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[업데이트 롤업 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[업데이트 롤업 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>이전 업데이트 롤업
 
+- [업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

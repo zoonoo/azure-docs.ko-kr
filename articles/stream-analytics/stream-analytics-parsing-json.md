@@ -7,12 +7,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ad30d363c8e3ea0264ba79db5417e572614a6739
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84d2d43074b149ed029b1f70323cf4fe896e530d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496828"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293582"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JSON 및 Avro 데이터 구문 분석
 
@@ -135,4 +135,4 @@ FROM input
 ```
 
 ## <a name="see-also"></a>관련 항목
-[Azure Stream Analytics의 데이터 형식](https://msdn.microsoft.com/azure/stream-analytics/reference/data-types-azure-stream-analytics)
+[Azure Stream Analytics의 데이터 형식](https://docs.microsoft.com/en-us/stream-analytics-query/data-types-azure-stream-analytics)

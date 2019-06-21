@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399827"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154561"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -210,7 +210,7 @@ azds up
 1. 응용 프로그램에 대 한 컨테이너를 만듭니다.
 1. 응용 프로그램 개발 공간을 배포합니다.
 1. 구성 된 경우 응용 프로그램 끝점에 공개적으로 액세스할 수 있는 DNS 이름을 만듭니다.
-1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://locahost 합니다.
+1. 사용 하 여 *포트 정방향* 사용 하 여 응용 프로그램 끝점에 대 한 액세스를 제공 하기 http://localhost 합니다.
 1. Stdout 및 stderr을 클라이언트 쪽 도구에 전달합니다.
 
 

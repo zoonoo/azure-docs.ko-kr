@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics에 Windows 컴퓨터 연결 | Microsoft Docs
-description: 이 문서에서는 MMA(Microsoft Monitoring Agent)를 사용하여 다른 클라우드 또는 온-프레미스에 호스트된 Windows 컴퓨터를 Log Analytics에 연결하는 방법을 설명합니다.
+title: Azure Monitor에 Windows 컴퓨터 연결 | Microsoft Docs
+description: 이 문서에서는 Windows에 대 한 Log Analytics 에이전트를 사용 하 여 다른 클라우드 또는 온-프레미스와 Azure Monitor에서 호스팅되는 Windows 컴퓨터를 연결 하는 방법을 설명 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952478"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146342"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -110,14 +110,16 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 2. 에이전트를 자동으로 설치하고 Azure 상용 클라우드에 보고하도록 구성하려면 설치 프로그램 파일을 추출한 폴더에서 다음을 입력합니다. 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    또는 Azure 미국 정부 클라우드에 보고하도록 에이전트를 구성하려면 다음을 입력합니다. 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >매개 변수의 문자열 값 *OPINSIGHTS_WORKSPACE_ID* 하 고 *OPINSIGHTS_WORKSPACE_KEY* interprit에 유효한 옵션으로 Windows Installer를 지시를 큰따옴표에 캡슐화 해야 합니다. 패키지 있습니다. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
 
@@ -202,4 +204,6 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 ## <a name="next-steps"></a>다음 단계
 
-[Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리](agent-manage.md)를 검토하여 컴퓨터에서 배포 수명 주기 중에 에이전트를 관리하는 방법을 알아봅니다.  
+- [Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리](agent-manage.md)를 검토하여 컴퓨터에서 배포 수명 주기 중에 에이전트를 관리하는 방법을 알아봅니다.  
+
+- 검토 [Windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 설치 하거나 에이전트를 관리 하는 동안 문제가 발생 한 경우.

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233191"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206044"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
@@ -60,7 +60,10 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 - [Azure 리소스 인증용 관리 ID](#managed-identity)
 
 >[!NOTE]
->HDInsight, Azure Machine Learning 및 Azure SQL Data Warehouse PolyBase 로드는 Azure Blob Storage 계정 키 인증만 지원합니다.
+>PolyBase를 사용 하 여 가상 네트워크 엔드포인트를 사용 하 여 원본 또는 준비 Blob 저장소를 구성 하는 경우 SQL Data Warehouse로 데이터 로드를 PolyBase에서 필요에 따라 관리 되는 id 인증을 사용 하 고 버전을 사용 하 여 자체 호스팅 Integration Runtime을 사용 해야 합니다. 3.18 이상. 참조 된 [관리 되는 id 인증](#managed-identity) 자세한 필수 구성 요소를 사용 하 여 섹션입니다.
+
+>[!NOTE]
+>Hdinsight 및 Azure Machine Learning 작업은 Azure Blob 저장소 계정 키 인증만 지원합니다.
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
@@ -272,6 +275,9 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
     - **원본의 경우** 액세스 제어(IAM)에서 **Storage Blob 데이터 읽기 권한자** 역할 이상을 부여합니다.
     - **싱크의 경우** 액세스 제어(IAM)에서 **Storage Blob 데이터 기여자** 역할 이상을 부여합니다.
+
+>[!IMPORTANT]
+>PolyBase를 사용 하 여 Blob에 대 한 관리 되는 id 인증을 사용 하는 경우 (원본으로 또는 스테이징) Blob에서 데이터를 SQL Data Warehouse로 로드 하는 경우의 1-2 단계를 수행 수도 있는지 확인 [이 지침은](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL Database를 등록 합니다. Azure Active Directory (Azure AD)를 사용 하 여 서버 및 2) SQL Database 서버;에 저장소 Blob 데이터 기여자 역할 할당 나머지는 Data Factory에 의해 처리 됩니다. Blob storage를 Azure Virtual Network 끝점을 사용 하 여 구성 된 경우 PolyBase에서 필요에 따라 관리 되는 id 인증을 사용 하에 PolyBase를 사용 하 여 데이터를 로드 해야 합니다.
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 

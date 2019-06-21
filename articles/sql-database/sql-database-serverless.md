@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116197"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275474"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 서버 리스 (미리 보기)
 
@@ -253,6 +253,8 @@ Set-AzSqlDatabase
 
 ### <a name="metrics"></a>metrics
 
+서버 리스 데이터베이스의 응용 프로그램 패키지와 사용자 풀의 리소스 사용량을 모니터링 하는 것에 대 한 메트릭은 다음 표에 나열 됩니다.
+
 |엔터티|메트릭|설명|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
@@ -263,10 +265,6 @@ Set-AzSqlDatabase
 |사용자 풀|log_IO_percent|사용자 워크로드에 허용되는 최대 로그 MB/초에 대한 사용자 워크로드에서 사용한 로그 MB/초의 백분율입니다.|백분율|
 |사용자 풀|workers_percent|사용자 워크로드에 허용되는 최대 작업자 수에 대한 사용자 워크로드에서 사용한 작업자 수의 백분율입니다.|백분율|
 |사용자 풀|sessions_percent|사용자 워크로드에 허용되는 최대 세션 수에 대한 사용자 워크로드에서 사용한 세션 수의 백분율입니다.|백분율|
-____
-
-> [!NOTE]
-> Azure Portal의 메트릭은 **모니터링** 아래의 단일 데이터베이스에 대한 데이터베이스 창에서 사용할 수 있습니다.
 
 ### <a name="pause-and-resume-status"></a>일시 중지 및 다시 시작 상태
 

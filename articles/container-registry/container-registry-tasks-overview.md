@@ -1,22 +1,22 @@
 ---
-title: ACR 작업(Azure Container Registry 작업)을 사용하여 OS 및 프레임워크 패치 자동화
-description: 클라우드에서 안전하고 자동화된 컨테이너 이미지 빌드 및 패치를 제공하는 Azure Container Registry의 기능 모음인 ACR 작업을 소개합니다.
+title: 빌드 및 Azure 컨테이너 레지스트리 작업 (ACR 작업)를 사용 하 여 컨테이너 이미지를 패치 자동화
+description: 보안, 자동화 된 컨테이너 이미지 빌드, 관리 및 패치를 클라우드에서 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977209"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147978"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>컨테이너 이미지 빌드 및 ACR 작업을 사용 하 여 유지 관리를 자동화 합니다.
 
-컨테이너는 새 수준의 가상화를 제공하여 인프라 및 운영 요구 사항에서 애플리케이션 및 개발자 종속성을 격리합니다. 그러나 이 애플리케이션 가상화가 패치되는 방법을 해결해야 하는 문제가 남아 있습니다.
+컨테이너는 새 수준의 가상화를 제공하여 인프라 및 운영 요구 사항에서 애플리케이션 및 개발자 종속성을 격리합니다. 남아 것 인데,이 응용 프로그램 가상화 관리 되 고 컨테이너 수명 주기 동안 패치는 어떻게 해결 해야 합니다.
 
 ## <a name="what-is-acr-tasks"></a>ACR 작업이란?
 
@@ -46,8 +46,7 @@ ms.locfileid: "65977209"
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 분기 | GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub PR | GitHub 리포지토리의 끌어오기 요청. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. PR 및 하위 폴더 사양 조합을 보여주는 예입니다. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. 분기 및 하위 폴더를 지정 하는 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
 
 ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를 들어, ACR 작업을 CI/CD 솔루션에 통합합니다. CI/CD 솔루션은 [서비스 주체][az-login-service-principal]로 [az login][az-login]을 실행한 다음, [az acr build][az-acr-build] 명령으로 이미지 빌드를 시작할 수 있습니다.
@@ -65,7 +64,7 @@ ACR 작업은 기본 컨테이너 수명 주기로 설계되었습니다. 예를
 
 ## <a name="automate-os-and-framework-patching"></a>OS 및 프레임워크 패치 자동화
 
-컨테이너 빌드 워크플로를 실제로 향상시키는 ACR 작업의 기능은 기본 이미지에 대한 업데이트를 검색하는 기능에서 제공됩니다. 업데이트된 기본 이미지가 레지스트리에 푸시되면 ACR 작업에서 이를 기반으로 하여 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
+컨테이너 빌드 워크플로를 실제로 향상시키는 ACR 작업의 기능은 기본 이미지에 대한 업데이트를 검색하는 기능에서 제공됩니다. 업데이트 된 기본 이미지가 레지스트리에 푸시 됨 또는 Docker 허브에서와 같은 공용 리포지토리에 기본 이미지가 업데이트 될 때 ACR 작업에 따라 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
 
 컨테이너 이미지는 *기본* 이미지와 *애플리케이션* 이미지로 크게 분류할 수 있습니다. 기본 이미지에는 일반적으로 애플리케이션이 빌드되는 운영 체제 및 애플리케이션 프레임워크가 다른 사용자 지정 항목과 함께 포함됩니다. 이러한 기본 이미지 자체는 일반적으로 [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], [Node.js][base-node] 등의 공용 업스트림 이미지를 기반으로 합니다. 일부 애플리케이션 이미지에서는 일반적인 기본 이미지를 공유할 수 있습니다.
 
@@ -76,7 +75,7 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 세 번째 ACR 작업 자습서인 [Azure Container Registry 작업을 사용하여 기본 이미지 업데이트 시 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)에서 OS 및 프레임워크 패치에 대해 알아보세요.
 
 > [!NOTE]
-> 기본 이미지와 애플리케이션 이미지가 모두 동일한 Azure 컨테이너 레지스트리 또는 공용 Docker 허브 리포지토리에 있는 경우에만 기본 이미지 업데이트에서 빌드를 트리거합니다.
+> 현재 기본 이미지는 모두 기본 및 응용 프로그램 이미지는 동일한 Azure container registry에 또는 기본 공용 Docker 허브 또는 Microsoft Container Registry 리포지토리에 상주 하는 경우에 트리거 빌드를 업데이트 합니다.
 
 ## <a name="multi-step-tasks"></a>다단계 작업
 

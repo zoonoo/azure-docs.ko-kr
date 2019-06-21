@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 4dd0182e5698c992e45afae183ef94c488b27e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154755"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182172"
 ---
 1. 포털에서 VM을 선택합니다. **DNS 이름** 아래에서 **구성**을 클릭합니다.
    

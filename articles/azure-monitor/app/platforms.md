@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9ef5c9e8b4a46b4bf2bed25027602fb98a09dbf0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99245dd7628aa4d25e44266a3e798e2f96501f1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256100"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275393"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 의 구현입니다.
@@ -56,7 +56,6 @@ ms.locfileid: "66256100"
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)
-* [스프링](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [유니버설 Windows 앱](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](../../azure-monitor/app/windows-desktop.md)
@@ -82,7 +81,6 @@ ms.locfileid: "66256100"
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
-* [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 

@@ -13,7 +13,7 @@ ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
 ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2019
 ms.locfileid: "65237108"
@@ -157,11 +157,13 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="request-headers"></a>요청 헤더
 
-이 표에서 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 나열합니다.
+아래 표는 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
+
 | `Authorization` | `Bearer` 단어 앞에 표시되는 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
+
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
 | `X-Microsoft-OutputFormat` | 오디오 출력 형식을 지정합니다. 허용되는 값의 전체 목록은 [오디오 출력](#audio-outputs)을 참조하세요. | 필수 |
 | `User-Agent` | 응용 프로그램 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |

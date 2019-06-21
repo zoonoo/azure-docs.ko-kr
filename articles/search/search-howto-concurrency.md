@@ -10,10 +10,10 @@ ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025333"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
@@ -27,7 +27,7 @@ ms.locfileid: "65025333"
 
 낙관적 동시성은 인덱스, 인덱서, 데이터 원본 및 synonymMap 리소스에 데이터를 기록하는 API 호출에서 액세스 조건을 확인하는 방식으로 구현됩니다.
 
-모든 리소스에는 개체 버전 정보를 제공하는 [*ETag(엔터티 태그)*](https://en.wikipedia.org/wiki/HTTP_ETag)가 있습니다. ETag를 먼저 확인하면 리소스의 ETag가 로컬 복사본과 일치하는지를 확인하여 일반적인 워크플로(가져오기, 논리적으로 수정, 업데이트)에서 동시 업데이트를 방지할 수 있습니다.
+모든 리소스에는 개체 버전 정보를 제공하는 [*ETag(엔터티 태그)* ](https://en.wikipedia.org/wiki/HTTP_ETag)가 있습니다. ETag를 먼저 확인하면 리소스의 ETag가 로컬 복사본과 일치하는지를 확인하여 일반적인 워크플로(가져오기, 논리적으로 수정, 업데이트)에서 동시 업데이트를 방지할 수 있습니다.
 
 + REST API는 요청 헤더에서 [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)를 사용합니다.
 + .NET SDK는 accessCondition 개체를 통해 ETag를 설정하여 리소스에 대해 [If-Match | If-Match-None 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)를 설정합니다. [IResourceWithETag(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag)에서 상속하는 모든 개체에는 accessCondition 개체가 있습니다.

@@ -4,16 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 9b98e1a1f5243584d0ca4b1490e25302ec26b465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2470f937d2d812bf79cea3c23d89a50717a5a92
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050562"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277364"
 ---
 | Resource | [소비 계획](../articles/azure-functions/functions-scale.md#consumption-plan) | [프리미엄 요금제](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 계획](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | 확장 | 이벤트 기반 | 이벤트 기반 | [수동/자동 크기 조정](../articles/app-service/web-sites-scale.md) | 
+| 최대 인스턴스 | 200 | 20 | 10-20 |
 |기본 [시간 초과 기간](../articles/azure-functions/functions-scale.md#timeout) (분) |5 | 30 |30<sup>2</sup> |
 |최대 [시간 초과 기간](../articles/azure-functions/functions-scale.md#timeout) (분) |10 | unbounded | unbounded<sup>3</sup> |
 | 최대 아웃 바운드 연결 (인스턴스당) | 600 active (1200 합계) | unbounded | unbounded |
@@ -26,7 +27,7 @@ ms.locfileid: "67050562"
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | 당 100 개 [지역](https://azure.microsoft.com/global-infrastructure/regions/) |리소스 그룹당 100 |리소스 그룹당 100 |
 | Storage<sup>6</sup> |1 GB |250GB |50 ~ 1000 GB |
 | 앱당 사용자 지정 도메인</a> |500<sup>7</sup> |500 |500 |
-| 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |지원 되지 않음, 와일드 카드 인증서에 대 한 *. azurewebsites.net 기본적으로 사용 가능| 무제한 SNI SSL 및 1 IP SSL 연결 포함 |무제한 SNI SSL 및 1 IP SSL 연결 포함 | 
+| 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |무제한 SNI SSL 연결 포함 | 무제한 SNI SSL 및 1 IP SSL 연결 포함 |무제한 SNI SSL 및 1 IP SSL 연결 포함 | 
 
 <sup>1</sup> 다양 한 App Service 계획 옵션에 대 한 특정 제한에 대 한 참조를 [App Service 계획 제한](../articles/azure-subscription-service-limits.md#app-service-limits)합니다.  
 <sup>2</sup> 기본적으로 App Service 계획의 Functions 1.x 런타임 시간 제한은 제한 합니다.  

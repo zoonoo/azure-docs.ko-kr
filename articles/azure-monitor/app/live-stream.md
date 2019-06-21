@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721082"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303806"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. [프로파일러](../../azure-monitor/app/profiler.md), [스냅샷 디버거](../../azure-monitor/app/snapshot-debugger.md) 및 [성능 테스트](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)와 함께 라이브 메트릭 스트림은 라이브 웹 사이트에 강력하고 비침해적인 진단 도구를 제공합니다.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)의 라이브 메트릭 스트림을 사용하여 프로덕션 웹 애플리케이션에서 실시간 심장 박동을 검사합니다. 메트릭과 성능 카운터를 선택 및 필터링하여 서비스에 지장 없이 실시간으로 확인합니다. 실패한 요청 및 예외 샘플에서 스택 추적을 검사합니다. 와 함께 [Profiler](../../azure-monitor/app/profiler.md)하십시오 [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)합니다. 라이브 메트릭 Stream 라이브 웹 사이트에 대 한 강력 하 고 비침해 적인 진단 도구를 제공합니다.
 
 라이브 메트릭 스트림을 사용하여 다음을 수행할 수 있습니다.
 
@@ -192,15 +192,6 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 >[!NOTE]
 >필터 조건에 CustomerID와 같은 잠재적으로 중요한 정보를 입력하기 전에 인증된 채널을 설정하는 것이 좋습니다.
 >
-
-## <a name="generating-a-performance-test-load"></a>성능 테스트 로드 생성
-
-로드 증가의 영향을 확인하려면 성능 테스트 블레이드를 사용합니다. 여러 동시 사용자의 요청을 시뮬레이트합니다. 단일 URL의 "수동 테스트"(ping 테스트)를 실행하거나, 가용성 테스트와 동일한 방식으로 업로드하는 [다단계 웹 성능 테스트](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)를 실행할 수 있습니다.
-
-> [!TIP]
-> 성능 테스트를 만든 후 테스트 및 라이브 스트림 블레이드를 별도 창에서 엽니다. 대기 중인 성능 테스트가 시작될 때를 볼 수 있으며 동시에 라이브 스트림을 확인할 수 있습니다.
->
-
 
 ## <a name="troubleshooting"></a>문제 해결
 

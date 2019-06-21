@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61451092"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>OPC 클라이언트 및 OPC PLC의 통신을 보호
@@ -96,22 +96,22 @@ opcclient-123456 | Opc.Ua.ServiceResultException: Certificate is not trusted.
 
 1. 로그 출력에서 OPC PLC 정보를 입력 `CreateSigningRequest information` 영역에서 입력된 필드에는 `Register New OPC UA Application` 페이지에서 `Server` ApplicationType로 합니다.
 
-1. `Register`를 선택합니다.
+1. `Register`을(를) 선택합니다.
 
 1. 다음 페이지에서 `Request New Certificate for OPC UA Application` 선택 `Request new Certificate with Signing Request`합니다.
 
 1. 다음 페이지에서 `Generate a new Certificate with a Signing Request` 에 붙여 넣습니다 합니다 `CSR (base64 encoded)` 에 로그 출력에서 문자열을 `CreateRequest` 입력된 필드. 전체 문자열을 복사를 확인 합니다.
 
-1. `Generate New Certificate`를 선택합니다.
+1. `Generate New Certificate`을(를) 선택합니다.
 
 1. 이제를 이동 하는 앞으로 `View Certificate Request Details`입니다. 이 페이지의 인증서 저장소를 프로 비전 하는 데 필요한 모든 정보를 다운로드할 수 있습니다 `opc-plc`합니다.
 
 1. 이 페이지에서:  
-    - 선택 `Certificate` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<applicationcertbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
+    - 선택 `Certificate` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<applicationcertbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
 
-    - 선택 `Issuer` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<addissuercertbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
+    - 선택 `Issuer` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<addissuercertbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
 
-    - 선택 `Crl` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<updatecrlbase64-string>` 나중에 있습니다. `Back`를 선택합니다.
+    - 선택 `Crl` 에서 `Download as Base64` 에 제공 된 텍스트 문자열을 복사 합니다 `EncodedBase64` 필드 및 이후 사용 하기 위해 저장 합니다. 참조로 `<updatecrlbase64-string>` 나중에 있습니다. `Back`을(를) 선택합니다.
 
 1. 라는 변수를 PowerShell에서 이제 설정 `$env:_PLC_OPT`:
 
