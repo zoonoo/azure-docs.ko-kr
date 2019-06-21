@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474054"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204546"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (미리 보기)
 
@@ -129,41 +129,6 @@ Id 관리 및 권한 관리의 개요, 2018 Ignite 컨퍼런스에서 다음 동
 | 리소스 디렉터리 | 하나 이상의 리소스를 공유할 수 있는 디렉터리입니다. |
 | 할당 된 사용자 | 사용자 또는 그룹에 대 한 액세스 패키지를 할당 하는 것입니다. |
 | enable | 프로세스는 액세스 패키지를 요청 하는 사용자를 사용할 수 있도록입니다. |
-
-## <a name="roles-and-permissions"></a>역할 및 권한
-
-권한 관리에 작업 함수를 기반으로 하는 다른 역할에 있습니다.
-
-| 역할 | 설명 |
-| --- | --- |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | 권한 관리의 모든 측면을 관리 합니다.<br/>사용자 및 그룹을 만듭니다. |
-| 카탈로그를 만든 | 카탈로그 만들기 및 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. 카탈로그를 자동으로 생성 하는 사람에는 카탈로그의 첫 번째 카탈로그 소유자가 됩니다. |
-| 카탈로그 소유자 | 편집 하 고 기존 카탈로그를 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자입니다. |
-| 패키지 관리자 액세스 | 편집 하 고 카탈로그 내에서 모든 기존 액세스 패키지를 관리 합니다. |
-| 승인자 | 패키지에 액세스 하려면 요청을 승인 합니다. |
-| 요청자 | 패키지 액세스를 요청 합니다. |
-
-다음 표에서 이러한 각 역할에 대 한 사용 권한을 나열합니다.
-
-| Task | 사용자 관리자 | 카탈로그를 만든 | 카탈로그 소유자 | 패키지 관리자 액세스 | 승인자 |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [일반 카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [카탈로그에서 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [액세스 패키지에서 리소스 역할 추가/제거](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청할 수 있는 사용자 지정](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [직접 액세스 패키지에 사용자 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지에 할당 권한이 있는 사용자 보기](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 요청 보기](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [요청의 배달 오류 보기](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [보류 중인 요청 취소](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 숨기기](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 패키지를 삭제 합니다.](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [액세스 요청 승인](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [일반 카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [카탈로그에서 리소스를 추가/제거 합니다.](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그 소유자를 추가 하거나 패키지 관리자에 액세스](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그를 편집/삭제](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 

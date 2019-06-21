@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002202"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190953"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 문제 해결
 
@@ -59,6 +59,16 @@ Azure Database Migration Service 인스턴스를 중지 하는 경우 다음 오
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
 | 이 오류는 마이그레이션 프로젝트에서 여전히 실행 중인지 또는 제공 하는 활동을 포함 하는 서비스 인스턴스를 중지 하려고 할 때 표시 됩니다. <br><br><br><br><br><br> | Azure Database Migration Service를 중지 하려는 인스턴스의 실행 동작이 없는 되는지 확인 합니다. 또한 서비스를 중지 하기 전에 작업 또는 프로젝트를 삭제할 수 있습니다. 다음 단계를 실행 중인 모든 작업을 삭제 하 여 migration service 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-module-AzureRM.DataMigration 이름 <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Azure Database Migration Service를 시작 하려고 하는 동안 오류가 발생 했습니다.
+
+Azure Database Migration Service 인스턴스를 시작 하는 경우 다음 오류가 나타납니다.
+
+* **오류**: 서비스가 시작 되지 않습니다. 오류: {'errorDetail': "서비스가 실패 했습니다 시작 하려면 Microsoft 지원에 문의 하세요"}
+
+| 원인         | 해결 방법 |
+| ------------- | ------------- |
+| 이 오류는 이전 인스턴스는 내부적으로 실패 한 경우에 표시 됩니다. 이 오류는 드물게 발생 하 고 엔지니어링 팀은 인식 합니다. <br> | 없습니다를 시작 하는 다음 바꾸거나 새로 프로 비전 서비스의 인스턴스를 삭제 합니다. |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Azure SQL DB에 마이그레이션 SQL 인스턴스를 관리 하는 동안 데이터베이스를 복원 하는 오류
 

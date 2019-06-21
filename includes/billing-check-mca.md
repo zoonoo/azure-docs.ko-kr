@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127098"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182551"
 ---
 Microsoft 고객 계약에 대 한 대금 청구 계정에 액세스할 수 있는지 여부를 확인 하려면 계약 형식을 확인 합니다.
 

@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: e66e7d4646b650d2d811d3807db04605dfddeded
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141192"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182717"
 ---
 1. **앱** 프로젝트에서 `AndroidManifest.xml` 파일을 엽니다. 다음 코드를 `application` 시작 태그 뒤에 추가합니다.
 
