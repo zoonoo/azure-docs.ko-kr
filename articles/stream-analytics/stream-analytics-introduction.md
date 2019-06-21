@@ -101,7 +101,7 @@ Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Stream Analytics의 개요를 살펴봤습니다. 다음으로 첫 번째 Stream Analytics 작업을 심층적으로 알아보고 만들 수 있습니다.
+이제 Azure Stream Analytics의 개요를 살펴봤습니다. 다음으로 Stream Analytics 작업을 심층적으로 알아보고 첫 번째 Stream Analytics 작업을 만들 수 있습니다.
 
 * [Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
