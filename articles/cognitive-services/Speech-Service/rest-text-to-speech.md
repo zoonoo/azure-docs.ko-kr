@@ -74,7 +74,7 @@ ms.locfileid: "65237108"
 
 ### <a name="request-body"></a>요청 본문
 
-본문에는 필요 하지 않습니다. `GET` 이 끝점에 요청 합니다.
+이 끝점에 대한 `GET` 요청에는 본문이 필요하지 않습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 
@@ -161,7 +161,9 @@ Authorization: Bearer [Base64 access_token]
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
-| `Authorization` | `Bearer` 단어 앞에 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
+
+| `Authorization` | `Bearer` 단어 앞에 표시되는 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
+
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
 | `X-Microsoft-OutputFormat` | 오디오 출력 형식을 지정합니다. 허용되는 값의 전체 목록은 [오디오 출력](#audio-outputs)을 참조하세요. | 필수 |
 | `User-Agent` | 응용 프로그램 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |
