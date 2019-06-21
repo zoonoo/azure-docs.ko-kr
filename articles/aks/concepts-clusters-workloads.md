@@ -221,7 +221,7 @@ StatefulSet과 마찬가지로 DaemonSet은 `kind: DaemonSet`을 사용하여 YA
 자세한 내용은 [Kubernetes DaemonSets][kubernetes-daemonset]를 참조하세요.
 
 > [!NOTE]
-> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용하는 경우, Daemonset에서는 해당 가상 노드에 pod를 생성하지 않습니다.
+> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용하는 경우, Daemonset는 해당 가상 노드에 pod를 생성하지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 
