@@ -28,7 +28,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 
 ## <a name="master-security"></a>마스터 보안
 
-AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터 관리 되 고 Microsoft에서 유지 관리 합니다.
+AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 유지 및 관리합니다.
 
 기본적으로 Kubernetes API 서버는 공용 IP 주소와 FQDN(정규화된 도메인 이름)을 사용합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
