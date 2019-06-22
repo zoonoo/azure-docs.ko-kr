@@ -34,9 +34,9 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 ## <a name="node-security"></a>노드 보안
 
-AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. Linux 노드 모 비 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu 배포를 실행 합니다. 실행 하는 최적화 된 Windows Server 2019 (현재 AKS에서 미리 보기)는에서 Windows Server 노드 릴리스 및도 모 비 컨테이너 런타임을 사용 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
+AKS 노드는 사용자가 유지 및 관리하는 Azure 가상 머신입니다. Linux 노드 모비(Moby)컨테이너 런타임을 사용하여 최적화된 Ubuntu 배포를 수행 합니다. Windows Server 노드(현재 AKS에서 미리 보기)에서는 최적화된 Windows Server 2019 릴리스를 실행하고 모비 컨테이너 런타임을 사용합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 통해 자동으로 배포됩니다.
 
-Azure 플랫폼을 매일 밤 마다 Linux 노드에 OS 보안 패치를 자동으로 적용 합니다. 호스트 다시 부팅 해야 하는 Linux OS 보안 업데이트, 재부팅 자동으로 수행 되지 않습니다. Linux 노드를 수동으로 다시 부팅 수 또는 사용 하는 일반적인 방법은 것 [Kured][kured], kubernetes는 오픈 소스 재부팅 디먼입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+Azure 플랫폼을 매일 밤 마다 Linux 노드에 OS 보안 패치를 자동으로 적용합니다. 호스트의 재부팅을 해야하는 Linux OS 보안 업데이트는 자동으로 재부팅을 수행하지 않습니다. Linux 노드를 수동으로 재부팅 할 수 있으며, 일반적인 방법은 kubernetes는 오픈 소스 재부팅 데몬인 [Kured][kured]를 사용하는 것 입니다. Kured는 [DaemonSet][aks-daemonsets]으로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 재부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
 (현재 AKS에서 미리 보기)는에서 Windows Server 노드에 대 한 Windows Update는 자동으로 실행 및 최신 업데이트를 적용 합니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스 정기적인 일정에 따라 AKS 클러스터에서 Windows Server 노드 풀에서 업그레이드를 수행 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만듭니다 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 참조 하세요. [AKS에 노드 풀을 업그레이드][nodepool-upgrade]합니다.
 
