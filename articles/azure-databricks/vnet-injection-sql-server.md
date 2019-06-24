@@ -101,13 +101,13 @@ ms.locfileid: "60770792"
 
     ![Ubuntu에서 터미널 SSH 로그인](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
-3. 다음 명령을 사용 하 여 가상 머신에서 Docker를 설치 합니다.
+3. 다음 명령을 사용하여 가상 머신에 Docker를 설치합니다.
 
     ```bash
     sudo apt-get install docker.io
     ```
 
-    다음 명령 사용 하 여 Docker 설치를 확인 합니다.
+    다음 명령을 사용하여 Docker 설치를 확인합니다.
 
     ```bash
     sudo docker --version
@@ -131,7 +131,7 @@ ms.locfileid: "60770792"
     sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' -p 1433:1433 --name sql1  -d mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    컨테이너가 실행 되 고 있는지 확인 합니다.
+    컨테이너가 실행되고 있는지 확인합니다.
 
     ```bash
     sudo docker ps -a
@@ -139,11 +139,11 @@ ms.locfileid: "60770792"
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
-1. SQL Server Management Studio를 열고 서버 이름 및 SQL 인증을 사용 하 여 서버에 연결 합니다. 사용자 로그인 **SA** 이며 암호는 암호 Docker 명령에 설정 합니다. 예제 명령에서 암호가 `Password1234`합니다.
+1. SQL Server Management Studio를 열고 서버 이름 및 SQL 인증을 사용하여 서버에 연결합니다. 로그인 사용자 이름은 **SA**이며 암호는 Docker 명령에서 설정한 암호입니다. 예제 명령에서 암호는 `Password1234`입니다.
 
     ![SQL Server Management Studio를 사용 하 여 SQL Server에 연결](./media/vnet-injection-sql-server/ssms-login.png)
 
-2. 성공적으로 연결한 후 선택 **새 쿼리** 선택한 데이터베이스 테이블을 만들려면 다음 코드 조각은 입력 하 고 테이블의 일부 레코드를 삽입 합니다.
+2. 2\. 성공적으로 연결한 후 **새 쿼리**를 선택하고 데이터베이스, 테이블을 만들고 테이블에 일부 레코드를 삽입하려면 다음 코드 조각을 입력합니다.
 
     ```SQL
     CREATE DATABASE MYDB;
@@ -161,7 +161,7 @@ ms.locfileid: "60770792"
 
 ## <a name="query-sql-server-from-azure-databricks"></a>Azure Databricks에서 SQL Server 쿼리
 
-1. Azure Databricks 작업 영역으로 이동한 다음 필수 구성 요소의 일부로 클러스터 만들어졌는지 확인 합니다. 그런 다음 선택 **Notebook 만들기**합니다. 노트북에 이름을 선택 *Python* 언어와 사용자가 만든 클러스터를 선택 합니다.
+1. Azure Databricks 작업 영역으로 이동한 다음 필수 구성 요소의 일부로 클러스터가 만들어졌는지 확인합니다. 그런 다음 **Notebook 만들기**를 선택합니다. 노트북에 이름을 입력하고 *Python* 언어와 사용자가 만든 클러스터를 선택합니다.
 
     ![새 Databricks notebook 설정](./media/vnet-injection-sql-server/create-notebook.png)
 
