@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731065"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
@@ -50,7 +50,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 * 앱이 .NET Framework 4.6에서 실행 중인지 확인합니다.
 * 웹앱이 ASP.NET Core 애플리케이션인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
 * 확인하려는 데이터가 생성된 지 2주 이상 지난 경우에는 시간 필터의 범위를 제한한 후에 다시 시도해 봅니다. 추적은 7일 후에 삭제됩니다.
-* 프록시 또는 방화벽이 [https://gateway.azureserviceprofiler.net](https://gateway.azureserviceprofiler.net) 에 대한 액세스를 차단하지 않았는지 확인합니다.
+* 프록시 또는 방화벽이 [https://gateway.azureserviceprofiler.net](https://gateway.azureserviceprofiler.net ) 에 대한 액세스를 차단하지 않았는지 확인합니다.
 
 ### <a id="double-counting"></a>병렬 스레드에서 이중 계산
 

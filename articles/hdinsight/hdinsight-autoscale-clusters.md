@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000096"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 (미리 보기)를 자동으로 조정
@@ -26,12 +26,12 @@ Azure HDInsight 클러스터 크기 조정 기능 자동으로 조정 작업자 
 
 다음 표에서 클러스터 형식 및 크기 조정 기능을 사용 하 여 호환 되는 버전을 설명 합니다.
 
-| Version | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 ESP 없이 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 없이 4.0 HDInsight | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| HDInsight 3.6 ESP 없이 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 없이 4.0 HDInsight | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 사용 하 여 HDInsight 3.6 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 사용 하 여 HDInsight 3.6 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -222,7 +222,7 @@ Azure portal에 나열 된 클러스터 상태는 자동 크기 조정 작업을
 | 클러스터 상태 | 설명 |
 |---|---|
 | 실행 중 | 클러스터를 정상적으로 작동 합니다. 모든 이전 자동 크기 조정 작업을 성공적으로 완료 했습니다. |
-| 업데이트 중  | 클러스터 자동 크기 조정 구성 업데이트 중입니다.  |
+| 업데이트하는 중  | 클러스터 자동 크기 조정 구성 업데이트 중입니다.  |
 | HDInsight 구성  | 클러스터를 강화 또는 규모 축소 작업 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에는 자동 크기 조정 구성 업데이트 하는 동안 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 또는 자동 크기 조정을 사용 하지 않도록 설정할 수 있습니다.  |
 | 오류  | 클러스터를 사용 하 여 문제가 발생 하 고 사용할 수 없는 합니다. 이 클러스터를 삭제 하 고 새로 만드십시오.  |

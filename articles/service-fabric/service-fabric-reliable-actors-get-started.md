@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726392"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
@@ -50,11 +50,11 @@ ms.locfileid: "60726392"
 
 솔루션에는 3개의 프로젝트가 포함되어 있습니다.
 
-* **애플리케이션 프로젝트(MyApplication)**. 이 프로젝트는 배포를 위해 모든 서비스를 함께 패키지합니다. 애플리케이션을 관리하기 위한 *ApplicationManifest.xml* 및 PowerShell 스크립트가 포함되어 있습니다.
+* **애플리케이션 프로젝트(MyApplication)** . 이 프로젝트는 배포를 위해 모든 서비스를 함께 패키지합니다. 애플리케이션을 관리하기 위한 *ApplicationManifest.xml* 및 PowerShell 스크립트가 포함되어 있습니다.
 
-* **인터페이스 프로젝트(HelloWorld.Interfaces)**. 이 프로젝트는 행위자에 대한 인터페이스 정의를 포함합니다. 행위자 인터페이스는 임의 이름의 모든 프로젝트에 정의할 수 있습니다.  인터페이스는 행위자 구현 및 행위자를 호출하는 클라이언트에 의해 공유되는 행위자 계약을 정의합니다.  클라이언트 프로젝트가 의존하므로, 일반적으로 행위자 구현과는 별도의 어셈블리에 정의하는 것이 적절합니다.
+* **인터페이스 프로젝트(HelloWorld.Interfaces)** . 이 프로젝트는 행위자에 대한 인터페이스 정의를 포함합니다. 행위자 인터페이스는 임의 이름의 모든 프로젝트에 정의할 수 있습니다.  인터페이스는 행위자 구현 및 행위자를 호출하는 클라이언트에 의해 공유되는 행위자 계약을 정의합니다.  클라이언트 프로젝트가 의존하므로, 일반적으로 행위자 구현과는 별도의 어셈블리에 정의하는 것이 적절합니다.
 
-* **행위자 서비스 프로젝트(HelloWorld)**. 이 프로젝트는 행위자를 호스트할 Service Fabric 서비스를 정의합니다. 행위자의 *HelloWorld.cs* 구현이 포함되어 있습니다. 행위자 구현은 기본 형식(`Actor`)에서 파생되는 클래스로서, *MyActor.Interfaces* 프로젝트에 정의된 인터페이스를 구현합니다. 또한 행위자 클래스는 `ActorService` 인스턴스 및 `ActorId`를 허용하고 이를 기본 `Actor` 클래스에 전달하는 생성자를 구현해야 합니다.
+* **행위자 서비스 프로젝트(HelloWorld)** . 이 프로젝트는 행위자를 호스트할 Service Fabric 서비스를 정의합니다. 행위자의 *HelloWorld.cs* 구현이 포함되어 있습니다. 행위자 구현은 기본 형식(`Actor`)에서 파생되는 클래스로서, *MyActor.Interfaces* 프로젝트에 정의된 인터페이스를 구현합니다. 또한 행위자 클래스는 `ActorService` 인스턴스 및 `ActorId`를 허용하고 이를 기본 `Actor` 클래스에 전달하는 생성자를 구현해야 합니다.
     
     이 프로젝트에는 `ActorRuntime.RegisterActorAsync<T>()`를 사용하여 행위자 클래스를 Service Fabric 런타임에 등록하는 *Program.cs*도 포함되어 있습니다. `HelloWorld` 클래스는 이미 등록되어 있습니다. 프로젝트에 추가된 추가 행위자 구현을 `Main()` 메서드에도 등록해야 합니다.
 

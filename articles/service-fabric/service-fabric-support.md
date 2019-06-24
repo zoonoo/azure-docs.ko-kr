@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545064"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304248"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -43,7 +43,7 @@ Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure 
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>프로덕션 문제 보고 또는 독립 실행형 Service Fabric 클러스터에 대한 유료 지원 요청
 
-프리미어 또는 기타 클라우드에 배포된 Service Fabric 클러스터의 문제를 보고하려면 [Microsoft 지원 포털](https://support.microsoft.com/oas/default.aspx?prid=16146)에서 전문 지원에 대한 티켓을 여세요.
+프리미어 또는 기타 클라우드에 배포된 Service Fabric 클러스터의 문제를 보고하려면 [Microsoft 지원 포털](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 전문 지원에 대한 티켓을 여세요.
 
 다음에 대해 자세히 알아봅니다.
 
@@ -60,11 +60,11 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 및 MSDN 포럼
 
-[StackOverflow에서 Service Fabric 태그][stackoverflow] 및 [MSDN의 Service Fabric 포럼][msdn-forum]은 플랫폼의 작동 방식 및 특정 작업을 수행하는 방법에 대한 질문을 제공하는 데 가장 적합합니다.
+합니다 [StackOverflow에서 Service Fabric 태그][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] 최상의 플랫폼의 작동 방식 및 특정 작업을 수행 하는 방법에 대 한 질문에 대 한 사용 됩니다.
 
 ### <a name="azure-feedback-forum"></a>Azure 피드백 포럼
 
-[Service Fabric을 위한 Azure 피드백 포럼][uservoice-forum]은 중장기적 계획의 일환으로 가장 인기 있는 요청을 검토하면서 제품에 대해 갖게 된 포괄적인 기능 아이디어를 제출할 수 있는 유용한 장소입니다. 커뮤니티 내에서 제안하신 요구가 충분히 지원될 수 있게 최선을 다하고 있습니다.
+합니다 [Service Fabric에 대 한 Azure 피드백 포럼][uservoice-forum] 우리 중 장기적 계획의 일부인 가장 인기 있는 요청을 검토 하면서 제품에 대 한 포괄적인 기능 아이디어를 제출 하기 위한 가장 적합 합니다. 커뮤니티 내에서 제안하신 요구가 충분히 지원될 수 있게 최선을 다하고 있습니다.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
 

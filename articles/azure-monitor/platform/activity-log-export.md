@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248146"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Storage 또는 Azure Event Hubs로 Azure 활동 로그 내보내기
@@ -154,7 +154,7 @@ Azure 활동 로그는 어떻게 정의 사용 하 여 내보낸를 **로그 프
 
     | 자산 | 필수 | 설명 |
     | --- | --- | --- |
-    | 이름 |예 |로그 프로필의 이름입니다. |
+    | name |예 |로그 프로필의 이름입니다. |
     | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
     | 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
     | days |예 |보존 해야 하는 이벤트에 1에서 365 사이의 일 수입니다. 0 값은 로그를 무기한(영원히) 저장합니다.  0이면 활성화된 매개 변수를 true로 설정해야 합니다. |

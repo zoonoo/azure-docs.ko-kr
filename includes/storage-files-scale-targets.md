@@ -4,22 +4,22 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: df5d8ff941c742d546208c27c7af4e7bcbeec08a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073728"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150494"
 ---
 | Resource | 표준 파일 공유 | 프리미엄 파일 공유(미리 보기) |
 |----------|---------------|------------------------------------------|
 | 파일 공유의 최소 크기 | 최소값이 없음을; 용량 제 통화 요금 | 100gib; 프로 비전 |
-| 파일 공유의 최대 크기 | 5TiB | 100tib |
+| 파일 공유의 최대 크기 | 5tib (GA), 100 TiB (미리 보기) | 100tib |
 | 파일 공유에서 파일의 최대 크기 | 1TiB | 1TiB |
 | 파일 공유에 파일의 최대 수 | 제한 없음 | 제한 없음 |
-| 공유 당 최대 IOPS | 1,000 IOPS | 100,000 IOPS |
+| 공유 당 최대 IOPS | 1,000 IOPS (GA), 10, 000 IOPS (미리 보기) | 100,000 IOPS |
 | 공유 파일 별로 저장 된 액세스 정책 최대 수 | 5 | 5 |
-| 단일 파일 공유의 목표 처리량 | 최대 60MiB/초 | 프리미엄 파일 공유 ingress 및 egress 값을 참조 하세요.|
+| 단일 파일 공유의 목표 처리량 | 최대 60 MiB/sec (GA), 최대 300 MiB/sec (미리 보기) | 프리미엄 파일 공유 ingress 및 egress 값을 참조 하세요.|
 | 단일 파일 공유에 대 한 최대 송신 | 표준 파일 공유 대상 처리량을 참조 하세요. | 최대 6,204 초 |
 | 단일 파일 공유에 대 한 최대 수신 | 표준 파일 공유 대상 처리량을 참조 하세요. | 최대 4,136 초 |
 | 파일별 최대 열린 핸들 수 | 2,000개의 열린 핸들 | 2,000개의 열린 핸들 |

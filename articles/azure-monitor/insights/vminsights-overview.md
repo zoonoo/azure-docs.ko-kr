@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
 ms.openlocfilehash: 7d86b3fe9aeddd603d0c40b1c760cabdee42e396
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522101"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
@@ -36,7 +36,7 @@ VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 
 
 * 상태
 * 성능
-* 매핑
+* 지도
 
 >[!NOTE]
 >현재 상태 기능을 Azure 가상 머신에 대해서만 제공 됩니다. 성능 및 지도 기능 환경 또는 다른 클라우드 공급자의 Azure Vm, Azure VM scale sets 및 호스팅되는 virtual machines를 지원 합니다.

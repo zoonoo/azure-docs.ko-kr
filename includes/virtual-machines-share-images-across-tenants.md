@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145895"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182167"
 ---
 공유 이미지 갤러리에서는 RBAC를 사용 하 여 공유 이미지 있습니다. RBAC를 사용 하 여 테 넌 트 외부의 개인을 테 넌 트 내에서 이미지를 공유할 수 있습니다. 하지만 Azure 테 넌 트를 대규모로 외부에 있는 이미지를 공유 하려는 경우 공유를 용이 하 게 하려면 앱 등록을 만들어야 합니다.  앱 등록을 사용 하 여 같은 복잡 한 공유 시나리오를 설정할 수 있습니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "66145895"
 1. Azure portal에서 다른 테 넌 트와 공유 하려는 공유 이미지 갤러리를 선택 합니다.
 1. 선택 **액세스 제어 (IAM)를 선택**, 아래에서 **역할 할당 추가** 선택 *추가*합니다. 
 1. 아래 **역할**를 선택 **판독기**합니다.
-1. 아래 **에 대 한 액세스 할당:**, 기본값을 그대로 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
+1. 아래 **에 대 한 액세스 할당:** , 기본값을 그대로 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
 1. 아래 **선택**, 형식 *myGalleryApp* 목록에 표시 되 면 선택 합니다. 완료 되 면 선택 **저장할**합니다.
 
 
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Appl
 
 1. 리소스 그룹을 선택 하 고 선택한 **액세스 제어 (IAM)** 합니다. 아래 **역할 할당 추가** 선택 **추가**합니다. 
 1. 아래 **역할**, 형식 **참가자**합니다.
-1. 아래 **에 대 한 액세스 할당:**, 기본값을 그대로 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
+1. 아래 **에 대 한 액세스 할당:** , 기본값을 그대로 **Azure AD 사용자, 그룹 또는 서비스 주체**합니다.
 1. 아래 **선택** 형식을 *myGalleryApp* 목록에 표시 되 면 선택 합니다. 완료 되 면 선택 **저장할**합니다.
 
 > [!NOTE]

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 55fbf7292ab894cad3de3de9e96ddc96fe0b79b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481716"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>구성 및 Azure Managed Applications에 대 한 just in time 액세스 승인

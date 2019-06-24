@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479995"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
@@ -21,7 +21,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 보호된 가상 머신이 Windows 가상 머신인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 머신인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
 
 > [!IMPORTANT]
-> 9.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
+> 9\.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 > LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요

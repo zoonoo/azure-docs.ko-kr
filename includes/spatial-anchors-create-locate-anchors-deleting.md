@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 9e50caeac5c52b9f2309448e2bb0b760f533fb6c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110820"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181920"
 ---
 ## <a name="delete-anchors"></a>앵커를 삭제 합니다.
 

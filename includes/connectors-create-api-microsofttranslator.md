@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 46a6fcb57a21f3f1e30b39fc6967256550e31616
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149703"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182463"
 ---
 ### <a name="prerequisites"></a>필수 조건
 * [MicrosoftTranslator](https://www.microsoft.com/translator) 계정  

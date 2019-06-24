@@ -2,18 +2,18 @@
 title: Azure Backup FAQ
 description: '다음의 일반적인 질문에 대한 답변: Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등을 포함하는 Azure Backup 기능 '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688733"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275556"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.

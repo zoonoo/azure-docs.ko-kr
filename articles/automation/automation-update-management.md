@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075510"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205017"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -39,7 +39,7 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다.
 
-CVE가 릴리스되면 평가할 Linux 머신에 대한 패치가 나타날 때까지 2~3시간이 걸립니다.  Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
+패키지를 출시 되 면 패치 평가 대 한 Linux 컴퓨터에 대 한 표시를 2 ~ 3 시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
 
 컴퓨터에 업데이트 준수 검사가 완료 되 면 에이전트를 대량으로 Azure Monitor 로그의 정보를 전달 합니다. Windows 컴퓨터는 기본적으로 12시간마다 준수 검사가 실행됩니다.
 
@@ -227,7 +227,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
-| 업데이트 그룹 |Azure 컴퓨터에 대 한 배포에 포함 하려면 Azure Vm의 동적 그룹을 만들려는 구독, 리소스 그룹, 위치 및 태그의 조합을 기준으로 쿼리를 정의 합니다. </br></br>비 Azure 컴퓨터에 대 한 기존 저장 된 배포에 포함 하는 비 Azure 컴퓨터의 그룹을 선택 하려면 검색을 선택 합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
+| 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |

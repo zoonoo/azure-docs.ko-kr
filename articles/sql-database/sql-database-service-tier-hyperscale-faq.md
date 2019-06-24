@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791424"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275594"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -79,7 +79,7 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 
 예. 논리 서버별 하이퍼스케일 데이터베이스 수에 대한 제한과 자세한 내용은 [논리 서버의 단일 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](sql-database-resource-limits-logical-server.md)을 참조하세요.
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 성능 특성은 무엇인가요?
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>대규모 데이터베이스의 성능 특성은 무엇입니까
 
 SQL Database 하이퍼스케일 아키텍처는 높은 성능과 처리량을 제공하면서 대용량 데이터베이스를 지원합니다. 
 
@@ -94,7 +94,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
   하이퍼스케일을 사용하면 읽기 요청을 처리하는 데 사용할 수 있는 추가 계산 노드를 하나 이상 프로비전할 수 있습니다. 즉, 추가 계산 노드를 읽기 전용 노드로 사용하여 기본 계산의 읽기 워크로드를 오프로드할 수 있습니다. 읽기 전용 외에도 이 노드는 기본 노드에서 장애 조치(failover)가 발생할 경우 상시 대기 노드 역할을 합니다.
 
-  이러한 추가 계산 노드 각각에 대한 프로비전을 일정 시간 내에 온라인으로 수행할 수 있습니다. 연결 문자열의 `ApplicationIntent` 인수를 `read_only`로 설정하면 이러한 추가 읽기 전용 계산 노드에 연결할 수 있습니다. `read-only`로 표시된 모든 연결은 추가 읽기 전용 계산 노드 중 하나에 자동으로 라우팅됩니다.
+  이러한 추가 계산 노드 각각에 대한 프로비전을 일정 시간 내에 온라인으로 수행할 수 있습니다. 연결 문자열의 `ApplicationIntent` 인수를 `readonly`로 설정하면 이러한 추가 읽기 전용 계산 노드에 연결할 수 있습니다. `readonly`로 표시된 모든 연결은 추가 읽기 전용 계산 노드 중 하나에 자동으로 라우팅됩니다.
 
 ## <a name="deep-dive-questions"></a>심층적인 질문
 
@@ -140,7 +140,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>읽기-확장 복제본이 몇 개나 지원되나요?
 
-기본적으로 대규모 데이터베이스를 읽기-배율 복제본 하나 (총에서 두 개의 복제본)를 사용 하 여 만들어집니다. 0 사이의 4를 사용 하 여 읽기 전용 복제본의 수를 조정할 수는 [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 하거나 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+기본적으로 대규모 데이터베이스를 읽기-배율 복제본 하나 (총에서 두 개의 복제본)를 사용 하 여 만들어집니다. 0에서 사용 하 여 4 간의 읽기 전용 복제본의 수를 조정할 수는 [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)합니다.
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>고가용성을 위해 계산 노드를 추가로 프로비저닝해야 하나요?
 
@@ -361,7 +361,7 @@ IO 대기 시간 및 IOPS 워크 로드 패턴에 따라 달라 집니다.  필�
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>보조 계산 노드에 어떻게 연결하나요?
 
-연결 문자열의 `ApplicationIntent` 인수를 `read_only`로 설정하면 이러한 추가 읽기 전용 계산 노드에 연결할 수 있습니다. `read-only`로 표시된 모든 연결은 추가 읽기 전용 계산 노드 중 하나에 자동으로 라우팅됩니다.  
+연결 문자열의 `ApplicationIntent` 인수를 `readonly`로 설정하면 이러한 추가 읽기 전용 계산 노드에 연결할 수 있습니다. `readonly`로 표시된 모든 연결은 추가 읽기 전용 계산 노드 중 하나에 자동으로 라우팅됩니다.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>읽기-확장 복제본 전용 엔드포인트를 만들 수 있나요?
 

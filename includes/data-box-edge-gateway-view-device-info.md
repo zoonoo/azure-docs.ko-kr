@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161154"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182663"
 ---
 1. [PowerShell 인터페이스를 연결할](#connect-to-the-powershell-interface)합니다.
 2. 사용 하 여는 `Get-HcsApplianceInfo` 장치에 대 한 정보를 가져올 수 있습니다.

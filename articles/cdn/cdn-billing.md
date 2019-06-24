@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
 ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782063"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
@@ -32,7 +32,7 @@ ms.locfileid: "60782063"
 
 - 영역 2: 아시아 태평양(일본 포함)
 
-- 영역 3: 남미
+- 영역 3: 남아메리카
 
 - 영역 4: 오스트레일리아 및 뉴질랜드
 

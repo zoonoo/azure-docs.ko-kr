@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523343"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
@@ -226,19 +226,19 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 
 | 방법... Resource Manager 기반 HDInsight SDK 사용 | 링크 |
 | --- | --- |
-| .NET SDK를 사용하여 HDInsight 클러스터 만들기 | [.NET SDK를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
-| .NET SDK와 스크립트 작업을 사용하여 클러스터 사용자 지정 | [스크립트 작업을 사용하여 HDInsight Linux 클러스터 사용자 지정](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
+| .NET SDK를 사용하여 HDInsight 클러스터 만들기 |[.NET SDK를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
+| .NET SDK와 스크립트 작업을 사용하여 클러스터 사용자 지정 |[스크립트 작업을 사용하여 HDInsight Linux 클러스터 사용자 지정](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
 | .NET SDK와 Azure Active Directory를 사용하여 대화형으로 애플리케이션 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
 | .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 애플리케이션 인증 |[HDInsight에 대한 비대화형 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK를 사용하여 Apache Hive 작업 제출 |[Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 Apache Pig 작업 제출 |[Apache Pig 작업 제출](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) 참조 |
 | .NET SDK를 사용하여 Apache Sqoop 작업 제출 |[Apache Sqoop 작업 제출](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) 참조 |
-| .NET SDK를 사용하여 HDInsight 클러스터 나열 | [HDInsight 클러스터 나열](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
-| .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 | [HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 액세스 권한 부여/해지 | [HDInsight 클러스터에 대한 액세스 권한 부여/해지](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트 | [HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 저장소 계정 찾기 | [HDInsight 클러스터에 대한 기본 저장소 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
-| .NET SDK를 사용하여 HDInsight 클러스터 삭제 | [HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
+| .NET SDK를 사용하여 HDInsight 클러스터 나열 |[HDInsight 클러스터 나열](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
+| .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 |[HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 액세스 권한 부여/해지 |[HDInsight 클러스터에 대한 액세스 권한 부여/해지](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트 |[HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 저장소 계정 찾기 |[HDInsight 클러스터에 대한 기본 저장소 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
+| .NET SDK를 사용하여 HDInsight 클러스터 삭제 |[HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>예
 다음은 ASM 기반 SDK 및 Resource Manager 기반 SDK에 해당하는 코드 조각을 사용하여 작업을 수행하는 방법에 대한 일부 예제입니다.

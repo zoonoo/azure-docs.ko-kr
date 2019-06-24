@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418391"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272877"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 지속적으로 업데이트되고 개선됩니다. 서비스를 최신 상태로 유지할 수 있도록 이 문서에서는 최신 릴리스, 새 기능 및 새 콘텐츠에 대한 정보를 제공합니다. 이 페이지는 정기적으로 업데이트됩니다.
 
 Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/forums/256299-site-recovery)은 언제든지 환영합니다.
+
+
+## <a name="updates-june-2019"></a>업데이트 (2019 년 6 월)
+
+### <a name="update-rollup-37"></a>업데이트 롤업 37
+
+[업데이트 롤업 37](https://support.microsoft.com/help/4508614/) 다음 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세 함)에 대 한 업데이트
+**문제 수정/개선 사항** | 다양 한 수정 및 개선 사항 (단계에서 설명한 대로 롤업)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+
+기능 추가 이번 달 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**GPT 파티션** | 업데이트 롤업 37 이상 (Mobility service 버전 9.25.5241.1), 최대 5 개의 GPT 파티션 UEFI에서 지원 됩니다. 이 업데이트 이전에 4 개의 지원 되었습니다.
+
+
+
+## <a name="updates-may-2019"></a>업데이트 (2019 년 5 월)
+
+### <a name="update-rollup-36"></a>업데이트 롤업 36
+
+[업데이트 롤업 36](https://support.microsoft.com/help/4503156) 다음 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세 함)에 대 한 업데이트
+**문제 수정/개선 사항** | 다양 한 수정 및 개선 사항 (단계에서 설명한 대로 롤업)
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
+기능 추가 이번 달 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**추가 된 디스크를 복제 합니다.** | 재해 복구를 위해 이미 사용 되는 Azure VM에 추가 된 데이터 디스크에 대 한 복제를 사용 하도록 설정 합니다. [자세히 알아보기](azure-to-azure-enable-replication-added-disk.md).
+**자동 업데이트** | 재해 복구를 위해 사용 하도록 설정 하는 Azure Vm에서 실행 되는 모바일 서비스 확장에 대 한 자동 업데이트를 구성 하는 경우 기존 automation 계정을 사용 하 여 Site Recovery에서 만든 기본 계정을 사용 하는 대신 이제 선택할 수 있습니다. [자세히 알아보기](azure-to-azure-autoupdate.md).
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+
+기능 추가 이번 달 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**프로세스 서버 모니터링** | 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구에 대 한 모니터링 및 향상 된 서버 상태 보고 및 경고를 사용 하 여 프로세스 서버 문제를 해결 합니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>업데이트 (2019 년 3 월)
@@ -32,8 +87,9 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세 함)에 대 한 업데이트
 **문제 수정/개선 사항** | 다양 한 수정 및 개선 사항 (단계에서 설명한 대로 롤업)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -63,18 +119,18 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구 
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구 
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
 **네트워크 매핑** | Azure VM 재해 복구를 위해 복제를 사용 하도록 설정 하면 모든 사용 가능한 대상 네트워크를 이제 사용할 수 있습니다. 
 **표준 SSD** | 이제 다음을 사용 하 여 Azure Vm에 대 한 재해 복구를 설정할 수 있습니다 [표준 SSD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)합니다.
-**저장소 공간 다이렉트** | 사용 하 여 Azure VM 앱에서 실행 중인 앱에 대 한 재해 복구를 설정할 수 있습니다 [저장소 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 고가용성에 대 한 합니다.  저장소 공간 다이렉트 (s2d) Site Recovery와 함께 사용 하 여 Azure VM 워크 로드의 포괄적인 보호를 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. VM에 SAP ASCS 계층, SQL Server, 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우 특히 유용 합니다.
+**스토리지 공간 다이렉트** | 사용 하 여 Azure VM 앱에서 실행 중인 앱에 대 한 재해 복구를 설정할 수 있습니다 [저장소 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 고가용성에 대 한 합니다.  저장소 공간 다이렉트 (s2d) Site Recovery와 함께 사용 하 여 Azure VM 워크 로드의 포괄적인 보호를 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. VM에 SAP ASCS 계층, SQL Server, 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우 특히 유용 합니다.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -83,6 +139,7 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 
 
 ## <a name="updates-january-2019"></a>업데이트 (2019 년 1 월)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>가속된 네트워킹 (Azure Vm)
 
@@ -99,16 +156,19 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **공급자 및 에이전트** | Site Recovery 에이전트 공급자 (롤업에 자세 함)을 업데이트 합니다.
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
 
-업데이트에 추가 된 새로운 기능입니다.
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | Ubuntu, Debian, SUSE 한 RedHat 워크스테이션 6/7 및 새 커널 버전에 대 한 지원이 추가 되었습니다.
-**저장소 공간 다이렉트** | Site Recovery는 저장소 공간 다이렉트 (s2d)를 사용 하 여 Azure Vm을 지원 합니다.
+**스토리지 공간 다이렉트** | Site Recovery는 저장소 공간 다이렉트 (s2d)를 사용 하 여 Azure Vm을 지원 합니다.
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구
+
+기능 추가 이번 달 표에 요약 되어 있습니다.
+ 
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | Ubuntu, Debian, SUSE 한 Redhat Enterprise Linux 7.6, RedHat 워크스테이션 6/7, Oracle Linux 6.10/7.6, 및 새 커널 버전에 대 한 지원이 추가 되었습니다.
@@ -123,9 +183,8 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **공급자 및 에이전트** | Site Recovery 에이전트 공급자 (롤업에 자세 함)을 업데이트 합니다.
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제 
-업데이트에 추가 된 새로운 기능입니다.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제 
+기능 추가 이번 달 표에 요약 되어 있습니다.
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | UEK5 커널 및 Oracle Linux 6.8 및 6.9/7.0에 대 한 지원이 추가 되었습니다.
@@ -135,8 +194,8 @@ Site Recovery 기능에 대한 [여러분의 의견](https://feedback.azure.com/
 **장애 조치(Failover)** | Storvsc 및 vsbus 부팅 드라이버가 아닌 VMware Vm에 대 한 장애 조치 시간을 개선 합니다.
 **UEFI 지원** | Azure Vm 부팅 유형이 UEFI를 지원 하지 않습니다. 이제 azure Site Recovery를 사용 하 여 UEFI 사용 하 여 온-프레미스 물리적 서버를 마이그레이션할 수 있습니다. Site Recovery는 마이그레이션을 시작 하기 전에 부팅 유형을 BIOS로 변환 하 여 서버를 마이그레이션합니다. Site Recovery 이전에이 변환을 vm만 지원 합니다. 지원은 이상 Windows Server 2012를 실행 중인 물리적 서버에서 사용할 수 있습니다.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -176,8 +235,8 @@ Azure Vm의 재해 복구 VM 라이선스 비용을 절감 하 고 네트워크 
 **공급자 및 에이전트** | Site Recovery 에이전트 공급자 (롤업에 자세 함)을 업데이트 합니다.
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -208,8 +267,8 @@ Azure Vm의 재해 복구 VM 라이선스 비용을 절감 하 고 네트워크 
 **공급자 및 에이전트** | Site Recovery 에이전트 공급자 (롤업에 자세 함)을 업데이트 합니다.
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm 재해 복구 
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm 재해 복구 
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -217,8 +276,8 @@ Azure Vm의 재해 복구 VM 라이선스 비용을 절감 하 고 네트워크 
 **클라우드 지원** | Azure 독일 클라우드의 Vm에 대 한 재해 복구를 지원 합니다.
 **구독 간 재해 복구** | 한 지역의 Azure Vm을 동일한 Azure Active Directory 테 넌 트 내에서 다른 구독에서 다른 지역으로 복제를 지원 합니다. [자세히 알아보기](https://aka.ms/cross-sub-blog).
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Vmware v M/물리적 서버 재해 복구 
-업데이트에 추가 된 새로운 기능입니다.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Vmware v M/물리적 서버 재해 복구 
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
@@ -237,17 +296,17 @@ Azure Vm의 재해 복구 VM 라이선스 비용을 절감 하 고 네트워크 
 **공급자 및 에이전트** | Site Recovery 에이전트 공급자 (롤업에 자세 함)을 업데이트 합니다.
 **문제 수정/개선 사항** | 수정 및 개선 사항 (자세히 설명한 것 처럼 롤업에) 수입니다.
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm 재해 복구 
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm 재해 복구 
 
-업데이트에 추가 된 새로운 기능입니다.
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | Red Hat Enterprise Linux 7.5에 대 한 추가 지원 합니다.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Vmware v M/물리적 서버 재해 복구 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Vmware v M/물리적 서버 재해 복구 
 
-업데이트에 추가 된 새로운 기능입니다.
+기능 추가 이번 달 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---

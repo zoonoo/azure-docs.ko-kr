@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258194"
 ---
 # <a name="azure-application-prerequisites"></a>Azure 애플리케이션 필수 구성 요소
@@ -29,7 +29,7 @@ ms.locfileid: "66258194"
 * Azure 빠른 시작 템플릿<br> 자세한 내용은 다음을 참조하세요.
 
   * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 커뮤니티가 참여한 템플릿을 사용하여 Azure Resource Manager를 통해 Azure 리소스를 배포하여 생산성을 높일 수 있습니다. Azure Resource Manager를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속 항목과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계 중에 애플리케이션을 반복해서 배포합니다.
-  * [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 이 리포지토리는 커뮤니티가 참여한 현재 사용 가능한 모든 Azure Resource Manager 템플릿을 포함합니다. 검색 가능 템플릿 인덱스는 https://azure.microsoft.com/documentation/templates/에서 유지 관리됩니다.
+  * [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 이 리포지토리는 커뮤니티가 참여한 현재 사용 가능한 모든 Azure Resource Manager 템플릿을 포함합니다. 검색 가능 템플릿 인덱스는 https://azure.microsoft.com/documentation/templates/ 에서 유지 관리됩니다.
 * UI 정의 만들기<br>
 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요. 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
 

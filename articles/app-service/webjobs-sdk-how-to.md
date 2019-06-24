@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831795"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
@@ -130,7 +130,7 @@ static void Main()
 
 버전 3입니다. *x*, 무한 연결에 기본 연결 제한 값입니다. 어떤 이유로이 제한을 변경 해야 하는 경우 사용할 수 있습니다 합니다 [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 의 속성을 [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) 클래스입니다.
 
-버전 2입니다. *x*를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, WebJobs 호스트를 시작 하기 전에 기본값인 2에서이 값을 늘려야 합니다.
+버전 2입니다. *x*를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*, WebJobs 호스트를 시작 하기 전에 기본값인 2에서이 값을 늘려야 합니다.
 
 사용 하 여 함수에서 수행한 모든 나가는 HTTP 요청 `HttpClient` 통과 `ServicePointManager`합니다. 에 설정 된 값에 도달 하면 `DefaultConnectionLimit`, `ServicePointManager` 보내기 전에 큐 요청을 시작 합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, 프로그램 `HttpClient` 요청 보낸 적 OS 대상 서버에 있지만 요청 된 표시 되기 때문에 시간 초과 될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 

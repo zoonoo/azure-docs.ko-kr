@@ -13,7 +13,7 @@ ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2019
 ms.locfileid: "65800095"
@@ -82,22 +82,22 @@ Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 
 
 | 모델 | 설명 |
 |-------|-------------|
-| [음향 모델](how-to-customize-acoustic-models.md) | 사용자 지정 어쿠스틱 모델을 만드는 응용 프로그램, 도구 또는 장치 처럼 사용 되는 특정 환경에서는 자동차 또는 특정 기록 조건 사용 하 여 팩터리 하는 경우 도움이 됩니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
-| [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
-| [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일만 있으면 시작 가능 - 간단한 .txt 파일 |
+| [음향 모델](how-to-customize-acoustic-models.md) | 사용자 지정 음향 모델 생성은 응용 프로그램, 도구 또는 장치가 특정 기록 조건이 있는 공장이나 자동차 같은 특정 환경에서는 사용되는 경우 도움이 됩니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
+| [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 기록를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
+| [발음 모델](how-to-customize-pronunciation.md) | 사용자 지정 발음 모델을 사용하여 사용자가 발음 유형과 단어 또는 용어의 표시를 정의할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 간단한 .txt 파일인 발음 파일만 있으면 시작 가능합니다. |
 
 > [!NOTE]
-> 언어/로캘에서 마다 다른 사용자 지정 옵션 (참조 [지원 되는 언어](supported-languages.md)).
+> 언어/로캘마다 사용자 지정 옵션이 다릅니다([지원되는 언어](supported-languages.md) 참조).
 
 ## <a name="migration-guides"></a>마이그레이션 가이드
 
 > [!WARNING]
 > Bing Speech는 2019 년 10 월 15 일에 폐기 될 예정입니다.
 
-응용 프로그램, 도구 또는 제품을 사용 하는 Bing Speech Api 또는 사용자 지정 음성 음성 서비스를 마이그레이션할 수 있도록 가이드를 만들었습니다.
+응용 프로그램, 도구 또는 제품이 Bing Speech API 또는 Custom Speech를 사용하는 경우, 음성 서비스로 마이그레이션할 수 있도록 가이드를 만들었습니다.
 
 * [Bing Speech에서 Speech Services로 마이그레이션](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
-* [사용자 지정 음성에서 Speech Services로 마이그레이션](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+* [Custom Speech에서 Speech Services로 마이그레이션](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## <a name="reference-docs"></a>참조 문서
 

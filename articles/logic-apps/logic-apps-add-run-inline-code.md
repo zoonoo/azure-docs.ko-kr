@@ -10,10 +10,10 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602126"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>추가 하 고 Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각을 실행합니다
@@ -52,7 +52,7 @@ ms.locfileid: "65602126"
 
    * 선택 작업을 워크플로 끝에 추가할 **새 단계**합니다.
 
-   * 기존 단계 사이 작업을 추가, 이러한 단계를 연결 하는 화살표 위로 마우스 포인터를 놓습니다. 더하기 기호를 선택 (**+**)를 선택 하 고 **작업 추가**합니다.
+   * 기존 단계 사이 작업을 추가, 이러한 단계를 연결 하는 화살표 위로 마우스 포인터를 놓습니다. 더하기 기호를 선택 ( **+** )를 선택 하 고 **작업 추가**합니다.
 
    이 예제에서는 추가 된 **인라인 코드** Office 365 Outlook 트리거 아래에서 작업 합니다.
 

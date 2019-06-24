@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707142"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
@@ -51,7 +51,7 @@ Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토�
 
 Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
 
-| Protocol | 포트 | 세부 정보 | 
+| 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 ~ 9354 | 참조 [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |

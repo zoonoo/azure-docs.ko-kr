@@ -1,0 +1,15 @@
+- name: 보안 개발 설명서
+  href: index.yml
+- name: 개념
+  expanded: true
+  items:
+    - name: 모범 사례
+      items:
+        - name: 개요
+          href: secure-dev-overview.md
+        - name: 보안 앱 디자인
+          href: secure-design.md
+        - name: 보안 앱 개발
+          href: secure-develop.md
+        - name: 보안 앱 배포
+          href: secure-deploy.md

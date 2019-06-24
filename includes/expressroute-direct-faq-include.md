@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133749"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
@@ -25,10 +25,9 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>현재 위치가 ExpressRoute Direct를 지원 하나요? 
 
-사용 가능한 포트는 동적이며 PowerShell에서 용량을 보는 데 사용할 수 있습니다. ‘가용성에 따라 변경될 수 있는’ 이 위치는 다음과 같습니다.
+사용 가능한 포트는 동적이며 PowerShell에서 용량을 보는 데 사용할 수 있습니다. ‘가용성에 따라 변경될 수 있는’ 이 위치는 다음과 같습니다. 
 
 * 암스테르담
-* 캔버라
 * 시카코
 * 워싱턴 DC
 * 댈러스 
@@ -42,7 +41,7 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 * 샌안토니오
 * 시애틀
 * 서울
-* 실리콘 밸리
+* 실리콘밸리
 * 싱가포르 
 * 시드니
 

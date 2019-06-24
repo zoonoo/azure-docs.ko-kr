@@ -89,17 +89,19 @@
               href: container-registry-auth-aks.md
         - name: 콘텐츠 신뢰
           href: container-registry-content-trust.md
-    - name: 빌드 및 패치
+    - name: ACR 작업
       items:
-        - name: ACR 작업
+        - name: ACR 작업 개요
           href: container-registry-tasks-overview.md
         - name: 다단계 작업
           href: container-registry-tasks-multi-step.md
+        - name: 관리 ID 사용
+          href: container-registry-tasks-authentication-managed-identity.md
     - name: 레지스트리 및 기타 Azure 서비스
       items:
         - name: Azure Container Instances
           href: ../container-instances/container-instances-tutorial-prepare-app.md
-        - name: AKS(Azure Kubernetes Service)
+        - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md

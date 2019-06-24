@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734644"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147939"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 복제본 읽기
 
@@ -122,6 +122,9 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 PostgreSQL에서는 읽기 복제본의 `max_connections` 매개 변수 값이 마스터 값보다 크거나 같아야 합니다. 그렇지 않으면 해당 복제본이 시작되지 않습니다. Azure Database for PostgreSQL에서 `max_connections` 매개 변수 값은 SKU에 기반합니다. 자세한 내용은 [Azure Database for PostgreSQL의 제한](concepts-limits.md)을 참조하세요. 
 
 서버 값을 업데이트하려고 해도 한도를 지키지 않으면 오류가 발생합니다.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL 필요](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 의 값을 `max_prepared_transactions` 보다 큰 또는 마스터 값과 같지 않으면 읽기 복제본에서 매개 변수를 복제본 시작 되지 않습니다. 변경 하려는 경우 `max_prepared_transactions` 마스터에서 먼저에서 변경 복제본입니다.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 마스터 서버와 읽기 복제본 간의 복제를 중지하면 복제본이 다시 시작되어 변경 내용이 적용됩니다. 중지된 복제본은 읽기와 쓰기를 모두 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.

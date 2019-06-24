@@ -40,6 +40,8 @@
               href: connect-azure-atp.md
             - name: Azure Security Center 연결
               href: connect-azure-security-center.md
+            - name: 도메인 이름 서버 연결
+              href: connect-dns.md
             - name: Microsoft 웹 애플리케이션 방화벽 연결
               href: connect-microsoft-waf.md
             - name: Windows 방화벽 연결

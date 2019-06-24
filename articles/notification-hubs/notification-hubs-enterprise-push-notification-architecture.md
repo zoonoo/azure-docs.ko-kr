@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60873395"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
@@ -87,7 +87,7 @@ ms.locfileid: "60873395"
     }
     ```
 
-    다. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
+    c. `CreateTopic`은 Service Bus 항목을 만드는 데 사용됩니다.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -156,7 +156,7 @@ ms.locfileid: "60873395"
     }
     ```
 
-    다. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
+    c. `CreateSubscription`은 백 엔드 시스템이 메시지를 보내는 항목에 대한 Service Bus 구독을 만드는 데 사용됩니다. 비즈니스 시나리오에 따라 이 구성 요소는 해당 항목에 대한 하나 이상의 구독을 만듭니다(예: 일부는 HR 시스템에서, 일부는 재무 시스템 등에서 메시지를 수신할 수 있음).
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -242,7 +242,7 @@ ms.locfileid: "60873395"
 
     b. 애플리케이션이 토스트 알림을 받을 수 있는지 확인합니다.
 
-    다. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
+    c. 앱 시작 시 다음 Notification Hubs 등록 코드가 호출되었는지 확인합니다(`HubName` 및 `DefaultListenSharedAccessSignature` 값 교체 후).
 
     ```csharp
     private async void InitNotificationsAsync()

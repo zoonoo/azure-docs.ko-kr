@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61369851"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -40,7 +40,7 @@ ms.locfileid: "61369851"
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-provision**을 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-provision**을 선택합니다.
 
 2. **시작** 패널의 **터미널** 탭 아래에 진행률이 표시됩니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "61369851"
 
 ## <a name="deploy-function-app"></a>Function App 배포
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-deploy**를 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-deploy**를 선택합니다.
 
 2. 함수 앱 코드 업로드 프로세스가 완료될 때까지 기다리면 *함수 앱 배포: 완료* 메시지가 표시됩니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "61369851"
 
 1. MXChip IoT DevKit를 컴퓨터에 연결합니다.
 
-2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **config-device-connection**을 선택합니다.
+2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **config-device-connection**을 선택합니다.
 
 3. MXChip IoT DevKit에서 **A** 단추를 길게 누르고 **재설정** 단추를 누른 다음, **A** 단추를 놓으면 DekKit가 구성 모드로 전환됩니다.
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Azure Portal에 디바이스 쌍의 원시 데이터 IoT Hub -\> IoT 디바이스 -\> *\<고객의 디바이스\>* -\> Device 쌍이 보입니다.
+> Azure Portal에 디바이스 쌍의 원시 데이터 IoT Hub -\> IoT 디바이스 -\> *\<고객의 디바이스\>*  -\> Device 쌍이 보입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

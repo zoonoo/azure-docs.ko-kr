@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729670"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
@@ -167,7 +167,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    > [!NOTE]
    > 기본 프로브는 공용 키를 백엔드의 IP 주소에 바인딩된 *기본* SSL에서 가져오고 프로브가 받는 공용 키 값과 여기서 사용자가 제공한 공용 키 값을 비교합니다. 
    > 
-   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/을 방문하여 *기본* SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/로 응답 및 인증서를 받지 않은 경우 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
+   > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/ 을 방문하여 *기본* SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/ 로 응답 및 인증서를 받지 않은 경우 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer

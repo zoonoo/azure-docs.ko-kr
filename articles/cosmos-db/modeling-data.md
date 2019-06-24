@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953861"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203520"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 모델링
 
@@ -176,9 +176,9 @@ Azure Cosmos DB에서 데이터 모델링을 시작할 때는 엔터티를 처�
 
 ## <a name="referencing-data"></a>참조 데이터
 
-따라서 데이터 포함 방식이 많은 경우에 효과적일 수 있지만, 데이터 비정규화로 인해 얻는 이득보다 잃게 되는 손실이 큰 경우도 있다는 것을 잘 알 수 있습니다. 그러면 이제 무엇을 해야 할까요?
+대부분의 경우 원활 하 게 작동 데이터를 포함 하지만 것 보다 더 많은 문제를 하면 데이터를 비 정규화 하는 경우 시나리오가 있습니다. 그러면 이제 무엇을 해야 할까요?
 
-관계형 데이터베이스는 엔터티 간의 관계를 생성할 수 있는 유일한 대안이 아닙니다. 문서 데이터베이스에서는 다른 문서에 있는 데이터와 연관된 정보를 하나의 문서에 저장할 수 있습니다. 여기서는 Azure Cosmos DB의 관계형 데이터베이스 또는 다른 문서 데이터베이스에 더 적합한 시스템을 빌드하는 것보다 단순한 관계로도 충분하고 매우 유용할 수 있다는 것을 보여드리고자 합니다.
+관계형 데이터베이스는 엔터티 간의 관계를 생성할 수 있는 유일한 대안이 아닙니다. 문서 데이터베이스를 다른 문서에서 데이터와 관련 한 문서에서 정보를 포함할 수 있습니다. Azure Cosmos DB의 관계형 데이터베이스 또는 다른 문서 데이터베이스에 더 적합할 것는 시스템을 구축 하지 않는 것이 좋습니다 있지만 단순한 관계로 충분 하 고 유용할 수 있습니다.
 
 아래의 JSON에서도 이전 단락의 주식 포트폴리오 예제를 사용하지만, 이번에는 포함시키는 대신 포트폴리오의 주식 항목에 대해 설명하고자 합니다. 이렇게 하면 주식 항목이 하루 중 자주 변경되더라도 업데이트해야 하는 문서는 단일 주식 문서뿐입니다.
 

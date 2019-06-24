@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9388e267c52ef53b59aacad844e964d3cfeb13d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 09e63612d6e0e70b1bb21c23b158f650d4c34080
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233831"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190593"
 ---
 # <a name="connect-windows-firewall"></a>Windows 방화벽 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "65233831"
 > Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Windows 방화벽 커넥터를 사용 하면 Azure Sentinel 작업 영역에 연결 되어 있는 경우 Windows 방화벽 로그에 쉽게 연결할 수 있습니다. 이 연결을 사용 하면 대시보드를 볼, 사용자 지정 경고 및 조사를 향상 시킬 수 있습니다. 이 조직의 네트워크에 대 한 자세한 정보를 제공 하며 사용자 보안 작업 기능을 향상 시킵니다.  
+Windows 방화벽 커넥터를 사용 하면 Azure Sentinel 작업 영역에 연결 되어 있는 경우 Windows 방화벽 로그에 쉽게 연결할 수 있습니다. 이 연결을 사용 하면 대시보드를 볼, 사용자 지정 경고 및 조사를 향상 시킬 수 있습니다. 이 조직의 네트워크에 대 한 자세한 정보를 제공 하며 사용자 보안 작업 기능을 향상 시킵니다. 솔루션은 Log Analytics 에이전트를 설치 되어 있는 Windows 컴퓨터에서 Windows 방화벽 이벤트를 수집 합니다. 
 
 
 > [!NOTE]
@@ -36,8 +36,19 @@ Windows 방화벽 커넥터를 사용 하면 Azure Sentinel 작업 영역에 연
 ## <a name="enable-the-connector"></a>커넥터를 사용 하도록 설정 
 
 1. Sentinel Azure portal에서 선택 **데이터 커넥터** 를 클릭 하 고는 **Windows 방화벽** 바둑판식으로 배열 합니다. 
-1. 스트리밍 하려는 데이터 유형을 선택 합니다.
-1. **Install**을 클릭합니다.
+1.  Windows 컴퓨터를 Azure의 경우:
+    1. 클릭 **Azure Windows 가상 컴퓨터에 에이전트 설치**합니다.
+    1. 에 **가상 머신** 목록 Azure Sentinel를 스트리밍 하려는 Windows 컴퓨터를 선택 합니다. Windows VM이 있는지 확인 합니다.
+    1. 해당 VM에 대해 열리는 창에서 클릭 **Connect**합니다.  
+    1. 클릭 **을 사용 하도록 설정** 에 **Windows 방화벽 커넥터** 창입니다. 
+
+2. Windows 컴퓨터에 Azure VM에 없는 경우:
+    1. 클릭 **비 Azure 컴퓨터에 에이전트 설치**합니다.
+    1. 에 **직접 에이전트** 창 중 하나를 선택 **다운로드 Windows 에이전트 (64 비트)** 하거나 **다운로드 Windows 에이전트 (32 비트)** 합니다.
+    1. Windows 컴퓨터에 에이전트를 설치 합니다. 복사 합니다 **작업 영역 ID**를 **기본 키**, 및 **보조 키** 및 설치 하는 동안 메시지가 표시 되 면 사용 합니다.
+
+4. 스트리밍 하려는 데이터 유형을 선택 합니다.
+5. 클릭 **솔루션을 설치**합니다.
 6. Log Analytics에서 관련 스키마를 사용 하 여 Windows 방화벽, 검색 **SecurityEvent**합니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사

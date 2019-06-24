@@ -2,19 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 06/05/2019
 ms.topic: include
-ms.openlocfilehash: a956cd1e029371fa7031d262206b0ce10aa8dbff
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 550ace93479278df2a592a87ee34d10f8763d2f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133549"
 ---
 > [!IMPORTANT]
 >
-> PowerShell에서 이 Azure 기능을 사용하려면 `AzureRM` 모듈이 설치되어 있어야 합니다. 이 모듈은 Windows PowerShell 5.x에만 사용할 수 있는 이전 모듈로, 중요 업데이트를 받지만 새로운 기능은 더 이상 가져오지 않습니다. `Az` 모듈이 설치되어 있는 경우 `AzureRM`도 설치해야 합니다. `AzureRM`을 설치하려면 다음을 수행합니다.
-> 
-> 1. `Disable-AzAlias`를 사용하여 `Az`에서 AzureRM 별칭을 사용하지 않도록 설정합니다(사용하도록 설정된 경우). `Az`가 설치되지 않았거나 별칭을 사용할 수 없는 상태에서 이 명령을 실행해도 무해합니다.
-> 2. [AzureRM의 최신 설치 지침](/powershell/azure/install-az-ps)을 따릅니다. `AzureRM`이 설치되어 있더라도 최신 버전으로 업데이트합니다.
+> PowerShell에서 이 Azure 기능을 사용하려면 `AzureRM` 모듈이 설치되어 있어야 합니다. 이 모듈은 Windows PowerShell 5.1에만 사용할 수 있는 이전 모듈로, 새로운 기능은 더 이상 받지 않습니다.
+> PowerShell의 동일한 버전에 대해 설치된 경우 `Az` 및 `AzureRM` 모듈은 호환되지 __않습니다__.
+> 두 버전이 모두 필요한 경우:
+>
+> 1. PowerShell 5.1 세션에서 [Az 모듈을 제거](/powershell/azure/uninstall-az-ps)합니다.
+> 2. PowerShell 5.1 세션에서 [AzureRM 모듈을 설치](/powershell/azure/azurerm/install-azurerm-ps)합니다.
+> 3. [PowerShell Core 6.x 이상을 다운로드하고 설치합니다](/powershell/scripting/install/installing-powershell-core-on-windows).
+> 4. PowerShell Core 세션에서 [Az 모듈을 설치](/powershell/azure/install-az-ps)합니다.
 

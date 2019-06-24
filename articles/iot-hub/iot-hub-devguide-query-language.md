@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442140"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137722"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
-IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-devguide-jobs.md) 그리고 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
+정보를 검색 하는 강력한 SQL 유사 언어를 제공 하는 IoT Hub에 대 한 [장치 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md), [작업](iot-hub-devguide-jobs.md), 및 [메시지 라우팅을](iot-hub-devguide-messages-d2c.md). 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
 * 언어에 대한 자세한 설명 메시지 라우팅의 쿼리 언어에 대한 자세한 내용은 [메시지 라우팅의 쿼리](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 참조하세요.
@@ -25,7 +25,7 @@ IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot
 
 ## <a name="device-and-module-twin-queries"></a>디바이스 및 모듈 쌍 쿼리
 
-[디바이스 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+[장치 쌍](iot-hub-devguide-device-twins.md) 하 고 [모듈 트윈스](iot-hub-devguide-module-twins.md) 태그와 속성으로 임의의 JSON 개체를 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
 
 예를 들어 IoT 허브 디바이스 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>모듈 쌍 쿼리
 
-모듈 쌍에 대한 쿼리는 디바이스 쌍에 대한 쿼리와 유사하지만, "디바이스에서"가 아니라 다른 컬렉션/네임스페이스를 사용하여 device.modules를 쿼리할 수 있습니다.
+모듈 쌍에 대 한 쿼리는 장치 쌍에 대 한 쿼리를 다른 컬렉션/네임 스페이스를 사용 하 여 비슷하지만 대신에서 **장치**에서 쿼리할 **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ SELECT * FROM devices.jobs
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 
-모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
+모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행 될 문서 컬렉션을 나타냅니다 (**장치**하십시오 **devices.modules**, 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM 절
 
-**FROM <from_specification>** 절은 두 가지 값, 즉, 디바이스 쌍을 쿼리하는 **FROM devices** 또는 디바이스별 세부 정보를 쿼리하는 **FROM devices.jobs**만 가정할 수 있습니다.
+합니다 **< from_specification >에서** 절만 세 개의 값을 가정할 수 있습니다. **장치의** 장치 쌍을 쿼리 하 **devices.modules에서** 쿼리 모듈 쌍에 또는 **FROM devices.jobs** 쿼리 작업에 대 한 장치별 세부 정보입니다.
 
 
 ## <a name="where-clause"></a>WHERE 절

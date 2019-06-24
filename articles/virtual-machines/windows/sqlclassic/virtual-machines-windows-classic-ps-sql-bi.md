@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609328"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Business Intelligence
@@ -268,7 +268,7 @@ Azure Virtual Machine에 연결하는 데 다음과 같은 두 가지 일반적�
 > 
 
 ### <a name="to-install-analysis-services-tabular-mode"></a>Analysis Services 테이블 형식 모드를 설치하려면
-이 섹션의 단계는 Analysis Services 테이블 형식 모드의 설치를 **요약** 합니다. 자세한 내용은 
+이 섹션의 단계는 Analysis Services 테이블 형식 모드의 설치를 **요약** 합니다. 자세한 내용은
 
 * [테이블 형식 모드에서 Analysis Services 설치](https://msdn.microsoft.com/library/hh231722.aspx)
 * [테이블 형식 모델링(Adventure Works 자습서)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165489"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182152"
 ---
 이 단계에서는 장애 조치(Failover) 클러스터 관리자와 SQL Server Management Studio에서 가용성 그룹 수신기를 수동으로 만듭니다.
 

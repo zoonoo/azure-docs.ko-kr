@@ -9,11 +9,11 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116963"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182182"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>포털에서 유지 관리를 위해 예약된 VM 보기
 

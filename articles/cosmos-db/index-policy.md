@@ -4,20 +4,23 @@ description: 구성 하 고 인덱싱 정책을 자동 인덱싱 및 Azure Cosmo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431189"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163719"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
 Azure Cosmos DB에서는 모든 컨테이너에는 컨테이너의 항목을 인덱싱해야 하는 방법을 결정 하는 인덱싱 정책을 있습니다. 기본 인덱싱 정책에 대 한를 새로 만든 컨테이너 인덱스 문자열 또는 숫자에 대해 범위 인덱스를 적용 하는 모든 항목의 모든 속성 및 공간 인덱스의 모든 GeoJSON 개체에 대 한 Point 형식입니다. 이 옵션을 사용 하면 인덱싱 및 인덱스 관리를 사전에 대 한 염려 없이 높은 쿼리 성능을 얻을 수 있습니다.
 
 상황에 따라 요구 사항에 맞게 이러한 자동 동작을 재정의 하는 것이 좋습니다. 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정할 수 있습니다 해당 *인덱싱 모드*를 포함 하거나 제외 하 고 *속성 경로*합니다.
+
+> [!NOTE]
+> 이 문서에서 설명 하는 인덱싱 정책을 업데이트 하는 메서드는 Azure Cosmos DB SQL API (코어)에 적용 됩니다.
 
 ## <a name="indexing-mode"></a>인덱싱 모드
 

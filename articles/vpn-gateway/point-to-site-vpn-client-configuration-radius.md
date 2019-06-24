@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115057"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
@@ -128,7 +128,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 5. **계속**을 선택하여 프로필의 받는 사람을 신뢰하고 설치를 계속합니다.
 
    ![확인 메시지](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
-6. 프로필을 설치하는 동안 VPN 인증을 위한 사용자 이름 및 암호를 지정하는 옵션이 제공됩니다. 이 정보를 입력하는 것은 필수가 아닙니다. 입력하는 경우, 정보가 저장되고 연결을 시작할 때 자동으로 사용됩니다. **설치**를 선택하여 계속합니다.
+6. 프로필을 설치하는 동안 VPN 인증을 위한 사용자 이름 및 암호를 지정하는 옵션이 제공됩니다. 이 정보를 입력하는 것은 필수가 아닙니다. 입력하는 경우, 정보가 저장되고 연결을 시작할 때 자동으로 사용됩니다. **설치** 를 선택하여 계속합니다.
 
    ![VPN의 사용자 이름 및 암호 상자](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
 7. 컴퓨터에 프로필을 설치하는 데 필요한 권한에 대한 사용자 이름 및 암호를 입력합니다. **확인**을 선택합니다.

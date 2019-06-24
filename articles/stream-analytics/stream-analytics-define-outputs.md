@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455701"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164461"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -247,8 +247,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 
 | 계정 ID | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. |
 | 계정 키 | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다. |
 | 데이터베이스 | Azure Cosmos DB 데이터베이스 이름입니다. |
-| 컬렉션 이름 패턴 | 컬렉션 이름 또는 사용할 컬렉션에 대 한 패턴입니다. <br />컬렉션 이름 형식은 선택적 {partition} 토큰을 사용 하 여 파티션은 0부터 시작 하는 위치에서 생성할 수 있습니다. 두 가지 예:  <br /><ul><li> _MyCollection_: "MyCollection" 이라는 이름의 컬렉션이 있어야 합니다.</li>  <li> _MyCollection{partition}_ : 열을 기반으로 분할 합니다.</li></ul> 분할 열 컬렉션 있어야 합니다. "MyCollection0," "MyCollection1", "MyCollection2," 등입니다. |
-| 파티션 키 | 선택 사항입니다. 컬렉션 이름 패턴에 {partition} 토큰을 사용 하는 경우에이 필요 합니다.<br /> 파티션 키에는 컬렉션에서 출력 분할에 대 한 키를 지정 하는 데 사용 되는 출력 이벤트의 필드의 이름입니다.<br /> 단일 컬렉션 출력의 경우 임의의 출력 열을 사용할 수 있습니다. 예 PartitionId입니다. |
+| 컬렉션 이름 | Azure Cosmos DB 컬렉션의 이름입니다. Azure Cosmos DB 워크 로드에 따라 파티션 확장 자동으로 Azure Cosmos DB로 데이터를 분할에 대 한 무제한 컨테이너는 권장 되는 접근 방법입니다. |
 | 문서 ID |선택 사항입니다. 작업 하는 삽입 또는 업데이트에 기반한 기본 키를 지정 하는 데 사용 되는 출력 이벤트의 필드의 이름입니다.
 
 ## <a name="azure-functions"></a>Azure 기능

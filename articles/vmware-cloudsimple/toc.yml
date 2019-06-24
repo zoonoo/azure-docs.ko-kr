@@ -10,7 +10,7 @@
     - name: 빠른 시작
       expanded: true
       items:
-        - name: 용량 초기화 및 구매
+        - name: 초기화 및 프로비전 용량
           href: quickstart-create-cloudsimple-service.md
         - name: 프라이빗 클라우드 환경 구성
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: 노드 관리
           items:
-            - name: 노드 구매
+            - name: 노드 프로비전
               href: create-nodes.md
         - name: 프라이빗 클라우드 리소스 관리
           items:

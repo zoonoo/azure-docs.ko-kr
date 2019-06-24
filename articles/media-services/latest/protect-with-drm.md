@@ -14,14 +14,17 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ce3b7a29f6f57b2bc309c719dbbab6c4574f0a46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f1618260f6bfa0491e919e8aab1841e61603e5b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306481"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273258"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
+
+> [!NOTE]
+> 이 자습서에서는 사용 하는 경우에 합니다 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 예는 일반적인 단계는 동일 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)를 [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), 또는 지원 되는 기타 [Sdk](media-services-apis-overview.md#sdks) .
 
 Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는 Apple FairPlay 라이선스로 암호화된 스트림을 배달할 수 있습니다. 에 대 한 자세한 설명은 [Content protection 동적 암호화를 사용 하 여](content-protection-overview.md)입니다.
 

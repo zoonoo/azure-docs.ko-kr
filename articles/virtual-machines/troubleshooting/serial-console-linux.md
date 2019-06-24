@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735251"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137216"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux 용 azure 직렬 콘솔
 
-가상 머신 확장 집합 인스턴스 및 Azure portal에서 직렬 콘솔 Linux 가상 머신 (Vm)에 대 한 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결의 VM 또는 가상 머신 확장 집합 인스턴스, 네트워크 또는 운영 체제 상태와 관계 없이에 대 한 액세스를 제공 COM1 직렬 포트에 연결 합니다. 직렬 콘솔 Azure portal을 사용 하 여 액세스할 수 있습니다 이며 VM 또는 가상 머신 확장 집합에 이상 참가자의 액세스 역할을가지고 있는 사용자만 사용할 수 있습니다.
+가상 머신 확장 집합 인스턴스 및 Azure portal에서 직렬 콘솔 Linux 가상 머신 (Vm)에 대 한 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결의 VM 또는 가상 머신 확장 집합 인스턴스, 네트워크 또는 운영 체제 상태와 관계 없이에 대 한 액세스를 제공 ttys0 직렬 포트에 연결 합니다. 직렬 콘솔 Azure portal을 사용 하 여 액세스할 수 있습니다 이며 VM 또는 가상 머신 확장 집합에 이상 참가자의 액세스 역할을가지고 있는 사용자만 사용할 수 있습니다.
 
 가상 머신 확장 집합 인스턴스 직렬 콘솔 Vm에서 동일한 방식으로 작동 하며 이 문서에서 Vm에 모든 멘 션 암시적으로 포함 됩니다 가상 머신 확장 집합 인스턴스 달리 언급 하지 않으면.
 
@@ -215,7 +215,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
+a. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback ) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 

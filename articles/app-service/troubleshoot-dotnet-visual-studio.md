@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412826"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
@@ -672,7 +672,7 @@ catch (Exception ex)
 ```
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 애플리케이션을 디버그하는 데 사용하는 도구입니다.
+  이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 애플리케이션을 디버그하는 데 사용하는 도구입니다.
 * [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   은 Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
 
@@ -684,7 +684,7 @@ catch (Exception ex)
 웹 서버 로그 분석에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
+  웹 서버 로그( *.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

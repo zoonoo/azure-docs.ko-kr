@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 073b50011e640bc65cf4887635dd620d9b009df4
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66164512"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148439"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>지역당 장애 도메인 수
 
@@ -43,10 +43,12 @@ ms.locfileid: "66164512"
 |                     |                         |
 | 오스트레일리아 동부      | 2                       |
 | 오스트레일리아 남동부 | 2                       |
+| 오스트레일리아 중부   | 2                       |
+| 오스트레일리아 중부 2 | 2                       |
 |                     |                         |
 | 브라질 남부        | 2                       |
 |                     |                         |
-| 미국 정부 버지니아     | 2                       |
+| US Gov 버지니아     | 2                       |
 | 미국 정부 텍사스        | 2                       |
 | 미국 정부 애리조나      | 2                       |
 | 미국 국방부 중부      | 2                       |

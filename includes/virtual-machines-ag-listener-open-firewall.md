@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165433"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182149"
 ---
 이 단계에서는 부하 분산된 엔드포인트에 대한 프로브 포트(이전에 지정한 대로 59999)를 여는 방화벽 규칙과 가용성 그룹 수신기 포트를 여는 다른 규칙을 만듭니다. 가용성 그룹 복제본이 포함된 VM에 부하 분산된 엔드포인트를 만들었으므로 해당 VM에서 수신기 포트와 프로브 포트를 열어야 합니다.
 

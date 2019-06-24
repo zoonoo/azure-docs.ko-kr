@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 5ba55e339db4c33d1b0d759e4682481e20318938
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122845"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203740"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Linux 서버에서 푸시 설치 준비
 
@@ -24,7 +24,7 @@ ms.locfileid: "62122845"
 
     b. **/etc/ssh/sshd_config** 파일에서 **PasswordAuthentication**으로 시작하는 줄을 찾습니다.
 
-    다. 줄의 주석 처리를 제거하고 값을 **예**로 변경합니다.
+    c. 줄의 주석 처리를 제거하고 값을 **예**로 변경합니다.
 
     d. **Subsystem**으로 시작하는 줄을 찾아서 주석 처리를 제거합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "62122845"
 
     b. **cspsconfigtool.exe**를 엽니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, %ProgramData%\home\svsystems\bin 폴더에 있습니다.
 
-    다. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
+    c. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
 
     d. 만든 계정을 추가합니다.
 

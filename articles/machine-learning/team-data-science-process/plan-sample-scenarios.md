@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61429756"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202750"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 애플리케이션 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -239,7 +239,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
 ## <a name="decisiontree"></a>시나리오 선택 의사 결정 트리
-- - -
+---
 다음 다이어그램에는 위에서 설명한 시나리오 및 각 항목별 시나리오를 안내하도록 구성된 고급 분석 프로세스 및 기술이 요약되어 있습니다. 데이터 처리, 탐색, 기능 엔지니어링 및 샘플링은 소스, 중간 및/또는 대상 환경에서 하나 이상의 메서드/환경에서 발생할 수 있으며, 필요에 따라 반복적으로 진행할 수 있습니다. 이 다이어그램은 가능한 모든 흐름을 열거한 것이 아니라 일부만을 보여 줄 뿐입니다.
 
 ![샘플 DS 프로세스 연습 시나리오][8]

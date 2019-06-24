@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 3b1019d45f4fee60e0e197f283ef38f4f3fca875
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143060"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148442"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -25,8 +25,8 @@ ms.locfileid: "66143060"
 | 스키마 확장 |<ul><li>문자열 형식 확장은 최대 256자까지 가능합니다. </li><li>이진 형식 확장은 256바이트로 제한됩니다.</li><li>단일 개체에 100개의 확장 값(*모든* 형식 및 *모든* 애플리케이션)을 작성할 수 있습니다.</li><li>User, Group, TenantDetail, Device, Application 및 ServicePrincipal 엔터티만 String 형식 또는 Binary 형식의 단일 값 특성으로 확장할 수 있습니다.</li><li>스키마 확장은 Graph API 버전 1.21 미리 보기에서만 사용할 수 있습니다. 확장을 등록하려면 애플리케이션에 쓰기 권한이 있어야 합니다.</li></ul> |
 | 애플리케이션 |최대 100명의 사용자가 단일 애플리케이션의 소유자가 될 수 있습니다. |
 | 그룹 |<ul><li>최대 100명의 사용자가 단일 그룹의 소유자가 될 수 있습니다.</li><li>단일 그룹의 멤버가 될 수 있는 개체의 수는 제한이 없습니다.</li><li>사용자는 모든 그룹의 멤버가 될 수 있습니다.</li><li>Azure AD Connect를 사용하여 온-프레미스 Active Directory에서 Azure Active Directory로 동기화할 수 있는 그룹 내 멤버 수는 50,000으로 제한됩니다.</li></ul> |
-| 응용 프로그램 프록시 | <ul><li>앱 프록시 응용 프로그램 마다 초당 500 트랜잭션 최대</li><li>테 넌 트에 대 한 초당 750 트랜잭션 최대</li></ul><br/>트랜잭션이 단일 http 요청 및 고유 리소스에 대 한 응답으로 정의 됩니다. 제한 되는 경우 클라이언트 429 (너무 많은 요청) 응답을 받습니다. |
+| 애플리케이션 프록시 | <ul><li>앱 프록시 응용 프로그램 마다 초당 500 트랜잭션 최대</li><li>테 넌 트에 대 한 초당 750 트랜잭션 최대</li></ul><br/>트랜잭션이 단일 http 요청 및 고유 리소스에 대 한 응답으로 정의 됩니다. 제한 되는 경우 클라이언트 429 (너무 많은 요청) 응답을 받습니다. |
 | 액세스 패널 |<ul><li>사용자당 액세스 패널에서 볼 수 있는 애플리케이션의 수는 제한이 없습니다. 이는 Azure AD Premium 또는 Enterprise Mobility Suite용 라이선스가 할당된 사용자에게 적용됩니다.</li><li>각 사용자는 액세스 패널에서 최대 10개의 앱 타일을 볼 수 있습니다. 이러한 제한은 Azure Active Directory의 무료 또는 Azure AD 기본 버전용 라이선스가 할당된 사용자에게 적용됩니다. 앱 타일의 예로는 Box, Salesforce 또는 Dropbox가 있습니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | 개체는 30개 이하 관리 단위의 멤버일 수 있습니다. |
-| 관리자 역할 및 권한 | <li>그룹은 소유자로 추가할 수 없습니다.<li>그룹은 역할에 할당할 수 없습니다.<li>Azure AD의 사용자 설정인 테넌트 스위치를 제외한 기본 사용자 권한은 변경할 수 없습니다. |
+| 관리자 역할 및 권한 | <ul><li>그룹을 추가할 수 없습니다는 [소유자](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)합니다.</li><li>그룹에 할당할 수 없습니다는 [역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)입니다.</li><li>사용자가 다른 사용자의 디렉터리 정보를 읽을 수는 테 넌 트 수준 스위치 (권장 하지 않음) 모든 디렉터리 정보에 대 한 모든 관리자가 아닌 사용자의 액세스를 사용 하지 않도록 설정 하려면 외부에서 제한할 수 없습니다. 기본 권한에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)합니다.</li><li>최대 15 분이 걸릴 수 있습니다 하거나 아웃/서명 관리 하기 전에 서명 역할 멤버 자격 추가 및 해지가 적용 합니다.</li></ul> |

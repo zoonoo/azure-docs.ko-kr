@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715634"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076324"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -48,7 +48,7 @@ HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다
 
 ## <a name="hiveql-language-reference"></a>HiveQL 언어 참조
 
-HiveQL 언어 참조는 [언어 설명서(https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)에서 사용할 수 있습니다.
+HiveQL 언어 참조의 수를 [언어 수동](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)합니다.
 
 ## <a name="hive-and-data-structure"></a>Hive 및 데이터 구조
 
@@ -67,7 +67,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 함께 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 문서를 참조하세요.
+또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 함께 사용자 지정 JSON SerDe를 사용하는 방법](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 문서를 참조하세요.
 
 하이브에서 지원하는 파일 형식에 대한 자세한 내용은 [언어 설명서(https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)를 참조하세요.
 
@@ -91,7 +91,7 @@ Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니�
     * 기본이 아닌 저장소 계정과 같은 사용자 지정 위치가 필요합니다.
     * Hive가 아닌 프로그램이 데이터 형식, 위치 등을 관리합니다.
 
-자세한 내용은 [Hive 내부 및 외부 테이블 소개][cindygross-hive-tables] 블로그 게시물을 참조하세요.
+자세한 내용은 참조는 [Hive 내부 및 외부 테이블 소개](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) 블로그 게시물.
 
 ## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
 
@@ -204,50 +204,20 @@ Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부
 
 SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
 
-* [Azure HDInsight Hive 작업][hivetask]
+* [Azure HDInsight 하이브 태스크](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure 구독 연결 관리자][connectionmanager]
+* [Azure 구독 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-자세한 내용은 [Azure 기능 팩][ ssispack] 설명서를 참조하세요.
+자세한 내용은 참조는 [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) 설명서.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Hive에서 Oozie를 사용하는 방법에 대한 자세한 내용은 [Apache Oozie를 사용하여 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md) 문서를 참조하세요.
 
-## <a id="nextsteps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 이제 Hive의 정의 및 HDInsight에서 Hadoop와 Hive를 사용하는 방법을 살펴보았으므로 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
-* [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
-* [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)
+* [HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용](./python-udf-hdinsight.md)
+* [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)

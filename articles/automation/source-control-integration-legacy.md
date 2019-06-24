@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881219"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
@@ -46,11 +46,11 @@ ms.locfileid: "60881219"
    | 권한 부여 |**권한 부여** 단추를 클릭하여 GitHub 리포지토리에 Azure Automation 액세스 권한을 부여합니다. 이미 다른 창에서 GitHub 계정에 로그인했다면 해당 계정의 자격 증명이 사용됩니다. 권한이 성공적으로 부여되면 페이지의 **권한 부여 속성** 아래에서 GitHub 사용자 이름이 표시됩니다. |
    | 리포지토리 선택 |사용 가능한 리포지토리 목록에서 GitHub 리포지토리를 선택합니다. |
    | 분기 선택 |사용 가능한 분기 목록에서 분기를 선택합니다. 분기를 만들지 않은 경우에는 **마스터** 분기만 표시됩니다. |
-   | Runbook 폴더 경로 |Runbook 폴더 경로는 코드를 푸시하거나 끌어오려는 GitHub 리포지토리에 경로를 지정합니다. **/foldername/subfoldername**형식으로 입력되어야 합니다. Runbook 폴더 경로의 Runbook만 Automation 계정에 동기화됩니다. Runbook 폴더 경로의 하위 폴더에 있는 Runbook은 동기화되지 **않습니다** .  **/** 를 사용하여 리포지토리 아래의 모든 Runbook을 동기화합니다. |
+   | Runbook 폴더 경로 |Runbook 폴더 경로는 코드를 푸시하거나 끌어오려는 GitHub 리포지토리에 경로를 지정합니다. **/foldername/subfoldername**형식으로 입력되어야 합니다. Runbook 폴더 경로의 Runbook만 Automation 계정에 동기화됩니다. Runbook 폴더 경로의 하위 폴더에 있는 Runbook은 동기화되지 **않습니다** . **/** 를 사용하여 리포지토리 아래의 모든 Runbook을 동기화합니다. |
 3. 예를 들어 **RootFolder**라는 폴더를 포함하는 **PowerShellScripts**라는 리포지토리가 있는 경우 이는 **SubFolder**라는 폴더를 포함합니다. 다음 문자열을 사용하여 각 폴더 수준을 동기화할 수 있습니다.
 
-   1.  **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*
-   2.  **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*
+   1. **리포지토리**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */*
+   2. **RootFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder*
    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
 4. 매개 변수를 구성하면 **원본 제어 설정**페이지에서 매개 변수가 표시됩니다.  
 

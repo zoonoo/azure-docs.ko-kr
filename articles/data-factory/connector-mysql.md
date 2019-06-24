@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370719"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-onprem-mysql-connector.md)
 > * [현재 버전](connector-mysql.md)
 
@@ -36,7 +36,7 @@ MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로
 
 MySQL 데이터베이스에 공개적으로 액세스할 수 없는 경우, 자체 호스팅 Integration Runtime을 설정해야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. Integration Runtime은 버전 3.7부터 시작하는 기본 제공 MySQL 드라이버를 제공하므로 수동으로 드라이버를 설치할 필요가 없습니다.
 
-3.7 이전 버전의 자체 호스팅 IR에서는 Integration Runtime 머신에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5~6.10.7을 설치해야 합니다. 이 32비트 드라이버는 64비트 IR과 호환 가능합니다.
+3\.7 이전 버전의 자체 호스팅 IR에서는 Integration Runtime 머신에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5~6.10.7을 설치해야 합니다. 이 32비트 드라이버는 64비트 IR과 호환 가능합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -58,8 +58,8 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
-| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아닙니다. |
-| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예: `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 아닙니다. |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예를 들어 `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아닙니다. |
+| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 아닙니다. |
 
 **예제:**
 

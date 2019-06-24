@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 16add1531db769d0e06f0a7034a36b568b69e602
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238369"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182565"
 ---
 | Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |

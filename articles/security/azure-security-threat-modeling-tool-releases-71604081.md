@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: jegeib
 ms.openlocfilehash: 6ad6eca20827e1683237b2c668eba71acedfaade
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64917634"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>위협 모델링 도구 업데이트 릴리스 7.1.60408.1-4/9/2019
 
-7.1.60408.1의는 Microsoft 위협 모델링 도구 (TMT) 9 2019 년 4 월에 릴리스된 버전과 다음 변경 내용이 포함:
+7\.1.60408.1의는 Microsoft 위협 모델링 도구 (TMT) 9 2019 년 4 월에 릴리스된 버전과 다음 변경 내용이 포함:
 
 - Azure Key Vault 및 Azure Traffic Manager에 대 한 새 스텐실
 - TMT 버전 번호는 이제 홈 화면에 표시 됩니다.

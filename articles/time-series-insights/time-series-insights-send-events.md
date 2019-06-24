@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237703"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
@@ -74,7 +74,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
     [![기본 키 연결 문자열 값을 복사](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
-1. https://tsiclientsample.azurewebsites.net/windFarmGen.html로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
+1. https://tsiclientsample.azurewebsites.net/windFarmGen.html 로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
 1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에 [이벤트 푸시](#push-events)에서 복사한 연결 문자열을 붙여넣습니다.
   
     [![이벤트 허브 연결 문자열 상자에서 기본 키 연결 문자열을 붙여 넣습니다.](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)

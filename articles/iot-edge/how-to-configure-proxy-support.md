@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 34a94a1b9c38070f5c9de22d9a9e4f24183a876c
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730156"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151015"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -52,7 +52,7 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 프록시 URL은 다음 형식을 사용합니다. **프로토콜**://**proxy_host**:**proxy_port**
 
-* **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼은 컨테이너 레지스트리 설정에 따라 프로토콜 중 하나를 사용할 수 있지만, IoT Edge 디먼 및 런타임 컨테이너는 항상 HTTPS를 사용해야 합니다.
+* **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼에 컨테이너 레지스트리 설정에 따라 두 프로토콜을 사용할 수 있지만 IoT Edge 디먼 및 런타임 컨테이너 HTTP 프록시에 연결 하려면 항상 사용 해야 합니다.
 
 * **proxy_host**는 프록시 서버의 주소입니다. 프록시 호스트의 일부로 다음 형식으로 자격 증명을 제공할 수 있습니다 프록시 서버에 인증이 필요한 경우: **사용자**:**암호**\@**proxy_host** .
 
@@ -250,7 +250,7 @@ Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만�
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074252"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206745"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -56,7 +56,7 @@ Dtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 단�
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기를 변경 하는 대기 시간
 
-서비스 계층을 변경 하거나 단일 데이터베이스 또는 탄력적 풀의 계산 크기 기간은 대기 시간은 다음과 같은 매개 변수화 됩니다.
+서비스 계층을 변경 하거나 단일 데이터베이스 또는 탄력적 풀의 계산 크기의 크기를 변경 하는 예상된 대기는 다음과 같은 매개 변수화 됩니다.
 
 |서비스 계층|기본 단일 데이터베이스</br>표준 (S0-S1)|기본 탄력적 풀</br>표준 (S2-S12) </br>하이퍼 스케일, </br>일반 목적 단일 데이터베이스 또는 탄력적 풀|단일 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 탄력적 풀|
 |:---|:---|:---|:---|

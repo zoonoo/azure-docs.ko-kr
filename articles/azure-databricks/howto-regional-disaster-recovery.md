@@ -286,7 +286,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 8. **Azure Blob Storage 및 Azure Data Lake Store 탑재 마이그레이션**
 
-   수동으로 모든 다시 탑재 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 노트북 기반 솔루션을 사용 하 여 요소를 탑재 합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용하여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 지점을 수동으로 다시 탑재합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 
@@ -306,9 +306,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
     액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대 한 재해 복구
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대한 재해 복구
 
-다른 Azure 서비스를 사용 하는 경우에 너무 해당 서비스에 대 한 재해 복구 모범 사례를 구현 해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용 하려는 경우에 대 한 재해 복구 고려해 야 [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md)하십시오 [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), 및/또는 [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). 재해 복구에 대 한 일반적인 정보를 참조 하세요 [Azure 응용 프로그램에 대 한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)합니다.
+다른 Azure 서비스를 사용하는 경우, 해당 서비스에 대한 재해 복구 모범 사례를 구현해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용하려는 경우, [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md) 및/또는 [Azure Database for MySQL ](../mysql/concepts-business-continuity.md)에 대한 재해 복구를 고려해야 합니다. 재해 복구에 대한 일반적인 정보는 [Azure 응용 프로그램에 대한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

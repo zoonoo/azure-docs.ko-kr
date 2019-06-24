@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29569302d20e23c95b6508a5b58c7ed96e005885
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66499251"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164946"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single sign-on 배포 계획
 
@@ -61,9 +61,9 @@ SSO 구현을 페더레이션 프로토콜을 기반으로 보안, 안정성 및
 
 암호 기반 SSO에 대 한 Azure AD를 사용 하 여 안전 하 게 자격 증명을 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. 사용 하 여 대규모 확장을 배포 하는 메커니즘을 정의 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)합니다. 다음 옵션을 사용할 수 있습니다.
 
-- [Internet Explorer에 대 한 그룹 정책 ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Internet Explorer 용 system Center Configuration Manager (SCCM) ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [다운로드 및 Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 구성을 기반 사용자 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [Internet Explorer 용 system Center Configuration Manager (SCCM)](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [다운로드 및 Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 구성을 기반 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 자세한 내용은 참조 하세요 [암호 single sign-on을 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery)합니다.
 
@@ -146,7 +146,7 @@ MCAS에 대 한 내용은 참조는 [Microsoft Cloud App Security 개요](https:
 
 조건부 액세스를 사용 하 여 클라우드 앱에 대 한 조건 기반 액세스 제어 결정을 자동화할 수 있습니다.
 
-1단계 인증이 완료된 후 조건부 액세스 정책이 적용됩니다. 따라서 조건부 액세스 시나리오에 대 한 첫 번째 방어선을 서비스 거부 (DoS) 공격을 액세스 확인을 위해 이러한 이벤트에서 신호를 사용할 수 있지만으로 적절 하지 않습니다. 예를 들어 로그인 위험 수준, 요청, 및 등의 위치를 사용할 수 있습니다. 조건부 액세스에 대 한 자세한 내용은 참조 하세요. [개요](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) 하며 [배포 계획](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)합니다.
+조건부 액세스 정책에는 첫 번째 단계 인증을 완료 된 후 적용 됩니다. 따라서 조건부 액세스 시나리오에 대 한 첫 번째 방어선을 서비스 거부 (DoS) 공격을 액세스 확인을 위해 이러한 이벤트에서 신호를 사용할 수 있지만으로 적절 하지 않습니다. 예를 들어 로그인 위험 수준, 요청, 및 등의 위치를 사용할 수 있습니다. 조건부 액세스에 대 한 자세한 내용은 참조 하세요. [개요](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) 하며 [배포 계획](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)합니다.
 
 ## <a name="azure-sso-technical-requirements"></a>Azure SSO 기술 요구 사항
 

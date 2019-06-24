@@ -1,24 +1,17 @@
 ---
 title: Azure Resource Manager 개인 데이터 | Microsoft Docs
 description: Azure Resource Manager 작업과 관련된 개인 데이터를 관리하는 방법을 알아봅니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc8400a3b6d51bacd55d3c711700a1d07266f528
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128464"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206272"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Azure Resource Manager와 관련된 개인 데이터 관리
 
@@ -40,7 +33,7 @@ ms.locfileid: "66128464"
 
 기록에서 **배포**를 삭제하려면 다음을 사용합니다.
 
-* [Delete](/rest/api/resources/deployments/delete)
+* [삭제](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az 그룹 배포 삭제](/cli/azure/group/deployment#az-group-deployment-delete)
 
@@ -56,7 +49,7 @@ ms.locfileid: "66128464"
 
 **리소스 그룹**을 삭제하려면 다음을 사용홥니다.
 
-* [Delete](/rest/api/resources/resourcegroups/delete)
+* [삭제](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -72,7 +65,7 @@ ms.locfileid: "66128464"
 
 **태그**를 삭제하려면 다음을 사용합니다.
 
-* [Delete](/rest/api/resources/tags/delete)
+* [삭제](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az 태그 삭제](/cli/azure/tag#az-tag-delete)
 

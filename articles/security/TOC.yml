@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: 빠른 시작
               items:
-                - name: VM 암호화 - Azure PowerShell
-                  href: quick-encrypt-vm-powershell.md
+                - name: Azure CLI를 사용하여 Linux VM 암호화
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Azure PowerShell을 사용하여 Linux VM 암호화
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Azure CLI를 사용하여 Windows VM 암호화
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Azure PowerShell을 사용하여 Windows VM 암호화
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure 디스크 암호화
               items:
                 - name: 디스크 암호화 필수 구성 요소

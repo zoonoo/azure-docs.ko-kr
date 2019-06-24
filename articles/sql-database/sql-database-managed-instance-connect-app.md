@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297083"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274005"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database Managed Instance에 연결
 
@@ -45,7 +45,7 @@ VNet을 연결하는 두 가지 옵션이 있습니다.
 피어링이 Microsoft 백본 네트워크를 사용하기 때문에 피어링 옵션은 적합한 기능입니다. 따라서 연결성 관점에서 피어링된 VNet 및 동일한 VNet에 있는 가상 머신 간에 대기 시간이 눈에 띄는 차이점은 없습니다. VNet 피어링은 동일한 지역의 네트워크로 제한됩니다.  
 
 > [!IMPORTANT]
-> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다.
+> Managed Instance에 대한 VNet 피어링 시나리오는 [전역 가상 네트워크 피어 링 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크로 제한됩니다. 관련 섹션을 참고 합니다 [Azure 가상 네트워크 Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 자세한 문서. 
 
 ## <a name="connect-an-on-premises-application"></a>온-프레미스 애플리케이션 연결
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: c41beda6c9d6bb4b63a45944126421dd22799904
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171770"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182228"
 ---
 [Azure Resource Manager 설명서](../articles/azure-resource-manager/resource-group-template-deploy.md)에 따라 이전 템플릿을 배포할 수 있습니다.
 

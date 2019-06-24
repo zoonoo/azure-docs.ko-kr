@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 3116ddd6c42c29fa45f1f5e2fa9926f6f16a77b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238394"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182564"
 ---
 | Resource | 기본 제한 | 최대 제한 | 참고 |
 | --- | --- | --- | --- |

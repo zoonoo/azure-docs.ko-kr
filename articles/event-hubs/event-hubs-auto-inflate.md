@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822718"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273709"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
-Azure Event Hubs는 확장성이 뛰어난 데이터 스트리밍 플랫폼입니다. 따라서 서비스를 사용하기 시작한 후에 Event Hubs 사용량이 증가합니다. 그러려면 Event Hubs의 크기를 조정하고 더 빠른 전송 속도를 처리할 수 있도록 미리 지정된 [처리량 단위](event-hubs-features.md#throughput-units)를 늘려야 합니다. Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리량 단위 수를 증가하여 자동으로 확장합니다. 처리량 단위를 늘리면 다음과 같은 상황에서 제한 시나리오를 예방할 수 있습니다.
+Azure Event Hubs는 확장성이 뛰어난 데이터 스트리밍 플랫폼입니다. 따라서 서비스를 사용하기 시작한 후에 Event Hubs 사용량이 증가합니다. 그러려면 Event Hubs의 크기를 조정하고 더 빠른 전송 속도를 처리할 수 있도록 미리 지정된 [처리량 단위](event-hubs-scalability.md#throughput-units)를 늘려야 합니다. Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리량 단위 수를 증가하여 자동으로 확장합니다. 처리량 단위를 늘리면 다음과 같은 상황에서 제한 시나리오를 예방할 수 있습니다.
 
 * 데이터 수신 속도가 설정된 처리량 단위를 초과하는 경우.
 * 데이터 송신 요청 속도가 설정된 처리량 단위를 초과하는 경우.
@@ -32,7 +32,7 @@ ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 �
 
 ## <a name="how-auto-inflate-works"></a>자동 확장 작동 방식
 
-Event Hubs 트래픽은 [처리량 단위](event-hubs-features.md#throughput-units)로 제어됩니다. 단일 처리량 단위는 수신의 경우 1MB/초, 송신의 경우 그 두 배입니다. Standard Event Hubs는 처리량 단위를 1-20으로 구성할 수 있습니다. 자동 확장 기능을 사용하면 선택한 필요한 최소 처리량 단위의 작은 규모부터 시작할 수 있습니다. 그런 다음 트래픽 증가에 따라 필요한 처리량 단위의 최대 한도까지 자동으로 조정합니다. 자동 확장의 이점은 다음과 같습니다.
+Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-units)로 제어됩니다. 단일 처리량 단위는 수신의 경우 1MB/초, 송신의 경우 그 두 배입니다. Standard Event Hubs는 처리량 단위를 1-20으로 구성할 수 있습니다. 자동 확장 기능을 사용하면 선택한 필요한 최소 처리량 단위의 작은 규모부터 시작할 수 있습니다. 그런 다음 트래픽 증가에 따라 필요한 처리량 단위의 최대 한도까지 자동으로 조정합니다. 자동 확장의 이점은 다음과 같습니다.
 
 - 작은 규모부터 시작하여 사용량 증가에 따라 확장하는 효율적인 크기 조정 메커니즘입니다.
 - 제한 문제 없이 지정된 상한까지 자동으로 크기 조정합니다.

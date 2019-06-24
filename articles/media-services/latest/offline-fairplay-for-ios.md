@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937508"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
@@ -54,7 +54,7 @@ iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 �
 
     - FPS Server SDK에는 KSM(키 보안 모듈), 클라이언트 샘플, 사양 및 테스트 벡터 집합이 들어 있습니다.
     - FPS Deployment Pack은 D 함수 사양 및 FPS 인증서를 생성하는 방법에 관한 지침, 고객별 프라이빗 키 및 애플리케이션 비밀 키를 포함합니다. Apple은 사용이 허가된 콘텐츠 공급자에게만 FPS Deployment Pack을 발급합니다.
-* https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git을 복제합니다. 
+* https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 을 복제합니다. 
 
     [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 FairPlay 구성을 추가해야 합니다.  
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171532"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182408"
 ---
 #### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
 
@@ -20,7 +20,7 @@ ms.locfileid: "66171532"
 3. 디바이스에 설정하려는 언어를 선택하라는 메시지가 표시됩니다. 언어를 지정하고 **Enter**를 누릅니다.
 
 4. 표시되는 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
-     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 디바이스의 활성 컨트롤러에서 수행해야 합니다.**  직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
+     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 디바이스의 활성 컨트롤러에서 수행해야 합니다.** 직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
 
 5. 명령 프롬프트에 암호를 입력합니다. 기본 디바이스 암호는 **Password1**입니다.
 

@@ -9,11 +9,11 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d06bda1826964b019edb156375885c7f389ca6ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131274"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182852"
 ---
 현재 함수 앱에서 사용하는 런타임 버전을 보고 업데이트하려면 다음 절차를 따르세요.
 

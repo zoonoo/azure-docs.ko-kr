@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597086"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303907"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -170,10 +170,19 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 **에이전트 버전 5.0.2.0**   
-Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비저닝하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다.
+Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비저닝하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다. 이러한 볼륨 절약 효과 사용 하 여 온-프레미스;에 적용 하는 참고 Azure Files에서 데이터를 중복 제거 수 됩니다. 
 
 **Windows Server 2012 R2 또는 이전 에이전트 버전**  
 클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다.
+
+**참고 사항**
+- Azure File Sync 에이전트를 설치 하기 전에 데이터 중복 제거를 설치 하는 경우 다시 시작은 데이터 중복 제거와 같은 볼륨에 계층화 하는 클라우드를 지원 해야 합니다.
+- 클라우드 후 볼륨에 데이터 중복 제거를 사용 하는 경우 계층화가 사용, 초기 중복 제거 최적화 작업이 이미 계층화 하지 않아도 되는 클라우드에서 다음 영향을 주지는 볼륨에 파일을 최적화를 계층화 합니다.
+    - 열 지도 사용 하 여 볼륨에서 사용 가능한 공간에 따라 계층 파일 공간 정책 계속 됩니다.
+    - 날짜 정책 계층화 되었을 수도 있는 그렇지 않은 경우 파일에 액세스 하는 중복 제거 최적화 작업으로 인해 계층화에 적합 한 파일을 건너뜁니다.
+- 중복 제거 최적화 작업의 진행 중인 경우 클라우드 계층화가 날짜 정책과 가져오기 지연 데이터 중복 제거에 의해 [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) 설정, 파일을 계층화 하지 않아도 됩니다. 
+    - 예제: MinimumFileAgeDays 설정을 7 일 이며 클라우드 계층화 날짜 정책을 30 일을 하는 경우 날짜 정책 37 일이 지나면 파일을 계층화 됩니다.
+    - 참고: Azure File Sync에서 파일을 계층화 할 경우 되 면 중복 제거 최적화 작업에서 파일을 건너뜁니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
 Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
@@ -200,9 +209,12 @@ Azure 파일 동기화 에이전트가 설치되어 있는 서버에서 sysprep 
 클라우드 계층화가 서버 엔드포인트에서 활성화되면 계층화된 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.
 
 ### <a name="antivirus-solutions"></a>바이러스 백신 솔루션
-바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요.
+바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. Azure 파일 동기화 에이전트의 버전 4.0 이상에서 계층화된 파일에는 보안 Windows 특성 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS가 설정되어 있습니다. 이 특성이 설정된 파일 읽기를 건너뛰도록(대부분 자동으로 수행) 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
 
 Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(System Center Endpoint Protection) 모두는 이 특성이 설정된 파일 읽기를 자동으로 건너뜁니다. 이러한 솔루션을 테스트하여 하나의 사소한 문제를 확인했습니다. 즉 기존 동기화 그룹에 서버를 추가하면 800바이트보다 작은 파일이 새 서버에서 회수(다운로드)됩니다. 이러한 파일은 새 서버에 남아 있지만 계층화 크기 요구 사항(64kb 초과)을 충족하지 않으므로 계층화되지 않습니다.
+
+> [!Note]  
+> 바이러스 백신 공급 업체는 [Azure 파일 동기화 바이러스 백신 호환성 테스트 도구 모음]를 사용 하 여 Azure File Sync와 제품 간의 호환성을 확인할 수 있습니다 (https://www.microsoft.com/download/details.aspx?id=58322), 인 Microsoft 다운로드 센터에서 다운로드할 수 있습니다.
 
 ### <a name="backup-solutions"></a>백업 솔루션
 바이러스 백신 솔루션과 같은 백업 솔루션은 계층화된 파일이 회수되도록 할 수 있습니다. 온-프레미스 백업 제품을 사용하지 않고 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 백업하는 것이 좋습니다.
@@ -256,18 +268,15 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
 | 영국 서부 | 카디프 |
-| 미국 정부 애리조나 (미리 보기) | Arizona |
-| 미국 정부 텍사스 (미리 보기) | Texas |
-| 미국 버지니아 주 정부 (미리 보기) | Virginia |
+| 미국 정부 애리조나 | Arizona |
+| 미국 정부 텍사스 | Texas |
+| US Gov 버지니아 | Virginia |
 | 서유럽 | 네덜란드 |
 | 미국 중서부 | Wyoming |
 | 미국 서부 | California |
 | 미국 서부 2 | Washington |
 
 Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
-
-> [!Note]  
-> Azure File Sync는 현재 government 지역에 대 한 비공개 미리 보기에서 사용할 수만 있습니다. 참조 우리의 [릴리스](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) 미리 보기 프로그램 등록에 대 한 지침은 합니다.
 
 ### <a name="azure-disaster-recovery"></a>Azure 재해 복구
 Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 하위 지역에 스토리지를 장애 조치(Failover)합니다. 
@@ -302,7 +311,7 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 영국 서부             | 영국 남부           |
 | 미국 정부 애리조나      | 미국 정부 텍사스       |
 | US Gov 아이오와         | US Gov 버지니아    |
-| 미국 정부 Virgini      | 미국 정부 텍사스       |
+| US Gov 버지니아      | 미국 정부 텍사스       |
 | 서유럽         | 유럽 북부       |
 | 미국 중서부     | 미국 서부 2          |
 | 미국 서부             | 미국 동부            |

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acd873cd19cafb785f968fd3d8671640bcfafed8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050772"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163715"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -136,7 +136,7 @@ az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-이 예제는 헤드리스 모드를 사용 합니다. 바꿉니다 `<APP_NAME>` 함수 앱의 이름 및 `<RESOURCE_GROUP> ` 리소스 그룹을 사용 하 여 합니다.
+이 예제는 헤드리스 모드를 사용 합니다. 바꿉니다 `<APP_NAME>` 함수 앱의 이름 및 `<RESOURCE_GROUP>` 리소스 그룹을 사용 하 여 합니다.
 
 > [!WARNING]  
 > 에 [소비 계획](functions-scale.md#consumption-plan)를 추가 해야 합니다는 `WEBSITE_USE_PLACEHOLDER` 값을 사용 하 여 설정 `0`.  

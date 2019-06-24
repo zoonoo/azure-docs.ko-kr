@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66172001"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182224"
 ---
 Linux VM에 데이터 디스크를 추가할 때 디스크가 LUN 0에 존재하지 않으면 오류가 발생할 수 있습니다. Azure 플랫폼에서 적절한 LUN을 확인하도록 하지 않고 `azure vm disk attach-new` 명령을 사용하여 디스크를 수동으로 추가한 후 LUN을 지정하는 경우(`--lun`) 디스크가 LUN 0에 이미 존재하거나 이 위치에 상주하게 될지 잘 확인해야 합니다. 
 

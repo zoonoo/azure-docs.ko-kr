@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051721"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295342"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -34,7 +34,7 @@ Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [
 
 ### <a name="operating-system"></a>운영 체제
 
-Azure Disk Encryption은 현재 배포판 및 버전 선택에서 지원됩니다.  지원되는 Linux 배포판 목록은 [Azure Disk Encryption FAQ](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
+Azure Disk Encryption은 현재 배포판 및 버전 선택에서 지원됩니다.  참조 된 [Azure Disk Encryption 지원 되는 운영 체제: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) 목록은 지원 되는 Linux 배포판입니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -142,7 +142,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | 문자열 |
-| 형식 | AzureDiskEncryptionForLinux | 문자열 |
+| type | AzureDiskEncryptionForLinux | 문자열 |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (0.1 스키마) AADClientSecret | password | 문자열 |
@@ -152,7 +152,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyEncryptionKeyURL | url | 문자열 |
 | (선택 사항) KeyVaultURL | url | 문자열 |
-| 암호 | password | 문자열 | 
+| Passphrase | password | 문자열 | 
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 

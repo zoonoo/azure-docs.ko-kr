@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238964"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165310"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
 Time Series Insights 탐색기에서 사용자 지정 보기를 공유 하려면 사용자 지정 보기의 매개 변수가 있는 URL을 프로그래밍 방식으로 만들 수 있습니다.
 
-Time Series Insights 탐색기 URL에서 바로 환경의 보기를 지정 하려면 URL 쿼리 매개 변수를 지원 합니다. 예를 들어 URL만 사용하여 대상 환경, 검색 조건자 및 원하는 시간 범위를 지정할 수 있습니다. 사용자가 사용자 지정 URL을 클릭하면 인터페이스는 Time Series Insights 포털의 해당 자산과 직접 연결되는 링크를 제공합니다. 데이터 액세스 정책이 적용됩니다.
+Time Series Insights 탐색기 URL에서 바로 환경의 보기를 지정 하려면 URL 쿼리 매개 변수를 지원 합니다. 예를 들어 URL만 사용하여 대상 환경, 검색 조건자 및 원하는 시간 범위를 지정할 수 있습니다. 사용자가 사용자 지정된 URL을 선택 하면 인터페이스는 Time Series Insights 포털에서 해당 자산에 직접 링크를 제공 합니다. 데이터 액세스 정책이 적용됩니다.
 
 > [!TIP]
 > * 무료 볼 [Time Series Insights 데모](https://insights.timeseries.azure.com/samples)합니다.

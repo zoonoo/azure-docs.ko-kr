@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7121bfceb177a7dc06d1c2a65b7c3edfca1d8c31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64252f42f5b3690e8ba6d929e27f7f41b649922e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063642"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302298"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell"></a>빠른 시작: PowerShell을 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67063642"
 > * [포털](search-create-index-portal.md)
 > 
 
-이 문서 만들기, 로드 하 고 Azure Search를 쿼리 하는 과정 안내 [인덱스](search-what-is-an-index.md) PowerShell을 사용 하 고 [Azure Search 서비스 REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 인덱스 정 및 검색 가능한 콘텐츠는 올바른 형식의 JSON 콘텐츠로 요청 본문에 제공 됩니다.
+이 문서 만들기, 로드 및 PowerShell을 사용 하 여 Azure Search 인덱스를 쿼리 하는 과정을 단계별로 안내 하며 [Azure Search REST Api](https://docs.microsoft.com/rest/api/searchservice/)합니다. 이 문서에서는 interatively PowerShell 명령을 실행 하는 방법에 설명 합니다. 또는 완성 된 스크립트를 실행할 수 있습니다. 복사본을 다운로드 하려면로 이동 합니다 [azure search-powershell 샘플](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) 리포지토리.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만든 다음 [Azure Search에 등록](search-create-service-portal.md)하십시오.
 
@@ -374,23 +374,23 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ```powershell
 # Query example 1
-# Search the entire index for the terms 'hotels' and 'wifi'
-# Return only the HotelName and HotelId fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=hotels wifi&$count=true&$select=HotelName,HotelId'
+# Search the entire index for the terms 'restaurant' and 'wifi'
+# Return only the HotelName, Description, and Tags fields
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
-# Returns the HotelId and Description. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+# Returns the HotelName and Rating. Two documents match.
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
-# Take the top two results, and show only HotelId,HotelName,Description in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+# Take the top two results, and show only HotelName and Category in the results
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
-# Sort by a specific field (`lastRenovationDate`) in descending order
+# Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up"></a>정리 
 
@@ -406,21 +406,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 
 ## <a name="next-steps"></a>다음 단계
 
-인덱스에 프랑스어 설명이 추가 해 보세요. 다음 예에서는 프랑스어 문자열을 포함 하 고 추가 검색 작업을 보여 줍니다. MergeOrUpload를 사용 하 여 만들거나 기존 필드를 추가 합니다. 다음 문자열을 u t F-8로 인코딩된 해야 합니다.
+이 빠른 시작에서는 만들기 및 Azure Search에서 콘텐츠에 액세스 하기 위한 기본 워크플로 단계별로 실행 하려면 PowerShell를 사용 합니다. Azure 데이터 원본에서 인덱싱 등의 고급 시나리오를 이동 좋습니다 염두에서 개념을 사용 하 여
 
-```json
-{
-    "value": [
-        {
-            "@search.action": "mergeOrUpload",
-            "hotelId": "1",
-            "description_fr": "Meilleur hôtel en ville"
-        },
-        {
-            "@search.action": "merge",
-            "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville"
-        }
-    ]
-}
-```
+> [!div class="nextstepaction"]
+> [REST 자습서: 인덱스 및 반 구조화 된 데이터 (JSON blob)를 Azure Search에서 검색](search-semi-structured-data.md)

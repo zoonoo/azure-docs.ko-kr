@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762002"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
@@ -57,7 +57,7 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 4. **Windows에서 Azure File Storage 시작** 이 계정은 기본 저장소 계정이 나 연결된 된 저장소 계정의 수 있습니다.  형식은 *https://&lt;StorageAccountName>.blob.core.windows.net/* 입니다.
 5. 표준 스토리지 계정에는 Blob, 테이블, 큐 및 File Storage가 포함됩니다. (이 저장소에 처음 액세스할 때만 계정 정보를 입력하면 됩니다.)
 6. Azure File Storage는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 기본적으로 컨테이너 이름은 클러스터 이름과 같습니다.
-7. **Name** 열에서 **HiveSampleData.txt**(폴더 경로 **../hive/warehouse/hivesampletable/**)를 찾은 후 HiveSampleData.txt 왼쪽에 있는 **Binary**를 클릭합니다. HiveSampleData.txt는 모든 클러스터와 함께 제공됩니다. 필요에 따라 사용자의 파일을 사용할 수 있습니다.
+7. **Name** 열에서 **HiveSampleData.txt**(폴더 경로 **../hive/warehouse/hivesampletable/** )를 찾은 후 HiveSampleData.txt 왼쪽에 있는 **Binary**를 클릭합니다. HiveSampleData.txt는 모든 클러스터와 함께 제공됩니다. 필요에 따라 사용자의 파일을 사용할 수 있습니다.
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되면 **닫은 후 로드**를 클릭합니다.  통합 문서에 데이터가 로드됩니다.

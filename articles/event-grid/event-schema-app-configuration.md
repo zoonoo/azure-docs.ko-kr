@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735783"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure 앱 구성에 대 한 azure Event Grid 이벤트 스키마
@@ -75,12 +75,12 @@ Azure 앱 구성에는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| 제목 | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| topic | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| subject | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | 개체 | 이벤트 데이터를 구성 하는 앱입니다. |
+| 데이터 | object | 이벤트 데이터를 구성 하는 앱입니다. |
 | dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 

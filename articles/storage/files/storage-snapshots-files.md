@@ -9,10 +9,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235804"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요 
@@ -38,7 +38,7 @@ REST API 및 SMB 둘 다를 사용하여 공유의 스냅샷을 볼 수 있습�
 
 공유 스냅샷 기능은 파일 공유 수준에서 제공됩니다. 검색은 개별 파일을 복원할 수 있도록 개별 파일 수준에서 제공됩니다. SMB, REST API, 포털, 클라이언트 라이브러리 또는 PowerShell/CLI 툴링을 사용하여 전체 파일 공유를 복원할 수 있습니다.
 
-파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare이면 공유 스냅샷 URI는 다음과 유사합니다.
+파일 공유의 공유 스냅샷은 기본 파일 공유와 동일합니다. 유일한 차이는 공유 스냅샷을 생성한 시간을 나타내기 위해 **DateTime** 값이 공유 URI에 추가되는 것입니다. 예를 들어 파일 공유 URI가 http://storagesample.core.file.windows.net/myshare 이면 공유 스냅샷 URI는 다음과 유사합니다.
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```

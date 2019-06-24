@@ -5,18 +5,28 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/22/2019
+ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510211"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202886"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정
 
-이 문서에서는 Azure VPN Gateway에서 진단 로그 이벤트를 기반으로 경고를 설정 합니다.
+이 문서에서는 Azure Log Analytics를 사용 하 여 Azure VPN Gateway에서 진단 로그 이벤트를 기반으로 경고를 설정 합니다. 
+
+다음 로그를 Azure에서 사용할 수 있습니다.
+
+|***Name*** | ***설명*** |
+|---        | ---               |
+|GatewayDiagnosticLog | 게이트웨이 구성 이벤트, 기본 변경 및 유지 관리 이벤트에 대 한 진단 로그를 포함합니다. |
+|TunnelDiagnosticLog | 터널 상태 변경 이벤트를 포함합니다. 해당 하는 경우 터널 연결/연결 끊기 이벤트는 상태 변경에 대 한 요약 된 이유 |
+|RouteDiagnosticLog | 고정 경로를 게이트웨이에서 발생 하는 BGP 이벤트 변경 로그 |
+|IKEDiagnosticLog | IKE 제어 메시지 및 게이트웨이에서 이벤트를 기록합니다. |
+|P2SDiagnosticLog | 지점 대 사이트간 제어 메시지를 기록 및 게이트웨이에서 이벤트 |
 
 ## <a name="setup"></a>경고 설정
 

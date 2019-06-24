@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727043"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144124"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 
@@ -32,7 +32,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| 형식   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
+| type   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
 | 함수 앱 URL | Azure Function App의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 Function App을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
 | 기능 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키**를 복사합니다. 자세한 내용은 다음을 참조하세요. [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 예 |
 |   |   |   |
@@ -41,7 +41,7 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성**  | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| 이름  | 파이프라인의 작업 이름입니다.  | String | 예 |
+| name  | 파이프라인의 작업 이름입니다.  | String | 예 |
 | 형식  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure Function App에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | 예 |
 | 함수 이름  | Azure Function App에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
@@ -64,6 +64,10 @@ Azure 함수 작업은 **라우팅**을 지원합니다. 예를 들어 Azure Fun
 
 에 지 속성 함수에 자세히 알아보려면 [이 문서에서는](../azure-functions/durable/durable-functions-overview.md)합니다. 와 같은 다른 URI 사용 하 여 응답을 반환 하는 지 속성 함수를 호출 하는 Azure 함수 작업을 설정할 수 있습니다 [이 예제에서는](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery)합니다. 때문에 `statusQueryGetUri` HTTP 상태 202 함수 하는 동안 실행 되 고, 웹 작업을 사용 하 여 함수의 상태를 폴링할 수를 반환 합니다. 웹 작업을 사용 하 여 간단히 설정 합니다 `url` 필드 설정 `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`합니다. 지 속성 함수에는 다음이 완료 되 면 함수는 출력 웹 작업의 출력이 됩니다.
 
+
+## <a name="sample"></a>샘플
+
+Tar 파일의 콘텐츠를 추출 하는 Azure 함수를 사용 하는 Data Factory의 샘플을 찾을 수 있습니다 [여기](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749617"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295432"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Azure Search에서 트래픽 분석 검색 구현
 검색 트래픽 분석은 Search 서비스에 대한 피드백 루프를 구현하기 위한 패턴입니다. 이 패턴은 필요한 데이터 및 여러 플랫폼에서 서비스를 모니터링할 수 있는 업계 선두 제품인 Application Insights를 사용하여 필요한 데이터를 수집하는 방법을 설명합니다.
@@ -79,7 +79,7 @@ Azure Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Azure Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는
 
 사용자는 검색 요청을 실행할 때마다 Application Insights 사용자 지정 이벤트에서 다음 스키마로 해당 검색 요청을 검색 이벤트로 기록해야 합니다.
 
-**ServiceName**: (문자열) 검색 서비스 이름 **SearchId**: (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공) **IndexName**: (문자열) 쿼리할 검색 서비스 인덱스 **QueryTerms**: (문자열) 사용자가 입력한 검색 용어 **ResultCount**: (정수) 반환된 문서 수(검색 응답에 제공) **ScoringProfile**: (문자열) 사용된 점수 매기기 프로필(있는 경우)의 이름
+**SearchServiceName**: (문자열) 검색 서비스 이름 **SearchId**: (guid) 검색 쿼리의 고유 식별자 (검색 응답에서 제공) **IndexName**: (문자열) 검색 서비스 인덱스를 쿼리할 **QueryTerms**: 사용자가 입력 한 (문자열) 검색 용어 **된 resultcount가**: 반환 된 문서 수 (int) (검색 응답에서 제공)  **ScoringProfile**: 있는 경우 사용 되는 점수 매기기 프로필의 이름 (문자열)
 
 > [!NOTE]
 > 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [여기](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)를 참조하세요.

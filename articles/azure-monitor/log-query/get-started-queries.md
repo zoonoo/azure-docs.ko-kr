@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519010"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296081"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리를 사용 하 여 시작
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519010"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 자습서는 Azure Monitor 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성 하는 것이 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
-- 쿼리의 구조 이해
+- 쿼리 구조 이해
 - 쿼리 결과 정렬
 - 쿼리 결과 필터링
 - 시간 범위 지정
@@ -38,6 +38,8 @@ ms.locfileid: "65519010"
 - 사용자 지정 필드 정의 및 사용
 - 결과 집계 및 그룹화
 
+Azure portal에서 Log Analytics를 사용 하 여에 대 한 자습서를 참조 하세요 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md)합니다.<br>
+Azure Monitor에서 로그 쿼리 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 쿼리 로그 개요](log-query-overview.md)합니다.
 
 ## <a name="writing-a-new-query"></a>새 쿼리 작성
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 이 쿼리는 구문 "Cryptographic"을 포함하는 레코드에 대한 *SecurityEvent* 테이블을 검색합니다. 이러한 레코드 중 10개의 레코드가 반환되고 표시됩니다. `in (SecurityEvent)` 부분을 생략하고 `search "Cryptographic"`만을 실행하는 경우 검색은 *모든* 테이블을 살펴봅니다. 이는 시간이 더 걸리며 덜 효율적입니다.
 
-> [!NOTE]
-> 기본적으로 _지난 24시간_의 시간 범위가 설정됩니다. 다른 범위를 사용하려면 시간 선택기를 사용하거나(*이동* 단추 옆에 위치함) 명시적 시간 범위 필터를 쿼리에 추가합니다.
+> [!WARNING]
+> 검색 쿼리는 더 많은 데이터를 처리할 수 있기 때문에 일반적으로 쿼리 테이블 기반 보다 느립니다. 
 
 ## <a name="sort-and-top"></a>정렬 및 위쪽
 **take**가 몇 가지 레코드를 가져오는 데 유용하지만 특정 순서 없이 결과가 선택되고 표시됩니다. 정렬된 보기를 가져오려면 기본 열을 기준으로 **정렬**할 수 있습니다.

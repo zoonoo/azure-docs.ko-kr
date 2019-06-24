@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427887"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206065"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [현재 버전](connector-azure-sql-data-warehouse.md)
 
@@ -426,7 +426,7 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Az
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 계정 키 인증을 관리 되는 id 인증 |
 
     >[!IMPORTANT]
-    >Azure Storage를 VNet 서비스 엔드포인트로 구성 된 경우 관리 되는 id 인증을 사용 해야 합니다. 참조 [VNet 서비스 엔드포인트를 사용 하 여 Azure storage의 영향](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Azure Storage는 VNet 서비스 끝점으로 구성 됩니다, 관리 되는 id 인증-사용 해야 합니다 가리킵니다 [VNet 서비스 엔드포인트를 사용 하 여 Azure storage에 미치는](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)합니다. Data Factory에서 필요한 구성을 알아봅니다 [Azure Blob-관리 되는 id 인증](connector-azure-blob-storage.md#managed-identity) 하 고 [Azure Data Lake 저장소 Gen2-관리 되는 id 인증](connector-azure-data-lake-storage.md#managed-identity) 각각 섹션입니다.
 
 2. 합니다 **원본 데이터 형식이** 입니다 **Parquet**를 **ORC**, 또는 **구분 된 텍스트**, 다음 구성을 통해:
 
@@ -537,12 +537,12 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR �
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-솔루션의 선택을 취소 하는 것 "**사용 유형 기본값**" 옵션 (false)로 복사 활동 sink의 PolyBase 설정-> 합니다. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+솔루션의 선택을 취소 하는 것 "**사용 유형 기본값**"-> PolyBase 설정 (false)로 복사 활동 sink의 옵션입니다. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" PolyBase 텍스트 파일에서 데이터를 검색 하는 경우 구분 기호로 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 하는 PolyBase의 네이티브 구성 됩니다. 
 
 **기타**
 
-자세한 knonw PolyBase 문제에 대 한 참조 [Azure SQL Data Warehouse PolyBase 문제 해결 부하](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)합니다.
+더 알려진된 PolyBase 문제에 대 한 참조 [Azure SQL Data Warehouse PolyBase 문제 해결 부하](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)합니다.
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
 

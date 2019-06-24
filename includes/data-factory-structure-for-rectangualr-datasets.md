@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122517"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182873"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>사각형 데이터 세트의 구조 정의 지정
 데이터 세트 JSON의 구조 섹션은 사각형 테이블(행 및 열 포함)에 대한 **선택적** 섹션으로, 해당 테이블에 대한 열 모음을 포함합니다. 형식 변환에 필요한 형식 정보를 제공하거나 열 매핑을 수행하기 위해 구조 섹션을 사용합니다. 다음 섹션에서는 이러한 기능을 자세히 설명합니다. 
@@ -18,8 +18,8 @@ ms.locfileid: "66122517"
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 |열의 이름입니다. |예 |
-| 형식 |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |아닙니다. |
+| name |열의 이름입니다. |예 |
+| type |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |아닙니다. |
 | culture |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |아닙니다. |
 | format |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. |아닙니다. |
 

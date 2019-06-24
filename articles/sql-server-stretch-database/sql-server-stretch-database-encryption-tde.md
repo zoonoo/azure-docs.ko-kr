@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 61f556476958484b78b9c3dff2583eb6db043637
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003049"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
@@ -34,7 +34,7 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 ## <a name="enabling-encryption"></a>암호화 설정
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하도록 설정하려면 다음을 수행합니다.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
 4. **켜기** 설정을 선택한 다음 **저장**
@@ -43,7 +43,7 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 ## <a name="disabling-encryption"></a>암호화 비활성화
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하지 않도록 설정하려면 다음을 수행합니다.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택
 4. **끄기** 설정을 선택한 다음 **저장** 선택

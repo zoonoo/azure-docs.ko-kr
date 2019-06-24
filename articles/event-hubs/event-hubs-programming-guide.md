@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af076153725dc91caaf07b710acf21ebc143fb0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764381"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273665"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 프로그래밍 가이드
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
@@ -70,6 +70,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 ```
 
 ## <a name="partition-key"></a>파티션 키
+
+> [!NOTE]
+> 파티션을 잘 모르는 경우 [이 문서에서는](event-hubs-features.md#partitions)합니다. 
 
 이벤트 데이터를 보낼 때 파티션 할당을 생성하기 위해 해시되는 값을 지정할 수 있습니다. 파티션은 [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) 속성을 사용하여 지정합니다. 단, 파티션을 사용하기로 결정한다는 것은 가용성과 일관성 중 하나를 선택한다는 것을 의미합니다. 
 

@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020965"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
@@ -24,7 +23,7 @@ ms.locfileid: "61020965"
 
 트리거는 원인을 실행할 함수입니다. 트리거 함수를 호출 하는 방법을 정의 하 고 함수는 정확히 하나의 트리거만 있어야 합니다. 키를 누릅니다. 트리거 함수의 페이로드로 자주 제공 되는 데이터를 연결 합니다. 
 
-함수 바인딩에 선언적으로 함수를 다른 리소스를 연결 하는 방법이 바인딩으로 연결 될 수 있습니다 *입력 바인딩*를 *출력 바인딩을*, 또는 둘 다. 데이터 바인딩에서 매개 변수로 함수에 제공 됩니다.
+함수 바인딩에 선언적으로 함수를 다른 리소스를 연결 하는 방법이 바인딩으로 연결 될 수 있습니다 *입력 바인딩*를 *출력 바인딩을*, 또는 둘 다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다.
 
 혼합할 수 있으며 필요에 맞게 다른 바인딩과 일치 수 있습니다. 바인딩 선택 사항이 며 함수 수 있는 하나 이상의 입력 및/또는 출력 바인딩을 합니다.
 
@@ -32,7 +31,7 @@ ms.locfileid: "61020965"
 
 다음 예제와 다른 함수를 구현 하는 방법을 고려해 야 합니다.
 
-| 예제 시나리오  | 트리거 | 입력 바인딩 | 출력 바인딩 |
+| 예제 시나리오 | 트리거 | 입력 바인딩 | 출력 바인딩 |
 |-------------|---------|---------------|----------------|
 | 새 큐 메시지가 다른 큐로 작성 하는 함수를 실행 하는 도착 합니다. | 큐<sup>*</sup> | *없음* | 큐<sup>*</sup> |
 |예약 된 작업을 Blob Storage 콘텐츠를 읽고 새 Cosmos DB 문서를 만듭니다. | 타이머 | Blob Storage | Cosmos DB |
@@ -97,5 +96,3 @@ JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.jso
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [Azure Functions 바인딩 확장 등록](./functions-bindings-register.md)
-
-<!-- Update_Description: wording update -->

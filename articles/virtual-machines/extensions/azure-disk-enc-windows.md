@@ -145,7 +145,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | 문자열 |
-| 형식 | AzureDiskEncryptionForLinux | 문자열 |
+| type | AzureDiskEncryptionForLinux | 문자열 |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (0.1 스키마) AADClientSecret | password | 문자열 |
@@ -155,7 +155,7 @@ V1.1 스키마는 것이 좋습니다와 Azure Active Directory 속성은 필요
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
 | KeyEncryptionKeyURL | url | 문자열 |
 | KeyVaultURL | url | 문자열 |
-| (선택 사항) 암호 | password | 문자열 | 
+| (선택 사항) Passphrase | password | 문자열 | 
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 

@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544473"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
@@ -32,7 +32,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Database
+*   Oracle 데이터베이스
 *   PostgreSQL
 *   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
@@ -95,9 +95,9 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   * 게이트웨이 설치를 위해 선택한 지역은 나중에 Azure 리소스를 만들어 Azure에서 게이트웨이를 등록하는 위치를 결정합니다. 
   Azure에서 이 게이트웨이 리소스를 만들 때 게이트웨이 설치와 *동일한* 위치를 선택해야 합니다. 기본 지역은 Azure 계정을 관리하는 Azure AD 테넌트와 동일한 위치이지만 게이트웨이 설치하는 동안 이 위치를 변경할 수 있습니다.
 
-  * 14.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
+  * 14\.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
   
-    14.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 대신, 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
+    14\.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 대신, 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
 
 ## <a name="high-availability-support"></a>고가용성 지원
 
@@ -430,7 +430,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 게이트웨이에 대한 이벤트 로그를 찾으려면 다음 단계를 수행합니다.
 
 1. 게이트웨이가 설치된 컴퓨터에서 **이벤트 뷰어**를 엽니다. 
-2. **이벤트 뷰어(로컬)** > **응용 프로그램 및 서비스 로그**를 확장합니다. 
+2. **이벤트 뷰어(로컬)**  > **응용 프로그램 및 서비스 로그**를 확장합니다. 
 3. **온-프레미스 데이터 게이트웨이 서비스**를 선택합니다.
 
    ![게이트웨이에 대한 이벤트 로그 보기](./media/logic-apps-gateway-install/event-viewer.png)

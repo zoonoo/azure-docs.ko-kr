@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989096"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147250"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대 한 OpenVPN 클라이언트 구성
 
@@ -26,7 +26,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 
 ## <a name="windows"></a>Windows 클라이언트
 
-1. 공식 [OpenVPN 웹 사이트](https://openvpn.net/index.php/open-source/downloads.html)에서 OpenVPN 클라이언트를 다운로드하여 설치합니다.
+1. 클라이언트 다운로드 및 설치는 OpenVPN (버전 2.4 이상)에서 공식 [OpenVPN 웹 사이트](https://openvpn.net/index.php/open-source/downloads.html)합니다.
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 다음으로 메모장을 사용하여 OpenVPN 폴더의 *vpnconfig.ovpn* 구성 파일을 엽니다.
 4. 만들고 게이트웨이의 P2S 구성에 업로드한 P2S 클라이언트 인증서를 [내보냅니다](vpn-gateway-certificates-point-to-site.md#clientexport).
@@ -61,7 +61,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 
 ## <a name="mac"></a>Mac 클라이언트
 
-1. [TunnelBlik](https://tunnelblick.net/downloads.html)와 같은 OpenVPN 클라이언트를 다운로드하여 설치합니다. 
+1. 클라이언트 다운로드 및 설치는 OpenVPN와 같은 [TunnelBlick](https://tunnelblick.net/downloads.html)합니다. 
 2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.

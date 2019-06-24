@@ -10,11 +10,11 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66127708"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181910"
 ---
 **구성/프로세스 서버 요구 사항**
 

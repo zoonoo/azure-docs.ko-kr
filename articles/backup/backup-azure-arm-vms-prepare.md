@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076797"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -70,6 +70,9 @@ ms.locfileid: "66239324"
  자격 증명 모음을 만든 후 Recovery Services 자격 증명 모음 목록에 나타납니다. 자격 증명 모음이 표시되지 않으면 **새로 고침**을 선택합니다.
 
 ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Azure Backup 서비스는 명명 형식 사용 하 여 스냅숏을 저장 하려면 (VM 리소스 그룹)을 제외한 별도 리소스 그룹을 만듭니다 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터를 기간 (일)에 지정 된 대로 유지 됩니다 *보관 인스턴트 복구 스냅숏을* Azure 가상 머신 백업 정책의 섹션입니다.  이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.
 
 ### <a name="modify-storage-replication"></a>저장소 복제를 수정 합니다.
 

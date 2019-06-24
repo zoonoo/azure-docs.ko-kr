@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115573"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181877"
 ---
 Azure는 Azure AD를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한을 부여 하는 것에 대 한 다음 기본 제공 RBAC 역할을 제공 하 고 OAuth:
 

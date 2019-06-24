@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509213"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271974"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OpenID Connect로 웹 로그인
 
@@ -152,7 +153,9 @@ ID 토큰, 유효성 검사 후에 사용자와 세션을 시작할 수 있습�
 
 사용자 흐름을 실행 하도록 웹 응용 프로그램에 필요한 경우에 다음 섹션을 건너뛸 수 있습니다. 이러한 섹션을 해야 하는 응용 프로그램 웹 API에 대 한 호출을 인증 하 고 Azure AD B2C로 보호 되는 웹에만 적용 됩니다.
 
-`response_type=code+id_token`을 사용하여 `POST` 요청을 `/token` 엔드포인트로 보내 원하는 리소스에 대한 토큰에 대해 얻은 권한 부여 코드를 사용할 수 있습니다. 현재 리소스에 대 한 토큰을 요청할 수는 응용 프로그램의 고유한 백 엔드 web API입니다. 자신에 게 토큰을 요청에 대 한 규칙 범위와 응용 프로그램의 클라이언트 ID를 사용 하는 것입니다.
+`response_type=code+id_token`을 사용하여 `POST` 요청을 `/token` 엔드포인트로 보내 원하는 리소스에 대한 토큰에 대해 얻은 권한 부여 코드를 사용할 수 있습니다. Azure AD B2C에서 수행할 수 있습니다 [다른 API에 대 한 액세스 토큰을 요청](active-directory-b2c-access-tokens.md#request-a-token) 요청에 해당 범위를 지정 하 여 일반적인 방식으로 합니다.
+
+또한 앱 자체의 백 엔드 Web API에 대 한 중 (그러면 "대상"으로 해당 클라이언트 ID 사용 하 여 액세스 토큰) 요청 된 범위와 앱의 클라이언트 ID를 사용 하는 규칙에 따라 액세스 토큰을 요청할 수 있습니다.
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

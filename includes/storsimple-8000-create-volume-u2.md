@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66118317"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182256"
 ---
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
 1. **디바이스** 블레이드의 테이블 형식 디바이스 목록에서 디바이스를 선택합니다. **+ 볼륨 추가**를 클릭합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "66118317"
 
       1. **만들기**를 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-         ![만들기 클릭 ](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![만들기 클릭](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
          > [!NOTE]
          > 여기서 만든 볼륨은 보호되지 않습니다. 예약된 백업을 수행하려면 이 볼륨에 백업 정책을 만들어 연결해야 합니다. 

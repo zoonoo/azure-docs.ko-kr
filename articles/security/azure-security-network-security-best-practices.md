@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 137b23432a80d3ceeb0f96cd863514c9ee824c9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127218"
 ---
 # <a name="azure-best-practices-for-network-security"></a>네트워크 보안에 대 한 azure 모범 사례
 이 문서에서는 네트워크 보안을 강화 하기 위해 Azure 모범 사례의 컬렉션을 설명 합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.

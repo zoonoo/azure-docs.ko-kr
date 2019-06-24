@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967597"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204930"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -32,6 +32,10 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 |키|샘플 값|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+버전의 Functions 런타임 2.x는 런타임 환경에 따라 앱 동작을 구성 합니다. 이 값은 [초기화 하는 동안 읽기](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)합니다. 설정할 수 있습니다 `AZURE_FUNCTIONS_ENVIRONMENT` 모든 값을 하지만 [세 개의 값](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) 지원 됩니다. [개발](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)하십시오 [준비](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), 및 [프로덕션](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)합니다. 때 `AZURE_FUNCTIONS_ENVIRONMENT` 기본값으로 설정 되지 않습니다 `Production`합니다. 대신이 설정을 사용 해야 `ASPNETCORE_ENVIRONMENT` 런타임 환경을 설정 합니다. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -71,14 +75,6 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 |키|샘플 값|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-*host.json* 파일 및 함수 폴더가 있는 루트 디렉터리의 경로입니다. 함수 앱에서 기본값은 `%HOME%\site\wwwroot`입니다.
-
-|키|샘플 값|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 

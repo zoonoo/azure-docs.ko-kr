@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f4629894933507bda7359fb034c4079d38100029
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098482"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203879"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Azure의 SAP HANA(대규모 인스턴스)에 HANA 설치
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148631"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204842"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 Azure Storage는 이제 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>일시 삭제를 사용해야 하나요?
-데이터가 애플리케이션 또는 다른 저장소 계정 사용자에 의해 실수로 수정 또는 삭제되는 기회가 있는 경우 일시 삭제를 설정하는 것이 좋습니다. 일시 삭제는 데이터 보호 전략의 한 부분이며 의도하지 않은 데이터 손실을 방지할 수 있습니다.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>일시 삭제 사용에 대 한 특별 한 고려 사항이 있습니까?
+데이터가 애플리케이션 또는 다른 저장소 계정 사용자에 의해 실수로 수정 또는 삭제되는 기회가 있는 경우 일시 삭제를 설정하는 것이 좋습니다. Blob을 나열할 때 자주 덮어쓴된 데이터에 대 한 일시 삭제를 사용 하도록 설정 하면 증가 된 저장소 용량 요금 및 대기 시간 증가 될 수 있습니다. 사용 하지 않도록 설정 하는 일시 삭제를 사용 하 여 별도 저장소 계정에 자주 덮어쓴된 데이터를 저장 하 여이 줄일 수 있습니다. 
 
 ## <a name="faq"></a>FAQ
-**일시 삭제 사용에 대 한 특별 한 고려 사항이 있습니까?**  
-Blob을 나열할 때 자주 덮어쓴된 데이터에 대 한 일시 삭제를 사용 하도록 설정 하면 증가 된 저장소 용량 요금 및 대기 시간 증가 될 수 있습니다. 사용 하지 않도록 설정 하는 일시 삭제를 사용 하 여 별도 저장소 계정에 자주 덮어쓴된 데이터를 저장 하 여이 줄일 수 있습니다. 
-
 **어떤 저장소 유형에 대해 일시 삭제를 사용할 수 있나요?**  
 현재 일시 삭제는 Blob(개체) 저장소에 대해서만 사용 가능합니다.
 

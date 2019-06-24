@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125204"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182540"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell에 로컬 파일 전송
 `clouddrive` 디렉터리가 Azure Portal 저장소 블레이드에 동기화됩니다. 이 블레이드를 사용하여 파일 공유 간에 로컬 파일을 전송합니다. Cloud Shell 내의 파일을 업데이트하면 블레이드를 새로 고칠 때 파일 스토리지 GUI에 반영됩니다.

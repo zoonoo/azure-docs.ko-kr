@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003088"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205069"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux PHP 앱 구성
 
@@ -167,7 +167,7 @@ php_value upload_max_filesize 10M
 
 사용 하 여 대 안으로 *.htaccess*를 사용할 수 있습니다 [ini_set ()](https://www.php.net/manual/function.ini-set.php) 이러한 비 PHP_INI_SYSTEM 지시문을 사용자 지정 앱에서.
 
-### <a name="customize-phpinisystem-directives"></a>PHP_INI_SYSTEM 지시문을 사용자 지정
+### <a name="customize-php_ini_system-directives"></a>PHP_INI_SYSTEM 지시문을 사용자 지정
 
 PHP_INI_SYSTEM 지시문에 맞게 (참조 [php.ini 지시문](https://www.php.net/manual/ini.list.php))를 사용할 수 없습니다는 *.htaccess* 접근 방식입니다. App Service를 사용 하 여 별도 메커니즘을 제공 합니다 `PHP_INI_SCAN_DIR` 앱 설정 합니다.
 

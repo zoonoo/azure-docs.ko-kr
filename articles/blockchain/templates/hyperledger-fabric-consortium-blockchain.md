@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
 ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510763"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger 패브릭 컨소시엄 네트워크
@@ -46,7 +46,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 ### <a name="single-virtual-machine-architecture"></a>단일 가상 머신 아키텍처
 
-앞에서 언급한 대로 단일 가상 머신 아키텍처는 개발자가 애플리케이션 개발에 사용되는 작은 메모리 공간 서버를 보유할 수 있도록 빌드되었습니다. 표시된 모든 컨테이너가 단일 가상 머신에서 실행되고 있습니다. 정렬 서비스는 이 구성을 위해 [SOLO](https://github.com/hyperledger/fabric/tree/master/orderer)를 사용하고 있습니다. 이 구성은 ‘내결함성 정렬 서비스가 아니라’ 개발 용도의 경량으로 설계되었습니다.
+앞에서 언급한 대로 단일 가상 머신 아키텍처는 개발자가 애플리케이션 개발에 사용되는 작은 메모리 공간 서버를 보유할 수 있도록 빌드되었습니다. 표시된 모든 컨테이너가 단일 가상 머신에서 실행되고 있습니다. 정렬 서비스는 이 구성을 위해 [SOLO](https://github.com/hyperledger/fabric/tree/master/orderer)를 사용하고 있습니다. 이 구성은 ‘내결함성 정렬 서비스가 아니라’ 개발 용도의 경량으로 설계되었습니다. 
 
 ![단일 가상 머신 아키텍처](./media/hyperledger-fabric-consortium-blockchain/hlf-single-arch.png)
 
@@ -85,7 +85,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 **SSH 키(인증 유형 = SSH 공개 키)** |원격 로그인에 사용되는 보안 셸 키 ||
 **구독** |배포할 구독 ||
 **리소스 그룹** |컨소시엄 네트워크를 배포할 리소스 그룹 ||
-**위치**: |첫 번째 멤버를 배포할 Azure 지역 ||
+**Location**: |첫 번째 멤버를 배포할 Azure 지역 ||
 
 **확인**을 선택합니다.
 
@@ -97,10 +97,10 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 | 매개 변수 이름 | 설명 | 허용되는 값 |
 |---|---|---|
-**네트워크 구성** |새 네트워크를 만들거나 기존 네트워크를 연결하도록 선택할 수 있습니다. ‘기존 네트워크 연결’을 선택하는 경우 추가로 값을 제공해야 합니다. |새 네트워크 <br/> 기존 네트워크 연결 |
+**네트워크 구성** |새 네트워크를 만들거나 기존 네트워크를 연결하도록 선택할 수 있습니다. ‘기존 네트워크 연결’을 선택하는 경우 추가로 값을 제공해야 합니다.  |새 네트워크 <br/> 기존 네트워크 연결 |
 **HLF CA 암호** |배포의 일부로 생성되는 인증 기관에서 생성한 인증서에 사용되는 암호입니다. 암호는 다음 문자 유형 중 세 가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개.<br /><br />처음에는 모든 가상 머신의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|1-25자 |
-**조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|Default <br/> 고급 |
-**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예. <br/> 아닙니다. |
+**조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|기본값 <br/> 고급 |
+**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예 <br/> 아닙니다. |
 
 **확인**을 선택합니다.
 

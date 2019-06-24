@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 95a92bc5511885d1a7cd8685782239686c4e3386
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160098"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182207"
 ---
 다음 주요 문제는 문제를 해결하는 데 도움이 될 수 있습니다. 문제 해결을 시작하려면 이 단계를 검토합니다.
 

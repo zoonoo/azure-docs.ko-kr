@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232622"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning 서비스 (미리 보기)에서 R 및 SQL 데이터 작업
@@ -28,7 +28,7 @@ ms.locfileid: "65232622"
 
 - 경우에 따라 데이터 형식이 일치 하지 않습니다.
 - 암시적 변환이 일어날 수 있음
-- CAST 및 Convert 연산이 필요함 
+- CAST 및 Convert 연산이 필요함
 - R 및 SQL이 서로 다른 데이터 개체를 사용함
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "65232622"
 
 먼저 몇 가지 기본 R 개체인 벡터, 행렬 및 목록-를 사용 하 여 실험 하 고 데이터 프레임으로 변환 SQL로 전달 되는 출력이 어떻게 변경 되는지 확인 하겠습니다.
 
-R에서 다음 두 "Hello World" 스크립트를 비교하세요. 스크립트는 거의 동일 하지만 첫 번째는 세 개의 값을 단일 열로 반환하는 반면, 두 번째는 각각 단일 값을 가진 3개의 열을 반환합니다. 
+R에서 다음 두 "Hello World" 스크립트를 비교하세요. 스크립트는 거의 동일 하지만 첫 번째는 세 개의 값을 단일 열로 반환하는 반면, 두 번째는 각각 단일 값을 가진 3개의 열을 반환합니다.
 
 **예제 1**
 
@@ -96,7 +96,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-이제 **Message**에 텍스트를 검토하여 출력이 다른 이유를 확인합니다. 
+이제 **Message**에 텍스트를 검토하여 출력이 다른 이유를 확인합니다.
 
 **결과 - 예제 1**
 
@@ -298,6 +298,6 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - 데이터를 미리 테스트해서 R 코드에 전달할 때 문제가 될 수 있는 스키마의 열 혹은 값을 검사합니다.
 - `SELECT *`를 사용하지 않고 입력 데이터 원본에서 열을 개별적으로 지정하고 각 열이 어떻게 처리되는지 알아봅니다.
 - 문제를 방지하려면 입력 데이터를 준비할 때 필요에 따라 명시적 Cast를 수행합니다.
-- 오류를 유발하거나 모델링에 유용하지 않은 데이터 열(예: GUID 또는 rowguids)은 전달하지 않습니다. 
+- 오류를 유발하거나 모델링에 유용하지 않은 데이터 열(예: GUID 또는 rowguids)은 전달하지 않습니다.
 
 지원 되거나 지원 되지 않는 R 데이터 형식에 대 한 자세한 내용은 참조 하세요. [R 라이브러리 및 데이터 형식](/sql/advanced-analytics/r/r-libraries-and-data-types)합니다.

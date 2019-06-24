@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60836309"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155124"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
 ## <a name="assumptions"></a>가정
 
 - 온-프레미스에서 Azure로 Oracle 데이터베이스 마이그레이션할 계획입니다.
+- 해야 합니다 [진단 팩](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) 마이그레이션하려는 Oracle 데이터베이스에 대 한
 - Oracle AWR 보고서의 다양한 메트릭에 대해 이해하고 있습니다.
 - 애플리케이션 성능 및 플랫폼 사용률에 대해 기본적으로 이해하고 있습니다.
 
@@ -72,11 +73,11 @@ Azure 환경에서 성능을 향상시키기 위해 조정할 수 있는 잠재�
 
 ### <a name="generate-an-awr-report"></a>AWR 보고서 생성
 
-기존 Oracle 데이터베이스가 있고 Azure로 마이그레이션하도록 계획하는 경우 몇 가지 옵션이 있습니다. Oracle AWR 보고서를 실행하여 메트릭(IOPS, Mbps, GiBs 등)을 얻을 수 있습니다. 그런 다음 수집한 메트릭을 기반으로 하여 VM을 선택합니다. 또는 인프라 팀에 문의하여 유사한 정보를 얻을 수 있습니다.
+기존 Oracle 데이터베이스가 있고 Azure로 마이그레이션하도록 계획하는 경우 몇 가지 옵션이 있습니다. 있는 경우는 [진단 팩](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) Oracle 인스턴스에 대 한 메트릭 (IOPS, Mbps, GiBs, 및 등)을 가져오려고 Oracle AWR 보고서를 실행할 수 있습니다. 그런 다음 수집한 메트릭을 기반으로 하여 VM을 선택합니다. 또는 인프라 팀에 문의하여 유사한 정보를 얻을 수 있습니다.
 
 일반 및 최대 워크로드 모두에서 AWR 보고서를 실행하여 비교하는 것이 좋을 수도 있습니다. 이러한 보고서에 따라 평균 워크로드 또는 최대 워크로드를 기준으로 VM 크기를 조정할 수 있습니다.
 
-다음은 AWR 보고서를 생성하는 방법의 예제입니다.
+다음은 AWR 보고서를 생성 하는 방법의 예 (귀하의 현재 설치에 있는 경우에 Oracle Enterprise Manager를 사용 하 여 AWR 보고서 생성):
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,16 +144,20 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 
 - 네트워크 대기 시간은 온-프레미스 배포에 비해 더 높습니다. 네트워크 왕복 수를 줄이면 성능이 크게 향상될 수 있습니다.
 - 왕복을 줄이려면 동일한 가상 머신에서 트랜잭션이 많은 애플리케이션 또는 "채팅 가능한(chatty)" 앱을 통합합니다.
+- 사용 하 여 Virtual Machines를 사용 [가속 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 네트워크 성능 향상을 위해.
+- 특정 Linux distrubutions 사용을 고려 [TRIM/UNMAP 지원](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)합니다.
+- 설치할 [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 별도 가상 컴퓨터.
+- 기본적으로 큰 페이지는 linux에서 사용할 수는 없습니다. 큰 페이지를 사용 하도록 설정 하 고 설정 `use_large_pages = ONLY ` Oracle DB에서. 이렇게 하면 성능을 향상 하는 데 도움이 될 수 있습니다. 자세한 내용은 [여기](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)를 참조하세요.
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 
-- ‘기본 OS 디스크’: 이러한 디스크 유형은 영구적 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
+- ‘기본 OS 디스크’:  이러한 디스크 유형은 영구적 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
 
 - *비관리 디스크*: 이러한 디스크 유형에서는 VM 디스크에 해당하는 VHD(가상 하드 디스크) 파일을 저장하는 스토리지 계정을 사용자가 관리합니다. VHD 파일은 Azure Storage 계정에 페이지 Blob으로 저장됩니다.
 
-- ‘관리 디스크’: Azure에서 VM 디스크에 사용하는 스토리지 계정을 관리합니다. 필요한 디스크 유형(프리미엄 또는 표준)과 디스크 크기를 지정합니다. Azure에서 사용자에게 맞는 디스크를 만들고 관리합니다.
+- ‘관리 디스크’:  Azure에서 VM 디스크에 사용하는 스토리지 계정을 관리합니다. 필요한 디스크 유형(프리미엄 또는 표준)과 디스크 크기를 지정합니다. Azure에서 사용자에게 맞는 디스크를 만들고 관리합니다.
 
-- ‘Premium Storage 디스크’: 이러한 디스크 유형은 프로덕션 워크로드에 가장 적합합니다. Premium Storage는 특정 크기 시리즈 VM(예: DS, DSv2, GS 및 F 시리즈 VM)에 연결할 수 있는 VM 디스크를 지원합니다. 다양한 크기로 제공되며 32GB에서 4,096GB까지 다양한 디스크를 선택할 수 있습니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다.
+- ‘Premium Storage 디스크’:  이러한 디스크 유형은 프로덕션 워크로드에 가장 적합합니다. Premium Storage는 특정 크기 시리즈 VM(예: DS, DSv2, GS 및 F 시리즈 VM)에 연결할 수 있는 VM 디스크를 지원합니다. 다양한 크기로 제공되며 32GB에서 4,096GB까지 다양한 디스크를 선택할 수 있습니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다.
 
 포털에서 새 관리 디스크를 만드는 경우 사용하려는 디스크 유형에 대한 **계정 유형**을 선택할 수 있습니다. 사용 가능한 모든 디스크가 드롭다운 메뉴에 표시되는 것은 아닙니다. 특정 VM 크기를 선택하면 해당 VM 크기를 기반으로 하여 사용할 수 있는 Premium Storage SKU만 메뉴에 표시됩니다.
 
@@ -183,20 +188,21 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 - 데이터 압축을 사용하여 I/O를 줄입니다(데이터 및 인덱스 모두에 해당).
 - 개별 데이터 디스크에서 다시 실행 로그, 시스템, 임시 디스크를 분리하고 TS를 실행 취소합니다.
 - 기본 OS 디스크(/dev/sda)에 애플리케이션 파일을 배치하지 않습니다. 이러한 디스크는 빠른 VM 부팅 시간에 맞게 최적화되지 않으며, 애플리케이션에 좋은 성능을 제공하지 않을 수 있습니다.
+- M 시리즈 Vm에서 Premium storage를 사용 하는 경우 사용 하도록 설정 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) 에 로그 디스크를 다시 실행 합니다.
 
 ### <a name="disk-cache-settings"></a>디스크 캐시 설정
 
 호스트 캐싱에는 세 가지 옵션이 있습니다.
 
-- ‘읽기 전용’: 모든 요청이 이후 읽기를 위해 캐시됩니다. 모든 쓰기는 Azure Blob Storage에 직접 유지됩니다.
+- *ReadOnly*: 모든 요청이 이후 읽기를 위해 캐시됩니다. 모든 쓰기는 Azure Blob Storage에 직접 유지됩니다.
 
-- ‘읽기/쓰기’: “미리 읽기” 알고리즘입니다. 읽기 및 쓰기가 향후 읽기에 대해 캐시됩니다. 연속 쓰기(write-through) 이외의 쓰기 작업은 먼저 로컬 캐시에 유지됩니다. SQL Server의 경우 연속 쓰기를 사용하므로 쓰기가 Azure Storage에 유지됩니다. 또한 가벼운 워크로드에 대해 가장 낮은 디스크 대기 시간을 제공합니다.
+- *ReadWrite*: “미리 읽기” 알고리즘입니다. 읽기 및 쓰기가 향후 읽기에 대해 캐시됩니다. 연속 쓰기(write-through) 이외의 쓰기 작업은 먼저 로컬 캐시에 유지됩니다. 또한 가벼운 워크로드에 대해 가장 낮은 디스크 대기 시간을 제공합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
 
-- ‘없음’(사용 안 함): 이 옵션을 사용하면 캐시를 무시할 수 있습니다. 모든 데이터가 디스크에 전송되며 Azure Storage에 유지됩니다. 이 메서드를 사용하면 I/O 집약적 워크로드에 대해 가장 높은 I/O 속도를 얻을 수 있습니다. "트랜잭션 비용"도 고려해야 합니다.
+- ‘없음’(사용 안 함):  이 옵션을 사용하면 캐시를 무시할 수 있습니다. 모든 데이터가 디스크에 전송되며 Azure Storage에 유지됩니다. 이 메서드를 사용하면 I/O 집약적 워크로드에 대해 가장 높은 I/O 속도를 얻을 수 있습니다. "트랜잭션 비용"도 고려해야 합니다.
 
 **권장 사항**
 
-처리량을 최대화하려면 호스트 캐싱에 대해 **없음**으로 시작하는 것이 좋습니다. Premium Storage의 경우 **읽기 전용** 또는 **없음** 옵션을 사용하여 파일 시스템을 탑재할 때 "barrier"를 사용하지 않도록 설정해야 합니다. /etc/fstab 파일을 UUID로 디스크에 업데이트합니다.
+처리량을 최대화 하려면 시작 하는 권장 **None** 캐시 호스트에 대 한 합니다. Premium Storage의 경우 **읽기 전용** 또는 **없음** 옵션을 사용하여 파일 시스템을 탑재할 때 "barrier"를 사용하지 않도록 설정해야 합니다. /etc/fstab 파일을 UUID로 디스크에 업데이트합니다.
 
 ![관리되는 디스크 페이지의 스크린샷](./media/oracle-design/premium_disk02.png)
 
@@ -206,19 +212,18 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 
 데이터 디스크 설정을 저장한 후에 OS 수준에서 드라이브를 분리한 다음 변경한 후에 다시 탑재하지 않는 한 호스트 캐시 설정은 변경할 수 없습니다.
 
-
 ## <a name="security"></a>보안
 
 Azure 환경을 설정하고 구성한 후의 다음 단계는 네트워크를 보호하는 것입니다. 몇 가지 권장 사항입니다.
 
-- ‘NSG 정책’: NSG는 서브넷 또는 NIC에서 정의될 수 있습니다. 애플리케이션 방화벽과 같이 작업에 대한 보안 및 강제 라우팅 모두를 위해 서브넷 수준에서 액세스를 제어하는 것이 더 간단합니다.
+- ‘NSG 정책’:  NSG는 서브넷 또는 NIC에서 정의될 수 있습니다. 보안 및 응용 프로그램 방화벽 등을 위해 강제 라우팅 모두 서브넷 수준에서 액세스를 제어 하는 것이 쉽습니다.
 
 - *Jumpbox*: 더 안전한 액세스를 위해 관리자는 애플리케이션 서비스 또는 데이터베이스에 직접 연결해서는 안 됩니다. Jumpbox는 관리자 컴퓨터와 Azure 리소스 간 미디어로 사용됩니다.
 ![Jumpbox 토폴로지 페이지의 스크린샷](./media/oracle-design/jumpbox.png)
 
     관리자 컴퓨터는 Jumpbox에 대해 IP가 제한된 액세스만 제공해야 합니다. Jumpbox에는 애플리케이션과 데이터베이스에 대한 액세스 권한이 있어야 합니다.
 
-- ‘개인 네트워크’(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
+- *프라이빗 네트워크*(서브넷): NSG 정책에 따라 더 나은 제어를 설정할 수 있도록 애플리케이션 서비스와 데이터베이스를 별도의 서브넷에 두는 것이 좋습니다.
 
 
 ## <a name="additional-reading"></a>추가 참조 자료

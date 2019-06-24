@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
 ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872716"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
@@ -222,7 +222,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 
 ```
 
-처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다.  [속성 형식 및 값에 대한 자세한 데이터 모델 참조](../../azure-monitor/app/export-data-model.md)
+처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다. [속성 형식 및 값에 대한 자세한 데이터 모델 참조](../../azure-monitor/app/export-data-model.md)
 
 ## <a name="set-up-output-to-database"></a>데이터베이스에 출력 설정
 SQL을 출력으로 선택합니다.

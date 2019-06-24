@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596950"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274182"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic apps 워크플로 정의 언어에서 트리거 및 작업 형식에 대 한 참조
 
@@ -75,7 +75,7 @@ ms.locfileid: "65596950"
 
 ### <a name="built-in-triggers"></a>기본 제공 트리거
 
-| 트리거 형식 | 설명 | 
+| 트리거 유형 | 설명 | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | 끝점을 검사하거나 *폴링*합니다. 이 끝점은 “202” 비동기 패턴을 사용하거나 배열을 반환하여 특정 트리거 계약을 준수해야 합니다. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | 논리 앱에 대한 호출 가능 끝점을 만들지만 지정된 URL을 호출하여 등록하거나 등록을 취소합니다. |
@@ -85,7 +85,7 @@ ms.locfileid: "65596950"
 
 ### <a name="managed-api-triggers"></a>관리되는 API 트리거
 
-| 트리거 형식 | 설명 | 
+| 트리거 유형 | 설명 | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | [Microsoft 관리 API](../connectors/apis-list.md)를 사용하여 끝점을 검사하거나 *폴링*합니다. | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 구독 및 구독을 취소하는 [Microsoft 관리 API](../connectors/apis-list.md)를 호출하여 논리 앱에 대한 호출 가능 끝점을 만듭니다. | 
@@ -157,8 +157,8 @@ ms.locfileid: "65596950"
 | 요소 | Type | 설명 |
 |---------|------|-------------|
 | headers | JSON 개체 | 응답의 헤더입니다. |
-| 본문 | JSON 개체 | 응답의 본문입니다. |
-| 상태 코드 | Integer | 응답의 상태 코드 |
+| body | JSON 개체 | 응답의 본문입니다. |
+| status code | Integer | 응답의 상태 코드 |
 |||| 
 
 *예제*
@@ -340,7 +340,7 @@ ms.locfileid: "65596950"
   
 | response | 필수 | 설명 | 
 |----------|----------|-------------| 
-| 상태 코드 | 예. | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
+| 상태 코드 | 예 | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
 | Retry-after 헤더 | 아닙니다. | 논리 앱 끝점을 다시 폴링할 때까지 시간 (초) 수 | 
 | 위치 헤더 | 아닙니다. | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
 |||| 
@@ -823,7 +823,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 작업 유형 | 설명 | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | 입력에서 단일 출력을 만듭니다. 다양한 형식을 가질 수 있습니다. | 
-| [**JavaScript 코드를 실행 합니다.**](#run-javascript-code) | 특정 조건에 맞지는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 참조 하세요 [추가 및 인라인 코드를 사용 하 여 실행된 코드 조각](../logic-apps/logic-apps-add-run-inline-code.md)합니다. |
+| [**JavaScript 코드를 실행 합니다.** ](#run-javascript-code) | 특정 조건에 맞지는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 참조 하세요 [추가 및 인라인 코드를 사용 하 여 실행된 코드 조각](../logic-apps/logic-apps-add-run-inline-code.md)합니다. |
 | [**Function**](#function-action) | Azure 함수를 호출합니다. | 
 | [**HTTP**](#http-action) | HTTP 끝점을 호출합니다. | 
 | [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
@@ -2389,7 +2389,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 트리거 및 작업에 대한 기본 동작을 트리거 또는 작업 정의의 `operationOptions` 속성을 사용하여 변경할 수 있습니다.
 
-| 작업 옵션 | Type | 설명 | 트리거 또는 작업 | 
+| 작업 옵션 | 형식 | 설명 | 트리거 또는 작업 | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | 비동기가 아닌 동기적으로 HTTP 기반 작업을 실행합니다. <p><p>이 옵션을 설정하려면 [동기적으로 작업 실행](#asynchronous-patterns)을 참조하세요. | 작업: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[응답](#response-action) | 
 | `OptimizedForHighThroughput` | String | 5분당 작업 실행 수에 대한 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)을 [최대 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)으로 변경합니다. <p><p>이 옵션을 설정하려면 [높은 처리량 모드에서 실행](#run-high-throughput-mode)을 참조하세요. | 모든 작업 | 
@@ -2431,7 +2431,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다..
+1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
 
 2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
@@ -2546,7 +2546,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다..
+1. 트리거의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
 
 2. **동시성 제어** 아래에서 **제한**을 **켜기**로 설정합니다. 
 
@@ -2624,7 +2624,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 ### <a name="run-in-high-throughput-mode"></a>높은 처리량 모드에서 실행
 
-단일 논리 앱 실행의 경우 5분마다 실행되는 작업 수에는 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)이 적용됩니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다. 
+단일 논리 앱 정의 5 분 마다 실행 되는 작업 수에는 [기본 제한은](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)합니다. 이 제한을 가능한 [최대](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)로 높이려면 `operationOptions` 속성을 `OptimizedForHighThroughput`으로 설정합니다. 이렇게 설정하면 논리 앱이 "높은 처리량" 모드가 됩니다. 
 
 > [!NOTE]
 > 높은 처리량 모드는 미리 보기로 제공됩니다. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 분산할 수도 있습니다.
@@ -2665,9 +2665,9 @@ Azure Active Directory를 사용한 [기본적인 인증](../active-directory-b2
 
 | 자산 | 필수 | Value | 설명 | 
 |----------|----------|-------|-------------| 
-| **type** | 예. | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
-| **사용자 이름** | 예. | "@parameters('userNameParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
-| **암호** | 예. | "@parameters('passwordParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
+| **type** | 예 | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
+| **사용자 이름** | 예 | "@parameters('userNameParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
+| **암호** | 예 | "@parameters('passwordParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
 ||||| 
 
 이 예제 HTTP 작업 정의에서는 `authentication` 섹션이 `Basic` 인증을 지정합니다. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
@@ -2699,9 +2699,9 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
 
 | 자산 | 필수 | Value | 설명 |
 |----------|----------|-------|-------------|
-| **type** | 예. | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
-| **pfx** | 예. | "@parameters('pfxParam') | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | 예. | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호 |
+| **type** | 예 | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
+| **pfx** | 예 | "@parameters('pfxParam') | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **암호** | 예 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호 |
 ||||| 
 
 이 예제 HTTP 작업 정의에서는 `authentication` 섹션이 `ClientCertificate` 인증을 지정합니다. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
@@ -2733,12 +2733,12 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
 
 | 자산 | 필수 | Value | 설명 |
 |----------|----------|-------|-------------|
-| **type** | 예. | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
+| **type** | 예 | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
 | **authority** | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |
-| **테넌트** | 예. | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
-| **대상** | 예. | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
-| **clientId** | 예. | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
-| **credentialType** | 예. | "인증서" 또는 "비밀" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. |
+| **테넌트** | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
+| **대상** | 예 | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
+| **clientId** | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
+| **credentialType** | 예 | "인증서" 또는 "비밀" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. |
 | **pfx** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('pfxParam') | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
 | **암호** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호 |
 | **암호** | 예, "Secret" 자격 증명 유형의 경우 | "@parameters('secretParam')" | 권한 부여를 요청하는 클라이언트 비밀 |

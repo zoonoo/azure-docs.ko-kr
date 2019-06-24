@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: b2e3b22672351b7e34c9ccccb37f0303b53a770f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66430864"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292827"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 모델 interpretability
 
@@ -252,6 +252,23 @@ Azure Machine Learning 서비스에서 지 원하는 다양 한 계산 대상에
 
 [![시각화 대시보드 로컬](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
+Jupyter 커널 시작 하기 전에 사용 하도록 설정 하는 시각화 대시보드의 위젯 확장명을 가진 해야 note 합니다.
+
+* Jupyter Notebook
+
+    ```shell
+    jupyter nbextension install --py --sys-prefix azureml.contrib.explain.model.visualize
+    jupyter nbextension enable --py --sys-prefix azureml.contrib.explain.model.visualize
+    ```
+
+
+
+* Jupyter Labs
+
+    ```shell
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    jupyter labextension install microsoft-mli-widget
+    ```
 시각화 대시보드를 로드 하려면 다음 코드를 사용 합니다.
 
 ```python

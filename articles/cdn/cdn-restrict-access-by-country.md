@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869579"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>국가/지역별 Azure CDN 콘텐츠 제한
@@ -42,12 +42,12 @@ ms.locfileid: "64869579"
 
 **경로** 상자에서 사용자에게 액세스를 허용하거나 거부하는 위치에 대한 상대 경로를 지정합니다. 
 
-슬래시(/)를 사용하여 모든 파일에 대해 지역 필터링을 적용하거나 디렉터리 경로(예: */pictures/*)를 지정하여 특정 폴더를 선택할 수 있습니다. 단일 파일(예: */pictures/city.png*)에 지역 필터링을 적용할 수도 있습니다. 여러 개의 규칙이 허용됩니다. 규칙을 입력한 후 다음 규칙을 입력하기 위한 빈 행이 나타납니다.
+슬래시(/)를 사용하여 모든 파일에 대해 지역 필터링을 적용하거나 디렉터리 경로(예: */pictures/* )를 지정하여 특정 폴더를 선택할 수 있습니다. 단일 파일(예: */pictures/city.png*)에 지역 필터링을 적용할 수도 있습니다. 여러 개의 규칙이 허용됩니다. 규칙을 입력한 후 다음 규칙을 입력하기 위한 빈 행이 나타납니다.
 
 예를 들어 다음 모든 디렉터리 경로 필터가 유효합니다.   
 */*                                 
-*/Photos/*     
-*/Photos/Strasbourg/*     
+*/Photos/*      
+*/Photos/Strasbourg/*      
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>작업의 유형 정의

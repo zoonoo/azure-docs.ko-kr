@@ -22,25 +22,14 @@
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
         - name: Azure Resource Manager 템플릿
+          displayName: ARM
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: 이벤트 보내기 및 받기
       items:
         - name: .NET Core
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
         - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: Node.js
-          href: event-hubs-node-get-started-send.md
-        - name: Go
-          href: event-hubs-go-get-started-send.md
-        - name: C(보내기 전용)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm(받기 전용)
-          href: event-hubs-storm-getstarted-receive.md
     - name: 이벤트 캡처
       items:
         - name: Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
@@ -59,33 +48,21 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: SQL Data Warehouse에서 캡처된 데이터 저장
       href: store-captured-data-data-warehouse.md
+    - name: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리
+      href: event-hubs-kafka-stream-analytics.md
     - name: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
-    - name: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Apache Kafka용 Event Hubs
-      items:
-        - name: Apache Kafka 지원 이벤트 허브에서 Kafka broker 미러링
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Apache Spark 연결
-          href: event-hubs-kafka-spark-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Apache Flink 연결
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Kafka 지원 이벤트 허브를 사용하여 Apache Kafka 연결 통합(미리 보기)
-          href: event-hubs-kafka-connect-tutorial.md
-        - name: Apache Kafka 지원 이벤트 허브에 Akka 스트림 연결
-          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: 샘플
   href: event-hubs-samples.md
 - name: 개념
   items:
-    - name: Event Hubs 기능
+    - name: Event Hubs 용어
       href: event-hubs-features.md
-    - name: 이벤트 프로세서 호스트 개요
-      href: event-hubs-event-processor-host.md
-    - name: 프로그래밍 가이드
-      href: event-hubs-programming-guide.md
+    - name: 가용성 및 일관성
+      href: event-hubs-availability-and-consistency.md
+    - name: 확장성
+      href: event-hubs-scalability.md
     - name: 보안
       items:
         - name: Azure 리소스용 관리 서비스 ID
@@ -98,54 +75,95 @@
           href: event-hubs-authentication-and-security-model-overview.md
         - name: 보안 특성
           href: event-hubs-security-attributes.md
-    - name: 가용성 및 일관성
-      href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0 프로토콜 가이드
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
 - name: 방법 가이드
   items:
-    - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
-      href: event-hubs-python.md
-    - name: 진단 로그 설정
-      href: event-hubs-diagnostic-logs.md
-    - name: Apache Kafka용 Event Hubs
+    - name: 개발
+      items:
+        - name: Event Hubs 연결 문자열 가져오기
+          href: event-hubs-get-connection-string.md
+        - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: 프로그래밍 가이드
+          href: event-hubs-programming-guide.md
+        - name: 이벤트 프로세서 호스트를 사용하여 이벤트 수신
+          href: event-hubs-event-processor-host.md
+    - name: 클라이언트 라이브러리 사용
+      items:
+        - name: .NET Framework
+          items:
+            - name: .NET Framework를 사용하여 이벤트 보내기 및 받기
+              href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Java
+          items:
+            - name: Spring Cloud 스트림 바인더 앱 만들기
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+              maintainContext: true
+            - name: Apache Kafka용 Spring Boot Starter 사용
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+              maintainContext: true
+        - name: Python
+          items:
+            - name: Python을 사용하여 이벤트 보내기 및 받기
+              href: event-hubs-python-get-started-send.md
+            - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
+              href: event-hubs-python.md
+        - name: Node.js
+          items:
+            - name: Node.js를 사용하여 이벤트 보내기 및 받기
+              href: event-hubs-node-get-started-send.md
+        - name: Go
+          items:
+            - name: Go를 사용하여 이벤트 보내기 및 받기
+              href: event-hubs-go-get-started-send.md
+        - name: C(보내기 전용)
+          items:
+            - name: C를 사용하여 이벤트 보내기
+              href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm(받기 전용)
+          items:
+            - name: Apache Storm을 사용하여 이벤트 받기
+              href: event-hubs-storm-getstarted-receive.md
+    - name: Apache Kafka와 통합
       items:
         - name: Apache Kafka 지원 이벤트 허브 만들기
           href: event-hubs-create-kafka-enabled.md
-        - name: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리
-          href: event-hubs-kafka-stream-analytics.md
-    - name: 관리
+        - name: Apache Kafka 지원 이벤트 허브에서 Kafka broker 미러링
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Kafka 지원 이벤트 허브에 Apache Spark 연결
+          href: event-hubs-kafka-spark-tutorial.md
+        - name: Apache Kafka 지원 이벤트 허브에 Apache Flink 연결
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Kafka 지원 이벤트 허브를 사용하여 Apache Kafka 연결 통합(미리 보기)
+          href: event-hubs-kafka-connect-tutorial.md
+        - name: Apache Kafka 지원 이벤트 허브에 Akka 스트림 연결
+          href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: 관리 및 모니터링
       items:
         - name: Azure Monitoring을 사용하여 Event Hubs 모니터링
           href: event-hubs-metrics-azure-monitor.md
+        - name: 진단 로그 설정
+          href: event-hubs-diagnostic-logs.md
+        - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: 처리량 단위 규모를 자동으로 조정
+          href: event-hubs-auto-inflate.md
         - name: Event Hubs 관리 라이브러리
           href: event-hubs-management-libraries.md
-    - name: Event Hubs 연결 문자열 가져오기
-      href: event-hubs-get-connection-string.md
-    - name: Java 개발
+    - name: 보안
       items:
-        - name: Spring Cloud 스트림 바인더 앱 만들기
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-        - name: Apache Kafka용 Spring Boot Starter 사용
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+        - name: 방화벽 사용
+          href: event-hubs-ip-filtering.md
+        - name: 가상 네트워크 서비스 엔드포인트 사용
+          href: event-hubs-service-endpoints.md
+        - name: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
+          href: event-hubs-tutorial-virtual-networks-firewalls.md
     - name: 문제 해결
       items:
         - name: 예외
           href: event-hubs-messaging-exceptions.md
-    - name: 방화벽 사용
-      href: event-hubs-ip-filtering.md
-    - name: 가상 네트워크 서비스 엔드포인트 사용
-      href: event-hubs-service-endpoints.md
-    - name: 처리량 단위 규모를 자동으로 조정
-      href: event-hubs-auto-inflate.md
-    - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
-      href: event-hubs-streaming-azure-diags-data.md
-    - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
-      href: event-hubs-exchange-events-different-protocols.md
-    - name: Spring Cloud 스트림 바인더 애플리케이션 만들기
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-      maintainContext: true
 - name: 참고 자료
   items:
     - name: Java

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252687"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274949"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>IoT Hub에 대한 메시지 라우팅과 Event Grid 비교
 
@@ -64,7 +64,7 @@ IoT Hub 메시지 라우팅 및 Event Grid와 IoT Hub 통합은 비슷한 결과
 
    고유한 끝점 및 끝점 유형의 경우의 제한 된 수를 지 원하는 IoT Hub 메시지 라우팅 하지만 커넥터가 데이터 및 끝점을 추가 하는 이벤트를 다시 라우팅하도록 빌드할 수 있습니다. 지원되는 엔드포인트의 전체 목록은, 이전 섹션의 테이블을 참조합니다. 
 
-   Event Grid와 IoT Hub 통합은 IoT Hub 및 다양 한 끝점 형식 당 500 끝점을 지원합니다. Azure Functions, Logic Apps, Storage 및 Service Bus 큐를 아무렇게나 통합 하 고 Azure 서비스 생태계 외부 및 타사 비즈니스 응용 프로그램에 보내는 데이터를 확장 하는 웹 후크를 사용 하 여 작동 합니다.
+   Event Grid와 IoT Hub 통합은 IoT Hub 및 다양 한 끝점 형식 당 500 끝점을 지원합니다. Azure Functions, Logic Apps, Storage 및 Service Bus 큐를 고유 하 게 통합 하 고 Azure 서비스 생태계 외부 및 타사 비즈니스 응용 프로그램에 보내는 데이터를 확장 하는 웹 후크를 사용 하 여 작동 합니다.
 
 * **데이터가 순서대로 도착하는 것이 중요합니까?**
 

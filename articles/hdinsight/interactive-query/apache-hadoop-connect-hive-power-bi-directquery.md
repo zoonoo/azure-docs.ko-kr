@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/25/2018
-ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/17/2019
+ms.openlocfilehash: 04af3f211674458c51bbb5cdbc6012833a790584
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801003"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190965"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Azure HDInsight에서 직접 쿼리를 사용하여 Microsoft Power BI에서 대화형 쿼리 Apache Hive 데이터 시각화
 
@@ -27,7 +27,7 @@ ms.locfileid: "65801003"
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 클러스터**. 클러스터는 Apache Hive를 사용한 HDInsight 클러스터 또는 새로 릴리스된 대화형 쿼리 클러스터일 수 있습니다. 클러스터를 만드는 방법은 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45331)에서 복사본을 다운로드할 수 있습니다.
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45331)에서 복사본을 다운로드할 수 있습니다.
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight에서 데이터 로드
 

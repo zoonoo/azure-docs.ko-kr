@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441356"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Apache Spark (미리 보기)에 대 한 azure 데이터 탐색기 커넥터
@@ -101,7 +101,7 @@ mvn clean install
 
     ![설치 된 라이브러리를 확인 합니다.](media/spark-connector/db-libraries-view.png)
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Azure 데이터 탐색기 Spark 커넥터를 사용 하면 Azure Active Directory (Azure AD)를 사용 하 여 인증할 수 있습니다는 [Azure AD 응용 프로그램](#azure-ad-application-authentication)하십시오 [Azure AD 액세스 토큰](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [장치 인증 ](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (예: 비-프로덕션 시나리오의 경우) 또는 [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)합니다. 사용자는 azure key vault 패키지를 설치 하 고 Key Vault 리소스에 액세스 하는 응용 프로그램 자격 증명을 제공 해야 합니다.
 

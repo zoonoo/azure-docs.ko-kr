@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688656"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303941"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -33,6 +33,19 @@ ms.locfileid: "66688656"
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+
+## <a name="june-2019"></a>2019년 6월
+
+### <a name="video-subclipping"></a>비디오 서브 클리핑
+
+이제 trim 또는 사용 하 여 인코딩할 때에 비디오를 서브 클립 수는 [작업](https://docs.microsoft.com/rest/api/media/jobs)합니다. 
+
+이 기능을 사용 하 여 사용할 [변환](https://docs.microsoft.com/rest/api/media/transforms) 중 하나를 사용 하 여 빌드된 합니다 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 미리 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정입니다. 
+
+예제를 참조 하세요.
+
+* [서브 클립.NET을 사용 하 여 비디오](subclip-video-dotnet-howto.md)
+* [서브 클립 REST 사용 하 여 비디오](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>2019년 5월
 

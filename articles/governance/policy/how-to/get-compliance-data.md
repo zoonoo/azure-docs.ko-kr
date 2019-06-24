@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237522"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
@@ -93,10 +93,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
-| 새 문자 | Audit, AuditIfNotExist\* | True  | 비준수 |
-| 새 문자 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.

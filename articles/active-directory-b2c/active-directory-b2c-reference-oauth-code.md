@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509236"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272063"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |잎의 표에 나와 있는 전체 설명을 참조하세요. 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
 
 ## <a name="2-get-a-token"></a>2. 토큰 가져오기
-인증 코드를 받았으므로 이제 POST 요청을 `/token` 엔드포인트로 전송하여 `code`를 의도한 리소스에 대한 토큰으로 교환할 수 있습니다. Azure AD B2C에서 토큰을 요청할 수 있는 리소스는 앱 자체의 백 엔드 Web API뿐입니다. 자체 토큰을 요청하는 데 사용되는 규칙은 앱의 클라이언트 ID를 범위로 사용하는 것입니다.
+인증 코드를 받았으므로 이제 POST 요청을 `/token` 엔드포인트로 전송하여 `code`를 의도한 리소스에 대한 토큰으로 교환할 수 있습니다. Azure AD B2C에서 수행할 수 있습니다 [다른 API에 대 한 액세스 토큰을 요청](active-directory-b2c-access-tokens.md#request-a-token) 요청에 해당 범위를 지정 하 여 일반적인 방식으로 합니다.
+
+또한 앱 자체의 백 엔드 Web API에 대 한 중 (그러면 "대상"으로 해당 클라이언트 ID 사용 하 여 액세스 토큰) 요청 된 범위와 앱의 클라이언트 ID를 사용 하는 규칙에 따라 액세스 토큰을 요청할 수 있습니다.
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

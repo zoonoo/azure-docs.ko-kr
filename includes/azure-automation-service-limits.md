@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
 ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238298"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182610"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 

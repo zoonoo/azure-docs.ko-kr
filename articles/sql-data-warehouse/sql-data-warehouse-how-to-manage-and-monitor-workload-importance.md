@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a39d71e0f8b8072cab6a3af9a2f0913973f303ee
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fbdab724e737b9bc223672c41ee9dde51e6cd99c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235934"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165517"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>관리 및 Azure SQL Data Warehouse의 워크 로드 중요도 모니터링 합니다.
 
@@ -72,4 +72,4 @@ GO
 - 중요도에 대 한 자세한 내용은 참조 하세요. [작업 중요도](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [워크 로드 중요도 구성으로 이동 ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [워크 로드 중요도 구성으로 이동](sql-data-warehouse-how-to-configure-workload-importance.md)

@@ -2,37 +2,51 @@
   href: index.md
 - name: 개요
   items:
-    - name: Azure 상태란?
+    - name: Azure Service Health 서비스
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: 서비스 상태 이벤트에 대한 경고 구성
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+- name: 개념
+  items:
+    - name: Azure 상태 페이지
       href: azure-status-overview.md
-    - name: Service Health란?
+    - name: 서비스 상태
       href: service-health-overview.md
-    - name: Resource Health란?
+    - name: 리소스 상태
       href: resource-health-overview.md
 - name: 방법
   items:
     - name: 서비스 상태 이벤트에 대한 경고 구성
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-      items:
-        - name: Azure Portal을 사용하여 서비스 상태 알림 보기
-          href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    - name: 웹후크를 사용하여 서비스 상태 알림 구성
+    - name: Azure Portal을 사용하여 서비스 상태 알림 보기
+      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    - name: 웹후크를 통해 외부 시스템에 경고 보내기
       href: service-health-alert-webhook-guide.md
-      items:
-        - name: ServiceNow를 사용하여 구성
-          href: service-health-alert-webhook-servicenow.md
-        - name: PagerDuty를 사용하여 구성
-          href: service-health-alert-webhook-pagerduty.md
-        - name: OpsGenie를 사용하여 구성
-          href: service-health-alert-webhook-opsgenie.md
-        - name: REST를 사용하여 상태 이벤트 검색
-          href: service-health-rest.md
+    - name: ServiceNow에 경고 보내기
+      href: service-health-alert-webhook-servicenow.md
+    - name: PagerDuty에 경고 보내기
+      href: service-health-alert-webhook-pagerduty.md
+    - name: OpsGenie에 경고 보내기
+      href: service-health-alert-webhook-opsgenie.md
+    - name: REST를 사용하여 상태 이벤트 검색
+      href: service-health-rest.md
     - name: 리소스 상태 이벤트에 대한 경고 구성
       href: resource-health-alert-arm-template-guide.md
+- name: 참고 자료
+  items:
+    - name: 서비스 상태 알림 속성
+      href: service-health-notifications-properties.md
+    - name: 리소스 상태 유형 및 검사
+      href: resource-health-checks-resource-types.md
+    - name: Resource Health FAQ
+      href: resource-health-faq.md
 - name: 리소스
   items:
-    - name: 질문과 대답
-      href: resource-health-faq.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Azure Resource Health를 통해 사용할 수 있는 리소스 유형 및 상태 검사
-      href: resource-health-checks-resource-types.md
+    - name: 알림 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'

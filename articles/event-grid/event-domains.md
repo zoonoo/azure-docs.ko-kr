@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304291"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
@@ -101,7 +101,7 @@ Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 �
 
 - 이벤트 도메인당 100,000 항목 
 - Azure 구독 당 100 이벤트 도메인 
-- 이벤트에는 토픽 당 500 이벤트 구독
+- 이벤트 도메인 내 토픽당 이벤트 구독 500개
 - 도메인 범위 구독이 50 
 - (도메인)에 두 번째 수집 요금 5,000 이벤트
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110521"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core)
@@ -272,7 +272,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
-1. 애플리케이션을 실행하고 **Blob 업로드**를 선택합니다. ‘성공!’이라는 단어가 표시됩니다.
+1. 애플리케이션을 실행하고 **Blob 업로드**를 선택합니다.  ‘성공!’이라는 단어가 표시됩니다.
     
     ![성공 확인 스크린샷](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
@@ -298,7 +298,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드를 사용합니다. `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드는 `BlobResultSegment`를 반환합니다. 여기에는 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅할 수 있는 `IListBlobItem` 개체가 포함됩니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 해당 유형에 따라 적절한 개체로 캐스팅됩니다. 이름(또는 `CloudBlobDirectory`의 경우 URI)이 목록에 추가됩니다.
+1. Blob 컨테이너의 Blob을 나열하려면 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드를 사용합니다. 합니다 `CloudBlobContainer.ListBlobsSegmentedAsync` 메서드가 반환 되는 `BlobResultSegment`합니다. 여기에는 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스팅할 수 있는 `IListBlobItem` 개체가 포함됩니다. 다음 코드 조각은 Blob 컨테이너에 있는 모든 Blob를 열거합니다. 각 Blob은 해당 유형에 따라 적절한 개체로 캐스팅됩니다. 이름(또는 `CloudBlobDirectory`의 경우 URI)이 목록에 추가됩니다.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -452,7 +452,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. 애플리케이션을 실행하고 **Blob 다운로드**를 선택하여 Blob을 다운로드합니다. `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에 지정된 Blob은 `File.OpenWrite` 메서드 호출에서 지정된 위치에 다운로드됩니다. ‘성공!’이라는 텍스트가 브라우저에 표시됩니다. 
+1. 애플리케이션을 실행하고 **Blob 다운로드**를 선택하여 Blob을 다운로드합니다. `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에 지정된 Blob은 `File.OpenWrite` 메서드 호출에서 지정된 위치에 다운로드됩니다.  ‘성공!’이라는 텍스트가 브라우저에 표시됩니다. 
 
 ## <a name="delete-blobs"></a>Blob 삭제
 
@@ -509,7 +509,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
-1. 애플리케이션을 실행하고 **Blob 삭제**를 선택하여 `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에서 지정한 Blob을 삭제합니다. ‘성공!’이라는 텍스트가 브라우저에 표시됩니다. 브라우저의 **뒤로** 단추를 선택한 다음 **Blob 나열**을 선택하여 컨테이너에 더 이상 Blob이 없음을 확인합니다.
+1. 애플리케이션을 실행하고 **Blob 삭제**를 선택하여 `CloudBlobContainer.GetBlockBlobReference` 메서드 호출에서 지정한 Blob을 삭제합니다.  ‘성공!’이라는 텍스트가 브라우저에 표시됩니다. 브라우저의 **뒤로** 단추를 선택한 다음 **Blob 나열**을 선택하여 컨테이너에 더 이상 Blob이 없음을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

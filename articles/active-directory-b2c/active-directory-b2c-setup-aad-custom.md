@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508653"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203702"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Azure Active Directory 계정으로 로그인하도록 설정 
 
@@ -35,7 +35,7 @@ ms.locfileid: "66508653"
 2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 해당 테넌트가 포함된 디렉터리를 선택하여 조직 Azure AD 테넌트(contoso.com)를 포함하는 디렉터리를 사용합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **새 애플리케이션 등록**을 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`.
+5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`
 6. **애플리케이션 종류**에서 `Web app / API`를 선택합니다.
 7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "66508653"
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    예: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`
 
 8. **만들기**를 클릭합니다. 나중에 사용할 **애플리케이션 ID**를 복사합니다.
 9. 애플리케이션을 선택하고 **설정**을 선택합니다.
@@ -132,7 +132,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
 5. **METADATA** 값을 `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`으로 설정합니다. 여기서 `your-AD-tenant-name`는 Azure AD 테넌트 이름입니다. 예를 들어 `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. 브라우저를 열고 방금 업데이트한 **METADATA** URL으로 이동한 후 **issuer** 개체를 찾고, 해당 값을 복사한 후 XML 파일의 **ProviderName** 값에 붙여넣습니다.
 8. **client_id** 및 **IdTokenAudience**를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
-9. **CryptograhicKeys** 아래에서 **StorageReferenceId**의 값을 정의한 정책 키로 업데이트합니다. 예: `ContosoAppSecret`.
+9. 아래 **CryptographicKeys**에 값을 업데이트 합니다 **StorageReferenceId** 정의 된 정책 키입니다. 예: `ContosoAppSecret`
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
@@ -174,7 +174,7 @@ Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azur
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
     ```
     
-    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 **ID**로 업데이트합니다. 예: `ContosoProfile`.
+    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 **ID**로 업데이트합니다. 예: `ContosoProfile`
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 

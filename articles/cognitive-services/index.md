@@ -7,18 +7,108 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 05/02/2019
+ms.date: 06/20/2019
 ms.topic: hub-page
-ms.openlocfilehash: 027d6c862deb9efeaa8d30dd6acbc814ac230c80
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464480"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295396"
 ---
 <div id="main" class="v2">
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
+
+
+<h2>Cognitive Services API</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Vision API</h3>
+                        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
+                        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Speech API</h3>
+                        <p><a href="/azure/cognitive-services/speech-service">음성 서비스</a></p>
+                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>언어 API</h3>
+                        <p><a href="/azure/cognitive-services/immersive-reader"><span>몰입형 판독기&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">LUIS(Language Understanding)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
+                        <p><a href="/azure/cognitive-services/text-analytics/">텍스트 분석</a></p>
+                        <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>검색 API</h3>
+                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing Autosuggest</a></p>
+                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing Custom Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>의사 결정 API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<h2>시작</h2>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -286,89 +376,4 @@ ms.locfileid: "65464480"
     </li>
 </ul>
 
-<h2>Cognitive Services API</h2>
-<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Vision API</h3>
-                        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
-                        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Speech API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">음성 서비스</a></p>
-                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>언어 API</h3>
-                        <p><a href="/azure/cognitive-services/luis/">LUIS(Language Understanding)</a></p>
-                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
-                        <p><a href="/azure/cognitive-services/text-analytics/">텍스트 분석</a></p>
-                        <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>검색 API</h3>
-                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing Autosuggest</a></p>
-                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing Custom Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
-                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>의사 결정 API</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">미리 보기</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-</div>
+

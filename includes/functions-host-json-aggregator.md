@@ -10,11 +10,11 @@ ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: da0cbab59d9c801419ac4b3704fee3275f337fd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131610"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182357"
 ---
 [Application Insights에 대한 메트릭을 계산](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
 

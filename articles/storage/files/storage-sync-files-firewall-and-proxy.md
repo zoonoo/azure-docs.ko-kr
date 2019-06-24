@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696760"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
@@ -43,7 +43,7 @@ Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expr
 
 Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
-## <a name="proxy"></a>Proxy
+## <a name="proxy"></a>프록시
 Azure 파일 동기화는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
 **앱별 프록시 설정**을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 4.0.1.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
@@ -63,7 +63,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - <system.net> 섹션을 machine.config 파일(<system.serviceModel> 섹션 아래)에 추가합니다.  127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경합니다. 
+   - <system.net> 섹션을 machine.config 파일(<system.serviceModel> 섹션 아래)에 추가합니다.  127\.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경합니다. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -134,8 +134,8 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저�
 
 **예제:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 서비스에 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
-> - https://kailani.one.microsoft.com(기본 엔드포인트: 미국 서부)
-> - https://kailani1.one.microsoft.com(쌍을 이루는 장애 조치(failover) 지역: 미국 동부)
+> - https://kailani.one.microsoft.com (기본 엔드포인트: 미국 서부)
+> - https://kailani1.one.microsoft.com (쌍을 이루는 장애 조치(failover) 지역: 미국 동부)
 > - https://tm-kailani.one.microsoft.com (주 지역의 검색 URL)
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한

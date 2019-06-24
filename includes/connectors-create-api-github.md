@@ -9,11 +9,11 @@ ms.date: 03/02/2018
 ms.author: mandia
 ms.custom: include file
 ms.openlocfilehash: 11280e1678f52ede928cb2a85ea83add222e15fa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149219"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182466"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. 
 

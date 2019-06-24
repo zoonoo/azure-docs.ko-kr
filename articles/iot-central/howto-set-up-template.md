@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 장치 템플릿 설정 | Micr
 description: 측정값, 설정, 속성, 규칙 및 대시보드로 디바이스 템플릿을 설정하는 방법을 알아봅니다.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466494"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275970"
 ---
 # <a name="set-up-a-device-template"></a>디바이스 템플릿 설정
 
@@ -70,7 +70,7 @@ ms.locfileid: "65466494"
 > 실제 장치를 연결할 때 원격 분석 측정값이 애플리케이션에 표시되려면 장치 템플릿의 필드 이름이 해당 장치 코드의 속성 이름과 일치해야 합니다. 다음 섹션에서 디바이스 템플릿 정의를 계속하면서 설정, 디바이스 속성 및 명령을 구성할 때도 동일하게 수행합니다.
 .png 예를 들어 새 온도 원격 분석 값을 추가할 수 있습니다.
 
-| 표시 이름        | 필드 이름    |  Units    | 최소   |최대값|
+| 표시 이름        | 필드 이름    |  Units    | 최소값   |최대값|
 | --------------------| ------------- |-----------|-------|---|
 | 온도         | temp          |  degC     |  0    |100|
 
@@ -155,8 +155,8 @@ ms.locfileid: "65466494"
 
 속성에는 다음 두 카테고리가 있습니다.
 
-- 디바이스가 IoT Central 애플리케이션에 보고하는 ‘디바이스 속성’. 디바이스 속성은 디바이스에서 보고하는 읽기 전용 값이며, 실제 디바이스가 연결되면 애플리케이션에서 업데이트됩니다.
-- 애플리케이션에 저장되며 운영자가 편집할 수 있는 ‘애플리케이션 속성’. 장치는 애플리케이션 속성을 인식하지 않습니다.
+- 디바이스가 IoT Central 애플리케이션에 보고하는 ‘디바이스 속성’.  디바이스 속성은 디바이스에서 보고하는 읽기 전용 값이며, 실제 디바이스가 연결되면 애플리케이션에서 업데이트됩니다.
+- 애플리케이션에 저장되며 운영자가 편집할 수 있는 ‘애플리케이션 속성’.  장치는 애플리케이션 속성을 인식하지 않습니다.
 
 예를 들어 디바이스의 마지막 서비스 날짜를 **속성** 탭의 새 **Date** 속성(애플리케이션 속성)으로 추가할 수 있습니다.
 

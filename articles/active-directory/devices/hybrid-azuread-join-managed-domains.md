@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513299"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734601"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -65,7 +65,7 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 되려�
 - `https://device.login.microsoftonline.com`
 - [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`)(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
 
-조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))를 구현하는 것이 좋습니다. WPAD의 구성 및 관리 이슈가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10) 로 이동하세요. 
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))를 구현하는 것이 좋습니다. WPAD의 구성 및 관리 이슈가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10))로 이동하세요. 
 
 WPAD를 사용할 생각이 없고 컴퓨터에서 프록시 설정을 구성해야 하는 경우 Windows 10 1709부터 [GPO(그룹 정책 개체)를 사용하여 WinHTTP 설정을 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)하면 됩니다.
 

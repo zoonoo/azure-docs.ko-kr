@@ -8,10 +8,10 @@ ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
 ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466212"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (미리 보기)
@@ -31,7 +31,7 @@ HDInsight SDK for Go는 HDInsight 클러스터를 관리할 수는 클래스와 
 
 GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight` 실행
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 완료되면 관리 작업 수행을 위해 사용할 수 있는 여러 함수(아래 섹션 참조)가 포함된 `ClustersClient` 인스턴스가 준비됩니다.
 

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969064"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
@@ -31,7 +31,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | --- | --- | --- | --- |
 | **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **EA(기업 계약)** | 엔터프라이즈 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
 | **Microsoft 고객 계약** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
 | **Microsoft 고객 계약** | [Microsoft Azure 개발/테스트 계획](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
@@ -56,7 +56,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **종량제**                 | 학생용 Azure Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **종량제**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **종량제**                 | [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **지원 플랜** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
 | **지원 플랜** | Professional Direct 지원         | Default_2014-09-01 | MS-AZR-0042P |
@@ -106,7 +106,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 - 현재 청구 기간의 예상 요금은 하루에 6번 업데이트됩니다.
 - 현재 청구 기간의 예상 요금은 사용량이 증가함에 따라 변경될 수 있습니다.
 - 각 업데이트는 누적되며, 이전 업데이트의 모든 라인 항목 및 정보를 포함합니다.
-- Azure는 청구 기간이 종료된 후 최대 72시간(3일) 이내에 현재 청구 기간을 ‘마감’합니다.
+- Azure는 청구 기간이 종료된 후 최대 72시간(3일) 이내에 현재 청구 기간을 ‘마감’합니다. 
 
 다음 예제에서는 청구 기간이 종료될 수 있는 방식을 보여 줍니다.
 

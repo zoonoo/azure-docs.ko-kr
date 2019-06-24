@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66166061"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182141"
 ---
 ## <a name="viewing-your-tags-in-the-usage-details"></a>사용량 세부 정보에서 태그 보기
 Resource Manager 배포 모델의 Compute, Network 및 Storage 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보로 채워집니다.

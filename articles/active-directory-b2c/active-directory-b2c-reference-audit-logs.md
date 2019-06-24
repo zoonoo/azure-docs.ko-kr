@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509645"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205358"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -23,6 +24,9 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 
 > [!IMPORTANT]
 > 감사 로그는 7일 동안만 유지됩니다. 보존 기간이 더 오래 필요한 경우, 아래 표시된 방법 중 하나를 사용하여 로그를 다운로드하고 저장하도록 플랜하세요.
+
+> [!NOTE]
+> 개별 Azure AD B2C 응용 프로그램에 대 한 사용자 로그인을 볼 수 없습니다는 **사용자** 섹션을 **Azure Active Directory** 또는 **Azure AD B2C** 블레이드입니다. 로그인 있습니다 사용자 활동에는 표시 되지만 사용자가에 로그인 하 고 B2C 응용 프로그램 상호 관련 될 수 없습니다. 이 문서에서 추가로 설명 된 대로를 위해 감사 로그를 사용 해야 합니다.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 작업 개요
 감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
@@ -41,6 +45,18 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 
 ## <a name="example-activity"></a>예제 활동
 아래 예제는 사용자가 외부 ID 공급 기업으로 로그인할 때 캡처된 데이터를 보여줍니다. ![감사 로그 - 예제](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+작업 세부 정보 창에는 다음 관련 정보를 포함 합니다.
+
+|Section|필드|설명|
+|-------|-----|-----------|
+| 작업 | 이름 | 활동 발생 합니다. 예를 들어, "id_token 발급 응용 프로그램에" (하는 마지막 실제 사용자 로그인)입니다. |
+| 초기자(작업자) | ObjectId | 합니다 **개체 ID** 에 로그인 한 사용자가 B2C 응용 프로그램 (이 식별자는 Azure 포털에서 표시 되지 않지만 예를 들어 Graph API를 통해 액세스할 수 있는 것). |
+| 초기자(작업자) | Spn | **응용 프로그램 ID** 사용자가 로그인 하는 B2C 응용 프로그램입니다. |
+| 대상 | ObjectId | 합니다 **개체 ID** 사용자가 로그인 하는 중입니다. |
+| 추가 세부 정보 | TenantId | 합니다 **테 넌 트 ID** Azure AD B2C 테 넌 트입니다. |
+| 추가 세부 정보 | PolicyId | 합니다 **정책 ID** 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책). |
+| 추가 세부 정보 | ApplicationId | **응용 프로그램 ID** 사용자가 로그인 하는 B2C 응용 프로그램입니다. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal을 통해 감사 로그 액세스
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. B2C 디렉터리에 있는지 확인합니다.
@@ -62,6 +78,9 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 - **날짜 범위** 드롭다운을 사용하여 표시된 활동의 날짜 범위를 필터링합니다.
 - 목록의 특정 행을 클릭하면 오른쪽에 있는 상황별 상자에 활동과 연관된 추가 특성이 표시됩니다.
 - **다운로드**를 클릭하여 활동을 csv 파일로 다운로드합니다.
+
+> [!NOTE]
+> 로 이동 하 여 감사 로그를 볼 수도 있습니다 **Azure AD B2C** 대신 **Azure Active Directory** 왼쪽 즐겨찾기 표시줄에서. 아래 **활동**, 클릭 **감사 로그**, 유사한 필터링 기능을 사용 하 여 동일한 로그를 찾습니다.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD 보고 API를 통해 감사 로그 액세스
 감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다.

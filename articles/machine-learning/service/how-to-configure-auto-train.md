@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753168"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202971"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>자동화 된 기계 학습 실험에서 Python 구성
 
@@ -125,7 +125,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 스크립트는 다음을 반환할 수 있습니다.
 
-키 | Type | 상호 배타적 관계    | 설명
+키 | 형식 | 상호 배타적 관계    | 설명
 ---|---|---|---
 X | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |  학습할 모든 기능입니다.
 y | pandas 데이터 프레임 또는 numpy 배열 |   label   | 학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.
@@ -258,6 +258,20 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 ## <a name="run-experiment"></a>실험 실행
+
+자동화 된 기계 학습에 대 한 만들기 해야 합니다는 `Experiment` 가 명명 된 개체를 개체는 `Workspace` 실험을 실행 하는 데 사용 합니다.
+
+```python
+from azureml.core.experiment import Experiment
+
+ws = Workspace.from_config()
+
+# Choose a name for the experiment and specify the project folder.
+experiment_name = 'automl-classification'
+project_folder = './sample_projects/automl-classification'
+
+experiment = Experiment(ws, experiment_name)
+```
 
 실행하려는 실험을 제출하고 모델을 생성합니다. `AutoMLConfig`를 `submit` 메서드에 전달하여 모델을 생성합니다.
 

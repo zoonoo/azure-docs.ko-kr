@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153932"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165729"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics 메트릭 (클래식)
 
@@ -90,18 +90,27 @@ Storage 메트릭을 제어하는 cmdlet은 다음 매개 변수를 사용합니
 * **서비스**: 수신/송신, 가용성, 대기 시간 및 성공 비율 등 blob, 큐, 테이블 및 파일 서비스에 대해 집계 되는 메트릭을 수집 합니다.
 * **ServiceAndApi**: 서비스 메트릭 외에도 동일한 Azure Storage 서비스 API에서 각 저장소 작업에 대 한 메트릭 집합을 수집합니다.
 
-예를 들어 다음 명령은 보존 기간을 5일로 설정하여 기본 저장소 계정의 Blob 서비스에 대해 분 메트릭을 설정합니다.  
+예를 들어, 다음 명령은 보존 기간이 5 일로 설정 된 저장소 계정의 blob service에 대해 분 메트릭을 전환 합니다. 
+
+> [!NOTE]
+> 이 명령을 사용 하 여 Azure 구독에 등록 한 것으로 가정 합니다 `Connect-AzAccount` 명령입니다.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* 대체는 `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름입니다.
+
+* `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+
+
 
 다음 명령은 기본 저장소 계정의 Blob 서비스에 대해 현재 시간 메트릭 수준 및 보존 기간(일)을 검색합니다.  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)을 참조하세요.  
@@ -141,7 +150,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 ||||  
 |-|-|-|  
 |**Metrics**(메트릭)|**테이블 이름**|**참고 사항**|  
-|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블 라고 했습니다.<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
+|시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블 라고 했습니다.<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용 하 여 설정할 수 있습니다. 또는 프로그래밍 방식으로 합니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |용량|$MetricsCapacityBlob|Blob service만 해당 합니다.|  
 

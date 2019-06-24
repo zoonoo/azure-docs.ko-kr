@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755137"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure 데이터 가장자리가 상자의 기술 사양
@@ -26,7 +26,7 @@ Microsoft Azure 데이터 상자 Edge 장치의 하드웨어 구성 요소 기�
 | 사양           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | 최대 출력 전원    | 750 W                     |
-| Frequency(빈도)               | 50/60Hz                   |
+| 빈도               | 50/60Hz                   |
 | 전압 범위 선택 | 자동 범위 지정: 100-240 V AC |
 | 핫 플러그형           | 예                        |
 

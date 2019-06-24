@@ -11,10 +11,10 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996601"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
@@ -75,7 +75,7 @@ ms.locfileid: "60996601"
 |-------|------|-------------|
 | <*retry-policy-type*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
 | <*retry-interval*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
-| <*retry-attempts*> | 정수 | 재시도 횟수이며, 1~90 사이여야 합니다. | 
+| <*retry-attempts*> | Integer | 재시도 횟수이며, 1~90 사이여야 합니다. | 
 ||||
 
 *선택 사항*

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
 ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233722"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>SQL Server 온-프레미스 Azure PowerShell을 사용 하 여 Azure SQL Database 관리 되는 인스턴스로 마이그레이션
@@ -25,7 +25,7 @@ ms.locfileid: "65233722"
 > [!div class="checklist"]
 >
 > * 리소스 그룹을 만듭니다.
-> * Azure Database Migration Service의 인스턴스를 만듭니다.
+> * Azure Database Migration Service 인스턴스를 만듭니다.
 > * Azure Database Migration Service 인스턴스에서 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 
@@ -69,7 +69,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Azure Database Migration Service의 인스턴스를 만듭니다
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Azure Database Migration Service 인스턴스 만들기
 
 `New-AzDataMigrationService` cmdlet을 사용하여 새 Azure Database Migration Service 인스턴스를 만들 수 있습니다.
 이 cmdlet에는 다음 매개 변수가 필요합니다.

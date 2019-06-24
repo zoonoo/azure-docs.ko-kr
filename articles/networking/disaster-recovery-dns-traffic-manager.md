@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65501730"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
@@ -31,7 +31,7 @@ ms.locfileid: "65501730"
  
     ![활성/수동(수동 대기)](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
-    ‘그림 - 활성/수동(수동 대기) 재해 복구 구성’
+    ‘그림 - 활성/수동(수동 대기) 재해 복구 구성’ 
 
 - **파일럿 light를 사용 하 여 활성/수동**: 이 장애 조치 솔루션은 대기 환경 최소 구성으로 설정 됩니다. 설정에는 최소한의 중요한 애플리케이션 집합만 지원하기 위해 실행되는 필요한 서비스만 포함됩니다. 네이티브 양식에서 이 시나리오는 최소 기능만을 실행할 수 있지만, 장애 조치(failover)가 발생하는 경우 대량의 프로덕션 부하를 수용하기 위해 추가 서비스를 확장하고 생성할 수 있습니다.
     
@@ -68,7 +68,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 ![Azure DNS를 사용한 수동 장애 조치(failover)](./media/disaster-recovery-dns-traffic-manager/manual-failover-using-dns.png)
 
-‘그림 - Azure DNS를 사용한 수동 장애 조치(failover)’
+‘그림 - Azure DNS를 사용한 수동 장애 조치(failover)’ 
 
 솔루션에 대한 가정은 다음과 같습니다.
 - 기본 및 보조 엔드포인트에는 자주 변경되지 않는 정적 IP가 있습니다. 주 사이트의 IP가 100.168.124.44이고 보조 사이트의 IP가 100.168.124.43이라고 가정해 보겠습니다.
@@ -84,7 +84,7 @@ DNS 영역 만들기 (예: www\.contoso.com) 아래와 같이:
 
 ![Azure에서 DNS 영역 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
-‘그림 - Azure에서 DNS 영역 만들기’
+‘그림 - Azure에서 DNS 영역 만들기’ 
 
 ### <a name="step-2-create-dns-zone-records"></a>2단계: DNS 영역 레코드 만들기
 
@@ -92,7 +92,7 @@ DNS 영역 만들기 (예: www\.contoso.com) 아래와 같이:
 
 ![DNS 영역 레코드 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
-‘그림 - Azure에서 DNS 영역 레코드 만들기’
+‘그림 - Azure에서 DNS 영역 레코드 만들기’ 
 
 이 시나리오, 사이트, www\.contoso.com에 명시 된 RTO 보다 훨씬 이며 프로덕션 사이트 prod.contoso.com 가리키는 30 분의 TTL입니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
 
@@ -102,7 +102,7 @@ DNS 영역 만들기 (예: www\.contoso.com) 아래와 같이:
        
 ![CNAME 레코드 업데이트](./media/disaster-recovery-dns-traffic-manager/update-cname-record.png)
 
-‘그림 - Azure에서 CNAME 레코드 업데이트’
+‘그림 - Azure에서 CNAME 레코드 업데이트’ 
 
 Www를 쿼리 하는 동안 대부분의 확인자 캐시 영역 파일을 새로 고쳐집니다 30 분 이내\.contoso.com dr.contoso.com 리디렉션됩니다.
 다음 Azure CLI 명령을 실행하여 CNAME 값을 변경할 수도 있습니다.
@@ -123,7 +123,7 @@ DNS 서버가 장애 조치(failover) 또는 재해 영역 외부에 있으므�
 
 ![Azure Traffic Manager를 사용한 자동 장애 조치(failover)](./media/disaster-recovery-dns-traffic-manager/automatic-failover-using-traffic-manager.png)
 
-‘그림 - Azure Traffic Manager를 사용한 자동 장애 조치(failover)’
+‘그림 - Azure Traffic Manager를 사용한 자동 장애 조치(failover)’ 
 
 그러나 주 지역만이 사용자의 네트워크 요청을 활발히 처리합니다. 보조 지역은 주 지역에서 서비스 중단이 발생하는 경우에만 활성화됩니다. 이 경우에 모든 새로운 네트워크 요청은 보조 지역으로 라우팅됩니다. 데이터베이스 백업은 거의 즉각적으로 이루어지고, 부하 분산 장치에는 상태를 확인할 수 있는 IP가 포함되고, 인스턴스는 항상 실행 중이므로, 이 토폴로지는 수동 개입 없이 낮은 RTO 및 장애 조치(failover)를 적용하는 옵션을 제공합니다. 보조 장애 조치(failover) 지역은 주 지역에 장애가 발생한 후 즉시 활성화할 준비가 되어야 합니다.
 http/https 및 TCP를 포함하여 다양한 유형의 상태 확인을 위한 내장 프로브가 있는 Azure Traffic Manager를 사용하는 경우, 이 시나리오가 가장 적합합니다. Azure Traffic Manager에는 아래 설명된 대로 장애가 발생할 경우 장애 조치(failover)를 수행하도록 구성할 수 있는 규칙 엔진도 있습니다. Traffic Manager를 사용하는 다음 솔루션을 살펴보겠습니다.
@@ -151,7 +151,7 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 
 ![재해 복구 엔드포인트 만들기](./media/disaster-recovery-dns-traffic-manager/create-disaster-recovery-endpoint.png)
 
-‘그림 - 재해 복구 엔드포인트 만들기’
+‘그림 - 재해 복구 엔드포인트 만들기’ 
 
 ### <a name="step-3-set-up-health-check-and-failover-configuration"></a>3단계: 상태 확인 및 장애 조치(failover) 구성 설정
 
@@ -161,7 +161,7 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 
 ![상태 확인 설정](./media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)
 
-‘그림 - 상태 확인 및 장애 조치(failover) 구성 설정’
+‘그림 - 상태 확인 및 장애 조치(failover) 구성 설정’ 
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Azure Traffic Manager를 사용한 자동 장애 조치(failover)의 작동 방식
 

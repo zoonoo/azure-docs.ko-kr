@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408768"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
@@ -204,7 +204,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
     * \<SAPSystemSID\>-nic-ascs-\<번호\>
     * \<SAPSystemSID\>-nic-db-\<번호\>
 
-  * **Azure 저장소 계정(비관리 디스크만 해당)**:
+  * **Azure 저장소 계정(비관리 디스크만 해당)** :
 
   * 다음에 대한 **가용성 그룹**:
     * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-avset-di
@@ -562,7 +562,7 @@ SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대해 레지스트리 �
 
 그런 다음 SAP ASCS/SCS에 대한 두 Windows 클러스터 노드에 대해 다음 Windows 레지스트리 항목을 추가합니다.
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 변수 이름 |`KeepAliveInterval` |
 | 변수 유형 |REG_DWORD(10진수) |

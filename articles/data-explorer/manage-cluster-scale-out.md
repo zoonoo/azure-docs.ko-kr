@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758667"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>변화하는 요구를 수용하도록 클러스터 스케일 아웃 관리
@@ -56,7 +56,7 @@ Azure portal에서 데이터 탐색기 클러스터 리소스를 이동 합니�
 
     | 설정 | 설명 및 값 |
     | --- | --- |
-    | **작업** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
+    | **연산** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
     | **인스턴스 수** | 메트릭 조건을 충족할 경우 추가하거나 제거할 노드 또는 인스턴스 수를 선택합니다. |
     | **정지(분)** | 크기 조정 작업 간의 적절한 시간 간격을 선택합니다. 기본값 5분으로 시작합니다. |
     |  |  |
@@ -68,7 +68,7 @@ Azure portal에서 데이터 탐색기 클러스터 리소스를 이동 합니�
     | 설정 | 설명 및 값 |
     | --- | --- |
     | **최소** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 낮게 줄이지 않습니다. |
-    | **최댓값** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 높게 늘리지 않습니다. |
+    | **최대값** | 사용률에 관계없이 클러스터가 인스턴스 수를 이보다 높게 늘리지 않습니다. |
     | **기본값** | 인스턴스의 기본 수입니다. 이 설정은 사용 하 여 리소스 메트릭을 읽는 데 문제가 있으면 됩니다. |
     |  |  |
 

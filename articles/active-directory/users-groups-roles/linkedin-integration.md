@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920252"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164704"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
 
@@ -44,7 +44,7 @@ ms.locfileid: "64920252"
 1. 아래 **LinkedIn 계정 연결**, 사용자가 일부 Microsoft 앱 내에서 자신의 LinkedIn 연결에 액세스 하려면 해당 계정에 연결할 수 있습니다. 데이터가 없는 사용자가 자신의 계정을 연결에 동의할 때까지 공유 됩니다.
 
     * 선택 **예** 조직의 모든 사용자에 대 한 서비스를 사용 하도록 설정 하려면
-    * 선택 **선택한** 조직에서 선택한 사용자 그룹만 사용 하도록 설정 하려면
+    * 선택 **선택한 그룹** 만 조직에서 선택된 된 사용자의 그룹에 대 한 서비스를 사용 하도록 설정 하려면
     * 선택 **No** 조직의 모든 사용자의 동의 철회 하려면
 
     ![조직에서 LinkedIn 계정 연결 통합](./media/linkedin-integration/linkedin-integration.png)
@@ -67,7 +67,7 @@ ms.locfileid: "64920252"
 ### <a name="get-the-current-list-of-selected-users"></a>선택한 사용자의 현재 목록을 가져옵니다.
 
 1. 관리자 계정으로 Microsoft 365에 로그인 합니다.
-1. https://linkedinselectedusermigration.azurewebsites.net/로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
+1. https://linkedinselectedusermigration.azurewebsites.net/ 로 이동합니다. LinkedIn 계정 연결에 대해 선택한 사용자의 목록이 표시 됩니다.
 1. 목록을 CSV 파일로 내보냅니다.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>현재 선택된 된 개별 사용자를 그룹으로 이동
@@ -93,12 +93,12 @@ ms.locfileid: "64920252"
 1. [Office 2016 관리 템플릿 파일(ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) 다운로드
 1. **ADMX** 파일을 추출하고 중앙 저장소에 복사합니다.
 1. 그룹 정책 관리를 엽니다.
-1. 사용자 구성관리 템플릿Microsoft Office 2016기타Office 애플리케이션에 LinkedIn 기능 표시 설정을 사용하여 그룹 정책 개체를 만듭니다.
+1. **사용자 구성** > **관리 템플릿** > **Microsoft Office 2016** > **기타** > **Office 애플리케이션에 LinkedIn 기능 표시** 설정을 사용하여 그룹 정책 개체를 만듭니다.
 1. **사용** 또는 **사용 안 함**을 선택합니다.
   
    시스템 상태 | 결과
    ------ | ------
-   **사용** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
+   **Enabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자가 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
    **사용 안 함** | Office 2016 옵션의 **Office 응용 프로그램에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
 
 이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 해제, Office 365에서 LinkedIn 기능을 계속 볼 수 있습니다.

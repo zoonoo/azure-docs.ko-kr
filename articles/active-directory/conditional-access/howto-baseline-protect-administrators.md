@@ -1,6 +1,6 @@
 ---
 title: 기본 정책 관리자-Azure Active Directory에 대 한 MFA 필요
-description: 관리자에 대 한 다단계 인증을 요구 하도록 조건부 액세스 정책
+description: 관리자 용 multi-factor authentication을 요구 하도록 조건부 액세스 정책
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003283"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204629"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>기본 정책: 관리자에 대해 MFA 요구
 
@@ -25,7 +25,7 @@ ms.locfileid: "66003283"
 **관리자에 대 한 MFA를 요구할** 되는 [기본 정책](concept-baseline-protection.md) 다음 권한 있는 관리자 역할 중 하나에 로그인 할 때마다 MFA를 요구 하는:
 
 * 전역 관리자
-* SharePoint administrator
+* SharePoint 관리자
 * Exchange 관리자
 * 조건부 액세스 관리자
 * 보안 관리자
@@ -72,10 +72,13 @@ ms.locfileid: "66003283"
 1. 클릭 하 여 모든 사용자 제외를 추가할 **사용자** > **제외 된 사용자 선택** 제외할 수 해야 하는 사용자를 선택 합니다. 클릭 **선택** 한 다음 **수행**합니다.
 1. 클릭 **저장할**합니다.
 
+> [!WARNING]
+> 옵션이 **자동으로 정책을 사용 하도록 나중에 설정** 경우이 정책은 미리 보기로 제공 됩니다. 급격 한 사용자에 게 영향을 최소화 하려면이 옵션을 제거 했습니다. 사용할 때이 옵션을 선택한 경우 **정책을 사용 하지 않는** 자동으로 선택 됩니다. 이 기준 정책을 사용 하는 경우 사용 하도록 설정 하려면 위의 단계를 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음을 참조하세요.
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/azure-ad-secure-steps.md)
-* [Azure Active Directory의 조건부 액세스란?](overview.md)
+* [Azure Active Directory의 조건부 액세스는 무엇입니까?](overview.md)

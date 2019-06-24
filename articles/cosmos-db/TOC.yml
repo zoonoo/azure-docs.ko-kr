@@ -145,6 +145,12 @@
             - name: 인덱싱 정책
               displayName: 'consistent, none'
               href: index-policy.md
+        - name: 데이터 형식
+          items:
+            - name: DateTime
+              href: working-with-dates.md
+            - name: 지리 공간적
+              href: geospatial.md
         - name: TTL(Time to live)
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -164,7 +170,11 @@
           displayName: change feed
           href: change-feed-functions.md
     - name: Apache Spark를 사용한 기본 제공 분석
-      href: spark-api-introduction.md
+      items:
+        - name: 소개
+          href: spark-api-introduction.md
+        - name: 람다 아키텍처
+          href: lambda-architecture.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF'
@@ -480,8 +490,16 @@
           href: bootstrap-kubernetes-cluster.md
 - name: 방법 가이드
   items:
-    - name: Azure Cosmos 계정 관리
+    - name: Azure Cosmos 계정 작업
       href: how-to-manage-database-account.md
+    - name: Azure Cosmos DB 리소스 작업
+      items:
+        - name: PowerShell 사용
+          href: manage-with-powershell.md
+        - name: Azure CLI 사용
+          href: manage-with-cli.md
+        - name: Resource Manager 템플릿 사용
+          href: manage-sql-with-resource-manager.md
     - name: 글로벌 분포
       items:
         - name: 다중 마스터 구성
@@ -506,6 +524,12 @@
           href: find-request-unit-charge.md
     - name: 컨테이너 및 항목 작업
       items:
+        - name: Cosmos DB 데이터 작업
+          items:
+            - name: Azure Storage Explorer 를 사용하여 데이터 작업
+              href: storage-explorer.md
+            - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
+              href: data-explorer.md
         - name: 컨테이너 만들기
           href: how-to-create-container.md
         - name: 큰 파티션 키로 컨테이너 만들기
@@ -520,10 +544,6 @@
         - name: TTL(Time to Live) 구성
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
-        - name: Azure Storage Explorer 를 사용하여 데이터 작업
-          href: storage-explorer.md
-        - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
-          href: data-explorer.md
         - name: 인덱싱 정책 관리
           href: how-to-manage-indexing-policy.md
         - name: 고유 키 정의
@@ -531,14 +551,48 @@
         - name: SQL 하위 쿼리 예제
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md
+    - name: 모범 사례
+      items:
+        - name: 성능 팁
+          items:
+            - name: 쿼리 실행 메트릭 가져오기
+              displayName: 'query profile, profile'
+              href: profile-sql-api-query.md
+            - name: 쿼리 성능 조정
+              href: sql-api-query-metrics.md
+            - name: .NET SDK용 성능 팁
+              href: performance-tips.md
+            - name: Java SDK용 성능 팁
+              href: performance-tips-java.md
+            - name: 비동기 Java SDK용 성능 팁
+              href: performance-tips-async-java.md
+            - name: 성능 테스트 - 샘플 앱
+              href: performance-testing.md
+        - name: 비용 효율적인 읽기 및 쓰기
+          href: key-value-store-cost.md
+    - name: 문제 해결
+      items:
+        - name: Java Async SDK 문제 해결
+          href: troubleshoot-java-async-sdk.md
+        - name: .NET SDK 문제 해결
+          href: troubleshoot-dot-net-sdk.md
     - name: 피드 변경
       items:
+        - name: Azure Cosmos DB 트리거 로그
+          href: how-to-configure-cosmos-db-trigger-logs.md
         - name: Azure Cosmos DB 트리거 연결 정책
           href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: 여러 Azure Cosmos DB 트리거
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB 트리거 문제 해결
           href: troubleshoot-changefeed-functions.md
+    - name: Apache Spark를 사용한 기본 제공 분석
+      items:
+        - name: Azure Databricks Spark 커넥터
+          href: spark-connector.md
+        - name: Apache Kafka 및 Cosmos DB를 사용하는 스트리밍
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF 작성'
@@ -557,18 +611,12 @@
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Key Vault를 사용하여 Azure Cosmos 키 보호
           href: access-secrets-from-keyvault.md
+        - name: Azure AD로 인증서 기반 인증
+          href: certificate-based-authentication.md
     - name: 엔터프라이즈 준비
       items:
         - name: 백업에서 데이터 복원
           href: how-to-backup-and-restore.md
-    - name: Azure Cosmos DB 리소스 관리
-      items:
-        - name: Powershell을 사용하여 관리
-          href: manage-with-powershell.md
-        - name: Azure CLI를 사용하여 관리
-          href: manage-with-cli.md
-        - name: Resource Manager 템플릿을 사용하여 관리
-          href: manage-sql-with-resource-manager.md
     - name: 로깅
       items:
         - name: 진단 로깅
@@ -576,10 +624,12 @@
         - name: Logic Apps를 통한 애플리케이션 로깅
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: 모니터
+    - name: 메트릭으로 모니터링
       items:
-        - name: 메트릭으로 모니터링
+        - name: Cosmos DB 계정에서 메트릭 보기
           href: use-metrics.md
+        - name: Azure Monitor에서 메트릭 보기
+          href: cosmos-db-azure-monitor-metrics.md
         - name: 모니터 SLA
           href: monitor-accounts.md
     - name: 로컬에서 개발
@@ -592,30 +642,6 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Azure DevOps CI/CD 파이프라인 설정
       href: tutorial-setup-ci-cd.md
-    - name: 데이터 형식
-      items:
-        - name: DateTime
-          href: working-with-dates.md
-        - name: 지리 공간적
-          href: geospatial.md
-    - name: 모범 사례
-      items:
-        - name: 성능 팁
-          items:
-            - name: 쿼리 실행 메트릭 가져오기
-              href: profile-sql-api-query.md
-            - name: 쿼리 성능 조정
-              href: sql-api-query-metrics.md
-            - name: .NET SDK용 성능 팁
-              href: performance-tips.md
-            - name: Java SDK용 성능 팁
-              href: performance-tips-java.md
-            - name: 비동기 Java SDK용 성능 팁
-              href: performance-tips-async-java.md
-            - name: 성능 테스트 - 샘플 앱
-              href: performance-testing.md
-        - name: 비용 효율적인 읽기 및 쓰기
-          href: key-value-store-cost.md
     - name: Cosmos DB 데이터 시각화
       items:
         - name: Power BI 사용
@@ -651,13 +677,6 @@
         - name: Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           maintainContext: true
-        - name: 람다 아키텍처
-          href: lambda-architecture.md
-        - name: Azure Databricks(Spark 커넥터)
-          href: spark-connector.md
-        - name: Spark 및 Kafka
-          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-          maintainContext: true
         - name: ODBC 드라이버
           href: odbc-driver.md
     - name: Bulk Executor 라이브러리
@@ -668,12 +687,6 @@
           href: bulk-executor-dot-net.md
         - name: Bulk Executor - Java 라이브러리
           href: bulk-executor-java.md
-    - name: 문제 해결
-      items:
-        - name: Java Async SDK 문제 해결
-          href: troubleshoot-java-async-sdk.md
-        - name: .NET SDK 문제 해결
-          href: troubleshoot-dot-net-sdk.md
 - name: 참고 자료
   items:
     - name: .NET

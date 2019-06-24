@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508188"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
@@ -119,10 +119,10 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 |자산  |  설명 |
 | - | - |
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| 이벤트 유형 | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값: <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
-| ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값: <ul><li>`VirtualMachine`|
+| 이벤트 유형 | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
+| ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 최대 하나의 [업데이트 도메인](manage-availability.md)에 있는 컴퓨터를 포함하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값: <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
+| 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>이벤트 예약
@@ -131,7 +131,7 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 |이벤트 유형  | 최소 공지 |
 | - | - |
 | 중지| 15분 |
-| 다시 부팅 | 15분 |
+| Reboot | 15분 |
 | 재배포 | 10분 |
 | 선점 | 30초 |
 

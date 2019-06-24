@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987908"
 ---
 # <a name="backup-and-restore"></a>Backup 및 복원
@@ -167,7 +167,7 @@ SAP HANA 스냅숏 만들기를 시작 하려면 SAP hana 저장소 스냅숏 �
 
 명령의 정확한 순서에 대 한에서 "스냅숏 도구 (기본값)를 쉽게 설치"를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다. 기본 설치를 사용 하 여를 사용 하는 것이 좋습니다. 
 
-버전에서 업그레이드 하려면 3.x를 4.0으로, "기존 설치 업그레이드"의 참조 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다. 4.0 도구 집합을 제거 하려면에서 "스냅숏 도구의 제거"를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
+버전에서 업그레이드 하려면 3.x를 4.0으로, "기존 설치 업그레이드"의 참조 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다. 4\.0 도구 집합을 제거 하려면에서 "스냅숏 도구의 제거"를 참조 하세요 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
 
 "스냅숏 도구의 전체 setup"에 설명 된 단계를 실행 하려면 반드시 [Microsoft Azure의 SAP HANA에 대 한 도구를 스냅숏](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Blob 및 큐 관리 id 사용 하 여 Azure 리소스-Azure Storage에 대 한 액세스 인증 | Microsoft Docs
-description: Azure Blob 및 큐 저장소는 Azure 리소스에 대 한 관리 되는 id 사용 하 여 Azure Active Directory 인증을 지원 합니다. Azure 리소스의 관리 ID를 사용하여 Azure Virtual Machine, 기능 앱, Virtual Machine Scale Set 및 기타 기능에서 실행 중인 애플리케이션의 Blob 및 큐에 대한 액세스를 인증할 수 있습니다.
+title: Azure 리소스-Azure Storage blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스 권한 부여
+description: Azure Blob 및 Queue storage 지원 Azure 리소스에 대 한 Azure Active Directory 및 관리 되는 id를 사용 하 여 리소스에 대 한 액세스 권한을 부여 합니다. Azure virtual machines, 함수 앱, 가상 머신 확장 집합 및 다른 실행 중인 응용 프로그램에서 blob 및 큐에 대 한 액세스 권한을 부여 하려면 Azure 리소스에 대 한 관리 되는 id를 사용할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787970"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303428"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스 인증
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스 권한 부여
 
 Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스에는 blob에 대 한 액세스 권한을 부여할 수 있습니다 및 큐 데이터를 Azure virtual machines (Vm), 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행 중인 응용 프로그램에서 Azure AD 자격 증명을 사용 하 여 identities를 관리 합니다. Azure AD 인증와 함께 Azure 리소스에 대 한 관리 되는 id를 사용 하 여 클라우드에서 실행 되는 응용 프로그램을 사용 하 여 자격 증명 저장을 방지할 수 있습니다.  
 

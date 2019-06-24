@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648353"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155312"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -76,7 +76,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
    입력에 대한 설명은 다음과 같습니다.
 
     * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 스토리지 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
-    * **Azure Resource Manager 스토리지 계정**: Azure 구독에 있는 Resource Manager 유형 스토리지 계정의 이름입니다.
+    * **Azure Resource Manager 스토리지 계정**: Resource Manager 형식 저장소 계정 (범용 v1 또는 범용 v2) 모든 Azure 구독에서의 이름입니다.
     * **Azure Storage 컨테이너**: Recovery Services 자격 증명 모음에 복사되기 전에 백업 데이터를 가져올 Azure Storage 계정의 대상 스토리지 Blob 이름입니다.
     * **Azure 구독 ID**: Azure Storage 계정이 만들어지는 Azure 구독의 ID입니다.
     * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure로 보낸 데이터의 전송을 추적하는 고유한 이름입니다. 

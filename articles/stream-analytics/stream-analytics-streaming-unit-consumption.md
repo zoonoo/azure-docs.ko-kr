@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65916029"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206701"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -59,7 +59,7 @@ temporal(시간 지향적인) 쿼리 요소는 Stream Analytics에서 제공하�
 
 복잡한 쿼리 논리를 사용하는 작업은 입력 이벤트를 지속적으로 수신하지 않더라도 높은 SU% 사용률을 나타낼 수 있습니다. 입력 및 출력 이벤트가 급격히 증가한 후에 이러한 현상이 발생할 수 있습니다. 쿼리가 복잡한 경우 작업은 메모리의 상태를 계속 유지할 수 있습니다.
 
-SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준으로 돌아올 수도 있습니다. 이러한 현상은 일시적인 오류 또는 시스템에서 시작한 업그레이드로 인해 발생합니다.
+SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준으로 돌아올 수도 있습니다. 이러한 현상은 일시적인 오류 또는 시스템에서 시작한 업그레이드로 인해 발생합니다. 쿼리가 없는 경우 작업을이 SU % 사용률 저하 될 수 있습니다에 대 한 스트리밍 단위 수를 늘려 [완전 한 병렬](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)합니다.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
 Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
@@ -131,7 +131,7 @@ temporal 분석 함수의 소비 메모리(상태 크기)는 이벤트 속도와
 
 순서가 잘못된 버퍼의 오버플로를 수정하려면 **PARTITION BY**를 사용하여 쿼리를 확장합니다. 쿼리가 분할되면 여러 노드에 걸쳐 분산됩니다. 결과적으로, 각 노드로 들어오는 이벤트 수가 감소하여 각각의 순서 재지정 버퍼의 이벤트 수가 줄어듭니다. 
 
-## <a name="input-partition-count"></a>입력 분할 개수  
+## <a name="input-partition-count"></a>입력 분할 개수 
 작업 입력의 각 입력 파티션에는 버퍼가 있습니다. 입력 파티션 수가 클수록 이 작업이 더 많은 리소스를 소비합니다. 각 스트리밍 단위에 대해 Azure Stream Analytics는 대략 1 MB/s의 입력을 처리할 수 있습니다. 따라서 Stream Analytics 스트리밍 단위 수를 Event Hubs의 파티션 수와 일치 시켜서 최적화할 수 있습니다. 
 
 일반적으로 하나의 스트리밍 유닛으로 구성된 작업은 두 개의 파티션이 있는 Event Hub(Event Hub의 경우 최소)로 충분합니다. Event Hub에 더 많은 파티션이 있으면 Stream Analytics 작업이 더 많은 리소스를 소비하지만 Event Hub에서 제공한 추가적인 처리량을 반드시 사용하는 것은 아닙니다. 

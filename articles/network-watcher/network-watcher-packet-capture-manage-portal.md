@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
 ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714724"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
@@ -31,8 +31,8 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 패킷 캡처에는 다음 연결이 필요합니다.
 * 포트 443을 통해 저장소 계정에 아웃바운드 연결
-* 169.254.169.254에 인바운드 및 아웃 바운드 연결
-* 168.63.129.16에 인바운드 및 아웃 바운드 연결
+* 169\.254.169.254에 인바운드 및 아웃 바운드 연결
+* 168\.63.129.16에 인바운드 및 아웃 바운드 연결
 
 네트워크 보안 그룹이 네트워크 인터페이스에 연결되거나 네트워크 인터페이스가 포함된 서브넷에 연결되어 있으면 이전 포트를 허용하는 규칙이 있는지 확인합니다. 
 
@@ -54,7 +54,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
    - **패킷당 최대 바이트**: 캡처된 각 패킷의 바이트 수입니다. 비워 두면 모든 바이트가 캡처됩니다.
    - **세션당 최대 바이트**: 캡처된 바이트의 총 수입니다. 값에 도달하면 패킷 캡처가 중지됩니다.
-   - **시간 제한 (초)**: 패킷 캡처 중지 되기 전에 시간 제한입니다. 기본값은 18,000초입니다.
+   - **시간 제한 (초)** : 패킷 캡처 중지 되기 전에 시간 제한입니다. 기본값은 18,000초입니다.
    - 필터링(선택 사항). **+ 필터 추가**를 선택합니다.
      - **프로토콜**: 패킷 캡처에 대해 필터링할 프로토콜입니다. 사용 가능한 값은 TCP, UDP 및 모두입니다.
      - **로컬 IP 주소**: 패킷에 대 한 패킷 캡처를 필터링 하 고 로컬 IP 주소를이 값과 일치 하는 키를 누릅니다.

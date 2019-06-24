@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125604"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -606,10 +606,7 @@ DnsSettings              : {
 배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[클러스터를 만드는](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[클러스터 만들기](service-fabric-cluster-creation-via-arm.md)
 
 배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 애플리케이션 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
 
-## <a name="next-steps"></a>다음 단계
-[클러스터 만들기](service-fabric-cluster-creation-via-arm.md)

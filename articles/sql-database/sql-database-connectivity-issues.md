@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66019813"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144044"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
@@ -93,7 +93,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 - **SqlException.Number** = 11001
 - 메시지: "해당 호스트가 없습니다"
 
-프로그램은 첫 번째 재시도 중 오타를 수정한 다음 연결을 시도할 수 있습니다.
+첫 번째 시도의 일부로, 네트워크에 클라이언트 컴퓨터를 다시 연결할 수 있으며 연결 시도 수 있습니다.
 
 이 테스트를 실제로 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다.
 

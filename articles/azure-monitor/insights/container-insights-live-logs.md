@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075259"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274233"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>실시간 (미리 보기) 로그 및 이벤트를 보는 방법
 컨테이너에 대 한 azure Monitor는 현재 미리 보기로 kubectl 명령을 실행 하지 않고도 Azure Kubernetes Service (AKS) 컨테이너 로그 (stdout/stderr) 및 이벤트에 실시간 보기를 제공 하는 기능을 포함 합니다. 두 옵션 중 하나를 선택 하면 새 창이 표 아래에 표시 성능 데이터에는 **노드**를 **컨트롤러**, 및 **컨테이너** 보기. 실시간 로깅 및 더 많은 도움을 실시간으로 문제를 해결 컨테이너 엔진에 의해 생성 된 이벤트를 보여 줍니다.
@@ -77,6 +77,9 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 
 >[!NOTE]
 >Single sign-on에 대 한 Azure Active Directory를 사용 하 여 인증을 구성할 새 AKS 클러스터의 초기 배포 동안 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.
+  
+>[!IMPORTANT]
+>업데이트 된 URI를 사용 하 여 사용자 인증을 위해 Azure AD를 재구성 한 경우 업데이트 된 인증 토큰 다운로드 되 고 적용 하도록 브라우저의 캐시를 지웁니다.   
 
 ## <a name="view-live-logs-and-events"></a>실시간 로그 보기 및 이벤트
 

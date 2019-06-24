@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB의 저장 프로시저, 트리�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965710"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165570"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -75,7 +75,7 @@ JavaScript 함수는 [프로비저된 처리 용량](request-units.md)에도 적
 
 ## <a name="triggers"></a>트리거
 
-이 섹션에서는 다음과 같은 두 가지 유형의 트리거에 대해 설명합니다.
+Azure Cosmos DB는 두 가지 유형의 트리거를 지원합니다.
 
 ### <a name="pre-triggers"></a>사전 트리거
 
@@ -84,6 +84,9 @@ Azure Cosmos DB는 Azure Cosmos DB 항목에 대해 작업을 수행하여 호�
 ### <a name="post-triggers"></a>사후 트리거
 
 사전 트리거와 마찬가지로 사후 트리거도 Azure Cosmos DB 항목에 대한 작업과 관련되며 입력 매개 변수가 필요하지 않습니다. 이 트리거는 작업이 완료된 *후에* 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다. 예제를 보려면 [트리거 작성 방법](how-to-write-stored-procedures-triggers-udfs.md#triggers) 문서를 참조하세요.
+
+> [!NOTE]
+> 트리거가 없는 경우 실행 하는 자동으로 등록 된 해당 작업 (만들기 / 삭제 / 교체 / 업데이트) 발생 합니다. 이러한 작업을 실행할 때 명시적으로 호출할 필요가 있습니다. 자세한 내용은 참조 하세요 [트리거를 실행 하는 방법을](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 문서.
 
 ## <a id="udfs"></a>사용자 정의 함수
 

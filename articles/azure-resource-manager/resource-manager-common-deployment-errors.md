@@ -1,26 +1,19 @@
 ---
 title: 일반적인 Azure 배포 오류 해결 | Microsoft Docs
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: 배포 오류 Azure 배포, Azure에 배포
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128620"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206330"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -36,7 +29,7 @@ ms.locfileid: "66128620"
 | AccountPropertyCannotBeSet | 사용 가능한 저장소 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
-| AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필수 리소스 공급자가 등록되지 않은 경우 이 오류가 표시될 수 있습니다. | [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](resource-manager-register-provider-errors.md) |
+| AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필수 리소스 공급자가 등록되지 않은 경우 이 오류가 표시될 수 있습니다. | [Azure 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](resource-manager-register-provider-errors.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-group-authoring-templates.md#resource-location) |
 | 충돌 | 리소스의 현재 상태에서 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
@@ -63,7 +56,7 @@ ms.locfileid: "66128620"
 | MissingRegistrationForLocation | 리소스 공급자 등록 상태 및 지원되는 위치를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 리소스 공급자 등록 상태를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
-| 찾을 수 없음 | 종속 리소스를 부모 리소스와 병렬로 배포하려고 시도했을 수 있습니다. 종속성을 추가해야 하는지 확인합니다. | [종속성 오류 해결](resource-manager-not-found-errors.md) |
+| NotFound | 종속 리소스를 부모 리소스와 병렬로 배포하려고 시도했을 수 있습니다. 종속성을 추가해야 하는지 확인합니다. | [종속성 오류 해결](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | 배포에서 구독, 리소스 그룹 또는 지역에 대한 할당량을 초과하는 작업을 시도하고 있습니다. 가능하면 배포를 수정하여 할당량 내에서 유지합니다. 그렇지 않은 경우 할당량 변경을 요청하는 것이 좋습니다. | [할당량 오류 해결](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | 자식 리소스를 만들기 전에 부모 리소스가 있는지 확인합니다. | [부모 리소스 오류 해결](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | 너무 많은 문자가 포함된 암호를 선택했거나, 매개 변수로 전달하기 전에 암호 값을 보안 문자열로 변환했을 수 있습니다. 템플릿에 **보안 문자열** 매개 변수가 포함되어 있으면 값을 보안 문자열로 변환할 필요가 없습니다. 암호 값을 텍스트로 제공합니다. |  |

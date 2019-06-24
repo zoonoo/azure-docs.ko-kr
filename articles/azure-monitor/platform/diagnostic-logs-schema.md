@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789314"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155302"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -55,7 +55,7 @@ ms.locfileid: "65789314"
 | Azure Batch |[Azure Batch 진단 로깅](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL 진단 로그](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL 진단 로그](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Cognitive Services | 스키마를 사용할 수 없음 |
+| Cognitive Services | [Azure Cognitive Services에 대 한 진단 로깅](../../cognitive-services/diagnostic-logging.md) |
 | Content Delivery Network | [CDN에 대한 Azure 진단 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/logging.md) |
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ ms.locfileid: "65789314"
 * [**Event Hubs**로 리소스 진단 로그 스트림](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

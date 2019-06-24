@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111481"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
@@ -71,7 +71,7 @@ WCF Relay는 표준 계층 네임스페이스에서만 사용할 수 있습니�
 경우에 따라 단일 릴레이에 연결된 수신기가 여러 개 있을 수 있습니다. 하나 이상의 릴레이 수신기가 연결된 경우 릴레이는 열린 것으로 간주됩니다. 열린 릴레이에 수신기를 추가하면 릴레이 시간이 추가됩니다. 또한 릴레이에 연결된 릴레이 발신자(메시지를 릴레이에 호출하거나 전송하는 클라이언트)의 수는 릴레이 시간을 계산하는 데 영향을 주지 않습니다.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>WCF 릴레이 대한 메시지 측정기를 어떻게 계산하나요?
-(**WCF 릴레이에 적용됩니다. 하이브리드 연결에서 메시지의 비용은 없습니다.**)
+(**WCF 릴레이에 적용됩니다. 하이브리드 연결에서 메시지의 비용은 없습니다.** )
 
 이전에 설명한 대로 일반적으로 조정된 엔터티(큐, 토픽 및 구독)에 대해 동일한 메서드를 사용하여 릴레이의 청구 가능한 메시지를 계산합니다. 하지만 몇 가지 주목할 차이점이 있습니다.
 

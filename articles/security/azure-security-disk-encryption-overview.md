@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068798"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294873"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 디스크 암호화 개요
 
@@ -45,7 +45,7 @@ Azure Disk Encryption에서는 다음과 같은 고객 시나리오를 지원합
 또한 Microsoft Azure에서 활성화 되어 있는 경우 Vm에 대 한 다음과 같은 시나리오를 지원 합니다.
 
 * Azure Key Vault와 통합
-* [표준 계층 Vm](https://azure.microsoft.com/pricing/details/virtual-machines/)합니다. 이러한 계층 내의 [Linux VM](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)은 7GB의 최소 메모리 요구 사항을 충족해야 함 
+* [표준 계층 Vm](https://azure.microsoft.com/pricing/details/virtual-machines/) 충족 하는 합니다 [최소 메모리 요구 사항과](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes)합니다. 
 * Windows 및 Linux Vm, 관리 되는 디스크 및 확장에서 암호화를 사용 하도록 설정 하면 지원 되는 Azure 갤러리 이미지에서 Vm을 설정 합니다.
 * Windows Vm 확장에 대 한 드라이브 Vm을 설정 하 고 관리 디스크 Vm에서 OS 및 데이터 암호화를 사용 하지 않도록 설정.
 * Linux Vm의 경우 크기 조정에 대 한 데이터 드라이브에서 암호화를 사용 하지 않도록 설정 Vm을 설정 하 고 관리 디스크 Vm.
@@ -56,7 +56,7 @@ Azure Disk Encryption에서는 다음과 같은 고객 시나리오를 지원합
 * Linux VM OS 및 데이터 디스크에서 암호화를 사용 합니다.
 
    > [!NOTE]
-   > 일부 Linux 배포에 대해서는 OS 드라이브 암호화가 지원되지 않습니다. 자세한 내용은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 문서를 참조하세요.
+   > 일부 Linux 배포에 대해서는 OS 드라이브 암호화가 지원되지 않습니다. 자세한 내용은 참조는 [Azure Disk Encryption 지원 되는 운영 체제: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Windows Server 2016에서 Windows 저장소 공간 시작 부분으로 구성 된 Vm에서 암호화를 사용 합니다.
 * 백업 및 키 암호화 키 (KEK) 및 비 KEK 시나리오 모두에 대 한 암호화 된 Vm을 복원 합니다.
@@ -93,8 +93,6 @@ Vm에 대 한 Windows 및 Linux 용 azure Disk Encryption에는 다음이 포함
 * [디스크 암호화 powershell](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0)합니다.
 * [Azure CLI 디스크 암호화 cmdlet](/cli/azure/vm/encryption?view=azure-cli-latest)합니다.
 * [디스크 암호화 Azure Resource Manager 템플릿을](azure-security-disk-encryption-appendix.md#resource-manager-templates)합니다.
-
-Azure Disk Encryption은 Windows 또는 Linux OS를 실행 하는 Vm에서 지원 됩니다. 지원 되는 운영 체제에 대 한 자세한 내용은 참조 하세요. [질문과 대답](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)합니다.
 
 > [!NOTE]
 > Azure Disk Encryption으로 VM 디스크를 암호화하는 작업에 대한 추가 요금은 없습니다. 표준 [Key Vault 가격](https://azure.microsoft.com/pricing/details/key-vault/)은 암호화 키 저장에 사용되는 키 자격 증명 모음에 적용됩니다. 

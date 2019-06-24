@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808898"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -34,7 +34,7 @@ Azure 디지털 쌍 내에서 문제를 진단 하는 방법을 알고 효과적
 Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니다. 솔루션 개발자는 Azure Monitor 로그, 진단 로그, 활동 로그 및 기타 서비스를 사용 하 여 IoT 앱의 복잡 한 모니터링 요구에 따라 수 있습니다. 로깅 옵션을 결합하여 여러 서비스의 레코드를 쿼리 또는 표시하고 여러 서비스에 대한 세밀한 로깅 범위를 제공할 수 있습니다.
 
 * Azure 디지털 쌍 관련 로깅 구성에 대 한 읽을 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)합니다.
-* 참조는 합니다 [Azure Monitor](../azure-monitor/overview.md) Azure Monitor를 통해 사용 하도록 설정 하는 강력한 로그 설정에 대 한 자세한 개요입니다.
+* 참조 된 [Azure Monitor](../azure-monitor/overview.md) Azure Monitor를 통해 사용 하도록 설정 하는 강력한 로그 설정에 대 한 자세한 개요입니다.
 * 문서를 검토 [Azure 리소스에서 로그 데이터 수집 및 소비](../azure-monitor/platform/diagnostic-logs-overview.md) Azure Portal, Azure CLI 또는 PowerShell을 통해 디지털 쌍 Azure에서에서 진단 로그 설정을 구성 합니다.
 
 구성 되 면에 메트릭, 모든 로그 범주를 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 작업을 지원할 수 있습니다.

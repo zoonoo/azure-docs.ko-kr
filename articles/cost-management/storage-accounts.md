@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
 ms.openlocfilehash: 91377c41699f01eaf57a085ea82e9d7289549990
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969151"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 저장소 계정 구성
@@ -35,12 +35,12 @@ AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니�
 
 Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1.  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 저장소 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **저장소 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  
    ![스토리지 계정 이름 및 연결 문자열 복사](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
+5. Azure Portal에서 Cloudyn 포털을 열거나 [https://azure.cloudyn.com](https://azure.cloudyn.com ) 으로 이동하여 로그인합니다.
 6. 톱니 기호를 클릭한 다음 **보고서 저장소 관리**를 선택합니다.
 7. **새로 추가 +** 를 클릭하고 Microsoft Azure가 선택되어 있는지 확인합니다. Azure Storage 계정 이름을 **이름** 영역에 붙여 넣습니다. **연결 문자열**을 해당 영역에 붙여 넣습니다. 컨테이너 이름을 입력한 다음 **저장**을 클릭합니다.  
    ![새 보고서 스토리지 추가 상자에서 Azure Storage 계정 이름 및 연결 문자열 붙여넣기](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -148,7 +148,7 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Cloudyn에 AWS 보고서 저장소 추가
 
-1. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
+1. Azure Portal에서 Cloudyn 포털을 열거나 [https://azure.cloudyn.com](https://azure.cloudyn.com ) 으로 이동하여 로그인합니다.
 2. 톱니 기호를 클릭한 다음 **보고서 저장소 관리**를 선택합니다.
 3. **새로 추가 +** 를 클릭하고 AWS가 선택되어 있는지 확인합니다.
 4. 계정 및 저장소 버킷을 선택합니다. AWS 저장소 버킷의 이름이 자동으로 채워집니다.  

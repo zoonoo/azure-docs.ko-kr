@@ -8,10 +8,10 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: 7b9503b2db14d4de6c4c8cf983c42bccd6f9f8fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157440"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
@@ -98,7 +98,7 @@ Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 이때 가상 네트워크 게이트웨이가 삭제되었습니다. 다음 단계를 사용하여 더 이상 사용되지 않는 모든 리소스를 삭제할 수 있습니다.
 
-### <a name="5-delete-the-local-network-gateways"></a>5. 로컬 네트워크 게이트웨이를 삭제합니다.
+### <a name="5-delete-the-local-network-gateways"></a>5\. 로컬 네트워크 게이트웨이를 삭제합니다.
 
 해당 로컬 네트워크 게이트웨이 목록을 가져옵니다.
 

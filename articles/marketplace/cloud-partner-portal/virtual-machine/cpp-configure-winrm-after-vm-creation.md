@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938511"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>가상 머신을 만든 후 WinRM 구성
@@ -26,7 +26,7 @@ ms.locfileid: "64938511"
 
 HTTPS 프로토콜을 통한 WinRM은 Azure Marketplace에서 제공되는 사전 구성된 Windows VM에서 기본적으로 사용할 수 없는 포트 5896을 사용합니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
 
-1.  **가상 머신 >**  <*vm-name*>  **> 설정/네트워킹** 블레이드로 이동합니다.
+1.  **가상 머신 >**   <*vm-name*>   **> 설정/네트워킹** 블레이드로 이동합니다.
 2.  NSG 이름(이 예제에서는 **testvm11002**)을 클릭하여 해당 속성을 표시합니다.
 
     ![네트워크 보안 그룹 속성](./media/nsg-properties.png)

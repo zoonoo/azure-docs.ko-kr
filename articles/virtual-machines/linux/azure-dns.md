@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127092"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
@@ -72,7 +72,7 @@ dnsmasq 같은 여러 가지 DNS 캐싱 패키지를 사용할 수 있습니다.
 **Ubuntu(resolvconf 사용)**
   * dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
 
-**SUSE(netconf 사용)**:
+**SUSE(netconf 사용)** :
 1. dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq").
 2. dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
 3. dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
@@ -112,7 +112,7 @@ resolv.conf 파일은 자동으로 생성되며 편집할 수 없습니다. 'opt
 1. 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG_DNS_RESOLVER_OPTIONS="" 매개 변수에 추가합니다.
 2. 'netconfig update'를 실행하여 업데이트합니다.
 
-**Rogue Wave Software의 CentOS(이전의 OpenLogic)**(NetworkManager 사용)
+**Rogue Wave Software의 CentOS(이전의 OpenLogic)** (NetworkManager 사용)
 1. 'RES_OPTIONS="timeout:1 attempts:5"'를 '/etc/sysconfig/network'에 추가합니다.
 2. 'service network restart'를 실행하여 업데이트합니다.
 

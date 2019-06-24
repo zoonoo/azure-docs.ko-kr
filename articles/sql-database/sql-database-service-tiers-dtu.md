@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546462"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
@@ -165,9 +165,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
-| Premium |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
-| Standard |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
+| Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
+| Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
+| Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

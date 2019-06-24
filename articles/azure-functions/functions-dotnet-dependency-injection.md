@@ -10,19 +10,21 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.author: jehollan, cshoe
+ms.openlocfilehash: 9f932bf92cb3871af7f0eb294ac15dec82cdc8ba
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693259"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274252"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 사용 하 여 종속성 주입
 
 Azure Functions는 종속성 주입 (DI) 소프트웨어 디자인 패턴을 달성 하기 위해 기술 지원 [제어 반전 (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) 클래스와 해당 종속성입니다.
 
 Azure Functions는 ASP.NET Core 종속성 주입 기능을 기반으로 작성 합니다. 서비스, 수명 및 디자인 패턴을 인식 [ASP.NET Core 종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) Azure Functions에서 DI 기능을 사용 하기 전에 앱 것이 좋습니다.
+
+Azure Functions를 사용 하 여 시작 하는 종속성 주입에 대 한 지원은 2.x입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,13 +34,22 @@ Azure Functions는 ASP.NET Core 종속성 주입 기능을 기반으로 작성 �
 
 - [Microsoft.NET.Sdk.Functions 패키지](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 1.0.28 버전 이상
 
+- 선택 사항: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) 시작 시 HttpClient를 등록 하는 데에 필요
+
 ## <a name="register-services"></a>서비스 등록
 
 서비스를 등록 하려면 구성 하 고 구성 요소를 추가 하는 메서드를 만들 수 있습니다는 `IFunctionsHostBuilder` 인스턴스.  Azure Functions 호스트의 인스턴스를 만들고 `IFunctionsHostBuilder` 메서드로 직접 전달 합니다.
 
-메서드를 등록 하려면 추가 `FunctionsStartup` 시작 중에 형식 이름을 지정 하는 어셈블리 특성 사용.
+메서드를 등록 하려면 추가 `FunctionsStartup` 시작 중에 형식 이름을 지정 하는 어셈블리 특성 사용. 또한 코드 참조의 시험판 [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) Nuget에서.
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -62,6 +73,16 @@ namespace MyNamespace
 ASP.NET Core 종속성을 함수를 사용할 수 있도록 생성자 주입을 사용 합니다. 다음 샘플을 참조 하십시오. 방법을 `IMyService` 고 `HttpClient` 종속성 HTTP에서 트리거한 함수를 주입 됩니다.
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger

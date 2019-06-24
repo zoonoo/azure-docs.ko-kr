@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297665"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Azure Logic Apps에서 다음 작업을 실행 하는 지연
@@ -55,7 +55,7 @@ ms.locfileid: "66297665"
 
    | 자산 | JSON 이름 | 필수 | 형식 | 설명 |
    |----------|-----------|----------|------|-------------|
-   | 카운트 | count | 예 | 정수  | 지연할 시간 단위 수 |
+   | 카운트 | count | 예 | Integer | 지연할 시간 단위 수 |
    | 단위 | 단위 | 예 | String | 예를 들어 시간 단위: `Second`, `Minute`, `Hour`합니다 `Day`, `Week`, 또는 `Month` |
    ||||||
 

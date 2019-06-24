@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112304"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164786"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건 이란? 
 
@@ -56,7 +56,10 @@ Azure AD는 장치에 앱에서 single sign-on을 사용 하도록 설정 하 �
 - **국가/지역** - 이 옵션을 사용하여 명명된 위치를 정의할 하나 이상의 국가를 선택할 수 있습니다.
 - **알 수 없는 영역 포함** -일부 IP 주소는 특정 국가 또는 지역에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
-구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 조직에서는 최대 90 명명 된 위치를 구성할 수 있습니다, 그리고 각 최대 1,200 개 IP 범위로 구성 됩니다.
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음 제한 사항을 기반으로 하는 위치를 구성할 수 있습니다.
+
+- 최대 1,200개 IP 범위로 명명된 하나의 위치
+- 각각에 한 개의 IP 범위로 할당된 최대 90개의 명명된 위치
 
 IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현재 명명 된 위치에서 구성 하는 IPv6 범위를 허용 하지 않습니다. 이 제한은 다음과 같은 상황을 발생 시킵니다.
 

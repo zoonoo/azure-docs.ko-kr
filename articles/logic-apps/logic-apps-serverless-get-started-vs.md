@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
-ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 06/20/2019
+ms.openlocfilehash: e51a3f9971006a0b50cec1abdc5e955d06c23466
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467441"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295844"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio
 
@@ -34,7 +34,6 @@ Visual Studio에서 서버리스 앱을 빌드하는 데 필요한 항목은 다
 
     > [!IMPORTANT]
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
-    > Visual Studio 2019의 경우 클라우드 탐색기는 Azure Portal의 논리 앱 디자이너를 열 수 있지만 사용자는 포함된 논리 앱 디자이너를 열 수 없습니다.
 
   * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). 
   [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
@@ -128,6 +127,9 @@ Visual Studio에서 Logic Apps 디자이너를 사용하여 논리 앱을 열기
 
    ![Logic Apps 디자이너에서 "azuredeploy.json" 열기](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > 이 명령은 Visual Studio 2019에 없다면 Visual Studio에 대 한 최신 업데이트가 있는지 확인 합니다.
+
 1. **논리 앱 속성** 상자가 나타나고 아직 선택하지 않은 경우 **구독** 아래에서 Azure 구독을 선택합니다. **리소스 그룹** 아래에서 솔루션을 배포한 리소스 그룹과 위치를 선택한 다음, **확인**을 선택합니다.
 
    ![논리 앱 속성](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
@@ -153,6 +155,9 @@ Azure에 이미 배포된 논리 앱에 대해서도 Visual Studio에서 해당 
 1. **모든 구독** 아래에서 관리하려는 논리 앱과 연결된 Azure 구독을 선택하고, **적용**을 선택합니다.
 
 1. **Logic Apps** 아래에서 논리 앱을 선택합니다. 해당 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기**를 선택합니다.
+
+   > [!TIP]
+   > 이 명령은 Visual Studio 2019에 없다면 Visual Studio에 대 한 최신 업데이트가 있는지 확인 합니다.
 
 이제 이미 게시된 논리 앱을 리소스 그룹 프로젝트에 다운로드할 수 있습니다. 따라서 Azure Portal에서 논리 앱을 시작한 경우에도 Visual Studio에서 해당 앱을 가져와서 관리할 수 있습니다. 자세한 내용은 [Visual Studio로 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)를 참조하세요.
 

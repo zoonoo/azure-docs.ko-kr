@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919161"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정 설정
@@ -81,7 +81,7 @@ ms.locfileid: "64919161"
 
 사용자 조직에 청구 프로필에 소유자로 추가 되는 Microsoft 고객 계약을 서명 합니다. 사용자는 설치를 완료할 수 있도록 소유자로 추가 하도록 요청 합니다.  <!-- Todo Are there any next steps -->
 
-## <a name="understand-changes-to-your-billing-hierarchy"></a>청구 계층 구조의 변경 내용 이해
+## <a name="understand-changes-to-your-billing-hierarchy"></a>청구 계층으로 변경 내용을 이해합니다
 
 새 청구 계정 청구 강화 및 비용 관리 기능을 제공 하는 동안 조직에 대 한 청구를 간소화 합니다. 다음 다이어그램은 새 청구 계정에 청구 구성 되는 방식을 설명 합니다.
 
@@ -271,7 +271,7 @@ Azure 예약 새 청구 계정에 기업 계약 등록에서 이동 된 모든 �
 
 엔터프라이즈 관리자 및 부서 관리자 계정 소유자는 부서에서 Azure 구독 작성자도 표시 되는 동안 송장 섹션 소유자 또는 송장 섹션 판독기로 나열 됩니다. 기업 계약 등록의 모든 부서에 대 한 액세스를 확인 하려면 모든 송장 섹션의 단계를 반복 합니다. 모든 부서에 속하지 않았던 계정 소유자는 청구서 섹션에서 권한을 얻을 **기본 송장 섹션**합니다. 모든 관리자에 대 한 액세스를 사용할 수 없는 경우 액세스 제공할 수 있습니다 하는 Azure 포털에서. 자세한 내용은 [Azure portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

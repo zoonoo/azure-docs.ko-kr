@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024438"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
 Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 및 전체 텍스트 검색에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
 
-인덱스를 추가하거나 업로드하면 Azure Search는 제공된 스키마를 기반으로 해서 물리적 구조를 만듭니다. 예를 들어 인덱스의 필드가 검색 가능으로 표시된 경우 해당 필드에 대해 반전된 인덱스가 생성됩니다. 나중에 문서를 추가 또는 업로드하거나 Azure Search에 검색 쿼리를 제출하는 경우 검색 서비스의 특정 인덱스에 요청을 전송하게 됩니다. 문서 값이 포함된 필드 로드를 ‘인덱싱’ 또는 데이터 수집이라고 합니다.
+인덱스를 추가하거나 업로드하면 Azure Search는 제공된 스키마를 기반으로 해서 물리적 구조를 만듭니다. 예를 들어 인덱스의 필드가 검색 가능으로 표시된 경우 해당 필드에 대해 반전된 인덱스가 생성됩니다. 나중에 문서를 추가 또는 업로드하거나 Azure Search에 검색 쿼리를 제출하는 경우 검색 서비스의 특정 인덱스에 요청을 전송하게 됩니다. 문서 값이 포함된 필드 로드를 ‘인덱싱’ 또는 데이터 수집이라고 합니다. 
 
 포털, [REST API](search-create-index-rest-api.md) 또는 [.NET SDK](search-create-index-dotnet.md)에서 인덱스를 만들 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 
 아래 그림과 같이 Azure Search 인덱스는 다음 요소로 구성됩니다. 
 
-일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에 포함 [suggesters](#suggesters)를 [점수 매기기 프로필](#scoring-profiles)합니다 [분석기](#analyzers) 사용자 지정을 지원 하도록 구성 요소를 사용 하 여 [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션입니다.
+일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다.  기타 요소에 포함 [suggesters](#suggesters)를 [점수 매기기 프로필](#scoring-profiles)합니다 [분석기](#analyzers) 사용자 지정을 지원 하도록 구성 요소를 사용 하 여 [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션입니다.
 
 ```json
 {
@@ -162,7 +162,7 @@ Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여
 ### <a name="index-attributes"></a>인덱스 특성
 | 특성 | 설명 |
 | --- | --- |
-| *키* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
+| *Key* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
 | *조회 가능* |검색 결과에서 필드를 반환할 수 있는지 여부를 지정합니다. |
 | *필터링 가능* |필드를 필터 쿼리에 사용하도록 허용합니다. |
 | *정렬 가능* |쿼리에서 이 필드를 사용하여 검색 결과를 정렬할 수 있습니다. |
@@ -209,7 +209,7 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 + **allowedOrigins**(필수): 인덱스에 대한 액세스 권한을 부여할 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
 
-  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다.
+  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다. 
 
 + **maxAgeInSeconds**(선택 사항): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 

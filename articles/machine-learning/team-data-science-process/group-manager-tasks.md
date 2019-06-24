@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950107"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>데이터 과학 팀 프로젝트의 그룹 관리자 작업
@@ -85,7 +85,7 @@ Microsoft 계정이 없는 경우 **지금 등록**을 클릭하여 Microsoft �
 
 다음 값을 사용하여 **계정 만들기** 마법사에서 만들려는 Azure DevOps Services에 대한 정보를 입력합니다.
 
-- **서버 URL**: *mysamplegroup*을 해당 ‘서버 이름’으로 바꿉니다. 서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다.
+- **서버 URL**: *mysamplegroup*을 해당 ‘서버 이름’으로 바꿉니다.  서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다.
 - **코드 관리 앱:** **_Git_** 을 선택합니다.
 - **프로젝트 이름:** *GroupCommon*을 입력합니다.
 - **다음을 사용하여 작업 구성:** *Agile*을 선택합니다.

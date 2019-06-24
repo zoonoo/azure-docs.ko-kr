@@ -9,17 +9,17 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147901"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182188"
 ---
 *캐시 준비 중*  
 ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 제공할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 직접적인 디스크가 아니라 실제 캐시에 적중합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
 
 > [!IMPORTANT]
->  VM을 다시 부팅할 때마다 벤치마킹을 실행하기 전에 캐시를 준비해야 합니다.
+> VM을 다시 부팅할 때마다 벤치마킹을 실행하기 전에 캐시를 준비해야 합니다.
 
 ## <a name="tools"></a>도구
 
@@ -40,7 +40,7 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 #### <a name="maximum-iops-test-specifications"></a>최대 IOPS 테스트 사양
 
- 최대 IOP를 보여주기 위해 작은 요청 크기를 사용합니다. 8K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
+최대 IOP를 보여주기 위해 작은 요청 크기를 사용합니다. 8K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
 
 | 액세스 사양 | 요청 크기 | 임의 % | 읽기 % |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 #### <a name="maximum-throughput-test-specifications"></a>최대 처리량 테스트 사양
 
- 최대 처리량을 보여주기 위해 더 큰 요청 크기를 사용합니다. 64K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
+최대 처리량을 보여주기 위해 더 큰 요청 크기를 사용합니다. 64K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
 
 | 액세스 사양 | 요청 크기 | 임의 % | 읽기 % |
 | --- | --- | --- | --- |
@@ -58,11 +58,11 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 #### <a name="run-the-iometer-test"></a>Iometer 테스트 실행
 
- 아래 단계를 수행하여 캐시를 준비합니다.
+아래 단계를 수행하여 캐시를 준비합니다.
 
 1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
 
-   | Name | 요청 크기 | 임의 % | 읽기 % |
+   | 이름 | 요청 크기 | 임의 % | 읽기 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
@@ -73,7 +73,7 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
    | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2시간 |
 1. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 [실행 시간] 기간을 [테스트 설정] 탭에서 2시간으s로 설정합니다.
 
-   | 시나리오 | 대상 볼륨 | 이름 | 기간 |
+   | 시나리오 | 대상 볼륨 | Name | 기간 |
    | --- | --- | --- | --- |
    | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2시간 |
 
@@ -81,7 +81,7 @@ Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파
 
 | 테스트 시나리오 | 대상 볼륨 | 이름 | 결과 |
 | --- | --- | --- | --- |
-| 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS  |
+| 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | 최대 쓰기 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
 | 최대 결합된 IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
@@ -116,7 +116,7 @@ apt-get install fio
 
 #### <a name="maximum-write-iops"></a>최대 쓰기 IOPS
 
- 최대 쓰기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. “fiowrite.ini”로 이름을 지정합니다.
+최대 쓰기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. “fiowrite.ini”로 이름을 지정합니다.
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ sudo fio --runtime 30 fiowrite.ini
 
 #### <a name="maximum-read-iops"></a>최대 읽기 IOPS
 
- 최대 읽기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. "fioread.ini"로 이름을 지정합니다.
+최대 읽기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. "fioread.ini"로 이름을 지정합니다.
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ sudo fio --runtime 30 fioread.ini
 
 #### <a name="maximum-read-and-write-iops"></a>최대 읽기 및 쓰기 IOPS
 
- 결합된 최대 읽기 및 쓰기 IOPS를 얻으려면 다음과 같은 사양의 작업 파일을 만듭니다. "fioreadwrite.ini"로 이름을 지정합니다.
+결합된 최대 읽기 및 쓰기 IOPS를 얻으려면 다음과 같은 사양의 작업 파일을 만듭니다. "fioreadwrite.ini"로 이름을 지정합니다.
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ sudo fio --runtime 30 fioreadwrite.ini
 
 #### <a name="maximum-combined-throughput"></a>결합된 최대 처리량
 
- 결합된 최대 읽기 및 쓰기 처리량을 얻으려면 읽기 및 쓰기를 수행하는 다중 스레드로 더 큰 블록 크기 및 큰 큐 크기를 사용합니다. 64KB의 블록 크기와 128의 큐 깊이를 사용할 수 있습니다.
+결합된 최대 읽기 및 쓰기 처리량을 얻으려면 읽기 및 쓰기를 수행하는 다중 스레드로 더 큰 블록 크기 및 큰 큐 크기를 사용합니다. 64KB의 블록 크기와 128의 큐 깊이를 사용할 수 있습니다.

@@ -25,6 +25,7 @@ Azure Speech Services를 사용하는 사용자 지정 가상 도우미는 개�
    ![직접 회선 음성 오케스트레이션 서비스 흐름의 개념도](media/voice-first-virtual-assistants/overview.png "The 음성 채널 흐름")
 
 
+
 Direct Line Speech 및 사용자 지정 음성-우선 가상 도우미에 대한 관련된 기능은 [가상 도우미 솔루션 및 엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)에 대한 이상적인 보완 사항입니다. Direct Line Speech는 호환 가능한 봇과 함께 작동할 수 있지만, 이러한 리소스는 고품질 대화형 환경 뿐만 아니라 빠른 시작을 위한 일반적인 지원 기술과 모델을 위한 재사용 가능한 기준선을 제공합니다.
 
 ## <a name="core-features"></a>핵심 기능

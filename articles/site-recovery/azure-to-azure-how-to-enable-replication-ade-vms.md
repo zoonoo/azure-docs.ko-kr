@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60791017"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역에 Azure Disk Encryption을 사용 하도록 설정 하는 가상 머신 복제
@@ -41,7 +41,7 @@ Azure portal에서 디스크 암호화 지원 Vm의 복제를 사용 하려면 �
     - 나열
     - 가져오기
     - 생성
-    - 암호화
+    - Encrypt
     - 암호 해독
 
 을 권한을 관리 하려면 포털에서 key vault 리소스를 이동 합니다. 사용자에 게 필요한 권한을 추가 합니다. 다음 예에서는 key vault에 대 한 권한을 사용 하도록 설정 하는 방법을 보여 줍니다 *ContosoWeb2Keyvault*, 원본 지역에 있습니다.

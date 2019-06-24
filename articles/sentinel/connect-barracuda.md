@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921973"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190785"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda 어플라이언스에서 연결 
 
@@ -41,7 +41,7 @@ Barracuda Web Application Firewall을 통합 하 고 Azure를 통해 Microsoft M
 2. Sentinel Azure portal에서 Azure Sentinel 배포한는 작업 영역으로 이동 하 고 선택한 행의 끝에서 줄임표 (...)를 선택 **고급 설정**합니다. 
 1. 선택 **데이터** 차례로 **Syslog**합니다.
 1. Barracuda에 설정한 시설 존재 심각도 설정 하 고 클릭 했는지 **저장할**합니다.
-6. Log Analytics에서 관련 스키마를 사용 하 여 Barracuda 이벤트를 검색할 **CommonSecurityLog**합니다.
+6. Log Analytics에서 관련 스키마를 사용 하 여 Barracuda 이벤트를 검색할 **CommonSecurityLog** 하 고 **barracuda_CL**합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384665"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304592"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -76,7 +76,6 @@ Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다
 
 Azure 방화벽을 관리 되는 서비스 (볼 수 없는) NIC 수준 Nsg 사용 하 여 플랫폼 보호를 비롯 한 여러 보호 계층을 사용 합니다.  서브넷 수준 Nsg Azure 방화벽 서브넷에서 불필요 하 고 서비스 중단 되지 않도록 하기 위해 비활성화 됩니다.
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
 PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 사용하는 것이 좋습니다. Azure Firewall 서브넷에서 서비스 엔드포인트를 사용하도록 설정하고, 연결된 스포크 가상 네트워크에서는 사용하지 않도록 설정하도록 선택할 수 있습니다. 이러한 방식으로 서비스 엔드포인트 보안과 모든 트래픽에 대한 중앙 로깅 기능의 이점을 모두 얻을 수 있습니다.
@@ -123,6 +122,10 @@ Azure 방화벽 서비스 제한에 대 한 참조 [Azure 구독 및 서비스 �
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure Firewall이 동일한 가상 네트워크 또는 피어링된 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
 예. 그러나 동일한 VNET의 서브넷 간 트래픽을 리디렉션할 Udr 구성 추가 주의가 필요 합니다. VNET 주소 범위를 UDR의 대상 접두사로 사용하면 충분하지만 이렇게 하면 Azure Firewall 인스턴스를 통해 한 머신의 모든 트래픽이 동일한 서브넷으로 경로 설정되는 문제도 있습니다. 이 문제를 방지하려면 **VNET**의 다음 홉을 사용하여 UDR에 해당 서브넷의 경로를 포함시킵니다. 이러한 경로 관리는 번거롭고 오류가 발생하기 쉬울 수 있습니다. 내부 네트워크 조각화에 대해 UDR이 필요 없는 네트워크 보안 그룹을 사용하는 방법이 권장됩니다.
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>개인 네트워크 사이의 Azure 방화벽 아웃 바운드 SNAT 하나요?
+
+대상 IP 주소는 당 개인 IP 범위를 하는 경우 azure 방화벽 하지 SNAT [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)합니다. 개인 네트워크에 대 한 공용 IP 주소 범위를 사용 하는 조직, 하는 경우 방화벽 개인 IP 중 하나에 트래픽을 Azure 방화벽 SNATs AzureFirewallSubnet의 주소입니다.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>강제 터널링 연결 지원 되는 네트워크 가상 어플라이언스로?
 

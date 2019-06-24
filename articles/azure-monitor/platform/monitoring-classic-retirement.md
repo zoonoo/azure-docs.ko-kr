@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: fb7821b07e68459cb3d76812a12e85387b9f0f52
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497116"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295097"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
 Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나의 경고'를 지원하는 통합된 전체 스택 모니터링 서비스가 되었습니다. 자세한 내용은 [새 Azure Monitor에 대한 블로그 게시물](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)을 참조하세요. 새 Azure 모니터링 및 경고 플랫폼은 성장하고 있는 클라우드 컴퓨팅에 보조를 맞추고 Microsoft 지능형 클라우드 원칙에 맞게 더 빠르고, 더 스마트하게, 확장 가능하도록 설계되었습니다. 
 
-새 Azure 모니터링 및 플랫폼 곳에서 경고를 사용 하 여에서는 사용이 중지 됩니다 "클래식" 모니터링 및 경고에서 호스트 되는 플랫폼 *클래식 경고를 보려면* Azure 경고 섹션 **일까 지 사용할 수 Azure 공용에서 2019 년 8 월 클라우드**합니다. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)는 영향을 받지 않습니다.
+새 Azure 모니터링 및 플랫폼 곳에서 경고를 사용 하 여에서는 사용이 중지 됩니다 "클래식" 모니터링 및 경고에서 호스트 되는 플랫폼 *클래식 경고를 보려면* Azure 경고 섹션 **일까 지 사용할 수 Azure 공용에서 2019 년 8 월 클라우드**합니다. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md) 하 고 [Azure 중국 21Vianet](https://docs.azure.cn/) 적용 되지 것입니다.
 
 > [!NOTE]
 > 클래식 경고 마이그레이션에 대 한 사용 중지 날짜 마이그레이션 도구의 롤아웃을에서 지연으로 인해 되었습니다 [2019 년 8 월 31 일에 확장](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 년 6 월 30 일의 처음 발표 된 날짜에서.
@@ -67,7 +67,7 @@ Azure Monitor에서 8 월 2019의 끝:
 - 경고 2019 년 8 월 이상 (클래식)에 계속 남아 있는 모든 경고 규칙은를 실행 하 고 알림을 발생 계속 있지만 수정에 사용할 수 없습니다.
 - 2019 년 9 월, 클래식 모니터링 및 마이그레이션할 수 있는 경고의 경고 규칙을 시작 자동으로 이동할 Microsoft에서 새 Azure monitor 플랫폼에서 해당 하는 몇 주 단계. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
 - 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 모든 전자 메일 주소, 웹 후크 엔드포인트 또는 클래식 경고 규칙과 연결 된 논리 앱 링크 마이그레이션되면 앞으로 수행할 수 있지만 제대로 동작 하지 않을 수 경고 페이로드 새 플랫폼에서 다른 수 됩니다.
-- 일부 [자동으로 마이그레이션할 수 없는 클래식 경고 규칙](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) 2020 년 6 월까지 실행을 계속 사용자의 수동 작업이 필요 합니다.
+- 일부 [자동으로 마이그레이션할 수 없는 클래식 경고 규칙](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated) 2020 년 6 월까지 실행을 계속 사용자의 수동 작업이 필요 합니다.
 
 > [!IMPORTANT]
 > 단계에서 Microsoft Azure Monitor에 롤아웃 [자발적으로 마이그레이션하는 도구를](alerts-using-migration-tool.md) 클래식 경고 규칙을 곧 새 플랫폼에 로그온 합니다. 고 여전히 존재 하 고 마이그레이션할 수 2019 년 9 월에 시작 하는 모든 클래식 경고 규칙에 대 한 강제로 실행 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 자세한 내용은 참조 하세요. [클래식 경고 규칙 마이그레이션 준비](alerts-prepare-migration.md)

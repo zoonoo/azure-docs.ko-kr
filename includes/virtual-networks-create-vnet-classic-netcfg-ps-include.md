@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116904"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182120"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>PowerShell에서 네트워크 구성 파일을 사용하여 가상 네트워크를 만드는 방법
 Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 가상 네트워크를 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 가상 네트워크를 수정 또는 삭제하고 새 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 네트워크 구성(또는 netcfg) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 가상 네트워크를 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.

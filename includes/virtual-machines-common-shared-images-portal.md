@@ -9,15 +9,15 @@ ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244993"
 ---
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 > [!NOTE]
 > 다시 등록 해야 공유 이미지 갤러리를 사용 하 여 미리 보기 중에 등록 하는 경우는 `Microsoft.Compute` 공급자입니다. 오픈 [Cloud Shell](https://shell.azure.com/bash) 및 형식: `az provider register -n Microsoft.Compute`

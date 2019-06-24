@@ -6,14 +6,14 @@ ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
 ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/23/2019
 ms.locfileid: "66145395"
 ---
 ### <a name="standard-and-neural-voices"></a>표준 및 신경망 음성
 
-이 표를 사용 하 여 지역/끝점에서 표준 및 신경망 음성의 가용성을 확인 합니다.
+이 표를 사용하여 지역/끝점에서의 표준 및 신경망 음성의 가용성을 확인합니다.
 
 | 지역 | 엔드포인트 | 표준 음성 | 신경망 음성 |
 |--------|----------|-----------------|---------------|
@@ -38,7 +38,9 @@ ms.locfileid: "66145395"
 
 ### <a name="custom-voices"></a>사용자 지정 음성
 
-사용자 지정 음성 글꼴을 만든 경우 사용자가 만든 끝점을 사용 합니다. 또한 대체 아래에 나열 된 끝점을 사용할 수 있습니다는 `{deploymentId}` 음성 모델에 대 한 배포 ID를 사용 하 여 합니다.
+
+사용자 지정 음성 글꼴을 만든 경우 사용자가 만든 끝점을 사용 합니다. 또한 `{deploymentId}`를 사용자의 음성 모델에 대한 배포 ID로 변경하여 아래에 나열된 끝점을 사용할 수 있습니다. 
+
 
 | 지역 | 엔드포인트 |
 |--------|----------|

@@ -11,10 +11,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61297017"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시

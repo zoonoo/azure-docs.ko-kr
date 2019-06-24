@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718124"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>CSP를 사용한 VMware와 Azure 간 재해 복구를 위한 다중 테넌트 지원 개요
@@ -24,11 +24,11 @@ ms.locfileid: "60718124"
 
 세 가지 주요 다중 테넌트 모델이 있습니다.
 
-* **공유 HSP(호스팅 서비스 공급 기업)**: 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 실제 스토리지 등)를 사용하여 동일한 인프라에서 다중 테넌트 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 재해 복구를 셀프 서비스 솔루션으로 소유할 수 있습니다.
+* **공유 HSP(호스팅 서비스 공급 기업)** : 파트너는 물리적 인프라를 소유하고 공유 리소스(vCenter, 데이터 센터, 실제 스토리지 등)를 사용하여 동일한 인프라에서 다중 테넌트 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 재해 복구를 셀프 서비스 솔루션으로 소유할 수 있습니다.
 
 * **전용 호스팅 서비스 공급 기업**: 파트너는 물리적 인프라를 소유하지만 전용 리소스(여러 vCenter, 실제 데이터 저장소 등)를 사용하여 별도의 인프라에서 각 테넌트의 VM을 호스팅합니다. 파트너는 재해 복구 관리를 관리 서비스로 제공할 수 있으며 테넌트는 이를 셀프 서비스 솔루션으로 소유할 수 있습니다.
 
-* **MSP(관리형 서비스 공급 기업)**: VM을 호스팅하는 실제 인프라를 고객이 소유하고 파트너는 재해 복구를 사용하고 관리합니다.
+* **MSP(관리형 서비스 공급 기업)** : VM을 호스팅하는 실제 인프라를 고객이 소유하고 파트너는 재해 복구를 사용하고 관리합니다.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>공유 HSP(호스팅 서비스 공급자)
 
@@ -83,7 +83,7 @@ ms.locfileid: "60718124"
    * **VM - 상호 작용** &gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
    * **VM - 인벤토리** > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
    * **VM - 프로비전**> 가상 머신 다운로드 허용, 가상 머신 파일 업로드 허용
-   * **VM - 스냅숏 관리** > 스냅숏 제거
+   * **VM - 스냅샷 관리** &gt; 스냅샷 제거
 
        ![역할 편집 대화 상자](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 

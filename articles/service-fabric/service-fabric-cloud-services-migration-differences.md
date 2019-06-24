@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258646"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
@@ -29,7 +29,7 @@ Cloud Services에서 Service Fabric으로 애플리케이션 마이그레이션�
 ## <a name="applications-and-infrastructure"></a>애플리케이션 및 인프라
 Cloud Services와 Service Fabric 간의 기본적인 차이는 VM, 작업 및 애플리케이션 간의 관계입니다. 여기에서 작업은 특정 작업을 수행하거나 서비스를 제공하도록 작성하는 코드로 정의됩니다.
 
-* **Cloud Services는 VM으로 애플리케이션 배포에 대한 것입니다.**  작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
+* **Cloud Services는 VM으로 애플리케이션 배포에 대한 것입니다.** 작성하는 코드는 웹 또는 작업자 역할과 같은 VM 인스턴스에 밀접하게 결합됩니다. Cloud Services에서 작업을 배포하는 것은 작업을 실행하는 하나 이상의 VM 인스턴스를 배포하는 것입니다. 애플리케이션과 VM의 분리가 없으므로 애플리케이션의 공식 정의가 없습니다. 애플리케이션은 Cloud Services 배포 내에서 웹 또는 작업자 역할 인스턴스 집합 또는 전체 Cloud Services 배포로 생각할 수 있습니다. 이 예제에서 애플리케이션은 역할 인스턴스 집합으로 표시됩니다.
 
 ![Cloud Services 애플리케이션 및 토폴로지][1]
 

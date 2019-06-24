@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055399"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163653"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -211,13 +211,13 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 ## <a id="networktraffic"></a> 네트워크 트래픽 제어
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 인바운드 트래픽 제어
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>HDInsight 클러스터에 인바운드 및 아웃 바운드 트래픽을 제어 하기 위한 기술
 
 Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하여 제어할 수 있습니다.
 
 * **NSG(네트워크 보안 그룹)** 를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
 
-* **네트워크 가상 어플라이언스**는 방화벽 및 라우터와 같은 디바이스 기능을 복제합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
+* **네트워크 가상 어플라이언스** (NVA) 아웃 바운드 트래픽 전용으로 사용 될 수 있습니다. Nva는 방화벽 및 라우터와 같은 장치 기능을 복제 합니다.  자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
 
 관리 서비스로 HDInsight 필요 HDInsight 상태에 대 한 무제한 액세스 및 관리 VNET에서 들어오고 나가는 트래픽에 대 한 서비스. Nsg를 사용 하는 경우 HDInsight 클러스터를 사용 하 여 이러한 서비스 계속 통신할 수 있는지 확인 해야 합니다.
 

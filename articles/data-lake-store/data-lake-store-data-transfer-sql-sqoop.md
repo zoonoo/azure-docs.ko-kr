@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878769"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용하여 Data Lake Storage Gen1과 Azure SQL 데이터베이스 간에 데이터 복사
@@ -107,7 +107,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    각 **part-m-*** 파일은 **Table1** 원본 테이블의 행에 해당합니다. 확인할 part-m-* 파일의 내용을 볼 수 있습니다.
+    각 **part-m-** * 파일은 **Table1** 원본 테이블의 행에 해당합니다. 확인할 part-m-* 파일의 내용을 볼 수 있습니다.
 
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Data Lake Storage Gen1에서 Azure SQL Database로 데이터 내보내기

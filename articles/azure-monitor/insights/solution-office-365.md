@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: bwren
 ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357571"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
@@ -25,7 +25,7 @@ ms.locfileid: "66357571"
 
 
 > [!NOTE]
-> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그를 연결 하려면 사용 합니다 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md), Office 365 관리 로그 보다 더 다양 한 로그 데이터를 제공 하는 합니다. 
+> 설치 하 고 Office 365 솔루션을 구성 하는 것이 좋습니다가 사용 하도록 설정 합니다 [Office 365 커넥터](../../sentinel/connect-office-365.md) 에 [Azure Sentinel](../../sentinel/overview.md) 이 문서의 단계를 사용 하는 대신 합니다. 이 향상 된 구성 환경 사용 하 여 Office 365 솔루션의 업데이트 된 버전입니다. Azure AD 로그를 연결하려면 Office 365 관리 로그보다 풍부한 로그 데이터를 제공하는 [Azure Sentinel Azure AD 커넥터](../../sentinel/connect-azure-active-directory.md)를 사용합니다. 
 >
 > 경우 있습니다 [온 보 딩 Azure Sentinel](../../sentinel/quickstart-onboard.md), Log Analytics 작업 영역에 설치 된 Office 365 솔루션을 지정 합니다. 커넥터를 사용 하도록 설정 하면 솔루션 작업 영역에서 사용할 수 있습니다 하 고 설치한 다른 모니터링 솔루션으로 사용 하는 동일 합니다.
 >
@@ -550,7 +550,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반 <br>Reserved<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반<br>Reserved<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성

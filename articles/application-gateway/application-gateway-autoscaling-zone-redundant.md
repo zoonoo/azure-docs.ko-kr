@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054734"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205007"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 v2 
 
@@ -24,7 +24,7 @@ Application Gateway 및 웹 응용 프로그램 방화벽 (WAF) Standard_v2 및 
 - **영역 중복**: Application Gateway 또는 WAF 배포를 확장할 수 있습니다 여러 가용성 영역을 Traffic Manager와 함께 각 영역에서 별도 Application Gateway 인스턴스를 프로 비전 할 필요성을 제거. 선택할 수 있습니다 단일 영역 또는 Application Gateway 인스턴스 배포 되는 위치, 여러 영역 영역 오류 복원 력이 있습니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 
   영역 중복은 Azure 영역 사용할 수 있는 사용할 수 있습니다. 다른 지역의 다른 모든 기능이 지원 됩니다. 자세한 내용은 참조 하세요. [azure에서 가용성 영역은 무엇입니까?](../availability-zones/az-overview.md#services-support-by-region)
-- **정적 VIP**: Application gateway v2 SKU에서 정적 VIP를 단독으로 입력합니다. 이 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 배포 수명 주기 동안 변경 되지 않는지 확인 합니다.
+- **정적 VIP**: Application Gateway v2 SKU는 독점적으로 정적 VIP 유형을 지원 합니다. 이 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 배포 수명 주기 동안 변경 되지 않는지 확인 합니다.  응용 프로그램 게이트웨이 통해 App Services에 도메인 이름을 라우팅에 대 한 IP 주소 대신 응용 프로그램 게이트웨이 URL을 사용 해야 하므로 v1에서는 정적 VIP 없습니다.
 - **헤더 재작성**: Application Gateway를 사용 하면 추가, 제거 또는 v2 SKU를 사용 하 여 HTTP 요청 및 응답 헤더를 업데이트할 수 있습니다. 자세한 내용은 참조 하세요. [Application Gateway를 사용 하 여 다시 작성 하는 HTTP 헤더](rewrite-http-headers.md)
 - **Key Vault 통합 (미리 보기)** : 응용 프로그램 게이트웨이 v2 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
 - **Azure Kubernetes Service 수신 컨트롤러 (미리 보기)** : Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 Kubernetes Service (AKS (Azure) AKS 클러스터 라고는 수신으로 사용 하도록 허용 합니다. 자세한 내용은 참조는 [설명서 페이지](https://azure.github.io/application-gateway-kubernetes-ingress/)합니다.
@@ -42,7 +42,7 @@ Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중�
 V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니다 및 인스턴스 수 또는 크기에 더 이상 연결 되어 없습니다. V2 SKU 가격의 두 구성 요소:
 
 - **고정된 가격** -이 매시간 (또는 부분 시간 동안) Standard_v2 또는 WAF_v2 게이트웨이 프로 비전 하는 가격입니다.
-- **용량 단위 가격은** -고정된 비용 외에 청구 되는 사용량 기반 비용입니다. 용량 단위 요금도 계산 된 시간 또는 부분 매시간. 용량 단위에 3 차원-단위, 영구 연결 및 처리량을 계산 합니다. 단위는 사용 하는 프로세서 용량이의 측정값을 계산 합니다. 계산 단위에 영향을 주는 요인은 TLS 연결/sec, URL 다시 쓰기 계산 및 WAF 규칙 처리입니다. 영구 연결 지정 된 청구 기간에 application gateway에 설정 된 TCP 연결의 측정값을입니다. 처리량은 지정 된 청구 기간에 자동으로 처리 하는 평균 메가 비트/초입니다.
+- **용량 단위 가격은** -고정된 비용 외에 청구 되는 사용량 기반 비용입니다. 또한 용량 단위 요금은 시간당 또는 부분 시간당 계산됩니다. 용량 단위에는 컴퓨팅 단위, 영구 연결 및 처리량의 세 가지 차원이 있습니다. 컴퓨팅 단위는 사용된 프로세서 용량의 측정값입니다. 계산 단위에 영향을 주는 요인은 TLS 연결/sec, URL 다시 쓰기 계산 및 WAF 규칙 처리입니다. 영구 연결 지정 된 청구 기간에 application gateway에 설정 된 TCP 연결의 측정값을입니다. 처리량은 지정 된 청구 기간에 자동으로 처리 하는 평균 메가 비트/초입니다.
 
 각 용량 단위는 최대 구성 됩니다. 1은 2.22 5mbps 처리량 단위 또는 2500 영구 연결을 계산합니다.
 

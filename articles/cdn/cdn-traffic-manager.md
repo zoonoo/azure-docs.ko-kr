@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955273"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273281"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -81,7 +81,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
     이 등록 프로세스를 완료하려면 Azure CDN은 *cdnverify* 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
     
- > [!NOTE]
+    > [!NOTE]
     > SSL을 사용 하도록 설정 하는 **akamai에서의 Azure CDN** 프로필 해야 직접 사용자 지정 도메인 cname 끝점입니다. SSL 사용에 대 한 cdnverify 아직 지원 되지 않습니다. 
     >
 

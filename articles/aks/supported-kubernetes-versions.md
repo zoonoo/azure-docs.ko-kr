@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069667"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205284"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -52,9 +52,9 @@ AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다.
 
 예를 들어 AKS 소개 *1.13.x* 다음 버전에 대 한 지원이 제공 됩니다는 현재:
 
-부 버전이 새로 지원 되는 버전 목록
------------------        ----------------------
-1.13.x                   1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+새로운 부 버전    |    지원 되는 버전 목록
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 여기서 "x" 및 ".a" 및 ".b"은 대표 패치 버전입니다.
 
@@ -84,11 +84,15 @@ AKS 위의 부 버전 외에도 두 가지 최신 버전 지원 *패치** 버전
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> 고객은 클러스터 생성, CI 또는 다른 자동화 된 작업 특정 패치 버전을 고정 하지 해야 합니다. 
+
 ### <a name="communications"></a>통신
 
 * 새로운 **사소한** Kubernetes 버전
-  * 모든 사용자는 새 버전 및 버전을 제거할 수는 알림이 표시 됩니다.
-  * 버전을 실행 하는 고객 **제거할** 알림이 표시 됩니다 있는지 **60 일 동안** 지원 되는 버전 (예: 부 버전)으로 업그레이드 합니다.
+  * 새 버전 및 버전을 제거할 수는 모든 사용자에 게 공개적으로 알림이 표시 됩니다.
+  * 새 패치 버전이 릴리스되면 가장 오래 된 패치 릴리스는 동시에 제거 됩니다.
+  * 고객 **60 일 동안** 지원 되는 부 버전 릴리스로 업그레이드 하려면 공용 알림 날짜에서입니다.
 * 새로운 **패치** Kubernetes 버전
   * 최신 패치 릴리스에서를 업그레이드 하 고 해제 하 고 새 패치 버전의 모든 사용자에 게 알림이 표시 됩니다.
   * 명의 **30 일 동안** 최신의 지원 되는 패치 릴리스를로 업그레이드 합니다. 명의 **30 일 동안** 가장 오래 된 제거 되기 전에 지원 되는 패치 릴리스를 업그레이드 합니다.

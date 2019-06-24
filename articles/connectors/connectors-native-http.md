@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713804"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 HTTP 또는 HTTPS 엔드포인트 호출
@@ -71,7 +71,7 @@ Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여
    ![HTTP 작업 선택](./media/connectors-native-http/select-http-action.png)
 
    단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+   표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
 1. 대상 엔드포인트에 대한 호출에 포함하려는 [HTTP 작업의 매개 변수 및 값](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)을 제공합니다. 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606375"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
@@ -29,7 +29,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 * 대역폭
 * 전송되는 데이터
-* 적중
+* 적중 횟수
 * 캐시 상태
 * 캐시 적중률
 * 전송되는 IPv4/IPv6 데이터
@@ -96,7 +96,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * 만료
+  * Expires
 * TCP_MISS: 이 상태는 클라이언트에 가장 가까운 POP에서 요청 된 자산의 캐시 된 버전을 찾을 수 없습니다 나타냅니다. 원본 서버 또는 원본 보호 서버의 자산이 요청됩니다. 원본 서버 또는 원본 보호 서버가 자산을 반환하면 클라이언트에 제공되고 클라이언트와 에지 서버 둘 다에 캐시됩니다. 그렇지 않으면 200 이외의 상태 코드(예를 들어 403 사용할 수 없음 또는 404 찾을 수 없음)가 반환됩니다.
 * TCP_EXPIRED_HIT: TTL이 만료 된 자산을 대상으로 하는 요청이 클라이언트로 POP에서 직접 처리 된 경우이 상태가 보고 됩니다. 예를 들어 자산의 max-age 기간이 만료되었습니다. 
   

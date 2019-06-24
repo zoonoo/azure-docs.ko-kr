@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555829"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>호스트 응용 프로그램을 Kubernetes 0 계측 응용 프로그램 모니터링
@@ -78,7 +78,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - 값을 편집할 *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 원격 분석을 포함 하는 Azure portal에서 Application Insights 리소스의 계측 키를 포함 하는 환경 변수입니다.
     - 필요한 경우 값을 편집할 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수를 모니터링할 수 있도록 하려는 네임 스페이스의 쉼표로 구분 된 목록을 포함 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
-4. 적용 *마다* YAML 파일에서 찾을 *src/kubernetes/* 다음을 실행 하 여 (내 해야 */srckubernetes/*):
+4. 적용 *마다* YAML 파일에서 찾을 *src/kubernetes/* 다음을 실행 하 여 (내 해야 */srckubernetes/* ):
 
    ```console
    kubectl apply -f .

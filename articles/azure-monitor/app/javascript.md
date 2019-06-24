@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387268"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
@@ -144,17 +144,17 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 페이지 보기 수 및 표준 편차를 확인합니다. 페이지 수가 매우 낮은 경우 사용자에게 큰 문제가 되지 않습니다. 높은 표준 편차(자체 평균 비교 시)는 개별 측정값 간의 차이가 많음을 나타냅니다.
 
-**한 URL 및 한 페이지 보기에서 확대합니다.**  해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
+**한 URL 및 한 페이지 보기에서 확대합니다.** 해당 URL에 대해서만 필터링된 브라우저 차트의 블레이드를 보려면 페이지 이름을 클릭한 다음, 페이지 보기의 인스턴스를 클릭합니다.
 
 ![](./media/javascript/35.png)
 
 `...`을(를) 클릭하여 해당 이벤트에 대한 속성의 전체 목록을 보거나 Ajax 호출 및 관련된 이벤트를 검사합니다. 느린 Ajax 호출은 동기화할 때 전체 페이지 로드 시간에 영향을 줍니다. 관련된 이벤트에는 동일한 URL에 대한 서버 요청을 포함합니다(웹 서버에서 Application Insights를 설정한 경우).
 
-**시간에 따른 페이지 성능**  브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
+**시간에 따른 페이지 성능** 브라우저 블레이드로 돌아와서 특정 시간에 최대치가 있는지 확인하기 위해 페이지 보기 로드 시간 표를 꺾은선형 차트로 변경합니다.
 
 ![표의 머리글을 클릭하고 새 차트 종류를 선택합니다.](./media/javascript/10-page-perf-area.png)
 
-**다른 차원으로 분류**  특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
+**다른 차원으로 분류** 특정 브라우저, 클라이언트 OS 또는 사용자 거주지에 따라 페이지 로드 시간이 느려질 수 있습니까? 새 차트를 추가하고 **Group-by** 차원을 실험해봅니다.
 
 ![](./media/javascript/21.png)
 

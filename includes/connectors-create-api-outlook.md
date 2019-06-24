@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146782"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182457"
 ---
 1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 예를 들어이 트리거를 선택 합니다. **새 전자 메일이 도착했을 때**
 

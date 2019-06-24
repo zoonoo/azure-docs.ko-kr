@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116329"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182584"
 ---
 >[!NOTE]
 >고정 되지 않는 리소스에 대 한 할당량 증가 요청 하려면 지원 티켓을 엽니다. 더 높은 한도 가져오려고 시도할 때 추가 Azure Media Services 계정을 만들지 마세요.
@@ -25,11 +25,11 @@ ms.locfileid: "66116329"
 | 작업당 자산 | 100 |
 | 한번에 자산과 연결된 고유 로케이터 | 5<sup>4</sup> |
 | Media Services 계정당 라이브 채널 |5|
-| 채널당 중지 상태인 프로그램  |50|
-| 채널당 실행 상태인 프로그램  |3|
+| 채널당 중지 상태인 프로그램 |50|
+| 채널당 실행 상태인 프로그램 |3|
 | 스트리밍 끝점은 중지 하거나 Media Services 계정당 실행|2|
 | 스트리밍 엔드포인트당 스트리밍 단위 |10 |
-| 저장소 계정 | 1,000<sup>5</sup>(고정) |
+| Storage 계정 | 1,000<sup>5</sup>(고정) |
 | 정책 | 1,000,000<sup>6</sup> |
 | 파일 크기| 일부 시나리오에서는 Media Services에서 처리를 위해 지원 되는 최대 파일 크기에서 제한이 됩니다 있습니다. <sup>7</sup> |
 

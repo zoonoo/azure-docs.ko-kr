@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620284"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275186"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록
 
@@ -35,16 +35,16 @@ WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가�
 
 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다. 이러한 특성은 WAF 규칙에서 가양성을 트리거할 수 있는 특수 문자를 포함하는 경우가 많습니다. WAF 제외 목록에 추가된 특성은 구성된 활성 WAF 규칙에서 고려되지 않습니다. 제외 목록의 범위는 전역입니다.
 
-제외 목록에 다음 특성을 추가할 수 있습니다.
+제외 목록에 다음 특성을 추가할 수 있습니다. 선택한 필드의 값은 WAF 규칙에 대해 평가 되지 않습니다. 제외 제거 검사 필드의 값을 나열합니다.
 
 * 요청 헤더
 * 요청 쿠키
-* 요청 특성 이름 (args)
+* 요청 특성 이름 (args)와 같은 제외 요소로 추가할 수 있습니다.
 
-   * 다중 파트 데이터 양식
-   * XML
-   * JSON
-   * URL 쿼리 인수
+   * 양식 필드 이름
+   * XML 엔터티
+   * JSON 엔터티
+   * URL 쿼리 문자열 인수
 
 정확히 일치하는 요청 헤더, 본문, 쿠키 또는 쿼리 문자열 특성을 지정할 수 있습니다.  또는 필요한 경우 부분 일치를 지정할 수도 있습니다. 제외는 값이 아닌 헤더 필드에 항상 켜져 있습니다. 제외 규칙은 범위에서 전역적이며 모든 페이지 및 규칙에 적용됩니다.
 

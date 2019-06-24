@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341442"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154572"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Java 및 Eclipse를 사용 하 여 첫 번째 함수 만들기 
 
@@ -43,15 +43,15 @@ Azure Functions를 실행 및 디버그하기 위한 로컬 환경을 제공하�
 
 ## <a name="create-a-functions-project"></a>Functions 프로젝트 만들기
 
-1. Eclipse에서 **File**(파일) 메뉴를 선택한 다음 **Project**(프로젝트)를 선택합니다. 
-1. **New Project**(새 프로젝트) 창에서 **Java Project** 폴더를 열고 **Maven Project**를 선택한 다음, **Next**(다음)를 선택합니다.
+1. Eclipse에서 선택 합니다 **파일** 메뉴에서 선택한 **새로 만들기-&gt; Maven 프로젝트**합니다. 
 1. **New Maven Project** 대화 상자의 기본값을 그대로 두고 **Next**(다음)를 선택합니다.
 1. **Add Archetype**을 선택하고 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)에 대한 항목을 추가합니다.
     - Archetype Group ID: com.microsoft.azure
     - Archetype Artifact ID: azure-functions-archetype
-    - 버전: 사용 하 여 최신 버전 [중앙 리포지토리](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - 버전: 사용 하 여 최신 버전 **1.22** 에서 [눈에 보는](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven 만들기](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. **확인**을 클릭하고 현재 프로젝트에 대한 세부 정보를 입력한 후 **마침**을 클릭합니다.
+1. 클릭 **확인** 을 클릭 한 다음 **다음** 스냅숏 같은 값을 입력 (이외의 다른 appName을 사용 하십시오 **fabrikam-함수-20170920120101928**), 및 결국 **완료**합니다.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
 
@@ -68,7 +68,7 @@ Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭�
 
 ### <a name="debug-the-function-in-eclipse"></a>Eclipse에서 함수 디버그
 
-이전 단계의 **Run As**(다음으로 실행) 구성 설정에서 `azure-functions:run`을 `mvn azure-functions:run -DenableDebug`로 변경하고 업데이트된 구성을 실행하여 디버그 모드로 함수 앱을 시작합니다.
+이전 단계의 **Run As**(다음으로 실행) 구성 설정에서 `azure-functions:run`을 `azure-functions:run -DenableDebug`로 변경하고 업데이트된 구성을 실행하여 디버그 모드로 함수 앱을 시작합니다.
 
 **Run**(실행) 메뉴를 선택하고 **Debug Configurations**(디버그 구성)을 엽니다. **Remote Java Application**(원격 Java 애플리케이션)을 선택하고 새 항목을 만듭니다. 구성에 이름을 지정하고 설정을 입력합니다. 포트는 함수 호스트에 의해 열린 디버그 포트(기본값: `5005`)와 일치해야 합니다. 설정 후 `Debug`를 클릭하여 디버그를 시작합니다.
 

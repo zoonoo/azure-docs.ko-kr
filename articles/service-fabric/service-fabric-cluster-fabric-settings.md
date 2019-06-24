@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074302"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144403"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -150,7 +150,7 @@ ms.locfileid: "67074302"
 |PartitionPrefix|string, 기본값은 "--"입니다.|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |

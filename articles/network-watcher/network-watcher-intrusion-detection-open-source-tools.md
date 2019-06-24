@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605708"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
 패킷 캡처는 네트워크 IDS(침입 검색 시스템)를 구현하고 NSM(네트워크 보안 모니터링)을 수행하기 위한 핵심 구성 요소입니다. 패킷 캡처를 처리하고 가능한 네트워크 침입 및 악의적인 활동의 서명을 찾기 위한 여러 가지 오픈 소스 IDS 도구가 있습니다. Network Watcher에서 제공하는 패킷 캡처를 사용하여 나쁜 영향을 주는 침입 또는 취약성에 대해 네트워크를 분석할 수 있습니다.
 
-이러한 오픈 소스 도구로 Suricata가 있으며, 의심스러운 이벤트가 발생할 때마다 경고를 트리거하고 네트워크 트래픽을 모니터링하는 규칙 집합을 사용하는 IDS 엔진입니다. Suricata는 멀티스레드 엔진을 제공하므로 빨라진 속도 및 효율성으로 네트워크 트래픽 분석을 수행할 수 있습니다. Suricata 및 해당 기능에 대한 자세한 내용은 https://suricata-ids.org/에서 웹 사이트를 방문하세요.
+이러한 오픈 소스 도구로 Suricata가 있으며, 의심스러운 이벤트가 발생할 때마다 경고를 트리거하고 네트워크 트래픽을 모니터링하는 규칙 집합을 사용하는 IDS 엔진입니다. Suricata는 멀티스레드 엔진을 제공하므로 빨라진 속도 및 효율성으로 네트워크 트래픽 분석을 수행할 수 있습니다. Suricata 및 해당 기능에 대한 자세한 내용은 https://suricata-ids.org/ 에서 웹 사이트를 방문하세요.
 
 ## <a name="scenario"></a>시나리오
 
@@ -39,7 +39,7 @@ ms.locfileid: "65605708"
 
 ### <a name="install-suricata"></a>Suricata 설치
 
-설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/latest/install.html을 방문하세요.
+설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/latest/install.html 을 방문하세요.
 
 1. VM의 명령줄 터미널에서 다음 명령을 실행합니다.
 

@@ -59,7 +59,7 @@
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
-    - name: HeadPose를 사용하여 사각형 회전
+    - name: HeadPose 특성 사용
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 얼굴 인식 모델 지정
       href: Face-API-How-to-Topics/specify-recognition-model.md

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238248"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182569"
 ---
 | Resource | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "66238248"
 
 #### <a name="template-limits"></a>템플릿 제한
 
-| Value | 기본 제한 | 최대 제한 |
+| 값 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 매개 변수 |256 |256 |
 | variables |256 |256 |

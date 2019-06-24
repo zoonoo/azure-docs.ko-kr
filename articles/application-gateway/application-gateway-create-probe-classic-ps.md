@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "58861882"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
@@ -154,7 +154,7 @@ Get-AzureApplicationGateway AppGwTest
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
 | **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어, 웹 사이트 http을 사용 하는 경우:\//contoso.com/, 다음 사용자 지정 프로브를 구성할 수 있습니다 "http:\//contoso.com/path/custompath.htm" 프로브를 성공적으로 HTTP에 응답을 검사 합니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
-| **시간 제한** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
+| **Timeout** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
 | **UnhealthyThreshold** | 백 엔드 인스턴스를 *unhealthy*(비정상) 플래그로 지정하는 데 필요한 실패한 HTTP 응답 수입니다.|
 
 프로브 이름은 사용자 지정 프로브 설정에 사용할 백 엔드 풀을 할당하는 \<BackendHttpSettings\> 구성에서 참조합니다.

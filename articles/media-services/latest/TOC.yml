@@ -19,28 +19,19 @@
         - name: Node.js 사용
           href: stream-files-nodejs-quickstart.md
     - name: 업로드된 파일 인코딩 및 비디오 스트리밍
-      items:
-        - name: .NET 사용
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: 라이브 스트리밍
-      items:
-        - name: .NET 사용
-          href: stream-live-tutorial-with-api.md
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: 비디오 분석
-      items:
-        - name: .NET 사용
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: AES-128로 동적으로 암호화
-      items:
-        - name: .NET 사용
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: DRM을 사용하여 동적으로 암호화
-      items:
-        - name: .NET 사용
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: 개념
   items:
     - name: 개요
@@ -122,6 +113,7 @@
           href: live-streaming-overview.md
         - name: 라이브 이벤트 및 라이브 출력
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: 권장되는 라이브 인코더
           href: recommended-on-premises-live-encoders.md
         - name: 클라우드 DVR 사용

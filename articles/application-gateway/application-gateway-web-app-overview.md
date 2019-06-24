@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8434340bb7ed95cc36115c05048b2b67682b5796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807169"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>App service와 같은 다중 테 넌 트 백에 대 한 응용 프로그램 게이트웨이 지원은 종료 됩니다.
 
 웹 서버에서 다중 테 넌 트 아키텍처 설계에서 여러 웹 사이트는 동일한 웹 서버 인스턴스가에서 실행 됩니다. 호스트는 호스팅되는 다른 응용 프로그램을 구분 하는 데 사용 됩니다. 기본적으로 애플리케이션 게이트웨이는 클라이언트에서 들어오는 HTTP 호스트 헤더를 변경하지 않으며 변경되지 않은 헤더를 백 엔드로 보냅니다. Nic와 같은 백 엔드 풀 멤버에이 적합 합니다, 가상 머신 확장 집합, 공용 IP 주소, 내부 IP 주소 및 FQDN으로 이러한 특정 호스트 헤더 또는 SNI 확장에 올바른 끝점으로 해석에 의존 하지 마십시오. 그러나는 본질적으로 다중 테 넌 트 및 특정 호스트 헤더 또는 SNI 확장 올바른 끝점으로 해석에 의존 하는 Azure App service web apps 및 Azure API management와 같은 여러 서비스가 있습니다. 일반적으로는 응용 프로그램에는 응용 프로그램 게이트웨이에 연결 된 DNS 이름, DNS 이름은 백 엔드 서비스의 도메인 이름과에서 다릅니다. 따라서 응용 프로그램 게이트웨이에서 수신 하는 원래 요청에 호스트 헤더가 아닙니다 백 엔드 서비스의 호스트 이름과 동일 합니다. 이 인해 응용 프로그램 게이트웨이에서 백 엔드에 요청에 호스트 헤더를 백 엔드 서비스의 호스트 이름 변경 하지 않으면 다중 테 넌 트 백 엔드 수 없는 올바른 끝점으로 요청을 확인 합니다. 
 
-Application gateway는 백 엔드의 호스트 이름에 따라 요청에 HTTP 호스트 헤더를 재정의 하는 사용자를 허용 하는 기능을 제공 합니다. 이 기능을 사용 하면 Azure App service web apps 및 API management와 같은 다중 테 넌 트 백 엔드에 대 한 지원. 이 기능은 v1 및 v2 표준 및 WAF Sku에 대해 사용할 수 있습니다. 
+Application Gateway는 사용자가 백 엔드의 호스트 이름에 따라 요청의 HTTP 호스트 헤더를 재정의할 수 있는 기능을 제공합니다. 이 기능을 사용하면 Azure 앱 서비스 웹앱 및 API 관리 같은 다중 테넌트 백 엔드를 지원할 수 있습니다. 이 기능은 v1/v2 표준 및 WAF SKU에 모두 사용할 수 있습니다. 
 
 ![호스트 재정](./media/application-gateway-web-app-overview/host-override.png)
 
@@ -31,7 +31,7 @@ Application gateway는 백 엔드의 호스트 이름에 따라 요청에 HTTP �
 
 - 호스트 이름을 HTTP 설정에 명시적으로 입력 한 고정된 값으로 설정 하는 기능. 이 기능은 호스트 헤더는 특정 HTTP 설정이 적용 되는 백 엔드 풀에 대 한 모든 트래픽에 대해이 값으로 재정의 되는 않도록 합니다. 종단 간 SSL을 사용하면 이 재정의된 호스트 이름이 SNI 확장에 사용됩니다. 이 기능은 백 엔드 풀 팜이 들어오는 고객 호스트 헤더와 다른 호스트 헤더를 예상하는 시나리오를 지원할 수 있습니다.
 
-- 백 엔드 풀 멤버의 IP 또는 FQDN에서 호스트 이름을 파생하는 기능. HTTP 설정에는 또한 동적으로 개별 백 엔드 풀 멤버에서 호스트 이름을 파생 하는 옵션을 사용 하 여 구성 하는 경우 백 엔드 풀 멤버의 FQDN에서 호스트 이름을 선택 하는 옵션도 제공 합니다. 종단 간 SSL을 사용하면 이 호스트 이름이 FQDN에서 파생되며 SNI 확장에 사용됩니다. 이 기능을 사용하면 백 엔드 풀이 Azure 웹앱 같은 다중 테넌트 PaaS 서비스를 두 개 이상 가질 수 있고 각 멤버에 대한 요청의 호스트 헤더에 FQDN에서 파생된 호스트 이름이 포함되는 시나리오를 지원할 수 있습니다. 이 시나리오를 구현, 호출 하는 HTTP 설정에서 스위치를 사용 [백 엔드 주소에서 호스트 이름 선택](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) 는 동적으로 백 엔드 풀에서 언급 한 원래 요청에 호스트 헤더를 재정의 합니다.  예를 들어, 백 엔드 풀 FQDN "contoso11.azurewebsites.net" 및 "contoso22.azurewebsites.net"가 포함 된 경우 원래 요청의 호스트 헤더를 contoso.com 재정의 됩니다 contoso11.azurewebsites.net 또는 contoso22.azurewebsites.net 경우 요청이 적절 한 백 엔드 서버에 보내집니다. 
+- 백 엔드 풀 멤버의 IP 또는 FQDN에서 호스트 이름을 파생하는 기능. HTTP 설정에는 또한 동적으로 개별 백 엔드 풀 멤버에서 호스트 이름을 파생 하는 옵션을 사용 하 여 구성 하는 경우 백 엔드 풀 멤버의 FQDN에서 호스트 이름을 선택 하는 옵션도 제공 합니다. 종단 간 SSL을 사용하면 이 호스트 이름이 FQDN에서 파생되며 SNI 확장에 사용됩니다. 이 기능을 사용하면 백 엔드 풀이 Azure 웹앱 같은 다중 테넌트 PaaS 서비스를 두 개 이상 가질 수 있고 각 멤버에 대한 요청의 호스트 헤더에 FQDN에서 파생된 호스트 이름이 포함되는 시나리오를 지원할 수 있습니다. 이 시나리오를 구현, 호출 하는 HTTP 설정에서 스위치를 사용 [백 엔드 주소에서 호스트 이름 선택](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) 는 동적으로 백 엔드 풀에서 언급 한 원래 요청에 호스트 헤더를 재정의 합니다.  예를 들어, 백 엔드 풀 FQDN "contoso11.azurewebsites.net" 및 "contoso22.azurewebsites.net"가 포함 된 경우 원래 요청의 호스트 헤더를 contoso.com 재정의 됩니다 contoso11.azurewebsites.net 또는 contoso22.azurewebsites.net 경우 요청이 적절 한 백 엔드 서버에 보내집니다. 
 
   ![웹앱 시나리오](./media/application-gateway-web-app-overview/scenario.png)
 

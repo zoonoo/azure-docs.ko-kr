@@ -9,10 +9,10 @@ ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 653db1497fcce5981bba7416f073b0330ca2861f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66398142"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
@@ -117,7 +117,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 3. 선택한 기본 설정을 그대로 두고 **확인**합니다.
     - **복사 빈도** 는 초기 복제 후 델타 데이터를 복제 5 분 마다 나타냅니다.
     - **복구 지점 보존** 2 시간 동안 각 복구 지점 보존 되는 것을 나타냅니다.
-    - **앱 일치 스냅숏 빈도**는 앱 일치 스냅숏을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
+    - **앱 일치 스냅샷 빈도**는 앱 일치 스냅샷을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
     - **초기 복제 시작 시간**은 초기 복제가 즉시 시작됨을 나타냅니다.
     - **Azure에 저장 된 데이터 암호화** 기본값으로 설정 됩니다 (**해제**) 하 고 Azure에서 미사용 데이터 암호화 되지 않습니다 나타냅니다.
 4. 정책이 만들어지면 **확인**을 선택합니다. 새 정책을 만들면 VMM 클라우드를 사용 하 여 자동으로 연결 되어 있습니다.

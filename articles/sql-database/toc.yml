@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: .NET을 사용하여 데이터베이스 디자인
           href: sql-database-design-first-database-csharp.md
-    - name: SQL Database로 마이그레이션
+    - name: 단일 데이터베이스
       items:
         - name: DMS를 사용하여 단일/풀링된 데이터베이스로 마이그레이션
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: DMS를 사용하여 관리되는 인스턴스로 마이그레이션
+        - name: 지리적으로 분산된 데이터베이스 구현
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Azure SQL 데이터 동기화 설정
+          href: sql-database-get-started-sql-data-sync.md
+    - name: 관리되는 인스턴스
+      items:
+        - name: DMS를 사용하여 온라인 마이그레이션
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: 트랜잭션 복제 구성
+          href: replication-with-sql-database-managed-instance.md
     - name: SQL Database의 보안
       items:
         - name: 단일 및 풀링된 데이터베이스 보안
           href: sql-database-security-tutorial.md
         - name: Managed Instance 보안
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: 지리적으로 분산된 데이터베이스 구현
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Azure SQL 데이터 동기화 설정
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: R에서 예측 모델 빌드
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: 기본 제공 방화벽 보호 확인
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: 트랜잭션 복제
-          href: replication-with-sql-database-managed-instance.md
         - name: 위협 감지 구성
           href: sql-database-managed-instance-threat-detection.md
         - name: 애플리케이션 연결

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 4b764c8e7c3d97ff521add05033265f705c4136f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399528"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
@@ -35,7 +35,7 @@ ms.locfileid: "66399528"
 
 ### <a name="install-the-agent-on-windows-vms"></a>Windows Vm 에이전트 설치
 
-9.7.0.0 이전의 Site Recovery 모바일 서비스의 버전을 실행 하는 경우 에이전트를 수동으로 설치 하려면 다른 필요한 경우 다음을 수행 합니다.  
+9\.7.0.0 이전의 Site Recovery 모바일 서비스의 버전을 실행 하는 경우 에이전트를 수동으로 설치 하려면 다른 필요한 경우 다음을 수행 합니다.  
 
 1. VM에 대 한 관리자 권한이 있는지 확인 합니다.
 2. 다운로드 합니다 [VM 에이전트 설치 관리자](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966311"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296181"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>자주 묻는 질문-Azure Vm 백업
 
@@ -89,6 +89,9 @@ WA 지원 디스크에는 스냅샷을 만들 수 없습니다. 그러나 Azure 
 Azure Backup은 WA 지원 디스크를 백업할 수 없지만 백업에서 제외할 수는 있습니다. 그러나 WA 지원 디스크의 정보가 백업되지 않으므로 백업하더라도 데이터베이스 일관성이 제공되지 않습니다. 운영 체제 디스크 백업 및 WA 미사용 디스크 백업을 원하는 경우 이 구성으로 디스크를 백업하면 됩니다.
 
 비공개 미리 보기는 SAP HANA 백업에 대 일 분의 RPO를 사용 하 여 실행 합니다. SQL DB 백업과 비슷한 방식으로 빌드되었으며, SAP HANA에서 인증한 backInt 인터페이스를 타사 솔루션에 사용합니다. 원하는 경우 메일을 보내세요 `AskAzureBackupTeam@microsoft.com` 주체를 사용 하 여 **Azure Vm에서 SAP hana 백업에 대 한 비공개 미리 보기 등록**합니다.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>이란는 최대 지연 시간을 내 VM 백업 정책에 설정 된 예약 된 백업 시간에서 백업 시작 시간에서 예상할 수 있나요?
+예약된 된 백업은 예약된 된 백업 시간 2 시간 이내 트리거됩니다. 에 대 한 예입니다. 100 대의 Vm 백업 시작 시간 오전 2 시에 예약 된 경우 다음 최대 오전 4:00 하 여 모든 100VMs 해야 백업 작업이 진행에서 합니다. 예약 된 백업 일시 중지 되었습니다. 중단 및 다시 시작 하 고 재시도 인해 backup이 예약 된 2 시간 창 외부에서 시작할 수 있습니다.
 
 
 ## <a name="restore"></a>복원

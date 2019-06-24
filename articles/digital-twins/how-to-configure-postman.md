@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735044"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116559"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -41,7 +41,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
     [![Azure Active Directory 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. **매니페스트**를 클릭하여 앱에 대한 애플리케이션 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
+1. 선택 **매니페스트** 앱에 대 한 응용 프로그램 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
 
     [![Azure Active Directory 암시적 흐름](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -111,7 +111,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
    > * 각 파트에 대해 해당 헤더를 지정할 필요가 없습니다.
    > * 전체 요청에 대해서는 `multipart/mixed` 또는 다른 적절한 **Content-Type**을 선택해야 합니다.
 
-1. 마지막으로, **보내기**를 클릭하여 다중 파트 HTTP POST 요청을 제출합니다.
+1. 마지막으로, 선택 **보낼** 다중 파트 HTTP POST 요청을 제출 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

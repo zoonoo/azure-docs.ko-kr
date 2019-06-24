@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473179"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190360"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리 (미리 보기)의 일반적인 시나리오
 
@@ -124,4 +124,4 @@ ms.locfileid: "66473179"
 ## <a name="next-steps"></a>다음 단계
 
 - [자습서: 첫 번째 액세스 패키지 만들기](entitlement-management-access-package-first.md)
-- [기존 액세스 패키지 편집 및 관리](entitlement-management-access-package-edit.md)
+- [작업을 위임](entitlement-management-delegate.md)

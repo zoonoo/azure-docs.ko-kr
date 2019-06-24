@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60722577"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
@@ -92,7 +92,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     ![Microsoft.Batch 공급자 등록][register_provider]
 
-1. **구독** 페이지에서 **액세스 제어(IAM)** > **역할 할당** > **역할 할당 추가**를 차례로 선택합니다.
+1. **구독** 페이지에서 **액세스 제어(IAM)**  > **역할 할당** > **역할 할당 추가**를 차례로 선택합니다.
 
     ![구독 액세스 제어][subscription_access]
 

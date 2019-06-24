@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305065"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
@@ -110,15 +110,15 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * Id
 * 항목
 * Subject
-* EventType
+* 이벤트 유형
 * DataVersion
 * 이벤트 데이터(예: Data.key1)
 
 클라우드 이벤트 스키마의 이벤트의 경우 키에 대해 다음 값을 사용합니다.
 
 * EventId
-* 원본
-* EventType
+* source
+* 이벤트 유형
 * EventTypeVersion
 * 이벤트 데이터(예: Data.key1)
 
@@ -129,7 +129,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 값은 다음이 될 수 있습니다.
 
 * number
-* string
+* 문자열
 * 부울
 * array
 

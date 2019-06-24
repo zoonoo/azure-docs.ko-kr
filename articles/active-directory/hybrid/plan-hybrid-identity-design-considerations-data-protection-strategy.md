@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109364"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -106,7 +106,7 @@ Azure Active Directory는 수천 개의 SaaS 애플리케이션 및 온-프레�
 >
 >
 
-Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 애플리케이션에 로그인할 수 있도록 모바일 비즈니스 애플리케이션은 동일하게 쉬운 Mobile Services 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 Mobile Services에서 ID 공급자로 지원됩니다(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함). 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 애플리케이션, Web API, Microsoft 클라우드 서비스, 타사 SaaS 애플리케이션 및 네이티브(모바일) 클라이언트 애플리케이션에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 이 구현의 유효성을 검사하는 것이 좋습니다.
+Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 애플리케이션에 로그인할 수 있도록 모바일 비즈니스 애플리케이션은 동일하게 쉬운 Mobile Services 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 Mobile Services에서 ID 공급자로 지원됩니다(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함). 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 응용 프로그램, web API, Microsoft 클라우드 서비스, 타사 SaaS 응용 프로그램 및 네이티브 (모바일) 클라이언트 응용 프로그램에 사용자의 조건부 액세스 제어를 관리 하 고 감사, 보고 올인원 보안의 이점을 가질 수 있습니다. 배치 합니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 이 구현의 유효성을 검사하는 것이 좋습니다.
 
 > [!TIP]
 > Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 디바이스에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 디바이스 관리 솔루션이 필요합니다.
@@ -131,7 +131,7 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
    > 애플리케이션을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 경우 권한 부여를 위해 Azure AD 애플리케이션 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
 
 
-3. Microsoft Intune을 사용하여 Office 365 애플리케이션에 대해 조건부 액세스:  IT 관리자는 조건부 액세스 디바이스 정책을 프로비전하여 회사 리소스를 보호하는 동시에 정보 작업자가 규정 준수 디바이스에서 서비스에 액세스할 수 있게 합니다. 
+3. Microsoft Intune을 사용하여 Office 365 애플리케이션에 대해 조건부 액세스:  IT 관리자에서 동시 정보 근로자 서비스에 액세스 하 여 규격 장치에서 허용 하는 동안 회사 리소스 보호에 조건부 액세스 장치 정책을 프로 비전 할 수 있습니다. 
   
 4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 애플리케이션별 다단계 인증 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 애플리케이션에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 애플리케이션에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 

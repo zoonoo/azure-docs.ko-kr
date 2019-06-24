@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734833"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295286"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Azure Monitor를 사용 하 여 모니터링
 
@@ -29,7 +29,7 @@ ms.locfileid: "66734833"
 ## <a name="using-log-analytics-workspace"></a>Log Analytics 작업 영역을 사용 하 여
 
 > [!NOTE]
-> 진단 설정 통한 Log Analytics 작업 영역에 Azure VM 백업, MAB 에이전트를 System Center DPM (SC-DPM)에서 Azure Vm에서 SQL 백업에서에서 데이터를 주입 되는 합니다. Azure 파일 공유 백업에 Microsoft Azure Backup Server (MABS)에 대 한 지원이 곧 제공 됩니다.
+> 진단 설정 통한 Log Analytics 작업 영역에 Azure VM 백업, MAB Agent, System Center DPM (SC DPM), Azure Vm에서 SQL 백업 및 Azure 파일 공유 백업에서 데이터를 주입 되는 합니다. Microsoft Azure Backup Server (MABS)에 대 한 지원이 곧 제공 됩니다.
 
 두 개의 Azure 서비스의 기능을 활용 하는 것 **진단 설정** (보낼 데이터 여러 Azure Resource Manager 리소스에서 다른 리소스) 및 **Log Analytics** (LA-생성 하려면 작업 그룹을 사용 하 여 다른 알림 채널로 정의할 수 있는 사용자 지정 경고) 규모의 모니터링에 대 한 합니다. LA를 사용 하 여 대규모 Azure Backup을 모니터링 하는 방법은 다음 섹션에서는 세부 정보입니다.
 
@@ -47,6 +47,9 @@ LA 작업 영역을 대상으로 하는 다른 구독에서 선택할 수 있습
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 솔루션 배포
 
 LA 작업 영역 내에서 데이터가 있으면 [GitHub 템플릿 배포](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) 데이터를 시각화 하려면 LA에 있습니다. 제대로 작업 영역을 식별 하 고 다음에서이 서식 파일을 설치 하려면 동일한 리소스 그룹, 작업 영역 이름 및 작업 영역 위치를 제공 해야 합니다.
+
+> [!NOTE]
+> 경고 또는 백업/복원 작업에에서 없는 LA 작업 영역에 해당 하는 사용자 포털에서 "BadArgumentError" 코드로 오류가 나타날 수 있습니다. 사용자는이 오류를 무시 하 고 솔루션을 사용 하 여 계속할 수 있습니다. 해당 유형의 데이터 흐름 작업 영역에 시작 되 면 시각화 동일한 항목과 사용자가 표시 되지 않습니다이 오류가 더 이상 반영 됩니다.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Log Analytics (LA)를 사용 하 여 Azure Backup 데이터 보기
 
@@ -257,7 +260,7 @@ Azure portal에 로그인 하 고 관련 Azure Recovery Services 자격 증명 �
 활동 로그를 통해 알림을 사용할 수 있지만 ***LA 하 여 규모 및 없습니다 활동 로그에서 다음과 같은 이유로 모니터링에 Azure Backup 서비스 좋습니다***합니다.
 
 - **제한 된 시나리오의 경우:** Azure VM 백업에만 적용 및 모든 RS 자격 증명 모음에 대해 반복 해야 합니다.
-- **에 맞게 정의:** 예약된 된 백업 작업 활동 로그의 최신 정의 사용 하 여 맞지 및 부합 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs)합니다. 아래 지정 하는 대로 활동 로그 채널을 통해 펌프 데이터가 변경 될 때 예기치 않은 영향을이 잠재 고객입니다.
+- **에 맞게 정의:** 예약된 된 백업 작업 활동 로그의 최신 정의 사용 하 여 맞지 및 부합 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)합니다. 아래 지정 하는 대로 활동 로그 채널을 통해 펌프 데이터가 변경 될 때 예기치 않은 영향을이 잠재 고객입니다.
 - **활동 로그 채널을 사용 하 여 문제:** Azure Backup에서 Recovery Services 자격 증명 모음에 활동 로그를 펌핑하는 새 모델로 전환했습니다. 그러나 이동이 차세대 Azure Sovereign Clouds에서 활동 로그에 영향을 합니다. Azure 소 버린 클라우드 사용자 생성/구성에서 Azure Monitor를 통해 활동 로그 경고가 트리거되지 않습니다 됩니다. 또한 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)에 설명된 것처럼 모든 Azure 공용 지역에서 사용자가 Recovery Services 활동 로그를 Log Analytic 작업 영역으로 수집하는 경우 이러한 로그도 나타나지 않습니다.
 
 따라서 모니터링에 대 한 로그 분석 작업 영역을 사용 하는 것은 권장 항상 및 워크 로드를 보호 하 여 모든 Azure Backup에 대 한 규모의 경고.

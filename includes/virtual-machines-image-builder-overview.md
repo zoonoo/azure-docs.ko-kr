@@ -6,11 +6,11 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111451"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182185"
 ---
 조직이 클라우드로 마이그레이션하고 배포 일관성을 확인 수 있게 하는 표준화 된 가상 머신 (VM) 이미지입니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 됩니다. 시간, 인프라 및 설치 프로그램을 고유한 이미징 파이프라인을 설정 하려면 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 간단한 구성을 제공, 서비스에 제출 및 이미지를 작성 및 배포 합니다.
  

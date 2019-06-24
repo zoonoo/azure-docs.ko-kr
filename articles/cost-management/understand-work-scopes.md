@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991390"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
@@ -106,7 +106,7 @@ Azure 구독 등록 계정 아래에 중첩 됩니다. 요금 청구 사용자�
 
 - [**대금 청구 계정** ](../billing/billing-view-all-accounts.md) -하나 이상의 Azure 구독에 대 한 단일 계정 소유자를 나타냅니다. 현재 액세스 여러 사용자나 집계 비용 보기에 대 한 액세스 권한을 부여 지원 하지 않습니다.
 
-    리소스 유형: 적용할 수 없음
+    리소스 유형: 해당 없음
 
 종 량 제 구독 계정 관리자가 보고에서 송장 및 지불 같은 청구 데이터를 관리 하는 [Azure 계정 센터](https://account.azure.com/subscriptions)합니다. 그러나 비용 데이터를 확인 하거나 Azure portal에서 리소스를 관리할 수는 없습니다. 계정 관리자에 대 한 액세스에 권한을 부여 하려면 앞에서 언급 한 Cost Management 역할을 사용 합니다.
 
@@ -154,7 +154,7 @@ Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 필 뷰의 
 
 비용 관리 Api로 작업 하는 경우 범위 반드시 알아야 합니다. 다음 정보를 사용 하 여 비용 관리 Api에 대 한 적절 한 범위 URI를 작성 합니다.
 
-### <a name="billing-accounts"></a>청구 계정
+### <a name="billing-accounts"></a>대금 청구 계정
 
 1. Azure portal을 열고 다음 이동할 **Cost Management + 청구** 서비스 목록에서.
 2. 선택 **속성** 청구 계정 메뉴에서.
@@ -170,7 +170,7 @@ Azure portal의 비용 관리 보기를 모두 포함 된 **범위** 필 뷰의 
 5. 대금 청구 계정 및 청구 프로필 Id를 복사 합니다.
 6. 범위는: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>청구서 섹션
+### <a name="invoice-sections"></a>송장 섹션
 
 1. Azure portal을 열고 다음 이동할 **Cost Management + 청구** 서비스 목록에서.
 2. 선택 **섹션에서는 송장** 청구 계정 메뉴에서.

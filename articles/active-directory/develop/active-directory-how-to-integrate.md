@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8804988387ba4a6cdc8dff5d93077de42ea2051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4af8cdc1072678de7e34458fc4b54d52aae9eff1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546187"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111605"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 
@@ -43,9 +43,9 @@ ms.locfileid: "65546187"
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자에 대 한 찾아보기, 사용자 프로 비전, 관리 및 응용 프로그램에 대 한 액세스를 제어 합니다.
 
-**디렉터리에서 사용자를 찾습니다.**   다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
+**디렉터리에서 사용자를 찾습니다.**  다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
-**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**   Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 애플리케이션에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
+**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**  Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 애플리케이션에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
 **Azure AD를 사용하여 애플리케이션에 대한 액세스 권한이 있는 사용자를 제어합니다.**  Azure AD의 관리자 및 애플리케이션 소유자는 애플리케이션에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 애플리케이션 내의 액세스를 제어할 수 있습니다.
 
@@ -57,13 +57,13 @@ ms.locfileid: "65546187"
 
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 Marketplace에서 응용 프로그램 판촉
 
-**이미 Azure AD를 사용 중인 수백만 개의 조직에 애플리케이션을 홍보합니다.**   이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 애플리케이션 홍보하기에 대해 자세히 알아보세요.
+**이미 Azure AD를 사용 중인 수백만 개의 조직에 애플리케이션을 홍보합니다.**  이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 애플리케이션 홍보하기에 대해 자세히 알아보세요.
 
 **사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>장치-투-서비스 및 서비스 간 통신을 보호
 
-**서비스 및 디바이스의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.**   서비스 및 디바이스는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 디바이스의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 애플리케이션에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.
+**서비스 및 디바이스의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.**  서비스 및 디바이스는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 디바이스의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 애플리케이션에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.
 
 ## <a name="benefits-of-integration"></a>통합의 이점
 
@@ -77,21 +77,21 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 ### <a name="advanced-security-features"></a>고성능 보안 기능
 
-**다단계 인증.**   Azure AD는 네이티브 다단계 인증을 제공합니다. 애플리케이션에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
+**다단계 인증.**  Azure AD는 네이티브 다단계 인증을 제공합니다. 애플리케이션에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
 
 **비정상적인 로그인 감지.**  Azure AD는 의심스러운 활동을 감지하고 발생 가능한 문제를 IT 관리자에게 알리는 기계 학습 알고리즘을 사용하면서 하루 10억 개가 넘는 로그인을 처리합니다. Azure AD 로그인을 지원함으로써 애플리케이션이 보호됩니다. [Azure Active Directory 액세스 보고서 보기](../active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
 
-**조건부 액세스.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 애플리케이션에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 디바이스의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 디바이스의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](../active-directory-conditional-access-azure-portal.md)에 대해 자세히 알아보세요.
+**조건부 액세스입니다.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 애플리케이션에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 디바이스의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 디바이스의 상태 조건을 설정할 수 있습니다. 에 대해 자세히 알아보세요 [Azure Active Directory 조건부 액세스](../active-directory-conditional-access-azure-portal.md)합니다.
 
 ### <a name="easy-development"></a>손쉬운 배포
 
-**산업 표준 프로토콜.**   Microsoft는 산업 표준을 지원합니다. Microsoft id 플랫폼은 업계 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. 에 대해 자세히 알아보세요 [Microsoft id 플랫폼 인증 프로토콜](active-directory-v2-protocols.md)합니다.
+**산업 표준 프로토콜.**  Microsoft는 산업 표준을 지원합니다. Microsoft id 플랫폼은 업계 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. 에 대해 자세히 알아보세요 [Microsoft id 플랫폼 인증 프로토콜](active-directory-v2-protocols.md)합니다.
 
-**오픈 소스 라이브러리.**   Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. 에 대해 자세히 알아보세요 [Microsoft 인증 라이브러리 (MSAL)](reference-v2-libraries.md)합니다.
+**오픈 소스 라이브러리.**  Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. 에 대해 자세히 알아보세요 [Microsoft 인증 라이브러리 (MSAL)](reference-v2-libraries.md)합니다.
 
 ### <a name="worldwide-presence-and-high-availability"></a>전 세계 제공 및 고가용성
 
-**Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**   Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
+**Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**  Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

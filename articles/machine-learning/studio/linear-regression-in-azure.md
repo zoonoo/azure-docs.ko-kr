@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861117"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션
@@ -51,7 +51,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 ### <a name="review-initial-results"></a>초기 결과 검토
 Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다. 
 
-|  | Excel | 스튜디오 |
+|  | Excel | Studio |
 | --- |:---:|:---:|
 | 성능 | | |
 | <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |N/A |

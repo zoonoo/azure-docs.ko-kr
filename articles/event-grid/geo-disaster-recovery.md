@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66307319"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Azure Event Grid의 서버 쪽 지역 재해 복구
@@ -26,7 +26,7 @@ Event Grid의 자동 장애 조치에는 다양 한 Rpo 및 Rto (이벤트 구�
 
 ## <a name="recovery-point-objective-rpo"></a>복구 지점 목표(RPO)
 - **메타 데이터 RPO**: 0 분입니다. 리소스는 Event Grid에 만들어지면, 언제 든 지는 즉시 지역 간에 복제 됩니다. 장애 조치가 발생 하는 경우 메타 데이터가 손실 됩니다.
-- **데이터 RPO**: 시스템이 정상 상태 이면 동기화 기존 트래픽을 지역 장애 조치 시, 이벤트에 대 한 RPO는 약 5 분입니다.
+- **데이터 RPO**: 시스템이 정상이며 지역별 장애 조치(failover) 시 기존 트래픽을 처리하는 경우 이벤트의 RPO는 약 5분입니다.
 
 ## <a name="recovery-time-objective-rto"></a>복구 시간 목표(RTO)
 - **메타 데이터 RTO**: 일반적으로 훨씬 더 신속 하 게 내에서 발생 60 분 하지만 Event Grid 토픽 및 구독에 대 한 만들기/업데이트/삭제 호출을 수락 하기 시작 합니다.

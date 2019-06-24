@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541732"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC 솔루션 빌드 및 배포 하려면 Azure 파이프라인을 사용 합니다.
@@ -418,13 +418,13 @@ Azure 파이프라인은 또한 응용 프로그램과 기본 인프라를 배�
     * **작업**: 리소스 그룹을 만들기 또는 업데이트
     * **리소스 그룹**: $(resourceGroupName)
     * **위치**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **템플릿 매개 변수 재정의**:-accountName $(storageAccountName)
 
 1. 저장소 계정에 원본 제어에서 아티팩트를 업로드 합니다. 이 작업을 수행 하는 Azure 파이프라인 작업은입니다. 이 작업의 일환으로, 저장소 계정 컨테이너 URL 및 SAS 토큰을 Azure 파이프라인의 변수에 출력 수 수 있습니다. 즉,이 에이전트 단계 전체에 걸쳐 다시 사용할 수 있습니다.
 
     추가 된 **Azure 파일 복사** 작업 하 고 다음 속성을 설정 합니다.
-    * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
+    * **Source:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Azure 연결 형식**: Azure 리소스 관리자
     * **Azure 구독:** 적절 한 Azure 구독 선택
     * **대상 유형**: Azure Blob
@@ -441,7 +441,7 @@ Azure 파이프라인은 또한 응용 프로그램과 기본 인프라를 배�
     * **작업**: 리소스 그룹을 만들기 또는 업데이트
     * **리소스 그룹**: $(resourceGroupName)
     * **위치**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **템플릿 매개 변수 재정의**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 일반적인 방법은 Azure Key Vault 작업을 사용 하는 것입니다. 서비스 주체 (Azure 구독에 연결)에 적절 한 액세스 정책을 설정 하는 경우 Azure Key Vault에서 비밀을 다운로드할 수 있습니다 및 파이프라인에서 변수로 사용할 수 있습니다. 암호의 이름은 연결된 된 값을 사용 하 여 설정 됩니다. 예를 들어, sshPassword의 비밀 $(sshPassword) 릴리스 정의에서 사용 하 여 참조할 수 없습니다.

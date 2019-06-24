@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60785679"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
@@ -33,7 +33,7 @@ ms.locfileid: "60785679"
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 작업 영역을 식별합니다.
 
-| 식별자 | 설명 | 예
+| Identifier | 설명 | 예
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 작업 영역의 이름(즉, “구성 요소 이름”) | workspace(“contosoretail”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 작업 영역의 전체 이름 | workspace(‘Contoso/ContosoResource/ContosoWorkspace’) |

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683995"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275059"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일에서 용어 이해
 
@@ -72,6 +72,7 @@ InvoiceSection | MCA | InvoiceSectionName를 참조 하세요.
 InvoiceSectionId | EA, MCA | EA 부서나 MCA 송장 섹션에 대 한 고유 식별자입니다.
 InvoiceSectionName | EA, MCA | EA 부서나 MCA 송장 섹션의 이름입니다.
 IsAzureCreditEligible | EA, MCA | 요금은 Azure 크레딧을 사용 하 여에 대 한 지급 수 인지 여부를 나타냅니다 (값: True, False)입니다.
+IsEstimated | 모두 | 청구 기간 종료 하 고 종료 여부를 나타냅니다. 청구서 생성 될 때까지 청구 기간 동안 사용 현황 데이터를 변경할 수 있습니다. 이러한 레코드 표시 된 "예상"으로 합니다.
 Location | EA, MCA | 리소스가 실행 되 고 있는 데이터 센터 위치입니다.
 MeterCategory | 모두 | 측정기에 대 한 분류 범주 이름입니다. 예를 들어 *Cloud services* 하 고 *네트워킹*합니다.
 MeterId | 모두 | 측정기에 대 한 고유 식별자입니다.

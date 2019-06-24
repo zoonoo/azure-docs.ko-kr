@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508967"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154019"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용 하 여 로그인 하는 단일 페이지
 
-많은 최신 응용 프로그램에는 주로 JavaScript로 작성 된 단일 페이지 앱 프런트 엔드를 가집니다. 앱은 종종 AngularJS, Ember.js 또는 Durandal과 같은 프레임워크를 사용하여 작성됩니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증에 대한 몇 가지 추가 과제가 있습니다.
+많은 최신 응용 프로그램에는 주로 JavaScript로 작성 된 단일 페이지 앱 프런트 엔드를 가집니다. 종종 Angular, React, Vue.js 같은 프레임 워크를 사용 하 여 앱이 작성 됩니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증에 대한 몇 가지 추가 과제가 있습니다.
 
 - 이러한 앱의 보안적인 기존의 서버 기반 웹 응용 프로그램에서 서로 다릅니다.
 - 많은 권한 부여 서버 및 ID 공급자에서 CORS(원본 간 리소스 공유) 요청을 지원하지 않습니다.

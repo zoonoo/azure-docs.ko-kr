@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
 ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65074156"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
@@ -31,7 +31,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 배포 및 유지 관리하�
 
 Kubernetes 클러스터의 개발자 및 애플리케이션 소유자는 다양한 다른 리소스에 액세스해야 합니다. Kubernetes는 어떤 사용자가 어떤 리소스를 조작할지 제어할 수 있는 ID 관리 솔루션을 제공하지 않습니다. 대신 일반적으로 클러스터를 기존 ID 솔루션과 통합합니다. Azure AD(Active Directory)는 기업환경에 맞게 준비된 ID 관리 솔루션을 제공하며 AKS 클러스터와 통합할 수 있습니다.
 
-AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액세스 권한을 정의하는 *Role* 또는 *ClusterRole*을 만듭니다. 그런 다음, Azure AD의 사용자 또는 그룹에 역할을 ‘바인딩’ 합니다. 이러한 Kubernetes RBAC(역할 기반 액세스 제어)는 다음 섹션에서 설명합니다. Azure AD 통합 및 리소스 액세스 제어 방법은 다음 다이어그램에서 볼 수 있습니다.
+AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액세스 권한을 정의하는 *Role* 또는 *ClusterRole*을 만듭니다. 그런 다음, Azure AD의 사용자 또는 그룹에 역할을 ‘바인딩’ 합니다.  이러한 Kubernetes RBAC(역할 기반 액세스 제어)는 다음 섹션에서 설명합니다. Azure AD 통합 및 리소스 액세스 제어 방법은 다음 다이어그램에서 볼 수 있습니다.
 
 ![AKS와 Azure Active Directory 통합을 위한 클러스터 수준 인증](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 

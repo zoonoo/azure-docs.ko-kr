@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161174"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182660"
 ---
 적절 한 SSL 인증서를 올바른 서버에 암호화 된 정보를 전송 했는지 확인 합니다. 암호화, 외에도 인증서 인증을 위해 또한 수 있습니다. 장치의 PowerShell 인터페이스를 통해 신뢰할 수 있는 사용자 고유의 SSL 인증서를 업로드할 수 있습니다.
 

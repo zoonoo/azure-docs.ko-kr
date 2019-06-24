@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 21fcac62c9335652d0c682a6ac889be82e649464
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844145"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric 서비스에 대한 클러스터 리소스 관리자 설정 구성
@@ -31,7 +31,7 @@ Service Fabric 클러스터 리소스 관리자를 사용하면 개별적으로 
 ## <a name="placement-constraints"></a>배치 제약 조건
 배치 제약 조건은 클러스터에서 서비스가 실제로 실행될 수 있는 노드를 제어하는 데 사용됩니다. 일반적으로 명명된 특정 서비스 인스턴스 또는 특정 노드 형식에서 실행되도록 제약된 지정된 형식의 모든 서비스를 볼 수 있습니다. 배치 제약 조건은 확장할 수 있습니다. 노드 형식별로 모든 속성 집합을 정의한 다음 서비스를 만들 때 제약 조건이 포함된 속성을 선택할 수 있습니다. 또한 서비스가 실행되는 동안 서비스의 배치 제약 조건을 변경할 수도 있습니다. 이렇게 하면 클러스터의 변경 내용이나 서비스의 요구 사항에 대응할 수 있습니다. 지정된 노드의 속성을 클러스터에서 동적으로 업데이트할 수도 있습니다. 배치 제약 조건 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
-## <a name="metrics"></a>메트릭
+## <a name="metrics"></a>metrics
 메트릭은 명명된 특정 서비스에 필요한 리소스의 집합입니다. 서비스의 메트릭 구성에는 기본적으로 해당 서비스의 상태 저장 복제본 또는 상태 비저장 인스턴스 각각이 서비하는 리소스의 크기가 포함됩니다. 메트릭에는 조정이 필요한 경우 서비스에 대한 해당 메트릭의 부하 분산 중요도를 나타내는 가중치도 포함됩니다.
 
 ## <a name="advanced-placement-rules"></a>고급 배치 규칙

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306908"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
@@ -284,7 +284,7 @@ Get-ServiceFabricClusterHealth
 
 ![클라이언트 인증서 추가][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>포털을 사용하여 관리자 또는 읽기 전용 클라이언트 인증서 삭제 
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>포털을 사용하여 관리자 또는 읽기 전용 클라이언트 인증서 삭제
 
 클러스터 보안에서 사용되는 특정 인증서를 제거하려면 보안 섹션으로 이동하여 특정 인증서에 대한 바로 가기 메뉴에서 ‘삭제’ 옵션을 선택합니다.
 

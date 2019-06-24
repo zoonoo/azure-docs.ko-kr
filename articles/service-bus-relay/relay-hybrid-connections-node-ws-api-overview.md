@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699388"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
 
@@ -61,7 +61,7 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 - `namespaceName`(필수) - 사용할 Azure Relay 네임스페이스의 정규화된 도메인 이름.
 - `path`(필수) - 해당 네임스페이스에서 기존 Azure Relay 하이브리드 연결의 이름.
 - `token`(선택 사항) - 수신기 URI에 포함되어 있는 이전에 발급된 Relay 액세스 토큰(다음 예제 참조).
-- `id`(선택 사항) - 요청의 종단 간 진단 추적을 활성화하는 추적 식별자.
+- `id`(선택 사항) - 요청의 엔드투엔드 진단 추적을 활성화하는 추적 식별자.
 
 `token` 값은 선택 사항이며 W3C WebSocket 스택을 사용하는 경우와 마찬가지로 WebSocket 핸드셰이크와 함께 HTTP 헤더를 보낼 수 없는 경우에만 사용해야 합니다.                  
 
@@ -77,7 +77,7 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 - `namespaceName`(필수) - 사용할 Azure Relay 네임스페이스의 정규화된 도메인 이름.
 - `path`(필수) - 해당 네임스페이스에서 기존 Azure Relay 하이브리드 연결의 이름.
 - `token`(선택 사항) - 송신 URI에 포함되어 있는 이전에 발급된 Relay 액세스 토큰(다음 예제 참조).
-- `id`(선택 사항) - 요청의 종단 간 진단 추적을 활성화하는 추적 식별자.
+- `id`(선택 사항) - 요청의 엔드투엔드 진단 추적을 활성화하는 추적 식별자.
 
 `token` 값은 선택 사항이며 W3C WebSocket 스택을 사용하는 경우와 마찬가지로 WebSocket 핸드셰이크와 함께 HTTP 헤더를 보낼 수 없는 경우에만 사용해야 합니다.                   
 
@@ -131,7 +131,7 @@ var wss = new server(
 - `server`(필수) - 수신하는 하이브리드 연결 이름에 대한 정규화된 URI로, 일반적으로 WebSocket.createRelayListenUri() 도우미 메서드로 생성됩니다.
 - `token`(필수) - 이 인수는 이전에 발급된 토큰 문자열 또는 그러한 토큰 문자열을 가져오도록 호출할 수 있는 콜백 함수를 저장합니다. 콜백 옵션은 토큰 갱신을 활성화하기 때문에 기본으로 설정되어 있습니다.
 
-#### <a name="events"></a>이벤트
+#### <a name="events"></a>Events
 
 `RelayedServer` 인스턴스는 들어오는 요청을 처리하고, 연결을 설정하며, 오류 상태를 검색할 수 있도록 하는 세 가지 이벤트를 내보냅니다. 메시지를 처리하는 `connect` 이벤트를 구독해야 합니다. 
 

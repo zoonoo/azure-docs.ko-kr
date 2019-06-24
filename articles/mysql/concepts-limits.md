@@ -7,22 +7,22 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
 ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551885"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
 
 ## <a name="maximum-connections"></a>최대 연결 수
-가격 책정 계층 및 vCores당 최대 연결 수는 다음과 같습니다. 
+가격 책정 계층 및 vCore당 최대 연결 수는 다음과 같습니다. 
 
 |**가격 책정 계층**|**vCore**| **최대 연결**|
 |---|---|---|
-|Basic| 1| 50|
-|Basic| 2| 100|
+|기본| 1| 50|
+|기본| 2| 100|
 |범용| 2| 300|
 |범용| 4| 625|
 |범용| 8| 1250|
@@ -82,7 +82,7 @@ ms.locfileid: "65551885"
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
 ### <a name="storage-size"></a>저장소 크기
-- 참조 하십시오 [가격 책정 계층](concepts-pricing-tiers.md) 당 가격 책정 계층 저장소 크기 제한에 대 한 합니다.
+- 가격 계층별 저장소 크기 제한에 대해서는 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
 - 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.

@@ -10,10 +10,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711789"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
@@ -126,4 +126,4 @@ Log Analytics 작업 영역 ID 및 키를 보호하려면 Kubernetes 암호를 D
   - ```kubectl create -f omsagent-ds-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
 
 ### <a name="conclusion"></a>결론
-이것으로 끝입니다. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.
+정말 간단하죠. 몇 분 후 Log Analytics 대시보드로 이동하는 데이터를 볼 수 있습니다.

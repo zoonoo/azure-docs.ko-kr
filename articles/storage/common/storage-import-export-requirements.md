@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478592"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147944"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -41,7 +41,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 Azure Import/Export 서비스는 다음과 같은 유형의 저장소 계정을 지원합니다.
 
-- 범용 v2 스토리지 계정(대부분의 시나리오에 권장됨)
+- 표준 범용 v2 저장소 계정 (대부분의 시나리오에 권장)
 - Blob Storage 계정
 - 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 배포 모두), 
 

@@ -1,22 +1,22 @@
 ---
-title: Azure 웹 응용 프로그램 방화벽 (WAF) 사용자 지정 규칙
-description: 이 문서는 Azure Application Gateway에서 사용자 지정 규칙 (WAF) 웹 응용 프로그램 방화벽 개요를 제공합니다.
+title: Azure 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙
+description: 이 문서에서는 Azure Application Gateway에서 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙의 개요를 제공합니다.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752036"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164655"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>웹 응용 프로그램 방화벽에 대 한 사용자 지정 규칙
+# <a name="custom-rules-for-web-application-firewall-v2"></a>웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
 
-Azure Application Gateway 웹 응용 프로그램 방화벽 (WAF)는 다양 한 유형의 공격 으로부터 보호를 제공 하는 미리 구성 된, 플랫폼에서 관리 하는 규칙 집합을 사용 하 여 제공 됩니다. 이러한 공격 교차 사이트 스크립팅, SQL 주입 등 포함 됩니다. WAF 관리자 인 경우에 (CR) 규칙을 설정 하는 고유한 규칙 핵심 규칙 확장을 작성 하는 것이 좋습니다. 규칙을 차단 하거나 일치 조건에 따라 요청된 트래픽을 허용 합니다.
+Azure Application Gateway 웹 응용 프로그램 방화벽 (WAF) v2는 다양 한 유형의 공격 으로부터 보호를 제공 하는 미리 구성 된, 플랫폼에서 관리 하는 규칙 집합을 사용 하 여 제공 됩니다. 이러한 공격 교차 사이트 스크립팅, SQL 주입 등 포함 됩니다. WAF 관리자 인 경우에 (CR) 규칙을 설정 하는 고유한 규칙 핵심 규칙 확장을 작성 하는 것이 좋습니다. 규칙을 차단 하거나 일치 조건에 따라 요청된 트래픽을 허용 합니다.
 
 사용자 지정 규칙을 사용 하 여 WAF를 통해 전달 되는 각 요청에 대해 계산 되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙 관리 되는 규칙 집합에서 규칙의 나머지 부분 보다 더 높은 우선 순위를 보유합니다. 사용자 지정 규칙은 규칙 이름, 규칙 우선 순위 및 조건과 일치 하는 배열을 포함 합니다. 이러한 조건이 충족 되는 작업 (허용 또는 차단)에 수행 됩니다.
 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253131"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166223"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>만들기 및 Azure HDInsight에서 엔터프라이즈 보안 패키지 클러스터 구성
 
@@ -332,7 +332,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. AADDS 호스팅하는 가상 네트워크 간의 피어 관계를 만듭니다 (`HDIFabrikam-AADDSVNET`) 및 ESP를 호스트 하는 가상 네트워크에 HDInsight 클러스터 사용 하도록 설정 (`HDIFabrikam-HDIVNet `). 다음 powershell 코드를 사용 하 여 이러한 두 가상 네트워크를 피어 링 합니다.
+1. AADDS 호스팅하는 가상 네트워크 간의 피어 관계를 만듭니다 (`HDIFabrikam-AADDSVNET`) 및 ESP를 호스트 하는 가상 네트워크에 HDInsight 클러스터 사용 하도록 설정 (`HDIFabrikam-HDIVNet`). 다음 powershell 코드를 사용 하 여 이러한 두 가상 네트워크를 피어 링 합니다.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

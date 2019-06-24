@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217042"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>백업 및 복원에 Azure VM 암호화
@@ -72,7 +72,7 @@ Azure Backup를 백업 하 고 다음 표에 요약 된 것 처럼와 Azure AD �
 1. Recovery Services 백업 자격 증명을 아직 만들지 않은 경우에 따라 [이러한 지침](backup-azure-arm-vms-prepare.md#create-a-vault)
 2. 포털에서 자격 증명 모음을 열고 선택 **Backup** 에 **Getting Started** 섹션입니다.
 
-    ![백업 블레이드 ](./media/backup-azure-vms-encryption/select-backup.png)
+    ![백업 블레이드](./media/backup-azure-vms-encryption/select-backup.png)
 
 3. **Backup 목표** > **작업이 실행 되는 위치?** 선택 **Azure**합니다.
 4. **를 백업 하 시겠습니까?** 선택 **가상 머신** > **확인**합니다.

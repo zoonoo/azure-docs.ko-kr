@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684682"
 ---
-# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합 
+# <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets)은 Azure 계산 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식은 별도의 확장 집합을 설정합니다.  Service Fabric 런타임이 확장 Microsoft.Azure.ServiceFabric 가상 머신 확장 집합의 각 가상 컴퓨터에 설치 합니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 각 클러스터 노드에서 실행되는 OS SKU를 변경하고, 다른 포트의 집합을 열고, 다른 용량 메트릭을 사용할 수 있습니다.
 
 다음 그림에서는 이름이 FrontEnd 및 BackEnd인 두 노드 유형이 있는 클러스터를 보여줍니다. 각 노드 형식에는 5개의 노드가 있습니다.
@@ -76,7 +76,7 @@ Service Fabric 가상 머신 확장을 사용 하 여 Service Fabric Azure Virtu
 
 | **Name** | **허용되는 값** | ** --- ** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-| 이름 | 문자열 | --- | 확장에 대 한 고유 이름 |
+| name | 문자열 | --- | 확장에 대 한 고유 이름 |
 | 형식 | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode | --- | 식별을 Service Fabric OS가 부트스트랩 |
 | autoUpgradeMinorVersion | true 또는 false | --- | SF 런타임 부 버전의 자동 업그레이드를 사용 하도록 설정 |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 확장 게시자의 이름 |

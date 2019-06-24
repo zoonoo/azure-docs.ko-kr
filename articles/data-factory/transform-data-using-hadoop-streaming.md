@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848251"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [현재 버전](transform-data-using-hadoop-streaming.md)
 
@@ -70,7 +70,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 
 | 자산          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
-| 이름              | 작업의 이름                     | 예      |
+| name              | 작업의 이름                     | 예      |
 | description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다.       |
 | 형식              | Hadoop 스트리밍 작업의 경우 작업 유형은 HDInsightStreaming입니다. | 예      |
 | linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |

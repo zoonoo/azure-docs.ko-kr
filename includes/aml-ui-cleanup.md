@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123148"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182620"
 ---
 >[!IMPORTANT]
 >직접 만든 리소스는 다른 Azure Machine Learning Service 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다.

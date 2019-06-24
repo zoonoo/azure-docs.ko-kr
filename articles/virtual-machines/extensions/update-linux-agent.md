@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
 ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799752"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
@@ -79,13 +79,13 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ### <a name="restart-the-waagent-service"></a>waagent 서비스 다시 시작
 
-#### <a name="restart-agent-for-1404"></a>14.04에 대한 에이전트 다시 시작
+#### <a name="restart-agent-for-1404"></a>14\.04에 대한 에이전트 다시 시작
 
 ```bash
 initctl restart walinuxagent
 ```
 
-#### <a name="restart-agent-for-1604--1704"></a>16.04 / 17.04에 대한 에이전트 다시 시작
+#### <a name="restart-agent-for-1604--1704"></a>16\.04 / 17.04에 대한 에이전트 다시 시작
 
 ```bash
 systemctl restart walinuxagent.service
@@ -390,7 +390,7 @@ enabled=1
 sudo yum update WALinuxAgent
 ```
 
-일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
+일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com 에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>배포에 대해 에이전트 패키지가 없는 경우 Linux 에이전트를 업데이트합니다.
@@ -400,7 +400,7 @@ sudo yum update WALinuxAgent
 ### <a name="1-download-the-latest-version"></a>1. 최신 버전 다운로드
 웹 페이지에서 [GitHub의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases) 를 열고 최신 버전 번호를 확인합니다. `waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
 
-#### <a name="for-version-22x-or-later-type"></a>2.2.x 이상 버전의 경우 다음을 입력합니다.
+#### <a name="for-version-22x-or-later-type"></a>2\.2.x 이상 버전의 경우 다음을 입력합니다.
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
 unzip v2.2.x.zip

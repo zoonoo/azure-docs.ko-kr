@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689705"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -144,7 +144,7 @@ Azure에서 Linux Pacemaker에 대 한 자세한 내용은 참조 하세요. [Az
 
 IBM Db2 LUW 용 리소스 에이전트는 SAP 응용 프로그램용 SUSE Linux Enterprise Server에 포함 됩니다. 이 문서에 설명 된 설치 프로그램에 대 한 SAP 응용 프로그램용 SUSE Linux 서버를 사용 해야 합니다. Azure Marketplace는 새 Azure 가상 머신을 배포 하는 데 사용할 수 있는 SAP Applications 12에 대 한 SUSE Enterprise Server에 대 한 이미지를 포함 합니다. Azure VM Marketplace에서 VM 이미지를 선택 하면 Azure Marketplace를 통해 SUSE에 의해 제공 되는 다양 한 지원 또는 서비스 모델 고려해 야 합니다. 
 
-### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스트의 경우: DNS 업데이트
 가상 호스트 이름을 포함 한 모든 호스트 이름 목록을 확인 하 고 호스트 이름 확인에 적절 한 IP 주소를 사용 하도록 설정 하려면 DNS 서버를 업데이트 합니다. DNS 서버에 존재 하지 않거나 업데이트 하 고 DNS 항목을 만들 수 없습니다,이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우 항목은 SAP 시스템 환경에서 모든 Vm에 적용 되어 있는지 확인 합니다. 하지만 이상적으로 Azure로 확장 하는 DNS를 사용 하는 권장,
 
 
@@ -337,9 +337,9 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 
 다음 항목 중 하나를 사용 하 여 붙습니다.
 
-- **[A]**: 모든 노드에 적용
-- **[1]**: 노드 1에만 적용 
-- **[2]**: 노드 2에만 적용
+- **[A]** : 모든 노드에 적용
+- **[1]** : 노드 1에만 적용 
+- **[2]** : 노드 2에만 적용
 
 **[A]**  Pacemaker 구성에 대 한 필수 구성 요소:
 1. 사용자 db2 사용 하 여 두 데이터베이스 서버를 종료\<sid > db2stop를 사용 하 여 합니다.
@@ -425,7 +425,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예를 들어 **Db2 연결**).
 
-   다. 설정 합니다 **할당** 에 **정적**, IP 주소를 입력 하 고 **가상 IP** 시작 부분에 정의 합니다.
+   c. 설정 합니다 **할당** 에 **정적**, IP 주소를 입력 하 고 **가상 IP** 시작 부분에 정의 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -437,7 +437,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 백 엔드 풀의 이름을 입력 합니다 (예를 들어 **Db2-백 엔드**).
 
-   다. **가상 머신 추가**를 선택합니다.
+   c. **가상 머신 추가**를 선택합니다.
 
    d. 가용성 집합 또는 IBM Db2 데이터베이스를 이전 단계에서 만든 호스트 가상 컴퓨터를 선택 합니다.
 
@@ -451,7 +451,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 상태 프로브의 이름 입력 (예를 들어 **Db2 hp**).
 
-   다. 선택 **TCP** 프로토콜 및 포트 **62500**합니다. 유지 합니다 **간격** 값으로 설정 **5**를 유지 하 고는 **비정상 임계값** 값으로 설정 **2**합니다.
+   c. 선택 **TCP** 프로토콜 및 포트 **62500**합니다. 유지 합니다 **간격** 값으로 설정 **5**를 유지 하 고는 **비정상 임계값** 값으로 설정 **2**합니다.
 
    d. **확인**을 선택합니다.
 
@@ -461,7 +461,7 @@ Azure Load Balancer를 구성 하려면 사용 하는 권장 합니다 [Azure �
 
    b. 새 부하 분산 장치 규칙의 이름을 입력 합니다 (예를 들어 **Db2 SID**).
 
-   다. 프런트 엔드 IP 주소, 백 엔드 풀 및 이전에 만든 상태 프로브 선택 (예를 들어 **Db2 프런트 엔드**).
+   c. 프런트 엔드 IP 주소, 백 엔드 풀 및 이전에 만든 상태 프로브 선택 (예를 들어 **Db2 프런트 엔드**).
 
    d. 유지 된 **프로토콜** 로 설정 **TCP**, 포트를 입력 하 고 *데이터베이스 통신 포트*합니다.
 
@@ -595,8 +595,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **crm 리소스 마이그레이션 \<res_name > <host>:** 위치 제약 조건을 만들고 인수를 사용 하 여 문제가 발생할 수 있습니다
-- **crm 리소스 지우기 \<res_name >**: 위치 제약 조건 삭제
-- **crm 리소스 정리 \<res_name >**: 리소스의 모든 오류를 지웁니다.
+- **crm 리소스 지우기 \<res_name >** : 위치 제약 조건 삭제
+- **crm 리소스 정리 \<res_name >** : 리소스의 모든 오류를 지웁니다.
 
 ### <a name="test-the-fencing-agent"></a>펜싱 에이전트를 테스트 합니다.
 

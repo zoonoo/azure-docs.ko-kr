@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967890"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
@@ -236,7 +236,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |적응형 애플리케이션 제어 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
-|엔드포인트 보호 |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
+|Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
 |디스크 암호화 |Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링 |diskEncryptionMonitoringEffect|
 |취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssessmentMonitoringEffect|
 |웹 애플리케이션 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |

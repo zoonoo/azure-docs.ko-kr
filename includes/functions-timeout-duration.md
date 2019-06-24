@@ -9,17 +9,17 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131328"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182765"
 ---
 ## <a name="timeout"></a>함수 앱 시간 제한 기간 
 
 함수 앱의 제한 시간 기간에 functionTimeout 속성에 의해 정의 되는 [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) 프로젝트 파일입니다. 다음 표에서 런타임 버전을 모두 및 계획 모두에 대 한 분에서 기본 및 최대 값을 보여줍니다.
 
-| 계획 | 런타임 버전 | Default | 최대 |
+| 계획 | 런타임 버전 | 기본값 | 최대 |
 |------|---------|---------|---------|
 | Consumption | 1.x | 5 | 10 |
 | Consumption | 2.x | 5 | 10 |

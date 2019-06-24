@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410266"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293198"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 후에 확장은 기본 제공 기능으로 작동할 수 있습니다. PostgreSQL 확장에 대한 자세한 내용은  [관련 개체를 확장으로 패키지](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)를 참조하세요.
@@ -73,6 +73,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 > | **확장명** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
+> | [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
@@ -124,7 +125,7 @@ TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데�
 [Timescale, Inc.](https://www.timescale.com/)의 등록 상표인 [TimescaleDB에 대해 자세히 알아보세요](https://docs.timescale.com/latest).
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
-TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함해야 합니다. Postgres의 공유된 미리 로드 라이브러리 변경은 **서버를 다시 시작**해야 적용됩니다.
+TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함해야 합니다. Postgres의 변경 `shared_preload_libraries` 매개 변수에 필요를 **서버를 다시 시작** 적용 합니다. 매개 변수를 사용 하 여 변경할 수 있습니다 합니다 [Azure portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)합니다.
 
 > [!NOTE]
 > TimescaleDB은 PostgreSQL 버전 9.6 및 10에 대 한 Azure Database에서 사용할 수 있습니다.
@@ -137,10 +138,7 @@ TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에
 
 3. `shared_preload_libraries` 매개 변수를 검색합니다.
 
-4. `shared_preload_libraries`의 값으로 다음을 복사하여 붙여넣습니다.
-   ```
-   timescaledb
-   ```
+4. 선택 **TimescaleDB**합니다.
 
 5. 변경 내용을 유지하기 위해 **저장**을 선택합니다. 변경 내용이 저장되면 알림을 받게 됩니다. 
 
@@ -158,4 +156,4 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 
 ## <a name="next-steps"></a>다음 단계
-사용하려는 확장이 표시되지 않으면 알려주세요. [고객 사용자 의견 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)에서 기존 요청에 투표하거나 새 사용자 의견 및 요청을 만드세요.
+사용하려는 확장이 표시되지 않으면 알려주세요. 새 피드백 요청을 만들거나 기존 요청에 투표 하세요 [피드백 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)합니다.

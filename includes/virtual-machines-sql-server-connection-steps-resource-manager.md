@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165648"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182158"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>공용 IP 주소에 대한 DNS 레이블 구성
 
@@ -36,7 +36,7 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 머신** 를 선택�
 
 1. 인터넷에 연결된 컴퓨터에서 SSMS(SQL Server Management Studio)를 엽니다. SQL Server Management Studio가 없는 경우 [여기](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 다운로드할 수 있습니다.
 
-1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. 가상 머신의 IP 주소 또는 전체 DNS 이름을 입력합니다(이전 작업에서 확인). 쉼표를 추가하고 SQL Server의 TCP 포트를 제공할 수도 있습니다. 예: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. 가상 머신의 IP 주소 또는 전체 DNS 이름을 입력합니다(이전 작업에서 확인). 쉼표를 추가하고 SQL Server의 TCP 포트를 제공할 수도 있습니다. 예: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`
 
 1. **인증** 상자에 **SQL Server 인증**을 선택합니다.
 
@@ -44,6 +44,6 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 머신** 를 선택�
 
 1. **암호** 상자에 로그인 암호를 입력합니다.
 
-1. **연결**을 클릭합니다.
+1. **Connect**를 클릭합니다.
 
     ![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

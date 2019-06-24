@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954138"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137748"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -744,11 +744,11 @@ Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생�
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>데이터 로드에 안정적인 로더를 사용할 수 있나요?
 
-아니요, 미리 보기 중에는 안정적인 로더가 지원되지 않습니다.
+아니요, 안정적인 로더는 지원 되지 않습니다.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Azure Cosmos DB의 Cassandra API를 사용 하 여 온-프레미스 Apache Cassandra 클러스터를 연결할 수 있나요?
 
-현재 Azure Cosmos DB에는 작업의 오버헤드 없이 클라우드 환경에 최적화된 환경이 있습니다. 페어링이 필요할 경우 해당 시나리오에 대한 설명이 포함된 이메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 보내주세요.
+현재 Azure Cosmos DB에는 작업의 오버헤드 없이 클라우드 환경에 최적화된 환경이 있습니다. 페어링이 필요할 경우 해당 시나리오에 대한 설명이 포함된 이메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 보내주세요. 제품 도움말 쌍 Cosomos DB의 Cassandra API에 온-프레미스/다양 한 클라우드 Cassandra 클러스터에 노력 합니다.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API에서 전체 백업을 제공하나요?
 
@@ -763,15 +763,12 @@ Azure Cosmos DB Cassandra API는 Azure Cosmos DB의 전역적으로 분산된 �
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API는 기본적으로 엔터티의 모든 특성을 인덱싱하나요?
 
-예, 엔터티의 모든 특성을 Azure Cosmos DB에서 기본적으로 인덱싱합니다. 자세한 내용은 [Azure Cosmos DB: 인덱싱 정책](index-policy.md)을 참조하세요. 일치하는 인덱스 및 지속적인 쿼럼 커밋 작성을 포함하는 보장된 성능 혜택을 항상 얻게 됩니다.
+Cassandra API는 특정 특성에 선택적 인덱스를 만들기 위해 보조 인덱싱을 지원 하려고 합니다. 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>그렇다면 쿼리를 충족하기 위해 인덱스를 둘 이상 만들 필요가 없다는 의미인가요?
-
-예, Azure Cosmos DB에서는 스키마 정의 없이 모든 특성에 대한 자동 인덱싱을 제공합니다. 이 자동화 덕분에 개발자는 인덱스 만들기 및 관리보다 애플리케이션에 역량을 집중할 수 있습니다. 자세한 내용은 [Azure Cosmos DB: 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>새로운 Cassandra API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-나중에 이 기능을 지원할 예정입니다.
+예이 지원 됩니다.
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>플랫폼인 azure Cosmos DB 변경 피드 및 기타 기능 같은 기능을 많은 것 같습니다. Cassandra API에 이러한 기능이 추가될 예정인가요?
 

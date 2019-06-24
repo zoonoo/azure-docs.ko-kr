@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
 ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728751"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
@@ -66,7 +66,7 @@ Azure Logic Apps의 X12 메시지를 교환하기 전에 X12 규약을 만들고
 
     ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-    | 자산 | 설명 |
+    | 자산 | Description |
     | --- | --- |
     | 이름 |규약 이름 |
     | 규약 유형 | X12여야 합니다. |

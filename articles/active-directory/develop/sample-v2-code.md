@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity 플랫폼 코드 샘플 | Microsoft Docs
-description: 플랫폼 (V2 끝점) 코드 샘플, 시나리오 별로 사용할 수 있는 Microsoft id의 인덱스를 제공 합니다.
+description: 플랫폼 ((v2.0 끝점) 코드 샘플, 시나리오 별로 사용할 수 있는 Microsoft id의 인덱스를 제공 합니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055918"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272660"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft identity 플랫폼 코드 샘플 ((v2.0 끝점)
 
@@ -34,18 +34,18 @@ Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 - 웹 애플리케이션 및 web API에 인증 및 권한 부여 추가.
 - 보호되는 web API에 액세스하려면 액세스 토큰 요구.
 
-이 문서는 간략하게 설명 하 고 Microsoft id 플랫폼 끝점에 대 한 샘플의 링크를 제공 합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움을 주기 위한 용도입니다.
+이 문서는 간략하게 설명 하 고 Microsoft id 플랫폼 끝점에 대 한 샘플의 링크를 제공 합니다. 이러한 샘플에는 작업이 완료 되 고 응용 프로그램에서 사용할 수 있는 코드 조각을 제공 하는 방법을 보여 줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설치에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 주석을 코드 내에서 중요 섹션을 이해할 수 있도록 합니다.
 
 > [!NOTE]
-> v1.0 샘플에 관심이 있는 경우 [Azure AD 코드 샘플(v1.0 엔드포인트)](sample-v1-code.md)을 참조하세요.
+> V1.0 샘플에 관심이 있는 경우 참조 [Azure AD 코드 샘플 ((v1.0 끝점)](sample-v1-code.md)합니다.
 
 각 샘플 유형의 기본 시나리오를 이해 하려면 [Microsoft id 플랫폼 끝점에 대 한 앱 유형에](v2-app-types.md)합니다.
 
 GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
-## <a name="single-page-applications-spa"></a>SPA(단일 페이지 애플리케이션)
+## <a name="single-page-applications"></a>단일 페이지 응용 프로그램
 
-이러한 샘플에는 Microsoft id 플랫폼을 사용 하 여 보호 되는 단일 페이지 응용 프로그램을 작성 하는 방법을 보여 줍니다. 이 샘플은 MSAL.js의 특징 중 하나를 사용합니다.
+이러한 샘플에는 Microsoft id 플랫폼을 사용 하 여 보호 되는 단일 페이지 응용 프로그램을 작성 하는 방법을 보여 줍니다. 이러한 샘플 MSAL.js의 버전 중 하나를 사용 합니다.
 
 | 플랫폼 | 설명 | 연결 |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
 
-다음 샘플은 사용자 이름으로 Microsoft Graph API 또는 사용자 고유의 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 이러한 클라이언트 애플리케이션은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플 응용 프로그램 (데스크톱 또는 모바일 응용 프로그램)는 Microsoft Graph API 또는 사용자 이름을 사용자 고유의 웹 API에 액세스 하는 공용 클라이언트를 표시 합니다. 이러한 모든 클라이언트 응용 프로그램을 사용 하 여 Microsoft 인증 라이브러리 (MSAL).
 
-| 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출 |
+| 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 웹 API를 호출합니다. |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | 데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [대화형](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NET.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="headless-applications"></a>헤드리스 애플리케이션
 
-다음 샘플은 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 애플리케이션에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 애플리케이션은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플은 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱에는 명령줄 도구, Linux 또는 Mac 또는 IoT 응용 프로그램에서 실행 되는 앱 수 있습니다. 샘플에는 Microsoft Graph API 로그인 대화형으로 (예: 휴대폰) 다른 장치에서 사용자 이름에 액세스 하는 앱 기능. 이 클라이언트 응용 프로그램이 Microsoft 인증 라이브러리 (MSAL)를 사용 합니다.
 
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- |  ----------| ---------- |
@@ -98,11 +98,11 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="web-apis"></a>Web API
 
-다음 샘플에는 Microsoft id 플랫폼 끝점을 사용 하 여 web API를 보호 하는 방법 및 Web API에서 다운스트림 API를 호출 하는 방법을 보여 줍니다.
+다음 샘플에는 Microsoft id 플랫폼 끝점을 사용 하 여 web API를 보호 하는 방법 및 web API에서에서 다운스트림 API를 호출 하는 방법을 보여 줍니다.
 
 | 플랫폼 | 샘플 |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (서비스)의 [dotnet 네이티브-aspnetcore v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (서비스)의 [dotnet 네이티브-aspnetcore v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | 웹 API (서비스)의 [ms-identity-aspnet-webapi-영문](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플

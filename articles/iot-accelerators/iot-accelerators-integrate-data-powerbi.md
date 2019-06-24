@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61448134"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
@@ -51,7 +51,7 @@ ms.locfileid: "61448134"
   
 1. Power BI Desktop 앱을 열고 왼쪽 위 모서리에서 "데이터 가져오기"를 클릭합니다. 
 
-    ![데이터 가져오기](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. 데이터를 입력하라는 메시지가 표시되면 "Azure Cosmos DB"를 검색하고 이 커넥터를 선택합니다. 이 커넥터는 기본적으로 Azure IoT 솔루션의 Cosmos 데이터베이스에서 데이터를 바로 끌어옵니다.
   

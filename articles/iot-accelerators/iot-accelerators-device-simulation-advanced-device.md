@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449059"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
@@ -163,7 +163,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 * 이진 - base64를 사용하여 직렬화됨
 * 텍스트
 * BOOLEAN
-* 정수 
+* 정수
 * Double
 * DateTime
 

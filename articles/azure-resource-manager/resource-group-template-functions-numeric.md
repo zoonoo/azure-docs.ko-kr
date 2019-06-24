@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager 템플릿 함수 - 숫자 | Microsoft Docs
 description: Azure Resource Manager 템플릿에서 숫자 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128657"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206411"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 숫자 함수
 
@@ -47,16 +39,16 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- | 
-|operand1 |예. |int |더할 첫 번째 숫자입니다. |
-|operand2 |예. |int |더할 두 번째 숫자입니다. |
+|operand1 |예 |int |더할 첫 번째 숫자입니다. |
+|operand2 |예 |int |더할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 매개 변수의 합계를 포함하는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)에서는 두 개의 매개 변수를 추가합니다.
 
@@ -118,7 +110,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | loopName | 아닙니다. | 문자열 | 반복을 가져오기 위한 루프의 이름입니다. |
 | offset |아닙니다. |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
@@ -164,16 +156,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예. |int |나누어지는 수입니다. |
-| operand2 |예. |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
 나누기를 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
 
@@ -235,9 +227,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 부동 소수점 수입니다.
@@ -269,9 +261,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |예. |문자열 또는 int |정수로 변환할 값입니다. |
+| valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -329,15 +321,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 컬렉션의 최대값을 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)에서는 배열 및 정소 목록에 최대값을 사용하는 방법을 보여줍니다.
 
@@ -393,15 +385,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 컬렉션의 최소값을 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)에서는 배열 및 정소 목록에 최소값을 사용하는 방법을 보여줍니다.
 
@@ -457,15 +449,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예. |int |나누어지는 수입니다. |
-| operand2 |예. |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 나머지를 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
 
@@ -527,16 +519,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예. |int |곱할 첫 번째 숫자입니다. |
-| operand2 |예. |int |곱할 두 번째 숫자입니다. |
+| operand1 |예 |int |곱할 첫 번째 숫자입니다. |
+| operand2 |예 |int |곱할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
 곱하기를 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
 
@@ -598,15 +590,15 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예. |int |빼는 피감수입니다. |
-| operand2 |예. |int |빼는 감수입니다. |
+| operand1 |예 |int |빼는 피감수입니다. |
+| operand2 |예 |int |빼는 감수입니다. |
 
 ### <a name="return-value"></a>반환 값
 빼기를 나타내는 정수입니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)에서는 다른 매개 변수에서 매개 변수를 뺍니다.
 

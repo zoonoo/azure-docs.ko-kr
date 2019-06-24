@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236350"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
@@ -184,7 +184,7 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 | 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
 | --- | --- | --- | --- |
 | 가상 머신 |Linux |예. |예 |
-| 부하 분산 장치 |프런트 엔드 구성 |예 |예. |
+| 부하 분산 장치 |프런트 엔드 구성 |예. |예. |
 | 애플리케이션 게이트웨이 |프런트 엔드 구성 |예. |예 |
 
 ## <a name="limits"></a>제한

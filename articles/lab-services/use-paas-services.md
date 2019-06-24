@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833921"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>플랫폼-as a Service (PaaS) 서비스를 사용 하 여 Azure DevTest Labs에서
@@ -60,7 +60,7 @@ DevTest Labs 사용을 지원 [중첩 된 Resource Manager 템플릿](../azure-r
 ## <a name="developer"></a>Developer
 개발자는 특정 환경을 만들려면 VM을 만들기 위한 동일한 워크플로 사용 합니다. 이러한 컴퓨터 이미지 및 환경을 선택 하 고 템플릿에 필요한 필요한 정보를 입력 합니다. 각 개발자 environment가 배포 변경 내용 및 향상 된 내부 루프 디버깅 허용 합니다. 최신 템플릿을 사용 하 여 언제 든 환경을 만들 수 있습니다.  이 기능을 사용 하면 환경을 제거 하 고 수동으로 시스템 작성 하거나 테스트 오류에서 복구 하는 것과 가동 중지 시간을 줄이는 데 다시 만들어야 합니다.  
 
-### <a name="testing"></a>테스트하는 중
+### <a name="testing"></a>테스트
 DevTest Labs 환경 독립적인 테스트 특정 코드 및 구성의 비동기적으로 허용 합니다. 가장 일반적인 방법은 개별 끌어오기 요청에서 코드를 사용 하 여 환경을 설정 하 고 자동화 된 테스트를 시작 하는 것입니다. 완료 될 때까지 자동화 된 테스트에 실행 되 면 모든 수동 테스트 실행할 수 있습니다 특정 환경에 대 한 합니다. 일반적으로이 프로세스는 CI/CD 파이프라인의 일부로 수행 됩니다. 
 
 ## <a name="management-experience"></a>관리 환경

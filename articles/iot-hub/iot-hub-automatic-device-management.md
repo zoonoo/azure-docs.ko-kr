@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333655"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Azure portal을 사용 하 여 대규모로 자동 IoT 장치 관리
@@ -178,7 +178,7 @@ SELECT deviceId FROM devices
    * 대상 조건 
    * 레이블 
    * 우선 순위 
-   * 메트릭
+   * metrics
 
 4. **저장**을 선택합니다.
 

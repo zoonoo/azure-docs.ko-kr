@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 91f15f9c19b480d950b2c715e6d9290e01184cf7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510630"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272383"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 * 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델
 * 스트림 지원
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* 원래 하나가 실패할 경우 다른 지역으로 대체 (fallback)에 대 한 쓰기 요청 수
+* 쓰기 요청에 대 한 세션 다시 시도 정책 추가
+* 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -162,7 +168,7 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
  
  * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경.
  * 직접 연결 모드로 전송된 요청의 응답에서 진단 정보 및 대기 시간을 표시합니다. 속성 이름은 ResourceResponse 클래스의 RequestDiagnosticsString 및 RequestLatency입니다.
- * 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+ * 이 SDK 버전은 https://aka.ms/cosmosdb-emulator 에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
  
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
@@ -251,6 +257,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |2019 년 6 월 18 일 |--- |
 | [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
 | [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
 | [2.2.3](#2.2.3) |2019 년 3 월 11 일 |--- |

@@ -1,26 +1,26 @@
 ---
-title: Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성
-description: Azure PowerShell을 사용 하 여 WAF 사용자 지정 규칙을 구성 하는 방법에 알아봅니다.
+title: Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 구성
+description: Azure PowerShell을 사용 하 여 WAF v2 사용자 지정 규칙을 구성 하는 방법에 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743051"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164745"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사용자 지정 규칙을 사용 하 여 웹 응용 프로그램 방화벽 구성
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 사용자 지정 규칙을 사용 하 여 웹 응용 프로그램 방화벽 v2 구성
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-사용자 지정 규칙을 사용 하면 웹 응용 프로그램 방화벽 (WAF)를 통해 전달 되는 각 요청에 대 한 평가 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙 관리 되는 규칙 집합에서 규칙의 나머지 부분 보다 더 높은 우선 순위를 보유합니다. 사용자 지정 규칙 (허용 또는 차단) 하는 작업, 일치 조건 및 전체를 사용자 지정할 수 있도록 운영자 경우
+사용자 지정 규칙을 사용 하면 웹 응용 프로그램 방화벽 (WAF) v2를 통과 하는 각 요청에 대 한 평가 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙 관리 되는 규칙 집합에서 규칙의 나머지 부분 보다 더 높은 우선 순위를 보유합니다. 사용자 지정 규칙 (허용 또는 차단) 하는 작업, 일치 조건 및 전체를 사용자 지정할 수 있도록 운영자 경우
 
-이 문서는 사용자 지정 규칙을 사용 하는 Application Gateway WAF를 만듭니다. 요청 헤더 사용자 에이전트를 포함 하는 경우 사용자 지정 규칙 블록 트래픽 *evilbot*합니다.
+이 문서에서는 사용자 지정 규칙을 사용 하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
 더 많은 사용자 지정 규칙 예제를 보려면 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "66743051"
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
 
-이 스크립트에는 Azure PowerShell 모듈 버전 2.1.0 설치 하 고 Azure PowerShell을 로컬로 사용 하려는 경우 이상.
+Azure PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 스크립트를 실행하려면 Azure PowerShell 모듈 버전 2.1.0 이상이 필요합니다.
 
 1. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 2. `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
