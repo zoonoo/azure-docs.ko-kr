@@ -212,7 +212,7 @@
 - name: 참고 자료
   items:
     - name: 템플릿 참조
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: 템플릿 함수
       items:
         - name: 모든 함수
