@@ -43,11 +43,11 @@ ms.locfileid: "65800095"
 
 \* *LUIS 의도 및 엔터티는 별도의 LUIS 구독을 사용하여 파생시킬 수 있습니다. 이 구독을 사용 하 여 SDK LUIS를 호출 하 고 엔터티 및 의도 결과 제공할 수 있습니다. REST API를 사용하면 LUIS 구독을 통해 LUIS를 직접 호출하고 의도 및 엔터티를 파생할 수 있습니다.*
 
-\** *이러한 서비스 cris.ai 끝점을 사용 하 여 사용할 수 있습니다. 참조 [참조를 Swagger](https://westus.cris.ai/swagger/ui/index)합니다.*
+\** *이러한 서비스는 cris.ai 끝점을 사용하여 이용할 수 있습니다.  [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 확인합니다.*
 
-## <a name="get-started-with-speech-to-text"></a>음성-텍스트를 사용 하 여 시작
+## <a name="get-started-with-speech-to-text"></a>음성-텍스트 시작하기
 
-각각이 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 이 테이블에는 언어를 이끄는 Speech SDK 빠른 시작의 전체 목록을 포함 합니다.
+각각 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 아래의 테이블은 언어별로 구성된 Speech SDK 빠른 시작의 전체 목록을 포함합니다.
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
@@ -63,7 +63,7 @@ ms.locfileid: "65800095"
 | [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
 
-음성-텍스트 REST 서비스를 사용 하는 것을 선호 하는 경우 참조 [REST Api](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)합니다.
+음성-텍스트 REST 서비스를 사용하는 것을 선호하는 경우, [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 확인합니다.
 
 ## <a name="tutorials-and-sample-code"></a>자습서 및 샘플 코드
 
@@ -71,14 +71,14 @@ Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음�
 
 * [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
 
-Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
+Speech SDK에 대한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 단발성 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
 
 * [음성-텍스트 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>사용자 지정
 
-배포 음성 서비스를 사용한 유니버설 모델 외에도 사용자 지정 어쿠스틱, 언어 및 발음 모델 특정 하 게 만들 하는 환경에 수 있습니다. 사용자 지정 옵션의 목록을 다음과 같습니다.
+음성 서비스를 사용한 범용 모델 외에도, 사용자의 환경에 특정된 사용자 지정 음향, 언어 및 발음 모델을 생성할 수 있습니다. 사용자 지정 옵션의 목록은 다음과 같습니다.
 
 | 모델 | 설명 |
 |-------|-------------|

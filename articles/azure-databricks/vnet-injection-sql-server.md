@@ -85,19 +85,19 @@ ms.locfileid: "60770792"
     |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
     |대상|IP 주소|IP 주소는 IP 주소 허용 또는 거부이 규칙에 따라 특정 원본에 대 한 해당 나가는 트래픽을 지정 합니다.|
     |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력 합니다. 이 찾을 수 있습니다 합니다 **개요** 가상 머신의 페이지입니다.|
-    |대상 포트 범위|1433|SQL Server에 대 한 포트 22를 엽니다.|
+    |대상 포트 범위|1433|SQL Server에 대한 포트 1433을 엽니다.|
     |우선 순위|300|규칙 우선 순위를 지정 합니다.|
     |이름|sql-databricks-tutorial-vm|규칙 이름을 지정 합니다.|
 
     ![포트 1433에 대 한 인바운드 보안 규칙 추가](./media/vnet-injection-sql-server/open-port2.png)
 
-## <a name="run-sql-server-in-a-docker-container"></a>Docker 컨테이너에서 SQL Server를 실행 합니다.
+## <a name="run-sql-server-in-a-docker-container"></a>Docker 컨테이너에서 SQL Server 실행
 
-1. 오픈 [Ubuntu에 대 한 Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), 또는 하면 SSH를 가상 컴퓨터에 있는 다른 도구입니다. Azure portal 선택에서 가상 컴퓨터를 이동할 **Connect** 연결 해야 하는 SSH 명령을 가져오려면.
+1. [Ubuntu에 대 한 Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) 또는 가상 머신에 SSH를 사용할 수 있는 다른 도구를 엽니다. Azure portal의 가상 머신으로 이동하여 연결을 위해 필요한 SSH 명령을 가져오기 위해 **연결** 을 선택합니다.
 
     ![가상 머신에 연결](./media/vnet-injection-sql-server/vm-ssh-connect.png)
 
-2. Ubuntu 터미널에서 명령을 입력 하 고 가상 컴퓨터를 구성할 때 만든 관리자 암호를 입력 합니다.
+2. Ubuntu 터미널에서 명령을 입력하고 가상 머신을 구성할 때 만든 관리자 암호를 입력합니다.
 
     ![Ubuntu에서 터미널 SSH 로그인](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
