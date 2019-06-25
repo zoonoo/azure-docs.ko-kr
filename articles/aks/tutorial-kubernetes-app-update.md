@@ -160,7 +160,7 @@ kubectl get service azure-vote-front
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * 업데이트된 컨테이너 이미지 배포
 
-다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드 하는 방법을 알아보세요.
+다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 업그레이드][aks-tutorial-upgrade]
