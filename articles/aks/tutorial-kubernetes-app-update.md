@@ -53,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-파일을 저장하고 닫습니다. `vi`에서 `:wq`를 사용합니다.
+`vi`에서 `:wq`를 사용하여 파일을 저장하고 닫습니다. 
 
 ## <a name="update-the-container-image"></a>컨테이너 이미지 업데이트
 
@@ -152,7 +152,7 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 애플리케이션을 업데이트하고 이 업데이트를 AKS 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 애플리케이션을 업데이트하고 AKS 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 응용 프로그램 코드 업데이트
@@ -160,7 +160,7 @@ kubectl get service azure-vote-front
 > * Azure Container Registry에 컨테이너 이미지 푸시
 > * 업데이트된 컨테이너 이미지 배포
 
-그 다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드 하는 방법을 알아보세요.
+다음 자습서를 진행하여 AKS 클러스터를 새 버전의 Kubernetes로 업그레이드하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Kubernetes 업그레이드][aks-tutorial-upgrade]
