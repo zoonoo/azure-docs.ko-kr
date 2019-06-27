@@ -1,7 +1,7 @@
 ---
 title: 구문 목록-음성 서비스
 titlesuffix: Azure Cognitive Services
-description: 음성-텍스트 인식 결과를 개선하기 위해 `PhraseListGrammar` 개체를 사용하여 구문 목록으로 음성 서비스를 제공 하는 방법을 알아봅니다.
+description: 음성-텍스트 인식 결과를 개선하기 위해 `PhraseListGrammar` 개체를 사용하여 구문 목록으로 음성 서비스를 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -19,15 +19,15 @@ ms.locfileid: "66515317"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>음성-텍스트에 대한 구문 목록
 
-구문 목록을 사용하여 음성 서비스를 제공하여 음성 인식의 정확도를 높일 수 있습니다. 구문 목록은 오디오 데이터에서 개인의 이름 또는 특정 위치와 같은 알려진 구문을 식별하는데 사용됩니다.
+구문 목록을 사용하여 음성 서비스를 제공하여 음성 인식의 정확도를 높일 수 있습니다. 구문 목록은 오디오 데이터에서 개인의 이름 또는 특정 위치와 같은 알려진 구문을 식별하는 데 사용됩니다.
 
-예를 들어, "Move" 명령과 말할 수 있는 사용 가능한 "Ward" 목적지가 있는 경우, "Move to Ward" 항목을 추가할 수 있습니다. 구절을 추가하면 오디오가 "Move toward" 대신 "Move to Ward"를 인식할 확률이 증가하게 됩니다.
+예를 들어, "Move to" 명령과 말할 수 있는 가능한 "Ward"라는 목적지가 있는 경우, "Move to Ward" 항목을 추가할 수 있습니다. 구문을 추가하면 오디오가 "Move toward" 대신 "Move to Ward"를 인식할 확률이 증가하게 됩니다.
 
-단일 단어 또는 전체 구절을 구문 목록에 추가할 수 있습니다. 인식 하는 동안 구문 목록의 항목은 오디어에서 정확한 일치가 포함되어 있으면 사용 됩니다. 이전 예제에서 구문 목록에 "Move to Ward"가 포함되어 있고 "Move toward slowly" 구문이 캡쳐된 경우, 인식 결과는 "Move to Ward slowly"가 될 것입니다.
+단일 단어 또는 전체 구문을 구문 목록에 추가할 수 있습니다. 인식하는 동안 구문 목록의 항목은 오디오에서 정확한 일치가 포함되어 있으면 사용됩니다. 이전 예제를 좀 더 발전시키자면, 구문 목록에 "Move to Ward"가 포함되어 있고 "Move toward slowly" 구문이 캡처된 경우, 인식 결과는 "Move to Ward slowly"가 될 것입니다.
 
-## <a name="how-to-use-phrase-lists"></a>구문 목록을 사용 하는 방법
+## <a name="how-to-use-phrase-lists"></a>구문 목록을 사용하는 방법
 
-아래 샘플에는 `PhraseListGrammar` 개체를 사용하여 구문 목록을 작성하는 방법을 설명 합니다.
+아래 예제는 `PhraseListGrammar` 개체를 사용하여 구문 목록을 작성하는 방법을 설명합니다.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -65,9 +65,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> 음성 서비스가 음성 일치에 사용할 수 있는 구문 목록의 최대 수는 1024 구입니다.
+> 음성 서비스가 음성 일치에 사용할 수 있는 구문 목록의 최대 수는 1024개 구문입니다.
 
-clear()를 호출하여 `PhraseListGrammar`과 연결된 구문를 지울 수도 있습니다.
+clear()를 호출하여 `PhraseListGrammar`과 연결된 구문을 지울 수도 있습니다.
 
 ```C++
 phraselist->Clear();
@@ -90,7 +90,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> `PhraseListGrammar`개체의 변경은 다음 인식 또는 음성 서비스에 다음 다시 연결에 영향을 미칩니다.
+> `PhraseListGrammar`개체의 변경은 다음 인식 또는 음성 서비스로의 다음 재연결에 영향을 미칩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
