@@ -1,7 +1,7 @@
 ---
-title: Speech SDK-음성 서비스를 사용하여 코덱 압축 오디오 스트리밍
+title: Speech SDK-음성 서비스를 사용하여 코덱 압축 오디오 스트리밍하기
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 압축 오디오를 Azure 음성 서비스로 스트림 하는 방법을 알아봅니다. C++, C#, 및 Linux 용 Java 에서 사용 가능합니다.
+description: Speech SDK를 사용하여 압축 오디오를 Azure 음성 서비스로 스트리밍하는 방법을 알아봅니다. C++, C# 및 Linux용 Java에서 사용 가능합니다.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -19,19 +19,19 @@ ms.locfileid: "65468315"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Speech SDK를 통해 코덱 압축 오디오 입력 사용
 
-Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 PushStream를 사용하여 압축 오디오를 음성 서비스로 스트림 하는 방법을 제공 합니다.
+Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 PushStream을 사용하여 압축 오디오를 음성 서비스로 스트림하는 방법을 제공합니다.
 
 > [!IMPORTANT]
-> 압축 오디오 스트리밍은 C++, C#, 및 Java linux (Ubuntu 16.04, Ubuntu 18.04 Debian 9)에서만 지원 됩니다.
+> 압축 오디오 스트리밍은 C++, C#, 및 Java linux(Ubuntu 16.04, Ubuntu 18.04 Debian 9)에서만 지원됩니다.
 
-Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조 하십시오.  Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원 됩니다.
+Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오. Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원됩니다.
 
 - MP3
 - 저작/OGG
 
 ## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용하기 위한 필수 구성 요소
 
-Linux용 Speech SDK를 사용하여 압축 오디오 입력을 사용하려면 다음과 같은 추가 종속성을 설치 합니다.
+Linux용 Speech SDK를 사용하여 압축 오디오 입력을 사용하려면 다음과 같은 추가 종속성을 설치합니다.
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -41,7 +41,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 음성 서비스로 압축 오디어 형식으로 스트리밍하려면, `PullAudioInputStream` 또는 `PushAudioInputStream`를 생성합니다. 그런 다음, 스트림 클래스의 인스턴스에서 `AudioConfig`를 생성하여 스트림의 압축 형식을 지정합니다.
 
-`myPushStream`이라고 하는 입력 스트림 클래스가 있고 OPUS/OGG를 사용하고 있다고 가정하겠습니다. 코드는 다음처럼 보일 수 있습니다.
+`myPushStream`이라고 하는 입력 스트림 클래스가 있고 OPUS/OGG를 사용하고 있다고 가정하겠습니다. 코드는 다음과 비슷할 수 있습니다.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
