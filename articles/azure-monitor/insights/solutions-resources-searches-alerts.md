@@ -80,7 +80,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 |:--- |:--- |
 | category | 저장된 검색의 범주입니다.  같은 솔루션에 있는 저장된 검색은 종종 단일 범주를 공유하므로 콘솔에서 함께 그룹화됩니다. |
 | displayname | 포털에서 저장된 검색에 표시할 이름입니다. |
-| 쿼리 | 실행할 쿼리입니다. |
+| query | 실행할 쿼리입니다. |
 
 > [!NOTE]
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다. 예를 들어, 쿼리가 **AzureActivity | OperationName:“Microsoft.Compute/virtualMachines/write”** 이면 솔루션 파일에 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
@@ -176,10 +176,10 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| Type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| 이름 | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| 설명 | 아닙니다. | 경고에 대한 선택적 설명입니다. |
-| 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
+| type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| description | 아닙니다. | 경고에 대한 선택적 설명입니다. |
+| severity | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 
 #### <a name="threshold"></a>임계값
