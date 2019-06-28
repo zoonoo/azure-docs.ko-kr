@@ -12,7 +12,7 @@ ms.date: 05/02/2019
 ms.author: amishu
 ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
 ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65468315"
@@ -24,7 +24,7 @@ Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 
 > [!IMPORTANT]
 > 압축 오디오 스트리밍은 C++, C#, 및 Java linux(Ubuntu 16.04, Ubuntu 18.04 Debian 9)에서만 지원됩니다.
 
-Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오. Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원됩니다.
+Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오.  Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원됩니다.
 
 - MP3
 - 저작/OGG

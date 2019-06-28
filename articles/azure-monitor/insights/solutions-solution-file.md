@@ -83,7 +83,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수 | type | 설명 |
 |:--- |:--- |:--- |
 | accountName |string |Azure Automation 계정 이름입니다. |
 | pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |

@@ -13,7 +13,7 @@ ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
 ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/02/2019
 ms.locfileid: "65020655"
