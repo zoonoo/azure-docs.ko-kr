@@ -12,7 +12,7 @@ ms.date: 05/13/2019
 ms.author: jhakulin
 ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
 ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2019
 ms.locfileid: "65604420"
@@ -26,7 +26,9 @@ Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을
 * 대화 기록기는 Windows, Linux 및 Android에서 C++, C#, 및 Java에 대해 지원됩니다.
 * ROOBO DevKit는 화자 식별을 위해 효율적으로 활용할 수 있는 순환 다중 마이크 배열을 제공하는 대화 기록 만들기에 대해 지원되는 하드웨어 환경입니다. 자세한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조하세요.
 * 대화 기록에 대한 Speech SDK 지원은 16 비트 16kHz PCM 오디오의 8개 채널로 오디오 풀 및 푸시 모드의 사용으로 제한됩니다.
+
 * 대화 기록은 현재 다음 지역에서 "en-US" 및 "zh-CN" 언어로 제공됩니다: centralus 및 eastasia.
+
 
 ## <a name="prerequisites"></a>필수 조건
 

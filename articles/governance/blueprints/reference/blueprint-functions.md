@@ -109,7 +109,7 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 
 | 식 | Type | 값 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | 배열 | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "내 문자열 값" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
@@ -127,7 +127,7 @@ ID 사용 하 여 Resource Manager 템플릿 아티팩트 _myTemplateArtifact_ �
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | string1 |예 |string |연결할 첫 번째 값입니다. |
-| 추가 인수 |아니요 |문자열 |연결 순서로 나타낸 추가 값 |
+| 추가 인수 |아니요 |string |연결 순서로 나타낸 추가 값 |
 
 ### <a name="return-value"></a>반환 값
 
