@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303946"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808781"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -104,16 +104,17 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. deployment.template.json 파일을 저장합니다. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+기본 모듈 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다. 각 메시지에서 온도 데이터를 분석하고 온도가 특정 임계값을 초과하는 경우에만 IoT Hub로 메시지를 보내도록 모듈을 업데이트합니다. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Visual Studio에서 **CSharpModule** > **Program.cs**를 엽니다.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. **CSharpModule** 네임스페이스의 맨 위에 나중에 사용되는 유형에 새 개의 **using** 문을 추가합니다.
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -294,7 +295,7 @@ The default module code receives messages on an input queue and passes them alon
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 2. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**이며, Windows 모듈을 빌드해야 하므로 확장은 **Windows.Amd64**가 됩니다. 
 

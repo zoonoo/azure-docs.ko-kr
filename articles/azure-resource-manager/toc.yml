@@ -124,9 +124,10 @@
               href: resource-manager-powershell-sas-token.md
         - name: 여러 리소스 그룹 또는 구독에 배포
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Azure DevOps Services를 사용하여 지속적인 통합
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: 파이프라인이 있는 VS 프로젝트
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: 템플릿 내보내기
       href: export-template-portal.md
     - name: 관리
@@ -211,7 +212,7 @@
 - name: 참고 자료
   items:
     - name: 템플릿 참조
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: 템플릿 함수
       items:
         - name: 모든 함수

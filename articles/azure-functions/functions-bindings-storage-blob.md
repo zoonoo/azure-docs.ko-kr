@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: f54da6e350b2cf9027b6e9e02ace2a90e292e1ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3bbd8c00036046a73d50752172251fc87540c28b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472352"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342237"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -211,6 +211,7 @@ blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수
 ```python
 import logging
 import azure.functions as func
+
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
@@ -631,6 +632,7 @@ module.exports = function(context) {
 import logging
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
     logging.info('Python Queue trigger function processed %s', inputblob.name)
     return inputblob
@@ -735,7 +737,7 @@ public static void Run(
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 |해당 없음 | **액세스 권한** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -953,6 +955,7 @@ module.exports = function(context) {
 ```python
 import logging
 import azure.functions as func
+
 
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
          outputblob: func.Out[func.InputStream]):

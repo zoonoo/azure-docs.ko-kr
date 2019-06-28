@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743118"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357145"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 
-Azure SQL Database를 사용하면 가동 중지 시간을 최소화하면서 데이터베이스에 리소스를 동적으로 추가할 수 있습니다.
+Azure SQL Database를 사용 하면 최소 사용 하 여 데이터베이스에 더 많은 리소스를 동적으로 추가할 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)하지만 있습니다는 스위치를 기간 동안 연결 데이터베이스에 손실 될 수 있는 시간을 짧은 시간에 대 한 재시도 논리를 사용 하 여 완화 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -41,7 +41,7 @@ Azure SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.
 기본, 표준 또는 범용 서비스 계층에서 매월 저렴한 비용으로 작은 규모의 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 서비스 계층을 프리미엄 또는 중요 비즈니스용 서비스 계층으로 변경할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
 > [!NOTE]
-> 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 조건에 따라 자동으로 크기를 조정하는 경우인 반면 동적 확장성은 가동 중지 시간 없이 수동 크기 조정을 허용합니다.
+> 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스 기준에 따라 자동으로 조정 하는 경우 반면 동적 확장성을 최소 가동 중지 시간을 사용 하 여 수동으로 확장할 수 있습니다.
 
 단일 Azure SQL Database는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다.
 그러나 단일 Azure SQL Database에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114533"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150450"
 ---
 다음 표에 Azure 범용 v1, v2 및 Blob storage 계정에 대 한 기본 제한이 있습니다. 합니다 *수신* 제한은 저장소 계정에 전송 되는 요청에서 모든 데이터를 가리킵니다. 합니다 *송신* 제한은 저장소 계정에서 수신 되는 응답에서 모든 데이터를 가리킵니다.
 
@@ -32,15 +32,15 @@ ms.locfileid: "66114533"
 <sup>1</sup>azure Standard Storage 계정 수신에 대 한 요청에 따라 더 높은 한도 지원 합니다. 수신에 대한 계정 제한을 늘리도록 요청하려면 [Azure 고객 지원팀](https://azure.microsoft.com/support/faq/)에 문의하세요.
 
 <sup>2</sup>[Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음을 포함합니다.
-* **RA-GRS**: 읽기 액세스 지역 중복 저장소입니다. RA-GRS를 사용하는 경우 보조 위치에 대한 송신 대상은 기본 위치에 대한 송신 대상과 동일합니다.
-* **GRS**: 지역 중복 저장소입니다. 
-* **ZRS**: 영역 중복 저장소입니다.
-* **LRS**: 로컬 중복 저장소입니다. 
+- **RA-GRS**: 읽기 액세스 지역 중복 저장소입니다. RA-GRS를 사용하는 경우 보조 위치에 대한 송신 대상은 기본 위치에 대한 송신 대상과 동일합니다.
+- **GRS**: 지역 중복 저장소입니다.
+- **ZRS**: 영역 중복 저장소입니다.
+- **LRS**: 로컬 중복 저장소입니다.
 
 > [!NOTE]
 > 대부분의 시나리오에 대 한 범용 v2 저장소 계정을 사용 하는 것이 좋습니다. 범용 v1 또는 Azure Blob storage 계정 데이터를 복사할 필요가 없으며 가동 중지 시간 없이 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.
 >
-> Azure Storage 계정에 대 한 자세한 내용은 참조 하세요. [저장소 계정 개요](../articles/storage/common/storage-account-overview.md)합니다. 
+> Azure Storage 계정에 대 한 자세한 내용은 참조 하세요. [저장소 계정 개요](../articles/storage/common/storage-account-overview.md)합니다.
 
 애플리케이션의 요구가 단일 스토리지 계정의 확장성 목표를 초과하는 경우 여러 스토리지 계정을 사용하도록 애플리케이션을 빌드하면 됩니다. 그런 다음 해당 저장소 계정 간에 데이터 개체를 분할할 수 있습니다. 볼륨 가격에 대 한 내용은 참조 하세요 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)합니다.
 

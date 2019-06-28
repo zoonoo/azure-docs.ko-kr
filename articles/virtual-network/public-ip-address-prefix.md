@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799115"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147993"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -32,7 +32,7 @@ ms.locfileid: "65799115"
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>공용 IP 주소 접두사를 만드는 이유
 
-공용 IP 주소 리소스를 만드는 경우 Azure에서 한 지역에 사용되는 범위 중 하나를 선택하여 사용 가능한 공용 IP 주소가 할당됩니다. Azure에서 주소가 할당되면 주소가 무엇인지 알 수 있지만 Azure에서 주소가 할당될 때까지 어떤 주소가 할당될지 알 수 없습니다. 이렇게 되면 예를 들어 내가 또는 나의 비즈니스 파트너가 특정 IP 주소를 허용하는 방화벽 규칙을 설정하는 경우 문제가 될 수 있습니다. 리소스에 공용 IP 주소를 새로 할당할 때마다, 방화벽 규칙에 주소가 추가되어야 합니다. 공용 IP 주소 접두사를 통해 리소스에 주소를 할당하면 전체 범위가 규칙에 추가될 수 있기 때문에 주소 중 하나를 할당할 때마다 방화벽 규칙을 업데이트할 필요가 없습니다.
+공용 IP 주소 리소스를 만들 때 Azure 지역에서 사용 되는 범위에서 사용 가능한 공용 IP 주소를 할당 합니다. Azure에서 주소가 할당되면 주소가 무엇인지 알 수 있지만 Azure에서 주소가 할당될 때까지 어떤 주소가 할당될지 알 수 없습니다. 이렇게 되면 예를 들어 내가 또는 나의 비즈니스 파트너가 특정 IP 주소를 허용하는 방화벽 규칙을 설정하는 경우 문제가 될 수 있습니다. 리소스에 공용 IP 주소를 새로 할당할 때마다, 방화벽 규칙에 주소가 추가되어야 합니다. 공용 IP 주소 접두사를 통해 리소스에 주소를 할당하면 전체 범위가 규칙에 추가될 수 있기 때문에 주소 중 하나를 할당할 때마다 방화벽 규칙을 업데이트할 필요가 없습니다.
 
 ## <a name="benefits"></a>이점
 

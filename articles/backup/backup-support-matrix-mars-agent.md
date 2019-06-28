@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922996"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
@@ -66,7 +66,7 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 **기능** | **세부 정보**
 --- | ---
-대역폭 제어 |  지원됩니다. MARS 에이전트를 사용 하 여 **속성 변경** 대역폭을 조정 합니다.
+대역폭 제어 | 지원됩니다. MARS 에이전트를 사용 하 여 **속성 변경** 대역폭을 조정 합니다.
 네트워크 제한 | Windows Server 2008 R2, Windows Server 2008 SP2 또는 Windows 7을 실행 하는 백업 된 컴퓨터에 대해 사용할 수 없습니다.
 
 ## <a name="support-for-direct-backups"></a>직접 백업 지원
@@ -105,10 +105,10 @@ Windows 7   | 1,700 GB
 
 **형식** | **지원**
 --- | ---
-암호화   |  지원됩니다.
-압축 |  지원됩니다.
-스파스 |  지원됩니다.
-압축 및 스파스 |  지원됩니다.
+암호화   | 지원됩니다.
+압축 | 지원됩니다.
+스파스 | 지원됩니다.
+압축 및 스파스 | 지원됩니다.
 하드 링크  | 지원되지 않습니다. 건너뛰었습니다.
 재분석 지점   | 지원되지 않습니다. 건너뛰었습니다.
 암호화 및 스파스 |  지원되지 않습니다. 건너뛰었습니다.

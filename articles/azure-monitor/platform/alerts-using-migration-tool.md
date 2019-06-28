@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015634"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295552"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙을 마이그레이션하려면
 
@@ -38,7 +38,7 @@ ms.locfileid: "66015634"
 
 - 알림 페이로드 형식 및 새 경고 규칙 만들기 및 관리 Api는 더 많은 기능을 지원 하므로 클래식 경고 규칙의 경우와 다릅니다. [마이그레이션을 준비 하는 방법을 알아봅니다](alerts-prepare-migration.md)합니다.
 
-- 이 도구를 사용 하 여 일부 클래식 경고 규칙을 마이그레이션할 수 없습니다. [규칙을 마이그레이션할 수 없습니다 및 수행할 작업에 대해 알아봅니다](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated)합니다.
+- 이 도구를 사용 하 여 일부 클래식 경고 규칙을 마이그레이션할 수 없습니다. [규칙을 마이그레이션할 수 없습니다 및 수행할 작업에 대해 알아봅니다](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)합니다.
 
     > [!NOTE]
     > 마이그레이션 프로세스에는 클래식 경고 규칙의 평가 영향을 주지 않습니다. 실행 하 고 마이그레이션된 및 새 경고 규칙을 적용 될 때까지 경고를 보내도록 계속 됩니다.

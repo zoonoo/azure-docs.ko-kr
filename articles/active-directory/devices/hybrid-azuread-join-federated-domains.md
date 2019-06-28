@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae4b57d86461526b285e77aa408373b5d7f5aedf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 600d6b9f1eb8d8073e1658dd5b8196a3d8137e42
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513375"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733710"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -71,7 +71,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 Windows 10 1803부터 AD FS를 사용하여 페더레이션 환경에 대한 즉각적인 하이브리드 Azure AD 조인이 실패하는 경우 Azure AD Connect를 사용하여 Azure AD에서 컴퓨터 개체를 동기화한 다음, 하이브리드 Azure AD 조인에 대한 디바이스 등록을 완료합니다. Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 되려는 디바이스의 컴퓨터 개체를 동기화했는지 확인합니다. 컴퓨터 개체가 특정 OU(조직 구성 단위)에 속한 경우 Azure AD Connect에서 이러한 OU를 동기화하기 위해 구성해야 합니다. Azure AD Connect를 사용하여 컴퓨터 개체를 동기화하는 방법에 대한 자세한 내용은 [Azure AD Connect를 사용하여 필터링 구성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering) 문서를 참조하세요.
 
-조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))를 구현하는 것이 좋습니다. WPAD의 구성 및 관리 이슈가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10) 로 이동하세요. 
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))를 구현하는 것이 좋습니다. WPAD의 구성 및 관리 이슈가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10))로 이동하세요. 
 
 WPAD를 사용할 생각이 없고 컴퓨터에서 프록시 설정을 구성해야 하는 경우 Windows 10 1709부터 [GPO(그룹 정책 개체)를 사용하여 WinHTTP 설정을 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)하면 됩니다.
 
@@ -165,7 +165,7 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 **[Azure Act
 
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
-- Windows 클라이언트의 ID와 일치하는 **디바이스 ID**를 갖는 개체가 있어야 합니다.
+- **디바이스 ID**가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
 - **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 장치 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
 - 조건부 액세스에 사용되는 장치의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다.
 

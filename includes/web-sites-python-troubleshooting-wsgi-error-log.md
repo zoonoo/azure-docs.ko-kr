@@ -9,11 +9,11 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137025"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182807"
 ---
 애플리케이션을 시작하는 동안 Python에서 오류가 발생하는 경우 간단한 오류 페이지만 반환됩니다(예: "내부 서버 오류가 발생하여 페이지를 표시할 수 없습니다.").
 

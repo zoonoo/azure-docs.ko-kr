@@ -4,15 +4,14 @@ description: 이 문서에서는 Azure Application Gateway 다중 사이트 지�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 01/17/2019
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 1/17/2019
+ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715863"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
@@ -24,9 +23,9 @@ ms.locfileid: "60715863"
 > [!IMPORTANT]
 > 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다.  그러면 트래픽이 올바른 백 엔드로 라우팅됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다.
 
-http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, http://fabrikam.com에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
+http://contoso.com 에 대한 요청은 ContosoServerPool로 라우팅되고, http://fabrikam.com 에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
-마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 http://blog.contoso.com 및 http://app.contoso.com이 포함됩니다.
+마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 http://blog.contoso.com 및 http://app.contoso.com 이 포함됩니다.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>호스트 헤더 및 SNI(서버 이름 표시)
 
@@ -125,5 +124,3 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 
 다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 애플리케이션 게이트웨이 만들기](tutorial-multiple-sites-powershell.md)로 이동해 둘 이상의 웹 애플리케이션 지원 기능으로 애플리케이션 게이트웨이를 만듭니다.
 
-
-<!-- Update_Description: update metedata properties -->

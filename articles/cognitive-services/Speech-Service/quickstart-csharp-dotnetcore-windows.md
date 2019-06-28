@@ -19,7 +19,7 @@ ms.locfileid: "65466438"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>빠른 시작: .NET Core용 Speech SDK를 사용하여 음성 인식
 
-빠른 시작은 [음성 변환](quickstart-translate-speech-dotnetcore-windows.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 번역](quickstart-translate-speech-dotnetcore-windows.md)에도 사용할 수 있습니다.
 
 원하는 경우 다른 프로그래밍 언어 및/또는 환경을 선택합니다.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "65466438"
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
-1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
 1. 또한 `YourServiceRegion` 문자열을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예: 평가판 구독의 `westus`).
 

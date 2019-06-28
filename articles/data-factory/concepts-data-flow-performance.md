@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057962"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190616"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 튜닝 가이드
 
@@ -59,6 +59,12 @@ Azure 데이터 팩터리 매핑 데이터 흐름 디자인, 배포 및 대규�
 * 행 단위로 대신 메모리에 있는 집합의 데이터를 저장 하는 ADF 지시 일괄 처리 크기를 설정 합니다. 선택적 설정 이며 부족 해질 수 있습니다 리소스에서 계산 노드의 경우 제대로 조정 되지 않습니다.
 * 쿼리 설정 도착 하기 전에 데이터 흐름에 대 한 더 빠른 초기 데이터 취득을 만들 수 있는 처리에 대 한 원본에서 행 오른쪽을 필터링 할 수 있습니다.
 * 즉, READ UNCOMMITTED Azure SQL DB에 대 한 선택적 쿼리 힌트는 쿼리를 사용 하는 경우 추가할 수 있습니다.
+
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>SQL 데이터 집합에 대 한 소스 변환 설정의 격리 수준을 설정합니다
+
+* 커밋되지 않은 읽기 소스 변환에 더 빠른 쿼리 결과 제공 합니다.
+
+![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
 
 ### <a name="set-sink-batch-size"></a>싱크 일괄 처리 크기를 설정 합니다.
 

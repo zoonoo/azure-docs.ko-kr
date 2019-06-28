@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
 ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441518"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
@@ -29,7 +29,7 @@ Azure Automation 상태 구성을 사용하는 이점에 대해 자세히 알려
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
-- Azure 가상 컴퓨터
+- Azure 가상 머신
 - Azure 가상 머신(기본)
 - Amazon Web Services(AWS) EC2 인스턴스
 - 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
@@ -43,7 +43,7 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 
 다음 섹션에서는 Azure Automation 상태 구성에 대해 각 머신 형식을 온보드하는 방법을 간략히 설명합니다.
 
-## <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
+## <a name="azure-virtual-machines"></a>Azure 가상 머신
 
 Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
 Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
@@ -293,7 +293,7 @@ PowerShell DSC 로컬 구성 관리자 기본값이 사용자 사용 사례와 �
 
 ## <a name="secure-registration"></a>등록 보호
 
-DSC 노드에서 PowerShell DSC 끌어오기 또는 보고 서버(Azure Automation 상태 구성 포함)를 인증할 수 있도록 하는 WMF 5 DSC 등록 프로토콜을 통해 Azure Automation 계정에 머신을 안전하게 등록할 수 있습니다. 노드는 **등록 URL**에 있는 서버에 등록되며 **등록 키**를 통해 인증됩니다. 등록하는 동안 DSC 노드와 DSC 풀/보고 서버가 이 노드에 대해, 서버 게시-등록에 대한 인증에 사용할 고유 인증서를 협상합니다. 이 프로세스는 노드가 손상되어 악의적 동작을 수행하는 등, 온보드된 노드가 다른 노드를 가장하는 것을 방지합니다.  등록 후 해당 등록 키는 다시 인증에 사용되지 않으며 노드에서 삭제됩니다.
+DSC 노드에서 PowerShell DSC 끌어오기 또는 보고 서버(Azure Automation 상태 구성 포함)를 인증할 수 있도록 하는 WMF 5 DSC 등록 프로토콜을 통해 Azure Automation 계정에 머신을 안전하게 등록할 수 있습니다. 노드는 **등록 URL**에 있는 서버에 등록되며 **등록 키**를 통해 인증됩니다. 등록하는 동안 DSC 노드와 DSC 풀/보고 서버가 이 노드에 대해, 서버 게시-등록에 대한 인증에 사용할 고유 인증서를 협상합니다. 이 프로세스는 노드가 손상되어 악의적 동작을 수행하는 등, 온보드된 노드가 다른 노드를 가장하는 것을 방지합니다. 등록 후 해당 등록 키는 다시 인증에 사용되지 않으며 노드에서 삭제됩니다.
 
 Azure Portal의 **계정 설정** 아래에 있는 **키**에서 상태 구성 등록 프로토콜에 필요한 정보를 얻을 수 있습니다. Automation 계정의 **Essentials** 패널에서 키 아이콘을 클릭하여 이 블레이드를 엽니다.
 

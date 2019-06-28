@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717279"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -126,7 +126,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 >
 >ARM VM의 경우 NSG(네트워크 보안 그룹)에서 포트 5986을 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 개인 포트(5986) 및 공용 포트가 있는 엔드포인트가 필요합니다. 그런 다음, NSG에서 해당 공용 연결 포트를 열어야 합니다.
+>RDFE VM의 경우 프라이빗 포트(5986) 및 공용 포트가 있는 엔드포인트가 필요합니다. 그런 다음, NSG에서 해당 공용 연결 포트를 열어야 합니다.
 
 ### <a name="set-up-the-client-computer"></a>클라이언트 컴퓨터 설정
 
@@ -209,7 +209,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >ARM VM의 경우 NSG에서 포트 5986을 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 개인 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 연결 포트를 열어야 합니다.
+>RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 연결 포트를 열어야 합니다.
 
 1. 동일한 VNET의 다른 VM에서 레지스트리 편집기(regedit.exe)를 엽니다.
 
@@ -232,7 +232,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >
 >ARM VM의 경우 NSG에서 포트 5986을 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 개인 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 그런 다음, NSG에서 해당 공용 연결 포트를 열어야 합니다.
+>RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 그런 다음, NSG에서 해당 공용 연결 포트를 열어야 합니다.
 
 1. 동일한 VNET의 다른 VM에서 **Services.msc** 인스턴스를 엽니다.
 

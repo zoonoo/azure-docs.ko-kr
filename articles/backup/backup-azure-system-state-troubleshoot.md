@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059781"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165124"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -118,7 +118,7 @@ Windows Server 백업 상태 확인을 위해 수행 된 아래:
 
   * WSB 백업 실행 하 여 제대로 작동 하는지 확인 합니다 아래 명령을 관리자 권한 명령 프롬프트에서:
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >시스템 상태를 저장 하려는 볼륨의 드라이브 문자를 사용 하 여 X 대체 이미지를 백업 합니다.

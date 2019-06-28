@@ -10,7 +10,7 @@
     - name: 빠른 시작
       expanded: true
       items:
-        - name: 용량 초기화 및 구매
+        - name: 초기화 및 프로비전 용량
           href: quickstart-create-cloudsimple-service.md
         - name: 프라이빗 클라우드 환경 구성
           href: quickstart-create-private-cloud.md
@@ -62,24 +62,20 @@
           href: access-cloudsimple-portal.md
         - name: 노드 관리
           items:
-            - name: 노드 구매
+            - name: 노드 프로비전
               href: create-nodes.md
         - name: 프라이빗 클라우드 리소스 관리
           items:
             - name: 프라이빗 클라우드 만들기
-              href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
+              href: create-private-cloud.md
             - name: 프라이빗 클라우드 관리
-              href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
+              href: manage-private-cloud.md
             - name: 프라이빗 클라우드 확장
-              href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
-            - name: 프라이빗 클라우드 축소
-              href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
-            - name: 프라이빗 클라우드 랙 목록 보기
-              href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
+              href: expand-private-cloud.md
             - name: Azure 구독 매핑
-              href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
+              href: azure-subscription-mapping.md
             - name: 권한 높이기
-              href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
+              href: escalate-private-cloud-privileges.md
         - name: CloudSimple 작업 모니터링
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: 프라이빗 클라우드 네트워킹 설정

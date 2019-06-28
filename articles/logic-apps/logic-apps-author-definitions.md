@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427051"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296131"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장
 
@@ -50,6 +50,9 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 3. 논리 앱 정의 및 템플릿에 대한 바로 가기 메뉴를 엽니다. **Logic Apps 디자이너를 사용하여 열기**를 선택합니다.
 
    ![Visual Studio 솔루션에서 논리 앱 열기](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > 이 명령은 Visual Studio 2019에 없다면 Visual Studio에 대 한 최신 업데이트가 있는지 확인 합니다.
 
 4. 디자이너의 맨 아래에서 **코드 보기**를 선택합니다. 
 

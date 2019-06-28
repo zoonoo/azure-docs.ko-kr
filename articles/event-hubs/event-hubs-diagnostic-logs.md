@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822321"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
@@ -76,14 +76,14 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
 trackingId | 추적에 사용되는 내부 ID입니다.
-resourceId | Azure Resource Manager 리소스 ID입니다.
+ResourceId | Azure Resource Manager 리소스 ID입니다.
 eventHub | 이벤트 허브 전체 이름(네임스페이스 이름 포함)입니다.
 partitionId | 데이터가 기록되는 이벤트 허브 파티션입니다.
 archiveStep | ArchiveFlushWriter
 startTime | 실패 시작 시간입니다.
 failures | 실패가 발생한 횟수입니다.
 durationInSeconds | 실패 기간입니다.
-Message | 오류 메시지입니다.
+message | 오류 메시지입니다.
 category | ArchiveLogs
 
 다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
@@ -113,7 +113,7 @@ category | ArchiveLogs
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
-resourceId | Azure Resource Manager 리소스 ID입니다.
+ResourceId | Azure Resource Manager 리소스 ID입니다.
 SubscriptionId | 구독 ID가 표시됩니다.
 EventTimeString | 작업 시간입니다.
 EventProperties | 작업 속성입니다.

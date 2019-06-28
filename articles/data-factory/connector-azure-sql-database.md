@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 06/14/2019
 ms.author: jingwang
-ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90126a607065bdb10e2ff81ce6ab52809ecc3f36
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048575"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273751"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Data Factory 서비스 버전을 선택 합니다."]
@@ -41,7 +41,8 @@ ms.locfileid: "67048575"
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로, 대상 테이블에 데이터를 추가하거나 복사하는 동안 사용자 지정 논리로 저장 프로시저를 호출합니다.
 
-Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)는 이제 지원되지 않습니다. 
+>[!NOTE]
+>Azure SQL Database **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)** 이제이 커넥터에서 지원 되지 않습니다. 이 문제를 해결 하려면 사용할 수 있습니다 [제네릭 ODBC 커넥터](connector-odbc.md) 및 자체 호스팅 통합 런타임을 통해 SQL Server ODBC 드라이버. 따릅니다 [이 지침은](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) ODBC 드라이버 다운로드 하 고 연결 문자열 구성으로 합니다.
 
 > [!IMPORTANT]
 > Azure Data Factory Integration Runtime을 사용하여 데이터를 복사하는 경우, Azure 서비스가 서버에 액세스할 수 있도록 [Azure SQL Server 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 구성합니다.

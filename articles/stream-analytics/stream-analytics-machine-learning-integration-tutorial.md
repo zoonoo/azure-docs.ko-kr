@@ -7,17 +7,17 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c945f39218f9099d5c304739ca9b567ab9b3325
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480811"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164688"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
-이 문서에서는 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
+# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Azure Stream Analytics 및 Azure Machine Learning Studio (미리 보기)를 사용 하 여 감정 분석을 수행 합니다.
+이 문서에서는 Azure Machine Learning Studio를 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
 
 문서에서 알아본 내용을 다음과 같은 시나리오에 적용할 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "61480811"
 좀 더 높은 수준에서 이 문서에 설명된 작업을 완료하려면 다음을 수행합니다.
 
 1. Azure Storage 계정 및 Blob Storage 컨테이너를 만들고 컨테이너에 CSV로 포맷된 입력 파일을 업로드합니다.
-3. Cortana Intelligence 갤러리의 감정 분석 모델을 Azure Machine Learning 작업 영역에 추가하고 이 모델을 Azure Machine Learning 작업 영역의 웹 서비스로 배포합니다.
+3. Azure Machine Learning Studio 작업 영역에 Cortana Intelligence Gallery에서 감정 분석 모델을 추가 하 고 Machine Learning 작업 영역에서 웹 서비스로이 모델을 배포 합니다.
 5. 텍스트 입력의 감정을 결정하기 위해 이 웹 서비스를 함수로 호출하는 Stream Analytics 작업을 만듭니다.
 6. Stream Analytics 작업을 시작하고 출력을 확인합니다.
 
@@ -139,7 +139,7 @@ ms.locfileid: "61480811"
    |필드  |값  |
    |---------|---------|
    |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -159,7 +159,7 @@ ms.locfileid: "61480811"
    |필드  |값  |
    |---------|---------|
    |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
-   |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
+   |**저장소 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
@@ -175,7 +175,7 @@ ms.locfileid: "61480811"
 
 1. Excel 통합 문서의 앞부분에서 다운로드한 웹 서비스 URL 및 API 키가 있는지 확인합니다.
 
-2. 작업 블레이드 > **함수** > **+ 추가** > **AzureML**로 이동합니다.
+2. 작업 블레이드 > **함수** >  **+ 추가** > **AzureML**로 이동합니다.
 
 3. 다음 값으로 **Azure Machine Learning 함수** 블레이드를 채웁니다.
 
@@ -183,7 +183,7 @@ ms.locfileid: "61480811"
    |---------|---------|
    | **함수 별칭** | 이름 `sentiment`를 사용하여 **Azure Machine Learning 함수 설정을 수동으로 제공합니다.** 를 선택합니다. 그러면 URL 및 키를 입력하기 위한 옵션이 제공됩니다.      |
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
-   |**키** | API 키를 붙여넣습니다. |
+   |**Key** | API 키를 붙여넣습니다. |
   
    ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918837"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거
@@ -44,12 +44,12 @@ Azure portal에서 새 신용 카드를 추가, 기존 신용 카드를 업데�
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 카드를 추가 하려면 "+"의 왼쪽 위 모퉁이 선택 합니다. 신용 카드 폼 오른쪽에 표시 됩니다.
+1. 왼쪽 위 모서리에서 "+" 기호를 선택하여 카드를 추가합니다. 오른쪽에 신용 카드 양식이 나타납니다.
 1. 신용 카드 또는 직불 카드 정보를 입력합니다.
 
     ![새 카드가 추가 보여주는 스크린샷.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. 카드 활성 결제 방법 옆에 확인란, 이렇게 하려면 **이 방법을 내 활성 결제 방법 확인** 폼 위에 있습니다. 이 카드는 동일한 카드를 사용 하 여 선택한 구독으로 모든 구독에 대 한 활성 결제 방법이 됩니다.
+1. 카드 활성 결제 방법 옆에 확인란, 이렇게 하려면 **이 방법을 내 활성 결제 방법 확인** 폼 위에 있습니다. 이 카드는 선택한 구독과 동일한 카드를 사용하는 모든 구독의 활성 결제 방법이 됩니다.
 
 1. **다음**을 선택합니다.
 
@@ -68,7 +68,7 @@ Azure portal에서 새 신용 카드를 추가, 기존 신용 카드를 업데�
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 편집 하려는 카드 직불 또는 크레딧 클릭 합니다. 신용 카드 폼 오른쪽에 표시 됩니다.
+1. 편집하려는 신용 카드 또는 직불 카드를 클릭합니다. 오른쪽에 신용 카드 양식이 나타납니다.
 
     ![선택 하는 신용 카드나 직불 카드를 보여주는 스크린샷.](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
@@ -104,7 +104,7 @@ Azure portal에서 새 신용 카드를 추가, 기존 신용 카드를 업데�
 
     ![선택한 결제 방법 관리 옵션을 보여 주는 스크린샷](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 제거 하려는 카드 옆의 확인란을 선택 합니다.
+1. 제거하려는 카드 옆에 있는 확인란을 선택합니다.
 1. **삭제**를 클릭합니다.
 
 신용 카드 Microsoft 구독에 대 한 활성 결제 방법을 인 경우 Azure 계정에서 제거할 수 없습니다. 있습니다. 이 신용 카드 또는 직불 카드에 연결 된 모든 구독에 대 한 활성 결제 방법을 변경 하 고 다시 시도

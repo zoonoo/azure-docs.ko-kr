@@ -9,11 +9,11 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 5f919a04b47aa6fdef9500f3d7e6bef4ddaa239e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140204"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182455"
 ---
 1. [Firebase 콘솔](https://firebase.google.com/console/)에 로그인합니다. 아직 없는 경우 새 Firebase 프로젝트를 만듭니다.
 2. 프로젝트를 만든 후 **Android 앱에 Firebase 추가**를 선택합니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "66140204"
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
-    4. 도구 모음에서 **지금 동기화***를 선택합니다. 
+    4. 도구 모음에서 **지금 동기화** *를 선택합니다. 
  
         ![build.gradle 구성 변경](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. 이 페이지에서 **다음**을 선택합니다. 

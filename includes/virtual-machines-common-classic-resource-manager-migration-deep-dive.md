@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167080"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182179"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.

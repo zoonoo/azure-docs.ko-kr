@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234346"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357576"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines를 사용 합니다.
 
@@ -51,11 +51,22 @@ Azure portal에서 DSVM 페이지에서 이러한 값을 가져옵니다.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>DSVM에서 Azure Notebooks 파일 액세스
 
+파일 시스템 액세스는 이상 19.06.15 DSVM 버전에 대 한 지원 됩니다. 버전을 확인 하려면 먼저 SSH (IP 주소는 Azure portal에서 사용할 수 있는)를 통해 DSVM에 연결 합니다. 다음을 사용 하 여 다음 명령을 실행 하면 `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`합니다. 버전 번호를 "version"에 대 한 출력에 표시 됩니다.
+
 파일 경로와 패리티를 유지 하는 **무료 계산** DSVM에서 한 번에 하나의 프로젝트 에서만 열 수 있는 계층입니다. 새 프로젝트를 열려면를 종료 해야 열려 있는 프로젝트 우선 합니다.
+
+파일은 Jupyter 서버 (JupyterHub에 표시 된 디렉터리)의 루트 디렉터리에 탑재 된 프로젝트를 VM에서 실행 되 면 기본 Azure Notebooks 파일을 대체 합니다. 사용 하 여 VM 종료 합니다 **종료** Azure Notebooks notebook UI의 단추는 기본 파일을 복원 합니다.
 
 ![Azure Notebooks 종료 단추](media/shutdown.png)
 
-파일은 Jupyter 서버 (JupyterHub에 표시 된 디렉터리)의 루트 디렉터리에 탑재 된 프로젝트를 VM에서 실행 되 면 기본 Azure Notebooks 파일을 대체 합니다. 사용 하 여 VM 종료 합니다 **종료** Azure Notebooks notebook UI의 단추는 기본 파일을 복원 합니다.
+## <a name="create-new-dsvm-users"></a>새 DSVM 사용자 만들기
+
+여러 사용자가 공유할 DSVM을 만들고 각 노트북 사용자에 대 한 DSVM 사용자를 사용 하 여 서로 차단 것을 방지할 수 있습니다.
+
+1. 에 [Azure Portal](https://portal.azure.com), 가상 컴퓨터를 이동 합니다.
+1. 아래 **지원 + 문제 해결** 왼쪽된 여백에서 선택 **암호 재설정**합니다.
+1. 새 사용자 이름 및 암호를 입력 하 고 선택 **업데이트**합니다. (기존 사용자 이름 적용 되지 않습니다.)
+1. 모든 추가 사용자에 대해 이전 단계를 반복 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

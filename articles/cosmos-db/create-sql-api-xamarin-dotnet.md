@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860876"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754732"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 
@@ -48,7 +48,7 @@ Mac을 사용하는 경우 **무료** [Mac용 Visual Studio](https://www.visuals
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>컬렉션 추가
+## <a name="add-a-container"></a>컨테이너 추가
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -184,7 +184,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
     }
     ```
 
-    여기에서 교체할 문서를 고유하게 식별하는 데 새 URI가 필요합니다. 해당 URI는 `UriFactory.CreateDocumentUri`를 사용하여 가져오고 데이터베이스와 컬렉션 및 문서의 ID에 전달합니다.
+    여기서 교체할 문서를 고유하게 식별하는 데 새 URI가 필요합니다. 새 URI는 `UriFactory.CreateDocumentUri`를 사용하여 가져오고 데이터베이스와 컬렉션 및 문서의 ID에 전달합니다.
 
     `DocumentClient.ReplaceDocumentAsync`는 URI로 식별된 문서를 매개 변수로 지정된 문서로 바꿉니다.
 
@@ -245,7 +245,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컬렉션을 만들고, Xamarin 앱을 작성 및 배포하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
+이 빠른 시작에서는 Azure Cosmos 계정을 만들고, Data Explorer를 사용하여 컬렉션을 만들고, Xamarin 앱을 빌드 및 배포하는 방법을 알아보았습니다. 이제 Azure Cosmos 계정으로 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)

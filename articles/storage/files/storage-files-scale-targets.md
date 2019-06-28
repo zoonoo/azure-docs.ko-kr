@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078158"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150481"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -45,7 +45,13 @@ Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니�
 프리미엄 파일 공유는 라는 특별 한 저장소 계정에 프로 비전 **filestorage (미리 보기)** 합니다. 이 계정에는 표준 파일 공유에 사용 되는 저장소 계정 보다 약간 다른 크기 조정 목표입니다. 저장소 계정 크기 조정 목표에 대 한 참조 테이블에 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 섹션입니다.
 
 > [!IMPORTANT]
-> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
+> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 FileStorage 계정에 대 한 최대 크기 조정은 FileStorage 계정당 하나의 공유 경우 달성할 수 있습니다.
+
+### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 목표
+
+> [!NOTE]
+> 표준 파일 공유 5tib 보다 큰 미리 보기 상태 이며 특정 제한 사항이 있습니다.
+> 제한 사항 및 이러한 파일 공유 크기의 미리 보기에 등록 하는 목록에 대 한 참조를 [표준 파일 공유](storage-files-planning.md#standard-file-shares) 계획 가이드의 섹션입니다.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

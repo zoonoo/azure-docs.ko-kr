@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240651"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147891"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure 테이블에 대 한 리드 관리 지침
 
@@ -97,7 +97,7 @@ Azure 테이블에 새 잠재 고객이 추가 되 면 전자 메일 알림을 �
 
      ![Azure 테이블 이름에 대한 사용자 지정 값 선택](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **필터 쿼리** –이 필드를 클릭 하며 **과거 시간 가져오기** 팝업 창에 아이콘이 표시 됩니다. **과거 시간**을 선택하고 타임스탬프로 사용하여 쿼리를 필터링합니다. 또는 필드에 다음 함수를 붙여넣을 수 있습니다. CreatedTime `gt datetime'@{body('Get_past_time')}'` 
+   - **필터 쿼리** –이 필드를 클릭 하며 **과거 시간 가져오기** 팝업 창에 아이콘이 표시 됩니다. **과거 시간**을 선택하고 타임스탬프로 사용하여 쿼리를 필터링합니다. 또는 필드에 다음 함수를 붙여넣을 수 있습니다. CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![필터 쿼리 함수 설정](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

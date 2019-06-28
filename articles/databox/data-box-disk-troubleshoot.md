@@ -6,178 +6,94 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/2/2019
+ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939631"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147077"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk에서 문제 해결
+# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>로그를 사용 하 여 Azure Data Box 디스크의 유효성 검사 문제를 해결 하려면
 
-이 문서는 Microsoft Azure Data Box Disk에 적용되며 이 솔루션을 배포할 때 발생하는 문제를 해결하는 데 사용하는 워크플로에 대해 설명합니다. 
+이 문서에서는 Microsoft Azure Data Box 디스크에 적용 됩니다. 문서에는이 솔루션을 배포 하는 경우를 볼 수 있습니다 유효성 검사 문제를 해결 하는 로그를 사용 하는 방법을 설명 합니다.
 
-이 문서에는 다음 섹션이 포함되어 있습니다.
+## <a name="validation-tool-log-files"></a>유효성 검사 도구 로그 파일
 
-- 진단 로그 다운로드
-- 활동 로그 쿼리
-- Data Box Disk 잠금 해제 도구 오류
-- Data Box Disk 분할 복사 도구 오류
+유효성을 검사할 때 사용 하 여 디스크에서 데이터를 [유효성 검사 도구](data-box-disk-deploy-copy-data.md#validate-data), *error.xml* 모든 오류를 기록 하기 위해 생성 됩니다. 로그 파일에는 `Drive:\DataBoxDiskImport\logs` 드라이브의 폴더입니다. 유효성 검사를 실행 하는 경우 오류 로그에 대 한 링크가 제공 됩니다.
 
-## <a name="download-diagnostic-logs"></a>진단 로그 다운로드
+<!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
-데이터 복사 프로세스 중 오류가 발생한 경우 포털에서는 진단 로그가 위치한 폴더에 대한 경로를 표시합니다. 
+유효성 검사에 대 한 여러 세션을 실행 하는 경우에 세션당 하나의 오류 로그가 생성 됩니다.
 
-진단 로그는 다음 항목일 수 있습니다.
-- 오류 로그
-- 자세한 정보 표시 로그  
+- 다음은 오류 로그의 샘플 데이터를 로드 하는 경우는 `PageBlob` 폴더는 512 바이트 정렬 되지 않습니다. PageBlob에 업로드 된 모든 데이터는 512 바이트 정렬 예를 들어, VHD 또는 VHDX를 이어야 합니다. 이 파일에서 오류에는 `<Errors>` 에 및 경고 `<Warnings>`합니다.
 
-복사 로그에 대한 경로로 이동하려면 Data Box 주문과 연결된 저장소 계정으로 이동합니다. 
-
-1.  **일반 > 주문 세부 정보**로 이동하고 주문과 연결된 저장소 계정을 기록해둡니다.
- 
-
-2.  **모든 리소스**로 이동하고 이전 단계에서 식별된 저장소 계정을 검색합니다. 저장소 계정을 선택하고 클릭합니다.
-
-    ![복사 로그 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
-
-3.  **Blob service > Blob 찾아보기**로 이동하고 저장소 계정에 해당하는 Blob을 찾습니다. **diagnosticslogcontainer > waies**로 이동합니다. 
-
-    ![복사 로그 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-    데이터 복사본에 대한 오류 로그 및 자세한 정보 표시 로그가 모두 표시됩니다. 각 파일을 선택하고 클릭한 다음, 로컬 복사본을 다운로드합니다.
-
-## <a name="query-activity-logs"></a>활동 로그 쿼리
-
-활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링합니다. 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
-
-- 구독의 리소스에서 수행된 작업
-- 작업을 시작한 사람입니다.
-- 작업이 발생한 시간
-- 작업의 상태.
-- 작업을 조사하는 데 도움이 될 수 있는 기타 속성 값
-
-활동 로그에는 리소스에서 수행된 모든 쓰기 작업(예: PUT, POST, DELETE)이 포함되지만 읽기 작업(예: GET)은 포함되지 않습니다.
-
-활동 로그는 90일 동안 유지됩니다. 시작 날짜가 90보다 더 오래되지 않은 경우 날짜 범위에 대해 쿼리할 수 있습니다. 인사이트에서 기본 제공 쿼리 중 하나로 필터링할 수도 있습니다. 예를 들어 오류를 클릭한 다음, 특정 오류를 선택하고 클릭하여 근본 원인을 이해합니다.
-
-## <a name="data-box-disk-unlock-tool-errors"></a>Data Box Disk 잠금 해제 도구 오류
-
-
-| 오류 메시지/도구 동작      | 권장 사항                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| 없음<br><br>Data Box Disk 잠금 해제 도구가 충돌합니다.                                                                            | BitLocker가 설치되어 있지 않습니다. Data Box Disk 잠금 해제 도구를 실행하는 호스트 컴퓨터에는 BitLocker가 설치되어야 합니다.                                                                            |
-| 현재 .Net Framework는 지원되지 않습니다. 지원되는 버전은 4.5 이상입니다.<br><br>도구는 메시지를 표시하며 종료됩니다.  | .NET 4.5가 설치되어 있지 않습니다. Data Box Disk 잠금 해제 도구를 실행하는 호스트 컴퓨터에서 .NET 4.5 이상을 설치합니다.                                                                            |
-| 잠금을 해제하거나 볼륨을 확인할 수 없습니다. Microsoft 지원에 문의하세요.  <br><br>도구가 잠긴 드라이브의 잠금을 해제하거나 확인하지 못했습니다. | 도구는 제공된 암호를 사용하여 잠긴 드라이브의 잠금을 해제할 수 없습니다. Microsoft 지원에 다음 단계를 문의합니다.                                                |
-| 다음 볼륨의 잠금을 해제하고 확인합니다. <br>볼륨 드라이브 문자: E:<br>werwerqomnf, qwerwerqwdfda 암호를 사용하여 볼륨의 잠금을 해제할 수 없습니다. <br><br>도구는 일부 드라이브의 잠금을 해제하고 성공하거나 실패한 드라이브 문자를 나열합니다.| 부분적으로 성공 제공된 암호를 사용하여 일부 드라이브의 잠금을 해제할 수 없습니다. Microsoft 지원에 다음 단계를 문의합니다. |
-| 잠긴 볼륨을 찾을 수 없습니다. Microsoft에서 받은 디스크가 제대로 연결되어 있고 잠긴 상태인지를 확인합니다.          | 도구는 잠긴 드라이브를 찾지 못했습니다. 드라이브는 이미 잠금 해제되거나 검색되지 않습니다. 드라이브가 연결되어 있고 잠겨 있는지 확인합니다.                                                           |
-| 심각한 오류: 잘못된 매개 변수<br>매개 변수 이름: invalid_arg<br>사용량:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>예제: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>예제: DataBoxDiskUnlock /SystemCheck<br>예제: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Azure DataBox Disk 순서에서 이 암호를 가져옵니다. 암호는 디스크를 잠금 해제합니다.<br>/Help:           이 옵션은 cmdlet 사용량 및 예제에 대한 도움말을 제공합니다.<br>/SystemCheck:    이 옵션은 시스템이 도구를 실행하기 위한 요구 사항을 충족하는지 확인합니다.<br><br>종료하려면 아무 키나 누르세요. | 잘못된 매개 변수가 입력되었습니다. 허용 된 매개 변수만 /SystemCheck, /PassKey, 및 /Help입니다.                                                                            |
-
-## <a name="data-box-disk-split-copy-tool-errors"></a>Data Box Disk 분할 복사 도구 오류
-
-|오류 메시지/경고  |권장 사항 |
-|---------|---------|
-|[정보] 볼륨에 대 한 BitLocker 암호를 검색 합니다: m <br>[오류] M: 볼륨에 대 한 BitLocker 키를 검색 하는 동안 예외가 발생 했습니다.<br> 시퀀스에 요소가 없습니다.|이 오류는 대상 Data Box Disk가 오프라인인 경우 발생합니다. <br> 온라인 디스크에 `diskmgmt.msc` 도구를 사용합니다.|
-|[오류] 예외를 throw함: WMI 작업이 실패했습니다.<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=제공된 복구 암호의 형식이 잘못되었습니다. <br>BitLocker 복구 암호는 48자릿수입니다. <br>복구 암호 형식이 올바른지 확인하고 다시 시도하십시오.|Data Box Disk 잠금 해제 도구를 사용하여 먼저 디스크 잠금을 해제하고 명령을 다시 시도합니다. 자세한 내용은 다음을 참조하세요. <li> [Windows 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) </li><li> [Linux 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
-|[오류] 예외를 throw함: 대상 드라이이브에 DriveManifest.xml 파일이 존재합니다. <br> 이는 다른 저널 파일을 사용하여 대상 드라이브가 준비되었을 수 있음을 나타냅니다. <br>동일한 드라이브에 데이터를 더 추가하려면 이전 저널 파일을 사용합니다. 기존 데이터를 삭제하고 새 가져오기 작업의 대상 드라이브를 다시 사용하려면 드라이브에서 DriveManifest.xml을 삭제합니다. 이 명령을 새 저널 파일을 사용하여 다시 실행합니다.| 이 오류는 다수의 가져오기 세션에 대해 동일한 드라이브 집합을 사용하려고 할 때 수신됩니다. <br> 하나의 드라이브 집합은 하나의 분할 및 복사 세션에만 사용하십시오.|
-|[오류] 예외를 throw함: CopySessionId importdata-sept-test-1은 이전 복사 세션을 참조하며 새 복사 세션에 재사용 할 수 없습니다.|이 오류는 새 작업에 대해 이전에 성공적으로 완료된 직업과 동일한 작업 이름을 사용하려고 시도하면 보고됩니다.<br> 새 작업에 대해 고유한 이름을 제공하십시오.|
-|[정보] 대상 파일 또는 디렉터리 이름이 NTFS 길이 한도를 초과합니다. |이 메시지는 파일 경로가 길어서 대상 파일의 이름이 바뀐 경우 보고됩니다.<br> 이 동작을 제어하려면 `config.json` 파일에서 disposition 옵션을 수정하십시오.|
-|[오류] 예외를 throw함: 잘못된 JSON 이스케이프 시퀀스입니다. |이 메시지는 config.json에 유효하지 않은 형식이 있을 때 보고됩니다. <br> 파일을 저장하기 전에 [JSONlint](https://jsonlint.com/)를 사용하여 `config.json`의 유효성을 검사하십시오.|
-
-## <a name="deployment-issues-for-linux"></a>Linux 배포 문제
-
-이 섹션에서는 데이터 복사를 위해 Linux 클라이언트를 사용하는 경우 Data Box Disk를 배포하는 동안 발생하는 몇 가지 주요 문제를 자세히 설명합니다.
-
-### <a name="issue-drive-getting-mounted-as-read-only"></a>문제: 드라이브가 읽기 전용으로 탑재됨
- 
-**원인** 
-
-정리되지 않은 파일 시스템 때문일 수 있습니다. 
-
-Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다.
-
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
-
-다시 탑재에 성공했더라도 데이터가 유지되지 않습니다.
-
-**해결 방법**
-
-Linux 시스템에서 다음 단계를 수행 합니다.
-
-1. 설치 된 `ntfsprogs` ntfsfix 유틸리티에 대 한 패키지 있습니다.
-2. 드라이브 잠금 해제 도구에서 제공 하 고 탑재 지점을 분리 합니다. 드라이브에 대 한 탑재 지점 수가 달라 집니다.
-
-    ```
-    unmount /mnt/DataBoxDisk/mountVol1
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+            <SessionId>session#1</SessionId>
+            <ItemType>PageBlob</ItemType>
+            <SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+            <Errors>
+                <Error Code="Not512Aligned">
+                    <Description>The file is not 512 bytes aligned.</Description>
+                    <List>
+                        <File Path="\Practice\myScript.ps1" />
+                    </List>
+                    <Count>1</Count>
+                </Error>
+            </Errors>
+            <Warnings />
+        </ErrorLog>
     ```
 
-3. 실행 `ntfsfix` 해당 경로에 있습니다. 강조 표시 된 수는 2 단계와 동일 해야 합니다.
+- 컨테이너 이름을 잘못 된 경우 오류 로그의 샘플 다음과 같습니다. 만든 폴더 `BlockBlob`, `PageBlob`, 또는 `AzureFile` 폴더 디스크에 Azure Storage 계정에 컨테이너가 됩니다. 따라 컨테이너의 이름을 지정 해야 합니다 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다.
 
+    ```xml
+        <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+          <SessionId>bbsession</SessionId>
+          <ItemType>BlockBlob</ItemType>
+          <SourceDirectory>E:\BlockBlob</SourceDirectory>
+          <Errors>
+            <Error Code="InvalidShareContainerFormat">
+              <List>
+                <Container Name="Azu-reFile" />
+                <Container Name="bbcont ainer1" />
+              </List>
+              <Count>2</Count>
+            </Error>
+          </Errors>
+          <Warnings />
+    </ErrorLog>
     ```
-    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
-    ```
 
-4. 탑재 문제를 일으킬 수 있는 최대 절전 모드 메타 데이터를 제거 하려면 다음 명령을 실행 합니다.
+## <a name="validation-tool-errors"></a>유효성 검사 도구 오류
 
-    ```
-    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
-    ```
+에 포함 된 오류를 *error.xml* 해당 권장 조치를 사용 하 여 다음 표에 요약 되어 있습니다.
 
-5. 새로 분리를 수행 합니다.
+| 오류 코드| 설명                       | 권장 작업               |
+|------------|--------------------------|-----------------------------------|
+| `None` | 데이터를 확인 했습니다. | 추가적인 조치가 필요하지 않습니다. |
+| `InvalidXmlCharsInPath` |파일 경로 잘못 된 문자는 매니페스트 파일을 만들 수 없습니다. | 계속 하려면 이러한 문자를 제거 합니다.  |
+| `OpenFileForReadFailed`| 파일을 처리 하지 못했습니다. 액세스 문제 또는 파일 시스템 손상 때문일 수 있습니다.|오류로 인해 파일을 읽지 못했습니다. 오류 세부 정보는 예외에. |
+| `Not512Aligned` | 이 파일이 PageBlob 폴더에 대 한 올바른 형식이 아닙니다.| 에 512 바이트 데이터 업로드만 정렬 `PageBlob` 폴더입니다. PageBlob 폴더에서 파일을 제거 하거나 BlockBlob 폴더로 이동 합니다. 유효성 검사 다시 시도 하세요.|
+| `InvalidBlobPath` | 파일 경로 Azure Blob 명명 규칙에 따라 클라우드에서 유효한 blob 경로에 매핑되지 않습니다.|파일 경로의 이름을 변경 하려면 Azure 명명 지침을 따릅니다. |
+| `EnumerationError` | 유효성 검사에 대 한 파일을 열거 하지 못했습니다. |이 오류에 대 한 여러 원인이 있을 수 있습니다. 가장 가능성이 높은 원인은 파일에 대 한 액세스입니다. |
+| `ShareSizeExceeded` | 이 파일 때문에 Azure 파일 공유 크기가 5TB Azure 제한을 초과 합니다.|준수 하는 공유에 있는 데이터의 크기를 줄여 합니다 [Azure 개체 크기 제한을](data-box-disk-limits.md#azure-object-size-limits)합니다. 유효성 검사 다시 시도 하세요. |
+| `AzureFileSizeExceeded` | Azure 파일 크기 제한을 초과 하는 파일 크기입니다.| 준수 하는 파일 또는 데이터의 크기를 줄여 합니다 [Azure 개체 크기 제한을](data-box-disk-limits.md#azure-object-size-limits)합니다. 유효성 검사 다시 시도 하세요.|
+| `BlockBlobSizeExceeded` | Azure 블록 Blob 크기 제한을 초과 하는 파일 크기입니다. | 준수 하는 파일 또는 데이터의 크기를 줄여 합니다 [Azure 개체 크기 제한을](data-box-disk-limits.md#azure-object-size-limits)합니다. 유효성 검사 다시 시도 하세요. |
+| `ManagedDiskSizeExceeded` | Azure Managed Disk 크기 제한을 초과 하는 파일 크기입니다. | 준수 하는 파일 또는 데이터의 크기를 줄여 합니다 [Azure 개체 크기 제한을](data-box-disk-limits.md#azure-object-size-limits)합니다. 유효성 검사 다시 시도 하세요. |
+| `PageBlobSizeExceeded` | Azure Managed Disk 크기 제한을 초과 하는 파일 크기입니다. | 준수 하는 파일 또는 데이터의 크기를 줄여 합니다 [Azure 개체 크기 제한을](data-box-disk-limits.md#azure-object-size-limits)합니다. 유효성 검사 다시 시도 하세요. |
+| `InvalidShareContainerFormat`  |디렉터리 이름을 컨테이너 또는 공유에 대 한 Azure 명명 규칙에 맞지 않습니다.         |디스크에서 기존 폴더 아래에 생성 하 고 첫 번째 폴더는 저장소 계정의 컨테이너 됩니다. 이 공유 또는 컨테이너 이름은 Azure 명명 규칙에 맞지 않습니다. 준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요.   |
+| `InvalidBlobNameFormat` | 파일 경로 Azure Blob 명명 규칙에 따라 클라우드에서 유효한 blob 경로에 매핑되지 않습니다.|준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요. |
+| `InvalidFileNameFormat` | 파일 경로 Azure 파일 명명 규칙에 따라 클라우드에서 올바른 파일 경로에 매핑되지 않습니다. |준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요. |
+| `InvalidDiskNameFormat` | 파일 경로 Azure Managed Disk 명명 규칙에 따라 클라우드에서 올바른 디스크 이름으로 매핑되지 않습니다. |준수 하는 파일 이름 바꾸기 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)합니다. 유효성 검사 다시 시도 하세요.       |
+| `NotPartOfFileShare` | 업로드 경로가 올바르지 않습니다.으로 파일을 업로드 하지 못했습니다. Azure Files의 폴더에 파일을 업로드 합니다.   | 오류에서 파일을 제거 하 고 precreated 폴더에 해당 파일을 업로드 합니다. 유효성 검사 다시 시도 하세요. |
+| `NonVhdFileNotSupportedForManagedDisk` | 관리 디스크로 아닌 VHD 파일을 업로드할 수 없습니다. |이 지원 되지 않으므로 아닌 VHD 파일을 제거 합니다. 유효성 검사 다시 시도 하세요. |
 
-    ```
-    ./DataBoxDiskUnlock_x86_64 /unmount
-    ```
-
-6. 정리를 잠금 해제를 수행 하 고 탑재 합니다.
-7. 탑재 지점 파일을 작성 하 여 테스트 합니다.
-8. 탑재 해제 하 고 유효성을 검사할 파일 지 속성이 다시 탑재 합니다.
-9. 데이터 복사를 사용 하 여 계속 합니다.
- 
-### <a name="issue-error-with-data-not-persisting-after-copy"></a>문제: 복사 후 데이터가 유지되지 않는 오류 발생
- 
-**원인** 
-
-드라이브를 분리한 후 드라이브에 데이터가 없으면(데이터를 복사한 경우에도) 드라이브를 읽기 전용으로 탑재한 후에 읽기/쓰기로 다시 탑재한 것일 수 있습니다.
-
-**해결 방법**
- 
-이 경우 [드라이브를 읽기 전용으로 탑재](#issue-drive-getting-mounted-as-read-only)에 대한 해결 방법을 참조하세요.
-
-그 외의 경우에는 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사하고 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
-
-## <a name="deployment-issues-for-windows"></a>Windows 배포 문제
-
-이 섹션에서는 데이터 복사를 위해 Windows 클라이언트를 사용하는 경우 Data Box Disk를 배포하는 동안 발생하는 몇 가지 주요 문제를 자세히 설명합니다.
-
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>문제: BitLocker에서 드라이브의 잠금을 해제할 수 없습니다.
- 
-**원인** 
-
-BitLocker 대화 상자에서 암호를 사용했으며 BitLocker의 드라이브 잠금 해제 대화 상자를 통해 디스크의 잠금을 해제했습니다. 이 작업은 가능하지 않습니다. 
-
-**해결 방법**
-
-Data Box Disk의 잠금을 해제하려면 Data Box Disk 잠금 해제 도구를 사용하고 Azure Portal에서 암호를 제공해야 합니다. 자세한 내용은 [자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey)를 참조하세요.
- 
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>문제: 일부 볼륨을 잠금 해제하거나 확인할 수 없습니다. Microsoft 지원에 문의하세요.
- 
-**원인** 
-
-오류 로그에 다음 오류가 표시될 수 있으며, 일부 볼륨을 잠금 해제하거나 확인할 수 없습니다.
-
-`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
- 
-이것은 Windows 클라이언트에서 해당 버전의 Windows PowerShell이 없기 때문일 수 있습니다.
-
-**해결 방법**
-
-[Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616)을 설치하고 작업을 다시 시도할 수 있습니다.
- 
-그래도 볼륨의 잠금을 해제할 수 없으면 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사하고 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 통해 Data Box Disk를 관리](data-box-portal-ui-admin.md)하는 방법을 알아봅니다.
+- 문제 해결 [데이터 업로드 오류](data-box-disk-troubleshoot-upload.md)합니다.

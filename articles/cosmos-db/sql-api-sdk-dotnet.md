@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510714"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341579"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API용 Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "65510714"
 * 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델 
 * 스트림 지원 
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage 
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* 빈 페이지를 일으키는 쿼리에 대 한 경합 상태를 추적 하는 수정
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -160,7 +164,7 @@ ms.locfileid: "65510714"
 
 * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경. 
 * 직접 연결 모드로 전송된 요청의 응답에서 진단 정보 및 대기 시간을 표시합니다. 속성 이름은 ResourceResponse 클래스의 RequestDiagnosticsString 및 RequestLatency입니다.
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다. 
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator 에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다. 
 
 ### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
 
@@ -222,7 +226,7 @@ ms.locfileid: "65510714"
 * 문자열 필드를 정렬할 때 파티션 간 order-by 쿼리 연속 작업이 작동하지 않는 문제를 해결합니다.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](how-to-sql-query.md#Aggregates)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregates.md)을 참조하세요.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -238,7 +242,7 @@ ms.locfileid: "65510714"
 * PopulateQuotaInfo 요청 옵션을 설정하는 경우 문서 컬렉션 읽기 요청에 대한 ResourceResponse에서 다양한 리소스 할당량 통계가 채워집니다.
 
 ### <a name="a-name11111111"></a><a name="1.11.1"/>1.11.1
-* 1.11.0에 도입된 CreateDocumentCollectionIfNotExistsAsync API 성능이 약간 향상되었습니다.
+* 1\.11.0에 도입된 CreateDocumentCollectionIfNotExistsAsync API 성능이 약간 향상되었습니다.
 * 높은 수준의 동시 요청이 개입되는 시나리오를 위한 SDK의 성능 픽스입니다.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
@@ -375,6 +379,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |2019 년 6 월 20 일 |--- |
 | [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
 | [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
 | [2.2.3](#2.2.3) |2019 년 2 월 11 일 |--- |

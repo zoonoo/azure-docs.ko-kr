@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539909"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147317"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -103,12 +103,12 @@ Application Insights 예외 및 종속성을 보려면 선택 합니다 **웹 �
 
 ![자동 관리 자동 복구](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>변경 분석
+## <a name="change-analysis-only-for-windows-app"></a>변경 분석 (Windows 앱)에 해당
 
-빠른 개발 환경에서 경우도 앱에 대 한 모든 변경 내용을 추적 및 비정상 동작을 발생 시킨 변경에만 pinpoint 사용 하기가 어렵습니다. 변경 분석 문제 해결 경험을 용이 하 게 하려면 앱에 대 한 변경 내용에 범위를 좁힐 수 있습니다. 와 같은 변경 분석 진단 보고서에 포함 된 **응용 프로그램이 크래시 되** 동시 다른 메트릭을 사용할 수 있도록 합니다.
+빠른 개발 환경에서 경우도 앱에 대 한 모든 변경 내용을 추적 및 비정상 동작을 발생 시킨 변경에만 pinpoint 사용 하기가 어렵습니다. 변경 분석 문제 해결 경험을 용이 하 게 하려면 앱에 대 한 변경 내용에 범위를 좁힐 수 있습니다. 변경 분석에서 발견 되 **응용 프로그램을 변경** 와 같은 진단 보고서에 포함할 수도 **응용 프로그램이 크래시 되** 동시 다른 메트릭을 사용할 수 있도록 합니다.
+
+변경 분석 기능을 사용 하기 전에 사용 하도록 설정 해야 합니다. 변경 분석에 대 한 자세한 내용은 방문 [App Service 진단의 새로운 변경 분석 환경 발표](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)합니다.
 
 ![변경 분석 기본 페이지](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Diff 보기](./media/app-service-diagnostics/diff-view-12.png)
-
-변경 분석 기능을 사용 하기 전에 사용 하도록 설정 해야 합니다. 변경 분석에 대 한 자세한 내용은 방문 [App Service 진단의 새로운 변경 분석 환경 발표](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)합니다.

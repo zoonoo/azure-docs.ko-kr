@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427695"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166001"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -59,9 +59,21 @@ Azure HDInsight Tools는 Windows, Linux 및 macOS를 포함하여 Visual Studio 
 
    ![새 파일](./media/hdinsight-for-vscode/new-file.png)
 
-3. .hql(Hive 쿼리) 또는 .py(Spark 스크립트) 파일 확장명 중 하나를 사용하여 새 파일 이름을 지정합니다.  이 예제에서는 **HelloWorld.hql**을 사용합니다.
+3. 사용 하 여 새 파일의 이름을 합니다 `.hql` (Hive 쿼리) 또는 `.py` (Spark 스크립트) 파일 확장명입니다.  이 예제에서는 **HelloWorld.hql**을 사용합니다.
 
-## <a name="connect-to-hdinsight-cluster"></a>HDInsight 클러스터에 연결
+## <a name="set-the-azure-environment"></a>Azure 환경 설정
+
+1. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
+
+2. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **HDInsight: Set Azure Environment**를 입력합니다.
+
+3. 환경을 기본 로그인 항목으로 선택합니다.
+
+4. 그렇지만 사용자의 기본 로그인 항목은 **.VSCode\settings.json**이미 저장되어 있습니다. 이 구성 파일에서 기본 로그인 항목을 직접 업데이트할 수도 있습니다. 
+
+   ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
+
+## <a name="connect-to-azure-account"></a>Azure 계정에 연결
 
 Visual Studio Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 Azure 계정에 연결하거나 클러스터를 연결해야 합니다(Ambari 사용자 이름/암호 또는 도메인 가입 계정 사용).  Azure에 연결하려면 다음 단계를 완료합니다.
 
@@ -81,7 +93,9 @@ Visual Studio Code에서 HDInsight 클러스터에 스크립트를 제출하려�
    연결되면 Visual Studio Code 창 왼쪽 아래의 상태 표시줄에 Azure 계정 이름이 표시됩니다.  
   
 
-<h2 id="linkcluster">연결 만들기: Azure HDInsight</h2>
+## <a name="link-a-cluster"></a>클러스터 연결
+
+### <a name="link-azure-hdinsight"></a>링크: Azure HDInsight
 
 [Apache Ambari](https://ambari.apache.org/) 관리형 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
 
@@ -105,7 +119,8 @@ Visual Studio Code에서 HDInsight 클러스터에 스크립트를 제출하려�
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 사용자 이름 및 암호가 사용됩니다.  
 
 
-## <a name="create-link-generic-livy-endpoint"></a>연결 만들기: 일반 Livy 엔드포인트
+
+### <a name="link-generic-livy-endpoint"></a>링크: 일반 Livy 엔드포인트
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **HDInsight: Link a Cluster**를 입력합니다.
 
@@ -135,25 +150,13 @@ Visual Studio Code에서 HDInsight 클러스터에 스크립트를 제출하려�
 
 2. [이전에](#open-hdinsight-work-folder) 만든 **HelloWorld.hql** 파일을 선택하면 스크립트 편집기에서 열립니다.
 
-3. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
+3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: Set Default Cluster**를 선택합니다.  
 
-4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: Set Default Cluster**를 선택합니다.  
+4. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
 
 5. 현재 스크립트 파일에 대한 기본 클러스터로 사용할 클러스터를 선택합니다. **.VSCode\settings.json** 구성 파일이 자동으로 업데이트됩니다. 
 
    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
-
-## <a name="set-the-azure-environment"></a>Azure 환경 설정
-
-1. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
-
-2. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **HDInsight: Set Azure Environment**를 입력합니다.
-
-3. 환경을 기본 로그인 항목으로 선택합니다.
-
-4. 그렇지만 사용자의 기본 로그인 항목은 **.VSCode\settings.json**이미 저장되어 있습니다. 이 구성 파일에서 기본 로그인 항목을 직접 업데이트할 수도 있습니다. 
-
-   ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
 
 ## <a name="submit-interactive-hive-queries-hive-batch-scripts"></a>대화형 Hive 쿼리, Hive 배치 스크립트 제출
@@ -164,13 +167,14 @@ HDInsight Tools for Visual Studio Code를 사용하면 대화형 Hive 쿼리 및
 
 2. [이전에](#open-hdinsight-work-folder) 만든 **HelloWorld.hql** 파일을 선택하면 스크립트 편집기에서 열립니다.
 
-3. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
 
-4. 다음 코드를 복사하여 Hive 파일에 붙여넣은 후 파일을 저장합니다.
+3. 다음 코드를 복사하여 Hive 파일에 붙여넣은 후 파일을 저장합니다.
 
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
+
+4. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
 
 5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고, **HDInsight: Hive Interactive**를 선택하여 쿼리를 제출하거나 바로 가기 **Ctrl + Alt + I**를 사용합니다.  **HDInsight: Hive Batch**를 선택하여 스크립트를 제출하거나 바로 가기 **Ctrl + Alt + H**를 사용합니다.  
 
@@ -184,17 +188,13 @@ HDInsight Tools for Visual Studio Code를 사용하면 대화형 Hive 쿼리 및
 
 ## <a name="submit-interactive-pyspark-queries"></a>대화형 PySpark 쿼리 제출
 
+다음 단계를 수행 하 여 대화형 PySpark 쿼리를 제출할 수 있습니다.
+
 1. [이전에](#open-hdinsight-work-folder) 만든 **HDexample** 폴더가 닫힌 경우 다시 엽니다.  
 
 2. [이전](#open-hdinsight-work-folder) 단계에 따라 새 파일 **HelloWorld.py**를 만듭니다.
 
-3. 필수 조건인 Python을 설치하지 않은 경우 Python 확장 권장 사항 대화 상자가 표시됩니다.  Visual Studio Code를 설치하고 다시 로드하여 설치를 완료합니다.
-
-    >![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-4. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
-
-5. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
+3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -209,34 +209,31 @@ HDInsight Tools for Visual Studio Code를 사용하면 대화형 Hive 쿼리 및
         print(sortedCollection[i])
    ```
 
-6. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고, **HDInsight: PySpark Interactive**를 선택하여 쿼리를 제출하거나 바로 가기 **Ctrl+Alt+I**를 사용합니다.  
+4. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
 
-7. 기본 클러스터를 지정하지 않은 경우 클러스터를 선택합니다. 이 도구에서는 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 새 탭에 쿼리 결과가 표시됩니다.
+5. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 선택 **HDInsight: PySpark Interactive**를 선택하여 쿼리를 제출하거나 바로 가기 **Ctrl+Alt+I**를 사용합니다.
 
-   ![Python 작업 결과 제출](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+   ![pyspark interactive right click](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-8. 이 도구는 **SQL 절** 쿼리도 지원합니다.
+6. 기본 클러스터를 지정하지 않은 경우 클러스터를 선택합니다. 잠시 후에 **Python 대화형 결과** 새 탭에 표시 합니다. 이 도구에서는 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 
 
-   ![Python 결과 작업 제출](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 표시됩니다. 상태가 **PySpark 커널(작업 중)** 이면 다른 쿼리를 제출하지 마세요.  
+   ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
->[!NOTE]  
->클러스터는 세션 정보를 유지할 수 있습니다. 정의된 변수, 함수 및 해당 값은 세션에 유지되므로 동일한 클러스터에 대한 여러 서비스 호출에서 참조될 수 있습니다. 
+7. Enter **"% % 정보"** , 누릅니다 **Shift + Enter** 작업 정보를 볼 수 있습니다. (선택 사항)
 
-### <a name="pyspark3-is-not-supported-with-spark2223"></a>PySpark3은 Spark2.2/2.3에서 지원되지 않습니다.
+   ![작업 정보 보기](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-PySpark3은 Spark 2.2 클러스터 및 Spark2.3 클러스터에서 더 이상 지원되지 않고, “PySpark”만 Python에서 지원됩니다. Python3에서 Spark 2.2/2.3에 대한 제출이 실패하는 것은 알려진 문제입니다.
+8. 이 도구는 또한 지원 합니다 **Spark SQL** 쿼리 합니다.
 
-   ![Python3에 제출 시 오류 발생](./media/hdinsight-for-vscode/hdi-azure-hdinsight-py3-error.png)
+   ![Pyspark 대화형 결과 보기](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
-Python2.x를 사용하려면 다음 단계를 수행합니다. 
+   쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 나타납니다. 상태가 **PySpark 커널(작업 중)** 이면 다른 쿼리를 제출하지 마세요.  
 
-1. Python 2.7을 로컬 컴퓨터에 설치하고 시스템 경로에 추가합니다.
-
-2. Visual Studio Code를 다시 시작합니다.
-
-3. 상태 표시줄에서 **Python XXX**를 클릭하여 Python 2로 전환하고 대상 Python을 선택합니다.
-
-   ![Python 버전 선택](./media/hdinsight-for-vscode/hdi-azure-hdinsight-select-python.png)
+   > [!NOTE] 
+   >
+   > 때 **Python 확장을 사용할** 설정 (기본값 선택 됨)에서 선택 하지 않으면 제출된 pyspark 상호 작용 하면 이전 창을 사용 하 여 됩니다.
+   >
+   > ![pyspark 대화형 python 확장 사용 안 함](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 배치 작업 제출
@@ -245,9 +242,7 @@ Python2.x를 사용하려면 다음 단계를 수행합니다.
 
 2. [이전](#open-hdinsight-work-folder) 단계에 따라 새 파일 **BatchFile.py**를 만듭니다.
 
-3. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
-
-4. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
+3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
 
     ```python
     from __future__ import print_function
@@ -270,9 +265,11 @@ Python2.x를 사용하려면 다음 단계를 수행합니다.
         spark.stop()
     ```
 
-4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **HDInsight: PySpark Batch**를 선택하거나 바로 가기 **Ctrl + Alt + H**를 사용합니다. 
+4. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
 
-5. PySpark 작업을 제출할 클러스터를 선택합니다. 
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **HDInsight: PySpark Batch**를 선택하거나 바로 가기 **Ctrl + Alt + H**를 사용합니다. 
+
+6. PySpark 작업을 제출할 클러스터를 선택합니다. 
 
    ![Python 작업 결과 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
@@ -341,7 +338,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 **Azure HDInsight**가 탐색기 뷰에 추가되었습니다. **Azure HDInsight**를 통해 직접 클러스터를 찾고 관리할 수 있습니다.
 
-1. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-hdinsight-cluster)합니다.
+1. [연결](#connect-to-azure-account) azure 계정 또는 아직 수행 하지 않은 경우 클러스터를 연결 합니다.
 
 2. 메뉴 모음에서 **보기** > **탐색기**로 이동합니다.
 
@@ -354,6 +351,38 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
    ![Azure HDInsight 클러스터](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
+## <a name="preview-hive-table"></a>Hive 테이블 미리 보기
+통해 직접에 클러스터에서 Hive 테이블을 미리 볼 수 있습니다 **Azure HDInsight** 탐색기.
+1. Azure 계정에 아직 연결하지 않은 경우 [연결](#connect-to-azure-account)합니다.
+
+2. 클릭 **Azure** 맨 왼쪽 열에서 아이콘입니다.
+
+3. 왼쪽된 창에서 AZURE HDINSIGHT를 확장 합니다. 사용 가능한 구독 및 클러스터 나열 됩니다.
+
+4. 클러스터를 확장하여 Hive 메타데이터 데이터베이스 및 테이블 스키마를 확인합니다.
+
+5. 예: hivesampletable Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 선택 **미리 보기**합니다. 
+
+   ![Vscode, hive 테이블 미리 보기에 대 한 HDInsight](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+
+6. 합니다 **미리 보기 결과** 창이 열립니다.
+
+   ![HDInsight for vscode 미리 보기 창 결과](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
+   
+- **결과** 패널
+
+   전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장하거나 여러 줄을 선택할 수 있습니다.
+
+- **메시지** 패널
+   1. 테이블의 행 수 인 100 개 행 보다 큰 메시지를 표시 합니다. **Hive 테이블에 대 한 처음 100 개 행이 표시 됩니다**합니다.
+   2. 테이블의 행 수가 100 개 행 보다 작거나 인 메시지를 표시 합니다. **Hive 테이블에 대 한 60 행을 표시할**합니다.
+   3. 테이블의 내용이 없을 때 메시지를 보여 줍니다. **Hive 테이블에 대 한 0 행이 표시**합니다.
+
+>[!NOTE]
+>
+>Linux에서 테이블 데이터 복사를 사용 하도록 설정 하려면 xclip를 설치 합니다.
+>
+>![Linux에서 vscode 용 HDInsight](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## <a name="additional-features"></a>추가 기능
 
 Visual Studio Code용 HDInsight는 다음 기능을 지원합니다.
@@ -366,6 +395,48 @@ Visual Studio Code용 HDInsight는 다음 기능을 지원합니다.
 
     ![HDInsight Tools for Visual Studio Code 구문 강조 표시](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
+## <a name="reader-only-role"></a>읽기 전용 역할
+
+클러스터를 사용 하 여 사용자 **판독기** **만** **역할** 더 이상 HDInsight 클러스터에 작업을 제출 하거나 Hive 데이터베이스를 볼 수 없습니다. 사용자 역할을 업그레이드 하려면 클러스터 관리자에 게 문의 해야 할 [ **HDInsight** **클러스터** **연산자** ](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 에 [ Azure portal](https://ms.portal.azure.com/)합니다. Ambari 자격 증명을 알고 있는 경우 아래 지침에 따라 클러스터를 수동으로 연결할 수 있습니다.
+
+### <a name="browse-hdinsight-cluster"></a>HDInsight 클러스터를 이동 합니다.  
+
+HDInsight 클러스터를 확장 하는 Azure HDInsight 탐색기를 클릭 하면 클러스터에 대 한 읽기 전용 역할 경우 클러스터에 연결할 묻는 메시지가 나타납니다. Ambari 자격 증명을 통해 클러스터에 연결 하려면 다음 단계를 수행 합니다. 
+
+### <a name="submit-job-to-hdinsight-cluster"></a>HDInsight 클러스터에 작업 제출
+
+HDInsight 클러스터에 작업을 제출할 때 클러스터에 대 한 읽기 전용 역할 경우 클러스터에 연결할 묻는 메시지가 나타납니다. Ambari 자격 증명을 통해 클러스터에 연결 하려면 다음 단계를 수행 합니다. 
+
+### <a name="link-to-cluster"></a>클러스터에 연결
+
+1.  Ambari 사용자 이름 입력 
+2.  Ambari 사용자 암호를 입력 합니다.
+
+   ![HDInsight Tools for Visual Studio 코드 사용자 이름](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
+
+   ![HDInsight Tools for Visual Studio 코드 암호](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
+
+> [!NOTE]
+>
+>HDInsight를 사용할 수 있습니다. 연결 된 클러스터를 확인 하려면 클러스터 목록입니다.
+>
+>![HDInsight Tools for Visual Studio 코드 판독기 연결](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
+
+## <a name="azure-data-lake-storage-gen2-adls-gen2"></a>Azure Data Lake Storage Gen2 (ADLS Gen2)
+
+### <a name="browse-an-adls-gen2-account"></a>ADLS Gen2 계정 찾아보기
+
+저장소를 입력 하 라는 메시지가 표시는 ADLS Gen2 계정을 확장 하 고 탐색기를 Azure HDInsight를 클릭할 때 **선택키가** Azure 계정에 Gen2 저장소에 액세스할 수 없습니다. ADLS Gen2 계정 액세스 키를 성공적으로 유효성이 검사 되 면 확장 자동 됩니다. 
+
+### <a name="submit-jobs-to-hdinsight-cluster-with-adls-gen2"></a>ADLS Gen2를 사용 하 여 HDInsight 클러스터에 작업 제출
+
+저장소를 입력 하 라는 메시지가 표시 ADLS Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제출할 때 **선택키가** Azure 계정에 Gen2 저장소에 쓰기 액세스할 수 없습니다.  액세스 키를 성공적으로 유효성이 검사 되 면 작업을 성공적으로 제출 됩니다. 
+
+![HDInsight Tools for Visual Studio 코드 AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
+
+> [!NOTE]
+> 
+>Azure portal에서 저장소 계정에 대 한 액세스 키를 가져올 수 있습니다. 정보를 참조 하세요 [액세스 키 보기 및 복사](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys)합니다.
 
 ## <a name="unlink-cluster"></a>클러스터 링크 해제
 
@@ -375,8 +446,7 @@ Visual Studio Code용 HDInsight는 다음 기능을 지원합니다.
 
 3. 확인을 위해 **출력** 보기를 검토합니다.  
 
-
-## <a name="logout"></a>로그아웃  
+## <a name="sign-out"></a>로그아웃  
 
 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **HDInsight: Logout** 명령을 입력합니다.  **로그아웃되었습니다.** 라는 팝업이 오른쪽 아래에 표시됩니다.
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082626"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272773"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 
@@ -43,6 +43,7 @@ Azure Machine Learning 서비스 만들기에 대 한 걱정 하지 않아도 �
 * Azure Machine Learning 서비스는 작업 그룹. 자세한 내용은 참조는 [작업 영역 만들기](setup-create-workspace.md) 문서.
 * Azure Machine Learning SDK입니다. 자세한 내용은 Python SDK 섹션을 참조 합니다 [작업 영역 만들기](setup-create-workspace.md#sdk) 문서.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* 합니다 [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md)합니다.
 * [Azure Container Registry](/azure/container-registry) 또는 인터넷에서 액세스할 수 있는 다른 Docker 레지스트리입니다.
 * 이 문서의 단계를 만들고 사용 하 여 잘 알고 있다고 가정 합니다는 __유추 구성__ 모델 배포의 일부로 개체입니다. 자세한 내용은의 "배포 준비" 섹션을 참조 하세요. [배포 하는 위치와 방법을](how-to-deploy-and-where.md#prepare-to-deploy)합니다.
 
@@ -163,7 +164,7 @@ Azure Container Registry를 사용 하 여 이미지를 빌드에 대 한 자세
 * 합니다 __이미지 이름을__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` Microsoft에서 제공 하는 기본 Docker 이미지의 경로입니다.
 * 이미지의 경우는 __개인 리포지토리__, 다음 정보가 필요 합니다.
 
-    * 레지스트리에 __주소__합니다. 예: `myregistry.azureecr.io`.
+    * 레지스트리에 __주소__합니다. 예: `myregistry.azureecr.io`
     * 서비스 주체 __사용자 이름__ 하 고 __암호__ 레지스트리에 대 한 읽기 액세스 권한이 있는 합니다.
 
     이 정보가 없으면 이미지를 포함 하는 Azure Container Registry에 대 한 관리자에 게 문의 합니다.

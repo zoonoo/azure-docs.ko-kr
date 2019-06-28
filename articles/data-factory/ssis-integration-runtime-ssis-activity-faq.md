@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: f17c364d258ef356a98180c9903603d92a6a9245
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078522"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312161"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -103,6 +103,18 @@ ms.locfileid: "67078522"
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>오류 메시지: "Integration runtime 업그레이드할 수 없습니다 및 작업을 사용자 지정 설치에 대해 제공한 Azure Blob 컨테이너에 액세스할 수 없습니다 때문 결국 중지 됩니다."
 
 * SSIS 통합 런타임 사용자 지정 설치에 대 한 구성 저장소에 액세스할 수 없습니다.이 오류가 발생 합니다. 제공 된 SAS Uri를 올바르고 만료 되지 않았는지 여부를 확인 합니다.
+
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>오류 메시지: "Microsoft OLE DB Provider for Analysis Services입니다. ' Hresult: 0x80004005 설명:' COM 오류: COM 오류: mscorlib; 호출 대상이 예외를 throw 했습니다 "
+
+* 잠재적 원인 및 권장된 작업:
+  * 잠재적 원인은 사용 하도록 설정 하는 MFA 사용 하 여 해당 사용자 이름/암호 하나가 지원 되지 않는 SSIS integration runtime에서 아직 Azure Analysis Services 인증에 대해 구성 되었습니다. Azure Analysis Service 인증에 대 한 서비스 주체를 사용 하려고 합니다.
+    1. AAS에 대 한 서비스 주체를 준비 합니다. [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
+    2. 연결 관리자 구성 "특정 사용자 이름 및 암호를 사용 하 여": "AppID" 사용자 이름 및 암호와 "clientSecret"으로 설정
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>오류 메시지: "ADONET 원본이 다음과 같은 오류 메시지가 {GUID} 연결을 설정 하지 못했습니다. 사용자 ' NT AUTHORITY\ANONYMOUS LOGON' 로그인 하지 못했습니다 "관리 되는 id를 사용 하는 경우
+
+* 잠재적 원인 및 권장된 작업:
+  * 매개 변수 "ConnectUsingManagedIdentity"가 true 인 경우 "Active Directory 암호 인증"으로 연결 관리자의 인증 방법을 구성 하지 있는지 확인 합니다. 구성할 수 있습니다 "SQL 인증" 대신 "ConnectUsingManagedIdentity" 설정 된 경우는 무시 됩니다. 됩니다.
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>패키지는 예기치 않은 데 오래 걸리는 실행
 

@@ -46,68 +46,68 @@ ms.locfileid: "60770792"
 
     ![새 가상 컴퓨터 구성의 기본 사항 탭](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. 로 이동 합니다 **네트워킹** 탭 합니다. 가상 네트워크와 Azure Databricks 클러스터를 포함 하는 공용 서브넷을 선택 합니다. 선택 **검토 + 만들기**, 한 다음 **만들기** 가상 머신을 배포 합니다.
+3. **네트워킹** 탭으로 이동합니다. Azure Databricks 클러스터를 포함 하는 가상 네트워크와 공용 서브넷을 선택합니다. **검토 + 만들기** 선택한 다음 **만들기**를 선택하여 가상 머신을 배포 합니다.
 
     ![새 가상 컴퓨터 구성의 네트워킹 탭](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
-4. 배포가 완료 되 면 가상 컴퓨터를 이동 합니다. 공용 IP 주소 및 가상 네트워크/서브넷에서 확인 합니다 **개요**합니다. 선택 된 **공용 IP 주소**
+4. 배포가 완료되면 가상 컴퓨터로 이동합니다. **개요**에서 공용 IP 주소 및 가상 네트워크/서브넷을 확인합니다. **공용 IP 주소**를 선택합니다.
 
     ![가상 머신 개요](./media/vnet-injection-sql-server/virtual-machine-overview.png)
 
-5. 변경 합니다 **할당** 에 **정적** enter를 **DNS 이름 레이블을**합니다. 선택 **저장할**, 가상 머신을 다시 시작 합니다.
+5. **할당**을 **정적**으로 변경하고 **DNS 이름 레이블**을 입력합니다. **저장**을 선택하고, 가상 머신을 다시 시작합니다.
 
     ![공용 IP 주소 구성](./media/vnet-injection-sql-server/virtual-machine-staticip.png)
 
-6. 선택 된 **네트워킹** 탭에서 **설정**합니다. 가상 머신과 연결 된 Azure Databricks 배포 하는 동안 생성 된 네트워크 보안 그룹 인지 확인 합니다. 선택 **인바운드 포트 규칙 추가**합니다.
+6. **설정**아래 **네트워킹** 탭을 선택합니다. 가상 머신과 연결된 Azure Databricks를 배포하는 동안 생성된 네트워크 보안 그룹인지 확인합니다. **인바운드 포트 규칙 추가**를 선택합니다.
 
-7. SSH에 대 한 포트 22를 여는 규칙을 추가 합니다. 다음 설정을 사용합니다.
+7. SSH에 대한 포트 22를 여는 규칙을 추가합니다. 다음 설정을 사용합니다.
     
     |설정|제안 값|설명|
     |-------|---------------|-----------|
-    |source|IP 주소|IP 주소는 IP 주소 허용 또는 거부이 규칙에 따라 특정 원본에서 들어오는 트래픽을 해당를 지정 합니다.|
-    |원본 IP 주소|<your public ip\>|입력 된 공용 IP 주소입니다. 방문 하 여 공용 IP 주소를 찾을 수 있습니다 [bing.com](https://www.bing.com/) 검색 하 고 **"내 IP"** 합니다.|
+    |source|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |원본 IP 주소|<your public ip\>|입력된 공용 IP 주소입니다. [bing.com](https://www.bing.com/)을 방문하여 **"내 IP"** 를 검색하여 공용 IP 주소를 찾을 수 있습니다.|
     |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
-    |대상|IP 주소|IP 주소는 IP 주소 허용 또는 거부이 규칙에 따라 특정 원본에 대 한 해당 나가는 트래픽을 지정 합니다.|
-    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력 합니다. 이 찾을 수 있습니다 합니다 **개요** 가상 머신의 페이지입니다.|
-    |대상 포트 범위|22|SSH에 대 한 포트 22를 엽니다.|
+    |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
+    |대상 포트 범위|22|SSH에 대한 포트 22를 엽니다.|
     |우선 순위|290|규칙 우선 순위를 지정 합니다.|
     |이름|ssh-databricks-tutorial-vm|규칙 이름을 지정 합니다.|
 
 
     ![포트 22에 인바운드 보안 규칙 추가](./media/vnet-injection-sql-server/open-port.png)
 
-8. 다음 설정을 사용 하 여 SQL에 대 한 1433 포트를 여는 규칙을 추가 합니다.
+8. 다음 설정을 사용하여 SQL에 대한 1433 포트를 여는 규칙을 추가합니다.
 
     |설정|제안 값|설명|
     |-------|---------------|-----------|
-    |source|IP 주소|IP 주소는 IP 주소 허용 또는 거부이 규칙에 따라 특정 원본에서 들어오는 트래픽을 해당를 지정 합니다.|
+    |source|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
     |원본 IP 주소|10.179.0.0/16|가상 네트워크의 주소 범위를 입력 합니다.|
     |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
-    |대상|IP 주소|IP 주소는 IP 주소 허용 또는 거부이 규칙에 따라 특정 원본에 대 한 해당 나가는 트래픽을 지정 합니다.|
-    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력 합니다. 이 찾을 수 있습니다 합니다 **개요** 가상 머신의 페이지입니다.|
-    |대상 포트 범위|1433|SQL Server에 대 한 포트 22를 엽니다.|
+    |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
+    |대상 포트 범위|1433|SQL Server에 대한 포트 1433을 엽니다.|
     |우선 순위|300|규칙 우선 순위를 지정 합니다.|
     |이름|sql-databricks-tutorial-vm|규칙 이름을 지정 합니다.|
 
     ![포트 1433에 대 한 인바운드 보안 규칙 추가](./media/vnet-injection-sql-server/open-port2.png)
 
-## <a name="run-sql-server-in-a-docker-container"></a>Docker 컨테이너에서 SQL Server를 실행 합니다.
+## <a name="run-sql-server-in-a-docker-container"></a>Docker 컨테이너에서 SQL Server 실행
 
-1. 오픈 [Ubuntu에 대 한 Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), 또는 하면 SSH를 가상 컴퓨터에 있는 다른 도구입니다. Azure portal 선택에서 가상 컴퓨터를 이동할 **Connect** 연결 해야 하는 SSH 명령을 가져오려면.
+1. [Ubuntu에 대 한 Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) 또는 가상 머신에 SSH를 사용할 수 있는 다른 도구를 엽니다. Azure portal의 가상 머신으로 이동하여 연결을 위해 필요한 SSH 명령을 가져오기 위해 **연결** 을 선택합니다.
 
     ![가상 머신에 연결](./media/vnet-injection-sql-server/vm-ssh-connect.png)
 
-2. Ubuntu 터미널에서 명령을 입력 하 고 가상 컴퓨터를 구성할 때 만든 관리자 암호를 입력 합니다.
+2. Ubuntu 터미널에서 명령을 입력하고 가상 머신을 구성할 때 만든 관리자 암호를 입력합니다.
 
     ![Ubuntu에서 터미널 SSH 로그인](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
-3. 다음 명령을 사용 하 여 가상 머신에서 Docker를 설치 합니다.
+3. 다음 명령을 사용하여 가상 머신에 Docker를 설치합니다.
 
     ```bash
     sudo apt-get install docker.io
     ```
 
-    다음 명령 사용 하 여 Docker 설치를 확인 합니다.
+    다음 명령을 사용하여 Docker 설치를 확인합니다.
 
     ```bash
     sudo docker --version
@@ -131,7 +131,7 @@ ms.locfileid: "60770792"
     sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' -p 1433:1433 --name sql1  -d mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    컨테이너가 실행 되 고 있는지 확인 합니다.
+    컨테이너가 실행되고 있는지 확인합니다.
 
     ```bash
     sudo docker ps -a
@@ -139,11 +139,11 @@ ms.locfileid: "60770792"
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
-1. SQL Server Management Studio를 열고 서버 이름 및 SQL 인증을 사용 하 여 서버에 연결 합니다. 사용자 로그인 **SA** 이며 암호는 암호 Docker 명령에 설정 합니다. 예제 명령에서 암호가 `Password1234`합니다.
+1. SQL Server Management Studio를 열고 서버 이름 및 SQL 인증을 사용하여 서버에 연결합니다. 로그인 사용자 이름은 **SA**이며 암호는 Docker 명령에서 설정한 암호입니다. 예제 명령에서 암호는 `Password1234`입니다.
 
     ![SQL Server Management Studio를 사용 하 여 SQL Server에 연결](./media/vnet-injection-sql-server/ssms-login.png)
 
-2. 성공적으로 연결한 후 선택 **새 쿼리** 선택한 데이터베이스 테이블을 만들려면 다음 코드 조각은 입력 하 고 테이블의 일부 레코드를 삽입 합니다.
+2. 2\. 성공적으로 연결한 후 **새 쿼리**를 선택하고 데이터베이스, 테이블을 만들고 테이블에 일부 레코드를 삽입하려면 다음 코드 조각을 입력합니다.
 
     ```SQL
     CREATE DATABASE MYDB;
@@ -161,11 +161,11 @@ ms.locfileid: "60770792"
 
 ## <a name="query-sql-server-from-azure-databricks"></a>Azure Databricks에서 SQL Server 쿼리
 
-1. Azure Databricks 작업 영역으로 이동한 다음 필수 구성 요소의 일부로 클러스터 만들어졌는지 확인 합니다. 그런 다음 선택 **Notebook 만들기**합니다. 노트북에 이름을 선택 *Python* 언어와 사용자가 만든 클러스터를 선택 합니다.
+1. Azure Databricks 작업 영역으로 이동한 다음 필수 구성 요소의 일부로 클러스터가 만들어졌는지 확인합니다. 그런 다음 **Notebook 만들기**를 선택합니다. 노트북에 이름을 입력하고 *Python* 언어와 사용자가 만든 클러스터를 선택합니다.
 
     ![새 Databricks notebook 설정](./media/vnet-injection-sql-server/create-notebook.png)
 
-2. 다음 명령을 사용 하 여 SQL Server 가상 컴퓨터의 내부 IP 주소를 ping 합니다. 이 ping 성공 해야 합니다. 그렇지 않은 경우 컨테이너를 실행 하 고 구성을 검토 하 여 네트워크 보안 그룹 (NSG)을 확인 하십시오.
+2. 다음 명령을 사용하여 SQL Server 가상 머신의 내부 IP 주소를 ping합니다. 이 ping은 성공해야 합니다. 그렇지 않은 경우 컨테이너가 실행 중인지 확인하고 네트워크 보안 그룹(NSG) 구성을 검토합니다.
 
     ```python
     %sh

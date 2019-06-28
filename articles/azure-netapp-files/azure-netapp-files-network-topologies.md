@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826477"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331971"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -42,7 +42,7 @@ NetApp 파일 Azure 네트워크에 대 한 계획 하는 경우에 몇 가지 �
 
 Azure NetApp 파일에 다음과 같은 네트워크 제한 사항이 적용 됩니다.
 
-* (Vnet 또는 피어 링 된 Vnet 간) 볼륨에 연결할 수 있는 Vm 수는 1000을 초과할 수 없습니다.
+* VNet 피어 링 된 Vnet 등 Azure NetApp 파일에서 사용 하 여 Ip 수가 1000을 초과할 수 없습니다.
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 
 
@@ -81,7 +81,7 @@ VNet은 다른 VNet과 피어 링 하는 경우 VNet 주소 공간을 확장할 
 
 ### <a name="udrs-and-nsgs"></a>Udr 및 Nsg
 
-다음 홉을 사용 하 여 네트워크 보안 그룹 (Nsg) Azure NetApp 파일에 대 한 위임 된 서브넷으로 사용할 수 없습니다. 마찬가지로, 사용자 정의 경로 (Udr)도 지원 되지 않습니다. 
+사용자 정의 경로 (Udr) 및 네트워크 보안 그룹 (Nsg) Azure NetApp 파일에 대 한 위임 된 서브넷에 지원 되지 않습니다.
 
 해결 방법으로 허용 하거나 위임 하는 Azure NetApp 파일 서브넷 간의 트래픽을 거부 하는 다른 서브넷에 Nsg를 적용할 수 있습니다.  
 
@@ -103,13 +103,13 @@ VNet은 다른 VNet과 피어 링 하는 경우 VNet 주소 공간을 확장할 
 
 또한 VNet 1은 VNet 2를 사용 하 여 피어 링 및 VNet 2 동일한 지역에 3 VNet 피어 링 되는 시나리오를 고려 합니다. VNet 1 리소스 vnet2에는 리소스에 연결할 수 있지만 않으면 VNet 1 및 3 VNet 피어 링 된 VNet 3의 리소스에 연결할 수 없습니다. 
 
-위의 다이어그램에서 VM 3 볼륨 1에 연결할 수 있지만 VM 4가 볼륨 2에 연결할 수 없습니다.  스포크 Vnet 피어 링 되지 된 경우 그 이유는 및 _VNet 피어 링을 통한 전송 라우팅이 지원 되지 않습니다_합니다.
+위의 다이어그램에서 VM 3 볼륨 1에 연결할 수 있지만 VM 4가 볼륨 2에 연결할 수 없습니다.  이 원인은 스포크 Vnet 피어 링 되지 된 경우 및 _VNet 피어 링을 통한 전송 라우팅이 지원 되지 않습니다_합니다.
 
 ## <a name="hybrid-environments"></a>하이브리드 환경
 
 다음 다이어그램에서는 하이브리드 환경을 보여 줍니다. 
 
-![하이브리드 네트워킹 환경](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![하이브리드 네트워킹 환경](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 하이브리드 시나리오에서 온-프레미스 데이터 센터에서 응용 프로그램에는 Azure의 리소스에 액세스를 해야합니다.  이 경우에 데이터 센터를 Azure로 확장 하려는 네이티브 Azure 서비스를 사용 하려면이 든 또는 재해 복구에 대 한 합니다. 참조 [VPN Gateway 계획 옵션](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) 사이트 간 VPN 또는 ExpressRoute를 통해 Azure 리소스에 여러 온-프레미스 리소스를 연결 하는 방법에 대 한 합니다.
 
@@ -117,10 +117,10 @@ VNet은 다른 VNet과 피어 링 하는 경우 VNet 주소 공간을 확장할 
 
 구성에 따라 합니다. 허브 및 스포크에서 리소스를 온-프레미스에서 리소스를 연결할 수 있습니다.
 
-위에서 설명한 토폴로지를 허브 VNet에서 Azure에 온-프레미스 네트워크 연결 되 고 가지 다음 2 개의 스포크를 허브 VNet 사용 하 여 Vnet 피어 링 합니다.  이 시나리오에서는 Azure NetApp 파일 볼륨에 대 한 지원 되는 연결 옵션은 다음과 같습니다.
+위에서 설명한 토폴로지를에서 온-프레미스 네트워크는 허브 VNet에서 Azure에 연결 되며 허브 VNet 사용 하 여 2 개의 스포크는 동일한 지역에 Vnet 피어 링 합니다.  이 시나리오에서는 Azure NetApp 파일 볼륨에 대 한 지원 되는 연결 옵션은 다음과 같습니다.
 
-* VM 1 및 2 VM 온-프레미스 리소스는 사이트 간 VPN 또는 ExpressRoute를 통해 허브의 볼륨 1에 연결할 수 있습니다. 
-* VM 1 및 2 VM 온-프레미스 리소스 볼륨 2 또는 3 권을 연결할 수 있습니다.
+* VM 1 및 2 VM 온-프레미스 리소스는 사이트 간 VPN 또는 Expressroute를 통해 허브의 볼륨 1에 연결할 수 있습니다. 
+* VM 1 및 2 VM 온-프레미스 리소스는 사이트 간 VPN 및 지역 Vnet 피어 링을 통해 볼륨 2 또는 3 권에 연결할 수 있습니다.
 * VM 3 허브의 VNet 스포크 2 VNet에서에서 스포크 VNet 1에서에서 2 볼륨 및 볼륨 3 연결할 수 있습니다.
 * 스포크 1 VNet에서에서 VM 4 및 스포크 2 VNet에서에서 VM 5는 허브 VNet의에서 볼륨 1에 연결할 수 있습니다.
 

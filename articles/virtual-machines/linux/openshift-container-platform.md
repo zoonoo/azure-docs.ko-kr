@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411556"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure에서 OpenShift Container Platform 배포
@@ -31,7 +31,7 @@ Azure에서 OpenShift Container Platform을 배포하는 몇 가지 방법 중 �
 - 다른 방법은 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview)을 사용하는 것입니다.
 
 모든 옵션에 Red Hat 구독이 필요합니다. 배포하는 동안 Red Hat Enterprise Linux 인스턴스는 Red Hat 구독에 등록되고 OpenShift Container Platform에 대한 자격이 포함된 풀 ID에 연결됩니다.
-유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 활성화 키, 조직 ID 및 풀 ID를 사용할 수 있습니다. 이 정보는 https://access.redhat.com에 로그인하여 확인할 수 있습니다.
+유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 활성화 키, 조직 ID 및 풀 ID를 사용할 수 있습니다. 이 정보는 https://access.redhat.com 에 로그인하여 확인할 수 있습니다.
 
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>OpenShift Container Platform Resource Manager 템플릿을 사용하여 배포
@@ -66,7 +66,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 752aca68d1a95734bcefbd0c92d4cfc1e6fade7c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694320"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303905"
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
 
@@ -34,6 +34,7 @@ ms.locfileid: "60694320"
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [Automation 계정](automation-quickstart-create-account.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 프로덕션 VM이 되지 않도록 이 가상 머신을 중지했다가 시작합니다.
+* 해야 할 수 있습니다 [Azure 모듈 업데이트](automation-update-azure-modules.md) 사용할 cmdlet를 기반으로 합니다.
 
 ## <a name="create-new-runbook"></a>새 Runbook 만들기
 

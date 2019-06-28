@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
 ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244828"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
@@ -29,7 +29,7 @@ Azure 기업 고객은 보고 API를 통해 사용량 및 청구 데이터를 �
 * **API 키 생성 또는 검색** - Enterprise 포털에 로그인한 다음, 보고서 > 사용량 다운로드 > API 액세스 키로 이동하여 API 키를 생성하거나 검색합니다.
 * **API에서 키 전달** - API 키는 인증 및 권한 부여를 호출할 때마다 전달되어야 합니다. HTTP 헤더에 있어야 하는 속성은 다음과 같습니다.
 
-|요청 헤더 키 | Value|
+|요청 헤더 키 | 값|
 |-|-|
 |권한 부여| **bearer {API_KEY}** 형식의 값을 지정합니다. <br/> 예: bearer eyr....09| 
 

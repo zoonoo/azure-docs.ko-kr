@@ -15,10 +15,10 @@ ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60708603"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>형식 II SKU에 대한 OS 백업 및 복원
@@ -57,7 +57,7 @@ ms.locfileid: "60708603"
 ```
 복원한 후에 파일은 현재 작업 디렉터리에 복구됩니다.
 
-다음 명령에서는 파일(*/etc/fstabfrom*) 및 백업 파일(*backup.tar.gz*)의 복원을 보여줍니다.
+다음 명령에서는 파일( */etc/fstabfrom*) 및 백업 파일(*backup.tar.gz*)의 복원을 보여줍니다.
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```

@@ -3,17 +3,17 @@ title: Azure IoT Central 애플리케이션에서 장치 템플릿 설정 | Micr
 description: 측정값, 설정, 속성, 규칙 및 대시보드로 디바이스 템플릿을 설정하는 방법을 알아봅니다.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466494"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275970"
 ---
 # <a name="set-up-a-device-template"></a>디바이스 템플릿 설정
 

@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager 템플릿 함수 - 논리 | Microsoft 문서
 description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405663"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205468"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -27,9 +21,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 * [bool](#bool)
 * [if](#if)
 * [not](#not)
-* [또는](#or)
+* [or](#or)
 
-## <a name="and"></a>및
+## <a name="and"></a>and
 
 `and(arg1, arg2, ...)`
 
@@ -37,11 +31,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |예. |부울 |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |부울 |True인지 확인할 추가 인수입니다. |
+| arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
+| arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
+| 추가 인수 |아닙니다. |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -75,11 +69,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | 부울 | 거짓 |
-| orExampleOutput | 부울 | True  |
-| notExampleOutput | 부울 | 거짓 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
 
@@ -89,9 +83,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |문자열 또는 int |부울로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 변환된 값의 부울입니다.
@@ -128,12 +122,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
-| trueString | 부울 | True  |
-| falseString | 부울 | 거짓 |
-| trueInt | 부울 | True  |
-| falseInt | 부울 | 거짓 |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -143,11 +137,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| condition |예. |부울 |True 또는 false 인지 확인할 값입니다. |
-| trueValue |예. | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
-| falseValue |예. | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
+| condition |예 |boolean |True 또는 false 인지 확인할 값입니다. |
+| trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
+| falseValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -186,7 +180,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | no |
@@ -196,7 +190,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -248,9 +242,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예. |부울 |변환할 값입니다. |
+| arg1 |예 |boolean |변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -284,11 +278,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| Name | type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | 부울 | 거짓 |
-| orExampleOutput | 부울 | True  |
-| notExampleOutput | 부울 | 거짓 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](resource-group-template-functions-comparison.md#equals)에 **not**을 사용합니다.
 
@@ -308,9 +302,9 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
-| checkNotEquals | 부울 | True  |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>또는
 
@@ -320,11 +314,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |예. |부울 |true인지 확인할 두 번째 값입니다. |
-| 추가 인수 |아닙니다. |부울 |True인지 확인할 추가 인수입니다. |
+| arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
+| arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
+| 추가 인수 |아닙니다. |boolean |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -358,11 +352,11 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | Value |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
-| andExampleOutput | 부울 | 거짓 |
-| orExampleOutput | 부울 | True  |
-| notExampleOutput | 부울 | 거짓 |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>다음 단계
 

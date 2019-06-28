@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
 ms.openlocfilehash: e2601d5200f0b8ebcfb856bffb871f01b3acb215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148942"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182851"
 ---
 > [!NOTE]
 > DC/OS 기반 ACS 클러스터와 함께 작업하기 위한 것입니다. Swarm 기반 ACS 클러스터에 대해 이 작업을 수행하지 않아도 됩니다.

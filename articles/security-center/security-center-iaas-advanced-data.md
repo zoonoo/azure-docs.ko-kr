@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400153"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154823"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS의 SQL server에 대 한 고급 데이터 보안
-Azure Virtual Machines에서 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Azure Virtual Machines (공개 미리 보기)에서 SQL server에 대 한 고급 데이터 보안
+Azure Virtual Machines에서 SQL Server에 대 한 고급 데이터 보안은 SQL의 고급 보안 기능에 대 한 통합된 패키지입니다. 현재 (공개 미리 보기로 제공) 표시 잠재적인 데이터베이스 취약성을 완화 하 고 데이터베이스에 대 한 위협을 나타내는 비정상적인 활동을 탐지에 대 한 기능을 포함 합니다. 
 
 Azure Vm SQL server에 대 한 제공이 보안은에 사용 된 동일한 기본 기술을 기반으로 합니다 [Azure SQL Database 고급 데이터 보안 패키지](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)합니다.
 
@@ -36,7 +36,7 @@ Azure Vm SQL server에 대 한 제공이 보안은에 사용 된 동일한 기�
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Azure Vm에서 SQL 용 고급 데이터 보안을 사용 하 여 시작
 
-다음 단계를 Azure Vm에서 SQL에 대 한 고급 데이터 보안을 사용 하 여 시작할 수를 가져옵니다.
+다음 단계를 Azure Vm 공개 미리 보기에는 SQL에 대 한 고급 데이터 보안을 사용 하 여 시작할 수를 가져옵니다.
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Azure Vm에서 SQL 용 고급 데이터 보안을 설정 합니다.
 
@@ -145,7 +145,7 @@ ASC 경고가 발생할 때 전자 메일 알림의 받을 받는 사람 목록�
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Azure Vm 경고에 SQL Server에 대 한 위협 보호를 고급
 경고는 비정상적이 고 잠재적으로 해로운 시도를 액세스 하거나 SQL Server를 악용 하 여 생성 됩니다. 이러한 이벤트는 다음과 같은 경고를 트리거할 수 있습니다.
 
-### <a name="anomalous-access-pattern-alerts"></a>비정상적인 액세스 패턴 경고
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>비정상적인 액세스 패턴 경고 (공개 미리 보기에서 지원)
 
 * **비정상적인 위치에서 액세스 합니다.** 비정상적인 지리적 위치에서 누군가가 SQL Server에 로그온한 위치에 SQL Server 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 가능한 원인:
      * 공격자 나 이전의 악의적인 사용 SQL Server에 액세스 합니다.

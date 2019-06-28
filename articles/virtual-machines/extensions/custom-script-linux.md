@@ -110,16 +110,16 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 | 이름 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | 문자열 |
-| 형식 | CustomScript | 문자열 |
+| publisher | Microsoft.Compute.Extensions | string |
+| 형식 | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<my-param1> | 문자열 |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
-| skipDos2Unix(예) | false | 부울 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 * `skipDos2Unix`: (옵션, 부울) 스크립트 기반 파일 URL 또는 스크립트의 dos2unix 변환을 건너뜁니다.

@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546462"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357235"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
-DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델에서 모든 서비스 계층은 가동 중지 시간 없이 컴퓨팅 크기를 변경할 수 있는 유연성을 제공합니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
+DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델의 모든 서비스 계층에서는 최소한의 계산 크기를 변경할 수 있는 유연성 [가동 중지 시간](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)하지만 있습니다는 스위치 기간 동안 여기서 연결이 끊어지면 데이터베이스에는 짧은 기간에는 수 다시 시도 논리를 사용 하 여 완화할 수 있습니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
 > SQL Database 관리되는 인스턴스는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
@@ -165,9 +165,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
-| Premium |초당 트랜잭션 수 |0.5초에서 95 백분위수 |
-| Standard |분당 트랜잭션 수 |1.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2.0초에서 80 백분위수 |
+| Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
+| Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
+| Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539263"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
@@ -80,7 +80,7 @@ Azure search에서 비용이 발생 하는 방법은 세 가지가 되며 고정
 
 Azure Search 작업에 대 한 이해를 청구 가장 중요 한 개념은는 *검색 단위* (SU)입니다. Azure Search은 인덱싱 및 쿼리를 위해 복제본과 파티션 둘 다에 의존하므로 하나를 기준으로만 청구하는 것은 적절하지 않습니다. 대신, 청구는 둘 다의 복합을 기준으로 합니다.
 
-SU를 곱한 값을 *복제본* 하 고 *파티션* 서비스에서 사용: **(R x P = SU)**.
+SU를 곱한 값을 *복제본* 하 고 *파티션* 서비스에서 사용: **(R x P = SU)** .
 
 모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대 36 개의 Su는. 이 최대 여러 가지 방법으로 연결할 수 있습니다. 6 파티션 x 6 복제본 또는 예를 들어 3 개 파티션은 x 12 복제본입니다. 일반적으로 총 용량 (예를 들어 복제본 3, 3-파티션 서비스 9 개의 Su로 청구) 미만 사용 하는 것입니다. 참조 된 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 유효한 조합에 대 한 차트입니다.
 

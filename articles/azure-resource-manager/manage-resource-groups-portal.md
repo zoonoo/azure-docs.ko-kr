@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507219"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296299"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portal을 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -109,14 +106,6 @@ Resource Manager 템플릿을 만든 후에 Azure 리소스를 배포 하려면 
 ## <a name="export-resource-groups-to-templates"></a>리소스 그룹 템플릿 내보내기
 
 템플릿 내보내기에 대 한 자세한 내용은 [템플릿의 경우-포털에 단일 및 다중 리소스 내보내기](export-template-portal.md)합니다.
-
-### <a name="fix-export-issues"></a>내보내기 문제 수정
-
-모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 배포 기록이 아닌 리소스 그룹에서 내보낸 경우 내보내기 문제가 발생합니다. 마지막 배포가 리소스 그룹의 현재 상태를 정확하게 나타내는 경우 리소스 그룹이 아닌 배포 기록에서 템플릿을 내보내야 합니다. 단일 템플릿에서 정의되지 않은 리소스 그룹을 변경한 경우에만 리소스 그룹에서 내보냅니다.
-
-내보내기 문제를 해결하려면 누락된 리소스를 템플릿에 다시 수동으로 추가합니다. 오류 메시지에는 내보낼 수 없는 리소스 종류가 포함됩니다. [템플릿 참조](/azure/templates/)에서 리소스 종류를 찾습니다. 예를 들어 가상 네트워크 게이트웨이를 수동으로 추가하려면 [Microsoft.Network/virtualNetworkGateways 템플릿 참조](/azure/templates/microsoft.network/virtualnetworkgateways)를 참조하세요. 템플릿 참조는 템플릿에 리소스를 추가하도록 JSON을 제공합니다.
-
-리소스에 대한 JSON 형식을 가져온 후 리소스 값을 가져와야 합니다. 리소스 종류에 대한 REST API에서 GET 작업을 사용하여 리소스에 대한 값을 확인할 수 있습니다. 예를 들어 가상 네트워크 게이트웨이에 대한 값을 가져오려면 [가상 네트워크 게이트웨이 - 가져오기](/rest/api/network-gateway/virtualnetworkgateways/get)를 참조하세요.
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대 한 액세스 관리
 

@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: f276247076438a03973148b5cf65ddbeb409b024
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067183"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274767"
 ---
 # <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure Database for PostgreSQL-Azure CLI를 사용 하 여 단일 서버 서버 구성 매개 변수 사용자 지정
 Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
@@ -50,4 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 이 명령은 **log\_min\_messages** 구성을 기본값 **WARNING**으로 다시 설정합니다. 서버 구성 및 허용되는 값에 자세한 내용은 [서버 구성](https://www.postgresql.org/docs/9.6/static/runtime-config.html)의 PostgreSQL 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+- [서버를 다시 시작 하는 방법 알아보기](howto-restart-server-cli.md)
 - 서버 로그를 구성하고 액세스하려면 [PostgreSQL용 Azure Database의 서버 로그](concepts-server-logs.md)를 참조하세요.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65601577"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 실시간 데이터 2.0 (미리 보기) 솔루션

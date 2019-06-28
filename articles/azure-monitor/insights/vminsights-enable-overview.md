@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122569"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273387"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Azure Monitor를 사용 하도록 설정에 대 한 Vm (미리 보기) 개요
 
@@ -42,10 +42,10 @@ Vm에 대 한 azure Monitor에는 다음 지역에서 Log Analytics 작업 영�
 - 미국 중서부
 - 미국 서 부 2<sup>1</sup>
 - 미국 동부
-- 캐나다 중부<sup>1</sup>
-- 영국 남부<sup>1</sup>
+- 캐나다 중부
+- 영국 남부
 - 서유럽
-- 동남 아시아<sup>1</sup>
+- 동남아시아
 
 <sup>1</sup> 이 지역은 현재 VM용 Azure Monitor의 상태 기능을 지원하지 않습니다
 
@@ -90,6 +90,10 @@ Log Analytics 작업 영역에 Azure Policy, Azure PowerShell 또는 Azure Resou
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> VM용 Azure Monitor의 성능 기능은 Azure Monitor에서만 사용할 수 있습니다. Azure VM의 왼쪽된 창에서 직접 사용할 수 없습니다.
+
+>[!NOTE]
+>Vm에 대 한 Azure Monitor의 상태 기능은 지원 하지 않습니다 [중첩 된 가상화](../../virtual-machines/windows/nested-virtualization.md) Azure VM에서.
+>
 
 >[!NOTE]
 >Linux 운영 체제:

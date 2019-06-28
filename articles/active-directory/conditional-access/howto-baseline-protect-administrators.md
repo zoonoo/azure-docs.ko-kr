@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112435"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204629"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>기본 정책: 관리자에 대해 MFA 요구
 
@@ -71,6 +71,9 @@ ms.locfileid: "67112435"
 1. 설정할 **정책을 사용 하도록 설정** 하 **즉시 정책을 사용 하 여**입니다.
 1. 클릭 하 여 모든 사용자 제외를 추가할 **사용자** > **제외 된 사용자 선택** 제외할 수 해야 하는 사용자를 선택 합니다. 클릭 **선택** 한 다음 **수행**합니다.
 1. 클릭 **저장할**합니다.
+
+> [!WARNING]
+> 옵션이 **자동으로 정책을 사용 하도록 나중에 설정** 경우이 정책은 미리 보기로 제공 됩니다. 급격 한 사용자에 게 영향을 최소화 하려면이 옵션을 제거 했습니다. 사용할 때이 옵션을 선택한 경우 **정책을 사용 하지 않는** 자동으로 선택 됩니다. 이 기준 정책을 사용 하는 경우 사용 하도록 설정 하려면 위의 단계를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

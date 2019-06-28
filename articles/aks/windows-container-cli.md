@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752380"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303564"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 Azure Kubernetes Service (AKS) 클러스터에서 Windows Server 컨테이너 만들기
 
@@ -22,7 +22,7 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 ![ASP.NET 샘플 응용 프로그램으로 이동 하는 이미지](media/windows-container/asp-net-sample-app.png)
 
-이 문서에서는 Kubernetes 개념에 대 한 기본적인 이해를 가정 합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
+이 문서에서는 Kubernetes 개념에 대 한 기본적인 이해를 가정 합니다. 자세한 내용은 [Kubernetes 핵심 개념에 대 한 Azure Kubernetes Service (AKS)][kubernetes-concepts]합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -42,7 +42,7 @@ Windows Server 컨테이너를 실행할 수 있는 클러스터를 만든 후 �
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
     
-여러 노드 풀 만들기 및 관리 하기 위해 CLI 명령에서 사용할 수는 *aks 미리 보기* CLI 확장 합니다. 설치를 *aks 미리 보기* 사용 하 여 Azure CLI 확장을 [az 확장 추가] [ az-extension-add] 다음 예와에서 같이 명령:
+여러 노드 풀 만들기 및 관리 하기 위해 CLI 명령에서 사용할 수는 *aks 미리 보기* CLI 확장 합니다. 설치를 *aks 미리 보기* 사용 하 여 Azure CLI 확장을 [az 확장 추가][az-extension-add] 다음 예와에서 같이 명령:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>Windows 미리 보기 기능 등록
 
-여러 노드 풀을 사용 하 고 Windows Server 컨테이너를 실행할 수 있는 AKS 클러스터를 만들려면 먼저 사용 하도록 설정 합니다 *WindowsPreview* 기능 플래그를 구독 합니다. 합니다 *WindowsPreview* 기능 풀 다중 노드 클러스터 및 가상 머신 확장 집합 배포 및 Kubernetes 노드는 구성을 관리 하려면 사용 합니다. 등록 합니다 *WindowsPreview* 기능 플래그를 사용 하는 [az 기능 등록] [ az-feature-register] 다음 예와에서 같이 명령:
+여러 노드 풀을 사용 하 고 Windows Server 컨테이너를 실행할 수 있는 AKS 클러스터를 만들려면 먼저 사용 하도록 설정 합니다 *WindowsPreview* 기능 플래그를 구독 합니다. 합니다 *WindowsPreview* 기능 풀 다중 노드 클러스터 및 가상 머신 확장 집합 배포 및 Kubernetes 노드는 구성을 관리 하려면 사용 합니다. 등록 합니다 *WindowsPreview* 기능 플래그를 사용 하는 [az 기능 등록][az-feature-register] 다음 예와에서 같이 명령:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > 성공적으로 등록 한 후를 만든 AKS 클러스터를 *WindowsPreview* 기능 플래그는이 미리 보기 클러스터 환경을 사용 합니다. 일반, 완벽 하 게 지원 되는 클러스터를 만드는 작업을 계속 하려면 프로덕션 구독에서 미리 보기 기능을 사용 하지 마십시오. 미리 보기 기능을 테스트 하는 것에 대 한 별도 테스트 또는 개발 Azure 구독을 사용 합니다.
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+등록이 완료까지 몇 분 정도 걸립니다. 사용 하 여 등록 상태를 확인 합니다 [az 기능 목록][az-feature-list] 명령:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+등록 상태 경우 `Registered`, 상태 모니터링을 중지 하려면 Ctrl + C 키를 누릅니다.  그런 다음 등록을 새로 고칩니다를 *Microsoft.ContainerService* 사용 하 여 리소스 공급자를 [az provider register][az-provider-register] 명령:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -93,6 +93,10 @@ Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 �
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
+> [!NOTE]
+> 이 문서에서는이 자습서에서는 명령에 대해 Bash 구문을 사용합니다.
+> Azure Cloud Shell을 사용 하는 경우 Cloud Shell 창의 왼쪽 위에 있는 드롭다운으로 설정 되어 있는지 확인 하십시오 **Bash**합니다.
+
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
@@ -113,12 +117,13 @@ az group create --name myResourceGroup --location eastus
 }
 ```
 
-## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
-Windows Server 컨테이너에 대 한 노드 풀을 지 원하는 AKS 클러스터를 실행 하려면 클러스터를 사용 하는 네트워크 정책을 사용 하 여 해야 [Azure CNI] [ azure-cni-about] (고급) 네트워크 플러그 인입니다. 필요한 서브넷 범위 및 네트워크 고려 사항 계획 데 유용한 정보를 자세한 [Azure CNI 네트워킹 구성][use-advanced-networking]합니다. 사용 된 [az aks 만들기] [ az-aks-create] 라는 AKS 클러스터를 만드는 명령 *myAKSCluster*. 이 명령은 없는 경우 필요한 네트워크 리소스를 만듭니다.
+## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
+
+Windows Server 컨테이너에 대 한 노드 풀을 지 원하는 AKS 클러스터를 실행 하려면 클러스터를 사용 하는 네트워크 정책을 사용 하 여 해야 [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]합니다. 사용 합니다 [az aks 만들기][az aks를 만듭니다] 라는 AKS 클러스터를 만드는 명령을 *myAKSCluster*합니다. 이 명령은 없는 경우 필요한 네트워크 리소스를 만듭니다.
   * 하나의 노드가 있는 클러스터를 구성
   * *암호 관리-windows-* 하 고 *windows 관리자-사용자 이름* 매개 변수는 클러스터에서 생성 된 모든 Windows Server 컨테이너에 대 한 관리자 자격 증명을 설정 합니다.
 
-사용자 고유의 보안 제공 *PASSWORD_WIN*합니다.
+사용자 고유의 보안 제공 *PASSWORD_WIN* (이 문서의 명령은 BASH 셸에 입력 되어 있는지 해야 함):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +140,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> 암호 유효성 검사 오류가 발생할 경우 다른 지역의 리소스 그룹을 만들어 보세요.
+> 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
 
 몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다.
 
@@ -156,7 +165,7 @@ az aks nodepool add \
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli][az-aks-install-cli] 명령을 사용합니다.
+Kubernetes 클러스터를 관리 하려면 사용 [kubectl][kubectl], Kubernetes 명령줄 클라이언트입니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 설치 하려면 `kubectl` 로컬로 사용 하 여 합니다 [az aks 설치 cli][az-aks-install-cli] 명령:
 
 ```azurecli
 az aks install-cli
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 문서에서는 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 실행 하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용 합니다. 이 매니페스트에 포함 된 [Kubernetes 배포] [ kubernetes-deployment] ASP.NET 샘플 응용 프로그램 및 외부 [Kubernetes 서비스] [ kubernetes-service] 를 인터넷에서 응용 프로그램에 액세스 합니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 문서에서는 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 실행 하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용 합니다. 이 매니페스트에 포함을 [Kubernetes 배포][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] 인터넷에서 응용 프로그램에 액세스 합니다.
 
-ASP.NET 샘플 응용 프로그램의 일부로 제공 되는 [.NET Framework 샘플] [ dotnet-samples] Windows Server 컨테이너에서 실행 됩니다. AKS의 이미지를 기반으로 하는 Windows Server 컨테이너 필요 *Windows Server 2019* 이상. Kubernetes 매니페스트 파일에도 정의 해야 합니다는 [노드 선택기] [ node-selector] AKS 클러스터 노드에서 Windows Server 컨테이너를 실행할 수 있는 ASP.NET 샘플 응용 프로그램 pod를 실행 하 게 합니다.
+ASP.NET 샘플 응용 프로그램의 일부로 제공 되는 [.NET Framework 샘플][dotnet-samples] Windows Server 컨테이너에서 실행 됩니다. AKS의 이미지를 기반으로 하는 Windows Server 컨테이너 필요 *Windows Server 2019* 이상. Kubernetes 매니페스트 파일에도 정의 해야 합니다는 [노드 선택기][node-selector] AKS 클러스터 노드에서 Windows Server 컨테이너를 실행할 수 있는 ASP.NET 샘플 응용 프로그램 pod를 실행 하 게 합니다.
 
 `sample.yaml`이라는 파일을 만들고 다음 YAML 정의에 복사합니다. Azure Cloud Shell을 사용하는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 `vi` 또는 `nano`를 사용하여 만들 수 있습니다.
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 애플리케이션을 배포하고 YAML 매니페스트의 이름을 지정합니다.
+사용 하 여 응용 프로그램 배포를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다.
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -253,7 +262,7 @@ service/sample created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
 
-진행 상황을 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service sample --watch
@@ -278,18 +287,18 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 
-클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
+클러스터가 더 이상 필요한 경우 사용 합니다 [az 그룹 삭제][az-group-delete] 리소스 그룹, 컨테이너 서비스를 제거 하는 명령 및 모든 관련 리소스입니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거 하는 방법에 대 한 단계를 참조 하세요 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Kubernetes 클러스터를 배포 하 고 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 배포 합니다. 방금 만든 클러스터에 대한 [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard]합니다.
+이 문서에서는 Kubernetes 클러스터를 배포 하 고 Windows Server 컨테이너에서 ASP.NET 샘플 응용 프로그램을 배포 합니다. [Kubernetes 웹 대시보드에 액세스][kubernetes-dashboard] 방금 만든 클러스터에 대 한 합니다.
 
 AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 연습해 보려면 Kubernetes 클러스터 자습서를 계속 진행합니다.
 

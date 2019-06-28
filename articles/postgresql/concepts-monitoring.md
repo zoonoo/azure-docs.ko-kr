@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063748"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274293"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
@@ -38,6 +38,8 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
+|pg_replica_log_delay_in_bytes|복제본 간 최대 지연 시간|바이트|마스터와 대부분 지연 복제본 간에 바이트를 지연 합니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다.|
+|pg_replica_log_delay_in_seconds|복제본 지연 시간|초|마지막 트랜잭션 재생 이후 시간입니다. 이 메트릭은 복제본 서버에만 제공 됩니다.|
 
 ## <a name="server-logs"></a>서버 로그
 서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 로그는 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수도 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.

@@ -9,11 +9,11 @@ ms.date: 09/25/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131439"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181969"
 ---
 확장 번들의 설정을 통해 사용할 수 있는 Azure Functions 팀에서 게시 하는 모든 바인딩을 확인 합니다 *host.json* 파일입니다. 로컬 개발에 대 한 최신 버전의 했는지를 확인 [Azure Functions 핵심 도구](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)합니다.
 

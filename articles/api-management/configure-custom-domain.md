@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141296"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274981"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성 
 
@@ -49,7 +49,7 @@ APIM(API Management) 인스턴스를 만들 때 Azure에서는 azure-api.net의 
    + **SCM**(기본값: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객이 **프록시**(이 URL은 API Management를 통해 노출된 API를 호출하는 데 사용됨) 및 **포털**(개발자 포털 URL)을 업데이트합니다. **관리** 및 **SCM** 엔드포인트는 APIM 고객에 의해 내부적으로 사용되며 따라서 사용자 지정 도메인 이름은 자주 할당되지 않습니다.
+     > 이들 중 일부 또는 모든 엔드포인트를 업데이트할 수 있습니다. 일반적으로 고객이 **프록시**(이 URL은 API Management를 통해 노출된 API를 호출하는 데 사용됨) 및 **포털**(개발자 포털 URL)을 업데이트합니다. **관리** 및 **SCM** 엔드포인트는 APIM 고객에 의해 내부적으로 사용되며 따라서 사용자 지정 도메인 이름은 자주 할당되지 않습니다. 대부분의 경우에서 단일 사용자 지정 도메인 이름만 지정 된 끝점에 대해 설정할 수 있습니다. 그러나 합니다 **Premium** 계층 설정에 대 한 여러 호스트 이름을 지원 합니다 **프록시** 끝점.  
 
 1. 업데이트하려는 엔드포인트를 선택합니다. 
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.

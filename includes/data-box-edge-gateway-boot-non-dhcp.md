@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161205"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182871"
 ---
 비 DHCP 환경에서 부팅 하는 경우 데이터 상자 게이트웨이에 대 한 가상 컴퓨터를 배포 하려면 다음이 단계를 따릅니다.
 

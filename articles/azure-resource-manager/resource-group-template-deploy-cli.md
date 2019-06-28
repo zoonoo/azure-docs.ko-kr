@@ -1,23 +1,17 @@
 ---
 title: Azure CLI 및 템플릿으로 리소스 배포 | Microsoft Docs
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475048"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206536"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 

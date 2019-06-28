@@ -22,7 +22,7 @@ ms.locfileid: "60474644"
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>본인 확인 질문을 사용하도록 보안 정보(미리 보기) 설정
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
-암호 재설정 방법을 설정한 후 [인증자 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
+암호 재설정 방법을 설정한 후 [Authenticator 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

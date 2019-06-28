@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c4df3d6a55021cafa04bb6bcba643be41dc0e612
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309803"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273767"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "58309803"
 4. 주요 자격 증명 모음에 자체 서명된 인증서에 대한 URL 가져오기
 5. VM을 만드는 동안 자체 서명된 인증서 URL 참조
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-create-a-key-vault"></a>1단계: 주요 자격 증명 모음 만들기
 아래 명령을 사용하여 주요 자격 증명 모음을 만들 수 있습니다.
@@ -93,7 +93,7 @@ Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 
 #### <a name="powershell"></a>PowerShell
 아래의 PowerShell 명령을 사용하여 이 URL을 가져올 수 있습니다.
 
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>5단계: VM을 만드는 동안 자체 서명된 인증서 URL 참조
 #### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
@@ -138,7 +138,7 @@ Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 
 #### <a name="powershell"></a>PowerShell
     $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
     $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
     $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"

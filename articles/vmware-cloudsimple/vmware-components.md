@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160187"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165146"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
 
@@ -37,7 +37,7 @@ ms.locfileid: "65160187"
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi는 사설 클라우드를 만들 때 구매한 CloudSimple 노드에 설치 됩니다.  ESXi는 virtual machines (Vm) 워크 로드 배포에 대 한 하이퍼바이저를 제공 합니다.  노드는 사설 클라우드에서 하이퍼 수렴 형 인프라 (계산 및 저장소)를 제공합니다.  노드는 사설 클라우드에서 vSphere 클러스터의 일부가 됩니다.  각 노드에 4 개의 실제 네트워크 인터페이스 언더레이 네트워크에 연결 합니다.  두 개의 실제 네트워크 인터페이스를 만드는 데 사용 되는 **vSphere 분산 스위치 (VDS)** vCenter 두에 만드는 데 사용 되는 **NSX 관리 가상 분산된 스위치 (N-VDS)** 합니다.  네트워크 인터페이스는 고가용성을 위해 활성-활성 모드에서 구성 됩니다.
+VMware ESXi는 사설 클라우드를 만들 때 프로 비전 된 CloudSimple 노드에 설치 됩니다.  ESXi는 virtual machines (Vm) 워크 로드 배포에 대 한 하이퍼바이저를 제공 합니다.  노드는 사설 클라우드에서 하이퍼 수렴 형 인프라 (계산 및 저장소)를 제공합니다.  노드는 사설 클라우드에서 vSphere 클러스터의 일부가 됩니다.  각 노드에 4 개의 실제 네트워크 인터페이스 언더레이 네트워크에 연결 합니다.  두 개의 실제 네트워크 인터페이스를 만드는 데 사용 되는 **vSphere 분산 스위치 (VDS)** vCenter 두에 만드는 데 사용 되는 **NSX 관리 가상 분산된 스위치 (N-VDS)** 합니다.  네트워크 인터페이스는 고가용성을 위해 활성-활성 모드에서 구성 됩니다.
 
 VMware ESXi에 자세히 알아보려면
 
@@ -85,7 +85,7 @@ ESXi 호스트는 사설 클라우드의 고가용성을 보장 하는 클러스
 
 ### <a name="vsphere-cluster-limits"></a>vSphere 클러스터 제한
 
-| 리소스 | 제한 |
+| Resource | 제한 |
 |----------|-------|
 | 사설 클라우드를 만드는 노드의 최소 수 (첫 번째 vSphere 클러스터) | 3 |
 | VSphere에서 노드의 최대 수는 사설 클라우드에서 클러스터 | 16 |

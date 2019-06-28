@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921279"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155144"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -51,11 +51,9 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 >
 >ExpressRoute를 사용하고 기본 경로가 게시된 경우 [Azure VM이 ExpressRoute를 통해 활성화되지 못했습니다.](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)를 참조하세요.
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>1단계 적절한 KMS 클라이언트 설정 키 구성(Windows Server 2016 및 Windows Server 2012 R2용)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>1 단계 적절 한 KMS 클라이언트 설정 키 구성
 
-Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지에서 만든 VM의 경우 VM에 적절한 KMS 클라이언트 설정 키를 구성해야 합니다.
-
-이 단계는 Windows 2012 또는 Windows 2008 R2에는 적용되지 않습니다. Windows Server 2016 및 Windows Server 2012 R2에서만 지원되는 AVMA(Automation Virtual Machine Activation) 기능을 사용합니다.
+사용자 지정 이미지에서 만든 VM에 대해 VM에 대 한 적절 한 KMS 클라이언트 설정 키를 구성 해야 합니다.
 
 1. 관리자 권한의 명령 프롬프트에서 **slmgr.vbs /dlv**를 실행합니다. 출력에서 설명 값을 확인하고 소매(소매 채널) 또는 볼륨(VOLUME_KMSCLIENT) 라이선스 미디어에서 만들어졌는지를 확인합니다.
   

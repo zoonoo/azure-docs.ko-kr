@@ -1,24 +1,24 @@
 ---
-title: Azure 웹 응용 프로그램 방화벽 (WAF) 사용자 지정 규칙 만들기 및 사용
-description: 이 문서에서는 Azure Application Gateway에서 웹 응용 프로그램 방화벽 (WAF) 사용자 지정 규칙을 만드는 방법을 설명 합니다.
+title: Azure 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙 만들기 및 사용
+description: 이 문서에서는 Azure Application Gateway에서 웹 응용 프로그램 방화벽 (WAF) v2 사용자 지정 규칙을 만드는 방법을 설명 합니다.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689033"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164682"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
-Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리케이션을 보호합니다. 이 보호 하 여는 OWASP Open Web Application Security Project () 코어 규칙 집합 (CR) 제공 됩니다. 경우에 따라 특정 요구 사항에 맞게 사용자 고유의 사용자 지정 규칙을 만드는 해야 합니다. WAF 사용자 지정 규칙에 대 한 자세한 내용은 참조 하세요. [사용자 지정 웹 응용 프로그램 방화벽 규칙 개요](custom-waf-rules-overview.md)합니다.
+Azure Application Gateway 웹 응용 프로그램 방화벽 (WAF) v2는 웹 응용 프로그램에 대 한 보호를 제공합니다. 이 보호 하 여는 OWASP Open Web Application Security Project () 코어 규칙 집합 (CR) 제공 됩니다. 경우에 따라 특정 요구 사항에 맞게 사용자 고유의 사용자 지정 규칙을 만드는 해야 합니다. WAF 사용자 지정 규칙에 대 한 자세한 내용은 참조 하세요. [사용자 지정 웹 응용 프로그램 방화벽 규칙 개요](custom-waf-rules-overview.md)합니다.
 
-이 문서는 만들고 WAF를 사용 하 여 사용할 수 있는 몇 가지 예제에서는 사용자 지정 규칙을 보여줍니다. Azure PowerShell을 사용 하 여 사용자 지정 규칙을 사용 하 여 WAF를 배포 하는 방법에 알아보려면 참조 [Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 구성 사용자 지정 규칙](configure-waf-custom-rules.md)합니다.
+이 문서는 만들고 v2 WAF를 사용 하 여 사용할 수 있는 몇 가지 예제에서는 사용자 지정 규칙을 보여줍니다. Azure PowerShell을 사용 하 여 사용자 지정 규칙을 사용 하 여 WAF를 배포 하는 방법에 알아보려면 참조 [Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 구성 사용자 지정 규칙](configure-waf-custom-rules.md)합니다.
 
 >[!NOTE]
 > Application Gateway에서 WAF 계층을 사용하지 않는 경우 Application Gateway를 WAF 계층으로 업그레이드하는 옵션이 오른쪽 창에 표시됩니다.

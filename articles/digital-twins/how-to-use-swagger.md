@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116446"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -112,7 +112,7 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
 
     ![Azure AD 앱 등록 api 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. OAuth 2.0 암시적 흐름을 허용 하도록 응용 프로그램 매니페스트를 구성 합니다. **매니페스트**를 클릭하여 앱에 대한 애플리케이션 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
+4. OAuth 2.0 암시적 흐름을 허용 하도록 응용 프로그램 매니페스트를 구성 합니다. 선택 **매니페스트** 앱에 대 한 응용 프로그램 매니페스트를 엽니다. *oauth2AllowImplicitFlow*를 `true`로 설정합니다.
 
     ![Azure AD 암시적 흐름](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에
 
 Azure Active Directory 등록을 완료 합니다.
 
-6. 클릭 합니다 **권한 부여** swagger 페이지에는 단추입니다.
+6. 선택 된 **권한 부여** swagger 페이지에는 단추입니다.
 
-    [![Swagger를 클릭 합니다. 권한 부여 단추](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![권한 부여 단추 선택 Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. 응용 프로그램 ID를 붙여 합니다 **client_id** 필드입니다.
 

@@ -1,24 +1,27 @@
 ---
 title: Azure IoT Edge 장치를 Azure Blob Storage 모듈 배포 | Microsoft Docs
 description: 에지에 데이터를 저장하도록 IoT Edge 디바이스에 Azure Blob Storage 모듈을 배포합니다.
-author: kgremban
-ms.author: kgremban
-ms.date: 05/21/2019
+author: arduppal
+ms.author: arduppal
+ms.date: 06/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
-manager: philmea
-ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: mchad
+ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990462"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295234"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>장치에 IoT Edge 모듈에서 Azure Blob Storage 배포
 
 IoT Edge 장치에 모듈을 배포 하는 방법은 여러 가지가 있습니다 및 모든 IoT Edge 모듈에서 Azure Blob Storage에 대 한 작동 합니다. 가장 간단한 두 가지 방법은 Azure Portal 또는 Visual Studio Code 템플릿을 사용하는 것입니다.
+
+> [!NOTE]
+> IoT Edge의 Azure Blob Storage는 현재 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -88,35 +91,35 @@ Azure portal을 사용 하면 배포 매니페스트 만들기 및 배포는 IoT
      > [!IMPORTANT]
      > 스토리지 디렉터리 바인드 값의 두 번째 절반을 변경하지 마세요. 이는 모듈의 특정 위치를 가리킵니다. 항상 스토리지 디렉터리 바인드는 Linux 컨테이너의 경우 **:/blobroot**로 끝나고 Windows 컨테이너의 경우 **:C:/BlobRoot**로 끝납니다.
 
-    ![업데이트 모듈 컨테이너 만들기 옵션 - 포털](./media/how-to-store-data-blob/edit-module.png)
-
-1. 설정 [계층화](how-to-store-data-blob.md#tiering-properties) 하 고 [time to live](how-to-store-data-blob.md#time-to-live-properties) 다음 JSON을 복사 하 여에 붙여넣으면 모듈에 대 한 속성을 **집합 모듈 쌍의 desired 속성** 상자입니다. 적절 한 값을 사용 하 여 각 속성을 구성, 저장 및 배포를 사용 하 여 계속 합니다.
+1. 설정할 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 하 고 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 다음 JSON을 복사 하 여에 붙여넣으면 모듈에 대 한 속성을 **집합 모듈 쌍의 desired 속성** 상자입니다. 적절 한 값을 사용 하 여 각 속성을 구성, 저장 및 배포를 사용 하 여 계속 합니다.
 
    ```json
    {
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading":<true,false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload":<true,false>
        }
      }
    }
 
       ```
 
-   ![계층화 및 time to live 속성 설정](./media/how-to-store-data-blob/iotedge_custom_module.png)
+   ![컨테이너 설정 옵션과 deviceAutoDeleteProperties deviceToCloudUploadProperties 속성 만들기](./media/how-to-deploy-blob/iotedge-custom-module.png)
 
-   모듈을 배포한 후 계층화 및 TTL 구성에 대 한 자세한 내용은 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)합니다. Desired 속성에 대 한 자세한 내용은 참조 하세요. [desired 속성을 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)합니다.
+   모듈을 배포한 후 deviceToCloudUploadProperties 및 deviceAutoDeleteProperties 구성에 대 한 정보를 참조 하세요 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)합니다. Desired 속성에 대 한 자세한 내용은 참조 하세요. [desired 속성을 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)합니다.
 
 1. **저장**을 선택합니다.
 
@@ -158,7 +161,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
    | 폴더 선택 | 솔루션 파일을 만들려면 Visual Studio Code에 대 한 개발 컴퓨터의 위치를 선택 합니다. |
    | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
    | 모듈 템플릿 선택 | **기존 모듈(전체 이미지 URL 입력)** 을 선택합니다. |
-   | 모듈 이름 제공 | 모듈에 대한 이름을 모두 소문자로 입력합니다(예: **azureblobstorage**).<br /><br />IoT Edge 모듈에서 Azure Blob Storage에 사용할 이름은 반드시 소문자로 사용해야 합니다. IoT Edge는 모듈을 참조할 때 대/소문자를 구분하며 Storage SDK는 기본적으로 소문자로 설정됩니다. |
+   | 모듈 이름 제공 | 같은 모듈에 대 한 모든 소문자 이름 입력 **azureblobstorageoniotedge**합니다.<br /><br />IoT Edge 모듈에서 Azure Blob Storage에 사용할 이름은 반드시 소문자로 사용해야 합니다. IoT Edge는 모듈을 참조할 때 대/소문자를 구분하며 Storage SDK는 기본적으로 소문자로 설정됩니다. |
    | 모듈의 Docker 이미지 제공 | 이미지 URI를 **mcr.microsoft.com/azure-blob-storage:latest**로 입력합니다. |
 
    Visual Studio Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음, 새 창에서 로드합니다. 솔루션 템플릿은 Blob Storage 모듈 이미지를 포함하는 배포 매니페스트 템플릿을 만들지만, 모듈의 만들기 옵션을 구성해야 합니다.
@@ -182,7 +185,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
       }
       ```
 
-      ![모듈 createOptions-Visual Studio Code를 업데이트 합니다.](./media/how-to-store-data-blob/create-options.png)
+      ![모듈 createOptions-Visual Studio Code를 업데이트 합니다.](./media/how-to-deploy-blob/create-options.png)
 
 1. `<your storage account name>`을 기억하기 쉬운 이름으로 바꿉니다. 계정 이름은 3 ~ 24 자, 소문자와 숫자만 사용 해야 합니다. 공백이 없어야 합니다.
 
@@ -196,32 +199,34 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
       > [!IMPORTANT]
       > 스토리지 디렉터리 바인드 값의 두 번째 절반을 변경하지 마세요. 이는 모듈의 특정 위치를 가리킵니다. 항상 스토리지 디렉터리 바인드는 Linux 컨테이너의 경우 **:/blobroot**로 끝나고 Windows 컨테이너의 경우 **:C:/BlobRoot**로 끝납니다.
 
-1. 구성 [계층화](how-to-store-data-blob.md#tiering-properties) 하 고 [time to live](how-to-store-data-blob.md#time-to-live-properties) 다음 JSON을 추가 하 여 모듈에 대 한 속성을 *deployment.template.json* 파일입니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 파일을 저장 합니다.
+1. 구성 [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) 하 고 [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) 다음 JSON을 추가 하 여 모듈에 대 한 합니다 *deployment.template.json* 파일입니다. 적절 한 값을 사용 하 여 각 속성을 구성 하 고 파일을 저장 합니다.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading": <true, false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload": <true, false>
        }
      }
    }
    ```
 
-   ![azureblobstorageoniotedge-Visual Studio Code에 대 한 desired 속성 설정](./media/how-to-store-data-blob/tiering_ttl.png)
+   ![azureblobstorageoniotedge-Visual Studio Code에 대 한 desired 속성 설정](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
 
-   모듈을 배포한 후 계층화 및 TTL 구성에 대 한 자세한 내용은 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)합니다. 컨테이너에 대 한 자세한 정보에 대 한 만들기 옵션, 정책 및 원하는 상태 참조를 다시 시작 [edge 에이전트 desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)합니다.
+   모듈을 배포한 후 deviceToCloudUploadProperties 및 deviceAutoDeleteProperties 구성에 대 한 정보를 참조 하세요 [모듈 쌍 편집](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)합니다. 컨테이너에 대 한 자세한 정보에 대 한 만들기 옵션, 정책 및 원하는 상태 참조를 다시 시작 [edge 에이전트 desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)합니다.
 
 1. *deployment.template.json* 파일을 저장합니다.
 

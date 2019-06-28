@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083533"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332027"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -79,7 +79,6 @@ ms.locfileid: "67083533"
 * DNS
 * Event Grid
 * Event Hubs
-* Front Door
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * Iot Central
 * IoT Hub
@@ -89,14 +88,14 @@ ms.locfileid: "67083533"
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
 * Managed Disks-관리 디스크가 가용성 영역에서 다른 구독으로 이동할 수 없습니다
 * Media Services
-* Monitor - 새 구독으로 이동해도 [구독 할당량](../azure-subscription-service-limits.md#monitor-limits)을 초과하지 않는지 확인합니다.
+* Monitor - 새 구독으로 이동해도 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)을 초과하지 않는지 확인합니다.
 * Notification Hubs
 * Operational Insights
 * 운영 관리
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
-* Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
+* Recovery Services 자격 증명 모음-참조 [제한 사항](#recovery-services-limitations)합니다.
 * Azure의 SAP HANA
 * Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
@@ -104,7 +103,7 @@ ms.locfileid: "67083533"
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage - 서로 다른 지역의 여러 Storage 계정을 같은 작업에서 이동할 수는 없습니다. 대신 각 지역에 대해 별도의 작업을 사용해야 합니다.
+* Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * 저장소 동기화 서비스
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
@@ -138,6 +137,7 @@ ms.locfileid: "67083533"
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Front Door
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 * Managed Applications
 * 관리 ID - 사용자 할당

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140865"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182713"
 ---
 ## <a name="create-client"></a>클라이언트 연결 만들기
 `WindowsAzure.MobileServiceClient` 개체를 만들어 클라이언트 연결을 만듭니다.  `appUrl` 을 모바일 앱에 대한 URL로 바꿉니다.

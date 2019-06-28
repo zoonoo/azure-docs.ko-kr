@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155887"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182237"
 ---
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
 1. 기본 인클로저와 EBOD 인클로저를 찾아냅니다. 두 엔클로저는 해당 백플레인을 보고 식별할 수 있습니다. 지침은 다음 이미지를 참조하세요. 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140890"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182714"
 ---
 ### <a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
 Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure App Service에서 공급자로부터 제공된 애플리케이션 ID 및 암호를 구성해야 합니다.

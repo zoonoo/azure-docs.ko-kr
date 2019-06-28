@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481939"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752453"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>자습서: Azure Active Directory와 Otsuka Shokai 연결
 
@@ -79,14 +79,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
-
-    a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100` 패턴을 사용하여 URL을 입력합니다.
-
-    b. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365` 패턴을 사용하여 URL을 입력합니다.
-
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Otsuka Shokai 클라이언트 지원 팀](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+1. **SAML로 Single Sign-On 설정** 페이지에 애플리케이션이 미리 구성되어 있으며 필요한 URL이 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
 1. Otsuka Shokai 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는  **nameidentifier** 가  **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Otsuka Shokai 애플리케이션에서는  **nameidentifier** 가  **user.objectid**와 매핑되어야 하므로  **편집** 아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
 
@@ -139,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B. Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `BrittaSimon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -163,7 +156,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-otsuka-shokai-test-user"></a>Otsuka Shokai 테스트 사용자 만들기
 
-이 섹션에서는 Otsuka Shokai에 Britta Simon이라는 사용자를 만듭니다.  [Otsuka Shokai 지원 팀](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)과 협력하여 Otsuka Shokai 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Otsuka Shokai에 B.Simon이라는 사용자를 만듭니다.  [Otsuka Shokai 지원 팀](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)과 협력하여 Otsuka Shokai 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-sso"></a>SSO 테스트
 

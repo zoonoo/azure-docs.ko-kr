@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238451"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182580"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | 프리미엄(v2) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |

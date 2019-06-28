@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728069"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296079"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
-
-> [!NOTE]
-> 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 
 로그 쿼리를 다른 쿼리와 함께 사용하여 함수로 저장할 수 있습니다. 이렇게 하면 복잡한 쿼리를 여러 부분으로 나누어 간소화하고, 공통 코드를 여러 쿼리에서 다시 사용할 수 있습니다.
 
@@ -36,7 +30,7 @@ ms.locfileid: "60728069"
 
 | 설정 | 설명 |
 |:---|:---|
-| 이름           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
+| Name           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
 | 다른 이름으로 저장        | 함수 |
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
 | Category       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |

@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너 및 데이터베이스에 프로비전되
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067511"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165023"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -72,6 +72,9 @@ Azure Cosmos 데이터베이스의 처리량을 프로비전하는 경우 데이
 
 * 명명 된 Azure Cosmos 데이터베이스를 만들 수 있습니다 *Z* 프로 비전 된 처리량 *"K"* Ru 합니다. 
 * 다음으로 라는 5 개의 컨테이너를 만듭니다 *A*, *B*를 *C*, *D*, 및 *E* 데이터베이스 내에서. 컨테이너 B를 만들 때 사용 하도록 설정 되었는지 확인 **이 컨테이너에 대 한 전용된 처리량을 프로 비전** 옵션을 명시적으로 구성할 *"P"* 이 컨테이너에서 프로 비전 된 처리량 Ru 합니다. 구성할 수 있는 참고 공유 및 전용 처리량을 데이터베이스 및 컨테이너를 만들 때만 합니다. 
+
+   ![컨테이너 수준에서 처리량을 설정합니다.](./media/set-throughput/coll-level-throughput.png)
+
 * *"K"* Ru 처리량은 4 개의 컨테이너 간에 공유 되 *A*를 *C*, *D*, 및 *E*합니다. 정확한 양의 처리량을 사용할 수 있습니다 *A*를 *C*를 *D*, 또는 *E* 달라 집니다. 각 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
 * 라는 컨테이너 *B* 가져오려는 보장 되는 *"P"* Ru 처리량 항상 합니다. SLA가 지원됩니다.
 

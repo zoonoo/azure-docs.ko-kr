@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306607"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808608"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -173,59 +173,60 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. deployment.template.json 파일을 저장합니다. 
 
-### Review the sample code
+### <a name="review-the-sample-code"></a>샘플 코드 검토
 
-The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+만든 솔루션 템플릿에는 IoT Edge 모듈용 샘플 코드가 포함되어 있습니다. 이 샘플 모듈은 메시지 수신한 후 전달합니다. 파이프라인 기능은 IoT Edge의 중요한 개념인 모듈이 서로 통신하는 방식을 보여 줍니다.
 
-Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
+각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 언어마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 
-1. In the **main.c** file, find the **SetupCallbacksForModule** function.
+1. **main.c** 파일에서 **SetupCallbacksForModule** 함수를 찾습니다.
 
-2. This function sets up an input queue to receive incoming messages. It calls the C SDK module client function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Review this function and see that it initializes an input queue called **input1**. 
+2. 이 함수는 들어오는 메시지를 수신하는 입력 큐를 설정합니다. 그리고 C SDK 모듈 클라이언트 함수 [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback)을 호출합니다. 이 함수를 검토하고 이 함수가 **input1**이라는 입력 큐를 초기화하는 모습을 살펴보세요. 
 
-   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
+   ![SetInputMessageCallback 생성자에서 입력 이름 찾기](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-3. Next, find the **InputQueue1Callback** function.
+3. 다음으로, **InputQueue1Callback** 함수를 찾습니다.
 
-4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
+4. 이 함수는 받은 메시지를 처리하며, 처리된 메시지를 전달할 출력 큐를 설정합니다. 그리고 C SDK 모듈 클라이언트 함수 [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync)를 호출합니다. 이 함수를 검토하고 이 함수가 **output1**이라는 출력 큐를 초기화하는 모습을 살펴보세요. 
 
-   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
+   ![SendEventToOutputAsync 생성자에서 출력 이름 찾기](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
-5. Open the **deployment.template.json** file.
+5. **deployment.template.json** 파일을 엽니다.
 
-6. Find the **modules** property of the $edgeAgent desired properties. 
+6. $edgeAgent의 원하는 속성 중에서 **modules** 속성을 찾습니다. 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
+   여기에는 두 개의 모듈이 표시되어야 합니다. 첫 번째는 **tempSensor**로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 두 번째는 프로젝트에서 만든 **IotEdgeModule1** 모듈입니다.
 
-   This modules property declares which modules should be included in the deployment to your device or devices. 
+   이 모듈 속성은 디바이스 배포에 어떤 모듈을 포함할 것인지 선언합니다. 
 
-7. Find the **routes** property of the $edgeHub desired properties. 
+7. $edgeHub의 원하는 속성 중에서 **routes** 속성을 찾습니다. 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. routes 속성의 값을 검토합니다. 첫 번째 경로 **IotEdgeModule1ToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 IoTEdgeModule1 모듈의 출력 큐에서 오는 모든 메시지를 포함합니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 **sensorToIotEdgeModule1**은 tempSensor 모듈에서 오는 메시지를 받아서 IotEdgeModule1 모듈의 *input1* 입력 큐로 라우팅합니다. 
 
-   ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
+   ![deployment.template.json의 경로 검토](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
-## Build and push your solution
+## <a name="build-and-push-your-solution"></a>솔루션 빌드 및 푸시
 
-You've reviewed the module code and the deployment template to understand some key deployment concepts. Now, you're ready to build the IotEdgeModule1 container image and push it to your container registry. With the IoT tools extension for Visual Studio, this step also generates the deployment manifest based on the information in the template file and the module information from the solution files. 
+모듈 코드 및 배포 템플릿을 검토하여 몇 가지 주요 배포 개념을 이해했습니다. 이제 IotEdgeModule1 컨테이너 이미지를 빌드하여 컨테이너 레지스트리로 푸시할 준비가 되었습니다. Visual Studio용 IoT 도구 확장을 사용할 경우 이 단계에서도 템플릿 파일의 정보와 솔루션 파일의 모듈 정보에 따라 배포 매니페스트가 생성됩니다. 
 
-### Sign in to Docker
+### <a name="sign-in-to-docker"></a>Docker에 로그인
 
-Provide your container registry credentials to Docker on your development machine so that it can push your container image to be stored in the registry. 
+레지스트리에 저장될 컨테이너 이미지를 푸시할 수 있도록 개발 머신의 Docker에 컨테이너 레지스트리 자격 증명을 제공합니다. 
 
-1. Open PowerShell or a command prompt.
+1. PowerShell 또는 Windows 명령 프롬프트를 엽니다.
 
-2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry. 
+2. 레지스트리를 만든 후 저장한 Azure Container Registry 자격 증명을 사용하여 Docker에 로그인합니다. 
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서의 범위를 벗어납니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
 ### <a name="build-and-push"></a>빌드 및 푸시
 

@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bc052b749724a76df3df3572913f4bcbc146df17
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: dffb0fc1ca08cb0b1ab73448c987d648bc8aead7
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497058"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67191026"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -773,6 +773,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/frontdoor/">
                                                 <img src="media/index/frontdoor.svg" alt="" />
                                                 <p>Azure Front Door Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2414,6 +2420,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Azure Front Door Service</h3>
                                                     <p>글로벌 웹앱을 제공하는 확장성이 뛰어나고 안전한 진입점</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/bastion/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bastion</h3>
+                                                    <p>공용 IP 주소 없이 Azure Portal을 통한 SSL로 가상 머신에 대한 완벽한 보안 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4341,7 +4366,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>실험 및 모델 관리를 갖춘 엔드투엔드, 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
+                                                    <p>실험 및 모델 관리를 갖춘 종단 간 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6661,7 +6686,7 @@ Azure Dev 공간 </h3>
                             <li>
                                 <div class="container intro">
                                     <p>
-Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
+Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침이 있습니다. 여기에서 참조 아키텍처, 모범 사례, 디자인 패턴, 시나리오 가이드 및 참조 구현을 확인할 수 있습니다.
                                     </p>
                                 </div>
                             </li>
@@ -6677,7 +6702,7 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 엔드투엔드 솔루션�
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 아키텍처 센터</h3>
-                                                    <p>Microsoft Azure에서 엔드투엔드 솔루션을 빌드하는 방법에 대한 지침입니다.</p>
+                                                    <p>Microsoft Azure에서 종단 간 솔루션을 구축하는 방법에 대한 지침입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

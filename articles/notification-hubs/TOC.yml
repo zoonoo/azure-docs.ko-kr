@@ -34,10 +34,6 @@
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
             - name: 특정 사용자에게 푸시 알림
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Baidu
-      items:
-        - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
         - name: iOS 앱에 푸시 알림
@@ -143,6 +139,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: 삭제된 알림 문제 해결
       href: notification-hubs-push-notification-fixer.md
+    - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: 참고 자료
   items:
     - name: .NET

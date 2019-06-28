@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c14c3aaf2a5d648572fdc251540264e8057a00f9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152333"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144313"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -154,7 +154,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 컨테이너의 bash 셸에서 다음 명령을 실행합니다. Azure Active Directory를 사용하여 Key Vault에서 인증을 받기 위한 액세스 토큰을 가져오려면 다음 명령을 실행합니다.
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
 출력

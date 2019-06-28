@@ -111,8 +111,16 @@
           items:
             - name: Azure 포털을 통해 관리
               href: data-box-portal-ui-admin.md
-            - name: Data Box Disk 문제 해결
-              href: data-box-disk-troubleshoot.md
+            - name: 문제 해결
+              items:
+                - name: 문제를 잠금 해제
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: 데이터 복사 문제
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: 유효성 검사 문제
+                  href: data-box-disk-troubleshoot.md
+                - name: 업로드 문제
+                  href: data-box-disk-troubleshoot-upload.md
             - name: 지원에 문의
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy

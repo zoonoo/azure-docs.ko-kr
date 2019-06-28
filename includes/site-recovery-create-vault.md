@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116000"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182614"
 ---
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
 2. **리소스 만들기** > **모니터링 + 관리** > **백업 및 사이트 복구**를 클릭합니다.

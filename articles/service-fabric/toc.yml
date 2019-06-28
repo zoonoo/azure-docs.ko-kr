@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 - 클러스터 삭제
           href: service-fabric-tutorial-delete-cluster.md
-    - name: AWS에서 독립 실행형 클러스터 만들기
+    - name: 독립 실행형 클러스터 만들기
       items:
-        - name: 1 - AWS에서 인프라 만들기
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 - 인프라 만들기
+          items:
+            - name: AWS 사용
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Azure 사용
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2 - Service Fabric 설정
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3 - 클러스터에 애플리케이션 배포
@@ -695,6 +699,8 @@
       items:
         - name: 일반적인 시나리오 진단
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: 코드 패키지 오류 진단
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: 애플리케이션 모니터링
           items:
             - name: 애플리케이션에 로깅 추가

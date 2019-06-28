@@ -1,7 +1,7 @@
 ---
-title: Azure 음성 서비스를 사용하여 음성-텍스트 
+title: 음성-텍스트 Azure 음성 서비스를 사용 하 여
 titleSuffix: Azure Cognitive Services
-description: 음성-텍스트라고도 하는 Azure 음성 서비스의 음성-텍스트는 응용 프로그램, 도구, 장치가 명령 입력으로 소비, 표시 및 조치를 취할 수 있는 텍스트로 오디오 스트림을 실시간으로 기록해 줍니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다.
+description: 를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,37 +13,37 @@ ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2019
 ms.locfileid: "65800095"
 ---
 # <a name="what-is-speech-to-text"></a>음성-텍스트 란?
 
-음성-텍스트라고도 하는 Azure 음성 서비스의 음성-텍스트는 응용 프로그램, 도구, 장치가 명령 입력으로 소비, 표시 및 조치가 가능한 텍스트로 오디오 스트림을 실시간으로 기록해 줍니다. 이 서비스는 Microsoft Cortana 및 Office 제품에서 사용하는 것과 동일한 인식 기술로 동작하며, 번역 및 텍스트 음성 변환과 원활하게 작동합니다. 사용 가능한 음성-텍스트 언어의 전체 목록에 대해서는 [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)를 참조합니다.
+를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.  사용 가능한 음성-텍스트 언어의 전체 목록을 참조 하세요 [지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)합니다.
 
-기본적으로 음성-텍스트 서비스는 범용 언어 모델을 사용합니다. 이 모델은 Microsoft에서 소유한 데이터를 사용하여 학습되고 클라우드에 배포됩니다. 대화형 및 받아쓰기 시나리오에 최적화되었습니다. 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습시켜 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 
+기본적으로 음성-텍스트를 범용 언어 모델을 사용합니다. 이 Microsoft에서 소유한 데이터를 사용 하 여 학습 된 모델과 클라우드에 배포 합니다. 적합 한 대화형 및 받아쓰기 시나리오입니다. 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 
 
- Speech SDK 및 REST API를 사용하여 마이크에서 오디오를 캡처하거나 스트림에서 읽거나 저장소에서 오디오 파일에 쉽게 액세스할 수 있습니다. Speech SDK는 WAV/PCM 16비트, 16kHz/8kHz, 음성 인식용 오디오 단일 채널을 지원합니다. 추가 오디오 형식은 [음성-텍스트 REST 끝점](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) 또는 [배치 기록 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)를 사용하여 지원됩니다.
+마이크에서 오디오 캡처 하 또는 스트림에서 읽은 다음 Speech SDK 및 REST Api를 사용 하 여 저장소에서 오디오 파일에 액세스할 쉽게 합니다. Speech SDK WAV/PCM 16 비트, 16 kHz/8 kHz, 음성 인식 용 오디오 단일 채널을 지원합니다. 추가 오디오 형식을 사용 하 여 지원 되는 [음성-텍스트 REST 끝점](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) 또는 [batch 기록 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)합니다.
 
 ## <a name="core-features"></a>핵심 기능
 
-다음은 Speech SDK 및 REST API를 통해 사용 가능한 기능입니다.
+다음은 Speech SDK 및 REST Api를 통해 사용 가능한 기능:
 
-| 사용 사례 | SDK | REST |
+| 사용 사례 | SDK) | REST (영문) |
 |----------|-----|------|
 | 짧은 길이 발언 기록 (< 15 초)입니다. 만 마지막 기록 결과 지원합니다. | 예. | 예. |
-| 15초보다 긴 스트리밍 오디오 및 긴 길이 발언 연속 기록. 중간 및 최종 기록 결과를 지원합니다. | 예. | 아니요. |
-| [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)를 사용하여 인식 결과를 도출합니다. | 예 | 아니요\* |
-| 오디오 파일의 대사를 비동기적으로 일괄 처리합니다. | 아니요 | 예\** |
-| 음성 모델을 만들고 관리합니다. | 아니요 | 예\** |
-| 사용자 지정 모델 배포를 만들고 관리합니다. | 아니요 | 예\** |
+| 스트리밍 오디오 및 비트 긴 길이 발언 연속 기록 (> 15 초)입니다. 중간 및 최종 기록 결과 지원합니다. | 예. | 아니요 |
+| 인 텐트와 인식 결과에서 파생 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)합니다. | 예. | 아니요\* |
+| 오디오 파일의 대사를 비동기적으로 일괄 처리 합니다. | 아니요 | 예\** |
+| 음성 모델을 만들고 설정 합니다. | 아니요 | 예\** |
+| 만들고 사용자 지정 모델 배포를 관리 합니다. | 아니요 | 예\** |
 | 사용자 지정 모델과 기본 모델과 비교하여 정확도를 측정하는 정확도 테스트를 만듭니다. | 아니요 | 예\** |
-	| 구독을 관리합니다. | 아니요 | 예\** |
+| 구독을 관리 합니다. | 아니요 | 예\** |
 
 \* *LUIS 의도 및 엔터티는 별도의 LUIS 구독을 사용하여 파생시킬 수 있습니다. 이 구독을 사용하여 SDK는 LUIS를 호출하고 엔터티 및 의도 결과를 제공할 수 있습니다. REST API를 사용하면 LUIS 구독을 통해 LUIS를 직접 호출하고 의도 및 엔터티를 파생할 수 있습니다.*
 
-\** *이러한 서비스는 cris.ai 끝점을 사용하여 이용할 수 있습니다. [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 확인합니다.*
+\** *이러한 서비스는 cris.ai 끝점을 사용하여 이용할 수 있습니다.  [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 확인합니다.*
 
 ## <a name="get-started-with-speech-to-text"></a>음성-텍스트 시작하기
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272409"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -241,13 +241,13 @@ Application Insights SDK PerfView에서 캡처할 수 있는 EventSource 자체 
 
 로그를 수집 하려면 PerfView를 다운로드 하 고이 명령을 실행 합니다.
 ```cmd
-PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
 필요에 따라 이러한 매개 변수를 수정할 수 있습니다.
-
 - **MaxCollectSec**. PerfView에서 무기한으로 실행 하 고 서버의 성능에 영향을 주지 않으려면이 매개 변수를 설정 합니다.
 - **OnlyProviders**합니다. 만 SDK의 로그를 수집 하려면이 매개 변수를 설정 합니다. 특정 조사에 따라이 목록을 사용자 지정할 수 있습니다. 
+- **NoGui**합니다. Gui 없이 로그를 수집 하려면이 매개 변수를 설정 합니다.
 
 
 자세한 내용은

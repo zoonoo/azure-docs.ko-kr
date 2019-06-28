@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 49b2bdd1780caa4ae04efbc979e2ea33e2c13c4c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510158"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147226"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 메시지 통합 개요
 
@@ -171,7 +171,7 @@ Blockchain Workbench의 제출된 **계약 만들기** 응답 예:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Submitted"
+    "status": "Submitted",
     "additionalInformation": { }
 }
 ```
@@ -201,7 +201,7 @@ Blockchain Workbench의 커밋된 **계약 만들기** 응답 예:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract cannot be provisioned on connection."
@@ -287,7 +287,7 @@ Blockchain Workbench의 커밋된 **계약 작업 만들기** 응답 예:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Committed"
+    "status": "Committed",
     "additionalInformation": { }
 }
 ```
@@ -301,7 +301,7 @@ Blockchain Workbench의 커밋된 **계약 작업 만들기** 응답 예:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract action cannot be provisioned on connection."
@@ -402,7 +402,7 @@ Service Bus 토픽을 사용하여 Blockchain Workbench에서 발생하는 이�
 
 #### <a name="transaction-information"></a>트랜잭션 정보
 
-| 이름               | 설명 |
+| Name               | 설명 |
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash    | 원장에 있는 트랜잭션의 해시입니다. |
@@ -415,7 +415,7 @@ Blockchain Workbench에서 *BlockMessage*의 예제:
 ``` json
 {
     "block": {
-        "blockId": 123
+        "blockId": 123,
         "blockNumber": 1738312,
         "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
         "previousBlockHash": null,
@@ -423,14 +423,14 @@ Blockchain Workbench에서 *BlockMessage*의 예제:
     },
     "transactions": [
         {
-            "transactionId": 234
+            "transactionId": 234,
             "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
             "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
             "to": null,
             "provisioningStatus": 1
         },
         {
-            "transactionId": 235
+            "transactionId": 235,
             "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
             "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
             "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
@@ -464,7 +464,7 @@ Blockchain Workbench에서 *BlockMessage*의 예제:
 
 #### <a name="modifying-transaction-information"></a>트랜잭션 정보 수정
 
-| 이름               | 설명 |
+| Name               | 설명 |
 |--------------------|-------------|
 | transactionId | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash | 원장에 있는 트랜잭션의 해시입니다. |
@@ -577,7 +577,7 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 
 #### <a name="caller-information"></a>호출자 정보
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | 형식 | 사용자 또는 계약과 같은 호출자의 형식 |
 | id | Azure Blockchain Workbench 내 호출자에 대한 고유 식별자입니다. |
@@ -585,14 +585,14 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 
 #### <a name="parameter-information"></a>매개 변수 정보
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | name | 매개 변수 이름 |
 | 값 | 매개 변수 값 |
 
 #### <a name="event-message-transaction-information"></a>이벤트 메시지 트랜잭션 정보
 
-| 이름               | 설명 |
+| Name               | 설명 |
 |--------------------|-------------|
 | transactionId      | Azure Blockchain Workbench 내 트랜잭션에 대한 고유 식별자입니다. |
 | transactionHash    | 원장에 있는 트랜잭션의 해시입니다. |
@@ -684,7 +684,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 
 ##### <a name="workflow-function-information"></a>워크플로 함수 정보
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | id | Azure Blockchain Workbench 내 애플리케이션 워크플로 함수에 대한 고유 식별자입니다. |
 | name | 함수 이름 |
@@ -692,7 +692,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 
 ##### <a name="workflow-state-information"></a>워크플로 상태 정보
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | name | 상태 이름 |
 | displayName | 상태 표시 이름 |
@@ -715,7 +715,7 @@ Blockchain Workbench에서 *EventMessage ApplicationIngestion*의 예제:
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
     "applicationVersion": “1.0”,
-    "applicationDefinitionLocation": "http://url"
+    "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
             "id": 23,
@@ -805,7 +805,7 @@ Blockchain Workbench에서 *EventMessage ApplicationIngestion*의 예제:
                 }
             ]
         }
-    ]
+    ],
     "connectionId": [ ],
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
@@ -817,7 +817,7 @@ Blockchain Workbench에서 *EventMessage ApplicationIngestion*의 예제:
                     "Name": "BuyerAccepted",
                     "Transitions": [
                         {
-                            "DisplayName": "Accept"
+                            "DisplayName": "Accept",
                             "AllowedRoles": [ ],
                             "AllowedInstanceRoles": [ "InstanceOwner" ],
                             "Function": "Accept",
@@ -866,7 +866,7 @@ Blockchain Workbench에서 *EventMessage ApplicationIngestion*의 예제:
 
 #### <a name="roleassignment-assignee"></a>RoleAssignment 담당자
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | id | Azure Blockchain Workbench 내 사용자의 고유 식별자입니다. |
 | 형식 | 담당자의 형식 |

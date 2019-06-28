@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785330"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303501"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL Database의 데이터베이스로 BACPAC 파일 가져오기
 
@@ -35,6 +35,9 @@ ms.locfileid: "65785330"
 > [!NOTE]
 > [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure Portal을 사용하여 BACPAC 파일에서 인스턴스 데이터베이스로 데이터베이스를 마이그레이션하는 기능을 지원하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
+> [!NOTE]
+> 포털 또는 Powershell을 통해 전송 하는 가져오기/내보내기 요청을 처리 하는 컴퓨터는 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간 같은 크기를 사용 하 여 Db 마다 크게 다릅니다 및 걸릴 수 있습니다 최대 3 회 데이터베이스 크기의 합니다. 가져오기/내보내기 요청에 대해서만 실행 되는 컴퓨터에 450GB 로컬 디스크 공간이 없습니다. 일부 요청은,이로 인해 "공간이 충분 한 디스크에" 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage.exe를 실행 하는 것입니다. 가져오기/내보내기 150GB 보다 큰 데이터베이스를 사용 하 여 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 이 문제를 방지 하려면.
+ 
 1. Azure Portal을 사용하여 BACPAC 파일에서 새 단일 데이터베이스로 가져오려면 적절한 데이터베이스 서버 페이지를 연 다음, 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
 
    ![데이터베이스 가져오기1](./media/sql-database-import/import1.png)
@@ -81,6 +84,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > [관리 되는 인스턴스](sql-database-managed-instance.md) Azure PowerShell을 사용 하 여 BACPAC 파일에서 인스턴스 데이터베이스에 데이터베이스를 마이그레이션 현재 지원 하지 않습니다. 관리되는 인스턴스로 가져오려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
+> [!NOTE]
+> 포털 또는 Powershell을 통해 전송 하는 가져오기/내보내기 요청을 처리 하는 컴퓨터는 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일 뿐만 아니라 bacpac 파일을 저장 해야 합니다. 필요한 디스크 공간 같은 크기를 사용 하 여 Db 마다 크게 다릅니다 및 걸릴 수 있습니다 최대 3 회 데이터베이스 크기의 합니다. 가져오기/내보내기 요청에 대해서만 실행 되는 컴퓨터에 450GB 로컬 디스크 공간이 없습니다. 일부 요청은,이로 인해 "공간이 충분 한 디스크에" 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage.exe를 실행 하는 것입니다. 가져오기/내보내기 150GB 보다 큰 데이터베이스를 사용 하 여 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 이 문제를 방지 하려면.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

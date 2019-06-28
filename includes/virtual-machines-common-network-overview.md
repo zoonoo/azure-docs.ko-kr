@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: cd3b7d6cc75afc5d83ff02a15b920d9f8b05f608
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391418"
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.

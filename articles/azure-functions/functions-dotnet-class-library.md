@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872793"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
@@ -181,7 +181,7 @@ public static class BindingExpressionsExample
 </ItemGroup>
 ```
 
-`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 2.x 트리거 및 바인딩을.NET Core를 대상으로 하는 동안 이러한 트리거 및 바인딩 대상.NET Framework 1.x 프로젝트 1.x 트리거 및 바인딩 참조 합니다.
+`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 2\.x 트리거 및 바인딩을.NET Core를 대상으로 하는 동안 이러한 트리거 및 바인딩 대상.NET Framework 1.x 프로젝트 1.x 트리거 및 바인딩 참조 합니다.
 
 `Sdk` 패키지는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
 
@@ -191,7 +191,7 @@ public static class BindingExpressionsExample
 
 Visual Studio는 [Azure Functions 핵심 도구](functions-run-local.md#install-the-azure-functions-core-tools)를 사용하여 Functions 프로젝트를 실행합니다. 핵심 도구는 Function 런타임에 대한 명령줄 인터페이스입니다.
 
-npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
+npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사용되는 핵심 도구 버전에 영향을 주지 않습니다. Functions 런타임 버전 1.x의 경우, Visual Studio는 *%USERPROFILE%\AppData\Local\Azure.Functions.Cli*에 핵심 도구 버전을 저장하고 해당 위치에 저장된 최신 버전을 사용합니다. Functions 2.x의 경우, 핵심 도구는 **Azure Functions 및 Web Jobs Tools** 확장에 포함되어 있습니다. 1\.x 및 2.x 둘 다, Functions 프로젝트를 실행할 때 콘솔 출력에 사용되는 버전을 확인할 수 있습니다.
 
 ```terminal
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)

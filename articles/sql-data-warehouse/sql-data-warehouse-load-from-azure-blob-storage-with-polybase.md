@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244472"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 Contoso 소매 데이터 로드
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 데이터를 새 테이블에 로드합니다.
-데이터 웨어하우스 테이블에 Azure blob storage에서 데이터를 로드 하려면 [CREATE TABLE AS SELECT (TRANSACT-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS 사용하여 로드한 후 사용자가 만든 강력한 형식의 외부 테이블을 활용 합니다.  새 테이블로 데이터를 로드 하려면 테이블당 [CTAS][CTAS] 문 하나를 사용합니다.  
+데이터 웨어하우스 테이블에 Azure blob storage에서 데이터를 로드 하려면 [CREATE TABLE AS SELECT (TRANSACT-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS 사용하여 로드한 후 사용자가 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블로 데이터를 로드 하려면 테이블당 [CTAS][CTAS] 문 하나를 사용합니다. 
  
 CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 

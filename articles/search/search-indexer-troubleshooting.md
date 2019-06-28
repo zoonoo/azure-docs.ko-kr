@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539249"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147540"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
 
@@ -35,14 +35,11 @@ Azure Storage는 구성 가능한 방화벽을 제공합니다. 기본적으로 
 
 방화벽을 사용하는 경우 특정 오류 메시지가 발생하지 않습니다. 일반적으로 방화벽 오류는 `The remote server returned an error: (403) Forbidden`과 같습니다.
 
-[포털](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)에서 방화벽을 사용하도록 설정했는지 확인할 수 있습니다. 방화벽을 사용하는 경우 이 문제를 해결하기 위한 두 가지 옵션이 있습니다.
+[포털](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)에서 방화벽을 사용하도록 설정했는지 확인할 수 있습니다. 지원 되는 유일한 해결 방법은 액세스를 허용 하도록 선택 하 여 방화벽을 해제 하는 것 ['모든 네트워크'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)합니다.
 
-1. ['모든 네트워크'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)로부터 액세스를 허용하도록 선택하여 방화벽을 사용하지 않도록 설정합니다.
-1. 검색 서비스의 IP 주소에 대한 [예외를 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules)합니다. 이 IP 주소를 찾으려면 다음 명령을 사용합니다.
+인덱서는 연결 된 기술 되지 않은 경우 있습니다 _수 있습니다_ 하려고 [예외를 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) search 서비스의 IP 주소에 대 한 합니다. 그러나이 시나리오는 지원 되지 않습니다 및 작동 하도록 보장 되지 않습니다.
 
-`nslookup <service name>.search.windows.net`
-
-예외에 대 한 작동 하지 않습니다 [cognitive search](cognitive-search-concept-intro.md)합니다. 유일한 해결 방법은 방화벽을 사용하지 않는 것입니다.
+FQDN을 ping 하 여 검색 서비스의 IP 주소를 확인할 수 있습니다 (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

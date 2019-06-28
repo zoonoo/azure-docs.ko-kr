@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922126"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
@@ -28,18 +28,18 @@ ms.locfileid: "64922126"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -191,9 +191,9 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 디스크 레이아웃 **LVM(논리 볼륨 관리자)** 을 설정합니다.
 
@@ -352,9 +352,9 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 방화벽 구성
 
@@ -443,9 +443,9 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
 
 이 섹션의 다음 단계에서는 다음과 같은 접두사를 사용합니다.
 
-* **[A]**: 단계가 모든 노드에 적용됩니다.
-* **[1]**: 단계가 노드 1에만 적용됩니다.
-* **[2]**: 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
+* **[A]** : 단계가 모든 노드에 적용됩니다.
+* **[1]** : 단계가 노드 1에만 적용됩니다.
+* **[2]** : 단계가 Pacemaker 클러스터의 노드 2에만 적용됩니다.
 
 1. **[A]** 방화벽 구성
 

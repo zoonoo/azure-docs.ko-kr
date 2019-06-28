@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075056"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190673"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -53,7 +53,7 @@ ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경
 
 ## <a name="connectors"></a>커넥터
 
-Azure Logic Apps 커넥터를 제공 하 여 논리 앱 액세스 앱, 서비스 및 클라우드 또는 온-프레미스 시스템을 도움말 [트리거](#triggers)를 [작업](#actions), 또는 둘 다. 커넥터는 Standard 또는 Enterprise로 분류 됩니다. 이러한 커넥터에 대 한 개요를 보려면 [Azure Logic Apps 용 커넥터](../connectors/apis-list.md)합니다. 다음 섹션에 대 한 청구 트리거 하는 방법에 대 한 자세한 정보를 제공 및 작업이 작동 합니다.
+Azure Logic Apps 커넥터를 제공 하 여 논리 앱 액세스 앱, 서비스 및 클라우드 또는 온-프레미스 시스템을 도움말 [트리거](#triggers)를 [작업](#actions), 또는 둘 다. 커넥터는 Standard 또는 Enterprise로 분류 됩니다. 이러한 커넥터에 대 한 개요를 보려면 [Azure Logic Apps 용 커넥터](../connectors/apis-list.md)합니다. 만들 수 없는 미리 빌드된 커넥터를 논리 앱에서 사용 하려면 REST Api에 대 한 사용할 수 있으면 [사용자 지정 커넥터](https://docs.microsoft.com/connectors/custom-connectors)는 단순히 래퍼입니다 해당 하는 REST Api입니다. 사용자 지정 커넥터는 표준 커넥터로 요금이 청구 됩니다. 다음 섹션에 대 한 청구 트리거 하는 방법에 대 한 자세한 정보를 제공 및 작업이 작동 합니다.
 
 <a name="triggers"></a>
 

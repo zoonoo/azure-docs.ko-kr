@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
 ms.date: 03/12/2019
-ms.openlocfilehash: 760b292e75b4cc64b85eaf51ffad0521b721dabf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3e982c0fc46ea72692d5fa7f27e14b88c6383df
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330859"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274261"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 회전
 
@@ -71,36 +71,7 @@ ms.locfileid: "60330859"
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-## <a name="option-2-manual-rotation"></a>옵션 2: 수동 회전
 
-옵션 사용 합니다 [추가 AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [추가 AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), 및 [집합 AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) 추가할 cmdlet을 완전히 새 키 이름 또는 다른 키 자격 증명 모음 아래에 있을 수 있는 새 키입니다. 
-
->[!NOTE]
->키 자격 증명 모음 이름과 키 이름을 결합한 길이는 94자를 초과할 수 없습니다.
->
-
-   ```powershell
-   # Add a new key to Key Vault
-   Add-AzKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
-
-   # Add the new key from Key Vault to the server
-   Add-AzSqlServerKeyVaultKey `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>   
-  
-   <# Set the key as the TDE protector for all resources 
-   under the server #>
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type AzureKeyVault `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
-   ```
-  
 ## <a name="other-useful-powershell-cmdlets"></a>다른 유용한 PowerShell cmdlet
 
 - Microsoft 관리에서 TDE 보호기를 BYOK 모드로 전환 하려면 사용 합니다 [집합 AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.

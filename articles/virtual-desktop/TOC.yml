@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: 세션 호스트 자동 크기 조정
       href: set-up-scaling-script.md
+    - name: Windows Virtual Desktop 사용자용 피드를 사용자 지정
+      href: customize-feed-for-virtual-desktop-users.md
     - name: RDP 속성 사용자 지정
       href: customize-rdp-properties.md
 - name: 개념

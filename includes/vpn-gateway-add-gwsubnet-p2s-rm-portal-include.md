@@ -9,11 +9,11 @@ ms.date: 10/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5642533fe1015e88c3b27e83139bfd26cb0b1a53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157333"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182071"
 ---
 1. [포털](http://portal.azure.com)에서 가상 네트워크 게이트웨이를 만들려는 Resource Manager 가상 네트워크로 이동합니다.
 2. VNet 페이지의 **설정** 섹션에서 **서브넷**을 클릭하여 **서브넷** 페이지를 확장합니다.

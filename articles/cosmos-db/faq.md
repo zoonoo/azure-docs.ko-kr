@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 89c04a55138d57fd2ff37a96f2bc92b12d1780d9
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954138"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341226"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -99,7 +99,7 @@ Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure �
 
 ### <a name="what-is-a-master-key"></a>마스터 키란 무엇인가요?
 
-마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
+마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는에서 사용할 수는 **키** 의 블레이드를 [Azure portal][azure-portal]합니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>PreferredLocations를 설정할 수 있는 지역은 어디인가요?
 
@@ -159,11 +159,11 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 
 ### <a name="does-the-sql-api-support-sql"></a>SQL API는 SQL을 지원하나요?
 
-SQL API 계정에서 지원하는 SQL 쿼리 언어는 SQL Server에서 지원되는 쿼리 기능의 향상된 하위 집합입니다. Azure Cosmos DB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 레이블이 지정된 노드가 있는 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 Azure Cosmos DB 자동 인덱싱 기술 및 Azure Cosmos DB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [SQL 쿼리][query] 문서를 참조하세요.
+SQL API 계정에서 지원하는 SQL 쿼리 언어는 SQL Server에서 지원되는 쿼리 기능의 향상된 하위 집합입니다. Azure Cosmos DB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 레이블이 지정된 노드가 있는 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 Azure Cosmos DB 자동 인덱싱 기술 및 Azure Cosmos DB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용 하 여에 대 한 내용은 참조는 [SQL 쿼리][query] 문서.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL API는 SQL 집계 함수를 지원하나요?
 
-SQL API는 `COUNT`, `MIN`, `MAX`, `AVG` 집계 함수를 통해 모든 규모의 짧은 대기 시간 집계를 지원하고 SQL 문법을 통해 `SUM`을 지원합니다. 자세한 내용은 [집계 함수](how-to-sql-query.md#Aggregates)를 참조하세요.
+SQL API는 `COUNT`, `MIN`, `MAX`, `AVG` 집계 함수를 통해 모든 규모의 짧은 대기 시간 집계를 지원하고 SQL 문법을 통해 `SUM`을 지원합니다. 자세한 내용은 [집계 함수](sql-query-aggregates.md)를 참조하세요.
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>SQL API는 어떻게 동시성을 제공하나요?
 
@@ -230,7 +230,7 @@ Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에�
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Table API 제품을 사용하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB Table API는 [Azure Portal][azure-portal]에서 사용할 수 있습니다. 먼저 Azure 구독에 등록해야 합니다. 등록한 후에는 Azure 구독에 Azure Cosmos DB Table API 계정을 추가한 다음 계정에 테이블을 추가할 수 있습니다.
+Azure Cosmos DB Table API의 수를 [Azure portal][azure-portal]합니다. 먼저 Azure 구독에 등록해야 합니다. 등록한 후에는 Azure 구독에 Azure Cosmos DB Table API 계정을 추가한 다음 계정에 테이블을 추가할 수 있습니다.
 
 [Azure Cosmos DB Table API 소개](table-introduction.md)에서 지원되는 언어와의 연결된 빠른 시작을 찾을 수 있습니다.
 
@@ -744,11 +744,11 @@ Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생�
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>데이터 로드에 안정적인 로더를 사용할 수 있나요?
 
-아니요, 미리 보기 중에는 안정적인 로더가 지원되지 않습니다.
+아니요, 안정적인 로더는 지원 되지 않습니다.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Azure Cosmos DB의 Cassandra API를 사용 하 여 온-프레미스 Apache Cassandra 클러스터를 연결할 수 있나요?
 
-현재 Azure Cosmos DB에는 작업의 오버헤드 없이 클라우드 환경에 최적화된 환경이 있습니다. 페어링이 필요할 경우 해당 시나리오에 대한 설명이 포함된 이메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 보내주세요.
+현재 Azure Cosmos DB에는 작업의 오버헤드 없이 클라우드 환경에 최적화된 환경이 있습니다. 페어링이 필요할 경우 해당 시나리오에 대한 설명이 포함된 이메일을 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)으로 보내주세요. 제품 도움말 쌍 Cosomos DB의 Cassandra API에 온-프레미스/다양 한 클라우드 Cassandra 클러스터에 노력 합니다.
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API에서 전체 백업을 제공하나요?
 
@@ -763,15 +763,12 @@ Azure Cosmos DB Cassandra API는 Azure Cosmos DB의 전역적으로 분산된 �
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API는 기본적으로 엔터티의 모든 특성을 인덱싱하나요?
 
-예, 엔터티의 모든 특성을 Azure Cosmos DB에서 기본적으로 인덱싱합니다. 자세한 내용은 [Azure Cosmos DB: 인덱싱 정책](index-policy.md)을 참조하세요. 일치하는 인덱스 및 지속적인 쿼럼 커밋 작성을 포함하는 보장된 성능 혜택을 항상 얻게 됩니다.
+Cassandra API는 특정 특성에 선택적 인덱스를 만들기 위해 보조 인덱싱을 지원 하려고 합니다. 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>그렇다면 쿼리를 충족하기 위해 인덱스를 둘 이상 만들 필요가 없다는 의미인가요?
-
-예, Azure Cosmos DB에서는 스키마 정의 없이 모든 특성에 대한 자동 인덱싱을 제공합니다. 이 자동화 덕분에 개발자는 인덱스 만들기 및 관리보다 애플리케이션에 역량을 집중할 수 있습니다. 자세한 내용은 [Azure Cosmos DB: 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>새로운 Cassandra API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-나중에 이 기능을 지원할 예정입니다.
+예이 지원 됩니다.
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>플랫폼인 azure Cosmos DB 변경 피드 및 기타 기능 같은 기능을 많은 것 같습니다. Cassandra API에 이러한 기능이 추가될 예정인가요?
 

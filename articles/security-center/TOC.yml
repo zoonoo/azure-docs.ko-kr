@@ -45,7 +45,7 @@
       href: security-center-onboarding.md
     - name: Windows Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
-    - name: IaaS를 위한 고급 데이터 보안
+    - name: Azure VM의 SQL에 대한 고급 데이터 보안(공개 미리 보기).
       href: security-center-iaas-advanced-data.md
     - name: App Service 보호
       href: security-center-app-services.md
@@ -83,7 +83,7 @@
           href: security-center-virtual-machine-protection.md
         - name: 네트워크 리소스 사용
           href: security-center-network-recommendations.md
-        - name: SQL 서비스 및 데이터 보호
+        - name: 파일 및 스토리지 서비스 보호
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호
           href: security-center-identity-access.md

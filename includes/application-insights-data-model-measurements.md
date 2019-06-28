@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131013"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67181961"
 ---
 사용자 지정 측정값 컬렉션입니다. 이 컬렉션을 사용하여 원격 분석 항목에 연결된 이름이 지정된 측정값을 보고합니다. 일반적인 사용 사례는 다음과 같습니다.
 - 종속성 원격 분석 페이로드의 크기

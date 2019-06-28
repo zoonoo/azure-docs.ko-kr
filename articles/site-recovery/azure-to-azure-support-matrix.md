@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: a9021a44f61f516f144b77309d3ed597bd6f4b06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067139"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312154"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -135,7 +135,7 @@ Debian 8 | 9.22, 9.23, 9.24 | 3.16.0-4-amd64에서 3.16.0-7-amd64, 4.9.0-0.bpo.4
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.25 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4\.4.121-92.104-default SP2(LTSS) 4.4.121-92.73-default</br></br>4\.4.176-94.88-default에 SP3 4.4.73-5-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.25 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4\.4.121-92.104-default SP2(LTSS) 4.4.121-92.73-default</br></br>4\.4.176-94.88-default에 SP3 4.4.73-5-default</br></br>4\.4.176-4.25-azure에 SP3 4.4.138-4.7-azure</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.24 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4\.4.121-92.104-default SP2(LTSS) 4.4.121-92.73-default</br></br>4\.4.176-94.88-default에 SP3 4.4.73-5-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4\.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.72-default |
@@ -168,7 +168,7 @@ RBAC 정책 | 지원되지 않음 | 역할 기반 액세스 제어 (RBAC) 정책
 **작업** | **세부 정보**
 -- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됨
-복제된 VM에 디스크 추가 | 지원되지 않습니다.<br/><br/> VM에 복제를 사용하지 않도록 설정하고, 디스크를 추가한 다음, 복제를 다시 사용하도록 설정해야 합니다.
+복제된 VM에 디스크 추가 | 지원됨
 
 ## <a name="replicated-machines---storage"></a>복제된 컴퓨터 - 저장소
 

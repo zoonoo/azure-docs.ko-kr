@@ -12,18 +12,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
+ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460812"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274912"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> 이 자습서에 사용 되지 않습니다. 
 
 Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다.
 

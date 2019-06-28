@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155872"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182244"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터를 설치하려면
 1. SharePoint 중앙 관리 웹 애플리케이션을 실행하도록 구성된 WFE(웹 프런트 엔드) 서버에 설치 프로그램을 복사합니다. 

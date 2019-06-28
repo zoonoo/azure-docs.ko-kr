@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
 ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522081"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
@@ -78,7 +78,7 @@ Azure Monitor에서 성능 기능 작업 그룹 환경에서 또는 구독에 �
 
 목록의 특정 가상 머신에 대한 결과를 필터링하려면 **이름으로 검색** 텍스트 상자에 해당 컴퓨터 이름을 입력합니다.  
 
-다른 성능 메트릭에서 사용률을 보려면 **메트릭** 드롭다운 목록에서 **사용 가능한 메모리**, **논리 디스크 공간 사용률(%)**, **네트워크 수신 바이트 수/초** 또는 **네트워크 전송 바이트 수/초**를 선택합니다. 그러면 해당 메트릭 범위에 속하는 사용률을 표시하도록 목록이 업데이트됩니다.  
+다른 성능 메트릭에서 사용률을 보려면 **메트릭** 드롭다운 목록에서 **사용 가능한 메모리**, **논리 디스크 공간 사용률(%)** , **네트워크 수신 바이트 수/초** 또는 **네트워크 전송 바이트 수/초**를 선택합니다. 그러면 해당 메트릭 범위에 속하는 사용률을 표시하도록 목록이 업데이트됩니다.  
 
 목록에서 가상 머신을 선택하면 페이지 오른쪽에 **속성** 패널이 열리는데, 여기서 **성능 세부 정보**를 선택할 수 있습니다.  Azure VM에서 VM 인사이트 성능에 직접 액세스할 때의 환경과 마찬가지로, **가상 머신 세부 정보** 페이지가 열리고 범위가 해당 VM으로 지정됩니다.  
 

@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116920"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67182121"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Azure CLI를 사용하여 클래식 VNet을 만드는 방법
 Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서 Azure CLI를 사용하여 Azure 리소스를 관리할 수 있습니다.

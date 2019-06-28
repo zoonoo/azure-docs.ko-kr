@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575597"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
@@ -42,11 +42,11 @@ DMZ 및 보호 된 네트워크를 사용 하 여 표준 경계 네트워크 (DM
 ## <a name="considerations"></a>고려 사항
 다음과 같이 현재 사용할 수 있는 다양한 기능을 사용하여 Azure에서 위에 설명된 환경을 배포할 수 있습니다.
 
-* **가상 네트워크(VNet)**. Azure VNet은 온-프레미스 네트워크에 비슷한 방식으로 작동하며 문제 분리 및 트래픽 격리를 제공하기 위해 하나 이상의 서브넷으로 분할할 수 있습니다.
+* **가상 네트워크(VNet)** . Azure VNet은 온-프레미스 네트워크에 비슷한 방식으로 작동하며 문제 분리 및 트래픽 격리를 제공하기 위해 하나 이상의 서브넷으로 분할할 수 있습니다.
 * **가상 어플라이언스**. 여러 파트너가 위에 설명된 세 개의 방화벽에 대해 사용할 수 있는 가상 어플라이언스를 Azure Marketplace에서 제공합니다. 
-* **UDR(사용자 정의 경로)**. 경로 테이블에는 Azure 네트워킹이 VNet 내에서 패킷 흐름을 제어하는 데 사용하는 UDR이 포함될 수 있습니다. 이러한 경로 테이블을 서브넷에 적용할 수 있습니다. Azure의 최신 기능 중 하나는 Azure VNet에 들어오는 모든 트래픽을 하이브리드 연결에서 가상 어플라이언스로 전달하는 기능을 제공하는 GatewaySubnet에 경로 테이블을 적용하는 기능입니다.
+* **UDR(사용자 정의 경로)** . 경로 테이블에는 Azure 네트워킹이 VNet 내에서 패킷 흐름을 제어하는 데 사용하는 UDR이 포함될 수 있습니다. 이러한 경로 테이블을 서브넷에 적용할 수 있습니다. Azure의 최신 기능 중 하나는 Azure VNet에 들어오는 모든 트래픽을 하이브리드 연결에서 가상 어플라이언스로 전달하는 기능을 제공하는 GatewaySubnet에 경로 테이블을 적용하는 기능입니다.
 * **IP 전달**. 기본적으로 Azure 네트워킹 엔진은 패킷 대상 IP 주소가 NIC IP 주소와 일치하는 경우에만 가상 NIC(네트워크 인터페이스 카드)에 패킷을 전달합니다. 따라서 UDR이 지정된 가상 어플라이언스로 패킷을 보내야 한다고 정의하는 경우 Azure 네트워킹 엔진이 해당 패킷을 삭제합니다. 패킷의 실제 대상이 아닌 VM(이 경우 가상 어플라이언스)에 패킷이 전달되도록 하려면 가상 어플라이언스에 대해 IP 전달을 사용하도록 설정해야 합니다.
-* **NSG(네트워크 보안 그룹)**. 아래 예제에서는 NSG를 사용하지 않지만 이 솔루션의 서브넷 및/또는 NIC에 적용된 NSG를 사용하여 해당 서브넷 및 NIC의 내외부 트래픽을 추가로 필터링할 수 있습니다.
+* **NSG(네트워크 보안 그룹)** . 아래 예제에서는 NSG를 사용하지 않지만 이 솔루션의 서브넷 및/또는 NIC에 적용된 NSG를 사용하여 해당 서브넷 및 NIC의 내외부 트래픽을 추가로 필터링할 수 있습니다.
 
 ![IPv6 연결](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -85,8 +85,8 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="azsn2udr"></a>azsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |10.0.2.11 | **AZF2** |
-| 0.0.0.0/0 |10.0.2.10 | **AZF1** |
+| 10.0.3.0/24 |10.0.2.11 |**AZF2** |
+| 0.0.0.0/0 |10.0.2.10 |**AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
 | 대상 | 다음 홉 | 설명 |
@@ -103,7 +103,7 @@ Azure에서 각 서브넷은 해당 서브넷에서 시작된 트래픽이 라�
 ### <a name="onpremsn2udr"></a>onpremsn2udr
 | 대상 | 다음 홉 | 설명 |
 | --- | --- | --- |
-| 10.0.3.0/24 |192.168.2.4 | **onpremsn2** |
+| 10.0.3.0/24 |192.168.2.4 |**onpremsn2** |
 | 192.168.1.0/24 |192.168.2.4 |**OPFW**를 통해 **onpremsn1**에 대한 트래픽 허용 |
 
 ## <a name="ip-forwarding"></a>IP 전달
