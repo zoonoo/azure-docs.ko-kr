@@ -19,31 +19,31 @@ ms.locfileid: "65604420"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Speech SDK를 사용하여 다중 참가자 대화 기록
 
-Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`를 사용하여 음성 서비스에 오디오를 스트리밍하여 참가자를 추가, 제거 및 식별하는 기능으로 모임/대화를 기록 할 수 있습니다.
+Speech SDK **ConversationTranscriber** API는 `PullStream` 또는`PushStream`을 사용하여 음성 서비스에 오디오를 스트리밍하여 참가자를 추가, 제거 및 식별하는 기능으로 회의/대화를 기록할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-* 대화 기록기는 C++, C#, 및 Java on Windows, Linux 및 Android에서 지원됩니다.
-* ROOBO DevKit는 화자 식별을 효율적으로 활용할 수 있는 순환 다중 마이크 배열을 제공 하는 대화 기록 만들기에 대한 지원되는 하드웨어 환경입니다. 자자세한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조 하세요.
-* 대화 기록에 대한 Speech SDK 지원은 16 비트 16 44.1khz PCM 오디오의 8 개 채널로 오디오 끌어오기 및 푸시 모드의 사용이 제한됩니다.
-* 대화 기록은 현재 다음 지역에서 "en-US" 및 "zh-CN" 언어로 제공 됩니다: centralus 및 eastasia.
+* 대화 기록기는 Windows, Linux 및 Android에서 C++, C#, 및 Java에 대해 지원됩니다.
+* ROOBO DevKit는 화자 식별을 위해 효율적으로 활용할 수 있는 순환 다중 마이크 배열을 제공하는 대화 기록 만들기에 대해 지원되는 하드웨어 환경입니다. 자세한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조하세요.
+* 대화 기록에 대한 Speech SDK 지원은 16 비트 16kHz PCM 오디오의 8개 채널로 오디오 풀 및 푸시 모드의 사용으로 제한됩니다.
+* 대화 기록은 현재 다음 지역에서 "en-US" 및 "zh-CN" 언어로 제공됩니다: centralus 및 eastasia.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Speech SDK를 사용하여 음성-텍스트를 사용 하는 방법에 알아봅니다.](quickstart-csharp-dotnet-windows.md)
+* [Speech SDK를 사용하여 음성-텍스트를 사용하는 방법에 대해 알아봅니다.](quickstart-csharp-dotnet-windows.md)
 * [음성 평가판 구독을 가져옵니다.](https://azure.microsoft.com/try/cognitive-services/)
 * Speech SDK 버전 1.5.1 이상 버전이 필요 합니다.
 
 ## <a name="create-voice-signatures-for-participants"></a>참가자에 대한 음성 서명 생성
 
-첫 번째 단계는 대화 참가자에 대한 음성 서명을 만드는 것입니다. 음성 서명을 만드는 것은 효율적인 화자 식별에 필요 합니다.
+첫 번째 단계는 대화 참가자에 대한 음성 서명을 만드는 것입니다. 음성 서명을 만드는 것은 효율적인 화자 식별에 필요합니다.
 
 ### <a name="requirements-for-input-wave-file"></a>입력 wave 파일에 대한 요구 사항
 
-* 음성 서명을 만들기 위한 입력 오디오 wave 파일은 16 비트 샘플, 16 kHz 샘플 속도 및 단일 채널 (Mono) 형식이어야 합니다.
-* 각 오디오 샘플에 대해 권장 되는 길이는 30 초에서 2 분 사이입니다.
+* 음성 서명을 만들기 위한 입력 오디오 wave 파일은 16비트 샘플, 16kHz 샘플 속도 및 단일 채널(Mono) 형식이어야 합니다.
+* 각 오디오 샘플에 대해 권장되는 길이는 30초에서 2분 사이입니다.
 
-다음 예제에서는 C#으로 [REST API](https://aka.ms/cts/signaturegenservice)를 사용하여 음성 서명을 생성하기 위한 두 가지 방법을 보여줍니다:
+다음 예제에서는 C#으로 [REST API](https://aka.ms/cts/signaturegenservice)를 사용하여 음성 서명을 생성하기 위한 두 가지 방법을 보여줍니다.
 
 ```csharp
 class Program
@@ -87,9 +87,9 @@ class Program
 
 ## <a name="transcribing-conversations"></a>대화 기록
 
-여러 참가자와 대화를 기록하기 위해서, `PullAudioInputStream` 또는 `PushAudioInputStream`를 사용하여 대화 세션과 오디어 스트림을 위해 생성된 `AudioConfig`와 연관된 `ConversationTranscriber` 개체를 생성합니다. 
+여러 참가자와의 대화를 기록하기 위해서, `PullAudioInputStream` 또는 `PushAudioInputStream`를 사용하여 대화 세션과 오디어 스트림을 위해 생성된 `AudioConfig`와 연관된 `ConversationTranscriber` 개체를 생성합니다.
 
-`MyConversationTranscriber` 이라는 ConversationTranscriber 클래스가 있다고 가정합니다. 코드는 다음처럼 보일 수 있습니다.
+`MyConversationTranscriber` 이라는 ConversationTranscriber 클래스가 있다고 가정합니다. 코드는 다음과 비슷할 수 있습니다.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
