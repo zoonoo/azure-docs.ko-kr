@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 음성-음성 서비스 시작
 titlesuffix: Azure Cognitive Services
-description: 사용자 지정 음성을 평가 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성-텍스트 정확도 향상 시킬 수 있는 온라인 도구 집합이 있습니다. 시작 하는 데 걸리는 모든는 소수의 테스트 오디오 파일입니다. 사용자 지정 음성-텍스트 환경을 만들기를 시작 하려면 아래 링크를 따르세요.
+description: 사용자 지정 음성을 평가 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성-텍스트 정확도 향상 시킬 수 있는 온라인 도구 집합이 있습니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
 ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
 ms.locfileid: "65511090"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성 란?
 
-[사용자 지정 음성](https://aka.ms/custom-speech) 를 평가 하 여 응용 프로그램, 도구 및 제품에 대 한 Microsoft의 음성-텍스트 정확도 향상 시킬 수 있는 온라인 도구 집합이 있습니다. 시작 하는 데 걸리는 모든는 소수의 테스트 오디오 파일입니다. 사용자 지정 음성-텍스트 환경을 만들기를 시작 하려면 아래 링크를 따르세요.
+[사용자 지정 음성](https://aka.ms/custom-speech)은 응용 프로그램, 도구 및 제품에 대한 Microsoft의 음성-텍스트 변환 정확도를 향상시키고 평가할 수 있는 온라인 도구 집합입니다. 시작하려면 테스트 오디오 파일 몇 개만 있으면 됩니다. 사용자 지정 음성-텍스트 변환 환경을 만들기 시작하려면 아래 링크를 따르세요.
 
-## <a name="whats-in-custom-speech"></a>사용자 지정 음성에 대 한 기능
+## <a name="whats-in-custom-speech"></a>사용자 지정 음성의 기능
 
 사용자 지정 음성으로 작업을 수행 하려면, 먼저 Azure 계정 및 Speech Services 구독 해야 합니다. 계정을 했으면 데이터 준비, 학습 및 모델을 테스트 합니다, 인식 품질 검사, 정확도 평가 하 고 궁극적으로 배포한 사용자 지정 음성-텍스트 모델을 사용 합니다.
 
