@@ -85,7 +85,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
 
 4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
-5.  **작업**에서 **에이전트 큐**로 "Hosted"를 입력합니다.
+5.  **작업**에서 **에이전트 큐**로 "호스트된"을 입력합니다.
     
     ![작업 메뉴에서 에이전트 큐 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
@@ -120,7 +120,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
     |구독  |  구독을 선택합니다.   |
     |작업  |  리소스 그룹을 만들기 또는 업데이트   |
     |리소스 그룹  |  리소스 그룹 이름을 입력합니다.   |
-    |템플릿  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |
+    |Template  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |
     |템플릿 매개 변수  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.parameters.json   |
     |템플릿 매개 변수 재정의  | 텍스트 상자에 재정의할 템플릿 매개 변수를 입력합니다. 예: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). 이 속성은 선택 사항이지만 키 매개 변수를 재정의하지 않으면 빌드에 오류가 발생합니다.    |
     
