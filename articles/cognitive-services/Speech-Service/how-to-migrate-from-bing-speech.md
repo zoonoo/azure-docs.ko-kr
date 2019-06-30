@@ -17,13 +17,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57848969"
 ---
-# <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
+# <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 음성 서비스로 마이그레이션
 
-이 문서를 사용하여 Bing Speech API에서 Speech Service로 애플리케이션을 마이그레이션합니다.
+이 문서를 사용하여 Bing Speech API에서 음성 서비스로 애플리케이션을 마이그레이션합니다.
 
-이 문서에서는 Bing Speech Api 및 음성 서비스 간의 차이점에 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다. Bing Speech API 구독 키 음성 서비스를 사용 하 여 작동 하지 않습니다. 새 음성 서비스 구독을 해야 합니다.
+이 문서에서는 Bing Speech Api 및 음성 서비스 간의 차이점에 간략하게 설명하고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다. Bing Speech API 구독 키는 음성 서비스를 사용하여 작동 하지 않습니다. 새 음성 서비스 구독이 필요 합니다.
 
-단일 음성 서비스 등록 키를 다음과 같은 기능에 대 한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
+단일 음성 서비스 등록 키는 다음과 같은 기능에 대한 액세스 권한을 부여합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
 * [Speech-to-text](speech-to-text.md)
 * [사용자 지정 음성 텍스트 변환](https://cris.ai)
@@ -35,7 +35,7 @@ ms.locfileid: "57848969"
 
 ## <a name="comparison-of-features"></a>기능 비교
 
-음성 서비스는 다음과 같은 차이점이 사용 하 여 Bing Speech과 거의 비슷합니다.
+음성 서비스는 다음과 같은 차이점이 있으며 Bing Speech과 거의 비슷합니다.
 
 기능 | Bing Speech | 음성 서비스 | 세부 정보
 -|-|-|-
@@ -52,40 +52,40 @@ Custom Speech 모델 | :heavy_check_mark: | :heavy_check_mark: | Bing Speech에�
 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark:
 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드를 Speech Service에서 사용할 수 없습니다.
 엔드포인트 위치 | 전역 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다.
-REST API | :heavy_check_mark: | :heavy_check_mark: | Speech Services REST Api를 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다.
+REST API | :heavy_check_mark: | :heavy_check_mark: | Speech Services REST Api는 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다.
 WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech Services Websocket API는 Bing Speech (다른 끝점)와 호환 됩니다. 코드를 단순화하기 위해 가능한 경우 Speech SDK로 마이그레이션합니다.
 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다.
 오픈 소스 SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
-음성 서비스에는 시간 기반 가격 책정 모델을 대신 트랜잭션 기반 모델을 사용합니다. 참조 [Speech Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 세부 정보에 대 한 합니다.
+음성 서비스에는 시간 기반 가격 책정 모델을 대신 트랜잭션 기반 모델을 사용합니다. 세부 정보에 대해서는 [Speech Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조 합니다.
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-또는 조직 개발 또는 프로덕션 환경에 Bing Speech API를 사용 하는 응용 프로그램이 있는 경우 가능한 한 빨리 음성 서비스를 사용 하도록 업데이트 해야 합니다. 참조 된 [음성 서비스 설명서](index.yml) Sdk, 코드 샘플 및 자습서를 사용할 수 있습니다.
+사용자 또는 사용자의 조직에서 개발 또는 프로덕션 환경에 Bing Speech API를 사용 하는 응용 프로그램이 있는 경우, 가능한 한 빨리 음성 서비스를 사용 하도록 업데이트 해야 합니다. [음성 서비스 설명서](index.yml)를 확인하여 Sdk, 코드 샘플 및 자습서를 사용할 수 있습니다.
 
-Speech Services [REST Api](rest-apis.md) Bing Speech Api와 호환 됩니다. Bing Speech REST Api를 현재 사용 중인 경우 REST 끝점을 변경 하 고 음성 서비스 등록 키를 전환 하는 것이 해야 합니다.
+음성 서비스 [REST Api](rest-apis.md)는 Bing Speech Api와 호환 됩니다. Bing Speech REST Api를 현재 사용 중인 경우 REST 끝점을 변경하고 음성 서비스 등록 키를 전환 하는 것이 해야 합니다.
 
-음성 서비스 Websocket 프로토콜도 Bing Speech에서 사용 되는 호환 됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
+음성 서비스 Websocket 프로토콜도 Bing Speech와 호환 됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
 
-특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
+특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우, API가 다르기 때문에 [Speech SDK](speech-sdk.md)로 응용 프로그램을 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
 
 현재, Speech SDK는 C#(Windows 10, UWP, .NET 표준), Java(Android 및 사용자 지정 디바이스), Objective C(iOS), C++(Windows 및 Linux), JavaScript를 지원합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 
-음성 서비스 전역 엔드포인트를 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역에 별도 음성 서비스 구독이 필요 합니다.
+음성 서비스는 전역 엔드포인트를 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용할 각 지역에 별도 음성 서비스 구독이 필요 합니다.
 
-애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
+애플리케이션에서 수명이 긴 연결을 사용하고 제공되는 SDK를 사용할 수 없는 경우, WebSocket 연결을 사용하면 됩니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
-Speech Devices SDK를 시작하려면
+Speech SDK를 시작하려면
 
 1. [Speech SDK](speech-sdk.md)를 다운로드합니다.
-1. 음성 서비스를 통해 작업 [빠른 시작 가이드](quickstart-csharp-dotnet-windows.md) 하 고 [자습서](how-to-recognize-intents-from-speech-csharp.md)합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
-1. 음성 서비스를 사용 하도록 응용 프로그램을 업데이트 합니다.
+1. 음성 서비스 [빠른 시작 가이드](quickstart-csharp-dotnet-windows.md)와 [자습서](how-to-recognize-intents-from-speech-csharp.md)를 통해 작업합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
+1. 음성 서비스를 사용하도록 응용 프로그램을 업데이트 합니다.
 
 ## <a name="support"></a>지원
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
-Speech Service, SDK 및 API 지원에 대 한 음성 서비스를 방문 [지원 페이지](support.md)합니다.
+Speech Service, SDK 및 API 지원에 대해서는 음성 서비스 [지원 페이지](support.md)를 방문합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
