@@ -267,7 +267,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 **API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택** 을 클릭합니다.
 
-** _&lt;AD\_application\_name>_ 에 액세스** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
+**[ _&lt;AD\_application\_name>_ 에 액세스]** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
