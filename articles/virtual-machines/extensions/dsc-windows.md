@@ -117,7 +117,7 @@ Windows 용 DSC 확장은 대상 가상 머신의 Azure 외부의 위치에 저�
 | settings.configurationData.url | string | DSC 구성에 대한 입력으로 사용할 구성 데이터(.pds1) 파일을 다운로드할 URL을 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationDataUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다.
 | settings.privacy.dataEnabled | string | 원격 분석 수집을 사용하거나 사용하지 않도록 설정합니다. 이 속성에는 Enable', 'Disable', " 또는 $null 값만 사용할 수 있습니다. 이 속성을 비워 두거나 null로 설정하면 원격 분석이 사용됩니다.
 | settings.advancedOptions.forcePullAndApply | Bool | 이 설정은 Azure Automation DSC를 사용 하 여 노드를 등록 하려면 확장을 사용 하는 환경을 개선 하기 위해 디자인 되었습니다.  값이 `$true`, 확장은 성공/실패를 반환 하기 전에 서비스에서 가져온 구성의 첫 번째 실행 동안 대기 합니다.  값 $false로 확장에 의해 반환 된 상태 인지 노드가 제대로 등록 되었는지 Azure Automation 상태 구성을 사용 하 여 참조만 하 고 노드 구성을 등록 하는 동안 실행 되지 않습니다.
-| settings.advancedOptions.downloadMappings | 컬렉션 | WMF 및 .NET과 같은 종속성을 다운로드할 대체 위치를 정의합니다.
+| settings.advancedOptions.downloadMappings | Collection | WMF 및 .NET과 같은 종속성을 다운로드할 대체 위치를 정의합니다.
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 

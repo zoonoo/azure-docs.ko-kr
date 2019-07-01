@@ -44,14 +44,14 @@ Custom Vision은 이제 일반 공급이 되었고 API 업데이트가 완료되
 
 ### <a name="publish-an-iteration"></a>반복 게시
 
-반복 학습 되 면 하 사용할 수 있도록 예측 사용에 대 한 합니다 **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** 메서드. 반복에 게시 하려면 CustomVision 웹 사이트의 설정 페이지에서 사용할 수 있는 예측 리소스 ID를 사용 해야 합니다.
+반복이 학습되면, **[PublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c82db28bf6a2b11a8247bbc)** 메서드를 사용하여 예측에 사용 가능하게 할 수 있습니다. 반복을 게시하려면 Custom Vision 웹 사이트의 설정 페이지에서 사용할 수 있는 예측 리소스 ID를 사용해야 합니다.
 
 ![설명 된 예측 리소스 ID 사용 하 여 사용자 지정 비전 웹 사이트 설정 페이지입니다.](./media/update-application-to-3.0-sdk/prediction-id.png)
 
 > [!TIP]
 > [Azure Portal](https://portal.azure.com)의 Custom Vision 예측 리소스로 이동하고 **속성**을 선택하여 이 정보를 가져올 수도 있습니다.
 
-반복 게시 되 면 앱 사용할 수 예측에 대 한 해당 예측 API 호출의 이름을 지정 합니다. 반복 예측 호출에 사용할 수 없는 사용 합니다 **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API.
+반복이 게시되면, 앱은 예측 API 호출에서 해당 이름을 지정하여 예측에 사용할 수 있습니다. 예측 호출에 반복을 사용할 수 없도록 하려면, **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** API를 사용합니다.
 
 ## <a name="additional-export-options"></a>추가 내보내기 옵션
 

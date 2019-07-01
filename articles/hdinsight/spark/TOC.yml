@@ -40,8 +40,6 @@
       href: ../hdinsight-sdk-python-samples.md
 - name: 개념
   items:
-    - name: IntelliJ를 사용하여 Apache Spark 쿼리 실행
-      href: apache-spark-intellij-tool-plugin.md
     - name: VSCode를 사용하여 Apache Spark 쿼리 실행
       href: ../hdinsight-for-vscode.md
     - name: HDInsight의 Apache Hadoop 구성 요소

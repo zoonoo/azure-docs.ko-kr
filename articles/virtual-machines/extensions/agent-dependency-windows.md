@@ -80,7 +80,7 @@ Windows 용 Azure VM 종속성 에이전트 확장에 나열 된 지원 되는 �
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| 형식 | DependencyAgentWindows |
+| type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>템플릿 배포
