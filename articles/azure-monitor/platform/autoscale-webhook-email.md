@@ -66,7 +66,7 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | sendToSubscriptionAdministrator |예 |값은 "true" 또는 "false"여야 합니다. |
 | sendToSubscriptionCoAdministrators |예 |값은 "true" 또는 "false"여야 합니다. |
 | customEmails |예 |값에 null [] 또는 전자 메일 문자열 배열을 사용할 수 있습니다. |
-| Webhook |예 |값은 null이거나 올바른 URI일 수 있습니다. |
+| webhooks |예 |값은 null이거나 올바른 URI일 수 있습니다. |
 | serviceUri |예 |유효한 https URI |
 | properties |예 |값은 비어 있는 {}이거나 키-값 쌍을 포함할 수 있습니다. |
 
@@ -111,12 +111,12 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | timestamp |예 |크기 자동 조정 작업이 트리거된 타임스탬프입니다. |
 | id |예 |자동 크기 조정 설정의 Resource Manager ID |
 | name |예 |크기 자동 조정 설정의 이름입니다. |
-| 세부 정보 |예 |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다. |
+| details 정보 |예 |크기 자동 조정 서비스가 수행한 작업에 대한 설명 및 인스턴스 수의 변경 내용입니다. |
 | subscriptionId |예 |크기 조정 중인 대상 리소스의 구독 ID입니다. |
 | resourceGroupName |예 |크기 조정 중인 대상 리소스의 리소스 그룹 이름입니다. |
 | resourceName |예 |크기 조정 중인 대상 리소스의 이름입니다. |
 | resourceType |예 |다음의 세 값이 지원됩니다. "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service 역할/"microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets/"Microsoft.Web/serverfarms" - Web App |
-| ResourceId |예 |크기 조정 중인 대상 리소스의 Resource Manager ID |
+| resourceId |예 |크기 조정 중인 대상 리소스의 Resource Manager ID |
 | portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
 | oldCapacity |예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |yes |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |
