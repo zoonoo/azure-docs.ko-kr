@@ -88,7 +88,7 @@
           href: stream-analytics-test-query.md
         - name: 대시보드에서 결과 보기
           href: stream-analytics-power-bi-dashboard.md
-        - name: 작업 정리
+        - name: 작업 중지 또는 삭제
           href: stream-analytics-clean-up-your-job.md
         - name: 안정성을 위해 작업 페어링
           href: stream-analytics-job-reliability.md
