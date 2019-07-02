@@ -30,6 +30,8 @@
   items:
     - name: 바로 가기 키
       href: azure-portal-keyboard-shortcuts.md
+    - name: Azure Portal URL 수신 허용 목록
+      href: azure-portal-safelist-urls.md
     - name: Azure 대시보드의 구조
       href: azure-portal-dashboards-structure.md
 - name: 리소스
