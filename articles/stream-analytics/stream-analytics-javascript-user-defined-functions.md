@@ -86,7 +86,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
         InputStream
     ```
 
-3.  샘플 데이터 파일 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
+3.  샘플 데이터 파일을 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
 4.  쿼리를 테스트하려면 **테스트**를 선택합니다.
 
 
@@ -102,9 +102,9 @@ Stream Analytics | JavaScript
 bigint | Number(JavaScript에서는 정확히 최대 2^53의 정수만 표현할 수 있음)
 DateTime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
-nvarchar(MAX) | 문자열
-레코드 | Object
-배열 | 배열
+nvarchar(MAX) | String
+Record | Object
+Array | Array
 NULL | Null
 
 
@@ -116,8 +116,8 @@ JavaScript | Stream Analytics
 Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이에 있는 경우, 그렇지 않으면 double임)
 Date | DateTime
 문자열 | nvarchar(MAX)
-Object | 레코드
-배열 | 배열
+Object | Record
+Array | Array
 Null, Undefined | NULL
 기타 다른 형식(예: 함수 또는 오류) | 지원되지 않음(런타임 오류 발생)
 

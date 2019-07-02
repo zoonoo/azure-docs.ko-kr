@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: 데이터 탐색기란?
+    - name: Azure 데이터 탐색기란?
       href: data-explorer-overview.md
 - name: 빠른 시작
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: 웹 UI
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: 자습서
   items:
     - name: 코드를 사용하지 않고 데이터 수집
@@ -68,12 +66,18 @@
       items:
         - name: 쿼리 쓰기
           href: write-queries.md
-        - name: 시계열 분석
-          href: time-series-analysis.md
-        - name: 변칙 검색 및 예측
-          href: anomaly-detection.md
-        - name: Machine Learning
-          href: machine-learning-clustering.md
+        - name: Azure Data Lake에서 데이터 쿼리
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: 시계열 분석 및 Machine Learning
+          items:
+            - name: 시계열 분석
+              href: time-series-analysis.md
+            - name: 변칙 검색 및 예측
+              href: anomaly-detection.md
+            - name: Machine Learning
+              href: machine-learning-clustering.md
     - name: 데이터 가상화
       items:
         - name: Power BI
