@@ -78,8 +78,8 @@ ms.locfileid: "65596750"
 
 | 특성 | 필수 | 형식 | 설명 |
 |-----------|----------|------|-------------|
-| <*key-name*> | 예 | 문자열 | 출력 반환 값에 대한 키 이름 |
-| <*key-type*> | 예 | int, float, 문자열, securestring, bool, 배열, JSON 개체 | 출력 반환 값의 형식 |
+| <*key-name*> | 예 | String | 출력 반환 값에 대한 키 이름 |
+| <*key-type*> | 예 | nt, float, string, securestring, bool, array, JSON 개체 | 출력 반환 값의 형식 |
 | <*key-value*> | 예 | 동일 <*키 유형*> | 출력 반환 값 |
 |||||
 
