@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: 기존 클러스터에 대해 활성화
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: 지역 매핑
+                      href: insights/container-insights-region-mapping.md
                 - name: 분석
                   href: insights/container-insights-analyze.md
                 - name: 에이전트 컬렉션 설정 구성

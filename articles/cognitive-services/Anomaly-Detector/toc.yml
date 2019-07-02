@@ -8,7 +8,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 데이터에서 변칙 검색
+    - name: REST API
       items:
         - name: 'C# 사용'
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Python 사용
           href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK)
+      items:
+        - name: 'C# 사용'
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Python 사용
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: 자습서
   items:
     - name: Power BI를 사용하여 일괄 처리로 변칙 시각화

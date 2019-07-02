@@ -1,5 +1,5 @@
 ---
-title: 쿼리는 Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너
+title: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
 description: 이 문서에서는 가상 네트워크에 VNet 주입 라고도 Azure Databricks를 배포 하는 방법을 설명 합니다.
 services: azure-databricks
 author: mamccrea
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770792"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: 쿼리는 Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
 
 이 자습서에서는 가상 네트워크의 SQL Server Linux Docker 컨테이너를 사용 하 여 Azure Databricks를 통합 하는 방법을 설명 합니다. 
 

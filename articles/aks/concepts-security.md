@@ -36,7 +36,7 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 AKS 노드는 사용자가 유지 및 관리하는 Azure 가상 머신입니다. Linux 노드는 모비(Moby)컨테이너 런타임을 사용하여 최적화된 Ubuntu 배포를 수행합니다. Windows Server 노드(현재 AKS에서 미리 보기)에서는 최적화된 Windows Server 2019 릴리스를 실행하고 또한 모비 컨테이너 런타임을 사용합니다. AKS 클러스터가 생성되거나 확장되면 노드는 최신 OS 보안 업데이트 및 구성으로 자동으로 배포됩니다.
 
-Azure 플랫폼을 매일 밤 마다 Linux 노드에 OS 보안 패치를 자동으로 적용 합니다. 호스트 다시 부팅 해야 하는 Linux OS 보안 업데이트, 재부팅 자동으로 수행 되지 않습니다. Linux 노드를 수동으로 다시 부팅 수 또는 사용 하는 일반적인 방법은 것 [Kured][kured], kubernetes는 오픈 소스 재부팅 디먼입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+Azure 플랫폼은 매일 밤마다 Linux 노드에 OS 보안 패치를 자동으로 적용합니다. 호스트의 재부팅을 해야 하는 Linux OS 보안 업데이트는 자동으로 재부팅을 수행하지 않습니다. Linux 노드를 수동으로 재부팅할 수 있으며, 일반적인 방법은 kubernetes용 오픈 소스 재부팅 데몬인 [Kured][kured]를 사용하는 것입니다. Kured는 [DaemonSet][aks-daemonsets]으로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 재부팅은 클러스터 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
 (현재 AKS에서 미리 보기)는에서 Windows Server 노드에 대 한 Windows Update는 자동으로 실행 및 최신 업데이트를 적용 합니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스 정기적인 일정에 따라 AKS 클러스터에서 Windows Server 노드 풀에서 업그레이드를 수행 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만듭니다 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 참조 하세요. [AKS에 노드 풀을 업그레이드][nodepool-upgrade]합니다.
 
@@ -50,13 +50,13 @@ AKS 또는 그 밖의 Kubernetes 환경은 현재 악의적인 멀티 테넌트 
 
 보안 및 규정 준수 또는 최신 기능을 사용하기 위해, Azure는 AKS 클러스터 및 구성 요소의 업그레이드를 오케스트레이션하는 도구를 제공합니다. 업그레이드 오케스트레이션에는 Kubernetes 마스터 및 에이전트 구성 요소가 모두 포함됩니다. AKS 클러스터에 [사용할 수 있는 Kubernetes 버전 목록](supported-kubernetes-versions.md)을 볼 수 있습니다. 업그레이드 프로세스를 시작하려면 사용 가능한 버전 중 하나를 지정합니다. 그러면 Azure에서 각각의 AKS 노드가 안전하게 차단되고 드레이닝되어 업그레이드가 수행됩니다.
 
-### <a name="cordon-and-drain"></a>중단(cordon) 및 이동(drain)
+### <a name="cordon-and-drain"></a>종료(cordon) 및 드레이닝(drain)
 
 업그레이드 프로세스 중에 AKS 노드는 개별적으로 클러스터에서 종료(cordon)되므로 새 pod는 여기에 스캐줄링되지 않습니다. 그런 다음, 노드는 다음과 같이 드레이닝되고 업그레이드됩니다.
 
 - 새 노드가 노드 풀에 배포됩니다. 이 노드에서는 최신 운영 체제 이미지 및 패치를 실행합니다.
 - 업그레이드하기 위해 기존 노드 중 하나가 식별됩니다. 이 노드의 pod는 정상적으로 종료되고 노드 풀의 다른 노드에 스캐줄링됩니다.
-- 기존 노드는 AKS 클러스터에서 삭제됩니다.
+- 이 기존 노드는 AKS 클러스터에서 삭제됩니다.
 - 클러스터의 다음 노드는 업그레이드 프로세스의 일부로 모든 노드가 성공적으로 대체될 때까지 동일한 프로세스를 사용하여 종료(cordon)되고 드레이닝(drain)됩니다.
 
 자세한 내용은 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
@@ -79,7 +79,7 @@ Kubernetes *비밀*은 액세스 자격 증명이나 키와 같은 Pod에 중요
 
 AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
 
-관련된 모범 사례는 [AKS의 클러스터 보안 및 업그레이드에 대한 모범사례][operator-best-practices-cluster-security]를 참조하세요.
+관련된 모범 사례를 참조 하세요 [클러스터 보안 및 AKS에서 업그레이드에 대 한 유용한][operator-best-practices-cluster-security]합니다.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
