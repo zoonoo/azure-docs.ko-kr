@@ -30,7 +30,7 @@ Speech Services는 데이터를 가져오고, 모델을 만들고, 모델 정확
 
 Swagger를 Speech Service 구독과 동일한 Azure 지역으로 설정해야 합니다. 자신의 Azure 지역은 Azure Portal의 해당 Speech Services 리소스 아래에서 확인할 수 있습니다. 지원되는 지역의 전체 목록은 [Azure 지역](regions.md)을 참조하세요.
 
-1. https://editor.swagger.io 으로 이동합니다.
+1. [https://editor.swagger.io](https://editor.swagger.io ) 으로 이동합니다.
 2. **파일**을 클릭한 다음, **가져오기**를 클릭합니다.
 3. Speech Services 구독의 Azure 지역을 포함한 Swagger URL `https://<your-region>.cris.ai/docs/v2.0/swagger`를 입력합니다.
 4. **클라이언트 생성**을 클릭하고 Python을 선택합니다.
