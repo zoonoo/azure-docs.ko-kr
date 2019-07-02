@@ -11,16 +11,16 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Apache HBase 쿼리 - HBase Shell
       href: ./query-hbase-with-hbase-shell.md
-- name: 시작하기
+- name: 자습서
   items:
-    - name: Apache HBase 및 NoSQL로 시작
+    - name: HDInsight에서 Apache HBase 사용
       href: apache-hbase-tutorial-get-started-linux.md
+- name: 개념
+  items:
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
     - name: 클러스터 용량 계획
       href: ../hdinsight-capacity-planning.md
-- name: 개념
-  items:
     - name: HDInsight의 Apache Hadoop 구성 요소
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0

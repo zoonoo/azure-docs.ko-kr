@@ -54,8 +54,10 @@
       href: pre-reqs.md
     - name: Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지
       href: resource-network-topologies.md
-    - name: 알려진 문제
+    - name: 문제 해결 및 알려진 문제
       items:
+        - name: 원본 데이터베이스 연결 문제 해결
+          href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: 일반적인 문제 및 오류 해결
           href: known-issues-troubleshooting-dms.md
         - name: 알려진 문제 - Azure SQL DB로 온라인 마이그레이션
