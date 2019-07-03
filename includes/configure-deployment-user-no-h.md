@@ -5,19 +5,19 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebea8bfd69a4df605142ab82f3efbc7d97d34529
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133162"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143965"
 ---
-Azure Cloud Shell에서 [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 사용하여 배포 자격 증명을 구성합니다. 이 배포 사용자는 웹앱에 대한 FTP 및 로컬 Git 배포에 필요합니다. 사용자 이름과 암호는 계정 수준이며, _Azure 구독 자격 증명과 다릅니다._
+Azure Cloud Shell에서 [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 명령을 사용하여 배포 자격 증명을 구성합니다. 이 배포 사용자는 웹앱의 FTP 및 로컬 Git 배포에 사용됩니다. 사용자 이름과 암호는 계정 수준이며, _Azure 구독 자격 증명과 다릅니다._
 
-다음 예에서 *\<username>* 및 *\<password>* (대괄호 포함)를 새 사용자 이름 및 암호로 바꿉니다. 사용자 이름은 Azure 내에서 고유해야 합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다. 
+다음 예에서 *\<username>* 및 *\<password>* (대괄호 포함)를 새 사용자 이름 및 암호로 바꿉니다. 사용자 이름은 Azure 내에서 고유해야 합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

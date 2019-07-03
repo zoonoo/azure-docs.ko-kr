@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: 스토리지 - 포털
           href: functions-integrate-storage-queue-output-binding.md
+        - name: 스토리지 - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: 자습서
   items:
     - name: Logic Apps를 사용하는 함수
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: 로컬에서 개발 및 디버깅
           href: functions-develop-local.md
+        - name: Visual Studio Code 개발
+          href: functions-develop-vs-code.md
         - name: Visual Studio 개발
           href: functions-develop-vs.md
         - name: 핵심 도구 개발
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: host.json 참조
+    - name: host.json 2.x 참조
       href: functions-host-json.md
-      items:
-        - name: Functions 2.x
-          href: functions-host-json.md
-        - name: Functions 1.x
-          href: functions-host-json-v1.md
+    - name: host.json 1.x 참조
+      href: functions-host-json-v1.md
     - name: 네트워킹 FAQ
       href: functions-networking-faq.md
     - name: OpenAPI 참조

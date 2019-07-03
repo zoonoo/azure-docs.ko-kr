@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: 이메일 알림
                   href: app/proactive-email-notification.md
+            - name: 가용성
+              items:
+                - name: URL 테스트
+                  href: app/monitor-web-app-availability.md
+                - name: 다단계 테스트
+                  href: app/availability-multistep.md
+                - name: 가용성 경고
+                  href: app/availability-alerts.md
+                - name: 문제 해결
+                  href: app/troubleshoot-availability.md
+            - name: 성능 테스트
+              href: app/performance-testing.md
             - name: 리소스 만들기
               href: app/create-new-resource.md
             - name: 애플리케이션 데이터를 Log Analytics로 라우팅
@@ -552,8 +564,12 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: 기존 클러스터에 대해 활성화
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: 지역 매핑
+                      href: insights/container-insights-region-mapping.md
                 - name: 분석
                   href: insights/container-insights-analyze.md
+                - name: 에이전트 컬렉션 설정 구성
+                  href: insights/container-insights-agent-config.md
                 - name: 모니터링 사용 안 함
                   href: insights/container-insights-optout.md
                 - name: 라이브 로그 보기
@@ -795,8 +811,6 @@
           items:
             - name: 애플리케이션 경고 규칙
               items:
-                - name: 가용성
-                  href: app/monitor-web-app-availability.md
                 - name: 메트릭 경고
                   href: app/alerts.md
             - name: 플랫폼 메트릭 경고 규칙

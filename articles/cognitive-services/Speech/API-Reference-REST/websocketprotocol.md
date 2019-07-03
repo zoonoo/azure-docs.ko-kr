@@ -152,7 +152,7 @@ Content-Length: 0
 
 | 헤더 | 값 |
 |----|----|
-| path | 이 문서에 지정된 메시지 경로 |
+| Path | 이 문서에 지정된 메시지 경로 |
 | X-RequestId | "대시 없는" 형식의 UUID |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
 
@@ -183,7 +183,7 @@ Content-Length: 0
 |----|----|
 | path | `speech.config` |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
-| 콘텐츠 형식 | application/json; charset=utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 음성 서비스 프로토콜의 모든 클라이언트 시작 메시지와 마찬가지로 `speech.config` 메시지도 메시지를 서비스에 보낸 클라이언트 UTC 시계 시간을 기록하는 *X-Timestamp* 헤더를 포함*해야 합니다*. `speech.config` 메시지는 특정 음성 요청과 연결되지 않으므로 *X-RequestId* 헤더를 요구하지 *않습니다*.
 
@@ -252,10 +252,10 @@ Content-Length: 0
 
 | 헤더         |  값     |
 | ------------- | ---------------- |
-| path | `audio` |
+| Path | `audio` |
 | X-RequestId | "대시 없는" 형식의 UUID |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
-| 콘텐츠 형식 | 오디오 콘텐츠 형식입니다. 형식은 *audio/x-wav*(PCM) 또는 *audio/silk*(SILK)이어야 합니다. |
+| Content-Type | 오디오 콘텐츠 형식입니다. 형식은 *audio/x-wav*(PCM) 또는 *audio/silk*(SILK)이어야 합니다. |
 
 #### <a name="supported-audio-encodings"></a>지원되는 오디오 인코딩
 

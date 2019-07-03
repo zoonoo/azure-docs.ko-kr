@@ -258,7 +258,7 @@
           href: luis-migration-api-v1-to-v2.md
         - name: V3 REST API로 마이그레이션
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행
@@ -300,8 +300,10 @@
           href: luis-reference-prebuilt-keyphrase.md
         - name: Number 엔터티
           href: luis-reference-prebuilt-number.md
-        - name: 서수 엔터티
+        - name: Ordinal 엔터티
           href: luis-reference-prebuilt-ordinal.md
+        - name: Ordinal V2 엔터티
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Percentage 엔터티
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName 엔터티
