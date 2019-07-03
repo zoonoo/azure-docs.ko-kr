@@ -16,7 +16,7 @@ ms.locfileid: "60466820"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
 
-AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터를 저장하고 검색할 수 있습니다. 일부 애플리케이션 워크로드의 경우, 이 데이터 저장소는 Pod를 삭제할 때 더 이상 필요하지 않은 노드의 로컬 고속 저장소를 사용할 수 있습니다. 다른 애플리케이션 워크로드에는 Azure 플랫폼 내의 보다 일반적인 데이터 볼륨에 저장되는 저장소가 필요할 수 있습니다. 여러 Pod에서 동일한 데이터 볼륨을 공유하거나, Pod가 다른 노드에 다시 예약되는 경우 데이터 볼륨을 다시 연결해야 할 수 있습니다. 마지막으로, 중요한 데이터 또는 애플리케이션 구성 정보를 Pod에 삽입해야 할 수 있습니다.
+AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터를 저장하고 검색해야 할 수 있습니다. 일부 애플리케이션 워크로드의 경우, 이 데이터 저장소는 Pod가 삭제되면 더 이상 필요하지 않은 노드의 로컬 고속 저장소를 사용할 수 있습니다. 다른 애플리케이션 워크로드에는 Azure 플랫폼 내의 보다 일반적인 데이터 볼륨에서 지속되는 저장소가 필요할 수 있습니다. 여러 Pod에서 동일한 데이터 볼륨을 공유하거나, Pod가 다른 노드에 다시 예약되는 경우 데이터 볼륨을 다시 연결해야 할 수 있습니다. 마지막으로, 중요한 데이터 또는 애플리케이션 구성 정보를 Pod에 삽입해야 할 수 있습니다.
 
 ![애플리케이션에 대한 AKS(Azure Kubernetes Service) 클러스터의 저장소 옵션](media/concepts-storage/aks-storage-options.png)
 
@@ -44,7 +44,7 @@ Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는
 
 ## <a name="persistent-volumes"></a>영구적 볼륨
 
-Pod 수명 주기의 일부로 정의 및 생성되는 볼륨은 Pod가 삭제될 때까지만 존재합니다. 유지 관리 이벤트 중에 한 Pod가 다른 호스트에, 특히 StatefulSets에 다시 예약되는 경우 Pod에서 저장소가 남아 있을 것으로 예상합니다. *PV(영구적 볼륨)* 는 Kubernetes API에서 만들어지고 관리되는 저장소 리소스로 개별 Pod의 수명을 초과하여 존재할 수 있습니다.
+Pod 수명 주기의 일부로 정의 및 생성되는 볼륨은 Pod가 삭제될 때까지만 존재합니다. 유지 관리 이벤트 중에 한 Pod가 다른 호스트에, 특히 StatefulSet에 다시 예약되는 경우 Pod에서 저장소가 남아 있을 것으로 예상합니다. *PV(영구적 볼륨)* 는 Kubernetes API에서 만들어지고 관리되는 저장소 리소스로 개별 Pod의 수명을 초과하여 존재할 수 있습니다.
 
 Azure Disks 또는 Azure Files는 PersistentVolume을 제공하는 데 사용됩니다. 앞서의 '볼륨' 섹션에서 설명한 대로 Disks 또는 Files의 선택은 종종 데이터 또는 성능 계층에 대한 동시 액세스의 필요성에 의해 결정됩니다.
 
@@ -121,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련된 모범 사례는 [AKS에 대한 저장소 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
+관련된 모범 사례는 [AKS에서의 저장소 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 
