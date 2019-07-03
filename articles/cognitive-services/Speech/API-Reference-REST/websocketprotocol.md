@@ -98,7 +98,7 @@ Content-Length: 0
 
 클라이언트는 음성 서비스의 적절한 엔드포인트를 사용*해야 합니다*. 엔드포인트는 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
 
-| Mode | path | 서비스 URI |
+| Mode | Path | 서비스 URI |
 | -----|-----|-----|
 | 대화형 | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | 대화 | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -181,7 +181,7 @@ Content-Length: 0
 
 | 헤더 이름 | 값 |
 |----|----|
-| path | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -308,9 +308,9 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | ISO 8601 형식의 UTC 시계 타임스탬프 |
-| 콘텐츠 형식 | `application/json` |
+| Content-Type | `application/json` |
 | 본문 | 회차에 관한 클라이언트 정보를 포함하는 JSON 구조 |
 
 `telemetry` 메시지의 본문에 대한 스키마는 [원격 분석 스키마](#telemetry-schema) 섹션에서 정의합니다.
@@ -330,8 +330,8 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `speech.startDetected` |
-| 콘텐츠 형식 | application/json; charset=utf-8 |
+| Path | `speech.startDetected` |
+| Content-Type | application/json; charset=utf-8 |
 | 본문 | 음성 시작이 검색된 경우 조건에 관한 정보를 포함하는 JSON 구조입니다. 이 구조의 *오프셋* 필드는 스트림의 시작을 기준으로 오디오 스트림에서 음성이 검색된 시간의 오프셋(100나노초 단위)을 지정합니다. |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -355,9 +355,9 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `speech.hypothesis` |
+| Path | `speech.hypothesis` |
 | X-RequestId | "대시 없는" 형식의 UUID |
-| 콘텐츠 형식 | application/json |
+| Content-Type | application/json |
 | 본문 | 음성 가설 JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -387,8 +387,8 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `speech.phrase` |
-| 콘텐츠 형식 | application/json |
+| Path | `speech.phrase` |
+| Content-Type | application/json |
 | 본문 | 음성 구 JSON 구조 |
 
 음성 구 JSON 스키마는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration` 필드를 포함합니다. 이러한 필드에 대한 자세한 내용은 [전사 응답](../concepts.md#transcription-responses)을 참조하세요.
@@ -415,9 +415,9 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | 본문 | 음성 끝이 검색된 시간의 오프셋을 포함하는 JSON 구조입니다. 오프셋은 인식을 위해 사용한 오디오의 시작에서 100나노초 단위 오프셋으로 나타냅니다. |
-| 콘텐츠 형식 | application/json; charset=utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>샘플 메시지
 
@@ -440,8 +440,8 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `turn.start` |
-| 콘텐츠 형식 | application/json; charset=utf-8 |
+| Path | `turn.start` |
+| Content-Type | application/json; charset=utf-8 |
 | 본문 | JSON 구조 |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -467,7 +467,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 필드 | 설명 |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
-| path | `turn.end` |
+| Path | `turn.end` |
 | 본문 | 없음 |
 
 #### <a name="sample-message"></a>샘플 메시지
