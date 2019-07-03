@@ -197,6 +197,9 @@
         - name: MLflow로 실험 추적
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: TensorBoard로 실험 시각화
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: 기계 학습 자동화
       displayName: 'automl, auto ml'
       items:
@@ -304,6 +307,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: 중복 행 제거
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: 데이터 조인
+              href: ../algorithm-module-reference/join-data.md
             - name: 데이터 분할
               href: ../algorithm-module-reference/split-data.md
             - name: 데이터 정규화
@@ -352,12 +357,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: K-평균 클러스터링
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Python 언어 모듈
+        - name: Python 및 R 언어 모듈
           items:
             - name: Python 스크립트 실행
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Python 모델 만들기
               href: ../algorithm-module-reference/create-python-model.md
+            - name: R 스크립트 실행
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: 오류 메시지 및 코드
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 리소스

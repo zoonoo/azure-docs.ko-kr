@@ -195,6 +195,8 @@
           href: search-indexer-field-mappings.md
         - name: SQL Server VM에 연결
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: 인덱서 모니터링
+          href: search-howto-monitor-indexers.md
         - name: 일반적인 문제 해결
           href: search-indexer-troubleshooting.md
     - name: AI로 보강

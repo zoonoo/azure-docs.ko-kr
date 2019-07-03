@@ -460,10 +460,12 @@
               href: tutorial-query-graph.md
         - name: 방법 가이드
           items:
-            - name: 그래프 데이터 가져오기
-              href: bulk-executor-graph-dotnet.md
+            - name: 그래프 데이터 모델링
+              href: graph-modeling.md
             - name: 그래프 데이터 분할
               href: graph-partitioning.md
+            - name: 그래프 데이터 가져오기
+              href: bulk-executor-graph-dotnet.md
             - name: Gremlin 쿼리 최적화
               href: graph-execution-profile.md
             - name: Spring 데이터 저장 및 관리

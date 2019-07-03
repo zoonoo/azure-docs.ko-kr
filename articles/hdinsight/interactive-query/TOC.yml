@@ -24,6 +24,9 @@
       maintainContext: true
 - name: 방법
   items:
+    - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
     - name: 클러스터 저장소 사용
       items:
         - name: Azure Storage 사용
@@ -100,6 +103,9 @@
           href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Apache Hadoop에 Power BI 연결
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
+          maintainContext: true
+        - name: PowerShell 및 ODBC를 사용하여 Hive 쿼리
+          href: apache-hive-query-odbc-driver-powershell.md
           maintainContext: true
         - name: Apache Hadoop에 Excel 연결
           href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
@@ -333,11 +339,6 @@
         - name: 클러스터 성능 모니터링
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: 방법
-  items:
-    - name: Hive 워크로드를 HDInsight 4.0으로 마이그레이션
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
 - name: 참고 자료
   items:
     - name: 코드 샘플

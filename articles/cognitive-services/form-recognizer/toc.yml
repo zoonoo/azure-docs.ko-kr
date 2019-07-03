@@ -7,7 +7,7 @@
 - name: 빠른 시작
   expaned: true
   items:
-    - name: 모델 학습 및 데이터 추출
+    - name: 사용자 지정 모델 학습 및 데이터 추출
       items:
         - name: REST API 사용
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: 미리 빌드된 수신 모델 사용
+      items:
+        - name: REST API 사용
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: 방법 가이드
   items:
     - name: 학습 데이터 세트 빌드

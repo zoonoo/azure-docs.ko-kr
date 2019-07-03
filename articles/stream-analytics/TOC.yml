@@ -36,6 +36,8 @@
   items:
     - name: 스트리밍 분석 기술 선택
       href: streaming-technologies.md
+    - name: 작업 개발 도구 선택
+      href: feature-comparison.md
     - name: 작업에 대한 입력 형식
       items:
         - name: 입력 개요
