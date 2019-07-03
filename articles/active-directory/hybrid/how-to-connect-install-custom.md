@@ -386,7 +386,7 @@ Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검�
 * 동기화가 완료되면 Azure AD Connect에서 페더레이션 로그인 확인 추가 작업을 사용하여 원하는 온-프레미스 사용자 계정에 대한 인증을 확인합니다.
 * 인트라넷의 도메인에 가입된 머신에서 브라우저에서 로그인할 수 있는지 확인합니다. https://myapps.microsoft.com 에 연결하고 로그인된 계정을 사용하여 로그인했는지 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
 * 엑스트라넷에서, 디바이스에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 디바이스에서 https://myapps.microsoft.com 에 연결하고 자격 증명을 제공합니다.
-* 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com 에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.
+* 리치 클라이언트 로그인 유효성을 검사합니다. [https://testconnectivity.microsoft.com](https://testconnectivity.microsoft.com ) 에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 설치 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.
