@@ -121,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
-관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
+관련된 모범 사례는 [AKS에서의 저장소 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 
