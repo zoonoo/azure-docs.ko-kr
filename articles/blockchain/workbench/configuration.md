@@ -43,9 +43,9 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 |-------|-------------|:--------:|
 | ApplicationName | 고유 애플리케이션 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName**을 사용해야 합니다.  | 예 |
 | DisplayName | 애플리케이션의 친숙한 표시 이름. | 예 |
-| 설명 | 애플리케이션에 대한 설명. | 아닙니다. |
+| Description | 애플리케이션에 대한 설명. | 아닙니다. |
 | ApplicationRoles | [ApplicationRoles](#application-roles)의 콜렉션. 애플리케이션 내에서 작업하거나 참여할 수 있는 사용자 역할.  | 예 |
-| 워크플로 | [워크플로](#workflows) 컬렉션. 각 워크플로는 비즈니스 논리의 흐름을 제어하는​상태 시스템의 역할을 합니다. | 예 |
+| Workflows | [워크플로](#workflows) 컬렉션. 각 워크플로는 비즈니스 논리의 흐름을 제어하는​상태 시스템의 역할을 합니다. | 예 |
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
