@@ -79,7 +79,7 @@ Kubernetes *비밀*은 액세스 자격 증명이나 키와 같은 Pod에 중요
 
 AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
 
-관련된 모범 사례를 참조 하세요 [클러스터 보안 및 AKS에서 업그레이드에 대 한 유용한][operator-best-practices-cluster-security]합니다.
+관련된 모범 사례는 [AKS의 클러스터 보안 및 업그레이드에 대한 모범사례][operator-best-practices-cluster-security]를 참조하세요.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 

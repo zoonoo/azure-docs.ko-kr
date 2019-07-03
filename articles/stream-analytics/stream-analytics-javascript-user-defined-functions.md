@@ -104,7 +104,7 @@ DateTime | Date(JavaScript에서는 밀리초만 지원)
 double | Number
 nvarchar(MAX) | 문자열
 레코드 | Object
-배열 | 배열
+Array | Array
 NULL | Null
 
 
@@ -117,7 +117,7 @@ Number | Bigint(숫자를 반올림하여 long.MinValue와 long.MaxValue 사이�
 Date | DateTime
 문자열 | nvarchar(MAX)
 Object | 레코드
-배열 | 배열
+Array | Array
 Null, Undefined | NULL
 기타 다른 형식(예: 함수 또는 오류) | 지원되지 않음(런타임 오류 발생)
 

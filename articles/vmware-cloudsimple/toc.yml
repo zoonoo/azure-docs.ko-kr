@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: 프라이빗 클라우드 확장
               href: expand-private-cloud.md
+            - name: 프라이빗 클라우드 축소
+              href: shrink-private-cloud.md
             - name: Azure 구독 매핑
               href: azure-subscription-mapping.md
             - name: 권한 높이기
