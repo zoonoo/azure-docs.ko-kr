@@ -28,13 +28,13 @@ ms.locfileid: "65800095"
 
 ## <a name="core-features"></a>핵심 기능
 
-다음은 Speech SDK 및 REST Api를 통해 사용 가능한 기능:
+다음은 Speech SDK 및 REST Api를 통해 사용 가능한 기능입니다:
 
-| 사용 사례 | SDK) | REST (영문) |
+| 사용 사례 | SDK | REST (영문) |
 |----------|-----|------|
 | 짧은 길이 발언 기록 (< 15 초)입니다. 만 마지막 기록 결과 지원합니다. | 예. | 예. |
-| 스트리밍 오디오 및 비트 긴 길이 발언 연속 기록 (> 15 초)입니다. 중간 및 최종 기록 결과 지원합니다. | 예. | 아니요 |
-| 인 텐트와 인식 결과에서 파생 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)합니다. | 예. | 아니요\* |
+| 스트리밍 오디오 및 긴 길이 발언 연속 기록 (> 15 초)입니다. 중간 및 최종 기록 결과 지원합니다. | 예. | 아니요 |
+| [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)를 사용하여 인식 결과를 도출합니다. | 예. | No\* |
 | 오디오 파일의 대사를 비동기적으로 일괄 처리 합니다. | 아니요 | 예\** |
 | 음성 모델을 만들고 관리합니다. | 아니요 | 예\** |
 | 사용자 지정 모델 배포를 만들고 관리합니다. | 아니요 | 예\** |
