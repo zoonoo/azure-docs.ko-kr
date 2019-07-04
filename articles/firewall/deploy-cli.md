@@ -39,7 +39,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
+> * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -277,7 +277,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com]\(www.google.com) 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
+   www.google.com 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이 방화벽 규칙에 예상 대로 작동 하는지 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 
