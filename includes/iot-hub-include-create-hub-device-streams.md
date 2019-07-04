@@ -1,19 +1,19 @@
 ---
 title: 포함 파일(디바이스 스트림 미리 보기)
 description: 포함 파일(디바이스 스트림 미리 보기)
-author: rezas
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 93c71fa8b0c39cc16d2a8e24472e8d68717a6c32
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a02c16a75bbdf4827ce6a6c5f50751caf9c5aab8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733292"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446027"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법을 설명합니다.
 

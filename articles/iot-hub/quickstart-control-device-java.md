@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a4b2047cea186db681f4190073cfff94bf99b1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 5cf7153b5370bd5e1002963027295f79ecfeb6db
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005136"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330654"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Java)
 
@@ -59,7 +59,7 @@ mvn --version
 az extension add --name azure-cli-iot-ext
 ```
 
-아직 수행하지 않은 경우 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서 Java 프로젝트를 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+아직 수행하지 않은 경우 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip 에서 Java 프로젝트를 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -108,12 +108,12 @@ az extension add --name azure-cli-iot-ext
 **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 다음과 같은 서비스 연결 문자열을 기록해 둡니다.
 
-`HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+`HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 디바이스 연결 문자열과는 다릅니다.
 
