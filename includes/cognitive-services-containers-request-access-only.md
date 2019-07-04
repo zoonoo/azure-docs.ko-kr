@@ -4,16 +4,16 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: b1889230e9abfbafbdeddcbf4f4c1f74fc3f8843
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 79e9dbc1edd830093d1d90d10350b8fb018492de
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063953"
 ---
-이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 제출되면 Azure Cognitive Services 팀에서 양식을 검토하여 프라이빗 컨테이너 레지스트리에 대한 액세스 조건을 충족하는지 확인합니다.
+이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 폼을 제출 하 고 나면 Azure Cognitive Services 팀은 개인 컨테이너 레지스트리에 대 한 액세스 조건을 충족 하는지 확인 하도록을 검토 합니다.
 
 > [!IMPORTANT]
-> 양식의 MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 계정과 연결된 이메일 주소를 사용해야 합니다.
+> 폼에서 Microsoft 계정 (MSA) 또는 Azure Active Directory (Azure AD) 계정으로 연결 된 전자 메일 주소를 사용 해야 합니다.
 
-요청이 승인되면 자격 증명을 얻고 프라이빗 컨테이너 레지스트리에 액세스하는 방법을 설명하는 지침이 포함된 이메일을 받게 됩니다.
+요청이 승인 되 면 자격 증명을 가져오는 개인 컨테이너 레지스트리에 액세스 하는 방법을 설명 하는 지침이 포함 된 메일을 받게 됩니다.

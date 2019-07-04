@@ -1,5 +1,5 @@
 ---
-title: 용어집
+title: 용어
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523505"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
@@ -82,11 +82,11 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 |쿼리 문자열 매개 변수|description|
 |--|--|
-|영역| [게시된 지역](luis-reference-regions.md#publishing-regions) |
+|영역(region)| [게시된 지역](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 앱 ID |
 |subscriptionID | Azure Portal에서 생성된 LUIS 끝점(구독) 키 |
 |q | 발화 |
-|timezoneOffset| 분|
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>엔터티
 

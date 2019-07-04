@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064032"
 ---
 # <a name="inspect-custom-speech-data"></a>사용자 지정 음성 데이터를 검사 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "65026713"
 
 Side-by-side-비교 검사를 위해 삽입, 삭제 및 대체를 비롯 한 여러 가지 오류 형식을 전환할 수 있습니다. 오디오 듣기 (사람이 레이블이 지정 된 기록 및 두 가지 음성-텍스트 모델의 결과 표시) 하는 각 열에서 인식 결과 비교 하는 여 요구를 충족 하는 모델 및 향상 된 필요한 위치를 결정할 수 있습니다.
 
-품질 테스트 검사 하는 것은 음성 인식 끝점의 품질 응용 프로그램에 대 한 충분 한 경우의 유효성을 검사 하는 데 유용 합니다.  오디오 기록된, 필요한 정확도 측정 하는 목표에 대 한 테스트에 있는 지침을 따르세요. 정확도 평가 합니다.
+품질 테스트 검사 하는 것은 음성 인식 끝점의 품질 응용 프로그램에 대 한 충분 한 경우의 유효성을 검사 하는 데 유용 합니다.  정확도 측정 하는 목표에 대 한의 지침을 따릅니다 기록된 오디오 요구 [정확도 평가](how-to-custom-speech-evaluate-data.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

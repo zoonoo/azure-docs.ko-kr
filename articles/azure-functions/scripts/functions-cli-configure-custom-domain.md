@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075477"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>함수 앱에 사용자 지정 도메인 매핑
 
-이 샘플 스크립트는 App Service 계획에서 함수 앱을 만든 다음, 제공하는 사용자 지정 도메인에 매핑합니다. 함수 앱이 [프리미엄 플랜](../functions-scale.md#premium-plan-public-preview) 또는 [App Service 계획](../functions-scale.md#app-service-plan)에서 호스트된 경우 CNAME 또는 A 레코드 중 하나를 사용하여 사용자 지정 도메인을 매핑할 수 있습니다. [사용 계획](../functions-scale.md#consumption-plan)에서 함수 앱의 경우 CNAME 옵션만 지원됩니다. 이 샘플은 App Service 계획을 만들고 A 레코드에게 도메인을 매핑할 것을 요구합니다. 
+이 샘플 스크립트는 App Service 계획에서 함수 앱을 만든 다음, 제공하는 사용자 지정 도메인에 매핑합니다. 함수 앱이 [프리미엄 플랜](../functions-scale.md#premium-plan) 또는 [App Service 계획](../functions-scale.md#app-service-plan)에서 호스트된 경우 CNAME 또는 A 레코드 중 하나를 사용하여 사용자 지정 도메인을 매핑할 수 있습니다. [사용 계획](../functions-scale.md#consumption-plan)에서 함수 앱의 경우 CNAME 옵션만 지원됩니다. 이 샘플은 App Service 계획을 만들고 A 레코드에게 도메인을 매핑할 것을 요구합니다. 
 
 이 샘플 스크립트를 실행하려면 웹앱의 기본 도메인 이름을 가리키는 사용자 지정 도메인에 이미 A 레코드를 구성해야 합니다. 자세한 내용은 [Azure App Service에 대한 사용자 지정 도메인 지침 매핑](https://aka.ms/appservicecustomdns)을 참조합니다. 
 
