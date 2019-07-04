@@ -81,7 +81,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 
 | 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| 이름 |데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
+| name |데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
 | type |데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#Type)을 참조하세요. |예 |해당 없음 |
 | structure |데이터 세트의 스키마입니다.<br/><br/>자세한 내용은 [데이터 세트 구조](#Structure)를 참조하세요. |아닙니다. |해당 없음 |
 | typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#Type)을 참조하세요. |예 |해당 없음 |
@@ -193,7 +193,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 |열의 이름입니다. |예 |
+| name |열의 이름입니다. |예 |
 | type |열의 데이터 형식입니다.  |아닙니다. |
 | culture |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. |아닙니다. |
 | format |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. |아닙니다. |
