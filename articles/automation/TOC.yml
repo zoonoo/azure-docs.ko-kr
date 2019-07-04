@@ -124,6 +124,8 @@
         - name: Runbook 문제 해결
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: VM 시작/중지
+          href: troubleshoot/start-stop-vm.md
 - name: 업데이트 관리
   items:
     - name: 업데이트 관리 개요
@@ -313,6 +315,8 @@
   items:
     - name: Log Analytics에 Azure Automation 작업 데이터 전달
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Log Analytics 작업 영역 매핑에 대해 지원되는 지역
+      href: how-to/region-mappings.md
 - name: 마이그레이션
   items:
     - name: 조정자에서 마이그레이션

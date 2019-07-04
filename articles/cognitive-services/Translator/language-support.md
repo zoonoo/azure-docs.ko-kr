@@ -3,19 +3,19 @@ title: 언어 지원 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Translator Text API에서 지원하는 자연 언어 목록입니다.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435890"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 

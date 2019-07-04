@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813582"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
@@ -67,7 +67,7 @@ ms.locfileid: "59523106"
 
 |함수|구문|중첩 수준|예|
 |--|--|--|--|
-|엔터티| {} -중괄호|2|양식 {엔터티 이름}는 어디 입니까?|
+|엔터티(entity)| {} -중괄호|2|양식 {엔터티 이름}는 어디 입니까?|
 |선택 사항|대괄호]-<BR><BR>선택 사항이 며 그룹화의 임의 조합 중첩 수준에서 3 제한은 |2|물음표는 선택적인 [?]|
 |그룹화|()-괄호|2|(는 \| b).|
 |또는| \| -세로 막대 (파이프)<br><br>세로 막대 (또는) 그룹 중 하나에서 2 제한은 |-|여기서 형식인 ({0} 형식-이름-짧은} &#x7c; {0} 형식-이름-장기} &#x7c; {폼 number})| 
@@ -91,13 +91,13 @@ Entity1 (Seattle) 원본 및 대상 (Cairo)와 같은 역할을 사용 하 여 �
 |--|--|
 |RedWest-C|외부 엔터티를 그룹화 하는 일치|
 |시애틀|내부 그룹 엔터티 중 하 나와 일치|
-|Cairo|내부 그룹 엔터티 중 하 나와 일치|
+|카이로|내부 그룹 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적 구문 사용 하 여 그룹에 대 한 중첩 제한
 
 조합을 **그룹화** 사용 하 여 **선택적** 구문은 중첩 수준이 3 개로 제한 합니다.
 
-|허용됨|예|
+|허용함|예|
 |--|--|
 |예|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
 |아닙니다.|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
@@ -106,7 +106,7 @@ Entity1 (Seattle) 원본 및 대상 (Cairo)와 같은 역할을 사용 하 여 �
 
 조합을 **그룹화** 사용 하 여 **또는 ing** 구문 2 세로 막대의 제한이 있습니다.
 
-|허용됨|예|
+|허용함|예|
 |--|--|
 |예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |아닙니다.|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
@@ -170,7 +170,7 @@ Pattern.any 엔터티를 사용하여 다양한 길이의 엔터티를 패턴에
 |선택적 텍스트 사용 패턴|의미|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` 및 `from {person}` 는 선택 사항|
-|' 도와줄 수 있겠습니까 [?] | 문장 부호는 선택 사항|
+|' 도와줄 수 있겠습니까 [?]|문장 부호는 선택 사항|
 
 문장 부호 (`?`, `!`, `.`) 무시할지 및 패턴에서 대괄호 구문을 사용 하 여 무시 해야 합니다. 
 

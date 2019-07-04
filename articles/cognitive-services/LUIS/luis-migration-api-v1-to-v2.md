@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522356"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
@@ -152,7 +152,7 @@ LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-h
 |/luis/api/v2.0/apps/customprebuiltdomains  |get, post|
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
-## <a name="importing-1x-app-into-2x"></a>2.x로 1.x 앱 가져오기
+## <a name="importing-1x-app-into-2x"></a>2\.x로 1.x 앱 가져오기
 내보낸 1.x 앱의 JSON에는 [LUIS][LUIS] 2.0으로 가져오기 전에 변경해야 하는 일부 영역이 있습니다. 
 
 ### <a name="prebuilt-entities"></a>미리 빌드된 엔터티 

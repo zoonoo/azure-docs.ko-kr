@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: 샘플 데이터 수집
       href: ingest-sample-data.md
-    - name: 쿼리 데이터
-      items:
-        - name: 웹 UI
-          href: web-query-data.md
+    - name: 웹 UI를 사용하여 데이터 쿼리
+      href: web-query-data.md
 - name: 자습서
   items:
     - name: 코드를 사용하지 않고 데이터 수집
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: SQL 쿼리
               href: power-bi-sql-query.md
-        - name: ODBC 커넥터
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: ODBC 커넥터
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: 관리
       items:
         - name: 데이터베이스 권한 관리

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726838"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -174,7 +174,7 @@ public static ContentModeratorClient NewClient()
 - **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews**는 IList<string>을(를) 반환합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
+> **CreateVideoReviews** IList 반환\<문자열 >. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다. 
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 

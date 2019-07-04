@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3184b839087944d8d4335927810ec31d8876866e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024379"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485331"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
 
@@ -48,7 +48,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -70,7 +70,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="set-up-postman"></a>Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
 
 이 자습서의 모든 호출에 대한 요청 메서드는 **POST**입니다. 헤더 키는 "Content-type" 및 "api-key"입니다. 헤더 키의 값은 각각 "application/json"과 "관리자 키"(관리자 키는 검색 기본 키의 자리 표시자임)입니다. 본문은 호출의 실제 콘텐츠가 배치되는 위치입니다. 사용 중인 클라이언트에 따라 쿼리를 구성하는 방법에 약간의 차이가 있을 수 있지만 일반적으로 기본 사항입니다.
 
@@ -127,7 +127,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 ## <a name="create-an-index"></a>인덱스 만들기
     
-두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)이며 검색 가능한 모든 데이터를 저장하는 Azure Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
+두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)이며 검색 가능한 모든 데이터를 저장하는 Azure Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
 이 호출에 대한 URL은 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 194ae477bb3cba4ac7e3350da6b793c6fea6ecdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063929"
 ---
 # <a name="train-a-model-for-custom-speech"></a>사용자 지정 음성 모델을 학습 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "65026719"
 
 | 사용 사례 | 데이터 형식 | 데이터 수량 |
 |----------|-----------|---------------|
-| 적절 한 이름에서 됩니다. | 관련 텍스트 (문장을/utterances) | 500mb 10MB |
+| 적절 한 이름에서 됩니다. | 관련된 텍스트 (문장을/utterances) | 500mb 10MB |
 | 단어 강조 인해에서 됩니다. | 관련된 텍스트 (발음) | Misrecognized 단어를 제공 합니다. |
 | 일반적인 단어 삭제 되거나에서 | 오디오 + 사람이 레이블이 지정 된 내용 | 10 ~ 1000 대 인 기록 시간 |
 

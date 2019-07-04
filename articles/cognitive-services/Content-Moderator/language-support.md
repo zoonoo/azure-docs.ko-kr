@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102706"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607159"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
 
@@ -32,7 +32,7 @@ ms.locfileid: "58102706"
 | 벵골어 | 암하라어 | 중국어 (번체)     | 네덜란드어 | |
 | 부기어 | 아랍어 | 체코어                     | 영어 | |
 | 부히드어 | 아르메니아어 | 덴마크어                     | 핀란드어 | |
-| 카리 문자 | 아삼어 | 네덜란드어                     | 프랑스어 | |
+| 카리 문자 | Assamese | 네덜란드어                     | 프랑스어 | |
 | 중국어 (간체) | 아제르바이잔어 | 영어  | 그리스어(현대) | |
 | 중국어 (번체) | 벵골어 - 방글라데시 | 핀란드어  | 이탈리아어 | |
 | 고대 교회(슬라브어) | 벵골어 - 인도 | 프랑스어     | 한국어 | |
@@ -51,7 +51,7 @@ ms.locfileid: "58102706"
 | 몽 문자 | 크로아티아어 | 세르비아어 라틴 문자 | | |
 | 헝가리어 | 체코어 | 슬로바키아어 | | |
 | 이탈리아어 | 덴마크어 | 스페인어 | | |
-| 일본어 | 다리어 | 스웨덴어 | | |
+| 일본어 | Dari | 스웨덴어 | | |
 | 한국어 | 네덜란드어 | 터키어 | | |
 | 쿠르드어(아랍어) | 영어 | | | |
 | 쿠르드어(라틴 문자) | 에스토니아어 | | | |
@@ -82,7 +82,7 @@ ms.locfileid: "58102706"
 | 스웨덴어 | 키체어 | | | |
 | 실로티어 | 키냐르완다어 | | | |
 | 시리아어 | 스와힐리어 | | | |
-| 타그반와어 | 코카니어 | | | |
+| 타그반와어 | 콘칸어 | | | |
 | 따이어(누아) | 한국어 | | | |
 | 타마셰크어 | 키르기스어 | | | |
 | 터키어 | 라오어 | | | |

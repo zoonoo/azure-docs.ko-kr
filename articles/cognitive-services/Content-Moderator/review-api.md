@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607281"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 조정 검토, 워크플로 및 작업
 
@@ -29,7 +29,7 @@ Content Moderator는 기계 지원 조정 실제 시나리오에 대 한 최적�
 
 참조를 [검토 도구 가이드](./review-tool-user-guide/review-moderated-images.md) 검토, 만들기를 시작 하거나 참조를 [REST API 가이드](./try-review-api-review.md) 를 프로그래밍 방식으로 수행 하는 방법에 알아봅니다.
 
-## <a name="workflows"></a>워크플로
+## <a name="workflows"></a>Workflows
 
 워크플로 콘텐츠에 대 한 클라우드 기반 사용자 지정 된 필터입니다. 워크플로 다양 한 가지 방법으로 콘텐츠를 필터링 하 고 적절 한 조치를 취할를 서비스에 연결할 수 있습니다. Content Moderator 커넥터를 사용 하 여 워크플로 수 자동으로 조정 태그를 적용 고 제출 된 콘텐츠를 사용 하 여 검토를 만듭니다.
 

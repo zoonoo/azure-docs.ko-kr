@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072368"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
@@ -83,9 +83,9 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 샘플은 오픈 소스로 게시되는 경우가 많습니다. 질문이나 문제가 있으면 해당 GitHub 리포지토리에 *문제*를 제기합니다. 끌어오기 요청을 제출할 수도 있습니다. 다음 목록에는 샘플 리포지토리에 대한 링크가 포함되어 있습니다.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [장치 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-버그 보고서 또는 기능 요청을 만들거나 일반적인 질문을 하고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
+기능 요청, 버그 보고서를 만드는 또는 일반 질문을 게시 하 고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
 
 **버그 설명**
 

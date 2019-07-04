@@ -3,29 +3,29 @@ title: 음성 컨테이너를 설치 합니다.
 titleSuffix: Azure Cognitive Services
 description: 설치 하 고 음성 컨테이너를 실행 합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752432"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490228"
 ---
 # <a name="install-and-run-speech-service-containers"></a>설치 하 고 음성 서비스 컨테이너를 실행 합니다.
 
-음성 컨테이너는 고객이 강력한 클라우드 기능 및에 지 위치에 활용 하기 위해 최적화 된 하나의 음성 응용 프로그램 아키텍처를 구축 하를 사용 합니다. 
+음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 최첨단 로컬 기능을 모두 활용할 수 있도록 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 
 
 두 음성 컨테이너가 **음성-텍스트** 하 고 **text to speech**합니다. 
 
-|함수|기능|최신|
+|함수|기능|최신 버전|
 |-|-|--|
-|음성 텍스트 변환| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화 중간 결과 사용 하 여 텍스트로 transcribes 합니다.|1.1.1|
+|음성 텍스트 변환| <li>연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화 중간 결과 사용 하 여 텍스트로 transcribes 합니다.|1.1.3|
 |텍스트 음성 변환| <li>텍스트를 자연스럽게 들리는 음성으로 변환합니다. 일반 텍스트 입력 또는 Speech Synthesis Markup Language (SSML). |1.1.0|
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -71,14 +71,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
-
 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
-**참고**; 최소 및 권장 되는 Docker 제한 기반 *되지* 호스트 컴퓨터 리소스가 있습니다. 예를 들어, 음성-텍스트 컨테이너 메모리 맵 부분 큰 언어 모델 됩니다 _권장_ 전체 파일에는 추가 4 ~ 6 2GB는 메모리는 합니다. 또한 모델 메모리로 페이징되지는 하므로 두 컨테이너의 첫 번째 실행 더 오래 걸릴 수 있습니다.
+**참고**; 최소 및 권장 되는 Docker 제한 기반 *되지* 호스트 컴퓨터 리소스가 있습니다. 예를 들어, 음성-텍스트 컨테이너 메모리 맵 부분 큰 언어 모델 됩니다 _권장_ 전체 파일에는 추가 4 ~ 6 2GB는 메모리는 합니다. 또한 모델을 메모리로 페이징되지는 하므로 한쪽 컨테이너의 첫 번째 실행 더 오래 걸릴 수 있습니다.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-음성에 대 한 컨테이너 이미지는 사용할 수 있습니다. 
+음성에 대 한 컨테이너 이미지는 사용할 수 있습니다.
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
@@ -89,7 +88,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="language-locale-is-in-container-tag"></a>컨테이너 태그에는 언어 로캘
 
-`latest` 끌어오기를 태그 합니다 `en-us` 로캘 및 `jessarus` 음성. 
+`latest` 끌어오기를 태그 합니다 `en-us` 로캘 및 `jessarus` 음성.
 
 #### <a name="speech-to-text-locales"></a>로캘에서 텍스트 음성 변환
 
@@ -102,10 +101,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 다음 태그는 형식의 예:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.3-amd64-en-us-preview
 ```
 
-다음 표에서 대 한 지원 되는 로캘 **음성-텍스트** 는 1.1.1에서 컨테이너의 버전:
+다음 표에서 대 한 지원 되는 로캘 **음성-텍스트** 는 1.1.3에서 컨테이너의 버전:
 
 |언어 로캘|태그들|
 |--|--|
@@ -119,7 +118,6 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |포르투갈어|`pt-br`|
 |스페인어|`es-es`<br>`es-mx`|
 
-
 #### <a name="text-to-speech-locales"></a>텍스트 음성 변환 로캘
 
 모든 태그를 제외 하 고 `latest` 형식에 위치 합니다 `<culture>` 로캘을 나타냅니다 및 `<voice>` 컨테이너의 음성 나타냅니다:
@@ -131,7 +129,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 다음 태그는 형식의 예:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 다음 표에서 대 한 지원 되는 로캘 **text to speech** 1.1.0에서 컨테이너의 버전:
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
-1. 필수이지만 사용되지 않는 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint). 
+1. 필수이지만 사용되지 않는 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
+1. [컨테이너의 예측 끝점을 쿼리합니다](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 이 명령은 다음을 수행합니다.
@@ -212,7 +210,7 @@ ApiKey={BILLING_KEY}
 * 컨테이너 이미지에서 음성 컨테이너를 실행합니다.
 * 2 CPU 코어 및 메모리의 2gb(기가바이트 (GB)를 할당합니다.
 * TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
-* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
+* 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 컨테이너 엔드포인트를 사용하는 다음 호출로 변경합니다.
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Python의 경우
@@ -249,22 +249,22 @@ var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/d
 다음 Azure 클라우드 초기화 호출을
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, region=service_region)
 ```
 
 컨테이너 엔드포인트를 사용하는 다음 호출로 변경합니다.
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
 컨테이너 REST 끝점을 찾을 수 있는 Api를 제공 [같습니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) 샘플을 확인할 수 있습니다 [여기](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)합니다.
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
@@ -272,11 +272,11 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ## <a name="troubleshooting"></a>문제 해결
 
-컨테이너를 실행하는 경우 컨테이너에서 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다. 
+컨테이너를 실행하는 경우 컨테이너에서 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다.
 
 ## <a name="billing"></a>결제
 
-청구 정보를 Azure 사용 하 여 음성 컨테이너 송신을 _음성_ Azure 계정에는 리소스입니다. 
+청구 정보를 Azure 사용 하 여 음성 컨테이너 송신을 _음성_ Azure 계정에는 리소스입니다.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

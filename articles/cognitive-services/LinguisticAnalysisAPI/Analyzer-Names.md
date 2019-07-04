@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954710"
 ---
 # <a name="analyzer-names"></a>분석기 이름
@@ -27,7 +27,7 @@ ms.locfileid: "65954710"
 분석기 이름은 ID, 종류, 사양, 구현의 네 부분으로 구성됩니다.
 각 구성 요소의 역할은 아래에 정의되어 있습니다.
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 첫째, 분석기에는 고유 ID인 GUID가 있습니다.
 이러한 GUID는 되도록이면 변경하지 않는 것이 좋지만, 특정 분석기를 설명하는 유일한 방법입니다.
 

@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 4d1d8756bcc5cea1e392560233b4e91aa9b8e22f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f7a0afd8058d2de277da8f7ab3d1eb37abae4add
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67429870"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544168"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1795,6 +1795,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/avere-vfxt/">
                                                 <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/fxt-edge-filer/">
+                                                <img src="media/index/azure-fxt-edge-filer.svg" alt="" />
+                                                <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -5955,6 +5961,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Avere vFXT</h3>
                                                     <p>Azure에서 고성능 파일 기반 워크로드 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/fxt-edge-filer/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/azure-fxt-edge-filer.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure FXT Edge Filer</h3>
+                                                    <p>HPC 환경을 위한 하이브리드 스토리지 최적화 솔루션</p>
                                                 </div>
                                             </div>
                                         </div>

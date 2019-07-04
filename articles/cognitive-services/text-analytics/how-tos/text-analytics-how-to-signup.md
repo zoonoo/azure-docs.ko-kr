@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829670"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Text Analytics API에 등록하는 방법
 
