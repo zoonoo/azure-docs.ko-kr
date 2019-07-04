@@ -2,7 +2,7 @@
 title: Azure Traffic Manager | Microsoft Docs
 description: 이 문서에서는 Azure Traffic Manager의 개요를 제공합니다. 애플리케이션에 대한 사용자 트래픽을 부하 분산하기에 적합한 선택인지 알아보세요.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: a8504cea3af6eb7633cf6738a73f757767d83138
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 95ef493ed44da8fd8372c11f15c3ab712961783e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071018"
 ---
 # <a name="what-is-traffic-manager"></a>Traffic Manager란?
 Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 적절하게 분산하는 한편, 고가용성과 빠른 응답성을 제공하는 DNS 기반 트래픽 부하 분산 장치입니다.

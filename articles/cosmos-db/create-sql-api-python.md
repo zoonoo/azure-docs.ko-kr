@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754283"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514608"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB는 Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -184,13 +184,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 4. 통합 터미널 창에서, azure-cosmos-db-python-getting-started 폴더를 실행 중인지 확인합니다. 이 폴더에 있지 않으면 다음 명령을 실행하여 샘플 폴더로 전환합니다. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. 다음 명령을 실행하여 azure-cosmos 패키지를 설치합니다. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 6. 다음 명령을 실행하여 샘플을 실행하고 새 문서를 만들어 Azure Cosmos dB에 저장합니다.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

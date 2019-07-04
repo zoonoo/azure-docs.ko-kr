@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: b7139779414cead0ca4bf50b7288b3db40161ae8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60647839"
 ---
 # <a name="resize-and-crop-image-thumbnails"></a>이미지 썸네일 크기 조정 및 자르기
 
